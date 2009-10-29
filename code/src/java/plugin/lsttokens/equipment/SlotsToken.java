@@ -20,13 +20,13 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with SLOTS token
  */
-public class SlotsToken implements CDOMPrimaryToken<Equipment>
+public class SlotsToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -34,26 +34,17 @@ public class SlotsToken implements CDOMPrimaryToken<Equipment>
 		return "SLOTS";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer hands = Integer.valueOf(value);
-			if (hands.intValue() < 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.SLOTS, hands);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.SLOTS;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		// TBD. This value needs to be checked as the test and error messages disagree. 
+		return 0; 
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

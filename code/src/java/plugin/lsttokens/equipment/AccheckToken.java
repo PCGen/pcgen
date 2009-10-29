@@ -20,40 +20,29 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with ACCHECK token
  */
-public class AccheckToken implements CDOMPrimaryToken<Equipment>
+public class AccheckToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
-
 	public String getTokenName()
 	{
 		return "ACCHECK";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer acc = Integer.valueOf(value);
-			if (acc.intValue() > 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer <= 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.AC_CHECK, acc);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer. Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.AC_CHECK;
+	}
+	
+	@Override
+	protected int maxValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

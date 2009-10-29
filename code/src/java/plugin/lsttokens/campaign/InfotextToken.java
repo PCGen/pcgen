@@ -23,13 +23,14 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with INFOTEXT Token
  */
-public class InfotextToken implements CDOMPrimaryToken<Campaign>, InstallLstToken
+public class InfotextToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>, InstallLstToken
 {
 
 	public String getTokenName()
@@ -43,15 +44,15 @@ public class InfotextToken implements CDOMPrimaryToken<Campaign>, InstallLstToke
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign camp, String value)
+	public ParseResult parseToken(LoadContext context, Campaign campaign,
+		String value)
 	{
 		if (value == null || value.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " arguments may not be empty");
-			return false;
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
-		context.getObjectContext().put(camp, StringKey.INFO_TEXT, value);
-		return true;
+		context.getObjectContext().put(campaign, StringKey.INFO_TEXT, value);
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign camp)

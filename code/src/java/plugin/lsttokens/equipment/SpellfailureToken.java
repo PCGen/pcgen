@@ -20,45 +20,49 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SPELLFAILURE token
  */
-public class SpellfailureToken implements CDOMPrimaryToken<Equipment>
+public class SpellfailureToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
-
 	public String getTokenName()
 	{
 		return "SPELLFAILURE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
+		return IntegerKey.SPELL_FAILURE;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
+	}
+
+	@Override
+	protected ParseResult checkValue(Integer value)
+	{
+		ParseResult pr = super.checkValue(value);
+		if (!pr.passed())
 		{
-			Integer sf = Integer.valueOf(value);
-			if (sf.intValue() == 0)
-			{
-				Logging.deprecationPrint(getTokenName()
-						+ " should not be used if zero (default is zero)");
-			}
-			else if (sf.intValue() <= 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.SPELL_FAILURE, sf);
-			return true;
+			return pr;
 		}
-		catch (NumberFormatException nfe)
+		else if (value.intValue() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addWarningMessage(getTokenName()
+				+ " should not be used if zero (default is zero)");
+			return cpr;
 		}
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

@@ -29,10 +29,10 @@ public abstract class ErrorParsingWrapper<T> implements CDOMParserToken<T>
 	static public <T> boolean parseToken(CDOMParserToken<T> token, LoadContext context, T obj, String value)
 	{
 		ParseResult pr = token.parseToken(context, obj, value);
-		if (!pr.passed())
-		{
-			pr.addMessagesToLog();
-		}
+		
+		// Need to add messages as there may be warnings.
+		pr.addMessagesToLog();
+		
 		return pr.passed();
 	}
 

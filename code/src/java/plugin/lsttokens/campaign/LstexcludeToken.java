@@ -24,18 +24,18 @@ import java.util.TreeSet;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LSTEXCLUDE Token
  */
-public class LstexcludeToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -44,13 +44,16 @@ public class LstexcludeToken extends AbstractToken implements
 		return "LSTEXCLUDE";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-		throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign campaign, String value)
+	{
 		final StringTokenizer lstTok = new StringTokenizer(value, "|");
 
 		while (lstTok.hasMoreTokens())
@@ -61,7 +64,7 @@ public class LstexcludeToken extends AbstractToken implements
 			if (cse == null)
 			{
 				//Error
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			/*
 			 * No need to check for cse.getIncludeItems or getExcludeItems as
@@ -71,7 +74,7 @@ public class LstexcludeToken extends AbstractToken implements
 			context.obj.addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

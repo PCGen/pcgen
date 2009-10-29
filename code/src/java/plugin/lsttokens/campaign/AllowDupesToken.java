@@ -27,12 +27,13 @@ import pcgen.core.Language;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
-public class AllowDupesToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -41,27 +42,25 @@ public class AllowDupesToken extends AbstractToken implements
 		return "ALLOWDUPES";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign obj,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
-		else if ("SPELL".equals(value))
+		if ("SPELL".equals(value))
 		{
 			context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED,
 					Spell.class);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		else if ("LANGUAGE".equals(value))
 		{
 			context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED,
 					Language.class);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		else
 		{
-			return false;
+			return new ParseResult.Fail("Token must be SPELL or LANGUAGE");
 		}
 	}
 

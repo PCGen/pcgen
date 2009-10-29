@@ -19,15 +19,14 @@ package plugin.lsttokens.campaign;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Class deals with RANK Token
  */
-public class RankToken implements CDOMPrimaryToken<Campaign>
+public class RankToken extends AbstractIntToken<Campaign> implements CDOMPrimaryParserToken<Campaign>
 {
 
 	public String getTokenName()
@@ -35,21 +34,10 @@ public class RankToken implements CDOMPrimaryToken<Campaign>
 		return "RANK";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-		throws PersistenceLayerException
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			context.obj.put(campaign, IntegerKey.CAMPAIGN_RANK, Integer
-				.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, "Bad " + getTokenName()
-				+ " value, expected an integer: " + value);
-		}
-		return false;
+		return IntegerKey.CAMPAIGN_RANK;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

@@ -20,14 +20,13 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SKILLMULT Token
  */
-public class SkillmultToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
+public class SkillmultToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()
@@ -35,26 +34,16 @@ public class SkillmultToken extends ErrorParsingWrapper<Race> implements CDOMPri
 		return "SKILLMULT";
 	}
 
-	public ParseResult parseToken(LoadContext context, Race race, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer i = Integer.valueOf(value);
-			if (i.intValue() < 0)
-			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer greater than or equal to 0");
-			}
-			context.getObjectContext().put(race, IntegerKey.INITIAL_SKILL_MULT,
-					i);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-		}
+		return IntegerKey.INITIAL_SKILL_MULT;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

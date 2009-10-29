@@ -28,7 +28,7 @@ import pcgen.util.Logging;
  */
 public class ComplexParseResult implements ParseResult
 {
-	private LinkedList<QueuedMessage> _queuedMessages =
+	private LinkedList<QueuedMessage> queuedMessages =
 			new LinkedList<QueuedMessage>();
 
 	public ComplexParseResult()
@@ -62,20 +62,20 @@ public class ComplexParseResult implements ParseResult
 
 	protected void addParseMessage(Level lvl, String msg)
 	{
-		_queuedMessages.add(new QueuedMessage(lvl, msg));
+		queuedMessages.add(new QueuedMessage(lvl, msg));
 	}
 
 	public void addMessages(ComplexParseResult pr)
 	{
-		for (QueuedMessage msg : pr._queuedMessages)
+		for (QueuedMessage msg : pr.queuedMessages)
 		{
-			_queuedMessages.add(msg);
+			queuedMessages.add(msg);
 		}
 	}
 
 	public void printMessages()
 	{
-		for (QueuedMessage msg : _queuedMessages)
+		for (QueuedMessage msg : queuedMessages)
 		{
 			Logging.log(msg.level, msg.message, msg.stackTrace);
 		}
@@ -83,7 +83,7 @@ public class ComplexParseResult implements ParseResult
 
 	public void addMessagesToLog()
 	{
-		for (QueuedMessage msg : _queuedMessages)
+		for (QueuedMessage msg : queuedMessages)
 		{
 			Logging.addParseMessage(msg.level, msg.message, msg.stackTrace);
 		}
@@ -91,7 +91,7 @@ public class ComplexParseResult implements ParseResult
 
 	public boolean passed()
 	{
-		for (QueuedMessage msg : _queuedMessages)
+		for (QueuedMessage msg : queuedMessages)
 		{
 			if (msg.level == Logging.LST_ERROR)
 			{

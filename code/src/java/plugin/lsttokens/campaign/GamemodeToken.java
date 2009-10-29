@@ -24,18 +24,18 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with GAMEMODE Token
  */
-public class GamemodeToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class GamemodeToken extends AbstractTokenWithSeparator<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -44,13 +44,16 @@ public class GamemodeToken extends AbstractToken implements
 		return "GAMEMODE";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String gameMode)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(gameMode) || hasIllegalSeparator('|', gameMode))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign campaign, String gameMode)
+	{
 		context.obj.removeList(campaign, ListKey.GAME_MODE);
 
 		StringTokenizer aTok = new StringTokenizer(gameMode, Constants.PIPE);
@@ -58,7 +61,7 @@ public class GamemodeToken extends AbstractToken implements
 		{
 			context.obj.addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

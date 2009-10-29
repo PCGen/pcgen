@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with CRITRANGE token
  */
-public class CritrangeToken implements CDOMPrimaryToken<Equipment>
+public class CritrangeToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -35,27 +36,26 @@ public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 		return "CRITRANGE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	public ParseResult parseToken(LoadContext context, Equipment eq,
+		String value)
 	{
 		try
 		{
 			Integer cr = Integer.valueOf(value);
 			if (cr.intValue() < 0)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " cannot be < 0");
-				return false;
 			}
 			context.getObjectContext().put(eq.getEquipmentHead(1),
 					IntegerKey.CRIT_RANGE, cr);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer. " + "Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 	}
 

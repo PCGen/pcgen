@@ -25,16 +25,18 @@ import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Deals with PROFICIENCY token
  */
-public class ProficiencyToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>, DeferredToken<Equipment>
+public class ProficiencyToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>, DeferredToken<Equipment>
 {
 
 	@Override
@@ -43,35 +45,28 @@ public class ProficiencyToken extends AbstractToken implements
 		return "PROFICIENCY";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-					"Equipment Token PROFICIENCY syntax "
+			return new ParseResult.Fail("Equipment Token PROFICIENCY syntax "
 							+ "without a Subtoken is invalid: " + value);
-			return false;
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting only one '|', "
 					+ "format is: SubToken|ProfName value was: " + value);
-			return false;
 		}
 		String subtoken = value.substring(0, pipeLoc);
 		String prof = value.substring(pipeLoc + 1);
 		if (prof == null || prof.length() == 0)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-					"PROFICIENCY cannot have " + "empty second argument: "
+			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: "
 							+ value);
-			return false;
 		}
 		if (subtoken.equals("WEAPON"))
 		{
@@ -93,13 +88,13 @@ public class ProficiencyToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-					"Unknown Subtoken for PROFICIENCY: " + subtoken);
-			Logging.addParseMessage(Logging.LST_ERROR, "  Subtoken must be "
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Unknown Subtoken for PROFICIENCY: " + subtoken);
+			cpr.addErrorMessage("  Subtoken must be "
 					+ "WEAPON, ARMOR or SHIELD");
-			return false;
+			return cpr;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

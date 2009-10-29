@@ -27,14 +27,15 @@ import pcgen.core.Equipment;
 import pcgen.core.SpecialProperty;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SPROP token
  */
-public class SpropToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -43,27 +44,31 @@ public class SpropToken extends AbstractToken implements
 		return "SPROP";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Equipment eq, String value)
+	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext().removeList(eq,
 					ListKey.SPECIAL_PROPERTIES);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 
 		SpecialProperty sa = SpecialProperty.createFromLst(value);
 		if (sa == null)
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		context.getObjectContext()
 				.addToList(eq, ListKey.SPECIAL_PROPERTIES, sa);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

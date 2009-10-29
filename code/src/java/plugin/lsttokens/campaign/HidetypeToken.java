@@ -26,18 +26,17 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HIDETYPE Token
  */
-public class HidetypeToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class HidetypeToken extends AbstractTokenWithSeparator<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -46,13 +45,16 @@ public class HidetypeToken extends AbstractToken implements
 		return "HIDETYPE";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign campaign, String value)
+	{
 		ListKey<String> lk = null;
 		String types = null;
 		if (value.startsWith("EQUIP|"))
@@ -72,17 +74,16 @@ public class HidetypeToken extends AbstractToken implements
 		}
 		if (lk == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " did not understand: " + value + " in "
 					+ campaign.getKeyName());
-			return false;
 		}
 		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
 			context.obj.addToList(campaign, lk, st.nextToken());
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

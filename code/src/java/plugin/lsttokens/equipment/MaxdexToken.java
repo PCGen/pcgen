@@ -20,13 +20,13 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with MAXDEX token
  */
-public class MaxdexToken implements CDOMPrimaryToken<Equipment>
+public class MaxdexToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -34,21 +34,10 @@ public class MaxdexToken implements CDOMPrimaryToken<Equipment>
 		return "MAXDEX";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			context.getObjectContext().put(eq, IntegerKey.MAX_DEX,
-					Integer.valueOf(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.MAX_DEX;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

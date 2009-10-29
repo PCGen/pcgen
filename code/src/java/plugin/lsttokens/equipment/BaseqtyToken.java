@@ -20,40 +20,29 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with BASEQTY token
  */
-public class BaseqtyToken implements CDOMPrimaryToken<Equipment>
+public class BaseqtyToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
-
 	public String getTokenName()
 	{
 		return "BASEQTY";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer quan = Integer.valueOf(value);
-			if (quan.intValue() <= 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " expected an integer > 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.BASE_QUANTITY, quan);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.BASE_QUANTITY;
+	}
+	
+	@Override
+	protected int minValue()
+	{
+		return 1;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

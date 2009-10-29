@@ -20,17 +20,17 @@ package plugin.lsttokens.campaign;
 import java.net.URI;
 
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CAMPAIGN Token
  */
-public class CampaignToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -45,13 +45,10 @@ public class CampaignToken extends AbstractToken implements
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * TODO This violates the CDOM direct-access token rules, but given how
 		 * complicated NAME is, this is much easier to cheat here, and fix
@@ -60,7 +57,7 @@ public class CampaignToken extends AbstractToken implements
 		 * thpr 12/23/08
 		 */
 		campaign.setName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

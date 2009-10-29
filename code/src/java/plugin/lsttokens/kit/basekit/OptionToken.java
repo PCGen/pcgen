@@ -68,7 +68,6 @@ public class OptionToken extends AbstractTokenWithSeparator<BaseKit> implements
 	@Override
 	protected char separator()
 	{
-		// TODO Auto-generated method stub
 		return '|';
 	}
 

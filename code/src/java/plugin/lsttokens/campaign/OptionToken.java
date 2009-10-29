@@ -25,15 +25,15 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with OPTION Token
  */
-public class OptionToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -42,19 +42,16 @@ public class OptionToken extends AbstractToken implements
 		return "OPTION";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		final int equalsPos = value.indexOf(Constants.EQUALS);
 
 		if (equalsPos < 0)
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid option line in campaign "
+			return new ParseResult.Fail("Invalid option line in campaign "
 					+ campaign.getKeyName() + " : " + value);
-			return false;
 		}
 		String optName = value.substring(0, equalsPos);
 
@@ -65,7 +62,7 @@ public class OptionToken extends AbstractToken implements
 
 		final String optValue = value.substring(equalsPos + 1);
 		context.obj.put(campaign, MapKey.PROPERTY, optName, optValue);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

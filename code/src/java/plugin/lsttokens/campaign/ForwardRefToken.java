@@ -34,13 +34,14 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
-public class ForwardRefToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -49,45 +50,46 @@ public class ForwardRefToken extends AbstractToken implements
 		return "FORWARDREF";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign obj, String value)
+	{
 		int pipeLoc = value.indexOf('|');
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, "
 					+ "ReferenceType and Key: " + value);
-			return false;
 		}
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult(); 
+			cpr.addErrorMessage(getTokenName()
 					+ " requires at only two pipe separated arguments, "
 					+ "ReferenceType and Keys: " + value);
-			Logging.log(Logging.LST_ERROR, "  keys are comma separated");
-			return false;
+			cpr.addErrorMessage("  keys are comma separated");
+			return cpr;
 		}
 		String firstToken = value.substring(0, pipeLoc);
 		ReferenceManufacturer<? extends CDOMObject> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " unable to generate manufacturer for type: " + value);
-			return false;
 		}
 
 		String rest = value.substring(pipeLoc + 1);
 		if (hasIllegalSeparator(',', rest))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " keys are comma separated");
-			return false;
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())
@@ -98,7 +100,7 @@ public class ForwardRefToken extends AbstractToken implements
 					.getReferenceClass(), ref));
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign obj)

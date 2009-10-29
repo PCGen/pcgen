@@ -21,15 +21,15 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ALTCRITMULT token
  */
-public class AltcritmultToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class AltcritmultToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -38,12 +38,10 @@ public class AltcritmultToken extends AbstractToken implements
 		return "ALTCRITMULT";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Integer cm = null;
 		if ((value.length() > 0) && (value.charAt(0) == 'x'))
 		{
@@ -52,15 +50,13 @@ public class AltcritmultToken extends AbstractToken implements
 				cm = Integer.valueOf(value.substring(1));
 				if (cm.intValue() <= 0)
 				{
-					Logging.log(Logging.LST_ERROR, getTokenName() + " cannot be <= 0");
-					return false;
+					return new ParseResult.Fail(getTokenName() + " cannot be <= 0");
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " was expecting an Integer: " + value);
-				return false;
 			}
 		}
 		else if ("-".equals(value))
@@ -69,14 +65,13 @@ public class AltcritmultToken extends AbstractToken implements
 		}
 		if (cm == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " was expecting x followed by an integer "
 					+ "or the special value '-' (representing no value)");
-			return false;
 		}
 		EquipmentHead altHead = eq.getEquipmentHead(2);
 		context.getObjectContext().put(altHead, IntegerKey.CRIT_MULT, cm);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

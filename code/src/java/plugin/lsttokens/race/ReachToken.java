@@ -20,37 +20,30 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REACH Token
  */
-public class ReachToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
+public class ReachToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()
 	{
 		return "REACH";
 	}
-
-	public ParseResult parseToken(LoadContext context, Race race, String value)
+	
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer i = Integer.valueOf(value);
-			if (i.intValue() < 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
-			}
-			context.getObjectContext().put(race, IntegerKey.REACH, i);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail("Expected an Integer in Tag: " + value);
-		}
+		return IntegerKey.REACH;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

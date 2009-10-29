@@ -26,8 +26,9 @@ package plugin.lsttokens.campaign;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>DescToken</code> parses the DESC token for campaigns.
@@ -38,8 +39,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class DescToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class DescToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -48,14 +49,12 @@ public class DescToken extends AbstractToken implements
 		return "DESC";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

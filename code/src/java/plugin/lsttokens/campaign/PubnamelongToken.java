@@ -23,14 +23,15 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PUBNAMELONG Token
  */
-public class PubnamelongToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -45,15 +46,13 @@ public class PubnamelongToken extends AbstractToken implements
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext()
 				.put(campaign, StringKey.PUB_NAME_LONG, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

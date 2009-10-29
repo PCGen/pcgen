@@ -20,13 +20,13 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with RANGE token
  */
-public class RangeToken implements CDOMPrimaryToken<Equipment>
+public class RangeToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -34,27 +34,16 @@ public class RangeToken implements CDOMPrimaryToken<Equipment>
 		return "RANGE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer range = Integer.valueOf(value);
-			if (range.intValue() < 0)
-			{
-				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-						+ " must be an integer >= 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.RANGE, range);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.RANGE;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

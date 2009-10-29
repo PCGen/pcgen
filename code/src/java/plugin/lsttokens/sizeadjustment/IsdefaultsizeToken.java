@@ -4,14 +4,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ISDEFAULTSIZE Token
  */
 public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> implements
-		CDOMPrimaryToken<SizeAdjustment>
+		CDOMPrimaryParserToken<SizeAdjustment>
 {
 
 	@Override

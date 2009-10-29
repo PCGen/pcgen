@@ -20,13 +20,14 @@ package plugin.lsttokens.campaign;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BOOKTYPE Token
  */
-public class BooktypeToken implements CDOMPrimaryToken<Campaign>
+public class BooktypeToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>
 {
 
 	public String getTokenName()
@@ -34,15 +35,15 @@ public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 		return "BOOKTYPE";
 	}
 
-	public boolean parse(LoadContext context, Campaign camp, String value)
+	public ParseResult parseToken(LoadContext context, Campaign camp,
+		String value)
 	{
 		if (value == null || value.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " arguments may not be empty");
-			return false;
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
 		context.getObjectContext().put(camp, StringKey.BOOK_TYPE, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign camp)

@@ -21,14 +21,15 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with FUMBLERANGE token
  */
-public class FumblerangeToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class FumblerangeToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -37,15 +38,13 @@ public class FumblerangeToken extends AbstractToken implements
 		return "FUMBLERANGE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(eq, StringKey.FUMBLE_RANGE,
 				Constants.LST_DOT_CLEAR.equals(value) ? null : value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

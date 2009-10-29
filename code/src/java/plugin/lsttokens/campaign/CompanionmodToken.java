@@ -23,18 +23,17 @@ import java.util.TreeSet;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with COMPANIONMOD Token
  */
-public class CompanionmodToken extends AbstractToken implements CDOMPrimaryToken<Campaign>
+public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -44,33 +43,35 @@ public class CompanionmodToken extends AbstractToken implements CDOMPrimaryToken
 	}
 
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-		throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign campaign, String value)
+	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			//Error
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow INCLUDE: "
+			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
 				+ value);
-			return false;
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow EXCLUDE: "
+			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
 				+ value);
-			return false;
 		}
 		context.obj.addToList(campaign, ListKey.FILE_COMPANION_MOD, cse);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

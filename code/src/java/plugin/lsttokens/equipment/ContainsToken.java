@@ -29,16 +29,16 @@ import pcgen.cdom.helper.Capacity;
 import pcgen.core.Equipment;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.BigDecimalHelper;
-import pcgen.util.Logging;
 
 /**
  * Deals with CONTAINS token
  */
-public class ContainsToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class ContainsToken extends AbstractTokenWithSeparator<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -47,13 +47,16 @@ public class ContainsToken extends AbstractToken implements
 		return "CONTAINS";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Equipment eq, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
 		context.obj.removeList(eq, ListKey.CAPACITY);
@@ -71,20 +74,16 @@ public class ContainsToken extends AbstractToken implements
 		int percentLoc = weightCapacity.indexOf(Constants.PERCENT);
 		if (percentLoc != weightCapacity.lastIndexOf(Constants.PERCENT))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-					"Cannot have two weight reduction "
+			return new ParseResult.Fail("Cannot have two weight reduction "
 							+ "characters (indicated by %): " + value);
-			return false;
 		}
 		if (percentLoc != -1)
 		{
 			if (hadAsterisk)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-						"Cannot have Constant Weight (indicated by *) "
+				return new ParseResult.Fail("Cannot have Constant Weight (indicated by *) "
 								+ "and weight reduction (indicated by %): "
 								+ value);
-				return false;
 			}
 			String redString = weightCapacity.substring(0, percentLoc);
 			weightCapacity = weightCapacity.substring(percentLoc + 1);
@@ -97,10 +96,8 @@ public class ContainsToken extends AbstractToken implements
 			}
 			catch (NumberFormatException ex)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-						"Weight Reduction (indicated by %) must be an integer: "
+				return new ParseResult.Fail("Weight Reduction (indicated by %) must be an integer: "
 								+ value);
-				return false;
 			}
 		}
 
@@ -117,21 +114,15 @@ public class ContainsToken extends AbstractToken implements
 						weightCapacity));
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
-					Logging
-							.addParseMessage(
-									Logging.LST_ERROR,
-									"Weight Capacity must be >= 0: "
+					return new ParseResult.Fail("Weight Capacity must be >= 0: "
 											+ weightCapacity
 											+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
-					return false;
 				}
 			}
 			catch (NumberFormatException ex)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-						"Weight Capacity must be 'UNLIM or a number >= 0: "
+				return new ParseResult.Fail("Weight Capacity must be 'UNLIM or a number >= 0: "
 								+ weightCapacity);
-				return false;
 			}
 		}
 		context.getObjectContext().put(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY,
@@ -153,7 +144,7 @@ public class ContainsToken extends AbstractToken implements
 			int equalLoc = typeString.indexOf(Constants.EQUALS);
 			if (equalLoc != typeString.lastIndexOf(Constants.EQUALS))
 			{
-				return false;
+				return new ParseResult.Fail("Two many = signs");
 			}
 			if (equalLoc == -1)
 			{
@@ -180,18 +171,14 @@ public class ContainsToken extends AbstractToken implements
 					}
 					catch (NumberFormatException ex)
 					{
-						Logging.addParseMessage(Logging.LST_ERROR,
-								"Item Number for " + itemType
+						return new ParseResult.Fail("Item Number for " + itemType
 										+ " must be 'UNLIM' or a number > 0: "
 										+ itemNumString);
-						return false;
 					}
 					if (BigDecimal.ZERO.compareTo(itemNumber) >= 0)
 					{
-						Logging.addParseMessage(Logging.LST_ERROR,
-								"Cannot have negative quantity of " + itemType
+						return new ParseResult.Fail("Cannot have negative quantity of " + itemType
 										+ ": " + value);
-						return false;
 					}
 				}
 				if (limited)
@@ -211,7 +198,7 @@ public class ContainsToken extends AbstractToken implements
 		}
 
 		context.getObjectContext().put(eq, ObjectKey.TOTAL_CAPACITY, totalCap);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

@@ -34,10 +34,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
@@ -49,7 +50,7 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class UrlToken implements CDOMPrimaryToken<Campaign>
+public class UrlToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>
 {
 
 	private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";
@@ -65,16 +66,14 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		return "URL";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, Campaign campaign,
+		String value)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		if (tok.countTokens() != 3)
 		{
-			Logging.log(Logging.LST_ERROR,
-					"URL token requires three arguments. Link kind, "
+			return new ParseResult.Fail("URL token requires three arguments. Link kind, "
 							+ "link and description.  : " + value);
-			return false;
 		}
 		String urlTypeName = tok.nextToken();
 		String urlText = tok.nextToken();
@@ -113,9 +112,8 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		}
 		catch (URISyntaxException e)
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid URL (" + e.getMessage()
+			return new ParseResult.Fail("Invalid URL (" + e.getMessage()
 					+ ") : " + value);
-			return false;
 		}
 		// Create URL object
 		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri,
@@ -123,8 +121,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 
 		// Add URL Object to campaign
 		context.obj.addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
-
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

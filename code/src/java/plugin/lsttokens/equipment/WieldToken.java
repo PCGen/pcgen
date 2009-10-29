@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with WIELD token
  */
-public class WieldToken implements CDOMPrimaryToken<Equipment>
+public class WieldToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	/**
@@ -40,17 +41,17 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 		return "WIELD";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	public ParseResult parseToken(LoadContext context, Equipment eq,
+		String value)
 	{
 		WieldCategory wc = WieldCategory.findByName(value);
 		if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
 		{
-			Logging.log(Logging.LST_ERROR, "In " + getTokenName()
+			return new ParseResult.Fail("In " + getTokenName()
 					+ " unable to find WieldCategory for " + value);
-			return false;
 		}
 		context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

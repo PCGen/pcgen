@@ -23,19 +23,18 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LICENSE Token
  */
-public class LicenseToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -44,27 +43,22 @@ public class LicenseToken extends AbstractToken implements
 		return "LICENSE";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-		throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (value.startsWith("FILE="))
 		{
 			String fileURI = value.substring(5);
 			if (fileURI.length() == 0)
 			{
-				Logging.errorPrint("Cannot have empty FILE in "
+				return new ParseResult.Fail("Cannot have empty FILE in "
 						+ getTokenName());
-				return false;
 			}
 			CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, fileURI);
 			if (cse == null)
 			{
-				//Error
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			context.obj.addToList(campaign, ListKey.LICENSE_FILE, cse);
 		}
@@ -72,7 +66,7 @@ public class LicenseToken extends AbstractToken implements
 		{
 			context.obj.addToList(campaign, ListKey.LICENSE, value);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

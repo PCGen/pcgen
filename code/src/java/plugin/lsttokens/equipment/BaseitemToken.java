@@ -21,14 +21,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with BASEITEM token 
  */
-public class BaseitemToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
@@ -38,15 +39,13 @@ public class BaseitemToken extends AbstractToken implements
 		return "BASEITEM";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(eq, ObjectKey.BASE_ITEM,
 			context.ref.getCDOMReference(EQUIPMENT_CLASS, value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

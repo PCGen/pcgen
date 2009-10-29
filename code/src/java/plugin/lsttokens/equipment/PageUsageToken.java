@@ -28,8 +28,9 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>PageUsageToken</code> deals with PAGEUSAGE token
@@ -40,8 +41,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PageUsageToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	/**
@@ -53,15 +54,13 @@ public class PageUsageToken extends AbstractToken implements
 		return "PAGEUSAGE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE,
 				FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

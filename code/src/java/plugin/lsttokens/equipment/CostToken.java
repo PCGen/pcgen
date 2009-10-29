@@ -22,15 +22,15 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with COST token
  */
-public class CostToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class CostToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -39,12 +39,10 @@ public class CostToken extends AbstractToken implements
 		return "COST";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			BigDecimal cost = new BigDecimal(value);
@@ -53,17 +51,16 @@ public class CostToken extends AbstractToken implements
 			//
 			// if (cost.compareTo(BigDecimal.ZERO) < 0)
 			// {
-			// Logging.errorPrint(getTokenName()
+			// return new ParseResult.Fail(getTokenName()
 			// + " must be a positive number: " + value);
 			// return false;
 			// }
 			context.getObjectContext().put(eq, ObjectKey.COST, cost);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint(getTokenName() + " expected a number: " + value);
-			return false;
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

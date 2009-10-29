@@ -20,39 +20,30 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LEGS Token
  */
-public class LegsToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
+public class LegsToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()
 	{
 		return "LEGS";
 	}
-
-	public ParseResult parseToken(LoadContext context, Race race, String value)
+	
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer in = Integer.valueOf(value);
-			if (in.intValue() < 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
-			}
-			context.getObjectContext().put(race, IntegerKey.LEGS, in);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-		}
+		return IntegerKey.LEGS;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

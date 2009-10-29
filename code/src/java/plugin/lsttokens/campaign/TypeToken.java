@@ -23,16 +23,16 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class TypeToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>
+public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>
 {
 
 	@Override
@@ -41,13 +41,16 @@ public class TypeToken extends AbstractToken implements
 		return "TYPE";
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('.', value))
-		{
-			return false;
-		}
+		return '.';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Campaign campaign, String value)
+	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
 		String dataProducer = aTok.nextToken();
 		context.getObjectContext().put(campaign, StringKey.DATA_PRODUCER,
@@ -76,12 +79,11 @@ public class TypeToken extends AbstractToken implements
 		}
 		if (aTok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " in Campaign may have a"
 				+ " maximum of 3 items, value is invalid: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

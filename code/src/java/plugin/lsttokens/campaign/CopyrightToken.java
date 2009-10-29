@@ -24,18 +24,18 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with COPYRIGHT Token
  */
-public class CopyrightToken extends AbstractToken implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class CopyrightToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryParserToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -50,15 +50,12 @@ public class CopyrightToken extends AbstractToken implements
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign campaign, String value)
-		throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.obj.addToList(campaign, ListKey.SECTION_15, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

@@ -20,13 +20,13 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with EDR token
  */
-public class EdrToken implements CDOMPrimaryToken<Equipment>
+public class EdrToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -34,26 +34,16 @@ public class EdrToken implements CDOMPrimaryToken<Equipment>
 		return "EDR";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer edr = Integer.valueOf(value);
-			if (edr.intValue() <= 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.EDR, edr);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.EDR;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 1;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

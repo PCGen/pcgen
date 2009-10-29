@@ -33,19 +33,19 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.AbstractObjectContext;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.AbstractObjectContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Deals with EQMOD token
  */
-public class EqmodToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	private static final Class<EquipmentModifier> EQMOD_CLASS = EquipmentModifier.class;
@@ -60,14 +60,16 @@ public class EqmodToken extends AbstractToken implements
 		return "EQMOD";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('.', value))
-		{
-			return false;
-		}
+		return '.';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Equipment eq, String value)
+	{
 		StringTokenizer dotTok = new StringTokenizer(value, Constants.DOT);
 		EquipmentHead head = eq.getEquipmentHead(1);
 		while (dotTok.hasMoreTokens())
@@ -80,9 +82,10 @@ public class EqmodToken extends AbstractToken implements
 						+ " will be ignored");
 				continue;
 			}
-			if (hasIllegalSeparator('|', modInfo))
+			ParseResult pr = checkForIllegalSeparator('|', modInfo); 
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 			StringTokenizer aTok = new StringTokenizer(modInfo, Constants.PIPE);
 
@@ -117,7 +120,7 @@ public class EqmodToken extends AbstractToken implements
 			}
 			context.obj.addToList(head, ListKey.EQMOD_INFO, modref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

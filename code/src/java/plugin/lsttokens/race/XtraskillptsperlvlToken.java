@@ -20,14 +20,13 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with XTRASKILLPTSPERLVL Token
  */
-public class XtraskillptsperlvlToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
+public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	/**
@@ -40,26 +39,16 @@ public class XtraskillptsperlvlToken extends ErrorParsingWrapper<Race> implement
 		return "XTRASKILLPTSPERLVL";
 	}
 
-	public ParseResult parseToken(LoadContext context, Race race, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer sp = Integer.valueOf(value);
-			if (sp.intValue() <= 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
-			}
+		return IntegerKey.SKILL_POINTS_PER_LEVEL;
+	}
 
-			context.getObjectContext().put(race,
-					IntegerKey.SKILL_POINTS_PER_LEVEL, sp);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-		}
+	@Override
+	protected int minValue()
+	{
+		return 1;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

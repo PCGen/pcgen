@@ -21,15 +21,15 @@ import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with MODS token
  */
-public class ModsToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryParserToken<Equipment>
 {
 
 	@Override
@@ -38,12 +38,10 @@ public class ModsToken extends AbstractToken implements
 		return "MODS";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		Equipment eq, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		EqModControl ctrl;
 		try
 		{
@@ -51,12 +49,11 @@ public class ModsToken extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint("Invalid Mod Control provided in "
+			return new ParseResult.Fail("Invalid Mod Control provided in "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 		context.getObjectContext().put(eq, ObjectKey.MOD_CONTROL, ctrl);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

@@ -20,40 +20,29 @@ package plugin.lsttokens.equipment;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Deals with REACHMULT token
  */
-public class ReachMultToken implements CDOMPrimaryToken<Equipment>
+public class ReachMultToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
-
 	public String getTokenName()
 	{
 		return "REACHMULT";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer reach = Integer.valueOf(value);
-			if (reach.intValue() <= 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
-				return false;
-			}
-			context.getObjectContext().put(eq, IntegerKey.REACH_MULT, reach);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.REACH_MULT;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 1;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)

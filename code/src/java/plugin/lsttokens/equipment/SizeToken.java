@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SIZE token 
  */
-public class SizeToken implements CDOMPrimaryToken<Equipment>
+public class SizeToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
 {
 
 	public String getTokenName()
@@ -35,19 +36,18 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 		return "SIZE";
 	}
 
-	public boolean parse(LoadContext context, Equipment eq, String value)
+	public ParseResult parseToken(LoadContext context, Equipment eq, String value)
 	{
 		SizeAdjustment size =
 				context.ref.getAbbreviatedObject(SizeAdjustment.class,
 					value);
 		if (size == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Unable to find Size: " + value);
-			return false;
+			return new ParseResult.Fail("Unable to find Size: " + value);
 		}
 		context.getObjectContext().put(eq, ObjectKey.BASESIZE, size);
 		context.getObjectContext().put(eq, ObjectKey.SIZE, size);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)
