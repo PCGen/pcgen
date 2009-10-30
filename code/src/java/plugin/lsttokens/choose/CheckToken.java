@@ -40,7 +40,7 @@ public class CheckToken extends AbstractSimpleChooseToken<PCCheck>
 	@Override
 	protected String getDefaultTitle()
 	{
-		return "Stat choice";
+		return "Check choice";
 	}
 
 	@Override
