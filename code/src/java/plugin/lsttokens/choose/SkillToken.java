@@ -42,7 +42,7 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 	@Override
 	protected String getDefaultTitle()
 	{
-		return "kill choice";
+		return "Skill choice";
 	}
 
 	public Skill decodeChoice(String s)
