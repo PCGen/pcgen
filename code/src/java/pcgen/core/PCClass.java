@@ -1641,14 +1641,18 @@ public class PCClass extends PObject
 		}
 		else
 		{
+			//Note: May return null
 			cdo = aPC.getActiveClassLevel(this, aLevel);
 		}
-		for (VariableKey vk : cdo.getVariableKeys())
+		if (cdo != null)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(prefix).append('|').append(vk.toString()).append('|')
-					.append(cdo.get(vk));
-			aPC.addVariable(sb.toString());
+			for (VariableKey vk : cdo.getVariableKeys())
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(prefix).append('|').append(vk.toString()).append('|')
+						.append(cdo.get(vk));
+				aPC.addVariable(sb.toString());
+			}
 		}
 	}
 
