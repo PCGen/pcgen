@@ -50,7 +50,18 @@ public final class SkillLanguage
 	 */
 	public static boolean chooseLanguageForSkill(PlayerCharacter aPC)
 	{
-		return chooseLanguageForSkill(aPC, getLanguageSkill(aPC));
+		Skill languageSkill = getLanguageSkill(aPC);
+		if (languageSkill == null)
+		{
+			ShowMessageDelegate
+					.showMessageDialog(
+							"You do not have ranks in a Skill that awards Languages",
+							Constants.s_APPNAME, MessageType.ERROR);
+
+			return false;
+		}
+		chooseLanguageForSkill(aPC, languageSkill);
+		return true;
 	}
 
 	public static Skill getLanguageSkill(PlayerCharacter aPC)
@@ -85,80 +96,69 @@ public final class SkillLanguage
 	 *            The character to choose a language for.
 	 * @param languageSkill
 	 *            The language skill.
-	 * @return false if the laguage choice could not be offered. True otherwise.
 	 */
-	public static boolean chooseLanguageForSkill(PlayerCharacter aPC,
+	public static void chooseLanguageForSkill(PlayerCharacter aPC,
 			Skill languageSkill)
 	{
-		if (aPC != null)
-		{
-			if (languageSkill == null)
-			{
-				ShowMessageDelegate.showMessageDialog(
-						"You do not have enough ranks in Speak Language",
-						Constants.s_APPNAME, MessageType.ERROR);
+		int numLanguages = SkillRankControl.getTotalRank(aPC, languageSkill)
+				.intValue();
+		List<Language> selected = new ArrayList<Language>();
+		List<Language> available = new ArrayList<Language>();
+		List<Language> excludedLangs = new ArrayList<Language>();
 
-				return false;
-			}
-
-			int numLanguages = SkillRankControl.getTotalRank(aPC, languageSkill).intValue();
-			List<Language> selected = new ArrayList<Language>();
-			List<Language> available = new ArrayList<Language>();
-			List<Language> excludedLangs = new ArrayList<Language>();
-
-			buildLanguageListsForSkill(aPC, languageSkill, selected, available,
+		buildLanguageListsForSkill(aPC, languageSkill, selected, available,
 				excludedLangs);
 
-			List<Language> origselected = new ArrayList<Language>(selected);
-//			List<Language> origavailable = new ArrayList<Language>(available);
+		List<Language> origselected = new ArrayList<Language>(selected);
+		// List<Language> origavailable = new ArrayList<Language>(available);
 
-			Globals.sortChooserLists(available, selected);
+		Globals.sortChooserLists(available, selected);
 
-			ChooserInterface lc = ChooserFactory.getChooserInstance();
-			lc.setVisible(false);
-			lc.setAvailableList(available);
-			lc.setSelectedList(selected);
-			lc.setTotalChoicesAvail(numLanguages);
-			lc.setPoolFlag(false);
-			lc.setVisible(true);
+		ChooserInterface lc = ChooserFactory.getChooserInstance();
+		lc.setVisible(false);
+		lc.setAvailableList(available);
+		lc.setSelectedList(selected);
+		lc.setTotalChoicesAvail(numLanguages);
+		lc.setPoolFlag(false);
+		lc.setVisible(true);
 
-			// Calculate all the newly selected languages and add them
-			List<Language> newSelected = new ArrayList<Language>(selected);
-			newSelected.removeAll(origselected);
-			
-			for (Language lang : newSelected)
-			{
-				aPC.addSkillLanguage(lang, languageSkill);
-				aPC.addAssociation(languageSkill, lang.getKeyName());
-			}
-			
-			// Calculate all the newly de-selected languages, and remove them
-			List<Language> newRemoved = new ArrayList<Language>(origselected);
-			newRemoved.removeAll(selected);
+		// Calculate all the newly selected languages and add them
+		List<Language> newSelected = new ArrayList<Language>(selected);
+		newSelected.removeAll(origselected);
 
-			for (Language lang : newRemoved)
-			{
-				aPC.removeSkillLanguage(lang, languageSkill);
-				aPC.removeAssociation(languageSkill, lang.getKeyName());
-			}
-			
-			aPC.setDirty(true);
-
-			return true;
+		for (Language lang : newSelected)
+		{
+			aPC.addSkillLanguage(lang, languageSkill);
+			aPC.addAssociation(languageSkill, lang.getKeyName());
 		}
 
-		return false;
+		// Calculate all the newly de-selected languages, and remove them
+		List<Language> newRemoved = new ArrayList<Language>(origselected);
+		newRemoved.removeAll(selected);
+
+		for (Language lang : newRemoved)
+		{
+			aPC.removeSkillLanguage(lang, languageSkill);
+			aPC.removeAssociation(languageSkill, lang.getKeyName());
+		}
+
+		aPC.setDirty(true);
 	}
 
 	/**
-	 * Build up the lists of available, already selected and excluded 
-	 * languages for the skill and character.
-	 *  
-	 * @param aPC The character to build the lists for.
-	 * @param languageSkill The skill to build the lists for.
-	 * @param selected The list of already selected languages
-	 * @param available The list of languages that can be selected from
-	 * @param excludedLangs The list of languages that cannot be selected.
+	 * Build up the lists of available, already selected and excluded languages
+	 * for the skill and character.
+	 * 
+	 * @param aPC
+	 *            The character to build the lists for.
+	 * @param languageSkill
+	 *            The skill to build the lists for.
+	 * @param selected
+	 *            The list of already selected languages
+	 * @param available
+	 *            The list of languages that can be selected from
+	 * @param excludedLangs
+	 *            The list of languages that cannot be selected.
 	 */
 	public static void buildLanguageListsForSkill(PlayerCharacter aPC,
 		Skill languageSkill, List<Language> selected, List<Language> available,
