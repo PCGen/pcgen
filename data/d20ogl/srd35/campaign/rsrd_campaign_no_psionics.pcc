@@ -67,6 +67,7 @@ SKILL:@/d20ogl/srd35/basics/rsrd_skills_conditional.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells_divine.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst
+SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
 
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_tempmods.lst

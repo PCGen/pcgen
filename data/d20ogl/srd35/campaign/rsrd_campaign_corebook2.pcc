@@ -120,6 +120,8 @@ KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_wands.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_weapons.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_wondrous_items.lst
 
+SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
+
 # Universal tags
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
