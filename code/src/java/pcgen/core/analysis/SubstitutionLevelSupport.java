@@ -18,13 +18,14 @@ import pcgen.util.Logging;
 public class SubstitutionLevelSupport
 {
 
-	public static boolean levelArrayQualifies(final PlayerCharacter pc, final String aLine,
-		final SourceEntry tempSource, CDOMObject source)
+	public static boolean levelArrayQualifies(int level,
+			final PlayerCharacter pc, final String aLine,
+			final SourceEntry tempSource, CDOMObject source)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
-		 PCClass dummyClass = new PCClass();   
+		PCClass dummyClass = new PCClass();   
 		 
-		 try
+		try
 		{
 			classLoader.parseLine(Globals.getContext(), dummyClass, aLine, tempSource);
 		}
@@ -33,7 +34,7 @@ public class SubstitutionLevelSupport
 			Logging
 			.errorPrint("Unable to parse line from levelArray: " + aLine);
 		} 
-		 return dummyClass.qualifies(pc, source);
+		return dummyClass.getOriginalClassLevel(level).qualifies(pc, source);
 	}
 
 	/**
@@ -57,7 +58,7 @@ public class SubstitutionLevelSupport
 	
 			if (aLevel == modLevel)
 			{
-				if (levelArrayQualifies(aPC, aLine, line.source, aClass))
+				if (levelArrayQualifies(aLevel, aPC, aLine, line.source, aClass))
 				{
 					newLevels.add(line);
 				}
@@ -88,7 +89,7 @@ public class SubstitutionLevelSupport
 	
 			if (level == modLevel)
 			{
-				if (!levelArrayQualifies(pc, aLine, line.source, cl))
+				if (!levelArrayQualifies(level, pc, aLine, line.source, cl))
 				{
 					return false;
 				}
