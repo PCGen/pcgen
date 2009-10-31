@@ -1436,6 +1436,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		StringBuffer unqualified = new StringBuffer();
 		List<PCClass> exclassList = new ArrayList<PCClass>();
 
+		pc.setAlignment(newAlign);
 		for (PCClass aClass : pc.getClassSet())
 		{
 			if (!aClass.qualifies(pc, aClass))
@@ -1466,6 +1467,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				alignmentComboBox.setSelectedItem(oldAlign);
+				pc.setAlignment(oldAlign);
 
 				return;
 			}
@@ -1479,7 +1481,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			pc.makeIntoExClass(aClass);
 		}
 
-		pc.setAlignment(newAlign);
 		forceRefresh(false);
 		enableRaceControls(!newAlign.getKeyName().equals(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
