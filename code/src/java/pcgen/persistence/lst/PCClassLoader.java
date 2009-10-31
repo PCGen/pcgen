@@ -31,11 +31,9 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.analysis.PCClassKeyChange;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.utils.DeferredLine;
@@ -268,7 +266,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			Logging.errorPrint("Expected a level value, but got '"
 					+ lineIdentifier + "' instead (as a level line in "
 					+ pcClass.getKeyName() + ") in source " + source.getURI());
-			Logging.errorPrint("  Rest of line was: + " + restOfLine);
+			Logging.errorPrint("  Rest of line was: " + restOfLine);
 		}
 	}
 

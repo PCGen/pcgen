@@ -419,6 +419,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			{
 				SourceLoader.parseLine(context, line, uri);
 			}
+			else if (line.trim().length()==0)
+			{
+				// Ignore the line
+			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
 				copyLineList.add(new ModEntry(sourceEntry, line,
