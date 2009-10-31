@@ -1432,19 +1432,32 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					throw new PCGParseException(
 						"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
 				}
+				GameMode game = SettingsHandler.getGame();
+				Set<String> modeNames = new HashSet<String>(game.getAllowedModes());
+				modeNames.add(game.getName());
 				Collection<Campaign> loaded = PersistenceManager.getInstance().getLoadedCampaigns();
 				for (PCGElement element : tokens.getElements())
 				{
 					final Campaign aCampaign =
 							Globals.getCampaignKeyed(element.getText());
 
-					if (aCampaign != null
-						&& aCampaign.containsInList(ListKey.GAME_MODE, SettingsHandler.getGame()
-						.getName()))
+					if (aCampaign != null)
 					{
-						if (!loaded.contains(aCampaign))
+						boolean match = false;
+						for (String mode : aCampaign.getListFor(ListKey.GAME_MODE))
 						{
-							campaigns.add(aCampaign);
+							match = modeNames.contains(mode);
+							if (match)
+							{
+								break;
+							}
+						}
+						if (match)
+						{
+							if (!loaded.contains(aCampaign))
+							{
+								campaigns.add(aCampaign);
+							}
 						}
 					}
 				}
