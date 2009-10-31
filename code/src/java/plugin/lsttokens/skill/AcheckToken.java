@@ -21,15 +21,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ACHECK Token
  */
-public class AcheckToken extends AbstractToken implements
-		CDOMPrimaryToken<Skill>
+public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
+		CDOMPrimaryParserToken<Skill>
 {
 
 	@Override
@@ -38,12 +38,9 @@ public class AcheckToken extends AbstractToken implements
 		return "ACHECK";
 	}
 
-	public boolean parse(LoadContext context, Skill skill, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		SkillArmorCheck aCheck;
 		try
 		{
@@ -84,14 +81,13 @@ public class AcheckToken extends AbstractToken implements
 			}
 			else
 			{
-				Logging.addParseMessage(Logging.LST_ERROR, "Skill "
+				return new ParseResult.Fail("Skill "
 						+ getTokenName() + " Did not understand: " + value);
-				return false;
 			}
 		}
 
 		context.getObjectContext().put(skill, ObjectKey.ARMOR_CHECK, aCheck);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Skill skill)

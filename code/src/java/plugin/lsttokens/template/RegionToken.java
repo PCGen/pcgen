@@ -21,14 +21,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REGION Token
  */
-public class RegionToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class RegionToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -37,12 +38,9 @@ public class RegionToken extends AbstractToken implements
 		return "REGION";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (value.equalsIgnoreCase("YES"))
 		{
 			context.getObjectContext().put(template,
@@ -56,7 +54,7 @@ public class RegionToken extends AbstractToken implements
 			context.getObjectContext().put(template, ObjectKey.REGION,
 					Region.getConstant(value));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

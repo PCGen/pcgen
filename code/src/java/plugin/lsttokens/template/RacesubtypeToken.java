@@ -26,15 +26,15 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -43,13 +43,15 @@ public class RacesubtypeToken extends AbstractToken implements
 		return "RACESUBTYPE";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
@@ -60,9 +62,7 @@ public class RacesubtypeToken extends AbstractToken implements
 				String substring = aType.substring(8);
 				if (substring.length() == 0)
 				{
-					Logging.errorPrint("Invalid .REMOVE. in " + getTokenName());
-					Logging.errorPrint("  Requires an argument");
-					return false;
+					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName() + " requires an argument");
 				}
 				context.getObjectContext().addToList(template,
 						ListKey.REMOVED_RACESUBTYPE,
@@ -74,7 +74,7 @@ public class RacesubtypeToken extends AbstractToken implements
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(aType));
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

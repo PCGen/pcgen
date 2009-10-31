@@ -29,15 +29,16 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REPEATLEVEL Token
  */
-public class RepeatlevelToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -46,12 +47,20 @@ public class RepeatlevelToken extends AbstractToken implements
 		return "REPEATLEVEL";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(':', value) || hasIllegalSeparator('|', value))
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCTemplate template, String value)
+	{
+		ParseResult pr = checkForIllegalSeparator(':', value);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 		//
 		// x|y|z:level:<level assigned item>
@@ -59,23 +68,20 @@ public class RepeatlevelToken extends AbstractToken implements
 		int endRepeat = value.indexOf(Constants.COLON);
 		if (endRepeat < 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (No Colon): " + value);
-			return false;
 		}
 		int endLevel = value.indexOf(Constants.COLON, endRepeat + 1);
 		if (endLevel < 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Only One Colon): " + value);
-			return false;
 		}
 		int endAssignType = value.indexOf(Constants.COLON, endLevel + 1);
 		if (endAssignType == -1)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Only Two Colons): " + value);
-			return false;
 		}
 
 		String repeatedInfo = value.substring(0, endRepeat);
@@ -83,11 +89,9 @@ public class RepeatlevelToken extends AbstractToken implements
 				Constants.PIPE);
 		if (repeatToken.countTokens() != 3)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (incorrect PIPE count in repeat): "
 					+ repeatedInfo);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 
 		String levelIncrement = repeatToken.nextToken();
@@ -98,18 +102,14 @@ public class RepeatlevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Level Increment was not an Integer): "
 					+ levelIncrement);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (lvlIncrement <= 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Level Increment was <= 0): " + lvlIncrement);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 
 		String consecutiveString = repeatToken.nextToken();
@@ -120,18 +120,14 @@ public class RepeatlevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Consecutive Value was not an Integer): "
 					+ consecutiveString);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (consecutive < 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Consecutive String was <= 0): " + consecutive);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 
 		String maxLevelString = repeatToken.nextToken();
@@ -142,18 +138,14 @@ public class RepeatlevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Max Level was not an Integer): "
 					+ maxLevelString);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (maxLevel <= 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Max Level was <= 0): " + maxLevel);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 
 		String levelString = value.substring(endRepeat + 1, endLevel);
@@ -164,44 +156,35 @@ public class RepeatlevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Level was not a number): " + levelString);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (iLevel <= 0)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Level was <= 0): " + iLevel);
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 
 		if (iLevel > maxLevel)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Starting Level was > Maximum Level)");
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (iLevel + lvlIncrement > maxLevel)
 		{
-			Logging
-					.errorPrint("Malformed "
+			return new ParseResult.Fail("Malformed "
 							+ getTokenName()
 							+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)");
-			Logging.errorPrint("  Line was: " + value);
-			return false;
 		}
 		if (consecutive != 0
 				&& ((maxLevel - iLevel) / lvlIncrement) < consecutive)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Malformed " + getTokenName()
 					+ " Token (Does not use Skip Interval value): "
 					+ consecutive);
-			Logging.errorPrint("  You should set the interval to zero");
-			Logging.errorPrint("  Line was: " + value);
-			return false;
+			cpr.addErrorMessage("  You should set the interval to zero");
+			return cpr;
 		}
 
 		String typeStr = value.substring(endLevel + 1, endAssignType);
@@ -228,9 +211,16 @@ public class RepeatlevelToken extends AbstractToken implements
 				derivative.put(IntegerKey.LEVEL, count);
 				context.getObjectContext().addToList(consolidator,
 						ListKey.LEVEL_TEMPLATES, derivative);
-				if (!context.processToken(derivative, typeStr, contentStr))
+				try
 				{
-					return false;
+					if (!context.processToken(derivative, typeStr, contentStr))
+					{
+						return ParseResult.INTERNAL_ERROR;
+					}
+				}
+				catch (PersistenceLayerException e)
+				{
+					return new ParseResult.Fail(e.getMessage());
 				}
 			}
 			if (consecutive != 0)
@@ -245,7 +235,7 @@ public class RepeatlevelToken extends AbstractToken implements
 				}
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

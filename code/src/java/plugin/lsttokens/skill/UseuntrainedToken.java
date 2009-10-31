@@ -20,15 +20,15 @@ package plugin.lsttokens.skill;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with USEUNTRAINED Token
  */
-public class UseuntrainedToken extends AbstractToken implements
-		CDOMPrimaryToken<Skill>
+public class UseuntrainedToken extends AbstractNonEmptyToken<Skill> implements
+		CDOMPrimaryParserToken<Skill>
 {
 
 	@Override
@@ -37,21 +37,18 @@ public class UseuntrainedToken extends AbstractToken implements
 		return "USEUNTRAINED";
 	}
 
-	public boolean parse(LoadContext context, Skill skill, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Skill skill,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -59,20 +56,18 @@ public class UseuntrainedToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.getObjectContext().put(skill, ObjectKey.USE_UNTRAINED, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Skill skill)

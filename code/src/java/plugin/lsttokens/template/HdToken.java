@@ -29,14 +29,14 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HD Token
  */
-public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplate>
+public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
 {
 
 	/*
@@ -50,20 +50,27 @@ public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplat
 		return "HD";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
-			throws PersistenceLayerException
+	@Override
+	public ParseResult parseToken(LoadContext context, PCTemplate template, String value)
 	{
 		if (".CLEAR".equals(value))
 		{
 			context.getObjectContext().removeList(template,
 					ListKey.HD_TEMPLATES);
-			return true;
+			return ParseResult.SUCCESS;
 		}
-		if (isEmpty(value) || hasIllegalSeparator(':', value))
-		{
-			return false;
-		}
+		return super.parseToken(context, template, value);
+	}
+	
+	@Override
+	protected char separator()
+	{
+		return ':';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 
 		String hdString = tok.nextToken();
@@ -93,33 +100,28 @@ public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplat
 			}
 			if (maxhd < minhd)
 			{
-				Logging.errorPrint("Malformed " + getTokenName()
+				return new ParseResult.Fail("Malformed " + getTokenName()
 						+ " Token (Max < Min): " + hdString);
-				Logging.errorPrint("  Line was: " + value);
-				return false;
 			}
 		}
 		catch (NumberFormatException ex)
 		{
-			Logging.errorPrint("Malformed " + getTokenName()
+			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (HD syntax invalid): " + hdString);
-			return false;
 		}
 
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint("Invalid " + getTokenName()
+			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
 					+ value);
-			return false;
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint("Invalid " + getTokenName()
+			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
 					+ value);
-			return false;
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
@@ -127,11 +129,18 @@ public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplat
 		derivative.put(IntegerKey.HD_MAX, maxhd);
 		context.getObjectContext().addToList(template, ListKey.HD_TEMPLATES,
 				derivative);
-		if (context.processToken(derivative, typeStr, argument))
+		try
 		{
-			return true;
+			if (context.processToken(derivative, typeStr, argument))
+			{
+				return ParseResult.SUCCESS;
+			}
 		}
-		return false;
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getMessage());
+		}
+		return ParseResult.INTERNAL_ERROR;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

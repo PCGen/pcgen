@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCStat;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KEYSTAT Token
  */
-public class KeystatToken implements CDOMPrimaryToken<Skill>
+public class KeystatToken extends ErrorParsingWrapper<Skill> implements CDOMPrimaryParserToken<Skill>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -37,17 +38,16 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 		return "KEYSTAT";
 	}
 
-	public boolean parse(LoadContext context, Skill skill, String value)
+	public ParseResult parseToken(LoadContext context, Skill skill, String value)
 	{
 		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			Logging.errorPrint("Invalid Stat Abbreviation in Token "
+			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 		context.getObjectContext().put(skill, ObjectKey.KEY_STAT, pcs);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Skill skill)

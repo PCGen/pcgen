@@ -24,14 +24,15 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -40,12 +41,10 @@ public class SizeToken extends AbstractToken implements
 		return "SIZE";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		SizeAdjustment size = context.ref.getAbbreviatedObject(
 				SizeAdjustment.class, value);
 		Formula sizeFormula;
@@ -58,7 +57,7 @@ public class SizeToken extends AbstractToken implements
 			sizeFormula = new FixedSizeFormula(size);
 		}
 		context.getObjectContext().put(template, FormulaKey.SIZE, sizeFormula);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate template)

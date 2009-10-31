@@ -22,15 +22,15 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -39,22 +39,19 @@ public class CrToken extends AbstractToken implements
 		return "CR";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			context.getObjectContext().put(template, ObjectKey.CR_MODIFIER,
 					new BigDecimal(value));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Misunderstood Double in Tag: " + value);
-			return false;
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 		}
 	}
 

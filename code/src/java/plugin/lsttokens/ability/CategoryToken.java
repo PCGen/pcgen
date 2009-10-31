@@ -20,16 +20,17 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Deal with CATEGORY token
  */
-public class CategoryToken implements CDOMPrimaryToken<Ability>,
+public class CategoryToken extends ErrorParsingWrapper<Ability> implements CDOMPrimaryParserToken<Ability>,
 		DeferredToken<Ability>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -39,17 +40,15 @@ public class CategoryToken implements CDOMPrimaryToken<Ability>,
 		return "CATEGORY";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, Ability ability, String value)
 	{
 		final Category<Ability> cat = context.ref.getCategoryFor(ABILITY_CLASS, value);
 		if (cat == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot find Ability Category: " + value);
-			return false;
+			return new ParseResult.Fail("Cannot find Ability Category: " + value);
 		}
 		context.ref.reassociateCategory(cat, ability);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)

@@ -23,16 +23,16 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.BigDecimalHelper;
-import pcgen.util.Logging;
 
 /**
  * Class deals with FACE Token
  */
-public class FaceToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -41,42 +41,34 @@ public class FaceToken extends AbstractToken implements
 		return "FACE";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		return parseFace(context, template, value);
 	}
 
-	protected boolean parseFace(LoadContext context, PCTemplate fObj,
+	protected ParseResult parseFace(LoadContext context, PCTemplate fObj,
 			String value)
 	{
 		int commaLoc = value.indexOf(Constants.COMMA);
 		if (commaLoc != value.lastIndexOf(Constants.COMMA))
 		{
-			Logging.errorPrint(getTokenName() + " must be of the form: "
+			return new ParseResult.Fail(getTokenName() + " must be of the form: "
 					+ getTokenName() + ":<num>[,<num>]");
-			return false;
 		}
 		if (commaLoc > -1)
 		{
 			if (commaLoc == 0)
 			{
-				Logging
-						.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 								+ " should not start with a comma.  Must be of the form: "
 								+ getTokenName() + ":<num>[,<num>]");
-				return false;
 			}
 			if (commaLoc == value.length() - 1)
 			{
-				Logging
-						.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 								+ " should not end with a comma.  Must be of the form: "
 								+ getTokenName() + ":<num>[,<num>]");
-				return false;
 			}
 			try
 			{
@@ -84,18 +76,16 @@ public class FaceToken extends AbstractToken implements
 				BigDecimal width = new BigDecimal(widthString);
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
-					Logging.errorPrint("Cannot have negative width in "
+					return new ParseResult.Fail("Cannot have negative width in "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
 						width);
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Misunderstood Double Width in Tag: "
+				return new ParseResult.Fail("Misunderstood Double Width in Tag: "
 						+ value);
-				return false;
 			}
 
 			try
@@ -104,18 +94,16 @@ public class FaceToken extends AbstractToken implements
 				BigDecimal height = new BigDecimal(heightString);
 				if (height.compareTo(BigDecimal.ZERO) < 0)
 				{
-					Logging.errorPrint("Cannot have negative height in "
+					return new ParseResult.Fail("Cannot have negative height in "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_HEIGHT,
 						height);
 			}
 			catch (NumberFormatException ne)
 			{
-				Logging.errorPrint("Misunderstood Double Height in Tag: "
+				return new ParseResult.Fail("Misunderstood Double Height in Tag: "
 						+ value);
-				return false;
 			}
 		}
 		else
@@ -126,9 +114,8 @@ public class FaceToken extends AbstractToken implements
 				BigDecimal width = new BigDecimal(widthString);
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
-					Logging.errorPrint("Cannot have negative width in "
+					return new ParseResult.Fail("Cannot have negative width in "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
 						width);
@@ -137,11 +124,10 @@ public class FaceToken extends AbstractToken implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Misunderstood Double in Tag: " + value);
-				return false;
+				return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

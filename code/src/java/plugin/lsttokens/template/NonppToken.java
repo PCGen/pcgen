@@ -20,13 +20,13 @@ package plugin.lsttokens.template;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Class deals with NONPP Token
  */
-public class NonppToken implements CDOMPrimaryToken<PCTemplate>
+public class NonppToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -34,26 +34,16 @@ public class NonppToken implements CDOMPrimaryToken<PCTemplate>
 		return "NONPP";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer nonpp = Integer.valueOf(value);
-			if (nonpp.intValue() > 0)
-			{
-				Logging.errorPrint("Non-Proficiency Penalty must be "
-						+ "less than or equal to zero: " + value);
-				return false;
-			}
-			context.getObjectContext().put(template, IntegerKey.NONPP, nonpp);
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint("Non-Proficiency Penalty must be a number "
-					+ "less than or equal to zero: " + value);
-			return false;
-		}
-		return true;
+		return IntegerKey.NONPP;
+	}
+	
+	@Override
+	protected int maxValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

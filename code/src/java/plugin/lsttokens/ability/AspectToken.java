@@ -34,9 +34,9 @@ import pcgen.core.Ability;
 import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class <code>AspectToken</code> parses a generic detail field for
@@ -55,8 +55,8 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: $
  */
-public class AspectToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class AspectToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
@@ -67,56 +67,44 @@ public class AspectToken extends AbstractToken implements
 		return "ASPECT"; //$NON-NLS-1$
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting '|', format is: "
 					+ "AspectName|Aspect value|Variable|... was: " + value);
-			return false;
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
-			return false;
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
-			return false;
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
-			return false;
 		}
 		Aspect a = parseAspect(key, val);
 		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), a);
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	/**
@@ -146,7 +134,7 @@ public class AspectToken extends AbstractToken implements
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext,
+	 * @see pcgen.rules.persistence.token.CDOMPrimaryParserToken#unparse(pcgen.rules.context.LoadContext,
 	 *      java.lang.Object)
 	 */
 	public String[] unparse(LoadContext context, Ability ability)

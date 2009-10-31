@@ -20,16 +20,16 @@ package plugin.lsttokens.template;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	/*
@@ -43,12 +43,10 @@ public class VisibleToken extends AbstractToken implements
 		return "VISIBLE";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Visibility vis;
 		if (value.equals("DISPLAY"))
 		{
@@ -68,11 +66,10 @@ public class VisibleToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.errorPrint("Can't understand Visibility: " + value);
-			return false;
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(template, ObjectKey.VISIBILITY, vis);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate template)

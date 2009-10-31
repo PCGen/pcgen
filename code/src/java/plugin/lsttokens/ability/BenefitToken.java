@@ -32,15 +32,16 @@ import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.PatternChanges;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * This class deals with the BENEFIT Token
  */
-public class BenefitToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 
 	@Override
@@ -49,31 +50,29 @@ public class BenefitToken extends AbstractToken implements
 		return "BENEFIT";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext().removeList(ability, ListKey.BENEFIT);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		if (value.startsWith(Constants.LST_DOT_CLEAR_DOT))
 		{
 			context.getObjectContext().removePatternFromList(ability,
 					ListKey.BENEFIT, value.substring(7));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 
 		Description ben = parseBenefit(value);
 		if (ben == null)
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		context.getObjectContext().addToList(ability, ListKey.BENEFIT, ben);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)

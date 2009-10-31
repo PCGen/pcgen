@@ -20,9 +20,9 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -35,8 +35,8 @@ import pcgen.util.enumeration.Visibility;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class VisibleToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 
 	/**
@@ -48,12 +48,9 @@ public class VisibleToken extends AbstractToken implements
 		return "VISIBLE";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Visibility vis;
 		if (value.equals("YES"))
 		{
@@ -73,12 +70,11 @@ public class VisibleToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.log(Logging.LST_ERROR, "Unable to understand " + getTokenName()
+			return new ParseResult.Fail("Unable to understand " + getTokenName()
 					+ " tag: " + value);
-			return false;
 		}
 		context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)

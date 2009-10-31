@@ -20,13 +20,13 @@ package plugin.lsttokens.template;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken implements CDOMPrimaryToken<PCTemplate>
+public class HandsToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -34,26 +34,16 @@ public class HandsToken implements CDOMPrimaryToken<PCTemplate>
 		return "HANDS";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer in = Integer.valueOf(value);
-			if (in.intValue() < 0)
-			{
-				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
-				return false;
-			}
-			context.getObjectContext().put(template, IntegerKey.CREATURE_HANDS, in);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.CREATURE_HANDS;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

@@ -21,15 +21,15 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with GENDERLOCK Token
  */
-public class GenderlockToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -38,23 +38,20 @@ public class GenderlockToken extends AbstractToken implements
 		return "GENDERLOCK";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			context.getObjectContext().put(template, ObjectKey.GENDER_LOCK,
 					Gender.valueOf(value));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint("Invalid Gender provided in " + getTokenName()
+			return new ParseResult.Fail("Invalid Gender provided in " + getTokenName()
 					+ ": " + value);
-			return false;
 		}
 	}
 

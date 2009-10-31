@@ -20,15 +20,15 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with the MULT token
  */
-public class MultToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class MultToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 
 	@Override
@@ -37,21 +37,17 @@ public class MultToken extends AbstractToken implements
 		return "MULT";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -59,21 +55,19 @@ public class MultToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.getObjectContext()
 				.put(ability, ObjectKey.MULTIPLE_ALLOWED, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)

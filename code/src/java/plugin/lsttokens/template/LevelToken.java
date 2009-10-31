@@ -29,9 +29,10 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LEVEL Token
@@ -41,8 +42,8 @@ import pcgen.util.Logging;
  * 
  * @version $Revision$
  */
-public class LevelToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class LevelToken extends AbstractTokenWithSeparator<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>
 {
 	@Override
 	public String getTokenName()
@@ -50,20 +51,28 @@ public class LevelToken extends AbstractToken implements
 		return "LEVEL";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
-			throws PersistenceLayerException
+	@Override
+	public ParseResult parseToken(LoadContext context, PCTemplate template, String value)
 	{
 		if (".CLEAR".equals(value))
 		{
 			context.getObjectContext().removeList(template,
-					ListKey.LEVEL_TEMPLATES);
-			return true;
+				ListKey.LEVEL_TEMPLATES);
+			return ParseResult.SUCCESS;
 		}
-		if (isEmpty(value) || hasIllegalSeparator(':', value))
-		{
-			return false;
-		}
+		return super.parseToken(context, template, value);
+	}
 
+	@Override
+	protected char separator()
+	{
+		return ':';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCTemplate template, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 
 		String levelStr = tok.nextToken();
@@ -77,44 +86,49 @@ public class LevelToken extends AbstractToken implements
 			lvl = Integer.parseInt(levelStr);
 			if (lvl <= 0)
 			{
-				Logging.errorPrint("Malformed " + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Malformed " + getTokenName()
 						+ " Token (Level was <= 0): " + lvl);
-				Logging.errorPrint("  Line was: " + value);
-				return false;
+				cpr.addErrorMessage("  Line was: " + value);
+				return cpr;
 			}
 		}
 		catch (NumberFormatException ex)
 		{
-			Logging.errorPrint("Misunderstood Level value: " + levelStr
+			return new ParseResult.Fail("Misunderstood Level value: " + levelStr
 					+ " in " + getTokenName());
-			return false;
 		}
 
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint("Invalid " + getTokenName()
+			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
 					+ value);
-			return false;
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint("Invalid " + getTokenName()
+			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
 					+ value);
-			return false;
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
 		derivative.put(IntegerKey.LEVEL, lvl);
 		context.getObjectContext().addToList(template, ListKey.LEVEL_TEMPLATES,
 				derivative);
-		if (context.processToken(derivative, typeStr, argument))
+		try
 		{
-			return true;
+			if (context.processToken(derivative, typeStr, argument))
+			{
+				return ParseResult.SUCCESS;
+			}
 		}
-		return false;
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getMessage());
+		}
+		return ParseResult.INTERNAL_ERROR;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

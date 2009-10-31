@@ -21,16 +21,17 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken extends AbstractToken implements
-		CDOMPrimaryToken<Skill>
+public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
+		CDOMPrimaryParserToken<Skill>
 {
 
 	@Override
@@ -39,12 +40,9 @@ public class VisibleToken extends AbstractToken implements
 		return "VISIBLE";
 	}
 
-	public boolean parse(LoadContext context, Skill skill, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		String visString = value;
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		boolean readOnly = false;
@@ -57,9 +55,8 @@ public class VisibleToken extends AbstractToken implements
 			}
 			else
 			{
-				Logging.errorPrint("Misunderstood text after pipe on Tag: "
+				return new ParseResult.Fail("Misunderstood text after pipe on Tag: "
 						+ value);
-				return false;
 			}
 		}
 		Visibility vis;
@@ -89,27 +86,26 @@ public class VisibleToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.errorPrint("Unexpected value used in " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Unexpected value used in " + getTokenName()
 					+ " in Skill");
-			Logging.errorPrint(" " + value + " is not a valid value for "
+			cpr.addErrorMessage(" " + value + " is not a valid value for "
 					+ getTokenName());
-			Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-			return false;
+			cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+			return cpr;
 		}
 		context.getObjectContext().put(skill, ObjectKey.VISIBILITY, vis);
 		if (readOnly)
 		{
 			if (vis.equals(Visibility.OUTPUT_ONLY))
 			{
-				Logging.errorPrint("|READONLY suffix not valid with "
+				return new ParseResult.Fail("|READONLY suffix not valid with "
 						+ getTokenName() + " EXPORT or CSHEET");
-				return false;
 			}
 			context.getObjectContext().put(skill, ObjectKey.READ_ONLY,
 					Boolean.TRUE);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Skill skill)

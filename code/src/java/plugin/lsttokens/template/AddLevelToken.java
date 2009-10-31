@@ -31,14 +31,15 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * New Token to support Adding Levels to say a Lycanthorpe template
  */
-public class AddLevelToken  extends AbstractToken implements CDOMPrimaryToken<PCTemplate>
+public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
 {
 
 	@Override
@@ -47,45 +48,46 @@ public class AddLevelToken  extends AbstractToken implements CDOMPrimaryToken<PC
 		return "ADDLEVEL";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template,
-			String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCTemplate template, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("No | found in " + getTokenName());
-			Logging.errorPrint("  " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("No | found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
 					+ " requires at format: Class|LevelCount");
-			return false;
+			return cpr;
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			Logging.errorPrint("Two | found in " + getTokenName());
-			Logging.errorPrint("  " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Two | found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
 					+ " requires at format: Class|LevelCount");
-			return false;
+			return cpr;
 		}
 		String classString = value.substring(0, pipeLoc);
 		if (classString.length() == 0)
 		{
-			Logging.errorPrint("Empty Class found in " + getTokenName());
-			Logging.errorPrint("  " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Empty Class found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
 					+ " requires at format: Class|LevelCount");
-			return false;
+			return cpr;
 		}
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(
 				PCClass.class, classString);
 		String numLevels = value.substring(pipeLoc + 1);
 		if (numLevels.length() == 0)
 		{
-			Logging.errorPrint("Empty Level Count found in " + getTokenName());
-			Logging.errorPrint("  " + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Empty Level Count found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
 					+ " requires at format: Class|LevelCount");
-			return false;
+			return cpr;
 		}
 		Formula f;
 		try
@@ -93,9 +95,8 @@ public class AddLevelToken  extends AbstractToken implements CDOMPrimaryToken<PC
 			int lvls = Integer.parseInt(numLevels);
 			if (lvls <= 0)
 			{
-				Logging.errorPrint("Number of Levels granted in "
+				return new ParseResult.Fail("Number of Levels granted in "
 						+ getTokenName() + " must be greater than zero");
-				return false;
 			}
 			f = FormulaFactory.getFormulaFor(lvls);
 		}
@@ -105,7 +106,7 @@ public class AddLevelToken  extends AbstractToken implements CDOMPrimaryToken<PC
 		}
 		LevelCommandFactory cf = new LevelCommandFactory(cl, f);
 		context.getObjectContext().addToList(template, ListKey.ADD_LEVEL, cf);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

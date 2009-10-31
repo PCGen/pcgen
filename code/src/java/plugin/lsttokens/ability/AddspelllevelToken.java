@@ -20,16 +20,16 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Delta;
-import pcgen.util.Logging;
 
 /**
  * Class deals with ADDSPELLLEVEL Token
  */
-public class AddspelllevelToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class AddspelllevelToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 
 	@Override
@@ -38,24 +38,21 @@ public class AddspelllevelToken extends AbstractToken implements
 		return "ADDSPELLLEVEL";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL,
 					Delta.parseInt(value));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 	}
 

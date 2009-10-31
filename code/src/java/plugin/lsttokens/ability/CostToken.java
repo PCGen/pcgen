@@ -22,15 +22,15 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deal with COST Token
  */
-public class CostToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>
+public class CostToken extends AbstractNonEmptyToken<Ability> implements
+		CDOMPrimaryParserToken<Ability>
 {
 
 	@Override
@@ -39,22 +39,19 @@ public class CostToken extends AbstractToken implements
 		return "COST";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			context.getObjectContext().put(ability, ObjectKey.SELECTION_COST,
 					new BigDecimal(value));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " expected a number: " + value);
-			return false;
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

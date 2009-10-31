@@ -41,15 +41,15 @@ import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FAVOREDCLASS Token
  */
-public class FavoredclassToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>, ChooseResultActor
+public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate> implements
+		CDOMPrimaryParserToken<PCTemplate>, ChooseResultActor
 {
 
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -61,20 +61,23 @@ public class FavoredclassToken extends AbstractToken implements
 		return "FAVOREDCLASS";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate pct, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCTemplate pct, String value)
+	{
 		context.getObjectContext().remove(pct, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(pct, ListKey.FAVORED_CLASS);
 		context.getObjectContext().removeFromList(pct, ListKey.CHOOSE_ACTOR, this);
 		return parseFavoredClass(context, pct, value);
 	}
 
-	public boolean parseFavoredClass(LoadContext context, CDOMObject cdo,
+	public ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo,
 			String value)
 	{
 		boolean foundAny = false;
@@ -108,9 +111,10 @@ public class FavoredclassToken extends AbstractToken implements
 				}
 				else
 				{
-					if (hasIllegalSeparator('.', token))
+					ParseResult pr = checkForIllegalSeparator('.', token);
+					if (!pr.passed())
 					{
-						return false;
+						return pr;
 					}
 					// SubClass
 					String parent = token.substring(0, dotLoc);
@@ -125,12 +129,11 @@ public class FavoredclassToken extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains HIGHESTLEVELCLASS and a specific reference: "
 					+ value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)

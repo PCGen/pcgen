@@ -27,15 +27,15 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken extends AbstractToken implements
-		CDOMPrimaryToken<Skill>
+public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
+		CDOMPrimaryParserToken<Skill>
 {
 
 	private static final Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
@@ -45,20 +45,29 @@ public class ClassesToken extends AbstractToken implements
 	{
 		return "CLASSES";
 	}
-
-	public boolean parse(LoadContext context, Skill skill, String value)
+	
+	@Override
+	public ParseResult parseToken(LoadContext context, Skill skill, String value)
 	{
 		if (Constants.LST_ALL.equals(value))
 		{
 			addSkillAllowed(context, skill, context.ref
 					.getCDOMAllReference(SKILLLIST_CLASS));
-			return true;
+			return ParseResult.SUCCESS;
 		}
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return super.parseToken(context, skill, value);
+	}
 
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Skill skill, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean added = false;
 
@@ -69,10 +78,9 @@ public class ClassesToken extends AbstractToken implements
 			{
 				if (added)
 				{
-					Logging.errorPrint("Non-sensical Skill " + getTokenName()
+					return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
 							+ ": Contains ALL after a specific reference: "
 							+ value);
-					return false;
 				}
 				addSkillAllowed(context, skill, context.ref
 						.getCDOMAllReference(SKILLLIST_CLASS));
@@ -80,9 +88,8 @@ public class ClassesToken extends AbstractToken implements
 			}
 			if (className.startsWith("!"))
 			{
-				Logging.errorPrint("Non-sensical Skill " + getTokenName()
+				return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
 						+ ": Contains ! without (or before) ALL: " + value);
-				return false;
 			}
 			addSkillAllowed(context, skill, context.ref.getCDOMReference(
 					SKILLLIST_CLASS, className));
@@ -97,21 +104,19 @@ public class ClassesToken extends AbstractToken implements
 				if (Constants.LST_ALL.equals(clString)
 						|| Constants.LST_ANY.equals(clString))
 				{
-					Logging.errorPrint("Invalid " + getTokenName()
+					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " cannot use !ALL");
-					return false;
 				}
 				addSkillNotAllowed(context, skill, context.ref
 						.getCDOMReference(SKILLLIST_CLASS, clString));
 			}
 			else
 			{
-				Logging.errorPrint("Non-sensical Skill " + getTokenName()
+				return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
 						+ ": Contains ALL and a specific reference: " + value);
-				return false;
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private void addSkillAllowed(LoadContext context, Skill skill,

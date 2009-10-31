@@ -42,8 +42,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
@@ -51,8 +52,8 @@ import pcgen.util.enumeration.Tab;
 /**
  * Deals with the MODIFYFEATCHOICE token
  */
-public class ModifyfeatchoiceToken extends AbstractToken implements
-		CDOMPrimaryToken<Ability>, ChoiceActor<Ability>
+public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability> implements
+		CDOMPrimaryParserToken<Ability>, ChoiceActor<Ability>
 {
 
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -63,13 +64,15 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		return "MODIFYFEATCHOICE";
 	}
 
-	public boolean parse(LoadContext context, Ability ability, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Ability ability, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
@@ -83,7 +86,7 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 
 			refs.add(ref);
@@ -101,7 +104,7 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
 		tc.setChoiceActor(this);
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)
