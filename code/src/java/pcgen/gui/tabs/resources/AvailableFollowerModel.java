@@ -441,7 +441,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 					if (qFilter == null
 						|| follower.getRace().getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 					{
-						final PObjectNode fol = new PObjectNode(follower);
+						final PObjectNode fol = new PObjectNode(new SourcedFollower(follower, me.getValue()));
 						final StringBuffer buf = new StringBuffer();
 						final boolean qual = follower.qualifies(pc, me.getValue());
 						if (!qual)
