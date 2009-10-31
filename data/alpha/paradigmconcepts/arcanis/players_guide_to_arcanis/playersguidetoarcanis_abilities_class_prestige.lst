@@ -20,7 +20,9 @@ Focused Training AS							CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO		
 Steady Hands								CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																																																																																				SAB:Steady Hands (Ex)																																																																																																																							AUTO:FEAT|Shot on the Run
 
 # Altherian Triggermage
-Empower Rune Gun								CATEGORY:Special Ability	TYPE:Internal.Supernatural		VISIBLE:NO																																																																																				SAB:Empower Rune Gun (Su) Ghost|PRECLASS:1,Altherian Triggermage=1	SAB:Empower Rune Gun (Su) Ghost, Seeker|PRECLASS:1,Altherian Triggermage=4	SAB:Empower Rune Gun (Su) Ghost, Seeker, Fire's Kiss|PRECLASS:1,Altherian Triggermage=6 SAB:Empower Rune Gun (Su) Ghost=1, Seeker=1, Fire's Kiss=1, Magic Bullet[PRECLASS:1=1,Altherian Triggermage=8]=1
+# Changed from SAB to DESC
+Empower Rune Gun								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																																																																					DESC:Ghost|PRECLASS:1,Altherian Triggermage=1	DESC:Ghost, Seeker|PRECLASS:1,Altherian Triggermage=4	DESC:Ghost, Seeker, Fire's Kiss|PRECLASS:1,Altherian Triggermage=6	DESC:Ghost, Seeker, Fire's Kiss, Magic Bullet|PRECLASS:1,Altherian Triggermage=8
+#
 Enhance Rune Gun								CATEGORY:Special Ability	TYPE:Internal.Supernatural		VISIBLE:NO																																																																																				SAB:Enhance Rune Gun +% (Su)|RuneGunBonus																																																																																										DEFINE:RuneGunBonus|0
 Enrune Flintlock								CATEGORY:Special Ability	TYPE:Internal.Supernatural		VISIBLE:NO																																																																																				SAB:Enrune Flintlock (Su)
 Imbue Bullet								CATEGORY:Special Ability	TYPE:Internal.SpellLike			VISIBLE:NO																																																																																				SAB:Imbue Bullet (Sp)|!PREFEAT:1,Improved Imbue Bullet
