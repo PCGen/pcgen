@@ -22,6 +22,7 @@ package pcgen.gui.utils;
 
 import pcgen.util.Logging;
 
+import javax.swing.SwingUtilities;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 import java.awt.event.InputEvent;
@@ -88,13 +89,20 @@ public final class JTreeTableSorter
 						// JTreeTableSorter.this.mode = 0;
 					}
 
-					sortNodeOnColumn(JTreeTableSorter.this.root, column, e
-						.getModifiers()
-						& InputEvent.SHIFT_MASK);
-					JTreeTableSorter.this.prevCol = column;
-					JTreeTableSorter.this.prevAscending =
+					final int sortAscending =
 							e.getModifiers() & InputEvent.SHIFT_MASK;
-					updateSortModel();
+					SwingUtilities.invokeLater(new Runnable()
+					{
+						public void run()
+						{
+							sortNodeOnColumn(JTreeTableSorter.this.root,
+								column, sortAscending);
+							JTreeTableSorter.this.prevCol = column;
+							JTreeTableSorter.this.prevAscending = sortAscending;
+							updateSortModel();
+						}
+					});
+					
 				}
 			}
 		};

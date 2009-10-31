@@ -672,6 +672,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			theModel.setAbilityList(getAbilityList(), thePC);
 			if (theSorter != null)
 			{
+				theSorter.setRoot((PObjectNode) theModel.getRoot());
 				theSorter.sortNodeOnColumn();
 			}
 			theTable.updateUI();
