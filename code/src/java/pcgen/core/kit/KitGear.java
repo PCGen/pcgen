@@ -231,7 +231,7 @@ public final class KitGear extends BaseKit
 
 		if (actingSize == null)
 		{
-			if (theEquipment.isType("Natural")
+			if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
 				tryResize =
