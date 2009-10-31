@@ -5839,6 +5839,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (PCClass pcClass : getClassSet())
 		{
 			addSpells(pcClass);
+			int lvl = getLevel(pcClass);
+			for (int i = 0; i <= lvl; i++)
+			{
+				PCClassLevel pcl = getActiveClassLevel(pcClass, i);
+				if (pcl != null)
+				{
+					addSpells(pcl);
+				}
+			}
 		}
 
 		for (Ability ability : getFullAbilitySet())
@@ -10278,7 +10287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvlMap;
 	}
 
-	private void addSpells(final PObject obj)
+	private void addSpells(final CDOMObject obj)
 	{
 		Race race = getRace();
 		if (race == null || obj == null)
