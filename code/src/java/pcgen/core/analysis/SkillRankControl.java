@@ -285,20 +285,13 @@ public class SkillRankControl
 					{
 						active.addWeight(g);
 					}
-					if (!SkillLanguage.chooseLanguageForSkill(aPC, sk))
+					SkillLanguage.chooseLanguageForSkill(aPC, sk);
+					int selectedLanguages = aPC
+							.getSelectCorrectedAssociationCount(sk);
+					int maxLanguages = getTotalRank(aPC, sk).intValue();
+					if (selectedLanguages > maxLanguages)
 					{
 						newRank = curRank;
-					}
-					else
-					{
-						int selectedLanguages = aPC
-								.getSelectCorrectedAssociationCount(sk);
-						int maxLanguages = getTotalRank(aPC, sk).intValue();
-
-						if (selectedLanguages > maxLanguages)
-						{
-							newRank = curRank;
-						}
 					}
 					if (active != null)
 					{
