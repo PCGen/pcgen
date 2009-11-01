@@ -8002,7 +8002,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Remove the spell form the character's class instance if it
 		// is no longer present in any book
-		removeAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
+		if (acs.getInfoList().isEmpty())
+		{
+			removeAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
+		}
 
 		return "";
 	}
