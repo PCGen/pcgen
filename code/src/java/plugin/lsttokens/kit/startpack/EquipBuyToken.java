@@ -38,14 +38,14 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * EQUIPBUY Token for KitStartpack
  */
 public class EquipBuyToken extends AbstractTokenWithSeparator<Kit> implements
-		CDOMPrimaryToken<Kit>
+		CDOMPrimaryParserToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

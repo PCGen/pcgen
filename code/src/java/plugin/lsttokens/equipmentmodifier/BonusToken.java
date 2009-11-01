@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -25,16 +25,16 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with BONUS token
  */
-public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
+public class BonusToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMPrimaryParserToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -42,19 +42,18 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		return "BONUS";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier mod,
-			String value) throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, EquipmentModifier mod,
+		String value)
 	{
 		BonusObj bon = Bonus.newBonus(value);
 		if (bon == null)
 		{
-			Logging.errorPrint(getTokenName() + " was given invalid bonus: "
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: "
 					+ value);
-			return false;
 		}
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(mod, ListKey.BONUS, bon);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, EquipmentModifier mod)

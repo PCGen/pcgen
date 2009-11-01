@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -41,15 +41,15 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken extends AbstractToken implements
-		CDOMPrimaryToken<Spell>
+public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
+		CDOMPrimaryParserToken<Spell>
 {
 
 	private static final Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
@@ -60,19 +60,27 @@ public class ClassesToken extends AbstractToken implements
 		return "CLASSES";
 	}
 
-	public boolean parse(LoadContext context, Spell spell, String value)
+	@Override
+	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
 		if (Constants.LST_DOT_CLEARALL.equals(value))
 		{
 			context.getListContext().clearAllMasterLists(getTokenName(), spell);
-			return true;
+			return ParseResult.SUCCESS;
 		}
+		return super.parseToken(context, spell, value);
+	}
 
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Spell spell, String value)
+	{
 		// Note: May contain PRExxx
 		String classKey;
 		Prerequisite prereq = null;
@@ -86,25 +94,22 @@ public class ClassesToken extends AbstractToken implements
 		{
 			if (value.lastIndexOf(']') != value.length() - 1)
 			{
-				Logging.errorPrint("Invalid " + getTokenName()
+				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ " must end with ']' if it contains a PREREQ tag");
-				return false;
 			}
 			classKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
 					.length() - 1);
 			if (prereqString.length() == 0)
 			{
-				Logging.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " cannot have empty prerequisite : " + value);
-				return false;
 			}
 			prereq = getPrerequisite(prereqString);
 			if (prereq == null)
 			{
-				Logging.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " had invalid prerequisite : " + prereqString);
-				return false;
 			}
 		}
 
@@ -121,17 +126,13 @@ public class ClassesToken extends AbstractToken implements
 			int equalLoc = tokString.indexOf(Constants.EQUALS);
 			if (equalLoc == -1)
 			{
-				Logging.errorPrint("Malformed " + getTokenName()
+				return new ParseResult.Fail("Malformed " + getTokenName()
 						+ " Token (expecting an =): " + tokString);
-				Logging.errorPrint("Line was: " + value);
-				return false;
 			}
 			if (equalLoc != tokString.lastIndexOf(Constants.EQUALS))
 			{
-				Logging.errorPrint("Malformed " + getTokenName()
+				return new ParseResult.Fail("Malformed " + getTokenName()
 						+ " Token (more than one =): " + tokString);
-				Logging.errorPrint("Line was: " + value);
-				return false;
 			}
 
 			String nameList = tokString.substring(0, equalLoc);
@@ -142,17 +143,15 @@ public class ClassesToken extends AbstractToken implements
 				level = Integer.valueOf(levelString);
 				if (level.intValue() < -1)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " may not use a negative level: " + value);
-					return false;
 				}
 				else if (level.intValue() == -1)
 				{
 					if (prereq != null)
 					{
-						Logging.errorPrint(getTokenName()
+						return new ParseResult.Fail(getTokenName()
 								+ " may not use -1 with a PREREQ: " + value);
-						return false;
 					}
 					// Logging.deprecationPrint(getTokenName()
 					// + " should not use a negative level: " + value);
@@ -160,15 +159,14 @@ public class ClassesToken extends AbstractToken implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Malformed Level in " + getTokenName()
+				return new ParseResult.Fail("Malformed Level in " + getTokenName()
 						+ " (expected an Integer): " + levelString);
-				Logging.errorPrint("Line was: " + value);
-				return false;
 			}
 
-			if (this.hasIllegalSeparator(',', nameList))
+			ParseResult pr = checkForIllegalSeparator(',', nameList);
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 
 			StringTokenizer commaTok = new StringTokenizer(nameList,
@@ -190,18 +188,16 @@ public class ClassesToken extends AbstractToken implements
 							SPELLLIST_CLASS, token);
 					if (ref == null)
 					{
-						Logging.errorPrint("  error was in " + getTokenName());
-						return false;
+						return new ParseResult.Fail("  error was in " + getTokenName());
 					}
 				}
 				if (level == -1)
 				{
 					if (prereq != null)
 					{
-						Logging.errorPrint("Cannot use Prerequisiste "
+						return new ParseResult.Fail("Cannot use Prerequisiste "
 								+ "on effective CLEAR (using level == -1) in "
 								+ getTokenName());
-						return false;
 					}
 					context.getListContext().removeFromMasterList(
 							getTokenName(), spell, ref, spell);
@@ -220,11 +216,10 @@ public class ClassesToken extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Spell spell)

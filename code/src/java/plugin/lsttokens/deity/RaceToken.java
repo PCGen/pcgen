@@ -25,13 +25,14 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACE Token
  */
-public class RaceToken extends AbstractToken implements CDOMPrimaryToken<Deity>
+public class RaceToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryParserToken<Deity>
 {
 
 	@Override
@@ -40,20 +41,23 @@ public class RaceToken extends AbstractToken implements CDOMPrimaryToken<Deity>
 		return "RACE";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Deity deity, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
 			context.getObjectContext().addToList(deity, ListKey.RACEPANTHEON,
 					tok.nextToken());
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)

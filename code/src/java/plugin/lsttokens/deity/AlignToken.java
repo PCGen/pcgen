@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ALIGN Token
  */
-public class AlignToken implements CDOMPrimaryToken<Deity>
+public class AlignToken extends ErrorParsingWrapper<Deity> implements CDOMPrimaryParserToken<Deity>
 {
 
 	public String getTokenName()
@@ -35,18 +36,17 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 		return "ALIGN";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	public ParseResult parseToken(LoadContext context, Deity deity, String value)
 	{
 		PCAlignment al =
 				context.ref.getAbbreviatedObject(PCAlignment.class, value);
 		if (al == null)
 		{
-			Logging.log(Logging.LST_ERROR, "In " + getTokenName() + " " + value
+			return new ParseResult.Fail("In " + getTokenName() + " " + value
 				+ " is not an Alignment");
-			return false;
 		}
 		context.getObjectContext().put(deity, ObjectKey.ALIGNMENT, al);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)

@@ -19,12 +19,12 @@ package plugin.lsttokens.equipmentmodifier.choose;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class FeatToken implements CDOMSecondaryToken<EquipmentModifier>
+public class FeatToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryParserToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -37,43 +37,38 @@ public class FeatToken implements CDOMSecondaryToken<EquipmentModifier>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier obj,
-			String value) throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires arguments");
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)

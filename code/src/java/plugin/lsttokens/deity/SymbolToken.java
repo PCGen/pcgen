@@ -20,13 +20,14 @@ package plugin.lsttokens.deity;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SYMBOL Token
  */
-public class SymbolToken implements CDOMPrimaryToken<Deity>
+public class SymbolToken extends ErrorParsingWrapper<Deity> implements CDOMPrimaryParserToken<Deity>
 {
 
 	public String getTokenName()
@@ -34,16 +35,14 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 		return "SYMBOL";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	public ParseResult parseToken(LoadContext context, Deity deity, String value)
 	{
 		if (value == null || value.length() == 0)
-
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " arguments may not be empty");
-			return false;
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
 		context.getObjectContext().put(deity, StringKey.HOLY_ITEM, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)

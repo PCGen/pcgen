@@ -19,12 +19,12 @@ package plugin.lsttokens.equipmentmodifier.choose;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
+public class NoChoiceToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryParserToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -37,18 +37,17 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier obj,
-			String value) throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
+		String value)
 	{
 		if (value == null)
 		{
 			// No args - legal
 			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
-			return true;
+			return ParseResult.SUCCESS;
 		}
-		Logging.errorPrint("CHOOSE:" + getTokenName()
+		return new ParseResult.Fail("CHOOSE:" + getTokenName()
 				+ " must not have arguments: " + value);
-		return false;
 	}
 
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)

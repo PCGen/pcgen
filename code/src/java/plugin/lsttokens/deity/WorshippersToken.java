@@ -20,14 +20,15 @@ package plugin.lsttokens.deity;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WORSHIPPERS Token
  */
-public class WorshippersToken extends AbstractToken implements
-		CDOMPrimaryToken<Deity>
+public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
+		CDOMPrimaryParserToken<Deity>
 {
 
 	/**
@@ -41,14 +42,12 @@ public class WorshippersToken extends AbstractToken implements
 		return "WORSHIPPERS";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Deity deity,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(deity, StringKey.WORSHIPPERS, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)

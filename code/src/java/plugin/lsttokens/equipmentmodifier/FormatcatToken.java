@@ -27,17 +27,17 @@ import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with FORMATCAT token, which indicates where the name of the equipment
  * modifier should be added in the name of any equipment item the eqmod is added
  * to.
  */
-public class FormatcatToken extends AbstractToken implements
-		CDOMPrimaryToken<EquipmentModifier>
+public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier> implements
+		CDOMPrimaryParserToken<EquipmentModifier>
 {
 
 	/**
@@ -50,13 +50,10 @@ public class FormatcatToken extends AbstractToken implements
 		return "FORMATCAT";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier mod,
-			String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		EquipmentModifier mod, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			context.getObjectContext().put(mod, ObjectKey.FORMAT,
@@ -64,11 +61,10 @@ public class FormatcatToken extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint("Invalid Format provided in " + getTokenName()
+			return new ParseResult.Fail("Invalid Format provided in " + getTokenName()
 					+ ": " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, EquipmentModifier mod)

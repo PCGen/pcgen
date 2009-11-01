@@ -27,14 +27,14 @@ import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DEITYWEAP Token
  */
-public class DeityweapToken extends AbstractToken implements CDOMPrimaryToken<Deity>
+public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryParserToken<Deity>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -45,13 +45,15 @@ public class DeityweapToken extends AbstractToken implements CDOMPrimaryToken<De
 		return "DEITYWEAP";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Deity deity, String value)
+	{
 		boolean foundAny = false;
 		boolean foundOther = false;
 
@@ -77,11 +79,10 @@ public class DeityweapToken extends AbstractToken implements CDOMPrimaryToken<De
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)

@@ -22,12 +22,12 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
+public class SkillBonusToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryParserToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -40,47 +40,40 @@ public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier obj,
-			String value) throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging
-					.errorPrint("CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " must have two or more | delimited arguments : "
 							+ value);
-			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Integer min = null;
@@ -116,33 +109,27 @@ public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 		{
 			if (min != null)
 			{
-				Logging
-						.errorPrint("Cannot have MIN=n without MAX=m in CHOOSE:STATBONUS: "
+				return new ParseResult.Fail("Cannot have MIN=n without MAX=m in CHOOSE:STATBONUS: "
 								+ value);
-				return false;
 			}
 		}
 		else
 		{
 			if (min == null)
 			{
-				Logging
-						.errorPrint("Cannot have MAX=n without MIN=m in CHOOSE:STATBONUS: "
+				return new ParseResult.Fail("Cannot have MAX=n without MIN=m in CHOOSE:STATBONUS: "
 								+ value);
-				return false;
 			}
 			if (max < min)
 			{
-				Logging
-						.errorPrint("Cannot have MAX= less than MIN= in CHOOSE:STATBONUS: "
+				return new ParseResult.Fail("Cannot have MAX= less than MIN= in CHOOSE:STATBONUS: "
 								+ value);
-				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)

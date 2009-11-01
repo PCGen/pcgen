@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -31,15 +31,15 @@ import pcgen.cdom.helper.PointCost;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DURATION Token
  */
-public class SpellPointCostToken extends AbstractToken implements
-		CDOMPrimaryToken<Spell>
+public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell> implements
+		CDOMPrimaryParserToken<Spell>
 {
 
 	@Override
@@ -48,12 +48,16 @@ public class SpellPointCostToken extends AbstractToken implements
 		return "SPELLPOINTCOST";
 	}
 
-	public boolean parse(LoadContext context, Spell spell, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Spell spell, String value)
+	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
@@ -67,9 +71,8 @@ public class SpellPointCostToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("Non-sensical use of .CLEAR in "
+					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_POINT_COST);
@@ -92,10 +95,9 @@ public class SpellPointCostToken extends AbstractToken implements
 					hasNonTotal = true;
 					if (tok.lastIndexOf(Constants.EQUALS) != equalLoc)
 					{
-						Logging.errorPrint("Invalid number of Arguments in "
+						return new ParseResult.Fail("Invalid number of Arguments in "
 								+ getTokenName() + "(" + spell.getDisplayName()
 								+ "): " + value);
-						return false;
 					}
 					type = tok.substring(0, equalLoc);
 					cost = tok.substring(equalLoc + 1);
@@ -107,10 +109,9 @@ public class SpellPointCostToken extends AbstractToken implements
 				}
 				catch (NumberFormatException e)
 				{
-					Logging.errorPrint("Invalid Value in " + getTokenName()
+					return new ParseResult.Fail("Invalid Value in " + getTokenName()
 							+ "(" + spell.getDisplayName() + "): " + value
 							+ ".  Value must be an integer.");
-					return false;
 				}
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_POINT_COST, new PointCost(type, costInt));
@@ -121,7 +122,7 @@ public class SpellPointCostToken extends AbstractToken implements
 		{
 			// TODO Error here?
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Spell spell)

@@ -39,14 +39,14 @@ import pcgen.core.Domain;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DOMAINS Token
  */
-public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deity>
+public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryParserToken<Deity>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -60,13 +60,15 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 		return "DOMAINS";
 	}
 
-	public boolean parse(LoadContext context, Deity deity, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Deity deity, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		StringTokenizer commaTok = new StringTokenizer(pipeTok.nextToken(),
 				Constants.COMMA);
@@ -83,17 +85,15 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			String tokString = commaTok.nextToken();
 			if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
 			{
-				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName()
+				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ ": PRExxx was comma delimited : " + value);
-				return false;
 			}
 			if (Constants.LST_DOT_CLEAR.equals(tokString))
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						deity, dl);
@@ -138,27 +138,23 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 
 		if (foundAll && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ALL and a specific reference: " + value);
-			return false;
 		}
 
 		while (pipeTok.hasMoreTokens())
 		{
 			if (foundClear)
 			{
-				Logging.log(Logging.LST_ERROR,
-						"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
+				return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
 								+ getTokenName());
-				return false;
 			}
 			String tokString = pipeTok.nextToken();
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put items after the "
+				return new ParseResult.Fail("   (Did you put items after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			for (AssociatedPrereqObject ao : proList)
 			{
@@ -166,7 +162,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			}
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Deity deity)
