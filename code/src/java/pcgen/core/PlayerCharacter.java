@@ -15642,11 +15642,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
 		List<Ability> list = virtualAbilities.getListFor(cat);
-		for (Ability ability : list)
+		if (list != null)
 		{
-			if (AbilityUtilities.areSameAbility(ability, abilityInfo))
+			for (Ability ability : list)
 			{
-				return true;
+				if (AbilityUtilities.areSameAbility(ability, abilityInfo))
+				{
+					return true;
+				}
 			}
 		}
 		return false;
