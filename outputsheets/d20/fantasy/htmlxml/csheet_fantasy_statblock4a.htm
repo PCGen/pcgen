@@ -885,7 +885,15 @@ var bonusDamageType = new Array();
 |ENDFOR|
 |ENDIF|
 <br />
-<b>Base Atk</b> <font face="ScalaSans Caps">|ATTACK.MELEE.BASE|</font>; <b>Grp</b> 
+
+<b>Base Atk</b> <font face="ScalaSans Caps">|ATTACK.MELEE.BASE|</font>; 
+|IIF(VAR.UseCombatManueverBonus:1)|
+<b>CMB</b>&nbsp;|VAR.CMB.INTVAL.SIGN|
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+<b>;&nbsp;CMD</b>&nbsp;|VAR.CMD.INTVAL.SIGN|
+|ENDIF|
+|ELSE|
+<b>Grp</b> 
 |FOR,%numsubtypes,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,0|
 |FOR,%subtype,0,COUNT[RACESUBTYPES]-1,1,0|
 |IIF(RACESUBTYPE.%subtype:Incorporeal.OR.RACESUBTYPE.%subtype:Swarm)|
@@ -902,6 +910,7 @@ var bonusDamageType = new Array();
 <font face="ScalaSans Caps">|ATTACK.GRAPPLE.BASE.SIGN+ATTACK.GRAPPLE.SIZE.SIGN+ATTACK.GRAPPLE.STAT.SIGN+ATTACK.GRAPPLE.MISC.INTVAL.SIGN|</font>
 |ENDIF|
 |ENDFOR|
+|ENDIF|
 
 <!-- Special Attacks (This is not part of the WotC format) -->
 |FOR,%feat,0,COUNT[FEATTYPE=SpecialAtk.ALL]-1,1,0|

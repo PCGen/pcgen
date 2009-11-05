@@ -153,11 +153,19 @@ Tower Shield,
   </tr>
 
 |IIF(VAR.UseCombatManueverBonus:1)|
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+  <tr valign="top">
+    <td width="25%"><b>Base Attack/CMB/CMD: </b></td>
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|/|VAR.CMB.INTVAL.SIGN|/|VAR.CMD.INTVAL.SIGN|
+    </td>
+  </tr>
+|ELSE|
   <tr valign="top">
     <td width="25%"><b>Base Attack/CMB: </b></td>
     <td width="75%">|VAR.BAB.INTVAL.SIGN|/|VAR.CMB.INTVAL.SIGN|
     </td>
   </tr>
+|ENDIF|
 |ELSE|
   <tr valign="top">
     <td width="25%"><b>Base Attack/Grapple: </b></td>
@@ -165,7 +173,7 @@ Tower Shield,
 |IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
 |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
 |ELSE|
- - 
+&mdash;
 |ENDIF|   
     </td>
   </tr>

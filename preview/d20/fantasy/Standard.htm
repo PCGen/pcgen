@@ -640,6 +640,26 @@ Wisdom
     <tr><td></td></tr>
    </table>
    <table width="100%" summary="CMB block">
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+    <tr>
+     <td align="center" class="ab"><b>CMB</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Grapple.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Trip.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Disarm.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Sunder.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_BullRush.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Overrun.INTVAL.SIGN|</b></td>
+    </tr>
+    <tr>
+     <td align="center" class="ab"><b>CMD</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_Grapple.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_Trip.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_Disarm.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_Sunder.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_BullRush.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMD_Overrun.INTVAL|</b></td>
+    </tr>
+|ELSE|
     <tr>
      <td align="center" class="ab"><b>OFFENSE</b></td>
      <td align="center" class="border10"><b>|VAR.CMB_Grapple.INTVAL.SIGN|</b></td>
@@ -658,6 +678,7 @@ Wisdom
      <td align="center" class="border10"><b>|VAR.CMB_Bull_DEF.INTVAL|</b></td>
      <td align="center" class="border10"><b>|VAR.CMB_Overrun_DEF.INTVAL|</b></td>
     </tr>
+|ENDIF|
     <tr>
      <td align="center" width="28%"></td>
      <td align="center" width="12%" valign="top" class="lable">GRAPPLE</td>

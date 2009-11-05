@@ -34,18 +34,20 @@ CR |CR|; |SIZELONG|
 |ELSE|
 |RACETYPE|
 |ENDIF|
+|MANUALWHITESPACE|
 |IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
-; 
+;&nbsp;
 |ELSE|
  (
 |FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
-|RACESUBTYPE.%subtype|, 
+|RACESUBTYPE.%subtype|,&nbsp;
 |ENDFOR|
 |FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
 |RACESUBTYPE.%subtype|
 |ENDFOR|
-); 
+);&nbsp;
 |ENDIF|
+|ENDMANUALWHITESPACE|
 HD |HITDICE|; 
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
 hp |HP|;
@@ -57,6 +59,9 @@ Spd |MOVEMENT|; AC |AC.Total|, touch |AC.Touch|, flat-footed |AC.Flatfooted|,
 Base Atk |ATTACK.MELEE|; 
 |IIF(VAR.UseCombatManueverBonus:1)|
 CMB |VAR.CMB.INTVAL.SIGN|; 
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+CMD |VAR.CMD.INTVAL.SIGN|; 
+|ENDIF|
 |ELSE|
 Grp |ATTACK.GRAPPLE.TOTAL|; 
 |ENDIF|

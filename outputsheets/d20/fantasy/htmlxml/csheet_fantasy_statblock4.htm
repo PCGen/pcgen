@@ -457,17 +457,23 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <!-- End Attacks -->
 
 <br><b>Face</b> |FACE| <b>Reach</b> |REACH|<br>
-<b>Base Atk</b> |ATTACK.MELEE.BASE|; 
+
+|MANUALWHITESPACE|
+<b>Base&nbsp;Atk</b>&nbsp;|ATTACK.MELEE.BASE|;&nbsp;
 |IIF(VAR.UseCombatManueverBonus:1)|
-<b>Combat Manuever Bonus</b> |VAR.CMB.INTVAL.SIGN|
+<b>CMB</b>&nbsp;|VAR.CMB.INTVAL.SIGN|
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+<b>;&nbsp;CMD</b>&nbsp;|VAR.CMD.INTVAL.SIGN|
+|ENDIF|
 |ELSE|
 <b>Grp</b> 
 |IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
 |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
 |ELSE|
- - 
+&mdash;
 |ENDIF|
 |ENDIF|
+|ENDMANUALWHITESPACE|
 
 <!-- AttackOption TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=AttackOption";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
