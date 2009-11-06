@@ -1,0 +1,3 @@
+###Spell
+Fireball	CLASSES:MonKee=1	SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:DangerousFubarStuff|I wouldn't touch it if I were you	TARGETAREA:Anywhere but here	DURATION:As long as you want up to (CASTERLEVEL*10) days [Should be CL x 10]	DESC:What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]	SOURCEPAGE:test
+

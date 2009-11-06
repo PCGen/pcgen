@@ -1,0 +1,26 @@
+###Class
+CLASS:MonKee	TYPE:PC	HD:12	BONUS:CASTERLEVEL|MonKee|CL	BONUS:COMBAT|BAB|CL+3	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|AC|TL
+CLASS:MonKee	BONUS:CASTERLEVEL|MonKee|CL+4	SPELLTYPE:Arcane	SPELLSTAT:CHA
+SUBCLASS:MonKee Junior	COST:0	
+SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC|Monkee Jr Test
+1	CAST:8,7,6,5,4,3,2,1,0
+
+
+CLASS:KeePer of Knowledge	TYPE:PC
+CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE.Craft
+SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
+SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker		BONUS:VAR|SubstitutionLevelTracker|CL+25
+SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
+SUBSTITUTIONLEVEL:1		AUTO:WEAPONPROF|Suns Weapon Of Choice
+SUBSTITUTIONCLASS:KeePer of Knowledge (Moons)
+SUBSTITUTIONLEVEL:1		AUTO:ARMORPROF|Mooning Cloth
+SUBSTITUTIONCLASS:KeePer of Knowledge (Celestial Events)
+SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Toughness,Test Case Extreme
+SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
+SUBSTITUTIONLEVEL:1		AUTO:FEAT|Dodge
+1	AUTO:FEAT|Not Dodge
+2	CAST:5,4,3,2,1
+3	CAST:10,9,8,7,6,5,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0
+
+CLASS:Running With Scissors	TYPE:NPC.Monster
+CLASS:Running With Scissors	CSKILL:Monkey Building Sensation

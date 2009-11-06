@@ -1,0 +1,16 @@
+###Lang
+Doosuldorf		TYPE:Spoken
+Evilhaasness	TYPE:Written.Read
+
+Terestial Alpha	TYPE:Spoken.Read.Written
+Terestial Beta	TYPE:Spoken.Read.Written
+
+Evil Language need Evil Align	TYPE:Spoken.Read.Written	PREALIGN:1,LE,NE,CE
+Good Language need Good Align	TYPE:Spoken.Read.Written	PREALIGN:1,LG,NG,CG
+
+MonKee Language			TYPE:Spoken.Read.Written	PRECLASS:1,MonKee=1
+
+
+LangAutoOne				TYPE:Spoken.Read.Written
+LangBonusTwo			TYPE:Spoken.Read.Written
+

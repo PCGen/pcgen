@@ -1,0 +1,13 @@
+###Skill
+Test Crafting			KEYSTAT:DEX
+Craft (One)				KEYSTAT:DEX	TYPE:Craft
+Craft (Two)				KEYSTAT:DEX	TYPE:Craft
+Monkey Building Sensation	KEYSTAT:CHA	TYPE:MonFoo
+Test Coding Script		KEYSTAT:INT	TYPE:Intelligence
+Poetry				KEYSTAT:CHA	TYPE:Performance.Poetry
+
+#Conditional Skills
+Uber Scripting from five ranks in Test Coding Script		KEYSTAT:INT	BONUS:SKILL|Uber Scripting from five ranks in Test Coding Script|CHA	BONUS:SKILLRANK|Uber Scripting from five ranks in Test Coding Script|SKILLRANK=Poetry
+Poetry Recitation Specialty						KEYSTAT:CHA	
+
+Monkey Building			

@@ -1,0 +1,15 @@
+
+
+
+DodgeBall	TYPE:TestMonkey
+MonkeyFu	TYPE:TestMonkey
+
+
+ABonusFeat	TYPE:TestMonkey
+
+
+
+Dodge			TYPE:TestMonkey
+Not Dodge			TYPE:TestMonkey
+Test Case Extreme			TYPE:TestMonkey.Fighter
+Toughness				TYPE:TestMonkey.Fighter

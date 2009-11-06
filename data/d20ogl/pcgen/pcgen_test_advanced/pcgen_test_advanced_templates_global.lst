@@ -1,0 +1,26 @@
+###Templates
+
+Snowman					SAB:Snowman grants an SAB tag, which is granted from an ability
+
+
+
+TemplateAutoWeaponProf_Martial Type			AUTO:WEAPONPROF|TYPE.Martial
+TemplateAutoArmorProf_Medium			AUTO:ARMORPROF|ARMORTYPE=Medium
+TemplateAutoShieldProf_Light			AUTO:SHIELDPROF|Light
+
+
+
+TemplateAddFeat_Dodgeball_MonkeyFu				ADD:FEAT|Dodgeball,MonkeyFu
+TemplateAddLang_Doosuldorf_Evilhaasness				ADD:LANGUAGE|Doosuldorf,Evilhaasness
+TemplateAddAbilityNormal_Alertness or fighter		ADD:ABILITY|Special Ability|NORMAL|Alertness,TYPE=Fighter
+#TemplateAddAbilityAuto_Alertness or fighter			ADD:ABILITY|Special Ability|AUTOMATIC|Alertness,TYPE=Fighter
+TemplateAddAbilityVirtual_Alertness or fighter		ADD:ABILITY|Special Ability|VIRTUAL|Alertness,TYPE=Fighter
+
+TemplateAutoAbility_Alertness or fighter			ABILITY:Special Ability|AUTOMATIC|Alertness|TYPE=Fighter
+TemplateVirtualAbility_Alertness or fighter			ABILITY:Special Ability|VIRTUAL|Alertness|TYPE=Fighter
+
+TemplateAddEquipTorchOrLantern	ADD:EQUIP|1|Torch,Lantern
+TemplateAddSkillsFive			ADD:SKILL|5|Test Crafting,TYPE.Craft,Monkey Building,Test Coding Script
+
+
+Test One Situation

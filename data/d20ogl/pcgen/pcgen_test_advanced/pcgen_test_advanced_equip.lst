@@ -1,0 +1,13 @@
+#Equip
+Torch		TYPE:Goods
+Lantern	TYPE:Goods.Lightsource.Latern
+
+
+
+
+Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	
+Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	
+Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	
+
+
+Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor
