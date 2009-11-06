@@ -140,6 +140,9 @@
 				<name>|MOVE.%move.NAME|</name>
 				<rate>|MOVE.%move.RATE|</rate>
 				<squares>|MOVE.%move.SQUARES|</squares>
+|IIF(MOVE.%move.NAME:Fly)|
+				<maneuverability>(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)</maneuverability>
+|ENDIF|
 			</move>
 |ENDFOR|
 			<all>|MOVEMENT|</all>
@@ -554,10 +557,11 @@
 |ELSE|
 			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|+|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
 |ENDIF|
-			<critical>|VAR.SpiritWeaponRangedCrit.INTVAL|/x|VAR.SpiritWeaponRangedMult.INTVAL|</critical>
-			<range>|SpiritWeaponRangedRange|</range>
+			<critical>|VAR.SpiritWeaponRangedCritRange.INTVAL|/x|VAR.SpiritWeaponRangedCritMult.INTVAL|</critical>
+			<range>|VAR.SpiritWeaponRangedRange.INTVAL|</range>
 		</spiritweaponranged>
 |ENDIF|
+<!-- End Spirit Weapon - Ranged -->
 
 
 
@@ -3120,19 +3124,191 @@
 		</charcreation>
 |ENDFOR|
 	</charcreations>
-		<!--
+	<!--
+	  ====================================
+	  ====================================
+			Eclipse Abilities
+	  ====================================
+	  ====================================-->
+	<eclipse_abilities>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=EclipseAbilityOutput")==0)|
+|ELSE|
+	<!-- Standard Eclipse Abilities -->
+|ENDIF|
+|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=EclipseAbilityOutput")-1,1,0|
+		<eclipse_ability>
+|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
+			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
+|ELSE|
+|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
+			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
+|ELSE|
+|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
+			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
+|ELSE|
+|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
+			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
+|ELSE|
+			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
+			<type>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
+			<associated>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
+			<count>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
+		</eclipse_ability>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=EclipseAbilityOutput")==0)|
+|ELSE|
+	<!-- Automatic Eclipse Abilities -->
+|ENDIF|
+|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=EclipseAbilityOutput")-1,1,0|
+		<eclipse_ability>
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
+|ELSE|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
+		</eclipse_ability>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=EclipseAbilityOutput")==0)|
+|ELSE|
+	<!-- Virtual Eclipse Abilities -->
+|ENDIF|
+|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=EclipseAbilityOutput")-1,1,0|
+		<eclipse_ability>
+|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
+			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
+|ELSE|
+|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
+			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
+|ELSE|
+|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
+			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
+|ELSE|
+|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
+			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
+|ELSE|
+			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
+			<type>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
+			<associated>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
+			<count>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+			<source>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
+		</eclipse_ability>
+|ENDFOR|
+	</eclipse_abilities>
+	<!--
+	  ====================================
+	  ====================================
+			Spell Caster Output
+	  ====================================
+	  ====================================-->
+	<spellcasteroutputs>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=SpellCasterOutput")==0)|
+|ELSE|
+	<!-- Standard Spell Caster Output -->
+|ENDIF|
+|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=SpellCasterOutput")-1,1,0|
+		<spellcasteroutput>
+			<name>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
+			<description>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
+			<type>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
+			<associated>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
+			<count>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
+		</spellcasteroutput>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=SpellCasterOutput")==0)|
+|ELSE|
+	<!-- Automatic Spell Caster Output -->
+|ENDIF|
+|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SpellCasterOutput")-1,1,0|
+		<spellcasteroutput>
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
+		</spellcasteroutput>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=SpellCasterOutput")==0)|
+|ELSE|
+	<!-- Virtual Spell Caster Output -->
+|ENDIF|
+|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=SpellCasterOutput")-1,1,0|
+		<spellcasteroutput>
+			<name>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
+			<description>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
+			<type>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
+			<associated>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
+			<count>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+			<source>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
+		</spellcasteroutput>
+|ENDFOR|
+	</spellcasteroutputs>
+	<!--
 	  ====================================
 	  ====================================
 			Martial Arts
 	  ====================================
 	  ====================================-->
-	<martial_artists>
+	<martial_arts>
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=MartialArtsOutput")==0)|
 |ELSE|
 	<!-- Standard Martial Arts -->
 |ENDIF|
 |FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_artist>
+		<martial_art>
 			<name>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
 			<description>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
 			<type>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
@@ -3143,14 +3319,14 @@
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 			<source>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_artist>
+		</martial_art>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=MartialArtsOutput")==0)|
 |ELSE|
 	<!-- Automatic Martial Arts -->
 |ENDIF|
 |FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_artist>
+		<martial_art>
 			<name>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
 			<type>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
@@ -3161,14 +3337,14 @@
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 			<source>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_artist>
+		</martial_art>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=MartialArtsOutput")==0)|
 |ELSE|
 	<!-- Virtual Martial Arts -->
 |ENDIF|
 |FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_artist>
+		<martial_art>
 			<name>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
 			<description>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
 			<type>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
@@ -3179,9 +3355,9 @@
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 			<source>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_artist>
+		</martial_art>
 |ENDFOR|
-	</martial_artists>
+	</martial_arts>
 	<!--
 	  ====================================
 	  ====================================

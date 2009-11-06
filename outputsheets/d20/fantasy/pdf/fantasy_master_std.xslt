@@ -215,10 +215,10 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next="always" keep-together="always">
-					<fo:table-cell text-align="start" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
+					<fo:table-cell text-align="start"  wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/></fo:block>
 						<fo:block font-size="5pt" font-weight="bold">Player: <xsl:value-of select="/character/basics/playername"/></fo:block>
-						<fo:block font-size="5pt" font-weight="bold">Created using PCGen <xsl:value-of select="export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
+						<fo:block font-size="5pt" font-weight="bold">Created using PCGen <xsl:value-of select="export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill &amp; Dekker.</fo:block>
@@ -352,30 +352,27 @@
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="animal_tricks"/>
-						<xsl:apply-templates select="disadvantages"/>
-						<xsl:apply-templates select="charcreations"/>
-						<xsl:apply-templates select="martial_artists"/>
-						<xsl:apply-templates select="mystic_artists"/>
-						<xsl:apply-templates select="witchcrafts"/>
-						<xsl:apply-templates select="channelings"/>
-						<xsl:apply-templates select="dominions"/>
-						<xsl:apply-templates select="path_dragons"/>
+						<xsl:apply-templates select="special_abilities"/>
+						<xsl:apply-templates select="special_attacks"/>
+						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="talents"/>
-						<xsl:apply-templates select="spellcasteroutputs"/>
+				<!-- McWoD Edition Style -->
 						<xsl:apply-templates select="vampire_disciplines"/>
 						<xsl:apply-templates select="demon_cants"/>
 						<xsl:apply-templates select="werewolf_rites"/>
 						<xsl:apply-templates select="mage_gnosises"/>
+				<!-- End McWoD Edition Style -->
+				<!-- Saga Edition Style -->
 						<xsl:apply-templates select="force_techniques"/>
 						<xsl:apply-templates select="force_powers"/>
 						<xsl:apply-templates select="force_secrets"/>
-						<xsl:apply-templates select="special_abilities"/>
-						<xsl:apply-templates select="special_attacks"/>
-						<xsl:apply-templates select="special_qualities"/>
+					<!-- End Saga Edition Style -->
+				<!-- 4th Edition Style -->
 						<xsl:apply-templates select="powers_atwills"/>
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
 						<xsl:apply-templates select="powers_utilities"/>
+					<!-- End 4th Edition Style -->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
@@ -388,6 +385,29 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
+
+<!--
+	Start the Eclipse Section Page, if Present 
+-->
+			<fo:page-sequence>
+			<xsl:attribute name="master-reference">Portrait 2 Column</xsl:attribute>
+			<xsl:call-template name="page.footer"/>	
+				<fo:flow flow-name="body"  font-size="8pt">
+					<fo:block>
+						<xsl:apply-templates select="charcreations"/>
+						<xsl:apply-templates select="disadvantages"/>
+						<xsl:apply-templates select="spellcasteroutputs"/>
+						<xsl:apply-templates select="eclipse_abilities"/>
+						<xsl:apply-templates select="martial_arts"/>
+						<xsl:apply-templates select="mystic_artists"/>
+						<xsl:apply-templates select="witchcrafts"/>
+						<xsl:apply-templates select="channelings"/>
+						<xsl:apply-templates select="dominions"/>
+						<xsl:apply-templates select="path_dragons"/>
+					</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+<!-- End Eclipse Section -->
 			<xsl:apply-templates select="spells"/>
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>
@@ -1170,6 +1190,7 @@
 								</xsl:call-template>
 								<fo:block font-size="8pt">
 									<xsl:value-of select="basics/move/all"/>
+									<xsl:value-of select="basics/move/move/maneuverability"/>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
@@ -2501,6 +2522,200 @@
 			</fo:table-body>
 		</fo:table>
 		<!-- STOP Martial Arts Attack Table -->
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Spirit Weapon Melee ATTACK TABLE
+====================================
+====================================-->
+	<xsl:template match="weapons/spiritweaponranged">
+		<!-- START Martial Arts Attack Table -->
+		<fo:table table-layout="fixed" space-before="2mm">
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">Spirit Weapon - Melee</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">DAMAGE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">REACH</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="total"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="damage"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="critical"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="reach"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt">
+							<xsl:value-of select="type"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+		<!-- STOP Spirit Weapon Melee Attack Table -->
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Spirit Weapon Ranged ATTACK TABLE
+====================================
+====================================-->
+	<xsl:template match="weapons/spiritweaponranged">
+		<!-- START Martial Arts Attack Table -->
+		<fo:table table-layout="fixed" space-before="2mm">
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">Spirit Weapon - Ranged</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">DAMAGE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">RANGE</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="total"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="damage"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="critical"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="range"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt">
+							<xsl:value-of select="type"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+		<!-- STOP Spirit Weapon Ranged Attack Table -->
 	</xsl:template>
 <!--
 ====================================
@@ -4578,7 +4793,7 @@
 		</xsl:if>
 	</xsl:template>
 
-<!--> ECLIPSE Addons <!-->
+<!--> ECLIPSE Addons -->
 	<!--
 ====================================
 ====================================
@@ -4599,15 +4814,15 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - Martial Artist
+	TEMPLATE - Martial Arts
 ====================================
 ====================================-->
-	<xsl:template match="martial_artists">
-		<xsl:if test="count(martial_artist) &gt; 0">
+	<xsl:template match="martial_arts">
+		<xsl:if test="count(martial_art) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'martial_artists'"/>
+				<xsl:with-param name="attribute" select="'martial_arts'"/>
 				<xsl:with-param name="title" select="'Martial Arts'"/>
-				<xsl:with-param name="list" select="martial_artist"/>
+				<xsl:with-param name="list" select="martial_art"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -4734,8 +4949,25 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+	<!--	
+====================================
+====================================
+	TEMPLATE - Eclipse Abilities
+====================================
+====================================-->
+	<xsl:template match="eclipse_abilities">
+		<xsl:if test="count(eclipse_ability) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'eclipse_abilities'" />
+				<xsl:with-param name="title" select="'Eclipse Abilities'" />
+				<xsl:with-param name="list" select="eclipse_ability"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
-<!--> END Eclipse Addons <-->
+<!--> END Eclipse Addons -->
 	<!--
 ====================================
 ====================================
