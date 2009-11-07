@@ -80,7 +80,7 @@ SUBCLASSLEVEL:5												BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|Bar
 
 ###Block: Cleric subclass
 SUBCLASS:Anshar	COST:0	PREDEITY:1,Anshar
-SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Light)Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Sticks to Snakes|Cleric=4|Share My Pain												LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Improved Unarmed Strike
 SUBCLASSLEVEL:3																													AUTO:FEAT|Endurance
 SUBCLASSLEVEL:9																													AUTO:FEAT|Diehard
@@ -203,8 +203,8 @@ SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Fir
 SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Flintlock (Pistol)),Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0	TEMPLATE:OrderofBladeFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies																	ADD:ABILITY|Special Ability|NORMAL|Longsword Weapon Focus,Stunning Fist																		VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Greater Weapon Focus(Longsword)|Combat Reflexes
-SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm|Martial Weapon Technique (Longsword)
+SUBCLASSLEVEL:2																																														ADD:FEAT|Greater Weapon Focus(Longsword),Combat Reflexes
+SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0	TEMPLATE:OrderBronzeSepulcherFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Brothers of the Crypt
 SUBCLASS:Comtemplation of the Elements	COST:0	TEMPLATE:ContElementsFavClass																			PRERACE:1,Elorii
@@ -218,7 +218,7 @@ SUBCLASSLEVEL:3																																																																	
 SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						PREMULT:3,[PRERACE:1,Ss'ressen],[PRETEMPLATE:1,Black Talon],[PREGENDER:MALE]
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes|Tail Attack
+SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes,Tail Attack
 SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
