@@ -10,4 +10,4 @@ Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee	DAMAGE:d6	CRIT
 Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	
 
 
-Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor
+Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium

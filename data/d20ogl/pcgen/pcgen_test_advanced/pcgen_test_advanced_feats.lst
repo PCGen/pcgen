@@ -13,3 +13,7 @@ Dodge			TYPE:TestMonkey
 Not Dodge			TYPE:TestMonkey
 Test Case Extreme			TYPE:TestMonkey.Fighter
 Toughness				TYPE:TestMonkey.Fighter
+
+Choose No Choice		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Choose String Stack Yes		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:YES
+Choose String Stack No		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:NO
