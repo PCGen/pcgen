@@ -3,10 +3,10 @@ SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:A
 # Original Entry by: Mynex
 
 # Equipment Name	Required Weapon Proficiency	Type							Cost		Weight	Critical Hit Multiplier	Damage		Range		Size		Source Page
-Finger Razors						TYPE:Weapon.Exotic.Melee.Slashing		COST:5	WT:0		CRITMULT:x3			DAMAGE:Special			SIZE:T	SOURCEPAGE:13-15
+Finger Razors						TYPE:Weapon.Exotic.Melee.Slashing		COST:5	WT:0		CRITMULT:x3								SIZE:T	SOURCEPAGE:13-15
 Spring Dagger	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Simple.Melee.Piercing.Dagger	COST:150	WT:0.25	CRITMULT:x2			DAMAGE:1d4		RANGE:5	SIZE:T	SOURCEPAGE:p.14-15
 Weighted Dagger	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Simple.Melee.Piercing.Dagger	COST:20	WT:1		CRITMULT:x3			DAMAGE:1d6				SIZE:T	SOURCEPAGE:p.14-16
-Garrote							TYPE:Weapon.Exotic.Melee			COST:0.1	WT:0						DAMAGE:Special			SIZE:T	SOURCEPAGE:p.13-15
+Garrote							TYPE:Weapon.Exotic.Melee			COST:0.1	WT:0											SIZE:T	SOURCEPAGE:p.13-15
 Wire Garrote						TYPE:Weapon.Exotic.Melee.Slashing		COST:12	WT:0		CRITMULT:x4			DAMAGE:1d4				SIZE:T	SOURCEPAGE:p.14-16
 Stiletto							TYPE:Weapon.Exotic.Melee.Piercing		COST:8	WT:1		CRITMULT:x4			DAMAGE:1d4		RANGE:5	SIZE:T	SOURCEPAGE:p.14-15
 

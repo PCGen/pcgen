@@ -3,7 +3,7 @@
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 
 # Equipment Name	Type					Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page
-Arrow Catapult	TYPE:Goods.Siege Engines	COST:300	CRITMULT:-			CRITRANGE:0			DAMAGE:Special	RANGE:100	SOURCEPAGE:p.114
+Arrow Catapult	TYPE:Goods.Siege Engines	COST:300	CRITMULT:-			CRITRANGE:0						RANGE:100	SOURCEPAGE:p.114
 #Ballista		TYPE:Goods.Siege Engines	COST:500	SOURCEPAGE:p.114	CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6		RANGE:120
 #Catapult (Heavy)	TYPE:Goods.Siege Engines	COST:800	SOURCEPAGE:p.114	CRITMULT:-			CRITRANGE:0			DAMAGE:5d6		RANGE:200
 Catapult (Medium)	TYPE:Goods.Siege Engines	COST:675	CRITMULT:-			CRITRANGE:0			DAMAGE:4d6		RANGE:150	SOURCEPAGE:p.114
