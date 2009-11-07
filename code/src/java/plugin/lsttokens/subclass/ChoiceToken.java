@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -28,16 +28,18 @@ import pcgen.core.PCClass;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * Class deals with CHOICE Token
  */
-public class ChoiceToken extends AbstractToken implements
-		CDOMPrimaryToken<SubClass>
+public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
+		CDOMPrimaryParserToken<SubClass>
 {
 
 	@Override
@@ -46,38 +48,27 @@ public class ChoiceToken extends AbstractToken implements
 		return "CHOICE";
 	}
 
-	public boolean parse(LoadContext context, SubClass sc, String value)
+	@Override
+	protected char separator()
 	{
-		SpellProhibitor sp = subParse(context, sc, value);
-		if (sp == null)
-		{
-			return false;
-		}
-		context.getObjectContext().put(sc, ObjectKey.CHOICE, sp);
-		return true;
+		return '|';
 	}
 
-	public SpellProhibitor subParse(LoadContext context, SubClass sc,
-			String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		SubClass sc, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return null;
-		}
-
 		int pipeLoc = value.indexOf('|');
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " has no | separator for arguments: " + value);
-			return null;
 		}
 
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " has more than two | separated arguments: " + value);
-			return null;
 		}
 
 		String pstString = value.substring(0, pipeLoc);
@@ -89,14 +80,14 @@ public class ChoiceToken extends AbstractToken implements
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging
-					.errorPrint(getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage(getTokenName()
 							+ " encountered an invalid Prohibited Spell Type: "
 							+ value);
-			Logging.errorPrint("  Legal values are: "
+			cpr.addErrorMessage("  Legal values are: "
 					+ StringUtil.join(Arrays.asList(ProhibitedSpellType
 							.values()), ", "));
-			return null;
+			return cpr;
 		}
 		if (type.equals(ProhibitedSpellType.SCHOOL)
 				|| type.equals(ProhibitedSpellType.SUBSCHOOL)
@@ -106,15 +97,15 @@ public class ChoiceToken extends AbstractToken implements
 					.substring(pipeLoc + 1));
 			if (spellProb == null)
 			{
-				Logging.errorPrint("  entire token value was: " + value);
-				return null;
+				return ParseResult.INTERNAL_ERROR;
+				//return new ParseResult.Fail("  entire token value was: " + value);
 			}
-			return spellProb;
+			context.getObjectContext().put(sc, ObjectKey.CHOICE, spellProb);
+			return ParseResult.SUCCESS;
 		}
 
-		Logging.errorPrint("Invalid TYPE in " + getTokenName() + ": "
+		return new ParseResult.Fail("Invalid TYPE in " + getTokenName() + ": "
 				+ pstString);
-		return null;
 	}
 
 	private SpellProhibitor typeSafeParse(LoadContext context, PCClass pcc,

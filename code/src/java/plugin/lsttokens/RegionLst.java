@@ -21,16 +21,16 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class RegionLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Region>
+public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, ChoiceActor<Region>
 {
 	@Override
 	public String getTokenName()
@@ -38,12 +38,16 @@ public class RegionLst extends AbstractToken implements
 		return "REGION";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject pcc, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String item = tok.nextToken();
 		Formula count = FormulaFactory.getFormulaFor(item);
@@ -51,16 +55,14 @@ public class RegionLst extends AbstractToken implements
 		{
 			if (!tok.hasMoreTokens())
 			{
-				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " cannot have only a count: " + value);
-				return false;
 			}
 			item = tok.nextToken();
 			if (count.resolve(null, "").intValue() <= 0)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR, "Count in "
+				return new ParseResult.Fail("Count in "
 						+ getTokenName() + " must be > 0: " + value);
-				return false;
 			}
 		}
 		else
@@ -84,7 +86,7 @@ public class RegionLst extends AbstractToken implements
 		context.obj.put(pcc, ObjectKey.REGION_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject pcc)

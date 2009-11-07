@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -38,15 +38,16 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
- * 
+ *
  */
 public class SpelllevelLst extends AbstractSpellListToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -55,14 +56,11 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		return "SPELLLEVEL";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
 	{
 		// SPELLLEVEL:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
-
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
 
 		String workingValue = value;
 		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
@@ -71,9 +69,8 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			int lastPipeLoc = workingValue.lastIndexOf('|');
 			if (lastPipeLoc == -1)
 			{
-				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName()
+				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ " not enough tokens: " + value);
-				return false;
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (lastToken.startsWith("PRE") || lastToken.startsWith("!PRE"))
@@ -91,9 +88,8 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 
 		if (tok.countTokens() < 3)
 		{
-			Logging.errorPrint("Insufficient values in SPELLLEVEL tag: "
+			return new ParseResult.Fail("Insufficient values in SPELLLEVEL tag: "
 					+ value);
-			return false;
 		}
 
 		String tagType = tok.nextToken(); // CLASS or DOMAIN
@@ -108,9 +104,9 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				if (!subParse(context, obj, ClassSpellList.class, tokString,
 						spellString, prereqs))
 				{
-					Logging.log(Logging.LST_ERROR, "  " + getTokenName()
-							+ " error - entire token was " + value);
-					return false;
+					return ParseResult.INTERNAL_ERROR;
+					//return new ParseResult.Fail("  " + getTokenName()
+					//		+ " error - entire token was " + value);
 				}
 			}
 			else if (tagType.equalsIgnoreCase("DOMAIN"))
@@ -118,20 +114,18 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				if (!subParse(context, obj, DomainSpellList.class, tokString,
 						spellString, prereqs))
 				{
-					Logging.log(Logging.LST_ERROR, "  " + getTokenName()
+					return new ParseResult.Fail("  " + getTokenName()
 							+ " error - entire token was " + value);
-					return false;
 				}
 			}
 			else
 			{
-				Logging.errorPrint("First token of " + getTokenName()
+				return new ParseResult.Fail("First token of " + getTokenName()
 						+ " must be CLASS or DOMAIN:" + value);
-				return false;
 			}
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private <CL extends CDOMObject & CDOMList<Spell>> boolean subParse(

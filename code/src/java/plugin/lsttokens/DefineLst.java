@@ -30,14 +30,15 @@ import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class DefineLst implements CDOMPrimaryToken<CDOMObject>
+public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -47,15 +48,14 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		return "DEFINE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		int barLoc = value.indexOf('|');
 		if (barLoc != value.lastIndexOf('|'))
 		{
-			Logging
-					.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 							+ " must be of Format: varName|varFormula or LOCK.<stat>|value or UNLOCK.<stat>");
-			return false;
 		}
 		if (barLoc == -1)
 		{
@@ -64,27 +64,24 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS,
 						value.substring(7));
 				context.obj.addToList(obj, ListKey.UNLOCKED_STATS, stat);
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			else
 			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " varName|varFormula"
+				return new ParseResult.Fail(getTokenName() + " varName|varFormula"
 						+ "or LOCK.<stat>|value syntax requires an argument");
-				return false;
 			}
 		}
 		if (value.startsWith("UNLOCK."))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " UNLOCK.<stat> does not allow an argument");
-			return false;
 		}
 		String var = value.substring(0, barLoc);
 		if (var.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, "Empty Variable Name found in " + getTokenName()
+			return new ParseResult.Fail("Empty Variable Name found in " + getTokenName()
 					+ ": " + value);
-			return false;
 		}
 		try
 		{
@@ -102,13 +99,12 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 				context.getObjectContext().put(obj,
 						VariableKey.getConstant(var), f);
 			}
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.log(Logging.LST_ERROR, "Illegal Formula found in " + getTokenName()
+			return new ParseResult.Fail("Illegal Formula found in " + getTokenName()
 					+ ": " + value + " " + e.getLocalizedMessage());
-			return false;
 		}
 	}
 

@@ -26,13 +26,15 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class SrLst implements CDOMPrimaryToken<CDOMObject>
+public class SrLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -40,7 +42,8 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 		return "SR";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -51,7 +54,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 			context.getObjectContext().put(obj, ObjectKey.SR,
 					new SpellResistance(FormulaFactory.getFormulaFor(value)));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

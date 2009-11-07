@@ -31,17 +31,18 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class ChooseLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
+public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -50,13 +51,9 @@ public class ChooseLst extends AbstractToken implements
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		String key;
 		String val;
 		int pipeLoc = value.indexOf(Constants.PIPE);
@@ -85,9 +82,8 @@ public class ChooseLst extends AbstractToken implements
 			String maxCount = key.substring(11);
 			if (maxCount == null || maxCount.length() == 0)
 			{
-				Logging.errorPrint("NUMCHOICES in CHOOSE must be a formula: "
+				return new ParseResult.Fail("NUMCHOICES in CHOOSE must be a formula: "
 						+ value);
-				return false;
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
@@ -104,7 +100,22 @@ public class ChooseLst extends AbstractToken implements
 			}
 		}
 
-		return context.processSubToken(obj, getTokenName(), key, val);
+		try
+		{
+			boolean ok = context.processSubToken(obj, getTokenName(), key, val);
+			if (ok)
+			{
+				return ParseResult.SUCCESS;
+			}
+			else
+			{
+				return ParseResult.INTERNAL_ERROR;
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getMessage());
+		}
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

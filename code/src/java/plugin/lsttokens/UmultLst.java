@@ -21,14 +21,15 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class UmultLst implements CDOMPrimaryToken<CDOMObject>
+public class UmultLst extends AbstractIntToken<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -36,34 +37,30 @@ public class UmultLst implements CDOMPrimaryToken<CDOMObject>
 		return "UMULT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected IntegerKey integerKey()
+	{
+		return IntegerKey.UMULT;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 1;
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext().put(obj, IntegerKey.UMULT, null);
+			return ParseResult.SUCCESS;
 		}
 		else
 		{
-			try
-			{
-				Integer i = Integer.valueOf(value);
-				if (i.intValue() <= 0)
-				{
-					Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + ": "
-							+ value);
-					Logging.log(Logging.LST_ERROR, "  Expecting a positive integer");
-					return false;
-				}
-				context.getObjectContext().put(obj, IntegerKey.UMULT, i);
-			}
-			catch (NumberFormatException nfe)
-			{
-				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + ": " + value);
-				Logging.log(Logging.LST_ERROR, "  Expecting an integer");
-				return false;
-			}
+			return super.parseToken(context, obj, value);
 		}
-		return true;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

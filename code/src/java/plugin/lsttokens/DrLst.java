@@ -31,17 +31,18 @@ import pcgen.core.DamageReduction;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
 
-public class DrLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -49,33 +50,38 @@ public class DrLst extends AbstractToken implements
 		return "DR";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		if (".CLEAR".equals(value))
 		{
 			context.getObjectContext()
 					.removeList(obj, ListKey.DAMAGE_REDUCTION);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, "|");
 		String drString = tok.nextToken();
-		if (hasIllegalSeparator('/', drString))
+		ParseResult pr = checkForIllegalSeparator('/', drString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 		String[] values = drString.split("/");
 		if (values.length != 2)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage(getTokenName()
 					+ " failed to build DamageReduction with value " + value);
-			Logging
-					.errorPrint("  ...expected a String with one / as a separator");
-			return false;
+			cpr.addErrorMessage("  ...expected a String with one / as a separator");
+			return cpr;
 		}
 		DamageReduction dr = new DamageReduction(values[0], values[1]);
 
@@ -85,12 +91,12 @@ public class DrLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(currentToken);
 			if (prereq == null)
 			{
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			dr.addPrerequisite(prereq);
 		}
 		context.getObjectContext().addToList(obj, ListKey.DAMAGE_REDUCTION, dr);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

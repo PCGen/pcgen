@@ -38,16 +38,17 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class ChangeprofLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -58,13 +59,16 @@ public class ChangeprofLst extends AbstractToken implements
 		return "CHANGEPROF";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		// value should be of the format:
 		// Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2
 		//
@@ -79,43 +83,46 @@ public class ChangeprofLst extends AbstractToken implements
 			int equalLoc = tokText.indexOf('=');
 			if (equalLoc < 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Improper " + getTokenName()
 					+ ": No = found. "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
-				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
-				return false;
+				cpr.addErrorMessage("  Token was: " + tokText);
+				cpr.addErrorMessage("  Tag was: " + value);
+				return cpr;
 			}
 			else if (equalLoc != tokText.lastIndexOf('='))
 			{
-				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Improper " + getTokenName()
 					+ ": Two = found.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
-				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
-				return false;
+				cpr.addErrorMessage("  Token was: " + tokText);
+				cpr.addErrorMessage("  Tag was: " + value);
+				return cpr;
 			}
 
 			String newType = tokText.substring(equalLoc + 1);
 			if (newType.length() == 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Improper " + getTokenName()
 					+ ": Empty Result Type.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
-				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
-				return false;
+				cpr.addErrorMessage("  Token was: " + tokText);
+				cpr.addErrorMessage("  Tag was: " + value);
+				return cpr;
 			}
 			if (newType.indexOf(".") != -1)
 			{
-				Logging
-					.errorPrint("Improper "
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Improper "
 						+ getTokenName()
 						+ ": Invalid (Compound) Result Type: cannot contain a period (.)  "
 						+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
-				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
-				return false;
+				cpr.addErrorMessage("  Token was: " + tokText);
+				cpr.addErrorMessage("  Tag was: " + value);
+				return cpr;
 			}
 			String[] val = {newType};
 
@@ -125,12 +132,13 @@ public class ChangeprofLst extends AbstractToken implements
 			String profs = tokText.substring(0, equalLoc);
 			if (profs.length() == 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Improper " + getTokenName()
 					+ ": Empty Source Prof.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
-				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
-				return false;
+				cpr.addErrorMessage("  Token was: " + tokText);
+				cpr.addErrorMessage("  Tag was: " + value);
+				return cpr;
 			}
 
 			StringTokenizer pTok = new StringTokenizer(profs, Constants.COMMA);
@@ -146,7 +154,7 @@ public class ChangeprofLst extends AbstractToken implements
 		{
 			context.obj.addToList(obj, ListKey.CHANGEPROF, cp);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

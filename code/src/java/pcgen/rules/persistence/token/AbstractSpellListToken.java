@@ -43,19 +43,24 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * The Class <code>AbstractSpellListToken</code> ...
- * 
+ *
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
- * 
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public abstract class AbstractSpellListToken extends AbstractToken
+public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<CDOMObject>
 {
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
 
 	/**
 	 * Gets the map.
-	 * 
+	 *
 	 * @param context the context
 	 * @param obj the obj
 	 * @param changedLists the changed lists
@@ -65,7 +70,7 @@ public abstract class AbstractSpellListToken extends AbstractToken
 	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(LoadContext context, CDOMObject obj, Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists, boolean knownSpells)
 	{
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map = new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
-	
+
 		for (CDOMReference listRef : changedLists)
 		{
 			AssociatedChanges changes = context.getListContext()
@@ -108,11 +113,11 @@ public abstract class AbstractSpellListToken extends AbstractToken
 
 	/**
 	 * Process unparse.
-	 * 
+	 *
 	 * @param type the type
 	 * @param domainMap the domain map
 	 * @param prereqs the prereqs
-	 * 
+	 *
 	 * @return the string builder
 	 */
 	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap, String prereqs)

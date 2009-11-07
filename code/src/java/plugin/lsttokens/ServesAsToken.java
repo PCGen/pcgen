@@ -42,19 +42,19 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
 /**
  * Deals with the SERVESAS token for Abilities
  */
-public class ServesAsToken extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -74,43 +74,50 @@ public class ServesAsToken extends AbstractToken implements
 				);
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot use SERVESAS on a " + obj.getClass());
-			Logging.log(Logging.LST_ERROR, "   bad use found in "
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
+			cpr.addErrorMessage("   bad use found in "
 					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
-			return false;
+			return cpr;
 		}
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return super.parseNonEmptyToken(context, obj, value);
+	}
+
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
 		ReferenceManufacturer<? extends CDOMObject> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " unable to generate manufacturer for type: " + value);
-			return false;
 		}
 		if (!st.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must include at least one target object");
-			return false;
 		}
 		if (!rm.getReferenceClass().equals(obj.getClass()))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expecting a POBJECT Type valid for "
 					+ obj.getClass().getSimpleName() + ", found: "
 							+ firstToken);
-			return false;
 		}
 
 		String servekey = StringPClassUtil.getStringFor(obj.getClass());
@@ -122,7 +129,7 @@ public class ServesAsToken extends AbstractToken implements
 			context.obj.addToList(obj, listkey, ref);
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

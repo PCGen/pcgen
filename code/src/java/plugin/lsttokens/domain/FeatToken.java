@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -24,7 +24,6 @@ import java.util.StringTokenizer;
 
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -37,15 +36,15 @@ import pcgen.core.Domain;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deal with FEAT token
  */
-public class FeatToken extends AbstractToken implements
-		CDOMPrimaryToken<Domain>
+public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
+		CDOMPrimaryParserToken<Domain>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -55,18 +54,16 @@ public class FeatToken extends AbstractToken implements
 		return "FEAT";
 	}
 
-	public boolean parse(LoadContext context, Domain domain, String value)
+	@Override
+	protected char separator()
 	{
-		return parseFeat(context, domain, value);
+		return '|';
 	}
 
-	public boolean parseFeat(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Domain obj, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
-
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
@@ -81,9 +78,8 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Ability.FEATLIST);
@@ -93,7 +89,7 @@ public class FeatToken extends AbstractToken implements
 				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, Ability.FEATLIST,
@@ -109,7 +105,7 @@ public class FeatToken extends AbstractToken implements
 			}
 			first = false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Domain domain)

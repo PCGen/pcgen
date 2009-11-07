@@ -40,16 +40,16 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class KitLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Kit>
+public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, ChoiceActor<Kit>
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;
@@ -60,32 +60,33 @@ public class KitLst extends AbstractToken implements
 		return "KIT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject pcc, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isStatic())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Count in "
+			return new ParseResult.Fail("Count in "
 					+ getTokenName() + " must be a number");
-			return false;
 		}
 		if (count.resolve(null, "").intValue() <= 0)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Count in "
+			return new ParseResult.Fail("Count in "
 					+ getTokenName() + " must be > 0");
-			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value);
-			return false;
 		}
 		List<CDOMReference<Kit>> refs = new ArrayList<CDOMReference<Kit>>();
 
@@ -107,10 +108,9 @@ public class KitLst extends AbstractToken implements
 		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<Kit>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
+			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
 				new QualifiedDecorator<Kit>(rcs));
@@ -119,7 +119,7 @@ public class KitLst extends AbstractToken implements
 		context.obj.addToList(pcc, ListKey.KIT_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject pcc)

@@ -49,16 +49,16 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class FeatToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -81,14 +81,10 @@ public class FeatToken extends AbstractToken implements
 		return "FEAT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (value.length() == 0)
-		{
-			Logging.errorPrint(getFullName() + " may not have empty argument");
-			return false;
-		}
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.NORMAL;
 
@@ -106,17 +102,15 @@ public class FeatToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging
-						.errorPrint("Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 			items = value.substring(pipeLoc + 1);
 		}
 
 		if (isEmpty(items) || hasIllegalSeparator(',', items))
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 
 		List<AbilityRef> refs = new ArrayList<AbilityRef>();
@@ -144,9 +138,8 @@ public class FeatToken extends AbstractToken implements
 				String className = token.substring(6);
 				if (className.length() == 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " must have Class name after " + token);
-					return false;
 				}
 				CDOMSingleRef<PCClass> pcc = context.ref.getCDOMReference(
 						PCCLASS_CLASS, className);
@@ -160,10 +153,9 @@ public class FeatToken extends AbstractToken implements
 				ab = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ab == null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
+					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName() + ": " + value
 							+ " had an invalid reference: " + token);
-					return false;
 				}
 			}
 			if (ab != null)
@@ -176,10 +168,9 @@ public class FeatToken extends AbstractToken implements
 					AbilityUtilities.getUndecoratedName(token, choices);
 					if (choices.size() != 1)
 					{
-						Logging.errorPrint("Invalid use of multiple items "
+						return new ParseResult.Fail("Invalid use of multiple items "
 								+ "in parenthesis (comma prohibited) in "
 								+ getFullName() + ": " + token);
-						return false;
 					}
 					ar.setChoice(choices.get(0));
 				}
@@ -188,9 +179,8 @@ public class FeatToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 
 		if (!refs.isEmpty())
@@ -201,9 +191,8 @@ public class FeatToken extends AbstractToken implements
 		}
 		if (pcs.isEmpty())
 		{
-			Logging.errorPrint("Internal Error: " + getFullName()
+			return new ParseResult.Fail("Internal Error: " + getFullName()
 					+ " did not have any references: " + value);
-			return false;
 		}
 		PrimitiveChoiceSet<AbilitySelection> ascs;
 		if (pcs.size() == 1)
@@ -222,7 +211,7 @@ public class FeatToken extends AbstractToken implements
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);
 		tc.allowStack(true);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

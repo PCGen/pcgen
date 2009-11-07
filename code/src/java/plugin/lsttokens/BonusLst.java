@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -29,17 +29,18 @@ import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  */
-public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
+public class BonusLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -47,7 +48,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 
 	/**
 	 * Returns token name
-	 * 
+	 *
 	 * @return token name
 	 */
 	public String getTokenName()
@@ -55,21 +56,20 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		return "BONUS";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		final String v = value.replaceAll(Pattern.quote("<this>"), obj
 				.getKeyName());
 		BonusObj bon = Bonus.newBonus(obj.bonusStringPrefix() + v);
 		if (bon == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " was given invalid bonus: " + value);
-			return false;
 		}
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(obj, ListKey.BONUS, bon);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

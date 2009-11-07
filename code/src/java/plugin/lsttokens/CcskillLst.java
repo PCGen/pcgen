@@ -37,16 +37,16 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class CcskillLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChooseResultActor
+public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, ChooseResultActor
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -57,12 +57,16 @@ public class CcskillLst extends AbstractToken implements
 		return "CCSKILL";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		boolean first = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -75,10 +79,9 @@ public class CcskillLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical "
+					return new ParseResult.Fail("  Non-sensical "
 							+ getTokenName()
 							+ ": .CLEAR was not the first list item");
-					return false;
 				}
 				context.getObjectContext().removeList(obj, ListKey.CCSKILL);
 			}
@@ -102,10 +105,9 @@ public class CcskillLst extends AbstractToken implements
 							.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
 					if (ref == null)
 					{
-						Logging.log(Logging.LST_ERROR,
+						return new ParseResult.Fail(
 								"  Error was encountered while parsing "
 										+ getTokenName());
-						return false;
 					}
 					context.getObjectContext().removeFromList(obj,
 							ListKey.CCSKILL, ref);
@@ -139,10 +141,8 @@ public class CcskillLst extends AbstractToken implements
 								tokText);
 						if (ref == null)
 						{
-							Logging
-									.errorPrint("  Error was encountered while parsing "
+							return new ParseResult.Fail("  Error was encountered while parsing "
 											+ getTokenName());
-							return false;
 						}
 						context.getObjectContext().addToList(obj,
 								ListKey.CCSKILL, ref);
@@ -153,11 +153,10 @@ public class CcskillLst extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private CDOMReference<Skill> getSkillReference(LoadContext context,

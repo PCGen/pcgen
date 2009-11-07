@@ -48,16 +48,16 @@ import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
 /**
  * Deals with the QUALIFY token for Abilities
  */
-public class QualifyToken extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -73,25 +73,32 @@ public class QualifyToken extends AbstractToken implements
 				Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot use QUALIFY on a "
+			return new ParseResult.Fail("Cannot use QUALIFY on a "
 					+ obj.getClass());
-			return false;
 		}
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return super.parseNonEmptyToken(context, obj, value);
+	}
 
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		if (value.indexOf("|") == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, QualifyType and Key: "
 					+ value);
-			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
@@ -99,9 +106,8 @@ public class QualifyToken extends AbstractToken implements
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " unable to generate manufacturer for type: " + value);
-			return false;
 		}
 
 		while (st.hasMoreTokens())
@@ -112,7 +118,7 @@ public class QualifyToken extends AbstractToken implements
 					.getReferenceClass(), ref));
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

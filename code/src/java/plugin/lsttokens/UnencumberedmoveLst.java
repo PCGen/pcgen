@@ -22,19 +22,17 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 
 /**
  * @author djones4
  */
-public class UnencumberedmoveLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -43,13 +41,16 @@ public class UnencumberedmoveLst extends AbstractToken implements
 		return "UNENCUMBEREDMOVE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean hasArmor = false;
@@ -63,101 +64,106 @@ public class UnencumberedmoveLst extends AbstractToken implements
 			String loadString = tok.nextToken();
 			if (loadString.equalsIgnoreCase("MediumLoad"))
 			{
-				if (!validateOnlyMove(hasMove))
+				ParseResult pr = validateOnlyMove(hasMove);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadMove = Load.MEDIUM;
 				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("HeavyLoad"))
 			{
-				if (!validateOnlyMove(hasMove))
+				ParseResult pr = validateOnlyMove(hasMove);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadMove = Load.HEAVY;
 				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("Overload"))
 			{
-				if (!validateOnlyMove(hasMove))
+				ParseResult pr = validateOnlyMove(hasMove);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadMove = Load.OVERLOAD;
 				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("MediumArmor"))
 			{
-				if (!validateOnlyArmor(hasArmor))
+				ParseResult pr = validateOnlyArmor(hasArmor);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadArmor = Load.MEDIUM;
 				hasArmor = true;
 			}
 			else if (loadString.equalsIgnoreCase("HeavyArmor"))
 			{
-				if (!validateOnlyArmor(hasArmor))
+				ParseResult pr = validateOnlyArmor(hasArmor);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadArmor = Load.OVERLOAD;
 				hasArmor = true;
 			}
 			else if (loadString.equalsIgnoreCase("LightLoad"))
 			{
-				if (!validateOnlyMove(hasMove))
+				ParseResult pr = validateOnlyMove(hasMove);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadMove = Load.LIGHT;
 				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("LightArmor"))
 			{
-				if (!validateOnlyMove(hasArmor))
+				ParseResult pr = validateOnlyMove(hasArmor);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				loadArmor = Load.LIGHT;
 				hasArmor = true;
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid value of \""
+				return new ParseResult.Fail("Invalid value of \""
 						+ loadString + "\" for UNENCUMBEREDMOVE in \""
-						+ obj.getDisplayName() + "\".", "PCGen",
-						MessageType.ERROR);
-				return false;
+						+ obj.getDisplayName() + "\".");
 			}
 		}
 		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD,
 				loadMove);
 		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR,
 				loadArmor);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
-	private boolean validateOnlyArmor(boolean hasArmor)
+	private ParseResult validateOnlyArmor(boolean hasArmor)
 	{
 		if (hasArmor)
 		{
-			Logging.errorPrint("Encountered Second Armor Load Type in "
+			return new ParseResult.Fail("Encountered Second Armor Load Type in "
 					+ getTokenName() + " this is not valid.");
 		}
-		return !hasArmor;
+		return ParseResult.SUCCESS;
 	}
 
-	private boolean validateOnlyMove(boolean hasMove)
+	private ParseResult validateOnlyMove(boolean hasMove)
 	{
 		if (hasMove)
 		{
-			Logging.errorPrint("Encountered Second Move Load Type in "
+			return new ParseResult.Fail("Encountered Second Move Load Type in "
 					+ getTokenName() + " this is not valid.");
 		}
-		return !hasMove;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

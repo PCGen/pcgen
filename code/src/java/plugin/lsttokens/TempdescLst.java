@@ -21,15 +21,16 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class TempdescLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -38,15 +39,13 @@ public class TempdescLst extends AbstractToken implements
 		return "TEMPDESC";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION,
 				EntityEncoder.decode(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

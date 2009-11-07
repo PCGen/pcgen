@@ -42,12 +42,12 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class VFeatLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -58,28 +58,30 @@ public class VFeatLst extends AbstractToken implements
 		return "VFEAT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
-		
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		
+
 		String token = tok.nextToken();
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
 		boolean first = true;
 		boolean foundClear = false;
-		
+
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.VIRTUAL;
 		CDOMReference<AbilityList> list = Ability.FEATLIST;
@@ -93,9 +95,8 @@ public class VFeatLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						list);
@@ -106,7 +107,7 @@ public class VFeatLst extends AbstractToken implements
 				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, list, ability);
@@ -120,12 +121,12 @@ public class VFeatLst extends AbstractToken implements
 				}
 				edgeList.add(assoc);
 			}
-		
+
 			first = false;
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			token = tok.nextToken();
 			if (token.startsWith("PRE") || token.startsWith("!PRE"))
@@ -136,10 +137,9 @@ public class VFeatLst extends AbstractToken implements
 
 		if (foundClear)
 		{
-			Logging.log(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
 							+ getTokenName());
-			return false;
 		}
 
 		while (true)
@@ -147,9 +147,8 @@ public class VFeatLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
+				return new ParseResult.Fail("   (Did you put feats after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{
@@ -162,7 +161,7 @@ public class VFeatLst extends AbstractToken implements
 			token = tok.nextToken();
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

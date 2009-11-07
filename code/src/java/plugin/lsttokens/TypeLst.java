@@ -27,16 +27,16 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class TypeLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -45,43 +45,38 @@ public class TypeLst extends AbstractToken implements
 		return "TYPE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject cdo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject cdo, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (value.startsWith(".CLEAR"))
 		{
 			context.getObjectContext().removeList(cdo, ListKey.TYPE);
 			if (value.length() == 6)
 			{
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			else if (value.charAt(6) == '.')
 			{
 				value = value.substring(7);
 				if (isEmpty(value))
 				{
-					Logging
-						.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ "started with .CLEAR. but expected to have a Type after .: "
 							+ value);
-					return false;
 				}
 			}
 			else
 			{
-				Logging
-					.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ "started with .CLEAR but expected next character to be .: "
 						+ value);
-				return false;
 			}
 		}
-		if (hasIllegalSeparator('.', value))
+		ParseResult pr = checkForIllegalSeparator('.', value);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
@@ -95,10 +90,9 @@ public class TypeLst extends AbstractToken implements
 			{
 				if (bRemove)
 				{
-					Logging.log(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Non-sensical use of .REMOVE.ADD. in "
 									+ getTokenName() + ": " + value);
-					return false;
 				}
 				bRemove = false;
 				bAdd = true;
@@ -107,18 +101,16 @@ public class TypeLst extends AbstractToken implements
 			{
 				if (bAdd)
 				{
-					Logging.log(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Non-sensical use of .ADD.REMOVE. in "
 									+ getTokenName() + ": " + value);
-					return false;
 				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
-				Logging.errorPrint("Non-sensical use of .CLEAR in "
+				return new ParseResult.Fail("Non-sensical use of .CLEAR in "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			else if (bRemove)
 			{
@@ -136,19 +128,17 @@ public class TypeLst extends AbstractToken implements
 		}
 		if (bRemove)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ "ended with REMOVE, so didn't have any Type to remove: "
 					+ value);
-			return false;
 		}
 		if (bAdd)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ "ended with ADD, so didn't have any Type to add: "
 					+ value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

@@ -28,16 +28,16 @@ import pcgen.core.Language;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class LangautoLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -48,13 +48,16 @@ public class LangautoLst extends AbstractToken implements
 		return "LANGAUTO";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -68,10 +71,9 @@ public class LangautoLst extends AbstractToken implements
 			{
 				if (!firstToken)
 				{
-					Logging.log(Logging.LST_ERROR, "Non-sensical situation was "
+					return new ParseResult.Fail("Non-sensical situation was "
 							+ "encountered while parsing " + getTokenName()
 							+ ": When used, .CLEAR must be the first argument");
-					return false;
 				}
 				context.getObjectContext().removeList(obj,
 						ListKey.AUTO_LANGUAGES);
@@ -92,9 +94,8 @@ public class LangautoLst extends AbstractToken implements
 				}
 				if (ref == null)
 				{
-					Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName());
-					return false;
 				}
 				context.getObjectContext().addToList(obj,
 						ListKey.AUTO_LANGUAGES, ref);
@@ -103,11 +104,10 @@ public class LangautoLst extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

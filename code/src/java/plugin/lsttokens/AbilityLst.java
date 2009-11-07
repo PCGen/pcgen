@@ -49,23 +49,22 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Implements the ABILITY: global LST token.
- * 
+ *
  * <p>
  * <b>Tag Name</b>: <code>ABILITY</code>:x|y|z|z<br />
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br />
- * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability: 
+ * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
  * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br />
- * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have 
+ * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
  * choices specified in &quot;()&quot;)<br />
  * <b>Prereqs Allowed</b>: Yes <br />
  * <p />
@@ -74,15 +73,15 @@ import pcgen.util.Logging;
  * <li>Adds an Ability to a character.</li>
  * <li>The Ability is added to the Ability Category specied and that category's
  * pool will be charged if the Nature is <tt>NORMAL</tt></li>
- * <li>This tag will <b>not</b> cause a chooser to appear so all required 
+ * <li>This tag will <b>not</b> cause a chooser to appear so all required
  * choices must be specified in the tag</li>
- * <li>Choices can be specified by including them in parenthesis after the 
+ * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
  * <li>A <tt>CATEGORY</tt> tag can be added to the ability key to specify that
  * the innate ability category specified be searched for a matching ability.</li>
  * <li>If no <tt>CATEGORY</tt> is specified the standard list for the ability
  * category will be used to find a matching ability.</li>
- * <li>This tag is a replacement for the following tags: <tt>FEAT</tt>, 
+ * <li>This tag is a replacement for the following tags: <tt>FEAT</tt>,
  * <tt>VFEAT</tt>, and <tt>FEATAUTO</tt>.
  * </ul>
  * <b>Where it is used:</b><br />
@@ -92,18 +91,18 @@ import pcgen.util.Logging;
  * <code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code><br />
  * Adds a Metamagic feat as an Auto feat.
  * <p />
- * 
+ *
  * <code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code><br />
  * Adds the Stunning Fist feat as a virtual class feature.
  * <p />
- * 
+ *
  * @author boomer70 <boomer70@yahoo.com>
- * 
+ *
  * @since 5.11.1
  *
  */
-public class AbilityLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -114,29 +113,29 @@ public class AbilityLst extends AbstractToken implements
 		return "ABILITY";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-		throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
 		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
 		if (category == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " refers to invalid Ability Category: " + cat);
-			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
 
-			Logging.log(Logging.LST_ERROR, getTokenName() + " must have a Nature, "
+			return new ParseResult.Fail(getTokenName() + " must have a Nature, "
 				+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
-			return false;
 		}
 		final String natureKey = tok.nextToken();
 		Nature nature;
@@ -146,32 +145,28 @@ public class AbilityLst extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " refers to invalid Ability Nature: " + natureKey);
-			return false;
 		}
 		if (Nature.ANY.equals(nature))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " must have abilities, Format is: "
 				+ "CATEGORY|NATURE|AbilityName: " + value);
-			return false;
 		}
 
 		String token = tok.nextToken();
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 				+ getTokenName() + ": " + value);
-			return false;
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList =
@@ -192,9 +187,8 @@ public class AbilityLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 						+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
@@ -206,7 +200,7 @@ public class AbilityLst extends AbstractToken implements
 				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, clearText);
 				if (ref == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				AssociatedPrereqObject assoc = context.getListContext()
 						.removeFromList(getTokenName(), obj, abilList, ref);
@@ -219,7 +213,7 @@ public class AbilityLst extends AbstractToken implements
 				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				AssociatedPrereqObject assoc =
 						context.getListContext().addToList(getTokenName(), obj,
@@ -237,7 +231,7 @@ public class AbilityLst extends AbstractToken implements
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			first = false;
 			token = tok.nextToken();
@@ -249,10 +243,8 @@ public class AbilityLst extends AbstractToken implements
 
 		if (removed)
 		{
-			Logging.log(Logging.LST_ERROR,
-					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
+			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
 							+ getTokenName());
-			return false;
 		}
 
 		while (true)
@@ -260,9 +252,8 @@ public class AbilityLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
+				return new ParseResult.Fail("   (Did you put feats after the "
 					+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{
@@ -275,7 +266,7 @@ public class AbilityLst extends AbstractToken implements
 			token = tok.nextToken();
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

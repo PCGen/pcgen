@@ -46,13 +46,13 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.FollowerOption;
 import pcgen.core.Race;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class implments the parsing for the COMPANIONLIST token.
@@ -99,19 +99,19 @@ import pcgen.util.Logging;
  * <br />
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
- * 
+ *
  * @author divaa01
- * 
+ *
  */
-public class CompanionListLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 	private static final String COMPANIONLIST = "COMPANIONLIST"; //$NON-NLS-1$
 	private static final String FOLLOWERADJUSTMENT = "FOLLOWERADJUSTMENT"; //$NON-NLS-1$
 
 	/**
 	 * Returns the name of the token this class can process.
-	 * 
+	 *
 	 * @return Token name
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
@@ -121,30 +121,32 @@ public class CompanionListLst extends AbstractToken implements
 		return COMPANIONLIST;
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, LstUtils.PIPE);
 
 		String companionType = tok.nextToken();
 
 		if (!tok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " requires more than just a Type: " + value);
-			return false;
 		}
 
 		String list = tok.nextToken();
 
-		if (hasIllegalSeparator(',', list))
+		ParseResult pr = checkForIllegalSeparator(',', list);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer subTok = new StringTokenizer(list, LstUtils.COMMA);
@@ -164,9 +166,8 @@ public class CompanionListLst extends AbstractToken implements
 				String raceType = tokString.substring(9);
 				if (raceType.length() == 0)
 				{
-					Logging.log(Logging.LST_ERROR, getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceType was not specified.");
-					return false;
 				}
 				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
 						Race.class,
@@ -180,17 +181,15 @@ public class CompanionListLst extends AbstractToken implements
 		}
 		if (foundAny && races.size() > 1)
 		{
-			Logging
-					.errorPrint("Non-sensical Race List includes Any and specific races: "
+			return new ParseResult.Fail("Non-sensical Race List includes Any and specific races: "
 							+ value);
-			return false;
 		}
 
 		if (!tok.hasMoreTokens())
 		{
 			// No other args, so we're done
 			finish(context, obj, companionType, races, null, null);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 
 		// The remainder of the elements are optional.
@@ -202,17 +201,15 @@ public class CompanionListLst extends AbstractToken implements
 			{
 				if (followerAdjustment != null)
 				{
-					Logging.log(Logging.LST_ERROR, getTokenName() + " Error: Multiple "
+					return new ParseResult.Fail(getTokenName() + " Error: Multiple "
 							+ FOLLOWERADJUSTMENT + " tags specified.");
-					return false;
 				}
 
 				int faStringLength = FOLLOWERADJUSTMENT.length();
 				if (optArg.length() <= faStringLength + 1)
 				{
-					Logging.log(Logging.LST_ERROR, "Empty FOLLOWERADJUSTMENT value in "
+					return new ParseResult.Fail("Empty FOLLOWERADJUSTMENT value in "
 							+ getTokenName() + " is prohibited");
-					return false;
 				}
 				String adj = optArg.substring(faStringLength + 1);
 
@@ -222,11 +219,11 @@ public class CompanionListLst extends AbstractToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging
-							.errorPrint("Expecting a number for FOLLOWERADJUSTMENT: "
+					ComplexParseResult cpr = new ComplexParseResult();
+					cpr.addErrorMessage("Expecting a number for FOLLOWERADJUSTMENT: "
 									+ adj);
-					Logging.log(Logging.LST_ERROR, "  was parsing Token " + getTokenName());
-					return false;
+					cpr.addErrorMessage("  was parsing Token " + getTokenName());
+					return cpr;
 				}
 			}
 			else if (optArg.startsWith("PRE") || optArg.startsWith("!PRE"))
@@ -235,18 +232,16 @@ public class CompanionListLst extends AbstractToken implements
 			}
 			else
 			{
-				Logging
-						.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 								+ ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): "
 								+ optArg);
-				return false;
 			}
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
 				finish(context, obj, companionType, races, followerAdjustment,
 						null);
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			optArg = tok.nextToken();
 		}
@@ -258,9 +253,8 @@ public class CompanionListLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(optArg);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put items after the "
+				return new ParseResult.Fail("   (Did you put items after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			prereqs.add(prereq);
 			if (!tok.hasMoreTokens())
@@ -271,7 +265,7 @@ public class CompanionListLst extends AbstractToken implements
 		}
 
 		finish(context, obj, companionType, races, followerAdjustment, prereqs);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private void finish(LoadContext context, CDOMObject obj,

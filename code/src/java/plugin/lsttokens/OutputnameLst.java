@@ -23,16 +23,17 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class OutputnameLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class OutputnameLst extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -41,16 +42,14 @@ public class OutputnameLst extends AbstractToken implements
 		return "OUTPUTNAME";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (obj instanceof EquipmentModifier)
 		{
-			Logging
-				.deprecationPrint(getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addWarningMessage(getTokenName()
 					+ " is not valid for an equipment modifier. The "
 					+ "FORMATCAT and NAMEOPT tags should be used instead. Will assume "
 					+ "NAMEOPT:TEXT=" + value + ". Object was "
@@ -58,10 +57,10 @@ public class OutputnameLst extends AbstractToken implements
 			context.getObjectContext().put(obj, StringKey.NAME_TEXT, value);
 			context.getObjectContext().put(obj, ObjectKey.NAME_OPT,
 				EqModNameOpt.valueOfIgnoreCase("TEXT"));
-			return true;
+			return cpr;
 		}
 		context.getObjectContext().put(obj, StringKey.OUTPUT_NAME, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

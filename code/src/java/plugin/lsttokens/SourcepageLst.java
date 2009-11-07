@@ -9,18 +9,17 @@ import java.net.URI;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class SourcepageLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, InstallLstToken
+public class SourcepageLst extends AbstractStringToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, InstallLstToken
 {
 
 	@Override
@@ -29,15 +28,10 @@ public class SourcepageLst extends AbstractToken implements
 		return "SOURCEPAGE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected StringKey stringKey()
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
-		context.getObjectContext().put(obj, StringKey.SOURCE_PAGE, value);
-		return true;
+		return StringKey.SOURCE_PAGE;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

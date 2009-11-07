@@ -31,14 +31,16 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class UdamLst implements CDOMPrimaryToken<CDOMObject>
+public class UdamLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -46,8 +48,10 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 		return "UDAM";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
+		ParseResult pr = ParseResult.SUCCESS;
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			/*
@@ -85,18 +89,19 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 					Constants.COMMA);
 			if (tok.countTokens() != 9 && tok.countTokens() != 1)
 			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " requires either a single value or 9 comma separated values");
-				return false;
 			}
 			if (context.getObjectContext().containsListFor(obj,
 					ListKey.UNARMED_DAMAGE))
 			{
-				Logging.log(Logging.LST_ERROR, obj.getDisplayName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addWarningMessage(obj.getDisplayName()
 						+ " already has " + getTokenName() + " set.");
-				Logging.log(Logging.LST_ERROR, " It will be redefined, "
+				cpr.addWarningMessage(" It will be redefined, "
 						+ "but you should be using " + getTokenName()
 						+ ":.CLEAR");
+				pr = cpr;
 				context.getObjectContext().removeList(obj,
 						ListKey.UNARMED_DAMAGE);
 			}
@@ -106,7 +111,7 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 						ListKey.UNARMED_DAMAGE, tok.nextToken());
 			}
 		}
-		return true;
+		return pr;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

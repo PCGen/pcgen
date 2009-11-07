@@ -20,14 +20,15 @@ package plugin.lsttokens;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
+public class DescispiLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -35,7 +36,8 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 		return "DESCISPI";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -43,9 +45,8 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -53,20 +54,18 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.obj.put(obj, ObjectKey.DESC_PI, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

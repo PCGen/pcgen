@@ -35,14 +35,16 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
 public class TemplateLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
+		CDOMPrimaryParserToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -54,6 +56,12 @@ public class TemplateLst extends AbstractToken implements
 	}
 
 	public boolean parse(LoadContext context, CDOMObject cdo, String value)
+	{
+		return ErrorParsingWrapper.parseToken(this, context, cdo, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
+		String value)
 	{
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
@@ -78,7 +86,7 @@ public class TemplateLst extends AbstractToken implements
 		}
 		if (isEmpty(remaining) || hasIllegalSeparator('|', remaining))
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 
 		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
@@ -129,7 +137,7 @@ public class TemplateLst extends AbstractToken implements
 						ListKey.REMOVE_TEMPLATES, ref);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
@@ -162,7 +170,7 @@ public class TemplateLst extends AbstractToken implements
 				}
 			}
 		}
-		
+
 		Changes<CDOMReference<PCTemplate>> choosechanges = context
 				.getObjectContext()
 				.getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);

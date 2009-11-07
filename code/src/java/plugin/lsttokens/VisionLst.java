@@ -38,22 +38,23 @@ import pcgen.core.Vision;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>VisionLst</code> handles the processing of the VISION tag in LST
  * code.
- * 
+ *
  * Last Editor: $Author$ Last Edited: $Date: 2008-06-15 22:14:51 -0400
  * (Sun, 15 Jun 2008) $
- * 
+ *
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisionLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	/**
@@ -65,26 +66,29 @@ public class VisionLst extends AbstractToken implements
 		return "VISION";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String visionString = aTok.nextToken();
 		if (visionString.startsWith("PRE") || visionString.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Cannot have only PRExxx subtoken in " + getTokenName()
 							+ ": " + value);
-			return false;
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
 
 		boolean foundClear = false;
-		
+
 		while (true)
 		{
 			if (".CLEAR".equals(visionString))
@@ -104,11 +108,12 @@ public class VisionLst extends AbstractToken implements
 				}
 				catch (IllegalArgumentException e)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					ComplexParseResult cpr = new ComplexParseResult();
+					cpr.addErrorMessage(
 							"Bad Syntax for Cleared Vision in "
 									+ getTokenName());
-					Logging.addParseMessage(Logging.LST_ERROR, e.getMessage());
-					return false;
+					cpr.addErrorMessage(e.getMessage());
+					return cpr;
 				}
 				foundClear = true;
 			}
@@ -129,25 +134,25 @@ public class VisionLst extends AbstractToken implements
 				}
 				catch (IllegalArgumentException e)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					ComplexParseResult cpr = new ComplexParseResult();
+					cpr.addErrorMessage(
 							"Bad Syntax for Vision in " + getTokenName());
-					Logging.addParseMessage(Logging.LST_ERROR, e.getMessage());
-					return false;
+					cpr.addErrorMessage(e.getMessage());
+					return cpr;
 				}
 			}
 			if (!aTok.hasMoreTokens())
 			{
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			visionString = aTok.nextToken();
 		}
 
 		if (foundClear)
 		{
-			Logging.log(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
 							+ getTokenName());
-			return false;
 		}
 
 		while (true)
@@ -155,10 +160,9 @@ public class VisionLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(visionString);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR,
+				return new ParseResult.Fail(
 						"   (Did you put vision after the " + "PRExxx tags in "
 								+ getTokenName() + ":?)");
-				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{
@@ -170,7 +174,7 @@ public class VisionLst extends AbstractToken implements
 			}
 			visionString = aTok.nextToken();
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

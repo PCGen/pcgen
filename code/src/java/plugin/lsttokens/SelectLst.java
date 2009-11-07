@@ -22,12 +22,14 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SELECT Token
  */
-public class SelectLst implements CDOMPrimaryToken<CDOMObject>
+public class SelectLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -35,11 +37,12 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 		return "SELECT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject cdo, String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
+		String value)
 	{
 		context.getObjectContext().put(cdo, FormulaKey.SELECT,
 				FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

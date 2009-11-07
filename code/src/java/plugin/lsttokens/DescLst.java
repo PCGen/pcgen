@@ -31,17 +31,17 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.PatternChanges;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles DESC token processing
- * 
+ *
  * @author djones4
  */
-public class DescLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
@@ -52,111 +52,93 @@ public class DescLst extends AbstractToken implements
 		return "DESC"; //$NON-NLS-1$
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
-
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.obj.removeList(obj, ListKey.DESCRIPTION);
-			return true;
-		}
-		if (value.startsWith(Constants.LST_DOT_CLEAR_DOT))
-		{
-			context.getObjectContext().removePatternFromList(obj,
-				ListKey.DESCRIPTION, value.substring(7));
-			return true;
-		}
-
-		Description d = parseDescription(value);
-		if (d == null)
-		{
-			return false;
-		}
-		context.obj.addToList(obj, ListKey.DESCRIPTION, d);
-		return true;
+		return '|';
 	}
 
-	/**
-	 * Parses the DESC tag into a Description object.
-	 * 
-	 * @param aDesc
-	 *            The LST tag
-	 * @return A <tt>Description</tt> object
-	 */
-	public Description parseDescription(final String aDesc)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String aDesc)
 	{
+		if (Constants.LST_DOT_CLEAR.equals(aDesc))
+		{
+			context.obj.removeList(obj, ListKey.DESCRIPTION);
+			return ParseResult.SUCCESS;
+		}
+		if (aDesc.startsWith(Constants.LST_DOT_CLEAR_DOT))
+		{
+			context.getObjectContext().removePatternFromList(obj,
+				ListKey.DESCRIPTION, aDesc.substring(7));
+			return ParseResult.SUCCESS;
+		}
+
 		StringTokenizer tok = new StringTokenizer(aDesc, Constants.PIPE);
 
 		String descString = tok.nextToken();
 
 		if (descString.startsWith("PRE") || descString.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " encountered only a PRExxx: "
+			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: "
 				+ aDesc);
-			return null;
 		}
 		String ds = EntityEncoder.decode(descString);
 		if (!StringUtil.hasBalancedParens(ds))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " encountered imbalanced Parenthesis: " + aDesc);
-			return null;
 		}
 		Description desc = new Description(ds);
 
-		if (!tok.hasMoreTokens())
+		if (tok.hasMoreTokens())
 		{
-			return desc;
-		}
+			String token = tok.nextToken();
+			while (true)
+			{
+				if (Constants.LST_DOT_CLEAR.equals(token))
+				{
+					return new ParseResult.Fail(getTokenName()
+						+ " tag confused by '.CLEAR' as a " + "middle token: "
+						+ aDesc);
+				}
+				else if (token.startsWith("PRE") || token.startsWith("!PRE"))
+				{
+					break;
+				}
+				else
+				{
+					desc.addVariable(token);
+				}
 
-		String token = tok.nextToken();
-		while (true)
-		{
-			if (Constants.LST_DOT_CLEAR.equals(token))
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " tag confused by '.CLEAR' as a " + "middle token: "
-					+ aDesc);
-				return null;
-			}
-			else if (token.startsWith("PRE") || token.startsWith("!PRE"))
-			{
-				break;
-			}
-			else
-			{
-				desc.addVariable(token);
+				if (!tok.hasMoreTokens())
+				{
+					// No prereqs, so we're done
+					context.obj.addToList(obj, ListKey.DESCRIPTION, desc);
+					return ParseResult.SUCCESS;
+				}
+				token = tok.nextToken();
 			}
 
-			if (!tok.hasMoreTokens())
+			while (true)
 			{
-				// No prereqs, so we're done
-				return desc;
+				Prerequisite prereq = getPrerequisite(token);
+				if (prereq == null)
+				{
+					return new ParseResult.Fail(
+						"   (Did you put Abilities after the "
+							+ "PRExxx tags in " + getTokenName() + ":?)");
+				}
+				desc.addPrerequisite(prereq);
+				if (!tok.hasMoreTokens())
+				{
+					break;
+				}
+				token = tok.nextToken();
 			}
-			token = tok.nextToken();
 		}
-
-		while (true)
-		{
-			Prerequisite prereq = getPrerequisite(token);
-			if (prereq == null)
-			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put Abilities after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)");
-				return null;
-			}
-			desc.addPrerequisite(prereq);
-			if (!tok.hasMoreTokens())
-			{
-				break;
-			}
-			token = tok.nextToken();
-		}
-		return desc;
+		context.obj.addToList(obj, ListKey.DESCRIPTION, desc);
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

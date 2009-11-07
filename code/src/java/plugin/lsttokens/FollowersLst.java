@@ -33,11 +33,11 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class implements support for the FOLLOWERS LST token.
@@ -64,14 +64,14 @@ import pcgen.util.Logging;
  * <b>Examples:</b><br />
  * <code>FOLLOWERS:Familiar|1</code><br />
  * A character is allowed only 1 companion of type Familiar
- * 
+ *
  * @author divaa01
- * 
+ *
  */
-public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
+public class FollowersLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
 {
 	/**
-	 * 
+	 *
 	 * @return token name
 	 */
 	public String getTokenName()
@@ -79,44 +79,40 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		return "FOLLOWERS"; //$NON-NLS-1$
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 							+ " has no PIPE character: Must be of the form <follower type>|<formula>");
-			return false;
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " has too many PIPE characters: "
 					+ "Must be of the form <follower type>|<formula");
-			return false;
 		}
 
 		String followerType = value.substring(0, pipeLoc);
 		if (followerType.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, "Follower Type in " + getTokenName()
+			return new ParseResult.Fail("Follower Type in " + getTokenName()
 					+ " cannot be empty");
-			return false;
 		}
 		String followerNumber = value.substring(pipeLoc + 1);
 		if (followerNumber.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, "Follower Count in " + getTokenName()
+			return new ParseResult.Fail("Follower Count in " + getTokenName()
 					+ " cannot be empty");
-			return false;
 		}
 		CDOMSingleRef<CompanionList> cl = context.ref.getCDOMReference(
 				CompanionList.class, followerType);
 		Formula num = FormulaFactory.getFormulaFor(followerNumber);
 		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
 				new FollowerLimit(cl, num));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

@@ -40,17 +40,18 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class NaturalattacksLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
+public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -64,6 +65,12 @@ public class NaturalattacksLst extends AbstractToken implements
 		return "NATURALATTACKS"; //$NON-NLS-1$
 	}
 
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
 	/**
 	 * NATURAL WEAPONS CODE <p/>first natural weapon is primary, the rest are
 	 * secondary; NATURALATTACKS:primary weapon name,weapon type,num
@@ -73,12 +80,10 @@ public class NaturalattacksLst extends AbstractToken implements
 	 * number of attacks is the number of attacks with that weapon at BAB (for
 	 * primary), or BAB - 5 (for secondary)
 	 */
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
 
@@ -98,17 +103,18 @@ public class NaturalattacksLst extends AbstractToken implements
 		while (attackTok.hasMoreTokens())
 		{
 			String tokString = attackTok.nextToken();
-			if (hasIllegalSeparator(',', tokString))
+			ParseResult pr = checkForIllegalSeparator(',', tokString);
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 			Equipment anEquip = createNaturalWeapon(context, obj, tokString);
 
 			if (anEquip == null)
 			{
-				Logging.log(Logging.LST_ERROR, "Natural Weapon Creation Failed for : "
-						+ tokString);
-				return false;
+				return ParseResult.INTERNAL_ERROR;
+				//return new ParseResult.Fail("Natural Weapon Creation Failed for : "
+				//		+ tokString);
 			}
 
 			if (count == 1)
@@ -129,14 +135,14 @@ public class NaturalattacksLst extends AbstractToken implements
 			context.obj.addToList(obj, ListKey.NATURAL_WEAPON, anEquip);
 			count++;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	/**
 	 * Create the Natural weapon equipment item aTok = primary weapon
 	 * name,weapon type,num attacks,damage for Example:
 	 * Tentacle,Weapon.Natural.Melee.Slashing,*4,1d6
-	 * 
+	 *
 	 * @param aTok
 	 * @param size
 	 * @return natural weapon
@@ -172,7 +178,7 @@ public class NaturalattacksLst extends AbstractToken implements
 		 * referred to, but this means that duplicates are never being detected
 		 * and resolved... this needs to have a KEY defined, to keep it
 		 * unique... hopefully this is good enough :)
-		 * 
+		 *
 		 * CONSIDER This really isn't that great, because it's String dependent,
 		 * and may not remove identical items... it certainly works, but is ugly
 		 */

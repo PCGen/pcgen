@@ -43,26 +43,27 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>SpellknownLst</code> is responsible for parsing and 
- * unparsing the SPELLKNOWN tag. This class is heavily based on the 
+ * The Class <code>SpellknownLst</code> is responsible for parsing and
+ * unparsing the SPELLKNOWN tag. This class is heavily based on the
  * SpelllevelLst class. <p>
  * Syntax is:
  * <pre>
  * SPELLKNOWN:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
  * </pre>
- * 
+ *
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
- * 
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
 public class SpellknownLst extends AbstractSpellListToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	/* (non-Javadoc)
@@ -74,16 +75,10 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return "SPELLKNOWN";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext, java.lang.Object, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
-
 		String workingValue = value;
 		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
 		while (true)
@@ -91,9 +86,8 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			int lastPipeLoc = workingValue.lastIndexOf('|');
 			if (lastPipeLoc == -1)
 			{
-				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName()
+				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ " not enough tokens: " + value);
-				return false;
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (lastToken.startsWith("PRE") || lastToken.startsWith("!PRE"))
@@ -111,9 +105,8 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 		if (tok.countTokens() < 3)
 		{
-			Logging.errorPrint("Insufficient values in SPELLKNOWN tag: "
+			return new ParseResult.Fail("Insufficient values in SPELLKNOWN tag: "
 					+ value);
-			return false;
 		}
 
 		String tagType = tok.nextToken(); // CLASS only
@@ -128,32 +121,31 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				if (!subParse(context, obj, ClassSpellList.class, tokString,
 						spellString, prereqs))
 				{
-					Logging.log(Logging.LST_ERROR, "  " + getTokenName()
-							+ " error - entire token was " + value);
-					return false;
+					return ParseResult.INTERNAL_ERROR;
+					//return new ParseResult.Fail("  " + getTokenName()
+					//		+ " error - entire token was " + value);
 				}
 			}
 			else
 			{
-				Logging.errorPrint("First token of " + getTokenName()
+				return new ParseResult.Fail("First token of " + getTokenName()
 						+ " must be CLASS: " + value);
-				return false;
 			}
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	/**
 	 * Parse the tag contents after the SPELLKNOWN:CLASS| section.
-	 * 
+	 *
 	 * @param context the context under which the tag is being parsed.
 	 * @param obj the obj The object owning the tag.
-	 * @param tagType the type of object the tag creates 
+	 * @param tagType the type of object the tag creates
 	 * @param tokString the tok string The string defining the caster type/class and spell level.
 	 * @param spellString the spell string The string containing the spell name(s)
 	 * @param prereqs the prereqs The prerequisites to be applied.
-	 * 
+	 *
 	 * @return true, if successful
 	 */
 	private <CL extends CDOMObject & CDOMList<Spell>> boolean subParse(

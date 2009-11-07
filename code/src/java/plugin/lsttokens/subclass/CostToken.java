@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -19,15 +19,14 @@ package plugin.lsttokens.subclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.SubClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 
 /**
  * Class deals with COST Token
  */
-public class CostToken implements CDOMPrimaryToken<SubClass>
+public class CostToken extends AbstractIntToken<SubClass> implements CDOMPrimaryParserToken<SubClass>
 {
 
 	public String getTokenName()
@@ -35,27 +34,16 @@ public class CostToken implements CDOMPrimaryToken<SubClass>
 		return "COST";
 	}
 
-	public boolean parse(LoadContext context, SubClass sc, String value)
-			throws PersistenceLayerException
+	@Override
+	protected IntegerKey integerKey()
 	{
-		try
-		{
-			Integer cost = Integer.valueOf(value);
-			if (cost.intValue() < 0)
-			{
-				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
-				return false;
-			}
-			context.getObjectContext().put(sc, IntegerKey.COST, cost);
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
-			return false;
-		}
+		return IntegerKey.COST;
+	}
+
+	@Override
+	protected int minValue()
+	{
+		return 0;
 	}
 
 	public String[] unparse(LoadContext context, SubClass sc)

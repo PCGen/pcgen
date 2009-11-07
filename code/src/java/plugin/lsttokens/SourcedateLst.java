@@ -13,19 +13,19 @@ import java.util.Date;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author zaister
- * 
+ *
  */
-public class SourcedateLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, InstallLstToken
+public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>, InstallLstToken
 {
 
 	@Override
@@ -34,20 +34,17 @@ public class SourcedateLst extends AbstractToken implements
 		return "SOURCEDATE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Date theDate = getDate(value);
 		if (theDate == null)
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		context.getObjectContext().put(obj, ObjectKey.SOURCE_DATE, theDate);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private Date getDate(String value)

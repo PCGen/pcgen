@@ -28,16 +28,16 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Movement;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class MoveLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -46,39 +46,41 @@ public class MoveLst extends AbstractToken implements
 		return "MOVE";
 	}
 
-	private boolean validateMove(String value, String mod)
+	private ParseResult validateMove(String value, String mod)
 	{
 		try
 		{
 			if (Integer.parseInt(mod) < 0)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
+				return new ParseResult.Fail(
 						"Invalid movement (cannot be negative): " + mod
 								+ " in MOVE: " + value);
-				return false;
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Invalid movement (must be an integer >= 0): " + mod
 							+ " in MOVE: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
+	{
+		return ',';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
 	{
 		//TODO Need to confirm with LST monkeys that MOVE works properly in equipment before making this permanent
 //		if (obj instanceof Equipment)
 //		{
 //			return false;
 //		}
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 		Movement cm;
 
@@ -86,9 +88,10 @@ public class MoveLst extends AbstractToken implements
 		{
 			cm = new Movement(1);
 			String mod = moves.nextToken();
-			if (!validateMove(value, mod))
+			ParseResult pr = validateMove(value, mod);
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 			cm.assignMovement(0, "Walk", mod);
 		}
@@ -101,23 +104,23 @@ public class MoveLst extends AbstractToken implements
 			{
 				String type = moves.nextToken();
 				String mod = moves.nextToken();
-				if (!validateMove(value, mod))
+				ParseResult pr = validateMove(value, mod);
+				if (!pr.passed())
 				{
-					return false;
+					return pr;
 				}
 				cm.assignMovement(x++, type, mod);
 			}
 			if (moves.countTokens() != 0)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
+				return new ParseResult.Fail(
 						"Badly formed MOVE token "
 								+ "(extra value at end of list): " + value);
-				return false;
 			}
 		}
 		cm.setMoveRatesFlag(0);
 		context.obj.addToList(obj, ListKey.MOVEMENT, cm);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

@@ -42,16 +42,16 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
-public class SpellsLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -60,31 +60,28 @@ public class SpellsLst extends AbstractToken implements
 		return "SPELLS";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		return createSpellsList(context, obj, value);
+		return '|';
 	}
 
 	/**
 	 * SPELLS:<spellbook name>|[<optional parameters, pipe deliminated>] |<spell
 	 * name>[,<formula for DC>] |<spell name2>[,<formula2 for DC>] |PRExxx
 	 * |PRExxx
-	 * 
+	 *
 	 * CASTERLEVEL=<formula> Casterlevel of spells TIMES=<formula> Cast Times
 	 * per day, -1=At Will
-	 * 
+	 *
 	 * @param sourceLine
 	 *            Line from the LST file without the SPELLS:
 	 * @return spells list
 	 */
-	private boolean createSpellsList(LoadContext context, CDOMObject obj,
-			String sourceLine)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String sourceLine)
 	{
-		if (isEmpty(sourceLine) || hasIllegalSeparator('|', sourceLine))
-		{
-			return false;
-		}
-
 		StringTokenizer tok = new StringTokenizer(sourceLine, Constants.PIPE);
 		String spellBook = tok.nextToken();
 		// Formula casterLevel = null;
@@ -94,9 +91,8 @@ public class SpellsLst extends AbstractToken implements
 
 		if (!tok.hasMoreTokens())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ ": minimally requires a Spell Name");
-			return false;
 		}
 		String token = tok.nextToken();
 
@@ -106,25 +102,22 @@ public class SpellsLst extends AbstractToken implements
 			{
 				if (times != null)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Found two TIMES entries in " + getTokenName()
 									+ ": invalid: " + sourceLine);
-					return false;
 				}
 				times = token.substring(6);
 				if (times.length() == 0)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Error in Times in " + getTokenName()
 									+ ": argument was empty");
-					return false;
 				}
 				if (!tok.hasMoreTokens())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
 							+ "a Spell Name (after TIMES=)");
-					return false;
 				}
 				token = tok.nextToken();
 			}
@@ -132,25 +125,22 @@ public class SpellsLst extends AbstractToken implements
 			{
 				if (timeunit != null)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Found two TIMEUNIT entries in " + getTokenName()
 									+ ": invalid: " + sourceLine);
-					return false;
 				}
 				timeunit = token.substring(9);
 				if (timeunit.length() == 0)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Error in TimeUnit in " + getTokenName()
 									+ ": argument was empty");
-					return false;
 				}
 				if (!tok.hasMoreTokens())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
 							+ "a Spell Name (after TIMEUNIT=)");
-					return false;
 				}
 				token = tok.nextToken();
 			}
@@ -158,26 +148,23 @@ public class SpellsLst extends AbstractToken implements
 			{
 				if (casterLevel != null)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Found two CASTERLEVEL entries in "
 									+ getTokenName() + ": invalid: "
 									+ sourceLine);
-					return false;
 				}
 				casterLevel = token.substring(12);
 				if (casterLevel.length() == 0)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
+					return new ParseResult.Fail(
 							"Error in Caster Level in " + getTokenName()
 									+ ": argument was empty");
-					return false;
 				}
 				if (!tok.hasMoreTokens())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires a "
 							+ "Spell Name (after CASTERLEVEL=)");
-					return false;
 				}
 				token = tok.nextToken();
 			}
@@ -193,28 +180,25 @@ public class SpellsLst extends AbstractToken implements
 
 		if (token.charAt(0) == ',')
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " Spell arguments may not start with , : " + token);
-			return false;
 		}
 		if (token.charAt(token.length() - 1) == ',')
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " Spell arguments may not end with , : " + token);
-			return false;
 		}
 		if (token.indexOf(",,") != -1)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " Spell arguments uses double separator ,, : " + token);
-			return false;
 		}
 
 		/*
 		 * CONSIDER This is currently order enforcing the reference fetching to
 		 * match the integration tests that we perform, and their current
 		 * behavior. Not sure if this is really tbe best solution?
-		 * 
+		 *
 		 * See CDOMObject.
 		 */
 		DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm = new DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object>(LinkedHashMap.class, HashMap.class);
@@ -241,7 +225,7 @@ public class SpellsLst extends AbstractToken implements
 			{
 				// No prereqs, so we're done
 				finish(context, obj, dkm, null);
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			token = tok.nextToken();
 			if (token.startsWith("PRE") || token.startsWith("!PRE"))
@@ -257,10 +241,9 @@ public class SpellsLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
+				return new ParseResult.Fail(
 						"   (Did you put spells after the "
 								+ "PRExxx tags in SPELLS:?)");
-				return false;
 			}
 			prereqs.add(prereq);
 			if (!tok.hasMoreTokens())
@@ -271,7 +254,7 @@ public class SpellsLst extends AbstractToken implements
 		}
 
 		finish(context, obj, dkm, prereqs);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public void finish(LoadContext context, CDOMObject obj,

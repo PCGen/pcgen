@@ -10,14 +10,16 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- * 
+ *
  */
 public class PreLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryParserToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -27,12 +29,18 @@ public class PreLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject pcc, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, pcc, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, CDOMObject pcc,
+		String value)
+	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.obj.clearPrerequisiteList(pcc);
-			return true;
+			return ParseResult.SUCCESS;
 		}
-		return false;
+		return ParseResult.INTERNAL_ERROR;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject pcc)

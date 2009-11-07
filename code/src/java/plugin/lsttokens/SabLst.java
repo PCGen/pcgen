@@ -29,12 +29,12 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class SabLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -43,15 +43,16 @@ public class SabLst extends AbstractToken implements
 		return "SAB";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected char separator()
 	{
-		return parseSpecialAbility(context, obj, value);
+		return '|';
 	}
 
 	/**
 	 * This method sets the special abilities granted by this [object]. For
 	 * efficiency, avoid calling this method except from I/O routines.
-	 * 
+	 *
 	 * @param obj
 	 *            the PObject that is to receive the new SpecialAbility
 	 * @param aString
@@ -59,24 +60,19 @@ public class SabLst extends AbstractToken implements
 	 * @param level
 	 *            int level at which the ability is gained
 	 */
-	public boolean parseSpecialAbility(LoadContext context, CDOMObject obj,
-			String aString)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String aString)
 	{
-		if (isEmpty(aString) || hasIllegalSeparator('|', aString))
-		{
-			return false;
-		}
-
 		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
 
 		String firstToken = tok.nextToken();
 		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 					+ getTokenName());
-			return false;
 		}
-		
+
 		boolean foundClear = false;
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
@@ -84,7 +80,7 @@ public class SabLst extends AbstractToken implements
 			context.getObjectContext().removeList(obj, ListKey.SAB);
 			if (!tok.hasMoreTokens())
 			{
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			firstToken = tok.nextToken();
 			foundClear = true;
@@ -92,17 +88,15 @@ public class SabLst extends AbstractToken implements
 
 		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
 							+ getTokenName());
-			return false;
 		}
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
-			Logging.log(Logging.LST_ERROR, "SA tag confused by redundant '.CLEAR'"
+			return new ParseResult.Fail("SA tag confused by redundant '.CLEAR'"
 					+ aString);
-			return false;
 		}
 
 		SpecialAbility sa = new SpecialAbility(firstToken);
@@ -111,7 +105,7 @@ public class SabLst extends AbstractToken implements
 		{
 			sa.setName(firstToken);
 			context.getObjectContext().addToList(obj, ListKey.SAB, sa);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 
 		StringBuilder saName = new StringBuilder();
@@ -122,9 +116,8 @@ public class SabLst extends AbstractToken implements
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				Logging.log(Logging.LST_ERROR, "SA tag confused by '.CLEAR' as a "
+				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a "
 						+ "middle token: " + aString);
-				return false;
 			}
 			else if (token.startsWith("PRE") || token.startsWith("!PRE"))
 			{
@@ -142,7 +135,7 @@ public class SabLst extends AbstractToken implements
 				// CONSIDER This is a HACK and not the long term strategy of SA:
 				sa.setName(saName.toString());
 				context.getObjectContext().addToList(obj, ListKey.SAB, sa);
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			token = tok.nextToken();
 		}
@@ -151,10 +144,9 @@ public class SabLst extends AbstractToken implements
 
 		if (foundClear)
 		{
-			Logging.log(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR and a Special Ability in "
 							+ getTokenName());
-			return false;
 		}
 
 		while (true)
@@ -162,9 +154,8 @@ public class SabLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put Abilities after the "
+				return new ParseResult.Fail("   (Did you put Abilities after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			sa.addPrerequisite(prereq);
 			if (!tok.hasMoreTokens())
@@ -174,7 +165,7 @@ public class SabLst extends AbstractToken implements
 			token = tok.nextToken();
 		}
 		context.getObjectContext().addToList(obj, ListKey.SAB, sa);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
