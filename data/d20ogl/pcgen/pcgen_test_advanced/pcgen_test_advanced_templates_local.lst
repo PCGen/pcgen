@@ -47,6 +47,7 @@ TL~ModifyOneTemplate.FORGET
 # Extras to Test functionality
 SomeOtherTemplate		VISIBLE:NO	
 
-ChoiceOne			VISIBLE:NO
+ChoiceOne		VISIBLE:NO
 ChoiceTwo		VISIBLE:NO
 ChoiceThree		VISIBLE:NO
+

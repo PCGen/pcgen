@@ -23,4 +23,15 @@ TemplateAddEquipTorchOrLantern	ADD:EQUIP|1|Torch,Lantern
 TemplateAddSkillsFive			ADD:SKILL|5|Test Crafting,TYPE.Craft,Monkey Building,Test Coding Script
 
 
+TemplateAutoEquip			AUTO:EQUIP|Medium Armor
+	
+TemplateAutoFeat			AUTO:FEAT|Dodge
+
+
+
+
+
+
+
+
 Test One Situation
