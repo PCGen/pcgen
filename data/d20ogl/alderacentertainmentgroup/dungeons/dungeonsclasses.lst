@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 12:37:48 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Nov  7 20:38:11 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -13,16 +13,16 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1							ADD:SPELLCASTER|Divine	ADD:FEAT|TYPE=CrusaderFavored
-2							ADD:SPELLCASTER|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Giant,Gnoll,Gnome,Goblin,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
-3							ADD:SPELLCASTER|Divine
-4	ABILITY:Special Ability|AUTOMATIC|Find the Path ~ Crusader				ADD:SPELLCASTER|Divine
-5							ADD:SPELLCASTER|Divine
-6	ABILITY:Special Ability|AUTOMATIC|Improved Spontaneous Casting ~ Crusader	ADD:SPELLCASTER|Divine
-7							ADD:SPELLCASTER|Divine
-8	ABILITY:Special Ability|AUTOMATIC|Spells ~ Crusader					ADD:SPELLCASTER|Divine
-9							ADD:SPELLCASTER|Divine
-10	ABILITY:Special Ability|AUTOMATIC|Turn Chosen Enemy ~ Crusader			ADD:SPELLCASTER|Divine
+1	ADD:SPELLCASTER|Divine	ADD:FEAT|TYPE=CrusaderFavored
+2	ADD:SPELLCASTER|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Giant,Gnoll,Gnome,Goblin,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Find the Path ~ Crusader
+5	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Improved Spontaneous Casting ~ Crusader
+7	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Spells ~ Crusader
+9	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Turn Chosen Enemy ~ Crusader
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -35,16 +35,16 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Produce Explosives ~ Demolitionist	BONUS:VAR|ProduceExplosive|(CL+2)/3+1					ADD:SPELLCASTER|Arcane
-2	ABILITY:Special Ability|AUTOMATIC|Time Delay Explosives ~ Demolitionist																ADD:SPELLCASTER|Arcane
-3	ABILITY:Special Ability|AUTOMATIC|Craft Flash Bombs ~ Demolitionist																	ADD:SPELLCASTER|Arcane
-4																					ADD:SPELLCASTER|Arcane
-5	ABILITY:Special Ability|AUTOMATIC|Craft Musket ~ Demolitionist																		ADD:SPELLCASTER|Arcane
-6																					ADD:SPELLCASTER|Arcane									AUTO:FEAT|Exotic Weapon Proficiency(Musket)|Exotic Weapon Proficiency(Pistol)
-7																					ADD:SPELLCASTER|Arcane
-8	ABILITY:Special Ability|AUTOMATIC|Master of Destruction ~ Demolitionist																ADD:SPELLCASTER|Arcane
-9									BONUS:VAR|UncannyDodge|1								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-10																					ADD:SPELLCASTER|Arcane
+1	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Produce Explosives ~ Demolitionist
+2								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Time Delay Explosives ~ Demolitionist
+3								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Craft Flash Bombs ~ Demolitionist
+4								ADD:SPELLCASTER|Arcane
+5								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Craft Musket ~ Demolitionist
+6								ADD:SPELLCASTER|Arcane													AUTO:FEAT|Exotic Weapon Proficiency(Musket)|Exotic Weapon Proficiency(Pistol)
+7								ADD:SPELLCASTER|Arcane
+8								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master of Destruction ~ Demolitionist
+9	BONUS:VAR|UncannyDodge|1			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+10								ADD:SPELLCASTER|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -56,16 +56,16 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Intuit Direc
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1													BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2	ABILITY:Special Ability|AUTOMATIC|Bonus Damage ~ Shock Trooper																						DEFINE:LargeAttack|1
-3	ABILITY:Special Ability|AUTOMATIC|Improved Aid Another ~ Shock Trooper
-4																													BONUS:VAR|LargeAttack|1
-5	ABILITY:Special Ability|AUTOMATIC|Focused Attack ~ Shock Trooper
-6																													BONUS:VAR|LargeAttack|1
-7	ABILITY:Special Ability|AUTOMATIC|Improved Dodge ~ Shock Trooper
-8																													BONUS:VAR|LargeAttack|1
-9	ABILITY:Special Ability|AUTOMATIC|Into The Breach ~ Shock Trooper
-10	ABILITY:Special Ability|AUTOMATIC|Improved Critical ~ Shock Trooper
+1	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
+2																									ABILITY:Special Ability|AUTOMATIC|Bonus Damage ~ Shock Trooper
+3																									ABILITY:Special Ability|AUTOMATIC|Improved Aid Another ~ Shock Trooper
+4																	BONUS:VAR|LargeAttack|1
+5																									ABILITY:Special Ability|AUTOMATIC|Focused Attack ~ Shock Trooper
+6																	BONUS:VAR|LargeAttack|1
+7																									ABILITY:Special Ability|AUTOMATIC|Improved Dodge ~ Shock Trooper
+8																	BONUS:VAR|LargeAttack|1
+9																									ABILITY:Special Ability|AUTOMATIC|Into The Breach ~ Shock Trooper
+10																									ABILITY:Special Ability|AUTOMATIC|Improved Critical ~ Shock Trooper
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -76,13 +76,13 @@ CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Scr
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Danger Sense ~ Treasure Hunter|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Treasure Lore ~ Treasure Hunter								
-2	ABILITY:Special Ability|AUTOMATIC|Trap Defense ~ Treasure Hunter													BONUS:VAR|TrapSave|(CL+1)/3	
-3	ABILITY:Special Ability|AUTOMATIC|Fort Bonus ~ Treasure Hunter															
-4																					BONUS:VAR|DangerSense|1
-6																					BONUS:VAR|PoisonSave|1
-7																					BONUS:VAR|DangerSense|1
-9																											ABILITY:Special Ability|VIRTUAL|Improved Evasion
-10	ABILITY:Special Ability|AUTOMATIC|Uncanny Sense ~ Treasure Hunter													BONUS:VAR|DangerSense|1
+1						ABILITY:Special Ability|AUTOMATIC|Danger Sense ~ Treasure Hunter|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Treasure Lore ~ Treasure Hunter
+2	BONUS:VAR|TrapSave|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Trap Defense ~ Treasure Hunter
+3						ABILITY:Special Ability|AUTOMATIC|Fort Bonus ~ Treasure Hunter
+4	BONUS:VAR|DangerSense|1
+6	BONUS:VAR|PoisonSave|1
+7	BONUS:VAR|DangerSense|1
+9						ABILITY:Special Ability|VIRTUAL|Improved Evasion
+10	BONUS:VAR|DangerSense|1		ABILITY:Special Ability|AUTOMATIC|Uncanny Sense ~ Treasure Hunter
 
 
