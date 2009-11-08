@@ -80,7 +80,7 @@ SUBCLASSLEVEL:5												BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|Bar
 
 ###Block: Cleric subclass
 SUBCLASS:Anshar	COST:0	PREDEITY:1,Anshar
-SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Light)Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Sticks to Snakes|Cleric=4|Share My Pain												LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Improved Unarmed Strike
 SUBCLASSLEVEL:3																													AUTO:FEAT|Endurance
 SUBCLASSLEVEL:9																													AUTO:FEAT|Diehard
