@@ -25,8 +25,8 @@ CLASS:pcgen_test_advanced_classes.lst
 
 
 #COMPANIONMOD:pcgen_test_advanced_companionmods.lst
-#DEITY:pcgen_test_advanced_deities.lst
-#DOMAIN:pcgen_test_advanced_domains.lst
+DEITY:pcgen_test_advanced_deities.lst
+DOMAIN:pcgen_test_advanced_domains.lst
 
 EQUIPMENT:pcgen_test_advanced_equip.lst
 EQUIPMOD:pcgen_test_advanced_equipmods.lst
