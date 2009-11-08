@@ -35,3 +35,15 @@ TemplateAutoFeat			AUTO:FEAT|Dodge
 
 
 Test One Situation
+
+
+# Block: Test the OS output for Fly Move and Maneuverability
+TemplateMoveFly_80_ManeuverPerfect	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)	MOVE:Fly,80
+TemplateMoveFly_80_ManeuverGood	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)	MOVE:Fly,80
+TemplateMoveFly_80_ManeuverAverage	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)	MOVE:Fly,80
+TemplateMoveFly_80_ManeuverPoor	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)	MOVE:Fly,80
+TemplateMoveFly_80_ManeuverClumsy	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)	MOVE:Fly,80
+
+
+Template_DisplayOS_Blocks		ABILITY:Special Ability|AUTOMATIC|Test OS Output Displays
+# DESC:Grabs the Ability that will load all the various abilities to test OS output for Character Tab Preview 'Standard.htm' and PDF output.
