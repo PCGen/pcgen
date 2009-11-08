@@ -194,6 +194,46 @@
 		<casterleveloutputs.lightline><subattrib light=""/></casterleveloutputs.lightline>
 		<casterleveloutputs.darkline><subattrib medium=""/></casterleveloutputs.darkline>
 
+		<eclipse_abilities.title><subattrib centre="" inverse=""/></eclipse_abilities.title>
+		<eclipse_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></eclipse_abilities.border>
+		<eclipse_abilities.lightline><subattrib light=""/></eclipse_abilities.lightline>
+		<eclipse_abilities.darkline><subattrib medium=""/></eclipse_abilities.darkline>
+
+		<witchcrafts.title><subattrib centre="" inverse=""/></witchcrafts.title>
+		<witchcrafts.border padding="0.5pt"><subattrib border="" inverse=""/></witchcrafts.border>
+		<witchcrafts.lightline><subattrib light=""/></witchcrafts.lightline>
+		<witchcrafts.darkline><subattrib medium=""/></witchcrafts.darkline>
+
+		<dominions.title><subattrib centre="" inverse=""/></dominions.title>
+		<dominions.border padding="0.5pt"><subattrib border="" inverse=""/></dominions.border>
+		<dominions.lightline><subattrib light=""/></dominions.lightline>
+		<dominions.darkline><subattrib medium=""/></dominions.darkline>
+
+		<path_dragons.title><subattrib centre="" inverse=""/></path_dragons.title>
+		<path_dragons.border padding="0.5pt"><subattrib border="" inverse=""/></path_dragons.border>
+		<path_dragons.lightline><subattrib light=""/></path_dragons.lightline>
+		<path_dragons.darkline><subattrib medium=""/></path_dragons.darkline>
+
+		<martial_arts.title><subattrib centre="" inverse=""/></martial_arts.title>
+		<martial_arts.border padding="0.5pt"><subattrib border="" inverse=""/></martial_arts.border>
+		<martial_arts.lightline><subattrib light=""/></martial_arts.lightline>
+		<martial_arts.darkline><subattrib medium=""/></martial_arts.darkline>
+
+		<mystic_artists.title><subattrib centre="" inverse=""/></mystic_artists.title>
+		<mystic_artists.border padding="0.5pt"><subattrib border="" inverse=""/></mystic_artists.border>
+		<mystic_artists.lightline><subattrib light=""/></mystic_artists.lightline>
+		<mystic_artists.darkline><subattrib medium=""/></mystic_artists.darkline>
+
+		<channelings.title><subattrib centre="" inverse=""/></channelings.title>
+		<channelings.border padding="0.5pt"><subattrib border="" inverse=""/></channelings.border>
+		<channelings.lightline><subattrib light=""/></channelings.lightline>
+		<channelings.darkline><subattrib medium=""/></channelings.darkline>
+
+		<charcreations.title><subattrib centre="" inverse=""/></charcreations.title>
+		<charcreations.border padding="0.5pt"><subattrib border="" inverse=""/></charcreations.border>
+		<charcreations.lightline><subattrib light=""/></charcreations.lightline>
+		<charcreations.darkline><subattrib medium=""/></charcreations.darkline>
+
 		<vampire_disciplines.title><subattrib centre="" inverse=""/></vampire_disciplines.title>
 		<vampire_disciplines.border padding="0.5pt"><subattrib border="" inverse=""/></vampire_disciplines.border>
 		<vampire_disciplines.lightline><subattrib light=""/></vampire_disciplines.lightline>
