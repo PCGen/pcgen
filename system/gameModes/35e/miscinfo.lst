@@ -64,7 +64,7 @@ TAB:DOMAINS	NAME:in_domains		CONTEXT:tabpages\players\tabdomains.html
 TAB:FEATS	NAME:in_feats		CONTEXT:tabpages\players\tabfeats.html
 TAB:INVENTORY	NAME:in_inventory	CONTEXT:tabpages\players\inventory\inventorygear.html
 TAB:RACE	NAME:in_race		CONTEXT:tabpages\players\tabraces.html
-#TAB:SKILLS	NAME:in_skills		CONTEXT:tabpages\players\tabskills.html
+TAB:SKILLS	NAME:in_skills		CONTEXT:tabpages\players\tabskills.html
 TAB:SPELLS	NAME:in_spells		CONTEXT:tabpages\players\tabspells.html
 TAB:SUMMARY	NAME:in_summary		CONTEXT:tabpages\players\tabsummary.html
 # Inventory subpanels
@@ -76,10 +76,10 @@ TAB:TEMPMOD	NAME:in_InfoTempMod	CONTEXT:tabpages\players\inventory\inventorytemp
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:OSRIC
-MENUTOOLTIP:Use OSRIC character creation settings
+MENUENTRY:3.5e
+MENUTOOLTIP:Use 3.5e character creation settings
 DISPLAYORDER:1
-ALLOWEDMODES:OSRIC
+ALLOWEDMODES:35e|DnD
 #
 # SHORTRANGE sets the Short Range as referenced by
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
@@ -98,14 +98,14 @@ SQUARESIZE:5
 
 #SPELLRANGExxx specifies the formula used to compute spell ranges
 #The formula is evaluated by the PlayerCharacter.getVariableValue() routine
-#SPELLRANGE:CLOSE|floor(CASTERLEVEL/2)*5+25
-#SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
-#SPELLRANGE:LONG|(CASTERLEVEL*40)+400
+SPELLRANGE:CLOSE|floor(CASTERLEVEL/2)*5+25
+SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
+SPELLRANGE:LONG|(CASTERLEVEL*40)+400
 
 #SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
 #e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
-#SKILLMULTIPLIER:4
-#SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+SKILLMULTIPLIER:4
+SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
 
 #BONUSFEATLEVELSTARTINTERVAL:level|interval
 #level = first level where you gain an additional feat
@@ -113,13 +113,13 @@ SQUARESIZE:5
 #interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
 #this is handled in the races.lst by the STARTFEATS tag
 #BONUSFEATLEVELSTARTINTERVAL:1|0
-#BONUSFEATLEVELSTARTINTERVAL:3|3
+BONUSFEATLEVELSTARTINTERVAL:3|3
 
 #BONUSSTATLEVELSTARTINTERVAL:level|interval
 #level = first level where you gain an additional stat
 # (use more than one of these tags for additional stat)
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
-#BONUSSTATLEVELSTARTINTERVAL:4|4
+BONUSSTATLEVELSTARTINTERVAL:4|4
 
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
@@ -134,23 +134,23 @@ SQUARESIZE:5
 #PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)
 
 #Attack/Check Cycle attributes
-#BABMAXATT:4
-#BABATTCYC:5
-#BABMINVAL:1
+BABMAXATT:4
+BABATTCYC:5
+BABMINVAL:1
 # Epic stuff
-#BABMAXLVL:20
-#CHECKSMAXLVL:20
+BABMAXLVL:20
+CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES
 CLASSTYPE:NPC		CRFORMULA:max(CL-1,0)	ISMONSTER:NO	XPPENALTY:YES
-#CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:Total				ADD:TOTAL
-#ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
-#ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
 ACTYPE:Base					ADD:Base
 ACTYPE:Armor				ADD:Armor
 ACTYPE:Shield				ADD:Shield
@@ -283,7 +283,7 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 
 
-#DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
+DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
 
 #
 # DONE
