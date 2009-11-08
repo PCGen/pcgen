@@ -15,7 +15,7 @@ SOURCESHORT:Dungeons
 SOURCEWEB:http://alderac.com/d20
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
-COPYRIGHT:PCGen dataset conversion for Dungeons Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+COPYRIGHT:PCGen dataset conversion for Dungeons Copyright 2003-2009, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, Andrew Maitland)
 
 COVER:dungeons.jpg
 LOGO:@/publisher_logos/Alderac_Entertainment_Group.png
@@ -28,6 +28,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1887953272?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:dungeons_abilities_class.lst
 CLASS:dungeonsclasses.lst
 EQUIPMENT:dungeonsequip.lst
 EQUIPMENT:dungeonsequipwondrousitems.lst

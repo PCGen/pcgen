@@ -1,0 +1,30 @@
+# Added by Andrew Maitland (11/7/2009)
+
+Find the Path			KEY:Find the Path ~ Crusader				CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Spontaneous Casting	KEY:Improved Spontaneous Casting ~ Crusader				CATEGORY:Special Ability	TYPE:SpecialQuality
+Spells				KEY:Spells ~ Crusader				CATEGORY:Special Ability	TYPE:SpecialQuality
+Turn Chosen Enemy			KEY:Turn Chosen Enemy ~ Crusader			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Demolitionist				CATEGORY:Special Ability	TYPE:SpecialQuality
+Produce Explosives	KEY:Produce Explosives ~ Demolitionist		DESC:%1d6|ProduceExplosive		DEFINE:ProduceExplosive|0				CATEGORY:Special Ability	TYPE:SpecialQuality
+Time Delay Explosives	KEY:Time Delay Explosives ~ Demolitionist				CATEGORY:Special Ability	TYPE:SpecialQuality
+Craft Flash Bombs		KEY:Craft Flash Bombs ~ Demolitionist				CATEGORY:Special Ability	TYPE:SpecialQuality
+Craft Musket		KEY:Craft Musket ~ Demolitionist				CATEGORY:Special Ability	TYPE:SpecialQuality
+Master of Destruction	KEY:Master of Destruction ~ Demolitionist				CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# CLASS:Shock Trooper
+Bonus Damage		KEY:Bonus Damage ~ Shock Trooper			DESC:%1d6 vs. large or bigger creatures|LargeAttack				CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Aid Another	KEY:Improved Aid Another ~ Shock Trooper								DESC:+4 vs. size large or bigger				CATEGORY:Special Ability	TYPE:SpecialQuality
+Focused Attack		KEY:Focused Attack ~ Shock Trooper				CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Dodge		KEY:Improved Dodge ~ Shock Trooper									DESC:+2 AC vs size large or bigger				CATEGORY:Special Ability	TYPE:SpecialQuality
+Into The Breach		KEY:Into The Breach ~ Shock Trooper				CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Critical		KEY:Improved Critical ~ Shock Trooper									DESC:size large or bigger regardless of weapon used				CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# CLASS:Treasure Hunter
+Danger Sense	KEY:Danger Sense ~ Treasure Hunter									DESC:+%1|DangerSense		DEFINE:DangerSense|1				CATEGORY:Special Ability	TYPE:SpecialQuality
+Treasure Lore	KEY:Treasure Lore ~ Treasure Hunter					BONUS:SKILL|Appraise|2				CATEGORY:Special Ability	TYPE:SpecialQuality
+Trap Defense	KEY:Trap Defense ~ Treasure Hunter									DESC:+%1 Reflex save vs. Traps and +%1 dodge AC bonus vs. trap attacks|TrapSave				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TrapSave|0
+Fort Bonus		KEY:Fort Bonus ~ Treasure Hunter										DESC:+%1 bonus to Fort vs. Poison|PoisonSave				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PoisonSave|1
+Uncanny Sense	KEY:Uncanny Sense ~ Treasure Hunter									DESC:+%1|DangerSense				CATEGORY:Special Ability	TYPE:SpecialQuality	
+
+
