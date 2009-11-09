@@ -712,6 +712,30 @@ Wisdom
    <br />
 |ENDIF|
 <!-- STOP Melee and Range Attack Table -->
+<!-- START Martial Arts Table -->
+|IIF(VAR.UseMartialArts:1)|
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
+    <tr>
+          <td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="ab"><b>Martial Arts</b></td>
+          <td align="center" bgcolor="black" width="15%" class="ablable" height="20">TOTAL ATTACK BONUS</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">DAMAGE</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">CRITICAL</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">REACH</td>
+    </tr>
+    <tr>
+          <td align="center" bgcolor="white" class="border10" height="20">|WEAPONH.TOTALHIT|</td>
+|IIF(VAR.MartialArtsBonusDamage<0)|
+		  <td align="center" bgcolor="white" class="border10">|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|-|VAR.MartialArtsBonusDamage.INTVAL|</td>
+|ELSE|
+		  <td align="center" bgcolor="white" class="border10">|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|+|VAR.MartialArtsBonusDamage.INTVAL|</td>
+|ENDIF|
+		  <td align="center" bgcolor="white" class="border10">|WEAPONH.CRIT|/x|WEAPONH.MULT|</td>
+          <td align="center" bgcolor="white" class="border10">|REACH|</td>
+    </tr>
+   </table>
+   <br />
+<!-- STOP Martial Arts Table -->
+|ELSE|
 <!-- START Unarmed Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
@@ -730,6 +754,8 @@ Wisdom
    </table>
    <br />
 <!-- STOP Unarmed Attack Table -->
+|ENDIF|
+
 <!-- START Spirit Weapon Melee -->
 |IIF(VAR.UseSpiritWeaponMelee:1)|
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Spirit Weapon Melee">
