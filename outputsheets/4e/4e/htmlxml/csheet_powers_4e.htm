@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+
+<!--
+PCGen Character Sheet Template
+==============================
+Author: Richard O'Doherty-Gregg
+Email: OdGregg@bigpond.com
+Modifications by: arcady
+Email: arcady0@yahoo.com
+Revisions: Barak  10/15/02
+Email: barak@voyager.net
+
+
+$Revision$
+$Author$
+$Date$
+-->
+
+<head>
+
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+
+<title>|NAME|</title>
+
+<style type="text/css">
+	
+	.font4 {  
+
+		font-family: Arial;
+		font-size:4pt; 
+
+	}
+	
+	.font5 {  
+		
+		font-family: Arial; 
+	
+		font-size:5pt; 
+
+	}
+	
+	.font6 {  
+	
+		font-family: Arial; 
+	
+		font-size:6pt;
+
+	}
+	
+	.font7 {  
+
+		font-family: Arial; 
+		font-size:7pt;
+
+	}
+	
+	.font8 {  
+
+		font-family: Arial; 
+	
+		font-size:8pt;
+
+	}
+	
+	.font9 {  
+
+		font-family: Arial; 
+
+		font-size:9pt;
+
+	}
+	
+	.h { 
+
+		font-family: Arial; 
+
+		font-size:12pt; 
+
+		vertical-align: bottom;
+
+		}
+	
+	.ab { 
+	
+	font-family: Arial; 
+
+		font-size:12pt; 
+
+		text-align:center; 
+		color:white; 
+
+		background:black;
+
+		}
+	
+	.ablable { 
+
+	font-family: Arial; 
+
+	font-size:8pt; 
+
+	text-align:center; 
+
+	color:white; 
+
+	background:black;
+
+	}
+	
+	.abb { 
+
+	font-family: Arial; 
+
+	font-size:12pt; 
+
+	text-align:center; 
+
+	font-weight:bold; 
+
+	border: 1px solid black;
+
+	}
+	
+	.abt { 
+
+		font-family: Arial; 
+
+		font-size:12pt; 
+
+		text-align:center; 
+
+		font-weight:bold; 
+
+		border: 5px solid #CCCCCC;
+
+	}
+	
+	.sign { 
+
+	font-family: Arial; 
+
+	font-size:10pt;
+
+	}
+	
+	.item { 
+
+	font-family: Arial; 
+
+	font-size:16pt; 
+
+	text-align:center; 
+
+	color:white; 
+
+	background:black;
+
+	}
+	
+	.sptab { 
+
+	font-family: Arial; 
+
+	vertical-align:top; 
+
+	text-align:center;
+
+	font-size:8pt;
+
+	}
+	
+	.sptab1 { 
+
+	font-family: Arial; 
+
+	vertical-align:top; 
+
+	text-align:left;
+
+	font-size:8pt;
+
+	}
+	
+	.sptab2 { 
+
+	font-family: Arial; 
+
+	vertical-align:top; 
+
+	text-align:right;
+
+	font-size:8pt;
+
+	}
+	
+	.notetab { 
+
+	font-family: Arial; 
+
+	vertical-align:top;
+
+	border: 1px solid black; 
+
+	text-align:left;
+
+	font-size:8pt;
+
+	}
+
+	.skl { 
+
+		font-family: Arial; 
+
+		font-size: 9pt; 
+
+		font-weight:bold; 
+
+		text-align:center; 
+
+		vertical-align:middle; 
+
+		border: 4px solid black;
+
+		}
+
+	.skill { 
+
+		font-family: Arial; 
+
+		font-size: 10pt; 
+
+	}
+
+	.skillValue {
+
+		font-family: Arial;
+
+		font-size: 10pt;
+
+		border-top-width: 1px;
+
+		border-top-style: solid;
+
+		border-top-color: black;
+
+	}
+
+	.topline {
+
+		border-top-width:1px; 
+
+		border-top: 1pt solid black; 
+		
+		font-family: Arial; 
+
+		font-size:6pt; 
+
+	}
+
+	.spname { 
+
+		font-family: Arial; 
+
+		vertical-align:top; 
+
+		text-align:left;
+	
+		font-size:8pt;
+
+	}
+
+	.sptop { 
+
+		font-family: Arial; 
+
+		vertical-align:top;
+
+		border: 1px solid black; 
+
+		text-align:center;
+	
+		font-size:8pt; 
+	
+		color:white;
+
+	}
+	
+	.splevel {  
+
+		font-family: Arial; 
+
+		background:black; 
+	
+		text-align:center;
+	
+		font-size:9pt; 
+	
+		color:white;
+
+	}
+	
+	.sphead {  
+
+		font-family: Arial; 
+
+		background:black; 
+
+		text-align:center;
+	
+		font-size:12pt; 
+
+		color:white;
+
+	}
+	.notehead {  
+	
+	font-family: Arial; 
+
+		background:black; 
+
+		text-align:center;
+
+		font-size:12pt; 
+
+		color:white;
+
+	}
+
+	.biodata { 
+
+		font-family: Arial; 
+		vertical-align:bottom; 
+
+		text-align:left;
+
+		font-size:9pt;
+	
+	}
+
+	.border { 
+
+		border: 1px solid black; 
+
+	}
+
+	.border4 { 
+
+		font-family: Arial; 
+
+		border: 1px solid black; 
+
+		font-size:4pt; 
+
+	}
+
+	.border7 {
+
+		font-family: Arial; 
+
+		border: 1px solid black;
+
+		font-size:7pt;
+	}
+
+	.border8 {
+
+		font-family: Arial; 
+
+		border: 1px solid black;
+
+		font-size:8pt;
+	
+	}
+
+	.border9 {
+
+		font-family: Arial; 
+
+		border: 1px solid black;
+
+		font-size:9pt;
+
+	}
+
+	.border10 {
+
+		font-family: Arial; 
+
+		border: 1px solid black;
+
+		font-size:10pt;
+
+	}
+
+
+	.tempborder {
+
+		border: 5px solid lightgray;
+
+	}
+
+	.borderbottom {
+
+		border-bottom-width:1px;
+
+		border-bottom: 1pt solid black;
+
+	}
+
+	.borderbottom8 {
+
+		border-bottom-width:1px;
+
+		border-bottom: 1pt solid black;
+
+		font-size:8pt;
+
+	}
+	
+	span.notes p {
+
+		margin-top:0; 
+
+		margin-bottom:0;
+
+	}
+
+	.lable {  
+
+		font-family: Arial; 
+
+		font-size:6pt; 
+
+	}
+
+</style>
+
+<style type="text/css">
+	
+<!--
+.key {
+
+		font-family: Arial; 
+		
+		font-size:10pt;
+	
+}
+-->
+
+</style>
+
+</head>
+
+	<body bgcolor="white">
+
+	<br />
+
+<table width="100%" border="0" summary="Page 2 Master Table"> 
+	<!-- Master Page Table -->
+
+	<tr>
+
+	<td width="50%" valign="top">
+
+	
+<!-- START 4e classfeature Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ClassFeature";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>ClassFeature Powers</b></td>
+    </tr>
+|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ClassFeature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%classFeature,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+<br/>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Power Use|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Action Type|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Special|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Target|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Trigger|
+<br/>    
+|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Attack|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Hit|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Miss|
+<br/>    
+|ENDIF| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Effect|
+<br/>    
+|ENDIF|
+<center><i>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.DESC|</i></center>
+</td>
+   </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+<!-- STOP ClassFeature Powers Table -->
+<!-- START 4e At-Will Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>At-Will Powers</b></td>
+    </tr>
+|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AtWill","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%atWill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+<br/>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|
+<br/>    
+|ENDIF| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|
+<br/>    
+|ENDIF|
+<center><i>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</i></center>
+</td>
+   </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+<!-- STOP At-Will Powers Table -->
+
+<!-- START 4e Encounter Powers Table -->
+
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Encounter";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Encounter Powers</b></td>
+    </tr>
+|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Encounter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%encounter,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+<br/>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|
+<br/>    
+|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|
+<br/>    
+|ENDIF| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|
+<br/>    
+|ENDIF|
+<center><i>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</i></center>
+</td>
+   </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+
+<!-- STOP Encounter Powers Table -->
+
+
+<!-- START 4e Daily Powers Table -->
+
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Daily";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Daily Powers</b></td>
+    </tr>
+|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Daily","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%daily,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+<br/>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%dily.TYPE=Daily.ASPECT.Special|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|
+<br/>    
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|
+<br/>    
+|ENDIF| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|
+<br/>    
+|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|
+<br/>    
+|ENDIF|
+<center><i>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</i></center>
+</td>
+   </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+<!-- STOP Daily Powers Table -->
+
+
+</td>
+
+</tr>
+
+</table>
+
+<br />
+
+|%|
+
+<br />
+		<center>
+			<font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font>
+		</center>
+
+	</body>
+
+</html>
+
