@@ -1796,7 +1796,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Talent.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
 		</demon_cant>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=DemonCant")==0)|
@@ -1830,7 +1830,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Talent.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
+			<source>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
 		</demon_cant>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=DemonCant")==0)|
@@ -2534,6 +2534,161 @@
 	<!--
 	  ====================================
 	  ====================================
+			POWERS - CLASSFEATURES
+	  ====================================
+	  ====================================-->
+
+	<powers_classfeatures>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")==0)|
+|ELSE|
+	<!-- Standard Special Qualities -->
+|ENDIF|
+|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1,1,0|
+		<power_classfeature>
+
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ex)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Supernatural)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Su)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:SpellLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Sp)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:PsiLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ps)</name>
+|ELSE|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.DESC|</description>
+
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Sustain|</sustain>
+|ENDIF|
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</power_classfeature>
+|ENDFOR|
+	</powers_classfeatures>
+	<!--
+	  ====================================
+	  ====================================
+			POWERS - FEATPOWERS
+	  ====================================
+	  ====================================-->
+
+	<powers_featpowers>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")==0)|
+|ELSE|
+	<!-- Standard Special Qualities -->
+|ENDIF|
+|FOR,%featPower,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1,1,0|
+		<power_featpower>
+
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Extraordinary)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ex)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Supernatural)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Su)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:SpellLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Sp)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:PsiLike)|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ps)</name>
+|ELSE|
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.DESC|</description>
+
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Sustain|</sustain>
+|ENDIF|
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</power_featpower>
+|ENDFOR|
+	</powers_featpowers>
+
+	<!--
+	  ====================================
+	  ====================================
 			4e Powers - At-Will
 	  ====================================
 	  ====================================-->
@@ -2560,6 +2715,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|</sustain>
 |ENDIF|
 			<description>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
 			<type>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
@@ -2594,6 +2782,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|</sustain>
 |ENDIF|
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
 			<type>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
@@ -2705,6 +2926,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|</sustain>
+|ENDIF|
 			<description>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
 			<type>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
 			<associated>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATED|</associated>
@@ -2738,6 +2992,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|</sustain>
 |ENDIF|
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
 			<type>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
@@ -2849,6 +3136,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|</sustain>
+|ENDIF|
 			<description>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
 			<type>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
 			<associated>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATED|</associated>
@@ -2882,6 +3202,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|</sustain>
 |ENDIF|
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
 			<type>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
@@ -2993,6 +3346,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
+|ENDIF|
 			<description>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
 			<type>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
 			<associated>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
@@ -3026,6 +3412,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
 |ENDIF|
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
 			<type>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
@@ -3061,7 +3480,39 @@
 |ENDIF|
 |ENDIF|
 |ENDIF|
-
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
+|ENDIF|
 			<description>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
 			<type>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
 			<associated>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
