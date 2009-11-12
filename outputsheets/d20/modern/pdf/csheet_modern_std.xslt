@@ -686,6 +686,7 @@
 						<xsl:apply-templates select="special_abilities" />
 						<xsl:apply-templates select="feats" />
 						<xsl:apply-templates select="feats/feat[contains(., 'OCCUPATION')]" mode="starting_occupation" />
+						<xsl:apply-templates select="mutations" />
 						<xsl:apply-templates select="weapon_proficiencies" />
 						<xsl:apply-templates select="languages" />
 						<xsl:call-template name="allegiances" />
@@ -3214,7 +3215,37 @@
 		</fo:table-row>
 	</xsl:template>
 
+	<!--
+====================================
+====================================
+	TEMPLATE - Mutatations
+====================================
+====================================-->
+	<xsl:template match="mutations">
+		<xsl:if test="count(mutation) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'mutations'" />
+				<xsl:with-param name="title" select="'MUTATION'" />
+				<xsl:with-param name="list" select="mutation"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
+	<xsl:template name="mutation.darkline">
+		<xsl:param name="content"/>
+		<fo:table-row xsl:use-attribute-sets="mutation.darkline" keep-with-next.within-column="always">
+			<xsl:copy-of select="$content"/>
+		</fo:table-row>
+	</xsl:template>
+
+	<xsl:template name="mutation.lightline">
+		<xsl:param name="content"/>
+		<fo:table-row xsl:use-attribute-sets="mutation.lightline" keep-with-next.within-column="always">
+			<xsl:copy-of select="$content"/>
+		</fo:table-row>
+	</xsl:template>
 
 <!--
 ====================================
@@ -4358,6 +4389,82 @@
 			</fo:page-sequence>
 		</xsl:if>
 		<!-- END CHARACTER NOTES Pages -->
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - BOLD LIST
+====================================
+====================================-->
+	<xsl:template name="bold.list">
+		<xsl:param name="attribute"/>
+		<xsl:param name="title" />
+		<xsl:param name="list" />
+		<xsl:param name="name.tag" />
+		<xsl:param name="desc.tag" select="''" />
+		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding-top="1pt" number-columns-spanned="3">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
+						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:for-each select="$list">
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
+						<fo:table-row keep-with-next.within-column="always">
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+							<xsl:choose>
+								<xsl:when test="source!=''">
+									<fo:table-cell padding="0pt" number-columns-spanned="2">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+									<fo:table-cell padding="0pt" text-align="end">
+										<fo:block  font-size="7pt" font-weight="bold">[<xsl:value-of select="source"/>]</fo:block>
+									</fo:table-cell>
+								</xsl:when>
+								<xsl:otherwise>
+									<fo:table-cell number-columns-spanned="3" padding="0pt">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+								</xsl:otherwise>
+							</xsl:choose>
+						</fo:table-row>
+						<xsl:if test="$desc.tag!=''">
+							<fo:table-row keep-with-next.within-column="always">
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
+									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$desc.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
+					</xsl:if>
+				</xsl:for-each>
+			</fo:table-body>
+		</fo:table>
 	</xsl:template>
 
 
