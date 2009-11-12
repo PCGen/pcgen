@@ -279,10 +279,10 @@
 		<spellcasteroutputs.lightline><subattrib light=""/></spellcasteroutputs.lightline>
 		<spellcasteroutputs.darkline><subattrib medium=""/></spellcasteroutputs.darkline>
 
-		<powers_atwills>.title><subattrib centre="" inverse=""/></powers_atwills>.title>
-		<powers_atwills>.border padding="0.5pt"><subattrib border="" inverse=""/></powers_atwills>.border>
-		<powers_atwills>.lightline><subattrib light=""/></powers_atwills>.lightline>
-		<powers_atwills>.darkline><subattrib medium=""/></powers_atwills>.darkline>
+		<powers_atwills.title><subattrib centre="" inverse=""/></powers_atwills.title>
+		<powers_atwills.border padding="0.5pt"><subattrib border="" inverse=""/></powers_atwills.border>
+		<powers_atwills.lightline><subattrib light=""/></powers_atwills.lightline>
+		<powers_atwills.darkline><subattrib medium=""/></powers_atwills.darkline>
 
 		<powers_encounters.title><subattrib centre="" inverse=""/></powers_encounters.title>
 		<powers_encounters.border padding="0.5pt"><subattrib border="" inverse=""/></powers_encounters.border>
