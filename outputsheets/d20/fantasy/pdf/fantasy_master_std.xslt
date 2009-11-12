@@ -233,9 +233,7 @@
 		</fo:table>
 	</xsl:template>
 
-	<!--
-		Start the character
-		-->
+	<!--		Start the character		-->
 	<xsl:template match="character">
 		<!-- calculate the number of weapons and skills on the first page -->
 		<xsl:variable name="first_page_weapon_count">
@@ -356,6 +354,7 @@
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="talents"/>
+
 				<!-- McWoD Edition Style -->
 						<xsl:apply-templates select="vampire_disciplines"/>
 						<xsl:apply-templates select="demon_cants"/>
@@ -367,7 +366,9 @@
 						<xsl:apply-templates select="force_powers"/>
 						<xsl:apply-templates select="force_secrets"/>
 					<!-- End Saga Edition Style -->
-				<!-- 4th Edition Style -->
+				<!-- 4th Edition Style -->	
+						<xsl:apply-templates select="powers_classfeatures"/>
+						<xsl:apply-templates select="powers_featpowers"/>
 						<xsl:apply-templates select="powers_atwills"/>
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
@@ -4828,7 +4829,6 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
 	<!--
 ====================================
 ====================================
@@ -4873,7 +4873,7 @@
 		<xsl:if test="count(channeling) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'channelings'"/>
-				<xsl:with-param name="title" select="'Witchcraft Abilities'"/>
+				<xsl:with-param name="title" select="'Channeling'"/>
 				<xsl:with-param name="list" select="channeling"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -4966,8 +4966,6 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
-<!--> END Eclipse Addons -->
 	<!--
 ====================================
 ====================================
@@ -4999,7 +4997,6 @@
 				<xsl:with-param name="list" select="demon_cant"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
-				
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -5034,7 +5031,6 @@
 				<xsl:with-param name="list" select="vampire_discipline"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
-				
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -5052,7 +5048,6 @@
 				<xsl:with-param name="list" select="werewolf_rite"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
-				
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
