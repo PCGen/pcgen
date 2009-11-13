@@ -1375,106 +1375,38 @@
 	  ====================================
 	  ====================================-->
 	<special_qualities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=SpecialQuality")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialQuality")==0)|
 |ELSE|
 	<!-- Standard Special Qualities -->
 |ENDIF|
-|FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=SpecialQuality")-1,1,0|
+|FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialQuality")-1,1,0|
 		<special_quality>
-|IIF(ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.SOURCE|</source>
-		</special_quality>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=SpecialQuality")==0)|
-|ELSE|
-	<!-- Automatic Special Qualities -->
-|ENDIF|
-|FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SpecialQuality")-1,1,0|
-		<special_quality>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.SOURCE|</source>
-		</special_quality>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=SpecialQuality")==0)|
-|ELSE|
-	<!-- Virtual Special Qualities -->
-|ENDIF|
-|FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=SpecialQuality")-1,1,0|
-		<special_quality>
-|IIF(VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.SOURCE|</source>
 		</special_quality>
 |ENDFOR|
 	</special_qualities>
@@ -1485,171 +1417,68 @@
 	  ====================================
 	  ====================================-->
 	<special_attacks>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=SpecialAttack")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialAttack")==0)|
 |ELSE|
 	<!-- Standard Special Attacks -->
 |ENDIF|
-|FOR,%specialattack,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=SpecialAttack")-1,1,0|
+|FOR,%specialattack,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialAttack")-1,1,0|
 		<special_attack>
-|IIF(ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.SOURCE|</source>
-		</special_attack>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=SpecialAttack")==0)|
-|ELSE|
-	<!-- Automatic Special Attacks -->
-|ENDIF|
-|FOR,%specialattack,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SpecialAttack")-1,1,0|
-		<special_attack>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.SOURCE|</source>
-		</special_attack>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=SpecialAttack")==0)|
-|ELSE|
-	<!-- Virtual Special Attacks -->
-|ENDIF|
-|FOR,%specialattack,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=SpecialAttack")-1,1,0|
-		<special_attack>
-|IIF(VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.SOURCE|</source>
 		</special_attack>
 |ENDFOR|
 	</special_attacks>
-	<!--
+		<!--
 	  ====================================
 	  ====================================
-			DISADVANTAGES
+			Animal Trick
 	  ====================================
 	  ====================================-->
-	<disadvantages>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Disadvantage")==0)|
+	<animal_tricks>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AnimalTrick")==0)|
 |ELSE|
-	<!-- Standard Disadvantages -->
+	<!-- Standard Animal Trick -->
 |ENDIF|
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Disadvantage")-1,1,0|
-		<disadvantage>
-			<name>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATEDCOUNT|</count>
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+		<animal_trick>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|</source>
-		</disadvantage>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|</source>
+		</animal_trick>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Disadvantage")==0)|
-|ELSE|
-	<!-- Automatic Disadvantages -->
-|ENDIF|
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Disadvantage")-1,1,0|
-		<disadvantage>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|</source>
-		</disadvantage>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Disadvantage")==0)|
-|ELSE|
-	<!-- Virtual Disadvantages -->
-|ENDIF|
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Disadvantage")-1,1,0|
-		<disadvantage>
-			<name>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|</source>
-		</disadvantage>
-|ENDFOR|
-	</disadvantages>
+	</animal_tricks>
+
 	<!--
 	  ====================================
 	  ====================================
@@ -1657,706 +1486,369 @@
 	  ====================================
 	  ====================================-->
 	<talents>
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Talent")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Talent")==0)|
 |ELSE|
 	<!-- Standard Talents -->
 |ENDIF|
-|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Talent")-1,1,0|
+|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Talent")-1,1,0|
 		<talent>
-|IIF(ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
-			<name>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Ex)</name>
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)|
-			<name>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Su)</name>
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)|
+			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)|
-			<name>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Sp)</name>
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)|
+			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:PsiLike)|
-			<name>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Ps)</name>
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:PsiLike)|
+			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent|</name>
+			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<description>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.DESC|</description>
-			<type>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE|</type>
-			<associated>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.DESC|</description>
+			<type>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE|</type>
+			<associated>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|</source>
+			<source>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|</source>
 		</talent>	
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Talent")==0)|
-|ELSE|
-	<!-- Automatic Talents -->
-|ENDIF|
-|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Talent")-1,1,0|
-		<talent>
-|IIF(ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.DESC|</description>
-			<type>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-			<source>|ABILITYAUTO.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|</source>
-		</talent>	
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Talent")==0)|
-|ELSE|
-	<!-- Virtual Talents -->
-|ENDIF|
-|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Talent")-1,1,0|
-		<talent>
-|IIF(VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
-			<name>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)|
-			<name>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)|
-			<name>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:PsiLike)|
-			<name>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.DESC|</description>
-			<type>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.TYPE|</type>
-			<associated>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Talent</category>
-			<source>|VABILITY.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|</source>
-		</talent>
 |ENDFOR|
 	</talents>
 	<!--
 	  ====================================
 	  ====================================
-			Demon Cant
+			SALIENT DIVINE ABILITIES
 	  ====================================
 	  ====================================-->
-	<demon_cants>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=DemonCant")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
-	<!-- Standard Demon Cant -->
 |ENDIF|
-|FOR,%demoncant,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=DemonCant")-1,1,0|
-		<demon_cant>
-|IIF(ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ex)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Su)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Sp)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ps)</name>
-|ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATEDCOUNT|</count>
+<salient_divine_abilities>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+		<salient_divine_ability>
+			<name>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability|</name>
+			<description>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
-		</demon_cant>
+			<category>Salient Divine Ability</category>
+		</salient_divine_ability>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=DemonCant")==0)|
-|ELSE|
-	<!-- Automatic Demon Cant -->
-|ENDIF|
-|FOR,%demoncant,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=DemonCant")-1,1,0|
-		<demon_cant>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
-		</demon_cant>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=DemonCant")==0)|
-|ELSE|
-	<!-- Virtual Demon Cant -->
-|ENDIF|
-|FOR,%demoncant,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=DemonCant")-1,1,0|
-		<demon_cant>
-|IIF(VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
-		</demon_cant>
-|ENDFOR|
-	</demon_cants>
+	</salient_divine_abilities>
 	<!--
 	  ====================================
 	  ====================================
-			Mage Gnosis
+			Occupations
 	  ====================================
 	  ====================================-->
-	<mage_gnosises>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=MageGnosis")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
-	<!-- Standard Mage Gnosis -->
 |ENDIF|
-|FOR,%magegnosis,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=MageGnosis")-1,1,0|
-		<mage_gnosis>
-|IIF(ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ex)</name>
+	<occupations>
+|FOR,%occupation,0,count("ABILITIES","CATEGORY=Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+		<occupation>
+			<name>|ABILITYALL.Occupation.VISIBLE.%occupation|</name>
+			<description>|ABILITYALL.Occupation.VISIBLE.%occupation.DESC|</description>
+			<type>|ABILITYALL.Occupation.VISIBLE.%occupation.TYPE|</type>
+			<associated>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATEDCOUNT|</count>
+			<source>|ABILITYALL.Occupation.VISIBLE.%occupation.SOURCE|</source>
+			<category>Occupation</category>
+		</occupation>
+|ENDFOR|
+	</occupations>
+		<!--
+	  ====================================
+	  ====================================
+			Eclipse Recurring Bonuses
+	  ====================================
+	  ====================================-->
+	<charcreations>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=CharCreation")==0)|
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Su)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Sp)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ps)</name>
-|ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis|</name>
+	<!-- Standard Character Creation Recurring Bonuses -->
 |ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATEDCOUNT|</count>
+|FOR,%charCreation,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=CharCreation")-1,1,0|
+		<charcreation>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.SOURCE|</source>
-		</mage_gnosis>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.SOURCE|</source>
+		</charcreation>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=MageGnosis")==0)|
+	</charcreations>
+		<!--
+	  ====================================
+	  ====================================
+			DISADVANTAGES
+	  ====================================
+	  ====================================-->
+	<disadvantages>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Disadvantage")==0)|
 |ELSE|
-	<!-- Automatic Mage Gnosis -->
+	<!-- Standard Disadvantages -->
 |ENDIF|
-|FOR,%magegnosis,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=MageGnosis")-1,1,0|
-		<mage_gnosis>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
+|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Disadvantage")-1,1,0|
+		<disadvantage>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.SOURCE|</source>
-		</mage_gnosis>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|</source>
+		</disadvantage>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=MageGnosis")==0)|
-|ELSE|
-	<!-- Virtual Mage Gnosis -->
-|ENDIF|
-|FOR,%magegnosis,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=MageGnosis")-1,1,0|
-		<mage_gnosis>
-|IIF(VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.SOURCE|</source>
-		</mage_gnosis>
-|ENDFOR|
-	</mage_gnosises>
+	</disadvantages>
 	<!--
 	  ====================================
 	  ====================================
-			Vampire Disciplines
+			Eclipse Abilities
 	  ====================================
 	  ====================================-->
-	<vampire_disciplines>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=VampireDiscipline")==0)|
+	<eclipse_abilities>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=EclipseAbilityOutput")==0)|
 |ELSE|
-	<!-- Standard Vampire Disciplines -->
+	<!-- Standard Eclipse Abilities -->
 |ENDIF|
-|FOR,%vampirediscipline,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=VampireDiscipline")-1,1,0|
-		<vampire_discipline>
-|IIF(ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ex)</name>
+|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=EclipseAbilityOutput")-1,1,0|
+		<eclipse_ability>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline|</name>
-|ENDIF|
-|ENDIF|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
 |ENDIF|
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATEDCOUNT|</count>
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.SOURCE|</source>
-		</vampire_discipline>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
+		</eclipse_ability>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=VampireDiscipline")==0)|
-|ELSE|
-	<!-- Automatic Vampire Disciplines -->
-|ENDIF|
-|FOR,%vampirediscipline,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=VampireDiscipline")-1,1,0|
-		<vampire_discipline>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.SOURCE|</source>
-		</vampire_discipline>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=VampireDiscipline")==0)|
-|ELSE|
-	<!-- Virtual Vampire Disciplines -->
-|ENDIF|
-|FOR,%vampirediscipline,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=VampireDiscipline")-1,1,0|
-		<vampire_discipline>
-|IIF(VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.SOURCE|</source>
-		</vampire_discipline>
-|ENDFOR|
-	</vampire_disciplines>
-
+	</eclipse_abilities>
 	<!--
 	  ====================================
 	  ====================================
-			Werewolf Rites
+			Spell Caster Output
 	  ====================================
 	  ====================================-->
-	<werewolf_rites>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=WerewolfRite")==0)|
+	<spellcasteroutputs>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpellCasterOutput")==0)|
 |ELSE|
-	<!-- Standard Rites -->
+	<!-- Standard Spell Caster Output -->
 |ENDIF|
-|FOR,%werewolfRite,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=WerewolfRite")-1,1,0|
-		<werewolf_rite>
-|IIF(ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ex)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Su)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Sp)</name>
-|ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ps)</name>
-|ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATEDCOUNT|</count>
+|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpellCasterOutput")-1,1,0|
+		<spellcasteroutput>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.SOURCE|</source>
-		</werewolf_rite>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
+		</spellcasteroutput>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=WerewolfRite")==0)|
+	</spellcasteroutputs>
+	<!--
+	  ====================================
+	  ====================================
+			Martial Arts
+	  ====================================
+	  ====================================-->
+	<martial_arts>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MartialArtsOutput")==0)|
 |ELSE|
-	<!-- Automatic Rites -->
+	<!-- Standard Martial Arts -->
 |ENDIF|
-|FOR,%werewolfRite,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=WerewolfRite")-1,1,0|
-		<werewolf_rite>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATEDCOUNT|</count>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.SOURCE|</source>
-			<auto>T</auto>
+|FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MartialArtsOutput")-1,1,0|
+		<martial_art>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-		</werewolf_rite>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
+		</martial_art>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=WerewolfRite")==0)|
+	</martial_arts>
+	<!--
+	  ====================================
+	  ====================================
+			Mystic Artist
+	  ====================================
+	  ====================================-->
+	<mystic_artists>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MysticArtistOutput")==0)|
 |ELSE|
-	<!-- Virtual Rites -->
+	<!-- Standard Mystic Artist -->
 |ENDIF|
-|FOR,%werewolfRite,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=WerewolfRite")-1,1,0|
-		<werewolf_rite>
-|IIF(VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATEDCOUNT|</count>
+|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MysticArtistOutput")-1,1,0|
+		<mystic_artist>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
-			<virtual>T</virtual>
+			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.SOURCE|</source>
-		</werewolf_rite>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.SOURCE|</source>
+		</mystic_artist>
 |ENDFOR|
-	</werewolf_rites>
-
+	</mystic_artists>
 	<!--
 	  ====================================
 	  ====================================
-			Force Powers
+			Witchcraft Abilities
 	  ====================================
 	  ====================================-->
-	<force_powers>
-|IIF(count("ABILITIES";"CATEGORY=Force Powers";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForcePower")==0)|
+	<witchcrafts>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WitchcraftOutput")==0)|
 |ELSE|
-	<!-- Force Powers -->
+	<!-- Standard Witchcraft Abilities -->
 |ENDIF|
-|FOR,%forcepower,0,count("ABILITIES","CATEGORY=Force Powers","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForcePower")-1,1,0|
-		<force_power>
-			<name>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower|</name>
-			<description>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.DESC|</description>
-			<type>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.TYPE|</type>
-			<associated>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.ASSOCIATEDCOUNT|</count>
-			<source>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.SOURCE|</source>
-			<category>Force Powers</category>
-		</force_power>
+|FOR,%witchcraftVar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WitchcraftOutput")-1,1,0|
+		<witchcraft>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.SOURCE|</source>
+		</witchcraft>
 |ENDFOR|
-	</force_powers>
+	</witchcrafts>
 	<!--
 	  ====================================
 	  ====================================
-			Force Techniques
+			The Path of the Dragon
 	  ====================================
 	  ====================================-->
-	<force_techniques>
-|IIF(count("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=ForceTechniques")==0)|
+	<path_dragons>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=PathoftheDragon")==0)|
 |ELSE|
-	<!-- Standard Force Techniques -->
+	<!-- Standard The Path of the Dragon Abilities -->
 |ENDIF|
-|FOR,%forcetechnique,0,count("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=ForceTechniques")-1,1,0|
-		<force_technique>
-			<name>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques|</name>
-			<description>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.DESC|</description>
-			<type>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.TYPE|</type>
-			<associated>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATED|</associated>
-			<count>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATEDCOUNT|</count>
+|FOR,%pathDragon,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=PathoftheDragon")-1,1,0|
+		<path_dragon>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Force Techniques</category>
-			<source>|ABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.SOURCE|</source>
-		</force_technique>
+			<category>Special Ability</category>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.SOURCE|</source>
+		</path_dragon>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ForceTechniques")==0)|
+	</path_dragons>
+		<!--
+	  ====================================
+	  ====================================
+			Dominion and Advanced Dominion
+	  ====================================
+	  ====================================-->
+	<dominions>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Dominion")==0)|
 |ELSE|
-	<!-- Automatic Force Techniques -->
+	<!-- Standard Dominion and Advanced Dominion Abilities -->
 |ENDIF|
-|FOR,%forcetechnique,0,count("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=ForceTechniques")-1,1,0|
-		<force_technique>
-			<name>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques|</name>
-			<description>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.DESC|</description>
-			<type>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.TYPE|</type>
-			<associated>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Force Techniques</category>
-			<source>|ABILITYAUTO.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.SOURCE|</source>
-		</force_technique>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ForceTechniques")==0)|
-|ELSE|
-	<!-- Virtual Force Techniques -->
-|ENDIF|
-|FOR,%forcetechnique,0,count("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=ForceTechniques")-1,1,0|
-		<force_technique>
-			<name>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques|</name>
-			<description>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.DESC|</description>
-			<type>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.TYPE|</type>
-			<associated>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATED|</associated>
-			<count>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATEDCOUNT|</count>
+|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Dominion")-1,1,0|
+		<dominion>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Force Techniques</category>
-			<source>|VABILITY.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.SOURCE|</source>
-		</force_technique>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.SOURCE|</source>
+		</dominion>
 |ENDFOR|
-	</force_techniques>
+	</dominions>
 	<!--
 	  ====================================
 	  ====================================
-			Force Secrets
+			Channeling
 	  ====================================
 	  ====================================-->
-
-	<force_secrets>
-|IIF(count("ABILITIES";"CATEGORY=Force Secrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=ForceSecrets")==0)|
+	<channelings>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ChannelingOutput")==0)|
 |ELSE|
-	<!-- Standard Force Secrets -->
+	<!-- Standard Channeling -->
 |ENDIF|
-|FOR,%forceSecret,0,count("ABILITIES","CATEGORY=Force Secrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=ForceSecrets")-1,1,0|
-		<force_secret>
-			<name>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets|</name>
-			<description>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.DESC|</description>
-			<type>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.TYPE|</type>
-			<associated>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATED|</associated>
-			<count>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATEDCOUNT|</count>
+|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ChannelingOutput")-1,1,0|
+		<channeling>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Force Secrets</category>
-			<source>|ABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.SOURCE|</source>
-		</force_secret>
+			<category>Special Ability</category>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.SOURCE|</source>
+		</channeling>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Force Secrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ForceSecrets")==0)|
-|ELSE|
-	<!-- Automatic Force Secrets -->
-|ENDIF|
-|FOR,%forceSecret,0,count("ABILITIES","CATEGORY=Force Secrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=ForceSecrets")-1,1,0|
-		<force_secret>
-			<name>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets|</name>
-			<description>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.DESC|</description>
-			<type>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.TYPE|</type>
-			<associated>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Force Secrets</category>
-			<source>|ABILITYAUTO.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.SOURCE|</source>
-		</force_secret>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ForceSecrets")==0)|
-|ELSE|
-	<!-- Virtual Force Secrets -->
-|ENDIF|
-|FOR,%forceSecret,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=ForceSecrets")-1,1,0|
-		<force_secret>
-			<name>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets|</name>
-			<description>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.DESC|</description>
-			<type>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.TYPE|</type>
-			<associated>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATED|</associated>
-			<count>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Force Secrets</category>
-			<source>|VABILITY.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.SOURCE|</source>
-		</force_secret>
-|ENDFOR|
-	</force_secrets>
+	</channelings>
 	<!--
 	  ====================================
 	  ====================================
 			POWERS - CLASSFEATURES
 	  ====================================
 	  ====================================-->
-
 	<powers_classfeatures>
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")==0)|
 |ELSE|
@@ -2364,25 +1856,24 @@
 |ENDIF|
 |FOR,%classFeature,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1,1,0|
 		<power_classfeature>
-
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ex)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Su)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Sp)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ps)</name>
 |ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.DESC|</description>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.DESC|</description>
 
 |IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Power Type:Y)|
 			<power_type>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Power Type|</power_type>
@@ -2433,7 +1924,6 @@
 			POWERS - FEATPOWERS
 	  ====================================
 	  ====================================-->
-
 	<powers_featpowers>
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")==0)|
 |ELSE|
@@ -2441,25 +1931,24 @@
 |ENDIF|
 |FOR,%featPower,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1,1,0|
 		<power_featpower>
-
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ex)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Su)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Sp)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ps)</name>
 |ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.DESC|</description>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.DESC|</description>
 
 |IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Power Type:Y)|
 			<power_type>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Power Type|</power_type>
@@ -2512,25 +2001,25 @@
 	  ====================================
 	  ====================================-->
 	<powers_atwills>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=AtWill")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AtWill")==0)|
 |ELSE|
 	<!-- Standard At Will Powers -->
 |ENDIF|
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=AtWill")-1,1,0|
+|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AtWill")-1,1,0|
 		<powers_atwill>
-|IIF(ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
@@ -2568,149 +2057,15 @@
 |IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|</source>
-		</powers_atwill>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=AtWill")==0)|
-|ELSE|
-	<!-- Automatic At Will Powers -->
-|ENDIF|
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=AtWill")-1,1,0|
-		<powers_atwill>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|</source>
-		</powers_atwill>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=AtWill")==0)|
-|ELSE|
-	<!-- Virtual At Will Powers -->
-|ENDIF|
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=AtWill")-1,1,0|
-		<powers_atwill>
-|IIF(VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|</source>
 		</powers_atwill>
 |ENDFOR|
 	</powers_atwills>
@@ -2722,25 +2077,25 @@
 	  ====================================-->
 
 	<powers_encounters>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Encounter")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Encounter")==0)|
 |ELSE|
 	<!-- Standard Encounter Powers -->
 |ENDIF|
-|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Encounter")-1,1,0|
+|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Encounter")-1,1,0|
 		<powers_encounter>
-|IIF(ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
@@ -2778,149 +2133,15 @@
 |IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.SOURCE|</source>
-		</powers_encounter>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Encounter")==0)|
-|ELSE|
-	<!-- Automatic Encounter Powers -->
-|ENDIF|
-|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Encounter")-1,1,0|
-		<powers_encounter>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%encounter.TYPE=Encounter.SOURCE|</source>
-		</powers_encounter>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Encounter")==0)|
-|ELSE|
-	<!-- Virtual Encounter Powers -->
-|ENDIF|
-|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Encounter")-1,1,0|
-		<powers_encounter>
-|IIF(VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%encounter.TYPE=Encounter.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.SOURCE|</source>
 		</powers_encounter>
 |ENDFOR|
 	</powers_encounters>
@@ -2930,27 +2151,26 @@
 			4e Powers - Daily
 	  ====================================
 	  ====================================-->
-
 	<powers_dailies>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Daily")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Daily")==0)|
 |ELSE|
 	<!-- Standard Daily Powers -->
 |ENDIF|
-|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Daily")-1,1,0|
+|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Daily")-1,1,0|
 		<powers_daily>
-|IIF(ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
@@ -2988,149 +2208,15 @@
 |IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.SOURCE|</source>
-		</powers_daily>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Daily")==0)|
-|ELSE|
-	<!-- Automatic Daily Powers -->
-|ENDIF|
-|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Daily")-1,1,0|
-		<powers_daily>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%daily.TYPE=Daily.SOURCE|</source>
-		</powers_daily>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Daily")==0)|
-|ELSE|
-	<!-- Virtual Daily Powers -->
-|ENDIF|
-|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Daily")-1,1,0|
-		<powers_daily>
-|IIF(VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%daily.TYPE=Daily.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.SOURCE|</source>
 		</powers_daily>
 |ENDFOR|
 	</powers_dailies>
@@ -3142,25 +2228,25 @@
 	  ====================================-->
 
 	<powers_utilities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Utility")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Utility")==0)|
 |ELSE|
 	<!-- Standard Utility Powers -->
 |ENDIF|
-|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Utility")-1,1,0|
+|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Utility")-1,1,0|
 		<powers_utility>
-|IIF(ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility|</name>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility|</name>
 |ENDIF|
 |ENDIF|
 |ENDIF|
@@ -3198,881 +2284,274 @@
 |IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATEDCOUNT|</count>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.SOURCE|</source>
-		</powers_utility>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Utility")==0)|
-|ELSE|
-	<!-- Automatic Utility Powers -->
-|ENDIF|
-|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Utility")-1,1,0|
-		<powers_utility>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%utility.TYPE=Utility.SOURCE|</source>
-		</powers_utility>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Utility")==0)|
-|ELSE|
-	<!-- Virtual Utility Powers -->
-|ENDIF|
-|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Utility")-1,1,0|
-		<powers_utility>
-|IIF(VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Type:Y)|
-			<power_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Type|</power_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Power Use:Y)|
-			<power_use>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Power Use|</power_use>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Action Type:Y)|
-			<action_type>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Action Type|</action_type>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Special:Y)|
-			<special>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Special|</special>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Trigger:Y)|
-			<trigger>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Trigger|</trigger>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Target:Y)|
-			<target>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Target|</target>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Attack:Y)|
-			<attack>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Attack|</attack>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Hit:Y)|
-			<hit>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Hit|</hit>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Miss:Y)|
-			<miss>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Miss|</miss>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Effect:Y)|
-			<effect>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Effect|</effect>
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.HASASPECT.Sustain:Y)|
-			<sustain>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.ASPECT.Sustain|</sustain>
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%utility.TYPE=Utility.SOURCE|</source>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.SOURCE|</source>
 		</powers_utility>
 |ENDFOR|
 	</powers_utilities>
-	<!--
-	  ====================================
-	  ====================================
-			SALIENT DIVINE ABILITIES
-	  ====================================
-	  ====================================-->
-|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
-|ELSE|
-<salient_divine_abilities>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-		<salient_divine_ability>
-			<name>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability|</name>
-			<description>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Salient Divine Ability</category>
-		</salient_divine_ability>
-|ENDFOR|
-	</salient_divine_abilities>
 
 	<!--
 	  ====================================
 	  ====================================
-			Animal Trick
+			Demon Cant
 	  ====================================
 	  ====================================-->
-	<animal_tricks>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=AnimalTrick")==0)|
+	<demon_cants>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=DemonCant")==0)|
 |ELSE|
-	<!-- Standard Animal Trick -->
+	<!-- Standard Demon Cant -->
 |ENDIF|
-|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=AnimalTrick")-1,1,0|
-		<animal_trick>
-			<name>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATEDCOUNT|</count>
+|FOR,%demoncant,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=DemonCant")-1,1,0|
+		<demon_cant>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|</source>
-		</animal_trick>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.SOURCE|</source>
+		</demon_cant>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=AnimalTrick")==0)|
-|ELSE|
-	<!-- Automatic Animal Trick -->
-|ENDIF|
-|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=AnimalTrick")-1,1,0|
-		<animal_trick>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|</source>
-		</animal_trick>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=AnimalTrick")==0)|
-|ELSE|
-	<!-- Virtual Animal Trick -->
-|ENDIF|
-|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=AnimalTrick")-1,1,0|
-		<animal_trick>
-			<name>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|</source>
-		</animal_trick>
-|ENDFOR|
-	</animal_tricks>
-
-<!--> ECLIPSE SET ADDONS <-->
-		<!--
-	  ====================================
-	  ====================================
-			Recurring Bonuses
-	  ====================================
-	  ====================================-->
-	<charcreations>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=CharCreation")==0)|
-|ELSE|
-	<!-- Standard Character Creation Recurring Bonuses -->
-|ENDIF|
-|FOR,%charCreation,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=CharCreation")-1,1,0|
-		<charcreation>
-			<name>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.SOURCE|</source>
-		</charcreation>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=CharCreation")==0)|
-|ELSE|
-	<!-- Automatic Character Creation Recurring Bonuses -->
-|ENDIF|
-|FOR,%charCreation,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=CharCreation")-1,1,0|
-		<charcreation>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.SOURCE|</source>
-		</charcreation>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=CharCreation")==0)|
-|ELSE|
-	<!-- Virtual Character Creation Recurring Bonuses -->
-|ENDIF|
-|FOR,%charCreation,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=CharCreation")-1,1,0|
-		<charcreation>
-			<name>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.SOURCE|</source>
-		</charcreation>
-|ENDFOR|
-	</charcreations>
+	</demon_cants>
 	<!--
 	  ====================================
 	  ====================================
-			Eclipse Abilities
+			Mage Gnosis
 	  ====================================
 	  ====================================-->
-	<eclipse_abilities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=EclipseAbilityOutput")==0)|
+	<mage_gnosises>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MageGnosis")==0)|
 |ELSE|
-	<!-- Standard Eclipse Abilities -->
+	<!-- Standard Mage Gnosis -->
 |ENDIF|
-|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=EclipseAbilityOutput")-1,1,0|
-		<eclipse_ability>
-|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
-			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
+|FOR,%magegnosis,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MageGnosis")-1,1,0|
+		<mage_gnosis>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ex)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
-			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Su)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Sp)</name>
 |ELSE|
-|IIF(ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
-			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ps)</name>
 |ELSE|
-			<name>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
-|ENDIF|
-|ENDIF|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis|</name>
 |ENDIF|
 |ENDIF|
-			<description>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
-		</eclipse_ability>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.SOURCE|</source>
+		</mage_gnosis>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=EclipseAbilityOutput")==0)|
-|ELSE|
-	<!-- Automatic Eclipse Abilities -->
-|ENDIF|
-|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=EclipseAbilityOutput")-1,1,0|
-		<eclipse_ability>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
-|ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
-|ELSE|
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
-		</eclipse_ability>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=EclipseAbilityOutput")==0)|
-|ELSE|
-	<!-- Virtual Eclipse Abilities -->
-|ENDIF|
-|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=EclipseAbilityOutput")-1,1,0|
-		<eclipse_ability>
-|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
-			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Supernatural)|
-			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Su)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:SpellLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Sp)</name>
-|ELSE|
-|IIF(VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:PsiLike)|
-			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ps)</name>
-|ELSE|
-			<name>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput|</name>
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-			<description>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.SOURCE|</source>
-		</eclipse_ability>
-|ENDFOR|
-	</eclipse_abilities>
+	</mage_gnosises>
 	<!--
 	  ====================================
 	  ====================================
-			Spell Caster Output
+			Vampire Disciplines
 	  ====================================
 	  ====================================-->
-	<spellcasteroutputs>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=SpellCasterOutput")==0)|
+	<vampire_disciplines>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=VampireDiscipline")==0)|
 |ELSE|
-	<!-- Standard Spell Caster Output -->
+	<!-- Standard Vampire Disciplines -->
 |ENDIF|
-|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=SpellCasterOutput")-1,1,0|
-		<spellcasteroutput>
-			<name>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
+|FOR,%vampirediscipline,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=VampireDiscipline")-1,1,0|
+		<vampire_discipline>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
-		</spellcasteroutput>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.SOURCE|</source>
+		</vampire_discipline>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=SpellCasterOutput")==0)|
-|ELSE|
-	<!-- Automatic Spell Caster Output -->
-|ENDIF|
-|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SpellCasterOutput")-1,1,0|
-		<spellcasteroutput>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
-		</spellcasteroutput>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=SpellCasterOutput")==0)|
-|ELSE|
-	<!-- Virtual Spell Caster Output -->
-|ENDIF|
-|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=SpellCasterOutput")-1,1,0|
-		<spellcasteroutput>
-			<name>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.SOURCE|</source>
-		</spellcasteroutput>
-|ENDFOR|
-	</spellcasteroutputs>
+	</vampire_disciplines>
 	<!--
 	  ====================================
 	  ====================================
-			Martial Arts
+			Werewolf Rites
 	  ====================================
 	  ====================================-->
-	<martial_arts>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=MartialArtsOutput")==0)|
+	<werewolf_rites>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WerewolfRite")==0)|
 |ELSE|
-	<!-- Standard Martial Arts -->
+	<!-- Standard Rites -->
 |ENDIF|
-|FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_art>
-			<name>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATEDCOUNT|</count>
+|FOR,%werewolfRite,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WerewolfRite")-1,1,0|
+		<werewolf_rite>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_art>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.SOURCE|</source>
+		</werewolf_rite>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=MartialArtsOutput")==0)|
-|ELSE|
-	<!-- Automatic Martial Arts -->
-|ENDIF|
-|FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_art>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_art>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=MartialArtsOutput")==0)|
-|ELSE|
-	<!-- Virtual Martial Arts -->
-|ENDIF|
-|FOR,%martialArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=MartialArtsOutput")-1,1,0|
-		<martial_art>
-			<name>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%martialArtist.TYPE=MartialArtsOutput.SOURCE|</source>
-		</martial_art>
-|ENDFOR|
-	</martial_arts>
-	<!--
-	  ====================================
-	  ====================================
-			Mystic Artist
-	  ====================================
-	  ====================================-->
-	<mystic_artists>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=MysticArtistOutput")==0)|
-|ELSE|
-	<!-- Standard Mystic Artist -->
-|ENDIF|
-|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=MysticArtistOutput")-1,1,0|
-		<mystic_artist>
-			<name>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.SOURCE|</source>
-		</mystic_artist>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=MysticArtistOutput")==0)|
-|ELSE|
-	<!-- Automatic Mystic Artist -->
-|ENDIF|
-|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=MysticArtistOutput")-1,1,0|
-		<mystic_artist>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.SOURCE|</source>
-		</mystic_artist>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=MysticArtistOutput")==0)|
-|ELSE|
-	<!-- Virtual Mystic Artist -->
-|ENDIF|
-|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=MysticArtistOutput")-1,1,0|
-		<mystic_artist>
-			<name>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.SOURCE|</source>
-		</mystic_artist>
-|ENDFOR|
-	</mystic_artists>
-	<!--
-	  ====================================
-	  ====================================
-			Witchcraft Abilities
-	  ====================================
-	  ====================================-->
-	<witchcrafts>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=WitchcraftOutput")==0)|
-|ELSE|
-	<!-- Standard Witchcraft Abilities -->
-|ENDIF|
-|FOR,%witchcraftVar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=WitchcraftOutput")-1,1,0|
-		<witchcraft>
-			<name>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.SOURCE|</source>
-		</witchcraft>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=WitchcraftOutput")==0)|
-|ELSE|
-	<!-- Automatic Witchcraft Abilities -->
-|ENDIF|
-|FOR,%witchcraftVar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=WitchcraftOutput")-1,1,0|
-		<witchcraft>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.SOURCE|</source>
-		</witchcraft>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=WitchcraftOutput")==0)|
-|ELSE|
-	<!-- Virtual Witchcraft Abilities -->
-|ENDIF|
-|FOR,%witchcraftVar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=WitchcraftOutput")-1,1,0|
-		<witchcraft>
-			<name>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.SOURCE|</source>
-		</witchcraft>
-|ENDFOR|
-	</witchcrafts>
-	<!--
-	  ====================================
-	  ====================================
-			The Path of the Dragon
-	  ====================================
-	  ====================================-->
-	<path_dragons>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=PathoftheDragon")==0)|
-|ELSE|
-	<!-- Standard The Path of the Dragon Abilities -->
-|ENDIF|
-|FOR,%pathDragon,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=PathoftheDragon")-1,1,0|
-		<path_dragon>
-			<name>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.SOURCE|</source>
-		</path_dragon>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=PathoftheDragon")==0)|
-|ELSE|
-	<!-- Automatic The Path of the Dragon Abilities -->
-|ENDIF|
-|FOR,%pathDragon,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=PathoftheDragon")-1,1,0|
-		<path_dragon>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.SOURCE|</source>
-		</path_dragon>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=PathoftheDragon")==0)|
-|ELSE|
-	<!-- Virtual The Path of the Dragon Abilities -->
-|ENDIF|
-|FOR,%pathDragon,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=PathoftheDragon")-1,1,0|
-		<path_dragon>
-			<name>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.SOURCE|</source>
-		</path_dragon>
-|ENDFOR|
-	</path_dragons>
-		<!--
-	  ====================================
-	  ====================================
-			Dominion and Advanced Dominion
-	  ====================================
-	  ====================================-->
-	<dominions>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=Dominion")==0)|
-|ELSE|
-	<!-- Standard Dominion and Advanced Dominion Abilities -->
-|ENDIF|
-|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=Dominion")-1,1,0|
-		<dominion>
-			<name>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.SOURCE|</source>
-		</dominion>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Dominion")==0)|
-|ELSE|
-	<!-- Automatic Dominion and Advanced Dominion Abilities -->
-|ENDIF|
-|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=Dominion")-1,1,0|
-		<dominion>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%dominion.TYPE=Dominion.SOURCE|</source>
-		</dominion>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Dominion")==0)|
-|ELSE|
-	<!-- Virtual Dominion and Advanced Dominion Abilities -->
-|ENDIF|
-|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=Dominion")-1,1,0|
-		<dominion>
-			<name>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%dominion.TYPE=Dominion.SOURCE|</source>
-		</dominion>
-|ENDFOR|
-	</dominions>
-	<!--
-	  ====================================
-	  ====================================
-			Channeling
-	  ====================================
-	  ====================================-->
-	<channelings>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL";"TYPE=ChannelingOutput")==0)|
-|ELSE|
-	<!-- Standard Channeling -->
-|ENDIF|
-|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL","TYPE=ChannelingOutput")-1,1,0|
-		<channeling>
-			<name>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.SOURCE|</source>
-		</channeling>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ChannelingOutput")==0)|
-|ELSE|
-	<!-- Automatic Channeling -->
-|ENDIF|
-|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=ChannelingOutput")-1,1,0|
-		<channeling>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.SOURCE|</source>
-		</channeling>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ChannelingOutput")==0)|
-|ELSE|
-	<!-- Virtual Channeling -->
-|ENDIF|
-|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL","TYPE=ChannelingOutput")-1,1,0|
-		<channeling>
-			<name>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-			<source>|VABILITY.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.SOURCE|</source>
-		</channeling>
-|ENDFOR|
-	</channelings>
-
-<!--> END Eclipse Set Add <-->
+	</werewolf_rites>
 
 	<!--
 	  ====================================
 	  ====================================
-			Occupations
+			Force Powers
 	  ====================================
 	  ====================================-->
-|IIF(count("ABILITIES";"CATEGORY=Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
+	<force_powers>
+|IIF(count("ABILITIES";"CATEGORY=Force Powers";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForcePower")==0)|
 |ELSE|
+	<!-- Force Powers -->
 |ENDIF|
-	<occupations>
-|FOR,%occupation,0,count("ABILITIES","CATEGORY=Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-		<occupation>
-			<name>|ABILITYALL.Occupation.VISIBLE.%occupation|</name>
-			<description>|ABILITYALL.Occupation.VISIBLE.%occupation.DESC|</description>
-			<type>|ABILITYALL.Occupation.VISIBLE.%occupation.TYPE|</type>
-			<associated>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATEDCOUNT|</count>
-			<source>|ABILITYALL.Occupation.VISIBLE.%occupation.SOURCE|</source>
-			<category>Occupation</category>
-		</occupation>
+|FOR,%forcepower,0,count("ABILITIES","CATEGORY=Force Powers","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForcePower")-1,1,0|
+		<force_power>
+			<name>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower|</name>
+			<description>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.DESC|</description>
+			<type>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.TYPE|</type>
+			<associated>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.ASSOCIATEDCOUNT|</count>
+			<source>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.SOURCE|</source>
+			<category>Force Powers</category>
+		</force_power>
 |ENDFOR|
-	</occupations>
+	</force_powers>
 	<!--
 	  ====================================
 	  ====================================
+			Force Techniques
+	  ====================================
+	  ====================================-->
+	<force_techniques>
+|IIF(count("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceTechniques")==0)|
+|ELSE|
+	<!-- Standard Force Techniques -->
+|ENDIF|
+|FOR,%forcetechnique,0,count("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceTechniques")-1,1,0|
+		<force_technique>
+			<name>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques|</name>
+			<description>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.DESC|</description>
+			<type>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.TYPE|</type>
+			<associated>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Force Techniques</category>
+			<source>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.SOURCE|</source>
+		</force_technique>
+|ENDFOR|
+	</force_techniques>
+	<!--
+	  ====================================
+	  ====================================
+			Force Secrets
+	  ====================================
+	  ====================================-->
+	<force_secrets>
+|IIF(count("ABILITIES";"CATEGORY=Force Secrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceSecrets")==0)|
+|ELSE|
+	<!-- Standard Force Secrets -->
+|ENDIF|
+|FOR,%forceSecret,0,count("ABILITIES","CATEGORY=Force Secrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceSecrets")-1,1,0|
+		<force_secret>
+			<name>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets|</name>
+			<description>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.DESC|</description>
+			<type>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.TYPE|</type>
+			<associated>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Force Secrets</category>
+			<source>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.SOURCE|</source>
+		</force_secret>
+|ENDFOR|
+	</force_secrets>
+
+<!--
+	====================================
+	====================================
 			MUTATIONS
-	  ====================================
-	  ====================================-->
+	====================================
+	====================================	-->
 |IIF(count("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
-	<mutations>
 |ENDIF|
+	<mutations>
 |FOR,%mutation,0,count("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<mutation>
 			<name>|ABILITYALL.Mutation.VISIBLE.%mutation|</name>
@@ -4088,461 +2567,11 @@
 		</mutation>
 |ENDFOR|
 	</mutations>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITY OBJECTS
-	  ====================================
-	  ====================================-->
 
-	<ability_objects>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Special Ability.HIDDEN.%ability|</name>
-			<description>|ABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Special Ability.HIDDEN.%ability|</name>
-			<description>|VABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- "Salient Divine Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Salient Divine Ability.VISIBLE.%ability|</name>
-			<description>|ABILITY.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Salient Divine Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- "Mutation" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Mutation.VISIBLE.%ability|</name>
-			<description>|ABILITY.Mutation.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Mutation.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Mutation</category>
-		</ability_object>
-|ENDFOR|
-<!-- Begin Andrew Edit -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Disadvantage" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Disadvantage" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Disadvantage" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Disadvantage" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Disadvantage" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
 
-<!-- End Andrew Edit -->
 
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Talent.VISIBLE.%ability|</name>
-			<description>|ABILITY.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Talent.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Talent.VISIBLE.%ability|</name>
-			<description>|VABILITY.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Internal.VISIBLE.%ability|</name>
-			<description>|ABILITY.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Internal.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Internal.VISIBLE.%ability|</name>
-			<description>|VABILITY.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Internal.HIDDEN.%ability|</name>
-			<description>|ABILITY.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Internal.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Internal.HIDDEN.%ability|</name>
-			<description>|VABILITY.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-	</ability_objects>
+
+
 
 
 	<!--
