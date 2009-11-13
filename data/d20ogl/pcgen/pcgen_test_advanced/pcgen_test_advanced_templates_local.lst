@@ -39,7 +39,7 @@ TL~WEAPONBONUS							WEAPONBONUS:Suns Weapon Of Choice|Fine Wine Blade
 #TL~<template>.FORGET (Global)							
 #TL~<template>.MOD (Global)							
 
-
+TL~ModifyOneTemplate
 TL~ModifyOneTemplate.COPY=TL~ModifyTwoTemplate
 TL~ModifyTwoTemplate.MOD		
 TL~ModifyOneTemplate.FORGET
