@@ -1,7 +1,7 @@
 
 
 
-Foo Ball			DESC:This is the Foo Ball Domain
-Bar Ball			DESC:This is the Bar Ball Domain
+Foo Ball			DESC:This is the Foo Ball Domain	SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball
+Bar Ball			DESC:This is the Bar Ball Domain	SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify
 
 

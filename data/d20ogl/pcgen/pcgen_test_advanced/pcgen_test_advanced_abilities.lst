@@ -35,7 +35,7 @@ Test OS Output Displays		CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQual
 # SRD / RSRD (Ex, Su, Sp, Ps; Salient Ability, Mutation Ability)
 SRD Master OS			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|SRD Test Master OS|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability	ABILITY:Salient Divine Ability|AUTOMATIC|Salient Divine Ability	ABILITY:Mutation|AUTOMATIC|Mutation
 #
-SRD Test Master OS		CATEGORY:Special Ability		TYPE:SpecialQuality.SpecialAttack.Extraordinary.SpellLike.Supernatural.AttackOption.Aura.Immunity.ModifyAC.Resistance.Weakness.AnimalTrick
+SRD Test Master OS		CATEGORY:Special Ability		TYPE:SpecialQuality.SpecialAttack.Extraordinary.SpellLike.PsiLike.Supernatural.AttackOption.Aura.Immunity.ModifyAC.Resistance.Weakness.AnimalTrick
 Extraordinary Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing	
 Supernatural Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
 Spell Like Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
@@ -46,23 +46,26 @@ Mutation				CATEGORY:Mutation				TYPE:Mutation
 # MSRD Support
 MSRD Talent Support		CATEGORY:Special Ability													ABILITY:Talent|AUTOMATIC|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability
 #
-Extraordinary Ability		CATEGORY:Talent			TYPE:SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing	
-Supernatural Ability		CATEGORY:Talent			TYPE:SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
-Spell Like Ability		CATEGORY:Talent			TYPE:SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
-Psi Ability				CATEGORY:Talent			TYPE:SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
+Extraordinary Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing	
+Supernatural Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
+Spell Like Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
+Psi Ability				CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
 
 # 4e Support (Daily, Encounter, At-Will, Utility)
-FourE Master OS			CATEGORY:Special Ability				ABILITY:Special Ability|AUTOMATIC|Daily Power|Encounter Power|At Will Power|Utility Power
+FourE Master OS			CATEGORY:Special Ability				ABILITY:Special Ability|AUTOMATIC|Daily Power|Encounter Power|At Will Power|Utility Power|Test Aspects
 #
 Daily Power				CATEGORY:Special Ability	TYPE:Daily		DESC:Testing	
 Encounter Power			CATEGORY:Special Ability	TYPE:Encounter	DESC:Testing	
 At Will Power			CATEGORY:Special Ability	TYPE:AtWill		DESC:Testing	
 Utility Power			CATEGORY:Special Ability	TYPE:Utility	DESC:Testing	
+Test Aspects			CATEGORY:Special Ability	TYPE:Daily		DESC:Aspect Testing			ASPECT:Power Type|Cleric Attack	ASPECT:Power Use|Daily . Divine, Healing, Radiant, Zone	ASPECT:Action Type|Standard Action Close burst 1	ASPECT:Special|Yup, it's special	ASPECT:Trigger|Trigger Deal	ASPECT:Target|You can target stuff	ASPECT:Attack|You better believe it	ASPECT:Hit|Hit Batter	ASPECT:Miss|Strike One	ASPECT:Effect|The burst creates a zone. take 1d6 + %1 radiant damage. regain hit points equal to 1 + %1 modifier.|CHA	ASPECT:Sustain|Minor. The zone persists.
 
 # Starwars / Saga edition homebrew Support
-SWSE Master OS			CATEGORY:Special Ability	ABILITY:Force Powers|AUTOMATIC|SWSE Force Powers	ABILITY:Force Techniques|AUTOMATIC|SWSE Force Techniques	ABILITY:Force Secrets|AUTOMATIC|SWSE Force Secrets
+SWSE Master OS			CATEGORY:Special Ability	ABILITY:Force Powers|AUTOMATIC|SWSE Force Powers|SWSE Force Powers Hidden	ABILITY:Force Powers|VIRTUAL|SWSE Force Powers Virtual	ABILITY:Force Techniques|AUTOMATIC|SWSE Force Techniques	ABILITY:Force Secrets|AUTOMATIC|SWSE Force Secrets
 #
 SWSE Force Powers			CATEGORY:Force Powers		TYPE:ForcePower		DESC:Testing
+SWSE Force Powers Hidden	CATEGORY:Force Powers		TYPE:ForcePower		DESC:Testing	VISIBLE:NO
+SWSE Force Powers Virtual	CATEGORY:Force Powers		TYPE:ForcePower		DESC:Testing
 SWSE Force Techniques		CATEGORY:Force Techniques	TYPE:ForceTechniques	DESC:Testing
 SWSE Force Secrets		CATEGORY:Force Secrets		TYPE:ForceSecrets		DESC:Testing
 
