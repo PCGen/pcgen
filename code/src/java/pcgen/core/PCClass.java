@@ -1048,7 +1048,7 @@ public class PCClass extends PObject
 
 		if (total == 1)
 		{
-			if (SettingsHandler.getGame().isPurchaseStatMode())
+			if (!SettingsHandler.getGame().isPurchaseStatMode())
 			{
 				aPC.setPoolAmount(0);
 			}

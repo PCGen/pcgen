@@ -129,8 +129,8 @@ BIO
 			<weight_nounit>150</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>0</cost>
-			<current>2</current>
+			<cost>2</cost>
+			<current>0</current>
 		</poolpoints>
 		<notes>
 			<note>
