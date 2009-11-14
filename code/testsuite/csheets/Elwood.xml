@@ -1785,19 +1785,11 @@ BIO
 	  ====================================-->
 	<special_abilities>
 		<ability>
-			<name>Evasion</name>
-			<description></description>
-		</ability>
-		<ability>
 			<name>Improvised Implements</name>
 			<description></description>
 		</ability>
 		<ability>
 			<name>Sweep</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Uncanny Dodge I</name>
 			<description></description>
 		</ability>
 		<race></race>
@@ -1939,7 +1931,7 @@ BIO
 	<!-- Visible Standard "Talent" Ability Objects -->
 		<ability_object>
 			<name>Evasion</name>
-			<description></description>
+			<description>See text</description>
 			<type>TALENT.FASTTALENT.DEFENSIVE</type>
 			<associated></associated>
 			<count>0</count>
@@ -1950,7 +1942,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Uncanny Dodge I</name>
-			<description></description>
+			<description>See text</description>
 			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
 			<associated></associated>
 			<count>0</count>
