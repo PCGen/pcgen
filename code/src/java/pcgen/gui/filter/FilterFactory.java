@@ -2375,13 +2375,16 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 			/*
 			 * CONSIDER Given SubClass issues, this is probably wrong
 			 */
-			for (CDOMReference<? extends PCClass> ref : favClass)
+			if (favClass != null)
 			{
-				for (PCClass cl : ref.getContainedObjects())
+				for (CDOMReference<? extends PCClass> ref : favClass)
 				{
-					if (cl.getKeyName().equalsIgnoreCase(className))
+					for (PCClass cl : ref.getContainedObjects())
 					{
-						return true;
+						if (cl.getKeyName().equalsIgnoreCase(className))
+						{
+							return true;
+						}
 					}
 				}
 			}

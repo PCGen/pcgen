@@ -301,6 +301,7 @@ public class VFeatToken extends AbstractToken implements
 				featName, AbilityCategory.FEAT,
 				pc, null);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
+		// TODO: Why is this here? Normally this is only used in the UI layer.
 		pc.setDirty(true);
 
 		if (aFeat != null)
