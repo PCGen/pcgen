@@ -470,19 +470,8 @@ Tower Shield,
 |ENDMANUALWHITESPACE|
 <!-- End Attacks -->
 
-<!-- Face abd Reach -->
-|IIF(FACE:5 ft.AND.REACH:5 ft.)|
-|ELSE|
-<br>
-|ENDIF|
-|IIF(FACE:5 ft.)|
-|ELSE|
-<b>Face</b> |FACE|
-|ENDIF|
-|IIF(REACH:5 ft.)|
-|ELSE|
-<b>Reach</b> |REACH|
-|ENDIF|
+<!-- Face and Reach -->
+<br><b>Face</b> |FACE|; <b>Reach</b> |REACH|
 
 <!-- SpecialAttack TYPE Abilities -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
@@ -721,6 +710,9 @@ at will)
 |ENDIF|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Trip");1;0):1)|
 &nbsp;(|VAR.CMD_Trip.INTVAL.SIGN|&nbsp;vs&nbsp;trip)
+|ENDIF|
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+&nbsp;(can't&nbsp;be&nbsp;tripped)
 |ENDIF|
 |ENDIF|
 |ELSE|
