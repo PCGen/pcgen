@@ -152,8 +152,8 @@ Horn of Valhalla (Brass)																		TYPE:Magic.Wondrous																			
 Horn of Valhalla (Bronze)																		TYPE:Magic.Wondrous																							COST:50000	WT:2														EQMOD:BRONZE							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Horn of Valhalla (Iron)																			TYPE:Magic.Wondrous																							COST:50000	WT:2														EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Horn of Valhalla (Silver)																		TYPE:Magic.Wondrous																							COST:50000	WT:2														EQMOD:SILVER							SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Horseshoes of Speed																			TYPE:Magic.Wondrous.Boot																						COST:1900	WT:3		SLOTS:2											EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																								BONUS:MOVEMULT|TYPE.Walk|2|TYPE=Enhancement|PRERACE:1,RACETYPE=Animal
-Horseshoes of a Zephyr																			TYPE:Magic.Wondrous.Boot																						COST:3000	WT:3		SLOTS:2											EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Horseshoes of Speed																			TYPE:Magic.Wondrous.Boot																						COST:1900	WT:3		SLOTS:4											EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																								BONUS:MOVEMULT|TYPE.Walk|2|TYPE=Enhancement|PRERACE:1,RACETYPE=Animal
+Horseshoes of a Zephyr																			TYPE:Magic.Wondrous.Boot																						COST:3000	WT:3		SLOTS:4											EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Incense of Meditation																			TYPE:Magic.Wondrous.Consumable																					COST:4900	WT:1																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Instant Fortress																				TYPE:Magic.Wondrous.Fortress																						COST:55000	WT:0														EQMOD:ADAMANT_FORT						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Ioun Stone (Dull Grey)																			TYPE:Magic.Wondrous																							COST:25	WT:0														EQMOD:STONE								SOURCEPAGE:srdmagicitemswondrousitems.rtf

@@ -203,8 +203,8 @@ Horn of Valhalla (Brass)													TYPE:Magic.Wondrous						COST:50000	WT:2			
 Horn of Valhalla (Bronze)													TYPE:Magic.Wondrous						COST:50000	WT:2				SOURCEPAGE:MagicItemsV.rtf
 Horn of Valhalla (Iron)														TYPE:Magic.Wondrous						COST:50000	WT:2				SOURCEPAGE:MagicItemsV.rtf
 Horn of Valhalla (Silver)													TYPE:Magic.Wondrous						COST:50000	WT:2				SOURCEPAGE:MagicItemsV.rtf
-Horseshoes of Speed														TYPE:Magic.Wondrous.Boot					COST:3000	WT:12		SLOTS:2	SOURCEPAGE:MagicItemsV.rtf																																				BONUS:MOVEADD|TYPE.Walk|30|TYPE=Enhancement|PRERACE:1,RACETYPE=Animal
-Horseshoes of a Zephyr														TYPE:Magic.Wondrous.Boot					COST:6000	WT:4		SLOTS:2	SOURCEPAGE:MagicItemsV.rtf
+Horseshoes of Speed														TYPE:Magic.Wondrous.Boot					COST:3000	WT:12		SLOTS:4	SOURCEPAGE:MagicItemsV.rtf																																				BONUS:MOVEADD|TYPE.Walk|30|TYPE=Enhancement|PRERACE:1,RACETYPE=Animal
+Horseshoes of a Zephyr														TYPE:Magic.Wondrous.Boot					COST:6000	WT:4		SLOTS:4	SOURCEPAGE:MagicItemsV.rtf
 Incense of Meditation														TYPE:Magic.Wondrous.Consumable				COST:4900	WT:1				SOURCEPAGE:MagicItemsV.rtf
 Instant Fortress															TYPE:Magic.Wondrous						COST:55000	WT:0				SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Dull Grey)														TYPE:Magic.Wondrous						COST:25	WT:0				SOURCEPAGE:MagicItemsV.rtf
