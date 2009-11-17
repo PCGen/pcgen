@@ -19,12 +19,12 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>
+public class NoChoiceToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -37,18 +37,17 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
 			// No args - legal
 			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
-			return true;
+			return ParseResult.SUCCESS;
 		}
-		Logging.deprecationPrint("CHOOSE:" + getTokenName()
+		return new ParseResult.Fail("CHOOSE:" + getTokenName()
 				+ " will ignore arguments: " + value);
-		return false;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

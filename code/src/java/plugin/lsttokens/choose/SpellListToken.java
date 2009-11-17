@@ -19,12 +19,12 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class SpellListToken implements CDOMSecondaryToken<CDOMObject>
+public class SpellListToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -37,62 +37,55 @@ public class SpellListToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments in "
 					+ obj.getDisplayName());
-			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain , : " + value + " in "
 					+ obj.getDisplayName());
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value + " in "
 					+ obj.getDisplayName());
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value + " in "
 					+ obj.getDisplayName());
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value + " in "
 					+ obj.getDisplayName());
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value
 					+ "  in " + obj.getDisplayName());
-			return false;
 		}
 		if (!value.equals("Y") && !value.equals("N") && !value.equals("1")
 				&& !value.equals("0"))
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " argument was not Y or N in " + obj.getDisplayName());
-			return false;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

@@ -41,12 +41,12 @@ import pcgen.core.Skill;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class ClassSkillsLevelToken extends AbstractToken implements
-		CDOMSecondaryToken<PCClassLevel>
+public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> implements
+		CDOMSecondaryParserToken<PCClassLevel>
 {
 	@Override
 	public String getTokenName()
@@ -66,13 +66,10 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 		return getParentToken() + ":" + getTokenName();
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCClassLevel obj, String value)
 	{
-		if (value.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, getFullName() + " may not have empty argument");
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;
 		String items;
@@ -87,16 +84,16 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 			items = value.substring(pipeLoc + 1);
 		}
 
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
@@ -147,9 +144,8 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 				{
 					if (autoRank != null)
 					{
-						Logging.log(Logging.LST_ERROR, "Cannot have two AUTORANK= items in "
+						return new ParseResult.Fail("Cannot have two AUTORANK= items in "
 										+ getFullName() + ": " + value);
-						return false;
 					}
 					String rankString = tokText.substring(9);
 					try
@@ -157,17 +153,15 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 						autoRank = Integer.decode(rankString);
 						if (autoRank <= 0)
 						{
-							Logging.errorPrint("Expected AUTORANK= to be"
+							return new ParseResult.Fail("Expected AUTORANK= to be"
 									+ " greater than zero, found: "
 									+ autoRank);
-							return false;
 						}
 					}
 					catch (NumberFormatException e)
 					{
-						Logging.errorPrint("Expected AUTORANK= to have"
+						return new ParseResult.Fail("Expected AUTORANK= to have"
 								+ " an integer value, found: " + rankString);
-						return false;
 					}
 				}
 				else
@@ -176,13 +170,12 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 							.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 					if (skref == null)
 					{
-						Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+						return new ParseResult.Fail("  Error was encountered while parsing "
 										+ getFullName()
 										+ ": "
 										+ value
 										+ " had an invalid reference: "
 										+ tokText);
-						return false;
 					}
 					refs.add(skref);
 				}
@@ -191,17 +184,15 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 
 		if (refs.isEmpty())
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains no skill reference: " + value);
-			return false;
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
@@ -212,7 +203,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 				autoRank);
 		tc.setChoiceActor(actor);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClassLevel obj)

@@ -19,12 +19,12 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class HPToken implements CDOMSecondaryToken<CDOMObject>
+public class HPToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -37,31 +37,28 @@ public class HPToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf('|') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain | : " + value);
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

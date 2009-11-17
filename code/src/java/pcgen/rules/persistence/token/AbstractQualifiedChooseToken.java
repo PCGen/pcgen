@@ -12,12 +12,10 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
-		AbstractToken implements CDOMSecondaryToken<CDOMObject>,
+		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>,
 		PersistentChoiceActor<T>
 {
 	public String getParentToken()
@@ -25,13 +23,15 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
 		String title;
@@ -63,15 +63,16 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 				activeValue);
 		if (pcs == null)
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		if (!pcs.getGroupingState().isValid())
 		{
-			Logging.errorPrint("Invalid combination of objects was used in: "
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Invalid combination of objects was used in: "
 					+ activeValue);
-			Logging.errorPrint("  Check that ALL is not combined");
-			Logging.errorPrint("  Check that a key is not joined with AND (,)");
-			return false;
+			cpr.addErrorMessage("  Check that ALL is not combined");
+			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			return cpr;
 		}
 		ChoiceSet<T> cs = new ChoiceSet<T>(getTokenName(), pcs);
 		cs.setTitle(title);
@@ -79,7 +80,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 				cs, null);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public Class<CDOMObject> getTokenClass()

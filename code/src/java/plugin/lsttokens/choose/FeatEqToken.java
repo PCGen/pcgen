@@ -19,12 +19,13 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>
+public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -37,55 +38,52 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain , : " + value);
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
+		ParseResult pr = ParseResult.SUCCESS;
 		if (value.indexOf('|') != -1)
 		{
-			Logging.deprecationPrint("CHOOSE:" + getTokenName()
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addWarningMessage("CHOOSE:" + getTokenName()
 					+ " will ignore arguments: "
 					+ value.substring(value.indexOf('|') + 1));
+			pr = cpr;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("FEAT=").append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return pr;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

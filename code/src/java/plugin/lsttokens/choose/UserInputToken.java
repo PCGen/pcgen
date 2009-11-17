@@ -22,12 +22,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
+public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -40,44 +41,38 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain , : " + value);
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		String title;
@@ -95,31 +90,30 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " first argument must be an Integer : " + value);
-				return false;
 			}
 			title = value.substring(pipeLoc + 1);
 		}
 		if (!title.startsWith("TITLE="))
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " argument must start with TITLE= : " + value);
-			return false;
 		}
+
+		ComplexParseResult cpr = new ComplexParseResult();
 		if (title.startsWith("TITLE=\""))
 		{
 			if (!title.endsWith("\""))
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " argument which starts \" with must end with \" : "
 						+ value);
-				return false;
 			}
 		}
 		else
 		{
-			Logging.deprecationPrint("CHOOSE:" + getTokenName()
+			cpr.addWarningMessage("CHOOSE:" + getTokenName()
 					+ " argument TITLE= should use \" around the title : "
 					+ value);
 		}
@@ -136,7 +130,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			Formula f = FormulaFactory.getFormulaFor(firstarg);
 			context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
 		}
-		return true;
+		return cpr;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
@@ -160,7 +154,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 	// TODO Deferred?
 	// if (prefix.indexOf("NUMCHOICES=") != -1)
 	// {
-	// Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with
+	// return new ParseResult.Fail("Cannot use NUMCHOICES= with
 	// CHOOSE:USERINPUT, "
 	// + "as it has an integrated choice count");
 	// return false;

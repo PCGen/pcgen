@@ -1,16 +1,16 @@
 /*
  * Copyright 2007 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -61,6 +61,22 @@ public abstract class AbstractToken
 					+ token + "\n  " + ple.getMessage());
 		}
 		return null;
+	}
+
+	/**
+	 * Checks a string to see if it is non-empty and any separators are used correctly.
+	 * @param separator The separator that is used in the string.
+	 * @param value     The string to check.
+	 * @return  A parse result of success if the string is non-empty uses separators correctly.
+	 */
+	protected ParseResult checkSeparatorsAndNonEmpty(char separator, String value)
+	{
+		ParseResult pr = checkNonEmpty(value);
+		if (pr.passed())
+		{
+			pr = checkForIllegalSeparator(separator, value);
+		}
+		return pr;
 	}
 
 	/**

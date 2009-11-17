@@ -53,18 +53,17 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>AbilityToken</code> parses ADD:ABILITY entries.
- * 
+ *
  * <p>
  * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br />
  * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula -
@@ -82,15 +81,15 @@ import pcgen.util.enumeration.Visibility;
  * <li>The Ability is added to the Ability Category specified.</li>
  * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
- * 
+ *
  * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
  * (Sun, 20 May 2007) $
- * 
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class AbilityToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
 	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
@@ -112,14 +111,16 @@ public class AbilityToken extends AbstractToken implements
 		return "ABILITY";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		Formula count;
 		int tokenCount = pipeTok.countTokens();
@@ -129,9 +130,8 @@ public class AbilityToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 		}
 		else if (tokenCount == 3)
@@ -140,10 +140,9 @@ public class AbilityToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.log(Logging.LST_ERROR, "Syntax of ADD:" + getTokenName()
+			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
 							+ " requires three | when a count is not present: "
 							+ value);
-			return false;
 		}
 
 		String categoryKey = pipeTok.nextToken();
@@ -151,39 +150,35 @@ public class AbilityToken extends AbstractToken implements
 				categoryKey);
 		if (category == null)
 		{
-			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability category: "
+			return new ParseResult.Fail(getFullName() + ": Invalid ability category: "
 					+ categoryKey);
-			return false;
 		}
 
 		String natureKey = pipeTok.nextToken();
 		Nature nature = Nature.valueOf(natureKey);
 		if (nature == null)
 		{
-			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability nature: "
+			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: "
 					+ natureKey);
-			return false;
 		}
 		if (Nature.ANY.equals(nature))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 		if (Nature.AUTOMATIC.equals(nature))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " refers to AUTOMATIC Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
-			return false;
 		}
 
 		String items = pipeTok.nextToken();
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (!pr.passed())
 		{
-			Logging.log(Logging.LST_ERROR, "!!");
-			return false;
+			return pr;
 		}
 
 		List<AbilityRef> refs = new ArrayList<AbilityRef>();
@@ -202,10 +197,9 @@ public class AbilityToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.log(Logging.LST_ERROR, getFullName()
+					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
-					return false;
 				}
 				allowStack = true;
 				continue;
@@ -214,10 +208,9 @@ public class AbilityToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.log(Logging.LST_ERROR, getFullName()
+					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
-					return false;
 				}
 				allowStack = true;
 				try
@@ -226,15 +219,13 @@ public class AbilityToken extends AbstractToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.log(Logging.LST_ERROR, "Invalid Stack number in "
+					return new ParseResult.Fail("Invalid Stack number in "
 							+ getFullName() + ": " + value);
-					return false;
 				}
 				if (dupChoices <= 0)
 				{
-					Logging.log(Logging.LST_ERROR, "Invalid (less than 1) Stack number in "
+					return new ParseResult.Fail("Invalid (less than 1) Stack number in "
 							+ getFullName() + ": " + value);
-					return false;
 				}
 				continue;
 			}
@@ -252,10 +243,9 @@ public class AbilityToken extends AbstractToken implements
 			}
 			if (ab == null)
 			{
-				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getTokenName() + ": " + value
 						+ " had an invalid reference: " + token);
-				return false;
 			}
 			AbilityRef ar = new AbilityRef(ab);
 			refs.add(ar);
@@ -265,10 +255,9 @@ public class AbilityToken extends AbstractToken implements
 				AbilityUtilities.getUndecoratedName(token, choices);
 				if (choices.size() != 1)
 				{
-					Logging.log(Logging.LST_ERROR, "Invalid use of multiple items "
+					return new ParseResult.Fail("Invalid use of multiple items "
 							+ "in parenthesis (comma prohibited) in "
 							+ getFullName() + ": " + token);
-					return false;
 				}
 				ar.setChoice(choices.get(0));
 			}
@@ -276,18 +265,16 @@ public class AbilityToken extends AbstractToken implements
 
 		if (refs.isEmpty())
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains no ability reference: " + value);
-			return false;
 		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
 				nature);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
 		StringBuilder title = new StringBuilder();
@@ -308,7 +295,7 @@ public class AbilityToken extends AbstractToken implements
 			tc.setStackLimit(dupChoices);
 		}
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

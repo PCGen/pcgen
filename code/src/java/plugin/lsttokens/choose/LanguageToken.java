@@ -22,12 +22,13 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
+public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -40,38 +41,33 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [] : " + value);
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("Language").append('(');
@@ -87,18 +83,19 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 			String tokString = st.nextToken();
 			if (tokString.indexOf('.') != tokString.lastIndexOf('.'))
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("CHOOSE:" + getTokenName()
 						+ " arguments cannot have two . : " + tokString);
-				Logging.log(Logging.LST_ERROR,
+				cpr.addErrorMessage(
 						"  format for argument must be X or X.Y");
-				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
-				return false;
+				cpr.addErrorMessage("  entire token was: " + value);
+				return cpr;
 			}
 			sb.append(tokString);
 		}
 		sb.append(')');
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

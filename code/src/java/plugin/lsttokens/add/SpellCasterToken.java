@@ -44,11 +44,12 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class SpellCasterToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCClass>
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -71,6 +72,12 @@ public class SpellCasterToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, obj, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
+	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;
 		String items;
@@ -85,16 +92,16 @@ public class SpellCasterToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 			items = value.substring(pipeLoc + 1);
 		}
 
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
 
@@ -129,12 +136,11 @@ public class SpellCasterToken extends AbstractToken implements
 									.substring(5));
 					if (ref == null)
 					{
-						Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+						return new ParseResult.Fail("  Error was encountered while parsing "
 										+ getFullName()
 										+ ": "
 										+ token
 										+ " is not a valid reference: " + value);
-						return false;
 					}
 					groups.add(ref);
 				}
@@ -148,9 +154,8 @@ public class SpellCasterToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 
 		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null
@@ -163,8 +168,7 @@ public class SpellCasterToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
-		return true;
-
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

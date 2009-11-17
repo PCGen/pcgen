@@ -40,12 +40,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class LanguageToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>
+public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<Language>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -66,13 +66,10 @@ public class LanguageToken extends AbstractToken implements
 		return "LANGUAGE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (value.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, getFullName() + " may not have empty argument");
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;
 		String items;
@@ -87,16 +84,16 @@ public class LanguageToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 			items = value.substring(pipeLoc + 1);
 		}
 
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		List<CDOMReference<Language>> refs = new ArrayList<CDOMReference<Language>>();
@@ -108,10 +105,9 @@ public class LanguageToken extends AbstractToken implements
 					LANGUAGE_CLASS, tokText);
 			if (lang == null)
 			{
-				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getFullName() + ": " + value
 						+ " had an invalid reference: " + tokText);
-				return false;
 			}
 			refs.add(lang);
 		}
@@ -120,9 +116,8 @@ public class LanguageToken extends AbstractToken implements
 				refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
@@ -131,7 +126,7 @@ public class LanguageToken extends AbstractToken implements
 				new PersistentTransitionChoice<Language>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

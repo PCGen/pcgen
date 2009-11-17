@@ -22,12 +22,13 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
+public class SpellsToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -40,34 +41,31 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		ComplexParseResult cpr = new ComplexParseResult();
 		while (tok.hasMoreTokens())
 		{
 			String item = tok.nextToken();
@@ -77,13 +75,13 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 				String token = st.nextToken();
 				if (token.startsWith("DOMAIN=") || token.startsWith("DOMAIN."))
 				{
-					Logging.deprecationPrint("DOMAIN is deprecated in "
+					cpr.addWarningMessage("DOMAIN is deprecated in "
 							+ "CHOOSE:SPELLS, please use DOMAINLIST=x");
 				}
 				else if (token.startsWith("CLASS=")
 						|| token.startsWith("CLASS."))
 				{
-					Logging.deprecationPrint("CLASS is deprecated in "
+					cpr.addWarningMessage("CLASS is deprecated in "
 							+ "CHOOSE:SPELLS, please use CLASSLIST=x");
 				}
 				else if (token.startsWith("DOMAINLIST="))
@@ -93,34 +91,25 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 					{
 						if (token.length() < 12)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid DOMAINLIST= entry for "
+							return new ParseResult.Fail("Invalid DOMAINLIST= entry for "
 													+ "CHOOSE:SPELLS: requires a domain name");
-							return false;
 						}
 					}
 					else
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid entry in "
+							return new ParseResult.Fail("Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
-							return false;
 						}
 						String domainName = token.substring(11, bracketLoc);
 						if (domainName == null || domainName.length() == 0)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid DOMAINLIST= entry for "
+							return new ParseResult.Fail("Invalid DOMAINLIST= entry for "
 													+ "CHOOSE:SPELLS: requires a domain name");
-							return false;
 						}
-						validateRestriction(token.substring(bracketLoc + 1,
+						cpr = validateRestriction(token.substring(bracketLoc + 1,
 								token.length() - 1));
 					}
 				}
@@ -131,34 +120,25 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 					{
 						if (token.length() < 10)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid CLASSLIST= entry for "
+							return new ParseResult.Fail("Invalid CLASSLIST= entry for "
 													+ "CHOOSE:SPELLS: requires a class name");
-							return false;
 						}
 					}
 					else
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid entry in "
+							return new ParseResult.Fail("Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
-							return false;
 						}
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid CLASSLIST= entry for "
+							return new ParseResult.Fail("Invalid CLASSLIST= entry for "
 													+ "CHOOSE:SPELLS: requires a class name");
-							return false;
 						}
-						validateRestriction(token.substring(bracketLoc + 1,
+						cpr = validateRestriction(token.substring(bracketLoc + 1,
 								token.length() - 1));
 					}
 				}
@@ -169,34 +149,25 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 					{
 						if (token.length() < 10)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid SPELLTYPE= entry for "
+							return new ParseResult.Fail("Invalid SPELLTYPE= entry for "
 													+ "CHOOSE:SPELLS: requires a spell type");
-							return false;
 						}
 					}
 					else
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid entry in "
+							return new ParseResult.Fail("Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
-							return false;
 						}
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging
-									.log(
-											Logging.LST_ERROR,
-											"Invalid SPELLTYPE= entry for "
+							return new ParseResult.Fail("Invalid SPELLTYPE= entry for "
 													+ "CHOOSE:SPELLS: requires a spell type");
-							return false;
 						}
-						validateRestriction(token.substring(bracketLoc + 1,
+						cpr = validateRestriction(token.substring(bracketLoc + 1,
 								token.length() - 1));
 					}
 				}
@@ -205,23 +176,18 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 					int bracketLoc = token.indexOf('[');
 					if (bracketLoc > -1 && bracketLoc != 3)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid ANY entry for "
+						return new ParseResult.Fail("Invalid ANY entry for "
 												+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
-						return false;
 					}
 					else
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid entry in "
+							return new ParseResult.Fail("Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
-							return false;
 						}
-						validateRestriction(token.substring(bracketLoc + 1,
+						cpr = validateRestriction(token.substring(bracketLoc + 1,
 								token.length() - 1));
 					}
 				}
@@ -229,48 +195,32 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 				{
 					if (token.length() < 8)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid SCHOOL= entry for "
+						return new ParseResult.Fail("Invalid SCHOOL= entry for "
 												+ "CHOOSE:SPELLS: requires a school name");
-						return false;
 					}
 				}
 				else if (token.startsWith("SUBSCHOOL="))
 				{
 					if (token.length() < 11)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid SUBSCHOOL= entry for "
+						return new ParseResult.Fail("Invalid SUBSCHOOL= entry for "
 												+ "CHOOSE:SPELLS: requires a subschool name");
-						return false;
 					}
 				}
 				else if (token.startsWith("DESCRIPTOR="))
 				{
 					if (token.length() < 12)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid DESCRIPTOR= entry for "
+						return new ParseResult.Fail("Invalid DESCRIPTOR= entry for "
 												+ "CHOOSE:SPELLS: requires a descriptor name");
-						return false;
 					}
 				}
 				else if (token.startsWith("SPELLBOOK="))
 				{
 					if (token.length() < 11)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid SPELLBOOK= entry for "
+						return new ParseResult.Fail("Invalid SPELLBOOK= entry for "
 												+ "CHOOSE:SPELLS: requires a spellbook name");
-						return false;
 					}
 				}
 				else if (token.startsWith("PROHIBITED="))
@@ -278,32 +228,26 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 					String prohibited = token.substring(11);
 					if (!"YES".equals(prohibited) && !"NO".equals(prohibited))
 					{
-						Logging.log(Logging.LST_ERROR,
+						return new ParseResult.Fail(
 								"Invalid PROHIBITED= entry for "
 										+ "CHOOSE:SPELLS: must be YES or NO");
-						return false;
 					}
 				}
 				else if (token.startsWith("TYPE=") || token.startsWith("TYPE."))
 				{
 					if (token.length() < 6)
 					{
-						Logging
-								.log(
-										Logging.LST_ERROR,
-										"Invalid TYPE= entry for "
+						return new ParseResult.Fail("Invalid TYPE= entry for "
 												+ "CHOOSE:SPELLS: requires a type name");
-						return false;
 					}
 				}
 				else
 				{
 					if (token.indexOf('[') != -1 || token.indexOf('=') != -1)
 					{
-						Logging.log(Logging.LST_ERROR,
+						return new ParseResult.Fail(
 								"Invalid (unknown) entry: " + token + " for "
 										+ "CHOOSE:SPELLS:");
-						return false;
 					}
 					// Just a spell name
 				}
@@ -312,11 +256,12 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return true;
+		return cpr;
 	}
 
-	private void validateRestriction(String restrString)
+	private ComplexParseResult validateRestriction(String restrString)
 	{
+		ComplexParseResult cpr = new ComplexParseResult();
 		StringTokenizer restr = new StringTokenizer(restrString, ";");
 		while (restr.hasMoreTokens())
 		{
@@ -335,11 +280,12 @@ public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			else
 			{
-				Logging.log(Logging.LST_ERROR, "Unknown restriction: " + tok
+				cpr.addWarningMessage("Unknown restriction: " + tok
 						+ " in CHOOSE:SPELLS");
 				continue;
 			}
 		}
+		return cpr;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

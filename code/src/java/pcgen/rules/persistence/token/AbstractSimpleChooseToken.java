@@ -36,13 +36,11 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.util.Logging;
 
 public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
-		AbstractToken implements CDOMSecondaryToken<CDOMObject>,
+		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>,
 		PersistentChoiceActor<T>
 {
 	public String getParentToken()
@@ -50,13 +48,16 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
 		String title;
@@ -98,32 +99,30 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 						context, getChooseClass(), tok);
 				if (ref == null)
 				{
-					Logging.log(Logging.LST_ERROR,
-							"Error: Count not get Reference for " + tok
+					return new ParseResult.Fail("Error: Count not get Reference for " + tok
 									+ " in " + getTokenName());
-					return false;
 				}
 				if (!set.add(ref))
 				{
-					Logging.log(Logging.LST_ERROR, "Error, Found item: " + ref
+					return new ParseResult.Fail("Error, Found item: " + ref
 							+ " twice while parsing " + getTokenName());
-					return false;
 				}
 			}
 			if (set.isEmpty())
 			{
-				return false;
+				return new ParseResult.Fail("No items in set.");
 			}
 		}
 		PrimitiveChoiceSet<T> pcs = new ReferenceChoiceSet<T>(set);
 
 		if (!pcs.getGroupingState().isValid())
 		{
-			Logging.errorPrint("Invalid combination of objects was used in: "
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Invalid combination of objects was used in: "
 					+ activeValue);
-			Logging.errorPrint("  Check that ALL is not combined");
-			Logging.errorPrint("  Check that a key is not joined with AND (,)");
-			return false;
+			cpr.addErrorMessage("  Check that ALL is not combined");
+			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			return cpr;
 		}
 		ChoiceSet<T> cs = new ChoiceSet<T>(getTokenName(), pcs);
 		cs.setTitle(title);
@@ -131,7 +130,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 				cs, null);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public Class<CDOMObject> getTokenClass()

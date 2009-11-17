@@ -41,12 +41,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class EquipToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
+public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -67,13 +67,10 @@ public class EquipToken extends AbstractToken implements
 		return "EQUIP";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (value.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, getFullName() + " may not have empty argument");
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;
 		String items;
@@ -88,16 +85,16 @@ public class EquipToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
-				return false;
 			}
 			items = value.substring(pipeLoc + 1);
 		}
 
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		List<CDOMReference<Equipment>> refs = new ArrayList<CDOMReference<Equipment>>();
@@ -109,10 +106,9 @@ public class EquipToken extends AbstractToken implements
 					context, EQUIPMENT_CLASS, tokText);
 			if (lang == null)
 			{
-				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
+				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getFullName() + ": " + value
 						+ " had an invalid reference: " + tokText);
-				return false;
 			}
 			refs.add(lang);
 		}
@@ -126,7 +122,7 @@ public class EquipToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

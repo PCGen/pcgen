@@ -42,12 +42,12 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class ArmorProfToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, ChooseResultActor
 {
 
 	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
@@ -70,12 +70,10 @@ public class ArmorProfToken extends AbstractToken implements
 		return getParentToken() + ":" + getTokenName();
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 
@@ -90,23 +88,22 @@ public class ArmorProfToken extends AbstractToken implements
 			weaponProfs = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
 			{
-				Logging.log(Logging.LST_ERROR, "Unresolved Prerequisite in "
+				return new ParseResult.Fail("Unresolved Prerequisite in "
 						+ getFullName() + " " + value + " in " + getFullName());
-				return false;
 			}
 			prereq = getPrerequisite(value.substring(openBracketLoc + 1, value
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite "
+				return new ParseResult.Fail("Error generating Prerequisite "
 						+ prereq + " in " + getFullName());
-				return false;
 			}
 		}
 
-		if (hasIllegalSeparator('|', weaponProfs))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', weaponProfs);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		boolean foundAny = false;
@@ -153,7 +150,7 @@ public class ArmorProfToken extends AbstractToken implements
 								+ aProf.substring(10));
 				if (ref == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				equipTypes.add(ref);
 			}
@@ -167,9 +164,8 @@ public class ArmorProfToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 
 		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())
@@ -182,7 +178,7 @@ public class ArmorProfToken extends AbstractToken implements
 			context.obj.addToList(obj, ListKey.AUTO_ARMORPROF, pp);
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

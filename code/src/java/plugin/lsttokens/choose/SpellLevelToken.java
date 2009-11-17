@@ -25,12 +25,13 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
+public class SpellLevelToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -43,20 +44,18 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+		String value)
 	{
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
-			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain , : " + value);
-			return false;
 		}
 		String suffix = "";
 		int bracketLoc;
@@ -65,10 +64,9 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			int closeLoc = value.indexOf("]", bracketLoc);
 			if (closeLoc != value.length() - 1)
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " arguments does not contain matching brackets: "
 						+ value);
-				return false;
 			}
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if (bracketString.startsWith("BONUS:"))
@@ -78,39 +76,33 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			else
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " arguments may not contain [" + bracketString
 						+ "] : " + value);
-				return false;
 			}
 			value = value.substring(0, bracketLoc);
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
-			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
-			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
-			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging
-					.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " must have two or more | delimited arguments : "
 							+ value);
-			return false;
 		}
 		String startString = value.substring(0, pipeLoc);
 		int start;
@@ -120,17 +112,15 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " first argument must be an Integer : " + value);
-			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value.substring(pipeLoc + 1),
 				Constants.PIPE);
 		if (tok.countTokens() % 3 != 0)
 		{
-			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
+			return new ParseResult.Fail("COUNT:" + getTokenName()
 					+ " requires a multiple of three arguments: " + value);
-			return false;
 		}
 		while (tok.hasMoreTokens())
 		{
@@ -138,19 +128,21 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("CHOOSE:" + getTokenName()
 						+ " arguments must have value after = : " + tokString);
-				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
-				return false;
+				cpr.addErrorMessage("  entire token was: " + value);
+				return cpr;
 			}
 			if (!tokString.startsWith("CLASS=")
 					&& !tokString.startsWith("TYPE="))
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("CHOOSE:" + getTokenName()
 						+ " argument must start with CLASS= or TYPE= : "
 						+ tokString);
-				Logging.log(Logging.LST_ERROR, "  Entire Token was: " + value);
-				return false;
+				cpr.addErrorMessage("  Entire Token was: " + value);
+				return cpr;
 			}
 			String second = tok.nextToken();
 			try
@@ -159,18 +151,16 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " second argument must be an Integer : " + value);
-				return false;
 			}
 			String lastTok = tok.nextToken();
 			if (lastTok.indexOf(".A[") != -1 || lastTok.endsWith(".A"))
 			{
-				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 						+ " use of .A in third argument is deprecated, "
 						+ "please contact the PCGen team for alternatives:"
 						+ value);
-				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
@@ -178,7 +168,7 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		Formula f = FormulaFactory.getFormulaFor(start);
 		context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
@@ -202,7 +192,7 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 	// TODO Deferred?
 	// if (prefix.indexOf("NUMCHOICES=") != -1)
 	// {
-	// Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with
+	// return new ParseResult.Fail("Cannot use NUMCHOICES= with
 	// CHOOSE:SPELLLEVEL, "
 	// + "as it has an integrated choice count");
 	// return false;

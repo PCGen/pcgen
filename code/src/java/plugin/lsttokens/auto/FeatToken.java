@@ -39,16 +39,15 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class FeatToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>
+public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -68,14 +67,16 @@ public class FeatToken extends AbstractToken implements
 		return "FEAT";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.AUTOMATIC;
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -83,10 +84,8 @@ public class FeatToken extends AbstractToken implements
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR,
-					"Cannot have only PRExxx subtoken in " + getFullName()
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getFullName()
 							+ ": " + value);
-			return false;
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
@@ -105,10 +104,9 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical "
+					return new ParseResult.Fail("  Non-sensical "
 							+ getFullName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.getListContext().removeAllFromList(getFullName(), obj,
 						abilList);
@@ -125,7 +123,7 @@ public class FeatToken extends AbstractToken implements
 				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getFullName(), obj, abilList, ability);
@@ -142,7 +140,7 @@ public class FeatToken extends AbstractToken implements
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
-				return true;
+				return ParseResult.SUCCESS;
 			}
 			first = false;
 			token = tok.nextToken();
@@ -157,10 +155,8 @@ public class FeatToken extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR,
-						"   (Did you put feats after the " + "PRExxx tags in "
+				return new ParseResult.Fail("   (Did you put feats after the " + "PRExxx tags in "
 								+ getFullName() + ":?)");
-				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{
@@ -173,7 +169,7 @@ public class FeatToken extends AbstractToken implements
 			token = tok.nextToken();
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

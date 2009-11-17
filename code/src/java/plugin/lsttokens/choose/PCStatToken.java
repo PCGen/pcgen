@@ -38,14 +38,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class PCStatToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCStat>
+public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<PCStat>
 {
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
@@ -54,13 +54,16 @@ public class PCStatToken extends AbstractToken implements
 		return "CHOOSE";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
 		String title;
@@ -109,18 +112,19 @@ public class PCStatToken extends AbstractToken implements
 			}
 			if (set.isEmpty())
 			{
-				return false;
+				return new ParseResult.Fail("Set is empty.");
 			}
 			pcs = new SimpleChoiceSet<PCStat>(set);
 		}
 
 		if (!pcs.getGroupingState().isValid())
 		{
-			Logging.errorPrint("Invalid combination of objects was used in: "
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Invalid combination of objects was used in: "
 					+ activeValue);
-			Logging.errorPrint("  Check that ALL is not combined");
-			Logging.errorPrint("  Check that a key is not joined with AND (,)");
-			return false;
+			cpr.addErrorMessage("  Check that ALL is not combined");
+			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			return cpr;
 		}
 		ChoiceSet<PCStat> cs = new ChoiceSet<PCStat>(getTokenName(), pcs);
 		cs.setTitle(title);
@@ -128,7 +132,7 @@ public class PCStatToken extends AbstractToken implements
 				cs, null);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public Class<CDOMObject> getTokenClass()
