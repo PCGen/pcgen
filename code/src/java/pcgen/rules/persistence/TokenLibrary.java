@@ -1,16 +1,16 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
@@ -53,7 +54,7 @@ public final class TokenLibrary
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
 
 	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
-	
+
 
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 
@@ -67,7 +68,7 @@ public final class TokenLibrary
 	{
 		//Don't instantiate utility class
 	}
-	
+
 	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
 			String tokKey)
 	{
@@ -174,7 +175,7 @@ public final class TokenLibrary
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
 				addToTokenMap(new ClassWrappedToken(
-						(CDOMPrimaryToken<PCClass>) tok));
+						(CDOMPrimaryParserToken<PCClass>) tok));
 			}
 		}
 		if (newToken instanceof CDOMSecondaryToken)

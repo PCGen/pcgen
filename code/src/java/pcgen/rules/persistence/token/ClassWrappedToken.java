@@ -25,14 +25,14 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
+public class ClassWrappedToken extends ErrorParsingWrapper<PCClassLevel> implements CDOMCompatibilityToken<PCClassLevel>
 {
 
 	private static int wrapIndex = Integer.MIN_VALUE;
 
 	private static final Integer ONE = Integer.valueOf(1);
 
-	private final CDOMToken<PCClass> wrappedToken;
+	private final CDOMParserToken<PCClass> wrappedToken;
 
 	private final int priority = wrapIndex++;
 
@@ -41,23 +41,22 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 		return PCClassLevel.class;
 	}
 
-	public ClassWrappedToken(CDOMToken<PCClass> tok)
+	public ClassWrappedToken(CDOMParserToken<PCClass> tok)
 	{
 		wrappedToken = tok;
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel obj, String value)
-			throws PersistenceLayerException
+	public ParseResult parseToken(LoadContext context, PCClassLevel obj,
+		String value)
 	{
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
 			PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
-			return wrappedToken.parse(context, parent, value);
+			return wrappedToken.parseToken(context, parent, value);
 		}
-		Logging.log(Logging.LST_ERROR, "Data used token: " + value
+		return new ParseResult.Fail("Data used token: " + value
 				+ " which is a Class token, "
 				+ "but it was used in a class level line other than level 1");
-		return false;
 	}
 
 	public String getTokenName()
