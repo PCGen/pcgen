@@ -497,11 +497,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Sunder");1;0):1)|
 &nbsp;(|VAR.CMD_Sunder.INTVAL.SIGN|&nbsp;vs&nbsp;sunder)
 |ENDIF|
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+&nbsp;(can't&nbsp;be&nbsp;tripped)
+|ELSE|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Trip");1;0):1)|
 &nbsp;(|VAR.CMD_Trip.INTVAL.SIGN|&nbsp;vs&nbsp;trip)
 |ENDIF|
-|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
-&nbsp;(can't&nbsp;be&nbsp;tripped)
 |ENDIF|
 |ENDIF|
 |ELSE|
