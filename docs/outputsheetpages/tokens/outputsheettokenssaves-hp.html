@@ -31,14 +31,19 @@
 		<ul class="indent2">
 			<li>FORTITUDE - Use Fortitude save Check.</li>
 			<li>REFLEX - Use Reflex save Check.</li>
-			<li>WILLPOWER - Use Willpower save Check.</li>
+			<li>WILL - Use Will save Check.</li>
+			<li>x - Where x is a digit, use the xth save check.</li>
 		</ul>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Save Filter).</p>
 		<ul class="indent2">
 			<li>BASE - Displays only the class-based adjustment to the saving throw in question.</li>
 			<li>EPIC - Displays Epic bonuses to the saving throw in question (TYPE=EPIC).</li>
 			<li>MISC - Displays class, domain, luck, magical, racial, etc, bonuses to the saving throw in question.</li>
-			<li>TOTAL - Displays grand total for the saving throw in question.</li>
+			<li>TOTAL - Displays grand total for the saving throw in question.  <strong>Is the default if y is not supplied.</strong></li>
+		</ul>
+		<p class="indent2"><br>The following variables can be used on their own:</p>
+		<ul class="indent2">
+			<li>NAME - Displays the name of the save type.</li>
 		</ul>
 		<p class="indent2"><br>The following variables can be used on their own:</p>
 		<ul class="indent2">
@@ -56,8 +61,9 @@
 		</ul>
 		<p class="indent2"><br>The following variables are only applied to BASE, EPIC, MISC or TOTAL</p>
 		<ul class="indent2">
-			<li>NOMAGIC - Removes the bonuses from Magic.</li>
+			<li>NOEPIC - Removes the bonuses from Epic.</li>
 			<li>NOFEATS - Removes the bonuses from Feats.</li>
+			<li>NOMAGIC - Removes the bonuses from Magic.</li>
 			<li>NORACE - Removes the bonuses from Race.</li>
 			<li>NOSTAT - Removes the bonuses from Stats.</li>
 			<li>NOSTATMOD - Removes the bonuses from Stats. (same as NOSTAT)</li>
