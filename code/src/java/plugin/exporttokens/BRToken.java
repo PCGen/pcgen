@@ -32,8 +32,7 @@ import pcgen.io.exporttoken.Token;
 /**
  * BRToken outputs a line break to the output file.
  * 
- * Token syntax:
- * BR
+ * Token syntax: BR
  */
 public class BRToken extends Token
 {
@@ -57,6 +56,5 @@ public class BRToken extends Token
 		ExportHandler eh)
 	{
 		return "[BR]";
-		//		return System.getProperty("line.separator");
 	}
 }
