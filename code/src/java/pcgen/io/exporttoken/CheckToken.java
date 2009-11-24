@@ -37,7 +37,7 @@ import pcgen.util.Delta;
 /**
  * Deal with token:
  *
- * CHECK.x.y.y..
+ * CHECK.x.y.y.z
  * x = FORTITUDE|WILL|REFLEX|0|1|2
  * y = TOTAL|BASE|MISC|EPIC|MAGIC|RACE|FEATS|STATMOD|NOEPIC|NOMAGIC|NORACE|NOFEATS|NOSTAT|NOSTATMOD
  */
@@ -62,14 +62,17 @@ public class CheckToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
+		// If there is a .NOSIGN then replace that with an empty String
 		boolean isNosign = (tokenSource.lastIndexOf(".NOSIGN") >= 0);
 		tokenSource = tokenSource.replaceAll(".NOSIGN", "");
 		
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
 
+		// Get the Save type (x)
 		String saveType = aTok.nextToken();
 
+		// Gather up the modifications (y, y, z) 
 		StringBuffer saveModsBuf = new StringBuffer();
 		while (aTok.hasMoreTokens())
 		{
@@ -81,6 +84,7 @@ public class CheckToken extends Token
 		}
 		String saveMods = saveModsBuf.toString(); 
 
+		// If its just the name then return that
 		if ("NAME".equals(saveMods))
 		{
 			return getNameToken(saveType).toString();
@@ -93,7 +97,8 @@ public class CheckToken extends Token
 	}
 
 	/**
-	 * Get the token
+	 * Get the token.  If no Save Mods (y.y.z) are supplied then a TOTAL is calculated.
+	 * 
 	 * @param pc
 	 * @param saveType
 	 * @param saveMods
