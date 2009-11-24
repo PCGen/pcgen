@@ -555,7 +555,13 @@ Wisdom
    <tr>
      <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMD</b></font></td>
      <td align="center" class="border10"><b>|VAR.CMD_Grapple.INTVAL|</b></td>
-     <td align="center" class="border10"><b>|VAR.CMD_Trip.INTVAL|</b></td>
+     <td align="center" class="border10"><b>
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+Immune
+|ELSE|
+|VAR.CMD_Trip.INTVAL|
+|ENDIF|
+	</b></td>
      <td align="center" class="border10"><b>|VAR.CMD_Disarm.INTVAL|</b></td>
      <td align="center" class="border10"><b>|VAR.CMD_Sunder.INTVAL|</b></td>
      <td align="center" class="border10"><b>|VAR.CMD_BullRush.INTVAL|</b></td>

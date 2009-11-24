@@ -453,7 +453,13 @@
 				<!-- Defense values -->
 				<defense>|VAR.CMD.INTVAL|</defense>
 				<grapple_defense>|VAR.CMD_Grapple.INTVAL|</grapple_defense>
-				<trip_defense>|VAR.CMD_Trip.INTVAL|</trip_defense>
+				<trip_defense>
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+Immune
+|ELSE|
+|VAR.CMD_Trip.INTVAL|
+|ENDIF|
+				</trip_defense>
 				<disarm_defense>|VAR.CMD_Disarm.INTVAL|</disarm_defense>
 				<sunder_defense>|VAR.CMD_Sunder.INTVAL|</sunder_defense>
 				<bullrush_defense>|VAR.CMD_BullRush.INTVAL|</bullrush_defense>

@@ -576,7 +576,13 @@
 											    <tr>
 												     <td align="center" class="center border2 color_header bor_col_dark">Combat Maneuver Defense</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Grapple.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Trip.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+Immune
+|ELSE|
+|VAR.CMD_Trip.INTVAL|
+|ENDIF|
+												     </td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Disarm.INTVAL|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Sunder.INTVAL|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_BullRush.INTVAL|</td>
