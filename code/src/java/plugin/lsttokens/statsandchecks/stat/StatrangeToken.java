@@ -5,14 +5,14 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATRANGE Token
  */
-public class StatrangeToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryParserToken<PCStat>
+public class StatrangeToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	public String getTokenName()

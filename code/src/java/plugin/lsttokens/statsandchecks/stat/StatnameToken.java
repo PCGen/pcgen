@@ -3,14 +3,14 @@ package plugin.lsttokens.statsandchecks.stat;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATNAME Token
  */
 public class StatnameToken extends AbstractNonEmptyToken<PCStat> implements
-		CDOMPrimaryParserToken<PCStat>
+		CDOMPrimaryToken<PCStat>
 {
 
 	@Override

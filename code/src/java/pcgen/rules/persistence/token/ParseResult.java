@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2009 Mark Jeffries <motorviper@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -48,13 +48,13 @@ public interface ParseResult
 	 * Object to be returned from parsing operations that succeeded with no messages.
 	 */
 	public static Pass SUCCESS = new Pass();
-	
+
 	/*
 	 * Temporary object for reporting errors that should be investigated further.
 	 * See plugin.lsttokens.race.FeatToken.
 	 */
 	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
-	
+
 
 	/**
 	 * Class representing a message from the parser.
@@ -75,7 +75,7 @@ public interface ParseResult
 
 	/**
 	 * This is the class of the SUCCESS object.
-	 * Under normal use it should only be used for constructing this object. 
+	 * Under normal use it should only be used for constructing this object.
 	 */
 	public class Pass implements ParseResult
 	{
@@ -108,6 +108,11 @@ public interface ParseResult
 		public boolean passed()
 		{
 			return false;
+		}
+
+		public QueuedMessage getError()
+		{
+			return error;
 		}
 
 		public void addMessagesToLog()

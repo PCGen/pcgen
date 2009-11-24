@@ -3,18 +3,18 @@ package plugin.lsttokens.statsandchecks.stat;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ABB Token for pc stat
  */
-public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryParserToken<PCStat>
+public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	/**
 	 * Return token name
-	 * 
+	 *
 	 * @return token name
 	 */
 	@Override

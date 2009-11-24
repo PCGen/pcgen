@@ -3,19 +3,19 @@ package plugin.lsttokens.statsandchecks.alignment;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ABB Token for pc alignment
  */
 public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
-		CDOMPrimaryParserToken<PCAlignment>
+		CDOMPrimaryToken<PCAlignment>
 {
 
 	/**
 	 * Return token name
-	 * 
+	 *
 	 * @return token name
 	 */
 	@Override

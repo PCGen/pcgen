@@ -18,8 +18,9 @@
 package pcgen.rules.persistence.token;
 
 /*
- * Replacement for CDOMSecondaryToken.
+ * This interface will eventually revert back to CDOMSecondaryToken<T>.
  */
-public interface CDOMSecondaryParserToken<T> extends CDOMParserToken<T>, CDOMSubParserToken<T>, CDOMSecondaryToken<T>
+@Deprecated
+public interface CDOMSecondaryParserToken<T> extends CDOMSecondaryToken<T>
 {
 }

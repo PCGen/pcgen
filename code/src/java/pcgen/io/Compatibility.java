@@ -9,6 +9,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class Compatibility
@@ -124,13 +125,14 @@ public class Compatibility
 			count = first.substring(closeParenLoc + 1) + '|';
 		}
 		PCClass applied = new PCClass();
-		if (!context.processSubToken(applied, "ADD", key, count + choices))
+		ParseResult pr = context.processSubToken(applied, "ADD", key, count + choices);
+		pr.printMessages();
+		if (!pr.passed())
 		{
 			return null;
 		}
 		context.commit();
-		PersistentTransitionChoice<?> ptc = applied.getListFor(ListKey.ADD)
-				.get(0);
+		PersistentTransitionChoice<?> ptc = applied.getListFor(ListKey.ADD).get(0);
 		return ptc;
 	}
 

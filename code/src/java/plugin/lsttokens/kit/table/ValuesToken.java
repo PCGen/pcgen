@@ -48,7 +48,7 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	@Override
@@ -98,10 +98,11 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 				String thingValue = s.substring(colonLoc + 1);
 				try
 				{
-					if (!context.processSubToken(optionInfo, getParentToken(), key,
-							thingValue))
+					ParseResult pr = context.processSubToken(optionInfo, getParentToken(), key,
+						thingValue);
+					if (!pr.passed())
 					{
-						return ParseResult.INTERNAL_ERROR;
+						return pr;
 					}
 				}
 				catch (PersistenceLayerException e)

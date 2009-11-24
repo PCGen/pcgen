@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class CDOMSubLineLoader<T>
@@ -33,6 +34,7 @@ public class CDOMSubLineLoader<T>
 		{
 			return true;
 		}
+
 		boolean returnValue = true;
 		StringTokenizer st = new StringTokenizer(val, "\t");
 		while (st.hasMoreTokens())
@@ -43,30 +45,29 @@ public class CDOMSubLineLoader<T>
 			{
 				Logging.errorPrint("Invalid Token - does not contain a colon: "
 						+ token);
-				returnValue &= false;
+				returnValue = false;
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
 				Logging.errorPrint("Invalid Token - starts with a colon: "
 						+ token);
-				returnValue &= false;
+				returnValue = false;
 				continue;
 			}
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			if (context.processSubToken(obj, subTokenType, key, value))
+			ParseResult pr = context.processSubToken(obj, subTokenType, key, value);
+			pr.printMessages();
+			if (pr.passed())
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else
 			{
 				context.rollback();
-				Logging.rewindParseMessages();
-				Logging.replayParsedMessages();
-				returnValue &= false;
+				returnValue = false;
 			}
 		}
 		return returnValue;

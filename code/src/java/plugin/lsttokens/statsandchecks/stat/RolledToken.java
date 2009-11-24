@@ -4,14 +4,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PENALTYVAR Token
  */
-public class RolledToken extends AbstractNonEmptyToken<PCStat> implements
-		CDOMPrimaryParserToken<PCStat>
+public class RolledToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	@Override

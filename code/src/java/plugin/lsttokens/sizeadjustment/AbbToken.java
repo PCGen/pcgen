@@ -4,7 +4,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -13,12 +13,12 @@ import pcgen.util.Logging;
  * Class deals with ABB Token for size adjustment
  */
 public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
-		CDOMPrimaryParserToken<SizeAdjustment>, DeferredToken<SizeAdjustment>
+		CDOMPrimaryToken<SizeAdjustment>, DeferredToken<SizeAdjustment>
 {
 
 	/**
 	 * Return token name
-	 * 
+	 *
 	 * @return token name
 	 */
 	@Override

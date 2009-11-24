@@ -3,14 +3,14 @@ package plugin.lsttokens.statsandchecks.alignment;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ALIGNMENTNAME Token
  */
 public class AlignmentnameToken extends AbstractNonEmptyToken<PCAlignment> implements
-		CDOMPrimaryParserToken<PCAlignment>
+		CDOMPrimaryToken<PCAlignment>
 {
 
 	@Override

@@ -3,14 +3,14 @@ package plugin.lsttokens.statsandchecks.stat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATMOD Token
  */
-public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryParserToken<PCStat>
+public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	public String getTokenName()

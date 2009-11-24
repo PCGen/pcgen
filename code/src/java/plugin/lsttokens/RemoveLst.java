@@ -52,14 +52,7 @@ public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
 		String key = value.substring(0, pipeLoc);
 		try
 		{
-			if (context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1)))
-			{
-				return ParseResult.SUCCESS;
-			}
-			else
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
+			return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
 		}
 		catch (PersistenceLayerException e)
 		{

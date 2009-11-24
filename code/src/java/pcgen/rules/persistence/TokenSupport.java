@@ -1,16 +1,16 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -35,6 +35,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.util.TokenFamilyIterator;
 import pcgen.rules.persistence.util.TokenFamilySubIterator;
 import pcgen.util.Logging;
@@ -105,29 +107,31 @@ public class TokenSupport
 		return list;
 	}
 
-	public <T> boolean processSubToken(LoadContext context, T cdo,
+	public <T> ParseResult processSubToken(LoadContext context, T cdo,
 		String tokenName, String key, String value)
 		throws PersistenceLayerException
 	{
+		ComplexParseResult cpr = new ComplexParseResult();
 		List<? extends CDOMToken<T>> tokenList = getTokens((Class<T>) cdo.getClass(), tokenName, key);
 		if (tokenList != null)
 		{
 			for (CDOMToken<T> token : tokenList)
 			{
-				if (token.parse(context, cdo, value))
+				ParseResult pr = token.parseToken(context, cdo, value);
+				if (pr.passed())
 				{
-					return true;
+					return pr;
 				}
-				Logging.addParseMessage(Logging.LST_ERROR,
-						"Failed in parsing subtoken: " + key + " of " + value);
+				cpr.copyMessages(pr);
+				cpr.addErrorMessage("Failed in parsing subtoken: " + key + " of " + value);
 			}
 		}
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject
 		 */
-		Logging.addParseMessage(Logging.LST_ERROR, "Illegal " + tokenName
+		cpr.addErrorMessage("Illegal " + tokenName
 			+ " subtoken '" + key + "' '" + value + "' for " + cdo.toString());
-		return false;
+		return cpr;
 	}
 
 	public <T> String[] unparse(LoadContext context, T cdo, String tokenName)

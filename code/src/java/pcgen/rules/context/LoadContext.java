@@ -47,6 +47,7 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
@@ -208,7 +209,7 @@ public abstract class LoadContext
 	}
 			
 
-	public <T> boolean processSubToken(T cdo, String tokenName,
+	public <T> ParseResult processSubToken(T cdo, String tokenName,
 			String key, String value) throws PersistenceLayerException
 	{
 		return support.processSubToken(this, cdo, tokenName, key, value);

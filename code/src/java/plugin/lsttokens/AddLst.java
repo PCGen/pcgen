@@ -115,19 +115,11 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 			context.getObjectContext().removeList(obj, ListKey.ADD);
 			return ParseResult.SUCCESS;
 		}
-		boolean ok;
+
 		try
 		{
-			ok = context.processSubToken(obj, getTokenName(), value.substring(0,
+			return context.processSubToken(obj, getTokenName(), value.substring(0,
 					pipeLoc), value.substring(pipeLoc + 1));
-			if (ok)
-			{
-				return ParseResult.SUCCESS;
-			}
-			else
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
 		}
 		catch (PersistenceLayerException e)
 		{

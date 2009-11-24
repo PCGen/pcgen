@@ -102,15 +102,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 
 		try
 		{
-			boolean ok = context.processSubToken(obj, getTokenName(), key, val);
-			if (ok)
-			{
-				return ParseResult.SUCCESS;
-			}
-			else
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
+			return context.processSubToken(obj, getTokenName(), key, val);
 		}
 		catch (PersistenceLayerException e)
 		{
