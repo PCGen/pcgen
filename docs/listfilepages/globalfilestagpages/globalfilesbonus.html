@@ -81,7 +81,7 @@
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>These have a TYPE=name and are used for stacking purposes.</li>
-		<li>There is a special system file called system\bonusstacks.lst.</li>
+		<li>There is a special system file called system\miscinfo.lst.</li>
 		<li>If a TYPE is listed in that file, then these TYPEs behave just like a typeless bonus.</li>
 		<li>Otherwise, only the highest value of the same type is used in the final result.</li>
 	</ul>
@@ -89,7 +89,7 @@
 	<p class="indent2"><code>
 		BONUS:HP|CURRENTMAX|2|TYPE=Luck<br />
 		BONUS:HP|CURRENTMAX|3|TYPE=Luck</code></p>
-	<p class="indent3">So long as the 'Luck' type is not listed in bonusstacks.lst, these two would result
+	<p class="indent3">So long as the 'Luck' type is not listed in miscinfo.lst, these two would result
 		in a final value of 3, since 3 is the largest 'Luck' type.<br /></p>
 	<p class="indent2"><code>
 		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck<br />
