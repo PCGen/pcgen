@@ -229,19 +229,17 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		int index = RandomUtil.getRandomInt(size());
 		int total = 0;
-		E element = null;
 		for (WeightedItem<E> wi : theData)
 		{
 			total += wi.getWeight();
 			if (total > index)
 			{
-				element = wi.getElement();
 				// NOTE The return statement can't be 100% covered with a Sun
 				// compiler for code coverage stats.
 				// See
 				// http://sourceforge.net/tracker/index.php?func=detail&aid=1961021&group_id=25576&atid=1036937
 				// for details
-				return element;
+   				return wi.getElement();
 			}
 		}
 		/*

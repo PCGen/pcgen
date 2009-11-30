@@ -217,7 +217,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	public boolean containsListFor(K1 key1, K2 key2, K3 key3)
 	{
 		MapToList<K3, V> localMap = map.get(key1, key2);
-		return localMap == null ? false : localMap.containsListFor(key3);
+		return localMap != null && localMap.containsListFor(key3);
 	}
 
 	/**

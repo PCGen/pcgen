@@ -36,10 +36,10 @@ public interface ReferenceFormula<T>
 	/**
 	 * Executes this ReferenceFormula
 	 * 
-	 * @param nums
+	 * @param numbers
 	 *            the inputs to the formula
 	 * @return the result of the calculation
 	 */
-	public abstract T resolve(Number... nums);
+	public abstract T resolve(Number... numbers);
 
 }
