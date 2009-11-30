@@ -67,8 +67,7 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	 */
 	private Object resolveObject(Object key)
 	{
-		return key instanceof String ? new CaseInsensitiveString((String) key)
-				: key;
+		return key instanceof String ? new CaseInsensitiveString((String) key) : key;
 	}
 
 	/**

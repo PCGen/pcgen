@@ -468,8 +468,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public DoubleKeyMapToList<K1, K2, V> clone()
 			throws CloneNotSupportedException
 	{
-		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super
-				.clone();
+		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super.clone();
 		dkm.mtmtl = createGlobalMap();
 		for (Iterator<K1> it = mtmtl.keySet().iterator(); it.hasNext();)
 		{
