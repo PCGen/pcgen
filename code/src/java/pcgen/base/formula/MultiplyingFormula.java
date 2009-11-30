@@ -32,9 +32,9 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	/**
 	 * The value to be multiplied with the value input into the resolve method
 	 */
-	private final int mult;
+	private final int multiplier;
 
-	/**
+    /**
 	 * Creates a new MultiplyingFormula with the given int as the value to be
 	 * multiplied with the input to the resolve method
 	 * 
@@ -44,7 +44,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 */
 	public MultiplyingFormula(int multiplier)
 	{
-		mult = multiplier;
+		this.multiplier = multiplier;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of Numbers.
 	 * 
-	 * @param nums
+	 * @param numbers
 	 *            The array of Numbers used to resolve the value of this
 	 *            MultiplyingFormula (array length must be 1 and the Number must
 	 *            be non-null)
@@ -64,17 +64,17 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
+	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
-	public Integer resolve(Number... nums)
+	public Integer resolve(Number... numbers)
 	{
-		if (nums == null || nums.length != 1)
+		if (numbers == null || numbers.length != 1)
 		{
 			throw new IllegalArgumentException(
 					"MultiplyingFormula only has one backreference");
 		}
 		// TODO May not be correct (order of rounding op)
-		return Integer.valueOf(nums[0].intValue() * mult);
+		return numbers[0].intValue() * multiplier;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	@Override
 	public String toString()
 	{
-		return "*" + mult;
+		return "*" + multiplier;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	@Override
 	public int hashCode()
 	{
-		return mult;
+		return multiplier;
 	}
 
 	/**
@@ -108,6 +108,6 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	public boolean equals(Object o)
 	{
 		return o instanceof MultiplyingFormula
-				&& ((MultiplyingFormula) o).mult == mult;
+				&& ((MultiplyingFormula) o).multiplier == multiplier;
 	}
 }

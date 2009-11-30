@@ -32,9 +32,9 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	/**
 	 * The value the input into the resolve method will be divided by
 	 */
-	private final int denom;
+	private final int denominator;
 
-	/**
+    /**
 	 * Creates a new DividingFormula with the given int as the value to divide
 	 * the input to the resolve method by
 	 * 
@@ -52,7 +52,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 					"Cannot build a DividingFormula that divides by Zero - "
 							+ "will always cause an ArithmeticException when resolved");
 		}
-		denom = denominator;
+		this.denominator = denominator;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of Numbers.
 	 * 
-	 * @param nums
+	 * @param numbers
 	 *            The array of Numbers used to resolve the value of this
 	 *            DividingFormula (array length must be 1 and the Number must
 	 *            be non-null)
@@ -72,21 +72,21 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
+	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
-	public Integer resolve(Number... nums)
+	public Integer resolve(Number... numbers)
 	{
-		if (nums == null || nums.length != 1)
+		if (numbers == null || numbers.length != 1)
 		{
 			throw new IllegalArgumentException(
-					"DividingFormula only has one backreference");
+					"DividingFormula only has one back-reference");
 		}
 		/*
 		 * Note that there is NOT an order of operations issue here with
 		 * rounding, and rounding first results in a faster & more accurate
 		 * calculation.
 		 */
-		return Integer.valueOf(nums[0].intValue() / denom);
+		return numbers[0].intValue() / denominator;
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	@Override
 	public String toString()
 	{
-		return "/" + denom;
+		return "/" + denominator;
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	@Override
 	public int hashCode()
 	{
-		return denom;
+		return denominator;
 	}
 
 	/**
@@ -120,6 +120,6 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	public boolean equals(Object o)
 	{
 		return o instanceof DividingFormula
-				&& ((DividingFormula) o).denom == denom;
+				&& ((DividingFormula) o).denominator == denominator;
 	}
 }

@@ -20,10 +20,10 @@ package pcgen.base.formula;
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
- * A AddingFormula represents a 'deferred calculation' of sorts, designed to be
+ * An AddingFormula represents a 'deferred calculation' of sorts, designed to be
  * stored and capable of adding a predetermined value to a given input number.
  * 
- * A AddingFormula will always return an Integer
+ * An AddingFormula will always return an Integer
  */
 public class AddingFormula implements ReferenceFormula<Integer>
 {
@@ -53,7 +53,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of Numbers.
 	 * 
-	 * @param nums
+	 * @param numbers
 	 *            The array of Numbers used to resolve the value of this
 	 *            AddingFormula (array length must be 1 and the Number must be
 	 *            non-null)
@@ -62,16 +62,16 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
+	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...) 
 	 */
-	public Integer resolve(Number... nums)
+	public Integer resolve(Number... numbers)
 	{
-		if (nums == null || nums.length != 1)
+		if (numbers == null || numbers.length != 1)
 		{
 			throw new IllegalArgumentException(
-					"AddingFormula only has one backreference");
+					"AddingFormula only has one back-reference");
 		}
-		return Integer.valueOf(nums[0].intValue() + add);
+		return numbers[0].intValue() + add;
 	}
 
 	/**
