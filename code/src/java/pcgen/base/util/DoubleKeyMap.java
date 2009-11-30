@@ -265,7 +265,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Returns trus if the DoubleKeyMap contains a value stored under the given
+	 * Returns true if the DoubleKeyMap contains a value stored under the given
 	 * primary key and any secondary key.
 	 * 
 	 * @param key1
@@ -278,7 +278,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Returns trus if the DoubleKeyMap contains a value for the given keys.
+	 * Returns true if the DoubleKeyMap contains a value for the given keys.
 	 * 
 	 * @param key1
 	 *            The primary key for retrieving the given value

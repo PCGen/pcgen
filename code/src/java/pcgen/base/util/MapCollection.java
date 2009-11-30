@@ -98,7 +98,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Attempts to modify the collection. This is an unsupported operation on a
 	 * MapCollection, and an UnsupportedOperationException() will be thrown.
 	 * 
-	 * This should be kept as an override of AbstactCollection (even if it
+	 * This should be kept as an override of AbstractCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
 	 * 
@@ -115,7 +115,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Attempts to modify the collection. This is an unsupported operation on a
 	 * MapCollection, and an UnsupportedOperationException() will be thrown.
 	 * 
-	 * This should be kept as an override of AbstactCollection (even if it
+	 * This should be kept as an override of AbstractCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
 	 * 
@@ -132,7 +132,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Attempts to modify the collection. This is an unsupported operation on a
 	 * MapCollection, and an UnsupportedOperationException() will be thrown.
 	 * 
-	 * This should be kept as an override of AbstactCollection (even if it
+	 * This should be kept as an override of AbstractCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
 	 * 
@@ -227,7 +227,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Attempts to modify the collection. This is an unsupported operation on a
 	 * MapCollection, and an UnsupportedOperationException() will be thrown.
 	 * 
-	 * This should be kept as an override of AbstactCollection (even if it
+	 * This should be kept as an override of AbstractCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
 	 * 
@@ -261,7 +261,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Attempts to modify the collection. This is an unsupported operation on a
 	 * MapCollection, and an UnsupportedOperationException() will be thrown.
 	 * 
-	 * This should be kept as an override of AbstactCollection (even if it
+	 * This should be kept as an override of AbstractCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
 	 * 

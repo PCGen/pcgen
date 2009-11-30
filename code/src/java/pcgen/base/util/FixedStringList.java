@@ -117,11 +117,11 @@ public class FixedStringList extends AbstractList<String> implements
 	 * maintained. (References to the Strings within the Array will be
 	 * maintained, but as Strings are immutable objects, that is a 'safe'
 	 * operation)
-	 * 
-	 * @param c
-	 *            The String Array to be used to initialize the size and
-	 *            contents of this FixedStringList
-	 */
+	 *
+     * @param a The String Array to be used to initialize the size and
+     * contents of this FixedStringList
+     *
+     */
 	public FixedStringList(String... a)
 	{
 		array = new String[a.length];

@@ -518,7 +518,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * AbstractMapToList. It does not consider other fields/contents that the
 	 * other MapToList may contain.
 	 * 
-	 * @see java.lang.Object#equals()
+	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object o)

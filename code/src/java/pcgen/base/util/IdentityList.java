@@ -300,7 +300,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#toArray(T[])
+	 * @see java.util.List#toArray(Object[])
 	 */
 	public <V> V[] toArray(V[] arg0)
 	{
