@@ -60,10 +60,6 @@ public final class RandomUtil
 	 */
 	public static int getRandomInt(final int high)
 	{
-		//
-		// Sanity check. If 'high' is <= 0, a IllegalArgumentException would be
-		// thrown
-		//
 		if (high <= 0)
 		{
 			return 0;
