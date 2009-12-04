@@ -802,6 +802,8 @@ at will)
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Special&nbsp;Qualities</b>|SPACE|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Defensive)|
+|ELSE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -810,6 +812,7 @@ at will)
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Benefit|
 |ENDIF|
 ,|SPACE|
+|ENDIF|
 |ENDFOR|
 <br>
 |ENDIF|
