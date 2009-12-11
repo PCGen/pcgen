@@ -663,11 +663,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <!-- End Prepared Spells -->
 
 <!-- Domain list -->
-|%DOMAIN.1|<p />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-*: Domain spell. Deity: |DEITY|.
-Domains: 
-|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\, ,NONE,1|
-<br>
+|%DOMAIN.1|
+<br>*: Domain spell. 
+<br><b>Deity</b> |DEITY|; <b>Domains</b> 
+|FOR,%domain,1,COUNT[DOMAINS],1,0|
+|DOMAIN.%domain|, 
+|ENDFOR|
 |%|
 <!-- End Domain list -->
 

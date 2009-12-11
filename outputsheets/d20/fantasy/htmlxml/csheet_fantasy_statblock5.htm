@@ -590,11 +590,12 @@ Tower Shield,
 
 <!-- Domain list -->
 |%DOMAIN.1|
-*: Domain spell. <br>
-<b>Deity:</b> |DEITY|.
-<b>Domains:</b> 
-|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\, ,NONE,1|
-<br>
+<br>*: Domain spell. 
+<br><b>Deity</b> |DEITY|; 
+<b>Domains</b> 
+|FOR,%domain,1,COUNT[DOMAINS],1,0|
+|DOMAIN.%domain|, 
+|ENDFOR|
 |%|
 <!-- End Domain list -->
 
