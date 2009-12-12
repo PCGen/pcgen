@@ -57,8 +57,18 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier> im
 		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
 		while (tok.hasMoreTokens())
 		{
-			context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES,
-					tok.nextToken());
+			final String typeName = tok.nextToken();
+			if ("double".equalsIgnoreCase(typeName))
+			{
+				return new ParseResult.Fail(
+					"IType must not be double. Ignoring occurrence in "
+						+ getTokenName() + ":" + value);
+			}
+			else
+			{
+				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES,
+					typeName);
+			}
 		}
 		return ParseResult.SUCCESS;
 	}
