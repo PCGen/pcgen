@@ -103,7 +103,7 @@ public class KitBio extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		if (theGenders != null)
+		if (theGenders != null && !theGenders.isEmpty())
 		{
 			if (theGenders.size() > 1)
 			{
@@ -114,6 +114,10 @@ public class KitBio extends BaseKit
 				{
 					selectedGender = selList.get(0);
 				}
+			}
+			else
+			{
+				selectedGender = theGenders.get(0);
 			}
 		}
 		apply(aPC);
