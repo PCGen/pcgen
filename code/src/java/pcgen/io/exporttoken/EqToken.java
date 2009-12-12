@@ -45,6 +45,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
+import pcgen.io.FileAccess;
 import pcgen.util.BigDecimalHelper;
 
 /**
@@ -238,7 +239,7 @@ public class EqToken extends Token
 		if ((temp >= 0) && (temp < eqList.size()))
 		{
 			Equipment eq = eqList.get(temp);
-			retString = getEqToken(pc, eq, tempString, aTok);
+			retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));
 
 			// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
 			if (!"".equals(bFilter))
@@ -295,7 +296,7 @@ public class EqToken extends Token
 	@Override
 	public boolean isEncoded()
 	{
-		return true;
+		return false;
 	}
 
 	/**
