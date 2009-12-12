@@ -58,8 +58,10 @@ Revisions: Tir-Gwaith 25/10/07 Converted Barbarian away from purely 3.0, referen
 Bugs: Money in two containers is not merged.
 
 Branched from csheet_fantasy_combined.htm by: Mike Elliott (satinDOTknightsATyahooDOTcom) 14/7/09
-
+ 
 Revisions: Tir-Gwaith 10/11/09 Breaking out Deflection from Misc AC bonus (in this sheet, lining up Deflection from PCGen to sheet)
+
+Revisions: Mike Elliott 12/12/09 Updated to include CMB/CMD, added Compact Stats mode and many minor fixes.
 
 $Revision$
 $Author$
@@ -108,13 +110,13 @@ $Date$
 	a "U" on the end is for Underline fonts.
 -->
 <style type="text/css">
-	body  { font-family:arial; font-size:6pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	body  { font-family:arial; font-size:6pt; text-align:left; color:black; background:#F4EAA4; font-weight:normal; margin: 0px; padding: 0px; }
 	td    { font-family:arial; font-size:6pt; text-align:left; font-weight:normal; }
-	tr    { font-family:arial; font-size:6pt; text-align:left; color:black; background:white; font-weight:normal; }
-	table { font-family:arial; font-size:6pt; text-align:left; color:black; background:white; font-weight:normal; }
-	div   { font-family:arial; font-size:6pt; text-align:left; color:black; background:white; font-weight:normal; }
+	tr    { font-family:arial; font-size:6pt; text-align:left; color:black; background:#F4EAA4; font-weight:normal; }
+	table { font-family:arial; font-size:6pt; text-align:left; color:black; background:#F4EAA4; font-weight:normal; }
+	div   { font-family:arial; font-size:6pt; text-align:left; color:black; background:#F4EAA4; font-weight:normal; }
 	span  { font-family:arial; font-size:6pt; text-align:left; font-weight:normal; }
-	p     { font-family:arial; font-size:8pt; text-align:left; color:black; background:white; font-weight:normal; }
+	p     { font-family:arial; font-size:8pt; text-align:left; color:black; background:#F4EAA4; font-weight:normal; }
 
 	.l2   { font-size:2pt; text-align:left; }
 
@@ -171,7 +173,6 @@ $Date$
 	.l7   { font-size:7pt; text-align:left; }
 	.l7b  { font-size:7pt; text-align:left; border-bottom-width:1px; border-bottom:1pt solid black; }
 	.l7s  { font-size:7pt; text-align:left; border:1px solid black; }
-	// The label size is not the same as the actual element that will be affected by the hover.  Truely weird hover interactions.
 	.l7s  A:hover { font-size:9pt; text-align:left; color:red;}
 	.lb7  { font-size:7pt; text-align:left; vertical-align:bottom; }
 	.lt7  { font-size:7pt; text-align:left; vertical-align:top; }
@@ -209,7 +210,6 @@ $Date$
 	.l8w  { font-size:8pt; text-align:left; color:white; background:black; }
 	.lb8  { font-size:8pt; text-align:left; vertical-align:bottom; }
 	.lt8  { font-size:8pt; text-align:left; vertical-align:top; }
-	// The label size is not the same as the actual element that will be affected by the hover.  Truely weird hover interactions.
 	.lt8  A:hover { font-size:9pt; text-align:left; color:red;}
 	.lt8mB{ font-size:8pt; text-align:left; vertical-align:top; font-weight:bold; }
 	.lt8s { font-size:8pt; text-align:left; vertical-align:top; border:1px solid black; }
@@ -226,7 +226,7 @@ $Date$
 	.c10glB{ font-size:10pt; text-align:center; border:5px solid #DDDDDD; background:#CCCCFF; font-weight:bold; }
 	.c9w  { font-size:9pt; text-align:center; color:white; background:black; }
 	.c9s  { font-size:9pt; text-align:center; border:1px solid black; }
-	.c9sB { font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; }
+	.c9sB { font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
 	.c9swB{ font-size:9pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
 	.c9wB { font-size:9pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c9pB { font-size:9pt; text-align:center; color:#88DDFF; background:black; font-weight:bold; }
@@ -242,8 +242,8 @@ $Date$
 	.l9s  { font-size:9pt; text-align:left; border:1px solid black; }
 	.l9wB { font-size:9pt; text-align:left; color:white; background:black; font-weight:bold; }
 	.lb9  { font-size:9pt; text-align:left; vertical-align:bottom; }
-	.lh9  { font-size:9pt; text-align:left; color:blue; border:1px solid white;}
-	.lh9 A:hover { font-size:9pt; text-align:left; color:red; }
+	.lh9  { font-size:9pt; text-align:left; color:green; font-weight:bold; }
+	.lh9 A:hover { font-size:9pt; text-align:left; color:red; font-weight:bold; }
 	.lt9  { font-size:9pt; text-align:left; vertical-align:top; }
 	.lt9b { font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; }
 	.lt9bw{ font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; color:white; background:black; }
@@ -257,7 +257,7 @@ $Date$
 	.c10glB{ font-size:10pt; text-align:center; border:5px solid #DDDDDD; background:#CCCCFF; font-weight:bold; }
 	.c10mB { font-size:10pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c10s  { font-size:10pt; text-align:center; border:1px solid black; }
-	.c10sB { font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; }
+	.c10sB { font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
 	.c10sl { font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; }
 	.c10slB{ font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; font-weight:bold; }
 	.c10swB{ font-size:10pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
@@ -278,8 +278,10 @@ $Date$
 	.l12mB  { font-size:12pt; text-align:left; font-weight:bold; }
 	.lb12mB { font-size:12pt; text-align:left; vertical-align:bottom; font-weight:bold; }
 	.r12b   { font-size:12pt; text-align:right; border-bottom-width:1px; border-bottom:1pt solid black; }
+	.r12mB  { font-size:12pt; text-align:right; font-weight:bold; }
 
 	.l14   { font-size:14pt; text-align:left; }
+	.l14B  { font-size:14pt; text-align:left; font-weight:bold; }
 	.l14b  { font-size:14pt; text-align:left; border-bottom-width:1px; border-bottom:1pt solid black; }
 
 	.extlink           {font-size:11pt; text-align:left; border:1px solid black; color:white; background:black; font-weight:bold; }
@@ -317,6 +319,7 @@ $Date$
 <script language="javascript" type="text/javascript">
 // <!--
 var charName = "|NAME|";
+var fileName = encodeURIComponent("|NAME|");
 var RageStatus = "Normal";
 var BarbLvl = 0;
 var MonkLvl = 0;
@@ -329,6 +332,8 @@ var CONindex = 2;
 var INTindex = 3;
 var WISindex = 4;
 var CHAindex = 5;
+// A special case where both STR and DEX are checked.
+var STRDEXindex = 6;
 var AbArr = new Array();
 
 // Ability modifiers
@@ -340,7 +345,7 @@ var PotentialSkillMasteryList = new Array();
 var StateArr = new Array();
 // List of all weapons
 var WeapArr = new Array();
-// Hardcoded Global Debug variable for now:: Show Aspect information
+// Hardcoded Global Debug variable for now: Show Aspect information
 var ShowAspects = 0;
 // List of checks
 var FORTindex = 0;
@@ -374,11 +379,15 @@ spell_Nat_bonus = 0;
 spell_Shield_bonus = 0;
 // Set up the table of information about stats
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
-AbArr[%stat] = new Ability("|STAT.%stat.NAME|","|STAT.%stat.LONGNAME|","|STAT.%stat.NOTEMP.NOEQUIP|",|STAT.%stat.MOD.NOTEMP.NOEQUIP|,"|STAT.%stat.NOTEMP|",|STAT.%stat.MOD.NOTEMP|);
-//Set up stat modifier array
-ModToStat[%stat] = 0;
-ModToStatMod[%stat] = 0;
+	AbArr[%stat] = new Ability("|STAT.%stat.NAME|","|STAT.%stat.LONGNAME|","|STAT.%stat.NOTEMP.NOEQUIP|",|STAT.%stat.MOD.NOTEMP.NOEQUIP|,"|STAT.%stat.NOTEMP|",|STAT.%stat.MOD.NOTEMP|,TRUE,%stat);
+	//Set up stat modifier array
+	ModToStat[%stat] = 0;
+	ModToStatMod[%stat] = 0;
 |ENDFOR|
+// Some of these are bad values, but they are not going to be processed.  This is a hidden STAT that will combine STR and DEX bonuses.
+AbArr[STRDEXindex] = new Ability("STRDEX","STR and DEX combined","|STAT.0.NOTEMP.NOEQUIP|",|STAT.0.MOD.NOTEMP.NOEQUIP|,"|STAT.0.NOTEMP|",|STAT.0.MOD.NOTEMP|, FALSE,STRDEXindex);
+ModToStat[STRDEXindex] = 0;
+ModToStatMod[STRDEXindex] = 0;
 // Have to define this after AbArr is denfined.
 var CurHP = new CurHPObject( |HP| );
 // A class to hold the number of spells that are memorized for each spell caster class and its levels
@@ -417,7 +426,7 @@ function MemSpellCast()
 // Set up Skill Mastery List
 // TODO When count("NAME.Name(sub name)) can be utilised then we can use that as the simple check
 |FOR,%ability,0,count("ABILITIES")-1,1,1|
-PotentialSkillMasteryList[%ability] = new String("|ABILITY.Special Ability.%ability|");
+	PotentialSkillMasteryList[%ability] = new String("|ABILITY.Special Ability.%ability|");
 |ENDFOR|
 
 // ***********************************
@@ -470,7 +479,14 @@ CheckArr[WILLindex] = new Check("Willpower", "Wisdom", |CHECK.2.TOTAL|, |CHECK.2
 // Set up the attack information table
 ATKArr[0] = new ATK("Melee","|ATTACK.MELEE.TOTAL|","|ATTACK.MELEE|",STRindex,|ATTACK.MELEE.SIZE|,|ATTACK.MELEE.EPIC|,|ATTACK.MELEE.MISC|);
 ATKArr[1] = new ATK("Ranged","|ATTACK.RANGED.TOTAL|","|ATTACK.RANGED|",DEXindex,|ATTACK.RANGED.SIZE|,|ATTACK.RANGED.EPIC|,|ATTACK.RANGED.MISC|);
+|IIF(VAR.UseCombatManueverBonus:1)|
+CMB_Pos = 2;
+ATKArr[2] = new ATK("CMB","|VAR.CMB.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRindex,|VAR.CMB_SizeMod.INTVAL.SIGN|,|VAR.CMB_Epic.INTVAL.SIGN|,|VAR.CMB_Misc.INTVAL.SIGN|);
+CMD_Pos = 3;
+ATKArr[3] = new ATK("CMD","|VAR.CMD.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRDEXindex,|VAR.CMD_SizeMod.INTVAL.SIGN|,|VAR.CMD_Epic.INTVAL.SIGN|,|VAR.CMD_Misc.INTVAL.SIGN|);
+|ELSE|
 ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRindex,|ATTACK.GRAPPLE.SIZE|,|ATTACK.GRAPPLE.EPIC|,|ATTACK.GRAPPLE.MISC|);
+|ENDIF|
 // Now, set up the list of skills
 |FOR,%skill,0,COUNT[SKILLS]-1,1,1|
 SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|SKILL.%skill.RANK|,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|");
@@ -488,35 +504,66 @@ SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%s
 //  hasTempMod     bool      RO true if object is in a modified (non-default) state
 //  curmodifier    int       RO gives the current modifier taking current state into account
 //  curModifierDiff int      RO gives the difference between tempmodifier and modifier
-function Ability(nName,nLongName,nBase,nBaseMod,nValue,nMod){
+//  visible        bool      RO is this stat visible in the statblock output 
+//  indexNum       int       RO Which stat index is this?  If STRDEX, we compute total from STR and DEX.
+function Ability(nName,nLongName,nBase,nBaseMod,nValue,nMod,nVisible,nIndex){
 	this.name = nName;
 	this.longname = nLongName;
+	this.indexNum = nIndex;
 	this.Base = nBase;
 	this.BaseMod = nBaseMod;
+	if ( nIndex == STRDEXindex) {
+		this.BaseMod = AbArr[STRindex].BaseMod + AbArr[DEXindex].BaseMod;
+	}
+	this.visible = nVisible;
 	if ( nValue == "*" )
 		this.val = nValue;
 	else
 		this.val = Math.round(nValue);  // Convert to numeric form
 	this.modifier = nMod;
+	if ( nIndex == STRDEXindex) {
+		this.modifier = AbArr[STRindex].modifier + AbArr[DEXindex].modifier;
+	}
 	if ( this.val == "*" )
 		this.tempvalue = 0;
 	else
 		this.tempvalue = Math.round(nValue);
 	this.tempmodifier = nMod;
+	if ( nIndex == STRDEXindex) {
+		this.tempmodifier = AbArr[STRindex].tempmodifier + AbArr[DEXindex].tempmodifier;
+	}
 	this.hasTempMod = AbFlag;
 	this.curmodifier = AbCurMod;
 	this.curModifierDiff = AbModDiff;
 }
 function AbModDiff(){
+	if(this.indexNum == STRDEXindex) {
+		if (this.hasTempMod() == FALSE)
+			return 0;
+		rc = Math.round(AbArr[STRindex].tempmodifier) - Math.round(AbArr[STRindex].modifier) + Math.round(AbArr[DEXindex].tempmodifier) - Math.round(AbArr[DEXindex].modifier);
+		return rc;
+	}
 	return ((this.hasTempMod())?this.tempmodifier-this.modifier:0)
 }
 function AbCurMod(){
+	if(this.indexNum == STRDEXindex) {
+		if (this.hasTempMod() == FALSE)
+			rc = AbArr[STRindex].modifier + AbArr[DEXindex].modifier;
+		else
+			rc = AbArr[STRindex].tempmodifier + AbArr[DEXindex].tempmodifer;
+		return rc;
+	}
 	return ((this.hasTempMod())?this.tempmodifier:this.modifier)
 }
-function AbFlag()
-{
+function AbFlag(){
 	if ( this.val == '*' )
 	   return FALSE;
+	if ( this.indexNum == STRDEXindex ) {
+		if (AbArr[STRindex].val != AbArr[STRindex].tempval)
+			return TRUE;
+		if (AbArr[DEXindex].val != AbArr[DEXindex].tempval)
+			return TRUE;
+	}
 	return !(this.val == this.tempvalue);
 }
 function StatNr(stat){
@@ -589,7 +636,7 @@ function CheckFlag(){
 function CheckStatModFlag(){
 	return AbArr[this.statNr].hasTempMod();
 }
-function rollDice(numDice, dieSize) {
+function rollDice(numDice, dieSize){
 	var result = 0;
 	if(numDice == 0)
 		return 0;
@@ -600,9 +647,9 @@ function rollDice(numDice, dieSize) {
 	}
 	return result;
 }
-// roll() is not actually used, as rollIntoDiv or RollAttack have cleaner displays.
+// roll() is not actually used, as rollIntoDIV or RollAttack have cleaner displays.
 //  It has been left in for incase someone needs a Roll into an Alert() popup.
-function roll(numDice, dieSize, bonus, caption) {
+function roll(numDice, dieSize, bonus, caption){
 	result = rollDice(numDice, dieSize);
 	var totalResult = 0;
 	totalResult += minOne(result + bonus);
@@ -612,15 +659,15 @@ function roll(numDice, dieSize, bonus, caption) {
 }
 // Global: newcolorcounter cycles through pastels and is used for the background in roll divs.
 newcolorcounter = 1;
-function newcolor()
-{
+function newcolor(){
 	newcolorcounter = newcolorcounter + 1;
-	if (newcolorcounter > 4) newcolorcounter = 0;
+	if (newcolorcounter > 5) newcolorcounter = 0;
 	if (newcolorcounter == 0) colorDIV = "#FFCCFF";
 	if (newcolorcounter == 1) colorDIV = "#CCFFFF";
 	if (newcolorcounter == 2) colorDIV = "#FFFFCC";
 	if (newcolorcounter == 3) colorDIV = "#FFCCCC";
 	if (newcolorcounter == 4) colorDIV = "#CCCCFF";
+	if (newcolorcounter == 5) colorDIV = "#CCFFCC";
 	return colorDIV;
 }
 // numDice     = Number of Dice to roll
@@ -649,8 +696,24 @@ function rollIntoDIV(numDice, dieSize, bonus, caption, theDIV, justResult) {
 				document.getElementById(outerTD).bgColor = newcolor();
 			}
 		}
-	RecordDiceRoll(msg); // record the fluffy version in the "Color Key" with a timestamp.
 	}
+	// We need to write the results to two divs occasionally.  The second has "C" appended to the name.
+	outerTD = theDIV + "_TD_SND";
+	SndDIV = theDIV + "_SND";
+	if (document.getElementById(SndDIV) != null) {
+		if(justResult == 1) {
+			document.getElementById(SndDIV).innerHTML = " " + totalResult;
+			if (document.getElementById(outerTD) != null) {
+				document.getElementById(outerTD).bgColor = newcolor();
+			}
+		} else {
+			document.getElementById(SndDIV).innerHTML = msg;
+			if (document.getElementById(outerTD) != null) {
+				document.getElementById(outerTD).bgColor = newcolor();
+			}
+		}
+	}
+	RecordDiceRoll(msg); // record the fluffy version in the "Color Key" with a timestamp.
 }
 function RollAttack(numDice, dieSize, bonus, DAMnumDice, DAMdieSize, DAMbonus, critMin, caption, theDIV, justResult) {
 	var msg = caption + '\n' + "Result";
@@ -754,28 +817,46 @@ function rollTurning(checkBonus,turnDice,turnDieSize,turnBonus,turnLvl,intoDIV,c
 }
 
 var SpecialAttacksList = new Array();
-function NewSpecialAttacks(sNum, sName, sDesc, sAspect) {
+function NewSpecialAttacks(sNum, sName, sDesc, sAspect, sBenefit) {
 	this.number = sNum;
 	this.Name = sName;
 	this.Description = sDesc;
 	this.Aspect = sAspect;
+	this.showAspect = 0;
+	if (sAspect.length > 0)
+			  this.showAspect = 1;
+	this.Benefit = sBenefit;
+	if(sBenefit.length > sDesc.length) {
+		this.Description = sBenefit;
+	}
 } <!-- Yes, the variables are assigned outside the function to make them global -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
-SpecialAttacksList[%specialAttack] = new NewSpecialAttacks(%specialAttack, "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|",  "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.ASPECT|");
+SpecialAttacksList[%specialAttack] = new NewSpecialAttacks(%specialAttack, "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|",  "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.ASPECT|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.BENEFIT|");
 |ENDFOR|
 |ENDIF|
 
 var SpecialQualitiesList = new Array();
-function NewSpecialQualities(sNum, sName, sDesc, sAspect) {
+function NewSpecialQualities(sNum, sName, sDesc, sAspect, sBenefit) {
 	this.number = sNum;
 	this.Name = sName;
 	this.Description = sDesc;
 	this.Aspect = sAspect;
+	this.showAspect = 0;
+	if (sAspect.length > 0)
+			  this.showAspect = 1;
+	this.Benefit = sBenefit;
+	if(sBenefit.length > sDesc.length) {
+		this.Description = sBenefit;
+	}
 } <!-- Yes, the variables are assigned outside the function to make them global -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
-|FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
-SpecialQualitiesList[%bar] = new NewSpecialQualities(%bar, "|ABILITYALL.Special Ability.%bar.TYPE=SpecialQuality|",  "|ABILITYALL.Special Ability.%bar.TYPE=SpecialQuality.DESC|", "|ABILITYALL.Special Ability.%bar.TYPE=SpecialQuality.ASPECT|");
+SA_cnt = 0;
+|IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
+|FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%bar.TYPE=SpecialAttack)|
+|ELSE|
+SpecialQualitiesList[%bar] = new NewSpecialQualities(%bar, "|ABILITYALL.Special Ability.VISIBLE.%bar|",  "|ABILITYALL.Special Ability.VISIBLE.%bar.DESC|", "|ABILITYALL.Special Ability.VISIBLE.%bar.ASPECT|", "|ABILITYALL.Special Ability.VISIBLE.%bar.BENEFIT|");
+|ENDIF|
 |ENDFOR|
 |ENDIF|
 
@@ -793,39 +874,16 @@ function ToggleLayer( whichTable, whichLayer, whichText ) {
 	if(whichTable == 'SPECIAL_ATTACKS_Table') {
 		then = SpecialAttacksListCurrent;
 		SpecialAttacksListCurrent = whichText;
-	// It would be nice to have these special description areas actually notify the viewer
-	// that the mechanics have been applied in calculations, or they have not and need to
-	// be applied manually.  This is one experimental way of notification by changing the 
-	// background color of the div to signify that listed mechanics need to be applied 
-	// manually, or in some cases looked up in the original books.
-	// Full implementation would require a large sweep through the DATA sets to mark each
-	// Feat/SA/SU with an appropriate marker.
-	// Why do this?  It makes more clear if a "+5 resistance to fire" has been applied
-	// in the Elemental Resistances field.  Or +1 CasterLevel, or +2 misc AC...
-		if(SpecialAttacksList[whichText].Aspect == 'UNCALC: description') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#FFFF88;'><B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description + '</div>';
-		} else if(SpecialAttacksList[whichText].Aspect == 'UNCALC: mechanics') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#FFDDBB;'><B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description + '</div>';
-		} else if(SpecialAttacksList[whichText].Aspect == 'UNCALC: both') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#CCAA77;'><B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description + '</div>';
-		} else {
-			now = "<B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description;
-			if(ShowAspects == 1)
-				now = now + "<br />" + SpecialAttacksList[whichText].Aspect ;
+		now = "<B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description;
+		if((ShowAspects == 1) && (SpecialAttacksList[whichText].showAspect == 1)) {
+			now = now + "<br />" + SpecialAttacksList[whichText].Aspect ;
 		}
 	} else if(whichTable == 'SPECIAL_QUALITIES_Table') {
 		then = SpecialQualitiesListCurrent;
 		SpecialQualitiesListCurrent = whichText;
-		if(SpecialQualitiesList[whichText].Aspect == 'UNCALC: description') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#FFFF88;'><B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description + '</div>';
-		} else if(SpecialQualitiesList[whichText].Aspect == 'UNCALC: mechanics') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#FFDDBB;'><B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description + '</div>';
-		} else if(SpecialQualitiesList[whichText].Aspect == 'UNCALC: both') {
-			now = "<div class='l9' style='margin:0px;padding:5px;background:#CCAA77;'><B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description + '</div>';
-		} else {
-			now = "<B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description;
-			if(ShowAspects == 1)
-				now = now + "<br />" + SpecialQualitiesList[whichText].Aspect ;
+		now = "<B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description;
+		if((ShowAspects == 1) && (SpecialQualitiesList[whichText].showAspect == 1)) {
+			now = now + "<br />" + SpecialQualitiesList[whichText].Aspect ;
 		}
 	}
 	if(then != whichText) {
@@ -889,12 +947,23 @@ function ATK(nName,nValue,nBase,nStatNrForMod,nSizeMod,nEpicMod,nMiscMod){
 }
 function ATKStatMod()
 {
+	if(this.abilityNum == STRDEXindex) {
+		rc = AbArr[STRindex].curmodifier() + AbArr[DEXindex].curmodifier();
+		return rc;
+	}
 	return AbArr[this.abilityNum].curmodifier();
 }
 function ATKFlag()
 {
 	if ( this.miscTHMod != 0 )
 	   return TRUE;
+	if(this.abilityNum == STRDEXindex) {
+		if(AbArr[STRindex].hasTempMod() == TRUE)
+			return TRUE;
+		if(AbArr[DEXindex].hasTempMod() == TRUE)
+			return TRUE;
+		return FALSE;
+	}
 	return AbArr[this.abilityNum].hasTempMod();
 }
 // A variable of type Skill supports the following
@@ -1174,41 +1243,41 @@ function ACObjMiscModified()
 //      Ability = base  (no change really for AC purposes)
 function ACObjAbility()
 {
-   tempAbil = this.abilityBase;
-   // Also need to take into account if max dex due to armor makes change moot?
-   if ( AbArr[DEXindex].hasTempMod() )  // Dex is modified?
-   {
-	  // Will dex change affect AC?
-	  // Case 1:
-	  if ( this.maxdex==0 )  // These first two cases really should be ORed, but w/o a double pipe..sigh
-         tempAbil = tempAbil + AbArr[DEXindex].curModifierDiff();
-	  else if ( AbArr[DEXindex].modifier <= this.maxdex && AbArr[DEXindex].tempmodifier <= this.maxdex )
-         tempAbil = tempAbil + AbArr[DEXindex].curModifierDiff();
-      // Case 2:
-	  else if ( this.maxdex>0 && AbArr[DEXindex].modifier > this.maxdex && AbArr[DEXindex].tempmodifier <= this.maxdex )
-      	tempAbil = tempAbil - this.maxdex + AbArr[DEXindex].tempmodifier;
-      // Case 3:
-	  else if ( this.maxdex>0 && AbArr[DEXindex].modifier <= this.maxdex && AbArr[DEXindex].tempmodifier > this.maxdex )
-      	tempAbil = tempAbil - AbArr[DEXindex].modifier + this.maxdex;
-      // Case 4:
-	  else if ( this.maxdex>0 && AbArr[DEXindex].modifier > this.maxdex && AbArr[DEXindex].tempmodifier > this.maxdex )
-      	tempAbil = tempAbil;
-   }
-   return tempAbil;
+	tempAbil = this.abilityBase;
+	// Also need to take into account if max dex due to armor makes change moot?
+	if ( AbArr[DEXindex].hasTempMod() )  // Dex is modified?
+	{
+		// Will dex change affect AC?
+		// Case 1:
+		if ( this.maxdex==0 )  // These first two cases really should be ORed, but w/o a double pipe..sigh
+			tempAbil = tempAbil + AbArr[DEXindex].curModifierDiff();
+		else if ( AbArr[DEXindex].modifier <= this.maxdex && AbArr[DEXindex].tempmodifier <= this.maxdex )
+			tempAbil = tempAbil + AbArr[DEXindex].curModifierDiff();
+		// Case 2:
+		else if ( this.maxdex>0 && AbArr[DEXindex].modifier > this.maxdex && AbArr[DEXindex].tempmodifier <= this.maxdex )
+			tempAbil = tempAbil - this.maxdex + AbArr[DEXindex].tempmodifier;
+		// Case 3:
+		else if ( this.maxdex>0 && AbArr[DEXindex].modifier <= this.maxdex && AbArr[DEXindex].tempmodifier > this.maxdex )
+			tempAbil = tempAbil - AbArr[DEXindex].modifier + this.maxdex;
+		// Case 4:
+		else if ( this.maxdex>0 && AbArr[DEXindex].modifier > this.maxdex && AbArr[DEXindex].tempmodifier > this.maxdex )
+		tempAbil = tempAbil;
+	}
+	return tempAbil;
 }
 function ACObjMisc()
 {
 	var ACWisdom = 0;
-   // A change in AC due to Monk wisdom>
-   //   is a monk?   Not wearing armor?   Wis is modified?
-   if ( MonkLvl > 0 && Math.round(|ACCHECK|) == 0 && AbArr[WISindex].hasTempMod())
-   {
+	// A change in AC due to Monk wisdom>
+	//   is a monk?   Not wearing armor?   Wis is modified?
+	if ( MonkLvl > 0 && Math.round(|ACCHECK|) == 0 && AbArr[WISindex].hasTempMod())
+	{
 		if (AbArr[WISindex].tempmodifier <= 0)
 			ACWisdom = 0 - AbArr[WISindex].modifier;
 		else
 			ACWisdom = AbArr[WISindex].curModifierDiff();
-   }
-   return this.miscBase+this.rageMod+this.defFightMod+ACWisdom;
+	}
+	return this.miscBase+this.rageMod+this.defFightMod+ACWisdom;
 }
 
 // A variable of type CharState supports the following
@@ -1356,78 +1425,6 @@ function CurPowerPointsPrint()
 		document.getElementById('CurPowerPointsTD').bgColor = "white";
 	}
 }
-// Pathfinder uses Rage Points instead of Rages/day.
-|IIF(HASVAR:RagePoints)|
-var CurRagePoints = new RagePointObject(|VAR.RagePoints.INTVAL|);
-|ELSE|
-var CurRagePoints = new RagePointObject(0);
-|ENDIF|
-function RagePointObject(Tot)
-{
-	this.TotalBase = Tot;
-	this.Damage = 0;
-}
-function RagePointsPlus()
-{
-	CurRagePoints.Damage = CurRagePoints.Damage - 1;
-	if(CurRagePoints.Damage < 0) 
-		CurRagePoints.Damage = 0;
-	CurRagePointsPrint();
-}
-function RagePointsMinus()
-{
-	if(CurRagePoints.Damage == CurRagePoints.TotalBase) 
-		return;
-	CurRagePoints.Damage = CurRagePoints.Damage + 1;
-	CurFatigueRounds.Total = CurFatigueRounds.Total + 2;
-	if(CurRagePoints.Damage > CurRagePoints.TotalBase) 
-		CurRagePoints.Damage = CurRagePoints.TotalBase;
-	CurRagePointsPrint();
-|IIF(HASVAR:TirelessRage)|
-|ELSE|
-	FatigueRoundsPrint();
-|ENDIF|
-}
-function CurRagePointsPrint()
-{
-	if (CurRagePoints.Damage > 0 ) {
-		foo = CurRagePoints.TotalBase - CurRagePoints.Damage;
-		if(foo < 0) foo = 0;
-		if(foo > CurRagePoints.TotalBase) foo = CurRagePoints.TotalBase;
-		document.getElementById('RagePoints').innerHTML = foo;
-		document.getElementById('RagePoints_TD').bgColor = newcolor();
-	} else {
-		document.getElementById('RagePoints').innerHTML = " " + CurRagePoints.TotalBase;
-		document.getElementById('RagePoints_TD').bgColor = "white";
-	}
-}
-var CurFatigueRounds = new FatigueRoundsObject(0);
-function FatigueRoundsObject(Tot)
-{
-	this.Total = Tot;
-}
-function FatigueRoundsPlus()
-{
-	CurFatigueRounds.Total = CurFatigueRounds.Total + 1;
-	FatigueRoundsPrint();
-}
-function FatigueRoundsMinus()
-{
-	CurFatigueRounds.Total = CurFatigueRounds.Total - 1;
-	if(CurFatigueRounds.Total < 0) 
-		CurFatigueRounds.Total = 0;
-	FatigueRoundsPrint();
-}
-function FatigueRoundsPrint()
-{
-	if (CurFatigueRounds.Total > 0 ) {
-		document.getElementById('FatigueRds').innerHTML = CurFatigueRounds.Total;
-		document.getElementById('FatigueRds_TD').bgColor = newcolor();
-	} else {
-		document.getElementById('FatigueRds').innerHTML = " ";
-		document.getElementById('FatigueRds_TD').bgColor = "white";
-	}
-}
 function SubdualPlus()
 {
 	Subdual.Damage = Subdual.Damage - 1;
@@ -1481,35 +1478,35 @@ function CombatDamageMinus( which )
 
 function setSpellNatBonus()
 {
-		foo = 12; // out of range marker, selections are 0-10.
-		if (document.getElementById('spell_natural_bonus') != null) 
-			foo = document.getElementById("spell_natural_bonus").value;
-		if ((foo > -1) && (foo < 11))
-			spell_Nat_bonus = foo;
+	foo = 12; // out of range marker, selections are 0-10.
+	if (document.getElementById('spell_natural_bonus') != null) 
+		foo = document.getElementById("spell_natural_bonus").value;
+	if ((foo > -1) && (foo < 11))
+		spell_Nat_bonus = foo;
 }
 function setSpellACBonus()
 {
-		foo = 12;
-		if (document.getElementById('spell_AC_bonus') != null) 
-			foo = document.getElementById("spell_AC_bonus").value;
-		if ((foo > -1) && (foo < 11))
-			spell_AC_bonus = foo;
+	foo = 12;
+	if (document.getElementById('spell_AC_bonus') != null) 
+		foo = document.getElementById("spell_AC_bonus").value;
+	if ((foo > -1) && (foo < 11))
+		spell_AC_bonus = foo;
 }
 function setSpellDeflBonus()
 {
-		foo = 12;
-		if (document.getElementById('spell_deflection_bonus') != null) 
-			foo = document.getElementById("spell_deflection_bonus").value;
-		if ((foo > -1) && (foo < 11))
-			spell_Defl_bonus = foo;
+	foo = 12;
+	if (document.getElementById('spell_deflection_bonus') != null) 
+		foo = document.getElementById("spell_deflection_bonus").value;
+	if ((foo > -1) && (foo < 11))
+		spell_Defl_bonus = foo;
 }
 function setSpellShieldBonus()
 {
-		foo = 12;
-		if (document.getElementById('spell_shield_bonus') != null) 
-			foo = document.getElementById("spell_shield_bonus").value;
-		if ((foo > -1) && (foo < 11))
-			spell_Shield_bonus = foo;
+	foo = 12;
+	if (document.getElementById('spell_shield_bonus') != null) 
+		foo = document.getElementById("spell_shield_bonus").value;
+	if ((foo > -1) && (foo < 11))
+		spell_Shield_bonus = foo;
 }
 
 function ABPrint()
@@ -1524,74 +1521,165 @@ function ABPrint()
 	tempHTML = tempHTML + '<td width="13%" class="c4">TEMP<br />MOD<\/td>';
 	tempHTML = tempHTML + '<\/tr>';
 	for (i=0; i<AbArr.length;i++){
-		tempHTML = tempHTML+'<tr>';
-		tempHTML = tempHTML+'<td id=removea'+i+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+i+');"><\/td>';
-		tempHTML = tempHTML+'<td class="c10wB" rowspan=2>'+AbArr[i].name+'<span class="c4w"><br />'+AbArr[i].longname+'<\/span><\/td>';
-		tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+AbArr[i].Base+'<\/td>';
-		tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+modPlusMinus(AbArr[i].BaseMod)+'<\/td>';
-		tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+AbArr[i].val+'<\/td>';
-		tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+modPlusMinus(AbArr[i].modifier)+'<\/td>';
-		if (AbArr[i].hasTempMod()) {
-			tempHTML = tempHTML+'<td class="c10slB" rowspan=2>'+AbArr[i].tempvalue+'<\/td>';
-			tempHTML = tempHTML+'<td class="c10slB" rowspan=2>'+modPlusMinus(AbArr[i].tempmodifier)+'<\/td>\n';
+		if(AbArr[i].visible == TRUE) {
+			tempHTML = tempHTML+'<tr>';
+			tempHTML = tempHTML+'<td id=removea'+i+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+i+');"><\/td>';
+			tempHTML = tempHTML+'<td class="c10wB" rowspan=2>'+AbArr[i].name+'<span class="c4w"><br />'+AbArr[i].longname+'<\/span><\/td>';
+			tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+AbArr[i].Base+'<\/td>';
+			tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+modPlusMinus(AbArr[i].BaseMod)+'<\/td>';
+			tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+AbArr[i].val+'<\/td>';
+			tempHTML = tempHTML+'<td class="c10sB" rowspan=2>'+modPlusMinus(AbArr[i].modifier)+'<\/td>';
+			if (AbArr[i].hasTempMod()) {
+				tempHTML = tempHTML+'<td class="c10slB" rowspan=2>'+AbArr[i].tempvalue+'<\/td>';
+				tempHTML = tempHTML+'<td class="c10slB" rowspan=2>'+modPlusMinus(AbArr[i].tempmodifier)+'<\/td>\n';
+			}
+			else {
+				tempHTML = tempHTML+'<td class="c10sB" rowspan=2><br/><\/td>';
+				tempHTML = tempHTML+'<td class="c10sB" rowspan=2><br/><\/td>\n';
+			}
+			tempHTML = tempHTML+'<\/tr><tr><td id=removeb'+i+'><input class="statmodbutton" type=button value="-" name=RemoveStatButton onclick="RemoveStat('+i+');"><\/td>';
 		}
-		else {
-			tempHTML = tempHTML+'<td class="c10sB" rowspan=2><br/><\/td>';
-			tempHTML = tempHTML+'<td class="c10sB" rowspan=2><br/><\/td>\n';
-		}
-		tempHTML = tempHTML+'<\/tr><tr><td id=removeb'+i+'><input class="statmodbutton" type=button value="-" name=RemoveStatButton onclick="RemoveStat('+i+');"><\/td>';
 	}
 	tempHTML = tempHTML+'<\/table>';
 	document.getElementById('AbilityDiv').innerHTML = tempHTML;
+
+	// Create a compact version of the Ability Scores and saves as well.
+	tempHTML = '';
+	tempHTML ='<table border="0" cellpadding="1px" cellspacing="1px" width="320px">';
+	for (i=0; i<AbArr.length;i++){
+		if(AbArr[i].visible == TRUE) {
+			tempHTML = tempHTML+'<tr><td width="50%"><table border=0 cellpadding="1px" cellspacing="1px" width="100%"><tr>\n';
+			tempHTML = tempHTML+'<td width="1px" align="right" id=removej'+i+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+i+');"><br>';
+			tempHTML = tempHTML+'<input class="statmodbutton" type=button value="-" name=RemoveStatButton onclick="RemoveStat('+i+');"><\/td>';
+			tempHTML = tempHTML+'<td width="49%" class="c10wB">'+AbArr[i].name+'<span class="c4w"><br />'+AbArr[i].longname+'<\/span><\/td>';
+			if (AbArr[i].hasTempMod()) {
+				tempHTML = tempHTML+'<td width="25px" class="c10slB">'+AbArr[i].tempvalue+'<\/td>';
+				tempHTML = tempHTML+'<td width="25px" class="c10slB">'+modPlusMinus(AbArr[i].tempmodifier)+'<\/td>\n';
+			}
+			else {
+				tempHTML = tempHTML+'<td width="25px" class="c10sB">'+AbArr[i].val+'<\/td>';
+				tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(AbArr[i].modifier)+'<\/td>';
+			}
+			i++;
+			tempHTML = tempHTML+'</tr></table></td><td width="50%"><table border=0 cellpadding="1px" cellspacing="1px" width="100%"><tr>\n';
+			tempHTML = tempHTML+'<td width="1px" align="right" id=removek'+i+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+i+');">';
+			tempHTML = tempHTML+'<input class="statmodbutton" type=button value="-" name=RemoveStatButton onclick="RemoveStat('+i+');"><\/td>';
+			tempHTML = tempHTML+'<td width="49%" class="c10wB">'+AbArr[i].name+'<span class="c4w"><br />'+AbArr[i].longname+'<\/span><\/td>';
+			if (AbArr[i].hasTempMod()) {
+				tempHTML = tempHTML+'<td width="25px" class="c10slB">'+AbArr[i].tempvalue+'<\/td>';
+				tempHTML = tempHTML+'<td width="25px" class="c10slB">'+modPlusMinus(AbArr[i].tempmodifier)+'<\/td>\n';
+			}
+			else {
+				tempHTML = tempHTML+'<td width="25px" class="c10sB">'+AbArr[i].val+'<\/td>';
+				tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(AbArr[i].modifier)+'<\/td>';
+			}
+			tempHTML = tempHTML+'</tr></table></td></tr>\n';
+		}
+	}
+	tempHTML = tempHTML+'<tr>';
+	styleTag = ' style="background: LIGHTBLUE" ';
+	tempHTML = tempHTML+'<td><table width="100%"><tr><td class="cm9swB">AC<span class="c5wB"><br />Armour&nbsp;Class<\/span><\/td>';
+	tempHTML = tempHTML+'<td ';
+	if ( AC.totalModified() )
+		tempHTML = tempHTML+styleTag;
+	tempHTML = tempHTML+'class="c10sB" width="25px">'+AC.total()+'<br><span class="c7mB">TOTAL</span><\/td>';
+	tempHTML = tempHTML+'<td ';
+	if ( AC.flatModified() )
+		tempHTML = tempHTML+styleTag;
+	tempHTML = tempHTML+'class="c10sB" width="25px">'+AC.flat()+'<br><span class="c7mB">FLAT</span><\/td>';
+	tempHTML = tempHTML+'<td ';
+	if ( AC.touchModified() )
+		tempHTML = tempHTML+styleTag;
+	tempHTML = tempHTML+'class="c10sB" width="25px">'+AC.touch()+'<br><span class="c7mB">TOUCH</span><\/td>';
+	tempHTML = tempHTML+'</tr></table></td>';
+        tempBG = "white";
+        if ( CheckArr[1].hasTempMod() )
+		tempBG = 'LIGHTBLUE';
+        if ( CheckArr[1].statmodflag() )
+		tempBG = 'LIGHTBLUE';
+	tempHTML = tempHTML+'<td><table border=0><tr><td class="c10wB"><table class="c10wB" border="0" cellpadding="0"><tr><td class="c10wB" width="20px"><a name="#" onClick="rollIntoDIV(1,20,'+CheckArr[1].val()+',\''+CheckArr[1].name+'\',\''+CheckArr[1].name+'\',1);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a></td><td id="'+CheckArr[1].name+'_TD_SND" width="22px" class="c10B" bgcolor="black"><div class="c10B" id="'+CheckArr[1].name+'_SND" style="background-color:transparent;">&nbsp;</div></td><td width="80px" class="c10wB">'+CheckArr[1].name+'<span class="c5w"><br />'+CheckArr[1].ability+'<\/span></td></tr></table><\/td>';
+	tempHTML = tempHTML+'<td class="c10sB" width="25px" style="background:'+tempBG+';">'+modPlusMinus(CheckArr[1].val())+'<\/td></tr></table></td><tr>';
+        tempBG = "white";
+        if ( CheckArr[0].hasTempMod() )
+		tempBG = 'LIGHTBLUE';
+        if ( CheckArr[0].statmodflag() )
+		tempBG = 'LIGHTBLUE';
+	tempHTML = tempHTML+'<td><table border="0"><tr><td class="c10wB"><table class="c10wB" border="0" cellpadding="0"><tr><td class="c10wB" width="20px"><a name="#" onClick="rollIntoDIV(1,20,'+CheckArr[0].val()+',\''+CheckArr[0].name+'\',\''+CheckArr[0].name+'\',1);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a></td><td id="'+CheckArr[0].name+'_TD_SND" width="22px" class="c10B" bgcolor="black"><div class="c10B" id="'+CheckArr[0].name+'_SND" style="background-color:transparent;">&nbsp;</div></td><td width="80px" class="c10wB">'+CheckArr[0].name+'<span class="c5w"><br />'+CheckArr[0].ability+'<\/span></td></tr></table><\/td>';
+	tempHTML = tempHTML+'<td class="c10sB" width="25px" style="background:'+tempBG+';">'+modPlusMinus(CheckArr[0].val())+'<\/td></tr></table></td>';
+        tempBG = "white";
+        if ( CheckArr[2].hasTempMod() )
+		tempBG = 'LIGHTBLUE';
+        if ( CheckArr[2].statmodflag() )
+		tempBG = 'LIGHTBLUE';
+	tempHTML = tempHTML+'<td><table border="0"><tr><td class="c10wB"><table class="c10wB" border="0" cellpadding="0"><tr><td class="c10wB" width="20px"><a name="#" onClick="rollIntoDIV(1,20,'+CheckArr[2].val()+',\''+CheckArr[2].name+'\',\''+CheckArr[2].name+'\',1);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a></td><td id="'+CheckArr[2].name+'_TD_SND" width="22px" class="c10B" bgcolor="black"><div class="c10B" id="'+CheckArr[2].name+'_SND" style="background-color:transparent;">&nbsp;</div></td><td width="80px" class="c10wB">'+CheckArr[2].name+'<span class="c5w"><br />'+CheckArr[2].ability+'<\/span></td></tr></table><\/td>';
+	tempHTML = tempHTML+'<td class="c10sB" width="25px" style="background:'+tempBG+';">'+modPlusMinus(CheckArr[2].val())+'<\/td></tr></table></td>';
+	tempHTML = tempHTML+'<\/tr>\n';
+	tempHTML = tempHTML+'<tr><td colspan="2"><table border="0" cellspacing="1px" cellpadding="1px"><tr>';
+	for (i=0;i<ATKArr.length;i++){
+		if(ATKArr[i].name == "CMD")
+			tempHTML = tempHTML+'<td width="40%" class="c10wB">'+ATKArr[i].name+'<span class="c5w"><br />DEFENSE BONUS<\/span><\/td>\n';
+		else
+			tempHTML = tempHTML+'<td width="40%" class="c10wB">'+ATKArr[i].name+'<span class="c5w"><br />ATTACK BONUS<\/span><\/td>\n';
+		tempHTML = tempHTML+'<td width="35px" class="'+((ATKArr[i].isModified())?'c10slB':'c10sB')+'">'+ATKArr[i].modifyAttackBonus()+'<\/td>\n';
+		if(i%2)
+			tempHTML = tempHTML+'</tr><tr>\n';
+	}
+	tempHTML = tempHTML+'</tr></table></td></tr>\n';
+	tempHTML = tempHTML+'<\/table>';
+	if (document.getElementById('CompactAbilityDiv') != null) {
+		document.getElementById('CompactAbilityDiv').innerHTML = tempHTML;
+	}
 }
+
 function SavesPrint(){
 	tempHTML = '<table width="100%"><tr><td class="c4">SAVING THROWS<\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">TOTAL<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">BASE<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">STAT<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">MAGIC<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">EPIC<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">MISC<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">TOTAL<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">BASE<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">STAT<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">MAGIC<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">EPIC<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25px" class="c4">MISC<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="1%" class="c4"><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">TEMPORARY<\/td><td width="63" rowspan="4" class="lt4s">CONDITIONAL<br />MODIFIERS<\/td><\/tr>\n';
+	tempHTML = tempHTML+'<td width="25px" class="c4">TEMPORARY<\/td><td width="63" rowspan="4" class="lt4s">CONDITIONAL<br />MODIFIERS<\/td><\/tr>\n';
 	for (i=0; i<CheckArr.length;i++){
 		tempHTML = tempHTML+'<tr><td class="c10wB" width="145px"><table class="c10wB" border="0" cellpadding="0"><tr><td class="c10wB" width="20px"><a name="#" onClick="rollIntoDIV(1,20,'+CheckArr[i].val()+',\''+CheckArr[i].name+'\',\''+CheckArr[i].name+'\',1);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a></td><td id="'+CheckArr[i].name+'_TD" width="22px" class="c10B" bgcolor="black"><div class="c10B" id="'+CheckArr[i].name+'" style="background-color:transparent;">&nbsp;</div></td><td width="100px" class="c10wB">'+CheckArr[i].name+'<span class="c5w"><br />'+CheckArr[i].ability+'<\/span></td></tr></table><\/td>';
-        tempBG = "white";
-        if ( CheckArr[i].hasTempMod() )
-           tempBG = 'LIGHTBLUE';
-        if ( CheckArr[i].statmodflag() )
-           tempBG = 'LIGHTBLUE';
+		tempBG = ' style="background: white;"';
+		if ( CheckArr[i].hasTempMod() )
+			tempBG = ' style="background: LIGHTBLUE;"';
+		if ( CheckArr[i].statmodflag() )
+			tempBG = ' style="background: LIGHTBLUE;"';
 		// total
-		tempHTML = tempHTML+'<td class="c10sB" style="background:'+tempBG+';">'+modPlusMinus(CheckArr[i].val())+'<\/td><td class="c7mB">=<\/td>';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB"'+tempBG+'>'+modPlusMinus(CheckArr[i].val())+'<\/td><td class="c7mB">=<\/td>';
 		// base
-		tempHTML = tempHTML+'<td class="c10sB">'+modPlusMinus(CheckArr[i].base)+'<\/td><td class="c7mB">+<\/td>';
-        tempBG = "white";
-        if ( CheckArr[i].statmodflag() )
-           tempBG = 'LIGHTBLUE';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(CheckArr[i].base)+'<\/td><td class="c7mB">+<\/td>';
+		tempBG = "";
+		if ( CheckArr[i].statmodflag() )
+			tempBG = ' style="background: LIGHTBLUE;"';
 		// ability
-		tempHTML = tempHTML+'<td class="c10sB" style="background:'+tempBG+';">'+modPlusMinus(CheckArr[i].statmodifier())+'<\/td>';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB"'+tempBG+'>'+modPlusMinus(CheckArr[i].statmodifier())+'<\/td>';
 		tempHTML = tempHTML+'<td class="c7mB">+<\/td>';
 		// magic
-		tempHTML = tempHTML+'<td class="c10sB">'+modPlusMinus(CheckArr[i].magic)+'<br /><\/td><td class="c7mB">+<\/td>';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(CheckArr[i].magic)+'<br /><\/td><td class="c7mB">+<\/td>';
 		// epic
-		tempHTML = tempHTML+'<td class="c10sB">'+modPlusMinus(CheckArr[i].epic)+'<br /><\/td><td class="c7mB">+<\/td>';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(CheckArr[i].epic)+'<br /><\/td><td class="c7mB">+<\/td>';
 		// other
-		tempHTML = tempHTML+'<td class="c10sB">'+modPlusMinus(CheckArr[i].misc)+'<br /><\/td><td class="c7mB">+<\/td>';
+		tempHTML = tempHTML+'<td width="25px" class="c10sB">'+modPlusMinus(CheckArr[i].misc)+'<br /><\/td><td class="c7mB">+<\/td>';
 		// temp that is viewer modifyable
 		tempHTML = tempHTML+'<td width="1%" align="right"><input class="statmodbutton" type=button value="+" name=AddSaveButton onclick="SavePlus('+i+');"><br /><input class="statmodbutton" type=button value="-" name=SubSaveButton onclick="SaveMinus('+i+');"></td>';
-		tempBG = "white";
+		tempBG = ''; // prefer background over white
 		if ( CheckArr[i].hasTempMod() )
-		  tempBG = 'LIGHTBLUE';
-		tempHTML = tempHTML+'<td class="c10gB" style="background: '+tempBG+';">';
+			tempBG = ' style="background: LIGHTBLUE;"';
+		tempHTML = tempHTML+'<td width="25px" class="c10gB"'+tempBG+'>';
 		if ( CheckArr[i].hasTempMod() )
-		   tempHTML = tempHTML+modPlusMinus(CheckArr[i].tempmodifier);
+			tempHTML = tempHTML+modPlusMinus(CheckArr[i].tempmodifier);
 		else
-		   tempHTML = tempHTML+'<br />';
+			tempHTML = tempHTML+'<br />';
 		tempHTML = tempHTML+'<\/td>';
 		tempHTML = tempHTML+'<\/tr>\n';
 	}
 	tempHTML = tempHTML+'<\/table>';
 	document.getElementById('SavesDiv').innerHTML = tempHTML;
+	ABPrint(); // Refresh the compact version of the AB table
 }
 function ATKPrint(){
 	tempHTML = '<table width="100%"><tr><td><\/td>';
@@ -1602,11 +1690,14 @@ function ATKPrint(){
 	tempHTML = tempHTML+'<td width="25" class="c4">EPIC<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISC<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">TEMPORARY<br />HIT<\/td>';
+	tempHTML = tempHTML+'<td width="25" class="c4">TEMPORARY<br />TO HIT<\/td>';
 	tempHTML = tempHTML+'<td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">TEMPORARY<br />DAMAGE<\/td><\/tr>';
 	for (i=0;i<ATKArr.length;i++){
-		tempHTML = tempHTML+'<tr><td class="c10wB">'+ATKArr[i].name+'<span class="c5w"><br />ATTACK BONUS<\/span><\/td>';
+		if(ATKArr[i].name == "CMD")
+			tempHTML = tempHTML+'<tr><td class="c10wB">'+ATKArr[i].name+'<span class="c5w"><br />DEFENSE BONUS<\/span><\/td>';
+		else
+			tempHTML = tempHTML+'<tr><td class="c10wB">'+ATKArr[i].name+'<span class="c5w"><br />ATTACK BONUS<\/span><\/td>';
 		tempHTML = tempHTML+'<td class="'+((ATKArr[i].isModified())?'c10slB':'c10sB')+'">'+ATKArr[i].modifyAttackBonus()+'<\/td><td class="c7mB">=<\/td>';
 		tempHTML = tempHTML+'<td class="c10sB">';
 		tempHTML = tempHTML+ATKArr[i].base;
@@ -1616,40 +1707,94 @@ function ATKPrint(){
 		tempHTML = tempHTML+'<td class="c10sB">'+ATKArr[i].epicmodifier+'<br /><\/td><td class="c7mB">+<\/td>';
 		tempHTML = tempHTML+'<td class="c10sB">'+ATKArr[i].miscmodifier+'<br /><\/td><td class="c7mB">+<\/td>';
 		tempHTML = tempHTML+'<td width="1%" align="right"><input class="statmodbutton" type=button value="+" onclick="CombatPlus('+i+');"><br /><input class="statmodbutton" type=button value="-" onclick="CombatMinus('+i+');"></td>';
-		tempBG = "white";
+		tempBG = '';
 		if ( ATKArr[i].miscTHMod != 0 )
-		  tempBG = 'LIGHTBLUE';
-		tempHTML = tempHTML+'<td class="c10gB" style="background:'+tempBG+';">';
+			tempBG = ' style="background: LIGHTBLUE;"';
+		tempHTML = tempHTML+'<td class="c10gB"'+tempBG+'>';
 		if ( ATKArr[i].miscTHMod != 0 )
-		   tempHTML = tempHTML + ATKArr[i].miscTHMod;
+			tempHTML = tempHTML + ATKArr[i].miscTHMod;
 		tempHTML = tempHTML + '<br /><\/td>';
-		tempHTML = tempHTML+'<td width="1%" align="right"><input class="statmodbutton" type=button value="+" onclick="CombatDamagePlus('+i+');"><br /><input class="statmodbutton" type=button value="-" onclick="CombatDamageMinus('+i+');"></td>';
-		tempBG = "white";
-		if ( ATKArr[i].miscDamageMod != 0 )
-		  tempBG = 'LIGHTBLUE';
-		tempHTML = tempHTML+'<td class="c10gB" style="background:'+tempBG+';">';
-		if ( ATKArr[i].miscDamageMod != 0 )
-		   tempHTML = tempHTML + ATKArr[i].miscDamageMod;
-		tempHTML = tempHTML + '<br /><\/td><\/tr>';
+		if((ATKArr[i].name != "CMB") && (ATKArr[i].name != "CMD")) {
+			tempHTML = tempHTML+'<td width="1%" align="right"><input class="statmodbutton" type=button value="+" onclick="CombatDamagePlus('+i+');"><br /><input class="statmodbutton" type=button value="-" onclick="CombatDamageMinus('+i+');"></td>';
+      	tempBG = '';
+			if ( ATKArr[i].miscDamageMod != 0 )
+				tempBG = ' style="background: LIGHTBLUE;"';
+			tempHTML = tempHTML+'<td class="c10gB"'+tempBG+'>';
+			if ( ATKArr[i].miscDamageMod != 0 )
+				tempHTML = tempHTML + ATKArr[i].miscDamageMod;
+			tempHTML = tempHTML + '<br /><\/td><\/tr>';
+		} else if(ATKArr[i].name == "CMD") {
+			tempHTML = tempHTML+'<td class="c7mB">+</td>';
+			tempHTML = tempHTML+'<td class="c10B">10</td></tr>';
+		} else {
+			tempHTML = tempHTML+'<td>&nbsp;</td>';
+			tempHTML = tempHTML+'<td>&nbsp;</td></tr>';
+		}
 		tempHTML = tempHTML + '<tr><td><\/td><\/tr>';
 	}
+	tempHTML = tempHTML + '<tr><td colspan=18><table width="100%" summary="CMB block"><tr>';
+|IIF(VAR.UseCombatManueverBonus:1)|
+	tempOffset = parseInt(ATKArr[CMB_Pos].modifyAttackBonus()) - parseInt(ATKArr[CMB_Pos].AttackBonusBase);
+	tempBG = '';
+	if ( ATKArr[CMB_Pos].isModified() )
+		tempBG = ' style="background: LIGHTBLUE;"';
+	tempHTML = tempHTML + '<td align="center" class="c10wB"><b>CMB</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_Grapple.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_Trip.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_Disarm.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_Sunder.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_BullRush.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMB_Overrun.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempHTML = tempHTML + '</tr><tr>';
+	tempOffset = parseInt(ATKArr[CMD_Pos].modifyAttackBonus()) - parseInt(ATKArr[CMD_Pos].AttackBonusBase);
+	if ( ATKArr[CMD_Pos].isModified() )
+		tempBG = ' style="background: LIGHTBLUE;"';
+	tempHTML = tempHTML + '<td align="center" class="c10wB"><b>CMD</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_Grapple.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_Trip.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_Disarm.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_Sunder.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_BullRush.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempVal = tempOffset + parseInt(|VAR.CMD_Overrun.INTVAL.SIGN|);
+	tempHTML = tempHTML + '<td align="center" class="c10sB"'+tempBG+'><b>' + tempVal + '</b></td>';
+	tempHTML = tempHTML + '<tr>';
+	tempHTML = tempHTML + '<td align="center" width="10%"></td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">GRAPPLE</td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">TRIP</td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">DISARM</td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">SUNDER</td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">BULL RUSH</td>';
+	tempHTML = tempHTML + '<td align="center" width="15%" valign="bottom" class="c6">OVERRUN</td>';
+	tempHTML = tempHTML + '</tr></table></td></tr>';
+|ENDIF|					   
 	document.getElementById('AttackDiv').innerHTML = tempHTML;
+	ABPrint(); // Refresh the compact version of the AB table
 }
 function ComprehensiveSkillPrint()
 {
 	tempHTML = '<table cellpadding="0" cellspacing="0" border="0" width="100%">';
-	tempHTML = tempHTML + '<tr><td height="30" class="c6w"><\/td>';
-	tempHTML = tempHTML + '<td height="30" class="c10yB"><a name="#" onClick="CycleSkills();">SKILLS</a><\/td>';
-	tempHTML = tempHTML + '<td colspan="4" height="30" class="c6w"><\/td>';
-	tempHTML = tempHTML + '<td height="30" class="r6w"><\/td>';
-	tempHTML = tempHTML + '<td height="30" class="c7w">MAX<br />RANKS<\/td>';
-	tempHTML = tempHTML + '<td colspan="2" height="30" class="cm9dB">&nbsp;&nbsp;|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|&nbsp;&nbsp;<\/td><\/tr>';
+	tempHTML = tempHTML + '<tr bgcolor="black"><td bgcolor="black" height="30" class="c6w"><\/td>';
+	tempHTML = tempHTML + '<td bgcolor="black" height="30" class="c10yB"><a name="#" onClick="CycleSkills();">SKILLS</a><\/td>';
+	tempHTML = tempHTML + '<td bgcolor="black" colspan="4" height="30" class="c6w"><\/td>';
+	tempHTML = tempHTML + '<td bgcolor="black" height="30" class="r6w"><\/td>';
+	tempHTML = tempHTML + '<td bgcolor="black" height="30" class="c7w">MAX<br />RANKS<\/td>';
+	tempHTML = tempHTML + '<td bgcolor="black" colspan="2" height="30" class="cm9dB">&nbsp;&nbsp;|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|&nbsp;&nbsp;<\/td><\/tr>';
 	tempHTML = tempHTML + '<tr><td colspan="2" width="40%" class="c4s">SKILL NAME<\/td><td width="5%" class="c4s">ABILITY<\/td><td width="13%" colspan="1" class="c4s">SKILL<br />MODIFIER<\/td><td width="13%" colspan="2" class="c4s">ABILITY<br />MODIFIER<\/td><td width="13%" colspan="2" class="c4s">RANKS<\/td><td width="13%" colspan="2" class="c4s">MISC<br />MODIFIER<\/td><\/tr>';
-    i = 0;
+	i = 0;
 	for (i=0;i<SkillArr.length;i++){
 		notWhileRaging = 0;
-		for (j=0;j<SkillsRedList.length;j++)
-		{
+		for (j=0;j<SkillsRedList.length;j++) {
 			if ((SkillArr[i].name.substr(0,SkillsRedList[j].length) == SkillsRedList[j])&&(RageStatus =="Raging")) {notWhileRaging = 1;}
 		}
 		styleTag = "";
@@ -1663,7 +1808,6 @@ function ComprehensiveSkillPrint()
 			tempHTML = tempHTML + '&#9670;';
 		if ( SkillArr[i].bSkillMastery == TRUE )
 			tempHTML = tempHTML + '*';
-
 		tempHTML = tempHTML + '<\/td>';
 		tempHTML = tempHTML + '<td class="l8">'+SkillArr[i].name+'<\/td><td class="c8">'+SkillArr[i].ability+'<\/td><td class="cb8b">'+SkillArr[i].total()+'<\/td><td class="cb8mB">=<\/td><td class="cb8bB">'+SkillArr[i].statmodifier()+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].rank+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].miscmodifier+'<br /><\/td><\/tr>';
 	}
@@ -1697,22 +1841,21 @@ function CompactSkillPrint()
 	tempHTML = tempHTML + '<tr><td class="l5b">&nbsp;Name<\/td><td class="l5b">Abb<\/td><td class="r5b">Rnk<\/td><td class="r5b">&nbsp;</td><td class="r5b">Tot&nbsp;<\/td><td></td><td class="l5b">&nbsp;Name<\/td><td class="l5b">Abb<\/td><td class="r5b">Rnk<\/td><td class="r5b">&nbsp;</td><td class="r5b">Tot&nbsp;<\/td><td></td><td class="l5b">&nbsp;Name<\/td><td class="l5b">Abb<\/td><td class="r5b">Rnk<\/td><td class="r5b">&nbsp;</td><td class="r5b">Tot&nbsp;<\/td><td></td><\/tr>';
 	for (i=0;i<SkillArr.length;i++){
 		notWhileRaging = 0;
-		for (j=0;j<SkillsRedList.length;j++)
-		{
+		for (j=0;j<SkillsRedList.length;j++) {
 			if ((SkillArr[i].name.substr(0,SkillsRedList[j].length) == SkillsRedList[j])&&(RageStatus =="Raging")) {notWhileRaging = 1;}
 		}
 		styleTag = "";
 		if (SkillArr[i].baseStatModified()) styleTag = ' style="background: LIGHTBLUE; color: red;"';
 		if (notWhileRaging ==1) styleTag = ' style="background: #cccccc; color: #666666;"';
-        if ( (i % 3) == 0 )
-           tempHTML = tempHTML + '<tr>';
+		if ( (i % 3) == 0 )
+			tempHTML = tempHTML + '<tr>';
 		tempHTML = tempHTML + '<td'+styleTag+' class="l8">&nbsp;'+SkillArr[i].name+'<\/td><td'+styleTag+' class="l7">'+SkillArr[i].ability+'<\/td><td'+styleTag+' class="r7">'+SkillArr[i].rank+'&nbsp;<\/td><td><a name="#" onClick="rollIntoDIV(1,20,'+SkillArr[i].total()+',\''+SkillArr[i].name+'\',\'SkillRoll\',0);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a></td><td'+styleTag+' class="r8">&nbsp;'+SkillArr[i].total()+'&nbsp;<\/td><td style="background:black;" width="3px">&nbsp;</td>';
 		if ( (i % 3) == 2 )
-           tempHTML = tempHTML + '<\/tr>';
+			tempHTML = tempHTML + '<\/tr>';
 	}
-    // This is to take care of the case of a row started in the loop, but not enough skills to complete the whole row.
+	// This is to take care of the case of a row started in the loop, but not enough skills to complete the whole row.
 	if ( i>0 && (i % 3)==0 )
-	   tempHTML = tempHTML + '<\/tr>';
+		tempHTML = tempHTML + '<\/tr>';
 	tempHTML = tempHTML + '<\/table>';
 	document.getElementById('SkillsCompactdiv').innerHTML = tempHTML;
 }
@@ -1722,41 +1865,41 @@ function ACPrint()
 	tempHTML = '<table><tr><td class="cm9swB">AC<span class="c5wB"><br />Armour&nbsp;Class<\/span><\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.totalModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.total()+'<\/td><td class="c7mB">=<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.flatModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.flat()+'<\/td><td class="c7mB">:<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.touchModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.touch()+'<\/td><td class="c7mB">:<\/td>';
 	tempHTML = tempHTML+'<td class="c9sB">'+AC.base+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.armorModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.armor()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.shieldModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.shield()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.deflectionModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.deflection()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.abilityModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.ability()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td class="c9sB">'+AC.size+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.naturalarmorModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.naturalarmor()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.miscModified() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.misc()+'<\/td><td align="center" width="5"><\/td>';
 	tempHTML = tempHTML+'<td class="c9sB"><br /><\/td><td align="center"><\/td>';
 	tempHTML = tempHTML+'<td class="c9sB">|SPELLFAILURE|<\/td><td align="center"><\/td>';
@@ -1764,9 +1907,8 @@ function ACPrint()
 	tempHTML = tempHTML+'<td class="c9sB">';
 	// MAXDEX==0 means NO maxdex
 	if ( AC.maxdex != 0 )
-	   tempHTML = tempHTML + AC.maxdex;
+		tempHTML = tempHTML + AC.maxdex;
 	tempHTML = tempHTML+'<br /><\/td><td align="center"><\/td>';
-
 	tempHTML = tempHTML+'<tr><td align="center" width="50"><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="ct6mB">TOTAL<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="ct6mB">FLAT<\/td><td><\/td>';
@@ -1783,9 +1925,9 @@ function ACPrint()
 	tempHTML = tempHTML+'<td width="25" class="c4">ARCANE<br />FAILURE<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">ARMOR<br />CHECK<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MAX<br />DEX<\/td><td><\/td>';
-
 	tempHTML = tempHTML+'<\/tr><\/table>';
 	document.getElementById('ACDiv').innerHTML = tempHTML;
+	ABPrint();
 }
 function InitPrint()
 {
@@ -1798,12 +1940,12 @@ function InitPrint()
 	tempHTML = tempHTML+'<td width="85" class="c9wB">INITIATIVE<span class="c5w"><br />Modifier<\/span><\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AbArr[DEXindex].hasTempMod() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c10sB" width="25">'+Init.initTotal()+'<br><span class="cb5">TOTAL</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB">=<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AbArr[DEXindex].hasTempMod() )
-	   tempHTML = tempHTML+styleTag;
+		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c10sB" width="25">'+AbArr[DEXindex].tempmodifier+'<br><span class="cb5">DEX</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB">+<\/td>';
 	tempHTML = tempHTML+'<td class="c10sB" width="25">'+Init.initBonus+'<br><span class="cb5">MISC</span><\/td>';
@@ -1871,18 +2013,22 @@ function RagePrint()
 {
 |%VAR.BarbRageTimesLVL.INTVAL|;
 |IIF(GAMEMODE:Pathfinder)|
+	var strMod = |VAR.RageStatBonus|;
+	var conMod = |VAR.RageStatBonus|;
+	var willMod = |VAR.RageSaveBonus|;
 |ELSE|
-     var strMod = |VAR.RageStrBonus|;
-     var conMod = |VAR.RageConBonus|;
-     var willMod = |VAR.RageMorale|;
-     tempHTML = '<table width="100%" cellspacing="0" cellpadding="2"><tr><td class="c10yB" colspan="2"><a id="#barb_rage_desc" onclick="ToggleDIV(\'RageDiv\');ToggleDIV(\'RageDiv_header\');">BARBARIAN RAGE</a><\/td><\/tr>';
+	var strMod = |VAR.RageStrBonus|;
+	var conMod = |VAR.RageConBonus|;
+	var willMod = |VAR.RageMorale|;
+|ENDIF|
+	tempHTML = '<table width="100%" cellspacing="0" cellpadding="2"><tr><td class="c10yB" colspan="2"><a id="#barb_rage_desc" onclick="ToggleDIV(\'RageDiv\');ToggleDIV(\'RageDiv_header\');">BARBARIAN RAGE</a><\/td><\/tr>';
 	tempHTML = tempHTML+'<tr><td colspan="2" class="l9s">The Barbarian temporarily gains '+modPlusMinus(strMod)+' to Strength, '+modPlusMinus(conMod)+' to Constitution, and a '+modPlusMinus(willMod)+' morale bonus on Will saves, but suffers a -2 penalty to AC.  ';
 	// Do it this way since we want to show the same length regardless of current rage state
 	tempHTML = tempHTML+'A fit of rage lasts for ';
 	if ( RageStatus == "Raging" )
-	   tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier)+' rounds.  ';
+		tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier)+' rounds.  ';
 	else
-	   tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier+conMod/2)+' rounds.  ';
+		tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier+conMod/2)+' rounds.  ';
 	if ( |VAR.BarbarianRageLVL| < 20 )
 		tempHTML = tempHTML+'At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can&rsquo;t charge or run) for the duration of that encounter.  ';
 	else
@@ -1891,7 +2037,6 @@ function RagePrint()
 	document.getElementById('RageDiv').innerHTML = tempHTML;
 	tempHTML = '<table width="100%" cellspacing="0" cellpadding="2"><tr><td class="c10yB" colspan="2"><a id="#barb_rage_desc" onclick="ToggleDIV(\'RageDiv\');ToggleDIV(\'RageDiv_header\');">BARBARIAN RAGE</a><\/td><\/tr></table>';
 	document.getElementById('RageDiv_header').innerHTML = tempHTML;
-|ENDIF|
 |%|
 }
 
@@ -2380,12 +2525,10 @@ function TurnTablePrint(title, turnLevel, turnDamage, turnCheck, turnsPerDay, nu
 	tempHTML = tempHTML + '	<td style="background:'+tempBG+'" class="c9sB">'+numDice+'d'+sizeDie+modPlusMinusNone(turnDamage)+'<\/td>';
 	tempHTML = tempHTML + '<\/tr>';
 	tempHTML = tempHTML + '<tr>';
-
 	tempHTML = tempHTML + '	<td width="1%" class="r7w">Roll&nbsp;<a name="#" onClick="rollTurning('+turnCheck+','+numDice+','+sizeDie+','+turnDamage+','+turnLevel+',\''+title+'_roll\',\'\');"><img src="die.png" Alt="Roll" width="24px" height="26px" border="0"></a><\/td>';
 	tempHTML = tempHTML + '	<td id="' + title + '_roll" colspan="3" class="c9sB">&nbsp;<\/td>';
 	tempHTML = tempHTML + '	<td class="r7w">TURNS/DAY<\/td>';
 	tempHTML = tempHTML + '	<td style="background:'+tempBG+'" class="c9sB">'+turnsPerDay+'<\/td>';
-
 	tempHTML = tempHTML + '	<td style="background:'+tempBG+'" colspan="2" class="c9s">';
 	turnsGrouped = turnsPerDay;
 	while ( turnsGrouped > 0 )
@@ -2487,11 +2630,11 @@ function NamePrint()
 				parenFlag = 1;
 			}
 			else
-         	nameStatus = nameStatus + '/' + StateArr[i].outputStateString();
+        			nameStatus = nameStatus + '/' + StateArr[i].outputStateString();
 		}
 	}
 	if ( parenFlag == 1 )
-	   nameStatus = nameStatus + ')';
+		nameStatus = nameStatus + ')';
 	document.getElementById('charName').innerHTML = '<span class="l12mB">'+nameStatus+'<\/span>';
 }
 
@@ -2527,7 +2670,7 @@ function RepeatString(str,times)
 		times = Math.round(times);
 	var s = '';
 	for ( ;times>0; times = times - 1 )
-	   s = s + str;
+		s = s + str;
 	return s.replace(/\.0$/,'');
 }
 function RepeatStringToDocument(str,times)
@@ -2561,16 +2704,6 @@ function Compact()
 	CreateMainSpellCompact();
 	writeMiscNotes();
 	CurHPPrint();
-};
-function WideHeader()
-{
-	document.getElementById('FullWideHeader').style.display = 'block';
-	document.getElementById('FullNarrowHeader').style.display = 'none';
-};
-function NarrowHeader()
-{
-	document.getElementById('FullWideHeader').style.display = 'none';
-	document.getElementById('FullNarrowHeader').style.display = 'block';
 };
 function writeMiscNotes()
 {
@@ -2663,7 +2796,6 @@ function CycleFeats()
 		document.getElementById('FeatsComprehensive').style.display = 'none';
 	}
 };
-
 function CycleEquipment()
 {
 	if(document.getElementById('EquipmentHeaderOnly').style.display == 'inline') {
@@ -2857,6 +2989,9 @@ function CreateMainSpellCompact()
 	} else if(caster == 'Wizard') {
 		Memorized['Wizard.0'] = new MemSpellsLevel(eval(|SPELLLISTCAST.%class.%level|), "Wizard", 0);
 		spellhdrHTML = spellhdrHTML + '		<td width="6%" class="c8">|SPELLLISTCAST.%class.%level|&nbsp;at&nbsp;will</td>';
+	} else if(caster == 'Druid') {
+		Memorized['Druid.0'] = new MemSpellsLevel(eval(|SPELLLISTCAST.%class.%level|), "Druid", 0);
+		spellhdrHTML = spellhdrHTML + '		<td width="6%" class="c8">|SPELLLISTCAST.%class.%level|&nbsp;at&nbsp;will</td>';
 	} else if(caster == 'Cleric') {
 		Memorized['Cleric.0'] = new MemSpellsLevel(eval(|SPELLLISTCAST.%class.%level|), "Cleric", 0);
 		spellhdrHTML = spellhdrHTML + '		<td width="6%" class="c8">|SPELLLISTCAST.%class.%level|&nbsp;at&nbsp;will</td>';
@@ -2881,7 +3016,6 @@ function CreateMainSpellCompact()
 |ENDIF|
 	spellhdrHTML = spellhdrHTML + '	</table>';
 	outdiv = 'MainSpellsHeader.' + "|SPELLLISTCLASS.%class|" ;
-	singleqt = "'";
 	document.getElementById(outdiv).innerHTML = spellhdrHTML;
 |%|
 |FOR,%sbook,0,0,1,1|
@@ -2932,7 +3066,7 @@ function CreateMainSpellCompact()
 	spellHTML = spellHTML + '<tr>';
 |ENDIF|
 	spellHTML = spellHTML + '<td width="33%" class="lt9">';
-		spellHTML = spellHTML + '<div class="r9" border=1 bordercolor="white" id="Class.Regular.'+'|%class|'+'.'+'|%sbook|'+'.'+'|%cnt|'+'.'+'|%level|.mem" style="display:inline;"><a class="r9" name="#" onclick='+singleqt+'UPDiv("Class.Regular.'+'|%class|'+'.'+'|%sbook|'+'.'+'|%cnt|'+'.'+'|%level|.mem","|SPELLLISTCLASS.%class|","|%level|");'+singleqt+'>&deg;</a></div>';
+		spellHTML = spellHTML + '<div class="r9" border=1 bordercolor="white" id="Class.Regular.'+'|%class|'+'.'+'|%sbook|'+'.'+'|%cnt|'+'.'+'|%level|.mem" style="display:inline;"><a class="r9" name="#" onclick='+singleqt+'UPDiv("Class.Regular.'+'|%class|'+'.'+'|%sbook|'+'.'+'|%cnt|'+'.'+'|%level|.mem","|SPELLLISTCLASS.%class|","|%level|");'+singleqt+'>&curren;</a>&nbsp;</div>';
 		spellHTML = spellHTML + '<a class="lh9" name="#" onclick=' + "'" + 'ToggleDIV("' + 'Class.Regular.' + '|%class|' + '.' + '|%sbook|' + '.' + '|%cnt|' + '.' + '|%level|' + '");' + "'>" + "|SPELLMEM.%class.%sbook.%level.%cnt.NAME|" + '</a>' + "|SPELLMEM.%class.%sbook.%level.%cnt.BONUSSPELL|" + '</td>';
 |IIF((%cnt+1)%3==0)|
 	spellHTML = spellHTML + '</tr>';
@@ -2956,7 +3090,7 @@ function CreateMainSpellCompact()
 |ELSE|
 |IIF(SPELLLISTCLASS.%class:Bard)
 |ELSE|
-	spellHTML = spellHTML +	'<td class="lt8" width="20px">&nbsp;</td><td class="lt8">Click the &deg; to mark a spell with a <b>&sect;</b> as prepared for casting.</td>';
+	spellHTML = spellHTML +	'<td class="lt8" width="20px">&nbsp;</td><td class="lt8">Click the &curren; to mark a spell with a <b>&sect;</b> as prepared for casting.</td>';
 	spellHTML = spellHTML +	'<td class="lt8" width="20px">&nbsp;</td><td class="lt8">Click the <b>&sect;</b> after casting to clear the spell.</td>';
 |ENDIF|
 |ENDIF|
@@ -3249,7 +3383,7 @@ function WeaponSetOutputFormat( outputType )
 function WeaponIsMighty()
 {
 	if ( this.category == 'R' && this.maxMighty>0 )
-	   return TRUE;
+		return TRUE;
 	return FALSE;
 }
 function WeaponTHIsModified()
@@ -3265,11 +3399,11 @@ function WeaponTHIsModified()
 function WeaponDamageIsModified()
 {
 	if ( this.miscDamMod != 0 )
-	   return TRUE;
+		return TRUE;
 	if ( this.disabled != "" )
-	   return TRUE;
+		return TRUE;
 	if (ATKArr[this.abilityNum].miscDamageMod != 0)
-	   return TRUE;
+		return TRUE;
 	if ( this.category == "M" && AbArr[STRindex].hasTempMod() )
 		return TRUE;
 	if ( this.isThrown == TRUE && AbArr[STRindex].hasTempMod() )
@@ -3295,19 +3429,18 @@ function WeaponDamageIsModified()
 // ********************************************
 function modAttackBonusString( astr, amod )
 {
-  if(astr == "N/A")
-    return astr;
-  var attacks=astr.split("/");
-  var retval = "";
-  var i;
-  for (i=0; i < attacks.length; i++)
-  {
-     if ( i>0 )
-        retval = retval+'/';
-     var attNum = new Number(attacks[i]);
-     retval = retval+modPlusMinus( amod+attNum );
-  }
-   return retval;
+	if(astr == "N/A")
+		return astr;
+	var attacks=astr.split("/");
+	var retval = "";
+	var i;
+	for (i=0; i < attacks.length; i++) {
+		if ( i>0 )
+			retval = retval+'/';
+		var attNum = new Number(attacks[i]);
+		retval = retval+modPlusMinus( amod+attNum );
+	}
+	return retval;
 };
 // ********************************************
 // Take a damage string in the form "X[(+-)mod]"
@@ -3367,7 +3500,7 @@ function modDamageString( astr, amod, addBns )
 function ATKWeaponModAttackBonus()
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	var retval = "";
 	var i;
 	// Figure out if anything has changed?
@@ -3417,7 +3550,7 @@ function WeaponModAttackBonus()
 function WeaponMod2WAttackBonus( whichVec, whichOne )
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	else if ( (this.category == "R") )
 		return "Invalid call to WeaponMod2WAttackBonus with ranged weapon";
 	else if ( (whichVec>this.meleeVectors.length) )
@@ -3467,7 +3600,7 @@ function WeaponMod2WAttackBonus( whichVec, whichOne )
 function WeaponModRangedAttackBonus( whichAmmo, whichRange )
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	else if ( (this.category == "M") )
 		return "Invalid call to WeaponModRangedAttackBonus with melee weapon";
 	else if ( (whichAmmo>this.rangedData.length) )
@@ -3507,7 +3640,7 @@ function WeaponModRangedAttackBonus( whichAmmo, whichRange )
 function WeaponModDamage()
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	// We have to abort on "N/A" values or they become "N+1/A+1" and look real funky.
 	if((this.damageBaseArr[0] == 'N') && (this.damageBaseArr[1] == 'A'))
 		return "N/A" ;
@@ -3598,7 +3731,7 @@ function WeaponModDamage()
 function WeaponMod2WDamage( whichVec, whichOne )
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	else if ( (this.category == "R") )
 		return "Invalid call to WeaponMod2WDamage with ranged weapon";
 	else if ( (whichVec>this.meleeVectors.length) )
@@ -3664,7 +3797,7 @@ function WeaponMod2WDamage( whichVec, whichOne )
 function WeaponModRangedDamage( whichAmmo, whichRange )
 {
 	if ( this.disabled != "" )
-	   return this.disabled;
+		return this.disabled;
 	else if ( (this.category == "M") )
 		return "Invalid call to WeaponModRangedDamage with melee weapon";
 	else if ( (whichAmmo>this.rangedData.length) )
@@ -3738,194 +3871,234 @@ function BarbMods( newRageState )
 	var nRageStatus = "";
 	// Edit the values
 	if ( newRageState == 0 )
-	  nRageStatus = "";
+		nRageStatus = "";
 	else if ( newRageState == 1 )
-	  nRageStatus = "Raging";
+		nRageStatus = "Raging";
 	else if ( newRageState == 2 )
-	  nRageStatus = "Fatigued";
+		nRageStatus = "Fatigued";
 	else if ( newRageState == 3 )
-	  nRageStatus = "Greater Raging";
+		nRageStatus = "Greater Raging";
 	else if ( newRageState == 4 )
-	  nRageStatus = "Mighty Raging";
-  var temp = null;
-  if ( BarbLvl == null )
-     return;
-  if ( BarbLvl < 1 )
-     return;
-  if ( this.internalState == nRageStatus )
-     return;
-  // Assume normal case...
-  var strMod = 0;
-  var conMod = 0;
-  var dexMod = 0;
-  var strModMod = 0;
-  var conModMod = 0;
-  var dexModMod = 0;
-  var acMod = 0;
-  var willMod = 0;
-//  StatusBgColor = "white"
-  // Figure out what we have to do to "back out" old rage state
-  if ( this.internalState == "Raging" )  // Raging
-  {
-     strMod = -|VAR.RageStrBonus|;
-     conMod = -|VAR.RageConBonus|;
-     strModMod = -(|VAR.RageStrBonus|/2);
-     conModMod = -(|VAR.RageConBonus|/2);
-     acMod = +|VAR.RageACPenalty|;
-     willMod = -|VAR.RageMorale|;
-  }
-  else if ( this.internalState == "Fatigued" && BarbLvl<20 )  // Fatigued
-  {
-     strMod = +2;
-     conMod = 0;
-     dexMod = +2;
-     strModMod = +1;
-     conModMod = 0;
-     dexModMod = +1;
-     acMod = 0;
-  }
-  else if ( this.internalState == "Greater Raging")  // Greater
-  {
-     strMod = -(|VAR.RageStrBonus| + 2);
-     conMod = -(|VAR.RageConBonus| + 2);
-     strModMod = -((|VAR.RageStrBonus|+2)/2);
-     conModMod = -((|VAR.RageConBonus|+2)/2);
-     acMod = +|VAR.RageACPenalty|;
-     willMod = -(|VAR.RageMorale|+1);
-  }
-  else if ( this.internalState == "Mighty Raging")  // Mighty
-  {
-     strMod = -(|VAR.RageStrBonus| + 4);
-     conMod = -(|VAR.RageConBonus| + 4);
-     strModMod = -((|VAR.RageStrBonus|+4)/2);
-     conModMod = -((|VAR.RageConBonus|+4)/2);
-     acMod = +|VAR.RageACPenalty|;
-     willMod = -(|VAR.RageMorale|+2);
-  }
-  // OK, figure out various stat changes based on current Barbarian state
-  if ( nRageStatus == "Raging" )  // Raging
-  {
-     this.isActive = TRUE;
-     RageStatus = nRageStatus;
-	 this.internalState = nRageStatus;
-//	 StatusBgColor = "LIGHTPINK";
-        strMod = strMod+|VAR.RageStrBonus|;
-        conMod = conMod+|VAR.RageConBonus|;
-        strModMod = strModMod+(|VAR.RageStrBonus|/2);
-        conModMod = conModMod+(|VAR.RageConBonus|/2);
-        acMod = acMod-|VAR.RageACPenalty|;
-        willMod = willMod+|VAR.RageMorale|;
-  }
-
-  else if ( nRageStatus == "Fatigued" && BarbLvl<20 )  // Fatigued
-  {
-     this.isActive = TRUE;
-     RageStatus = nRageStatus;
-	 this.internalState = nRageStatus;
-     strMod = strMod-2;
-     conMod = conMod+0;
-     dexMod = dexMod-2;
-     strModMod = strModMod-1;
-     conModMod = conModMod+0;
-     dexModMod = dexModMod-1;
-     acMod = acMod+0;
-//     StatusBgColor = "LIGHTBLUE";
-  }
-  else if ( nRageStatus == "Greater Raging" )  // Raging
-  {
-     this.isActive = TRUE;
-     RageStatus = nRageStatus;
-	 this.internalState = nRageStatus;
-//	 StatusBgColor = "LIGHTPINK";
-        strMod = strMod+|VAR.RageStrBonus|+2;
-        conMod = conMod+|VAR.RageConBonus|+2;
-        strModMod = strModMod+((|VAR.RageStrBonus|+2)/2);
-        conModMod = conModMod+((|VAR.RageConBonus|+2)/2);
-        acMod = acMod-|VAR.RageACPenalty|;
-        willMod = willMod+|VAR.RageMorale|+1;
-  }
-  else if ( nRageStatus == "Mighty Raging" )  // Raging
-  {
-     this.isActive = TRUE;
-     RageStatus = nRageStatus;
-	 this.internalState = nRageStatus;
-//	 StatusBgColor = "LIGHTPINK";
-        strMod = strMod+|VAR.RageStrBonus|+4;
-        conMod = conMod+|VAR.RageConBonus|+4;
-        strModMod = strModMod+((|VAR.RageStrBonus|+4)/2);
-        conModMod = conModMod+((|VAR.RageConBonus|+4)/2);
-        acMod = acMod-|VAR.RageACPenalty|;
-        willMod = willMod+|VAR.RageMorale|+2;
-  }
-  else
-  {
-     this.isActive = FALSE;
-     RageStatus = nRageStatus;
-  	 this.internalState = nRageStatus;
-  }
-  // STR
-   AbArr[STRindex].tempvalue = AbArr[STRindex].tempvalue + strMod;
-   AbArr[STRindex].tempmodifier = AbArr[STRindex].tempmodifier + strModMod;
-  // DEX
-   AbArr[DEXindex].tempvalue = AbArr[DEXindex].tempvalue + dexMod;
-   AbArr[DEXindex].tempmodifier = AbArr[DEXindex].tempmodifier + dexModMod;
-  // CON
-   AbArr[CONindex].tempvalue = AbArr[CONindex].tempvalue + conMod;
-   AbArr[CONindex].tempmodifier = AbArr[CONindex].tempmodifier + conModMod;
-  CheckArr[WILLindex].tempmodifier = CheckArr[WILLindex].tempmodifier+willMod;
-  AC.rageMod = AC.rageMod+acMod;
-  ABPrint();
-  ACPrint();
-  ComprehensiveSkillPrint();
-  CompactSkillPrint();
-  HeaderSkillPrint();
-  SavesPrint();
-  InitPrint();
-  HPPrint();
-  CurHPPrint();
-  RagePrint();
-  ATKPrint();
-  WeaponPrint();
-  NamePrint();
-  return;
+		nRageStatus = "Mighty Raging";
+	var temp = null;
+	if ( BarbLvl == null )
+		return;
+	if ( BarbLvl < 1 )
+		return;
+	if ( this.internalState == nRageStatus )
+		return;
+	// Assume normal case...
+	var strMod = 0;
+	var conMod = 0;
+	var dexMod = 0;
+	var strModMod = 0;
+	var conModMod = 0;
+	var dexModMod = 0;
+	var acMod = 0;
+	var willMod = 0;
+	// StatusBgColor = "white"
+	// Figure out what we have to do to "back out" old rage state
+	if ( this.internalState == "Raging" )  // Raging
+	{
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = -|VAR.RageStatBonus.INTVAL|;
+		conMod = -|VAR.RageStatBonus.INTVAL|;
+		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		// FIX: It is bad to hardcode, but there is no variable available!
+		acMod = +2;
+		willMod = -|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = -|VAR.RageStrBonus|;
+		conMod = -|VAR.RageConBonus|;
+		strModMod = -(|VAR.RageStrBonus|/2);
+		conModMod = -(|VAR.RageConBonus|/2);
+		acMod = +|VAR.RageACPenalty|;
+		willMod = -|VAR.RageMorale|;
+|ENDIF|
+	} 
+	else if ( this.internalState == "Fatigued" && BarbLvl<20 )  // Fatigued
+	{
+		strMod = +2;
+		conMod = 0;
+		dexMod = +2;
+		strModMod = +1;
+		conModMod = 0;
+		dexModMod = +1;
+		acMod = 0;
+	}
+	else if ( this.internalState == "Greater Raging")  // Greater
+	{
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = -|VAR.RageStatBonus.INTVAL|;
+		conMod = -|VAR.RageStatBonus.INTVAL|;
+		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		acMod = +2;
+		willMod = -|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = -(|VAR.RageStrBonus| + 2);
+		conMod = -(|VAR.RageConBonus| + 2);
+		strModMod = -((|VAR.RageStrBonus|+2)/2);
+		conModMod = -((|VAR.RageConBonus|+2)/2);
+		acMod = +|VAR.RageACPenalty|;
+		willMod = -(|VAR.RageMorale|+1);
+|ENDIF|
+	}
+	else if ( this.internalState == "Mighty Raging")  // Mighty
+	{
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = -|VAR.RageStatBonus.INTVAL|;
+		conMod = -|VAR.RageStatBonus.INTVAL|;
+		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
+		acMod = +2;
+		willMod = -|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = -(|VAR.RageStrBonus| + 4);
+		conMod = -(|VAR.RageConBonus| + 4);
+		strModMod = -((|VAR.RageStrBonus|+4)/2);
+		conModMod = -((|VAR.RageConBonus|+4)/2);
+		acMod = +|VAR.RageACPenalty|;
+		willMod = -(|VAR.RageMorale|+2);
+|ENDIF|
+	}
+  	// OK, figure out various stat changes based on current Barbarian state
+	if ( nRageStatus == "Raging" )  // Raging
+	{
+		this.isActive = TRUE;
+		RageStatus = nRageStatus;
+		this.internalState = nRageStatus;
+// 		StatusBgColor = "LIGHTPINK";
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
+		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
+		strModMod = strModMod+(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = conModMod+(|VAR.RageStatBonus.INTVAL|/2);
+		acMod = acMod-2;
+		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = strMod+|VAR.RageStrBonus|;
+		conMod = conMod+|VAR.RageConBonus|;
+		strModMod = strModMod+(|VAR.RageStrBonus|/2);
+		conModMod = conModMod+(|VAR.RageConBonus|/2);
+		acMod = acMod-|VAR.RageACPenalty|;
+		willMod = willMod+|VAR.RageMorale|;
+|ENDIF|
+	}
+	else if ( nRageStatus == "Fatigued" && BarbLvl<20 )  // Fatigued
+	{
+		this.isActive = TRUE;
+		RageStatus = nRageStatus;
+		this.internalState = nRageStatus;
+		strMod = strMod-2;
+		conMod = conMod+0;
+		dexMod = dexMod-2;
+		strModMod = strModMod-1;
+		conModMod = conModMod+0;
+		dexModMod = dexModMod-1;
+		acMod = acMod+0;
+//		StatusBgColor = "LIGHTBLUE";
+	}
+	else if ( nRageStatus == "Greater Raging" )  // Raging
+	{
+		this.isActive = TRUE;
+		RageStatus = nRageStatus;
+		this.internalState = nRageStatus;
+//		StatusBgColor = "LIGHTPINK";
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
+		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
+		strModMod = strModMod(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = conModMod(|VAR.RageStatBonus.INTVAL|/2);
+		acMod = acMod-2;
+		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = strMod+|VAR.RageStrBonus|+2;
+		conMod = conMod+|VAR.RageConBonus|+2;
+		strModMod = strModMod+((|VAR.RageStrBonus|+2)/2);
+		conModMod = conModMod+((|VAR.RageConBonus|+2)/2);
+		acMod = acMod-|VAR.RageACPenalty|;
+		willMod = willMod+|VAR.RageMorale|+1;
+|ENDIF|
+	}
+	else if ( nRageStatus == "Mighty Raging" )  // Raging
+	{
+		this.isActive = TRUE;
+		RageStatus = nRageStatus;
+		this.internalState = nRageStatus;
+//		StatusBgColor = "LIGHTPINK";
+|IIF(GAMEMODE:Pathfinder)|
+		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
+		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
+		strModMod = strModMod(|VAR.RageStatBonus.INTVAL|/2);
+		conModMod = conModMod(|VAR.RageStatBonus.INTVAL|/2);
+		acMod = acMod-2;
+		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
+|ELSE|
+		strMod = strMod+|VAR.RageStrBonus|+4;
+		conMod = conMod+|VAR.RageConBonus|+4;
+		strModMod = strModMod+((|VAR.RageStrBonus|+4)/2);
+		conModMod = conModMod+((|VAR.RageConBonus|+4)/2);
+		acMod = acMod-|VAR.RageACPenalty|;
+		willMod = willMod+|VAR.RageMorale|+2;
+|ENDIF|
+	}
+	else
+	{
+		this.isActive = FALSE;
+		RageStatus = nRageStatus;
+		this.internalState = nRageStatus;
+	}
+	// STR
+	AbArr[STRindex].tempvalue = AbArr[STRindex].tempvalue + strMod;
+	AbArr[STRindex].tempmodifier = AbArr[STRindex].tempmodifier + strModMod;
+	// DEX
+	AbArr[DEXindex].tempvalue = AbArr[DEXindex].tempvalue + dexMod;
+	AbArr[DEXindex].tempmodifier = AbArr[DEXindex].tempmodifier + dexModMod;
+	// CON
+	AbArr[CONindex].tempvalue = AbArr[CONindex].tempvalue + conMod;
+	AbArr[CONindex].tempmodifier = AbArr[CONindex].tempmodifier + conModMod;
+	CheckArr[WILLindex].tempmodifier = CheckArr[WILLindex].tempmodifier+willMod;
+	AC.rageMod = AC.rageMod+acMod;
+	ABPrint();
+	ACPrint();
+	ComprehensiveSkillPrint();
+	CompactSkillPrint();
+	HeaderSkillPrint();
+	SavesPrint();
+	InitPrint();
+	HPPrint();
+	CurHPPrint();
+	RagePrint();
+	ATKPrint();
+	WeaponPrint();
+	NamePrint();
+	return;
 };
+// **********************************************
 // These functions are only needed for Barbarians
-// ********************************************
-// ********************************************
+// **********************************************
 function OneTimeBbnLevelParse()
 {
-//  BarbLvl = 0;
-//  var lvlStr = "|CLASSLIST|";
-//  var clses = lvlStr.split(" ");
-//  for (i=0; i < clses.length; i++)
-//  {
-//     if ( clses[i].substr(0,9) == "Barbarian" )
-//     {
-//        BarbLvl = clses[i].substr(9,clses[i].length-9);
-//     }
-//  }
-  BarbLvl= |VAR.BarbRageTimesLVL.INTVAL|;
-|IIF(HASVAR:RagePowersLVL)|
-  BarbLvl= |VAR.RagePowersLVL.INTVAL|;
+	RageStatus = "";
+	BarbLvl = 0;
+|IIF(HASVAR:BarbRageTimesLVL)|
+	BarbLvl= |VAR.BarbRageTimesLVL.INTVAL|;
 |ENDIF|
-  RageStatus = "";
+|IIF(HASVAR:RageLVL)|
+	BarbLvl= |VAR.RageLVL.INTVAL|;
+|ENDIF|
 };
 // ********************************************
 // ********************************************
 function BbnButtons()
 {
-   if ( BarbLvl > 0 )
-   {
-	document.write( '<tr id="config2"  class="c6"><td class="c6">' );
-	document.write( '<center><table border="0"><tr>' );
-	document.write( '<td class="c6"><input id=button5 type=button value="Not Raging" name=button5 onclick="SetRage(0);">');
-|IIF(HASVAR:RagePowersLVL)|
-	document.write( '<td id="RagePPup" width="10px" align="right"><input class="statmodbutton" type=button value="+" name="RagePlusButton" onclick="RagePointsPlus();"><br />');
-	document.write( '<input class="statmodbutton" type=button value="-" name=RageMinusButton onclick="RagePointsMinus();"></td>');
-	document.write( '<td class="c8wB" width="30px">Rage<br />Points</td>');
-	document.write( '<td id="RagePoints_TD" class="c10sB" width="25px"><div id="RagePoints" class="c10B" style="background-color:transparent;display:inline;">|VAR.RagePoints.INTVAL|</div><\/td>');
-|ENDIF|
-	document.write( '<td class="c6"><input id=button6 type=button value="Raging" name=button6 onclick="SetRage(1);"> ' );
+	if ( BarbLvl > 0 ) {
+		document.write( '<tr id="config2"  class="c6"><td class="c6">' );
+		document.write( '<center><table border="0"><tr>' );
+		document.write( '<td class="c6"><input id=button5 type=button value="Not Raging" name=button5 onclick="SetRage(0);">');
+		document.write( '<td class="c6"><input id=button6 type=button value="Raging" name=button6 onclick="SetRage(1);">' );
 |IIF(GAMEMODE:Pathfinder)|
 |IIF(HASVAR:GreaterRage.OR.HASFEAT:Greater Rage.OR.HASSA:Greater Rage)|
 		document.write( '<input id="button8" type=button value="Greater Raging" name=button8 onclick="SetRage(3);">' );
@@ -3934,17 +4107,11 @@ function BbnButtons()
 		document.write( '<input id="button9" type=button value="Mighty Raging" name=button9 onclick="SetRage(4);">' );
 |ENDIF|
 |ENDIF|
-	document.write( '</td' );
-|IIF(HASVAR:RagePowersLVL)|
-	document.write( '<td id="FatigueRdsup" width="10px" align="right"><input class="statmodbutton" type=button value="+" name="FatiguePlusButton" onclick="FatigueRoundsPlus();"><br />');
-	document.write( '<input class="statmodbutton" type=button value="-" name=FatigueMinusButton onclick="FatigueRoundsMinus();"></td>');
-	document.write( '<td class="c8wB" width="30px">Fatigue<br />Rounds</td>');
-	document.write( '<td id="FatigueRds_TD" class="c10sB" width="25px"><div id="FatigueRds" class="c10B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>');
-|ENDIF|
-      if ( BarbLvl < 20 )
-		document.write( '<td><input id="button7" class="activeBtn" type=button value="Fatigued" name=button7 onclick="SetRage(2);"></td>' );
-      document.write( "</tr></table><\/td><\/tr>" );
-   }
+		document.write( '</td' );
+		if ( BarbLvl < 20 )
+			document.write( '<td><input id="button7" class="activeBtn" type=button value="Fatigued" name=button7 onclick="SetRage(2);"></td>' );
+		document.write( "</tr></table><\/td><\/tr>" );
+	}
 };
 // ********************************************
 // ********************************************
@@ -4006,18 +4173,32 @@ function SetRage( rglvl )
 };
 // End of Barb filter
 
+function printFileNameJPG(full)
+{
+	if(full == TRUE) {
+		document.write( '<td id="BioImage" class="l6s" height="400px" width="1%">');
+		document.write( '<a id="#Bio" onclick="ToggleDIV(\'FullWideHeader\');ToggleDIV(\'NarrowLeftHeader\');">');
+		document.write( '<img src="' + fileName +'_Full.jpg" height="400px" ');
+		document.write( 'onerror="document.getElementById(\'BioImage\').style.display = \'none\';">');
+		document.write( '</a></td>');
+	} else {
+		document.write( '<td id="CharImage" rowspan="6" width="1%" class="c10">');
+		document.write( '<a id="#Bio" onclick="ToggleDIV(\'FullWideHeader\');ToggleDIV(\'NarrowLeftHeader\');">');
+		document.write( '<img src="' + fileName + '.jpg" height="100px" border="0" onerror="document.getElementById(\'CharImage\').style.display = \'none\'" />');
+		document.write( '</a></td>\n');
+		}
+}
+
 function CheckForMonk()
 {
-  MonkLvl = 0;
-  var lvlStr = "|CLASSLIST|";
-  var clses = lvlStr.split(" ");
-  for (i=0; i < clses.length; i++)
-  {
-     if ( clses[i].substr(0,4) == "Monk" )
-     {
-        MonkLvl = clses[i].substr(4,clses[i].length-4);
-     }
-  }
+	MonkLvl = 0;
+	var lvlStr = "|CLASSLIST|";
+	var clses = lvlStr.split(" ");
+	for (i=0; i < clses.length; i++) {
+		if ( clses[i].substr(0,4) == "Monk" ) {
+			MonkLvl = clses[i].substr(4,clses[i].length-4);
+		}
+	}
 };
 // ********************************************
 // This is the function that calculates and applies all the various modifiers for
@@ -4031,14 +4212,14 @@ function DefensiveCombatMods( newDefState )
 	var nDefStatus = "";
 	// Edit the values
 	if ( newDefState == 0 )
-	  nDefStatus = "";
+		nDefStatus = "";
 	else if ( newDefState == 1 )
-	  nDefStatus = "Defensive";
+		nDefStatus = "Defensive";
 	else if ( newDefState == 2 )
-	  nDefStatus = "Total Def";
-  var temp = null;
-  if ( this.internalState == nDefStatus )
-     return;
+		nDefStatus = "Total Def";
+	var temp = null;
+	if ( this.internalState == nDefStatus )
+		return;
 	var i = 0;
 	var acMod = 0;
 	var tumbleRanks = 0;
@@ -4050,7 +4231,7 @@ function DefensiveCombatMods( newDefState )
 			break;
 		}
 	}
-//  StatusBgColor = "white"
+//  	StatusBgColor = "white"
 	// Figure out what we have to do to "back out" old defense state
 	if ( this.internalState == "Defensive" )
 	{
@@ -4082,9 +4263,9 @@ function DefensiveCombatMods( newDefState )
 		else
 			acMod = -4;
 	}
-  // OK, figure out various stat changes based on current defensive state
-  if ( nDefStatus == "Defensive" )
-  {
+	// OK, figure out various stat changes based on current defensive state
+	if ( nDefStatus == "Defensive" )
+	{
 		this.isActive = TRUE;
  		this.internalState = nDefStatus;
 //		StatusBgColor = "LIGHTPINK";
@@ -4098,9 +4279,9 @@ function DefensiveCombatMods( newDefState )
 			acMod = acMod+3;
 		else
 			acMod = acMod+2;
-  }
-  else if ( nDefStatus == "Total Def" )  // Total
-  {
+	}
+	else if ( nDefStatus == "Total Def" )  // Total
+	{
 		this.isActive = TRUE;
 		this.internalState = nDefStatus;
 		for ( i=0; i<WeapArr.length; ++i )
@@ -4114,27 +4295,27 @@ function DefensiveCombatMods( newDefState )
 		else
 			acMod = acMod+4;
 //		StatusBgColor = "LIGHTBLUE";
-  }
-  else
-  {
+	}
+	else
+	{
 		this.isActive = FALSE;
 		this.internalState = nDefStatus;
-  }
-  AC.defFightMod = AC.defFightMod+acMod;
-  ABPrint();
-  ACPrint();
-  ComprehensiveSkillPrint();
-  CompactSkillPrint();
-  HeaderSkillPrint();
-  SavesPrint();
-  InitPrint();
-  HPPrint();
-  CurHPPrint();
-  RagePrint();
-  ATKPrint();
-  WeaponPrint();
-  NamePrint();
-  return;
+	}
+	AC.defFightMod = AC.defFightMod+acMod;
+	ABPrint();
+	ACPrint();
+	ComprehensiveSkillPrint();
+	CompactSkillPrint();
+	HeaderSkillPrint();
+	SavesPrint();
+	InitPrint();
+	HPPrint();
+	CurHPPrint();
+	RagePrint();
+	ATKPrint();
+	WeaponPrint();
+	NamePrint();
+	return;
 };
 
 // ********************************************
@@ -4160,20 +4341,20 @@ function SpellCombatMods( ignored )
 		this.shield = Math.max(this.shieldBase, this.spellShieldMod);
 		this.shieldModified = ACObjShieldModified;
 	}
-  ABPrint();
-  ACPrint();
-  ComprehensiveSkillPrint();
-  CompactSkillPrint();
-  HeaderSkillPrint();
-  SavesPrint();
-  InitPrint();
-  HPPrint();
-  CurHPPrint();
-  RagePrint();
-  ATKPrint();
-  WeaponPrint();
-  NamePrint();
-  return;
+	ABPrint();
+	ACPrint();
+	ComprehensiveSkillPrint();
+	CompactSkillPrint();
+	HeaderSkillPrint();
+	SavesPrint();
+	InitPrint();
+	HPPrint();
+	CurHPPrint();
+	RagePrint();
+	ATKPrint();
+	WeaponPrint();
+	NamePrint();
+	return;
 };
 // ********************************************
 // ********************************************
@@ -4189,25 +4370,25 @@ function SpellArmorButtons()
 	document.write( '<table border="0" cellpadding="0"><tr valign="top"><td>');
 	document.write( '<input id=configSpells type=button value="cfg" name=configSpells onclick="ToggleDIV(\'cfgA\');ToggleDIV(\'cfgB\');ToggleDIV(\'cfgC\');ToggleDIV(\'cfgD\');"></td><td class="l8">');
 //	document.write( '<input id=SpellArmorButton1 type=button value="No Spells" name=SpellArmorButton1 onclick="SetArmorSpell(0);">&nbsp;');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton2 type=button value="Spell Armor" name=SpellArmorButton2 onclick="SetArmorSpell(1);">');
+	document.write( '<div style="display:inline;"><input id=SpellArmorButton2 type=button style="width:100px;" value="Spell Armor" name=SpellArmorButton2 onclick="SetArmorSpell(1);">');
 	document.write( '<div id="cfgA" style="display:none;"><select id="spell_AC_bonus" autocomplete="off" onchange="setSpellACBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
 	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Bonus AC due to spells</span><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton3 type=button value="Deflection" name=SpellArmorButton3 onclick="SetArmorSpell(2);">&nbsp;');
+	document.write( '<div style="display:inline;"><input id=SpellArmorButton3 type=button style="width:100px;" value="Deflection" name=SpellArmorButton3 onclick="SetArmorSpell(2);">&nbsp;');
 	document.write( '<div id="cfgB" style="display:none;"><select id="spell_deflection_bonus" autocomplete="off" onchange="setSpellDeflBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
 	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton4 type=button value="Natural Armor" name=SpellArmorButton4 onclick="SetArmorSpell(3);">&nbsp;');
+	document.write( '<div style="display:inline;"><input id=SpellArmorButton4 type=button style="width:100px;" value="Natural Armor" name=SpellArmorButton4 onclick="SetArmorSpell(3);">&nbsp;');
 	document.write( '<div id="cfgC" style="display:none;"><select id="spell_natural_bonus" autocomplete="off" onchange="setSpellNatBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
 	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton5 type=button value="Shield" name=SpellArmorButton4 onclick="SetArmorSpell(4);">' );
+	document.write( '<div style="display:inline;"><input id=SpellArmorButton5 type=button style="width:100px;" value="Shield" name=SpellArmorButton4 onclick="SetArmorSpell(4);">' );
 	document.write( '<div id="cfgD" style="display:none;"><select id="spell_shield_bonus" autocomplete="off" onchange="setSpellShieldBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
@@ -4221,9 +4402,9 @@ function SpellArmorButtons()
 // ********************************************
 function SetdefFighting( defFightLvl )
 {
-   for ( i=0; i<StateArr.length; ++i )
-      if ( StateArr[i].name == "DefFighting" )
-         StateArr[i].activate( defFightLvl );
+	for ( i=0; i<StateArr.length; ++i )
+		if ( StateArr[i].name == "DefFighting" )
+			StateArr[i].activate( defFightLvl );
 	if(defFightLvl  == 0) { 
 		document.getElementById('defFightButton1').className = '';
 		document.getElementById('defFightButton2').className = '';
@@ -4377,14 +4558,7 @@ function RemoveStat (attribute) {
 </script>
 </head>
 <body onload="Compact();">
-|%VAR.RageTimes.GTEQ.1|
 <script language="javascript" type="text/javascript">OneTimeBbnLevelParse();</script>
-|%|
-|%VAR.GAMEMODE:Pathfinder|
-|%VAR.RageLVL.GTEQ.1|
-<script language="javascript" type="text/javascript">OneTimeBbnLevelParse();</script>
-|%|
-|%|
 <script language="javascript" type="text/javascript">CheckForMonk();</script>
 
 <div id="FullWideHeader" style="display:none">
@@ -4438,7 +4612,7 @@ function RemoveStat (attribute) {
 	</tr>
 	<tr>
 		<td class="lb8">|TOTALLEVELS|</td>
-		<td class="lb8" width="100px"><input id="button3" type="button" value="Collapse Bio Header" name="button3" onclick="NarrowHeader();" /></td>
+		<td class="lb8" width="100px"><input id="button3" type="button" value="Collapse Bio Header" name="button3" onclick="ToggleDIV('FullWideHeader');ToggleDIV('NarrowLeftHeader');" /></td>
 		<td class="lb8">|EXP.NEXT|</td>
 		<td class="lb8">|AGE|</td>
 		<td class="lb8">|GENDER|</td>
@@ -4473,7 +4647,7 @@ function RemoveStat (attribute) {
 	</table>  <!-- FullHeader table -->
 	<table  width="100%" cellspacing="0" cellpadding="2" border="0">
 	<tr>
-		<td id="BioImage" class="l6s" height="400px" width="1%"><a id="#Bio" onclick="ToggleDIV('FullNarrowHeader');ToggleDIV('FullWideHeader');"><img src="|NAME|_Full.jpg" height="400px" alt="|NAME|'s portrait" onerror="document.getElementById('BioImage').style.display = 'none';"></a></td>
+   	<script language="javascript" type="text/javascript">printFileNameJPG(TRUE);</script>
 		<td class="lt6" width="99%">
 			<table width="100%" border="0" cellspacing="0" cellpadding="2">
 			<tr>
@@ -4485,7 +4659,7 @@ function RemoveStat (attribute) {
 			<tr>
 				<td class="r12b" width="10%" colspan="2">Home:</td>
 				<td class="l9" width="2%">&nbsp;</td>
-				<td class="l9">|%REGION| From |REGION|. |%||RESIDENCE||%RESIDENCE||%LOCATION|, |%||%||LOCATION|</td>
+				<td class="l9">|%REGION| From |REGION|. |%||%RESIDENCE||RESIDENCE|,|%LOCATION| |%||%||LOCATION|</td>
 				<td class="l9" width="10%">&nbsp;</td>
 			</tr>
 			<tr>
@@ -4506,15 +4680,16 @@ function RemoveStat (attribute) {
 		</td>
 	</table>
 </div>
-<div id="FullNarrowHeader" style="display:block">
+
+	<div id="NarrowLeftHeader" width="100%" style="display:block">
 	<table border="0" width="100%">
 	<tr valign="top">
 		<td width="50%">
-			<table id="FullHeaderNarrow" cellpadding="0" cellspacing="4" border="0" width="100%">
+			<table cellpadding="0" cellspacing="4" border="0" width="100%">
 			<tr valign="top">
 				<td id="charName" colspan="3" class="lb12mB">|NAME|</td>
 				<td colspan="2" class="lb8">|PLAYERNAME|</td>
-				<td id="CharImage" rowspan="6" width="1%" class="c10"><a id="#Bio" onclick="ToggleDIV('FullNarrowHeader');ToggleDIV('FullWideHeader');"><img src="|NAME|.jpg" height="100px" border="0" onerror="document.getElementById('CharImage').style.display = 'none'" /></a></td>
+	   			<script language="javascript" type="text/javascript">printFileNameJPG(FALSE);</script>
 			</tr>
 			<tr>
 				<td colspan="3" class="t6tg">CHARACTER NAME</td>
@@ -4558,53 +4733,62 @@ function RemoveStat (attribute) {
 			</tr>
 			</table>  <!-- FullHeader table -->
 		</td>
-		<td width="50%">
+	</tr>
+	</table>
+	</div>
+
+
+
+	<table width="100%" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+		<td width="100%">
 			<table id="config" width="100%" border="0" cellspacing="1" cellpadding="1">
 			<tr><td class="c6"><span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</td></tr>
 			<tr id="config1" class="c6">
 				<td class="c6">
-					<input id="button4" type="button" value="Full Bio Header" name="button4" onclick="WideHeader();" />&nbsp;
+					<input id="button4" type="button" value="Full Bio Header" name="button4" onclick="ToggleDIV('FullWideHeader');ToggleDIV('NarrowLeftHeader');" />&nbsp;
 					<input id="button1" type="button" value="Color Key" name="button1" onclick="ToggleDIV('ColorKey');" />
 					<input id="button0" type="button" value="Print" name="button0" onclick="window.print();" />
+					<input id="button9" type="button" value="Compact Stats" name="button9" onclick="ToggleDIV('AbilityDiv');ToggleDIV('CompactAbilityDivName');ToggleDIV('CompactAbilityDiv');ToggleDIV('ACDiv');ToggleDIV('SavesDiv');ToggleDIV('AttackDiv');ToggleDIV('NarrowLeftHeader');" />
 				</td>
 			</tr>
-|IIF(HASVAR:RagePoints)|
-   <script language="javascript" type="text/javascript">BbnButtons();</script>
+|IIF(HASVAR:RageLVL)|
+   			<script language="javascript" type="text/javascript">BbnButtons();</script>
 |ENDIF|
 |%VAR.RageTimes.GTEQ.1|
-   <script language="javascript" type="text/javascript">BbnButtons();</script>
+			<script language="javascript" type="text/javascript">BbnButtons();</script>
 |%|
-   <script language="javascript" type="text/javascript">DefFightingButtons();</script>
-   <script language="javascript" type="text/javascript">SpellArmorButtons();</script>
+			<script language="javascript" type="text/javascript">DefFightingButtons();</script>
+			<script language="javascript" type="text/javascript">SpellArmorButtons();</script>
 			</table>
-		</td>
-	</tr>
-	</table>
-</div>
+
 <div id="ColorKey" style="display:none;">
 	<table border=0 width="75%" cellpadding="4px" cellspacing="4px">
 	<tr valign="top">
 		<td class="l9"><b>Description:</b></td>
-		<td class="l8">This output sheet is designed for people who game with their laptops open.  
+		<td class="l8">This output sheet is designed for people who game with their laptops open.
+			csheet_fantasy_laptop.htm is for small laptops and netbooks with a 600 to 800 pixel
+			wide display.  csheet_fantasy_laptop_ws.htm is for wide screen laptops, as it uses
+			two columns for the layout. 
 			Most optional sections that takes up more than a couple of lines has a way to collapse the output, 
 			so as to fit something else on the screen.  A person does not need to see the whole spell list 
 			or inventory all the time, so they have been stuffed into collapsable sections.  
 			Since this sheet is more interactive, one could open the seven spells they have memorized, 
 			and then close each spell after it has been cast.  Memorized spells can also be tracked by 
-			clicking on the &deg; to mark them as prepared with &sect;.  Current hit points/wound points/power 
-			points/rage points are now also trackable with the +/- buttons.  For those receive bonuses from 
+			clicking on the &curren; to mark them as prepared with &sect;.  Current hit points/wound points/power 
+			points are now also trackable with the +/- buttons.  For those receive bonuses from 
 			spells or auras to hit/damage on either melee or ranged attacks, those can now be temporarily 
 			tracked and auto computed.  Spells that temporarily affect armor class can be configured by 
 			clicking on the [cfg] button, and then activated by clicking on the AC bonus type.  
-			An example is Mage Armor would be configured as Spell Armor, 4.  If and AC type gives you a 
-			grey button, it has not been configured.
+			An example is Mage Armor would be configured as Spell Armor, 4.  If clicking an AC type gives you a 
+			grey button, it has not been configured yet.
 			<br />
 			<br />
 			If you place a |NAME|.jpg small portrait, and a |NAME|_Full.jpg picture of your charcter in
 			the same directory as the .htm file, the portrait will show on the main page, and the _Full
 			picture will show on when the Full Header button is clicked to display the charcter's background.
-			The die.png and die_small.png files need to be in the same directory for the dice to show up
-			properly on this character sheet.
+			The die.png and die_small.png files from the \pcgen\outputsheets\d20\fantasy\htmlxml directory
+			need to be copied into the same directory for the dice to show up properly on this character sheet.
 		</td>
 	</tr>
 	<tr valign="top">
@@ -4616,11 +4800,7 @@ function RemoveStat (attribute) {
 			<br /><span class="l8" style="background:#CCCCFF">Purple</span> Ability values and modifiers that have changed due to temporary changes.
 			<br /><span class="l8" style="color:#FFFF20; background:black">Yellow</span>/<span class="l10" style="color:#20FFFF; background:black">Cyan</span>
 		        hovers are section markers that expand/collapse sections when clicked.
-			<br /><span class="l8" style="color:blue;">Blue</span> links are spells/feats/special abilities that expand with a larger description block.
-			<br /><span class="l9"><b>Experimental:</b></span>
-			<br /><span class="l8" style="background:#FFFF88;">Yellow</span> blocks have descriptions that are not fully expressed by this sheet.  You need to reference the original book(s) for a more detailed description.  *This would require adoption and use of a new "ASPECT:UNCALC|PIPE|description" LST element when BONUS or VAR is not used in the LST entry.
-			<br /><span class="l8" style="background:#FFDDBB;">Tan</span> blocks have mechanics that may be displayed in the box, but are not numerically tracked by this sheet.  You need to reference the original book(s) for a more detailed description and/or mechanics.  This requires adoption and use of a new "ASPECT:UNCALC|PIPE|mechanics" LST element when BONUS or VAR is not used in the LST entry.  The Tan background would be a reminder to apply the bonuses manually.
-			<br /><span class="l8" style="background:#CCAA77;">Brown</span> blocks have both descriptions and mechanics that are not numerically tracked by this sheet.  You need to reference the original book(s) for a more detailed description and mechanics.  This requires adoption and use of a new "ASPECT:UNCALC|PIPE|both" LST element when BONUS or VAR is not used in the LST entry.
+			<br /><span class="l8" style="color:green;">Green</span> links are spells/feats/special abilities that expand with a larger description block.
 			<br />
 			<br /><span class="extlink"><a href="#">External HTML</a></span> links are decorated a little more than ususal so they stand out as leaving the page.  The only current usage is for linking to the output sheet for a Familiar/Mount/Follower.
 			<br />The <img src="die.png" Alt="Roll" width="24px" height="26px" border="0"> and <img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"> roll results cycle through a rainbow of pastel colors.  It makes them stand out a bit, and since it is possible to roll the same results twice in a row, the color is changed to indicate the new roll.  The roll results and timestamps are recorded below in this section as a temporary record.  They are not saved to a file, and clear if the page is reloaded.
@@ -4629,24 +4809,31 @@ function RemoveStat (attribute) {
 	<tr valign="top">
 		<td class="l9"><b>Credits:</b></td>
 		<td class="l8"><b>csheet_fantasy_combined.htm</b> Richard O'Doherty-Gregg, arcady, Barak, Roger Host, Thomas Jannes, Chuck Pint, Eddy Anthony, Tir-Gwaith, karianna and more I am sure.  A long and glorious list of contributors.<br>
-			<b>csheet_fantasy_SatinKnights.htm</b> Forked from the 5.16.0 version of csheet_fantasy_combined.htm by Mike Elliott, aka SatinKnights.
+			<b>csheet_fantasy_laptop_ws.htm</b> Forked from the 5.16.0 version of csheet_fantasy_combined.htm by Mike Elliott, aka SatinKnights.
 		</td>
 	</tr>
 	</table>
 	<br>
-	<div id="evidence" class="l8" style="display:inline;">Recorded Dice Rolls:</div>
+	<div id="evidence" class="l8" style="display:inline;"><b>Recorded Dice Rolls:</b></div>
 	<hr>
 </div>
 <!-- Main sheet layout -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr valign="top">
 <td width="100%">
+
 <!-- Left sheet layout -->
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr valign="top" id="CompactAbilityDivName" style="display:none;" colspan="2">
+		<td class="lb12mB">&nbsp;|NAME|&nbsp;&nbsp;~&bull;~&nbsp;&nbsp;|CLASSLIST|</td>
+	</tr>
 	<tr valign="top">
 		<td class="lt6" width="100" height="100">
 <!-- Ability table (first row of main table) -->
-			<div id="AbilityDiv">
+			<div id="AbilityDiv" style="display:block">
+			    <script language="javascript" type="text/javascript">ABPrint();</script>
+			</div>
+			<div id="CompactAbilityDiv" style="display:none">
 			    <script language="javascript" type="text/javascript">ABPrint();</script>
 			</div>
 		</td>
@@ -4660,7 +4847,7 @@ function RemoveStat (attribute) {
 				<td id="HP" class="cm9sB" width="30">|HP|</td>
 				<td class="c6" width="2%"></td>
 				<td id="HPup" width="1%" align="right"><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="HPPlus();"><br />
-					      <input class="statmodbutton" type=button value="-" name=SubStatButton onclick="HPMinus();"></td>
+					<input class="statmodbutton" type=button value="-" name=SubStatButton onclick="HPMinus();"></td>
 				<td class="c8wB">CURRENT&nbsp;HP</td>
 				<td id="CurHP" class="cm9sB" width="30">&nbsp;&nbsp;&nbsp;</td>
 			</tr>
@@ -4668,7 +4855,7 @@ function RemoveStat (attribute) {
 				<td class="cm9sB">&nbsp;|DR|&nbsp;</td>
 				<td class="c6" width="2%"></td>
 				<td id="Subdualup" width="1%" align="right"><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="SubdualPlus();"><br />
-					      <input class="statmodbutton" type=button value="-" name=SubStatButton onclick="SubdualMinus();"></td>
+					<input class="statmodbutton" type=button value="-" name=SubStatButton onclick="SubdualMinus();"></td>
 				<td class="c8wB">SUBDUAL<br />DAMAGE</td>
 				<td id="Subdual" class="cm9sB">&nbsp;</td>
 			<tr>
@@ -4690,7 +4877,7 @@ function RemoveStat (attribute) {
 				<td id="HP" class="cm9sB" width-"35px">|HP|</td>
 				<td class="c6">&nbsp;</td>
 				<td id="HPup" width="1%" align="right"><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="HPPlus();"><br />
-					      <input class="statmodbutton" type=button value="-" name=SubStatButton onclick="HPMinus();"></td>
+					<input class="statmodbutton" type=button value="-" name=SubStatButton onclick="HPMinus();"></td>
 				<td id="CurHP" class="cm9sB" width="35px">&nbsp;</td>
 				<td class="c6">&nbsp;</td>
 				<td class="cm9sB">&nbsp;</td>
@@ -4770,17 +4957,17 @@ function RemoveStat (attribute) {
 	<tr valign="top">
 		<td colspan="2" class="lt6" valign="top"> <!-- Left table bottom -->
 <!--  START AC Table (first row of main table)-->
-			<div id="ACDiv">
+			<div id="ACDiv" style="display:block;">
 				 <script language="javascript" type="text/javascript">ACPrint();</script>
 			</div>
 <!--  END AC Table -->
 <!-- START Saving Throws Table (main table row 3) -->
-			<div id="SavesDiv">
+			<div id="SavesDiv" style="display:block;">
 				<script language="javascript" type="text/javascript">SavesPrint();</script>
 			</div>
 <!-- STOP Saving Throws Table -->
 <!-- START Base Combat Stats (main table row 3) -->
-			<div id="AttackDiv">
+			<div id="AttackDiv" style="display:block;">
 				<script language="javascript" type="text/javascript">ATKPrint();</script>
 			</div>
 <!-- STOP Base Combat Stats -->
@@ -5032,6 +5219,9 @@ function RemoveStat (attribute) {
        					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
 |ENDIF|
 |FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
+|ENDIF|
 								<font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
@@ -5075,6 +5265,9 @@ function RemoveStat (attribute) {
        					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
 |ENDIF|
 |FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
+|ENDIF|
 								<font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
@@ -5119,6 +5312,9 @@ function RemoveStat (attribute) {
        					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
 |ENDIF|
 |FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
+|ENDIF|
 								<font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
@@ -5717,7 +5913,11 @@ function RemoveStat (attribute) {
 			<tr>
 				<td width="100%" class="l7s"> 
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
-					*&nbsp; <a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_ATTACKS_Table','SPECIAL_ATTACKS_Details','%specialAttack');">|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|</a>&nbsp;
+|IIF(%specialAttack:0)|
+|ELSE|
+	&bull;&nbsp;
+|ENDIF|
+<a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_ATTACKS_Table','SPECIAL_ATTACKS_Details','%specialAttack');">|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|</a>&nbsp;
 |ENDFOR|
 				</td>
 			</tr>
@@ -5731,8 +5931,7 @@ function RemoveStat (attribute) {
 			</div>
 		</td></tr>
 |ENDIF|
-
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
 		<tr><td>
 			<table width="100%" cellspacing="0" cellpadding="2">
 			<tr>
@@ -5740,10 +5939,16 @@ function RemoveStat (attribute) {
 			</tr>
 			<tr>
 				<td width="100%" class="l7s">
-|FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
-|IIF(%bar > 0)|*&nbsp;
+|FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%bar.TYPE=SpecialAttack)|
+<!-- FIX: This check is not coded right to exclude Special Attacks from the Special Qualities section -->
+|ELSE|
+|IIF(%bar:0)|
+|ELSE|
+	&bull;&nbsp;
 |ENDIF|
-					*&nbsp; <a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','%bar');">|ABILITYALL.Special Ability.%bar.TYPE=SpecialQuality|</a>&nbsp;
+					<a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','%bar');">|ABILITYALL.Special Ability.VISIBLE.%bar|</a>&nbsp;
+|ENDIF|
 |ENDFOR|
 				</td>
 			</tr>
@@ -6047,6 +6252,8 @@ function RemoveStat (attribute) {
 <!-- End Known Spells -->
 		</td></tr>
 	</table>  <!-- End of Right half of page skills table (finally!) -->
+				<br /><span class="header"> PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.<br />
+		       		For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</span>
 	</td>
 </tr>
 </table>  <!-- End the whole table (finally!) -->
