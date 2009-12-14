@@ -2042,7 +2042,9 @@ function RagePrint()
 
 // Global NumWeaponsFirstPage sets the max number of weapons to print in compact form, but is now
 // ineffective in Comprehensive mode now that we have moved away from page printing.
-var NumWeaponsFirstPage = 3;
+// This was 3 like the original combined.htm page, but that led to confusion for some. 
+// So, bumping to 100 to effectivly disable.
+var NumWeaponsFirstPage = 100;
 function WeaponPrint()
 {
 	var i = 0;
@@ -2091,7 +2093,6 @@ function WeaponPrint()
 			tempHTML = tempHTML+'<td class="c8mB">' + WeapArr[i].range + '<br /><\/td>';
 			tempHTML = tempHTML+'<td class="c8mB">' + WeapArr[i].type + '<br /><\/td>';
 			tempHTML = tempHTML+'<td class="c8mB">' + WeapArr[i].size + '<br /><\/td><\/tr>';
-			tempHTML = tempHTML+'<tr><td colspan="8" class="c7">' + WeapArr[i].sprop + '<\/td><\/tr>';
 		}
 	}
 	tempHTML = tempHTML + '<\/table>';
@@ -4767,10 +4768,11 @@ function RemoveStat (attribute) {
 	<tr valign="top">
 		<td class="l9"><b>Description:</b></td>
 		<td class="l8">This output sheet is designed for people who game with their laptops open.
-			csheet_fantasy_laptop.htm is for small laptops and netbooks with a 600 to 800 pixel
-			wide display.  csheet_fantasy_laptop_ws.htm is for wide screen laptops, as it uses
-			two columns for the layout. 
-			Most optional sections that takes up more than a couple of lines has a way to collapse the output, 
+			<b>csheet_fantasy_laptop.htm</b> is for small laptops and netbooks with a 600 to 800 pixel
+			wide display.  <b>csheet_fantasy_laptop_ws.htm</b> is for wide screen laptops, as it uses
+			two columns for the layout.<br>
+			<br>
+			Most optional sections that takes up more than a couple of lines have a way to collapse the output, 
 			so as to fit something else on the screen.  A person does not need to see the whole spell list 
 			or inventory all the time, so they have been stuffed into collapsable sections.  
 			Since this sheet is more interactive, one could open the seven spells they have memorized, 
@@ -4782,28 +4784,61 @@ function RemoveStat (attribute) {
 			clicking on the [cfg] button, and then activated by clicking on the AC bonus type.  
 			An example is Mage Armor would be configured as Spell Armor, 4.  If clicking an AC type gives you a 
 			grey button, it has not been configured yet.
+			<br>
+			<br>
+			The spell blocks display statistics as if they were cast at your current base level with only 
+			"all the time" variables from feats/traits/special abilities accounted for like "+1 Caster Level 
+			for fire spells".  There is no current mechanism to apply metamagic feats or recalculate stats 
+			based upon temporary ability score changes from the plus/minus buttons on the sheet.
+		</td>
+	</tr>
+	<tr valign="top">
+ 		<td class="l9"><b>Setup:</b></td>
+		<td class="l8">If you place a <b>|NAME|.jpg</b> small portrait, and a <b>|NAME|_Full.jpg</b> picture of 
+			your charcter in the same directory as the .htm file, the portrait will show on the main page, and the _Full
+			picture will show on when the Full Header button is clicked to display the charcter's bio and background.<br />
+			Large Die Icon: <img src="die.png" onerror="ToggleDIV('large_die_available');">
+			<div id="large_die_available" style="display:none; color:red;" class="l8">The large die image is missing.
+				Copy ...\pcgen\preview\d20\fantasy\images\gold\die.png to your character directory where this page
+				is to activate a dice rolling icon in the Saves and Initiative sections.
+			</div>
+			Small Die Icon: <img src="die_small.png" onerror="ToggleDIV('small_die_available');">
+			<div id="small_die_available" style="display:none; color:red;" class="l8">The small die image is missing.
+				Copy ...\pcgen\preview\d20\fantasy\images\gold\die_small.png to your character directory where this page
+				is to activate a dice rolling icon in the Skills section.
+			</div>
 			<br />
 			<br />
-			If you place a |NAME|.jpg small portrait, and a |NAME|_Full.jpg picture of your charcter in
-			the same directory as the .htm file, the portrait will show on the main page, and the _Full
-			picture will show on when the Full Header button is clicked to display the charcter's background.
-			The die.png and die_small.png files from the \pcgen\outputsheets\d20\fantasy\htmlxml directory
-			need to be copied into the same directory for the dice to show up properly on this character sheet.
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="l9"><b>Transfer to another location:</b></td>
+		<td class="l8">To carry the character sheet to any web host or file directory, the following files are needed:<br />
+			<b>|NAME|.htm</b> ~ This web page.<br />
+			<b>die.png</b> ~ The large die graphic used in the attack and initiative areas.<br />
+			<b>die_small.png</b> ~ The small die graphic used in the skills area.<br />
+			<b>|NAME|.jpg</b> ~ an optional small portrait of the character 100 pixels high.<br />
+			<b>|NAME|_full.jpg</b> ~ an optional large portrait of the character in the 400 pixels size range.<br />
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="l9"><b>Color Keys:</b></td>
 		<td class="l8">
+			<span class="l8"><input class="statmodbutton" type=button value="+" name="DummyPlusButton">
+			<input class="statmodbutton" type=button value="-" name="DummyMinusButton"> are buttons to add to or subtract from
+			the value in their neighboring box and recompute many of the stats.  Temporary changes to stats or short term 
+			bonuses to saves can be tracked and recomputed this way.<br />
 			<span class="l8" style="background:#FFCCCC;">Red</span> in the Current HP box is damaged, 
-			<span class="l8" style="background:#FFFF88">Yellow</span> is for manual tracking of temporary HP bonuses like Aid.
+			<span class="l10" style="background:#FFFF88">Yellow</span> is for manual tracking of temporary HP bonuses like Aid.
 			<br /><span class="l8" style="background:LIGHTBLUE">LightBlue</span> tracks values that have changed due to temporary ability changes including Barbarian Rages.
 			<br /><span class="l8" style="background:#CCCCFF">Purple</span> Ability values and modifiers that have changed due to temporary changes.
-			<br /><span class="l8" style="color:#FFFF20; background:black">Yellow</span>/<span class="l10" style="color:#20FFFF; background:black">Cyan</span>
+			<br /><span class="l10" style="color:#FFFF20; background:black">Yellow</span>/<span class="l10" style="color:#20FFFF; background:black">Cyan</span>
 		        hovers are section markers that expand/collapse sections when clicked.
-			<br /><span class="l8" style="color:green;">Green</span> links are spells/feats/special abilities that expand with a larger description block.
+			<br /><span class="lh9"><a href="#" onclick="return(false);" class="lh9">Green</a></span> links are spells/feats/special abilities that expand with a larger description block.
+			<br /><span class="l8" >Clicking on an expanded spell box's "Spell Name" will close the expanded box.
 			<br />
 			<br /><span class="extlink"><a href="#">External HTML</a></span> links are decorated a little more than ususal so they stand out as leaving the page.  The only current usage is for linking to the output sheet for a Familiar/Mount/Follower.
-			<br />The <img src="die.png" Alt="Roll" width="24px" height="26px" border="0"> and <img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"> roll results cycle through a rainbow of pastel colors.  It makes them stand out a bit, and since it is possible to roll the same results twice in a row, the color is changed to indicate the new roll.  The roll results and timestamps are recorded below in this section as a temporary record.  They are not saved to a file, and clear if the page is reloaded.
+			<br />The <img src="die.png" Alt="[Die Image]" width="24px" height="26px" border="0"> and <img src="die_small.png" Alt="[Die Image]" width="15px" height="16px" border="0"> roll results cycle through a rainbow of pastel colors.  It makes them stand out a bit, and since it is possible to roll the same results twice in a row, the color is changed to indicate the new roll.  The roll results and timestamps are recorded below in this section as a temporary record.  They are not saved to a file, and clear if the page is reloaded.
 		</td>
 	</tr>
 	<tr valign="top">
@@ -6257,5 +6292,7 @@ function RemoveStat (attribute) {
 	</td>
 </tr>
 </table>  <!-- End the whole table (finally!) -->
+<!-- Hack to get Firefox to run the body.onload script if some images were unavailable an unloadable like die.png -->
+<script language="javascript" type="text/javascript">Compact();</script>
 </body>
 </html>
