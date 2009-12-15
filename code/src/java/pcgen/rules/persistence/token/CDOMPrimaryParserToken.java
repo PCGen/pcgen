@@ -22,6 +22,6 @@ package pcgen.rules.persistence.token;
  * @author Mark
  */
 @Deprecated
-public interface CDOMPrimaryParserToken<T> extends CDOMParserToken<T>, CDOMPrimaryToken<T>
+public interface CDOMPrimaryParserToken<T> extends CDOMPrimaryToken<T>
 {
 }

@@ -7,7 +7,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -15,7 +15,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with DONOTADD Token
  */
 public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryParserToken<PCClassLevel>
+		CDOMPrimaryToken<PCClassLevel>
 {
 	@Override
 	public String getTokenName()

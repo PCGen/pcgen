@@ -44,12 +44,12 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class SkillToken extends AbstractToken implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<Skill>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Skill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 

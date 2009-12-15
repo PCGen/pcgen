@@ -40,7 +40,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 
 public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
-		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>,
+		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<T>
 {
 	public String getParentToken()

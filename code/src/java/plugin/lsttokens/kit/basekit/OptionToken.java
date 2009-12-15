@@ -38,11 +38,11 @@ import pcgen.cdom.helper.OptionBound;
 import pcgen.core.kit.BaseKit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class OptionToken extends AbstractTokenWithSeparator<BaseKit> implements
-		CDOMSecondaryParserToken<BaseKit>
+		CDOMSecondaryToken<BaseKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

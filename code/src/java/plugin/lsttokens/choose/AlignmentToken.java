@@ -40,12 +40,12 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<PCAlignment>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCAlignment>
 {
 	private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;
 

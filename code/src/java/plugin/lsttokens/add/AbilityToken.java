@@ -57,7 +57,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
@@ -89,7 +89,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
 	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;

@@ -31,14 +31,14 @@ import pcgen.core.kit.KitSpells;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * COUNT Token for KitSpells
  */
 public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMSecondaryParserToken<KitSpells>
+		CDOMSecondaryToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

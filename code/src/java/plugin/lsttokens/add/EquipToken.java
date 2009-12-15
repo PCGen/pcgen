@@ -42,11 +42,11 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<Equipment>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;

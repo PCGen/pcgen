@@ -15,7 +15,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 
 public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
-		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryParserToken<CDOMObject>,
+		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<T>
 {
 	public String getParentToken()

@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 
 public class PreCompatibilityToken extends ErrorParsingWrapper<ConcretePrereqObject> implements
 		CDOMPrimaryParserToken<ConcretePrereqObject>,
-		CDOMSecondaryParserToken<ConcretePrereqObject>
+		CDOMSecondaryToken<ConcretePrereqObject>
 {
 	private static PrerequisiteWriterFactory factory = PrerequisiteWriterFactory
 			.getInstance();

@@ -34,7 +34,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -42,7 +42,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * ALIGN line.
  */
 public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> implements
-		CDOMSecondaryParserToken<KitAlignment>
+		CDOMSecondaryToken<KitAlignment>
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 

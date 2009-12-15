@@ -36,14 +36,14 @@ import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SKILL for Kit Skill
  */
 public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
-		CDOMSecondaryParserToken<KitSkill>
+		CDOMSecondaryToken<KitSkill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 

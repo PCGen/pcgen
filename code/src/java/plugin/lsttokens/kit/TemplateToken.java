@@ -35,7 +35,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -53,7 +53,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * </p>
  */
 public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> implements
-		CDOMSecondaryParserToken<KitTemplate>
+		CDOMSecondaryToken<KitTemplate>
 {
 	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
 

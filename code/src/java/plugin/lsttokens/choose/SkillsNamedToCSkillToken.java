@@ -23,12 +23,12 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SkillsNamedToCSkillToken extends ErrorParsingWrapper<Ability> implements CDOMSecondaryParserToken<Ability>
+public class SkillsNamedToCSkillToken extends ErrorParsingWrapper<Ability> implements CDOMSecondaryToken<Ability>
 {
 
 	public String getTokenName()

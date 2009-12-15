@@ -23,11 +23,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NumberToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryParserToken<EquipmentModifier>
+public class NumberToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()

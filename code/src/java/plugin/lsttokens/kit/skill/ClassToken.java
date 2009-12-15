@@ -31,14 +31,14 @@ import pcgen.core.PCClass;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * CLASS token for KitSkill
  */
 public class ClassToken extends AbstractNonEmptyToken<KitSkill> implements
-		CDOMSecondaryParserToken<KitSkill>
+		CDOMSecondaryToken<KitSkill>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 

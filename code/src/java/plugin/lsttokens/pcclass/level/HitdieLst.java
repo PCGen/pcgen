@@ -31,7 +31,7 @@ import pcgen.cdom.modifier.HitDieLock;
 import pcgen.cdom.modifier.HitDieStep;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
@@ -41,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  */
 public class HitdieLst extends AbstractToken implements
-		CDOMPrimaryParserToken<PCClassLevel>
+		CDOMPrimaryToken<PCClassLevel>
 {
 
 	@Override

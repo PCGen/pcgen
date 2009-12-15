@@ -28,11 +28,11 @@ package plugin.lsttokens.kit.prof;
 import pcgen.core.kit.KitProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
-		CDOMSecondaryParserToken<KitProf>
+		CDOMSecondaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

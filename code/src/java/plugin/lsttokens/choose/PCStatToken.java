@@ -40,12 +40,12 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<PCStat>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCStat>
 {
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 

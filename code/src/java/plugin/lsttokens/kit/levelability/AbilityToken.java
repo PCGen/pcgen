@@ -34,7 +34,7 @@ import pcgen.io.Compatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -42,7 +42,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with ABILITY lst token within KitLevelAbility
  */
 public class AbilityToken extends AbstractToken implements
-		CDOMSecondaryParserToken<KitLevelAbility>
+		CDOMSecondaryToken<KitLevelAbility>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -96,7 +96,7 @@ public class AbilityToken extends AbstractToken implements
 			return new ParseResult.Fail("Error was in " + getTokenName() + " " + value);
 		}
 		kitAbility.setAdd(ptc);
-		
+
 		while (st.hasMoreTokens())
 		{
 			String choiceString = st.nextToken();

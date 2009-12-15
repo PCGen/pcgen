@@ -33,7 +33,7 @@ import pcgen.core.Language;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -46,7 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @version $Revision:  $
  */
 public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements
-		CDOMSecondaryParserToken<KitSkill>
+		CDOMSecondaryToken<KitSkill>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;

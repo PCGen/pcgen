@@ -30,14 +30,14 @@ import java.math.BigDecimal;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * RANK token
  */
 public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
-		CDOMSecondaryParserToken<KitSkill>
+		CDOMSecondaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

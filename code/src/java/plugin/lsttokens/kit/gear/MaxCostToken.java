@@ -28,7 +28,7 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -36,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * MAXCOST token for KIT Gear
  */
 public class MaxCostToken extends AbstractToken implements
-		CDOMSecondaryParserToken<KitGear>
+		CDOMSecondaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

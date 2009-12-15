@@ -31,7 +31,7 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitTable;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * TABLE token for KitTable
  */
 public class TableToken extends AbstractNonEmptyToken<KitTable> implements
-		CDOMSecondaryParserToken<KitTable>, DeferredToken<Kit>
+		CDOMSecondaryToken<KitTable>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

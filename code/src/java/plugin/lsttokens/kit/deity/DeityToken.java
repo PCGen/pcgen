@@ -30,14 +30,14 @@ import pcgen.core.Deity;
 import pcgen.core.kit.KitDeity;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * DEITY token for KitDeity 
  */
 public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
-		CDOMSecondaryParserToken<KitDeity>
+		CDOMSecondaryToken<KitDeity>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;

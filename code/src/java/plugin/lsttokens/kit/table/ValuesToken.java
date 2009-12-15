@@ -37,14 +37,14 @@ import pcgen.core.kit.KitTable.TableEntry;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * VALUES token for KitTable
  */
 public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
-		CDOMSecondaryParserToken<KitTable>
+		CDOMSecondaryToken<KitTable>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

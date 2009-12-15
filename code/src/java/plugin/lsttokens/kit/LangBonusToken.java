@@ -32,7 +32,7 @@ import pcgen.core.Language;
 import pcgen.core.kit.KitLangBonus;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -45,7 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @version $Revision:  $
  */
 public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> implements
-		CDOMSecondaryParserToken<KitLangBonus>
+		CDOMSecondaryToken<KitLangBonus>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;

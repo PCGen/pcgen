@@ -28,7 +28,7 @@ package plugin.lsttokens.kit.prof;
 import pcgen.core.kit.KitProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -36,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * COUNT Token for KitProf
  */
 public class CountToken extends AbstractToken implements
-		CDOMSecondaryParserToken<KitProf>
+		CDOMSecondaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

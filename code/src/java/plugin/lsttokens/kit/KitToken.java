@@ -35,14 +35,14 @@ import pcgen.core.Kit;
 import pcgen.core.kit.KitKit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the KIT tag for Kits. Allows Common tags for this Kit line as well.
  */
 public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
-		CDOMSecondaryParserToken<KitKit>
+		CDOMSecondaryToken<KitKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

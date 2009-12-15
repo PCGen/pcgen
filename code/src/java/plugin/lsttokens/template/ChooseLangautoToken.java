@@ -40,12 +40,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMSecondaryParserToken<PCTemplate>, PersistentChoiceActor<Language>,
+		CDOMSecondaryToken<PCTemplate>, PersistentChoiceActor<Language>,
 		DeferredToken<PCTemplate>
 {
 

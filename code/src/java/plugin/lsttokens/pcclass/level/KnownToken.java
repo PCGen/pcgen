@@ -28,14 +28,14 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KNOWN Token
  */
 public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryParserToken<PCClassLevel>
+		CDOMPrimaryToken<PCClassLevel>
 {
 
 	@Override

@@ -41,20 +41,20 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FEAT Token for KitAbilities
  */
 public class FeatToken extends AbstractTokenWithSeparator<KitAbilities> implements
-		CDOMSecondaryParserToken<KitAbilities>
+		CDOMSecondaryToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	@Override

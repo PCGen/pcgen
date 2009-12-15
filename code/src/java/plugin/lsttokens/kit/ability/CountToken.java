@@ -28,7 +28,7 @@ package plugin.lsttokens.kit.ability;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -36,11 +36,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * COUNT Token for KitAbilities
  */
 public class CountToken extends AbstractToken implements
-		CDOMSecondaryParserToken<KitAbilities>
+		CDOMSecondaryToken<KitAbilities>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	@Override

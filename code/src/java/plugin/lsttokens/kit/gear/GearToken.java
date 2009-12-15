@@ -31,7 +31,7 @@ import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * GEAR Token for KitGear
  */
 public class GearToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMSecondaryParserToken<KitGear>
+		CDOMSecondaryToken<KitGear>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 

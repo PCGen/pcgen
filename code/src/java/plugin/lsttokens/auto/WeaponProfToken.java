@@ -42,11 +42,11 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryParserToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;

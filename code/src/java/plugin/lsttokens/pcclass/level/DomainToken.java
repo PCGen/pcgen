@@ -36,14 +36,14 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DOMAIN Token
  */
 public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryParserToken<PCClassLevel>
+		CDOMPrimaryToken<PCClassLevel>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;

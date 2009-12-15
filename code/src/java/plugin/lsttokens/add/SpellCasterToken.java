@@ -44,12 +44,12 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class SpellCasterToken extends AbstractToken implements
-		CDOMSecondaryParserToken<CDOMObject>, PersistentChoiceActor<PCClass>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

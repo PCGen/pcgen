@@ -28,18 +28,18 @@ package plugin.lsttokens.kit.ability;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FREE Token for KitAbilities
  */
 public class FreeToken extends AbstractNonEmptyToken<KitAbilities> implements
-		CDOMSecondaryParserToken<KitAbilities>
+		CDOMSecondaryToken<KitAbilities>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	@Override

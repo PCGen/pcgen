@@ -34,7 +34,7 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -42,11 +42,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * Level Ability token (a component of Kits)
  */
 public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility> implements
-		CDOMSecondaryParserToken<KitLevelAbility>, DeferredToken<Kit>
+		CDOMSecondaryToken<KitLevelAbility>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	@Override

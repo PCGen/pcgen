@@ -31,14 +31,14 @@ import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * parses SUBCLASS token for Kit Class 
  */
 public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMSecondaryParserToken<KitClass>
+		CDOMSecondaryToken<KitClass>
 {
 
 	/**
