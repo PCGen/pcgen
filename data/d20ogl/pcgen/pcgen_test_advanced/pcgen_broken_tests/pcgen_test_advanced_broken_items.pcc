@@ -1,0 +1,66 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:PCGen Advanced Testing Set - Outstanding Broken Items - Code & Data Team Use Only
+RANK:1
+GAMEMODE:35e|MSRD|3e|Modern
+#COMMENT: Will need to break it out into each gamemode eventually
+
+GENRE:Any
+BOOKTYPE:Supplement
+SETTING:Any
+TYPE:PCGen.Testing
+PUBNAMELONG:PCGen Team
+PUBNAMESHORT:PCGen
+PUBNAMEWEB:http://pcgen.sourceforge.net
+SOURCELONG:PCGen Testing Set - Broken
+SOURCESHORT:PTSB
+SOURCEWEB:http://pcgen.sourceforge.net
+ISOGL:YES
+
+
+ABILITY:pcgen_test_advanced_broken_abilities.lst
+
+#ABILITYCATEGORY:pcgen_test_advanced_ability_categories.lst
+
+#CLASS:pcgen_test_advanced_classes.lst
+
+
+#COMPANIONMOD:pcgen_test_advanced_companionmods.lst
+#DEITY:pcgen_test_advanced_deities.lst
+#DOMAIN:pcgen_test_advanced_domains.lst
+
+#EQUIPMENT:pcgen_test_advanced_equip.lst
+#EQUIPMOD:pcgen_test_advanced_equipmods.lst
+
+#FEAT:pcgen_test_advanced_feats.lst
+
+#KIT:pcgen_test_advanced_kits.lst
+
+#LANGUAGE:pcgen_test_advanced_languages.lst
+
+#RACE:pcgen_test_advanced_races.lst
+
+
+
+#WEAPONPROF:pcgen_test_advanced_profs_weapons.lst
+#ARMORPROF:pcgen_test_advanced_profs_armor.lst
+#SHIELDPROF:pcgen_test_advanced_profs_shields.lst
+
+#SKILL:pcgen_test_advanced_skills.lst
+
+#SPELL:pcgen_test_advanced_spells.lst
+
+
+#TEMPLATE:pcgen_test_advanced_templates_global.lst
+#TEMPLATE:pcgen_test_advanced_templates_local.lst
+
+
+# Universal tags
+#COMPANIONLIST:Mount|ANY
+#COMPANIONLIST:Follower|ANY
+
+#
+# DONE
+#
+
+
+
