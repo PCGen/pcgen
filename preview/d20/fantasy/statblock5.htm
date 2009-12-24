@@ -188,6 +188,10 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ELSE|
 |AC.NaturalArmor.SIGN| natural, 
 |ENDIF|
+|IIF(AC.Dodge:0)|
+|ELSE|
+|AC.Dodge.SIGN| dodge, 
+|ENDIF|
 |IIF(AC.Deflection:0)|
 |ELSE|
 |AC.Deflection.SIGN| deflection, 
