@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Sun Aug 16 11:26:32 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+
+# Feat Name		Type			Description						Bonus to Ability Pool		Source Page
+Additional Traits	TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p.6
+
+#
+# End
+#

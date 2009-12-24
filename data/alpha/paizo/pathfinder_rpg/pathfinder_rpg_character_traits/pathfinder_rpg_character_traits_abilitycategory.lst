@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Sep 15 14:06:45 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+
+# Ability Category	Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display Location
+ABILITYCATEGORY:Traits	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BasicTrait.RaceTrait.ReligionTrait.RegionTrait	PLURAL:Traits			DISPLAYLOCATION:Traits
+
+#
+# End
+#

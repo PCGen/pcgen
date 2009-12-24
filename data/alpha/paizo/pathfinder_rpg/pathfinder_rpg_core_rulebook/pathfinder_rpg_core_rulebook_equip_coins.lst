@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Thu May 28 10:08:57 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Coins
+# Equipment Name		Type		Cost		Weight	Source Page
+Coin (Copper Piece)	TYPE:Coin	COST:.01	WT:.02	SOURCEPAGE:p.140
+Coin (Silver Piece)	TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.140
+Coin (Gold Piece)		TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.140
+Coin (Platinum Piece)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:p.140

@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Tue Aug  4 20:10:25 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+# Original Entry by: Stefan Radermacher
+
+# Language			Type
+Aboleth			TYPE:Spoken.Written.Read
+Drow				TYPE:Spoken.Written.Read
+Drow Sign Language	TYPE:Spoken.Written.Read
+Sahuagin			TYPE:Spoken.Written.Read
+Tengu				TYPE:Spoken.Written.Read
+Vegepygmy			TYPE:Spoken
+Worg				TYPE:Spoken.Written.Read

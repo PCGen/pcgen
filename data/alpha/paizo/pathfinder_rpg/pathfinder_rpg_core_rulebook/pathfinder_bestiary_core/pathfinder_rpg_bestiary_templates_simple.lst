@@ -1,0 +1,11 @@
+# CVS $Revision: 10956 $ $Author: zaister $ -- Thu Dec  3 11:00:30 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+
+###Block: Simple Templates
+# Template Name		Visible	Source Page		Modify VAR																																													Ability																					Spell Res.	Vision			Hit Dice
+Celestial Creature	VISIBLE:YES	SOURCEPAGE:p.294	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	VISION:Darkvision (60')	HD:5-10:DR:5/Evil	HD:11+:DR:10/Evil	HD:5+:CR:1
+Fiendish Creature		VISIBLE:YES	SOURCEPAGE:p.294	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5|PREHD:MIN=11																ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	VISION:Darkvision (60')	HD:5-10:DR:5/Good	HD:11+:DR:10/Good	HD:5+:CR:1
+
+#
+# End
+#

@@ -1,0 +1,5 @@
+# CVS $Revision: 10458 $ $Author: eddyanthony $ -- Mon Nov  2 13:12:18 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bonus Bestiary	SOURCESHORT:PFBB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy87f9	SOURCEDATE:2009-06
+
+# Spell Name				School		Sub-School		Type		Components	Casting Time			Range				Target Area or Effect			Duration					Save Info					Spell Resistance							Description															Source Page
+Invisibility (Greater/Self Only)	SCHOOL:Illusion	SUBSCHOOL:Glamer	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal or touch	TARGETAREA:You or creature touched	DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless) or yes (harmless, object)	DESC:This spell functions like invisibility, except that it doesn't end if the subject attacks.	SOURCEPAGE:p.302

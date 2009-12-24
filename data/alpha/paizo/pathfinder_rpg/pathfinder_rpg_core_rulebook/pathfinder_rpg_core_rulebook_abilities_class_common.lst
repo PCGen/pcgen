@@ -1,0 +1,65 @@
+# CVS $Revision$ $Author$ -- Thu Oct 29 13:09:48 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Weapon Proficiencies
+# Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.																									Ability
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
+Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|DEITYWEAPONS
+Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
+Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)|TYPE.Simple
+Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+
+###Block: Uncanny Dodge and Improved Uncanny Dodge --------------------------------------------------------------------------------------
+# Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
+# Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
+# put this on class line one of any class that gets Uncanny Dodge
+#	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
+# Ability Name		Category of Ability		Type						Visible	Define										Description																															Ability																												Modify VAR								Description of the Benefits
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+#
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so.																																																									BENEFIT:You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, even if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																														BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
+
+###Block: Evasion and Improved Evasion --------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key			Category of Ability		Type											Visible	Description									Ability																	Description of the Benefits
+Evasion						CATEGORY:Special Ability	TYPE:Internal									VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Evasion Output|!PREABILITY:1,CATEGORY=Special Ability,Improved Evasion
+Evasion		KEY:Evasion Output	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC				VISIBLE:YES	DESC:You can avoid damage from many area-effect attacks.																			BENEFIT:You can avoid damage from many area-effect attacks. If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage. Evasion can only be used if you are wearing light armor or no armor. If you are helpless, you do not gain the benefit of evasion.
+Improved Evasion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC.AdvancedRogueTalent	VISIBLE:YES	DESC:You can avoid damage from many area-effect attacks.																			BENEFIT:You can avoid damage from many area-effect attacks. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.
+
+###Block: Common Class Abilities
+# Ability Name	Category of Ability		Type						Visible	Define							Description																							Template			Modify VAR						Aspects						Description of the Benefits
+Trap Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:TrapSenseBonus|0					DESC:You gain a +%1 bonus on Reflex saves made to avoid traps, and a +%1 dodge bonus to AC against attacks made by traps.|TrapSenseBonus													ASPECT:Ability Benefit|+%1|TrapSenseBonus
+Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									DESC:You no longer take ability score penalties for aging and cannot be magically aged.										TEMPLATE:Timeless Body															BENEFIT:You no longer take ability score penalties for aging and cannot be magically aged. Any penalties you may have already incurred, however, remain in place. Bonuses still accrue, and you still die of old age when your time is up.
+Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyLVL|0	DESC:You can improve the attitude of an animal.																					BONUS:VAR|WildEmpathy|WildEmpathyLVL+CHA								BENEFIT:You can improve the attitude of an animal. This abilty functions just like Diplomacy check made to improve the attitude of a person. You roll 1d20+%1 to determine the Wild Empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly. To use Wild Empathy, you and the animal must be within 30 feet of one another under normal circumstances. Generally, influencing an animal in this way takes 1 minute, but as with influencing people, it might take more or less time. You can use this ability to influence a magical beast with an Intellegence score of 1 or 2, but you take a -4 penalty on the check.|WildEmpathy
+Woodland Stride	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									DESC:You may move through any sort of magical undergrowth at your normal speed and without taking damage or suffering any other impairment.																			BENEFIT:You may move through any sort of magical undergrowth (such as natural thorns, briars, overgrown areas, and similar terrains) at your normal speed and without taking damage or suffering any other impairment. Thorns, briars, and overgrown areas that have been magically manipulated to impede motion, however, still affect you.
+
+
+###Block: Alignment Auras
+# Ability Name	Category of Ability		Type							Visible	Define								Description																																																							Modify VAR
+Aura of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraChaosLVL|0	DEFINE:AlignmentAuraLVL|0	DESC:You project a faint chaotic aura.|PREVAREQ:AuraChaosLVL,1	DESC:You project a moderate chaotic aura.|PREVARGTEQ:AuraChaosLVL,2|PREVARLTEQ:AuraChaosLVL,4	DESC:You project a strong chaotic aura.|PREVARGTEQ:AuraChaosLVL,5|PREVARLTEQ:AuraChaosLVL,10	DESC:You project an overwhelming chaotic aura.|PREVARGTEQ:AuraChaosLVL,11	BONUS:VAR|AuraChaosLVL|AlignmentAuraLVL
+Aura of Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraEvilLVL|0	DEFINE:AlignmentAuraLVL|0	DESC:You project a faint evil aura.|PREVAREQ:AuraEvilLVL,1	DESC:You project a moderate evil aura.|PREVARGTEQ:AuraEvilLVL,2|PREVARLTEQ:AuraEvilLVL,4	DESC:You project a strong evil aura.|PREVARGTEQ:AuraEvilLVL,5|PREVARLTEQ:AuraEvilLVL,10	DESC:You project an overwhelming evil aura.|PREVARGTEQ:AuraEvilLVL,11					BONUS:VAR|AuraEvilLVL|AlignmentAuraLVL
+Aura of Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraGoodLVL|0	DEFINE:AlignmentAuraLVL|0	DESC:You project a faint good aura.|PREVAREQ:AuraGoodLVL,1	DESC:You project a moderate good aura.|PREVARGTEQ:AuraGoodLVL,2|PREVARLTEQ:AuraGoodLVL,4	DESC:You project a strong good aura.|PREVARGTEQ:AuraGoodLVL,5|PREVARLTEQ:AuraGoodLVL,10	DESC:You project an overwhelming good aura.|PREVARGTEQ:AuraGoodLVL,11					BONUS:VAR|AuraGoodLVL|AlignmentAuraLVL
+Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLawLVL|0	DEFINE:AlignmentAuraLVL|0	DESC:You project a faint lawful aura.|PREVAREQ:AuraLawLVL,1	DESC:You project a moderate lawful aura.|PREVARGTEQ:AuraLawLVL,2|PREVARLTEQ:AuraLawLVL,4	DESC:You project a strong lawful aura.|PREVARGTEQ:AuraLawLVL,5|PREVARLTEQ:AuraLawLVL,10	DESC:You project an overwhelming lawful aura.|PREVARGTEQ:AuraLawLVL,11					BONUS:VAR|AuraLawLVL|AlignmentAuraLVL
+
+
+
+###Block: CMB output and basic setup
+# Ability Name	Category of Ability	Type			Visible	Define
+CMB Output		CATEGORY:FEAT		TYPE:Internal	VISIBLE:NO	DEFINE:USECMB|1
+
+###Block: CMB Definitions
+# Ability Name			Define																Modify VAR
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB|0	DEFINE:CMD|0	DEFINE:CMB_STAT|0	DEFINE:CMD_ACMod|0	DEFINE:CM_SizeMod|0	BONUS:VAR|CMB_STAT|STR|PRESIZEGT:T	BONUS:VAR|CMB_STAT|DEX|PRESIZELTEQ:T
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_BAB|0	DEFINE:CMD_BAB|0												BONUS:VAR|CMB_BAB|BAB	BONUS:VAR|CMD_BAB|BAB
+CATEGORY=FEAT|CMB Output.MOD																		BONUS:VAR|CM_SizeMod|-8|PRESIZEEQ:F	BONUS:VAR|CM_SizeMod|-4|PRESIZEEQ:D	BONUS:VAR|CM_SizeMod|-2|PRESIZEEQ:T	BONUS:VAR|CM_SizeMod|-1|PRESIZEEQ:S	BONUS:VAR|CM_SizeMod|1|PRESIZEEQ:L	BONUS:VAR|CM_SizeMod|2|PRESIZEEQ:H	BONUS:VAR|CM_SizeMod|4|PRESIZEEQ:G	BONUS:VAR|CM_SizeMod|8|PRESIZEEQ:C
+CATEGORY=FEAT|CMB Output.MOD																		BONUS:VAR|CMB|CMB_BAB+CMB_STAT+CM_SizeMod	BONUS:VAR|CMD|10+CMD_BAB+STR+DEX+CM_SizeMod+var("AC.CMD")
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_BullRush|0	DEFINE:CMD_BullRush|0										BONUS:VAR|CMB_BullRush|CMB	BONUS:VAR|CMD_BullRush|CMD
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMD_Disarm|0										BONUS:VAR|CMB_Disarm|CMB	BONUS:VAR|CMD_Disarm|CMD
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMD_Overrun|0										BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMD_Overrun|CMD
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMD_Sunder|0										BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMD_Sunder|CMD
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|2|PRELEGSEQ:3	BONUS:VAR|CMD_Trip|4|PRELEGSEQ:4	BONUS:VAR|CMD_Trip|8|PRELEGSEQ:6	BONUS:VAR|CMD_Trip|12|PRELEGSEQ:8
