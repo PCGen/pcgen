@@ -33,8 +33,11 @@ DESC:The elves of the Mierani Forest have been hiding something from outside eye
 #INFOTEXT:OGL.txt
 
 ABILITY:pf13_ability.lst
+EQUIPMENT:pf13_equipment.lst
+KIT:pf13_kit_npc.lst
 KIT:pf13_kit_monster.lst
 RACE:pf13_race.lst
+SKILL:pf13_skill.lst
 TEMPLATE:pf13_template.lst
 
 #

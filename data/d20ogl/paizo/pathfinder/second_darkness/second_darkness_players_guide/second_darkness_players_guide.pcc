@@ -37,6 +37,7 @@ ABILITYCATEGORY:sdpg_ability_categories.lst
 CLASS:sdpg_classes.lst
 EQUIPMENT:sdpg_equipment.lst
 FEAT:sdpg_feats.lst
+LANGUAGE:sdpg_languages.lst
 SPELL:sdpg_spells.lst
 TEMPLATE:sdpg_templates.lst
 
