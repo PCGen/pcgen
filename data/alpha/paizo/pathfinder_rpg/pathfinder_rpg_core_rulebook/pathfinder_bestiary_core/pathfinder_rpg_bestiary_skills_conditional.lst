@@ -20,6 +20,7 @@ Stealth (In swamps)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIB
 Stealth (In undergrowth)	KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In vegetation)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In water)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Stealth (In webs)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (Underwater)	KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Survival (In forests)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Survival (Track by scent)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -42,6 +43,7 @@ Stealth.MOD		BONUS:SKILL|Stealth (In swamps)|SKILL.Stealth.MISC		BONUS:SKILLRANK
 Stealth.MOD		BONUS:SKILL|Stealth (In undergrowth)|SKILL.Stealth.MISC	BONUS:SKILLRANK|Stealth (In undergrowth)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In undergrowth).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In vegetation)|SKILL.Stealth.MISC	BONUS:SKILLRANK|Stealth (In vegetation)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In vegetation).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In water)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In water)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In water).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (In webs)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In webs)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In webs).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (Underwater)|SKILL.Stealth.MISC	BONUS:SKILLRANK|Stealth (Underwater)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (Underwater).MISC"),var("SKILL.Stealth.MISC")
 Survival.MOD	BONUS:SKILL|Survival (In forests)|SKILL.Survival.MISC		BONUS:SKILLRANK|Survival (In forests)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Survival (In forests).MISC"),var("SKILL.Survival.MISC")
 Survival.MOD	BONUS:SKILL|Survival (Track by scent)|SKILL.Survival.MISC	BONUS:SKILLRANK|Survival (Track by scent)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Survival (Track by scent).MISC"),var("SKILL.Survival.MISC")
