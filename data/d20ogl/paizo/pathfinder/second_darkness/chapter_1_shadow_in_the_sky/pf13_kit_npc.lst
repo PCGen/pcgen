@@ -154,14 +154,15 @@ GENDER:Female
 STAT:STR=8|DEX=12|CON=13|INT=15|WIS=10|CHA=14
 NAME:Samaritha Beldusk
 CLASS:Wizard	LEVEL:3	SUBCLASS:Transmuter
-SKILL:Concentration		RANK:1
-SKILL:Diplomacy			RANK:1
-SKILL:Gather Information	RANK:1
-SKILL:Knowledge (Arcana)	RANK:1
-SKILL:Listen			RANK:1
-SKILL:Search			RANK:1
-SKILL:Spellcraft			RANK:1
-SKILL:Spot				RANK:1
+SKILL:Concentration		RANK:6
+SKILL:Diplomacy			RANK:3
+SKILL:Gather Information	RANK:0
+SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Listen			RANK:0
+SKILL:Search			RANK:0
+SKILL:Spellcraft			RANK:6
+SKILL:Spot				RANK:0
+FEAT:Alertness
 FEAT:Spell Focus (Transmutation)
 #FEAT:Varisian Tattoo (Transmutation)
 GEAR:Bracers of Armor +1	LOCATION:Equipped
@@ -263,7 +264,7 @@ GEAR:Unarmed Strike			LOCATION:Equipped
 
 
 STARTPACK:NPC (Croat Thug)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Half-Orc],[!PRERACE:1,%]	SOURCEPAGE:p.32	NAMEISPI:YES
-ALIGN:LE
+ALIGN:NE
 RACE:Half-Orc	!PRERACE:1,%
 STAT:STR=15|DEX=12|CON=14|INT=10|WIS=12|CHA=8
 NAME:Croat Thug
@@ -397,7 +398,7 @@ SKILL:Disguise		RANK:7
 SKILL:Hide			RANK:7
 SKILL:Knowledge (Local)	RANK:7
 SKILL:Move Silently	RANK:7
-SKILL:Sleight Of Hand	RANK:7
+SKILL:Sleight of Hand	RANK:7
 SKILL:Spot			RANK:7
 SKILL:Tumble		RANK:7
 FEAT:Improved Initiative
