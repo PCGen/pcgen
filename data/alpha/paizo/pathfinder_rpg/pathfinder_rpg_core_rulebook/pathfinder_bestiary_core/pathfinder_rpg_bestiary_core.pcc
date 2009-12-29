@@ -45,6 +45,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+ABILITY:pathfinder_rpg_bestiary_abilities_constant_spelllike.lst
 ABILITY:pathfinder_rpg_bestiary_abilities_monsters_general.lst
 CLASS:pathfinder_rpg_bestiary_classes_monster.lst
 FEAT:pathfinder_rpg_bestiary_feats_monster.lst

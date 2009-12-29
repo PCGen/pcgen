@@ -37,4 +37,4 @@ ABILITY:pathfinder_rpg_bonus_bestiary_abilities_monsters.lst
 CLASS:pathfinder_rpg_bonus_bestiary_classes_monster_specific.lst
 KIT:pathfinder_rpg_bonus_bestiary_kits_races.lst
 RACE:pathfinder_rpg_bonus_bestiary_races.lst
-SPELL:pathfinder_rpg_bonus_bestiary_spells.lst
+#SPELL:pathfinder_rpg_bonus_bestiary_spells.lst
