@@ -148,7 +148,7 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:Total				ADD:TOTAL
-ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
 ACTYPE:Base					ADD:Base
 ACTYPE:Armor				ADD:Armor
@@ -157,9 +157,11 @@ ACTYPE:Ability				ADD:Ability
 ACTYPE:Size					ADD:Size
 ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Deflection|Dodge
 ACTYPE:ClassDefense			ADD:ClassDefense
 ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection				ADD:Deflection
+ACTYPE:Insight				ADD:Insight
 
 # Damage die changes on size
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
@@ -277,7 +279,8 @@ PREVIEWSHEET:preview.html
 DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
 
 # Types which automatic resizing is activated on
-RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable
+RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
+
 
 DEFAULTDATASET:Legends of Excalibur - Arthurian Adventures
 

@@ -164,7 +164,8 @@ ACTYPE:Shield		ADD:EQTYPE.Shield
 ACTYPE:Ability		ADD:Ability
 ACTYPE:Size			ADD:Size
 ACTYPE:NaturalArmor	ADD:NaturalArmor
-ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor
+ACTYPE:Deflection		ADD:Deflection
+ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor|Deflection|Dodge
 ACTYPE:ClassDefense	ADD:ClassDefense
 ACTYPE:Dodge		ADD:Dodge
 
