@@ -63,6 +63,10 @@ Revisions: Tir-Gwaith 10/11/09 Breaking out Deflection from Misc AC bonus (in th
 
 Revisions: Mike Elliott 12/12/09 Updated to include CMB/CMD, added Compact Stats mode and many minor fixes.
 
+Revisions: Mike Elliott 12/30/09 Added Show Sources to Feats, Special Attacks and Qualities, and Equipment,
+                                 2917186 TIMEUNIT processing, .MAGIC~ to bold now, removed repeats of Special Attacks
+                                 in the Special Qualities section, 2923219 seperated out AC.Dodge into it's own box.
+
 $Revision$
 $Author$
 $Date$
@@ -227,6 +231,7 @@ $Date$
 	.c9w  { font-size:9pt; text-align:center; color:white; background:black; }
 	.c9s  { font-size:9pt; text-align:center; border:1px solid black; }
 	.c9sB { font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
+ 	.c9sBx{ font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; }
 	.c9swB{ font-size:9pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
 	.c9wB { font-size:9pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c9pB { font-size:9pt; text-align:center; color:#88DDFF; background:black; font-weight:bold; }
@@ -248,6 +253,8 @@ $Date$
 	.lt9b { font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; }
 	.lt9bw{ font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; color:white; background:black; }
 	.lt9mB{ font-size:9pt; text-align:left; vertical-align:top; font-weight:bold; }
+ 	.lt9s { font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; }
+ 	.lt9sB{ font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; font-weight:bold; }
 	.r9   { font-size:9pt; text-align:right; }
 	.r9w  { font-size:9pt; text-align:center; color:white; background:black; }
 	.r9wB { font-size:9pt; text-align:right; color:white; background:black; font-weight:bold; }
@@ -258,6 +265,7 @@ $Date$
 	.c10mB { font-size:10pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c10s  { font-size:10pt; text-align:center; border:1px solid black; }
 	.c10sB { font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
+	.c10sBx{ font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; }
 	.c10sl { font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; }
 	.c10slB{ font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; font-weight:bold; }
 	.c10swB{ font-size:10pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
@@ -347,6 +355,7 @@ var StateArr = new Array();
 var WeapArr = new Array();
 // Hardcoded Global Debug variable for now: Show Aspect information
 var ShowAspects = 0;
+var ShowSources = 0;
 // List of checks
 var FORTindex = 0;
 var REFindex = 1;
@@ -362,7 +371,7 @@ var Init = new InitObject(|INITIATIVEMOD|,|INITIATIVEBONUS|);
 var HP = new HPObject( |HP| );
 var Subdual = new SubdualObject( '0' );
 // AC object
-var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Deflection|,|AC.Misc|);
+var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Deflection|,|AC.Dodge|,|AC.Misc|);
 // List of skills forbidden to a raging Barb
 var SkillsRedList = new Array("Alchemy","Appraise","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Handle Animal","Heal","Hide","Innuendo","Intuit Direction","Knowledge","Move Silently","Open Lock","Perform","Pick Pocket","Profession","Read Lips","Scry","Search","Sense Motive","Sleight of Hand","Spellcraft","Tumble","Use Magic Device");
 // List of the supported states a char can be in.
@@ -372,10 +381,12 @@ StateArr[2] = new CharState( "SpellArmor1", SpellCombatMods, SpellCombatMods );
 StateArr[3] = new CharState( "SpellArmor2", SpellCombatMods, SpellCombatMods );
 StateArr[4] = new CharState( "SpellArmor3", SpellCombatMods, SpellCombatMods );
 StateArr[5] = new CharState( "SpellArmor4", SpellCombatMods, SpellCombatMods );
+StateArr[6] = new CharState( "SpellArmor5", SpellCombatMods, SpellCombatMods );
 // And the globals to hold the current values...
 spell_AC_bonus = 0;
 spell_Defl_bonus = 0;
 spell_Nat_bonus = 0;
+spell_Dodge_bonus = 0;
 spell_Shield_bonus = 0;
 // Set up the table of information about stats
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
@@ -394,13 +405,13 @@ var CurHP = new CurHPObject( |HP| );
 var Memorized = new Array();
 function MemSpellsLevel(nMax, nName, nLevel) 
 {
-	this.Name = nName;		// Cleric
-	this.Level = nLevel;		// 1  (1st level)
-	this.Max = nMax;		// 2  (spells)
+	this.Name = nName;			// Cleric
+	this.Level = nLevel;			// 1  (1st level)
+	this.Max = nMax;				// 2  (spells)
 	this.mem = MemSpellMem;		// Mark another as prepared
 	this.cast = MemSpellCast;	// Clear mark because it was cast
-	this.error = 0;			// Did *Mem or *Cast fail?
-	this.Cur = 0;			// The number of spells at this level currently prepared.
+	this.error = 0;				// Did *Mem or *Cast fail?
+	this.Cur = 0;					// The number of spells at this level currently prepared.
 }
 function MemSpellMem()
 {
@@ -481,9 +492,9 @@ ATKArr[0] = new ATK("Melee","|ATTACK.MELEE.TOTAL|","|ATTACK.MELEE|",STRindex,|AT
 ATKArr[1] = new ATK("Ranged","|ATTACK.RANGED.TOTAL|","|ATTACK.RANGED|",DEXindex,|ATTACK.RANGED.SIZE|,|ATTACK.RANGED.EPIC|,|ATTACK.RANGED.MISC|);
 |IIF(VAR.UseCombatManueverBonus:1)|
 CMB_Pos = 2;
-ATKArr[2] = new ATK("CMB","|VAR.CMB.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRindex,|VAR.CMB_SizeMod.INTVAL.SIGN|,|VAR.CMB_Epic.INTVAL.SIGN|,|VAR.CMB_Misc.INTVAL.SIGN|);
+ATKArr[2] = new ATK("CMB","|VAR.CMB.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRindex,|VAR.CM_SizeMod.INTVAL.SIGN|,|VAR.CMB_Epic.INTVAL.SIGN|,|VAR.CMB_Misc.INTVAL.SIGN|);
 CMD_Pos = 3;
-ATKArr[3] = new ATK("CMD","|VAR.CMD.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRDEXindex,|VAR.CMD_SizeMod.INTVAL.SIGN|,|VAR.CMD_Epic.INTVAL.SIGN|,|VAR.CMD_Misc.INTVAL.SIGN|);
+ATKArr[3] = new ATK("CMD","|VAR.CMD.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRDEXindex,|VAR.CM_SizeMod.INTVAL.SIGN|,|VAR.CMD_Epic.INTVAL.SIGN|,|VAR.CMD_Misc.INTVAL.SIGN|);
 |ELSE|
 ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRindex,|ATTACK.GRAPPLE.SIZE|,|ATTACK.GRAPPLE.EPIC|,|ATTACK.GRAPPLE.MISC|);
 |ENDIF|
@@ -697,7 +708,7 @@ function rollIntoDIV(numDice, dieSize, bonus, caption, theDIV, justResult) {
 			}
 		}
 	}
-	// We need to write the results to two divs occasionally.  The second has "C" appended to the name.
+ 	// We need to write the results to two divs occasionally.  The second has "_SND" appended to the name.
 	outerTD = theDIV + "_TD_SND";
 	SndDIV = theDIV + "_SND";
 	if (document.getElementById(SndDIV) != null) {
@@ -817,10 +828,11 @@ function rollTurning(checkBonus,turnDice,turnDieSize,turnBonus,turnLvl,intoDIV,c
 }
 
 var SpecialAttacksList = new Array();
-function NewSpecialAttacks(sNum, sName, sDesc, sAspect, sBenefit) {
+function NewSpecialAttacks(sNum, sName, sDesc, sAspect, sBenefit, sSource) {
 	this.number = sNum;
 	this.Name = sName;
 	this.Description = sDesc;
+	this.Source = sSource;
 	this.Aspect = sAspect;
 	this.showAspect = 0;
 	if (sAspect.length > 0)
@@ -832,15 +844,16 @@ function NewSpecialAttacks(sNum, sName, sDesc, sAspect, sBenefit) {
 } <!-- Yes, the variables are assigned outside the function to make them global -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
-SpecialAttacksList[%specialAttack] = new NewSpecialAttacks(%specialAttack, "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|",  "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.ASPECT|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.BENEFIT|");
+SpecialAttacksList[%specialAttack] = new NewSpecialAttacks(%specialAttack, "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|",  "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.ASPECT|", "|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.BENEFIT|","|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.SOURCE|");
 |ENDFOR|
 |ENDIF|
 
 var SpecialQualitiesList = new Array();
-function NewSpecialQualities(sNum, sName, sDesc, sAspect, sBenefit) {
+function NewSpecialQualities(sNum, sName, sDesc, sAspect, sBenefit, sSource) {
 	this.number = sNum;
 	this.Name = sName;
 	this.Description = sDesc;
+	this.Source = sSource;
 	this.Aspect = sAspect;
 	this.showAspect = 0;
 	if (sAspect.length > 0)
@@ -855,7 +868,7 @@ SA_cnt = 0;
 |FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.%bar.TYPE=SpecialAttack)|
 |ELSE|
-SpecialQualitiesList[%bar] = new NewSpecialQualities(%bar, "|ABILITYALL.Special Ability.VISIBLE.%bar|",  "|ABILITYALL.Special Ability.VISIBLE.%bar.DESC|", "|ABILITYALL.Special Ability.VISIBLE.%bar.ASPECT|", "|ABILITYALL.Special Ability.VISIBLE.%bar.BENEFIT|");
+SpecialQualitiesList[%bar] = new NewSpecialQualities(%bar, "|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack|",  "|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack.DESC|", "|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack.ASPECT|", "|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack.BENEFIT|", "|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack.SOURCE|");
 |ENDIF|
 |ENDFOR|
 |ENDIF|
@@ -871,6 +884,10 @@ function ToggleLayer( whichTable, whichLayer, whichText ) {
 	// if the style.display value is blank we try to figure it out here
 	if(Tvis.display==''&&Telem.offsetWidth!=undefined&&Telem.offsetHeight!=undefined)
 		Tvis.display = (Telem.offsetWidth!=0&&Telem.offsetHeight !=0)?'block':'none';
+	if(whichText == -1) { // Clear the block
+		Tvis.display = 'none';
+		return;
+	}
 	if(whichTable == 'SPECIAL_ATTACKS_Table') {
 		then = SpecialAttacksListCurrent;
 		SpecialAttacksListCurrent = whichText;
@@ -878,6 +895,8 @@ function ToggleLayer( whichTable, whichLayer, whichText ) {
 		if((ShowAspects == 1) && (SpecialAttacksList[whichText].showAspect == 1)) {
 			now = now + "<br />" + SpecialAttacksList[whichText].Aspect ;
 		}
+		if(ShowSources == 1)
+			now = now + "<br />" + SpecialAttacksList[whichText].Source ;
 	} else if(whichTable == 'SPECIAL_QUALITIES_Table') {
 		then = SpecialQualitiesListCurrent;
 		SpecialQualitiesListCurrent = whichText;
@@ -885,6 +904,8 @@ function ToggleLayer( whichTable, whichLayer, whichText ) {
 		if((ShowAspects == 1) && (SpecialQualitiesList[whichText].showAspect == 1)) {
 			now = now + "<br />" + SpecialQualitiesList[whichText].Aspect ;
 		}
+		if(ShowSources == 1)
+			now = now + "<br />" + SpecialQualitiesList[whichText].Source ;
 	}
 	if(then != whichText) {
 		Tvis.display = 'block';
@@ -912,6 +933,210 @@ function ToggleDIV( whichDIV ) {
 	} else {
 		vis.display = 'none';
 	}
+}
+function ToggleSources() {
+	if(ShowSources == 0) {
+		ShowSources = 1;
+		document.getElementById('ShowSources').innerHTML = "Show Sources: <a class=\"c10yB\" name=\"#\" onclick=\"ToggleSources();\">On</a>";
+	} else {
+		ShowSources = 0;
+		document.getElementById('ShowSources').innerHTML = "Show Sources: <a class=\"c10yB\" name=\"#\" onclick=\"ToggleSources();\">Off</a>";
+	}
+	BuildFeatsCompTable();
+	BuildEqCompTable();
+	ToggleLayer('SPECIAL_ATTACKS_Table','SPECIAL_ATTACKS_Details','-1');
+	ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','-1');
+}
+function BuildFeatsCompTable() {
+	newHTML = "";
+	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="2">\n';
+	newHTML = newHTML + '<tr><td class="c10yB" colspan="2"><a name="#" onClick="CycleFeats();">FEATS</a></td></tr>\n';
+	newHTML = newHTML + '<tr><td class="lt8sB" width="40%">NAME</td><td class="lt8sB" width="60%">DESCRIPTION</td></tr>\n';
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,newHTML = newHTML + '<tr bgcolor="#DDDDDD">';,newHTML = newHTML + '<tr bgcolor="white">';)|
+	newHTML = newHTML + '<td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>\n';
+	newHTML = newHTML + '<td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.DESC|\n';
+	if (ShowSources == 1)
+		newHTML = newHTML + '<br>|FEATALL.VISIBLE.%feat.SOURCE|\n';
+	newHTML = newHTML + '</td></tr>\n';
+|ENDFOR|
+	newHTML = newHTML + '</table>\n';
+	document.getElementById('FeatsComprehensive').innerHTML = newHTML;
+}
+function BuildEqCompTable() {
+	newHTML = "";
+	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="0" border="0">\n<tr>\n';
+	newHTML = newHTML + '<td class="c10yB"><a name="#" onclick="CycleEquipment()">EQUIPMENT</a>&nbsp;&nbsp;&nbsp;(';
+	newHTML = newHTML + StripZero("|TOTAL.WEIGHT|") + ' - ' + StripZero("|WEIGHT.LIGHT|") + '/' + StripZero("|WEIGHT.MEDIUM|") + '/' + StripZero("|WEIGHT.HEAVY|") + '&nbsp;&nbsp;&nbsp;&nbsp;\n';
+|IIF(TOTAL.LOAD:Light)|
+	newHTML = newHTML + '<span style="font-size:10pt; font-weight:bold; color:green;">|TOTAL.LOAD| Load</span>\n';
+|ENDIF|
+|IIF(TOTAL.LOAD:Medium)|
+	newHTML = newHTML + '<span style="font-size:10pt; font-weight:bold; color:yellow;">|TOTAL.LOAD| Load</span>\n';
+|ENDIF|
+|IIF(TOTAL.LOAD:Heavy)|
+	newHTML = newHTML + '<span style="font-size:10pt; font-weight:bold; color:orange;">|TOTAL.LOAD| Load</span>\n';
+|ENDIF|
+|IIF(TOTAL.LOAD:Overload)|
+	newHTML = newHTML + '<span style="font-size:10pt; font-weight:bold; color:red;">|TOTAL.LOAD|</span>\n';
+|ENDIF|
+	newHTML = newHTML + '</td></tr><tr><td width="100%" class="lt6">\n';
+	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="0" border="0">\n';
+	newHTML = newHTML + '<tr><td width="70%" class="lt8sB">ITEM</td><td width="12%" class="ct8sB">LOCATION</td>\n';
+	newHTML = newHTML + '    <td width="6%" class="ct8sB">QTY</td><td width="6%" class="ct8sB">WT.</td>\n';
+	newHTML = newHTML + '    <td width="6%" class="ct8sB">GP COST</td></tr>\n';
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGENONE.%equip1.LOCATION:Equipped)|
+	newHTML = newHTML + EvenOddLine();
+	newHTML = newHTML + '<td class="lt9s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC~<b>~</b>|\n';
+|IIF(EQ.MERGENONE.%equip1.SPROP: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span>\n';
+|ENDIF|
+|IIF(EQ.MERGENONE.%equip1.NOTE: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span>\n';
+|ENDIF|
+|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+	newHTML = newHTML + '<br />&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges\n';
+|ENDIF|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+	if(ShowSources == 1)
+		newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
+	newHTML = newHTML + '</td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>\n';
+	newHTML = newHTML + '</tr>\n';
+|ENDIF|
+|ENDFOR|
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGENONE.%equip1.LOCATION:Carried)|
+	newHTML = newHTML + EvenOddLine();
+	newHTML = newHTML + '<td class="lt9s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC~<b>~</b>|\n';
+|IIF(EQ.MERGENONE.%equip1.SPROP: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span>\n';
+|ENDIF|
+|IIF(EQ.MERGENONE.%equip1.NOTE: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span>\n';
+|ENDIF|
+|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+	newHTML = newHTML + '<br />&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges\n';
+|ENDIF|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+	if(ShowSources == 1) 
+		newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
+	newHTML = newHTML + '</td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>\n';
+	newHTML = newHTML + '</tr>\n';
+|ENDIF|
+|ENDFOR|
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGENONE.%equip1.LOCATION:Equipped.OR.EQ.MERGENONE.%equip1.LOCATION:Carried)|
+|ELSE|
+	newHTML = newHTML + EvenOddLine();
+	newHTML = newHTML + '<td class="lt9s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC~<b>~</b>|\n';
+|IIF(EQ.MERGENONE.%equip1.SPROP: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span>\n';
+|ENDIF|
+|IIF(EQ.MERGENONE.%equip1.NOTE: )|
+	newHTML = newHTML + '<br /><span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span>\n';
+|ENDIF|
+|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
+|IIF(%charges:1)|
+	newHTML = newHTML + '<br />&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges\n';
+|ENDIF|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
+	newHTML = newHTML + '<br />';
+|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
+	newHTML = newHTML + '<font style="font-size: 7pt">&#9744;</font>\n';
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+	if(ShowSources == 1)
+		newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
+	newHTML = newHTML + '</td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>\n';
+	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>\n';
+	newHTML = newHTML + '</tr>\n';
+|ENDIF|
+|ENDFOR|
+	newHTML = newHTML + '<tr>\n';
+	newHTML = newHTML + '<td width="41%" class="rt8s">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</td>\n';
+	newHTML = newHTML + '<td width="3%" class="ct8s" colspan="2" nowrap="nowrap">|TOTAL.WEIGHT|</td>\n';
+	newHTML = newHTML + '<td width="3%" class="ct8s" colspan="2" nowrap="nowrap">|TOTAL.VALUE|</td>\n';
+	newHTML = newHTML + '</tr>\n';
+	newHTML = newHTML + '</table>\n';
+	newHTML = newHTML + '</td>\n';
+	newHTML = newHTML + '</tr>\n';
+	newHTML = newHTML + '</table>\n';
+	document.getElementById('EquipmentComprehensive').innerHTML = newHTML;
 }
 // A variable of type ATK ("attack") supports the following
 // Only those marked with * should be modified after creation
@@ -1085,6 +1310,7 @@ function SkillFlag()
 //  abilityModified bool   RO  TRUE if ability != abilityBase
 //  size           int     RW  Current AC modifier due to size
 //  naturalarmor   int     RW  Current AC modifier due to natural armor
+//  dodge          int     RW  Current AC modifier due to dodge
 //  miscBase       int     RW  Unmodified AC modifier due to other affects
 //  misc           int     RO  Current AC modifier due to other affects
 //  miscModified   bool    RO  TRUE if misc != miscBase
@@ -1095,11 +1321,13 @@ function SkillFlag()
 // *spellShieldMod int     RW  Current Shield modifier due spell (eg. Shield)
 // *spellDeflMod   int     RW  Current Deflection modifier due spell (eg. Shield of Faith)
 // *spellNatMod    int     RW  Current Natural Armor modifier due spell (eg. Barkskin)
-function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatural,nDeflection,nMisc)
+// *spellDodgeMod  int     RW  Current Dodge modifier due spell (eg. Haste)
+function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatural,nDeflection,nDodge,nMisc)
 {
 	this.spellACMod = 0;
 	this.spellDeflMod = 0;
 	this.spellNatMod = 0;
+	this.spellDodgeMod = 0;
 	this.spellShieldMod = 0;
 	this.flatBase = nFlat;
 	this.flat = ACObjFlat;
@@ -1124,6 +1352,9 @@ function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatur
 	this.ability = ACObjAbility;
 	this.abilityModified = ACObjAbilityModified;
 	this.size = nSize;
+	this.dodgeBase = nDodge;
+	this.dodge = ACObjDodge;
+	this.dodgeModified = ACObjDodgeModified;
 	this.naturalarmorBase = nNatural;
 	this.naturalarmor = ACObjNaturalArmor;
 	this.naturalarmorModified = ACObjNaturalArmorModified;
@@ -1147,7 +1378,7 @@ function ACObjFlatModified()
 }
 function ACObjTouch()
 {
-   return this.touchBase-this.deflectionBase+this.deflection()-this.abilityBase+this.ability()-this.miscBase+this.misc();
+	return this.touchBase-this.deflectionBase+this.deflection()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
 }
 function ACObjTouchModified()
 {
@@ -1180,6 +1411,18 @@ function ACObjNaturalArmorModified()
    else
       return TRUE;
 }
+function ACObjDodge()
+{
+	out = Math.max(this.dodgeBase, this.spellDodgeMod);
+	return out;
+}
+function ACObjDodgeModified()
+{
+	if ( this.dodgeBase == this.dodge() )
+		return FALSE;
+	else
+		return TRUE;
+}
 function ACObjDeflection()
 {
 	out = Math.max(this.deflectionBase, this.spellDeflMod);
@@ -1206,7 +1449,7 @@ function ACObjArmorModified()
 }
 function ACObjTotal()
 {
-   return this.totalBase-this.armorBase+this.armor()-this.shieldBase+this.shield()-this.deflectionBase+this.deflection()-this.naturalarmorBase+this.naturalarmor()-this.abilityBase+this.ability()-this.miscBase+this.misc();
+	return this.totalBase-this.armorBase+this.armor()-this.shieldBase+this.shield()-this.deflectionBase+this.deflection()-this.naturalarmorBase+this.naturalarmor()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
 }
 function ACObjTotalModified()
 {
@@ -1483,6 +1726,14 @@ function setSpellNatBonus()
 		foo = document.getElementById("spell_natural_bonus").value;
 	if ((foo > -1) && (foo < 11))
 		spell_Nat_bonus = foo;
+}
+function setSpellDodgeBonus()
+{
+	foo = 12; // out of range marker, selections are 0-10.
+	if (document.getElementById('spell_dodge_bonus') != null)
+		foo = document.getElementById("spell_dodge_bonus").value;
+	if ((foo > -1) && (foo < 11))
+		spell_Dodge_bonus = foo;
 }
 function setSpellACBonus()
 {
@@ -1898,6 +2149,10 @@ function ACPrint()
 		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.naturalarmor()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
+	if ( AC.dodgeModified() )
+		tempHTML = tempHTML+styleTag;
+	tempHTML = tempHTML+'class="c9sB">'+AC.dodge()+'<\/td><td class="c7mB">+<\/td>';
+	tempHTML = tempHTML+'<td ';
 	if ( AC.miscModified() )
 		tempHTML = tempHTML+styleTag;
 	tempHTML = tempHTML+'class="c9sB">'+AC.misc()+'<\/td><td align="center" width="5"><\/td>';
@@ -1908,7 +2163,7 @@ function ACPrint()
 	// MAXDEX==0 means NO maxdex
 	if ( AC.maxdex != 0 )
 		tempHTML = tempHTML + AC.maxdex;
-	tempHTML = tempHTML+'<br /><\/td><td align="center"><\/td>';
+	tempHTML = tempHTML+'<br /><\/td>';
 	tempHTML = tempHTML+'<tr><td align="center" width="50"><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="ct6mB">TOTAL<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="ct6mB">FLAT<\/td><td><\/td>';
@@ -1919,12 +2174,13 @@ function ACPrint()
 	tempHTML = tempHTML+'<td width="25" class="c4">DEFLECTION<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">STAT<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">SIZE<br />BONUS<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25" class="c4">DODGE<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">NATURAL<br />ARMOR<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISC<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISS<br />CHANCE<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">ARCANE<br />FAILURE<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">ARMOR<br />CHECK<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">MAX<br />DEX<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25" class="c4">&nbsp;MAX&nbsp;<br />&nbsp;DEX&nbsp;<\/td>';
 	tempHTML = tempHTML+'<\/tr><\/table>';
 	document.getElementById('ACDiv').innerHTML = tempHTML;
 	ABPrint();
@@ -1935,7 +2191,7 @@ function InitPrint()
 		wascurrent = document.getElementById('InitRoll').innerHTML;
 	else 
 		wascurrent = "&nbsp;";
-	styleTag = ' style="background: LIGHTBLUE" ';
+	styleTag = ' style="background:LIGHTBLUE;" ';
 	tempHTML = '<table><tr>';
 	tempHTML = tempHTML+'<td width="85" class="c9wB">INITIATIVE<span class="c5w"><br />Modifier<\/span><\/td>';
 	tempHTML = tempHTML+'<td ';
@@ -1951,7 +2207,7 @@ function InitPrint()
 	tempHTML = tempHTML+'<td class="c10sB" width="25">'+Init.initBonus+'<br><span class="cb5">MISC</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB"><\/td>';
 	tempHTML = tempHTML+'<td class="c8" width="25"><a name="#" onClick="rollIntoDIV(1,20,'+Init.initTotal()+',\'Initiative Roll\',\'InitRoll\',1);"><img src="die.png" Alt="Roll" width="24px" height="26px" border="0"></a><\/td>';
-	tempHTML = tempHTML+'<td id="InitRoll_TD" class="c10sB" width="25"><div id="InitRoll" class="c10B" style="background-color:transparent;display:inline;">'+wascurrent+'</div><br><span class="cb5">CURRENT</span><\/td>';
+	tempHTML = tempHTML+'<td id="InitRoll_TD" class="c10sBx" width="25"><div id="InitRoll" class="c10B" style="background-color:transparent;display:inline;">'+wascurrent+'</div><br><span class="cb5">CURRENT</span><\/td>';
 	tempHTML = tempHTML+'<\/tr><\/table>';
 	document.getElementById("Initdiv").innerHTML = tempHTML;
 }
@@ -2527,7 +2783,7 @@ function TurnTablePrint(title, turnLevel, turnDamage, turnCheck, turnsPerDay, nu
 	tempHTML = tempHTML + '<\/tr>';
 	tempHTML = tempHTML + '<tr>';
 	tempHTML = tempHTML + '	<td width="1%" class="r7w">Roll&nbsp;<a name="#" onClick="rollTurning('+turnCheck+','+numDice+','+sizeDie+','+turnDamage+','+turnLevel+',\''+title+'_roll\',\'\');"><img src="die.png" Alt="Roll" width="24px" height="26px" border="0"></a><\/td>';
-	tempHTML = tempHTML + '	<td id="' + title + '_roll" colspan="3" class="c9sB">&nbsp;<\/td>';
+	tempHTML = tempHTML + '	<td id="' + title + '_roll" colspan="3" class="c9sBx">&nbsp;<\/td>';
 	tempHTML = tempHTML + '	<td class="r7w">TURNS/DAY<\/td>';
 	tempHTML = tempHTML + '	<td style="background:'+tempBG+'" class="c9sB">'+turnsPerDay+'<\/td>';
 	tempHTML = tempHTML + '	<td style="background:'+tempBG+'" colspan="2" class="c9s">';
@@ -2703,6 +2959,7 @@ function Compact()
 	document.getElementById('SpellBookComprehensive').style.display = 'inline';
 	CreateClassInnateSpellsCompact();
 	CreateMainSpellCompact();
+	BuildEqCompTable();
 	writeMiscNotes();
 	CurHPPrint();
 };
@@ -3125,17 +3382,23 @@ function CreateClassInnateSpellsCompact()
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |IIF(%spellbook:1)|
 	racialHTML = racialHTML + '<a class="lh9" name="#" onclick="ToggleDIV(\'' + 'Racial.Innate.' + '|%spell|' + '\');">' +"|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>";
-	perday = "|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|";
-|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0), racialHTML = racialHTML + ' (' + perday + '/day)';,)|
+	units = "|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|";
+	perunit = "/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|";
+	if( perunit == "/")
+			  perunit = "/day";
+|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0), racialHTML = racialHTML + ' (' + units + perunit + ')';,)|
 |OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES:ATWILL), racialHTML = racialHTML + ' (at will)';,)|
-|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES:0), racialHTML = racialHTML + ' (?/day)';,)|
+|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES:0), racialHTML = racialHTML + ' (?' + perunit +')';,)|
 	racialHTML = racialHTML + ',&nbsp;&nbsp;';
 |ELSE|
 	innateHTML = innateHTML + '<a class="lh9" name="#" onclick="ToggleDIV(\'' + 'Class.Innate.' + '|%spellbook|' + '.' + '|%spell|' + '\');">' +"|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>";
-	perday = "|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|";
-|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0), innateHTML = innateHTML + ' (' + perday + '/day)';,)|
+	units = "|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|";
+	perunit = "/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|";
+	if( perunit == "/")
+			  perunit = "/day";
+|OIF((SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0), innateHTML = innateHTML + ' (' + units + perunit + ')';,)|
 |OIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:ATWILL, innateHTML = innateHTML + ' (at will)';,)|
-|OIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:0, innateHTML = innateHTML + ' (?/day)';,)|
+|OIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:0, innateHTML = innateHTML + ' (?' + perunit +')';,)|
 	innateHTML = innateHTML + ',&nbsp;&nbsp;';
 |ENDIF|
 |ENDFOR|
@@ -4342,6 +4605,10 @@ function SpellCombatMods( ignored )
 		this.shield = Math.max(this.shieldBase, this.spellShieldMod);
 		this.shieldModified = ACObjShieldModified;
 	}
+	if(this.name == "SpellArmor5") {
+		this.dodge = Math.max(this.dodgeBase, this.spellDodgeMod);
+		this.dodgeModified = ACObjDodgeModified;
+	}
 	ABPrint();
 	ACPrint();
 	ComprehensiveSkillPrint();
@@ -4369,28 +4636,34 @@ function SpellArmorButtons()
 {
 	document.write( '<tr id="config4" class="c6"><td class="c6"><center>');
 	document.write( '<table border="0" cellpadding="0"><tr valign="top"><td>');
-	document.write( '<input id=configSpells type=button value="cfg" name=configSpells onclick="ToggleDIV(\'cfgA\');ToggleDIV(\'cfgB\');ToggleDIV(\'cfgC\');ToggleDIV(\'cfgD\');"></td><td class="l8">');
+	document.write( '<input id=configSpells type=button value="cfg" name=configSpells onclick="ToggleDIV(\'cfgA\');ToggleDIV(\'cfgB\');ToggleDIV(\'cfgC\');ToggleDIV(\'cfgD\');ToggleDIV(\'cfgE\');"></td><td class="l8">');
 //	document.write( '<input id=SpellArmorButton1 type=button value="No Spells" name=SpellArmorButton1 onclick="SetArmorSpell(0);">&nbsp;');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton2 type=button style="width:100px;" value="Spell Armor" name=SpellArmorButton2 onclick="SetArmorSpell(1);">');
+	document.write( '<div style="display:inline;"><input id="SpellArmorButton2" type=button style="width:100px;" value="Spell Armor" name="SpellArmorButton2" onclick="SetArmorSpell(1);">&nbsp;');
 	document.write( '<div id="cfgA" style="display:none;"><select id="spell_AC_bonus" autocomplete="off" onchange="setSpellACBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Bonus AC due to spells</span><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton3 type=button style="width:100px;" value="Deflection" name=SpellArmorButton3 onclick="SetArmorSpell(2);">&nbsp;');
+	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Temp bonus AC due to spells</span><br></div></div>');
+	document.write( '<div style="display:inline;"><input id="SpellArmorButton3" type=button style="width:100px;" value="Deflection" name="SpellArmorButton3" onclick="SetArmorSpell(2);">&nbsp;');
 	document.write( '<div id="cfgB" style="display:none;"><select id="spell_deflection_bonus" autocomplete="off" onchange="setSpellDeflBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton4 type=button style="width:100px;" value="Natural Armor" name=SpellArmorButton4 onclick="SetArmorSpell(3);">&nbsp;');
+	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Select as the total type bonus</span><br></div></div>');
+	document.write( '<div style="display:inline;"><input id="SpellArmorButton4" type=button style="width:100px;" value="Natural Armor" name="SpellArmorButton4" onclick="SetArmorSpell(3);">&nbsp;');
 	document.write( '<div id="cfgC" style="display:none;"><select id="spell_natural_bonus" autocomplete="off" onchange="setSpellNatBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
 	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
-	document.write( '<div style="display:inline;"><input id=SpellArmorButton5 type=button style="width:100px;" value="Shield" name=SpellArmorButton4 onclick="SetArmorSpell(4);">' );
+	document.write( '<div style="display:inline;"><input id="SpellArmorButton5" type=button style="width:100px;" value="Shield" name="SpellArmorButton5" onclick="SetArmorSpell(4);">&nbsp;');
 	document.write( '<div id="cfgD" style="display:none;"><select id="spell_shield_bonus" autocomplete="off" onchange="setSpellShieldBonus();">');
+	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
+	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
+	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
+	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
+	document.write( '<div style="display:inline;"><input id="SpellArmorButton6" type=button style="width:100px;" value="Dodge" name="SpellArmorButton6" onclick="SetArmorSpell(5);">&nbsp;');
+	document.write( '<div id="cfgE" style="display:none;"><select id="spell_dodge_bonus" autocomplete="off" onchange="setSpellDodgeBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
@@ -4431,15 +4704,19 @@ function SetArmorSpell( level )
 		document.getElementById('SpellArmorButton3').className = '';
 		document.getElementById('SpellArmorButton4').className = '';
 		document.getElementById('SpellArmorButton5').className = '';
+		document.getElementById('SpellArmorButton6').className = '';
 		AC.spellACMod = 0;
 		AC.spellDeflMod = 0;
 		AC.spellNatMod = 0;
+		AC.spellDodgeMod = 0;
 		AC.spellShieldMod = 0;
 		for ( i=0; i<StateArr.length; ++i ) {
 			if ( StateArr[i].name == "SpellArmor1" ) StateArr[i].activate( 0 );
 			if ( StateArr[i].name == "SpellArmor2" ) StateArr[i].activate( 0 );
 			if ( StateArr[i].name == "SpellArmor3" ) StateArr[i].activate( 0 );
 			if ( StateArr[i].name == "SpellArmor4" ) StateArr[i].activate( 0 );
+			if ( StateArr[i].name == "SpellArmor5" ) StateArr[i].activate( 0 );
+			if ( StateArr[i].name == "SpellArmor6" ) StateArr[i].activate( 0 );
 		}
 	} else {
 		// In this version, we can have multiple active, so we do not shut off except on 0.
@@ -4487,6 +4764,17 @@ function SetArmorSpell( level )
 				AC.spellShieldMod = 0;
 			}
 		} 
+		if(level  == 5) {
+			if(document.getElementById('SpellArmorButton6').className == '') {
+				document.getElementById('SpellArmorButton6').className = 'activeButton';
+				AC.spellDodgeMod = spell_Dodge_bonus;
+				if(spell_Dodge_bonus == 0)
+					document.getElementById('SpellArmorButton6').className = 'greyButton';
+			} else {
+				document.getElementById('SpellArmorButton6').className = '';
+				AC.spellDodgeMod = 0;
+			}
+		}
 		// Now that we have set the variables, go execute the changes.
 		for ( i=0; i<StateArr.length; ++i )
 			if ( StateArr[i].name == "SpellArmor" + level )
@@ -4559,6 +4847,7 @@ function RemoveStat (attribute) {
 </script>
 </head>
 <body onload="Compact();">
+<table border="0px" width="600px"><tr><td><!-- force narrow design-->
 <script language="javascript" type="text/javascript">OneTimeBbnLevelParse();</script>
 <script language="javascript" type="text/javascript">CheckForMonk();</script>
 
@@ -4799,14 +5088,13 @@ function RemoveStat (attribute) {
 			picture will show on when the Full Header button is clicked to display the charcter's bio and background.<br />
 			Large Die Icon: <img src="die.png" onerror="ToggleDIV('large_die_available');">
 			<div id="large_die_available" style="display:none; color:red;" class="l8">The large die image is missing.
-				Copy ...\pcgen\preview\d20\fantasy\images\gold\die.png to your character directory where this page
-				is to activate a dice rolling icon in the Saves and Initiative sections.
+				Copy ...\pcgen\preview\d20\fantasy\images\gold\die.png to your character directory,
+				usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
 			</div>
-			<br />
 			Small Die Icon: <img src="die_small.png" onerror="ToggleDIV('small_die_available');">
 			<div id="small_die_available" style="display:none; color:red;" class="l8">The small die image is missing.
-				Copy ...\pcgen\preview\d20\fantasy\images\gold\die_small.png to your character directory where this page
-				is to activate a dice rolling icon in the Skills section.
+				Copy ...\pcgen\preview\d20\fantasy\images\gold\die_small.png to your character directory,
+				usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
 			</div>
 			<br />
 			<br />
@@ -5200,7 +5488,7 @@ function RemoveStat (attribute) {
 |FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1),1,0|
 |OIF(EVEN:%equip1,<tr style="background:#DDDDDD">,<td width="3%">&nbsp;</td>)|
 	<td class="rt8" width="5%">&nbsp;<b>|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.QTY.INTVAL|</b>&nbsp;</td>
-	<td class="lt8">&nbsp;|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NAME.MAGIC~ * ~ *  |</td>
+	<td class="lt8">&nbsp;|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b> |</td>
 	<td class="ct8"><script language="javascript" type="text/javascript">document.write(StripZero('|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.WT|'));</script></td>
 |OIF(EVEN:%equip1,<td></td>,</tr>)|
 |ENDFOR|
@@ -5213,181 +5501,6 @@ function RemoveStat (attribute) {
 <!-- END Compact Equipment (main table row 3) -->
 <!-- START of Comprehensive Equipment Table -->
 			<div id="EquipmentComprehensive" style="display:none">
-   				<table width="100%" cellspacing="0" cellpadding="0" border="0"> <!-- Master Equipment Table -->
-    				<tr>
-					<td class="c10yB"><a name="#" onclick="CycleEquipment()">EQUIPMENT</a>&nbsp;&nbsp;&nbsp;(<script language="javascript" type="text/javascript">document.write(StripZero('|TOTAL.WEIGHT|'));</script> - <script language="javascript" type="text/javascript">document.write(StripZero('|WEIGHT.LIGHT|'));</script>/<script language="javascript" type="text/javascript">document.write(StripZero('|WEIGHT.MEDIUM|'));</script>/<script language="javascript" type="text/javascript">document.write(StripZero('|WEIGHT.HEAVY|'));</script>)&nbsp;&nbsp;&nbsp;&nbsp;
-|IIF(TOTAL.LOAD:Light)|
-						<span style="font-size:10pt; font-weight:bold; color:green;">|TOTAL.LOAD| Load</span>
-|ENDIF|
-|IIF(TOTAL.LOAD:Medium)|
-						<span style="font-size:10pt; font-weight:bold; color:yellow;">|TOTAL.LOAD| Load</span>
-|ENDIF|
-|IIF(TOTAL.LOAD:Heavy)|
-						<span style="font-size:10pt; font-weight:bold; color:orange;">|TOTAL.LOAD| Load</span>
-|ENDIF|
-|IIF(TOTAL.LOAD:Overload)|
-						<span style="font-size:10pt; font-weight:bold; color:red;">|TOTAL.LOAD|</span>
-|ENDIF|
-					</td>
-    				</tr>
-		    		<tr>
-     					<td width="100%" class="lt6">
-      						<table width="100%" cellspacing="0" cellpadding="0" border="0"> <!-- Equipment Table left pane -->
-       						<tr>
-        						<td width="70%" class="lt8sB">ITEM</td>
-        						<td width="12%" class="ct8sB">LOCATION</td>
-        						<td width="6%" class="ct8sB">QTY</td>
-        						<td width="6%" class="ct8sB">WT.</td>
-        						<td width="6%" class="ct8sB">GP COST</td>
-       						</tr>
-|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
-|IIF(EQ.MERGENONE.%equip1.LOCATION:Equipped)|
-							<script language="javascript" type="text/javascript">document.write(EvenOddLine());</script>
-|IIF(EQ.MERGENONE.%equip1.NAME.MAGIC: )|
-							<td class="lt8sB">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ELSE|
-							<td class="lt8s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.SPROP: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span><br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.NOTE: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
-|ENDIF|
-|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
-|IIF(%charges:1)|
-&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
-|ENDIF|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-							</td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>
-       						</tr>
-|ENDIF|
-|ENDFOR|
-|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
-|IIF(EQ.MERGENONE.%equip1.LOCATION:Carried)|
-							<script language="javascript" type="text/javascript">document.write(EvenOddLine());</script>
-|IIF(EQ.MERGENONE.%equip1.NAME.MAGIC: )|
-							<td class="lt8sB">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ELSE|
-							<td class="lt8s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.SPROP: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span><br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.NOTE: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
-|ENDIF|
-|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
-|IIF(%charges:1)|
-&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
-|ENDIF|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-							</td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>
-       						</tr>
-|ENDIF|
-|ENDFOR|
-|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
-|IIF(EQ.MERGENONE.%equip1.LOCATION:Equipped.OR.EQ.MERGENONE.%equip1.LOCATION:Carried)|
-|ELSE|
-							<script language="javascript" type="text/javascript">document.write(EvenOddLine());</script>
-|IIF(EQ.MERGENONE.%equip1.NAME.MAGIC: )|
-							<td class="lt8sB">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ELSE|
-							<td class="lt8s">&nbsp;|EQ.MERGENONE.%equip1.NAME.MAGIC|<br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.SPROP: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.SPROP|)</span><br />
-|ENDIF|
-|IIF(EQ.MERGENONE.%equip1.NOTE: )|
-       					 			<span class="lt7">(|EQ.MERGENONE.%equip1.NOTE|)</span><br />
-|ENDIF|
-|FOR,%charges,1,EQ.MERGENONE.%equip1.CHARGES,1,0|
-|IIF(%charges:1)|
-&nbsp;&nbsp;&nbsp;|EQ.MERGENONE.%equip1.CHARGES| Charges
-|ENDIF|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Potion)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGENONE.%equip1.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.MERGENONE.%equip1.CHECKBOXES,1,0|
-								<font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|ENDIF|
-|ENDIF|
-|ENDIF|
-							</td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>
-        						<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.WT|<br /></td>
-						        <td class="ct8s">|EQ.MERGENONE.%equip1.COST|<br /></td>
-       						</tr>
-|ENDIF|
-|ENDFOR|
-       						<tr>
-        						<td width="41%" class="rt8s">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</td>
-        						<td width="3%" class="ct8s" colspan="2" nowrap="nowrap">|TOTAL.WEIGHT|</td>
-        						<td width="3%" class="ct8s" colspan="2" nowrap="nowrap">|TOTAL.VALUE|</td>
-       						</tr>
-      						</table>
-     					</td>
-    				</tr>
-   				</table>
 			</div>
 <!-- STOP Equipment Table -->
 <!-- MONEY table -->
@@ -5406,11 +5519,6 @@ function RemoveStat (attribute) {
 				<tr>
 					<td class="lt8s">
 						<table width="100%" cellspacing="0" cellpadding="0">
-<!-- FIX: not displaying -->
-|IIF(COUNT[EQTYPE.Coin]<1)|
-	<tr><td>No coins</td></tr>
-|ENDIF|
-<!-- END FIX: not displaying -->
 |FOR.0,COUNT[EQTYPE.Coin],1,<script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Coin.%.QTY\'));</script></td><td width="2%">&nbsp;</td><td class="l8"> \EQTYPE.Coin.%.NAME\,<tr><td width="5%" class="r8">,</td></tr>,1|
 |FOR.0,COUNT[EQTYPE.Gem],1,<script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Gem.%.QTY\'));</script></td><td width="2%">&nbsp;</td><td class="l8">\EQTYPE.Gem.%.NAME\ (Value: <script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Gem.%.COST\'));</script>) ,<tr><td width="5%" class="r8">,</td></tr>,1|
 |%VAR.GOLD|
@@ -5971,20 +6079,20 @@ function RemoveStat (attribute) {
 		<tr><td>
 			<table width="100%" cellspacing="0" cellpadding="2">
 			<tr>
-				<td class="c9wB">SPECIAL QUALITIES</td>
+				<td width="20%" class="c9wB">&nbsp;</td>
+				<td width="60%" class="c9wB">SPECIAL QUALITIES</td>
+				<td width="20%" class="c9wB"><div class="c9wB" id="ShowSources">Show Sources: <a name="#" class="c10yB" onclick="ToggleSources();return('false');">Off</a></div></td>
 			</tr>
 			<tr>
-				<td width="100%" class="l7s">
-|FOR,%bar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%bar.TYPE=SpecialAttack)|
-<!-- FIX: This check is not coded right to exclude Special Attacks from the Special Qualities section -->
-|ELSE|
+				<td width="100%" class="l7s" colspan="3">
+|FOR,%bar,0,(count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1),1,0|
 |IIF(%bar:0)|
 |ELSE|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>%bar)|
 	&bull;&nbsp;
 |ENDIF|
-					<a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','%bar');">|ABILITYALL.Special Ability.VISIBLE.%bar|</a>&nbsp;
 |ENDIF|
+					<a class="lh9" name="#" onclick="ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','%bar');">|ABILITYALL.Special Ability.VISIBLE.%bar.!TYPE=SpecialAttack|</a>&nbsp;
 |ENDFOR|
 				</td>
 			</tr>
@@ -6128,7 +6236,7 @@ function RemoveStat (attribute) {
 		<tr>
 			<td colspan="4" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
 			<td colspan="2" class="ct8"><i>Range:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
-			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
+			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT| |SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
 		</tr>
 		<tr>
 			<td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
@@ -6179,7 +6287,7 @@ function RemoveStat (attribute) {
 		<tr>
 			<td colspan="4" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
 			<td colspan="2" class="ct8"><i>Range:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
-			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
+			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT| |SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
 		</tr>
 		<tr>
 			<td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
@@ -6229,9 +6337,9 @@ function RemoveStat (attribute) {
 	<div id="Class.Regular.|%class|.|%spellbook|.|%spell|.|%level|" style="display:none;" width="100%">
 		<table width="100%" cellspacing="0" cellpadding="2" border=3 bordercolor="#8888CC">
 		<tr>
-			<td class="lt9mB" width="30%">|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL| 
+			<td class="lt9mB" width="25%">|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|
 				<a name="#" onclick="ToggleDIV('Class.Regular.|%class|.|%spellbook|.|%spell|.|%level|');">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a></td>
-  			<td class="ct8" width="5%"><i>Level:</i><br />|%level|</td>
+  			<td class="ct8" width="5%"><i>Lvl:</i><br />|%level|</td>
 			<td class="ct8" width="5%"><i>DC:</i><br/>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
 			<td class="ct8" width="5%"><i>Save:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME:1 standard action)|
@@ -6240,9 +6348,9 @@ function RemoveStat (attribute) {
   			<td class="ct8" width="5%"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
 |ENDIF|
 			<td class="ct8" width="10%"><i>Duration:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
-			<td class="ct8" width="5%"><i>Comp:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
+			<td class="ct8" width="5%"><i>Comp:&nbsp;</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
 			<td class="ct8" width="5%"><i>SR:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.SR|</td>
-			<td class="ct8" width="5%"><i>School:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
+			<td class="ct8" width="10%"><i>School:</i><br />|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
 		</tr>
 		<tr>
 			<td colspan="5" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
@@ -6261,7 +6369,7 @@ function RemoveStat (attribute) {
 			<td colspan="2" class="ct8">
 |ENDIF|
 						    <i>Range:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
-			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
+			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT| |SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
 		</tr>
 		<tr>
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.COST:0)|
@@ -6293,7 +6401,8 @@ function RemoveStat (attribute) {
 	</td>
 </tr>
 </table>  <!-- End the whole table (finally!) -->
-<!-- Hack to get Firefox to run the body.onload script if some images were unavailable an unloadable like die.png -->
+<!-- Hack to get Firefox to run the body.onload script if some images were unavailable and unloadable like die.png -->
 <script language="javascript" type="text/javascript">Compact();</script>
+</td></tr></table>
 </body>
 </html>
