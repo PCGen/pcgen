@@ -584,7 +584,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |IIF(%spelllevelcount:0)|
 <!-- no memorized spells for SPELLSINBOOK.%class 0 %level -->
 |ELSE|
-|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| (|SPELLLISTCAST.%class.%level|/day) -
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,0|
 <i>|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|</i>
 |IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
@@ -688,7 +688,7 @@ DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|,
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 at will) 
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
 |ENDIF|
 |ENDFOR|
 |%|
