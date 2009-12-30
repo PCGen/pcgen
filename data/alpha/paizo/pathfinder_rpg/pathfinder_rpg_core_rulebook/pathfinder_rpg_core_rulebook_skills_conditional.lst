@@ -3,14 +3,14 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 # Original Entry by: Stefan Radermacher
 
 ###Block: Conditional Skills for output only
-# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Source Page
-Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.87
-Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90
-#Linguistics (Understand exotic written messages)	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.518
-Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
-Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
-Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.106
-Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.107
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Source Page
+Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.87
+Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90
+#Linguistics (Understand exotic written messages)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.518
+Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
+Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
+Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.106
+Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.107
 
 ###Block: Skill .MODs
 # Skill Name	Bonus to skill											Bonus to skill rank
