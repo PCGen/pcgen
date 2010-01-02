@@ -339,7 +339,15 @@
 	  ====================================
 	  ====================================-->
 	<saving_throws>
-		<conditional_modifiers/>
+		<conditional_modifiers>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SaveBonus")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
+			<savebonus>
+				<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
+			</savebonus>
+|ENDIF|
+|ENDFOR|
+		</conditional_modifiers>
 		<saving_throw>
 			<name>
 				<long>fortitude</long>
@@ -1137,7 +1145,36 @@ Immune
 		</leadership>
 |%|
 	</class_features>
-	<!--
+
+	<!-- Abilites with check lists -->
+	<checklists>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=CheckList")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.HASASPECT.CheckCount:Y)|
+		<checklist>
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:Extraordinary)|
+			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Ex)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:Supernatural)|
+			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Su)</name>
+|ELSE|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:SpellLike)|
+			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Sp)</name>
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<header>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList|</header>
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.DESC|</description>
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE|</type>
+			<source>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.SOURCE|</source>
+			<check_count>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckCount.INTVAL|</check_count>
+			<check_type>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckType|</check_type>
+		</checklist>
+|ENDIF|
+|ENDFOR|
+	</checklists>
+
+<!--
 	  ====================================
 	  ====================================
 			EQUIPMENT
@@ -2577,6 +2614,21 @@ Immune
 
 
 
+	<!--
+	  ====================================
+	  ====================================
+			TRAITS
+	  ====================================
+	  ====================================-->
+	<traits>
+|FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+		<trait>
+			<name>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
+			<description>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
+			<source>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
+		</trait>
+|ENDFOR|
+	</traits>
 
 
 
