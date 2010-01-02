@@ -4,6 +4,7 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 
 # Language			Type
 Aboleth			TYPE:Spoken.Written.Read
+Boggard			TYPE:Spoken.Written.Read
 Drow				TYPE:Spoken.Written.Read
 Drow Sign Language	TYPE:Spoken.Written.Read
 Sahuagin			TYPE:Spoken.Written.Read
