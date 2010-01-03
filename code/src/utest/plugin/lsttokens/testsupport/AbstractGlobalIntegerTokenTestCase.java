@@ -263,7 +263,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assert(isPositiveAllowed() || isNegativeAllowed());
+		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test

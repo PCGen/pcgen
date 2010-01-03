@@ -194,7 +194,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assert (isPositiveAllowed() || isNegativeAllowed());
+		assertTrue (isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test

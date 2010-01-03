@@ -273,7 +273,7 @@ public class VFeatTokenTest extends
 	{
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				refs, NATURE);
-		assert (rcs.getGroupingState().isValid());
+		assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
@@ -378,7 +378,7 @@ public class VFeatTokenTest extends
 		List<AbilityRef> refs = createSingle("TestWP1");
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				refs, NATURE);
-		assert (rcs.getGroupingState().isValid());
+		assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
