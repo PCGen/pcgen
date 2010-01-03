@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import pcgen.util.Logging;
+
 /**
  * A GroupingState indicates how a PrimitiveChoiceSet or PrimitiveChoiceFilter
  * can be combined.
@@ -67,6 +69,11 @@ public enum GroupingState
 		@Override
 		public GroupingState add(GroupingState gs)
 		{
+			if (gs != EMPTY)
+			{
+				Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_NONE' resulted in 'INVALID'.");
+				return INVALID;
+			}
 			return gs == EMPTY ? ALLOWS_NONE : INVALID;
 		}
 
@@ -102,6 +109,7 @@ public enum GroupingState
 			{
 				return this;
 			}
+			Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_INTERSECTION' resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -140,6 +148,7 @@ public enum GroupingState
 			{
 				return this;
 			}
+			Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -171,6 +180,11 @@ public enum GroupingState
 		@Override
 		public GroupingState add(GroupingState gs)
 		{
+			if (gs == ALLOWS_NONE)
+			{
+				Logging.errorPrint("Attempt to add 'ALLOWS_NONE' grouping state to 'ANY' resulted in 'INVALID'.");
+				return INVALID;
+			}
 			return gs == EMPTY ? ANY : gs == ALLOWS_NONE ? INVALID : gs;
 		}
 
