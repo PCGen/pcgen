@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?> 
-<!DOCTYPE document [
-  <!ENTITY % my-entities SYSTEM "../target/entities.ent">
-  %my-entities;
-]>
 <document>
 <properties>
-  <title></title>  
+  <title>Download Autobuild</title>  
 </properties>  
 <meta name="keyword" content="pcgen, autobuild, snapshot, download"/> 
 <body>
@@ -16,12 +12,14 @@
  can use your previous copy of the libraries for each autobuild and only update if a 
  missing library is reported.
  <ul>
-   <li><a href="download/pcgen-program-&version;-SNAPSHOT.zip">PCGen Autobuild - Program</a></li>
-   <li><a href="download/pcgen-data-&version;-SNAPSHOT.zip">PCGen Autobuild - Data</a></li>
-   <li><a href="download/pcgen-docs-&version;-SNAPSHOT.zip">PCGen Autobuild - Docs</a></li>
-   <li><a href="download/pcgen-libraries-&version;-SNAPSHOT.zip">PCGen Libraries</a></li>
+   <li><a href="download/pcgen-program-${project.version}-SNAPSHOT.zip">PCGen Autobuild - Program</a></li>
+   <li><a href="download/pcgen-data-${project.version}-SNAPSHOT.zip">PCGen Autobuild - Data</a></li>
+   <li><a href="download/pcgen-docs-${project.version}-SNAPSHOT.zip">PCGen Autobuild - Docs</a></li>
+   <li><a href="download/pcgen-libraries-${project.version}-SNAPSHOT.zip">PCGen Libraries</a></li>
  </ul>
  </p>
- </section> </body> </document>
+ </section>
+</body>
+</document>
 
 
