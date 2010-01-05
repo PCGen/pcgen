@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 31 05:28:55 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Jan  5 12:37:42 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Maredudd (Eric C. Smith)
 
@@ -848,7 +848,7 @@ Transmutation School	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecializ
 Universal School		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization			DESC:You have chosen not to specialize in a single school of spells.	ABILITY:Special Ability|AUTOMATIC|Hand of the Apprentice ~ Universal School	ABILITY:Special Ability|AUTOMATIC|Metamagic Mastery ~ Universal School|PREVARGTEQ:ArcaneSchoolLVL,8																													SOURCEPAGE:p.82
 
 ###Block: Wizard Arcane Opposition Schools
-# Ability Name				Category of Ability		Type											Restricted Ability							Description											Source Page					Description of the Benefits
+# Ability Name				Category of Ability		Type											Restricted Ability							Description											Source Page		Description of the Benefits
 Abjuration Opposition School		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.ArcaneOppositionSchool	!PREABILITY:1,CATEGORY=Special Ability,Abjuration School	DESC:You have chosen abjuration spells as an opposition school.		SOURCEPAGE:p.78	BENEFIT:You have chosen abjuration spells as an opposition school. Preparing an abjuration spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an abjuration spell as a prerequisite.
 Conjuration Opposition School		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.ArcaneOppositionSchool	!PREABILITY:1,CATEGORY=Special Ability,Conjuration School	DESC:You have chosen conjuration spells as an opposition school.		SOURCEPAGE:p.78	BENEFIT:You have chosen conjuration spells as an opposition school. Preparing an conjuration spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an conjuration spell as a prerequisite.
 Divination Opposition School		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.ArcaneOppositionSchool	!PREABILITY:1,CATEGORY=Special Ability,Divination School	DESC:You have chosen divination spells as an opposition school.		SOURCEPAGE:p.78	BENEFIT:You have chosen divination spells as an opposition school. Preparing an divination spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an divination spell as a prerequisite.
