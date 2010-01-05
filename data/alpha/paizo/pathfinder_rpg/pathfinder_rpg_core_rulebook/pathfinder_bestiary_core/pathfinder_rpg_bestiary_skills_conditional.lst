@@ -4,6 +4,7 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 
 ###Block: Conditional Skills for output only
 # Skill Name				Key Stat	Untrained?		Classes	Type			Visible
+Disguise (Appear as cloak)		KEYSTAT:CHA	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Disguise (Mimic objects)		KEYSTAT:CHA	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Perception (Blindsense)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Perception (Underwater)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -14,6 +15,7 @@ Stealth (In forests)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VIS
 Stealth (In lair)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In tall grass)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In rocky areas)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Stealth (In scrubland or brush)	KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In snow)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In stony or icy areas)	KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In swamps)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -27,6 +29,7 @@ Survival (Track by scent)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse
 
 ###Block: Skill .MODs
 # Skill Name	Bonus to skill									Bonus to skill rank
+Disguise.MOD	BONUS:SKILL|Disguise (Appear as cloak)|SKILL.Disguise.MISC		BONUS:SKILLRANK|Disguise (Appear as cloak)|SKILLRANK=Disguise|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Disguise (Appear as cloak).MISC"),var("SKILL.Disguise.MISC")
 Disguise.MOD	BONUS:SKILL|Disguise (Mimic objects)|SKILL.Disguise.MISC		BONUS:SKILLRANK|Disguise (Mimic objects)|SKILLRANK=Disguise|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Disguise (Mimic objects).MISC"),var("SKILL.Disguise.MISC")
 Perception.MOD	BONUS:SKILL|Perception (Blindsense)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (Blindsense)|SKILLRANK=Perception|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Blindsense).MISC"),var("SKILL.Perception.MISC")
 Perception.MOD	BONUS:SKILL|Perception (Underwater)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (Underwater)|SKILLRANK=Perception|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Underwater).MISC"),var("SKILL.Perception.MISC")
@@ -37,6 +40,7 @@ Stealth.MOD		BONUS:SKILL|Stealth (In forests)|SKILL.Stealth.MISC			BONUS:SKILLRA
 Stealth.MOD		BONUS:SKILL|Stealth (In lair)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In lair)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In lair).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In tall grass)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In tall grass)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In tall grass).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In rocky areas)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In rocky areas)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In rocky areas).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (In scrubland or brush)|SKILL.Stealth.MISC	BONUS:SKILLRANK|Stealth (In scrubland or brush)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In scrubland or brush).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In snow)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In snow)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In snow).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In stony or icy areas)|SKILL.Stealth.MISC	BONUS:SKILLRANK|Stealth (In stony or icy areas)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In stony or icy areas).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In swamps)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In swamps)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In swamps).MISC"),var("SKILL.Stealth.MISC")
