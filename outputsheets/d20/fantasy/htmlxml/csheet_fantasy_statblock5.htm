@@ -509,12 +509,17 @@ Tower Shield,
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
 <br><b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
-|FOR,%level,0,9,1,1|
+|FOR,%level,9,0,-1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
 |IIF(%spelllevelcount:0)|
 <!-- no memorized spells for SPELLSINBOOK.%class 0 %level -->
 |ELSE|
-<br>|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| (|SPELLLISTCAST.%class.%level|/day) -
+<br>|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE|
+|IIF(%level:0.AND.GAMEMODE:Pathfinder)|
+(at will) -
+|ELSE|
+(|SPELLLISTCAST.%class.%level|/day) -
+|ENDIF|
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,0|
 <i>|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|</i>
 |IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
@@ -553,7 +558,7 @@ Tower Shield,
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:true)|
 <br>|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
-|FOR,%level,0,9,1,1|
+|FOR,%level,9,0,-1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 |IIF(%spelllevelcount:0)|
 <!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
