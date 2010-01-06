@@ -1,0 +1,22 @@
+<assembly>
+  <id>libraries</id>
+  <formats>
+      <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <includeSiteDirectory>false</includeSiteDirectory>
+  <fileSets>
+    <fileSet>
+      <directory></directory>
+      <filtered>false</filtered>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>lib/**</include>
+      </includes>
+      <excludes>
+      	<exclude>lib/emma/**</exclude>
+      	<exclude>lib/test/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>
