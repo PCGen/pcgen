@@ -2,6 +2,7 @@
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 # Original Entry by: Eddy Anthony
 
+# Creatures with constant abilities should use BONUS:VAR|SLA_CL|x to set the caster level for these spell-like abilities
 
 # Ability Name	Unique Key					Category of Ability		Type						Define		Innate Spells										Description																Save checks bonus				Combat bonus				Source Page		Aspects						Description of the Benefits
 Detect Chaos	KEY:Detect Chaos ~ Constant		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense	DEFINE:SLA_CL|0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Detect Chaos,11+CHA		DESC:You can Detect Chaos, as per the spell, as a constant ability.																		SOURCEPAGE:p.266								BENEFIT:You can Detect Chaos, as per the spell, as a constant ability. Constant spell-like abilities function at all times but can be dispelled. Constant spell-like abilities can be reactivate a as a swift action.
