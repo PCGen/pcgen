@@ -31,7 +31,7 @@ Goblinoid		VISIBLE:NO				SOURCEPAGE:p.312																																			CSKI
 Good			VISIBLE:NO				SOURCEPAGE:p.312																																								ABILITY:Special Ability|AUTOMATIC|Aligned (Good)																																RACESUBTYPE:Good
 Halfling		VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Halfling
 Human			VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Human
-Incorporeal		VISIBLE:NO				SOURCEPAGE:p.312	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX																			ABILITY:Special Ability|AUTOMATIC|Incorporeal																																	RACESUBTYPE:Incorporeal
+Incorporeal		VISIBLE:NO				SOURCEPAGE:p.312	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CMB|DEX																ABILITY:Special Ability|AUTOMATIC|Incorporeal																																	RACESUBTYPE:Incorporeal
 Lawful		VISIBLE:NO				SOURCEPAGE:p.312																																								ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																RACESUBTYPE:Lawful
 Native		VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Native
 Oni			VISIBLE:NO	TEMPLATE:Native	SOURCEPAGE:p.221																																								ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Oni|Change Shape ~ Oni																													RACESUBTYPE:Oni
