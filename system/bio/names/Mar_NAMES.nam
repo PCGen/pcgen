@@ -6,30 +6,30 @@
 100	[TITLE]	[SYL1]	[SYL2]
 
 [TITLE]
-[PREGENDER:M	PRECLASS:Barbarian]
+[PREGENDER:M	PRECLASS:1,Barbarian=1]
 Lord 
 Red 
 Black 
 Great 
-[PREGENDER:F	PRECLASS:Barbarian]
+[PREGENDER:F	PRECLASS:1,Barbarian=1]
 Red 
 Black 
 Great 
-[PREGENDER:M	PRERACE:Dwarf]
+[PREGENDER:M	PRERACE:1,Dwarf]
 Lord 
 Runelord 
 Master 
-[PREGENDER:F	PRERACE:Dwarf]
+[PREGENDER:F	PRERACE:1,Dwarf]
 Lady 
-[PREGENDER:M	PRERACE:Elf]
+[PREGENDER:M	PRERACE:1,Elf]
 Lord 
 Prince 
-[PREGENDER:F	PRERACE:Elf]
+[PREGENDER:F	PRERACE:1,Elf]
 Lady 
 Princess 
-[PREGENDER:M	PRECLASS:Wizard]
+[PREGENDER:M	PRECLASS:1,Wizard=1]
 Lord 
-[PREGENDER:F	PRECLASS:Wizard]
+[PREGENDER:F	PRECLASS:1,Wizard=1]
 Lady 
 [/PRE]
 
@@ -47,7 +47,7 @@ Wolfmoon
 Trym
 Kuschel
 Seren
-[PREGENDER:M	PRERACE:Dwarf]
+[PREGENDER:M	PRERACE:1,Dwarf]
 Ghan
 Khar
 Akhor
@@ -67,7 +67,7 @@ Khris
 Khruss
 Khar
 Adakhan
-[PREGENDER:F	PRERACE:Dwarf]
+[PREGENDER:F	PRERACE:1,Dwarf]
 Ghayla
 Khayla
 Akhora
@@ -76,7 +76,7 @@ Khinia
 Zharya
 Zhoynya
 Khuriia
-[PREGENDER:M	PRERACE:Elf]
+[PREGENDER:M	PRERACE:1,Elf]
 Whitebow
 Silver
 Argent
@@ -88,14 +88,14 @@ Myr
 Silverhair
 Whitelock
 Gildeneye
-[PREGENDER:F	PRERACE:Elf]
+[PREGENDER:F	PRERACE:1,Elf]
 Ehla
 Kala
 Myla
 Emyla
 Myana
 Leia
-[PREGENDER:M	PRERACE:Human]
+[PREGENDER:M	PRERACE:1,Human]
 Peter
 Karl
 Mark
@@ -120,7 +120,7 @@ Edward
 Charles
 Connor
 Duncan
-[PREGENDER:F	PRERACE:Human]
+[PREGENDER:F	PRERACE:1,Human]
 Janeen
 Fiona
 Mary
@@ -141,7 +141,7 @@ Lucille
 Charmaine
 Tracie
 Leigh
-[PREGENDER:M	PRECLASS:Wizard]
+[PREGENDER:M	PRECLASS:1,Wizard=1]
 Caecilius
 Darius
 Tiberius
@@ -151,7 +151,7 @@ Galba
 Otho
 Titus
 Domitian
-[PREGENDER:F	PRECLASS:Wizard]
+[PREGENDER:F	PRECLASS:1,Wizard=1]
 Metella
 Filia
 Tiberia
@@ -162,7 +162,7 @@ Domitia
 Caecilia
 Augusta
 Laudaria
-[PREALIGN:2,5,8]
+[PREALIGN:LE,NE,CE]
 #Only Evil Alignments
 Draaz
 Sable
@@ -200,7 +200,7 @@ Vil
 Wes
 Yin
 Zul
-[PRECLASS:Barbarian]
+[PRECLASS:1,Barbarian=1]
 Vul
 Grul
 Vil
@@ -224,7 +224,7 @@ Zha
 Mho
 Khro
 Kar
-[PREGENDER:M	PRERACE:Dwarf]
+[PREGENDER:M	PRERACE:1,Dwarf]
 Khel
 Kang
 Krur
@@ -233,7 +233,7 @@ Dur
 Dhor
 Gem
 Gim
-[PREGENDER:F	PRERACE:Dwarf]
+[PREGENDER:F	PRERACE:1,Dwarf]
 Khra
 Ghza
 Ghuz
@@ -241,7 +241,7 @@ Kel
 Zhur
 Zhag
 Dhrag
-[PRERACE:Elf]
+[PRERACE:1,Elf]
 El
 Myr
 Gil
@@ -256,7 +256,7 @@ Tre
 Lyn
 Sir
 Jen
-[PRERACE:Human]
+[PRERACE:1,Human]
 Al
 Ar
 Bel
@@ -280,7 +280,7 @@ Vil
 Wes
 Yin
 Zul
-[PRECLASS:Wizard]
+[PRECLASS:1,Wizard=1]
 Car
 Ver
 Nor
@@ -293,7 +293,7 @@ Cal
 Ion
 Pel
 Just
-[PREALIGN:2,5,8]
+[PREALIGN:LE,NE,CE]
 #Only Evil Alignments
 Zel
 Xan
@@ -332,7 +332,7 @@ trik
 vin
 wyn
 zadar
-[PREGENDER:M	PRECLASS:Barbarian]
+[PREGENDER:M	PRECLASS:1,Barbarian=1]
 kor
 dor
 dan
@@ -346,7 +346,7 @@ agon
 thar
 thor
 gron
-[PREGENDER:F	PRECLASS:Barbarian]
+[PREGENDER:F	PRECLASS:1,Barbarian=1]
 kora
 dora
 dana
@@ -357,7 +357,7 @@ gona
 kani
 valia
 vili
-[PREGENDER:M	PRERACE:Dwarf]
+[PREGENDER:M	PRERACE:1,Dwarf]
 zhad
 likh
 dhul
@@ -372,7 +372,7 @@ lin
 than
 thon
 let
-[PREGENDER:F	PRERACE:Dwarf]
+[PREGENDER:F	PRERACE:1,Dwarf]
 zhada
 likhia
 dhula
@@ -388,7 +388,7 @@ mina
 minsti
 tekha
 tihga
-[PREGENDER:M	PRERACE:Elf]
+[PREGENDER:M	PRERACE:1,Elf]
 cor
 ryn
 rynth
@@ -400,7 +400,7 @@ manath
 anoc
 falas
 iel
-[PREGENDER:F	PRERACE:Elf]
+[PREGENDER:F	PRERACE:1,Elf]
 cora
 rynia
 rynth
@@ -415,7 +415,7 @@ fala
 thola
 odia
 riel
-[PREGENDER:M	PRERACE:Human]
+[PREGENDER:M	PRERACE:1,Human]
 bar
 con
 dar
@@ -433,7 +433,7 @@ trik
 vin
 wyn
 zadar
-[PREGENDER:F	PRERACE:Human]
+[PREGENDER:F	PRERACE:1,Human]
 bara
 cona
 dara
@@ -451,14 +451,14 @@ trika
 vina
 wyna
 zadara
-[PREGENDER:M	PRECLASS:Wizard]
+[PREGENDER:M	PRECLASS:1,Wizard=1]
 ius
 ium
 us
 um
 ex
 egem
-[PREGENDER:F	PRECLASS:Wizard]
+[PREGENDER:F	PRECLASS:1,Wizard=1]
 ia
 iam
 a
@@ -466,7 +466,7 @@ am
 ix
 aga
 ixa
-[PREALIGN:2,5,8]
+[PREALIGN:LE,NE,CE]
 #Only Evil Alignments
 dor
 dan
@@ -489,7 +489,7 @@ gin
 [/PRE]
 
 [SYL3]
-[PRECLASS:Wizard]
+[PRECLASS:1,Wizard=1]
 en
 an
 il

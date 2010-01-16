@@ -2,7 +2,7 @@
 25	[FULL]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
-[PREMULT:2,[PREGENDER:M],[PRERACE:Dwarf]]
+[PREGENDER:M	PRERACE:1,Dwarf]
 Slim
 Garflin
 Forsythe
@@ -17,7 +17,7 @@ Dnulper
 Guter Jeweleye
 Hanks Ironhelm
 Rask Delvedeep
-[PREMULT:2,[PREGENDER:F],[PRERACE:Dwarf]]
+[PREGENDER:F	PRERACE:1,Dwarf]
 Marda Lockerhelm
 Ninc Farsil
 Kwin Hammerknell
@@ -28,7 +28,7 @@ Rastl Deeperdown
 Tudra Coppereye
 Migan Linkchain
 Durra Fundril
-[PREMULT:2,[PREGENDER:M],[PRERACE:Elf]]
+[PREGENDER:M	PRERACE:1,Elf]
 Semere Liif
 Thaleles Darkshine
 Bayne
@@ -41,7 +41,7 @@ Malhavoc Shadowlord
 Pujol Nevi
 Merolen Amakiir
 Nameroc Shimeran
-[PREMULT:2,[PREGENDER:F],[PRERACE:Elf]]
+[PREGENDER:F	PRERACE:1,Elf]
 Lyssiah Stormwhisper
 Mere Kahain
 Hiola Meliamne
@@ -53,7 +53,7 @@ Wilwarin Afolon
 Aedia Ilphukiir
 Anilla Liadon
 Khaira Swanwing
-[PREMULT:2,[PREGENDER:M],[PRERACE:Gnome]]
+[PREGENDER:M	PRERACE:1,Gnome]
 Widdle Lentach
 Bromsby Tarken
 Waddy of the Waddykins
@@ -67,7 +67,7 @@ Arwkin Delance
 Eliad Pelgrin
 Pomerol Petan
 Menson Parts
-[PREMULT:2,[PREGENDER:F],[PRERACE:Gnome]]
+[PREGENDER:F	PRERACE:1,Gnome]
 Lassl Morkin
 Waywocket Beren
 Imay Abbelan
@@ -80,7 +80,7 @@ Engelime Maddan
 Gappy Monkard
 Ribail Goald
 Ramzena Moar
-[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Elf]]
+[PREGENDER:M	PRERACE:1,Half-Elf]
 Namwob Brown
 Aegelleo Lopas
 Wynn Rabanall
@@ -106,7 +106,7 @@ Sinjin Grinigog
 Thallion Steed
 Abesh Runihan
 Klasandral Susidian
-[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Elf]]
+[PREGENDER:F	PRERACE:1,Half-Elf]
 Diesa
 Forrin
 Melianthe
@@ -128,9 +128,9 @@ Jallarzi
 Felosial
 Tarsheva Longreach
 Valanthe Liadon
-[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Orc]]
-[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Orc]]
-[PREMULT:2,[PREGENDER:M],[PRERACE:Halfling]]
+[PREGENDER:M	PRERACE:1,Half-Orc]
+[PREGENDER:F	PRERACE:1,Half-Orc]
+[PREGENDER:M	PRERACE:1,Halfling]
 Avery Tosscobble
 Jarvis Crookrows
 Milo Windby
@@ -142,7 +142,7 @@ Humphrey
 Eldane Grimmond
 Caruthers Willowby
 Ratheof Blithwyn
-[PREMULT:2,[PREGENDER:F],[PRERACE:Halfling]]
+[PREGENDER:F	PRERACE:1,Halfling]
 Georgia Buttons
 Demelza Highroad
 Mirande Potter
@@ -153,7 +153,7 @@ Carram Blindeye
 Glynese Shrubfire
 Eustace Crookrows
 Morwenna Pastepot
-[PREMULT:2,[PREGENDER:M],[PRERACE:Human]]
+[PREGENDER:M	PRERACE:1,Human]
 Andrinor
 Japheth Marvel
 Surya
@@ -187,7 +187,7 @@ Tyro
 Ian McLaren
 Huerney White-eye
 Fletcher Green
-[PREMULT:2,[PREGENDER:F],[PRERACE:Human]]
+[PREGENDER:F	PRERACE:1,Human]
 Sheva Callister
 Larissa
 Leleanne
@@ -205,7 +205,7 @@ Keriann
 Krishena
 [/PRE]
 [SYL1]
-[PREMULT:2,[PREGENDER:M],[PRERACE:Dwarf]]
+[PREGENDER:M	PRERACE:1,Dwarf]
 Veit
 Tordek
 Barendd
@@ -217,7 +217,7 @@ Oskar
 Ulfgar
 Traubon
 Brottor
-[PREMULT:2,[PREGENDER:F],[PRERACE:Dwarf]]
+[PREGENDER:F	PRERACE:1,Dwarf]
 Sannl
 Liftrasa
 Ilde
@@ -228,7 +228,7 @@ Dagnal
 Audhild
 Torgga
 Artin
-[PREMULT:2,[PREGENDER:M],[PRERACE:Elf]]
+[PREGENDER:M	PRERACE:1,Elf]
 Ivellios
 Sovellis
 Aramil
@@ -240,7 +240,7 @@ Thamior
 Quarion
 Laucian
 Heian
-[PREMULT:2,[PREGENDER:F],[PRERACE:Elf]]
+[PREGENDER:F	PRERACE:1,Elf]
 Felosial
 Lelenia
 Qillathe
@@ -254,7 +254,7 @@ Mialee
 Evandele
 Silaqui
 Elfarran
-[PREMULT:2,[PREGENDER:M],[PRERACE:Gnome]]
+[PREGENDER:M	PRERACE:1,Gnome]
 Gerbo
 Roondar
 Zook
@@ -266,7 +266,7 @@ Boddynock
 Nebin
 Namfoodle
 Seebo
-[PREMULT:2,[PREGENDER:F],[PRERACE:Gnome]]
+[PREGENDER:F	PRERACE:1,Gnome]
 Shamil
 Caramip
 Mardnab
@@ -277,7 +277,7 @@ Bimpnottin
 Waywocket
 Duvamil
 Roywyn
-[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Elf]]
+[PREGENDER:M	PRERACE:1,Half-Elf]
 Tharivol
 Sargen
 Terjon
@@ -299,7 +299,7 @@ Thamior
 Devis
 Ostler
 Aramil
-[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Elf]]
+[PREGENDER:F	PRERACE:1,Half-Elf]
 Darley
 Astrianna
 Jallarzi
@@ -320,7 +320,7 @@ Silaqui
 Ilde
 Hruda
 Antinua
-[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Orc]]
+[PREGENDER:M	PRERACE:1,Half-Orc]
 Krusk
 Unglar
 Shump
@@ -344,7 +344,7 @@ Dench
 Plakk
 Keth
 Grognard
-[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Orc]]
+[PREGENDER:F	PRERACE:1,Half-Orc]
 Neega
 Ovak
 Volen
@@ -366,7 +366,7 @@ Baggi
 Saggi
 Lyrev
 Orfa-mell
-[PREMULT:2,[PREGENDER:M],[PRERACE:Halfling]]
+[PREGENDER:M	PRERACE:1,Halfling]
 Lyle
 Roscoe
 Alton
@@ -378,7 +378,7 @@ Osborn
 Welby
 Eldon
 Milo
-[PREMULT:2,[PREGENDER:F],[PRERACE:Halfling]]
+[PREGENDER:F	PRERACE:1,Halfling]
 Jillian
 Charmaine
 Lavinia
@@ -411,7 +411,7 @@ Furnok
 Gremag
 Hennet
 Coop
-[PREMULT:2,[PREGENDER:M],[PRERACE:Human]]
+[PREGENDER:M	PRERACE:1,Human]
 Andrinor
 Japheth
 Surya
@@ -451,7 +451,7 @@ Tyro
 Ian McLaren
 Huerney
 Fletcher
-[PREMULT:2,[PREGENDER:F],[PRERACE:Human]]
+[PREGENDER:F	PRERACE:1,Human]
 Ilde
 Duroll
 Ember
@@ -478,7 +478,7 @@ Danira
 [SYL2]
 [SYL3]
 #Male & Female Dwarfs have the same last names
-[PRERACE:Dwarf]
+[PRERACE:1,Dwarf]
  Rumnaheim
  Balderk
  Gorunn
@@ -490,7 +490,7 @@ Danira
  Strakeln
  Loderr
 #Male and Female Elves have the same last names
-[PRERACE:Elf]
+[PRERACE:1,Elf]
  Xiloscient
  Amastacia
  Siannodel
@@ -502,7 +502,7 @@ Danira
  Galanodel
  Meliamne
 #Male and Female Gnomes have the same last names
-[PRERACE:Gnome]
+[PRERACE:1,Gnome]
  Beren
  Daergel
  Nackle
@@ -514,7 +514,7 @@ Danira
  Folkor
  Ningel
 #Male and Female Half-Elves have the same last names
-[PRERACE:Half-Elf]
+[PRERACE:1,Half-Elf]
  of Axewood
  of Dreadwood
  of Onnwall
@@ -541,9 +541,9 @@ Danira
  Liadon
  Ilphukiir
 #Male & Female Half-Orcs have the same last names
-[PRERACE:Half-Orc]
+[PRERACE:1,Half-Orc]
 #Male & Female Halflings have the same last names
-[PRERACE:Halfling]
+[PRERACE:1,Halfling]
  Highhill
  Thorngage
  Goodbarrel
@@ -555,7 +555,7 @@ Danira
  Leagallow
  Brushgather
 #Male & Female Humans have the same last names
-[PRERACE:Human]
+[PRERACE:1,Human]
  of Blackmoor
  of Dyvers
  of Ket
