@@ -15,6 +15,7 @@ Stealth (In caverns)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	V
 Stealth (In dim light)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In forests)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In lair)						KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Stealth (In marshes)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In tall grass)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In rocky areas)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In scrubland or brush)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -44,6 +45,7 @@ Stealth.MOD		BONUS:SKILL|Stealth (In caverns)|SKILL.Stealth.MISC					BONUS:SKILL
 Stealth.MOD		BONUS:SKILL|Stealth (In dim light)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In dim light)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In dim light).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In forests)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In forests)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In forests).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In lair)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In lair)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In lair).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (In marshes)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In marshes)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In marshes).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In tall grass)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In tall grass)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In tall grass).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In rocky areas)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In rocky areas)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In rocky areas).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In scrubland or brush)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In scrubland or brush)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In scrubland or brush).MISC"),var("SKILL.Stealth.MISC")
