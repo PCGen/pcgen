@@ -3,14 +3,14 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		
+
 		Description:
 		PCGen FAQ Submitting Feature Requests.
 	-->
@@ -19,33 +19,33 @@
 		<link rel="stylesheet" type="text/css" href="../pcgen.css" >
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
-	
+
 	<body>
 		<h1>Submitting a Feature Request for PCGen</h1>
-		
+
 		<p>The purpose of this document is to provide a walk through of how to properly submit a feature request at Source Forge for PCGen.
 		Please read the <a href="faqsubmittingabugreport.html">Bug vs. Feature</a> to make sure that what you want to submit is a feature request.</p>
-		
+
 		<p>Before you attempt to submit a feature request, visit the PCGen Yahoo Group message boards (<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a>),
-		and describe your feature request. Feature Requests are often referred to as FREQs on the board. This way others can help you refine 
-		the request or tell you that it's already been entered as a FREQ or even point out that the FREQ would be useful for another book as 
+		and describe your feature request. Feature Requests are often referred to as FREQs on the board. This way others can help you refine
+		the request or tell you that it's already been entered as a FREQ or even point out that the FREQ would be useful for another book as
 		well. Once the FREQ has been kicked about and refined you can then submit it.</p>
-		
+
 		<h2>Submitting your Feature Request</h2>
-		
+
 		<ol>
 			<li><p>Go to <a href="http://sourceforge.net/projects/pcgen/" style="color: blue; text-decoration: underline; text-underline: single">
 			http://sourceforge.net/projects/pcgen/</a> and go to Tracker (Either at the top of the screen or scroll down slightly to see &quot;Tracker&quot;).</p></li>
-			
+
 			<li><p>Click on Feature Requests if you want to request a feature, or Output Request if it's a request related to a character sheet.</p></li>
-			
-			<li><p>Search through the listed features, making sure that Assignee, Category, and Group are set to &quot;Any&quot;, that Status is set to &quot;Open&quot;, 
-			and that Sort By is set to &quot;ID&quot;, to see if your problem is already submitted. If it is, add a message at the bottom of the feature request 
-			detailing your information as well. This will give the developer who takes on this request as much information as possible to best resolve 
+
+			<li><p>Search through the listed features, making sure that Assignee, Category, and Group are set to &quot;Any&quot;, that Status is set to &quot;Open&quot;,
+			and that Sort By is set to &quot;ID&quot;, to see if your problem is already submitted. If it is, add a message at the bottom of the feature request
+			detailing your information as well. This will give the developer who takes on this request as much information as possible to best resolve
 			the issue to everyone's satisfaction.</p></li>
-			
+
 			<li><p>If it does not exist, select &quot;Submit New&quot;. Make sure you select the appropriate category, Group, and make a concise summary of the request.</p></li>
-			
+
 			<li><p>In the Detailed Description use the following:</p>
 					<p><strong>TITLE:</strong><br />
 					A _meaningful_ title, for example the LST syntax you are affecting, or the benefit to PCGEN you are providing.<br />
@@ -79,22 +79,26 @@
 					SPELL.RANGE<br />
 					<br />
 					<strong>DESCRIPTION:</strong><br />
-					The Range could be evaluated - something like BONUS:SPELL=name|RANGE|formula for spell's range 
-					(something like 5*CL+100 since CL gets the class level). This would require adding RANGEEVAL to the 
+					The Range could be evaluated - something like BONUS:SPELL=name|RANGE|formula for spell's range
+					(something like 5*CL+100 since CL gets the class level). This would require adding RANGEEVAL to the
 					SPELLMEM tokens, and for that token return getTotalBonusTo("SPELL="+aSpell.name()","RANGE",true)
 					</p>
 			</li>
 
-			<li><p>If your feature request involves new tags or syntax, it's always helpful to suggest the name and syntax of the tag. When the developer looks 
+			<li><p>If your feature request involves new tags or syntax, it's always helpful to suggest the name and syntax of the tag. When the developer looks
 			at it they may not go with what you suggest exactly, but it's always helpful to have a suggestion to get the creative juices flowing. :)</p></li>
-			
+
+            <li><p>Assuming this bug was first discussed on one of the Yahoo! mailing lists, then add that discussion link to this tracker.</p></li>
+
 			<li><p>Finally, hit submit.</p></li>
+
+            <li><p>Assuming this bug was first discussed on one of the Yahoo! mailing lists, then add a link to this tracker back to that discussion.</p></li>
 		</ol>
-		
-		
+
+
 		<h2>Tracking your Feature Request</h2>
-		
-		<p>You can go and visit your happy little item any time you please and check on its status. Note that the item may very well have been moved 
+
+		<p>You can go and visit your happy little item any time you please and check on its status. Note that the item may very well have been moved
 		to a different tracker group within pcgen (say maybe to bugs)</p>
 
 <hr>
