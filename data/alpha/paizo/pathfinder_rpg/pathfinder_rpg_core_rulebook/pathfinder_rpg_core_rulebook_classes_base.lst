@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  9 20:13:35 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Jan 21 09:46:33 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd)
 
@@ -361,8 +361,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 CLASS:Wizard	HD:6		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	VISIBLE:YES	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Appraise|TYPE.Craft|Fly|TYPE.Knowledge|Linguistics|TYPE.Profession|Spellcraft
-# Class Name	Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #
 SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Abjuration School
