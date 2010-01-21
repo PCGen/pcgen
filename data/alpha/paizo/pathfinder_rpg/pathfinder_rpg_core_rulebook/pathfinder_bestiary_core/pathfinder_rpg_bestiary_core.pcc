@@ -47,6 +47,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 
 ABILITY:pathfinder_rpg_bestiary_abilities_constant_spelllike.lst
 ABILITY:pathfinder_rpg_bestiary_abilities_monsters_general.lst
+ABILITYCATEGORY:pathfinder_rpg_bestiary_abilitycategories.lst
 CLASS:pathfinder_rpg_bestiary_classes_monster.lst
 FEAT:pathfinder_rpg_bestiary_feats_monster.lst
 LANGUAGE:pathfinder_rpg_bestiary_languages.lst

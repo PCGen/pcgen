@@ -294,6 +294,27 @@ Can't Be Tripped	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DEF
 Cannot Speak	CATEGORY:Special Ability	TYPE:Communicate									DESC:A creature with this ability may understand one of more languages but cannot speak.
 Stampede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:A stampede occurs if three or more creatures with stampede make a trample attack while remaining adjacent to each other.																				SOURCEPAGE:p.174		ASPECT:Ability Benefit|(DC %1)|TrampleDC+2	BENEFIT:A stampede occurs if three or more creatures with stampede make a trample attack while remaining adjacent to each other. While stampeding, the creatures can trample foes of their size or smaller, and the trample's save DC increases by +2.
 
+###Block: Creature with class level Ability Adjustment Abilities
+# Ability Name	Unique Key					Category of Ability		Type						Visible		Stat bonus
++4 Strength		KEY:+4 Strength ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|STR|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Strength ~ Class Level,-2 Strength ~ Class Level
++4 Dexterity	KEY:+4 Dexterity ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|DEX|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Dexterity ~ Class Level,-2 Dexterity ~ Class Level
++4 Constitution	KEY:+4 Constitution ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|CON|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Constitution ~ Class Level,-2 Constitution ~ Class Level
++4 Intelligence	KEY:+4 Intelligence ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|INT|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Intelligence ~ Class Level,-2 Intelligence ~ Class Level
++4 Wisdom		KEY:+4 Wisdom ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|WIS|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Wisdom ~ Class Level,-2 Wisdom ~ Class Level
++4 Charisma		KEY:+4 Charisma ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	BONUS:STAT|CHA|4	!PREABILITY:1,CATEGORY=Special Ability,+2 Charisma ~ Class Level,-2 Charisma ~ Class Level
++2 Strength		KEY:+2 Strength ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|STR|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Strength ~ Class Level,-2 Strength ~ Class Level
++2 Dexterity	KEY:+2 Dexterity ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|DEX|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Dexterity ~ Class Level,-2 Dexterity ~ Class Level
++2 Constitution	KEY:+2 Constitution ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|CON|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Constitution ~ Class Level,-2 Constitution ~ Class Level
++2 Intelligence	KEY:+2 Intelligence ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|INT|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Intelligence ~ Class Level,-2 Intelligence ~ Class Level
++2 Wisdom		KEY:+2 Wisdom ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|WIS|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Wisdom ~ Class Level,-2 Wisdom ~ Class Level
++2 Charisma		KEY:+2 Charisma ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2	VISIBLE:DISPLAY	BONUS:STAT|CHA|2	!PREABILITY:1,CATEGORY=Special Ability,+4 Charisma ~ Class Level,-2 Charisma ~ Class Level
+-2 Strength		KEY:-2 Strength ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|STR|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Strength ~ Class Level,+2 Strength ~ Class Level
+-2 Dexterity	KEY:-2 Dexterity ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|DEX|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Dexterity ~ Class Level,+2 Dexterity ~ Class Level
+-2 Constitution	KEY:-2 Constitution ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|CON|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Constitution ~ Class Level,+2 Constitution ~ Class Level
+-2 Intelligence	KEY:-2 Intelligence ~ Class Level	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|INT|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Intelligence ~ Class Level,+2 Intelligence ~ Class Level
+-2 Wisdom		KEY:-2 Wisdom ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|WIS|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Wisdom ~ Class Level,+2 Wisdom ~ Class Level
+-2 Charisma		KEY:-2 Charisma ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	BONUS:STAT|CHA|-2	!PREABILITY:1,CATEGORY=Special Ability,+4 Charisma ~ Class Level,+2 Charisma ~ Class Level
+
 #
 # End
 #
