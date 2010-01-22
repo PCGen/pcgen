@@ -87,7 +87,7 @@ Potion of Spider Climb					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAG
 Potion of Tongues						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Speak and understand the language of any intelligent creature for 50 minutes
 Potion of Undetectable Alignment			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Conceals target's alignment from divination spells and effects for 24 hours
 Potion of Water Breathing				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Breathe water freely for 10 hours
-Potion of Water Walk					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Tread ony any liquid for 50 minutes
+Potion of Water Walk					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Tread on any liquid for 50 minutes
 
 ###Block: Oils
 # Equipment Name				Type					Cost		Weight	Source Page		Special Property
