@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov 29 12:28:37 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Jan 21 23:26:07 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -93,31 +93,31 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Required Race				Apply Kit
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Bat)		KIT:1|Familiar ~ Bat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Cat)		KIT:1|Familiar ~ Cat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Hawk)		KIT:1|Familiar ~ Hawk
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Lizard)		KIT:1|Familiar ~ Lizard
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Owl)		KIT:1|Familiar ~ Owl
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Rat)		KIT:1|Familiar ~ Rat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)		KIT:1|Familiar ~ Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Snake (Viper))	KIT:1|Familiar ~ Snake
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Toad)		KIT:1|Familiar ~ Toad
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Weasel)		KIT:1|Familiar ~ Weasel
+# Class of the Master	Type			Required Race			Apply Kit
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Bat)	KIT:1|Familiar ~ Bat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Cat)	KIT:1|Familiar ~ Cat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Hawk)	KIT:1|Familiar ~ Hawk
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Lizard)	KIT:1|Familiar ~ Lizard
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Owl)	KIT:1|Familiar ~ Owl
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Rat)	KIT:1|Familiar ~ Rat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Familiar ~ Raven
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Viper)	KIT:1|Familiar ~ Snake
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Toad)	KIT:1|Familiar ~ Toad
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Weasel)	KIT:1|Familiar ~ Weasel
 #
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar				Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)		TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)		TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)		TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)		TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)		TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)		TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)		TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Snake (Viper))	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)		TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)		TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+# Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master

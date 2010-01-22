@@ -122,12 +122,12 @@ TEMPLATE:Raven Familiar Language
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Familiar ~ Snake	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Snake (Viper))	!PRERACE:1,%
+RACE:Familiar (Viper)	!PRERACE:1,%
 
 #SKILL:Listen	RANK:1
 #SKILL:Spot		RANK:1
 #FEAT:Weapon Finesse
-STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 STARTPACK:Familiar ~ Toad	TYPE:Companion	VISIBLE:NO
 RACE:Familiar (Toad)	!PRERACE:1,%
