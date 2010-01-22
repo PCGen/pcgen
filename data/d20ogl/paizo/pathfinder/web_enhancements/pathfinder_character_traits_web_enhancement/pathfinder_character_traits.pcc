@@ -37,6 +37,7 @@ ABILITY:pathfinder_character_traits_abilities.lst
 ABILITYCATEGORY:pathfinder_character_traits_abilitycategory.lst
 FEAT:pathfinder_character_traits_feat.lst
 KIT:pathfinder_character_traits_kits.lst
+TEMPLATE:pathfinder_character_traits_templates.lst
 
 #
 # End
