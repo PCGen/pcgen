@@ -864,9 +864,96 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			returnGood = validateDuplicates();
 		}
+		returnGood &= validateNames();
 		returnGood &= validateActive();
 		returnGood &= validateUnconstructed(validator);
 		return returnGood;
+	}
+
+	private boolean validateNames()
+	{
+		for (String key : active.getKeySet())
+		{
+			/*
+			 * http://wiki.pcgen.org/index.php?title=Data_LST_Standards
+			 * 
+			 * Characters which should never be used in object names are Commas
+			 * (,), Pipes (|), Backslashes (\), Colons (:), Semicolons (;),
+			 * Periods (.), Brackets ([]), Percent (%), Asterisk (*) and Equals
+			 * (=).
+			 */
+			if (key.indexOf(',') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a comma "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('|') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a pipe "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('\\') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a backslash "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf(':') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a colon "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf(';') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a semicolon "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('.') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a period "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('%') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a percent sign "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('*') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains an asterisk "
+						+ "(prohibited character in a key)");
+			}
+			if (key.indexOf('=') != -1)
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains an equals sign "
+						+ "(prohibited character in a key)");
+			}
+			if ((key.indexOf('[') != -1) || (key.indexOf(']') != -1))
+			{
+				Logging.log(Logging.LST_WARNING, "Found "
+						+ getReferenceDescription() + " with KEY: " + key
+						+ " which contains a bracket  "
+						+ "(prohibited character in a key)");
+			}
+		}
+		return true;
 	}
 
 	private boolean validateUnconstructed(UnconstructedValidator validator)

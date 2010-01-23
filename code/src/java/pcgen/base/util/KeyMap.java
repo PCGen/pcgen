@@ -18,6 +18,7 @@
 package pcgen.base.util;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -273,5 +274,10 @@ public class KeyMap<V>
 	public V getItemInOrder(int item)
 	{
 		return inputOrder.get(item);
+	}
+
+	public Set<String> getKeySet()
+	{
+		return Collections.unmodifiableSet(forwardMap.keySet());
 	}
 }
