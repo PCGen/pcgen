@@ -493,7 +493,7 @@ Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws agains
 Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 
 # Duergar Dwarf
-Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison																	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
 
 # Elf
 Elf Immunity				OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
