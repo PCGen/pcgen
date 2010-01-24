@@ -32,12 +32,50 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 
 15 COPYRIGHT NOTICE
 
-Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
 
-System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+System Reference Document. (c) 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-Pathfinder Roleplaying Game: Bonus bestiary, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn.
+Pathfinder RPG Bestiary, (c) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-Tome of Horrors, Revised Edition. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, Bill Webb; Based on original content from TSR.
+Basidirond from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Bonus Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher)
+Cave Fisher from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Lawrence Schick.
+
+Crystal Ooze from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Dark Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Rik Shepard.
+
+Dark Stalker from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Muth.
+
+Dracolisk from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Froghemoth from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Giant Slug from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Ice Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene.
+
+Iron Cobra from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Philip Masters.
+
+Marid from the Tome of Horrors III, (c) 2005, Necromancer Games, Inc.; Author Scott Greene.
+
+Mite from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+
+Nabasu Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Russet Mold from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Shadow Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
+
+Vegepygmy from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Authors Scott Greene and Patrick Lawinger.
+
+Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+
+Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+
+Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing))
