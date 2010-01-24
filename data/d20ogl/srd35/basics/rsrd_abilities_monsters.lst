@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 14:28:25 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sat Jan 23 20:13:23 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
@@ -479,14 +479,14 @@ Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuali
 
 ###Block: Racial Abilities - Core races and varients
 # Dwarf
-# Ability Name				Output Name																									Category of Ability		Type						Visible	Bonus to skill																																								Temporary effect description
+# Ability Name				Output Name																									Category of Ability		Type						Visible	Description																																Bonus to skill																																								Temporary effect description
 Stonecunning																														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Stability																															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Stability																															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:+4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).
 Dwarf Poison Resistance			OUTPUTNAME:+2 racial bonus on saving throws against poison																	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Dwarf Spell Resistance			OUTPUTNAME:+2 racial bonus on saving throws against spells and spell-like effects													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Dwarf Attacks				OUTPUTNAME:+1 racial bonus on attack rolls against orcs and goblinoids															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Dodge Giant					OUTPUTNAME:+4 Dodge bonus to Armor Class against monsters of the giant type														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Stoneworking Skills			OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BONUS:SKILL|Appraise,TYPE.Craft|2|TYPE=Racial|PREAPPLY:PC	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Search (Notice unusual stonework)|2|TYPE=Racial	TEMPDESC:Adjusts Appraise and Craft skill bonuses by 2
+Stoneworking Skills			OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																		BONUS:SKILL|Appraise,TYPE.Craft|2|TYPE=Racial|PREAPPLY:PC	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Search (Notice unusual stonework)|2|TYPE=Racial	TEMPDESC:Adjusts Appraise and Craft skill bonuses by 2
 
 # Deep Dwarf (these should be merged with the standard Dwarf abilities once OUTPUTNAME can handle variables
 Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison																	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
