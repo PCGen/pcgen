@@ -496,7 +496,7 @@ Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against
 Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison																	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 
 # Elf
-Elf Immunity				OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Elf Immunity				OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
 Elf Resistance				OUTPUTNAME:+2 racial saving throw bonus against enchantment spells or effects														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Notice Secret Doors			OUTPUTNAME:Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for it	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 
