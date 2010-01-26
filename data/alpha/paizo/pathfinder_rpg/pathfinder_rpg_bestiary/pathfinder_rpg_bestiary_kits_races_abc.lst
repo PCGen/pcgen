@@ -4,6 +4,7 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 STARTPACK:Aasimar Cleric	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aasimar],[!PRERACE:1,%]	SOURCEPAGE:p.7
 ALIGN:NG
 RACE:Aasimar	!PRERACE:1,%
+GENDER:Female
 NAME:Aasimar Cleric
 DEITY:Sarenrae
 CLASS:Cleric	LEVEL:1
@@ -68,7 +69,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Toughness
 FEAT:Weapon Focus (Warhammer)
-GEAR:Warhammer	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS2W.DISRPT
+GEAR:Warhammer	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.DISRPT
 
 
 STARTPACK:Angel (Planetar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Planetar)],[!PRERACE:1,%]	SOURCEPAGE:p.11
