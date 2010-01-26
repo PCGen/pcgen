@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sat Jan  2 23:51:21 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+
+###Block: Builder templates
+# Template Name			Visible	Required Size	Natural Attacks
+Bite ~ Claw (Fine)		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Bite ~ Claw (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
+Bite ~ Claw (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Bite ~ Claw (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Bite ~ Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Bite ~ Claw (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Bite ~ Claw (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Bite ~ Claw (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6
+Bite ~ Claw (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+
+###Block: Chimera Template
+# Template Name		Visible	Modify VAR															Ability											Subrace
+Black Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|40	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid		SUBRACE:Black Headed
+Blue Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|40	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning	SUBRACE:Blue Headed
+Green Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Gas	SUBRACE:Green Headed
+Red Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire		SUBRACE:Red Headed
+White Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold		SUBRACE:White Headed
+
+###Block: Shoggoth Immunities and Resistances Template
+# Template Name	Visible	Source Page		Modify VAR																		Ability																																																		Vision
+Shoggoth		VISIBLE:NO	SOURCEPAGE:p.249	BONUS:VAR|AcidResistanceBonus|10	BONUS:VAR|ElectricityResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Blindness|Immunity to Deafness|Immunity to Charm|Immunity to Sonic|Immunity to Critical Hits|Immunity To Flanking|Immunity to Sneak Attacks|Immunity to Poison|Immunity to Sleep|Immunity to Paralysis|Immunity to Polymorph|Immunity to Stunning	VISION:Darkvision (120')|Low-light|Tremorsense (60')
+
+#
+# End
+#

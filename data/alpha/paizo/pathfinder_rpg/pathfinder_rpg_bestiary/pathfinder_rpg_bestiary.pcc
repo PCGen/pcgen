@@ -1,0 +1,98 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Pathfinder Roleplaying Game Bestiary
+SOURCESHORT:PFB
+SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5
+SOURCEDATE:2009-10
+ISOGL:YES
+ISLICENSED:NO
+
+COPYRIGHT:Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. (c) 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Bestiary, (c) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Basidirond from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Cave Fisher from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Crystal Ooze from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dark Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Rik Shepard.
+COPYRIGHT:Dark Stalker from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Dracolisk from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Giant Slug from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Ice Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Iron Cobra from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Marid from the Tome of Horrors III, (c) 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Mite from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Nabasu Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Russet Mold from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Shadow Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
+COPYRIGHT:Vegepygmy from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Authors Scott Greene and Patrick Lawinger.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing))
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:pathfinder_rpg_bestiary.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5|Buy this publication from Paizo Publishing!
+DESC:The greatest monsters of fantasy gaming come alive in this hardcover release for Paizo's new Pathfinder Roleplaying Game! Backward-compatible with the 3.5 fantasy rules but packed with new solutions and options that place it firmly on the cutting edge, the Pathfinder Roleplaying Game is the culmination of the largest open playtest in tabletop RPG history.
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_abc.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_def.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_ghi.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_jkl.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_mno.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_pqr.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_stu.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_vw.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_xyz.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_companions.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_dragons.lst
+ABILITY:pathfinder_rpg_bestiary_abilities_monsters_templates.lst
+ABILITYCATEGORY:pathfinder_rpg_bestiary_abilitycategories.lst
+CLASS:pathfinder_rpg_bestiary_classes_monster_specific.lst
+EQUIPMENT:pathfinder_rpg_bestiary_equip_monsters.lst
+KIT:pathfinder_rpg_bestiary_kits_races_abc.lst
+KIT:pathfinder_rpg_bestiary_kits_races_def.lst
+KIT:pathfinder_rpg_bestiary_kits_races_ghi.lst
+KIT:pathfinder_rpg_bestiary_kits_races_jkl.lst
+KIT:pathfinder_rpg_bestiary_kits_races_mno.lst
+KIT:pathfinder_rpg_bestiary_kits_races_pqr.lst
+KIT:pathfinder_rpg_bestiary_kits_races_stu.lst
+KIT:pathfinder_rpg_bestiary_kits_races_vw.lst
+KIT:pathfinder_rpg_bestiary_kits_races_xyz.lst
+KIT:pathfinder_rpg_bestiary_kits_races_companions.lst
+KIT:pathfinder_rpg_bestiary_kits_races_dragons.lst
+KIT:pathfinder_rpg_bestiary_kits_races_templates.lst
+RACE:pathfinder_rpg_bestiary_races_abc.lst
+RACE:pathfinder_rpg_bestiary_races_def.lst
+RACE:pathfinder_rpg_bestiary_races_dragons.lst
+RACE:pathfinder_rpg_bestiary_races_ghi.lst
+RACE:pathfinder_rpg_bestiary_races_jkl.lst
+RACE:pathfinder_rpg_bestiary_races_mno.lst
+RACE:pathfinder_rpg_bestiary_races_pqr.lst
+RACE:pathfinder_rpg_bestiary_races_stu.lst
+RACE:pathfinder_rpg_bestiary_races_vw.lst
+RACE:pathfinder_rpg_bestiary_races_xyz.lst
+RACE:pathfinder_rpg_bestiary_races_companions.lst
+TEMPLATE:pathfinder_rpg_bestiary_races_templates.lst
+TEMPLATE:pathfinder_rpg_bestiary_templates.lst
+TEMPLATE:pathfinder_rpg_bestiary_templates_dragons.lst
+TEMPLATE:pathfinder_rpg_bestiary_templates_simple.lst
+WEAPONPROF:pathfinder_rpg_bestiary_prof_weapons_monsters.lst

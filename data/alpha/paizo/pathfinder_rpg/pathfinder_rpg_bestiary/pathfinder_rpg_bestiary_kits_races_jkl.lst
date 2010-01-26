@@ -1,0 +1,223 @@
+# CVS $Revision$ $Author$ -- Sun Nov 22 13:38:50 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+
+
+STARTPACK:Kobold Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kobold],[!PRERACE:1,%]	SOURCEPAGE:p.183
+ALIGN:LE
+RACE:Kobold	!PRERACE:1,%
+NAME:Kobold
+CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Craft (Traps)	RANK:1
+SKILL:Stealth		RANK:1
+FEAT:Skill Focus (Perception)
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+GEAR:Longspear	SIZE:S	LOCATION:Both Hands
+GEAR:Sling		SIZE:S	LOCATION:Carried
+GEAR:Leather	SIZE:S	LOCATION:Equipped
+
+
+STARTPACK:Kraken Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kraken],[!PRERACE:1,%]	SOURCEPAGE:p.184
+ALIGN:NE
+RACE:Kraken	!PRERACE:1,%
+NAME:Kraken
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Geography)	RANK:20
+SKILL:Knowledge (Nature)	RANK:20
+SKILL:Perception			RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Swim				RANK:20
+SKILL:Use Magic Device		RANK:20
+FEAT:Bleeding Critical
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Expertise
+FEAT:Critical Focus
+FEAT:Improved Critical (Arm)
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Kyton Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton],[!PRERACE:1,%]	SOURCEPAGE:p.185
+ALIGN:LE
+RACE:Kyton	!PRERACE:1,%
+NAME:Kyton
+SKILL:Acrobatics			RANK:8
+SKILL:Climb				RANK:8
+SKILL:Craft (Blacksmithing)	RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Intimidate			RANK:8
+SKILL:Perception			RANK:8
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Chains)
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Lamia Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lamia],[!PRERACE:1,%]	SOURCEPAGE:p.186
+ALIGN:CE
+RACE:Lamia	!PRERACE:1,%
+NAME:Lamia
+SKILL:Bluff				RANK:4
+SKILL:Diplomacy			RANK:3
+SKILL:Disguise			RANK:5
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Religion)	RANK:3
+SKILL:Perception			RANK:9
+SKILL:Stealth			RANK:9
+SKILL:Survival			RANK:6
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Spring Attack
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+GEAR:Dagger	SIZE:M	LOCATION:Primary Hand
+
+
+STARTPACK:Leech (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.187
+ALIGN:TN
+RACE:Leech (Giant)	!PRERACE:1,%
+NAME:Giant Leech
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Leech Swarm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.187
+ALIGN:TN
+RACE:Leech Swarm	!PRERACE:1,%
+NAME:Leech Swarm
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Linnorm (Crag) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Linnorm (Crag)]	SOURCEPAGE:p.190
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+RACE:Linnorm (Crag)	!PRERACE:1,%
+NAME:Crag Linnorm
+ALIGN:TN
+SKILL:Fly		RANK:15
+SKILL:Perception	RANK:15
+SKILL:Swim		RANK:15
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+
+STARTPACK:Linnorm (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.191
+ALIGN:CE
+RACE:Linnorm (Ice)	!PRERACE:1,%
+NAME:Ice Linnorm
+SKILL:Climb		RANK:18
+SKILL:Fly		RANK:18
+SKILL:Perception	RANK:18
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Vital Strike
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Linnorm (Tarn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Tarn)],[!PRERACE:1,%]	SOURCEPAGE:p.192
+ALIGN:CE
+RACE:Linnorm (Tarn)	!PRERACE:1,%
+NAME:Tarn Linnorm
+SKILL:Fly		RANK:22
+SKILL:Perception	RANK:22
+SKILL:Stealth	RANK:22
+SKILL:Swim		RANK:22
+FEAT:Awesome Blow
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Overrun
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Vital Strike
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Lion Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion],[!PRERACE:1,%]	SOURCEPAGE:p.193
+ALIGN:TN
+RACE:Lion	!PRERACE:1,%
+NAME:Lion
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+FEAT:Improved Initiative
+FEAT:Run
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Lion (Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.193
+ALIGN:TN
+RACE:Lion (Dire)	!PRERACE:1,%
+NAME:Dire Lion
+SKILL:Acrobatics	RANK:2
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:2
+FEAT:Improved Initiative
+FEAT:Run
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Claw)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Lizard (Monitor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Monitor)],[!PRERACE:1,%]	SOURCEPAGE:p.194
+ALIGN:TN
+RACE:Lizard (Monitor)	!PRERACE:1,%
+NAME:Monitor Lizard
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Great Fortitude
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Lizard (Giant Frilled) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Giant Frilled)],[!PRERACE:1,%]	SOURCEPAGE:p.194
+ALIGN:TN
+RACE:Lizard (Giant Frilled)	!PRERACE:1,%
+NAME:Giant Frilled Lizard
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:4
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Lizardfolk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizardfolk],[!PRERACE:1,%]	SOURCEPAGE:p.195
+ALIGN:TN
+RACE:Lizardfolk	!PRERACE:1,%
+NAME:Lizardfolk
+SKILL:Perception	RANK:1
+SKILL:Swim		RANK:1
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+GEAR:Morningstar				LOCATION:Primary Hand
+GEAR:Javelin			QTY:3	LOCATION:Carried
+GEAR:Shield (Heavy/Wooden)		LOCATION:Equipped
+
+
+#
+# End
+#

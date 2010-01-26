@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Mon Dec 28 12:33:28 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+
+###Block: Simpe Templated
+# Template Name	Challenge Rating	Visible	Source Page		Combat bonus											Adjust PC Size		Stat bonus
+Advanced Creature	CR:1			VISIBLE:YES	SOURCEPAGE:p.294	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE										BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4
+Giant Creature	CR:1			VISIBLE:YES	SOURCEPAGE:p.295	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|DAMAGESIZE|1	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|4|TYPE=Size	BONUS:STAT|DEX|-2
+Young Creature	CR:-1			VISIBLE:YES	SOURCEPAGE:p.295	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|DAMAGESIZE|-1	BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|-2|TYPE=Size	BONUS:STAT|STR,CON|-4
+
+#
+# End
+#

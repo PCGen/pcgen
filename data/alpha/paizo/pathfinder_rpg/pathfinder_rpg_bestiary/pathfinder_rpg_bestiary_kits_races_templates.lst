@@ -1,0 +1,306 @@
+# CVS $Revision$ $Author$ -- Mon Dec  7 13:28:14 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+
+STARTPACK:Human Ghost Aristocrat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.144
+RACE:Human	!PRERACE:1,%
+NAME:Human Ghost Aristocrat
+ALIGN:CE
+STAT:STR=10|DEX=12|CON=10|INT=10|WIS=11|CHA=14
+CLASS:Aristocrat	LEVEL:7
+SKILL:Fly				RANK:5
+SKILL:Knowledge (History)	RANK:7
+SKILL:Knowledge (Nobility)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Stealth			RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Toughness
+TEMPLATE:Ghost
+ABILITY:CATEGORY=Ability Bonus|+2 Charisma
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Ghost Ability|Frightful Moan
+
+
+STARTPACK:Half-Celestial Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unicorn],[!PRERACE:1,%]	SOURCEPAGE:p.169
+ALIGN:CG
+RACE:Unicorn	!PRERACE:1,%
+NAME:Half-Celestial Unicorn
+SKILL:Acrobatics	RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Survival	RANK:2
+FEAT:Multiattack
+FEAT:Weapon Focus (Gore)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+TEMPLATE:Half-Celestial
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Strength ~ Template
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Constitution ~ Template
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Wisdom ~ Template
+
+
+STARTPACK:Dracolisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!PRERACE:1,%]	SOURCEPAGE:p.170
+ALIGN:TN
+RACE:Basilisk	!PRERACE:1,%
+NAME:Dracolisk
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:4
+FEAT:Blind-Fight
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+TEMPLATE:Half-Dragon
+ABILITY:CATEGORY=Half-Dragon Type|Black Half-Dragon
+
+
+STARTPACK:Half-Fiend Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Minotaur],[!PRERACE:1,%]	SOURCEPAGE:p.171
+ALIGN:CE
+RACE:Minotaur	!PRERACE:1,%
+NAME:Half-Fiend Minotaur
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+TEMPLATE:Half-Fiend
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Strength ~ Template
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Constitution ~ Template
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Dexterity ~ Template
+GEAR:Greataxe	SIZE:L	LOCATION:Equipped
+
+STARTPACK:Lich	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.188
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
+NAME:Lich
+STAT:STR=10|DEX=14|CON=10|INT=16|WIS=12|CHA=14
+TEMPLATE:Lich
+CLASS:Wizard	LEVEL:11	SUBCLASS:Necromancer
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
+ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
+ABILITY:CATEGORY=Necromancer Channeling|Command Undead ~ Necromancer
+ABILITY:CATEGORY=Wizard Bonus Feat|Quicken Spell
+ABILITY:CATEGORY=Wizard Bonus Feat|Scribe Scroll
+SKILL:Craft (Alchemy)		RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Arcana)	RANK:11
+SKILL:Knowledge (Planes)	RANK:11	FREE:YES
+SKILL:Linguistics			RANK:11			SELECTION:Elven,Giant,Gnome,Goblin,Ignan,Infernal,Orc,Undercommon,Celestial,Draconic,Dwarven
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Spellcraft			RANK:11
+SKILL:Stealth			RANK:11
+FEAT:Craft Wondrous Item
+FEAT:Defensive Combat Training
+FEAT:Extend Spell
+FEAT:Improved Lightning Reflexes
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Maximize Spell
+FEAT:Toughness				FREE:YES
+GEAR:Boots of Levitation			LOCATION:Equipped
+GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
+GEAR:Ring of Protection +2			LOCATION:Equipped
+GEAR:Potion of Invisibility			LOCATION:Carried
+GEAR:Scroll (Dominate Person)			LOCATION:Carried
+GEAR:Scroll (Teleport)				LOCATION:Carried
+LANGBONUS:Abyssal|Aklo|Aquan
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Circle of Death
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fireball
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Globe of Invulnerability
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Cloudkill
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Cone of Cold
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Waves of Fatigue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Dimension Door
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Enervation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fire Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Wall of Ice
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Suggestion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Vampiric Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Darkness
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|False Life
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Spectral Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Fireball[Maximize Spell]
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Globe of Invulnerability
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Circle of Death
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Magic Missile[Quicken Spell]
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Cloudkill
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Cone of Cold
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Waves of Fatigue
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dimension Door
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Enervation
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Fire Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Wall of Ice=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dispel Magic=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Fireball=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Suggestion
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Vampiric Touch=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Darkness
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|False Life
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Scorching Ray=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Spectral Hand
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Magic Missile=3
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Enfeeblement=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shield=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Bleed
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Read Magic
+
+
+STARTPACK:Lycanthrope (Wererat/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
+ALIGN:LE
+STAT:STR=13|DEX=13|CON=14|INT=10|WIS=14|CHA=8
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Wererat
+CLASS:Rogue	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Rogue Talent|Fast Stealth
+SKILL:Acrobatics		RANK:2
+SKILL:Bluff			RANK:2
+SKILL:Climb			RANK:2
+SKILL:Intimidate		RANK:2
+SKILL:Knowledge (local)	RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Stealth		RANK:2
+SKILL:Swim			RANK:2
+FEAT:Dodge
+FEAT:Weapon Finesse
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Wererat
+GEAR:Studded Leather			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Sword (Short)			LOCATION:Primary Hand
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+
+
+STARTPACK:Lycanthrope (Wererat/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
+KIT:Lycanthrope (Wererat/Human Form)
+TEMPLATE:Lycanthrope (Hybrid Form)
+
+
+STARTPACK:Lycanthrope (Werewolf/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
+ALIGN:CE
+STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Werewolf
+CLASS:Fighter	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Climb		RANK:2
+SKILL:Intimidate	RANK:2
+SKILL:Perception	RANK:2	FREE:YES
+FEAT:Cleave
+FEAT:Combat Reflexes
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Werewolf
+GEAR:Chainmail				LOCATION:Equipped
+GEAR:Longsword				LOCATION:Primary Hand
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+
+
+STARTPACK:Lycanthrope (Werewolf/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
+KIT:Lycanthrope (Werewolf/Human Form)
+TEMPLATE:Lycanthrope (Hybrid Form)
+
+
+STARTPACK:Vampire (Female Human Sorcerer)	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.270
+ALIGN:CE
+NAME:Female Human Vampire Sorcerer
+RACE:Human	!PRERACE:1,%
+GENDER:Female
+TEMPLATE:Vampire
+CLASS:Sorcerer	LEVEL:8
+ABILITY:CATEGORY=Ability Bonus|+2 Charisma
+ABILITY:CATEGORY=Sorcerer Bloodline|Undead Bloodline
+ABILITY:CATEGORY=Favored Class|Sorcerer
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Bluff				RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Religion)	RANK:8
+SKILL:Spellcraft			RANK:8
+SKILL:Use Magic Device		RANK:8
+FEAT:Combat Casting
+FEAT:Eschew Materials
+FEAT:Extend Spell
+FEAT:Silent Spell
+FEAT:Weapon Finesse
+FEAT:Blind-Fight		FREE:YES
+ABILITY:CATEGORY=Undead Bloodline Feat|Still Spell
+STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
+LANGBONUS:Abyssal|Draconic
+GEAR:Cloak of Resistance +3			LOCATION:Equipped
+GEAR:Headband of Alluring Charisma +4	LOCATION:Equipped
+GEAR:Ring of Protection +2			LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fireball
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Vampiric Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|False Life
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Burning Hands
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chill Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disguise Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Expeditious Retreat
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic

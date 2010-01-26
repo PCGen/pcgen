@@ -1,0 +1,88 @@
+# CVS $Revision$ $Author$ -- Sat Dec  5 22:47:16 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+
+
+STARTPACK:Xill Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xill],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:LE
+RACE:Xill	!PRERACE:1,%
+NAME:Xill
+SKILL:Acrobatics			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:9
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Weapon Focus (Claw)
+FEAT:Weapon Focus (Sword (Short))
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
+GEAR:Sword (Short)				LOCATION:Primary Hand
+GEAR:Sword (Short)				LOCATION:Secondary Hand
+GEAR:Longbow			QTY:2		LOCATION:Carried
+GEAR:Arrow				QTY:40	LOCATION:Carried
+
+
+STARTPACK:Xorn Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xorn],[!PRERACE:1,%]	SOURCEPAGE:p.284
+ALIGN:TN
+RACE:Xorn	!PRERACE:1,%
+NAME:Xorn
+SKILL:Appraise				RANK:7
+SKILL:Intimidate				RANK:7
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Perception				RANK:7
+SKILL:Stealth				RANK:7
+SKILL:Survival				RANK:7
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Yellow Musk Creeper Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yellow Musk Creeper],[!PRERACE:1,%]	SOURCEPAGE:p.285
+ALIGN:TN
+RACE:Yellow Musk Creeper	!PRERACE:1,%
+NAME:Yellow Musk Creeper
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Yeth Hound Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yeth Hound],[!PRERACE:1,%]	SOURCEPAGE:p.286
+ALIGN:NE
+RACE:Yeth Hound	!PRERACE:1,%
+NAME:Yeth Hound
+SKILL:Fly		RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+SKILL:Survival	RANK:4
+FEAT:Improved Initiative
+FEAT:Skill Focus (Fly)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Yeti Default	TYPE:DefaultMonster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yeti],[!PRERACE:1,%]	SOURCEPAGE:p.287
+ALIGN:TN
+RACE:Yeti	!PRERACE:1,%
+NAME:Yeti
+SKILL:Climb		RANK:6
+SKILL:Intimidate	RANK:6
+SKILL:Perception	RANK:6
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Power Attack
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Zombie (Human/Default)	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zombie (Human)],[!PRERACE:1,%]	SOURCEPAGE:p.288
+RACE:Zombie (Human)	!PRERACE:1,%
+NAME:Human Zombie
+STAT:STR=15|DEX=12|CON=10|INT=10|WIS=10|CHA=10
+
+
+#
+# End
+#
