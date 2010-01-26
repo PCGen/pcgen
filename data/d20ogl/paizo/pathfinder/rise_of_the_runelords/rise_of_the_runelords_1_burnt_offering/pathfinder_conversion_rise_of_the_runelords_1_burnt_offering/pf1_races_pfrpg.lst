@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Wed Nov 18 23:00:07 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+
+# Race Name				Bonus to skill					Racial HD Class Skills	Monster Class Name and Starting Level
+Attic Whisperer.MOD									MONCSKILL:.CLEAR
+Gecko (Giant).MOD			BONUS:SKILL|Acrobatics|8|TYPE=Racial	MONCSKILL:.CLEAR
+Goblin Snake.MOD										MONCSKILL:.CLEAR
+Sandpoint Devil.MOD									MONCSKILL:.CLEAR		MONSTERCLASS:Outsider (Fort/Ref):12
+Sinspawn.MOD			BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Envyspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Gluttonspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Greedspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Lustspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Pridespawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+Sinspawn (Slothspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR

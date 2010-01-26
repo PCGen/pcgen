@@ -1,0 +1,60 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Rise of the Runelords - Player's Guide - Pathfinder Conversion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords Player's Guide
+SOURCESHORT:RRPG
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx
+SOURCEDATE:2007-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for the Rise of the Runelords Player's Guide Copyright 2007-2008, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith)
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:../rise_of_the_runelords_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy7xpx|Buy this publication from Paizo Publishing!
+DESC:The 16-page Rise of the Runelords Player's Guide is an invaluable resource for players seeking to start this exciting new campaign. The guide presents details on how best to customize your character so that he'll fit into the campaign. What's the best choice of favored enemy for a ranger? Which of the region's deities will your cleric worship? What about new weapons for your fighter? And everyone loves new feats; there are several to choose from in this product, all of which are specifically designed to aid you in your fight against the Runelords.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Imported Data files
+BIOSET:../rrpg_biosettings.lst
+COMPANIONMOD:../rrpg_companionmods.lst
+DEITY:../rrpg_deities.lst|(INCLUDE:Saranrae)
+EQUIPMENT:../rrpg_equip_armorshields.lst
+EQUIPMENT:../rrpg_equip.lst
+EQUIPMENT:../rrpg_equip_weap_melee.lst|(EXCLUDE:Starknife)
+FEAT:../rrpg_feats.lst
+LANGUAGE:../rrpg_languages.lst|(EXCLUDE:Boggard|Varisian)
+RACE:../rrpg_races_animals.lst
+RACE:../rrpg_races.lst
+TEMPLATE:../rrpg_templates.lst
+ARMORPROF:../rrpg_profs_armor.lst
+SHIELDPROF:../rrpg_profs_shield.lst
+WEAPONPROF:../rrpg_profs_weapon.lst|(EXCLUDE:Starknife)
+
+# Customized Data files
+KIT:rrpg_kits_races_pfrpg.lst
+KIT:rrpg_kits_races_animals_pfrpg.lst
+ABILITY:rrpg_abilities_class_pfrpg.lst
+RACE:rrpg_races_animals_pfrpg.lst
+
+# Hide internally used feat types
+HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
+
+FORWARDREF:SKILL|Balance,Hide,Jump,Listen,Move Silently,Search,Spot
