@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 26 13:03:09 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Jan 26 22:02:21 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Aasimar abilities
@@ -142,9 +142,9 @@ Terrifying Croak	KEY:Terrifying Croak ~ Boggard	CATEGORY:Special Ability	TYPE:Sp
 Stalker		KEY:Stalker ~ Bugbear	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Perception and Stealth are always class skills for bugbears.	CSKILL:Stealth|Perception	SOURCEPAGE:p.38
 
 ###Block: Bulette Abilities
-# Ability Name	Unique Key				Category of Ability		Type						Description																													Source Page		Description of the Benefits
-Leap			KEY:Leap ~ Bulette		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A bulette can perform a special kind of pounce attack by jumping into combat.																	SOURCEPAGE:p.39	BENEFIT:A bulette can perform a special kind of pounce attack by jumping into combat. When a bulette charges, it can make a DC 20 Acrobatics check to jump into the air and land next to its enemies. If it makes the Acrobatics check, it can follow up with four claw attacks against foes in reach, but cannot make a bite attack.
-Savage Bite		KEY:Savage Bite ~ Bulette	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A bulette's bite is particularly dangerous. It applies 1-1/2 times its Strength modifier to damage inflicted with its bite attack, and threatens a critical hit on a 19-20.	SOURCEPAGE:p.39
+# Ability Name	Unique Key				Category of Ability		Type						Description																													Weapon prof. bonus											Source Page		Description of the Benefits
+Leap			KEY:Leap ~ Bulette		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A bulette can perform a special kind of pounce attack by jumping into combat.																															SOURCEPAGE:p.39	BENEFIT:A bulette can perform a special kind of pounce attack by jumping into combat. When a bulette charges, it can make a DC 20 Acrobatics check to jump into the air and land next to its enemies. If it makes the Acrobatics check, it can follow up with four claw attacks against foes in reach, but cannot make a bite attack.
+Savage Bite		KEY:Savage Bite ~ Bulette	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A bulette's bite is particularly dangerous. It applies 1-1/2 times its Strength modifier to damage inflicted with its bite attack, and threatens a critical hit on a 19-20.	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1	SOURCEPAGE:p.39
 
 ###Block: Cat (Cheetah) Abilities
 # Ability Name	Unique Key			Category of Ability		Type									Description																	Source Page

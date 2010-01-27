@@ -738,7 +738,7 @@ SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Skill Focus (Stealth)
 FEAT:Weapon Finesse
-STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
 STARTPACK:Cave Fisher Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cave Fisher],[!PRERACE:1,%]	SOURCEPAGE:p.41
@@ -752,11 +752,11 @@ STARTPACK:Centaur Default	TYPE:DefaultMonster.Monstrous Humanoid	VISIBLE:QUALIFY
 ALIGN:TN
 RACE:Centaur	!PRERACE:1,%
 NAME:Centaur
-SKILL:Diplomacy			RANK:1
-SKILL:Intimidate			RANK:1
-SKILL:Knowledge (Nature)	RANK:1
-SKILL:Perception			RANK:1
-SKILL:Survival			RANK:1
+SKILL:Diplomacy			RANK:4
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:2
+SKILL:Survival			RANK:4
 FEAT:Improved Initiative
 FEAT:Run
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -898,8 +898,8 @@ ALIGN:LG
 RACE:Couatl	!PRERACE:1,%
 NAME:Couatl
 SKILL:Acrobatics			RANK:12
-SKILL:Bluff				RANK:2
-SKILL:Diplomacy			RANK:11
+SKILL:Bluff				RANK:3
+SKILL:Diplomacy			RANK:12
 SKILL:Fly				RANK:12
 SKILL:Knowledge (Arcana)	RANK:6
 SKILL:Knowledge (Religion)	RANK:9
@@ -907,7 +907,7 @@ SKILL:Perception			RANK:12
 SKILL:Sense Motive		RANK:6
 SKILL:Spellcraft			RANK:12
 SKILL:Survival			RANK:12
-SKILL:Use Magic Device		RANK:11
+SKILL:Use Magic Device		RANK:12
 FEAT:Alertness
 FEAT:Dodge
 FEAT:Empower Spell
