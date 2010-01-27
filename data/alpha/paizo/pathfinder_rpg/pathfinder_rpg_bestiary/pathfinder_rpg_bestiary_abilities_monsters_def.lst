@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 17 19:31:30 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Jan 27 15:40:03 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Dark Folk Abilities
@@ -132,8 +132,9 @@ Perfect Copy	KEY:Perfect Copy ~ Doppelganger	CATEGORY:Special Ability	TYPE:Speci
 Change Shape	KEY:Change Shape ~ Doppelganger	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:You have the ability to assume the appearance of a specific creature or type of creature, but retains most of your own physical qualities.																																	BONUS:SKILL|Bluff (While using change shape ability)|4|TYPE=Racial	BONUS:SKILL|Disguise (While using change shape ability)|20|TYPE=Racial	SOURCEPAGE:p.89	ASPECT:Ability Benefit|(Alter Self)	BENEFIT:You have the ability to assume the appearance of a specific creature or type of creature, but retains most of your own physical qualities. You cannot change shape to a form more than one size category smaller or larger than your original form. This ability functions as a polymorph spell, but you do not adjust your ability scores (although you gain any other abilities of the creature you mimic).
 
 ###Block: Dragon Turtle abilities
-# Ability Name	Unique Key				Category of Ability		Type						Description																																																								Source Page
-Capsize		KEY:Capsize ~ Dragon Turtle	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A dragon turtle can attempt to capsize a boat or ship by ramming it as a charge attack and making a CMB check. The DC of this check is 25, or the result of the boat captain's Profession (Sailor) check, whichever is higher. For each size category larger than the dragon turtle's size, it takes a cumulative -10 penalty on this CMB check.	SOURCEPAGE:p.112
+# Ability Name	Unique Key					Category of Ability		Type						Define										Description																																																								Modify VAR										Source Page		Aspects
+Capsize		KEY:Capsize ~ Dragon Turtle		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary												DESC:A dragon turtle can attempt to capsize a boat or ship by ramming it as a charge attack and making a CMB check. The DC of this check is 25, or the result of the boat captain's Profession (Sailor) check, whichever is higher. For each size category larger than the dragon turtle's size, it takes a cumulative -10 penalty on this CMB check.												SOURCEPAGE:p.112
+Breath Weapon	KEY:Breath Weapon ~ Dragon Turtle	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:BreathWeaponDice|HD	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DESC:Cloud of steam 20 feet high, 25 feet wide, and 50 feet long, once every 1d4 rounds, damage %1d6 fire, Reflex DC %2 half; effective both on the surface and underwater.|BreathWeaponDice|BreathWeaponDC																								BONUS:VAR|BreathWeaponDC|2|PREFEAT:1,Ability Focus(Breath Weapon)	SOURCEPAGE:p.112	ASPECT:Ability Benefit|(Cloud of steam, %1d6 Fire, DC %2)|BreathWeaponDice|BreathWeaponDC
 
 ###Block: Drider Abilities
 # Ability Name		Unique Key					Category of Ability		Type						Define				Description																																				Weapon prof. bonus																		Wield Category bonus		Source Page		Aspects
@@ -141,11 +142,11 @@ Poison			KEY:Poison ~ Drider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extra
 Undersized Weapons	KEY:Undersized Weapons ~ Drider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:Although a drider is Large, its upper torso is the same size as that of a Medium humanoid. As a result, they wield weapons as if they were one size category smaller than their actual size (Medium for most centaurs).	BONUS:WEAPONPROF=TYPE.Simple|TOHIT|2	BONUS:WEAPONPROF=TYPE.Martial|TOHIT|2	BONUS:WEAPONPROF=TYPE.Exotic|TOHIT|2	BONUS:WIELDCATEGORY|ALL|1	SOURCEPAGE:p.113
 
 ###Block: Drow abilities
-# Ability Name		Unique Key				Category of Ability		Type						Description																	Automatically Gained Weapon Prof.				Bonus to skill
-Drow Immunities		KEY:Drow Immunities ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Drow are immune to magic sleep effects and get a +2 racial bonus to saves against enchantment spells.
-Keen Senses			KEY:Keen Senses ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Drow receive a +2 racial bonus on Perception checks.																		BONUS:SKILL|Perception|2|TYPE=Racial
-Poison Use			KEY:Poison Use ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Drow are skilled in the use of poison and never risk accidentally poisoning themselves.
-Weapon Familiarity	KEY:Weapon Familiarity ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Drow are proficient with the hand crossbow, rapier, and short sword.						AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)
+# Ability Name		Unique Key				Category of Ability		Type								Description																	Automatically Gained Weapon Prof.				Bonus to skill					Aspects
+Drow Immunities		KEY:Drow Immunities ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DESC:Drow are immune to magic sleep effects and get a +2 racial bonus to saves against enchantment spells.																	ASPECT:Immunity|Sleep
+Keen Senses			KEY:Keen Senses ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow receive a +2 racial bonus on Perception checks.																		BONUS:SKILL|Perception|2|TYPE=Racial
+Poison Use			KEY:Poison Use ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow are skilled in the use of poison and never risk accidentally poisoning themselves.
+Weapon Familiarity	KEY:Weapon Familiarity ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow are proficient with the hand crossbow, rapier, and short sword.						AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)
 
 ###Block: Dryad Abilities
 # Ability Name	Unique Key				Category of Ability		Type							Description																											Source Page		Description of the Benefits

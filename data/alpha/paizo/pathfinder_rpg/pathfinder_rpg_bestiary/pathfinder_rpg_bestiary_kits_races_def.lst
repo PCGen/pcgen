@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 17 19:31:30 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Jan 27 15:42:07 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 
@@ -50,12 +50,12 @@ RACE:Demon (Babau)	!PRERACE:1,%
 NAME:Babau
 SKILL:Acrobatics
 SKILL:Climb
-SKILL:Disable Device	RANK:1
-SKILL:Escape Artist	RANK:1
-SKILL:Perception		RANK:1
-SKILL:Sense Motive	RANK:1
-SKILL:Sleight of Hand	RANK:1
-SKILL:Stealth		RANK:1
+SKILL:Disable Device	RANK:7
+SKILL:Escape Artist	RANK:7
+SKILL:Perception		RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Sleight of Hand	RANK:7
+SKILL:Stealth		RANK:7
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Iron Will
@@ -171,7 +171,7 @@ FEAT:Improved Critical (Longsword)
 FEAT:Improved Disarm
 FEAT:Power Attack
 FEAT:Weapon Focus (Longsword)
-STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 GEAR:Longsword		SIZE:L	LOCATION:Primary Hand
 GEAR:Longsword	QTY:5	SIZE:L	LOCATION:Carried
 
@@ -395,8 +395,8 @@ FEAT:Precise Shot
 FEAT:Rapid Shot
 FEAT:Shot On The Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Longbow (Composite)	LOCATION:Both Hands	EQMOD:PLUS1W.FLAME.BOWSTR|+5
-GEAR:Longsword			LOCATION:Carried		EQMOD:PLUS1W
+GEAR:Longsword			LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.FLAME.BOWSTR|+5
 GEAR:Rope (Hemp/50 ft.)		LOCATION:Carried
 
 
@@ -657,7 +657,7 @@ STARTPACK:Dog (Riding) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPB
 RACE:Dog (Riding)	!PRERACE:1,%
 NAME:Riding Dog
 ALIGN:TN
-STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 FEAT:Skill Focus (Perception)
@@ -820,6 +820,36 @@ GEAR:Crossbow (Hand)				SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)		QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)	QTY:2				LOCATION:Carried
 
+
+STARTPACK:Drow Noble Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Drow Noble],[!PRERACE:1,%]	SOURCEPAGE:p.115
+ALIGN:CE
+RACE:Drow Noble	!PRERACE:1,%
+GENDER:Female
+NAME:Drow Noble
+CLASS:Cleric	LEVEL:3
+DEITY:None	DOMAIN:Chaos|Death
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Knowledge (Religion)	RANK:3
+SKILL:Sense Motive		RANK:3
+SKILL:Spellcraft			RANK:3
+FEAT:Channel Smite
+FEAT:Weapon Finesse
+STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection From Law
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
+GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped
+GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
+GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
+GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
+GEAR:Potion of Invisibility						LOCATION:Carried
+GEAR:Scroll (Dispel Magic/Divine)					LOCATION:Carried
+GEAR:Wand of Cure Light Wounds					LOCATION:Carried
 
 STARTPACK:Dryad Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
 ALIGN:CG
