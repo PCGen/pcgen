@@ -413,6 +413,9 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |MANUALWHITESPACE|
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <br>
+|IIF(WEAPON.%weap.NAME:Swarm)|
+<b>Melee&nbsp;</b><i>|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR|&nbsp;</i>&nbsp;(|WEAPON.%weap.DAMAGE|)
+|ELSE|
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
 <b>Ranged&nbsp;</b>
 |ELSE|
@@ -451,6 +454,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 /x|WEAPON.%weap.MULT|
 |ENDIF|
 )
+|ENDIF|
 |ENDIF|
 |ENDFOR|
 |ENDMANUALWHITESPACE|
