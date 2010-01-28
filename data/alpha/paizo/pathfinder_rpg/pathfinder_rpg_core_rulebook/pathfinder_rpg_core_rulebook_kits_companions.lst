@@ -55,97 +55,44 @@ STARTPACK:Companion ~ Dire Rat	TYPE:Companion	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
-###Block: Familiars --------------------------------------------------------------
+###Block: Familiars --------------------------------------
 STARTPACK:Familiar ~ Bat	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Bat)	!PRERACE:1,%
-
-#SKILL:Move Silently	RANK:4
-#FEAT:Alertness
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Familiar ~ Cat	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Cat)	!PRERACE:1,%
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
-#SKILL:Listen	RANK:2
-#SKILL:Spot		RANK:2
-#FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Hawk	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Hawk)	!PRERACE:1,%
-
-#SKILL:Spot	RANK:4
-#FEAT:Weapon Finesse
-STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
 
 STARTPACK:Familiar ~ Lizard	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Lizard)	!PRERACE:1,%
-
-#SKILL:Listen	RANK:2
-#SKILL:Spot		RANK:2
-#FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-###TODO Check Stat Defaults
 STARTPACK:Familiar ~ Monkey	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Monkey)	!PRERACE:1,%
-
-#SKILL:Listen	RANK:2
-#SKILL:Spot		RANK:2
-#FEAT:Weapon Finesse
-STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
-
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=11
 
 STARTPACK:Familiar ~ Owl	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Owl)	!PRERACE:1,%
-
-#SKILL:Listen	RANK:2
-#SKILL:Spot		RANK:2
-#FEAT:Weapon Finesse
-STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
 
 STARTPACK:Familiar ~ Rat	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Rat)	!PRERACE:1,%
-
-#SKILL:Move Silently	RANK:2
-#SKILL:Climb			RANK:2
-#SKILL:Move Silently	RANK:2	FREE:YES
-#FEAT:Weapon Finesse
-STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
 
 STARTPACK:Familiar ~ Raven	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Raven)	!PRERACE:1,%
-
-#SKILL:Listen	RANK:1
-#SKILL:Spot		RANK:3
-#FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+STARTPACK:Raven Familiar Language	TYPE:Companion	VISIBLE:NO
 TEMPLATE:Raven Familiar Language
-STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
-
-STARTPACK:Familiar ~ Snake	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Viper)	!PRERACE:1,%
-
-#SKILL:Listen	RANK:1
-#SKILL:Spot		RANK:1
-#FEAT:Weapon Finesse
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 STARTPACK:Familiar ~ Toad	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Toad)	!PRERACE:1,%
+STAT:CON=10|STR=10|DEX=10|INT=10|WIS=11|CHA=10
 
-#SKILL:Hide	RANK:4
-#FEAT:Alertness
-STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
+STARTPACK:Familiar ~ Viper	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 STARTPACK:Familiar ~ Weasel	TYPE:Companion	VISIBLE:NO
-RACE:Familiar (Weasel)	!PRERACE:1,%
-#SKILL:Hide			RANK:1
-#SKILL:Move Silently	RANK:2
-#SKILL:Spot			RANK:1
-#SKILL:Spot			RANK:1	FREE:YES
-#FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
 
+###Block: Shadow Companion -------------------------------
 STARTPACK:Companion (Shadow)	TYPE:Companion	VISIBLE:NO
 RACE:Companion (Shadow)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11

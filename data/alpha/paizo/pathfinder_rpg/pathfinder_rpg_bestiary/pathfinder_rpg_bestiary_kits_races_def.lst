@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 27 15:42:07 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Jan 28 15:49:10 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 
@@ -1411,6 +1411,96 @@ GEAR:Flail			SIZE:L	LOCATION:Primary Hand
 GEAR:Flail			SIZE:L	LOCATION:Carried
 GEAR:Javelin	QTY:2	SIZE:L	LOCATION:Carried
 
+
+###Block: Familiar Base Animal -------------------------------------------------
+
+STARTPACK:Bat	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Bat)],[!PRERACE:1,%]	SOURCEPAGE:p.131
+ALIGN:TN
+RACE:Familiar (Bat)	!PRERACE:1,%
+NAME:Bat
+SKILL:Fly	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Cat	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Cat)],[!PRERACE:1,%]	SOURCEPAGE:p.131
+ALIGN:TN
+RACE:Familiar (Cat)	!PRERACE:1,%
+NAME:Cat
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Hawk	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Hawk)],[!PRERACE:1,%]	SOURCEPAGE:p.131
+ALIGN:TN
+RACE:Familiar (Hawk)	!PRERACE:1,%
+NAME:Hawk
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Lizard	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Lizard)],[!PRERACE:1,%]	SOURCEPAGE:p.131
+ALIGN:TN
+RACE:Familiar (Lizard)	!PRERACE:1,%
+NAME:Lizard
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Monkey	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.132
+ALIGN:TN
+RACE:Familiar (Monkey)	!PRERACE:1,%
+NAME:Monkey
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Owl	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Owl)],[!PRERACE:1,%]	SOURCEPAGE:p.132
+ALIGN:TN
+RACE:Familiar (Owl)	!PRERACE:1,%
+NAME:Owl
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Rat	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Rat)],[!PRERACE:1,%]	SOURCEPAGE:p.132
+ALIGN:TN
+RACE:Familiar (Rat)	!PRERACE:1,%
+NAME:Rat
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Raven	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Raven)],[!PRERACE:1,%]	SOURCEPAGE:p.133
+ALIGN:TN
+RACE:Familiar (Raven)	!PRERACE:1,%
+NAME:Raven
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Toad	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Toad)],[!PRERACE:1,%]	SOURCEPAGE:p.133
+ALIGN:TN
+RACE:Familiar (Toad)	!PRERACE:1,%
+NAME:Toad
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Viper	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Viper)],[!PRERACE:1,%]	SOURCEPAGE:p.133
+ALIGN:TN
+RACE:Familiar (Viper)	!PRERACE:1,%
+NAME:Viper
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+
+STARTPACK:Weasel	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Weasel)],[!PRERACE:1,%]	SOURCEPAGE:p.133
+ALIGN:TN
+RACE:Familiar (Weasel)	!PRERACE:1,%
+NAME:Weasel
+SKILL:Escape Artist	RANK:1
+FEAT:Weapon Finesse
+
+#### ---------------------------------------------------------------------------
 
 STARTPACK:Flytrap (Giant) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Flytrap (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.134
 ALIGN:TN
