@@ -457,7 +457,7 @@ Tower Shield,
 |WEAPON.%weap.BASEHIT|&nbsp;
  
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
-(|WEAPON.%weap.RANGELIST.0.DAMAGE|
+(|WEAPON.%weap.RANGELIST.1.DAMAGE|
 |ELSE|
 (|WEAPON.%weap.DAMAGE|
 |ENDIF|
@@ -472,6 +472,9 @@ Tower Shield,
 /x|WEAPON.%weap.MULT|
 |ENDIF|
 )
+|IIF(WEAPON.%weap.ISTYPE.Ranged.AND.HASFEAT:Point-Blank Shot.OR.HASFEAT:Point Blank Shot)|
+,&nbsp;within&nbsp;30&nbsp;ft.&nbsp;|WEAPON.%weap.RANGELIST.0.BASEHIT|&nbsp;(|WEAPON.%weap.RANGELIST.0.DAMAGE|)
+|ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDFOR|
