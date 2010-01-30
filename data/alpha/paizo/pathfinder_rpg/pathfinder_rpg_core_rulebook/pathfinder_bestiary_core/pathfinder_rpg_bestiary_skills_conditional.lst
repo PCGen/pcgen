@@ -21,6 +21,7 @@ Stealth (In rocky areas)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUs
 Stealth (In scrubland or brush)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In shadowy conditions)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In snow)						KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Stealth (In stony environs)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In stony or icy areas)			KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In swamps)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Stealth (In undergrowth)				KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -52,6 +53,7 @@ Stealth.MOD		BONUS:SKILL|Stealth (In rocky areas)|SKILL.Stealth.MISC				BONUS:SK
 Stealth.MOD		BONUS:SKILL|Stealth (In scrubland or brush)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In scrubland or brush)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In scrubland or brush).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In shadowy conditions)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In shadowy conditions)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In shadowy conditions).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In snow)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In snow)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In snow).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (In stony environs)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In stony environs)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In stony environs).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In stony or icy areas)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In stony or icy areas)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In stony or icy areas).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In swamps)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In swamps)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In swamps).MISC"),var("SKILL.Stealth.MISC")
 Stealth.MOD		BONUS:SKILL|Stealth (In undergrowth)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In undergrowth)|SKILLRANK=Stealth|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Stealth (In undergrowth).MISC"),var("SKILL.Stealth.MISC")

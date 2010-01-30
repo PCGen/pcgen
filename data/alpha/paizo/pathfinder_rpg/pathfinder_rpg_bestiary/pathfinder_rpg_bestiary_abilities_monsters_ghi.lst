@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov 15 00:34:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Jan 29 20:58:52 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Gargoyle abilities
@@ -21,7 +21,6 @@ Three Wishes	KEY:Three Wishes ~ Djinni	CATEGORY:Special Ability	TYPE:SpecialQual
 # Ability Name	Unique Key				Category of Ability		Type								Define				Description																		Modify VAR						Source Page		Description of the Benefits
 Change Size		KEY:Change Size ~ Efreeti	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.AttackOption		DEFINE:EfreetiChangeSizeDC|0	DESC:Twice per day, an efreeti can magically change a creature's size.								BONUS:VAR|EfreetiChangeSizeDC|11+CHA	SOURCEPAGE:p.140	BENEFIT:Twice per day, an efreeti can magically change a creature's size. This works just like an enlarge person or reduce person spell (the efreeti chooses when using the ability), except that the ability can work on the efreeti. A DC %1 Fortitude save negates the effect. This is the equivalent of a 2nd-level spell.|EfreetiChangeSizeDC
 Heat			KEY:Heat ~ Efreeti		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption						DESC:An efreeti's body deals 1d6 points of fire damage whenever it hits in melee, or in each round it grapples.								SOURCEPAGE:p.140
-Detect Magic	KEY:Detect Magic ~ Efreeti	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense								DESC:An Efreeti's spell-like ability to detect magic is always active.															SOURCEPAGE:p.140
 
 ###Block: Genie (Janni) abilities
 # Ability Name		Unique Key					Category of Ability		Type						Define				Description															Modify VAR					Source Page		Description of the Benefits
@@ -34,10 +33,6 @@ Water Mastery	KEY:Water Mastery ~ Marid	CATEGORY:Special Ability	TYPE:SpecialAtt
 Water's Fury	KEY:Water's Fury ~ Marid	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DEFINE:WatersFuryDC|0	DESC:As a standard action, a marid can release a jet of water in a 60-foot line that deals 1d6 points of damage and blinds the target struck for 1d6 rounds. A DC %1 Reflex save reduces the damage by half and negates the blinding effect.|WatersFuryDC	BONUS:VAR|WatersFuryDC|14+CON	SOURCEPAGE:p.142
 Vortex		KEY:Vortex ~ Marid		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption					DESC:A marid can transform into a vortex of swirling, churning water once every 10 mintues.																																SOURCEPAGE:p.142	BENEFIT:A marid can transform into a vortex of swirling, churning water once every 10 mintues. This ability functions identically to the whirlwind ability (10-50 ft. tall, 1d8+4 damage, DC 17, see page 306 for full details on this special attack), save that it can only be used while the marid is underwater; a marid cannot leave a body of water while in vortex form.
 Change Shape	KEY:Change Shape ~ Marid	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:Water Elemental, Humanoid or Giant, Alter Self, Elemental Body III, or Giant Form I																																	SOURCEPAGE:p.142
-Detect Evil		KEY:Detect Evil ~ Marid		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense							DESC:You can sense the presence of evil.
-Detect Good		KEY:Detect Good ~ Marid		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense							DESC:You can sense the presence of good.
-Detect Magic	KEY:Detect Magic ~ Marid	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense							DESC:You detect magical auras.
-Water Walk		KEY:Water Walk ~ Marid		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement					DESC:The Genie can tread on any liquid as if it were firm ground.
 
 ###Block: Genie (Shaitan) abilities
 # Ability Name	Unique Key				Category of Ability		Type								Define			Description																																																			Modify VAR				Source Page		Description of the Benefits
@@ -53,8 +48,8 @@ Paralysis		KEY:Paralysis ~ Ghoul	CATEGORY:Special Ability	TYPE:SpecialAttack.Sup
 Stench		KEY:Stench ~ Ghast	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	DEFINE:GhastStenchDC|0		DESC:10-foot radius, Fort DC %1 negates, sickened for 1d6+4 minutes|GhastStenchDC													BONUS:VAR|GhastStenchDC|10+(HD/2)+CON	SOURCEPAGE:p.146	ASPECT:Ability Benefit|30 ft.	BENEFIT:The Ghast secretes an oily chemical that nearly every other creature finds offensive. All living creatures (except those with the stench special ability) within 30 feet must succeed on a Fortitude save (DC %1) or be sickened for 1d6+4 minutes. Creatures that successfully save cannot be affected by the same creature's stench for 24 hours. A delay poison or neutralize poison spell removes the effect from the sickened creature. Creatures with immunity to poison are unaffected, and creatures resistant to poison receive their normal bonus on their saving throws.|GhastStenchDC
 
 ###Block: Giant (Cloud) abilities
-# Ability Name	Unique Key					Category of Ability		Type						Multiple?	Choose			Weapon prof. bonus
-Oversized Weapon	KEY:Oversized Weapon ~ Cloud Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|PCSIZE|1
+# Ability Name	Unique Key					Category of Ability		Type									Multiple?	Choose			Weapon prof. bonus
+Oversized Weapon	KEY:Oversized Weapon ~ Cloud Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.OversizedWeapon	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|PCSIZE|1
 
 ###Block: Giant (Fire) abilities
 # Ability Name	Unique Key				Category of Ability		Type								Description																		Source Page		Aspects				Description of the Benefits
@@ -65,9 +60,8 @@ Heated Rock		KEY:Heated Rock ~ Fire Giant	CATEGORY:Special Ability	TYPE:SpecialA
 +4 racial bonus to Stealth skill in snow	KEY:Frost Giant Stealth	CATEGORY:Special Ability	TYPE:SpecialQuality	BONUS:SKILL|Stealth|4|TYPE=Racial|PREAPPLY:PC	SOURCEPAGE:p.149	TEMPDESC:Adjusts Stealth skill bonus by 4
 
 ###Block: Giant (Stone) abilities
-# Ability Name							Unique Key						Category of Ability		Type								Description																		Bonus to skill						Source Page		Description of the Benefits																																																																											Temporary effect description
-+8 racial bonus to Stealth skill in rocky terrain	KEY:Stone Giant Stealth				CATEGORY:Special Ability	TYPE:SpecialQuality																								BONUS:SKILL|Stealth|8|TYPE=Racial|PREAPPLY:PC	SOURCEPAGE:p.151																																																																																TEMPDESC:Adjusts Stealth skill bonus by 8
-Improved Rock Catching						KEY:Improved Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching.									SOURCEPAGE:p.151	BENEFIT:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching. Once per round, if you would normally be hit by a rock, you can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) You must be aware of the attack in order to make a rock catching attempt.
+# Ability Name		Unique Key						Category of Ability		Type								Description																		Source Page		Description of the Benefits
+Improved Rock Catching	KEY:Improved Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching.	SOURCEPAGE:p.151	BENEFIT:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching. Once per round, if you would normally be hit by a rock, you can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) You must be aware of the attack in order to make a rock catching attempt.
 
 ###Block: Giant (Storm) abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description												Automatically Gained Weapon Prof.		Source Page

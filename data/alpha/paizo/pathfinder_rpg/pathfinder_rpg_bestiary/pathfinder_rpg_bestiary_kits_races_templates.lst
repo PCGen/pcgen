@@ -28,14 +28,17 @@ STARTPACK:Half-Celestial Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1
 ALIGN:CG
 RACE:Unicorn	!PRERACE:1,%
 NAME:Half-Celestial Unicorn
-SKILL:Acrobatics	RANK:2
-SKILL:Perception	RANK:2
-SKILL:Stealth	RANK:2
-SKILL:Survival	RANK:2
+TEMPLATE:Half-Celestial
+SKILL:Acrobatics			RANK:4
+SKILL:Perception			RANK:4
+SKILL:Fly				RANK:4
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Survival			RANK:4
 FEAT:Multiattack
 FEAT:Weapon Focus (Gore)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-TEMPLATE:Half-Celestial
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Strength ~ Template
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Constitution ~ Template
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Wisdom ~ Template
@@ -45,14 +48,15 @@ STARTPACK:Dracolisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!
 ALIGN:TN
 RACE:Basilisk	!PRERACE:1,%
 NAME:Dracolisk
-SKILL:Perception	RANK:3
-SKILL:Stealth	RANK:4
+TEMPLATE:Half-Dragon
+SKILL:Fly		RANK:7
+SKILL:Perception	RANK:7
+SKILL:Stealth	RANK:7
 FEAT:Blind-Fight
 FEAT:Great Fortitude
 FEAT:Iron Will
 FEAT:Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-TEMPLATE:Half-Dragon
 ABILITY:CATEGORY=Half-Dragon Type|Black Half-Dragon
 
 
@@ -60,19 +64,21 @@ STARTPACK:Half-Fiend Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mi
 ALIGN:CE
 RACE:Minotaur	!PRERACE:1,%
 NAME:Half-Fiend Minotaur
-SKILL:Intimidate	RANK:3
-SKILL:Perception	RANK:3
-SKILL:Stealth	RANK:3
-SKILL:Survival	RANK:3
+TEMPLATE:Half-Fiend
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Religion)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Stealth			RANK:6
+SKILL:Survival			RANK:6
 FEAT:Great Fortitude
 FEAT:Improved Bull Rush
 FEAT:Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-TEMPLATE:Half-Fiend
 ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Strength ~ Template
 ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Constitution ~ Template
 ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Dexterity ~ Template
 GEAR:Greataxe	SIZE:L	LOCATION:Equipped
+
 
 STARTPACK:Lich	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.188
 ALIGN:NE

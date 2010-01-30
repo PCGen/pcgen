@@ -81,13 +81,13 @@ ALIGN:LE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Bluff			RANK:10
 SKILL:TYPE=Craft		RANK:10
-SKILL:Disguise		RANK:3
 SKILL:Fly			RANK:2
 SKILL:Intimidate		RANK:10
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spellcraft		RANK:10
 SKILL:Stealth		RANK:6
+SKILL:Disguise		RANK:3
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Deceitful
@@ -125,12 +125,12 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Appraise		RANK:6
 SKILL:TYPE=Craft		RANK:6
-SKILL:Fly			RANK:1
+SKILL:Fly			RANK:6
 SKILL:Perception		RANK:6
-SKILL:Ride			RANK:1
+SKILL:Ride			RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spellcraft		RANK:6
-SKILL:Stealth		RANK:1
+SKILL:Stealth		RANK:6
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Mobility
@@ -142,6 +142,7 @@ GEAR:Chainmail			LOCATION:Equipped
 STARTPACK:Genie (Marid) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid)],[!PRERACE:1,%]	SOURCEPAGE:p.142
 RACE:Genie (Marid)	!PRERACE:1,%
 NAME:Marid
+GENDER:Female
 ALIGN:CN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:TYPE=Craft			RANK:12
@@ -164,6 +165,7 @@ GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
 STARTPACK:Genie (Shaitan) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan)],[!PRERACE:1,%]	SOURCEPAGE:p.143
 RACE:Genie (Shaitan)	!PRERACE:1,%
 NAME:Shaitan
+GENDER:Female
 ALIGN:LN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Appraise			RANK:9
@@ -179,7 +181,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Natural Attack (Slam)
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability (Glitterdust)
-GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
 STARTPACK:Genie (Shaitan/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.143
@@ -200,7 +202,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Natural Attack (Slam)
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability (Glitterdust)
-GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
 STARTPACK:Ghoul Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul],[!PRERACE:1,%]	SOURCEPAGE:p.146
@@ -261,9 +263,11 @@ FEAT:Greater Overrun
 FEAT:Intimidating Prowess
 FEAT:Iron Will
 FEAT:Power Attack
+ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Oversized Weapon ~ Cloud Giant (Morningstar)
 GEAR:Morningstar		SIZE:G	LOCATION:Both Hands
 GEAR:Chain Shirt		SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)			LOCATION:Not Carried
+
 
 STARTPACK:Giant (Fire) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Fire)],[!PRERACE:1,%]	SOURCEPAGE:p.148
 RACE:Giant (Fire)	!PRERACE:1,%
@@ -296,7 +300,7 @@ SKILL:Climb		RANK:3
 SKILL:TYPE=Craft	RANK:4
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:5
-SKILL:Stealth	RANK:6
+SKILL:Stealth	RANK:9
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Overrun
@@ -335,7 +339,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Climb		RANK:1
 SKILL:Intimidate	RANK:9
 SKILL:Perception	RANK:8
-SKILL:Stealth	RANK:3
+SKILL:Stealth	RANK:6
 FEAT:Iron Will
 FEAT:Martial Weapon Proficiency (Greatclub)
 FEAT:Point-Blank Shot
@@ -351,14 +355,14 @@ RACE:Giant (Storm)	!PRERACE:1,%
 NAME:Storm Giant
 ALIGN:CG
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Acrobatics		RANK:16
+SKILL:Acrobatics		RANK:19
 SKILL:Climb			RANK:3
 SKILL:TYPE=Craft		RANK:7
 SKILL:Intimidate		RANK:15
 SKILL:Perception		RANK:19
-SKILL:Perform (Sing)	RANK:7
-SKILL:Sense Motive	RANK:16
-SKILL:Swim			RANK:1
+SKILL:Perform (Sing)	RANK:10
+SKILL:Sense Motive	RANK:19
+SKILL:Swim			RANK:3
 FEAT:Awesome Blow
 FEAT:Cleave
 FEAT:Combat Reflexes
@@ -416,6 +420,8 @@ NAME:Goblin
 ALIGN:NE
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 SKILL:Ride	RANK:1
 SKILL:Swim	RANK:1
 FEAT:Improved Initiative
@@ -519,7 +525,7 @@ NAME:Green Hag
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Bluff				RANK:9
-SKILL:Disguise			RANK:5
+SKILL:Disguise			RANK:9
 SKILL:Knowledge (Arcana)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:6
@@ -620,6 +626,8 @@ ALIGN:LE
 RACE:Hobgoblin	!PRERACE:1,%
 NAME:Hobgoblin
 CLASS:Fighter	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Toughness

@@ -59,8 +59,8 @@ Adhesive		KEY:Adhesive ~ Mimic		CATEGORY:Special Ability	TYPE:SpecialAttack.Extr
 Mimic Object	KEY:Mimic Object ~ Mimic	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A mimic can assume the general shape of any Medium object, such as a massive chest, a stout bed, or a door. The creature cannot substantially alter its size, though. A mimic's body is hard and has a rough texture, no matter what appearance it might present. A mimic gains a +20 racial bonus on Disguise checks when imitating an object in this manner. Disguise is always a class skill for a mimic.																																																									SOURCEPAGE:p.205
 
 ###Block: Minotaur abilities
-# Ability Name	Unique Key					Category of Ability		Type						Description																											Source Page
-Natural Cunning	KEY:Natural Cunning ~ Minotaur	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:You possess an innate cunning and logical ability granting an immunity to maze spells and prevents you from ever becoming lost. You are never caught flat-footed.	SOURCEPAGE:p.206
+# Ability Name	Unique Key					Category of Ability		Type								Description																											Source Page
+Natural Cunning	KEY:Natural Cunning ~ Minotaur	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:You possess an innate cunning and logical ability granting an immunity to maze spells and prevents you from ever becoming lost. You are never caught flat-footed.	SOURCEPAGE:p.206
 
 ###Block: Mite abilities
 # Ability Name	Unique Key				Category of Ability		Type						Define								Description															Modify VAR														Source Page		Description of the Benefits
