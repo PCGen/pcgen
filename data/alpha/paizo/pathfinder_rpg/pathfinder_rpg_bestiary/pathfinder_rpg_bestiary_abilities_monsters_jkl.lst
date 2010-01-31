@@ -37,7 +37,6 @@ Poison		KEY:Poison ~ Leech Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Ext
 ###Block: Common Linnorm abilities
 # Ability Name		Unique Key					Category of Ability		Type								Description																						Source Page
 Freedom of Movement	KEY:Freedom of Movement ~ Linnorm	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:A linnorm is under the constant effect of Freedom of Movement, as per the spell of the same name. This effect cannot be dispelled.	SOURCEPAGE:p.190
-True Seeing			KEY:True Seeing ~ Linnorm		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		DESC:A linnorm has constant True Seeing, as per the spell of the same name.											SOURCEPAGE:p.190
 
 ###Block: Crag Linnorm abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define																					Description																																										Modify VAR										Source Page		Aspects																					Description of the Benefits
