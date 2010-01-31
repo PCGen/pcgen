@@ -150,6 +150,58 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |MANUALWHITESPACE|
 <b>AC</b>&nbsp;|AC.Total|,&nbsp;<b>touch</b>&nbsp;|AC.Touch|,&nbsp;<b>flat-footed</b>&nbsp;|AC.Flatfooted|
 
+&nbsp;(
+|IIF(AC.Size:0)|
+|ELSE|
+|AC.Size.SIGN|&nbsp;size,&nbsp;
+|ENDIF|
+|IIF(AC.Ability:0)|
+|ELSE|
+|AC.Ability.SIGN|&nbsp;Dex,&nbsp;
+|ENDIF|
+|IIF(AC.NaturalArmor:0)|
+|ELSE|
+|AC.NaturalArmor.SIGN|&nbsp;natural,&nbsp;
+|ENDIF|
+|IIF(AC.Dodge:0)|
+|ELSE|
+|AC.Dodge.SIGN|&nbsp;dodge,&nbsp;
+|ENDIF|
+|IIF(AC.Deflection:0)|
+|ELSE|
+|AC.Deflection.SIGN|&nbsp;deflection,&nbsp;
+|ENDIF|
+|IIF(AC.Misc:0)|
+|ELSE|
+|AC.Misc.SIGN|&nbsp;misc,&nbsp;
+|ENDIF|
+|IIF(AC.Armor:0)|
+|ELSE|
+|AC.Armor.SIGN|&nbsp;|EQ.IS.ARMOR.0.NAME|,&nbsp;
+|ENDIF|
+|IIF(AC.Shield:0)|
+|ELSE|
+|AC.Shield.SIGN| 
+|IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
+&nbsp;Heavy&nbsp;Shield
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:LIGHT)|
+&nbsp;Light&nbsp;Shield
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:BUCKLER)|
+&nbsp;Buckler
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:TOWER)|
+&nbsp;Tower&nbsp;Shield
+|ELSE|
+|ENDIF|
+|ENDIF|
+)
+|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+
 <!-- ModifyAC TYPE Abilities -->
 |FOR,%ACfeats,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE|
@@ -172,60 +224,8 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 |ENDFOR|
 |ENDMANUALWHITESPACE|
-<!-- End ModifyAC TYPE Abilities -->
 <br>
-
-&nbsp;&nbsp;&nbsp;(
-|IIF(AC.Size:0)|
-|ELSE|
-|AC.Size.SIGN| size, 
-|ENDIF|
-|IIF(AC.Ability:0)|
-|ELSE|
-|AC.Ability.SIGN| Dex, 
-|ENDIF|
-|IIF(AC.NaturalArmor:0)|
-|ELSE|
-|AC.NaturalArmor.SIGN| natural, 
-|ENDIF|
-|IIF(AC.Dodge:0)|
-|ELSE|
-|AC.Dodge.SIGN| dodge, 
-|ENDIF|
-|IIF(AC.Deflection:0)|
-|ELSE|
-|AC.Deflection.SIGN| deflection, 
-|ENDIF|
-|IIF(AC.Misc:0)|
-|ELSE|
-|AC.Misc.SIGN| misc
-|ENDIF|
-|IIF(AC.Armor:0)|
-|ELSE|
-|AC.Armor.SIGN| |EQ.IS.ARMOR.0.NAME|, 
-|ENDIF|
-|IIF(AC.Shield:0)|
-|ELSE|
-|AC.Shield.SIGN| 
-|IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
-Heavy Shield, 
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:LIGHT)|
-Light Shield, 
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:BUCKLER)|
-Buckler, 
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:TOWER)|
-Tower Shield, 
-|ELSE|
-|ENDIF|
-|ENDIF|
-)<br>
-|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+<!-- End ModifyAC TYPE Abilities -->
 
 |MANUALWHITESPACE|
 <b>hp</b>&nbsp;|HP|&nbsp;
@@ -481,8 +481,8 @@ Tower Shield,
 |ENDMANUALWHITESPACE|
 <!-- End Attacks -->
 
-<!-- Face and Reach -->
-<br><b>Face</b> |FACE|; <b>Reach</b> |REACH|
+<!-- Space and Reach -->
+<br><b>Space</b> |FACE|; <b>Reach</b> |REACH|
 
 <!-- SpecialAttack TYPE Abilities -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
@@ -511,6 +511,60 @@ Tower Shield,
 <br>
 |ENDIF|
 <!-- End Offensive Gear -->
+
+<!-- Innate Spell-Like Abilities -->
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+<br><b>Innate Spell-Like Abilities:</b>
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<br><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
 
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
@@ -614,60 +668,6 @@ Tower Shield,
 |ENDFOR|
 |%|
 <!-- End Domain list -->
-
-<!-- Innate Spell-Like Abilities -->
-|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
-<br><b>Innate Spell-Like Abilities:</b>
-|FOR,%spellbook,1,1,1,0|
-|FOR,%class,0,0,1,0|
-|FOR,%level,0,0,1,0|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
-|ELSE|
-DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
-|ENDIF|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-at will) 
-|ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
-|ENDIF|
-|ENDFOR|
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
-|ENDIF|
-<!-- End Innate Spell-Like Abilities -->
-
-<!-- Other Spell-Like Abilities -->
-|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
-|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
-<br><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
-|FOR,%class,0,0,1,0|
-|FOR,%level,0,0,1,0|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
-|ELSE|
-DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
-|ENDIF|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-at will) 
-|ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
-|ENDIF|
-|ENDFOR|
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDIF|
-|ENDIF|
-|ENDFOR|
-<!-- End Other Spell-Like Abilities -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
