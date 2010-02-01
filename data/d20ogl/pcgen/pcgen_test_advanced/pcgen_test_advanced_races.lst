@@ -1,3 +1,7 @@
 # RACE
 Hughpert Case Won		SIZE:T	RACETYPE:Fey	RACESUBTYPE:Blizzard|Rain	ABILITY:Special Ability|AUTOMATIC|Fey Dust Test|Tentacles of the Fey		BONUS:STAT|STR|-8	BONUS:STAT|DEX|24	BONUS:STAT|CHA|34		AUTO:WEAPONPROF|Light Blades		TEMPLATE:Test One Situation	
 Loughbotton Case Due	SIZE:G	RACETYPE:Humaniod	RACESUBTYPE:Froggy|Water	FAVCLASS:MonKee	ABILITY:Special Ability|AUTOMATIC|Ability That Grants Two				
+
+Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5					LANGAUTO:Common			LANGBONUS:ALL																																																																																																													RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf
+
+

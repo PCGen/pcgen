@@ -47,3 +47,11 @@ TemplateMoveFly_80_ManeuverClumsy	ABILITY:Special Ability|AUTOMATIC|Maneuverabil
 
 Template_DisplayOS_Blocks		ABILITY:Special Ability|AUTOMATIC|Test OS Output Displays
 # DESC:Grabs the Ability that will load all the various abilities to test OS output for Character Tab Preview 'Standard.htm' and PDF output.
+
+
+###Block: How to break a PC
+Template A		ABILITY:FEAT|AUTOMATIC|Ability E
+
+
+
+

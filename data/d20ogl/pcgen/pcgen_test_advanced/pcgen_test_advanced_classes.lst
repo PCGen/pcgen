@@ -7,7 +7,7 @@ SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC
 
 
 CLASS:KeePer of Knowledge	TYPE:PC
-CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE.Craft
+CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE.Craft	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
 SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker		BONUS:VAR|SubstitutionLevelTracker|CL+25
 SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
@@ -19,7 +19,7 @@ SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Toughness,Test Case Extreme
 SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
 SUBSTITUTIONLEVEL:1		AUTO:FEAT|Dodge
 1	AUTO:FEAT|Not Dodge
-2	CAST:5,4,3,2,1
+2	CAST:5,4,3,2,1	BONUS:DOMAIN|NUMBER|2+(CL/2)
 3	CAST:10,9,8,7,6,5,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0
 
 CLASS:Running With Scissors	TYPE:NPC.Monster

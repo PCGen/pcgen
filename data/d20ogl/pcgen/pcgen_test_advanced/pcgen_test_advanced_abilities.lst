@@ -78,6 +78,8 @@ Eclipse Test Master		CATEGORY:Special Ability	TYPE:WitchcraftOutput.EclipseAbili
 
 
 #Block: Misc Tests
+Linguistics Bonus Rank			CATEGORY:Special Ability	TYPE:Ability.SpecialQuality.Extraordinary		BONUS:LANGUAGES|NUMBER|skillinfo("RANK","Linguistics")
+Linguistics Bonus Rank 2		CATEGORY:Special Ability	TYPE:Ability.SpecialQuality.Extraordinary		BONUS:LANGUAGES|NUMBER|1
 
 
 
@@ -112,3 +114,19 @@ Maneuverability(Good)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	
 Maneuverability(Average)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Average
 Maneuverability(Poor)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Poor
 Maneuverability(Clumsy)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Clumsy
+
+
+###Block: How to Break a PC
+#Ability A grants Ability B grants Ability C
+#Ability D grants Template A grants Ability E
+#Ability F grants Feat G (use of VFEAT)
+
+Ability A	CATEGORY:FEAT	TYPE:ATest	ABILITY:FEAT|AUTOMATIC|Ability B
+Ability B	CATEGORY:FEAT	TYPE:ATest	ABILITY:FEAT|AUTOMATIC|Ability C
+Ability C	CATEGORY:FEAT	TYPE:ATest	
+Ability D	CATEGORY:FEAT	TYPE:ATest	TEMPLATE:Template A
+Ability E	CATEGORY:FEAT	TYPE:ATest
+Ability F	CATEGORY:FEAT	TYPE:ATest	VFEAT:Feat G
+
+
+
