@@ -50,6 +50,7 @@ SKILL:Diplomacy			RANK:20
 SKILL:Fly				RANK:20
 SKILL:Intimidate			RANK:20
 SKILL:Knowledge (Nature)	RANK:20
+SKILL:TYPE.Knowledge		RANK:20
 SKILL:Perception			RANK:20
 SKILL:Sense Motive		RANK:20
 FEAT:Improved Initiative
