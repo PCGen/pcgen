@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Dec 28 12:33:28 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Jan 31 16:52:42 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 STARTPACK:Manticore Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Manticore]	SOURCEPAGE:p.199
@@ -17,7 +17,7 @@ STARTPACK:Mantis (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUI
 RACE:Mantis (Giant)	!PRERACE:1,%
 NAME:Giant Mantis
 ALIGN:TN
-STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
 STARTPACK:Medusa Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]	SOURCEPAGE:p.201
 RACE:Medusa	!PRERACE:1,%
@@ -158,16 +158,33 @@ FEAT:Improved Initiative
 
 STARTPACK:Merfolk Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merfolk]	SOURCEPAGE:p.204
 RACE:Merfolk	!PRERACE:1,%
+GENDER:Female
 NAME:Merfolk
 ALIGN:NE
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
 FEAT:Skill Focus (Perception)
 GEAR:Trident				SIZE:M	LOCATION:Both Hands
 GEAR:Crossbow (Heavy)			SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10			LOCATION:Carried
+
+STARTPACK:Mimic Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mimic],[!PRERACE:1,%]	SOURCEPAGE:p.205
+ALIGN:TN
+RACE:Mimic	!PRERACE:1,%
+NAME:Mimic
+SKILL:Climb					RANK:7
+SKILL:Disguise				RANK:7
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Perception				RANK:7
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Slam)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 STARTPACK:Minotaur Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Minotaur],[!PRERACE:1,%]	SOURCEPAGE:p.206
 RACE:Minotaur	!PRERACE:1,%
@@ -182,6 +199,37 @@ FEAT:Great Fortitude
 FEAT:Improved Bull Rush
 FEAT:Power Attack
 GEAR:Greataxe	SIZE:L	LOCATION:Equipped
+
+STARTPACK:Mite Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mite],[!PRERACE:1,%]	SOURCEPAGE:p.207
+ALIGN:LE
+RACE:Mite	!PRERACE:1,%
+NAME:Mite
+SKILL:Handle Animal	RANK:1
+SKILL:Perception		RANK:1
+SKILL:Ride			RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
+FEAT:Point-Blank Shot
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+GEAR:Dagger		SIZE:S	LOCATION:Primary Hand
+GEAR:Dart	QTY:6	SIZE:S	LOCATION:Carried
+
+STARTPACK:Mohrg Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mohrg],[!PRERACE:1,%]	SOURCEPAGE:p.208
+ALIGN:CE
+RACE:Mohrg	!PRERACE:1,%
+NAME:Mohrg
+SKILL:Climb		RANK:14
+SKILL:Perception	RANK:14
+SKILL:Stealth	RANK:14
+SKILL:Swim		RANK:14
+FEAT:Ability Focus (Paralysis)
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Skill Focus (Perception)
+FEAT:Spring Attack
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 STARTPACK:Morlock Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Morlock]	SOURCEPAGE:209
 RACE:Morlock	!PRERACE:1,%
@@ -206,33 +254,30 @@ FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 FEAT:Toughness
 FEAT:Weapon Focus (Slam)
-## Damage on Slam is incorrect. (+7 vs +10 in the Bestiary)
 
 STARTPACK:Naga (Dark) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Dark)]	SOURCEPAGE:211
 RACE:Naga (Dark)	!PRERACE:1,%
 NAME:Dark Naga
 ALIGN:LE
-STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Bluff				RANK:7
 SKILL:Diplomacy			RANK:6
 SKILL:Disguise			RANK:6
 SKILL:Escape Artist		RANK:3
-SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Knowledge (Arcana)	RANK:7
 SKILL:Perception			RANK:10
 SKILL:Sense Motive		RANK:6
 SKILL:Spellcraft			RANK:6
 SKILL:Stealth			RANK:10
-## 3 extra skill points
 FEAT:Alertness
 FEAT:Combat Casting
 FEAT:Dodge
 FEAT:Lightning Reflexes
 FEAT:Stealthy
-SPELLS:Daze|Detect Magic|Light|Mage Hand|Open/Close|Ray of Frost|Read Magic
-SPELLS:Expeditious Retreat|Magic Missile|Ray of Enfeeblement|Shield|Silent Image
-SPELLS:Cat's Grace|Invisibility|Scorching Ray
-SPELLS:Displacement|Lightning Bolt
-## One 1st Level Spell Slot left open.
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Invisibility|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Expeditious Retreat|Magic Missile|Ray of Enfeeblement|Shield|Silent Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Light|Mage Hand|Open/Close|Ray of Frost|Read Magic
 
 STARTPACK:Naga (Guardian) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Guardian)]	SOURCEPAGE:212
 RACE:Naga (Guardian)	!PRERACE:1,%
@@ -246,20 +291,17 @@ SKILL:Perception			RANK:12
 SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Stealth			RANK:12
-## 3 extra skill points
 FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Combat Casting
 FEAT:Combat Expertise
 FEAT:Improved Trip
 FEAT:Lightning Reflexes
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Daze|Detect Magic|Light|Mage Hand|Open/Close|Ray of Frost|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Cure Light Wounds|Divine Favor|Expeditious Retreat|Mage Armor|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Detect Thoughts|Restoration (Lesser)|See Invisibility|Scorching Ray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Cure Serious Wounds|Dispel Magic|Lightning Bolt
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Divine Power
-SPELLS:SPELLBOOK=Known Spells|CLASS=Guardian Naga|Invisibility (Greater)
-## Not sure how to fix the Divine spell as Arcane magic issue.
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Power|Invisibility (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Serious Wounds|Dispel Magic|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Thoughts|Restoration (Lesser)|See Invisibility|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds|Divine Favor|Expeditious Retreat|Mage Armor|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Light|Mage Hand|Open/Close|Ray of Frost|Read Magic
 
 STARTPACK:Naga (Spirit) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Spirit)]	SOURCEPAGE:213
 RACE:Naga (Spirit)	!PRERACE:1,%
@@ -280,10 +322,10 @@ FEAT:Combat Casting
 FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 FEAT:Stealthy
-SPELLS:SPELLBOOK=Known Spells|CLASS=Spirit Naga|Daze|Detect Magic|Mage Hand|Open/Close|Ray of Frost|Read Magic|Stabilize
-SPELLS:SPELLBOOK=Known Spells|CLASS=Spirit Naga|Charm Person|Cure Light Wounds|Divine Favor|Magic Missile|Shield of Faith
-SPELLS:SPELLBOOK=Known Spells|CLASS=Spirit Naga|Cat's Grace|Invisibility|Summon Swarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Spirit Naga|Displacement|Fireball
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Mage Hand|Open/Close|Ray of Frost|Read Magic|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person|Cure Light Wounds|Divine Favor|Magic Missile|Shield of Faith
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Invisibility|Summon Swarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement|Fireball
 
 STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberation	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]	SOURCEPAGE:214
 RACE:Neothelid	!PRERACE:1,%

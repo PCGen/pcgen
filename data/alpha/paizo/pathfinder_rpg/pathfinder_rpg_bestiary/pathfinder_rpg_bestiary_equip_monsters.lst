@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 13 12:43:54 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Jan 31 22:22:56 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Dark Folk Equipment
@@ -16,8 +16,8 @@ Rock (Small)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.
 Rock (Medium)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:100	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:140	SIZE:H	SOURCEPAGE:p.303
 
 ###Block: Night Hag's Heartstone
-# Equipment Name		Output Name			Type					Cost		Weight	Source Page		Ability								Save checks bonus
-Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special ability|AUTOMATIC|Immunity to Disease	BONUS:CHECKS|ALL|2  SPROP:Gemstone worth 1800gp
+# Equipment Name		Output Name			Type					Cost		Weight	Source Page		Ability								Save checks bonus		Special Property
+Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special ability|AUTOMATIC|Immunity to Disease	BONUS:CHECKS|ALL|2	SPROP:Gemstone worth 1800gp
 
 ###Block: Skeleton Equipment
 # Equipment Name		Output Name					Required Weapon Proficiency			Type																	Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier						Alternative Modifier		Wield Category	Range		Reach		Reach Multiplier	Size		Source Page		Bonus Equipment Modifiers																Weapon prop. bonus											Special Property
