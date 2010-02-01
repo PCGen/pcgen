@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 31 16:52:42 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Mon Feb  1 12:26:57 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 STARTPACK:Manticore Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Manticore]	SOURCEPAGE:p.199
@@ -316,7 +316,6 @@ SKILL:Perception			RANK:10
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:9
 SKILL:Swim				RANK:1
-## Swim has 4 bonus points extra.
 FEAT:Ability Focus (Charming Gaze)
 FEAT:Combat Casting
 FEAT:Lightning Reflexes
@@ -442,15 +441,26 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 STARTPACK:Octopus Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus]	SOURCEPAGE:219
+ALIGN:TN
 RACE:Octopus	!PRERACE:1,%
 NAME:Octopus
-ALIGN:TN
+SKILL:Stealth	RANK:2
+FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 STARTPACK:Octopus (Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus (Giant)]	SOURCEPAGE:219
+ALIGN:TN
 RACE:Octopus (Giant)	!PRERACE:1,%
 NAME:Octopus (Giant)
-ALIGN:TN
+SKILL:Escape Artist	RANK:4
+SKILL:Perception		RANK:4
+SKILL:Stealth		RANK:4
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Stealth)
+FEAT:Stealthy
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 STARTPACK:Ogre Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:220
@@ -458,8 +468,8 @@ RACE:Ogre	!PRERACE:1,%
 NAME:Ogre
 ALIGN:CE
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
-#SKILL:Climb		RANK:3
-#SKILL:Perception	RANK:1
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:2
 FEAT:Iron Will
 FEAT:Toughness
 GEAR:Greatclub		SIZE:L	LOCATION:Both Hands
@@ -494,6 +504,8 @@ NAME:Orc
 ALIGN:CE
 STAT:STR=13|DEX=11|CON=12|INT=9|WIS=10|CHA=8
 CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 SKILL:Intimidate	RANK:1
 FEAT:Weapon Focus (Falchion)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
