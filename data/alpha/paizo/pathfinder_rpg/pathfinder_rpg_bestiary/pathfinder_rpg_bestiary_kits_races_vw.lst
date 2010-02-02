@@ -136,7 +136,7 @@ NAME:Wolf
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
-SKILL:Stealth	RANK:2
+SKILL:Stealth	RANK:1
 FEAT:Skill Focus (Perception)
 
 

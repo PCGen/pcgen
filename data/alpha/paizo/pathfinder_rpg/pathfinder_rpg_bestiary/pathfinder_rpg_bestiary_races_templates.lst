@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 29 21:54:49 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Feb  2 17:38:46 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Ghost Template
@@ -118,8 +118,8 @@ Skeletal Champion HitDice									VISIBLE:NO																						PREHD:MAX=0			
 #TODO Can't do now: Challenge Rating: Depends on Hit Dice, not based on base creatures CR
 
 ###Block: Vampire
-# Template Name	Hit Dice Size			Challenge Rating	Damage Reduction			Template																																																															Source Page		Define			Required AL		Prohibited Race						Var. Min. Value	Combat bonus						Bonus to skill									Stat bonus										Modify VAR																			Ability																																																										Automatically Gained Feat
-Vampire		HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:10/Silver	DR:10/Magic	TEMPLATE:Undead	TEMPLATE:CHOOSE:Vampire ~ Tiny|Vampire ~ Small|Vampire ~ Medium|Vampire ~ Large|Vampire ~ Huge|Vampire ~ Gargantuan|Vampire ~ Colossal	TEMPLATE:CHOOSE:Vampire ~ Aberration|Vampire ~ Animal|Vampire ~ Dragon|Vampire ~ Fey|Vampire ~ Humanoid|Vampire ~ Magical Beast|Vampire ~ Monstrous Humanoid|Vampire ~ Ooze|Vampire ~ Outsider|Vampire ~ Plant|Vampire ~ Vermin	SOURCEPAGE:p.270	DEFINE:NoTypeTraits|1	PREALIGN:LE,NE,CE	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PREVARGTEQ:TL,5	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Bluff,Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX,CHA|4	BONUS:STAT|INT,WIS|2	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10	BONUS:VAR|FastHealingRate|5	BONUS:VAR|ChannelResistance|4	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Resistance to Cold|Resistance to Electricity|Fast Healing|Blood Drain ~ Vampire|Children of the Night ~ Vampire|Create Spawn ~ Vampire|Dominate ~ Vampire|Energy Drain ~ Vampire|Change Shape ~ Vampire|Gaseous Form ~ Vampire|Shadowless ~ Vampire|Spider Climb ~ Vampire|Vampire Weaknesses|Channel Resistance	AUTO:FEAT|Alertness|Combat Reflexes|Dodge|Improved Initiative|Lightning Reflexes|Toughness
+# Template Name	Hit Dice Size			Challenge Rating	Damage Reduction			Template																																																															Source Page		Define			Required AL		Prohibited Race						Var. Min. Value	Combat bonus						Bonus to skill									Stat bonus										Modify VAR																			Ability																																																										Automatically Gained Feat												Subrace
+Vampire		HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:10/Silver	DR:10/Magic	TEMPLATE:Undead	TEMPLATE:CHOOSE:Vampire ~ Tiny|Vampire ~ Small|Vampire ~ Medium|Vampire ~ Large|Vampire ~ Huge|Vampire ~ Gargantuan|Vampire ~ Colossal	TEMPLATE:CHOOSE:Vampire ~ Aberration|Vampire ~ Animal|Vampire ~ Dragon|Vampire ~ Fey|Vampire ~ Humanoid|Vampire ~ Magical Beast|Vampire ~ Monstrous Humanoid|Vampire ~ Ooze|Vampire ~ Outsider|Vampire ~ Plant|Vampire ~ Vermin	SOURCEPAGE:p.270	DEFINE:NoTypeTraits|1	PREALIGN:LE,NE,CE	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PREVARGTEQ:TL,5	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Bluff,Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX,CHA|4	BONUS:STAT|INT,WIS|2	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10	BONUS:VAR|FastHealingRate|5	BONUS:VAR|ChannelResistance|4	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Resistance to Cold|Resistance to Electricity|Fast Healing|Blood Drain ~ Vampire|Children of the Night ~ Vampire|Create Spawn ~ Vampire|Dominate ~ Vampire|Energy Drain ~ Vampire|Change Shape ~ Vampire|Gaseous Form ~ Vampire|Shadowless ~ Vampire|Spider Climb ~ Vampire|Vampire Weaknesses|Channel Resistance	AUTO:FEAT|Alertness|Combat Reflexes|Dodge|Improved Initiative|Lightning Reflexes|Toughness	SUBRACE:YES
 
 ###Block: Vampire Attacks
 # Template Name		Visible	Required Size	Natural Attacks
@@ -130,6 +130,10 @@ Vampire ~ Large		VISIBLE:YES	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Mel
 Vampire ~ Huge		VISIBLE:YES	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d8
 Vampire ~ Gargantuan	VISIBLE:YES	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d6
 Vampire ~ Colossal	VISIBLE:YES	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d8
+
+###Block: Vampire subtype removal
+# Template Name	Race Subtype
+Vampire.MOD		RACESUBTYPE:.REMOVE.Dwarf|.REMOVE.Elf|.REMOVE.Giant|.REMOVE.Gnome|.REMOVE.Gnoll|.REMOVE.Goblinoid|.REMOVE.Halfling|.REMOVE.Human|.REMOVE.Oni|.REMOVE.Orc
 
 ###Block: Vampire Augmented Type
 # Template Name			Visible	Required Race					Main Race Type	Race Subtype
@@ -152,14 +156,14 @@ Zombie (Fast)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zo
 Zombie (Plague)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|1						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Staggered ~ Zombie|Death Burst ~ Zombie|Disease ~ Plague Zombie	AUTO:FEAT|Toughness		KIT:1|NE	SUBRACE:Plague Zombie
 
 ###Block: Zombie
-# Template Name		Visible	Required Size	Combat bonus						Add Levels				Natural Attacks
-Zombie ~ Tiny		VISIBLE:NO	PRESIZEEQ:T															NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
-Zombie ~ Small		VISIBLE:NO	PRESIZEEQ:S		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Zombie ~ Medium		VISIBLE:NO	PRESIZEEQ:M		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
-Zombie ~ Large		VISIBLE:NO	PRESIZEEQ:L		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|2	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Zombie ~ Huge		VISIBLE:NO	PRESIZEEQ:H		BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|4	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Zombie ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|6	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:COMBAT|AC|11|TYPE=NaturalArmor.REPLACE	ADDLEVEL:Undead (Mindless)|10	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+# Template Name		Visible	Required Size	Combat bonus						Weapon prof. bonus				Add Levels				Natural Attacks
+Zombie ~ Tiny		VISIBLE:NO	PRESIZEEQ:T										BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)						NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Zombie ~ Small		VISIBLE:NO	PRESIZEEQ:S		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Zombie ~ Medium		VISIBLE:NO	PRESIZEEQ:M		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Zombie ~ Large		VISIBLE:NO	PRESIZEEQ:L		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|2	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Zombie ~ Huge		VISIBLE:NO	PRESIZEEQ:H		BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								ADDLEVEL:Undead (Mindless)|4	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Zombie ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE								ADDLEVEL:Undead (Mindless)|6	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:COMBAT|AC|11|TYPE=NaturalArmor.REPLACE								ADDLEVEL:Undead (Mindless)|10	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
 
 # Zombie issues:
 #TODO Can't do now: Remove Feats and Skills
