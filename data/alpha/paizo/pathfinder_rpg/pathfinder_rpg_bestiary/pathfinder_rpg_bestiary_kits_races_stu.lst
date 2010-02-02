@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 21 13:37:27 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Feb  2 12:49:26 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 STARTPACK:Sahuagin Default	TYPE:DefaultMonster.MonsterousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]	SOURCEPAGE:p.239
@@ -13,7 +13,7 @@ SKILL:Stealth		RANK:2
 SKILL:Survival		RANK:2
 SKILL:Swim			RANK:2
 FEAT:Great Fortitude
-GEAR:Trident				LOCATION:Primary Hand
+GEAR:Trident				LOCATION:Both Hands
 GEAR:Crossbow (Heavy)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
 
@@ -125,7 +125,7 @@ SKILL:Swim		RANK:5
 FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Improved Bull Rush
-FEAT:Improved Critical (Tail Slap)
+FEAT:Improved Critical
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Stealthy
@@ -367,7 +367,8 @@ SKILL:Bluff			RANK:10
 SKILL:Diplomacy		RANK:10
 SKILL:Fly			RANK:9
 SKILL:Intimidate		RANK:10
-SKILL:TYPE=Knowledge	RANK:2	COUNT:2
+SKILL:TYPE=Knowledge	RANK:2
+SKILL:TYPE=Knowledge	RANK:2
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:11
 SKILL:Spellcraft		RANK:8
@@ -385,9 +386,45 @@ NAME:Giant Web-spinning Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Spider (Giant Hunting) Default	TYPE:DefaultMonster.Vermibn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Hunting)]	SOURCEPAGE:p.258
+STARTPACK:Spider (Giant Hunting) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Hunting)]	SOURCEPAGE:p.258
 RACE:Spider (Giant Hunting)	!PRERACE:1,%
 NAME:Giant Hunting Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Scarlet) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Scarlet)]	SOURCEPAGE:p.258
+RACE:Spider (Scarlet)	!PRERACE:1,%
+NAME:Scarlet Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Giant Crab) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Crab)]	SOURCEPAGE:p.258
+RACE:Spider (Giant Crab)	!PRERACE:1,%
+NAME:Giant Crab Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Black Widow) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Black Widow)]	SOURCEPAGE:p.258
+RACE:Spider (Black Widow)	!PRERACE:1,%
+NAME:Black Widow Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Ogre) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Ogre)]	SOURCEPAGE:p.258
+RACE:Spider (Ogre)	!PRERACE:1,%
+NAME:Ogre Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.258
+RACE:Spider (Giant Tarantula)	!PRERACE:1,%
+NAME:Giant Tarantula Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Spider (Goliath) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Goliath)]	SOURCEPAGE:p.258
+RACE:Spider (Goliath)	!PRERACE:1,%
+NAME:Goliath Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
@@ -399,7 +436,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Squid Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid]	SOURCEPAGE:p.259
 RACE:Squid	!PRERACE:1,%
-NAME:Squid Swarm
+NAME:Squid
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:3
@@ -513,7 +550,8 @@ GEAR:Studded Leather			SIZE:M	LOCATION:Equipped
 GEAR:Sword (Short)			SIZE:M	LOCATION:Primary Hand
 GEAR:Crossbow (Light)			SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20			LOCATION:Carried
-LANGBONUS:Abyssal|Infernal
+LANGBONUS:Abyssal		PRELANG:1,Infernal
+LANGBONUS:Infernal	PRELANG:1,Abyssal
 
 STARTPACK:Tiger Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tiger]	SOURCEPAGE:p.265
 RACE:Tiger	!PRERACE:1,%
