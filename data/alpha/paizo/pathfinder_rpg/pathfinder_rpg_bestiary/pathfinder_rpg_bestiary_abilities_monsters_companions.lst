@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 22 11:32:35 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Feb  2 21:34:44 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Companion Advancement
@@ -13,7 +13,7 @@ Companion Advancement (Dinosaur (Triceratops))		CATEGORY:Special Ability	TYPE:Co
 Companion Advancement (Dinosaur (Tyrannosaurus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Tyrannosaurus))	ABILITY:Special Ability|AUTOMATIC|Grab|Powerful Bite ~ Tyrannosaurus	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Dolphin)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dolphin)																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					BONUS:STAT|STR,CON,DEX|2																									VISION:Blindsight (120')
 Companion Advancement (Dolphin (Orca))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dolphin (Orca))																						BONUS:SIZEMOD|NUMBER|1																														VISION:Blindsight (120')
-Companion Advancement (Frog (Giant))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Frog (Giant))			ABILITY:Special Ability|AUTOMATIC|Swallow Whole																	BONUS:STAT|STR,DEX|2
+Companion Advancement (Frog (Giant))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Frog (Giant))			ABILITY:Special Ability|AUTOMATIC|Swallow Whole																	BONUS:STAT|STR,DEX|2		BONUS:VAR|SwallowWholeDice|1	BONUS:VAR|SwallowWholeDamageDie|4
 Companion Advancement (Eel (Electric))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Eel (Electric))		ABILITY:Special Ability|AUTOMATIC|Electricity ~ Electric Eel		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE					BONUS:STAT|DEX,CON|2													BONUS:WEAPONPROF=Tail|TOHIT|-5	BONUS:WEAPONPROF=Tail|DAMAGE|-ceil(STR/2)						NATURALATTACKS:Tail,Weapon.Natural.Melee.Touch.Finesseable.Electricity,*1,1d6
 Companion Advancement (Eel (Giant Moray))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Eel (Giant Moray))		ABILITY:Special Ability|AUTOMATIC|Gnaw ~ Giant Moray Eel			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Elephant (Mastodon))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Elephant (Mastodon))		ABILITY:Special Ability|AUTOMATIC|Trample						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1						BONUS:VAR|TrampleDamageDice|1	BONUS:VAR|TrampleDamageDieSize|6
