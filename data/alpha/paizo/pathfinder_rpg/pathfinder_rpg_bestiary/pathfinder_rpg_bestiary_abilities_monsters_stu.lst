@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  3 01:16:21 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Feb  3 11:29:05 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Sahuagin Abilities
@@ -78,8 +78,10 @@ Symbol of Sleep		KEY:Symbol of Sleep ~ Gynosphinx		CATEGORY:Special ability	TYPE
 Symbol of Stunning	KEY:Symbol of Stunning ~ Gynosphinx		CATEGORY:Special ability	TYPE:SpecialQuality.Spelllike				SPELLS:Innate|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=12|Symbol of Stunning,17+CHA		DESC:May cast Symbol of Stunning (DC 21) once per week. Symbol will last for 1 week maximum.	SOURCEPAGE:p.257
 
 ###Block: Spider Abilities
-# Ability Name	Unique Key				Category of Ability		Type						Define			Description																			Modify VAR						Source Page		Aspects
-Poison		KEY:Poison ~ Giant Spider	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonSaveDC|0	DESC:Bite-injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Str damage; cure 1 save.|PoisonSaveDC	BONUS:VAR|PoisonSaveDC|10+(HD/2)+CON	SOURCEPAGE:p.258	ASPECT:Ability Benefit|(Fort DC %1;1/round for 4 rounds;1d2 Str;1 save)|PoisonSaveDC
+# Ability Name	Unique Key				Category of Ability		Type						Define			Description																			Ability						Bonus to skill					Modify VAR						Source Page		Aspects
+Poison		KEY:Poison ~ Giant Spider	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonSaveDC|0	DESC:Bite-injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Str damage; cure 1 save.|PoisonSaveDC															BONUS:VAR|PoisonSaveDC|10+(HD/2)+CON	SOURCEPAGE:p.258	ASPECT:Ability Benefit|(Fort DC %1;1/round for 4 rounds;1d2 Str;1 save)|PoisonSaveDC
+Hunting		KEY:Hunting Giant Spider	CATEGORY:Internal			TYPE:GiantSpiderType																																		BONUS:SKILL|Acrobatics|8|TYPE=Racial
+Web-spinning	KEY:Web-spinning Giant Spider	CATEGORY:Internal			TYPE:GiantSpiderType																											ABILITY:Special Ability|AUTOMATIC|Web
 
 ###Block: Spider Swarm Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Define			Description																		Modify VAR						Source Page		Aspects

@@ -380,53 +380,54 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 ABILITY:CATEGORY=Special Ability|Symbol of Fear ~ Gynosphinx|Symbol of Pain ~ Gynosphinx|Symbol of Persuasion ~ Gynosphinx|Symbol of Sleep ~ Gynosphinx|Symbol of Stunning ~ Gynosphinx	FREE:YES
 
-STARTPACK:Spider (Giant Web-Spinning) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Web-Spinning)]	SOURCEPAGE:p.258
-RACE:Spider (Giant Web-Spinning)	!PRERACE:1,%
-NAME:Giant Web-spinning Spider
+STARTPACK:Spider (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant)]	SOURCEPAGE:p.258
+RACE:Spider (Giant)	!PRERACE:1,%
+NAME:Giant Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-
-STARTPACK:Spider (Giant Hunting) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Hunting)]	SOURCEPAGE:p.258
-RACE:Spider (Giant Hunting)	!PRERACE:1,%
-NAME:Giant Hunting Spider
-ALIGN:TN
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Scarlet) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Scarlet)]	SOURCEPAGE:p.258
 RACE:Spider (Scarlet)	!PRERACE:1,%
 NAME:Scarlet Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Giant Crab) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Crab)]	SOURCEPAGE:p.258
 RACE:Spider (Giant Crab)	!PRERACE:1,%
 NAME:Giant Crab Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Black Widow) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Black Widow)]	SOURCEPAGE:p.258
 RACE:Spider (Black Widow)	!PRERACE:1,%
 NAME:Black Widow Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Ogre) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Ogre)]	SOURCEPAGE:p.258
 RACE:Spider (Ogre)	!PRERACE:1,%
 NAME:Ogre Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.258
 RACE:Spider (Giant Tarantula)	!PRERACE:1,%
 NAME:Giant Tarantula Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Goliath) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Goliath)]	SOURCEPAGE:p.258
 RACE:Spider (Goliath)	!PRERACE:1,%
 NAME:Goliath Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Swarm]	SOURCEPAGE:p.258
 RACE:Spider Swarm	!PRERACE:1,%
