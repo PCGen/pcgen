@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  3 01:16:29 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Feb  3 17:24:12 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 ###Block: Creature Type Traits
@@ -221,7 +221,10 @@ Poison						KEY:Poison ~ Su										CATEGORY:Special Ability	TYPE:SpecialAttack
 
 Pounce																		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption																																									DESC:When you make a charge, you can make a full attack (including rake attacks if you also have the rake ability).																																																																																																																																																						SOURCEPAGE:p.302
 
-Powerful Charge																	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption																																									DESC:When you make a charge, your attack deals extra damage in addition to the normal benefits and hazards of a charge.																																																																																																																																																						SOURCEPAGE:p.303
+Powerful Charge																	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption										DEFINE:PowerfulChargeDamageDice|0	DEFINE:PowerfulChargeDamageDieSize|0	DEFINE:PowerfulChargeBonusDamage|0													DESC:When you make a charge, your attack deals extra damage in addition to the normal benefits and hazards of a charge.																																																																																																																																																						SOURCEPAGE:p.303	ASPECT:Ability Benefit|(%1d%2+%3)|PowerfulChargeDamageDice|PowerfulChargeDamageDieSize|PowerfulChargeBonusDamage
+# Set number of damage dice with BONUS:VAR|PowerfulChargeDamageDice|x
+# Set Die size with BONUS:VAR|PowerfulChargeDamageDieSize|x
+# Set bonus damage with BONUS:VAR|PowerfulChargeBonusDamage|x
 
 Pull																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption																																									DESC:You can choose to make a free combat maneuver check with a successful attack.																																																																																																																																																												SOURCEPAGE:p.303																									BENEFIT:You can choose to make a free combat maneuver check with a successful attack. If successful, this check pulls a creature closer. This ability only works on creatures of a size equal to or smaller than you. Creatures pulled in this way do not provoke attacks of opportunity and stop if the pull would move them into a solid object or creature.
 
