@@ -259,7 +259,16 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDMANUALWHITESPACE|
 <br>
 
-<b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
+|MANUALWHITESPACE|
+<b>Fort</b>&nbsp;|CHECK.FORTITUDE.TOTAL|,&nbsp;<b>Ref</b>&nbsp;|CHECK.REFLEX.TOTAL|,&nbsp;<b>Will</b>&nbsp;|CHECK.2.TOTAL|
+
+<!-- SaveBonus TYPE Abilities -->
+|FOR,%savebonus,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+,&nbsp;|ABILITYALL.Special Ability.VISIBLE.%savebonus.TYPE=SaveBonus.ASPECT.SaveBonus|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br>
+<!-- End SaveBonus TYPE Abilities -->
 
 <!-- Defensive TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
