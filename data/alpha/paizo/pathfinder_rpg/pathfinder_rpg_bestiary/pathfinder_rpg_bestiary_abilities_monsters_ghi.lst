@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 29 20:58:52 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 12:26:45 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Gargoyle abilities
@@ -60,8 +60,8 @@ Heated Rock		KEY:Heated Rock ~ Fire Giant	CATEGORY:Special Ability	TYPE:SpecialA
 +4 racial bonus to Stealth skill in snow	KEY:Frost Giant Stealth	CATEGORY:Special Ability	TYPE:SpecialQuality	BONUS:SKILL|Stealth|4|TYPE=Racial|PREAPPLY:PC	SOURCEPAGE:p.149	TEMPDESC:Adjusts Stealth skill bonus by 4
 
 ###Block: Giant (Stone) abilities
-# Ability Name		Unique Key						Category of Ability		Type								Description																		Source Page		Description of the Benefits
-Improved Rock Catching	KEY:Improved Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching.	SOURCEPAGE:p.151	BENEFIT:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching. Once per round, if you would normally be hit by a rock, you can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) You must be aware of the attack in order to make a rock catching attempt.
+# Ability Name		Unique Key						Category of Ability		Type									Description																		Source Page		Aspects									Description of the Benefits
+Improved Rock Catching	KEY:Improved Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive.SaveBonus	DESC:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching.	SOURCEPAGE:p.151	ASPECT:SaveBonus|+4 Reflex when attempting to catch a rock	BENEFIT:You gain a +4 racial bonus on your Reflex save when attempting to catch a thrown rock with rock catching. Once per round, if you would normally be hit by a rock, you can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) You must be aware of the attack in order to make a rock catching attempt.
 
 ###Block: Giant (Storm) abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description												Automatically Gained Weapon Prof.		Source Page

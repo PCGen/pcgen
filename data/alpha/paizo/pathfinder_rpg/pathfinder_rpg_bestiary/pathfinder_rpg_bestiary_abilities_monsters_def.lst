@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 27 15:40:03 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 12:26:45 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Dark Folk Abilities
@@ -155,8 +155,8 @@ Tree Dependent	KEY:Tree Dependent ~ Dryad	CATEGORY:Special Ability	TYPE:SpecialQ
 Woodcraft		KEY:Woodcraft ~ Dryad		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:A dryad has a +6 racial bonus to Craft checks involving wood, and is always treated as if she had masterwork artisan's woodworking tools when making such checks.	SOURCEPAGE:p.116
 
 ###Block: Duergar Abilities
-# Ability Name		Unique Key			Category of Ability		Type					Source Page
-+2 Save vs. Spells	KEY:Duergar vs Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.Defensive	SOURCEPAGE:p.117
+# Ability Name		Unique Key			Category of Ability		Type					Source Page		Aspects
++2 Save vs. Spells	KEY:Duergar vs Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	SOURCEPAGE:p.117	ASPECT:SaveBonus|+2 vs. Spells
 
 ###Block: Eel (Electric) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define					Description																																									Source Page		Aspects

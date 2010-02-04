@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 26 22:02:21 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 12:26:45 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Aasimar abilities
@@ -6,17 +6,17 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 Skilled		KEY:Skilled ~ Aasimar	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Aasimars gain a +2 racial bonus on Diplomacy and Perception checks.BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial	SOURCEPAGE:p.7
 
 ###Block: Aboleth abilities
-# Ability Name	Unique Key				Category of Ability		Type							Visible	Define			Description																																																																																												Modify VAR						Source Page		Aspects
-Mucus Cloud		KEY:Mucus Cloud ~ Aboleth	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura	VISIBLE:YES	DEFINE:MucusCloudDC|0	DESC:While underwater, an aboleth exudes a cloud of transparent slime. All creatures adjacent to an aboleth must succeed on a DC %1 Fortitude save each round or lose the ability to breathe air (but gain the ability to breathe water) for 3 hours. Renewed contact with an aboleth's mucus cloud and failing another save extends the effect for another 3 hours.|MucusCloudDC																																BONUS:VAR|MucusCloudDC|10+(TL/2)+CON	SOURCEPAGE:p.8	ASPECT:Ability Benefit|(5 ft., DC %1)|MucusCloudDC
-Slime			KEY:Slime ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		VISIBLE:YES	DEFINE:SlimeDC|0		DESC:A creature hit by an aboleth's tentacle must succeed on a DC %1 Fortitude save or his skin and flesh transform into a clear, slimy membrane over the course of 1d4 rounds. The creature's new "flesh" is soft and tender, reducing its Constitution score by 4 as long as it persists. If the creature's flesh isn't kept moist, it dries quickly and the victim takes 1d12 points of damage every 10 minutes. Remove disease and similar effects can restore an afflicted creature to normal, but immunity to disease offers no protection from this attack.|SlimeDC	BONUS:VAR|SlimeDC|10+(TL/2)+CON		SOURCEPAGE:p.8
+# Ability Name	Unique Key				Category of Ability		Type							Define			Description																																																																																												Modify VAR						Source Page		Aspects
+Mucus Cloud		KEY:Mucus Cloud ~ Aboleth	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura	DEFINE:MucusCloudDC|0	DESC:While underwater, an aboleth exudes a cloud of transparent slime. All creatures adjacent to an aboleth must succeed on a DC %1 Fortitude save each round or lose the ability to breathe air (but gain the ability to breathe water) for 3 hours. Renewed contact with an aboleth's mucus cloud and failing another save extends the effect for another 3 hours.|MucusCloudDC																																BONUS:VAR|MucusCloudDC|10+(TL/2)+CON	SOURCEPAGE:p.8	ASPECT:Ability Benefit|(5 ft., DC %1)|MucusCloudDC
+Slime			KEY:Slime ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DEFINE:SlimeDC|0		DESC:A creature hit by an aboleth's tentacle must succeed on a DC %1 Fortitude save or his skin and flesh transform into a clear, slimy membrane over the course of 1d4 rounds. The creature's new "flesh" is soft and tender, reducing its Constitution score by 4 as long as it persists. If the creature's flesh isn't kept moist, it dries quickly and the victim takes 1d12 points of damage every 10 minutes. Remove disease and similar effects can restore an afflicted creature to normal, but immunity to disease offers no protection from this attack.|SlimeDC	BONUS:VAR|SlimeDC|10+(TL/2)+CON		SOURCEPAGE:p.8
 
 ###Block: Angel abilities
-# Ability Name				Unique Key				Category of Ability		Type						Visible	Description																			Source Page		Aspects
-Change Shape				KEY:Change Shape ~ Angel	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:Alter self																		SOURCEPAGE:p.11	ASPECT:Ability Benefit|(alter self)
-Slaying Arrow				KEY:Slaying Arrow ~ Solar	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:A solar's bow needs no ammunition, and automatically creates a slaying arrow of the solar's choice when drawn.	SOURCEPAGE:p.12
-Stun						KEY:Stun ~ Angel			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES
-+4 Deflection bonus to AC vs. Evil	KEY:Angel Deflection		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC																								SOURCEPAGE:p.11
-+4 Resistance to Saves vs. Evil	KEY:Angel Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.Defensive																								SOURCEPAGE:p.11
+# Ability Name				Unique Key				Category of Ability		Type						Description																			Source Page		Aspects
+Change Shape				KEY:Change Shape ~ Angel	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Alter self																		SOURCEPAGE:p.11	ASPECT:Ability Benefit|(alter self)
+Slaying Arrow				KEY:Slaying Arrow ~ Solar	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A solar's bow needs no ammunition, and automatically creates a slaying arrow of the solar's choice when drawn.	SOURCEPAGE:p.12
+Stun						KEY:Stun ~ Angel			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
++4 Deflection bonus to AC vs. Evil	KEY:Angel Deflection		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC																						SOURCEPAGE:p.11
++4 Resistance to Saves vs. Evil	KEY:Angel Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus																						SOURCEPAGE:p.11	ASPECT:SaveBonus|+4 vs. Evil
 
 ###Block: Animated Object Abilities
 # Ability Name				Unique Key						Category of Ability		Type							Visible		Required Ability									Restricted Ability																					Required Movement Rate	Define										Description																				Stackable?	Multiple?	Choose		Clone Movement			Ability									Bonus to Ability Pool								Combat bonus						Misc bonus																							Add to base move			Modify VAR										Cost		Source Page		Aspects
@@ -55,9 +55,9 @@ Cling			KEY:Cling ~ Army Ant Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.E
 Consume		KEY:Consume ~ Army Ant Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:An army ant swarm can rapidly consume any creature it swarms over. Against helpless or nauseated targets, an army ant swarm attack deals 6d6 points of damage.								SOURCEPAGE:p.16
 
 ###Block: Archon Abilities
-# Ability Name				Unique Key						Category of Ability		Type							Description															Source Page
+# Ability Name				Unique Key						Category of Ability		Type							Description															Source Page		Aspects
 +2 deflection to AC vs. evil		KEY:Archon Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC																			SOURCEPAGE:p.20
-+2 resistance to saves vs. evil	KEY:Archon Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.Defensive																			SOURCEPAGE:p.20
++2 resistance to saves vs. evil	KEY:Archon Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus																			SOURCEPAGE:p.20	ASPECT:SaveBonus|+2 vs. Evil
 Magic Circle against Evil		KEY:Magic Circle against Evil ~ Archon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DESC:This ability continually duplicates the effect of the spell Magic Circle against Evil.	SOURCEPAGE:p.20
 Detect Evil					KEY:Detect Evil ~ Archon			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense		DESC:This ability continually duplicates the effect of the spell Detect Evil.				SOURCEPAGE:p.20
 

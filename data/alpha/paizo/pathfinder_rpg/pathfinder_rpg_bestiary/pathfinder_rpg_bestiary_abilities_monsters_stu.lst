@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  3 11:29:05 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 12:26:45 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Sahuagin Abilities
@@ -133,9 +133,9 @@ Double Damage Against Objects	KEY:Double Damage ~ Treant	CATEGORY:Special Abilit
 Treespeech				KEY:Treespeech ~ Treant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	DESC:A treant has the ability to converse with plants as if subject to a continual speak with plants spell, and most plants greet them with an attitude of friendly or helpful.	SOURCEPAGE:p.266
 
 ###Block: Unicorn Abilities
-# Ability Name				Unique Key						Category of Ability		Type							Description																			Modify VAR					Source Page
+# Ability Name				Unique Key						Category of Ability		Type							Description																			Modify VAR					Source Page		Aspects
 +2 deflection to AC vs. evil		KEY:Unicorn Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC																													SOURCEPAGE:p.269
-+2 resistance to saves vs. evil	KEY:Unicorn Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.Defensive																													SOURCEPAGE:p.269
++2 resistance to saves vs. evil	KEY:Unicorn Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus																													SOURCEPAGE:p.269	ASPECT:SaveBonus|+2 vs. Evil
 Magic Circle against Evil		KEY:Magic Circle against Evil ~ Unicorn	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DESC:This ability continually duplicates the effect of the spell. The unicorn cannot suppress this ability.									SOURCEPAGE:p.269
 Magical Strike				KEY:Magical Strike ~ Unicorn			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:A unicorn's gore attack is treated as a magic good weapon for the purposes of damage reduction.										SOURCEPAGE:p.269
 Wild Empathy				KEY:Wild Empathy ~ Unicorn			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:This works like the druid's wild empathy class feature, except the unicorn has a +6 racial bonus on the check.	BONUS:VAR|WildEmpathy|6|TYPE=Racial	SOURCEPAGE:p.269
