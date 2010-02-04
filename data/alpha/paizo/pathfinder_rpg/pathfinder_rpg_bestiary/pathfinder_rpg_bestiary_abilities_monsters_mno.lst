@@ -12,9 +12,9 @@ Mandibles		KEY:Mandibles ~ Giant Mantis		CATEGORY:Special Ability	TYPE:SpecialAt
 Sudden Strike	KEY:Sudden Strike ~ Giant Mantis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A giant mantis is particularly adept at moving quickly when its foes are surprised. During a surprise round, a giant mantis may act as if it had a full round to act, rather than just one standard action.																											SOURCEPAGE:p.200
 
 ###Block: Medusa abilities
-# Ability Name	Unique Key				Category of Ability		Type						Define				Modify VAR						Source Page		Aspects																												Description of the Benefits
-Petrifying Gaze	KEY:Petrifying Gaze ~ Medusa	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:PetrifyingGazeDC|0	BONUS:VAR|PetrifyingGazeDC|10+(HD/2)+CHA	SOURCEPAGE:p.201																														BENEFIT:Turn to stone permanently, 30 feet, Fortitude DC %1 negates.|PetrifyingGazeDC
-Poison		KEY:Poison ~ Medusa		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:MedusaPoisonDC|0		BONUS:VAR|MedusaPoisonDC|10+(HD/2)+CON	SOURCEPAGE:p.201	ASPECT:Poison Effect|-1d3 Strength	ASPECT:Save Frequency|1/rd	ASPECT:Poison Duration|6rds	ASPECT:Poison Cure|2 consecutive saves	ASPECT:Save DC|%1|MedusaPoisonDC	BENEFIT:Bite-injury; save Fort DC 18; frequency 1/round for 6 rounds; effect 1d3 Str; cure 2 consecutive saves. The save DC is Constitution-based.
+# Ability Name	Unique Key				Category of Ability		Type						Define				Modify VAR						Source Page		Aspects							Description of the Benefits
+Petrifying Gaze	KEY:Petrifying Gaze ~ Medusa	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:PetrifyingGazeDC|0	BONUS:VAR|PetrifyingGazeDC|10+(HD/2)+CHA	SOURCEPAGE:p.201									BENEFIT:Turn to stone permanently, 30 feet, Fortitude DC %1 negates.|PetrifyingGazeDC
+Poison		KEY:Poison ~ Medusa		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:MedusaPoisonDC|0		BONUS:VAR|MedusaPoisonDC|10+(HD/2)+CON	SOURCEPAGE:p.201	ASPECT:Ability Benefit|(DC %1)|MedusaPoisonDC	BENEFIT:Bite-injury; save Fort DC 18; frequency 1/round for 6 rounds; effect 1d3 Str; cure 2 consecutive saves. The save DC is Constitution-based.
 
 ###Block: Mephit abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																																																																Multiple?	Choose						Source Page
