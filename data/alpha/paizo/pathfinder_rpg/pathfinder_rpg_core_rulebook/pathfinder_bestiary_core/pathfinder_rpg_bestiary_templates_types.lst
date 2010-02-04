@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 29 16:58:55 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 13:28:59 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 ###Block: Creature Types
@@ -34,7 +34,7 @@ Human			VISIBLE:NO				SOURCEPAGE:p.312																																										
 Incorporeal		VISIBLE:NO				SOURCEPAGE:p.312	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CMB|DEX																ABILITY:Special Ability|AUTOMATIC|Incorporeal																																	RACESUBTYPE:Incorporeal
 Lawful		VISIBLE:NO				SOURCEPAGE:p.312																																								ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																RACESUBTYPE:Lawful
 Native		VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Native
-Oni			VISIBLE:NO	TEMPLATE:Native	SOURCEPAGE:p.221																																								ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Oni|Change Shape ~ Oni																													RACESUBTYPE:Oni
+Oni			VISIBLE:NO	TEMPLATE:Native	SOURCEPAGE:p.221																																								ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Acid/Fire|Change Shape ~ Oni																												RACESUBTYPE:Oni
 Orc			VISIBLE:NO				SOURCEPAGE:p.312																																								ABILITY:Special Ability|AUTOMATIC|Light Sensitivity																																RACESUBTYPE:Orc			VISION:Darkvision (60')
 Reptilian		VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Reptilian
 Shapechanger	VISIBLE:NO				SOURCEPAGE:p.312																																																																																RACESUBTYPE:Shapechanger

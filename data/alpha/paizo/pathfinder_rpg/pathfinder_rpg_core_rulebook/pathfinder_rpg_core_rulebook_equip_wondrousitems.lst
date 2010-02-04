@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 14 23:30:54 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 12:44:40 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith) and Maredudd (Eric C Smith)
@@ -372,22 +372,22 @@ Rope of Climbing										TYPE:Magic.Wondrous				COST:3000	WT:3								SOURCEPAG
 Rope of Entanglement									TYPE:Magic.Wondrous				COST:21000	WT:5								SOURCEPAGE:p.529
 
 ###Block:S
-# Equipment Name				Output Name					Type						Contains				Cost		Weight	Slot Needed	Modifier					Source Page		Spell Res.	Save checks bonus			Bonus to skill																	Modify VAR									Special Property
-Salve of Slipperiness									TYPE:Magic.Wondrous.Consumable						COST:1000	WT:.02									SOURCEPAGE:p.529								BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC												BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
+# Equipment Name				Output Name					Type						Contains				Cost		Weight	Slot Needed	Modifier					Source Page		Spell Res.	Save checks bonus			Bonus to skill																		Modify VAR									Special Property
+Salve of Slipperiness									TYPE:Magic.Wondrous.Consumable						COST:1000	WT:.02									SOURCEPAGE:p.529								BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC													BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
 Scabbard of Keen Edges									TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM|Slashing=1	COST:16000	WT:1				EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.529
 Scarab of Protection									TYPE:Magic.Wondrous.Scarab							COST:38000	WT:.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
-Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]		TYPE:Magic.Wondrous.Scarab							COST:2500	WT:.02									SOURCEPAGE:p.529																																					SPROP:Bypass DR of Golems
+Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]		TYPE:Magic.Wondrous.Scarab							COST:2500	WT:.02									SOURCEPAGE:p.529																																						SPROP:Bypass DR of Golems
 Silversheen											TYPE:Magic.Wondrous.Consumable						COST:250	WT:.02									SOURCEPAGE:p.529
-Slippers of Spider Climbing								TYPE:Magic.Wondrous.Slippers							COST:4800	WT:.5		SLOTS:2							SOURCEPAGE:p.530																																					SPROP:Up to 10 minutes per day.
+Slippers of Spider Climbing								TYPE:Magic.Wondrous.Slippers							COST:4800	WT:.5		SLOTS:2							SOURCEPAGE:p.530																																						SPROP:Up to 10 minutes per day.
 Sovereign Glue (Ounce)									TYPE:Magic.Wondrous.Consumable						COST:2400	WT:.02									SOURCEPAGE:p.530
 Sovereign Glue (Flask)			OUTPUTNAME:[NAME] of Sovereign Glue	TYPE:Magic.Wondrous								COST:16800	WT:1.5			EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:p.530
 Stone of Alarm										TYPE:Magic.Wondrous								COST:2700	WT:2										SOURCEPAGE:p.530
-Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous								COST:20000	WT:.02									SOURCEPAGE:p.530			BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck										SPROP:+1 Luck bonus to ability checks
+Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous								COST:20000	WT:.02									SOURCEPAGE:p.530			BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck											SPROP:+1 Luck bonus to ability checks
 Stone Salve (Ounce)									TYPE:Magic.Wondrous.Consumable						COST:4000	WT:.02									SOURCEPAGE:p.530
-Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous								COST:9600	WT:0.5									SOURCEPAGE:p.530																																					SPROP:Includes a bead of blessing and a bead of healing
-Strand of Prayer Beads									TYPE:Magic.Wondrous.Amulet							COST:45800	WT:0.5									SOURCEPAGE:p.530																																					SPROP:Includes a bead healing, a bead of karma and a bead of smiting
-Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous.Amulet							COST:95800	WT:0.5									SOURCEPAGE:p.530																																					SPROP:Includes a bead of healing, a bead of karma, a bead of summons and a bead of wind walking
-Sustaining Spoon										TYPE:Magic.Wondrous								COST:5400	WT:.02									SOURCEPAGE:p.531																																					SPROP:Feeds up to 4 humans / day.
+Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous								COST:9600	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead of blessing and a bead of healing
+Strand of Prayer Beads									TYPE:Magic.Wondrous.Amulet							COST:45800	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead healing, a bead of karma and a bead of smiting
+Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous.Amulet							COST:95800	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead of healing, a bead of karma, a bead of summons and a bead of wind walking
+Sustaining Spoon										TYPE:Magic.Wondrous								COST:5400	WT:.02									SOURCEPAGE:p.531																																						SPROP:Feeds up to 4 humans / day.
 
 ###Block:T
 # Equipment Name					Type				Cost		Weight	Source Page
