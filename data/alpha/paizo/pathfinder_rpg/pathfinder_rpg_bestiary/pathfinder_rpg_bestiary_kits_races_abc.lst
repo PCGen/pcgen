@@ -24,7 +24,7 @@ GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection From Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Evil
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Guidance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
@@ -185,7 +185,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Regenerate
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heroes' Feast
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds (Mass)
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Undeath To Death
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Undeath to Death
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Word of Recall
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Break Enchantment
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Breath of Life
@@ -203,7 +203,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Invisibility Purge
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Circle against Evil
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Prayer
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection From Energy
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Energy
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength
@@ -363,7 +363,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Invisibility Purge
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Vestment
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection From Energy
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Energy
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Consecrate
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds

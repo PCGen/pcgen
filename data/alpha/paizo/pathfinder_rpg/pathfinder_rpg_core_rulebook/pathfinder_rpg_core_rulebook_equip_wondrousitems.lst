@@ -306,13 +306,13 @@ Mirror of Opposition								TYPE:Magic.Wondrous													COST:92000	WT:45				
 ###Block:N
 # Equipment Name			Type					Cost		Weight	Source Page		Bonus to nb of slots	Special Property
 Necklace of Adaptation		TYPE:Magic.Wondrous.Necklace	COST:9000	WT:1		SOURCEPAGE:p.524					SPROP:Wraps the wearer in a shell of fresh air
-Necklace of Fireballs I		TYPE:Magic.Wondrous.Necklace	COST:1650	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs II	TYPE:Magic.Wondrous.Necklace	COST:2700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs III	TYPE:Magic.Wondrous.Necklace	COST:4350	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs IV	TYPE:Magic.Wondrous.Necklace	COST:5400	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs V		TYPE:Magic.Wondrous.Necklace	COST:5850	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs VI	TYPE:Magic.Wondrous.Necklace	COST:8100	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
-Necklace of Fireballs VII	TYPE:Magic.Wondrous.Necklace	COST:8700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Necklace|1
+Necklace of Fireballs I		TYPE:Magic.Wondrous.Necklace	COST:1650	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs II	TYPE:Magic.Wondrous.Necklace	COST:2700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs III	TYPE:Magic.Wondrous.Necklace	COST:4350	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs IV	TYPE:Magic.Wondrous.Necklace	COST:5400	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs V		TYPE:Magic.Wondrous.Necklace	COST:5850	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs VI	TYPE:Magic.Wondrous.Necklace	COST:8100	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs VII	TYPE:Magic.Wondrous.Necklace	COST:8700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
 # Do we want to enumerate the different types of beads on the different necklaces, and thereby the costs of partially spent necklaces?
 
 ###Block:O

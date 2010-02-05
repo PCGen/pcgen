@@ -766,7 +766,7 @@ NAME:Iron Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra (Adamantine Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Adamantine Cobra) Cobra],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra (Adamantine Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Adamantine Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra (Adamantine Cobra)	!PRERACE:1,%
 NAME:Adamantine Cobra

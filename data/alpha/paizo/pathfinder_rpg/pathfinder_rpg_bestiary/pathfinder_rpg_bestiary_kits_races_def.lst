@@ -222,7 +222,7 @@ FEAT:Power Attack
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 
 
-STARTPACK:Demon (Quasit) Default	TYPE:DefaultMonster.Demon (Quasit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,xxx],[!PRERACE:1,%]	SOURCEPAGE:p.66
+STARTPACK:Demon (Quasit) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Quasit)],[!PRERACE:1,%]	SOURCEPAGE:p.66
 ALIGN:CE
 RACE:Demon (Quasit)	!PRERACE:1,%
 NAME:Quasit
@@ -393,7 +393,7 @@ FEAT:Combat Reflexes
 FEAT:Point-Blank Shot
 FEAT:Precise Shot
 FEAT:Rapid Shot
-FEAT:Shot On The Run
+FEAT:Shot on the Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword			LOCATION:Both Hands	EQMOD:PLUS1W
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.FLAME.BOWSTR|+5
@@ -795,7 +795,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Enfeeblement	PREVARGT:IsDri
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Silent Image		PREVARGT:IsDriderWizard,0
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Bleed			PREVARGT:IsDriderWizard,0
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Daze			PREVARGT:IsDriderWizard,0
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray Of Frost		PREVARGT:IsDriderWizard,0
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Frost		PREVARGT:IsDriderWizard,0
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Read Magic		PREVARGT:IsDriderWizard,0
 NAME:Drider Cleric	PREVARGT:IsDriderCleric,0
 NAME:Drider Sorcerer	PREVARGT:IsDriderSorcerer,0
@@ -839,7 +839,7 @@ FEAT:Channel Smite
 FEAT:Weapon Finesse
 STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection From Law
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
 GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped

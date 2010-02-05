@@ -77,8 +77,8 @@ FEAT:Vital Strike
 FEAT:Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Giant|Goblin|Orc
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone Of Cold
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall Of Force
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Eye
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Black Tentacles
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
