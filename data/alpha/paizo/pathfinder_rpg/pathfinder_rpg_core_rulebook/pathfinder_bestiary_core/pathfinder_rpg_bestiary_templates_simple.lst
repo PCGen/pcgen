@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Thu Jan 21 09:46:33 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 23:33:16 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 ###Block: Simple Templates
-# Template Name		Visible	Source Page		Modify VAR																																													Ability																					Spell Res.	Vision			Hit Dice
-Celestial Creature	VISIBLE:YES	SOURCEPAGE:p.294	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	VISION:Darkvision (60')	HD:5-10:DR:5/Evil	HD:11+:DR:10/Evil	HD:5+:CR:1
-Fiendish Creature		VISIBLE:YES	SOURCEPAGE:p.294	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|5|PREHD:MIN=11																ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	VISION:Darkvision (60')	HD:5-10:DR:5/Good	HD:11+:DR:10/Good	HD:5+:CR:1
+# Template Name		Visible	Damage Reduction		Source Page		Define																																	Damage reduction			Misc bonus				Modify VAR																	Ability																					Spell Res.	Subrace		Vision
+Celestial Creature	VISIBLE:YES	DR:5/Evil|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|5	DEFINE:AcidResistanceBonus|CelestialResistanceBonus	DEFINE:ColdResistanceBonus|CelestialResistanceBonus	DEFINE:ElectricityResistanceBonus|CelestialResistanceBonus	BONUS:DR|Evil|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	SUBRACE:Celestial	VISION:Darkvision (60')
+Fiendish Creature		VISIBLE:YES	DR:5/Good|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|5	DEFINE:ColdResistanceBonus|FiendishResistanceBonus	DEFINE:FireResistanceBonus|FiendishResistanceBonus											BONUS:DR|Good|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=11		ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	SUBRACE:Fiendish	VISION:Darkvision (60')
 
 ###Block: Builder Templates
 # Template Name			Visible		Bonus to Ability Pool
 Creature with Class Levels	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1
+
 #
 # End
 #

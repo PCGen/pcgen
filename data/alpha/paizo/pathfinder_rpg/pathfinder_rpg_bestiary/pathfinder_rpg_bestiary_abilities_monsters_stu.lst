@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  4 12:26:45 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 22:47:42 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Sahuagin Abilities
@@ -121,10 +121,10 @@ Sneaky		KEY:Sneaky ~ Tengu		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 Swordtrained	KEY:Swordtrained ~ Tengu	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Tengus are trined from birth in swordplay,, and as a result are automatically proficient with sword-like weapons.						AUTO:WEAPONPROF|TYPE.Sword										SOURCEPAGE:p.24
 
 ###Block: Tiefling abilities
-# Ability Name		Unique Key					Category of Ability		Type						Visible	Description																									Ability																Bonus to skill					Modify VAR													Source Page
-Skilled			KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.																																BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial															SOURCEPAGE:p.25
-Fiendish Resistance	KEY:Fiendish Resistance ~ Tiefling	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO																											ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Electricity|Resistance to Fire								BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|5	SOURCEPAGE:p.25
-Fiendish Sorcery		KEY:Fiendish Sorcery ~ Tiefling	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Tiefling sorcerers with the Abyssal or Infernal bloodline treat their Charisma score as 2 points higher for all sorcerer class abilities.	DESC:p.25
+# Ability Name		Unique Key					Category of Ability		Type						Visible	Define															Description																									Ability																Bonus to skill					Source Page
+Skilled			KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																			DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.																																BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial	SOURCEPAGE:p.25
+Fiendish Resistance	KEY:Fiendish Resistance ~ Tiefling	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	DEFINE:ColdResistanceBonus|5	DEFINE:ElectricityResistanceBonus|5	DEFINE:FireResistanceBonus|5																											ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Electricity|Resistance to Fire								SOURCEPAGE:p.25
+Fiendish Sorcery		KEY:Fiendish Sorcery ~ Tiefling	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																			DESC:Tiefling sorcerers with the Abyssal or Infernal bloodline treat their Charisma score as 2 points higher for all sorcerer class abilities.	DESC:p.25
 
 ###Block: Treant Abilities
 # Ability Name			Unique Key				Category of Ability		Type								Description																													Source Page		Description of the Benefits
