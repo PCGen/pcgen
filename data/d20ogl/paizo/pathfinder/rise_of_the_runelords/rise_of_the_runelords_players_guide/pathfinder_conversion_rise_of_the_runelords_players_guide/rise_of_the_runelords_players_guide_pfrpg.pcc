@@ -40,7 +40,7 @@ EQUIPMENT:../rrpg_equip_armorshields.lst
 EQUIPMENT:../rrpg_equip.lst
 EQUIPMENT:../rrpg_equip_weap_melee.lst|(EXCLUDE:Starknife)
 FEAT:../rrpg_feats.lst
-LANGUAGE:../rrpg_languages.lst|(EXCLUDE:Boggard|Varisian)
+LANGUAGE:../rrpg_languages.lst|(EXCLUDE:Boggard)
 RACE:../rrpg_races_animals.lst
 RACE:../rrpg_races.lst
 TEMPLATE:../rrpg_templates.lst

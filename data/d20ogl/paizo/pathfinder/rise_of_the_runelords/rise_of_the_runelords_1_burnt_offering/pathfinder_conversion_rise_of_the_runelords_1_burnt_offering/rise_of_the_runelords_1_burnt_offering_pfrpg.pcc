@@ -44,6 +44,7 @@ RACE:../pf1_races.lst|(EXCLUDE:Goblin Dog)
 TEMPLATE:../pf1_templates.lst
 WEAPONPROF:../pf1_weaponprofs.lst
 
+ABILITY:pf1_abilities_pfrpg.lst
 KIT:pf1_kits_npcs_pfrpg.lst
 KIT:pf1_kits_races_pfrpg.lst
 RACE:pf1_races_pfrpg.lst
