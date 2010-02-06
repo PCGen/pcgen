@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 28 15:43:34 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Feb  5 20:14:55 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Original Entry by: Stefan Radermacher
@@ -37,20 +37,20 @@ War Trained				CATEGORY:Special Ability	TYPE:SpecialQuality
 CompanionIncrease			CATEGORY:Special Ability					DEFINE:CompAdvancementLvlA|0	DEFINE:CompAdvancementLvlB|0
 
 ###Block: Companion Specials
-# Ability Name	Unique Key				Category of Ability		Type						Define				Description																			Modify VAR						Source Page		Natural Attacks
-Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																																							NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+# Ability Name	Unique Key				Category of Ability		Type						Define				Description																			Modify VAR								Source Page		Natural Attacks
+Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																																									NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
 Blindsense							CATEGORY:Special Ability	TYPE:SpecialQuality
 Death Roll							CATEGORY:Special Ability	TYPE:SpecialAttack
 Poison							CATEGORY:Special Ability	TYPE:SpecialAttack
-Poison		KEY:Poison ~ Viper		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|0			DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonDC			BONUS:VAR|PoisonDC|10+(TL/2)+CON		SOURCEPAGE:p.133
+Poison		KEY:Poison ~ Viper		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonDC			BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.133
 Spit			KEY:Spit ~ Camel			CATEGORY:Special Ability	TYPE:SpecialAttack
 Sprint							CATEGORY:Special Ability	TYPE:SpecialQuality
-Attach							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:When you hit with a bite attack, you automatically grapple your foe, inflicting automatic bite damage each round.								SOURCEPAGE:p.133
-Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration						BONUS:VAR|HoldBreathDuration|CONSCORE*6	SOURCEPAGE:p.88
+Attach							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:When you hit with a bite attack, you automatically grapple your foe, inflicting automatic bite damage each round.										SOURCEPAGE:p.133
+Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration						BONUS:VAR|HoldBreathDuration|CONSCORE*6			SOURCEPAGE:p.88
 
 ###Block: Dire Rat abilities
-# Ability Name	Unique Key			Category of Ability		Type						Visible	Define			Description																										Modify VAR					Source Page
-Disease		KEY:Disease ~ Dire Rat	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:DiseaseDC|0	DESC:Filth Fever: Bite injury; Save Fort DC %1; Onset 1d3 days; Frequency 1/day; Effect 1d3 Dex damage and 1d3 Con damage; Cure 2 consecutive saves.|DiseaseDC	BONUS:VAR|DiseaseDC|10+(TL/2)+CON	SOURCEPAGE:p.232
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Define					Description																										Source Page
+Disease		KEY:Disease ~ Dire Rat	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:DiseaseDC|10+(HD/2)+CON	DESC:Filth Fever: Bite injury; Save Fort DC %1; Onset 1d3 days; Frequency 1/day; Effect 1d3 Dex damage and 1d3 Con damage; Cure 2 consecutive saves.|DiseaseDC	SOURCEPAGE:p.232
 
 ###Block: Companion Advancement abilities
 # Ability Name						Category of Ability		Type			Visible		Required Race												Ability													Combat bonus						Adjust PC Size		Stat bonus

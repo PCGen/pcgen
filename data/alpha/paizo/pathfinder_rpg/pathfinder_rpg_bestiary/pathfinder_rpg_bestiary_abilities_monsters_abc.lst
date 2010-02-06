@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  5 13:29:03 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Feb  5 20:15:04 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Aasimar abilities
@@ -6,9 +6,9 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 Skilled		KEY:Skilled ~ Aasimar	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Aasimars gain a +2 racial bonus on Diplomacy and Perception checks.BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial	SOURCEPAGE:p.7
 
 ###Block: Aboleth abilities
-# Ability Name	Unique Key				Category of Ability		Type							Define			Description																																																																																												Modify VAR																	Source Page		Aspects
-Mucus Cloud		KEY:Mucus Cloud ~ Aboleth	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura	DEFINE:MucusCloudDC|0	DESC:While underwater, an aboleth exudes a cloud of transparent slime. All creatures adjacent to an aboleth must succeed on a DC %1 Fortitude save each round or lose the ability to breathe air (but gain the ability to breathe water) for 3 hours. Renewed contact with an aboleth's mucus cloud and failing another save extends the effect for another 3 hours.|MucusCloudDC																																BONUS:VAR|MucusCloudDC|2|PREFEAT:1,Ability Focus (Mucus Cloud)	BONUS:VAR|MucusCloudDC|10+(TL/2)+CON	SOURCEPAGE:p.8	ASPECT:Ability Benefit|(5 ft., DC %1)|MucusCloudDC
-Slime			KEY:Slime ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DEFINE:SlimeDC|0		DESC:A creature hit by an aboleth's tentacle must succeed on a DC %1 Fortitude save or his skin and flesh transform into a clear, slimy membrane over the course of 1d4 rounds. The creature's new "flesh" is soft and tender, reducing its Constitution score by 4 as long as it persists. If the creature's flesh isn't kept moist, it dries quickly and the victim takes 1d12 points of damage every 10 minutes. Remove disease and similar effects can restore an afflicted creature to normal, but immunity to disease offers no protection from this attack.|SlimeDC	BONUS:VAR|SlimeDC|2|PREFEAT:1,Ability Focus (Slime)	BONUS:VAR|SlimeDC|10+(TL/2)+CON				SOURCEPAGE:p.8
+# Ability Name	Unique Key				Category of Ability		Type							Define					Description																																																																																												Modify VAR										Source Page		Aspects
+Mucus Cloud		KEY:Mucus Cloud ~ Aboleth	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura	DEFINE:MucusCloudDC|10+(HD/2)+CON	DESC:While underwater, an aboleth exudes a cloud of transparent slime. All creatures adjacent to an aboleth must succeed on a DC %1 Fortitude save each round or lose the ability to breathe air (but gain the ability to breathe water) for 3 hours. Renewed contact with an aboleth's mucus cloud and failing another save extends the effect for another 3 hours.|MucusCloudDC																																BONUS:VAR|MucusCloudDC|2|PREFEAT:1,Ability Focus (Mucus Cloud)	SOURCEPAGE:p.8	ASPECT:Ability Benefit|(5 ft., DC %1)|MucusCloudDC
+Slime			KEY:Slime ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DEFINE:SlimeDC|10+(HD/2)+CON		DESC:A creature hit by an aboleth's tentacle must succeed on a DC %1 Fortitude save or his skin and flesh transform into a clear, slimy membrane over the course of 1d4 rounds. The creature's new "flesh" is soft and tender, reducing its Constitution score by 4 as long as it persists. If the creature's flesh isn't kept moist, it dries quickly and the victim takes 1d12 points of damage every 10 minutes. Remove disease and similar effects can restore an afflicted creature to normal, but immunity to disease offers no protection from this attack.|SlimeDC	BONUS:VAR|SlimeDC|2|PREFEAT:1,Ability Focus (Slime)			SOURCEPAGE:p.8
 
 ###Block: Angel abilities
 # Ability Name				Unique Key				Category of Ability		Type						Description																			Source Page		Aspects
@@ -46,8 +46,8 @@ Spit Acid		KEY:Spit Acid ~ Ankheg	CATEGORY:Special Ability	TYPE:SpecialAttack.Ex
 Acid Bite		KEY:Acid Bite ~ Ankheg	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary							DESC:An Ankheg's bite does an additional 1d4 acid damage unless it has recently used it's spit acid ability.											SOURCEPAGE:p.15	ASPECT:Ability Benefit|(1d4)
 
 ###Block: Ant abilities
-# Ability Name	Unique Key			Category of Ability		Type						Visible	Define		Description																Modify VAR														Source Page
-Poison		KEY:Poison ~ Giant Ant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|0	DESC:Injury; Save Fort DC %1; Frequency 1/round for 4 rounds; Effect 1d2 Str; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|10+(TL/2)+CON	SOURCEPAGE:p.16
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Define				Description																Modify VAR								Source Page
+Poison		KEY:Poison ~ Giant Ant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 4 rounds; Effect 1d2 Str; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.16
 
 ###Block: Army Ant Swarm Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Define				Description																																		Source Page		Aspects						Description of the Benefits
@@ -160,9 +160,9 @@ Pull			KEY:Pull ~ Cave Fisher		CATEGORY:Special Ability	TYPE:SpecialAttack.Extra
 Undersized Weapons	KEY:Undersized Weapons ~ Centaur	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Although a centaur is Large, its upper torso is the same size as that of a Medium humanoid. As a result, they wield weapons as if they were one size category smaller than their actual size (Medium for most centaurs).	BONUS:WEAPONPROF=TYPE.Simple|TOHIT|2	BONUS:WEAPONPROF=TYPE.Martial|TOHIT|2	BONUS:WEAPONPROF=TYPE.Exotic|TOHIT|2	BONUS:WIELDCATEGORY|ALL|1	SOURCEPAGE:p.42
 
 ###Block: Centipede abilities
-# Ability Name	Unique Key				Category of Ability		Type						Visible	Define		Description																	Modify VAR														Source Page
-Poison		KEY:Poison ~ Giant Centipede	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|0	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d3 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|10+(TL/2)+CON	SOURCEPAGE:p.43
-Poison		KEY:Poison ~ Centipede Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|0	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d4 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|10+(TL/2)+CON	SOURCEPAGE:p.43
+# Ability Name	Unique Key				Category of Ability		Type						Visible	Define				Description																	Modify VAR								Source Page
+Poison		KEY:Poison ~ Giant Centipede	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d3 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.43
+Poison		KEY:Poison ~ Centipede Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d4 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.43
 
 ###Block: Choker Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																											Source Page

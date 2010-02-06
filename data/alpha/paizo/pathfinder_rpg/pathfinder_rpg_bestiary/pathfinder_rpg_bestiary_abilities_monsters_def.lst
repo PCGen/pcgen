@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  5 13:41:07 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Feb  5 20:15:04 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Dark Folk Abilities
@@ -200,8 +200,8 @@ Engulf		KEY:Engulf ~ Giant Flytrap	CATEGORY:Special Ability	TYPE:SpecialAttack.E
 Tongue		KEY:Tongue ~ Giant Frog	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A giant frog's tongue is a primary attack with reach equal to three times the frog's normal reach (15 feet for a Medium giant frog). A giant frog's tongue deals no damage on a hit, but can be used to grab. A giant frog does not gain the grappled condition while using its tongue in this manner.	SOURCEPAGE:p.135
 
 ###Block: Frog abilities
-# Ability Name	Unique Key		Category of Ability		Type						Visible	Define		Description																	Modify VAR														Source Page
-Poison		KEY:Poison ~ Frog	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|0	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|10+(TL/2)+CON	SOURCEPAGE:p.135
+# Ability Name	Unique Key		Category of Ability		Type						Visible	Define				Description																	Modify VAR								Source Page
+Poison		KEY:Poison ~ Frog	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.135
 
 ###Block: Froghemoth Abilities
 # Ability Name				Unique Key						Category of Ability		Type								Description																							Bonus to skill					Source Page		Aspects
