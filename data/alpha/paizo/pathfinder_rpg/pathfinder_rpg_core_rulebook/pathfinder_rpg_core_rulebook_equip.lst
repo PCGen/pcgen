@@ -1,111 +1,111 @@
-# CVS $Revision$ $Author$ -- Mon Dec 28 17:32:43 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Thu Feb  4 16:03:28 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 ###Block: Trade Goods
-# Equipment Name		Type			Cost		Weight	Source Page
-Wheat (per lb.)		TYPE:Goods.Trade	COST:0.01	WT:1		SOURCEPAGE:p.140
-Flour (per lb.)		TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.140
-Chicken			TYPE:Goods.Trade	COST:0.02			SOURCEPAGE:p.140
-Iron (per lb.)		TYPE:Goods.Trade	COST:0.1	WT:1		SOURCEPAGE:p.140
-Tobacco (per lb.)		TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
-Copper (per lb.)		TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
-Cinnamon (per lb.)	TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.140
-Goat				TYPE:Goods.Trade	COST:1			SOURCEPAGE:p.140
-Ginger (per lb.)		TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
-Pepper (per lb.)		TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
-Sheep				TYPE:Goods.Trade	COST:2			SOURCEPAGE:p.140
-Pig				TYPE:Goods.Trade	COST:3			SOURCEPAGE:p.140
-Linen (sq. yd.)		TYPE:Goods.Trade	COST:4	WT:1		SOURCEPAGE:p.140
-Salt (per lb.)		TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
-Silver (per lb.)		TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
-Silk (sq. yd.)		TYPE:Goods.Trade	COST:10	WT:0.5	SOURCEPAGE:p.140
-Cow				TYPE:Goods.Trade	COST:10			SOURCEPAGE:p.140
-Saffron (per lb.)		TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
-Cloves (per lb.)		TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
-Ox				TYPE:Goods.Trade	COST:15			SOURCEPAGE:p.140
-Gold (per lb.)		TYPE:Goods.Trade	COST:50	WT:1		SOURCEPAGE:p.140
-Platinum (per lb.)	TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:p.140
+# Equipment Name	Output Name				Type			Cost		Weight	Source Page
+Wheat (per lb)	OUTPUTNAME:Wheat (per lb.)	TYPE:Goods.Trade	COST:0.01	WT:1		SOURCEPAGE:p.140
+Flour (per lb)	OUTPUTNAME:Flour (per lb.)	TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.140
+Chicken							TYPE:Goods.Trade	COST:0.02			SOURCEPAGE:p.140
+Iron (per lb)	OUTPUTNAME:Iron (per lb.)	TYPE:Goods.Trade	COST:0.1	WT:1		SOURCEPAGE:p.140
+Tobacco (per lb)	OUTPUTNAME:Tobacco (per lb.)	TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
+Copper (per lb)	OUTPUTNAME:Copper (per lb.)	TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
+Cinnamon (per lb)	OUTPUTNAME:Cinnamon (per lb.)	TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.140
+Goat								TYPE:Goods.Trade	COST:1			SOURCEPAGE:p.140
+Ginger (per lb)	OUTPUTNAME:Ginger (per lb.)	TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
+Pepper (per lb)	OUTPUTNAME:Pepper (per lb.)	TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
+Sheep								TYPE:Goods.Trade	COST:2			SOURCEPAGE:p.140
+Pig								TYPE:Goods.Trade	COST:3			SOURCEPAGE:p.140
+Linen (sq yd)	OUTPUTNAME:Linen (sq. yd.)	TYPE:Goods.Trade	COST:4	WT:1		SOURCEPAGE:p.140
+Salt (per lb)	OUTPUTNAME:Salt (per lb.)	TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
+Silver (per lb)	OUTPUTNAME:Silver (per lb.)	TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
+Silk (sq yd)	OUTPUTNAME:Silk (sq. yd.)	TYPE:Goods.Trade	COST:10	WT:0.5	SOURCEPAGE:p.140
+Cow								TYPE:Goods.Trade	COST:10			SOURCEPAGE:p.140
+Saffron (per lb)	OUTPUTNAME:Saffron (per lb.)	TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
+Cloves (per lb)	OUTPUTNAME:Cloves (per lb.)	TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
+Ox								TYPE:Goods.Trade	COST:15			SOURCEPAGE:p.140
+Gold (per lb)	OUTPUTNAME:Gold (per lb.)	TYPE:Goods.Trade	COST:50	WT:1		SOURCEPAGE:p.140
+Platinum (per lb)	OUTPUTNAME:Platinum (per lb.)	TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:p.140
 
 ###Block: Adventuring Gear
-# Equipment Name			Type								Contains									Cost		Weight	Source Page		Quality and value																			Special Property
-Backpack				TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:2		SOURCEPAGE:p.158
-Barrel				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:30		SOURCEPAGE:p.158
-Basket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.4	WT:1		SOURCEPAGE:p.158
-Bedroll				TYPE:Goods.General.Resizable														COST:0.1	WT:5		SOURCEPAGE:p.158
-Bell					TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:p.158
-Blanket (Winter)			TYPE:Goods.General.Resizable														COST:0.5	WT:3		SOURCEPAGE:p.158
-Block and Tackle			TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:p.158
-Bottle (Glass)			TYPE:Goods.Container.General				CONTAINS:1.5|Liquid=3							COST:2	WT:1		SOURCEPAGE:p.158
-Bucket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.5	WT:2		SOURCEPAGE:p.158
-Caltrops				TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:p.155
-Candle				TYPE:Goods.General.Consumable.LightSource												COST:0.01			SOURCEPAGE:p.155	QUALITY:Increases light level by one step|5 ft.	QUALITY:Duration|1 hr.										SPROP:Increases light level (5') for 1 hr.
-Canvas (Sq. Yd.)			TYPE:Goods.General															COST:0.1	WT:1		SOURCEPAGE:p.158
-Case (Map or Scroll)		TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.158
-Chain (10 Ft.)			TYPE:Goods.General															COST:30	WT:2		SOURCEPAGE:p.155
-Chalk (1 Piece)			TYPE:Goods.General															COST:0.01			SOURCEPAGE:p.158
-Chest					TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:25		SOURCEPAGE:p.158
-Crowbar				TYPE:Goods.General															COST:2	WT:5		SOURCEPAGE:p.155																						SPROP:+2 circumstance bonus to Strength checks to force open a door or chest
-Firewood (Per Day)		TYPE:Goods.General															COST:0.01	WT:20		SOURCEPAGE:p.158
-Fishhook				TYPE:Goods.General															COST:0.1			SOURCEPAGE:p.158
-Fishing Net (25 Sq. Ft.)	TYPE:Goods.General															COST:4	WT:5		SOURCEPAGE:p.158
-Flask (Empty)			TYPE:Goods.Container.General.Flask			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:0.03	WT:1.5	SOURCEPAGE:p.158
-Flint and Steel			TYPE:Goods.General															COST:1			SOURCEPAGE:p.155
-Grappling Hook			TYPE:Goods.General															COST:1	WT:4		SOURCEPAGE:p.155
-Hammer				TYPE:Goods.General															COST:0.5	WT:2		SOURCEPAGE:p.156
-Hourglass				TYPE:Goods.General															COST:25	WT:1		SOURCEPAGE:p.158
-Ink (1 oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial												COST:8			SOURCEPAGE:p.156
-Ink (Color/1 oz. Vial)		TYPE:Goods.General.Writing.Liquid.Vial												COST:16			SOURCEPAGE:p.156
-Inkpen				TYPE:Goods.General.Writing														COST:0.1			SOURCEPAGE:p.158
-Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid=UNLIM|SpellComponent=1				COST:0.03	WT:9		SOURCEPAGE:p.146
-Ladder (10 Ft.)			TYPE:Goods.General															COST:0.2	WT:20		SOURCEPAGE:p.158
-Lamp (Common)			TYPE:Goods.General.LightSource													COST:0.1	WT:1		SOURCEPAGE:p.156	QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint
-Lantern (Bullseye)		TYPE:Goods.General.LightSource													COST:12	WT:3		SOURCEPAGE:p.156	QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint
-Lantern (Hooded)			TYPE:Goods.General.LightSource													COST:7	WT:2		SOURCEPAGE:p.156	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint
-Lock (Simple)			TYPE:Goods.General															COST:20	WT:1		SOURCEPAGE:p.156
-Lock (Average)			TYPE:Goods.General															COST:40	WT:1		SOURCEPAGE:p.156
-Lock (Good)				TYPE:Goods.General															COST:80	WT:1		SOURCEPAGE:p.156
-Lock (Superior)			TYPE:Goods.General															COST:150	WT:1		SOURCEPAGE:p.156
-Manacles (Small)			TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
-Manacles (Medium)			TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
-Manacles (Large)			TYPE:Goods.General															COST:150	WT:8		SOURCEPAGE:p.156
-Manacles (Huge)			TYPE:Goods.General															COST:1500	WT:32		SOURCEPAGE:p.156
-Manacles (Masterwork/Small)	TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
-Manacles (Masterwork/Medium)	TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
-Manacles (Masterwork/Large)	TYPE:Goods.General.Masterwork														COST:500	WT:8		SOURCEPAGE:p.156
-Manacles (Masterwork/Huge)	TYPE:Goods.General.Masterwork														COST:5000	WT:32		SOURCEPAGE:p.156
-Mirror (Small/Steel)		TYPE:Goods.General															COST:10	WT:0.5	SOURCEPAGE:p.158
-Mug or Tankard (Clay)		TYPE:Goods.Container.General				CONTAINS:1|Liquid=UNLIM							COST:0.02	WT:1		SOURCEPAGE:p.158
-Oil (1 Pint Flask)		TYPE:Goods.General.Liquid.Flask.Consumable											COST:0.1	WT:1		SOURCEPAGE:p.157
-Paper (Sheet)			TYPE:Goods.General.Writing.Documents												COST:0.4			SOURCEPAGE:p.158
-Parchment (Sheet)			TYPE:Goods.General.Writing.Documents												COST:0.2			SOURCEPAGE:p.158
-Pick (Miner's)			TYPE:Goods.General															COST:3	WT:10		SOURCEPAGE:p.157
-Pitcher (Clay)			TYPE:Goods.Container.General				CONTAINS:4|Liquid=UNLIM							COST:0.02	WT:5		SOURCEPAGE:p.158
-Piton					TYPE:Goods.General															COST:0.1	WT:0.5	SOURCEPAGE:p.158
-Pole (10 Ft.)			TYPE:Goods.General															COST:0.05	WT:8		SOURCEPAGE:p.158
-Pot (Iron)				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.8	WT:10		SOURCEPAGE:p.158
-Pouch (Belt)			TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:1	WT:0.5	SOURCEPAGE:p.158
-Ram (Portable)			TYPE:Goods.General															COST:10	WT:20		SOURCEPAGE:p.157
-Rations (Trail/Per Day)		TYPE:Goods.Food.Resizable.Consumable												COST:0.5	WT:1		SOURCEPAGE:p.158
-Rope (Hemp/50 ft.)		TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.157
-Rope (Silk/50 ft.)		TYPE:Goods.General															COST:10	WT:5		SOURCEPAGE:p.157																						SPROP:4 hp, DC 24 Strength check to burst
-Sack					TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:0.1	WT:0.5	SOURCEPAGE:p.158
-Sealing Wax				TYPE:Goods.General.Writing														COST:1	WT:1		SOURCEPAGE:p.158
-Sewing Needle			TYPE:Goods.General															COST:0.5			SOURCEPAGE:p.158
-Shovel or Spade			TYPE:Goods.General															COST:2	WT:8		SOURCEPAGE:p.157
-Signal Whistle			TYPE:Goods.General															COST:0.8			SOURCEPAGE:p.158
-Signet Ring				TYPE:Goods.General															COST:5			SOURCEPAGE:p.158
-Sledge				TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.158
-Soap (per lb.)			TYPE:Goods.General															COST:0.5	WT:1		SOURCEPAGE:p.158
-Spyglass				TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:p.157
-Tent					TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:p.158
-Torch					TYPE:Goods.General.Consumable.LightSource												COST:0.01	WT:1		SOURCEPAGE:p.157	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
-Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1			SOURCEPAGE:p.157
-Water Clock				TYPE:Goods.General															COST:1000	WT:200	SOURCEPAGE:p.157
-Waterskin				TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1			SOURCEPAGE:p.158
-Waterskin (Filled)		TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:p.158
-Whetstone				TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:p.158
+# Equipment Name			Output Name					Type								Contains									Cost		Weight	Source Page		Quality and value																			Special Property
+Backpack										TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:2		SOURCEPAGE:p.158
+Barrel										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:30		SOURCEPAGE:p.158
+Basket										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.4	WT:1		SOURCEPAGE:p.158
+Bedroll										TYPE:Goods.General.Resizable														COST:0.1	WT:5		SOURCEPAGE:p.158
+Bell											TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:p.158
+Blanket (Winter)									TYPE:Goods.General.Resizable														COST:0.5	WT:3		SOURCEPAGE:p.158
+Block and Tackle									TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:p.158
+Bottle (Glass)									TYPE:Goods.Container.General				CONTAINS:1.5|Liquid=3							COST:2	WT:1		SOURCEPAGE:p.158
+Bucket										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.5	WT:2		SOURCEPAGE:p.158
+Caltrops										TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:p.155
+Candle										TYPE:Goods.General.Consumable.LightSource												COST:0.01			SOURCEPAGE:p.155	QUALITY:Increases light level by one step|5 ft.	QUALITY:Duration|1 hr.										SPROP:Increases light level (5') for 1 hr.
+Canvas (Sq Yd)			OUTPUTNAME:Canvas (Sq. Yd.)		TYPE:Goods.General															COST:0.1	WT:1		SOURCEPAGE:p.158
+Case (Map or Scroll)								TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.158
+Chain (10 Ft)			OUTPUTNAME:Chain (10 Ft.)		TYPE:Goods.General															COST:30	WT:2		SOURCEPAGE:p.155
+Chalk (1 Piece)									TYPE:Goods.General															COST:0.01			SOURCEPAGE:p.158
+Chest											TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:25		SOURCEPAGE:p.158
+Crowbar										TYPE:Goods.General															COST:2	WT:5		SOURCEPAGE:p.155																						SPROP:+2 circumstance bonus to Strength checks to force open a door or chest
+Firewood (Per Day)								TYPE:Goods.General															COST:0.01	WT:20		SOURCEPAGE:p.158
+Fishhook										TYPE:Goods.General															COST:0.1			SOURCEPAGE:p.158
+Fishing Net (25 Sq Ft)		OUTPUTNAME:Fishing Net (25 Sq. Ft.)	TYPE:Goods.General															COST:4	WT:5		SOURCEPAGE:p.158
+Flask (Empty)									TYPE:Goods.Container.General.Flask			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:0.03	WT:1.5	SOURCEPAGE:p.158
+Flint and Steel									TYPE:Goods.General															COST:1			SOURCEPAGE:p.155
+Grappling Hook									TYPE:Goods.General															COST:1	WT:4		SOURCEPAGE:p.155
+Hammer										TYPE:Goods.General															COST:0.5	WT:2		SOURCEPAGE:p.156
+Hourglass										TYPE:Goods.General															COST:25	WT:1		SOURCEPAGE:p.158
+Ink (1 oz Vial)			OUTPUTNAME:Ink (1 oz. Vial)		TYPE:Goods.General.Writing.Liquid.Vial												COST:8			SOURCEPAGE:p.156
+Ink (Color/1 oz Vial)		OUTPUTNAME:Ink (Color/1 oz. Vial)	TYPE:Goods.General.Writing.Liquid.Vial												COST:16			SOURCEPAGE:p.156
+Inkpen										TYPE:Goods.General.Writing														COST:0.1			SOURCEPAGE:p.158
+Jug (Clay)										TYPE:Goods.Container.General				CONTAINS:8|Liquid=UNLIM|SpellComponent=1				COST:0.03	WT:9		SOURCEPAGE:p.146
+Ladder (10 Ft)			OUTPUTNAME:Ladder (10 Ft.)		TYPE:Goods.General															COST:0.2	WT:20		SOURCEPAGE:p.158
+Lamp (Common)									TYPE:Goods.General.LightSource													COST:0.1	WT:1		SOURCEPAGE:p.156	QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint
+Lantern (Bullseye)								TYPE:Goods.General.LightSource													COST:12	WT:3		SOURCEPAGE:p.156	QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint
+Lantern (Hooded)									TYPE:Goods.General.LightSource													COST:7	WT:2		SOURCEPAGE:p.156	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint
+Lock (Simple)									TYPE:Goods.General															COST:20	WT:1		SOURCEPAGE:p.156
+Lock (Average)									TYPE:Goods.General															COST:40	WT:1		SOURCEPAGE:p.156
+Lock (Good)										TYPE:Goods.General															COST:80	WT:1		SOURCEPAGE:p.156
+Lock (Superior)									TYPE:Goods.General															COST:150	WT:1		SOURCEPAGE:p.156
+Manacles (Small)									TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
+Manacles (Medium)									TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
+Manacles (Large)									TYPE:Goods.General															COST:150	WT:8		SOURCEPAGE:p.156
+Manacles (Huge)									TYPE:Goods.General															COST:1500	WT:32		SOURCEPAGE:p.156
+Manacles (Masterwork/Small)							TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
+Manacles (Masterwork/Medium)							TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
+Manacles (Masterwork/Large)							TYPE:Goods.General.Masterwork														COST:500	WT:8		SOURCEPAGE:p.156
+Manacles (Masterwork/Huge)							TYPE:Goods.General.Masterwork														COST:5000	WT:32		SOURCEPAGE:p.156
+Mirror (Small/Steel)								TYPE:Goods.General															COST:10	WT:0.5	SOURCEPAGE:p.158
+Mug or Tankard (Clay)								TYPE:Goods.Container.General				CONTAINS:1|Liquid=UNLIM							COST:0.02	WT:1		SOURCEPAGE:p.158
+Oil (1 Pint Flask)								TYPE:Goods.General.Liquid.Flask.Consumable											COST:0.1	WT:1		SOURCEPAGE:p.157
+Paper (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.4			SOURCEPAGE:p.158
+Parchment (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.2			SOURCEPAGE:p.158
+Pick (Miner's)									TYPE:Goods.General															COST:3	WT:10		SOURCEPAGE:p.157
+Pitcher (Clay)									TYPE:Goods.Container.General				CONTAINS:4|Liquid=UNLIM							COST:0.02	WT:5		SOURCEPAGE:p.158
+Piton											TYPE:Goods.General															COST:0.1	WT:0.5	SOURCEPAGE:p.158
+Pole (10 Ft)			OUTPUTNAME:Pole (10 Ft.)		TYPE:Goods.General															COST:0.05	WT:8		SOURCEPAGE:p.158
+Pot (Iron)										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:0.8	WT:10		SOURCEPAGE:p.158
+Pouch (Belt)									TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:1	WT:0.5	SOURCEPAGE:p.158
+Ram (Portable)									TYPE:Goods.General															COST:10	WT:20		SOURCEPAGE:p.157
+Rations (Trail/Per Day)								TYPE:Goods.Food.Resizable.Consumable												COST:0.5	WT:1		SOURCEPAGE:p.158
+Rope (Hemp/50 ft)			OUTPUTNAME:Rope (Hemp/50 ft.)		TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.157
+Rope (Silk/50 ft)			OUTPUTNAME:Rope (Silk/50 ft.)		TYPE:Goods.General															COST:10	WT:5		SOURCEPAGE:p.157																						SPROP:4 hp, DC 24 Strength check to burst
+Sack											TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:0.1	WT:0.5	SOURCEPAGE:p.158
+Sealing Wax										TYPE:Goods.General.Writing														COST:1	WT:1		SOURCEPAGE:p.158
+Sewing Needle									TYPE:Goods.General															COST:0.5			SOURCEPAGE:p.158
+Shovel or Spade									TYPE:Goods.General															COST:2	WT:8		SOURCEPAGE:p.157
+Signal Whistle									TYPE:Goods.General															COST:0.8			SOURCEPAGE:p.158
+Signet Ring										TYPE:Goods.General															COST:5			SOURCEPAGE:p.158
+Sledge										TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.158
+Soap (per lb)			OUTPUTNAME:Soap (per lb.)		TYPE:Goods.General															COST:0.5	WT:1		SOURCEPAGE:p.158
+Spyglass										TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:p.157
+Tent											TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:p.158
+Torch											TYPE:Goods.General.Consumable.LightSource												COST:0.01	WT:1		SOURCEPAGE:p.157	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
+Vial											TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1			SOURCEPAGE:p.157
+Water Clock										TYPE:Goods.General															COST:1000	WT:200	SOURCEPAGE:p.157
+Waterskin										TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1			SOURCEPAGE:p.158
+Waterskin (Filled)								TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:p.158
+Whetstone										TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:p.158
 
 ###Block: Special Substances and Items
 # Equipment Name			Type								Cost		Weight	Source Page		Quality and value															Special Property
