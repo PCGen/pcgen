@@ -188,7 +188,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 			updateAvailableTable();
 
 			// centre on parent
-			setLocationRelativeTo(getOwner());
+			//setLocationRelativeTo(getOwner());
 			super.pack();
 			pack();
 
@@ -197,6 +197,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 			{
 				setSize(120, getHeight());
 			}
+			Utility.centerDialog(this);
 		}
 		super.setVisible(b);
 	}
@@ -304,7 +305,9 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(4, 4, 4, 4);
-		contentPane.add(avaPane, c);
+		JScrollPane avaScrollPane = new JScrollPane();
+		avaScrollPane.setViewportView(avaPane);
+		contentPane.add(avaScrollPane, c);
 
 		// Add 'OK' button
 		c = new GridBagConstraints();
