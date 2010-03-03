@@ -34,7 +34,7 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.376	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Skill									Req. Known Spell		Req. Spell Type		Var. Min. Value
-CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2
+CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE.Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
 1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Legerdemain
