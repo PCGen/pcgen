@@ -1,5 +1,5 @@
 <group-set>
-  <game-name>Init Tool Default D&amp;D</game-name>
+  <game-name>PCGen stat block</game-name>
   <groups>
     <group>
       <name>PCGen Export</name>
@@ -51,7 +51,11 @@
           </raceClass>
           <descriptor>|RACESUBTYPE|</descriptor>
           <levels>|FOR.0,COUNT[CLASSES],1,\CLASS.%.LEVEL\ \TEXT.NUMSUFFIX.CLASS.%.LEVEL\ lvl \CLASS.%\; ,,,|</levels>
-          <senses>|VISION|, Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|</senses>
+|IIF(GAMEMODE:Pathfinder)|
+          <senses>|VISION|, Perception |SKILL.Perception.TOTAL.SIGN|; |ABILITYALLLIST.Special Ability.TYPE=Sense|</senses>
+|ELSE|
+          <senses>|VISION|, Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|; |ABILITYALLLIST.Special Ability.TYPE=Sense|</senses>
+|ENDIF|
           <languages>|LANGUAGES|</languages>
           <hitDice>|HITDICE|  (|HP| hp)</hitDice>
           <hitPoints>|HP|</hitPoints>
@@ -64,7 +68,11 @@
           <fullArmorClass>|AC.Total|, touch: |AC.Touch|, flat-footed: |AC.Flatfooted|</fullArmorClass>
           <baseAttack>|VAR.BAB.INTVAL.SIGN|</baseAttack>
           <grapple>|VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|</grapple>
+|IIF(VAR.UseCombatManueverBonus:1)|
+          <baseAttackGrapple>|VAR.BAB.INTVAL.SIGN|; CMB |VAR.CMB.INTVAL.SIGN|; CMD |VAR.CMD.INTVAL|</baseAttackGrapple>
+|ELSE|
           <baseAttackGrapple>|VAR.BAB.INTVAL.SIGN|; Grp |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|</baseAttackGrapple>
+|ENDIF|
           <space>|FACE|</space>
           <reach>|REACH|</reach>
           <faceReach>|FACE| Reach: |REACH|</faceReach>
@@ -123,7 +131,8 @@ melee
 |ENDIF|
 |ENDFOR|
           </attack>
-          <specialQualities>|SPECIALLIST|</specialQualities>
+	<specialAttacks>|ABILITYALLLIST.Special Ability.TYPE=SpecialAttack|</specialAttacks>
+	<specialQualities>|ABILITYALLLIST.Special Ability.TYPE=SpecialQuality| |SPECIALLIST|</specialQualities>
           <skills>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
 |SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
