@@ -86,7 +86,7 @@
           <int>|STAT.3| [|STAT.3.MOD|]</int>
           <wis>|STAT.4| [|STAT.4.MOD|]</wis>
           <cha>|STAT.5| [|STAT.5.MOD|]</cha>
-          <fullAbilities>Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.0|</fullAbilities>
+          <fullAbilities>Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.5|</fullAbilities>
           <challengeRating>|CR|</challengeRating>
           <attack>
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
