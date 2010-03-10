@@ -347,7 +347,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
 FEAT:Improved Overrun
-FEAT:Quicken Spell-Like Ability (Suggestion)
+FEAT:Quicken Spell-Like Ability ~ Spell (Suggestion)
 
 STARTPACK:Night Hag Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Hag]	SOURCEPAGE:215
 RACE:Night Hag	!PRERACE:1,%

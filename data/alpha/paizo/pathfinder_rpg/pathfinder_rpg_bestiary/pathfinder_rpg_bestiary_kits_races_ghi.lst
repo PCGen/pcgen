@@ -92,7 +92,7 @@ FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Deceitful
 FEAT:Dodge
-FEAT:Quicken Spell-Like Ability (Scorching Ray)
+FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
 GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -114,7 +114,7 @@ FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Deceitful
 FEAT:Dodge
-FEAT:Quicken Spell-Like Ability (Scorching Ray)
+FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
 GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -180,7 +180,7 @@ FEAT:Combat Casting
 FEAT:Improved Bull Rush
 FEAT:Improved Natural Attack (Slam)
 FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability (Glitterdust)
+FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -201,7 +201,7 @@ FEAT:Combat Casting
 FEAT:Improved Bull Rush
 FEAT:Improved Natural Attack (Slam)
 FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability (Glitterdust)
+FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 

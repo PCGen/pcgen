@@ -88,7 +88,7 @@ FEAT:Improved Initiative
 FEAT:Improved Two-Weapon Fighting
 FEAT:Iron Will
 FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability (Telekinesis)
+FEAT:Quicken Spell-Like Ability ~ Spell (Telekinesis)
 FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus (Longsword)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
@@ -370,7 +370,7 @@ FEAT:Alertness
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Iron Will
-FEAT:Quicken Spell-Like Ability (Invisibility)
+FEAT:Quicken Spell-Like Ability ~ Spell (Invisibility)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -397,7 +397,7 @@ FEAT:Shot on the Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword			LOCATION:Both Hands	EQMOD:PLUS1W
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.FLAME.BOWSTR|+5
-GEAR:Rope (Hemp/50 ft.)		LOCATION:Carried
+GEAR:Rope (Hemp/50 ft)		LOCATION:Carried
 
 
 STARTPACK:Devil (Horned) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Horned)],[!PRERACE:1,%]	SOURCEPAGE:p.76
@@ -504,7 +504,7 @@ FEAT:Improved Vital Strike
 FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability (Fireball)
+FEAT:Quicken Spell-Like Ability ~ Spell(Fireball)
 FEAT:Vital Strike
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 

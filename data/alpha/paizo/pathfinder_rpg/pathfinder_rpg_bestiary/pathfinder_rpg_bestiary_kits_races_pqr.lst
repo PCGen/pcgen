@@ -58,7 +58,7 @@ FEAT:Mobility
 FEAT:Iron Will
 FEAT:Flyby Attack
 FEAT:Combat Reflexes
-FEAT:Quicken Spell-Like Ability (Wall of Fire)
+FEAT:Quicken Spell-Like Ability ~ Spell (Wall of Fire)
 
 STARTPACK:Pixie Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pixie]	SOURCEPAGE:p.228
 RACE:Pixie	!PRERACE:1,%
