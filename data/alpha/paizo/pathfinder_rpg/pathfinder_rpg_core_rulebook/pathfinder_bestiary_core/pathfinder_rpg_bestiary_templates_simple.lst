@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  4 23:33:16 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Mar 12 11:44:08 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 ###Block: Simple Templates
@@ -7,8 +7,12 @@ Celestial Creature	VISIBLE:YES	DR:5/Evil|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:Cel
 Fiendish Creature		VISIBLE:YES	DR:5/Good|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|5	DEFINE:ColdResistanceBonus|FiendishResistanceBonus	DEFINE:FireResistanceBonus|FiendishResistanceBonus											BONUS:DR|Good|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=11		ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	SUBRACE:Fiendish	VISION:Darkvision (60')
 
 ###Block: Builder Templates
-# Template Name			Visible		Bonus to Ability Pool
+# Template Name			Visible		Bonus to Ability Pool																								Adjust PC Size
 Creature with Class Levels	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1
+Size Change (Increase by 1)	VISIBLE:DISPLAY																												BONUS:SIZEMOD|NUMBER|1
+Size Change (Increase by 2)	VISIBLE:DISPLAY																												BONUS:SIZEMOD|NUMBER|2
+Size Change (Decrease by 1)	VISIBLE:DISPLAY																												BONUS:SIZEMOD|NUMBER|-1
+Size Change (Decrease by 2)	VISIBLE:DISPLAY																												BONUS:SIZEMOD|NUMBER|-2
 
 #
 # End
