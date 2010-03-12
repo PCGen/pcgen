@@ -16,7 +16,7 @@ Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet	COST:8000	WT:.02	SOURCE
 Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet	COST:18000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
 Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet	COST:32000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
 Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet	COST:50000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
-Amulet of The Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.500																															SPROP:This amulet allows its wearer to utilize Plane Shift.
+Amulet of the Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.500																															SPROP:This amulet allows its wearer to utilize Plane Shift.
 Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet	COST:35000	WT:.02	SOURCEPAGE:p.500																															SPROP:Protects the wearer from scrying and magical location as Nondetection.
 Apparatus of the Crab					TYPE:Magic.Wondrous		COST:90000	WT:500	SOURCEPAGE:p.500
 
@@ -60,10 +60,10 @@ Boots of Levitation										TYPE:Magic.Wondrous.Boot													COST:7500	WT:1
 Boots of Speed											TYPE:Magic.Wondrous.Boot													COST:12000	WT:1		SLOTS:2	EQMOD:USES_PER_DAY_10|CHARGES[10]	SOURCEPAGE:p.504																																																																																																																																							SPROP:As free action, Haste for up to 10 rounds each day
 Boots of Striding And Springing								TYPE:Magic.Wondrous.Boot													COST:5500	WT:1		SLOTS:2							SOURCEPAGE:p.504																													BONUS:POSTMOVEADD|TYPE=Walk|10|TYPE=Enhancement	BONUS:SKILL|Acrobatics|5|TYPE=Competence
 Boots of Teleportation										TYPE:Magic.Wondrous.Boot													COST:49000	WT:3		SLOTS:2							SOURCEPAGE:p.505													SPELLS:Boots of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
-Boots of The Winterlands									TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																																																																																																							SPROP:Travel across snow and slippery ice at normal speed leaving no tracks.
+Boots of the Winterlands									TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																																																																																																							SPROP:Travel across snow and slippery ice at normal speed leaving no tracks.
 Boots (Winged)				OUTPUTNAME:Boots, [NAME]			TYPE:Magic.Wondrous.Boot													COST:16000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																																																																																																							SPROP:3/day on command, allows user to Fly, as spell for up to 5 minutes
 Bottle of Air											TYPE:Magic.Wondrous														COST:7250	WT:2										SOURCEPAGE:p.505																																																																																																																																							SPROP:Retains air within it at all times, continually renewing its contents.
-Bracelet of Friends										TYPE:Magic.Wondrous.Bracelet													COST:19000	WT:.02	SLOTS:1	EQMOD:CHARGED_ITEM_4|CHARGES[4]	SOURCEPAGE:p.505																																																																																																																																							SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
+Bracelet of Friends										TYPE:Magic.Wondrous.Bracer													COST:19000	WT:.02	SLOTS:1	EQMOD:CHARGED_ITEM_4|CHARGES[4]	SOURCEPAGE:p.505																																																																																																																																							SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
 Bracers of Archery (Greater)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																					BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
 Bracers of Archery (Lesser)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:5000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																					BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
 Bracers of Armor +1										TYPE:Magic.Wondrous.Bracer													COST:1000	WT:1		SLOTS:2							SOURCEPAGE:p.505																								BONUS:COMBAT|AC|1|TYPE=Armor
@@ -75,7 +75,7 @@ Bracers of Armor +6										TYPE:Magic.Wondrous.Bracer													COST:36000	W
 Bracers of Armor +7										TYPE:Magic.Wondrous.Bracer													COST:49000	WT:1		SLOTS:2							SOURCEPAGE:p.505																								BONUS:COMBAT|AC|7|TYPE=Armor
 Bracers of Armor +8										TYPE:Magic.Wondrous.Bracer													COST:64000	WT:1		SLOTS:2							SOURCEPAGE:p.505																								BONUS:COMBAT|AC|8|TYPE=Armor
 #Bracers of Armor: Need to make modifier for this. COST=PLUS*PLUS*1000, max PLUS w/o Epic is +8, must have +1 minimum.
-Brooch of Shielding										TYPE:Magic.Wondrous.Brooch													COST:1500	WT:.02			EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:p.505
+Brooch of Shielding										TYPE:Magic.Wondrous.Amulet													COST:1500	WT:.02			EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:p.505
 Broom of Flying											TYPE:Magic.Wondrous														COST:17000	WT:3										SOURCEPAGE:p.505																																																																																																																																							SPROP:9 hrs/day Overland Flight
 
 ###Block:C
@@ -91,14 +91,14 @@ Candle of Invocation (Neutral-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TY
 Candle of Invocation (Chaotic-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																		SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-evil.
 # Candle of Invocation: Need on for each alignment plus cleric level bonus as it relates to spells per day.
 Candle of Truth													TYPE:Magic.Wondrous.Consumable	COST:2500	WT:.5								SOURCEPAGE:p.505
-Cape of The Mountebank												TYPE:Magic.Wondrous.Cape		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
+Cape of the Mountebank												TYPE:Magic.Wondrous.Cloak		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
 Carpet of Flying (5 ft by 5 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 5 ft.	TYPE:Magic.Wondrous			COST:20000	WT:8								SOURCEPAGE:p.505
 Carpet of Flying (5 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:35000	WT:10								SOURCEPAGE:p.505
 Carpet of Flying (10 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 10 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:60000	WT:15								SOURCEPAGE:p.505
 # Carpet of Flying: include +5 Fly check bonus or not?
 Chime of Interruption												TYPE:Magic.Wondrous			COST:16800	WT:1								SOURCEPAGE:p.506																																		SPROP:This instrument can be struck once every 10 minutes, and its resonant tone lasts for 3 full minutes.
 Chime of Opening													TYPE:Magic.Wondrous			COST:3000	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.506
-Circlet of Persuasion												TYPE:Magic.Wondrous.Circlet		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|STAT.CHA|3|TYPE=Competence
+Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|STAT.CHA|3|TYPE=Competence
 # Any other "Charisma based checks" besides Skills?
 Cloak of Arachnida												TYPE:Magic.Wondrous.Cloak		COST:14000	WT:1								SOURCEPAGE:p.506	SPELLS:Cloak of Archnida|TIMES=1|CASTERLEVEL=6|Web																									SPROP:Move as Spider Climb, immunity to web spells, +2 luck bonus on Fortitude saves against poison from spiders
 Cloak of the Bat													TYPE:Magic.Wondrous.Cloak		COST:26000	WT:1								SOURCEPAGE:p.506																											BONUS:SKILL|Stealth|5|TYPE=Competence	SPROP:Fly as spell in near darkness for up to 7 minutes
@@ -113,7 +113,7 @@ Cloak of Resistance +2												TYPE:Magic.Wondrous.Cloak		COST:4000	WT:1					
 Cloak of Resistance +3												TYPE:Magic.Wondrous.Cloak		COST:9000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|3|TYPE=Resistance
 Cloak of Resistance +4												TYPE:Magic.Wondrous.Cloak		COST:16000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|4|TYPE=Resistance
 Cloak of Resistance +5												TYPE:Magic.Wondrous.Cloak		COST:25000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|5|TYPE=Resistance
-Crown of Blasting (Minor)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Crown		COST:6480	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (3d8 damage) 1/day.
+Crown of Blasting (Minor)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Headgear		COST:6480	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (3d8 damage) 1/day.
 Crown of Blasting (Major)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Crown		COST:23760	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (40 damage) 1/day.
 Crystal Ball													TYPE:Magic.Wondrous			COST:42000	WT:7								SOURCEPAGE:p.507
 Crystal Ball with See Invisibility										TYPE:Magic.Wondrous			COST:50000	WT:7								SOURCEPAGE:p.507
@@ -178,14 +178,14 @@ Figurine of Wondrous Power (Silver Raven)		OUTPUTNAME:Figurine of Wondrous Power
 
 ###Block:G
 # Equipment Name				Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page		Vision			Bonus to skill						Special Property
-Gauntlet of Rust				TYPE:Magic.Wondrous.Gauntlet					COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.514													SPROP:Once per day, it can affect an object as with the rusting grasp spell.
+Gauntlet of Rust				TYPE:Magic.Wondrous.Glove					COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.514													SPROP:Once per day, it can affect an object as with the rusting grasp spell.
 Gem of Brightness				TYPE:Magic.Wondrous						COST:13000	WT:.02			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.514
 Gem of Seeing				TYPE:Magic.Wondrous						COST:75000	WT:.02									SOURCEPAGE:p.514													SPROP:Up to 30 min/day
 Gloves of Arrow Snaring			TYPE:Magic.Wondrous.Glove					COST:4000	WT:.02	SLOTS:2	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.514
 Glove of Storing				TYPE:Magic.Wondrous.Container.Glove	CONTAINS:20|Any=1	COST:10000	WT:.02	SLOTS:1							SOURCEPAGE:p.515
 Gloves of Swimming and Climbing	TYPE:Magic.Wondrous.Glove					COST:6250	WT:.02	SLOTS:2							SOURCEPAGE:p.515					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
-Goggles of Minute Seeing		TYPE:Magic.Wondrous.Goggles					COST:2500	WT:.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
-Goggles of Night				TYPE:Magic.Wondrous.Goggles					COST:12000	WT:.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
+Goggles of Minute Seeing		TYPE:Magic.Wondrous.Eyegear					COST:2500	WT:.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
+Goggles of Night				TYPE:Magic.Wondrous.Eyegear					COST:12000	WT:.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
 Golem Manual (Clay)			TYPE:Magic.Wondrous						COST:12000	WT:5										SOURCEPAGE:p.515
 Golem Manual (Flesh)			TYPE:Magic.Wondrous						COST:8000	WT:5										SOURCEPAGE:p.515
 Golem Manual (Iron)			TYPE:Magic.Wondrous						COST:35000	WT:5										SOURCEPAGE:p.515
@@ -194,11 +194,11 @@ Golem Manual (Stone/Greater)		TYPE:Magic.Wondrous						COST:44000	WT:5										
 
 ###Block:H
 # Equipment Name						Output Name					Type						Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
-Hand of Glory												TYPE:Magic.Wondrous.Necklace					COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
-Hand of the Mage												TYPE:Magic.Wondrous.Necklace					COST:900	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
+Hand of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
+Hand of the Mage												TYPE:Magic.Wondrous.Amulet					COST:900	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
 Handy Haversack												TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:p.516
 Harp of Charming												TYPE:Magic.Wondrous.Instrument				COST:7500	WT:5				SOURCEPAGE:p.516
-Hat of Disguise												TYPE:Magic.Wondrous.Hat						COST:1800	WT:.02			SOURCEPAGE:p.516
+Hat of Disguise												TYPE:Magic.Wondrous.Headgear					COST:1800	WT:.02			SOURCEPAGE:p.516
 Headband of Alluring Charisma +2									TYPE:Magic.Wondrous.Headband					COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|2|TYPE=Enhancement
 Headband of Alluring Charisma +4									TYPE:Magic.Wondrous.Headband					COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|4|TYPE=Enhancement
 Headband of Alluring Charisma +6									TYPE:Magic.Wondrous.Headband					COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|6|TYPE=Enhancement
@@ -223,11 +223,11 @@ Headband of Vast Intelligence +2									TYPE:Magic.Wondrous.Headband					COST:4
 Headband of Vast Intelligence +4									TYPE:Magic.Wondrous.Headband					COST:16000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|4|TYPE=Enhancement		SPROP:After being worn for 24 hours, the headband grants a number of skill ranks in those skills equal to the wearer's total Hit Dice. These ranks do not stack with the ranks a creature already possesses. These skills are chosen when the headband is created. If no skill is listed, the headband is assumed to grant skill ranks in randomly determined Knowledge skills.
 Headband of Vast Intelligence +6									TYPE:Magic.Wondrous.Headband					COST:36000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|6|TYPE=Enhancement		SPROP:After being worn for 24 hours, the headband grants a number of skill ranks in those skills equal to the wearer's total Hit Dice. These ranks do not stack with the ranks a creature already possesses. These skills are chosen when the headband is created. If no skill is listed, the headband is assumed to grant skill ranks in randomly determined Knowledge skills.
 # Not implemented: the Skill ranks chosen for Vast Intelligence, Mental Superiority, and Mental Prowess with INT.
-Helm of Brilliance											TYPE:Magic.Wondrous.Helm					COST:125000	WT:3				SOURCEPAGE:p.518
-Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Helm					COST:5200	WT:3				SOURCEPAGE:p.318																																									BONUS:SKILL|Linguistics (Understand exotic written messages)|5|TYPE=Competence
-Helm of Telepathy												TYPE:Magic.Wondrous.Helm					COST:27000	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																																																						SPROP:Suggestion 1/day with Telepathy
-Helm of Teleportation											TYPE:Magic.Wondrous.Helm					COST:73500	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
-Helm of Underwater Action										TYPE:Magic.Wondrous.Helm					COST:24000	WT:3				SOURCEPAGE:p.518
+Helm of Brilliance											TYPE:Magic.Wondrous.Headgear					COST:125000	WT:3				SOURCEPAGE:p.518
+Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Headgear					COST:5200	WT:3				SOURCEPAGE:p.318																																									BONUS:SKILL|Linguistics (Understand exotic written messages)|5|TYPE=Competence
+Helm of Telepathy												TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																																																						SPROP:Suggestion 1/day with Telepathy
+Helm of Teleportation											TYPE:Magic.Wondrous.Headgear					COST:73500	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
+Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear					COST:24000	WT:3				SOURCEPAGE:p.518
 Horn of Blasting												TYPE:Magic.Wondrous.Instrument				COST:20000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
 Horn of Blasting (Greater)				OUTPUTNAME:Horn of Blasting, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:70000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
 Horn of Fog													TYPE:Magic.Wondrous.Instrument				COST:2000	WT:1				SOURCEPAGE:p.519
@@ -278,8 +278,8 @@ Lyre of Building		TYPE:Magic.Wondrous.Instrument	COST:13000	WT:5		SOURCEPAGE:p.5
 
 ###Block:M
 # Equipment Name				Required Weapon Proficiency	Type																Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page		Spell Res.	Damage Reduction	Weapon prop. bonus																Special Property
-Mantle of Faith									TYPE:Magic.Wondrous.Mantle												COST:76000	WT:.02																SOURCEPAGE:p.522			DR:5/Evil
-Mantle of Spell Resistance							TYPE:Magic.Wondrous.Mantle												COST:90000	WT:.02																SOURCEPAGE:p.522	SR:21
+Mantle of Faith									TYPE:Magic.Wondrous.Shirt												COST:76000	WT:.02																SOURCEPAGE:p.522			DR:5/Evil
+Mantle of Spell Resistance							TYPE:Magic.Wondrous.Shirt												COST:90000	WT:.02																SOURCEPAGE:p.522	SR:21
 Manual of Bodily Health (+1)							TYPE:Magic.Wondrous													COST:27500	WT:5																	SOURCEPAGE:p.522
 Manual of Bodily Health (+2)							TYPE:Magic.Wondrous													COST:55000	WT:5																	SOURCEPAGE:p.522
 Manual of Bodily Health (+3)							TYPE:Magic.Wondrous													COST:82500	WT:5																	SOURCEPAGE:p.522
@@ -296,23 +296,23 @@ Manual of Quickness of Action (+3)						TYPE:Magic.Wondrous													COST:825
 Manual of Quickness of Action (+4)						TYPE:Magic.Wondrous													COST:110000	WT:5																	SOURCEPAGE:p.522
 Manual of Quickness of Action (+5)						TYPE:Magic.Wondrous													COST:137500	WT:5																	SOURCEPAGE:p.522
 Marvelous Pigments								TYPE:Magic.Wondrous													COST:4000	WT:0.02																SOURCEPAGE:p.523
-Mask of the Skull									TYPE:Magic.Wondrous.Mask												COST:22000	WT:3																	SOURCEPAGE:p.523
+Mask of the Skull									TYPE:Magic.Wondrous.Headgear												COST:22000	WT:3																	SOURCEPAGE:p.523
 Mattock of the Titans			PROFICIENCY:WEAPON|Warhammer	TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.OneHanded.Bludgeoning.Adamantine.Specific.Hammer	COST:23348	WT:120	CRITMULT:x3			CRITRANGE:1			DAMAGE:4d6	WIELD:OneHanded	SIZE:G	SOURCEPAGE:p.523						BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement
 Maul of the Titans			PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.TwoHanded.Bludgeoning.Specific.Club.Hammer		COST:25305	WT:160	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	WIELD:TwoHanded	SIZE:G	SOURCEPAGE:p.523						BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4|TYPE=StrengthPenalty|!PRESTAT:1,STR=18
-Medallion of Thoughts								TYPE:Magic.Wondrous.Medallion												COST:12000	WT:.02																SOURCEPAGE:p.523																									SPROP:allows the wearer to read the thoughts of others, as with the spell detect thoughts.
+Medallion of Thoughts								TYPE:Magic.Wondrous.Amulet												COST:12000	WT:.02																SOURCEPAGE:p.523																									SPROP:allows the wearer to read the thoughts of others, as with the spell detect thoughts.
 Mirror of Life Trapping								TYPE:Magic.Wondrous													COST:200000	WT:50																	SOURCEPAGE:p.523
 Mirror of Opposition								TYPE:Magic.Wondrous													COST:92000	WT:45																	SOURCEPAGE:p.524																									SPROP:Up to 4/day.
 
 ###Block:N
 # Equipment Name			Type					Cost		Weight	Source Page		Bonus to nb of slots	Special Property
-Necklace of Adaptation		TYPE:Magic.Wondrous.Necklace	COST:9000	WT:1		SOURCEPAGE:p.524					SPROP:Wraps the wearer in a shell of fresh air
-Necklace of Fireballs I		TYPE:Magic.Wondrous.Necklace	COST:1650	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs II	TYPE:Magic.Wondrous.Necklace	COST:2700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs III	TYPE:Magic.Wondrous.Necklace	COST:4350	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs IV	TYPE:Magic.Wondrous.Necklace	COST:5400	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs V		TYPE:Magic.Wondrous.Necklace	COST:5850	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs VI	TYPE:Magic.Wondrous.Necklace	COST:8100	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
-Necklace of Fireballs VII	TYPE:Magic.Wondrous.Necklace	COST:8700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Adaptation		TYPE:Magic.Wondrous.Amulet	COST:9000	WT:1		SOURCEPAGE:p.524					SPROP:Wraps the wearer in a shell of fresh air
+Necklace of Fireballs I		TYPE:Magic.Wondrous.Amulet	COST:1650	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs II	TYPE:Magic.Wondrous.Amulet	COST:2700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs III	TYPE:Magic.Wondrous.Amulet	COST:4350	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs IV	TYPE:Magic.Wondrous.Amulet	COST:5400	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs V		TYPE:Magic.Wondrous.Amulet	COST:5850	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs VI	TYPE:Magic.Wondrous.Amulet	COST:8100	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
+Necklace of Fireballs VII	TYPE:Magic.Wondrous.Amulet	COST:8700	WT:1		SOURCEPAGE:p.524	BONUS:SLOTS|Amulet|1
 # Do we want to enumerate the different types of beads on the different necklaces, and thereby the costs of partially spent necklaces?
 
 ###Block:O
@@ -333,12 +333,12 @@ Pearl of Power (9th Level)		TYPE:Magic.Wondrous						COST:81000	WT:.02	EQMOD:USE
 Pearl of Power (2 spells)		TYPE:Magic.Wondrous						COST:70000	WT:.02	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.525																	SPROP:Spells of 6th level or lower
 Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:.02							SOURCEPAGE:p.525																	SPROP:Breathe in water, swim speed is 60ft, cast spells and act underwater without hindrance.
 # removed MOVE:Swim,60 from Pearl of the Sirines, MOVE not so global, we'll need another way to do this, perhaps SPROP? -Eddy
-Periapt of Health				TYPE:Magic.Wondrous.Periapt					COST:7500	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to Disease, including supernatural deseases
-Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Periapt					COST:27000	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to poison
-Periapt of Wound Closure		TYPE:Magic.Wondrous.Periapt					COST:15000	WT:.02							SOURCEPAGE:p.525																	SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing
-Phylactery of Faithfulness		TYPE:Magic.Wondrous.Phylactery				COST:1000	WT:.02							SOURCEPAGE:p.525																	SPROP:Wearer is aware of any action or item that could adversely afect his alignment and his standing with his deity
-Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Phylactery				COST:11000	WT:.02							SOURCEPAGE:p.525	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
-Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Phylactery				COST:11000	WT:.02							SOURCEPAGE:p.526	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
+Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to Disease, including supernatural deseases
+Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to poison
+Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:.02							SOURCEPAGE:p.525																	SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing
+Phylactery of Faithfulness		TYPE:Magic.Wondrous.Headband					COST:1000	WT:.02							SOURCEPAGE:p.525																	SPROP:Wearer is aware of any action or item that could adversely afect his alignment and his standing with his deity
+Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.525	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
+Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.526	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
 Pipes of Haunting				TYPE:Magic.Wondrous.Instrument				COST:6000	WT:3		EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.526
 Pipes of the Sewers			TYPE:Magic.Wondrous.Instrument				COST:1150	WT:3								SOURCEPAGE:p.526
 Pipes of Sounding				TYPE:Magic.Wondrous.Instrument				COST:1800	WT:3								SOURCEPAGE:p.526
@@ -375,10 +375,10 @@ Rope of Entanglement									TYPE:Magic.Wondrous				COST:21000	WT:5								SOURC
 # Equipment Name				Output Name					Type						Contains				Cost		Weight	Slot Needed	Modifier					Source Page		Spell Res.	Save checks bonus			Bonus to skill																		Modify VAR									Special Property
 Salve of Slipperiness									TYPE:Magic.Wondrous.Consumable						COST:1000	WT:.02									SOURCEPAGE:p.529								BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC													BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
 Scabbard of Keen Edges									TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM|Slashing=1	COST:16000	WT:1				EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.529
-Scarab of Protection									TYPE:Magic.Wondrous.Scarab							COST:38000	WT:.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
-Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]		TYPE:Magic.Wondrous.Scarab							COST:2500	WT:.02									SOURCEPAGE:p.529																																						SPROP:Bypass DR of Golems
+Scarab of Protection									TYPE:Magic.Wondrous.Amulet							COST:38000	WT:.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
+Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]		TYPE:Magic.Wondrous.Amulet							COST:2500	WT:.02									SOURCEPAGE:p.529																																						SPROP:Bypass DR of Golems
 Silversheen											TYPE:Magic.Wondrous.Consumable						COST:250	WT:.02									SOURCEPAGE:p.529
-Slippers of Spider Climbing								TYPE:Magic.Wondrous.Slippers							COST:4800	WT:.5		SLOTS:2							SOURCEPAGE:p.530																																						SPROP:Up to 10 minutes per day.
+Slippers of Spider Climbing								TYPE:Magic.Wondrous.Boot							COST:4800	WT:.5		SLOTS:2							SOURCEPAGE:p.530																																						SPROP:Up to 10 minutes per day.
 Sovereign Glue (Ounce)									TYPE:Magic.Wondrous.Consumable						COST:2400	WT:.02									SOURCEPAGE:p.530
 Sovereign Glue (Flask)			OUTPUTNAME:[NAME] of Sovereign Glue	TYPE:Magic.Wondrous								COST:16800	WT:1.5			EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:p.530
 Stone of Alarm										TYPE:Magic.Wondrous								COST:2700	WT:2										SOURCEPAGE:p.530
@@ -414,8 +414,8 @@ Universal Solvent		TYPE:Magic.Wondrous.Consumable	COST:50	WT:.02							SOURCEPAG
 
 ###Block:V
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page		Bonus to skill														Modify VAR
-Vest of Escape							TYPE:Magic.Wondrous.Vest	COST:5200	WT:.02	SOURCEPAGE:p.532	BONUS:SKILL|Disable Device|4|TYPE=Competence	BONUS:SKILL|Escape Artist|6|TYPE=Competence
-Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Vestments	COST:3750	WT:.02	SOURCEPAGE:p.532																	BONUS:VAR|WildShapeTimes|1
+Vest of Escape							TYPE:Magic.Wondrous.Shirt	COST:5200	WT:.02	SOURCEPAGE:p.532	BONUS:SKILL|Disable Device|4|TYPE=Competence	BONUS:SKILL|Escape Artist|6|TYPE=Competence
+Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Robe	COST:3750	WT:.02	SOURCEPAGE:p.532																	BONUS:VAR|WildShapeTimes|1
 
 ###Block:W
 # Equipment Name		Type					Cost		Weight	Source Page		Bonus to skill						Special Property
