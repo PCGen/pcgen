@@ -70,8 +70,9 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 			final Collator col = Collator.getInstance();
 			RaceType rt1 = r1.get(ObjectKey.RACETYPE);
 			RaceType rt2 = r2.get(ObjectKey.RACETYPE);
-			final int diff =
-					col.compare(rt1.toString(), rt2.toString());
+			String rt1Name = rt1 == null ? "ZZZZZ" : rt1.toString();
+			String rt2Name = rt2 == null ? "ZZZZZ" : rt2.toString();
+			final int diff = col.compare(rt1Name, rt2Name);
 			if (diff == 0)
 			{
 				return anO1.compareTo(anO2);
