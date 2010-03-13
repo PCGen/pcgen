@@ -966,7 +966,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 						pc.addEquipment(updatedItem);
 						if (autoSort.isSelected())
 						{
-							resortSelected(ResortComparator.RESORT_NAME,
+							resortSelected(ResortComparator.RESORT_EQUIPPED,
 								ResortComparator.RESORT_ASCENDING);
 						}
 
@@ -3174,6 +3174,20 @@ public final class InfoGear extends FilterAdapterPanel implements
 					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
 					PropertyFactory.getString("in_igSortWeightDscDesc"), null, //$NON-NLS-1$
 					true));
+				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+					getString("in_igSortEquippedAscLabel"), //$NON-NLS-1$
+					new ResortActionListener(ResortComparator.RESORT_EQUIPPED,
+						ResortComparator.RESORT_ASCENDING), PropertyFactory.
+					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
+					PropertyFactory.getString("in_igSortEquippedAscDesc"), null, //$NON-NLS-1$
+					true));
+				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+					getString("in_igSortEquippedDscLabel"), //$NON-NLS-1$
+					new ResortActionListener(ResortComparator.RESORT_EQUIPPED,
+						ResortComparator.RESORT_DESCENDING), PropertyFactory.
+					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
+					PropertyFactory.getString("in_igSortEquippedDscDesc"), null, //$NON-NLS-1$
+					true));
 			}
 		}
 
@@ -3320,17 +3334,19 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 	private static class ResortComparator implements Comparator<Object>
 	{
-		/** The name of the re-sort */
+		/** The equipment is to be sorted by name */
 		public static final int RESORT_NAME = 0;
-		/** The weight of the re-sort */
+		/** The equipment is to be sorted by weight */
 		public static final int RESORT_WEIGHT = 1;
+		/** The equipment is to be sorted by whether it is equipped */
+		public static final int RESORT_EQUIPPED = 2;
 		/** The re-sort is ascending by default */
 		public static final boolean RESORT_ASCENDING = true;
 		/** The re-sort is not descending by default */
 		public static final boolean RESORT_DESCENDING = false;
 		/** The sort order is set to RESORT_ASCENDING by default */
 		private boolean sortOrder = RESORT_ASCENDING;
-		private int sort = RESORT_NAME;
+		private int sort = RESORT_EQUIPPED;
 		private PlayerCharacter pc;
 
 		/**
@@ -3365,6 +3381,39 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			switch (sort)
 			{
+				case RESORT_EQUIPPED:
+					EquipSet es1 = getCurrentEqSetItem(e1);
+					if (es1 != null)
+					{
+						e1 = es1.getItem();
+					}
+					EquipSet es2 = getCurrentEqSetItem(e2);
+					if (es2 != null)
+					{
+						e2 = es2.getItem();
+					}
+					//Logging.log(Logging.DEBUG, "Sort: 1." + e1.getName() + "/"+ e1.isEquipped() + "/" + (es1 != null && Constants.S_CARRIED.equals(es1.getName())));
+					//Logging.log(Logging.DEBUG, "Sort: 2." + e2.getName() + "/"+ e2.isEquipped() + "/" + (es2 != null && Constants.S_CARRIED.equals(es2.getName())));
+				
+					if (e1.isEquipped() && !e2.isEquipped())
+					{
+						return -1;
+					}
+					if (!e1.isEquipped() && e2.isEquipped())
+					{
+						return 1;
+					}
+					if (!e1.isEquipped() && !e2.isEquipped())
+					{
+						boolean e1Carried = es1 != null && Constants.S_CARRIED.equals(es1.getName());
+						boolean e2Carried = es2 != null && Constants.S_CARRIED.equals(es2.getName());
+						if (e1Carried != e2Carried)
+						{
+							return e1Carried ? -1 : 1;
+						}
+					}
+					return e1.getName().compareToIgnoreCase(e2.getName());
+					
 				case RESORT_WEIGHT:
 					return e1.getWeight(pc).compareTo(e2.getWeight(pc));
 
@@ -3372,6 +3421,37 @@ public final class InfoGear extends FilterAdapterPanel implements
 				default:
 					return e1.getName().compareToIgnoreCase(e2.getName());
 			}
+		}
+		
+
+		/**
+		 * Retrieve the EquipSet holding the item of equipment for the currently 
+		 * active EquipSet
+		 * 
+		 * @param eqI The equipment item to be found
+		 * @return EquipSet The set containing the item
+		 **/
+		private EquipSet getCurrentEqSetItem(Equipment eqI)
+		{
+			final String rPath = pc.getCalcEquipSetId();
+
+			for (EquipSet es : pc.getEquipSet())
+			{
+				String esIdPath = es.getIdPath() + ".";
+				String rIdPath = rPath + ".";
+
+				if (!esIdPath.startsWith(rIdPath))
+				{
+					continue;
+				}
+
+				if (eqI.getName().equals(es.getValue()))
+				{
+					return es;
+				}
+			}
+
+			return null;
 		}
 	}
 
