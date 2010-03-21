@@ -20,6 +20,8 @@ package pcgen.gui.utils;
  *
  * Created on January 3, 2002
  */
+import java.io.File;
+
 import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -49,26 +51,6 @@ public final class SkinManager
 			SkinLookAndFeel lnf = new SkinLookAndFeel();
 			UIManager.setLookAndFeel(lnf);
 			SwingUtilities.updateComponentTreeUI(Globals.getRootFrame());
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
-	}
-
-	/**
-	 * Load a LINUX skin
-	 * @throws Exception
-	 */
-	public static void loadLinuxSkin() throws Exception
-	{
-		try
-		{
-			SkinLookAndFeel.loadThemePack(SettingsHandler
-				.getPcgenThemePackDir().getAbsolutePath()
-				+ "themepack.zip");
-			UIManager.installLookAndFeel("Linux",
-				"com.l2fprod.gui.plaf.skin.LinuxLookAndFeel");
 		}
 		catch (Exception e)
 		{

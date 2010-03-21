@@ -55,18 +55,6 @@ public final class UIFactory
 		// Add the Kunststoff L&F before asking the UIManager.
 		UIManager.installLookAndFeel("Kunststoff", "com.incors.plaf.kunststoff.KunststoffLookAndFeel");
 
-		try
-		{
-			if (SkinLFResourceChecker.getMissingResourceCount() == 0)
-			{
-				SkinManager.loadLinuxSkin();
-			}
-		}
-		catch (Exception e)
-		{
-			//TODO: Really ignore?
-		}
-
 		UIManager.LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 
 		lafData = new String[lafInfo.length][3];

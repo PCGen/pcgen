@@ -170,7 +170,7 @@ public final class SettingsHandler
 	 */
 	private static File pcgenSystemDir = new File(Globals.getDefaultPath() + File.separator + "system"); //$NON-NLS-1$
 	private static File pcgenThemePackDir = new File(Globals.getDefaultPath() + File.separator + "lib" + File.separator //$NON-NLS-1$
-			+ "themes"); //$NON-NLS-1$
+			+ "lnf" + File.separator + "themes"); //$NON-NLS-1$
 	private static File pcgenOutputSheetDir = new File(Globals.getDefaultPath() + File.separator + "outputsheets"); //$NON-NLS-1$
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = 0x000000; // 0 = black, 0xFF0000 = red, 0xFFFFFF = white
