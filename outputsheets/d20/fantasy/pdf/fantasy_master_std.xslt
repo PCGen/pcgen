@@ -351,6 +351,7 @@
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="animal_tricks"/>
 						<xsl:apply-templates select="special_abilities"/>
+						<xsl:apply-templates select="traits"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="talents"/>
