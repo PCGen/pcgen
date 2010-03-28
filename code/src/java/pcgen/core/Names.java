@@ -443,7 +443,7 @@ public final class Names
         Names.getInstance().init(parsedArguments.nameTemplate, null);
 
         int nameCount = parsedArguments.count;
-        while (nameCount >= 0)
+        while (nameCount > 0)
         {
             System.out.println(Names.getInstance().getRandomName());
             nameCount--;
