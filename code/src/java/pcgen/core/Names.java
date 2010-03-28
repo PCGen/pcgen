@@ -386,12 +386,11 @@ public final class Names
             private Arguments(final String[] args, final List<NameElement> allNamesFiles)
             {
                 this.allNamesFiles = allNamesFiles;
-                if (args.length == 2)
+                if (args.length >= 2)
                 {
                     parseTemplate(args[0]);
                     parseCount(args[1]);
                 }
-                errors.add("Not enough arguments");
             }
 
             private void parseTemplate(final String requestedTemplate)
@@ -433,7 +432,11 @@ public final class Names
 
         if (!parsedArguments.isValid())
         {
-            System.err.println("Invalid arguments:\n" + StringUtils.join(parsedArguments.errors.toArray(), "\n"));
+            if(!parsedArguments.errors.isEmpty())
+            {
+                System.err.println("Invalid arguments:\n" +
+                        StringUtils.join(parsedArguments.errors.toArray(), "\n" + "\n"));
+            }
             System.out.println("Available name templates are:\n" + StringUtils.join(allNamesFiles.toArray(), "\n"));
             System.out.println("\nArguments are <name template> <number of names to generate>");
             System.out.println("\nExample: orc 100");
