@@ -70,10 +70,9 @@ public final class NameGui extends JFrame
 		List<NameElement> allNamesFiles = Names.findAllNamesFiles();
 		Collections.sort(allNamesFiles);
 
-		for (int i = 0; i < allNamesFiles.size(); i++)
-		{
-			listModel.addElement(allNamesFiles.get(i));
-		}
+        for (NameElement allNamesFile : allNamesFiles) {
+            listModel.addElement(allNamesFile);
+        }
 
 		generateButton = new JButton("Generate Name");
 		generateButton.setMnemonic('G');
@@ -113,11 +112,9 @@ public final class NameGui extends JFrame
 
 		Box buttonAndNameBox = new Box(BoxLayout.Y_AXIS);
 
-//    buttonAndNameBox.add(Box.createVerticalGlue());
 		buttonAndNameBox.add(namePanel);
 		buttonAndNameBox.add(generateButtonBox);
 
-//    buttonAndNameBox.add(Box.createVerticalGlue());
 		JPanel namePlusButtonHolderPanel = new JPanel();
 		namePlusButtonHolderPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		namePlusButtonHolderPanel.add(buttonAndNameBox);
