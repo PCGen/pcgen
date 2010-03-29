@@ -694,23 +694,22 @@
 
 	<p class="new">*** Updated 5.13.5</p>
 	<p class="indent0"><strong><a name="PREHD">Tag Name:</a></strong> PREHD:x,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or Formula (Minimum natural Hit Dice)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or Formula (Maximum natural Hit Dice)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or Formula (Minimum racial Hit Dice)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or Formula (Maximum racial Hit Dice)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Provides the minimum or maximum hit dice the character must have to qualify.</li>
-		<li>This test looks at a character's race's HD attribute and any levels of Monster Classes.</li>
-		<li>Either value may be used without the other.</li>
+		<li>Provides the number, minimum or maximum, of hit dice the character must have to qualify.</li>
+		<li>This test looks at a character's racial HD and/or any levels of Monster Classes only.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREHD:MIN=1,MAX=3</code></p>
-	<p class="indent3">The character must have one, two, or three racial hit die.</p>
+	<p class="indent3">The character must have one, two, or three racial hit die monster levels.</p>
 	<p class="indent2"><code>PREHD:MIN=4</code></p>
-	<p class="indent3">The character must have four or more racial hit die.</p>
+	<p class="indent3">The character must have four or more racial hit die or monster levels.</p>
 	<p class="indent2"><code>PREHD:MAX=4</code></p>
-	<p class="indent3">The character must have four or fewer racial hit die.</p>
+	<p class="indent3">The character must have four or fewer racial hit die monster levels.</p>
 	<p class="indent2"><code>!PREHD:MIN=5,MAX=7</code></p>
-	<p class="indent3">Character must have between 0-4 OR 7 or greater racial hit die.</p>
+	<p class="indent3">Character must have between 0-4 OR 7 or greater racial hit die or monster levels.</p>
 	<p></p>
 
 <hr>
