@@ -107,6 +107,15 @@ public final class Names
         return constructTheName(ruleToUse);
     }
 
+    public List<String> getRandomNames(final int count)
+    {
+        final List<String> names = new ArrayList<String>(count);
+        for(int i=0; i< count;i++){
+            names.add(getRandomName());
+        }
+        return names;
+    }
+
     public void init(final NameElement name, final PlayerCharacter aPc)
     {
         this.pc = aPc;
@@ -445,11 +454,9 @@ public final class Names
 
         Names.getInstance().init(parsedArguments.nameTemplate, null);
 
-        int nameCount = parsedArguments.count;
-        while (nameCount > 0)
+        for(String name: Names.getInstance().getRandomNames(parsedArguments.count))
         {
-            System.out.println(Names.getInstance().getRandomName());
-            nameCount--;
+            System.out.println(name);
         }
 
     }
