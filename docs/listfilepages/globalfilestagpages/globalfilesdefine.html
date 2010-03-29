@@ -69,7 +69,9 @@
 		variables and formulas for a wide variety of purposes through out the program, some are created in
 		LST files while others are pre-defined, that is they are hard coded and can be used in any formula
 		in any LST file in any game mode. Pre-defined variables and a subset of User-defined variables
-		(that have been created by PCGen Data Monkeys) are listed below.</p>
+		(that have been created by PCGen Data Monkeys) are listed below. All variables listed below are 
+		global in nature, unless explicitly stated within the variable specific documentation, and can be 
+		used in any formula, in any file, in any gamemode.</p>
 	<p class="indent1"><strong>Variable Names:</strong></p>
 	<ul class="indent2">
 		<li>You can create variable names any way you like - but we recommend using no spaces and a name
@@ -115,8 +117,8 @@
 	<p></p>
 	
 	<p class="indent2"><code><a name="CASTERLEVEL">CASTERLEVEL</a></code></p>
-	<p class="indent3">CASTERLEVEL is a special variable for use within some Spell tags.
-		See the <a href="../datafilestagpages/datafilesspells.html#CASTERLEVEL">CASTERLEVEL</a>
+	<p class="indent3">CASTERLEVEL is a special variable and is valid only in Spell objects and therefore 
+  		should only be used in Spell LST Files. See the <a href="../datafilestagpages/datafilesspells.html#CASTERLEVEL">CASTERLEVEL</a>
   		tag entry on the Spell tag page.</p>
 	<p></p>
 	
@@ -129,14 +131,13 @@
 	<p></p>
 	
 	<p class="indent2"><code><a name="CL">CL</a></code></p>
-	<p class="indent3">Class Level of this class.</p>
+	<p class="indent3">Class Level of <strong>THIS</strong> class. This variable is valid only in the Class object and should 
+		only be used in Class LST files.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="CLname">CL=name</a></code></p>
-	<p class="indent3">Class Level of the named class.</p>
-	<p class="indent3"><span class=new><strong>Update:</strong></span></p>
-	<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#ClassLevel">classlevel()</a>
-		JEP function.</p>
+	<p class="indent3">Class Level of the named class. This can now be done with the 
+		<a href="globalfilesformulas.html#ClassLevel">classlevel()</a> JEP function.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="CLASSname">CLASS=name</a></code></p>
