@@ -892,7 +892,6 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to secondary 			hit points, as defined in miscinfo.lst)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to secondary Hit Points.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|3</code></p>
 	<p class="indent3">Adds three to total the secondary hit points.</p>
@@ -907,7 +906,6 @@
 		hit points)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to total Hit Points.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2">BONUS:HP|CURRENTMAX|2</p>
 	<p class="indent3">Character gains two additional hit points.</p>
@@ -927,8 +925,7 @@
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Used in Equipment and Equipment Modifiers, applies the cost formula to the equipment
 		if it has all the listed types. Any formula that is valid in an
-		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#COST"> EQMOD COST</a> tag can be used.
-		Like most BONUS tags ITEMCOST can be qualified with PRExxx tags.</p>
+		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#COST"> EQMOD COST</a> tag can be used.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:ITEMCOST|TYPE.Weapon|200</code></p>
 	<p class="indent3">Adds 200 to the cost if the item has the Weapon type.</p>
@@ -941,12 +938,11 @@
 	<p class="indent0"><strong><a name="LANGUAGES">Tag Name:</a></strong> BONUS:LANGUAGES|NUMBER|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Used to increase or decrease the number of available language slots available.
-	 Like most BONUS tags ITEMCOST can be qualified with PRExxx tags.</p>
+	<p class="indent2">Used to increase or decrease the number of available language slots available.</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:LANGUAGE|NUMBER|1</code></p>
+	<p class="indent2"><code>BONUS:LANGUAGES|NUMBER|1</code></p>
 	<p class="indent3">Adds 1 to the available language pool.</p>
-	<p class="indent2"><code>BONUS:LANGUAGE|NUMBER|-1</code></p>
+	<p class="indent2"><code>BONUS:LANGUAGES|NUMBER|-1</code></p>
 	<p class="indent3">Reduces the available language pool by 1.</p>
 	<p></p>
 
@@ -992,7 +988,6 @@
 		spell failure percentage)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters spell failure armor penalty.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|5</code></p>
 	<p class="indent3">Adds 5% to Spell Failure chance.</p>
@@ -1006,7 +1001,6 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to spell resistance)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters spell resistance.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|SR|10</code></p>
 	<p class="indent3">Adds 10 to the spell resistance.</p>
@@ -1029,11 +1023,9 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>Adds to movement to the listed TYPE.</li>
+		<li>Adds to movement of the listed TYPE.</li>
 		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
 		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
-		<li>PRExxx tags can also be used with this tag.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10</code></p>
@@ -1055,8 +1047,6 @@
 		<li>Multiplies the movement of the listed TYPEs.</li>
 		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
 		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
-		<li>PRExxx tags can also be used with this tag.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MOVEMULT|TYPE.Walk,TYPE.Fly|2</code></p>
@@ -1109,8 +1099,6 @@
 		<li>Adds to movement to the listed TYPE.</li>
 		<li>Done after MOVEMULT and MOVEADD calculations.</li>
 		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
-		<li>PRExxx tags can also be used with this tag.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk|10</code></p>
@@ -1219,7 +1207,6 @@
 	<p class="indent2">Adds to listed skills.</p>
 	<p class="indent2">There is no leading space between the comma groups.</p>
 	<p class="indent2">Don't forget the space in subsets (i.e. between Craft and (Metalworking),Craft (Metalworking))</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|10</code></p>
 	<p class="indent3">Adds 10 to &quot;Bluff&quot; &amp; &quot;Listen&quot;.</p>
@@ -1256,7 +1243,6 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to skill level)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">LIST is replaced by the selection from the CHOOSE statement (Used in Feat.lst).</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|LIST|2</code></p>
 	<p class="indent3">Adds two to selected &quot;Strength&quot; skill.</p>
@@ -1285,7 +1271,6 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to skill level)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to skill ranks (Maximum ranks still apply).</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILLRANK|Bluff,Listen|2</code></p>
 	<p class="indent3">Adds two to &quot;Bluff&quot; &amp; &quot;Listen&quot; skills.</p>
@@ -1303,9 +1288,7 @@
 	<ul class="indent2">
 		<li>Adds to the number of skill ranks gained when the character gains a level.</li>
 		<li>Not retroactive.</li>
-		<li>PRExxx tags may be used with this tag.</li>
-		<li>-- Do NOT mix PRELEVELMAX and BONUS:SKILLPOINTS|NUMBER, since it results in double negative and
-			some very bad exceptions in the code.</li>
+		<li>PRExxx tags may be used with this tag. Exception: Do NOT mix PRELEVELMAX with this tag.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:SKILLPOINTS|NUMBER|1</code></p>
@@ -1329,10 +1312,7 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of points
 		to be added to skill the pool)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<ul class="indent2">
-		<li>Adds to the number of points in the skill pool of the class at the level specified. </li>
-		<li>PRExxx tags may be used with this tag.</li>
-	</ul>
+	<p class="indent2">Adds to the number of points in the skill pool of the class at the level specified. </p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:SKILLPOOL|CLASS=Fighter;LEVEL=2|2</code></p>
 	<p class="indent3">Adds 2 additional skillpoints to the characters skill pool
@@ -1500,7 +1480,6 @@
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to character stats (stat can be any stat that has been defined in the
 		statsandchecks.lst system file).</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|STR|2</code></p>
 	<p class="indent3">Adds two to character's STR stat.</p>
@@ -1580,9 +1559,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Levels to add to unarmed damage)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<ul class="indent2">
-		<li>This tag adds levels to the character's unarmed damage bonus as if he/she had gained those levels as a Monk.</li>
-	</ul>
+	<p class="indent2">This tag adds levels to the character's unarmed damage bonus as if he/she had gained those levels as a Monk.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:UDAM|CLASS.Monk|5</code></p>
 	<p class="indent3">Unarmed damage is treated as a Monk of five levels higher. For this to work you must have Monk levels.</p>
@@ -1601,7 +1578,6 @@
 		<li>Adds to a data DEFINEd VARiable.</li>
 		<li>A <a href="globalfilesdefine.html">DEFINE tag </a>for the listed variable
     			must be somewhere attached to the character for a BONUS to have any effect.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:VAR|SneakAttack|2</code></p>
@@ -1624,7 +1600,6 @@
 	<ul class="indent2">
 		<li>Adds the vision type specified if you don't already have it, otherwise it increases the range of the vision type by the number specified.</li>
 		<li>Vision types include (but are not limited to): Blindsense, Darkvision, Low-Light.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:VISION|Darkvision|30</code></p>
@@ -1664,7 +1639,6 @@
 			<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon when used at short range)</li>
 			<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
 		</ul>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:WEAPON|DAMAGE|1</code></p>
@@ -1717,7 +1691,6 @@
 			<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon at short range as defined in the GameMode files)</li>
 			<li>TOHITOVERSIZE (Decreases the handedness of a weapon)</li>
 			<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
-			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		</li>
 	</ul>
