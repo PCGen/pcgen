@@ -506,15 +506,16 @@
 <hr>
 
 	<p class="indent0"><strong><a name="PREEQUIP">Tag Name:</a></strong> PREEQUIP:x,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the list that
-		must be equipped).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a piece of equipment -
-		&quot;%&quot; may be used as a wild-card).</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (The type of a piece of equipment).</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a
-		weapon).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items to be equipped)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment name)</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (Equipment type)</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (Wield category of a weapon)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is used to determine if a character has a particular item(s) equipped.</p>
+	<UL class="indent2">
+		<li>This is used to determine if a character has a particular item(s) equipped.</li>
+		<li>The percent symbol (%) may be used as a wild-card when including text in the list of parameters.</li>
+		<li>Multiple TYPEs may be stacked by including them in a period delimited (.) list. (e.g. TYPE=Heavy/Armor for &quot;Heavy Armor&quot;)</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREEQUIP:1,Leather Armor</code></p>
 	<p class="indent3">Must have Leather Armor (only) equipped.</p>
@@ -528,6 +529,8 @@
 	<p class="indent3">Must be equipped with any Armor and any Shield.</p>
 	<p class="indent2"><code>PREEQUIP:1,WIELDCATEGORY=TwoHanded</code></p>
 	<p class="indent3">Must be equipped with a two handed weapon.</p>
+	<p class="indent2"><code>PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Light </code></p>
+	<p class="indent3">Must have equipped Heavy Armor or Light Armor.</p>
 	<p></p>
 
 <hr>
