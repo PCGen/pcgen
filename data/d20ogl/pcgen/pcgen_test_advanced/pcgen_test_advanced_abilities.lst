@@ -128,5 +128,7 @@ Ability D	CATEGORY:FEAT	TYPE:ATest	TEMPLATE:Template A
 Ability E	CATEGORY:FEAT	TYPE:ATest
 Ability F	CATEGORY:FEAT	TYPE:ATest	VFEAT:Feat G
 
+#Feat G is in the feat file
+
 
 
