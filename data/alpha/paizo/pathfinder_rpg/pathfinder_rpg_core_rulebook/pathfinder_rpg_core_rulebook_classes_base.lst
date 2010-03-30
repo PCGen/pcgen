@@ -383,7 +383,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|TransmutationSchoolLVL|CL	ABILITY:Special Ability|AUTO
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Wizard School
-1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool	ABILITY:Special Ability|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool
+1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool	ABILITY:Special Ability|AUTOMATIC|Universal School|PREVARGT:UniversalSchoolLVL,0
 ###Block: Level progression
 1	CAST:3,1											BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Arcane Bond|Cantrips ~ Wizard	AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
