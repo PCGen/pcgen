@@ -917,13 +917,13 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 						+ " which contains a semicolon "
 						+ "(prohibited character in a key)");
 			}
-			if (key.indexOf('.') != -1)
-			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
-						+ " which contains a period "
-						+ "(prohibited character in a key)");
-			}
+//			if (key.indexOf('.') != -1)
+//			{
+//				Logging.log(Logging.LST_WARNING, "Found "
+//						+ getReferenceDescription() + " with KEY: " + key
+//						+ " which contains a period "
+//						+ "(prohibited character in a key)");
+//			}
 			if (key.indexOf('%') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
