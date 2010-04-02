@@ -21,3 +21,22 @@ Choose String Stack No		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1
 ###Block: How to Break a PC
 Feat G	TYPE:ATest
 
+
+
+# Copies from RSRD set
+
+Armor Proficiency (Heavy)								TYPE:General																																PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]																																DESC:See Text																																AUTO:ARMORPROF|ARMORTYPE=Heavy																																																																																																																																																		SOURCEPAGE:Feats.rtf
+Armor Proficiency (Light)								TYPE:General																																																																													DESC:See Text																																AUTO:ARMORPROF|ARMORTYPE=Light																																																																																																																																																		SOURCEPAGE:Feats.rtf
+Armor Proficiency (Medium)								TYPE:General																																PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREFEAT:1,Armor Proficiency (Light)]																																DESC:See Text																																AUTO:ARMORPROF|ARMORTYPE=Medium																																																																																																																																																		SOURCEPAGE:Feats.rtf
+
+Simple Weapon Proficiency								TYPE:General																																																																													DESC:See Text																																																		AUTO:WEAPONPROF|TYPE=Simple																																																																																																																																	SOURCEPAGE:Feats.rtf
+Martial Weapon Proficiency								TYPE:General																																																																													DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Martial																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
+Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
+
+
+
+Weapon Finesse										TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text																																																																												BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged																																																																																														SOURCEPAGE:Feats.rtf
+Weapon Focus										TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFS|LIST																																																																																																																																																				BONUS:WEAPONPROF=%LIST|TOHIT|1																						SOURCEPAGE:Feats.rtf
+Weapon Specialization									TYPE:Special.Fighter																	PREFEAT:1,Weapon Focus																																			PREVARGTEQ:WeapSpecQualify,1																	DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus																																																																																																																																																			BONUS:WEAPONPROF=%LIST|DAMAGE|2																						SOURCEPAGE:Feats.rtf
+
+

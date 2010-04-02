@@ -12,4 +12,16 @@ Poetry Recitation Specialty						KEYSTAT:CHA
 
 Monkey Building			
 
-Linguistics				TYPE:TestSkill			
+Linguistics				TYPE:TestSkills			
+
+
+# Test Skills
+Athletics			KEYSTAT:STR	TYPE:Strength.TestSkills
+Acrobatics			KEYSTAT:DEX	TYPE:Dexterity.TestSkills
+Combat Focus		KEYSTAT:CON	TYPE:Constitution.TestSkills
+Knowledge			KEYSTAT:INT	TYPE:Intelligence.TestSkills
+Perception			KEYSTAT:WIS	TYPE:Wisdom.Perception.TestSkills
+Persuasion			KEYSTAT:CHA	TYPE:Charisma.TestSkills
+
+# Test Sub Skills Section
+
