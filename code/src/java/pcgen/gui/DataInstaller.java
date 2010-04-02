@@ -99,8 +99,8 @@ public class DataInstaller extends JFrame
 			{
 				return true;
 			}
-
-			if (f.getName().endsWith(".zip"))
+			String nameLc = f.getName().toLowerCase();
+			if (nameLc.endsWith(".zip") || nameLc.endsWith(".pcz"))
 			{
 				return true;
 			}
@@ -113,7 +113,7 @@ public class DataInstaller extends JFrame
 		 */
 		public String getDescription()
 		{
-			return "Data Sets (*.zip)";
+			return "Data Sets (*.pcz,*.zip)";
 		}
 	}
 	
