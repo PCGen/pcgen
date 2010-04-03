@@ -1125,8 +1125,13 @@
 					<fo:table-column>
 					    <xsl:attribute name="column-width"><xsl:value-of select="0.28 * (0.71 * $pagePrintableWidth - 31)" />mm</xsl:attribute>
 					</fo:table-column>
-					<!-- SUBDUAL -->
+					<!-- SUBDUAL Damage -->
 					<fo:table-column column-width="2mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width"><xsl:value-of select="0.28 * (0.71 * $pagePrintableWidth - 31)" />mm</xsl:attribute>
+					</fo:table-column>
+					<!-- Damage Threshold -->
+
 					<!-- space -->
 					<fo:table-column>
 					    <xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.71 * $pagePrintableWidth - 31)" />mm</xsl:attribute>
@@ -1152,6 +1157,10 @@
 							<fo:table-cell/>
 							<fo:table-cell display-align="after">
 								<fo:block text-align="center" font-size="4pt">SUBDUAL DAMAGE</fo:block>
+							</fo:table-cell>
+							<fo:table-cell/>
+							<fo:table-cell display-align="after">
+								<fo:block text-align="center" font-size="4pt">DAMAGE THRESHOLD</fo:block>
 							</fo:table-cell>
 							<fo:table-cell/>
 							<fo:table-cell display-align="after">
@@ -1193,11 +1202,19 @@
 								</xsl:call-template>
 								<fo:block font-size="10pt"/>
 							</fo:table-cell>
+								<fo:table-cell display-align="center">
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'damage.threshold'"/>
+										<fo:block font-size="8pt">
+										<xsl:value-of select="hit_points/damage_threshold"/>
+									</fo:block>
+								</xsl:call-template>
+								<fo:block font-size="10pt"/>
+							</fo:table-cell>
 							<fo:table-cell/>
 							<fo:table-cell display-align="center">
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'damage.reduction'"/>
-								</xsl:call-template>
 								<fo:block font-size="8pt">
 									<xsl:value-of select="hit_points/damage_reduction"/>
 								</fo:block>

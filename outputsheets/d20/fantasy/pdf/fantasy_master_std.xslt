@@ -4977,7 +4977,7 @@
 		<xsl:if test="count(talent) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'talents'"/>
-				<xsl:with-param name="title" select="'TALENTS'"/>
+				<xsl:with-param name="title" select="'Talents'"/>
 				<xsl:with-param name="list" select="talent"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5079,7 +5079,7 @@
 		<xsl:if test="count(special_attack) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'special_attacks'" />
-				<xsl:with-param name="title" select="'SPECIAL ATTACKS'" />
+				<xsl:with-param name="title" select="'Special Attacks'" />
 				<xsl:with-param name="list" select="special_attack"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5096,7 +5096,7 @@
 		<xsl:if test="count(special_quality) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'special_qualities'" />
-				<xsl:with-param name="title" select="'SPECIAL QUALITIES'" />
+				<xsl:with-param name="title" select="'Special Qualities'" />
 				<xsl:with-param name="list" select="special_quality"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5113,7 +5113,7 @@
 		<xsl:if test="count(force_power) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_powers'"/>
-				<xsl:with-param name="title" select="'FORCE POWERS'"/>
+				<xsl:with-param name="title" select="'Force Powers'"/>
 				<xsl:with-param name="list" select="force_power"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5130,7 +5130,7 @@
 		<xsl:if test="count(force_technique) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_techniques'"/>
-				<xsl:with-param name="title" select="'FORCE TECHNIQUES'"/>
+				<xsl:with-param name="title" select="'Force Techniques'"/>
 				<xsl:with-param name="list" select="force_technique"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5147,7 +5147,7 @@
 		<xsl:if test="count(force_secret) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_secrets'"/>
-				<xsl:with-param name="title" select="'FORCE SECRETS'"/>
+				<xsl:with-param name="title" select="'Force Secrets'"/>
 				<xsl:with-param name="list" select="force_secret"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5164,7 +5164,7 @@
 		<xsl:if test="count(powers_atwill) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_atwills'" />
-				<xsl:with-param name="title" select="'AT-WILL POWERS'" />
+				<xsl:with-param name="title" select="'At-will Powers'" />
 				<xsl:with-param name="list" select="powers_atwill"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5181,7 +5181,7 @@
 		<xsl:if test="count(powers_encounter) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_encounters'" />
-				<xsl:with-param name="title" select="'ENCOUNTER POWERS'" />
+				<xsl:with-param name="title" select="'Encounter Powers'" />
 				<xsl:with-param name="list" select="powers_encounter"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5198,7 +5198,7 @@
 		<xsl:if test="count(powers_daily) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_dailies'" />
-				<xsl:with-param name="title" select="'DAILY POWERS'" />
+				<xsl:with-param name="title" select="'Daily Powers'" />
 				<xsl:with-param name="list" select="powers_daily"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5215,7 +5215,7 @@
 		<xsl:if test="count(powers_utility) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_utilities'" />
-				<xsl:with-param name="title" select="'UTILITY POWERS'" />
+				<xsl:with-param name="title" select="'Utility Powers'" />
 				<xsl:with-param name="list" select="powers_utility"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5232,7 +5232,7 @@
 		<xsl:if test="count(salient_divine_ability) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'salient_divine_abilities'" />
-				<xsl:with-param name="title" select="'SALIENT DIVINE ABILITIES'" />
+				<xsl:with-param name="title" select="'Salient Divine Abilities'" />
 				<xsl:with-param name="list" select="salient_divine_ability"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -5249,7 +5249,7 @@
 		<xsl:if test="count(feat[hidden != 'T' and name != '']) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'feats'" />
-				<xsl:with-param name="title" select="'FEATS'" />
+				<xsl:with-param name="title" select="'Feats'" />
 				<xsl:with-param name="list" select="feat[hidden != 'T' and name != '']"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
