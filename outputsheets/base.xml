@@ -1238,7 +1238,7 @@ Immune
 		</total>
 		<equipmentsets>
 |EQSET.START|
-		      <equipmentset name="|EQSET.NAME|">
+		<equipmentset name="|EQSET.NAME|">
 |FOR,%equip,0,COUNT[EQUIPMENT.MERGELOC]-1,1,1|
 				<item>
 					<longname>|EQ.MERGELOC.%equip.LONGNAME|</longname>
@@ -1286,7 +1286,7 @@ Immune
 |ENDFOR|	<!-- Equipment -->
 			</equipmentset>
 |EQSET.END|
-      </equipmentsets>
+		</equipmentsets>
 	</equipment>
 	<weight_allowance>
 		<light>|WEIGHT.LIGHT|</light>
@@ -2708,8 +2708,10 @@ Immune
 	  ====================================-->
 	<companions>
 |%FOLLOWERTYPE.FAMILIAR|
+|FOR,%companion,0,COUNT[FOLLOWERTYPE.FAMILIAR]-1,1,0|
 		<familiar>
-			<!-- Note that only one familiar is allowed, so no support for multiple familiars -->
+			<!-- Note that only one familiar is allowed, so no support for multiple familiars 
+			New: 4/8/2010 - Added Support for multiple Familiars-->
 			<name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
 			<race>|FOLLOWERTYPE.FAMILIAR.0.RACE|</race>
 			<hp>|FOLLOWERTYPE.FAMILIAR.0.HP|</hp>
@@ -2719,6 +2721,8 @@ Immune
 			<willpower>|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</willpower>
 			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
+|ENDFOR|
+
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.0.EQTYPE.WEAPON]-1,1,0|
 				<attack>
@@ -2760,8 +2764,11 @@ Immune
 		</familiar>
 |%|
 |%FOLLOWERTYPE.SPECIAL MOUNT|
+|FOR,%companion,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT]-1,1,0|
 		<mount>
-			<!-- Note that only one mount is allowed, so no support for multiple mounts -->
+			<!-- Note that only one mount is allowed, so no support for multiple mounts
+			Added Support as Eclipse allows for more than one Mount; also handy if you have a shapeshifting
+			Mount - AM-->
 			<name>|FOLLOWERTYPE.SPECIAL MOUNT.0.NAME|</name>
 			<race>|FOLLOWERTYPE.SPECIAL MOUNT.0.RACE|</race>
 			<hp>|FOLLOWERTYPE.SPECIAL MOUNT.0.HP|</hp>
@@ -2771,6 +2778,8 @@ Immune
 			<willpower>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</willpower>
 			<initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</special_properties>
+|ENDFOR|
+
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT.0.EQTYPE.WEAPON]-1,1,0|
 				<attack>
@@ -2826,7 +2835,6 @@ Immune
 |FOR,%trick,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.TYPE=AnimalTrick]-1,1,0|
 			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
 |ENDFOR|
-
 
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
