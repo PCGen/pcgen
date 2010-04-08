@@ -355,6 +355,17 @@
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="talents"/>
+					<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
+						<xsl:apply-templates select="charcreations"/>
+						<xsl:apply-templates select="disadvantages"/>
+						<xsl:apply-templates select="spellcasteroutputs"/>
+						<xsl:apply-templates select="eclipse_abilities"/>
+						<xsl:apply-templates select="martial_arts"/>
+						<xsl:apply-templates select="mystic_artists"/>
+						<xsl:apply-templates select="witchcrafts"/>
+						<xsl:apply-templates select="channelings"/>
+						<xsl:apply-templates select="dominions"/>
+						<xsl:apply-templates select="path_dragons"/>
 
 				<!-- McWoD Edition Style -->
 						<xsl:apply-templates select="vampire_disciplines"/>
@@ -391,6 +402,7 @@
 <!--
 	Start the Eclipse Section Page, if Present 
 -->
+<!-->	Causing unnecessary blank page if not present
 			<fo:page-sequence>
 			<xsl:attribute name="master-reference">Portrait 2 Column</xsl:attribute>
 			<xsl:call-template name="page.footer"/>	
@@ -409,6 +421,7 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
+			-->
 <!-- End Eclipse Section -->
 			<xsl:apply-templates select="spells"/>
 			<xsl:apply-templates select="basics" mode="bio"/>
