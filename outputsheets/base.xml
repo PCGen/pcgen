@@ -46,8 +46,14 @@
 		<name>|NAME|</name>
 		<followerof>|FOLLOWEROF|</followerof>
 		<playername>|PLAYERNAME|</playername>
-		<action_points>|VAR.ACTION.INTVAL|</action_points>
-		<remaining_action_points>|VAR.ACTIONREMAIN.INTVAL|</remaining_action_points>
+			<action_points>|VAR.ACTION.INTVAL|</action_points>
+			<remaining_action_points>|VAR.ACTIONREMAIN.INTVAL|</remaining_action_points>
+				<actionpoints>
+					<maximum>|VAR.ACTION.INTVAL|</maximum>
+					<used>|VAR.ACTIONUSED.INTVAL|</used>
+					<dicecount>|VAR.ACTIONDICECOUNT.INTVAL|</dicecount>
+					<dicesize>|VAR.ACTIONDICESIZE.INTVAL|</dicesize>
+				</actionpoints>
 		<age>|AGE|</age>
 		<alignment>
 			<long>|ALIGNMENT|</long>
@@ -99,6 +105,11 @@
 		<eyes>
 			<color>|COLOR.EYE|</color>
 		</eyes>
+		<faith_points>|VAR.FAITHPOINTS.INTVAL|</faith_points>
+		<hero_points>|VAR.HEROPOINTS.INTVAL|</hero_points>
+		<inspiration_points>|VAR.INSPIRATIONPOINTS.INTVAL|</inspiration_points>
+		<spin_points>|VAR.SPINPOINTS.INTVAL|</spin_points>
+
 		<hair>
 			<color>|COLOR.HAIR|</color>
 			<length>|LENGTH.HAIR|</length>
@@ -567,7 +578,7 @@ Immune
 <!-- Spirit Weapon - Ranged -->
 |IIF(VAR.UseSpiritWeaponRanged:1)|
 		<spiritweaponranged>
-			<total>|VAR.SpiritWeaponRangedToHit.INTVAL|</total>
+			<total>+|VAR.SpiritWeaponRangedToHit.INTVAL|</total>
 |IIF(VAR.SpiritWeaponRangedBonusDamage<0)|
 			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|-|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
 |ELSE|
@@ -1564,6 +1575,8 @@ Immune
 		</talent>	
 |ENDFOR|
 	</talents>
+
+
 	<!--
 	  ====================================
 	  ====================================
@@ -1951,9 +1964,9 @@ Immune
 |IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATEDCOUNT|</count>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -2026,9 +2039,9 @@ Immune
 |IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.HASASPECT.Sustain:Y)|
 			<sustain>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASPECT.Sustain|</sustain>
 |ENDIF|
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATEDCOUNT|</count>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
