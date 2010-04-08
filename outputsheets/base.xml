@@ -527,7 +527,7 @@ Immune
 |IIF(VAR.UseMartialArts:1)|
 		<martialarts>
 			<total>|WEAPONH.TOTALHIT|</total>
-|IIF(VAR.MartialArtsBonusDamage<0)|
+|IIF(VAR.MartialArtsBonusDamage&lt;0)|
 			<damage>|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|-|VAR.MartialArtsBonusDamage.INTVAL|</damage>
 |ELSE|
 			<damage>|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|+|VAR.MartialArtsBonusDamage.INTVAL|</damage>
@@ -565,7 +565,7 @@ Immune
 |IIF(VAR.UseSpiritWeaponMelee:1)|
 		<spiritweaponmelee>
 			<total>|VAR.SpiritWeaponMeleeToHit.INTVAL|</total>
-|IIF(VAR.SpiritWeaponMeleeBonusDamage<0)|
+|IIF(VAR.SpiritWeaponMeleeBonusDamage&lt;0)|
 			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|-|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
 |ELSE|
 			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|+|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
@@ -579,7 +579,7 @@ Immune
 |IIF(VAR.UseSpiritWeaponRanged:1)|
 		<spiritweaponranged>
 			<total>+|VAR.SpiritWeaponRangedToHit.INTVAL|</total>
-|IIF(VAR.SpiritWeaponRangedBonusDamage<0)|
+|IIF(VAR.SpiritWeaponRangedBonusDamage&lt;0)|
 			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|-|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
 |ELSE|
 			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|+|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
@@ -590,17 +590,8 @@ Immune
 |ENDIF|
 <!-- End Spirit Weapon - Ranged -->
 
-
-
-
-
-
-
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
-
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
-
-
 
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
 |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
