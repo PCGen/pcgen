@@ -124,20 +124,25 @@
 <hr>
 
 		<h4>COPYMASTERBAB</h4>
-		<p class="indent0">If you want your companion to either follow the Master PC Base Attack Bonus progression or 
-			have a unique one of it's own, you would use this tag.</p>
+		<p class="indent0">This tag identifies the companion's Base Attack Bonus (BAB) progression and can be set to that of its 
+			master, by using the <code>MASTER</code> parameter, or you may use a number, variable or formula.</p>
+		<p class="indent0">So, if you want your companion to either follow the Master PC's BAB progression you would use the 
+			following tag:</p>
 
-		<p class="indent1"><code>COPYMASTERBAB:MASTER</code></p>
-		<p class="indent2">Follows the Master's BAB progression (Common for familiars)</p>
+		<p class="indent1"><code>COPYMASTERBAB:MASTER</code> (Common for familiars)</p>
+
+		<p class="indent0">If you wanted to set the companion's BAB to %quot;5%quot; no mater what level the master is, 
+			you would use the following tag:</p>
 
 		<p class="indent1"><code>COPYMASTERBAB:5</code></p>
-		<p class="indent2">Sets the BAB of the creature to 5</p>
 
 <hr>
 
 		<h4>COPYMASTERCHECK:MASTER</h4>
 		<p class="indent0">That's it, this only copies the Master's Base Checks (Commonly Fortitude, Reflex and Will) 
 			The creature will use it's Stats to modify the base though (Common for Familiar)</p>
+
+		<p class="indent1"><code>COPYMASTERCHECK:MASTER</code></p>
 
 <hr>
 
