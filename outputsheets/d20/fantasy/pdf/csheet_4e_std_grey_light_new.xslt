@@ -189,6 +189,11 @@
 		<talents.lightline><subattrib light=""/></talents.lightline>
 		<talents.darkline><subattrib medium=""/></talents.darkline>
 
+		<intelligent_items.title><subattrib centre="" inverse=""/></intelligent_items.title>
+		<intelligent_items.border padding="0.5pt"><subattrib border="" inverse=""/></intelligent_items.border>
+		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
+		<intelligent_items.darkline><subattrib medium=""/></intelligent_items.darkline>
+
 		<casterleveloutputs.title><subattrib centre="" inverse=""/></casterleveloutputs.title>
 		<casterleveloutputs.border padding="0.5pt"><subattrib border="" inverse=""/></casterleveloutputs.border>
 		<casterleveloutputs.lightline><subattrib light=""/></casterleveloutputs.lightline>

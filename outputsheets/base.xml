@@ -1567,6 +1567,49 @@ Immune
 |ENDFOR|
 	</talents>
 
+<!--
+	  ====================================
+	  ====================================
+			Intelligent Item
+	  ====================================
+	  ====================================-->
+	<intelligent_items>
+|IIF(count("ABILITIES";"CATEGORY=Intelligent Item";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=IntelligentItemOutput")==0)|
+|ELSE|
+	<!-- Standard Rites -->
+|ENDIF|
+|FOR,%intelligentItem,0,count("ABILITIES","CATEGORY=Intelligent Item","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=IntelligentItemOutput")-1,1,0|
+		<intelligent_item>
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:Supernatural)|
+			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:SpellLike)|
+			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:PsiLike)|
+			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.DESC|</description>
+			<type>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE|</type>
+			<associated>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Intelligent Item</category>
+			<source>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.SOURCE|</source>
+		</intelligent_item>
+|ENDFOR|
+	</intelligent_items>
+
 
 	<!--
 	  ====================================
