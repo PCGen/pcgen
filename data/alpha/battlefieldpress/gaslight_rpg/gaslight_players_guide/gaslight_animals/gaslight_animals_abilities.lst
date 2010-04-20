@@ -1,0 +1,47 @@
+# CVS $Revision: 11298 $ $Author: amaitland $ -- Sun Feb 28 11:56:53 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+
+# Ability Name							Modify VAR							Allow Follower			Allowed Companions
+ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD									FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Raven,Snake (Viper/Tiny),Toad
+ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|CompLevel|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Small),Snake (Viper/Medium),Squid,Tiger,Wolf
+
+###Block: Animal Abilities
+# Ability Name		Output Name									Category of Ability		Type								Visible	Define				Description																																																																				Modify VAR															Source Page
+Aquatic													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Attach													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Constrict													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.
+Hide in Undergrowth	OUTPUTNAME:+4 to hide in tall grass or heavy undergrowth	CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Hide when Submerged	OUTPUTNAME:+12 to Hide when Submerged				CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Hold Breath													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Improved Evasion												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Improved Grab												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.
+Ink Cloud													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
+Jet														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Keen Scent													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES
+Poison													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																													BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
+Pounce													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:When you make a charge, you can follow with a full attack.
+Rake														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:You gain extra natural attacks when you grapple or pounce your foe.
+Spot in Darkness		OUTPUTNAME:+8 Spot in dusk/darkness					CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
+Spot in Daylight		OUTPUTNAME:+8 species bonus on Spot checks during daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
+Stampede													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Tracking by Scent		OUTPUTNAME:+4 Survival checks when Tracking by Scent		CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10		DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+
+###Block: Companion Modifier Abilities -----------------------------------------
+# Ability Name				Category of Ability		Type						Visible	Bonus to skill							Source Page						Temporary effect description
+Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
+Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+
+#
+# End
+#

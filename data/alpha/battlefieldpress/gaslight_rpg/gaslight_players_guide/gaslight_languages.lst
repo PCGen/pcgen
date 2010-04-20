@@ -1,0 +1,245 @@
+# CVS $Revision$ $Author$ -- Sun Feb 28 11:56:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+# Language				Type
+Algonkin				TYPE:Spoken.Algic
+Algonkin				TYPE:Written.Algic
+Arapaho				TYPE:Spoken.Algic
+Arapaho				TYPE:Written.Algic
+Blackfoot				TYPE:Spoken.Algic
+Blackfoot				TYPE:Written.Algic
+Cheyenne				TYPE:Spoken.Algic
+Cheyenne				TYPE:Written.Algic
+Shawnee				TYPE:Spoken.Algic
+Shawnee				TYPE:Written.Algic
+Armenian				TYPE:Spoken.Armenian
+Armenian				TYPE:Written.Armenian
+Apache				TYPE:Spoken.Athabascan
+Apache				TYPE:Written.Athabascan
+Chipewyan				TYPE:Spoken.Athabascan
+Chipewyan				TYPE:Written.Athabascan
+Navaho				TYPE:Spoken.Athabascan
+Navaho				TYPE:Written.Athabascan
+Ancient Greek			TYPE:Spoken.Attic
+Ancient Greek			TYPE:Written.Attic
+Greek					TYPE:Spoken.Attic
+Greek					TYPE:Written.Attic
+Latvian				TYPE:Spoken.Baltic
+Latvian				TYPE:Written.Baltic
+Lithuanian				TYPE:Spoken.Baltic
+Lithuanian				TYPE:Written.Baltic
+Gaelic (Irish)			TYPE:Spoken.Celtic
+Gaelic (Irish)			TYPE:Written.Celtic
+Gaelic (Scots)			TYPE:Spoken.Celtic
+Gaelic (Scots)			TYPE:Written.Celtic
+Welsh					TYPE:Spoken.Celtic
+Welsh					TYPE:Written.Celtic
+Cantonese				TYPE:Spoken.Chinese
+Cantonese				TYPE:Written.Chinese
+Mandarin				TYPE:Spoken.Chinese
+Mandarin				TYPE:Written.Chinese
+Estonian				TYPE:Spoken.Finno-Lappic
+Estonian				TYPE:Written.Finno-Lappic
+Finnish				TYPE:Spoken.Finno-Lappic
+Finnish				TYPE:Written.Finno-Lappic
+Lapp					TYPE:Spoken.Finno-Lappic
+Lapp					TYPE:Written.Finno-Lappic
+Afrikaans				TYPE:Spoken.Germanic
+Afrikaans				TYPE:Written.Germanic
+Danish				TYPE:Spoken.Germanic
+Danish				TYPE:Written.Germanic
+Dutch					TYPE:Spoken.Germanic
+Dutch					TYPE:Written.Germanic
+English				TYPE:Spoken.Germanic
+English				TYPE:Written.Germanic
+Flemish				TYPE:Spoken.Germanic
+Flemish				TYPE:Written.Germanic
+German				TYPE:Spoken.Germanic
+German				TYPE:Written.Germanic
+Icelandic				TYPE:Spoken.Germanic
+Icelandic				TYPE:Written.Germanic
+Norwegian				TYPE:Spoken.Germanic
+Norwegian				TYPE:Written.Germanic
+Swedish				TYPE:Spoken.Germanic
+Swedish				TYPE:Written.Germanic
+Yiddish				TYPE:Spoken.Germanic
+Yiddish				TYPE:Written.Germanic
+Hindi					TYPE:Spoken.Indic
+Hindi					TYPE:Written.Indic
+Punjabi				TYPE:Spoken.Indic
+Punjabi				TYPE:Written.Indic
+Sanskrit				TYPE:Spoken.Indic
+Sanskrit				TYPE:Written.Indic
+Urdu					TYPE:Spoken.Indic
+Urdu					TYPE:Written.Indic
+Farsi					TYPE:Spoken.Iranian
+Farsi					TYPE:Written.Iranian
+Pashto				TYPE:Spoken.Iranian
+Pashto				TYPE:Written.Iranian
+Japanese				TYPE:Spoken.Japanese
+Japanese				TYPE:Written.Japanese
+Korean				TYPE:Spoken.Korean
+Korean				TYPE:Written.Korean
+French				TYPE:Spoken.Romance
+French				TYPE:Written.Romance
+Italian				TYPE:Spoken.Romance
+Italian				TYPE:Written.Romance
+Latin					TYPE:Spoken.Romance
+Latin					TYPE:Written.Romance
+Portuguese				TYPE:Spoken.Romance
+Portuguese				TYPE:Written.Romance
+Romanian				TYPE:Spoken.Romance
+Romanian				TYPE:Written.Romance
+Spanish				TYPE:Spoken.Romance
+Spanish				TYPE:Written.Romance
+Akkadian (aka Babylonian)	TYPE:Spoken.Semitic
+Akkadian (aka Babylonian)	TYPE:Written.Semitic
+Ancient Hebrew			TYPE:Spoken.Semitic
+Ancient Hebrew			TYPE:Written.Semitic
+Arabic				TYPE:Spoken.Semitic
+Arabic				TYPE:Written.Semitic
+Aramaic				TYPE:Spoken.Semitic
+Aramaic				TYPE:Written.Semitic
+Herbrew				TYPE:Spoken.Semitic
+Herbrew				TYPE:Written.Semitic
+Belorussian				TYPE:Spoken.Slavic
+Belorussian				TYPE:Written.Slavic
+Bulgarian				TYPE:Spoken.Slavic
+Bulgarian				TYPE:Written.Slavic
+Czech					TYPE:Spoken.Slavic
+Czech					TYPE:Written.Slavic
+Polish				TYPE:Spoken.Slavic
+Polish				TYPE:Written.Slavic
+Russian				TYPE:Spoken.Slavic
+Russian				TYPE:Written.Slavic
+Serbo-Croatian			TYPE:Spoken.Slavic
+Serbo-Croatian			TYPE:Written.Slavic
+Slovak				TYPE:Spoken.Slavic
+Slovak				TYPE:Written.Slavic
+Ukrainian				TYPE:Spoken.Slavic
+Ukrainian				TYPE:Written.Slavic
+Burmese				TYPE:Spoken.Tibeto-Burman
+Burmese				TYPE:Written.Tibeto-Burman
+Sherpa				TYPE:Spoken.Tibeto-Burman
+Sherpa				TYPE:Written.Tibeto-Burman
+Tibetan				TYPE:Spoken.Tibeto-Burman
+Tibetan				TYPE:Written.Tibeto-Burman
+Azerbaijani				TYPE:Spoken.Turkic
+Azerbaijani				TYPE:Written.Turkic
+Turkish				TYPE:Spoken.Turkic
+Turkish				TYPE:Written.Turkic
+Uzbek					TYPE:Spoken.Turkic
+Uzbek					TYPE:Written.Turkic
+Hungarian (aka Magyar)		TYPE:Spoken.Urgic
+Hungarian (aka Magyar)		TYPE:Written.Urgic
+
+#Signaling:
+Morse Code				TYPE:Spoken.Signaling
+Semaphore				TYPE:Spoken.Signaling
+Sign Language			TYPE:Spoken.Signaling
+Smoke Signals			TYPE:Spoken.Signaling
+
+
+###Block: Spoken Only
+#Caddoan:
+# Language			Type
+Caddo				TYPE:Spoken.Caddoan
+Pawnee			TYPE:Spoken.Caddoan
+Wichita			TYPE:Spoken.Caddoan
+#Celestial:
+Celestial			TYPE:Spoken.Celestial
+Abysmal			TYPE:Spoken.Celestial
+Infernal			TYPE:Spoken.Celestial
+#Draconic:
+Draconic			TYPE:Spoken.Draconic
+Ignan				TYPE:Spoken.Draconic
+#Druidic:
+Auran				TYPE:Spoken.Druidic
+Aquan				TYPE:Spoken.Druidic
+Druidic			TYPE:Spoken.Druidic
+Xorn				TYPE:Spoken.Druidic
+#Hamo-Semitic:
+Coptic			TYPE:Written.Braile.Spoken.Hamo-Semitic
+Middle Egyptian		TYPE:Written.Braile.Spoken.Hamo-Semitic
+#Iroquoian:
+Cherokee			TYPE:Spoken.Iroquoian
+Iroquois			TYPE:Spoken.Iroquoian
+Tuscarora			TYPE:Spoken.Iroquoian
+#Muskogean:
+Alabama			TYPE:Spoken.Muskogean
+Chickasaw			TYPE:Spoken.Muskogean
+Choctaw			TYPE:Spoken.Muskogean
+Creek				TYPE:Spoken.Muskogean
+Seminole			TYPE:Spoken.Muskogean
+#Sahaptian:
+Nez Perce			TYPE:Spoken.Sahaptian
+Sahaptin (Yakima)		TYPE:Spoken.Sahaptian
+Sahaptin (Umatilla)	TYPE:Spoken.Sahaptian
+#Siouian:
+Crow				TYPE:Spoken.Siouian
+Dakota			TYPE:Spoken.Siouian
+Ho-Chunk			TYPE:Spoken.Siouian
+Iowa				TYPE:Spoken.Siouian
+Lakota			TYPE:Spoken.Siouian
+Mandan			TYPE:Spoken.Siouian
+Nakota			TYPE:Spoken.Siouian
+Osage				TYPE:Spoken.Siouian
+#Uto-Aztecan:
+Comanche			TYPE:Spoken.Uto-Aztecan
+Kiowa				TYPE:Spoken.Uto-Aztecan
+Shoshone			TYPE:Spoken.Uto-Aztecan
+Ute				TYPE:Spoken.Uto-Aztecan
+
+
+###Block: Written Section
+#Caddoan:
+# Language			Type
+Caddo				TYPE:Written.Braile.Caddoan
+Pawnee			TYPE:Written.Braile.Caddoan
+Wichita			TYPE:Written.Braile.Caddoan
+#Celestial:
+Celestial			TYPE:Written.Braile.Celestial
+Abysmal			TYPE:Written.Braile.Celestial
+Infernal			TYPE:Written.Braile.Celestial
+#Draconic:
+Draconic			TYPE:Written.Braile.Draconic
+Ignan				TYPE:Written.Braile.Draconic
+#Druidic:
+Auran				TYPE:Written.Braile.Druidic
+Aquan				TYPE:Written.Braile.Druidic
+Druidic			TYPE:Written.Braile.Druidic
+Xorn				TYPE:Written.Braile.Druidic
+#Iroquoian:
+Cherokee			TYPE:Written.Braile.Iroquoian
+Iroquois			TYPE:Written.Braile.Iroquoian
+Tuscarora			TYPE:Written.Braile.Iroquoian
+#Muskogean:
+Alabama			TYPE:Written.Braile.Muskogean
+Chickasaw			TYPE:Written.Braile.Muskogean
+Choctaw			TYPE:Written.Braile.Muskogean
+Creek				TYPE:Written.Braile.Muskogean
+Seminole			TYPE:Written.Braile.Muskogean
+#Sahaptian:
+Nez Perce			TYPE:Written.Braile.Sahaptian
+Sahaptin (Yakima)		TYPE:Written.Braile.Sahaptian
+Sahaptin (Umatilla)	TYPE:Written.Braile.Sahaptian
+#Siouian:
+Crow				TYPE:Written.Braile.Siouian
+Dakota			TYPE:Written.Braile.Siouian
+Ho-Chunk			TYPE:Written.Braile.Siouian
+Iowa				TYPE:Written.Braile.Siouian
+Lakota			TYPE:Written.Braile.Siouian
+Mandan			TYPE:Written.Braile.Siouian
+Nakota			TYPE:Written.Braile.Siouian
+Osage				TYPE:Written.Braile.Siouian
+#Uto-Aztecan:
+Comanche			TYPE:Written.Braile.Uto-Aztecan
+Kiowa				TYPE:Written.Braile.Uto-Aztecan
+Shoshone			TYPE:Written.Braile.Uto-Aztecan
+Ute				TYPE:Written.Braile.Uto-Aztecan
+
+#
+# End
+#
+
