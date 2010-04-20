@@ -89,22 +89,46 @@
                                     <base>|CHECK.2.TOTAL.NOSTAT|</base>
                               </willSave>
                               <str>
+|IIF(STAT.0:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.0|</base>
+|ENDIF|
                               </str>
                               <dex>
+|IIF(STAT.1:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.1|</base>
+|ENDIF|
                               </dex>
                               <con>
+|IIF(STAT.2:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.2|</base>
+|ENDIF|
                               </con>
                               <int>
+|IIF(STAT.3:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.3|</base>
+|ENDIF|
                               </int>
                               <wis>
+|IIF(STAT.4:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.4|</base>
+|ENDIF|
                               </wis>
                               <cha>
+|IIF(STAT.5:*)|
+                                    <base>10</base>
+|ELSE|
                                     <base>|STAT.5|</base>
+|ENDIF|
                               </cha>
                               <alignment>|ALIGNMENT|</alignment>
                               <attack>|FOR.0,COUNT[EQTYPE.Weapon],1,\\WEAPON.%.NAME.NOSTAR\\ \\WEAPON.%.THHIT.0\\ (\\WEAPON.%.DAMAGE\\); ,,,|</attack>
