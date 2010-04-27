@@ -15,7 +15,7 @@
   <package>pcgen</package>
   <logo>http://pcgen.sourceforge.net/banners/PCGen_FullBanner_486x60.png</logo>
   <url>http://pcgen.sourceforge.net/</url>
-  <issueTrackingUrl>http://pcgen.sourceforge.net/06_trackers.php</issueTrackingUrl>
+  <issueTrackingUrl>http://jira.pcgen.org</issueTrackingUrl>
   <description>PCGen RPG character generator.</description>
   <shortDescription>PCGen RPG character generator.</shortDescription>
   <repository>

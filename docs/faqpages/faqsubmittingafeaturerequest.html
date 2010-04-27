@@ -34,81 +34,17 @@
 		<h2>Submitting your Feature Request</h2>
 
 		<ol>
-			<li><p>Go to <a href="http://sourceforge.net/projects/pcgen/" style="color: blue; text-decoration: underline; text-underline: single">
-			http://sourceforge.net/projects/pcgen/</a> and go to Tracker (Either at the top of the screen or scroll down slightly to see &quot;Tracker&quot;).</p></li>
-
-			<li><p>Click on Feature Requests if you want to request a feature, or Output Request if it's a request related to a character sheet.</p></li>
-
-			<li><p>Search through the listed features, making sure that Assignee, Category, and Group are set to &quot;Any&quot;, that Status is set to &quot;Open&quot;,
-			and that Sort By is set to &quot;ID&quot;, to see if your problem is already submitted. If it is, add a message at the bottom of the feature request
-			detailing your information as well. This will give the developer who takes on this request as much information as possible to best resolve
-			the issue to everyone's satisfaction.</p></li>
-
-			<li><p>If it does not exist, select &quot;Submit New&quot;. Make sure you select the appropriate category, Group, and make a concise summary of the request.</p></li>
-
-			<li><p>In the Detailed Description use the following:</p>
-					<p><strong>TITLE:</strong><br />
-					A _meaningful_ title, for example the LST syntax you are affecting, or the benefit to PCGEN you are providing.<br />
-					<br />
-					<strong>BENEFIT FOR USER:</strong><br />
-					Often our freqs are in code/lst speak, we also need to know, _what_ is this actually providing to the user of PCGEN.<br />
-					<br />
-					<strong>LST SYNTAX:</strong><br />
-					The complete LST Syntax if appropriate.<br />
-					<br />
-					<strong>OS SYNTAX:</strong><br />
-					The complete OS Syntax if appropriate.<br />
-					<br />
-					<strong>DESCRIPTION:</strong><br />
-					The rest<br />
-					</p>
-
-					<p><strong>So for example:</strong><br />
-					<br />
-					<strong>TITLE:</strong><br />
-					Add BONUS:SPELL (Calculate spell range).<br />
-					<br />
-					<strong>BENEFIT FOR USER:</strong><br />
-					This freq will allow users to view the range of a spell they cast on an OS Sheet.
-					It will calculate the range correctly using the appropriate caster levels.<br />
-					<br />
-					<strong>LST SYNTAX:</strong><br />
-					BONUS:SPELL=name|RANGE|formula where formula could equal something like = 5*CL+100 (where CL = Class Level)<br />
-					<br />
-					<strong>OS SYNTAX:</strong><br />
-					SPELL.RANGE<br />
-					<br />
-					<strong>DESCRIPTION:</strong><br />
-					The Range could be evaluated - something like BONUS:SPELL=name|RANGE|formula for spell's range
-					(something like 5*CL+100 since CL gets the class level). This would require adding RANGEEVAL to the
-					SPELLMEM tokens, and for that token return getTotalBonusTo("SPELL="+aSpell.name()","RANGE",true)
-					</p>
-			</li>
-
-			<li><p>If your feature request involves new tags or syntax, it's always helpful to suggest the name and syntax of the tag. When the developer looks
-			at it they may not go with what you suggest exactly, but it's always helpful to have a suggestion to get the creative juices flowing. :)</p></li>
-
-            <li><p>Assuming this bug was first discussed on one of the Yahoo! mailing lists, then add that discussion link to this tracker.</p></li>
-
-			<li><p>Finally, hit submit.</p></li>
-
-            <li><p>Assuming this bug was first discussed on one of the Yahoo! mailing lists, then add a link to this tracker back to that discussion.</p></li>
+			<li><p>Go to <a href="http://jira.pcgen.org/" style="color: blue; text-decoration: underline; text-underline: single">
+			http://jira.pcgen.org/</a>.</p>  Then follow the guide <a href="http://wiki.pcgen.org/index.php?title=PCGen_Jira_Guide">http://wiki.pcgen.org/index.php?title=PCGen_Jira_Guide</a>.</li>
 		</ol>
 
-
-		<h2>Tracking your Feature Request</h2>
-
-		<p>You can go and visit your happy little item any time you please and check on its status. Note that the item may very well have been moved
-		to a different tracker group within pcgen (say maybe to bugs)</p>
-
-<hr>
+	<hr>
 
 	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
+		<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../images/system/valid-html401.png"
        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
 	</p>
-
 
 	</body>
 
