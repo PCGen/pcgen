@@ -73,6 +73,9 @@ Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=
 |Skill Bonus (Competence)		KEY:BNS_SKL_CMP				TYPE:Armor.Shield.Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Headband.Instrument.Ring.Robe.Shirt.Eyegear.Boot.Staff.Rod	COST:(100*%CHOICE*%CHOICE)					VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.550	PREMULT:1,[PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield,Weapon]],[PRETYPE:1,Amulet,Belt,Bracer,Cape,Glove,Headgear.Headband,Instrument,Ring,Robe,Shirt,Eyegear,Boot,Staff,Rod]																				BONUS:SKILL|%CHOICE|TYPE=Competence														SPROP:Competence bonus to selected skill of %CHOICE		CHOOSE:SKILLBONUS|MIN=1|MAX=30|TITLE=Skill Bonus
 |Spell Resistance				KEY:BNS_SPL_RST				TYPE:Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Headband.Instrument.Ring.Robe.Shirt.Eyegear.Boot.Staff.Rod			COST:10000*(%CHOICE-12)						VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.550	PREMULT:1,[PRETYPE:2,Enhancement,Weapon],[PRETYPE:1,Amulet,Belt,Bracer,Cape,Glove,Headgear.Headband,Instrument,Ring,Robe,Shirt,Eyegear,Boot,Staff,Rod]							SR:%CHOICE																																					SPROP:base spell resistance of %CHOICE				CHOOSE:NUMBER|MIN=13|MAX=32|NOSIGN|TITLE=Spell Resistance
 
+###Block: Magic Item abilities
+# Modifier Name				Unique Key		Naming Option	Type			Visible
+|Maximize Knowledge Skill 		KEY:MAX_KNW		NAMEOPT:NONAME	TYPE:Intelligence	VISIBLE:QUALIFY	BONUS:SKILLRANK|%CHOICE|99	SPROP:Grants maximum skill ranks in %CHOICE	CHOOSE:SKILL|TYPE=Knowledge|TITLE=Maximized Knowledge Skill
 
 ###Block: Continuous Spell Effect Work Arounds
 # Modifier Name									Unique Key			Naming Option	Type																					Cost														Visible		Type granted		Source Page		Multiple Requirements																													Choose
