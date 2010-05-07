@@ -48,6 +48,7 @@ ABILITYCATEGORY:Perfect Wight Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ###Block: Epic Spellcasting Support
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells	PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Familiar Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FamiliarSpell	PLURAL:Familiar Spell Choices	DISPLAYLOCATION:Feats
 
 #
 # End
