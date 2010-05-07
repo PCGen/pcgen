@@ -24,3 +24,34 @@ FOLLOWER:FMLevel=38	TYPE:Familiar	SR:43
 FOLLOWER:FMLevel=39	TYPE:Familiar	SR:44		DEFINE:LOCK.INT|25	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=40	TYPE:Familiar	SR:45
 FOLLOWER:FMLevel=41	TYPE:Familiar	SR:46		DEFINE:LOCK.INT|26	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+
+
+#Block: Epic Special Mount Progression
+
+FOLLOWER:SMLevel=21	TYPE:Special Mount			SR:26
+FOLLOWER:SMLevel=22	TYPE:Special Mount			SR:27
+FOLLOWER:SMLevel=23	TYPE:Special Mount			SR:28
+FOLLOWER:SMLevel=24	TYPE:Special Mount			SR:29
+FOLLOWER:SMLevel=25	TYPE:Special Mount	HD:2		SR:30			DEFINE:LOCK.INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	
+FOLLOWER:SMLevel=26	TYPE:Special Mount			SR:31
+FOLLOWER:SMLevel=27	TYPE:Special Mount			SR:32
+FOLLOWER:SMLevel=28	TYPE:Special Mount			SR:33
+FOLLOWER:SMLevel=29	TYPE:Special Mount			SR:34
+FOLLOWER:SMLevel=30	TYPE:Special Mount	HD:2		SR:35			DEFINE:LOCK.INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	
+FOLLOWER:SMLevel=31	TYPE:Special Mount			SR:36
+FOLLOWER:SMLevel=32	TYPE:Special Mount			SR:37
+FOLLOWER:SMLevel=33	TYPE:Special Mount			SR:38
+FOLLOWER:SMLevel=34	TYPE:Special Mount			SR:39
+FOLLOWER:SMLevel=35	TYPE:Special Mount	HD:2		SR:40			DEFINE:LOCK.INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	
+FOLLOWER:SMLevel=36	TYPE:Special Mount			SR:41
+FOLLOWER:SMLevel=37	TYPE:Special Mount			SR:42
+FOLLOWER:SMLevel=38	TYPE:Special Mount			SR:43
+FOLLOWER:SMLevel=39	TYPE:Special Mount			SR:44
+FOLLOWER:SMLevel=40	TYPE:Special Mount	HD:2		SR:45			DEFINE:LOCK.INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	
+FOLLOWER:SMLevel=41	TYPE:Special Mount			SR:46
+FOLLOWER:SMLevel=42	TYPE:Special Mount			SR:47
+FOLLOWER:SMLevel=43	TYPE:Special Mount			SR:48
+FOLLOWER:SMLevel=44	TYPE:Special Mount			SR:49
+FOLLOWER:SMLevel=45	TYPE:Special Mount	HD:2		SR:50			DEFINE:LOCK.INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	
+
+
