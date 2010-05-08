@@ -10,14 +10,14 @@ BIO
 		<bonuses></bonuses>
 		<name>Bob</name>
 		<followerof></followerof>
-		<playername></playername>
+		<playername>Tester</playername>
 		<action_points>0</action_points>
-		<age>0</age>
+		<age>24</age>
 		<alignment>
 			<long>Lawful Good</long>
 			<short>LG</short>
 		</alignment>
-		<bab>+4</bab>
+		<bab>+6</bab>
 		<bio></bio>
 		<birthplace></birthplace>
 		<catchphrase></catchphrase>
@@ -29,10 +29,17 @@ BIO
 				<bonuslist>MonKee Junior</bonuslist>
 				<sequence>0</sequence>
 			</class>
-			<levels_total>1</levels_total>
-			<levels_ecl>1</levels_ecl>
+			<class>
+				<name>Basic Fighter</name>
+				<abbreviation>Bas</abbreviation>
+				<level>1</level>
+				<bonuslist>Basic Fighter</bonuslist>
+				<sequence>1</sequence>
+			</class>
+			<levels_total>2</levels_total>
+			<levels_ecl>2</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Mon1                   </shortform>
+			<shortform> Mon1  Bas1                 </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -52,22 +59,22 @@ BIO
 		</deity>
 		<description></description>
 		<experience>
-			<current>0</current>
-			<next_level>1000</next_level>
+			<current>1000</current>
+			<next_level>3000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
 		<eyes>
-			<color></color>
+			<color>Red</color>
 		</eyes>
 		<hair>
-			<color></color>
-			<length></length>
+			<color>Red</color>
+			<length>Braided</length>
 		</hair>
 		<skin>
 			<color></color>
 		</skin>
-		<cr>1</cr>
+		<cr>2</cr>
 		<face>
 		<face>5 ft.</face>
 			<short>5 ft.</short>
@@ -85,7 +92,7 @@ BIO
 			<feet>5</feet>
 			<inches>11</inches>
 		</height>
-		<hitdice>(1d12)</hitdice>
+		<hitdice>(1d12)+(1d10)</hitdice>
 		<interests></interests>
 		<languages>
 			<language>Common</language>
@@ -118,7 +125,7 @@ BIO
 			<long>Medium</long>
 			<short>M</short>
 		</size>
-		<speechtendency></speechtendency>
+		<speechtendency>Scottish</speechtendency>
 		<type>Humanoid</type>
 		<vision>
 			<all></all>
@@ -238,9 +245,9 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>12</points>
+		<points>17</points>
 		<alternate>10</alternate>
-		<die>(1d12)</die>
+		<die>(1d12)+(1d10)</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -252,6 +259,12 @@ BIO
 				<stat>0</stat>
 				<total>12</total>
 			</roll>
+			<roll>
+				<level>2</level>
+				<roll>5</roll>
+				<stat>0</stat>
+				<total>5</total>
+			</roll>
 		</history>
 	</hit_points>
 	<!--
@@ -261,10 +274,10 @@ BIO
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<total>11</total>
-		<listing>+1, BASE +10</listing>
-		<flat>11</flat>
-		<touch>11</touch>
+		<total>12</total>
+		<listing>+2, BASE +10</listing>
+		<flat>12</flat>
+		<touch>12</touch>
 		<base>10</base>
 		<armor_bonus>0</armor_bonus>
 		<shield_bonus>0</shield_bonus>
@@ -273,7 +286,7 @@ BIO
 		<natural>0</natural>
 		<class_bonus>0</class_bonus>
 		<dodge_bonus>0</dodge_bonus>
-		<misc>1</misc>
+		<misc>2</misc>
 		<miss_chance/>
 		<max_dex></max_dex>
 		<spell_failure>0</spell_failure>
@@ -299,13 +312,64 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>8</total>
-			<used>0</used>
-			<unused>8</unused>
+			<total>11</total>
+			<used>11</used>
+			<unused>0</unused>
 		</skillpoints>
-		<list_mods></list_mods>
-		<max_class_skill_level>4</max_class_skill_level>
-		<max_cross_class_skill_level>2</max_cross_class_skill_level>
+		<list_mods>Acrobatics +5, Combat Focus +1, Linguistics +1</list_mods>
+		<max_class_skill_level>5</max_class_skill_level>
+		<max_cross_class_skill_level>2.5</max_cross_class_skill_level>
+		<skill>
+			<name>Acrobatics</name>
+			<ranks>5.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Acrobatics</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>5</trained_total>
+			<exclusive_total>5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Athletics</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Athletics</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Combat Focus</name>
+			<ranks>1.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CON</ability>
+			<synergy>Combat Focus</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
 		<skill>
 			<name>Craft (One)</name>
 			<ranks>0.0</ranks>
@@ -341,7 +405,7 @@ BIO
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
-			<name>Linguistics</name>
+			<name>Knowledge</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -350,12 +414,29 @@ BIO
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability></ability>
-			<synergy>Linguistics</synergy>
+			<ability>INT</ability>
+			<synergy>Knowledge</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Linguistics</name>
+			<ranks>1.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Linguistics</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Monkey Building</name>
@@ -386,6 +467,40 @@ BIO
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Monkey Building Sensation</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Perception</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Perception</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Persuasion</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Persuasion</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
@@ -491,8 +606,8 @@ BIO
 				<short>fort</short>
 			</name>
 			<ability>constitution</ability>
-			<total>+5</total>
-			<base>+5</base>
+			<total>+7</total>
+			<base>+7</base>
 			<abil_mod>+0</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
@@ -542,9 +657,9 @@ BIO
 	  ====================================-->
 	<attack>
 		<melee>
-			<total>+4</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
+			<total>+6/+1</total>
+			<bab>+6</bab>
+			<base_attack_bonus>+6/+1</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -552,9 +667,9 @@ BIO
 			<temp_mod/>
 		</melee>
 		<ranged>
-			<total>+4</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
+			<total>+6/+1</total>
+			<bab>+6</bab>
+			<base_attack_bonus>+6/+1</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -562,9 +677,9 @@ BIO
 			<temp_mod/>
 		</ranged>
 		<grapple>
-			<total>+4</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
+			<total>+6/+1</total>
+			<bab>+6</bab>
+			<base_attack_bonus>+6/+1</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -580,12 +695,45 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+0</total>
+			<total>+6/+1</total>
 			<damage>1d3</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
 		
+		<weapon>
+			<common>
+				<name>
+					<short>*Uber Sword</short>
+					<long>*Uber Sword</long>
+				</name>
+				<category>Non-Standard-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>3</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+7/+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+7/+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Both</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type></type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<simple>
+				<to_hit>+7/+2</to_hit>
+				<damage>3d6</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
 	</weapons>
 	<!--
 	  ====================================
@@ -624,6 +772,32 @@ BIO
 	  ====================================
 	  ====================================-->
 	<equipment>
+		<item>
+			<longname>Uber Sword</longname>
+			<id></id>
+			<name>Uber Sword</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.MELEE</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
 		<total>
 			<weight>0 lbs.</weight>
 			<value>0 gp</value>
@@ -633,6 +807,27 @@ BIO
 		<equipmentsets>
 
       <equipmentset name="">
+		<item>
+					<name>Uber Sword</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.MELEE</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
 			</equipmentset>
 
       </equipmentsets>
@@ -661,6 +856,10 @@ BIO
 		<class>
 			<class>MonKee Junior</class>
 			<ability>Sab Test for MonKee Junior</ability>
+		</class>
+		<class>
+			<class>Basic Fighter</class>
+			<ability></ability>
 		</class>
 	</special_abilities>
 	<!--
@@ -701,6 +900,26 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name>Exotic Weapon Proficiency (Uber Sword)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Uber Sword</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Weapon Focus (Uber Sword)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Uber Sword</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<!-- Auto feats -->
 		<feat>
 			<name>Ability B</name>
@@ -726,6 +945,16 @@ BIO
 			<name>Ability E</name>
 			<description></description>
 			<type>ATEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Simple Weapon Proficiency</name>
+			<description>See Text</description>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -775,7 +1004,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies></weapon_proficiencies>
+	<weapon_proficiencies>Extra Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Common</languages>
 
 	<templates>
@@ -841,6 +1070,7 @@ BIO
 			<level number="9" known="0" cast="0"/>
 		</class>
 
+
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
@@ -848,3 +1078,4 @@ BIO
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>
+
