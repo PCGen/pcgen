@@ -29,7 +29,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block:Proficiencies
 1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -60,7 +60,7 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IllteracyLVL|CL	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	BONUS:VAR|IlliteracyLVL|CL	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level progression
 1								ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement
 2			BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
