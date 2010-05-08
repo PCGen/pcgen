@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 
 #Block: Epic Psi Crystal Progression
-FOLLOWER:PCrystalLevel=21	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1	ABILITYPOOL:Psicrystal Power Choice|(PCrystalLevel-11)/10
+FOLLOWER:PCrystalLevel=21	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1	BONUS:ABILITYPOOL|Psicrystal Power Choice|(PCrystalLevel-11)/10
 FOLLOWER:PCrystalLevel=23	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=25	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=27	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
