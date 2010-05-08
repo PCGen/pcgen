@@ -23,7 +23,7 @@ INFOTEXT:RSRD Epic options. Requires the RSRD Basics set.
 
 # Epic
 ABILITY:rsrd_abilities_class_epic.lst
-ABILITY:rsrd_epic_abilities_companions.lst
+ABILITY:rsrd_abilities_epic_companions.lst
 
 ABILITYCATEGORY:rsrd_ability_categories_epic.lst
 
