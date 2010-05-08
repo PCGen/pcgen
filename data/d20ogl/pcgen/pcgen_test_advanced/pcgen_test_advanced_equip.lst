@@ -15,4 +15,4 @@ Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee	DAMAGE:3d6	CRITM
 Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium
 Leather			PROFICIENCY:ARMOR|Leather				TYPE:Armor.Light.Leather
 Moon Cloth			PROFICIENCY:ARMOR|Moon Cloth				TYPE:Armor.Light.Moon Cloth
-
+Heavy Armor			PROFICIENCY:ARMOR|Heavy				TYPE:Armor.Heavy

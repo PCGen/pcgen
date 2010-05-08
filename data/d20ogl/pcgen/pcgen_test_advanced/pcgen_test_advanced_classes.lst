@@ -13,7 +13,7 @@ SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker	
 SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
 SUBSTITUTIONLEVEL:1		AUTO:WEAPONPROF|Suns Weapon Of Choice
 SUBSTITUTIONCLASS:KeePer of Knowledge (Moons)
-SUBSTITUTIONLEVEL:1		AUTO:ARMORPROF|Mooning Cloth
+SUBSTITUTIONLEVEL:1		AUTO:ARMORPROF|Moon Cloth
 SUBSTITUTIONCLASS:KeePer of Knowledge (Celestial Events)
 SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Toughness,Test Case Extreme
 SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
