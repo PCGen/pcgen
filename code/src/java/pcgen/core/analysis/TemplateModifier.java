@@ -26,6 +26,7 @@ import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.StatFacet;
 import pcgen.core.DamageReduction;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -50,7 +51,7 @@ public class TemplateModifier
 
 		for (PCStat stat : aPC.getStatSet())
 		{
-			if (TemplateStat.isNonAbility(pct, stat))
+			if (StatFacet.isNonAbilityForObject(stat, pct))
 			{
 				mods.append(stat.getAbb()).append(":nonability ");
 			}

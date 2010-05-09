@@ -160,7 +160,6 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
@@ -169,7 +168,6 @@ import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
-import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.BonusUtilities;
@@ -5362,40 +5360,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Checks if the stat is a non ability.
 	 * 
-	 * @param i the index of the stat
-	 * 
 	 * @return true, if is non ability
 	 */
 	public boolean isNonAbility(PCStat stat)
 	{
-		//Unlocked overrides any lock to a non ability so check for it first
-		Race race = getRace();
-		if (RaceStat.isUnlocked(stat, race))
-		{
-			return false;
-		}
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (TemplateStat.isUnlocked(template, stat))
-			{
-				return false;
-			}
-		}
-
-		if (RaceStat.isNonAbility(stat, race))
-		{
-			return true;
-		}
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (TemplateStat.isNonAbility(template, stat))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return statFacet.isNonAbility(id, stat);
 	}
 
 	public int getNumberOfMovements()

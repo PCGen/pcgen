@@ -77,6 +77,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.facet.StatFacet;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.PCClass;
@@ -86,7 +87,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.RaceStat;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
@@ -1124,7 +1124,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 				for (PCStat stat : getPc().getStatSet())
 				{
-					if (RaceStat.isNonAbility(stat, race))
+					if (StatFacet.isNonAbilityForObject(stat, race))
 					{
 						if (retString.length() > 0)
 						{

@@ -41,9 +41,9 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.AbilityList;
-import pcgen.core.analysis.TemplateStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
@@ -405,11 +405,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	{
 		PCTemplate template = new PCTemplate();
 		template.setName("Test Template");
-		assertEquals("Template has not been unlocked", false, TemplateStat.isUnlocked(template, str));
+		assertEquals("Template has not been unlocked", false, StatFacet.isUnlockedForObject(str, template));
 		template.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
-		assertEquals("Template has not been unlocked", false, TemplateStat.isUnlocked(template, str));
+		assertEquals("Template has not been unlocked", false, StatFacet.isUnlockedForObject(str, template));
 		template.addToListFor(ListKey.UNLOCKED_STATS, str);
-		assertEquals("Template has been unlocked", true, TemplateStat.isUnlocked(template, str));
+		assertEquals("Template has been unlocked", true, StatFacet.isUnlockedForObject(str, template));
 	}
 	
 	/**
@@ -419,13 +419,13 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	{
 		PCTemplate template = new PCTemplate();
 		template.setName("Test Template");
-		assertEquals("Template has not been locked to a nonability", false, TemplateStat.isNonAbility(template, str));
+		assertEquals("Template has not been locked to a nonability", false, StatFacet.isNonAbilityForObject(str, template));
 		template.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
-		assertEquals("Template has been locked to an ability", false, TemplateStat.isNonAbility(template, str));
+		assertEquals("Template has been locked to an ability", false, StatFacet.isNonAbilityForObject(str, template));
 		template.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
-		assertEquals("Template has been locked to a nonability", true, TemplateStat.isNonAbility(template, str));
+		assertEquals("Template has been locked to a nonability", true, StatFacet.isNonAbilityForObject(str, template));
 		template.addToListFor(ListKey.UNLOCKED_STATS, str);
-		assertEquals("Template has been unlocked", false, TemplateStat.isNonAbility(template, str));
+		assertEquals("Template has been unlocked", false, StatFacet.isNonAbilityForObject(str, template));
 	}
 	
 	
