@@ -36,7 +36,8 @@ public class SourcedEquipmentFacetTest extends TestCase
 	private SourcedEquipmentFacet facet = new SourcedEquipmentFacet();
 
 	private Listener listener = new Listener();
-
+	Object oneSource = new Object();
+	
 	private class Listener implements DataFacetChangeListener<Equipment>
 	{
 
@@ -69,26 +70,33 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateUnsetZeroCount()
+	public void testEquipmentUnsetZeroCount()
 	{
 		assertEquals(0, facet.getCount(id));
 	}
 
 	@Test
-	public void testTemplateUnsetEmpty()
+	public void testEquipmentUnsetEmpty()
 	{
 		assertTrue(facet.isEmpty(id));
 	}
 
 	@Test
-	public void testTemplateUnsetEmptySet()
+	public void testRemoveAllUnsetEmpty()
+	{
+		//Not particularly a test, just make sure it doesn't throw an exception
+		facet.removeAll(id, oneSource);
+	}
+
+	@Test
+	public void testEquipmentUnsetEmptySet()
 	{
 		assertNotNull(facet.getSet(id));
 		assertTrue(facet.getSet(id).isEmpty());
 	}
 
 	@Test
-	public void testTemplateAddNull()
+	public void testEquipmentAddNull()
 	{
 		Object source1 = new Object();
 		try
@@ -100,14 +108,14 @@ public class SourcedEquipmentFacetTest extends TestCase
 		{
 			// Yep!
 		}
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddNullSource()
+	public void testEquipmentAddNullSource()
 	{
 		Equipment t1 = new Equipment();
 		facet.add(id, t1, null);
@@ -125,7 +133,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleGet()
+	public void testEquipmentAddSingleGet()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -144,7 +152,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleSourceTwiceGet()
+	public void testEquipmentAddSingleSourceTwiceGet()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -167,7 +175,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 
 
 	@Test
-	public void testTemplateAddSingleTwiceTwoSourceGet()
+	public void testEquipmentAddSingleTwiceTwoSourceGet()
 	{
 		Object source1 = new Object();
 		Object source2 = new Object();
@@ -190,7 +198,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddMultGet()
+	public void testEquipmentAddMultGet()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -215,7 +223,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateContains()
+	public void testEquipmentContains()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -227,7 +235,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllNull()
+	public void testEquipmentAddAllNull()
 	{
 		Object source1 = new Object();
 		try
@@ -243,18 +251,18 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllUseless()
+	public void testEquipmentAddAllUseless()
 	{
 		Object source1 = new Object();
 		facet.addAll(id, new ArrayList<Equipment>(), source1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddAll()
+	public void testEquipmentAddAll()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -283,7 +291,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllSecondSource()
+	public void testEquipmentAddAllSecondSource()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -318,7 +326,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllTwice()
+	public void testEquipmentAddAllTwice()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -336,7 +344,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllNullInList()
+	public void testEquipmentAddAllNullInList()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -367,18 +375,18 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveUseless()
+	public void testEquipmentRemoveUseless()
 	{
 		Object source1 = new Object();
 		facet.remove(id, null, source1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateRemoveUselessSource()
+	public void testEquipmentRemoveUselessSource()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -401,7 +409,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleRemove()
+	public void testEquipmentAddSingleRemove()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -422,7 +430,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddUselessRemove()
+	public void testEquipmentAddUselessRemove()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -444,7 +452,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleTwiceRemove()
+	public void testEquipmentAddSingleTwiceRemove()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -465,20 +473,20 @@ public class SourcedEquipmentFacetTest extends TestCase
 		assertEventCount(1, 0);
 		// Only one Remove required to clear (source Set not source List)
 		facet.remove(id, t1, source1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(1, 1);
 		// Second remove useless
 		facet.remove(id, t1, source1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(1, 1);
 	}
 
 	@Test
-	public void testTemplateAddMultRemove()
+	public void testEquipmentAddMultRemove()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -496,7 +504,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllNull()
+	public void testEquipmentRemoveAllNull()
 	{
 		Object source1 = new Object();
 		facet.add(id, new Equipment(), source1);
@@ -512,18 +520,18 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllUseless()
+	public void testEquipmentRemoveAllUseless()
 	{
 		Object source1 = new Object();
 		facet.removeAll(id, new ArrayList<Equipment>(), source1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateRemoveAllList()
+	public void testEquipmentRemoveAllList()
 	{
 		Object source1 = new Object();
 		Object source2 = new Object();
@@ -557,7 +565,32 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllTwice()
+	public void testEquipmentRemoveAllSource()
+	{
+		Object source1 = new Object();
+		Object source2 = new Object();
+		Equipment t1 = new Equipment();
+		Equipment t2 = new Equipment();
+		Equipment t3 = new Equipment();
+		facet.add(id, t1, source1);
+		facet.add(id, t2, source1);
+		facet.add(id, t3, source1);
+		facet.add(id, t3, source2);
+		assertEventCount(3, 0);
+		facet.removeAll(id, new Object());
+		assertEventCount(3, 0);
+		facet.removeAll(id, source1);
+		assertEventCount(3, 2);
+		assertEquals(1, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
+		Set<Equipment> setofone = facet.getSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertTrue(setofone.contains(t3));
+	}
+
+	@Test
+	public void testEquipmentRemoveAllTwice()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -579,7 +612,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllNullInList()
+	public void testEquipmentRemoveAllNullInList()
 	{
 		Object source1 = new Object();
 		Equipment t1 = new Equipment();
@@ -601,7 +634,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAll()
+	public void testEquipmentRemoveAll()
 	{
 		Object source1 = new Object();
 		Object source2 = new Object();
@@ -626,9 +659,9 @@ public class SourcedEquipmentFacetTest extends TestCase
 		assertTrue(map.get(t1).contains(source1));
 		assertTrue(map.get(t1).contains(source2));
 		assertTrue(map.get(t2).contains(source2));
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 	}
 
 	@Test
@@ -733,9 +766,9 @@ public class SourcedEquipmentFacetTest extends TestCase
 	public void testCopyContentsNone()
 	{
 		facet.copyContents(altid, id);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testEquipmentUnsetZeroCount();
+		testEquipmentUnsetEmpty();
+		testEquipmentUnsetEmptySet();
 	}
 	
 	@Test

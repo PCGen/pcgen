@@ -21,11 +21,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
 
+import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
@@ -65,8 +64,23 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj,
 			Object source)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+					"Category in add must not be null");
+		}
+		if (nat == null)
+		{
+			throw new IllegalArgumentException("Nature in add must not be null");
+		}
+		if (obj == null)
+		{
+			throw new IllegalArgumentException(
+					"Ability in add must not be null");
+		}
 		boolean isNew = ensureCachedSet(id, cat, nat, obj);
-		if (getCachedSet(id, cat, nat, obj).add(source) || isNew)
+		getCachedMap(id, cat, nat).get(obj).add(source);
+		if (isNew)
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
@@ -98,6 +112,16 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	public void addAll(CharID id, Category<Ability> cat, Nature nature,
 			Collection<Ability> abilities, Object source)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+					"Category in addAll must not be null");
+		}
+		if (nature == null)
+		{
+			throw new IllegalArgumentException(
+					"Nature in addAll must not be null");
+		}
 		for (Ability a : abilities)
 		{
 			add(id, cat, nature, a, source);
@@ -125,15 +149,47 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	 *            the given CharID
 	 */
 	public boolean remove(CharID id, Category<Ability> cat, Nature nat,
-			Ability obj)
+			Ability obj, Object source)
 	{
 		Map<Ability, Set<Object>> cached = getCachedMap(id, cat, nat);
-		boolean removed = (cached != null) && (cached.remove(obj) != null);
-		if (removed)
+		boolean removed = false;
+		if (cached != null)
 		{
-			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+			Set<Object> sourceSet = cached.get(obj);
+			if (sourceSet != null && sourceSet.remove(source))
+			{
+				if (sourceSet.isEmpty())
+				{
+					removed = true;
+					cached.remove(obj);
+					cleanup(id, cat, nat);
+					fireDataFacetChangeEvent(id, obj,
+							DataFacetChangeEvent.DATA_REMOVED);
+				}
+			}
 		}
 		return removed;
+	}
+
+	private void cleanup(CharID id, Category<Ability> cat, Nature nat)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			Map<Nature, Map<Ability, Set<Object>>> natureMap = catMap.get(cat);
+			if (natureMap != null)
+			{
+				Map<Ability, Set<Object>> abilMap = natureMap.get(nat);
+				if (abilMap != null && abilMap.isEmpty())
+				{
+					natureMap.remove(nat);
+				}
+				if (natureMap.isEmpty())
+				{
+					catMap.remove(cat);
+				}
+			}
+		}
 	}
 
 	/**
@@ -288,17 +344,6 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 		return natureMap.get(nat);
 	}
 
-	private Set<Object> getCachedSet(CharID id, Category<Ability> cat,
-			Nature nat, Ability a)
-	{
-		Map<Ability, Set<Object>> sourceMap = getCachedMap(id, cat, nat);
-		if (sourceMap == null)
-		{
-			return null;
-		}
-		return sourceMap.get(a);
-	}
-
 	/**
 	 * Returns the type-safe Map for this GrantedAbilityFacet and the given
 	 * CharID. May return null if no information has been set in this
@@ -322,61 +367,6 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Removes all Abilities from the list of Abilities stored in this
-	 * GrantedAbilityFacet for the Player Character represented by the given
-	 * CharID
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character from which all
-	 *            Abilities should be removed
-	 */
-	public void removeAll(CharID id)
-	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = (Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>>) FacetCache
-				.remove(id, getClass());
-		if (catMap != null)
-		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catME : catMap
-					.entrySet())
-			{
-				// Category<Ability> cat = catME.getKey();
-				Map<Nature, Map<Ability, Set<Object>>> natMap = catME
-						.getValue();
-				processRemoveNatureMap(id, natMap);
-			}
-		}
-	}
-
-	/**
-	 * Removes all of the Ability objects in the given Category from the lists
-	 * of Abilities stored in this GrantedAbilityFacet for the Player Character
-	 * represented by the given CharID
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character from which the
-	 *            given Abilities should be removed
-	 * @param cat
-	 *            The Ability Category identifying which Ability objects are to
-	 *            be removed from the lists of Abilities stored in this
-	 *            GrantedAbilityFacet for the Player Character represented by
-	 *            the given CharID
-	 * @throws NullPointerException
-	 *             if the given Collection is null
-	 */
-	public void removeAll(CharID id, Category<Ability> cat)
-	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
-		if (catMap != null)
-		{
-			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap.remove(cat);
-			if (natMap != null)
-			{
-				processRemoveNatureMap(id, natMap);
-			}
-		}
-	}
-
-	/**
 	 * Removes all of the objects of the given Category and Nature from the list
 	 * of Abilities stored in this GrantedAbilityFacet for the Player Character
 	 * represented by the given CharID
@@ -394,70 +384,29 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	 *            removed from the lists of Abilities stored in this
 	 *            GrantedAbilityFacet for the Player Character represented by
 	 *            the given CharID
+	 * @return
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void removeAll(CharID id, Category<Ability> cat, Nature nature)
+	public Map<Ability, Set<Object>> removeAll(CharID id,
+			Category<Ability> cat, Nature nature)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap.remove(cat);
+			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap.get(cat);
 			if (natMap != null)
 			{
-				Map<Ability, Set<Object>> abilitySet = natMap.get(nature);
+				Map<Ability, Set<Object>> abilitySet = natMap.remove(nature);
 				if (abilitySet != null)
 				{
 					processRemoveAbilityMap(id, abilitySet);
+					cleanup(id, cat, nature);
+					return abilitySet;
 				}
 			}
 		}
-	}
-
-	private void processRemoveNatureMap(CharID id,
-			Map<Nature, Map<Ability, Set<Object>>> natMap)
-	{
-		for (Map.Entry<Nature, Map<Ability, Set<Object>>> natME : natMap
-				.entrySet())
-		{
-			// Nature nature = natME.getKey();
-			processRemoveAbilityMap(id, natME.getValue());
-		}
-	}
-
-	/**
-	 * Removes all of the Ability objects in the given Nature from the lists of
-	 * Abilities stored in this GrantedAbilityFacet for the Player Character
-	 * represented by the given CharID
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character from which the
-	 *            given Abilities should be removed
-	 * @param nature
-	 *            The Ability Nature identifying which Ability objects are to be
-	 *            removed from the lists of Abilities stored in this
-	 *            GrantedAbilityFacet for the Player Character represented by
-	 *            the given CharID
-	 * @throws NullPointerException
-	 *             if the given Collection is null
-	 */
-	public void removeAll(CharID id, Nature nature)
-	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
-		if (catMap != null)
-		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catME : catMap
-					.entrySet())
-			{
-				// Category<Ability> cat = catME.getKey();
-				Map<Ability, Set<Object>> abilitySet = catME.getValue().remove(
-						nature);
-				if (abilitySet != null)
-				{
-					processRemoveAbilityMap(id, abilitySet);
-				}
-			}
-		}
+		return Collections.emptyMap();
 	}
 
 	private void processRemoveAbilityMap(CharID id,
@@ -558,42 +507,59 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	public void removeAll(CharID id, Object source)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
-		if (catMap != null)
+		DoubleKeyMapToList<Category<Ability>, Nature, Ability> removeMap = new DoubleKeyMapToList<Category<Ability>, Nature, Ability>();
+		if (catMap == null)
 		{
-			for (Iterator<Map<Nature, Map<Ability, Set<Object>>>> cIter = catMap
-					.values().iterator(); cIter.hasNext();)
+			return;
+		}
+		for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> me : catMap
+				.entrySet())
+		{
+			Category<Ability> cat = me.getKey();
+			Map<Nature, Map<Ability, Set<Object>>> natureMap = me.getValue();
+			for (Map.Entry<Nature, Map<Ability, Set<Object>>> nME : natureMap
+					.entrySet())
 			{
-				Map<Nature, Map<Ability, Set<Object>>> natureMap = cIter.next();
-				for (Iterator<Map<Ability, Set<Object>>> nIter = natureMap
-						.values().iterator(); nIter.hasNext();)
+				Nature nat = nME.getKey();
+				Map<Ability, Set<Object>> abilMap = nME.getValue();
+				for (Map.Entry<Ability, Set<Object>> aEntry : abilMap
+						.entrySet())
 				{
-					Map<Ability, Set<Object>> abilMap = nIter.next();
-					for (Iterator<Map.Entry<Ability, Set<Object>>> aIter = abilMap
-							.entrySet().iterator(); aIter.hasNext();)
+					Ability ab = aEntry.getKey();
+					Set<Object> sourceSet = aEntry.getValue();
+					if (sourceSet.contains(source))
 					{
-						Entry<Ability, Set<Object>> aEntry = aIter.next();
-						Set<Object> sourceSet = aEntry.getValue();
-						if (sourceSet.remove(source))
-						{
-							if (sourceSet.isEmpty())
-							{
-								Ability ab = aEntry.getKey();
-								aIter.remove();
-								fireDataFacetChangeEvent(id, ab,
-										DataFacetChangeEvent.DATA_REMOVED);
-							}
-						}
+						removeMap.addToListFor(cat, nat, ab);
 					}
-					if (abilMap.isEmpty())
-					{
-						nIter.remove();
-					}
-				}
-				if (natureMap.isEmpty())
-				{
-					cIter.remove();
 				}
 			}
 		}
+		for (Category<Ability> cat : removeMap.getKeySet())
+		{
+			for (Nature nat : removeMap.getSecondaryKeySet(cat))
+			{
+				for (Ability ab : removeMap.getListFor(cat, nat))
+				{
+					remove(id, cat, nat, ab, source);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Returns true if this GrantedAbilityFacet does not contain any items for
+	 * the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharId representing the PlayerCharacter to test if any
+	 *            items are contained by this GrantedAbilityFacet
+	 * @return true if this GrantedAbilityFacet does not contain any items for
+	 *         the Player Character represented by the given CharID; false
+	 *         otherwise (if it does contain items for the Player Character)
+	 */
+	public boolean isEmpty(CharID id)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		return catMap == null || catMap.isEmpty();
 	}
 }

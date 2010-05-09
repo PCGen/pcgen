@@ -235,8 +235,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 		}
 
 		List<String> specialAbilities = pc.getSpecialAbilityTimesList();
-		pc.getAutoLanguages();
-
 		String languages = StringUtil.join(pc.getSortedLanguageSet(), ", ");
 
 		if (specialAbilities.size() > 0)

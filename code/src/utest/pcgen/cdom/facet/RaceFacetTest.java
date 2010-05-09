@@ -69,6 +69,7 @@ public class RaceFacetTest extends TestCase
 	public void testRaceUnsetEmpty()
 	{
 		assertNull(facet.get(id));
+		assertTrue(facet.matches(id, null));
 	}
 
 	@Test

@@ -20,8 +20,10 @@ package pcgen.cdom.facet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
@@ -445,4 +447,27 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 		}
 	}
 
+	public void removeAll(CharID id, Object source)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet()
+					.iterator(); it.hasNext();)
+			{
+				Entry<T, Set<Object>> me = it.next();
+				Set<Object> set = me.getValue();
+				if (set != null)
+				{
+					if (set.remove(source) && set.isEmpty())
+					{
+						T obj = me.getKey();
+						it.remove();
+						fireDataFacetChangeEvent(id, obj,
+								DataFacetChangeEvent.DATA_REMOVED);
+					}
+				}
+			}
+		}
+	}
 }

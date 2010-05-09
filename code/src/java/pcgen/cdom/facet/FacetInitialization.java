@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.core.PlayerCharacter.AddLanguageFacet;
+import pcgen.core.PlayerCharacter.AutoLanguageFacet;
 import pcgen.core.PlayerCharacter.FreeLanguageFacet;
 import pcgen.core.PlayerCharacter.SkillLanguageFacet;
 import pcgen.core.PlayerCharacter.StartingLanguageFacet;
@@ -59,6 +60,8 @@ public class FacetInitialization
 				.getFacet(LanguageFacet.class);
 		LanguageFacet freeLangFacet = FacetLibrary
 				.getFacet(FreeLanguageFacet.class);
+		LanguageFacet autoLangFacet = FacetLibrary
+				.getFacet(AutoLanguageFacet.class);
 		LanguageFacet addLangFacet = FacetLibrary
 				.getFacet(AddLanguageFacet.class);
 		LanguageFacet skillLangFacet = FacetLibrary
@@ -88,11 +91,11 @@ public class FacetInitialization
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
 				.getFacet(GrantedAbilityFacet.class);
 
+		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
 		startingLangFacet.addDataFacetChangeListener(languageFacet);
-		// langAutoFacet.addDataFacetChangeListener(languageFacet);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);

@@ -249,6 +249,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+	private LanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 	private LanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private LanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	//private LanguageFacet langAutoFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
@@ -4352,23 +4353,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return attackString.toString();
 	}
 
-	public SortedSet<Language> getAutoLanguages()
+	public Set<Language> getAutoLanguages()
 	{
-		// find list of all possible languages
-		final SortedSet<Language> autoLangs = new TreeSet<Language>();
-
-		for (PObject pObj : getPObjectList())
-		{
-			for (CDOMReference<Language> ref : pObj
-				.getSafeListFor(ListKey.AUTO_LANGUAGES))
-			{
-				Collection<Language> langs = ref.getContainedObjects();
-				autoLangs.addAll(langs);
-				languageFacet.addAll(id, langs, pObj);
-			}
-		}
-
-		return autoLangs;
+		return autoLangFacet.getSet(id);
 	}
 
 	/**
@@ -5602,7 +5589,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			addNaturalWeapons(newRace.getListFor(ListKey.NATURAL_WEAPON));
-			getAutoLanguages();
 			if (!isImporting())
 			{
 				selectRacialFavoredClass();
@@ -7118,7 +7104,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		this.setDirty(true);
 
 		calcActiveBonuses();
-		getAutoLanguages();
 		addNaturalWeapons(inTemplate.getListFor(ListKey.NATURAL_WEAPON));
 
 		setAutomaticAbilitiesStable(null, false);
@@ -11584,7 +11569,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		//TODO Why does rolling stats delete the language list?!?
 		languageFacet.removeAll(id);
-		getAutoLanguages();
 		if (method != Constants.CHARACTERSTATMETHOD_PURCHASE)
 		{
 			setPoolAmount(0);
@@ -11910,10 +11894,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.equipmentFacet.addAll(aClone.id, equipmentFacet.getSet(id));
 		aClone.userEquipmentFacet.addAll(aClone.id, userEquipmentFacet.getSet(id));
 		//aClone.userEquipmentFacet.copyContents(id, aClone.id);
+		aClone.autoLangFacet.copyContents(id, aClone.id);
 		aClone.freeLangFacet.copyContents(id, aClone.id);
 		aClone.addLangFacet.copyContents(id, aClone.id);
 		aClone.skillLangFacet.copyContents(id, aClone.id);
-		//aClone.langAutoFacet.copyContents(id, aClone.id);
 		aClone.startingLangFacet.copyContents(id, aClone.id);
 		aClone.classFacet.copyContents(id, aClone.id);
 		aClone.regionFacet.copyContents(id, aClone.id);
@@ -14448,7 +14432,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void buildLangLists(final List<Language> availableLangs,
 		final List<Language> selectedLangs, final List<Language> excludedLangs)
 	{
-		SortedSet<Language> autoLangs = getAutoLanguages();
 		Skill speakLanguage = null;
 
 		for (Skill aSkill : getSkillSet())
@@ -14485,7 +14468,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				addLang = false;
 			}
-			else if (!autoLangs.contains(aLang))
+			else if (!autoLangFacet.contains(id, aLang))
 			{
 				addLang = true;
 			}
@@ -15117,6 +15100,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
 	 * with different parameters in a DI system if we go that direction
 	 */
+	public static class AutoLanguageFacet extends LanguageFacet {}
+
 	public static class FreeLanguageFacet extends LanguageFacet {}
 
 	public static class AddLanguageFacet extends LanguageFacet {}
@@ -15196,6 +15181,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void processAddition(CDOMObject cdo)
 	{
 		processFeatListOnAdd(cdo);
+		processAutoLangOnAdd(cdo);
+	}
+
+	private void processAutoLangOnAdd(CDOMObject cdo)
+	{
+		for (CDOMReference<Language> ref : cdo
+				.getSafeListFor(ListKey.AUTO_LANGUAGES))
+		{
+			Collection<Language> langs = ref.getContainedObjects();
+			autoLangFacet.addAll(id, langs, cdo);
+		}
 	}
 
 	public void processRemoval(CDOMObject cdo)
@@ -15208,6 +15204,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		deniedFacet.removeAll(id, cdo);
 		conditionalFacet.removeAll(id, cdo);
 		grantedAbilityFacet.removeAll(id, cdo);
+		autoLangFacet.removeAll(id, cdo);
 	}
 
 	private void resolveDeniedAbilities()
@@ -15268,7 +15265,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//Only remove if no assocs left
 			if (!hasAssociations(ab))
 			{
-				grantedAbilityFacet.remove(id, cat, nature, ab);
+				grantedAbilityFacet.remove(id, cat, nature, ab, cdo);
 			}
 		}
 	}
