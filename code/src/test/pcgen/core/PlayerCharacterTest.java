@@ -906,43 +906,28 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		Ability resToAcid =
 				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat, "Foo");
-		pc.setAbilityNature(resToAcid, Nature.AUTOMATIC);
 		Ability resToAcidOutputVirt =
 			TestHelper.makeAbility("Resistance To Acid Output Virt",
 				specialAbilityCat, "Foo");
-		pc.setAbilityNature(resToAcidOutputVirt, Nature.VIRTUAL);
 		Ability resToAcidOutputAuto =
 			TestHelper.makeAbility("Resistance To Acid Output Auto",
 				specialAbilityCat, "Foo");
-		pc.setAbilityNature(resToAcidOutputAuto, Nature.AUTOMATIC);
-		pc.setRace(human);
-		assertEquals("PC should now have a race of human", human, pc.getRace());
 
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(human, "ABILITY", specialAbilityCat
 				.getKeyName()
 				+ "|AUTOMATIC|" + resToAcid.getKeyName());
-//		context.resolveReferences();
-//		pc.setDirty(true);
-//		pc.calcActiveBonuses();
-//		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
-//		assertNull("Character should not have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
-//		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
 
 		context.unconditionallyProcess(resToAcid, "ABILITY", specialAbilityCat
 				.getKeyName()
 				+ "|VIRTUAL|" + resToAcidOutputVirt.getKeyName());
-//		context.resolveReferences();
-//		pc.setDirty(true);
-//		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
-//		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
-//		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
 
 		context.unconditionallyProcess(resToAcid, "ABILITY", specialAbilityCat
 				.getKeyName()
 				+ "|AUTOMATIC|" + resToAcidOutputAuto.getKeyName());
 		context.resolveReferences();
-		pc.setDirty(true);
+		pc.setRace(human);
+		assertEquals("PC should now have a race of human", human, pc.getRace());
 		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
 		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
 		assertNotNull("Character should have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));

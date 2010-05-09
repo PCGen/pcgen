@@ -32,7 +32,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -128,49 +127,6 @@ public class AbilityUtilities
 		return !pc.hasUserVirtualAbility(cat, anAbility);
 	}
 
-
-	/**
-	 * Search the List passed in for an instance of the Ability matching
-	 * category and Ability name.  If we don't find it, attempt to locate
-	 * it in global Storage and, if it's there, clone it and add it the List.
-	 * If we got an ability, then add any sub choices from the name to the
-	 * associated list of the ability.
-	 * @param pc TODO
-	 * @param  theAbilityList  A list of abilities to add to
-	 * @param category The category of Ability to add
-	 * @param  abilityName     The name of the Ability to Add
-	 *
-	 * @return The Ability processed
-	 */
-	public static Ability addCloneOfGlobalAbilityToListWithChoices(
-			PlayerCharacter pc,
-			AbilityCategory cat, Nature nature,
-			final String abilityName)
-	{
-		final Collection<String> choices = new ArrayList<String>();
-		getUndecoratedName(abilityName, choices);
-
-		Ability anAbility = getAbilityFromList(pc,
-				pc.getAbilityList(cat, nature), cat.getAbilityCategory(), abilityName, Nature.ANY);
-
-		if (anAbility == null)
-		{
-			anAbility = cloneGlobalAbility(pc, cat.getAbilityCategory(), abilityName);
-
-			if (anAbility != null)
-			{
-				pc.addAbility(cat, nature, anAbility);
-			}
-		}
-
-		if (anAbility != null)
-		{
-			addChoicesToAbility(pc, anAbility, choices);
-		}
-
-		return anAbility;
-	}
-
 	public static Ability addCloneOfGlobalAbilityToListWithChoices(
 			PlayerCharacter pc,
 			final List<Ability>   anAbilityList,
@@ -224,7 +180,6 @@ public class AbilityUtilities
 
 		if (newAbility != null)
 		{
-			pc.setAbilityNature(newAbility, Nature.VIRTUAL);
 			newAbility.clearPrerequisiteList();
 			if (levelInfo != null)
 			{
@@ -1190,37 +1145,6 @@ public class AbilityUtilities
 				abilityCategory));
 		}
 		return abilityList;
-	}
-	
-	/**
-	 * Clone anAbility, apply choices and add it to the addList, provided the
-	 * Ability allows it (if not isMultiples check if it's already there before
-	 * adding it).
-	 *
-	 * @param   anAbility
-	 * @param   choices
-	 * @param   addList
-	 * @return the Ability added, or null if Ability was not added to the list.
-	 */
-	public static Ability addAbilityToListwithChoices(
-		PlayerCharacter pc,
-		final Ability anAbility,
-		final List<String>    choices,
-		Category<Ability> cat, Nature nature)
-	{
-		Ability abil = getAbilityFromList(pc, pc.getAbilityList(cat, nature), anAbility);
-		if (abil == null)
-		{
-			abil = anAbility.clone();
-			pc.addAbility(cat, nature, abil);
-		}
-
-		if (choices != null)
-		{
-			addChoicesToAbility(pc, abil, choices);
-		}
-
-		return abil;
 	}
 
 	/**

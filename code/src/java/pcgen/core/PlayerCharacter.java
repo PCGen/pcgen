@@ -67,6 +67,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -90,20 +91,20 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CampaignFacet;
-import pcgen.cdom.facet.CategorizedAbilityFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
+import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionalTemplateFacet;
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.DeityFacet;
+import pcgen.cdom.facet.DeniedAbilityFacet;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
@@ -114,6 +115,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
+import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
@@ -124,6 +126,7 @@ import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
+import pcgen.cdom.facet.ObjectAdditionFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
@@ -139,6 +142,7 @@ import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.StatLock;
@@ -191,7 +195,6 @@ import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -238,7 +241,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
-	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
+	private ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
+	private DeniedAbilityFacet deniedFacet = FacetLibrary.getFacet(DeniedAbilityFacet.class);
+	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
+	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -276,6 +282,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
+	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(4);
@@ -389,25 +396,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean processLevelAbilities = true;
 
-	private Map<Category<Ability>, Set<Nature>> abilityFacetValid =
-		new HashMap<Category<Ability>, Set<Nature>>();
-
-	/**
-	 * List of all directly assigned normal nature abilities split by category. 
-	 * These are abilities that are added directly to the character rather than 
-	 * being added to a class, template etc that the character possesses. 
-	 */
-	private HashMapToList<Category<Ability>, Ability> realAbilities =
-			new HashMapToList<Category<Ability>, Ability>();
-
-	/**
-	 * List of all directly assigned virtual nature abilities split by category. 
-	 * These are abilities that are added directly to the character rather than 
-	 * being added to a class, template etc that the character possesses. 
-	 */
-	private HashMapToList<AbilityCategory, Ability> virtualAbilities =
-			new HashMapToList<AbilityCategory, Ability>();
-
 	/**
 	 * This map stores any user bonuses (entered through the GUI) to the
 	 * corrisponding ability pool.
@@ -436,6 +424,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
+		additionFacet.associatePlayerCharacter(id, this);
 
 		variableProcessor = new VariableProcessorPC(this);
 
@@ -1197,7 +1186,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			serial++;
 			cache = new ObjectCache();
 			getVariableProcessor().setSerial(serial);
-			setAggregateAbilitiesStable(null, false);
+			resolveDeniedAbilities();
 		}
 
 		// TODO - This is kind of strange. We probably either only want to
@@ -4010,19 +3999,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				variableSet.add(vk.toString());
 			}
 		}
-
-		// Some virtual feats rely on variables as prereqs, hence the need to
-		// Recalculate them after we get all vars.
-		invalidateAbilitySet(AbilityCategory.FEAT, Nature.VIRTUAL);
-	}
-
-	private void invalidateAbilitySet(Category<Ability> cat, Nature nature)
-	{
-		Set<Nature> set = abilityFacetValid.get(cat);
-		if (set != null)
-		{
-			set.remove(nature);
-		}
 	}
 
 	public boolean delEquipSet(final EquipSet eSet)
@@ -5636,7 +5612,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		setAggregateFeatsStable(false);
-		abilityFacetValid.clear();
 
 		if (!isImporting())
 		{
@@ -7172,11 +7147,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			AddObjectActions.globalChecks(inTemplate, this);
 		}
 
-		setAggregateAbilitiesStable(null, false);
-		// setAutomaticFeatsStable(false);
-		// setAggregateFeatsStable(false);
+		clearWeaponProfCache();
 		getAutomaticAbilityList(AbilityCategory.FEAT);
-		// rebuildFeatAggreagateList();
 
 		calcActiveBonuses();
 		int postLockMonsterSkillPoints; // this is what this value was before
@@ -7545,7 +7517,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void calcActiveBonuses()
 	{
-		if (isImporting() || (getRace() == null) || rebuildingAbilities)
+		if (isImporting() || (getRace() == null))
 		{
 			return;
 		}
@@ -8339,7 +8311,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return hasFeatAutomatic(anAbility.getKeyName());
 		}
-		return abilityFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility);
+		boolean newReturn = abFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility)
+				|| grantedAbilityFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility);
+		return newReturn;
 	}
 
 	/**
@@ -8359,7 +8333,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return hasFeatVirtual(anAbility.getKeyName());
 		}
-		return abilityFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility);
+		boolean newReturn = abFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility)
+				|| grantedAbilityFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility);
+		return newReturn;
 	}
 
 	public boolean hasMadeKitSelectionForAgeSet(final int index)
@@ -10362,114 +10338,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	private void setStableAggregateFeatList(final List<Ability> aFeatList)
-	{
-		stableAggregateFeatList = aFeatList;
-		setAggregateFeatsStable(aFeatList != null);
-	}
-
-	/**
-	 * Not sure what this does yet.
-	 * 
-	 * @param aString
-	 * @param isAuto
-	 */
-	private void addAutoWeaponProfToList(final String aString)
-	{
-		LoadContext context = Globals.getContext();
-
-		final WeaponProf wp =
-				context.ref.silentlyGetConstructedCDOMObject(WeaponProf.class,
-					aString);
-
-		if (wp != null)
-		{
-			final StringTokenizer aTok = new StringTokenizer(wp.getType(), ".");
-			String featKey = aTok.nextToken() + " Weapon Proficiency";
-
-			while (aTok.hasMoreTokens() || (featKey.length() > 0))
-			{
-				if ("".equals(featKey))
-				{
-					if (aTok.hasMoreTokens())
-					{
-						featKey = aTok.nextToken() + " Weapon Proficiency";
-					}
-					else
-					{
-						break;
-					}
-				}
-
-				Set<Ability> currentAutoFeats = abilityFacet.get(id,
-						AbilityCategory.FEAT, Nature.AUTOMATIC);
-				Ability anAbility = AbilityUtilities.getAbilityFromList(
-						this, currentAutoFeats, "FEAT", featKey, Nature.ANY);
-				if (anAbility != null)
-				{
-					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-						&& !containsAssociated(anAbility, aString))
-					{
-						addAssociation(anAbility, aString);
-					}
-				}
-				else
-				{
-					anAbility = Globals.getAbilityKeyed("FEAT", featKey);
-
-					if (anAbility != null)
-					{
-						if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-							&& !Constants.s_INTERNAL_WEAPON_PROF
-								.equalsIgnoreCase(featKey))
-						{
-							//
-							// Only use catch-all if haven't taken feat that
-							// supersedes it
-							//
-							if (hasRealFeat(anAbility))
-							{
-								featKey = Constants.s_INTERNAL_WEAPON_PROF;
-
-								continue;
-							}
-
-							featKey = "";
-
-							continue; // Don't add auto-feat
-						}
-
-						anAbility = anAbility.clone();
-						addAssociation(anAbility, aString);
-
-						this.setAbilityNature(anAbility, Nature.AUTOMATIC);
-						abilityFacet.add(id, AbilityCategory.FEAT,
-								Nature.AUTOMATIC, anAbility);
-					}
-
-					/*
-					 * else { if (!wp.isType("NATURAL")) {
-					 * Logging.errorPrint("Weaponprof feat not found: " +
-					 * featName + ":" + aString); } }
-					 */
-				}
-				if (anAbility != null)
-				{
-					// TheForken 20050124 adds bonus to feat
-					addAssoc(anAbility,
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS, aString);
-				}
-
-				featKey = "";
-			}
-		}
-
-		if (wp != null && cachedWeaponProfs != null)
-		{
-			cachedWeaponProfs.add(wp);
-		}
-	}
-
 	/**
 	 * Gets SHIELDPROF strings from all possible PObjects
 	 * 
@@ -10488,9 +10356,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (pp.qualifies(this, aPObj))
 				{
 					aList.add(pp);
+					}
+					}
 				}
-			}
-		}
 
 		return aList;
 	}
@@ -11514,7 +11382,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					PCClassLevel failedpcl =
 							getActiveClassLevel(pcClassClone, currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
-					removeLevelInfo(failedpcl);
 					return;
 				}
 			}
@@ -11526,9 +11393,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				int currentLevel = getLevel(pcClassClone);
 				pcClassClone.subLevel(bSilent, this);
 				removeLevelInfo(pcClassClone.getKeyName());
-				PCClassLevel removedpcl =
 						getActiveClassLevel(pcClassClone, currentLevel);
-				removeLevelInfo(removedpcl);
 			}
 		}
 
@@ -11545,28 +11410,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		setAggregateAbilitiesStable(null, false);
-		// setAggregateFeatsStable(false);
-		// setAutomaticFeatsStable(false);
-		// setVirtualFeatsStable(false);
+		clearWeaponProfCache();
 		calcActiveBonuses();
-		// getAutoWeaponProfs(featAutoList());
-		// setDirty(true);
-	}
-
-	private void removeLevelInfo(PCClassLevel failedpcl)
-	{
-		List<Ability> abilityList =
-				removeAllAssocs(failedpcl, AssociationListKey.ADDED_FEAT);
-		if (abilityList != null)
-		{
-			for (Ability ability : abilityList)
-			{
-				// remove this object from the feats lists
-				abilityFacet.remove(id, AbilityCategory.FEAT, Nature.VIRTUAL,
-						ability);
-			}
-		}
 	}
 
 	private void rebuildLists(final PCClass toClass, final PCClass fromClass,
@@ -11642,7 +11487,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			virtualAbilities.removeFromListFor(AbilityCategory.FEAT, object);
+			abFacet.remove(id, AbilityCategory.FEAT, Nature.VIRTUAL, object);
 		}
 	}
 
@@ -12040,19 +11885,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter();
-
-		for (final Ability a : this.getRealAbilitiesList(AbilityCategory.FEAT))
-		{
-			aClone.addRealAbility(AbilityCategory.FEAT, (a.clone()));
-		}
-		for (final Category<Ability> cat : abilityFacet.getCategories(id))
-		{
-			for (final Ability a : getRealAbilitiesList(cat))
-			{
-				aClone.addRealAbility(cat, a.clone());
-			}
-		}
-
 		aClone.miscList.addAll(getMiscList());
 		for (NoteItem n : getNotesList())
 		{
@@ -12087,6 +11919,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.regionFacet.copyContents(id, aClone.id);
 		aClone.moneyFacet.copyContents(id, aClone.id);
 		aClone.factFacet.copyContents(id, aClone.id);
+		aClone.abFacet.copyContents(id, aClone.id);
+		aClone.grantedAbilityFacet.copyContents(id, aClone.id);
 		aClone.xpFacet.setEarnedXP(aClone.id, xpFacet.getEarnedXP(id));
 		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
 		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
@@ -12189,9 +12023,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		aClone.setDirty(true);
 		// TODO - ABILITYOBJECT
-		// aClone.setAggregateAbilitiesStable(null, false);
 		aClone.setAutomaticFeatsStable(false);
-		aClone.invalidateAbilitySet(AbilityCategory.FEAT, Nature.VIRTUAL);
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();
 		//Just to be safe
@@ -12738,8 +12570,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// --------------------------------------------------
 	// Feat/Ability stuff
 	// --------------------------------------------------
-	// List of Feats
-	private List<Ability> stableAggregateFeatList = null;
 
 	// whether to adjust the feat pool when requested
 	private boolean allowFeatPoolAdjustment = true;
@@ -12747,7 +12577,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 	/** Status flag so that ability lists aren't cleared mid way through being rebuilt. */
-	private boolean rebuildingAbilities = false;
 
 	/**
 	 * Set aggregate Feats stable
@@ -12756,64 +12585,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private void setAggregateFeatsStable(final boolean stable)
 	{
-		setAggregateAbilitiesStable(AbilityCategory.FEAT, stable);
-	}
-
-	public void setAggregateAbilitiesStable(final Category<Ability> aCategory,
-		final boolean stable)
-	{
-		if (!stable && rebuildingAbilities)
-		{
-			return;
-		}
-
 		if (!stable)
 		{
-			cachedWeaponProfs = null;
-		}
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			if (!stable)
-			{
-				cachedWeaponProfs = null;
-			}
-		}
-		if (aCategory == null)
-		{
-			if (!stable)
-			{
-				// Clear all the categories
-				abilityFacetValid.clear();
-				abilityFacet.removeAll(id);
-			}
-			return;
-		}
-		if (!stable)
-		{
-			abilityFacetValid.remove(aCategory);
-			//Just to be safe for now...
-			abilityFacet.removeAll(id, aCategory);
-			// TODO - Deal with non-aggregate virtual abilities (i.e. from ADD:)
+			clearWeaponProfCache();
 		}
 	}
 
-	/**
-	 * Returns TRUE if all types (automatic, virtual and aggregate) of feats are
-	 * stable
-	 * 
-	 * @return TRUE or FALSE
-	 */
-	private boolean isAggregateFeatsStable()
+	public void clearWeaponProfCache()
 	{
-		return isFacetValid(AbilityCategory.FEAT, Nature.AUTOMATIC)
-				&& isFacetValid(AbilityCategory.FEAT, Nature.VIRTUAL)
-				&& isFacetValid(AbilityCategory.FEAT, Nature.NORMAL);
-	}
-
-	private boolean isFacetValid(Category<Ability> cat, Nature nature)
-	{
-		Set<Nature> set = abilityFacetValid.get(cat);
-		return set != null && set.contains(nature);
+		cachedWeaponProfs = null;
 	}
 
 	/**
@@ -12831,23 +12611,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (aCategory == null)
 		{
-			if (!stable)
-			{
-				for (final Category<Ability> cat : abilityFacet.getCategories(id))
-				{
-					invalidateAbilitySet(cat, Nature.AUTOMATIC);
-				}
-				//Just to be safe, for now
-				abilityFacet.removeAll(id, Nature.AUTOMATIC);
-			}
 			setAutomaticFeatsStable(stable);
 			return;
-		}
-		if (!stable)
-		{
-			invalidateAbilitySet(aCategory, Nature.AUTOMATIC);
-			//Just to be safe, for now
-			abilityFacet.removeAll(id, aCategory, Nature.AUTOMATIC);
 		}
 	}
 
@@ -12858,27 +12623,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return false;
 		}
-		this.setAbilityNature(anAbility, Nature.NORMAL);
-		realAbilities.addToListFor(aCategory, anAbility);
+		abFacet.add(id, aCategory, Nature.NORMAL, anAbility);
 		return true;
-	}
-
-	public void clearRealAbilities(final AbilityCategory aCategory)
-	{
-		if (aCategory == null)
-		{
-			for (final Category<Ability> cat : abilityFacet.getCategories(id))
-			{
-				invalidateAbilitySet(cat, Nature.NORMAL);
-				//Just to be safe, for now
-			}
-			abilityFacet.removeAll(id, Nature.NORMAL);
-			return;
-		}
-
-		invalidateAbilitySet(aCategory, Nature.NORMAL);
-		//Just to be safe, for now
-		abilityFacet.removeAll(id, aCategory, Nature.AUTOMATIC);
 	}
 
 	public HashMap<Nature, Set<Ability>> getAbilitiesSet()
@@ -12907,7 +12653,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Ability> getAllAbilities()
 	{
-		Set<Category<Ability>> abCats = abilityFacet.getCategories(id);
+		Set<Category<Ability>> abCats = new HashSet<Category<Ability>>();
+		abCats.addAll(abFacet.getCategories(id));
+		abCats.addAll(grantedAbilityFacet.getCategories(id));
 
 		List<Ability> list = new ArrayList<Ability>();
 
@@ -12922,11 +12670,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Set<Ability> getRealAbilitiesList(final Category<Ability> aCategory)
 	{
-		if (!isFacetValid(aCategory, Nature.NORMAL))
-		{
-			rebuildAggregateAbilityList();
-		}
-		return Collections.unmodifiableSet(abilityFacet.get(id, aCategory, Nature.NORMAL));
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, aCategory, Nature.NORMAL));
+		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.NORMAL));
+		return Collections.unmodifiableSet(newSet);
 	}
 
 	/**
@@ -13025,7 +12772,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasRealAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
-		return abilityFacet.contains(id, aCategory, Nature.NORMAL, anAbility);
+		boolean newReturn = abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
+				|| grantedAbilityFacet.contains(id, aCategory, Nature.NORMAL, anAbility);
+		return newReturn;
 	}
 
 	/**
@@ -13121,8 +12870,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasRealFeatNamed(final String featName)
 	{
-		final Set<Ability> abilities =
-				abilityFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL);
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
+		newSet.addAll(grantedAbilityFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
+		final Set<Ability> abilities = newSet;
 		return AbilityUtilities.getAbilityFromList(this, abilities, "FEAT",
 			featName, Nature.ANY) != null;
 	}
@@ -13143,7 +12894,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean removeRealAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
-		return realAbilities.removeFromListFor(aCategory, anAbility);
+		return abFacet.remove(id, aCategory, Nature.NORMAL, anAbility);
 	}
 
 	public void adjustFeats(final double arg)
@@ -13341,7 +13092,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		double iCount = 0;
 
-		List<Ability> abilities = realAbilities.getListFor(AbilityCategory.FEAT);
+		Collection<Ability> abilities = abFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL);
 		if (abilities == null)
 		{
 			return 0;
@@ -13430,22 +13181,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return BigDecimal.valueOf(spent);
 	}
 
-	public void setVirtualAbilitiesStable(final AbilityCategory aCategory,
-		final boolean stable)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			invalidateAbilitySet(AbilityCategory.FEAT, Nature.VIRTUAL);
-			return;
-		}
-		if (!stable)
-		{
-			invalidateAbilitySet(aCategory, Nature.VIRTUAL);
-			//Just to be safe for now
-			abilityFacet.removeAll(id, aCategory, Nature.VIRTUAL);
-		}
-	}
-
 	public void addFeat(final Ability aFeat,
 		final PCLevelInfo playerCharacterLevelInfo)
 	{
@@ -13491,7 +13226,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aLevelInfo.addObject(anAbility);
 		}
 		addNaturalWeapons(anAbility.getListFor(ListKey.NATURAL_WEAPON));
-		setAggregateAbilitiesStable(aCategory, false);
+		clearWeaponProfCache();
 		calcActiveBonuses();
 	}
 
@@ -13608,7 +13343,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Ability getAbilityKeyed(final AbilityCategory aCategory,
 		Nature nature, final String aKey)
 	{
-		Set<Ability> abilityList = abilityFacet.get(id, aCategory, nature);
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, aCategory, nature));
+		newSet.addAll(grantedAbilityFacet.get(id, aCategory, nature));
+		
+		Set<Ability> abilityList = newSet;
 		for (Ability ab : abilityList)
 		{
 			if (ab.getKeyName().equals(aKey))
@@ -13666,14 +13405,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Ability> aggregateFeatList()
 	{
-		final List<Ability> aggregate = getStableAggregateFeatList();
-
-		// Did we get a valid list? If so, return it.
-		if (aggregate != null)
-		{
-			return aggregate;
-		}
-
 		return rebuildFeatAggreagateList();
 	}
 
@@ -13746,7 +13477,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private List<Ability> rebuildFeatAggreagateList()
 	{
-		List<Ability> aggregate = new ArrayList<Ability>();
 		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
 
 		for (Ability aFeat : getRealAbilitiesList(AbilityCategory.FEAT))
@@ -13758,15 +13488,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		addUniqueAbilitiesToMap(aHashMap, getVirtualFeatList());
-
+		List<Ability> aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
-
 		addUniqueAbilitiesToMap(aHashMap, getAutomaticAbilityList(AbilityCategory.FEAT));
-
+		//TODO Is this a bug?
 		aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
 		return aggregate;
 	}
 
@@ -13907,7 +13634,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
 		catSet.addAll(gm.getAllAbilityCategories());
 		List<Ability> abilityList = new ArrayList<Ability>();
-
 		for (AbilityCategory cat : catSet)
 		{
 			abilityList.addAll(this.getAggregateAbilityListNoDuplicates(cat));
@@ -13918,11 +13644,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Set<Ability> getVirtualAbilityList(final Category<Ability> aCategory)
 	{
-		if (!isFacetValid(aCategory, Nature.VIRTUAL))
-		{
-			rebuildAggregateAbilityList();
-		}
-		return Collections.unmodifiableSet(abilityFacet.get(id, aCategory, Nature.VIRTUAL));
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, aCategory, Nature.VIRTUAL));
+		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.VIRTUAL));
+		return Collections.unmodifiableSet(newSet);
 	}
 
 	/**
@@ -13940,207 +13665,125 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Set<Ability> getAutomaticAbilityList(
 			final Category<Ability> aCategory)
 	{
-		if (!isFacetValid(aCategory, Nature.AUTOMATIC))
-		{
-			rebuildAggregateAbilityList();
-		}
-		return Collections.unmodifiableSet(abilityFacet.get(id, aCategory, Nature.AUTOMATIC));
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, aCategory, Nature.AUTOMATIC));
+		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.AUTOMATIC));
+		return Collections.unmodifiableSet(newSet);
 	}
 
-	/**
-	 * Rebuild the full list of feats. 
-	 * Note: only one version of this should be running per character otherwise 
-	 * the results could be unpredictable. 
-	 */
-	private synchronized void rebuildAggregateAbilityList()
+	private void processFeatListOnAdd(CDOMObject cdo)
 	{
-		rebuildingAbilities = true;
-		getVariableProcessor().pauseCache();
-		rebuildAggregateAbilityListWorker();
-		getVariableProcessor().restartCache();
-		rebuildingAbilities = false;
-	}
-
-	/**
-	 * Do the actual rebuilding of the feats. Split out to allow more 
-	 * readable error handling. 
-	 */
-	private synchronized void rebuildAggregateAbilityListWorker()
-	{
-		GameMode gm = SettingsHandler.getGame();
-		Collection<CDOMReference<AbilityList>> abilityLists =
-				AbilityList.getAbilityLists();
-		for (AbilityCategory cat : gm.getAllAbilityCategories())
+		for (CDOMReference<PCTemplate> tr : cdo
+				.getSafeListFor(ListKey.TEMPLATE))
 		{
-			Set<Nature> validSet = new HashSet<Nature>();
-			abilityFacetValid.put(cat, validSet);
-			for (Nature nature : Nature.values())
-			{
-				if (nature != Nature.ANY)
-				{
-					List<Ability> abilities = new ArrayList<Ability>();
-					if (nature == Nature.NORMAL)
-					{
-						List<Ability> abilityList = realAbilities.getListFor(cat);
-						if (abilityList != null)
-						{
-							abilities.addAll(abilityList);
-						}
-					}
-					else if (nature == Nature.VIRTUAL)
-					{
-						List<Ability> abilityList = virtualAbilities.getListFor(cat);
-						if (abilityList != null)
-						{
-							for (Ability ability : abilityList)
-							{
-								if (ability.qualifies(this, ability))
-								{
-									abilities.add(ability);
-								}
-							}
-						}
-					}
-					abilityFacet.addAll(id, cat, nature, abilities);
-					validSet.add(nature);
-				}
-			}
+			addTemplatesIfMissing(tr.getContainedObjects());
 		}
+		addNaturalWeaponsIfMissing(cdo.getSafeListFor(ListKey.NATURAL_WEAPON));
 
-		int i = 0;
-		boolean doItAgain = true;
-		while (doItAgain && i < 10)
+		for (CDOMReference<Ability> ref : cdo.getSafeListMods(Ability.FEATLIST))
 		{
-			AbilityMonitor monitor = new AbilityMonitor();
-			abilityFacet.addDataFacetChangeListener(monitor);
-			//			Logging.log(Logging.ERROR, "Regen abilities pass #" + i + " prev:"
-			//				+ prevHashCode + " curr:" + theAbilities.size() + " - "
-			//				+ theAbilities /*, new Throwable()*/);
-			i++;
-			List<PCTemplate> templateList = new ArrayList<PCTemplate>();
-			List<Equipment> naturalWeaponsList = new ArrayList<Equipment>();
-			for (CDOMObject cdo : getCDOMObjectList())
+			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(
+					Ability.FEATLIST, ref);
+			for (Ability ab : ref.getContainedObjects())
 			{
-				for (CDOMReference<Ability> ref : cdo
-					.getSafeListMods(Ability.FEATLIST))
+				for (AssociatedPrereqObject apo : assoc)
 				{
-					Collection<AssociatedPrereqObject> assoc =
-							cdo.getListAssociations(Ability.FEATLIST, ref);
-					for (Ability ab : ref.getContainedObjects())
+					List<Prerequisite> prereqList = apo.getPrerequisiteList();
+					if (!PrereqHandler.passesAll(prereqList, this, cdo))
 					{
-						for (AssociatedPrereqObject apo : assoc)
-						{
-							if (!PrereqHandler.passesAll(apo
-								.getPrerequisiteList(), this, cdo))
-							{
-								continue;
-							}
-							List<String> choices =
-									apo
-										.getAssociation(AssociationKey.ASSOC_CHOICES);
-							if (choices == null)
-							{
-								choices = Collections.emptyList();
-							}
-							Nature nature =
-									apo.getAssociation(AssociationKey.NATURE);
-							Ability added = AbilityUtilities
-									.addAbilityToListwithChoices(this, ab,
-											choices, AbilityCategory.FEAT,
-											nature);
-							if (added != null)
-							{
-								this.setAbilityNature(added, nature);
-								for (CDOMReference<PCTemplate> tr : added
-									.getSafeListFor(ListKey.TEMPLATE))
-								{
-									templateList.addAll(tr
-										.getContainedObjects());
-								}
-								naturalWeaponsList.addAll(added
-									.getSafeListFor(ListKey.NATURAL_WEAPON));
-							}
-						}
+						deniedFacet.add(id, new ConditionalAbility(ab, apo, cdo));
+						continue;
 					}
-					// May have added templates, so scan for them
-					addTemplatesIfMissing(templateList);
-					addNaturalWeaponsIfMissing(naturalWeaponsList);
-				}
-				for (CDOMReference<AbilityList> list : abilityLists)
-				{
-					for (CDOMReference<Ability> ref : cdo.getSafeListMods(list))
+					if (!prereqList.isEmpty())
 					{
-						Collection<AssociatedPrereqObject> assoc =
-								cdo.getListAssociations(list, ref);
-						for (AssociatedPrereqObject apo : assoc)
+						conditionalFacet.add(id,
+								new ConditionalAbility(ab, apo, cdo));
+					}
+					Category<Ability> cat = AbilityCategory.FEAT;
+					Nature nature = apo.getAssociation(AssociationKey.NATURE);
+					grantedAbilityFacet.add(id, cat, nature, ab, cdo);
+
+					List<String> choices = apo
+							.getAssociation(AssociationKey.ASSOC_CHOICES);
+					if (choices != null)
+					{
+						for ( final String choice : choices )
 						{
-							if (!PrereqHandler.passesAll(apo
-								.getPrerequisiteList(), this, cdo))
+							if (AbilityUtilities.canAddAssociation(this, ab, choice))
 							{
-								continue;
+								addAssociation(ab, choice);
 							}
-							Nature nature =
-									apo.getAssociation(AssociationKey.NATURE);
-							Category<Ability> cat =
-									apo.getAssociation(AssociationKey.CATEGORY);
-							List<String> choices =
-									apo
-										.getAssociation(AssociationKey.ASSOC_CHOICES);
-							if (choices == null)
-							{
-								choices = Collections.emptyList();
-							}
-							for (Ability ab : ref.getContainedObjects())
-							{
-								Ability added =
-										AbilityUtilities
-											.addAbilityToListwithChoices(this,
-												ab, choices, cat, nature);
-								if (added != null)
-								{
-									this.setAbilityNature(added, nature);
-									for (CDOMReference<PCTemplate> tr : added
-										.getSafeListFor(ListKey.TEMPLATE))
-									{
-										templateList.addAll(tr
-											.getContainedObjects());
-									}
-									naturalWeaponsList
-										.addAll(added
-											.getSafeListFor(ListKey.NATURAL_WEAPON));
-								}
-							}
-							// May have added templates, so scan for them
-							addTemplatesIfMissing(templateList);
-							addNaturalWeaponsIfMissing(naturalWeaponsList);
 						}
 					}
 				}
 			}
-			addNonAbilityAutoFeats();
-			/*
-			 * TODO Is this dependent on some side effects?!?
-			 */
-			List<PObject> pobjectList = new ArrayList<PObject>();
-			pobjectList.addAll(getConditionalTemplateObjects());
-			pobjectList.addAll(getPObjectList());
-			// Feats have a second list which we need to populate
-			stableAggregateFeatList = new ArrayList<Ability>();
-			stableAggregateFeatList.addAll(abilityFacet.get(id,
-					AbilityCategory.FEAT, Nature.NORMAL));
-			stableAggregateFeatList.addAll(abilityFacet.get(id,
-					AbilityCategory.FEAT, Nature.AUTOMATIC));
-			stableAggregateFeatList.addAll(abilityFacet.get(id,
-					AbilityCategory.FEAT, Nature.VIRTUAL));
-
-			abilityFacet.removeDataFacetChangeListener(monitor);
-			doItAgain = monitor.wasChanged();
 		}
-		cachedWeaponProfs = null;
-		rebuildFeatAggreagateList();
+		for (CDOMReference ref : cdo.getModifiedLists())
+		{
+			processModifiedListOnAdd(cdo, ref);
+		}
 	}
 
-	private void addTemplatesIfMissing(List<PCTemplate> templateList)
+	private <A extends PrereqObject> void processModifiedListOnAdd(CDOMObject cdo,
+			CDOMReference<? extends CDOMList<A>> ref)
+	{
+		for (CDOMList<A> list : ref.getContainedObjects())
+		{
+			if (list instanceof AbilityList)
+			{
+				CDOMReference r = ref;
+				processAbilityList(cdo, r);
+				break; // Only do once
+			}
+		}
+	}
+
+	private void processAbilityList(CDOMObject cdo,
+			CDOMReference<AbilityList> ref)
+	{
+		Collection<CDOMReference<Ability>> mods = cdo.getListMods(ref);
+		for (CDOMReference<Ability> objref : mods)
+		{
+			Collection<Ability> objs = objref.getContainedObjects();
+			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(
+					ref, objref);
+			for (Ability ab : objs)
+			{
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					List<Prerequisite> prereqList = apo.getPrerequisiteList();
+					if (!PrereqHandler.passesAll(prereqList, this, cdo))
+					{
+						deniedFacet.add(id, new ConditionalAbility(ab, apo, cdo));
+						continue;
+					}
+					if (!prereqList.isEmpty())
+					{
+						conditionalFacet.add(id, new ConditionalAbility(ab, apo, cdo));
+					}
+					Nature nature = apo.getAssociation(AssociationKey.NATURE);
+					Category<Ability> cat = apo
+							.getAssociation(AssociationKey.CATEGORY);
+					grantedAbilityFacet.add(id, cat, nature, ab, cdo);
+					List<String> choices = apo
+							.getAssociation(AssociationKey.ASSOC_CHOICES);
+					if (choices != null)
+					{
+						for (final String choice : choices)
+						{
+							if (AbilityUtilities.canAddAssociation(this, ab,
+									choice))
+							{
+								addAssociation(ab, choice);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private void addTemplatesIfMissing(Collection<PCTemplate> templateList)
 	{
 		for (PCTemplate pct : templateList)
 		{
@@ -14151,7 +13794,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private void addNaturalWeaponsIfMissing(List<Equipment> naturalWeaponsList)
 	{
 		for (Iterator<Equipment> iterator = naturalWeaponsList.iterator(); iterator
-			.hasNext();)
+				.hasNext();)
 		{
 			Equipment wpn = iterator.next();
 			if (equipmentFacet.contains(id, wpn))
@@ -14160,172 +13803,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		addNaturalWeapons(naturalWeaponsList);
-	}
-
-	private List<Ability> getStableAggregateFeatList()
-	{
-		if (isAggregateFeatsStable())
-		{
-			return stableAggregateFeatList;
-		}
-		return null;
-	}
-
-	/**
-	 * Add any automatic feats not stored as abilities to the 
-	 * supplied list.
-	 * 
-	 * @param abilities The Ability list to be populated.
-	 */
-	private void addNonAbilityAutoFeats()
-	{
-		//
-		// add racial feats
-		//
-		if (getRace() != null)
-		{
-			List<String> profKeys =
-					getAssocList(getRace(),
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-			if (profKeys != null)
-			{
-				addAutoProfsToList(profKeys);
-			}
-		}
-
-		for (final PCClass aClass : getClassSet())
-		{
-			List<String> profKeys =
-					getAssocList(aClass,
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-			if (profKeys != null)
-			{
-				addAutoProfsToList(profKeys);
-			}
-		}
-
-		if (hasTemplates())
-		{
-			for (final PCTemplate aTemplate : getTemplateSet())
-			{
-				final List<String> templateFeats =
-						feats(aTemplate, getTotalLevels(), totalHitDice(),
-							false);
-
-				if (!templateFeats.isEmpty())
-				{
-					for (Iterator<String> e2 = templateFeats.iterator(); e2
-						.hasNext();)
-					{
-						final String aString = e2.next();
-						final StringTokenizer aTok =
-								new StringTokenizer(aString, Constants.COMMA);
-
-						while (aTok.hasMoreTokens())
-						{
-							Ability added =
-									AbilityUtilities
-										.addCloneOfGlobalAbilityToListWithChoices(
-											this, AbilityCategory.FEAT, Nature.AUTOMATIC, aTok
-												.nextToken());
-							if (added != null)
-							{
-								this.setAbilityNature(added, Nature.AUTOMATIC);
-							}
-						}
-					}
-				}
-				List<String> profKeys =
-						getAssocList(aTemplate,
-							AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-				if (profKeys != null)
-				{
-					addAutoProfsToList(profKeys);
-				}
-			}
-		}
-
-		for (Domain d : domainFacet.getSet(id))
-		{
-			for (String aString : getAssociationList(d))
-			{
-				if (aString.startsWith("FEAT"))
-				{
-					final int idx = aString.indexOf('?');
-
-					if (idx > -1)
-					{
-						Ability added =
-								AbilityUtilities
-									.addCloneOfGlobalAbilityToListWithChoices(
-										this, AbilityCategory.FEAT, Nature.AUTOMATIC,
-										aString.substring(idx + 1));
-						if (added != null)
-						{
-							this.setAbilityNature(added, Nature.AUTOMATIC);
-						}
-					}
-					else
-					{
-						Logging
-							.errorPrint("no '?' in Domain assocatedList entry: "
-								+ aString);
-					}
-				}
-			}
-
-			for (CDOMReference<Ability> ref : d
-				.getSafeListMods(Ability.FEATLIST))
-			{
-				Collection<AssociatedPrereqObject> assoc =
-						d.getListAssociations(Ability.FEATLIST,
-							ref);
-				for (Ability ab : ref.getContainedObjects())
-				{
-					for (AssociatedPrereqObject apo : assoc)
-					{
-						List<String> choices =
-								apo
-									.getAssociation(AssociationKey.ASSOC_CHOICES);
-						if (choices == null)
-						{
-							choices = Collections.emptyList();
-						}
-						Ability added =
-								AbilityUtilities
-									.addAbilityToListwithChoices(this,
-										ab, choices, AbilityCategory.FEAT, Nature.AUTOMATIC);
-						if (added != null)
-						{
-							this.setAbilityNature(added, Nature.AUTOMATIC);
-						}
-					}
-				}
-			}
-
-			List<String> profKeys =
-					getAssocList(d,
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-			if (profKeys != null)
-			{
-				addAutoProfsToList(profKeys);
-			}
-		}
-	}
-
-	/**
-	 * Add the listed automatic weapon proficiencies to the list of abilities.
-	 * 
-	 * @param autoProfList
-	 *            The list of weapon profs to be added.
-	 */
-	private void addAutoProfsToList(List<String> autoProfList)
-	{
-		for (Iterator<String> iter = autoProfList.iterator(); iter.hasNext();)
-		{
-			String prof = iter.next();
-			addAutoWeaponProfToList(prof);
-		}
 	}
 
 	/**
@@ -15652,7 +15129,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
-		List<Ability> list = virtualAbilities.getListFor(cat);
+		Collection<Ability> list = abFacet.get(id, cat, Nature.VIRTUAL);
 		if (list != null)
 		{
 			for (Ability ability : list)
@@ -15668,48 +15145,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
 	{
-		virtualAbilities.addToListFor(cat, newAbility);
+		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
 	}
 
 	public Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
-		return abilityFacet.get(id, cat, nature);
+		Set<Ability> newSet = new HashSet<Ability>();
+		newSet.addAll(abFacet.get(id, cat, nature));
+		newSet.addAll(grantedAbilityFacet.get(id, cat, nature));
+		return newSet;
 	}
-
-	public void addAbility(Category<Ability> cat, Nature nature, Ability abil)
-	{
-		abilityFacet.add(id, cat, nature, abil);
-	}
-
-	private static class AbilityMonitor implements DataFacetChangeListener<Ability>
-	{
-
-		boolean changed = false;
 		
-		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
-		{
-			changed = true;
-		}
-
-		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
-		{
-			changed = true;
-		}
-		
-		public boolean wasChanged()
-		{
-			return changed;
-		}
-	}
-
 	public Nature getAbilityNature(Ability ability)
 	{
-		return getAssoc(ability, AssociationKey.NATURE);
-	}
-
-	public void setAbilityNature(Ability ability, Nature nature)
-	{
-		setAssoc(ability, AssociationKey.NATURE, nature);
+		Nature n = abFacet.getNature(id, ability.getCDOMCategory(), ability);
+		Nature n2 = grantedAbilityFacet.getNature(id, ability.getCDOMCategory(), ability);
+		return Nature.getBestNature(n, n2);
 	}
 
 	public boolean containsKit(Kit kit)
@@ -15741,4 +15192,85 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return subTypesFacet.getCount(id);
 	}
+
+	public void processAddition(CDOMObject cdo)
+	{
+		processFeatListOnAdd(cdo);
+	}
+
+	public void processRemoval(CDOMObject cdo)
+	{
+		processAbilityRemovalOnRemove(cdo);
+	}
+
+	private void processAbilityRemovalOnRemove(CDOMObject cdo)
+	{
+		deniedFacet.removeAll(id, cdo);
+		conditionalFacet.removeAll(id, cdo);
+		grantedAbilityFacet.removeAll(id, cdo);
+	}
+
+	private void resolveDeniedAbilities()
+	{
+		for (ConditionalAbility denied : new ArrayList<ConditionalAbility>(
+				deniedFacet.getSet(id)))
+		{
+			AssociatedPrereqObject apo = denied.getAPO();
+			CDOMObject cdo = denied.getParent();
+			if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
+			{
+				continue;
+			}
+			Nature nature = apo.getAssociation(AssociationKey.NATURE);
+			Category<Ability> cat = apo.getAssociation(AssociationKey.CATEGORY);
+			Ability ab = denied.getAbility();
+			deniedFacet.remove(id, denied);
+			conditionalFacet.add(id, denied);
+			List<String> choices = apo
+					.getAssociation(AssociationKey.ASSOC_CHOICES);
+			if (choices != null)
+			{
+				for (final String choice : choices)
+				{
+					if (AbilityUtilities.canAddAssociation(this, ab, choice))
+					{
+						addAssociation(ab, choice);
+					}
+				}
+			}
+			// Add is harmless (won't do dupes)
+			grantedAbilityFacet.add(id, cat, nature, ab, cdo);
+		}
+
+		for (ConditionalAbility denied : new ArrayList<ConditionalAbility>(
+				conditionalFacet.getSet(id)))
+		{
+			AssociatedPrereqObject apo = denied.getAPO();
+			CDOMObject cdo = denied.getParent();
+			if (PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
+			{
+				continue;
+			}
+			Nature nature = apo.getAssociation(AssociationKey.NATURE);
+			Category<Ability> cat = apo.getAssociation(AssociationKey.CATEGORY);
+			Ability ab = denied.getAbility();
+			conditionalFacet.remove(id, denied);
+			deniedFacet.add(id, denied);
+			List<String> choices = apo
+					.getAssociation(AssociationKey.ASSOC_CHOICES);
+			if (choices != null)
+			{
+				for (final String choice : choices)
+				{
+					removeAssociation(ab, choice);
+				}
+			}
+			//Only remove if no assocs left
+			if (!hasAssociations(ab))
+			{
+				grantedAbilityFacet.remove(id, cat, nature, ab);
+			}
+		}
+	}
+
 }

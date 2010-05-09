@@ -486,9 +486,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			}
 		}
 
-		// make sure the list is built
-		aPC.setAggregateAbilitiesStable(null, false);
-//		aPC.getWeaponProfList();
+		aPC.clearWeaponProfCache();
 	}
 
 	public Collection<WeaponProf> getAllObjects()

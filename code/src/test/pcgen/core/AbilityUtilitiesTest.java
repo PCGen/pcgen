@@ -26,11 +26,8 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.Nature;
-import pcgen.util.TestHelper;
 
 /**
  * @author andrew
@@ -73,44 +70,5 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 			"First extracted decoration is correct");
 		is(specifics.get(1), strEq("baz"),
 			"Second extracted decoration is correct");
-	}
-
-	/**
-	 * Verify adding abilities both from a parent and a child category.  
-	 */
-	public void testAddCloneOfGlobalAbilityToListWithChoicesNonFeatChild()
-	{
-		// Create non feat parent cat
-		AbilityCategory parent = new AbilityCategory("TestParent");
-		SettingsHandler.getGame().addLstAbilityCategory(parent);
-		
-		// Create child cat
-		AbilityCategory child = new AbilityCategory("TestChild");
-		child.setAbilityCategory("TestParent");
-		List<String> typeList = new ArrayList<String>();
-		typeList.add("Australian");
-		child.setAbilityTypes(typeList);
-		SettingsHandler.getGame().addLstAbilityCategory(child);
-		
-		PlayerCharacter character = getCharacter();
-		
-		// Create ability in parent with child's type
-		Ability ability = TestHelper.makeAbility("TestAbility", "TestParent", "Australian");
-
-		// Call addCloneOfGlobalAbilityToListWithChoices with parent and expect to see it in list
-		assertNotNull("Add in parent cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, parent, Nature.VIRTUAL, "KEY_TestAbility"));
-		Set<Ability> testList = character.getAbilityList(parent, Nature.VIRTUAL);
-		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		Ability first = testList.iterator().next();
-		assertEquals("Key of added ability", "KEY_TestAbility", first.getKeyName());
-		assertNotSame("Should be a clone, not the same object", ability, first);
-		
-		// Call addCloneOfGlobalAbilityToListWithChoices with child and expect to see it in list
-		assertNotNull("Add in child cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, child, Nature.VIRTUAL, "KEY_TestAbility"));
-		testList = character.getAbilityList(parent, Nature.VIRTUAL);
-		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		first = testList.iterator().next();
-		assertEquals("Key of added ability", "KEY_TestAbility", first.getKeyName());
-		assertNotSame("Should be a clone, not the same object", ability, first);
 	}
 }

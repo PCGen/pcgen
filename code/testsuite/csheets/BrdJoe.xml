@@ -1029,16 +1029,6 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Martial Weapon Proficiency (Shortbow (Composite))</name>
-			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL</type>
-			<associated>Shortbow (Composite)</associated>
-			<count>1</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
 			<type>GENERAL</type>

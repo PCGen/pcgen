@@ -28,5 +28,24 @@ public enum Nature {
 	/** Ability is Virtual */
 	VIRTUAL,
 	/** Ability of any type */
-	ANY
+	ANY;
+
+	public static Nature getBestNature(Nature n1, Nature n2)
+	{
+		if (n1 == null)
+		{
+			return n2;
+		}
+		//n1 has a valid value
+		if (n2 == null || n2 == AUTOMATIC)
+		{
+			return n1;
+		}
+		//n2 is VIRTUAL or NORMAL, can use VIRTUAL unless n1 == NORMAL
+		if (n1 == NORMAL)
+		{
+			return n1;
+		}
+		return n2;
+	}
 }

@@ -1575,7 +1575,6 @@ public class PCClass extends PObject
 			{
 				aPC.setSkillPoints(0);
 				aPC.removeAllSkills();
-				aPC.clearRealAbilities(null);
 				aPC.setDirty(true);
 			}
 			else

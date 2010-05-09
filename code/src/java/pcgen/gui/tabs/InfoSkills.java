@@ -2196,10 +2196,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		pc.setAggregateAbilitiesStable(null, false);
-		//		pc.setAggregateFeatsStable(false);
-		//		pc.setAutomaticFeatsStable(false);
-		//		pc.setVirtualFeatsStable(false);
+		pc.clearWeaponProfCache();
 
 		updateClassSelection();
 
@@ -2241,12 +2238,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		updateAvailableModel();
 		updateSelectedModel();
 
-		//Calculate the aggregate feat list
-		pc.setAggregateAbilitiesStable(null, false);
-		//		pc.aggregateFeatList();
-		//		pc.setAggregateFeatsStable(true);
-		//		pc.setAutomaticFeatsStable(true);
-		//		pc.setVirtualFeatsStable(true);
+		pc.clearWeaponProfCache();
 
 		needsUpdate = false;
 	}

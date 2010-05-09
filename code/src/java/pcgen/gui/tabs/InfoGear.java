@@ -99,7 +99,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -2796,13 +2795,6 @@ public final class InfoGear extends FilterAdapterPanel implements
 	private void updateEqInfo(Equipment selectedEquipment)
 	{
 		updateTotalValue();
-
-		if (selectedEquipment.hasVFeats())
-		{
-			// Virtual feat list might change so need
-			// to update the list as well as the feat tab
-			pc.setVirtualAbilitiesStable(AbilityCategory.FEAT, false);
-		}
 	}
 
 	/**
