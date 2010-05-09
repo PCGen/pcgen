@@ -577,9 +577,10 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 						{
 							if (sourceSet.isEmpty())
 							{
-								fireDataFacetChangeEvent(id, aEntry.getKey(),
-										DataFacetChangeEvent.DATA_REMOVED);
+								Ability ab = aEntry.getKey();
 								aIter.remove();
+								fireDataFacetChangeEvent(id, ab,
+										DataFacetChangeEvent.DATA_REMOVED);
 							}
 						}
 					}
