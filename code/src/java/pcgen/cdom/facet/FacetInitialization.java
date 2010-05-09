@@ -84,8 +84,8 @@ public class FacetInitialization
 		ActiveAbilityFacet abFacet = FacetLibrary
 				.getFacet(ActiveAbilityFacet.class);
 
-		CDOMObjectFacet cdomObjectFacet = FacetLibrary
-				.getFacet(CDOMObjectFacet.class);
+		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
+				.getFacet(CDOMObjectConsolidationFacet.class);
 		ObjectAdditionFacet additionFacet = FacetLibrary
 				.getFacet(ObjectAdditionFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary

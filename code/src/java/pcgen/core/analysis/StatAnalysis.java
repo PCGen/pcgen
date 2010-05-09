@@ -137,13 +137,17 @@ public class StatAnalysis
 	 */
 	public static int getPartialStatFor(PlayerCharacter aPC, PCStat stat, boolean useTemp, boolean useEquip)
 	{
-		int y = getBaseStatFor(aPC, stat);
-
-		Number val = aPC.getLockedStat(stat);
-		if (val != null)
+		// Only check for a lock if the stat hasn't been unlocked
+		if (!aPC.hasUnlockedStat(stat))
 		{
-			return val.intValue();
+			Number val = aPC.getLockedStat(stat);
+			if (val != null)
+			{
+				return val.intValue();
+			}
 		}
+
+		int y = getBaseStatFor(aPC, stat);
 
 		y += aPC.getPartialStatBonusFor(stat, useTemp, useEquip);
 

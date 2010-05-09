@@ -145,7 +145,6 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
-import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
@@ -14316,42 +14315,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasUnlockedStat(PCStat stat)
 	{
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			if (cdo.containsInList(ListKey.UNLOCKED_STATS, stat))
-			{
-				return true;
-			}
-		}
-		return false;
+		return statFacet.hasUnlockedStat(id, stat);
 	}
 
 	public Number getLockedStat(PCStat stat)
 	{
-		Number max = Double.NEGATIVE_INFINITY;
-		boolean hit = false;
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			List<StatLock> lockList = cdo.getListFor(ListKey.STAT_LOCKS);
-			if (lockList != null)
-			{
-				for (StatLock lock : lockList)
-				{
-					if (lock.getLockedStat().equals(stat))
-					{
-						Number val =
-								lock.getLockValue().resolve(this,
-									cdo.getKeyName());
-						if (val.doubleValue() > max.doubleValue())
-						{
-							hit = true;
-							max = val;
-						}
-					}
-				}
-			}
-		}
-		return hit ? max : null;
+		return statFacet.getLockedStat(id, stat);
 	}
 
 	public PCClass getSelectedFavoredClass()

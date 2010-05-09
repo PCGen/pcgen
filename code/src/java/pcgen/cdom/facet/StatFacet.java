@@ -17,6 +17,9 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
@@ -33,10 +36,14 @@ public class StatFacet extends AbstractListFacet<PCStat>
 	private TemplateFacet templateFacet = FacetLibrary
 			.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private FormulaResolvingFacet resolveFacet = FacetLibrary
+			.getFacet(FormulaResolvingFacet.class);
+	private CDOMObjectSourceFacet cdomFacet = FacetLibrary
+			.getFacet(CDOMObjectSourceFacet.class);
 
 	public boolean isNonAbility(CharID id, PCStat stat)
 	{
-		return !isUnlocked(id, stat) && isNonAbilityPrivate(id, stat);
+		return !hasUnlockedStat(id, stat) && isNonAbilityPrivate(id, stat);
 	}
 
 	private boolean isNonAbilityPrivate(CharID id, PCStat stat)
@@ -49,22 +56,6 @@ public class StatFacet extends AbstractListFacet<PCStat>
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if (isNonAbilityForObject(stat, template))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean isUnlocked(CharID id, PCStat stat)
-	{
-		if (isUnlockedForObject(stat, raceFacet.get(id)))
-		{
-			return true;
-		}
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (isUnlockedForObject(stat, template))
 			{
 				return true;
 			}
@@ -89,7 +80,7 @@ public class StatFacet extends AbstractListFacet<PCStat>
 	public static boolean isNonAbilityForObject(PCStat stat, PObject po)
 	{
 		// An unlock will always override a lock, so check it first
-		if (isUnlockedForObject(stat, po))
+		if (po == null || po.containsInList(ListKey.UNLOCKED_STATS, stat))
 		{
 			return false;
 		}
@@ -108,17 +99,43 @@ public class StatFacet extends AbstractListFacet<PCStat>
 		return false;
 	}
 
-	/**
-	 * Test if that stat has been unlocked via a DEFINE|UNLOCK
-	 * 
-	 * @param stat
-	 *            the stat in question
-	 * 
-	 * @return Whether this has been unlocked
-	 */
-	public static boolean isUnlockedForObject(PCStat stat, PObject po)
+	public Number getLockedStat(CharID id, PCStat stat)
 	{
-		return po.containsInList(ListKey.UNLOCKED_STATS, stat);
+		Number max = Double.NEGATIVE_INFINITY;
+		boolean hit = false;
+		for (CDOMObject cdo : cdomFacet.getSet(id))
+		{
+			List<StatLock> lockList = cdo.getListFor(ListKey.STAT_LOCKS);
+			if (lockList != null)
+			{
+				for (StatLock lock : lockList)
+				{
+					if (lock.getLockedStat().equals(stat))
+					{
+						Number val = resolveFacet.resolve(id, lock
+								.getLockValue(), cdo.getKeyName());
+						if (val.doubleValue() > max.doubleValue())
+						{
+							hit = true;
+							max = val;
+						}
+					}
+				}
+			}
+		}
+		return hit ? max : null;
+	}
+
+	public boolean hasUnlockedStat(CharID id, PCStat stat)
+	{
+		for (CDOMObject cdo : cdomFacet.getSet(id))
+		{
+			if (cdo.containsInList(ListKey.UNLOCKED_STATS, stat))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
