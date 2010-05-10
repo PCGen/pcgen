@@ -440,8 +440,6 @@ public class ChooserUtilities
 		classLookup.put("FEATLIST",             FeatListChoiceManager.class.getName());
 		classLookup.put("FEATSELECT",           FeatSelectChoiceManager.class.getName());
 		classLookup.put("HP",                   HPChoiceManager.class.getName());
-		classLookup.put("RACE",                 RaceChoiceManager.class.getName());
-		classLookup.put("SALIST",               SAListChoiceManager.class.getName());
 		classLookup.put("SCHOOLS",              SchoolsChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
 		classLookup.put("STRING",               MiscChoiceManager.class.getName());

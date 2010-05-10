@@ -17,88 +17,60 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.StringTokenizer;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.core.Globals;
+import pcgen.core.Race;
+import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 
-public class RaceToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class RaceToken extends AbstractQualifiedChooseToken<Race>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "RACE";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
-	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (value.charAt(0) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
-		}
-		if (value.charAt(value.length() - 1) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
-		}
-		if (value.indexOf("||") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
-		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
-		{
-			String tokString = st.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
-			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
-				cpr.addErrorMessage("  entire token was: " + value);
-				return cpr;
-			}
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
-	}
-
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
-	}
-
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	protected Class<Race> getChooseClass()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String getDefaultTitle()
+	{
+		return "Race choice";
+	}
+
+	@Override
+	protected AssociationListKey<Race> getListKey()
+	{
+		return AssociationListKey.CHOOSE_RACE;
+	}
+
+	public Race decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Race.class, s);
+	}
+
+	public String encodeChoice(Race choice)
+	{
+		return choice.getKeyName();
 	}
 }

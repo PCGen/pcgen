@@ -46,6 +46,7 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
@@ -148,6 +149,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Skill> CHOOSE_SKILL = new AssociationListKey<Skill>();
 
 	public static final AssociationListKey<Domain> CHOOSE_DOMAIN = new AssociationListKey<Domain>();
+
+	public static final AssociationListKey<Race> CHOOSE_RACE = new AssociationListKey<Race>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

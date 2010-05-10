@@ -6314,7 +6314,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
+	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins, jar-primitive-race-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
 	<target name="jar-primitive-deity-plugins" depends="makeplugindirs" description="Build (Link) Deity Primitive Token plugin jar files">
@@ -6357,6 +6357,24 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
+	<target name="jar-primitive-race-plugins" depends="makeplugindirs" description="Build (Link) Race Primitive Token plugin jar files">
+		<!-- Race Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/RacePrimitive-RACETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/race/RaceTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RacePrimitive-RACESUBTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/race/RaceSubTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+	
 	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-shieldprof-plugins,jar-qualifier-skill-plugins,jar-qualifier-weaponprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
 	</target>
 
@@ -6491,6 +6509,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/qualifier/domain/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierRace-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/race/PCToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
