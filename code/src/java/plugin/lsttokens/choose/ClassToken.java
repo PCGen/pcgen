@@ -17,98 +17,54 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.StringTokenizer;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
-import pcgen.rules.persistence.token.ParseResult;
-
-public class ClassToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CLASS";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+
+	@Override
+	protected Class<PCClass> getChooseClass()
 	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (value.indexOf('|') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain | : " + value);
-		}
-		if (value.indexOf('[') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-		}
-		if (value.charAt(0) == ',')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with , : " + value);
-		}
-		if (value.charAt(value.length() - 1) == ',')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with , : " + value);
-		}
-		if (value.indexOf(",,") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator ,, : " + value);
-		}
-		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
-		while (st.hasMoreTokens())
-		{
-			String tokString = st.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
-			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
-				cpr.addErrorMessage("  entire token was: " + value);
-				return cpr;
-			}
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		return PCCLASS_CLASS;
 	}
 
-	public String[] unparse(LoadContext context, CDOMObject cdo)
+	@Override
+	protected String getDefaultTitle()
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return "PCClass choice";
 	}
 
-	public Class<CDOMObject> getTokenClass()
+	public PCClass decodeChoice(String s)
 	{
-		return CDOMObject.class;
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCCLASS_CLASS, s);
+	}
+
+	public String encodeChoice(PCClass choice)
+	{
+		return choice.getKeyName();
+	}
+
+	@Override
+	protected AssociationListKey<PCClass> getListKey()
+	{
+		return AssociationListKey.CHOOSE_CLASS;
 	}
 }

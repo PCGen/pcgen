@@ -434,7 +434,6 @@ public class ChooserUtilities
 		classLookup = new HashMap<String, String>();
 		classLookup.put("ABILITY",              AbilityChoiceManager.class.getName());
 		classLookup.put("ARMORTYPE",            ArmorTypeChoiceManager.class.getName());
-		classLookup.put("CLASS",                ClassChoiceManager.class.getName());
 		classLookup.put("FEATADD",              FeatAddChoiceManager.class.getName());
 		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());
 		classLookup.put("FEATLIST",             FeatListChoiceManager.class.getName());

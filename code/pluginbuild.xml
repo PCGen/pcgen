@@ -6519,6 +6519,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierClass-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/pcclass/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 	
 	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
