@@ -15,7 +15,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
+
+import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
@@ -23,8 +25,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -38,7 +42,7 @@ public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject> impl
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
@@ -70,23 +74,32 @@ public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject> impl
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 		}
+		StringTokenizer st = new StringTokenizer(value, "|,");
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		boolean needPipe = false;
+		while (st.hasMoreTokens())
+		{
+			if (needPipe)
+			{
+				sb.append('|');
+			}
+			needPipe = true;
+			String tok = st.nextToken();
+			if ("LIST".equals(tok))
+			{
+				tok = "CROSSCLASS";
+			}
+			sb.append(tok);
+		}
+		Logging
+				.deprecationPrint("CHOOSE:NONCLASSSKILLLIST has been deprecated,"
+						+ "please use CHOOSE:SKILL");
+		return context.processSubToken(obj, "CHOOSE", "SKILL", sb.toString());
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()

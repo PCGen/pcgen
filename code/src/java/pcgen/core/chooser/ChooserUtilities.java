@@ -461,16 +461,6 @@ public class ChooserUtilities
 		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
 		classLookup.put("NOCHOICE",             NoChoiceChoiceManager.class.getName());
-
-		// The following three choosers can be deprecated in favor of CHOOSE:SKILLSNAMED|CLASS
-		// and CHOOSE:SKILLSNAMED|CROSSCLASS. Also the first two can never have worked because 
-		// an L is missing here. It doesn't work with the L added either, though. So I propose
-		// that these choosers be deprecated and removed. Out data uses only the first one anyway,
-		// for Epic Spell Fous in RSRD, and that doesn't work.
-		//
-		// -- Zaister, 2007/02/23
-		//
-		classLookup.put("NONCLASSSKILLLIST",    SkillListNonClassChoiceManager.class.getName());
 		
 		mapconstructed = true;
 	}
