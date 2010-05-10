@@ -3010,13 +3010,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/ChooseToken-SPELLCLASSES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/choose/SpellClassesToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/ChooseToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6370,7 +6363,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-domain-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
+	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
 	<target name="jar-primitive-deity-plugins" depends="makeplugindirs" description="Build (Link) Deity Primitive Token plugin jar files">
@@ -6397,6 +6390,17 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/primitive/domain/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="jar-primitive-pcclass-plugins" depends="makeplugindirs" description="Build (Link) PCClass Primitive Token plugin jar files">
+		<!-- Class Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/ClassPrimitive-SPELLCASTER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/pcclass/SpellcasterToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6602,6 +6606,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/StatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ChooseToken-DEPRECATED-SPELLCLASSES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/SpellClassesToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
