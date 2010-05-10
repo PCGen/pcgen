@@ -210,7 +210,7 @@ public abstract class LoadContext
 			
 
 	public <T> ParseResult processSubToken(T cdo, String tokenName,
-			String key, String value) throws PersistenceLayerException
+			String key, String value)
 	{
 		return support.processSubToken(this, cdo, tokenName, key, value);
 	}

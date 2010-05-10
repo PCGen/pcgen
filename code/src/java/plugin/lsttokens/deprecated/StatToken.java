@@ -15,9 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -26,11 +28,12 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class StatToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -44,13 +47,12 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSe
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
 			// No args - use all stats - legal
-			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
-			return ParseResult.SUCCESS;
+			return context.processSubToken(obj, "CHOOSE", "PCSTAT", "ALL");
 		}
 		if (value.indexOf('[') != -1)
 		{
@@ -72,50 +74,44 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSe
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 		}
-		Collection<PCStat> list = context.ref.getConstructedCDOMObjects(PCStat.class);
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		ComplexParseResult cpr = new ComplexParseResult();
-		TOKENS: while (tok.hasMoreTokens())
+		Collection<PCStat> list = context.ref
+				.getConstructedCDOMObjects(PCStat.class);
+		List<PCStat> subList = new ArrayList<PCStat>(list);
+		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			for (PCStat stat : list)
+			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
+					tokText);
+			if (stat == null)
 			{
-				if (tokText.equals(stat.getAbb()))
-				{
-					continue TOKENS;
-				}
+				Logging.deprecationPrint("Did not find STAT: " + tokText
+						+ " used in CHOOSE: " + value);
+				continue;
 			}
-			cpr.addWarningMessage("Did not find STAT: " + tokText
-					+ " used in CHOOSE: " + value);
+			subList.remove(stat);
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return cpr;
+		StringBuilder all = new StringBuilder();
+		boolean needPipe = false;
+		for (PCStat pcs : subList)
+		{
+			if (needPipe)
+			{
+				all.append('|');
+			}
+			all.append(pcs.getAbb());
+		}
+		Logging.deprecationPrint("CHOOSE:STAT has been deprecated,"
+				+ "please use CHOOSE:PCSTAT");
+		return context.processSubToken(obj, "CHOOSE", "PCSTAT", all.toString());
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null)
-		{
-			return null;
-		}
-		String returnString;
-		if (getTokenName().equals(chooseString))
-		{
-			returnString = "";
-		}
-		else
-		{
-			if (chooseString.indexOf(getTokenName() + '|') != 0)
-			{
-				return null;
-			}
-			returnString = chooseString.substring(getTokenName().length() + 1);
-		}
-		return new String[] { returnString };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()

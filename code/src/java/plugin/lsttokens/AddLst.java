@@ -23,7 +23,6 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -116,15 +115,8 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 			return ParseResult.SUCCESS;
 		}
 
-		try
-		{
-			return context.processSubToken(obj, getTokenName(), value.substring(0,
-					pipeLoc), value.substring(pipeLoc + 1));
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
-		}
+		return context.processSubToken(obj, getTokenName(), value.substring(0,
+				pipeLoc), value.substring(pipeLoc + 1));
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

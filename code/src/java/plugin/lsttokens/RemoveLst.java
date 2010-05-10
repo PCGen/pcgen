@@ -19,7 +19,6 @@ package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -50,14 +49,7 @@ public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
 					+ " requires a SubToken");
 		}
 		String key = value.substring(0, pipeLoc);
-		try
-		{
-			return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
-		}
+		return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

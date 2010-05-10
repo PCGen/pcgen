@@ -109,7 +109,6 @@ public class TokenSupport
 
 	public <T> ParseResult processSubToken(LoadContext context, T cdo,
 		String tokenName, String key, String value)
-		throws PersistenceLayerException
 	{
 		ComplexParseResult cpr = new ComplexParseResult();
 		List<? extends CDOMToken<T>> tokenList = getTokens((Class<T>) cdo.getClass(), tokenName, key);

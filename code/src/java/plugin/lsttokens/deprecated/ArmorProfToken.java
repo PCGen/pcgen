@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
@@ -44,15 +43,8 @@ public class ArmorProfToken extends ErrorParsingWrapper<CDOMObject> implements
 	{
 		Logging.deprecationPrint("CHOOSE:ARMORPROF has been deprecated,"
 				+ "please use CHOOSE:ARMORPROFICIENCY|EQUIPMENT[x]");
-		try
-		{
-			return context.processSubToken(obj, getTokenName(),
-					"ARMORPROFICIENCY", "EQUIPMENT[" + value + "]");
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
-		}
+		return context.processSubToken(obj, getTokenName(), "ARMORPROFICIENCY",
+				"EQUIPMENT[" + value + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

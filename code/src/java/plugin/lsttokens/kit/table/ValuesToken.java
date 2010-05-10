@@ -34,7 +34,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -96,18 +95,11 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				try
+				ParseResult pr = context.processSubToken(optionInfo,
+						getParentToken(), key, thingValue);
+				if (!pr.passed())
 				{
-					ParseResult pr = context.processSubToken(optionInfo, getParentToken(), key,
-						thingValue);
-					if (!pr.passed())
-					{
-						return pr;
-					}
-				}
-				catch (PersistenceLayerException e)
-				{
-					return new ParseResult.Fail(e.getMessage());
+					return pr;
 				}
 			}
 			if (!st.hasMoreTokens())

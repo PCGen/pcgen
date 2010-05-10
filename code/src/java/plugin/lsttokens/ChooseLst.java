@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -100,14 +99,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 		}
 
-		try
-		{
-			return context.processSubToken(obj, getTokenName(), key, val);
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
-		}
+		return context.processSubToken(obj, getTokenName(), key, val);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
