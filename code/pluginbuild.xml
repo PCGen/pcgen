@@ -6384,7 +6384,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
+	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-domain-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
 	<target name="jar-primitive-deity-plugins" depends="makeplugindirs" description="Build (Link) Deity Primitive Token plugin jar files">
@@ -6404,7 +6404,18 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-	
+
+	<target name="jar-primitive-domain-plugins" depends="makeplugindirs" description="Build (Link) Domain Primitive Token plugin jar files">
+		<!-- Domain Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/DomainPrimitive-DEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/domain/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
 	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-shieldprof-plugins,jar-qualifier-skill-plugins,jar-qualifier-weaponprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
 	</target>
 
@@ -6532,6 +6543,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/qualifier/deity/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierDomain-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/domain/PCToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

@@ -436,7 +436,6 @@ public class ChooserUtilities
 		classLookup.put("ARMORTYPE",            ArmorTypeChoiceManager.class.getName());
 		classLookup.put("CSKILLS",              ClassSkillsChoiceManager.class.getName());
 		classLookup.put("CLASS",                ClassChoiceManager.class.getName());
-		classLookup.put("DOMAIN",               DomainChoiceManager.class.getName());
 		classLookup.put("EQUIPTYPE",            EquipmentTypeChoiceManager.class.getName());
 		classLookup.put("FEATADD",              FeatAddChoiceManager.class.getName());
 		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());

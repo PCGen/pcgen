@@ -20,80 +20,63 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class DomainToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DOMAIN";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	@Override
+	public ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
 	{
-		if (value == null)
+		if (isEmpty(value))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
 		}
-		if (value.indexOf('|') != -1)
+		if (hasIllegalSeparator('|', value))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain | : " + value);
-		}
-		if (value.indexOf('[') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-		}
-		if (value.charAt(0) == ',')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with , : " + value);
-		}
-		if (value.charAt(value.length() - 1) == ',')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with , : " + value);
-		}
-		if (value.indexOf(",,") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator ,, : " + value);
-		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
-		{
-			String tokString = st.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
-			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
-				cpr.addErrorMessage("  entire token was: " + value);
-				return cpr;
-			}
+					+ " has invalid placement of '|'");
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		StringTokenizer st = new StringTokenizer(value, "|,", true);
+		while (st.hasMoreTokens())
+		{
+			String tok = st.nextToken();
+			if ("QUALIFY".equals(tok))
+			{
+				Logging.deprecationPrint("CHOOSE:DOMAIN argument "
+						+ "QUALIFY has been deprecated, "
+						+ "please use QUALIFIED,!PC "
+						+ "to achieve the same effect");
+				tok = "QUALIFIED,!PC";
+			}
+			sb.append(tok);
+		}
+		return super.parseTokenWithSeparator(context, obj, sb.toString());
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		String chooseString = context.getObjectContext().getString(cdo,
@@ -107,8 +90,38 @@ public class DomainToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 				.substring(getTokenName().length() + 1) };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	protected Class<Domain> getChooseClass()
+	{
+		return Domain.class;
+	}
+
+	@Override
+	protected String getDefaultTitle()
+	{
+		return "Domain choice";
+	}
+
+	@Override
+	protected AssociationListKey<Domain> getListKey()
+	{
+		return AssociationListKey.CHOOSE_DOMAIN;
+	}
+
+	public Domain decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Domain.class, s);
+	}
+
+	public String encodeChoice(Domain choice)
+	{
+		return choice.getKeyName();
 	}
 }
