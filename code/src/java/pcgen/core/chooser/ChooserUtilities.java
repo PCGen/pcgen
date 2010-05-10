@@ -460,7 +460,6 @@ public class ChooserUtilities
 		classLookup.put("WEAPONFOCUS",          WeaponFocusChoiceManager.class.getName());
 		classLookup.put("WEAPONPROFS",          WeaponProfChoiceManager.class.getName());
 
-		classLookup.put("ARMORPROF",            SimpleArmorProfChoiceManager.class.getName());
 		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
 		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());

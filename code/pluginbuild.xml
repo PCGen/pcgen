@@ -2807,13 +2807,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/ChooseToken-ARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/choose/ArmorProfToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/ChooseToken-ARMORPROFICIENCY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6556,6 +6549,13 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 	
 	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
+		<jar jarfile="${lstplugins.dir}/ChooseToken-DEPRECATED-ARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/ArmorProfToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-DEPRECATED-DAMAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
