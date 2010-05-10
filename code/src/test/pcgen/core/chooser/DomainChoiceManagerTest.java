@@ -25,20 +25,23 @@
  */
 package pcgen.core.chooser;
 
-import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.TestHelper;
+import pcgen.rules.context.LoadContext;
 
 /**
- * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is functioning correctly.
- *
+ * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
+ * functioning correctly.
+ * 
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
@@ -60,41 +63,34 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.put(StringKey.CHOICE_STRING, "DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		LoadContext context = Globals.getContext();
+		Domain foo = context.ref.constructCDOMObject(Domain.class, "KEY_Foo");
+		Domain bar = context.ref.constructCDOMObject(Domain.class, "KEY_Bar");
+		Domain baz = context.ref.constructCDOMObject(Domain.class, "KEY_Baz");
+		Domain qux = context.ref.constructCDOMObject(Domain.class, "KEY_Qux");
+		Domain quux = context.ref.constructCDOMObject(Domain.class, "KEY_Quux");
+		context.unconditionallyProcess(pObj, "CHOOSE",
+				"DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		context.resolveReferences();
+		assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
-		is(
-			pObj.getSafe(StringKey.CHOICE_STRING),
-			strEq("DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
-
 		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager =
-				ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(
+				pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("DOMAIN"), "got expected chooser");
+		List<Domain> aList = new ArrayList<Domain>();
+		List<Domain> sList = new ArrayList<Domain>();
+		choiceManager.getChoices(aPC, aList, sList);
+		assertEquals(5, aList.size());
+		assertTrue(aList.contains(foo));
+		assertTrue(aList.contains(bar));
+		assertTrue(aList.contains(baz));
+		assertTrue(aList.contains(qux));
+		assertTrue(aList.contains(quux));
 
-		try
-		{
-			Class cMClass = choiceManager.getClass();
-
-			Field aField =
-					(Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is(aField.get(choiceManager), eq(4));
-
-			aField = (Field) TestHelper.findField(cMClass, "choices");
-			List choices = (List) aField.get(choiceManager);
-			is(choices.size(), eq(5));
-			is(choices.get(0), strEq("KEY_Foo"));
-			is(choices.get(1), strEq("KEY_Bar"));
-			is(choices.get(2), strEq("KEY_Baz"));
-			is(choices.get(3), strEq("KEY_Qux"));
-			is(choices.get(4), strEq("KEY_Quux"));
-		}
-		catch (IllegalAccessException e)
-		{
-			System.out.println(e);
-		}
+		assertEquals(0, sList.size());
 	}
 
 }
