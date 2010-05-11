@@ -87,10 +87,6 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.FeatChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.FeatListChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.FeatSelectChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.HPChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.MiscChoiceManagerTest.class));
