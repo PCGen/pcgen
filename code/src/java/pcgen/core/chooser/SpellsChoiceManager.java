@@ -399,7 +399,7 @@ public class SpellsChoiceManager extends
 								found = true;
 							}
 						}
-						if (!found)
+						if (found != res.isKnown)
 						{
 							continue;
 						}
@@ -470,7 +470,7 @@ public class SpellsChoiceManager extends
 							found = true;
 						}
 					}
-					if (!found)
+					if (found != res.isKnown)
 					{
 						return false;
 					}
@@ -534,7 +534,7 @@ public class SpellsChoiceManager extends
 							found = true;
 						}
 					}
-					if (!found)
+					if (found != res.isKnown)
 					{
 						return false;
 					}
