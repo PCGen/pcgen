@@ -79,11 +79,7 @@ public class AllJUnitTests extends TestCase
 
 		// core.chooser
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.ArmorTypeChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.DomainChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.FeatAddChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.FeatChoiceManagerTest.class));
 		suite.addTest(new TestSuite(

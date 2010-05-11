@@ -108,11 +108,6 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
-	private String getFullName()
-	{
-		return getParentToken() + ":" + getTokenName();
-	}
-
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		PersistentTransitionChoice<?> tc = context.getObjectContext()
