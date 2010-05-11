@@ -20,7 +20,6 @@ package plugin.lsttokens.deprecated;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
@@ -94,7 +93,40 @@ public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject>
 		Logging
 				.deprecationPrint("CHOOSE:NONCLASSSKILLLIST has been deprecated,"
 						+ "please use CHOOSE:SKILL");
-		return context.processSubToken(obj, "CHOOSE", "SKILL", sb.toString());
+		String newValue = processSkillMagicalWords(sb.toString());
+		return context.processSubToken(obj, "CHOOSE", "SKILL", newValue);
+	}
+
+	private String processSkillMagicalWords(String value)
+	{
+		StringTokenizer st = new StringTokenizer(value, "|", true);
+		StringBuilder sb = new StringBuilder();
+		while (st.hasMoreTokens())
+		{
+			String tok = st.nextToken();
+			if ("CROSSCLASS".equalsIgnoreCase(tok))
+			{
+				tok = "CROSSCLASS";
+			}
+			if ("CLASS".equalsIgnoreCase(tok))
+			{
+				tok = "CLASS";
+			}
+			if ("EXCLUSIVE".equalsIgnoreCase(tok))
+			{
+				tok = "EXCLUSIVE";
+			}
+			if ("NORANK".equalsIgnoreCase(tok))
+			{
+				tok = "NORANK";
+			}
+			if (tok.regionMatches(true, 0, "RANKS=", 0, 6))
+			{
+				tok = "RANKS=" + tok.substring(6);
+			}
+			sb.append(tok);
+		}
+		return sb.toString();
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
