@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -60,7 +61,7 @@ public final class TokenUtilities
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
-			ReferenceManufacturer<T> rm, String s)
+			SelectionCreator<T> rm, String s)
 	{
 		if (s.length() == 0)
 		{

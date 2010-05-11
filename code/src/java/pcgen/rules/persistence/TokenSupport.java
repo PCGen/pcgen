@@ -59,7 +59,8 @@ public class TokenSupport
 		{
 			for (CDOMToken<T> token : tokenList)
 			{
-				if (token.parse(context, derivative, argument))
+				boolean parse = token.parse(context, derivative, argument);
+				if (parse)
 				{
 					return true;
 				}

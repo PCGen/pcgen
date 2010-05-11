@@ -79,15 +79,9 @@ public class AllJUnitTests extends TestCase
 
 		// core.chooser
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.ArmorProfChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.ArmorTypeChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.ClassSkillsChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.DomainChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.EquipmentTypeChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.FeatAddChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
@@ -101,29 +95,11 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.MiscChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.RaceChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SAListChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SchoolsChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillListNonClassChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillsChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillsNamedChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillsNamedToCCSkillChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillsNamedToCSkillChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SpellClassesChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SpellListChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SpellsChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.StatChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.WeaponFocusChoiceManagerTest.class));
 		suite.addTest(new TestSuite(

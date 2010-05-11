@@ -63,11 +63,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -8550,7 +8550,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (PersistentTransitionChoice<?> ptc : adds)
 				{
-					ChoiceSet<?> ch = ptc.getChoices();
+					SelectableSet<?> ch = ptc.getChoices();
 					if (LANGUAGE_CLASS.equals(ch.getChoiceClass()))
 					{
 						i += ptc.getCount().resolve(this, null).intValue();

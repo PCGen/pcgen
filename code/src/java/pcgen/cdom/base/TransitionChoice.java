@@ -46,7 +46,7 @@ public class TransitionChoice<T>
 	 * The underlying ChoiceSet used to determine the choices available when
 	 * selections are to be made in this TransitionChoice.
 	 */
-	private final ChoiceSet<? extends T> choices;
+	private final SelectableSet<? extends T> choices;
 
 	/**
 	 * The Formula indicating the number of choices to be made when selections
@@ -95,7 +95,7 @@ public class TransitionChoice<T>
 	 *            The Formula indicating the number of choices that may be
 	 *            selected when selections are made in this TransitionChoice.
 	 */
-	public TransitionChoice(ChoiceSet<? extends T> cs, Formula count)
+	public TransitionChoice(SelectableSet<? extends T> cs, Formula count)
 	{
 		choices = cs;
 		choiceCount = count;
@@ -111,7 +111,7 @@ public class TransitionChoice<T>
 	 * 
 	 * @return The ChoiceSet for this TransitionChoice.
 	 */
-	public ChoiceSet<? extends T> getChoices()
+	public SelectableSet<? extends T> getChoices()
 	{
 		return choices;
 	}

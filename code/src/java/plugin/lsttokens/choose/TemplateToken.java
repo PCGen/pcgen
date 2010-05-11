@@ -17,24 +17,23 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 {
+
+	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
 	@Override
 	public String getTokenName()
 	{
 		return "TEMPLATE";
-	}
-
-	@Override
-	protected Class<PCTemplate> getChooseClass()
-	{
-		return PCTemplate.class;
 	}
 
 	@Override
@@ -46,7 +45,7 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	public PCTemplate decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				PCTemplate.class, s);
+				PCTEMPLATE_CLASS, s);
 	}
 
 	public String encodeChoice(PCTemplate choice)
@@ -58,5 +57,13 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	protected AssociationListKey<PCTemplate> getListKey()
 	{
 		return AssociationListKey.CHOOSE_TEMPLATE;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(PCTEMPLATE_CLASS), obj, value);
 	}
 }

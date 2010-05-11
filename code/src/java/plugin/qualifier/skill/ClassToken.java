@@ -24,6 +24,7 @@ import java.util.logging.Level;
 
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -60,7 +61,7 @@ public class ClassToken implements QualifierToken<Skill>
 		return sb.toString();
 	}
 
-	public boolean initialize(LoadContext context, Class<Skill> cl,
+	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc,
 			String condition, String value, boolean negate)
 	{
 		if (condition != null)
@@ -72,7 +73,7 @@ public class ClassToken implements QualifierToken<Skill>
 		}
 		if (value != null)
 		{
-			pcs = context.getPrimitiveChoiceFilter(cl, value);
+			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
 		negated = negate;

@@ -19,7 +19,7 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 
-import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -36,7 +36,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentAllRef
  */
-public class CDOMTransparentAllRef<T extends PrereqObject> extends
+public class CDOMTransparentAllRef<T extends CDOMObject> extends
 		CDOMGroupRef<T> implements TransparentReference<T>
 {
 

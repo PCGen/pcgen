@@ -56,7 +56,7 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 	 *            selected when selections are made in this
 	 *            PersistentChoiceActor.
 	 */
-	public PersistentTransitionChoice(ChoiceSet<? extends T> cs, Formula count)
+	public PersistentTransitionChoice(SelectableSet<? extends T> cs, Formula count)
 	{
 		super(cs, count);
 	}

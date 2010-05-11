@@ -31,6 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.QualifiedDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
@@ -139,7 +140,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		List<String> addStrings = new ArrayList<String>();
 		for (TransitionChoice<?> container : addedItems)
 		{
-			ChoiceSet<?> cs = container.getChoices();
+			SelectableSet<?> cs = container.getChoices();
 			if (EQUIPMENT_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();

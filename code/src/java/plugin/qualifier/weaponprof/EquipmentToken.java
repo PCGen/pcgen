@@ -27,6 +27,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
@@ -85,8 +87,9 @@ public class EquipmentToken implements QualifierToken<WeaponProf>
 		return sb.toString();
 	}
 
-	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context,
+			SelectionCreator<WeaponProf> sc, String condition, String value,
+			boolean negate)
 	{
 		if (condition != null)
 		{
@@ -97,7 +100,9 @@ public class EquipmentToken implements QualifierToken<WeaponProf>
 		}
 		if (value != null)
 		{
-			pcs = context.getPrimitiveChoiceFilter(Equipment.class, value);
+			ReferenceManufacturer<Equipment> erm = context.ref
+					.getManufacturer(Equipment.class);
+			pcs = context.getPrimitiveChoiceFilter(erm, value);
 			return pcs != null;
 		}
 		return true;

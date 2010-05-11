@@ -22,9 +22,9 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -1143,7 +1143,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	private void parseForUnparse(String value, boolean valid)
 	{
 		PrimitiveChoiceSet<TC> pcs = primaryContext.getChoiceSet(
-				getTargetClass(), value);
+				primaryContext.ref.getManufacturer(getTargetClass()), value);
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
 		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), pcs);

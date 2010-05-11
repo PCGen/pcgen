@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 {
@@ -31,12 +34,6 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
-	}
-
-	@Override
-	protected Class<Equipment> getChooseClass()
-	{
-		return EQUIPMENT_CLASS;
 	}
 
 	@Override
@@ -60,5 +57,13 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	protected AssociationListKey<Equipment> getListKey()
 	{
 		return AssociationListKey.CHOOSE_EQUIPMENT;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(EQUIPMENT_CLASS), obj, value);
 	}
 }

@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.Language;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class LangToken extends AbstractQualifiedChooseToken<Language>
 {
@@ -31,12 +34,6 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	public String getTokenName()
 	{
 		return "LANG";
-	}
-
-	@Override
-	protected Class<Language> getChooseClass()
-	{
-		return LANGUAGE_CLASS;
 	}
 
 	@Override
@@ -60,5 +57,13 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	protected AssociationListKey<Language> getListKey()
 	{
 		return AssociationListKey.CHOOSE_LANGAUGE;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(LANGUAGE_CLASS), obj, value);
 	}
 }

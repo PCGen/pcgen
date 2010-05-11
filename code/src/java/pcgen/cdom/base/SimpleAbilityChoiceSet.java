@@ -1,60 +1,26 @@
-/*
- * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
+/**
  * 
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- * 
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on October 29, 2006.
- * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.base;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
-/**
- * A ChoiceSet is a named container of a Collection of objects (stored in a
- * PrimitiveChoiceSet).
- * 
- * It is expected that a ChoiceSet will be useful in situations where a
- * pre-defined list of choices is available.
- * 
- * If the set of choices is dynamic, consider using the List infrastructure,
- * including classes like CDOMList.
- * 
- * @see pcgen.cdom.base.CDOMList
- * 
- * @param <T>
- *            the Class contained within this ChoiceSet
- */
-public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
-		SelectableSet<T>
+public class SimpleAbilityChoiceSet implements SelectableSet<AbilitySelection>
 {
 
 	/**
 	 * The PrimitiveChoiceSet containing the Collection of Objects in this
 	 * ChoiceSet
 	 */
-	private final PrimitiveChoiceSet<T> pcs;
+	private final PrimitiveChoiceSet<Ability> pcs;
 
 	/**
 	 * The name of this ChoiceSet
@@ -65,13 +31,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * The title (presented to the user) of this ChoiceSet
 	 */
 	private String title = null;
-	
-	/**
-	 * An identifier to check if the ChoiceSet (and the underlying
-	 * PrimitiveChoiceSet) should use the "ANY" identifier (vs. "ALL") when
-	 * referring to the global collection of objects of a certain type.
-	 */
-	private final boolean useAny;
+
+	private final Category<Ability> category;
 
 	/**
 	 * Creates a new ChoiceSet with the given name and given underlying
@@ -85,27 +46,10 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice)
+	public SimpleAbilityChoiceSet(String name, Category<Ability> cat,
+			PrimitiveChoiceSet<Ability> choice)
 	{
-		this(name, choice, false);
-	}
-
-	/**
-	 * Creates a new ChoiceSet with the given name and given underlying
-	 * PrimitiveChoiceSet.
-	 * 
-	 * @param name
-	 *            The name of this ChoiceSet
-	 * @param choice
-	 *            The PrimitiveChoiceSet indicating the Collection of objects
-	 *            for this ChoiceSet
-	 * @param any
-	 *            Use "ANY" for the "ALL" reference if true
-	 * @throws IllegalArgumentException
-	 *             if the given name or PrimitiveChoiceSet is null
-	 */
-	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice, boolean any)
-	{
+		category = cat;
 		if (choice == null)
 		{
 			throw new IllegalArgumentException(
@@ -117,7 +61,16 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		}
 		pcs = choice;
 		setName = name;
-		useAny = any;
+	}
+
+	public Category<Ability> getCategory()
+	{
+		return category;
+	}
+
+	public Nature getNature()
+	{
+		return Nature.NORMAL;
 	}
 
 	/**
@@ -126,7 +79,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 */
 	public String getLSTformat()
 	{
-		return pcs.getLSTformat(useAny);
+		return pcs.getLSTformat(false);
 	}
 
 	/**
@@ -134,9 +87,9 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * 
 	 * @return the Class contained within this ChoiceSet
 	 */
-	public Class<? super T> getChoiceClass()
+	public Class<AbilitySelection> getChoiceClass()
 	{
-		return pcs.getChoiceClass();
+		return AbilitySelection.class;
 	}
 
 	/**
@@ -149,9 +102,15 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		return pcs.getSet(pc);
+		Collection<Ability> ab = pcs.getSet(pc);
+		List<AbilitySelection> list = new ArrayList<AbilitySelection>(ab.size());
+		for (Ability a : ab)
+		{
+			list.add(new AbilitySelection(a, Nature.NORMAL));
+		}
+		return list;
 	}
 
 	/**
@@ -167,7 +126,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		return setName;
 	}
 
- 	/**
+	/**
 	 * Sets the title of this ChoiceSet. Note that this should be the name that
 	 * is displayed to the user when a selection from this ChoiceSet is made,
 	 * but it does not represent information that should be stored in a
@@ -225,33 +184,11 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		{
 			return true;
 		}
-		if (o instanceof ChoiceSet)
+		if (o instanceof SimpleAbilityChoiceSet)
 		{
-			ChoiceSet<?> other = (ChoiceSet<?>) o;
+			SimpleAbilityChoiceSet other = (SimpleAbilityChoiceSet) o;
 			return setName.equals(other.setName) && pcs.equals(other.pcs);
 		}
 		return false;
-	}
-
-	public static class AbilityChoiceSet extends ChoiceSet<AbilitySelection>
-	{
-
-		private final AbilityRefChoiceSet arcs;
-
-		public AbilityChoiceSet(String name, AbilityRefChoiceSet choice)
-		{
-			super(name, choice);
-			arcs = choice;
-		}
-
-		public Category<Ability> getCategory()
-		{
-			return arcs.getCategory();
-		}
-
-		public Nature getNature()
-		{
-			return arcs.getNature();
-		}
 	}
 }

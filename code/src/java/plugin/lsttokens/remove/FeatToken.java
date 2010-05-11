@@ -33,6 +33,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityFromClassChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
@@ -228,7 +229,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		List<String> addStrings = new ArrayList<String>();
 		for (TransitionChoice<?> container : addedItems)
 		{
-			ChoiceSet<?> cs = container.getChoices();
+			SelectableSet<?> cs = container.getChoices();
 			if (getTokenName().equals(cs.getName())
 					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{

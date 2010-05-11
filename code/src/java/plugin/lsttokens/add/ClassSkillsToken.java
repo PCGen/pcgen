@@ -28,6 +28,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
@@ -216,7 +217,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 		List<String> addStrings = new ArrayList<String>();
 		for (TransitionChoice<?> container : addedItems)
 		{
-			ChoiceSet<?> cs = container.getChoices();
+			SelectableSet<?> cs = container.getChoices();
 			if (getTokenName().equals(cs.getName())
 					&& SKILL_CLASS.equals(cs.getChoiceClass()))
 			{

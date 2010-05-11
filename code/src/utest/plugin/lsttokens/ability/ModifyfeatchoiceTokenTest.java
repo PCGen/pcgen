@@ -24,8 +24,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;

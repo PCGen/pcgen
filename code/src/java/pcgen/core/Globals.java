@@ -2208,22 +2208,22 @@ public final class Globals
 	 */
 	public static void sortChooserLists(final List availableList, final List selectedList)
 	{
-		final boolean stringsInList;
+		final boolean nonPObjectInList;
 
 		if (availableList.size() > 0)
 		{
-			stringsInList = availableList.get(0) instanceof String;
+			nonPObjectInList = ! (availableList.get(0) instanceof PObject);
 		}
 		else if (selectedList.size() > 0)
 		{
-			stringsInList = selectedList.get(0) instanceof String;
+			nonPObjectInList = ! (selectedList.get(0) instanceof PObject);
 		}
 		else
 		{
-			stringsInList = false;
+			nonPObjectInList = false;
 		}
 
-		if (stringsInList)
+		if (nonPObjectInList)
 		{
 			Collections.sort(availableList);
 			// NOCHOICE feats add nulls to the selectedList

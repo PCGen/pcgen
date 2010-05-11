@@ -21,10 +21,14 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.Race;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class RaceToken extends AbstractQualifiedChooseToken<Race>
 {
+
+	private static final Class<Race> RACE_CLASS = Race.class;
 
 	@Override
 	public String getTokenName()
@@ -45,13 +49,6 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	}
 
 	@Override
-	protected Class<Race> getChooseClass()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	protected String getDefaultTitle()
 	{
 		return "Race choice";
@@ -66,11 +63,19 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	public Race decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Race.class, s);
+				RACE_CLASS, s);
 	}
 
 	public String encodeChoice(Race choice)
 	{
 		return choice.getKeyName();
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(RACE_CLASS), obj, value);
 	}
 }

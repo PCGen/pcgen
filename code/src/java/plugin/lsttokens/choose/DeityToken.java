@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 {
@@ -31,12 +34,6 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	public String getTokenName()
 	{
 		return "DEITY";
-	}
-
-	@Override
-	protected Class<Deity> getChooseClass()
-	{
-		return DEITY_CLASS;
 	}
 
 	@Override
@@ -60,5 +57,13 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	protected AssociationListKey<Deity> getListKey()
 	{
 		return AssociationListKey.CHOOSE_DEITY;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(DEITY_CLASS), obj, value);
 	}
 }

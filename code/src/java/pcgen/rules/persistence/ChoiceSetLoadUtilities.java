@@ -16,6 +16,7 @@ import pcgen.cdom.filter.CompoundOrFilter;
 import pcgen.cdom.filter.NegatingFilter;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary.QualifierTokenIterator;
@@ -32,7 +33,7 @@ public final class ChoiceSetLoadUtilities
 	}
 
 	public static <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
-			LoadContext context, Class<T> poClass, String joinedOr)
+			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		/*
 		 * TODO Need to check why this was in CDOM branch - does it work without
@@ -68,12 +69,12 @@ public final class ChoiceSetLoadUtilities
 							"Choice argument was null or empty: " + primitive);
 					return null;
 				}
-				QualifierToken<T> qual = getQualifier(context, poClass,
+				QualifierToken<T> qual = getQualifier(context, sc,
 						primitive);
 				if (qual == null)
 				{
 					PrimitiveChoiceFilter<T> pcf = getSimplePrimitive(context,
-							poClass, primitive);
+							sc, primitive);
 					if (pcf == null)
 					{
 						Logging.addParseMessage(Logging.LST_ERROR,
@@ -98,8 +99,8 @@ public final class ChoiceSetLoadUtilities
 				}
 				else
 				{
-					RetainingChooser<T> ret = new RetainingChooser<T>(poClass,
-							context.ref.getCDOMAllReference(poClass));
+					RetainingChooser<T> ret = new RetainingChooser<T>(sc
+							.getReferenceClass(), sc.getAllReference());
 					ret.addRetainingChoiceFilter(new CompoundAndFilter<T>(
 							pcfAndList));
 					andList.add(ret);
@@ -116,8 +117,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (!pcfOrList.isEmpty())
 		{
-			RetainingChooser<T> ret = new RetainingChooser<T>(poClass,
-					context.ref.getCDOMAllReference(poClass));
+			RetainingChooser<T> ret = new RetainingChooser<T>(sc
+					.getReferenceClass(), sc.getAllReference());
 			ret.addAllRetainingChoiceFilters(pcfOrList);
 			orList.add(ret);
 		}
@@ -162,7 +163,7 @@ public final class ChoiceSetLoadUtilities
 	}
 
 	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitive(
-			LoadContext context, Class<T> poClass, String joinedOr)
+			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		if (joinedOr.length() == 0 || hasIllegalSeparator('|', joinedOr))
 		{
@@ -189,7 +190,7 @@ public final class ChoiceSetLoadUtilities
 					return null;
 				}
 				PrimitiveChoiceFilter<T> pcf = getSimplePrimitive(context,
-						poClass, primitive);
+						sc, primitive);
 				if (pcf == null)
 				{
 					Logging.addParseMessage(Logging.LST_ERROR,
@@ -221,7 +222,7 @@ public final class ChoiceSetLoadUtilities
 	}
 
 	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getSimplePrimitive(
-			LoadContext context, Class<T> cl, String key)
+			LoadContext context, SelectionCreator<T> sc, String key)
 	{
 		int openBracketLoc = key.indexOf('[');
 		int closeBracketLoc = key.indexOf(']');
@@ -279,7 +280,8 @@ public final class ChoiceSetLoadUtilities
 						closeBracketLoc);
 			}
 		}
-		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, tokKey);
+		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(sc
+				.getReferenceClass(), tokKey);
 		if (prim == null)
 		{
 			if (tokRestriction != null)
@@ -290,12 +292,12 @@ public final class ChoiceSetLoadUtilities
 			}
 			if ("TYPE".equals(tokKey))
 			{
-				return TokenUtilities.getTypeReference(context, cl, tokValue);
+				return TokenUtilities.getTypeReference(sc, tokValue);
 			}
 			if ("!TYPE".equals(tokKey))
 			{
 				CDOMGroupRef<T> typeReference = TokenUtilities
-						.getTypeReference(context, cl, tokValue);
+						.getTypeReference(sc, tokValue);
 				if (typeReference == null)
 				{
 					return null;
@@ -308,26 +310,26 @@ public final class ChoiceSetLoadUtilities
 			}
 			if ("ALL".equals(tokKey))
 			{
-				return context.ref.getCDOMAllReference(cl);
+				return sc.getAllReference();
 			}
 			if (key.startsWith(Constants.LST_TYPE_OLD))
 			{
-				return TokenUtilities.getTypeReference(context, cl, key
+				return TokenUtilities.getTypeReference(sc, key
 						.substring(5));
 			}
 			if (key.startsWith(Constants.LST_NOT_TYPE_OLD))
 			{
 				return new NegatingFilter<T>(TokenUtilities.getTypeReference(
-						context, cl, key.substring(6)));
+						sc, key.substring(6)));
 			}
 			if (key.indexOf('%') != -1)
 			{
-				return new PatternMatchingReference<T>(cl, context.ref
-						.getCDOMAllReference(cl), key);
+				return new PatternMatchingReference<T>(sc.getReferenceClass(),
+						sc.getAllReference(), key);
 			}
 			else
 			{
-				return context.ref.getCDOMReference(cl, key);
+				return sc.getReference(key);
 			}
 		}
 		else
@@ -341,7 +343,7 @@ public final class ChoiceSetLoadUtilities
 	}
 
 	public static <T extends CDOMObject> QualifierToken<T> getQualifier(
-			LoadContext loadContext, Class<T> cl, String key)
+			LoadContext loadContext, SelectionCreator<T> sc, String key)
 	{
 		if (key == null || key.length() == 0)
 		{
@@ -415,10 +417,10 @@ public final class ChoiceSetLoadUtilities
 			tokKey = tokKey.substring(1);
 		}
 		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<T, QualifierToken<T>>(
-				cl, tokKey); it.hasNext();)
+				sc.getReferenceClass(), tokKey); it.hasNext();)
 		{
 			QualifierToken<T> token = it.next();
-			if (token.initialize(loadContext, cl, tokValue, tokRestriction,
+			if (token.initialize(loadContext, sc, tokValue, tokRestriction,
 					startsNot))
 			{
 				return token;

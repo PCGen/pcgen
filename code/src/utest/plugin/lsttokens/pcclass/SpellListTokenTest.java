@@ -24,9 +24,9 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;

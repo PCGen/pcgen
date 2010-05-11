@@ -3,14 +3,16 @@ package pcgen.rules.persistence.token;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 
@@ -29,8 +31,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 		return '|';
 	}
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			ReferenceManufacturer<T> rm, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
@@ -59,8 +61,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 			}
 		}
 
-		PrimitiveChoiceSet<T> pcs = context.getChoiceSet(getChooseClass(),
-				activeValue);
+		PrimitiveChoiceSet<T> pcs = context.getChoiceSet(rm, activeValue);
 		if (pcs == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
@@ -96,7 +97,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 		{
 			return null;
 		}
-		ChoiceSet<?> choices = tc.getChoices();
+		SelectableSet<?> choices = tc.getChoices();
 		if (!choices.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
@@ -176,8 +177,6 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 	}
 
 	protected abstract String getDefaultTitle();
-
-	protected abstract Class<T> getChooseClass();
 
 	protected abstract AssociationListKey<T> getListKey();
 

@@ -34,6 +34,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
@@ -188,11 +189,11 @@ public abstract class LoadContext
 	private final TokenSupport support = new TokenSupport();
 
 	public <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
-			Class<T> poClass, String value)
+			SelectionCreator<T> sc, String value)
 	{
 		try
 		{
-			return ChoiceSetLoadUtilities.getChoiceSet(this, poClass, value);
+			return ChoiceSetLoadUtilities.getChoiceSet(this, sc, value);
 		}
 		catch (ParsingSeparator.GroupingMismatchException e)
 		{
@@ -203,9 +204,9 @@ public abstract class LoadContext
 	}
 
 	public <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitiveChoiceFilter(
-			Class<T> cl, String key)
+			SelectionCreator<T> sc, String key)
 	{
-		return ChoiceSetLoadUtilities.getPrimitive(this, cl, key);
+		return ChoiceSetLoadUtilities.getPrimitive(this, sc, key);
 	}
 			
 

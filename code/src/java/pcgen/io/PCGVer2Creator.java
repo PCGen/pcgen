@@ -43,9 +43,9 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -2611,7 +2611,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
 		//
-		ChoiceSet<?> choices = tc.getChoices();
+		SelectableSet<?> choices = tc.getChoices();
 		buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
 		buffer.append(EntityEncoder.encode(choices.getName())).append(':');
 		buffer.append(EntityEncoder.encode(choices.getLSTformat()));

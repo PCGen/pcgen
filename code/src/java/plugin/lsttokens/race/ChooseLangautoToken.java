@@ -30,6 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -118,7 +119,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		{
 			return null;
 		}
-		ChoiceSet<?> cs = container.getChoices();
+		SelectableSet<?> cs = container.getChoices();
 		Formula f = container.getCount();
 		if (f == null)
 		{

@@ -17,13 +17,18 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
+
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
 	@Override
 	public String getTokenName()
@@ -35,14 +40,6 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	public String getParentToken()
 	{
 		return "CHOOSE";
-	}
-
-	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-
-	@Override
-	protected Class<PCClass> getChooseClass()
-	{
-		return PCCLASS_CLASS;
 	}
 
 	@Override
@@ -66,5 +63,13 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	protected AssociationListKey<PCClass> getListKey()
 	{
 		return AssociationListKey.CHOOSE_CLASS;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(PCCLASS_CLASS), obj, value);
 	}
 }

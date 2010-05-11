@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.ArmorProf;
 import pcgen.core.Globals;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class ArmorProficiencyToken extends
 		AbstractQualifiedChooseToken<ArmorProf>
@@ -32,12 +35,6 @@ public class ArmorProficiencyToken extends
 	public String getTokenName()
 	{
 		return "ARMORPROFICIENCY";
-	}
-
-	@Override
-	protected Class<ArmorProf> getChooseClass()
-	{
-		return ARMORPROF_CLASS;
 	}
 
 	@Override
@@ -61,5 +58,13 @@ public class ArmorProficiencyToken extends
 	protected AssociationListKey<ArmorProf> getListKey()
 	{
 		return AssociationListKey.CHOOSE_ARMORPROFICIENCY;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(ARMORPROF_CLASS), obj, value);
 	}
 }

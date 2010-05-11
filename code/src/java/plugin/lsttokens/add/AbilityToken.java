@@ -35,11 +35,11 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
@@ -312,7 +312,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 		List<String> addStrings = new ArrayList<String>();
 		for (TransitionChoice<?> container : addedItems)
 		{
-			ChoiceSet<?> cs = container.getChoices();
+			SelectableSet<?> cs = container.getChoices();
 			if (getTokenName().equals(cs.getName())
 					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{

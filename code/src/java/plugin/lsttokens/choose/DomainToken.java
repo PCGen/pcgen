@@ -32,6 +32,8 @@ import pcgen.util.Logging;
 public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 {
 
+	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+
 	@Override
 	public String getTokenName()
 	{
@@ -73,7 +75,8 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 			}
 			sb.append(tok);
 		}
-		return super.parseTokenWithSeparator(context, obj, sb.toString());
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(DOMAIN_CLASS), obj, sb.toString());
 	}
 
 	@Override
@@ -97,12 +100,6 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	}
 
 	@Override
-	protected Class<Domain> getChooseClass()
-	{
-		return Domain.class;
-	}
-
-	@Override
 	protected String getDefaultTitle()
 	{
 		return "Domain choice";
@@ -117,7 +114,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	public Domain decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Domain.class, s);
+				DOMAIN_CLASS, s);
 	}
 
 	public String encodeChoice(Domain choice)

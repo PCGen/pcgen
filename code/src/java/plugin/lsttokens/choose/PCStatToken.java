@@ -30,6 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -148,7 +149,7 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 		{
 			return null;
 		}
-		ChoiceSet<?> choices = tc.getChoices();
+		SelectableSet<?> choices = tc.getChoices();
 		if (!choices.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken

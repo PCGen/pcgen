@@ -17,18 +17,23 @@
  */
 package plugin.lsttokens.deprecated;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMCompatibilityToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class RaceToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMCompatibilityToken<CDOMObject>
+public class FeatSelectToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
+	{
+		return "FEATSELECT";
+	}
+
+	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
@@ -36,37 +41,18 @@ public class RaceToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:RACE must not be empty");
-		}
-		if (((value.indexOf("RACE|") == 0) && ((value.indexOf("[") == 4) || (value
-				.indexOf("|[") != -1))))
-		{
-			return context.processSubToken(obj, getTokenName(), "RACE",
-					StringUtil.replaceAll(value.substring(5), "[", "ANY["));
-		}
-		return new ParseResult.Fail("CHOOSE:RACE not compatible");
+		Logging.deprecationPrint("CHOOSE:FEATSELECT has been deprecated,"
+				+ "please use CHOOSE:FEAT|x");
+		return context.processSubToken(obj, "CHOOSE", "FEAT", value);
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
-
-	public int compatibilityLevel()
-	{
-		return 5;
-	}
-
-	public int compatibilitySubLevel()
-	{
-		return 16;
-	}
-
-	public int compatibilityPriority()
-	{
-		return 0;
-	}
-
 }

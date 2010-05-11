@@ -26,11 +26,11 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SpellCasterChoiceSet;
@@ -162,7 +162,7 @@ public class SpellCasterToken extends AbstractToken implements
 				: new ReferenceChoiceSet<PCClass>(groups);
 		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
 				: new ReferenceChoiceSet<PCClass>(prims);
-		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
+		SelectableSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		cs.setTitle("Spell Caster Class Choice");
 		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
 				cs, count);
@@ -185,7 +185,7 @@ public class SpellCasterToken extends AbstractToken implements
 		List<String> addStrings = new ArrayList<String>();
 		for (TransitionChoice<?> container : addedItems)
 		{
-			ChoiceSet<?> cs = container.getChoices();
+			SelectableSet<?> cs = container.getChoices();
 			if (PCCLASS_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();

@@ -41,9 +41,9 @@ import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -1921,7 +1921,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		Iterator<PCGElement> it2, String name, String dString,
 		PersistentTransitionChoice<T> tc)
 	{
-		ChoiceSet<? extends T> choices = tc.getChoices();
+		SelectableSet<? extends T> choices = tc.getChoices();
 		if (dString.equals(choices.getLSTformat()))
 		{
 			//Match

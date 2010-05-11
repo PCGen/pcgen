@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.ShieldProf;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class ShieldProficiencyToken extends
 		AbstractQualifiedChooseToken<ShieldProf>
@@ -32,12 +35,6 @@ public class ShieldProficiencyToken extends
 	public String getTokenName()
 	{
 		return "SHIELDPROFICIENCY";
-	}
-
-	@Override
-	protected Class<ShieldProf> getChooseClass()
-	{
-		return SHIELDPROF_CLASS;
 	}
 
 	@Override
@@ -61,5 +58,13 @@ public class ShieldProficiencyToken extends
 	protected AssociationListKey<ShieldProf> getListKey()
 	{
 		return AssociationListKey.CHOOSE_SHIELDPROFICIENCY;
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(SHIELDPROF_CLASS), obj, value);
 	}
 }

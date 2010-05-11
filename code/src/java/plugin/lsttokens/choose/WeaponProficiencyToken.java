@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.WeaponProf;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class WeaponProficiencyToken extends
 		AbstractQualifiedChooseToken<WeaponProf>
@@ -32,12 +35,6 @@ public class WeaponProficiencyToken extends
 	public String getTokenName()
 	{
 		return "WEAPONPROFICIENCY";
-	}
-
-	@Override
-	protected Class<WeaponProf> getChooseClass()
-	{
-		return WEAPONPROF_CLASS;
 	}
 
 	@Override
@@ -62,4 +59,13 @@ public class WeaponProficiencyToken extends
 	{
 		return AssociationListKey.CHOOSE_WEAPONPROFICIENCY;
 	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+				.getManufacturer(WEAPONPROF_CLASS), obj, value);
+	}
+
 }

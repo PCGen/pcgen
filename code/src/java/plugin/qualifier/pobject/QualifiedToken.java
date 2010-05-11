@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
@@ -45,7 +46,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 		return "QUALIFIED";
 	}
 
-	public boolean initialize(LoadContext context, Class<T> cl,
+	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
 			String condition, String value, boolean negate)
 	{
 		if (condition != null)
@@ -55,14 +56,14 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		if (cl == null)
+		if (sc == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		refClass = cl;
+		refClass = sc.getReferenceClass();
 		if (value != null)
 		{
-			pcs = context.getPrimitiveChoiceFilter(cl, value);
+			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
 		negated = negate;
