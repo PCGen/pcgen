@@ -437,7 +437,6 @@ public class ChooserUtilities
 		classLookup.put("FEATADD",              FeatAddChoiceManager.class.getName());
 		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());
 		classLookup.put("FEATLIST",             FeatListChoiceManager.class.getName());
-		classLookup.put("FEATSELECT",           FeatSelectChoiceManager.class.getName());
 		classLookup.put("HP",                   HPChoiceManager.class.getName());
 		classLookup.put("SCHOOLS",              SchoolsChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
