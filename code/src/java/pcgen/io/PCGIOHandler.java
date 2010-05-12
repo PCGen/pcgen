@@ -38,17 +38,13 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.util.Logging;
 
@@ -369,21 +365,6 @@ public final class PCGIOHandler extends IOHandler
 
 		for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
-			if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("NONCLASSSKILLLIST|"))
-			{
-				for (String skillString : currentPC.getAssociationList(aFeat))
-				{
-					Skill skill = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Skill.class,
-									skillString);
-					if (skill != null)
-					{
-						currentPC.addAssoc(aFeat, AssociationListKey.CSKILL,
-								skill);
-					}
-				}
-			}
-
 			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
 				currentPC.addAssociation(aFeat, "PLEASE MAKE APPROPRIATE SELECTION");
