@@ -54,6 +54,10 @@ public class CrossClassToken implements QualifierToken<Skill>
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
+		if (negated)
+		{
+			sb.append('!');
+		}
 		sb.append(getTokenName());
 		if (pcs != null)
 		{
@@ -72,12 +76,12 @@ public class CrossClassToken implements QualifierToken<Skill>
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
+		negated = negate;
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
-		negated = negate;
 		return true;
 	}
 

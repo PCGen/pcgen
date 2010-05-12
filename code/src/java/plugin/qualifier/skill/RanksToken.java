@@ -53,6 +53,10 @@ public class RanksToken implements QualifierToken<Skill>
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
+		if (negated)
+		{
+			sb.append('!');
+		}
 		sb.append(getTokenName());
 		sb.append('=');
 		sb.append(ranks);
@@ -84,12 +88,12 @@ public class RanksToken implements QualifierToken<Skill>
 					+ getTokenName() + "=10 ... Offending value: " + condition);
 			return false;
 		}
+		negated = negate;
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
-		negated = negate;
 		return true;
 	}
 
