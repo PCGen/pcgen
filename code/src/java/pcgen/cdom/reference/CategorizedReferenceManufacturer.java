@@ -263,4 +263,9 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 				&& validator.allow(getReferenceClass(), category, s);
 	}
 
+	public Category<T> getCategory()
+	{
+		return category;
+	}
+
 }

@@ -17,32 +17,35 @@
  */
 package pcgen.rules.persistence.token;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.choiceset.RetainingChooser;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
 public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
-		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<T>
+		AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<T>
 {
 	public String getParentToken()
 	{
@@ -57,8 +60,13 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+			CDOMObject obj, String value)
 	{
+		if (value.indexOf('[') != -1 || value.indexOf(']') != -1)
+		{
+			return new ParseResult.Fail(getParentToken() + ":" + getTokenName()
+					+ " may not contain brackets: " + value);
+		}
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
 		String title;
@@ -85,22 +93,33 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 				title = getDefaultTitle();
 			}
 		}
-		Set<CDOMReference<T>> set = new HashSet<CDOMReference<T>>();
+		CDOMGroupRef<T> allReference = context.ref
+				.getCDOMAllReference(getChooseClass());
+		PrimitiveChoiceSet<T> pcs;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
-			set.add(context.ref.getCDOMAllReference(getChooseClass()));
+			pcs = new ReferenceChoiceSet<T>(Collections
+					.singletonList(allReference));
 		}
 		else
 		{
-			StringTokenizer st = new StringTokenizer(activeValue, ",");
+			if (hasIllegalSeparator(',', activeValue)
+					|| hasIllegalSeparator('|', activeValue))
+			{
+				return ParseResult.INTERNAL_ERROR;
+			}
+			Set<PrimitiveChoiceFilter<T>> set = new HashSet<PrimitiveChoiceFilter<T>>();
+			StringTokenizer st = new StringTokenizer(activeValue, ",|");
 			while (st.hasMoreTokens())
 			{
 				String tok = st.nextToken();
-				CDOMReference<T> ref = TokenUtilities.getTypeOrPrimitive(
-						context, getChooseClass(), tok);
+				PrimitiveChoiceFilter<T> ref = ChoiceSetLoadUtilities
+						.getSimplePrimitive(context, context.ref
+								.getManufacturer(getChooseClass()), tok);
 				if (ref == null)
 				{
-					return new ParseResult.Fail("Error: Count not get Reference for " + tok
+					return new ParseResult.Fail(
+							"Error: Count not get Reference for " + tok
 									+ " in " + getTokenName());
 				}
 				if (!set.add(ref))
@@ -113,8 +132,11 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 			{
 				return new ParseResult.Fail("No items in set.");
 			}
+			RetainingChooser<T> ret = new RetainingChooser<T>(getChooseClass(),
+					allReference);
+			ret.addAllRetainingChoiceFilters(set);
+			pcs = ret;
 		}
-		PrimitiveChoiceSet<T> pcs = new ReferenceChoiceSet<T>(set);
 
 		if (!pcs.getGroupingState().isValid())
 		{
@@ -122,7 +144,8 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
 					+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			cpr
+					.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
 		ChoiceSet<T> cs = new ChoiceSet<T>(getTokenName(), pcs);

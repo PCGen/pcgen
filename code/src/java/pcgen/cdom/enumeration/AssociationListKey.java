@@ -153,6 +153,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Race> CHOOSE_RACE = new AssociationListKey<Race>();
 
 	public static final AssociationListKey<PCClass> CHOOSE_CLASS = new AssociationListKey<PCClass>();
+
+	public static final AssociationListKey<AbilitySelection> CHOOSE_ABILITY = new AssociationListKey<AbilitySelection>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

@@ -73,19 +73,24 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
+		resetContext();
+		expectedPrimaryMessageCount = 0;
+	}
+
+	protected void resetContext()
+	{
+		URI testURI = testCampaign.getURI();
 		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		secondaryContext = new RuntimeLoadContext(
 				new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
-		URI testURI = testCampaign.getURI();
 		primaryContext.getObjectContext().setSourceURI(testURI);
 		primaryContext.getObjectContext().setExtractURI(testURI);
 		secondaryContext.getObjectContext().setSourceURI(testURI);
 		secondaryContext.getObjectContext().setExtractURI(testURI);
 		primaryProf = getPrimary("TestObj");
 		secondaryProf = getSecondary("TestObj");
-		expectedPrimaryMessageCount = 0;
 	}
 
 	protected T getSecondary(String name)

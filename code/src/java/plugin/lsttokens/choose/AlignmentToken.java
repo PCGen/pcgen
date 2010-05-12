@@ -45,8 +45,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCAlignment>
+public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>,
+		PersistentChoiceActor<PCAlignment>
 {
 	private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;
 
@@ -65,6 +66,11 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject> imple
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (value.indexOf('[') != -1 || value.indexOf(']') != -1)
+		{
+			return new ParseResult.Fail(getParentToken() + ":" + getTokenName()
+					+ " may not contain brackets: " + value);
+		}
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
 		String title;
@@ -100,22 +106,42 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject> imple
 		}
 		else
 		{
-			StringTokenizer st = new StringTokenizer(activeValue, ",");
+			if (hasIllegalSeparator(',', activeValue)
+					|| hasIllegalSeparator('|', activeValue))
+			{
+				return ParseResult.INTERNAL_ERROR;
+			}
+			StringTokenizer st = new StringTokenizer(activeValue, ",|");
 			Set<PCAlignment> set = new HashSet<PCAlignment>();
 			while (st.hasMoreTokens())
 			{
+				String abb = st.nextToken();
 				PCAlignment stat = context.ref.getAbbreviatedObject(
-						PCALIGNMENT_CLASS, st.nextToken());
+						PCALIGNMENT_CLASS, abb);
+				if (stat == null)
+				{
+					ComplexParseResult cpr = new ComplexParseResult();
+					cpr.addErrorMessage("Invalid object was used in: "
+							+ activeValue);
+					cpr.addErrorMessage("  " + abb + " is not a stat");
+					return cpr;
+				}
 				if (!set.add(stat))
 				{
-					// Error (second add)
+					ComplexParseResult cpr = new ComplexParseResult();
+					cpr
+							.addErrorMessage("Invalid combination of objects was used in: "
+									+ activeValue);
+					cpr.addErrorMessage("  " + stat.getAbb()
+							+ " was used twice");
+					return cpr;
 				}
 			}
 			if (set.isEmpty())
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
-			pcs = new SimpleChoiceSet<PCAlignment>(set);
+			pcs = new SimpleChoiceSet<PCAlignment>(set, Constants.PIPE);
 		}
 
 		if (!pcs.getGroupingState().isValid())

@@ -410,8 +410,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			map = new OneToOneMap<CDOMObject, String>();
 			abbMap.put(obj.getClass(), map);
 		}
-		map.put(obj, value);
 		obj.put(StringKey.ABB, value);
+		map.put(obj, value);
 	}
 
 	public String getAbbreviation(CDOMObject obj)

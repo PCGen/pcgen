@@ -438,7 +438,6 @@ public class ChooserUtilities
 		classLookup.put("SCHOOLS",              SchoolsChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
 		classLookup.put("STRING",               MiscChoiceManager.class.getName());
-		classLookup.put("PROFICIENCY",          ProficiencyChoiceManager.class.getName());
 		classLookup.put("SPELLLEVEL",           SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST",            SpellListChoiceManager.class.getName());
 		classLookup.put("SPELLS",               SpellsChoiceManager.class.getName());

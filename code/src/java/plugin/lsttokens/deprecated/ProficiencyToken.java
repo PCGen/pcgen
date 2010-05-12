@@ -15,20 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -42,7 +43,7 @@ public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
@@ -78,31 +79,49 @@ public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " must have two or more | delimited arguments : "
-							+ value);
+					+ " must have two or more | delimited arguments : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() < 3)
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires at least three arguments: " + value);
 		}
 		String first = tok.nextToken();
 		if (!first.equals("ARMOR") && !first.equals("SHIELD")
 				&& !first.equals("WEAPON"))
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " first argument was not ARMOR, SHIELD, or WEAPON");
 		}
+		String subtoken = first + "PROFICIENCY";
 		String second = tok.nextToken();
-		if (!second.equals("PC") && !second.equals("ALL")
-				&& !second.equals("UNIQUE"))
+		String qualifier;
+		if (second.equals("PC"))
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			qualifier = "PC";
+		}
+		else if (second.equals("ALL"))
+		{
+			qualifier = "ANY";
+		}
+		else if (second.equals("UNIQUE"))
+		{
+			qualifier = "!PC";
+		}
+		else
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " second argument was not PC, ALL, or UNIQUE");
 		}
+		StringBuilder sb = new StringBuilder();
+		boolean needPipe = false;
 		while (tok.hasMoreTokens())
 		{
+			if (needPipe == true)
+			{
+				sb.append('|');
+			}
 			String tokString = tok.nextToken();
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
@@ -113,24 +132,19 @@ public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements
 				cpr.addErrorMessage("  entire token was: " + value);
 				return cpr;
 			}
+			sb.append(tokString);
+			needPipe = true;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		Logging.deprecationPrint("CHOOSE:PROFICIENCY|" + first
+				+ " has been deprecated," + "please use CHOOSE:" + subtoken
+				+ "|...");
+		return context.processSubToken(obj, "CHOOSE", subtoken, qualifier
+				+ "[" + sb.toString() + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()

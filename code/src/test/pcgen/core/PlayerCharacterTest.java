@@ -204,7 +204,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Exotic Weapon Proficiency", AbilityCategory.FEAT,
 					"General.Fighter");
 		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		exoticWpnProf.put(StringKey.CHOICE_STRING, "PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		context.unconditionallyProcess(exoticWpnProf, "CHOOSE", "WEAPONPROFICIENCY|!PC[TYPE.Exotic]");
 		context.unconditionallyProcess(exoticWpnProf, "AUTO", "WEAPONPROF|%LIST");
 	
 		WeaponProf wpnProfTestA = new WeaponProf();
@@ -239,10 +239,16 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		specialFeatCat = new AbilityCategory("Special Feat");
 		specialFeatCat.setAbilityCategory(AbilityCategory.FEAT.getKeyName());
 		SettingsHandler.getGame().addAbilityCategory(specialFeatCat);
-		
-		
+
 		specialAbilityCat = new AbilityCategory("Special Ability");
 		SettingsHandler.getGame().addAbilityCategory(specialAbilityCat);
+	}
+
+	private void readyToRun()
+	{
+		LoadContext context = Globals.getContext();
+		context.resolveDeferredTokens();
+		context.resolveReferences();
 	}
 
 	@Override
@@ -258,7 +264,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -271,7 +277,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -287,7 +293,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
@@ -304,6 +310,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetNumFeatsFromLevels()
 	{
+		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
 		pc.setRace(human);
 		assertEquals("Should start at 0", 0, pc.getNumFeatsFromLevels(), 0.001);
@@ -335,6 +342,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel2() throws Exception
 	{
+		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
 
 		pc.setRace(giantRace);
@@ -358,6 +366,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValue1() throws Exception
 	{
+		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.put(VariableKey.getConstant("GiantVar1"), FormulaFactory.ZERO);
@@ -388,7 +397,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValueStatMod() throws Exception
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -407,7 +416,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValueStatModNew() throws Exception
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -426,7 +435,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableCaching()
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.setAssoc(str, AssociationKey.STAT_SCORE, 16);
@@ -454,7 +463,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testModFeat()
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
@@ -480,7 +489,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testExoticWpnProf()
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 
@@ -513,6 +522,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetClassVar() throws Exception
 	{
+		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetClassVar()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -529,6 +539,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testMaxValue()
 	{
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, str, 8);
 		setPCStat(pc, dex, 14);
@@ -596,6 +607,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testSkillsVisibility()
 	{
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 
 		Skill guiSkill = new Skill();
@@ -648,7 +660,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testAddSpells()
 	{
-		Globals.getContext().resolveReferences();
+		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
@@ -788,7 +800,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PCClassLevel lvl3 = arClass.getOriginalClassLevel(3);
 		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc04");
 		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc05");
-		context.resolveReferences();
+		readyToRun();
 		
 		final PlayerCharacter pc = new PlayerCharacter();
 	
@@ -828,6 +840,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 	public void testIsNonAbility()
 	{
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 
 		//Base
@@ -868,6 +881,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testStackDifferentAbiltyCat()
 	{
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		double base = pc.getTotalBonusTo("HP", "CURRENTMAX");
 		
@@ -925,7 +939,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(resToAcid, "ABILITY", specialAbilityCat
 				.getKeyName()
 				+ "|AUTOMATIC|" + resToAcidOutputAuto.getKeyName());
-		context.resolveReferences();
+		readyToRun();
 		pc.setRace(human);
 		assertEquals("PC should now have a race of human", human, pc.getRace());
 		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
@@ -936,6 +950,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 	public void testGetPartialStatBonusFor()
 	{
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, str, 14);
 
@@ -970,6 +985,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetAvailableFollowers()
 	{
+		readyToRun();
 		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Container");
 		PlayerCharacter pc = getCharacter();
 		
@@ -1019,7 +1035,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(human, "ABILITY", "FEAT|AUTOMATIC|KEY_Swelter");
 		context.unconditionallyProcess(template, "ABILITY", "FEAT|VIRTUAL|KEY_Swelter");
 		context.unconditionallyProcess(templateNorm, "ABILITY", "FEAT|NORMAL|KEY_Swelter");
-		context.resolveReferences();
+		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		
 		List<Ability> abList = pc.getAggregateAbilityList(AbilityCategory.FEAT);
@@ -1057,7 +1073,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(quickFlySlowSwim, "MOVE",
 			"Swim,10,Fly,30");
 		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
-		context.resolveReferences();
+		readyToRun();
 		LoadInfo li =
 				SystemCollections.getLoadInfo(SettingsHandler.getGame()
 					.getName());

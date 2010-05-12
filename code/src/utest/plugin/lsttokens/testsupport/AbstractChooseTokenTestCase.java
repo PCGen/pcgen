@@ -22,10 +22,11 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -37,11 +38,13 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		extends AbstractTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> pcqualifier = new QualifiedToken<CDOMObject>();
+	private static QualifierToken<CDOMObject> qual = new QualifiedToken<CDOMObject>();
 
 	private static QualifierToken<CDOMObject> anyqualifier = new AnyToken<CDOMObject>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
+
+	private static boolean allowsPCQualifier;
 
 	public String getSubTokenName()
 	{
@@ -54,14 +57,26 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
+		QualifierToken<? extends CDOMObject> pcqual = getPCQualifier();
+		allowsPCQualifier = pcqual != null;
 		TokenRegistration.register(getSubToken());
-		TokenRegistration.register(pcqualifier);
+		TokenRegistration.register(qual);
 		TokenRegistration.register(anyqualifier);
+		if (allowsPCQualifier)
+		{
+			TokenRegistration.register(pcqual);
+		}
 	}
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		construct(loadContext, getTargetClass(), one);
+	}
+
+	protected void construct(LoadContext loadContext,
+			Class<? extends CDOMObject> cl, String one)
+	{
+		loadContext.ref.constructCDOMObject(cl, one);
 	}
 
 	@Override
@@ -83,6 +98,12 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	}
 
 	protected abstract boolean allowsQualifier();
+
+	protected abstract boolean isTypeLegal();
+
+	protected abstract boolean isAllLegal();
+
+	protected abstract QualifierToken<? extends CDOMObject> getPCQualifier();
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
@@ -116,8 +137,21 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "String"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+	}
+
+	protected boolean requiresLiteral()
+	{
+		return false;
 	}
 
 	@Test
@@ -125,8 +159,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "TestWP1.TestWP2"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -246,8 +288,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "TestWP1|TestWP2"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -259,9 +309,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		 * consume the |
 		 */
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|'
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
 				+ "TestWP1|TYPE=TestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -273,9 +330,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		 * consume the |
 		 */
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|"
-				+ "TYPE.TestType.OtherTestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "TestWP1|" + "TYPE.TestType.OtherTestType|TestWP2"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -287,18 +351,24 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
 		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|' + "TYPE=TestType"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|' + "TYPE.TestType"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|'
-				+ "TestWP1|TestWP2|TYPE=TestType"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|'
-				+ "TestWP1|TestWP2|TYPE=TestType.OtherTestType"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + "|ALL"));
-		assertTrue(primaryContext.ref.validate(null));
+		if (isTypeLegal())
+		{
+			assertTrue(parse(getSubTokenName() + '|' + "TYPE=TestType"));
+			assertTrue(primaryContext.ref.validate(null));
+			assertTrue(parse(getSubTokenName() + '|' + "TYPE.TestType"));
+			assertTrue(primaryContext.ref.validate(null));
+			assertTrue(parse(getSubTokenName() + '|'
+					+ "TestWP1|TestWP2|TYPE=TestType"));
+			assertTrue(primaryContext.ref.validate(null));
+			assertTrue(parse(getSubTokenName() + '|'
+					+ "TestWP1|TestWP2|TYPE=TestType.OtherTestType"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+		if (isAllLegal())
+		{
+			assertTrue(parse(getSubTokenName() + "|ALL"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -332,71 +402,96 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testRoundRobinWithEqualType() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|'
-				+ "TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
+		if (isTypeLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			runRoundRobin(getSubTokenName() + '|'
+					+ "TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
+		}
 	}
 
 	@Test
 	public void testRoundRobinTestEquals() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "TYPE=TestType");
+		if (isTypeLegal())
+		{
+			runRoundRobin(getSubTokenName() + '|' + "TYPE=TestType");
+		}
 	}
 
 	@Test
 	public void testRoundRobinTestEqualThree() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|'
-				+ "TYPE=TestAltType.TestThirdType.TestType");
+		if (isTypeLegal())
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "TYPE=TestAltType.TestThirdType.TestType");
+		}
 	}
 
 	@Test
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + "|ALL|TestWP1"));
-		assertNoSideEffects();
+		if (isAllLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse(getSubTokenName() + "|ALL|TestWP1"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidInputItemAny() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1|ALL"));
-		assertNoSideEffects();
+		if (isAllLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse(getSubTokenName() + '|' + "TestWP1|ALL"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidInputAnyType() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "ALL|TYPE=TestType"));
-		assertNoSideEffects();
+		if (isTypeLegal())
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "ALL|TYPE=TestType"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidInputTypeAny() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TYPE=TestType|ALL"));
-		assertNoSideEffects();
+		if (isTypeLegal())
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "TYPE=TestType|ALL"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
 			throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP2");
-		construct(primaryContext, "TestWP3");
-		construct(secondaryContext, "TestWP3");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP3|TYPE="));
-		assertNoSideEffects();
+		if (isTypeLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP2");
+			construct(primaryContext, "TestWP3");
+			construct(secondaryContext, "TestWP3");
+			assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
+			assertTrue(parseSecondary(getSubTokenName() + '|'
+					+ "TestWP1|TestWP2"));
+			assertFalse(parse(getSubTokenName() + '|' + "TestWP3|TYPE="));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -421,16 +516,21 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInputInvalidAddsAllNoSideEffect()
 			throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP2");
-		construct(primaryContext, "TestWP3");
-		construct(secondaryContext, "TestWP3");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP3|ALL"));
-		assertNoSideEffects();
+		if (isAllLegal())
+		{
+
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP2");
+			construct(primaryContext, "TestWP3");
+			construct(secondaryContext, "TestWP3");
+			assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
+			assertTrue(parseSecondary(getSubTokenName() + '|'
+					+ "TestWP1|TestWP2"));
+			assertFalse(parse(getSubTokenName() + '|' + "TestWP3|ALL"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -443,8 +543,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidInputJoinedDotQualifier()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "PC.QUALIFIED"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "PC.QUALIFIED"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -464,7 +572,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "PC]"));
+			assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED]"));
 			assertNoSideEffects();
 		}
 	}
@@ -1098,7 +1206,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testUnparseIllegalAllItem() throws PersistenceLayerException
 	{
-		assertBadChoose("ALL|TestWP1");
+		if (isAllLegal())
+		{
+			assertBadChoose("ALL|TestWP1");
+		}
 	}
 
 	private void assertBadChoose(String value)
@@ -1110,19 +1221,28 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testUnparseIllegalItemAll() throws PersistenceLayerException
 	{
-		assertBadChoose("ALL|TestWP1");
+		if (isAllLegal())
+		{
+			assertBadChoose("ALL|TestWP1");
+		}
 	}
 
 	@Test
 	public void testUnparseIllegalAllType() throws PersistenceLayerException
 	{
-		assertBadChoose("ALL|TestWP1");
+		if (isAllLegal())
+		{
+			assertBadChoose("ALL|TestWP1");
+		}
 	}
 
 	@Test
 	public void testUnparseIllegalTypeAll() throws PersistenceLayerException
 	{
-		assertBadChoose("ALL|TestWP1");
+		if (isAllLegal())
+		{
+			assertBadChoose("ALL|TestWP1");
+		}
 	}
 
 	@Test
@@ -1143,7 +1263,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	private void parseForUnparse(String value, boolean valid)
 	{
 		PrimitiveChoiceSet<TC> pcs = primaryContext.getChoiceSet(
-				primaryContext.ref.getManufacturer(getTargetClass()), value);
+				getManufacturer(), value);
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
 		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), pcs);
@@ -1151,6 +1271,11 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		PersistentTransitionChoice<TC> tc = new PersistentTransitionChoice<TC>(
 				cs, null);
 		primaryProf.put(ObjectKey.CHOOSE_INFO, tc);
+	}
+
+	protected ReferenceManufacturer<TC> getManufacturer()
+	{
+		return primaryContext.ref.getManufacturer(getTargetClass());
 	}
 
 	protected abstract String getChoiceTitle();
@@ -1168,6 +1293,425 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		catch (ClassCastException e)
 		{
 			// Yep!
+		}
+	}
+
+	@Test
+	public void testValidQualifiedPCInputLotsOr()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[TYPE=Bar|TYPE=Goo]|PC[TYPE=Foo|TYPE=Yea]");
+		}
+	}
+
+	@Test
+	public void testValidQualifiedPCInputLotsAnd()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[TYPE=Bar,TYPE=Goo],PC[TYPE=Foo,TYPE=Yea]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCOne() throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			runRoundRobin(getSubTokenName() + '|' + "PC[TestWP1]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCParen()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			construct(primaryContext, "TestWP1 (Test)");
+			construct(secondaryContext, "TestWP1 (Test)");
+			runRoundRobin(getSubTokenName() + '|' + "PC[TestWP1 (Test)]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCThreeOr()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(primaryContext, "TestWP3");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP3");
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[TestWP1|TestWP2|TestWP3]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCThreeAnd()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCFourAndOr()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCNegatedFourAndOr()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "!PC[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCWithEqualType()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCTestEquals()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|' + "PC[TYPE=TestType]");
+		}
+		else
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "PC[TYPE=TestType]"));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testRoundRobinQualifiedPCTestEqualThree()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + '|'
+					+ "PC[TYPE=TestAltType.TestThirdType.TestType]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinTestQualifiedPCAll()
+			throws PersistenceLayerException
+	{
+		if (allowsPCQualifier)
+		{
+			runRoundRobin(getSubTokenName() + "|PC[ALL]");
+		}
+	}
+
+	public void stressOtherQualifier(String qual,
+			Class<? extends CDOMObject> targetClass, boolean allowNegation)
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + qual + "["));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + "|" + qual + "[|]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + "|" + qual + "[,]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TYPE=]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[!TYPE=]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TYPE=One.]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[!TYPE=One.]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[!TYPE=One..Two]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TYPE=.One]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TYPE=One..Two]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[!TYPE=.One]"));
+		assertNoSideEffects();
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP4");
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP1|]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP1,]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[|TestWP1]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[,TestWP1]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[TestWP2||TestWP1]]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[TYPE=Foo,,!TYPE=Bar]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[ALL|TYPE=TestType]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[TYPE=TestType|ALL]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TYPE=Foo]TestWP1"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[TestWP1]TYPE=Foo|TYPE=Bar"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP1]TYPE=Foo"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual
+				+ "[TYPE=Foo]TestWP1,TYPE=Bar"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + "|" + qual + "[ALL|TestWP1]"));
+		assertNoSideEffects();
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP1|ALL]"));
+		assertNoSideEffects();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP1|TestWP2]"));
+		assertTrue(parseSecondary(getSubTokenName() + '|' + qual
+				+ "[TestWP1|TestWP2]"));
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP3|TYPE=]"));
+		assertNoSideEffects();
+		resetContext();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "." + qual));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[" + qual + "]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[String]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP1.TestWP2]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP1|TestWP2]"));
+		assertTrue(parseSecondary(getSubTokenName() + '|' + qual
+				+ "[TestWP1|TestWP2]"));
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP3||TestWP4]"));
+		assertNoSideEffects();
+		resetContext();
+		// Explicitly do NOT build TestWP0
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP0|TestWP1]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		// this checks that the TYPE= doesn't consume the |
+		assertTrue(parse(getSubTokenName() + '|' + qual
+				+ "[TestWP1|TYPE=TestType|TestWP0]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		// this checks that the TYPE. doesn't consume the |
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP1|"
+				+ "TYPE.TestType.OtherTestType|TestWP2]"));
+		assertFalse(primaryContext.ref.validate(null));
+		resetContext();
+		// Test with All
+		assertTrue(parse(getSubTokenName() + '|' + qual + "[TestWP1|TestWP2]"));
+		assertTrue(parseSecondary(getSubTokenName() + '|' + qual
+				+ "[TestWP1|TestWP2]"));
+		assertFalse(parse(getSubTokenName() + '|' + qual + "[TestWP3|ALL]"));
+		assertNoSideEffects();
+		if (!allowNegation)
+		{
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TYPE=Bar|TYPE=Goo]|" + qual + "[TYPE=Foo|TYPE=Yea]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TYPE=Bar,TYPE=Goo]," + qual + "[TYPE=Foo,TYPE=Yea]"));
+			assertNoSideEffects();
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP1");
+			construct(secondaryContext, targetClass, "TestWP1");
+			assertFalse(parse(getSubTokenName() + "|!" + qual + "[TestWP1]"));
+			assertNoSideEffects();
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP1 (Test)");
+			construct(secondaryContext, targetClass, "TestWP1 (Test)");
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TestWP1 (Test)]"));
+			assertNoSideEffects();
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP2");
+			construct(primaryContext, targetClass, "TestWP3");
+			construct(primaryContext, targetClass, "TestWP4");
+			construct(secondaryContext, targetClass, "TestWP2");
+			construct(secondaryContext, targetClass, "TestWP3");
+			construct(secondaryContext, targetClass, "TestWP4");
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TestWP2|TestWP3|TestWP4]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[!TYPE=Type1,TYPE=Type2,TYPE=Type3]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]"));
+			assertNoSideEffects();
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP5");
+			construct(primaryContext, targetClass, "TestWP6");
+			construct(secondaryContext, targetClass, "TestWP5");
+			construct(secondaryContext, targetClass, "TestWP6");
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TestWP5|TestWP6|TYPE=OtherTestType|TYPE=TestType]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TYPE=TestType]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual
+					+ "[TYPE=TestAltType.TestThirdType.TestType]"));
+			assertNoSideEffects();
+			resetContext();
+			assertFalse(parse(getSubTokenName() + "|!" + qual + "[ALL]"));
+			assertNoSideEffects();
+			resetContext();
+			//Invalid combination
+			assertFalse(parse(getSubTokenName() + "|!" + qual + "[ALL]"));
+			assertNoSideEffects();
+		}
+	}
+
+	public void checkOtherQualifier(String qual,
+			Class<? extends CDOMObject> targetClass, boolean allowNegation)
+			throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + qual + "[TYPE=Bar|TYPE=Goo]|"
+				+ qual + "[TYPE=Foo|TYPE=Yea]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual + "[TYPE=Bar,TYPE=Goo],"
+				+ qual + "[TYPE=Foo,TYPE=Yea]");
+		resetContext();
+		construct(primaryContext, targetClass, "TestWP1");
+		construct(secondaryContext, targetClass, "TestWP1");
+		runRoundRobin(getSubTokenName() + '|' + qual + "[TestWP1]");
+		resetContext();
+		construct(primaryContext, targetClass, "TestWP1 (Test)");
+		construct(secondaryContext, targetClass, "TestWP1 (Test)");
+		runRoundRobin(getSubTokenName() + '|' + qual + "[TestWP1 (Test)]");
+		resetContext();
+		construct(primaryContext, targetClass, "TestWP2");
+		construct(primaryContext, targetClass, "TestWP3");
+		construct(primaryContext, targetClass, "TestWP4");
+		construct(secondaryContext, targetClass, "TestWP2");
+		construct(secondaryContext, targetClass, "TestWP3");
+		construct(secondaryContext, targetClass, "TestWP4");
+		runRoundRobin(getSubTokenName() + '|' + qual
+				+ "[TestWP2|TestWP3|TestWP4]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual
+				+ "[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual
+				+ "[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
+		resetContext();
+		construct(primaryContext, targetClass, "TestWP5");
+		construct(primaryContext, targetClass, "TestWP6");
+		construct(secondaryContext, targetClass, "TestWP5");
+		construct(secondaryContext, targetClass, "TestWP6");
+		runRoundRobin(getSubTokenName() + '|' + qual
+				+ "[TestWP5|TestWP6|TYPE=OtherTestType|TYPE=TestType]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual + "[TYPE=TestType]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual
+				+ "[TYPE=TestAltType.TestThirdType.TestType]");
+		resetContext();
+		runRoundRobin(getSubTokenName() + '|' + qual + "[ALL]");
+		if (allowNegation)
+		{
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[TYPE=Bar|TYPE=Goo]|" + qual + "[TYPE=Foo|TYPE=Yea]");
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[TYPE=Bar,TYPE=Goo]," + qual + "[TYPE=Foo,TYPE=Yea]");
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP1");
+			construct(secondaryContext, targetClass, "TestWP1");
+			runRoundRobin(getSubTokenName() + "|!" + qual + "[TestWP1]");
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP1 (Test)");
+			construct(secondaryContext, targetClass, "TestWP1 (Test)");
+			runRoundRobin(getSubTokenName() + "|!" + qual + "[TestWP1 (Test)]");
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP2");
+			construct(primaryContext, targetClass, "TestWP3");
+			construct(primaryContext, targetClass, "TestWP4");
+			construct(secondaryContext, targetClass, "TestWP2");
+			construct(secondaryContext, targetClass, "TestWP3");
+			construct(secondaryContext, targetClass, "TestWP4");
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[TestWP2|TestWP3|TestWP4]");
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
+			resetContext();
+			construct(primaryContext, targetClass, "TestWP5");
+			construct(primaryContext, targetClass, "TestWP6");
+			construct(secondaryContext, targetClass, "TestWP5");
+			construct(secondaryContext, targetClass, "TestWP6");
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[TestWP5|TestWP6|TYPE=OtherTestType|TYPE=TestType]");
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual + "[TYPE=TestType]");
+			resetContext();
+			runRoundRobin(getSubTokenName() + "|!" + qual
+					+ "[TYPE=TestAltType.TestThirdType.TestType]");
 		}
 	}
 }

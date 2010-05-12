@@ -24,11 +24,11 @@ import java.util.logging.Level;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-
 
 public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		QualifierToken<T>
@@ -39,7 +39,9 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	private PrimitiveChoiceFilter<T> pcs = null;
 
 	private boolean negated = false;
-
+	
+	private CDOMGroupRef<T> allReference;
+	
 	public String getTokenName()
 	{
 		return "PC";
@@ -60,25 +62,27 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 			throw new IllegalArgumentException();
 		}
 		refClass = sc.getReferenceClass();
+		negated = negate;
+		allReference = sc.getAllReference();
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
-		negated = negate;
 		return true;
 	}
 
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Collection<T> objects = getPossessed(pc);
+		Collection<T> possessed = getPossessed(pc);
+		Collection<T> objects = negated ? allReference.getContainedObjects() : possessed;
 		Set<T> returnSet = new HashSet<T>();
 		if (objects != null)
 		{
 			for (T po : objects)
 			{
 				boolean allow = pcs == null || pcs.allow(pc, po);
-				if (allow ^ negated)
+				if (allow && (!negated || !possessed.contains(po)))
 				{
 					returnSet.add(po);
 				}
@@ -92,6 +96,10 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
+		if (negated)
+		{
+			sb.append('!');
+		}
 		sb.append(getTokenName());
 		if (pcs != null)
 		{
@@ -132,6 +140,9 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 				{
 					return false;
 				}
+				// Required so PC qualifiers of different classes are not
+				// accidentally matched during token library initialization
+				return getClass().equals(other.getClass());
 			}
 			else
 			{
@@ -147,7 +158,8 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState();
+		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
+				.getGroupingState();
 		return negated ? gs.negate() : gs;
 	}
 }
