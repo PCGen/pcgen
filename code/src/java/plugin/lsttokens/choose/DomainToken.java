@@ -21,7 +21,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
@@ -77,20 +76,6 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 		}
 		return super.parseTokenWithSeparator(context, context.ref
 				.getManufacturer(DOMAIN_CLASS), obj, sb.toString());
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
 	}
 
 	@Override
