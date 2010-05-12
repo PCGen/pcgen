@@ -91,6 +91,13 @@ public class EquipmentToken implements QualifierToken<ShieldProf>
 			SelectionCreator<ShieldProf> sc, String condition, String value,
 			boolean negate)
 	{
+		if (negate)
+		{
+			Logging.addParseMessage(Level.SEVERE, "Cannot make "
+					+ getTokenName()
+					+ " into a negated Qualifier, remove !");
+			return false;
+		}
 		if (condition != null)
 		{
 			Logging.addParseMessage(Level.SEVERE, "Cannot make "
