@@ -98,4 +98,25 @@ public class NoRankToken implements QualifierToken<Skill>
 	{
 		return pcs == null ? GroupingState.ANY : pcs.getGroupingState();
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return pcs == null ? 0 : pcs.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof NoRankToken)
+		{
+			NoRankToken other = (NoRankToken) o;
+			if (pcs == null)
+			{
+				return other.pcs == null;
+			}
+			return pcs.equals(other.pcs);
+		}
+		return false;
+	}
 }

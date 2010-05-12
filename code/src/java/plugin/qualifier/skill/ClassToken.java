@@ -104,4 +104,29 @@ public class ClassToken implements QualifierToken<Skill>
 				.getGroupingState();
 		return negated ? gs.negate() : gs;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return pcs == null ? 0 : pcs.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof ClassToken)
+		{
+			ClassToken other = (ClassToken) o;
+			if (negated == other.negated)
+			{
+				if (pcs == null)
+				{
+					return other.pcs == null;
+				}
+				return pcs.equals(other.pcs);
+			}
+		}
+		return false;
+	}
+
 }

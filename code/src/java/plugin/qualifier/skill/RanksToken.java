@@ -54,6 +54,8 @@ public class RanksToken implements QualifierToken<Skill>
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName());
+		sb.append('=');
+		sb.append(ranks);
 		if (pcs != null)
 		{
 			sb.append('[').append(pcs.getLSTformat()).append(']');
@@ -110,5 +112,29 @@ public class RanksToken implements QualifierToken<Skill>
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
 				.getGroupingState();
 		return negated ? gs.negate() : gs;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return pcs == null ? 0 : pcs.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof RanksToken)
+		{
+			RanksToken other = (RanksToken) o;
+			if (negated == other.negated && ranks == other.ranks)
+			{
+				if (pcs == null)
+				{
+					return other.pcs == null;
+				}
+				return pcs.equals(other.pcs);
+			}
+		}
+		return false;
 	}
 }

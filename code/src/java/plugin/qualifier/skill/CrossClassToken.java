@@ -107,4 +107,28 @@ public class CrossClassToken implements QualifierToken<Skill>
 				.getGroupingState();
 		return negated ? gs.negate() : gs;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return pcs == null ? 0 : pcs.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof CrossClassToken)
+		{
+			CrossClassToken other = (CrossClassToken) o;
+			if (negated == other.negated)
+			{
+				if (pcs == null)
+				{
+					return other.pcs == null;
+				}
+				return pcs.equals(other.pcs);
+			}
+		}
+		return false;
+	}
 }
