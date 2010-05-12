@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2007-2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -17,14 +17,30 @@
  */
 package plugin.lsttokens.choose;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.SimpleChoiceSet;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class StringToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<String>
 {
 
 	public String getTokenName()
@@ -38,7 +54,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value.indexOf(',') != -1)
 		{
@@ -65,9 +81,21 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		Set<String> set = new HashSet<String>();
+		while (tok.hasMoreTokens())
+		{
+			String tokString = tok.nextToken();
+			set.add(tokString);
+		}
+		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(set);
+		ChoiceSet<String> cs = new ChoiceSet<String>(getTokenName(), scs);
+		cs.setTitle("Choose an Item");
+		PersistentTransitionChoice<String> tc = new PersistentTransitionChoice<String>(
+				cs, null);
+		tc.setChoiceActor(this);
+		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
 	}
 
@@ -87,5 +115,67 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	public String decodeChoice(String s)
+	{
+		return s;
+	}
+
+	public String encodeChoice(String choice)
+	{
+		return choice;
+	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	{
+		pc.removeAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+		List<ChooseSelectionActor<?>> actors = owner
+				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				ca.removeChoice(owner, choice, pc);
+			}
+		}
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			String choice)
+	{
+		pc.addAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+	}
+
+	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
+	}
+
+	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
+	{
+		restoreChoice(pc, owner, choice);
+		List<ChooseSelectionActor<?>> actors = owner
+				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				applyChoice(owner, choice, pc, ca);
+			}
+		}
+		pc.addAssociation(owner, encodeChoice(choice));
+	}
+
+	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,
+			ChooseSelectionActor<String> ca)
+	{
+		ca.applyChoice(owner, st, pc);
+	}
+
+	public List<String> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		return pc.getAssocList(owner, AssociationListKey.CHOOSE_STRING);
 	}
 }

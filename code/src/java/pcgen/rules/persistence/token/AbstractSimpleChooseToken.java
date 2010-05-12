@@ -209,7 +209,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 	}
 
 	private void applyChoice(CDOMObject owner, T st, PlayerCharacter pc,
-			ChooseSelectionActor ca)
+			ChooseSelectionActor<T> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
