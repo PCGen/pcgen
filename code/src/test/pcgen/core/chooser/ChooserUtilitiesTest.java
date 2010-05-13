@@ -50,7 +50,7 @@ public class ChooserUtilitiesTest extends PCGenTestCase
 				"NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off", null));
 		assertNotNull(
 			"Anything nother than number should be processed by achoice manager",
-			ChooserUtilities.getChoiceManager(new PCTemplate(), "FOO|", null));
+			ChooserUtilities.getChoiceManager(new PCTemplate(), "USERINPUT|", null));
 	}
 
 }
