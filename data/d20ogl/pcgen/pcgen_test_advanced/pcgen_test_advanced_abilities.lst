@@ -1,4 +1,81 @@
 # Ability
+# Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
+# The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
+
+
+
+#Block: Chooser Tests ----------------------------------------------------------------------------------------------------------
+#COMMENT: These are simple CHOOSER Abilities that grant access to All the Choosers. Bob uses these. You may also access them through the Test Choosers found in Class Abilities.
+Chooser ~ Choose ABILITY		CHOOSE:ABILITY|Special Ability|ALL		MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose ALIGNMENT		CHOOSE:ALIGNMENT|ALL				MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose ARMORPROFICIENCY	CHOOSE:ARMORPROFICIENCY|ALL			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose CHECK			CHOOSE:CHECK|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose CLASS			CHOOSE:CLASS|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose DEITY			CHOOSE:DEITY|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose DOMAIN			CHOOSE:DOMAIN|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose EQUIPMENT		CHOOSE:EQUIPMENT|ALL				MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose FEAT			CHOOSE:FEAT|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose LANG			CHOOSE:LANG|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose PCSTAT			CHOOSE:PCSTAT|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose RACE			CHOOSE:RACE|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose SCHOOLS		CHOOSE:SCHOOLS|ALL				MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose SHIELDPROFICIENCY	CHOOSE:SHIELDPROFICIENCY|ALL			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose SIZE			CHOOSE:SIZE|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose SKILL			CHOOSE:SKILL|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose SPELLS			CHOOSE:SPELLS|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose STRING			CHOOSE:STRING|ALL|NONE|Maybe			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose TEMPLATE		CHOOSE:TEMPLATE|ALL				MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose USERINPUT		CHOOSE:USERINPUT|TITLE="User Input Test"	MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose WEAPONPROFICIENCY	CHOOSE:WEAPONPROFICIENCY|ALL			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+#
+Chooser ~ Choose NOCHOICE		CHOOSE:NOCHOICE					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality	STACK:YES
+#Chooser ~ Choose Spelllist		CHOOSE:SKILL|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+
+#Block: Bob's Abilities for Testing new Choosers w/ interactions. ----------------------------------------------------
+
+Bob's Ability with PreFeat Weapon Focus Longsword is working	DESC:Using PreFeat with Longsword weapon Focus	CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Weapon Focus Sword wildcard		DESC:Using PreFeat with Sword Wildcard		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Preskill is working				DESC:Using new Chooser with SKILL			CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreAlign LG					DESC:Using Chooser with Align LG chosen		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreClass Fighter				DESC:Using Chooser with Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreDeity						DESC:Using Chooser with Deity selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Size M						DESC:Using Chooser with Size M Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Check						DESC:Using Chooser with Check Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+#
+
+Bob Test ~ Chooser ~ Ability								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Alignment							CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Armorproficiency						CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Check								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Class								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Deity								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Domain								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Equipment							CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Feat								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Lang								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ PCSTAT								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Race								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Schools								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Shieldproficiency						CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Size								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Skill								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Spells								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ String								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Template								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+Bob Test ~ Chooser ~ Weaponproficiency						CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+
+
+#Bob Test ~ Chooser ~ NoChoice							CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality	
+#Bob Test ~ Chooser ~ Userinput				CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
+
+
+# End the Bob Test Section
+
+
+
+
+
 Ability That Grants Two		CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Ability Grant One|Ability Grant Two	DESC:[Desc]This Ability Grants Two More Abilities	BENEFIT:[Benefit] This ability Greants Two More Abilities
 
 Tentacles of the Fey		CATEGORY:Special Ability	TYPE:Racial.SpecialAttack	NATURALATTACKS:Tentacles of the Fey,Weapon.Melee.Ranged.Slashing.Bludgeoning.Piercing.Natural,*6,1d3	DESC:Grants Six Attacks %1d%2 each [Display should be 1d3]|1|1+1+1+1+var("TentaclesOfTheFey")	DEFINE:TentaclesOfTheFey|0	BONUS:VAR|TentaclesOfTheFey|-1
@@ -76,6 +153,10 @@ Eclipse Master OS			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|E
 Eclipse Test Master		CATEGORY:Special Ability	TYPE:WitchcraftOutput.EclipseAbilityOutput.EclipseRacialOutput.SpellCasterOutput.CharCreation.Disadvantage.PathoftheDragon.MartialArtsOutput.MysticArtistOutput.Dominion.ChannelingOutput		DESC:Testing
 
 
+#################################
+###		Misc Stuff		###
+#################################
+
 
 #Block: Misc Tests
 Linguistics Bonus Rank			CATEGORY:Special Ability	TYPE:Ability.SpecialQuality.Extraordinary		BONUS:LANGUAGES|NUMBER|skillinfo("RANK","Linguistics")
@@ -84,21 +165,36 @@ Linguistics Bonus Rank 2		CATEGORY:Special Ability	TYPE:Ability.SpecialQuality.E
 
 
 Test Climb 40 25 with Size Type		CATEGORY:FEAT	TYPE:General.Testing.Test1	BONUS:SKILL|Climb|40|TYPE=Size	BONUS:SKILL|Climb|25|TYPE=SIZE
+
+
+
+# Chooser Testing
+# Proficiencies
 Test Choose ArmorProf				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test ArmorProf  %1|%CHOICE	CHOOSE:ARMORPROFICIENCY|Leather|EQUIPMENT[TYPE=Medium]	MULT:YES	SELECT:1
 
-
-
-
+# Deity
 Test Choose Deity Align LG		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test Deity LG  %1|%CHOICE	CHOOSE:DEITY|ALIGN=LG	MULT:YES	SELECT:1
 Test Choose Deity Pantheon Elf	CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test Deity Pan  %1|%CHOICE	CHOOSE:DEITY|PANTHEON=Elf	MULT:YES	SELECT:1
 Test Choose DEITY PC			CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test Deity PC %1|%CHOICE		CHOOSE:DEITY|PC[ALIGN=LG]	MULT:YES	SELECT:1
+
+# Conflict CHOOSE:FEAT outputs differently than CHOOSE:ABILITY - Need code team to make Ability the same as FEAT
+Test Choose Weapon Focus Feat				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFS|LIST	
+Test Choose Weapon Specialization Feat		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:FEAT=Test Choose Weapon Focus Feat
+#
+Test Choose Weapon Focus Ability			CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFS|LIST
+Test Choose Weapon Specialization Ability		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:ABILITY|FEAT|Test Choose Weapon Focus Ability
+
+
+
+
+
 
 MAX DEX Adds 5 to feat pool too	CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	BONUS:MISC|MAXDEX|TestVar	DEFINE:TestVar|0	BONUS:VAR|TestVar|5	BONUS:ABILITYPOOL|FEAT|TestVar
 #
 MAX DEX Var					CATEGORY:FEAT	COST:0	TYPE:TestTomChoose		
 
 
-Add Flight Maneuverability Chooser	CATEGORY:FEAT	COST:0	TYPE:Chooser.Test	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
+Add Flight Maneuverability Chooser	CATEGORY:FEAT	COST:0	TYPE:Chooser.Test.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
 Add Flight Movement ~ 50		CATEGORY:FEAT	COST:0	TYPE:Test	MOVE:Fly,50
 
 
@@ -132,3 +228,4 @@ Ability F	CATEGORY:FEAT	TYPE:ATest	VFEAT:Feat G
 
 
 
+# Abilities
