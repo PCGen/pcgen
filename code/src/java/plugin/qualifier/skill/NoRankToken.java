@@ -67,16 +67,16 @@ public class NoRankToken implements QualifierToken<Skill>
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		if (value != null)
-		{
-			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			return pcs != null;
-		}
 		if (negate)
 		{
 			Logging.addParseMessage(Level.SEVERE, "Cannot make "
 					+ getTokenName() + " into a negated Qualifier, remove !");
 			return false;
+		}
+		if (value != null)
+		{
+			pcs = context.getPrimitiveChoiceFilter(sc, value);
+			return pcs != null;
 		}
 		return true;
 	}
