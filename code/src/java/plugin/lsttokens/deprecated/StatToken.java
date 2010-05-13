@@ -24,7 +24,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -91,9 +90,6 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
 			}
 			subList.remove(stat);
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		StringBuilder all = new StringBuilder();
 		boolean needPipe = false;
 		for (PCStat pcs : subList)
