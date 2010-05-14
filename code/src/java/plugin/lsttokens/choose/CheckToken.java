@@ -28,7 +28,7 @@ public class CheckToken extends AbstractSimpleChooseToken<PCCheck>
 	@Override
 	public String getTokenName()
 	{
-		return "PCCHECK";
+		return "CHECK";
 	}
 
 	@Override
