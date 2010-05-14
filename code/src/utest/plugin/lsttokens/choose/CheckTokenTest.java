@@ -102,7 +102,7 @@ public class CheckTokenTest extends
 	@Override
 	protected boolean isAllLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

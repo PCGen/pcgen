@@ -536,7 +536,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testRoundRobinTestAll() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + "|ALL");
+		if (isAllLegal())
+		{
+			runRoundRobin(getSubTokenName() + "|ALL");
+		}
 	}
 
 	@Test
@@ -1158,16 +1161,6 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|QUALIFIED[ALL]");
-		}
-	}
-
-	@Test
-	public void testRoundRobinTestQualifiedAll1()
-			throws PersistenceLayerException
-	{
-		if (allowsQualifier())
-		{
-			runRoundRobin(getSubTokenName() + "|ALL");
 		}
 	}
 

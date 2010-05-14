@@ -182,6 +182,13 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 			 */
 			return null;
 		}
+		if (!choices.getGroupingState().isValid())
+		{
+			context.addWriteMessage("Invalid combination of objects"
+					+ " was used in: " + getParentToken() + ":"
+					+ getTokenName());
+			return null;
+		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(choices.getLSTformat());
 		String title = choices.getTitle();
