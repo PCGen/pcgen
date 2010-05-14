@@ -37,11 +37,11 @@ Bob's Ability with PreFeat Weapon Focus Longsword is working	DESC:Using PreFeat 
 Bob's Ability triggered by Weapon Focus Sword wildcard		DESC:Using PreFeat with Sword Wildcard		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Preskill is working				DESC:Using new Chooser with SKILL			CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by PreAlign LG					DESC:Using Chooser with Align LG chosen		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by PreClass Fighter				DESC:Using Chooser with Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreClass Fighter				DESC:Using Chooser with Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality.TestingType
 Bob's Ability triggered by PreDeity						DESC:Using Chooser with Deity selected		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Size M						DESC:Using Chooser with Size M Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Check						DESC:Using Chooser with Check Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
-
+This Ability is Only Activated is TYPE=TestingType is in a Special Ability	KEY:TypeTester						CATEGORY:Special Ability	TYPE:SpecialQuality
 #
 
 Bob Test ~ Chooser ~ Ability								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
