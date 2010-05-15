@@ -1,5 +1,5 @@
 /*
- * Copyright 2009 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,26 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.primitive.deity;
+package plugin.primitive.equipment;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.EqWield;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Deity;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.util.Logging;
 
-public class AlignToken implements PrimitiveToken<Deity>
+public class WieldCategoryToken implements PrimitiveToken<Equipment>
 {
-
-	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
-	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	private PCAlignment ref;
+	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+	private EqWield category;
 
 	public boolean initialize(LoadContext context, String value, String args)
 	{
@@ -42,42 +40,58 @@ public class AlignToken implements PrimitiveToken<Deity>
 		{
 			return false;
 		}
-		ref = context.ref.getAbbreviatedObject(ALIGNMENT_CLASS, value);
-		return ref != null;
+		if ("Light".equalsIgnoreCase(value))
+		{
+			category = EqWield.Light;
+		}
+		else if ("1 handed".equalsIgnoreCase(value))
+		{
+			category = EqWield.OneHanded;
+		}
+		else if ("2 handed".equalsIgnoreCase(value))
+		{
+			category = EqWield.TwoHanded;
+		}
+		else
+		{
+			Logging.errorPrint("Unable to understand Wield Category: " + value);
+			return false;
+		}
+		return true;
 	}
 
 	public String getTokenName()
 	{
-		return "ALIGN";
+		return "WIELD";
 	}
 
-	public Class<Deity> getReferenceClass()
+	public Class<Equipment> getReferenceClass()
 	{
-		return DEITY_CLASS;
+		return EQUIPMENT_CLASS;
 	}
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + ref.getLSTformat();
+		return "WIELD=" + category;
 	}
 
-	public boolean allow(PlayerCharacter pc, Deity deity)
+	public boolean allow(PlayerCharacter pc, Equipment eq)
 	{
-		return ref.equals(deity.get(ObjectKey.ALIGNMENT));
+		return category.checkWield(pc, eq);
 	}
 
-	public Set<Deity> getSet(PlayerCharacter pc)
+	public Set<Equipment> getSet(PlayerCharacter pc)
 	{
-		HashSet<Deity> deitySet = new HashSet<Deity>();
-		for (Deity deity : Globals.getContext().ref
-				.getConstructedCDOMObjects(DEITY_CLASS))
+		HashSet<Equipment> set = new HashSet<Equipment>();
+		for (Equipment eq : Globals.getContext().ref
+				.getConstructedCDOMObjects(EQUIPMENT_CLASS))
 		{
-			if (ref.equals(deity.get(ObjectKey.ALIGNMENT)))
+			if (allow(pc, eq))
 			{
-				deitySet.add(deity);
+				set.add(eq);
 			}
 		}
-		return deitySet;
+		return set;
 	}
 
 	public GroupingState getGroupingState()
@@ -92,10 +106,10 @@ public class AlignToken implements PrimitiveToken<Deity>
 		{
 			return true;
 		}
-		if (obj instanceof AlignToken)
+		if (obj instanceof WieldCategoryToken)
 		{
-			AlignToken other = (AlignToken) obj;
-			return ref.equals(other.ref);
+			WieldCategoryToken other = (WieldCategoryToken) obj;
+			return category.equals(other.category);
 		}
 		return false;
 	}
@@ -103,7 +117,6 @@ public class AlignToken implements PrimitiveToken<Deity>
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -5 : ref.hashCode();
+		return category == null ? -13 : category.hashCode();
 	}
-
 }

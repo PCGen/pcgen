@@ -35,7 +35,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 
 	public boolean initialize(LoadContext context, String value, String args)
 	{
-		if (value != null && args != null)
+		if (value != null || args != null)
 		{
 			return false;
 		}
@@ -88,4 +88,15 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 		return GroupingState.ANY;
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		return obj instanceof SpellcasterToken;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return 123023;
+	}
 }

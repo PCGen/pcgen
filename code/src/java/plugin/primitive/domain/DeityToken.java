@@ -39,7 +39,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 
 	public boolean initialize(LoadContext context, String value, String args)
 	{
-		if (value != null && args != null)
+		if (value != null || args != null)
 		{
 			return false;
 		}
@@ -122,4 +122,15 @@ public class DeityToken implements PrimitiveToken<Domain>
 		return GroupingState.ANY;
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		return obj instanceof DeityToken;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return 8635;
+	}
 }

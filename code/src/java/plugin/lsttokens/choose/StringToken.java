@@ -28,11 +28,11 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -56,6 +56,11 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
+		if (value == null || value.length() == 0)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " must have arguments");
+		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
@@ -89,7 +94,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 			String tokString = tok.nextToken();
 			set.add(tokString);
 		}
-		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(set);
+		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(set, Constants.PIPE);
 		ChoiceSet<String> cs = new ChoiceSet<String>(getTokenName(), scs);
 		cs.setTitle("Choose an Item");
 		PersistentTransitionChoice<String> tc = new PersistentTransitionChoice<String>(
@@ -101,15 +106,28 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
+		PersistentTransitionChoice<?> tc = context.getObjectContext()
+				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		if (tc == null)
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		SelectableSet<?> choices = tc.getChoices();
+		if (!choices.getName().equals(getTokenName()))
+		{
+			// Don't unparse anything that isn't owned by this SecondaryToken
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(choices.getLSTformat());
+		// TODO oops
+		// String title = choices.getTitle();
+		// if (!title.equals(getDefaultTitle()))
+		// {
+		// sb.append("|TITLE=");
+		// sb.append(title);
+		// }
+		return new String[] { sb.toString() };
 	}
 
 	public Class<CDOMObject> getTokenClass()

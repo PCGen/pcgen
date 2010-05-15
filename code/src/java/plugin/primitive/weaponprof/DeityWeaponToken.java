@@ -1,5 +1,5 @@
 /*
- * Copyright 2009 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,69 +15,85 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.primitive.deity;
+package plugin.primitive.weaponprof;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Deity;
-import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class AlignToken implements PrimitiveToken<Deity>
+public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 {
 
-	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
-	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	private PCAlignment ref;
+	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
 	public boolean initialize(LoadContext context, String value, String args)
 	{
-		if (args != null)
+		if (value != null || args != null)
 		{
 			return false;
 		}
-		ref = context.ref.getAbbreviatedObject(ALIGNMENT_CLASS, value);
-		return ref != null;
+		return true;
 	}
 
 	public String getTokenName()
 	{
-		return "ALIGN";
+		return "DEITYWEAPON";
 	}
 
-	public Class<Deity> getReferenceClass()
+	public Class<WeaponProf> getReferenceClass()
 	{
-		return DEITY_CLASS;
+		return WEAPONPROF_CLASS;
 	}
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + ref.getLSTformat();
+		return "DEITYWEAPON";
 	}
 
-	public boolean allow(PlayerCharacter pc, Deity deity)
+	public boolean allow(PlayerCharacter pc, WeaponProf pcc)
 	{
-		return ref.equals(deity.get(ObjectKey.ALIGNMENT));
-	}
-
-	public Set<Deity> getSet(PlayerCharacter pc)
-	{
-		HashSet<Deity> deitySet = new HashSet<Deity>();
-		for (Deity deity : Globals.getContext().ref
-				.getConstructedCDOMObjects(DEITY_CLASS))
+		Deity deity = pc.getDeity();
+		if (deity == null)
 		{
-			if (ref.equals(deity.get(ObjectKey.ALIGNMENT)))
+			return false;
+		}
+		List<CDOMReference<WeaponProf>> dwp = deity
+				.getSafeListFor(ListKey.DEITYWEAPON);
+		for (CDOMReference<WeaponProf> ref : dwp)
+		{
+			if (ref.contains(pcc))
 			{
-				deitySet.add(deity);
+				return true;
 			}
 		}
-		return deitySet;
+		return false;
+	}
+
+	public Set<WeaponProf> getSet(PlayerCharacter pc)
+	{
+		Deity deity = pc.getDeity();
+		if (deity == null)
+		{
+			return Collections.emptySet();
+		}
+		HashSet<WeaponProf> set = new HashSet<WeaponProf>();
+		List<CDOMReference<WeaponProf>> dwp = deity
+				.getSafeListFor(ListKey.DEITYWEAPON);
+		for (CDOMReference<WeaponProf> ref : dwp)
+		{
+			set.addAll(ref.getContainedObjects());
+		}
+		return set;
 	}
 
 	public GroupingState getGroupingState()
@@ -88,22 +104,12 @@ public class AlignToken implements PrimitiveToken<Deity>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof AlignToken)
-		{
-			AlignToken other = (AlignToken) obj;
-			return ref.equals(other.ref);
-		}
-		return false;
+		return obj instanceof DeityWeaponToken;
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -5 : ref.hashCode();
+		return 5783;
 	}
-
 }

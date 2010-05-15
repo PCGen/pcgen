@@ -57,7 +57,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 
 	public String getLSTformat()
 	{
-		return racetype.toString();
+		return getTokenName() + "=" + racetype.toString();
 	}
 
 	public boolean allow(PlayerCharacter pc, Race race)
@@ -84,4 +84,24 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 		return GroupingState.ANY;
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+		{
+			return true;
+		}
+		if (obj instanceof RaceSubTypeToken)
+		{
+			RaceSubTypeToken other = (RaceSubTypeToken) obj;
+			return racetype.equals(other.racetype);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return racetype == null ? -11 : racetype.hashCode();
+	}
 }

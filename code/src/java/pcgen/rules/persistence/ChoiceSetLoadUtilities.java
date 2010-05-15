@@ -247,6 +247,12 @@ public final class ChoiceSetLoadUtilities
 			{
 				tokKey = key.substring(0, equalLoc);
 				tokValue = key.substring(equalLoc + 1);
+				if (tokValue.length() == 0)
+				{
+					Logging.errorPrint("Found error in Primitive Choice: " + key
+							+ " has equals but no target value");
+					return null;
+				}
 			}
 			tokRestriction = null;
 		}

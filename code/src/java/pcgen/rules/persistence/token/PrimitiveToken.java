@@ -1,9 +1,10 @@
 package pcgen.rules.persistence.token;
 
 import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 
-public interface PrimitiveToken<T> extends PrimitiveChoiceFilter<T>
+public interface PrimitiveToken<T> extends PrimitiveChoiceFilter<T>, LstToken
 {
 	public boolean initialize(LoadContext context, String value, String args);
 

@@ -433,12 +433,10 @@ public class ChooserUtilities
 	{
 		classLookup = new HashMap<String, String>();
 		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());
-		classLookup.put("HP",                   HPChoiceManager.class.getName());
 		classLookup.put("SPELLLEVEL",           SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST",            SpellListChoiceManager.class.getName());
 		classLookup.put("SPELLS",               SpellsChoiceManager.class.getName());
 		classLookup.put("WEAPONFOCUS",          WeaponFocusChoiceManager.class.getName());
-		classLookup.put("WEAPONPROFS",          WeaponProfChoiceManager.class.getName());
 
 		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());

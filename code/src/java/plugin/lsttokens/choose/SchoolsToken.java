@@ -26,11 +26,11 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
@@ -76,26 +76,29 @@ public class SchoolsToken extends ErrorParsingWrapper<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null)
+		PersistentTransitionChoice<?> tc = context.getObjectContext()
+				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		if (tc == null)
 		{
 			return null;
 		}
-		String returnString;
-		if (getTokenName().equals(chooseString))
+		SelectableSet<?> choices = tc.getChoices();
+		if (!choices.getName().equals(getTokenName()))
 		{
-			returnString = "";
+			// Don't unparse anything that isn't owned by this SecondaryToken
+			return null;
 		}
-		else
-		{
-			if (chooseString.indexOf(getTokenName() + '|') != 0)
-			{
-				return null;
-			}
-			returnString = chooseString.substring(getTokenName().length() + 1);
-		}
-		return new String[] { returnString };
+		StringBuilder sb = new StringBuilder();
+		sb.append(choices.getLSTformat());
+System.err.println("!" + choices.getLSTformat());
+		// TODO oops
+		// String title = choices.getTitle();
+		// if (!title.equals(getDefaultTitle()))
+		// {
+		// sb.append("|TITLE=");
+		// sb.append(title);
+		// }
+		return new String[] { sb.toString() };
 	}
 
 	public Class<CDOMObject> getTokenClass()

@@ -33,7 +33,7 @@ public class PantheonToken implements PrimitiveToken<Deity>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	
+
 	private Pantheon pantheon;
 
 	public boolean initialize(LoadContext context, String value, String args)
@@ -58,7 +58,7 @@ public class PantheonToken implements PrimitiveToken<Deity>
 
 	public String getLSTformat()
 	{
-		return pantheon.toString();
+		return getTokenName() + "=" + pantheon.toString();
 	}
 
 	public boolean allow(PlayerCharacter pc, Deity deity)
@@ -83,5 +83,26 @@ public class PantheonToken implements PrimitiveToken<Deity>
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+		{
+			return true;
+		}
+		if (obj instanceof PantheonToken)
+		{
+			PantheonToken other = (PantheonToken) obj;
+			return pantheon.equals(other.pantheon);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return pantheon == null ? -3 : pantheon.hashCode();
 	}
 }

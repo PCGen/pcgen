@@ -15,20 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -42,7 +41,7 @@ public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
@@ -74,37 +73,90 @@ public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		String newValue = processMagicalWords(context, value);
+		Logging.deprecationPrint("CHOOSE:WEAPONPROFS" + " has been deprecated,"
+				+ "please use CHOOSE:WEAPONPROFICIENCY|");
+		return context.processSubToken(obj, "CHOOSE", "WEAPONPROFICIENCY",
+				newValue);
+	}
+
+	private String processMagicalWords(LoadContext context, String value)
+	{
+		StringTokenizer st = new StringTokenizer(value, "|", true);
+		StringBuilder sb = new StringBuilder();
 		while (st.hasMoreTokens())
 		{
-			String tokString = st.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
+			String tok = st.nextToken();
+			// DEITYWEAPON unchanged
+			if ("LIST".equalsIgnoreCase(tok))
 			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
-				cpr.addErrorMessage("  entire token was: " + value);
-				return cpr;
+				tok = "PC";
 			}
+			if ("SIZE.".regionMatches(true, 0, tok, 0, 5))
+			{
+				final String profKey = tok.substring(7);
+				Logging.deprecationPrint("CHOOSE:WEAPONPROFS|SIZE "
+						+ "has been changed to PC.");
+				tok = "PC[" + profKey + "]";
+			}
+			if ("ADD.".regionMatches(true, 0, tok, 0, 4))
+			{
+				tok = tok.substring(4);
+			}
+			if ("WSIZE.".regionMatches(true, 0, tok, 0, 6))
+			{
+				StringTokenizer bTok = new StringTokenizer(tok.substring(6),
+						".");
+				StringBuilder wsize = new StringBuilder();
+				wsize.append("PC,EQUIPMENT[");
+				String wield = bTok.nextToken();
+
+				boolean needsPipe = false;
+				while (bTok.hasMoreTokens()) // any additional constraints
+				{
+					if (needsPipe)
+					{
+						wsize.append('|');
+					}
+					wsize.append("WIELD=");
+					wsize.append(wield);
+					wsize.append(",TYPE=");
+					wsize.append(bTok.nextToken());
+					needsPipe = true;
+				}
+				if (!needsPipe)
+				{
+					wsize.append("WIELD=");
+					wsize.append(wield);
+				}
+
+				wsize.append(']');
+				tok = wsize.toString();
+			}
+			if ("TYPE.".regionMatches(true, 0, tok, 0, 5)
+					|| "TYPE=".regionMatches(true, 0, tok, 0, 5))
+			{
+				String prefix = "EQUIPMENT[TYPE=";
+				String type = tok.substring(5);
+				if ("Not.".regionMatches(true, 0, type, 0, 4))
+				{
+					type = type.substring(4);
+					prefix = "EQUIPMENT[!TYPE=";
+				}
+				tok = prefix + type + "]";
+			}
+			if ("SPELLCASTER.".regionMatches(true, 0, tok, 0, 12))
+			{
+				tok = "SPELLCASTER[" + tok.substring(12) + "]";
+			}
+			sb.append(tok);
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		return sb.toString();
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()

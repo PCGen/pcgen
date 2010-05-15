@@ -88,8 +88,6 @@ public class AllJUnitTests extends TestCase
 			pcgen.core.chooser.SpellsChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.WeaponFocusChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.WeaponProfChoiceManagerTest.class));
 
 		// core.levelability
 		suite.addTest(new TestSuite(

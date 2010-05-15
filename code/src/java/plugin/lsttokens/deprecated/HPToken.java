@@ -15,16 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class HPToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class HPToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -38,40 +39,16 @@ public class HPToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSeco
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (value.indexOf('|') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain | : " + value);
-		}
-		if (value.indexOf('[') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		Logging.deprecationPrint("CHOOSE:HP has been deprecated,"
+				+ "please use CHOOSE:STRING| ");
+		return context.processSubToken(obj, "CHOOSE", "STRING", value);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()
