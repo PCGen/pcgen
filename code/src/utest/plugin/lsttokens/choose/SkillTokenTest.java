@@ -17,13 +17,11 @@
  */
 package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -31,38 +29,16 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.qualifier.skill.ClassToken;
-import plugin.qualifier.skill.CrossClassToken;
-import plugin.qualifier.skill.ExclusiveToken;
-import plugin.qualifier.skill.NoRankToken;
 import plugin.qualifier.skill.PCToken;
-import plugin.qualifier.skill.RanksToken;
 
 public class SkillTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Skill>
 {
 
-	private static final ClassToken CLASS_TOKEN = new ClassToken();
-	private static final CrossClassToken CROSSCLASS_TOKEN = new CrossClassToken();
-	private static final ExclusiveToken EXCLUSIVE_TOKEN = new ExclusiveToken();
-	private static final NoRankToken NORANK_TOKEN = new NoRankToken();
-	private static final RanksToken RANKS_TOKEN = new RanksToken();
 	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(CLASS_TOKEN);
-		TokenRegistration.register(CROSSCLASS_TOKEN);
-		TokenRegistration.register(EXCLUSIVE_TOKEN);
-		TokenRegistration.register(NORANK_TOKEN);
-		TokenRegistration.register(RANKS_TOKEN);
-	}
 
 	@Override
 	public Class<Skill> getCDOMClass()
@@ -116,69 +92,6 @@ public class SkillTokenTest extends
 	protected QualifierToken<Skill> getPCQualifier()
 	{
 		return new PCToken();
-	}
-
-	@Test
-	public void testInvalidClassQualifier() throws PersistenceLayerException
-	{
-		stressOtherQualifier("CLASS", Skill.class, true);
-	}
-
-	@Test
-	public void testValidClassQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("CLASS", Skill.class, true);
-	}
-
-	@Test
-	public void testInvalidCrossClassQualifier()
-			throws PersistenceLayerException
-	{
-		stressOtherQualifier("CROSSCLASS", Skill.class, true);
-	}
-
-	@Test
-	public void testValidCrossClassQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("CROSSCLASS", Skill.class, true);
-	}
-
-	@Test
-	public void testInvalidNoRankQualifier() throws PersistenceLayerException
-	{
-		stressOtherQualifier("NORANK", Skill.class, false);
-	}
-
-	@Test
-	public void testValidNoRankQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("NORANK", Skill.class, false);
-	}
-
-	@Test
-	public void testInvalidExclusiveQualifier()
-			throws PersistenceLayerException
-	{
-		stressOtherQualifier("EXCLUSIVE", Skill.class, true);
-	}
-
-	@Test
-	public void testValidExclusiveQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("EXCLUSIVE", Skill.class, true);
-	}
-
-	@Test
-	public void testInvalidEquipmentQualifier()
-			throws PersistenceLayerException
-	{
-		stressOtherQualifier("RANKS=20", Skill.class, true);
-	}
-
-	@Test
-	public void testValidEquipmentQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("RANKS=4", Skill.class, true);
 	}
 
 	@Override

@@ -17,14 +17,11 @@
  */
 package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Equipment;
 import pcgen.core.WeaponProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -32,25 +29,16 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.qualifier.weaponprof.PCToken;
 
 public class WeaponProficiencyTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, WeaponProf>
 {
 
-	private static final plugin.qualifier.weaponprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.weaponprof.EquipmentToken();
 	static ChooseLst token = new ChooseLst();
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(EQUIPMENT_TOKEN);
-	}
 
 	@Override
 	public Class<WeaponProf> getCDOMClass()
@@ -104,19 +92,6 @@ public class WeaponProficiencyTokenTest extends
 	protected QualifierToken<WeaponProf> getPCQualifier()
 	{
 		return new PCToken();
-	}
-
-	@Test
-	public void testInvalidEquipmentQualifier()
-			throws PersistenceLayerException
-	{
-		stressOtherQualifier("EQUIPMENT", Equipment.class, false);
-	}
-
-	@Test
-	public void testValidEquipmentQualifier() throws PersistenceLayerException
-	{
-		checkOtherQualifier("EQUIPMENT", Equipment.class, false);
 	}
 
 	@Override
