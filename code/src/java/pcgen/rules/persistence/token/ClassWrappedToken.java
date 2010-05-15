@@ -21,9 +21,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 public class ClassWrappedToken extends ErrorParsingWrapper<PCClassLevel> implements CDOMCompatibilityToken<PCClassLevel>
 {

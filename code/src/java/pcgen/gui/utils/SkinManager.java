@@ -20,14 +20,13 @@ package pcgen.gui.utils;
  *
  * Created on January 3, 2002
  */
-import java.io.File;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * <code>SkinManager</code> ???
