@@ -1,5 +1,5 @@
 <assembly>
-  <id>libraries</id>
+  <id>docs</id>
   <formats>
       <format>zip</format>
   </formats>
@@ -11,12 +11,8 @@
       <filtered>false</filtered>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>lib/**</include>
+        <include>docs/**</include>
       </includes>
-      <excludes>
-      	<exclude>lib/emma/**</exclude>
-      	<exclude>lib/test/**</exclude>
-      </excludes>
     </fileSet>
   </fileSets>
 </assembly>

@@ -1,18 +1,14 @@
 <assembly>
-  <id>docs</id>
+  <id>libraries</id>
   <formats>
       <format>zip</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <includeSiteDirectory>false</includeSiteDirectory>
-  <fileSets>
-    <fileSet>
-      <directory></directory>
-      <filtered>false</filtered>
-      <outputDirectory>/</outputDirectory>
-      <includes>
-        <include>docs/**</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>lib</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>
+  </dependencySets>
 </assembly>

@@ -12,10 +12,10 @@
  can use your previous copy of the libraries for each autobuild and only update if a 
  missing library is reported.
  <ul>
-   <li><a href="download/pcgen-program-${project.version}.zip">PCGen Autobuild - Program</a></li>
-   <li><a href="download/pcgen-data-${project.version}.zip">PCGen Autobuild - Data</a></li>
-   <li><a href="download/pcgen-docs-${project.version}.zip">PCGen Autobuild - Docs</a></li>
-   <li><a href="download/pcgen-libraries-${project.version}.zip">PCGen Libraries</a></li>
+   <li><a href="downloads/pcgen-${project.version}-program.zip">PCGen Autobuild - Program</a></li>
+   <li><a href="downloads/pcgen-${project.version}-data.zip">PCGen Autobuild - Data</a></li>
+   <li><a href="downloads/pcgen-${project.version}-docs.zip">PCGen Autobuild - Docs</a></li>
+   <li><a href="downloads/pcgen-${project.version}-libraries.zip">PCGen Libraries</a></li>
  </ul>
  </p>
  </section>
