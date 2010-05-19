@@ -28,6 +28,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -155,8 +156,9 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 				curVal = curVal.substring(0, endInd).trim();
 			}
 			final BigDecimal spent = getPC().getAbilityPoolSpent(getCategory());
+			NumberFormat format = NumberFormat.getNumberInstance();
 			final String txt =
-					curVal + " (" + spent.stripTrailingZeros().toString() + ")"; //$NON-NLS-1$//$NON-NLS-2$
+					curVal + " (" + format.format(spent.stripTrailingZeros()) + ")"; //$NON-NLS-1$//$NON-NLS-2$
 			nameCol.setHeaderValue(txt);
 		}
 		super.update();
