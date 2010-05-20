@@ -102,10 +102,10 @@ BIO
 		<move>
 			<move>
 				<name>Walk</name>
-				<rate>30 ft.</rate>
-				<squares>6</squares>
+				<rate>85 ft.</rate>
+				<squares>17</squares>
 			</move>
-			<all>Walk 30 ft.</all>
+			<all>Walk 85 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>
@@ -136,7 +136,7 @@ BIO
 			<weight_nounit>159</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>60</cost>
+			<cost>0</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
@@ -713,9 +713,9 @@ BIO
 					<multiplier>3</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+7/+2</hit>
+					<hit>+2/-3</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+7/+2</total_hit>
+					<total_hit>+2/-3</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Both</hand>
@@ -729,7 +729,7 @@ BIO
 				<sequence>0</sequence>
 			</common>
 			<simple>
-				<to_hit>+7/+2</to_hit>
+				<to_hit>+2/-3</to_hit>
 				<damage>3d6</damage>
 				<range>0 ft.</range>
 			</simple>
@@ -900,26 +900,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-		<feat>
-			<name>Exotic Weapon Proficiency (Uber Sword)</name>
-			<description>See Text</description>
-			<type>GENERAL.FIGHTER</type>
-			<associated>Uber Sword</associated>
-			<count>1</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Weapon Focus (Uber Sword)</name>
-			<description>See Text</description>
-			<type>GENERAL.FIGHTER</type>
-			<associated>Uber Sword</associated>
-			<count>1</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Auto feats -->
 		<feat>
 			<name>Ability B</name>
@@ -961,6 +941,16 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name>Weapon Focus (Longsword)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Longsword</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Feat G</name>
@@ -986,11 +976,561 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Bob&#39;s Ability triggered by Check</name>
+			<description>Using Chooser with Check Selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by PreAlign LG</name>
+			<description>Using Chooser with Align LG chosen</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by PreClass Fighter</name>
+			<description>Using Chooser with Fighter Class chosen</description>
+			<type>SPECIALQUALITY.TESTINGTYPE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by PreDeity</name>
+			<description>Using Chooser with Deity selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Preskill is working</name>
+			<description>Using new Chooser with SKILL</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Size M</name>
+			<description>Using Chooser with Size M Selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability with PreFeat Weapon Focus Longsword is working</name>
+			<description>Using PreFeat with Longsword weapon Focus</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Barbarian Move</name>
+			<description>Speed should be Base 30 + 30 + 25 (TL times 10 + 5) for a Total of 85</description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Ability</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Alignment</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Armorproficiency</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Check</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Class</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Deity</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Domain</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Equipment</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Feat</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Lang</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ PCSTAT</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Race</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Shieldproficiency</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Size</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Skill</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Spells</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ String</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Template</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Weaponproficiency</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose ABILITY (Alertness)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Alertness</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose ALIGNMENT (LG)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>LG</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose ARMORPROFICIENCY (Moon Cloth)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Moon Cloth</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose CHECK (Will)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Will</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose CLASS (Fighter, MonKee)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Fighter,MonKee</associated>
+			<count>2</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose DEITY (Puni Deity, Test Monkey)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Puni Deity,Test Monkey</associated>
+			<count>2</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose DOMAIN (Foo Ball)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Foo Ball</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose EQUIPMENT (Fine Wine Blade)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Fine Wine Blade</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose FEAT (DodgeBall)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>DodgeBall</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose LANG (Doosuldorf)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Doosuldorf</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose PCSTAT (STR)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>STR</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose RACE (Human)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Human</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose SHIELDPROFICIENCY (Light)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Light</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose SIZE (M)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>M</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose SKILL (Acrobatics, Athletics)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Acrobatics,Athletics</associated>
+			<count>2</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose SPELLS (Identify)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Identify</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose STRING (ALL)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>ALL</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose TEMPLATE (TL~BONUSSKILLPOINTS_80)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>TL~BONUSSKILLPOINTS_80</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Chooser ~ Choose WEAPONPROFICIENCY (Extra Blade)</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Extra Blade</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Monkee Jr Test</name>
 			<description></description>
 			<type>CLASS.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>This Ability is Only Activated is TYPE=TestingType is in a Special Ability</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1004,13 +1544,28 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Extra Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Extra Blade, Suns Weapon Of Choice, Unarmed Strike</weapon_proficiencies>
 	<languages>Common</languages>
 
 	<templates>
-		<list>Template A</list>
+		<list>Template A, Template ~ 1 Bob Tests ~ ALL</list>
 		<template>
 			<name>Template A</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Template ~ 1 Bob Tests ~ ALL</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
@@ -1078,4 +1633,3 @@ BIO
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>
-
