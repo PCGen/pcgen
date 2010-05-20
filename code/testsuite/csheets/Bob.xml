@@ -974,6 +974,40 @@ BIO
 	  ====================================
 	  ====================================-->
 	<ability_objects>
+	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Bob Test ~ Bonus Var in a Chooser (3x)</name>
+			<description>Bonus Var should be outputting 3 (ability taken three times) var number is showing 3</description>
+			<type>BOBTEST.TEST.CHOOSER.SPECIALQUALITY</type>
+			<associated>,,</associated>
+			<count>3</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Bob&#39;s Ability triggered by Check</name>
@@ -1196,6 +1230,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Bob Test ~ Chooser ~ Schools</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Bob Test ~ Chooser ~ Shieldproficiency</name>
 			<description></description>
 			<type>BOBTEST.TEST.SPECIALQUALITY</type>
@@ -1328,10 +1373,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose DEITY (Puni Deity, Test Monkey)</name>
+			<name>Chooser ~ Choose DEITY (Test Monkey, Puni Deity)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Puni Deity,Test Monkey</associated>
+			<associated>Test Monkey,Puni Deity</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1405,6 +1450,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Chooser ~ Choose SCHOOLS</name>
+			<description></description>
+			<type>CHOOSER.TEST.SPECIALQUALITY</type>
+			<associated>Evocation</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Chooser ~ Choose SHIELDPROFICIENCY (Light)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
@@ -1427,10 +1483,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SKILL (Acrobatics, Athletics)</name>
+			<name>Chooser ~ Choose SKILL (Athletics, Acrobatics)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Acrobatics,Athletics</associated>
+			<associated>Athletics,Acrobatics</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1485,17 +1541,6 @@ BIO
 			<name>Monkee Jr Test</name>
 			<description></description>
 			<type>CLASS.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>This Ability is Only Activated is TYPE=TestingType is in a Special Ability</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
