@@ -36,7 +36,8 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
+			String value, String args)
 	{
 		if (value != null || args != null)
 		{

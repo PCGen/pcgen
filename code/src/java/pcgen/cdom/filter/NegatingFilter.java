@@ -82,7 +82,7 @@ public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 	 * @return Class object representing the Class that this NegatingFilter
 	 *         evaluates
 	 */
-	public Class<T> getReferenceClass()
+	public Class<? super T> getReferenceClass()
 	{
 		return filter.getReferenceClass();
 	}

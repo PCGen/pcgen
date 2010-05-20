@@ -34,7 +34,8 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 	private EqWield category;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Equipment> cl,
+			String value, String args)
 	{
 		if (args != null)
 		{

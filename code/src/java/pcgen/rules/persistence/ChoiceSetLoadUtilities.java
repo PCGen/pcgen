@@ -286,8 +286,7 @@ public final class ChoiceSetLoadUtilities
 						closeBracketLoc);
 			}
 		}
-		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(sc
-				.getReferenceClass(), tokKey);
+		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(sc, tokKey);
 		if (prim == null)
 		{
 			if (tokRestriction != null)
@@ -340,7 +339,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			if (!prim.initialize(context, tokValue, tokRestriction))
+			if (!prim.initialize(context, sc.getReferenceClass(), tokValue,
+					tokRestriction))
 			{
 				return null;
 			}

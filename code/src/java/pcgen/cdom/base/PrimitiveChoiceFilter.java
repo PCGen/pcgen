@@ -60,7 +60,7 @@ public interface PrimitiveChoiceFilter<T>
 	 * @return Class object representing the Class that this
 	 *         PrimitiveChoiceFilter evaluates
 	 */
-	public Class<T> getReferenceClass();
+	public Class<? super T> getReferenceClass();
 
 	/**
 	 * Returns a representation of this PrimitiveChoiceFilter, suitable for

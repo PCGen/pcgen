@@ -34,7 +34,8 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 	private static final Class<Race> RACE_CLASS = Race.class;
 	private RaceType racetype;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Race> cl,
+			String value, String args)
 	{
 		if (args != null)
 		{
@@ -48,6 +49,7 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 	{
 		return "RACETYPE";
 	}
+
 	public Class<Race> getReferenceClass()
 	{
 		return RACE_CLASS;

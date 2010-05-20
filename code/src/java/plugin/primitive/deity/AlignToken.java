@@ -36,7 +36,8 @@ public class AlignToken implements PrimitiveToken<Deity>
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
 	private PCAlignment ref;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Deity> cl,
+			String value, String args)
 	{
 		if (args != null)
 		{

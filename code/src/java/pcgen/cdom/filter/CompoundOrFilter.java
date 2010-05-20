@@ -40,7 +40,7 @@ import pcgen.core.PlayerCharacter;
 public class CompoundOrFilter<T> implements PrimitiveChoiceFilter<T>
 {
 
-private final Class<T> refClass;
+	private final Class<? super T> refClass;
 
 	/**
 	 * The list of underlying PrimitiveChoiceFilters that this CompoundOrFilter
@@ -79,9 +79,32 @@ private final Class<T> refClass;
 			throw new IllegalArgumentException(
 					"Collection for CompoundOrFilter cannot be empty");
 		}
-		refClass = coll.iterator().next().getReferenceClass();
+		Class<? super T> pcfClass = null;
+		for (PrimitiveChoiceFilter<T> pcf : coll)
+		{
+			Class<? super T> rc = pcf.getReferenceClass();
+			if (pcfClass == null)
+			{
+				pcfClass = rc;
+			}
+			else if (!pcfClass.isAssignableFrom(rc))
+			{
+				if (rc.isAssignableFrom(pcfClass))
+				{
+					pcfClass = rc;
+				}
+				else
+				{
+					throw new IllegalArgumentException(
+							"List contains incompatible types: "
+									+ pcfClass.getSimpleName() + " and "
+									+ rc.getSimpleName());
+				}
+			}
+		}
+		refClass = pcfClass;
 		set.addAll(coll);
-}
+	}
 
 	/**
 	 * Return true if the given PlayerCharacter is allowed to select the given
@@ -115,7 +138,7 @@ private final Class<T> refClass;
 	 * @return Class object representing the Class that this CompoundOrFilter
 	 *         evaluates
 	 */
-	public Class<T> getReferenceClass()
+	public Class<? super T> getReferenceClass()
 	{
 		return refClass;
 	}

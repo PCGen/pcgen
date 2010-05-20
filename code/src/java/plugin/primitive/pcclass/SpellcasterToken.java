@@ -33,7 +33,8 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<PCClass> cl,
+			String value, String args)
 	{
 		if (value != null || args != null)
 		{

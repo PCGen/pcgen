@@ -37,7 +37,8 @@ public class DeityToken implements PrimitiveToken<Domain>
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Domain> cl,
+			String value, String args)
 	{
 		if (value != null || args != null)
 		{

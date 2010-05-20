@@ -27,6 +27,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
@@ -37,6 +38,7 @@ import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -51,10 +53,11 @@ public final class TokenLibrary
 
 	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
 
+	private static final List<PostDeferredToken<? extends CDOMObject>> postDeferredTokens = new ArrayList<PostDeferredToken<? extends CDOMObject>>();
+
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
 
 	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
-
 
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 
@@ -66,63 +69,30 @@ public final class TokenLibrary
 
 	private TokenLibrary()
 	{
-		//Don't instantiate utility class
+		// Don't instantiate utility class
 	}
 
-	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
+	public static <T extends CDOMObject> PrimitiveToken<T> getPrimitive(SelectionCreator<T> sc,
 			String tokKey)
 	{
-		Class<PrimitiveToken<?>> cptc = primitiveMap.get(name, tokKey);
-		if (cptc == null)
+		for (Iterator<PrimitiveToken<T>> it = new PrimitiveTokenIterator<T, PrimitiveToken<T>>(
+				sc.getReferenceClass(), tokKey); it.hasNext();)
 		{
-			return null;
+			return it.next();
 		}
-		try
-		{
-			return (PrimitiveToken<T>) cptc.newInstance();
-		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError("new Instance on " + cptc
-					+ " should not fail in getPrimitive", e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new UnreachableError("new Instance on " + cptc
-					+ " should not fail due to access", e);
-		}
+		return null;
 	}
-
-	// public static <T extends CDOMObject> ChooseLstQualifierToken<T>
-	// getChooseQualifier(
-	// Class<T> domain_class, String key)
-	// {
-	// Class<ChooseLstQualifierToken<?>> clqtc = qualifierMap.get(
-	// domain_class, key);
-	// if (clqtc == null)
-	// {
-	// return null;
-	// }
-	// try
-	// {
-	// return (ChooseLstQualifierToken<T>) clqtc.newInstance();
-	// }
-	// catch (InstantiationException e)
-	// {
-	// throw new UnreachableError("new Instance on " + clqtc
-	// + " should not fail in getChooseQualifier", e);
-	// }
-	// catch (IllegalAccessException e)
-	// {
-	// throw new UnreachableError("new Instance on " + clqtc
-	// + " should not fail due to access", e);
-	// }
-	// }
 
 	public static List<DeferredToken<? extends CDOMObject>> getDeferredTokens()
 	{
 		return new ArrayList<DeferredToken<? extends CDOMObject>>(
 				deferredTokens);
+	}
+
+	public static List<PostDeferredToken<? extends CDOMObject>> getPostDeferredTokens()
+	{
+		return new ArrayList<PostDeferredToken<? extends CDOMObject>>(
+				postDeferredTokens);
 	}
 
 	public static void addToPrimitiveMap(PrimitiveToken<?> p)
@@ -163,6 +133,10 @@ public final class TokenLibrary
 		{
 			deferredTokens.add((DeferredToken<?>) newToken);
 		}
+		if (newToken instanceof PostDeferredToken)
+		{
+			postDeferredTokens.add((PostDeferredToken<?>) newToken);
+		}
 		if (newToken instanceof CDOMPrimaryToken)
 		{
 			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
@@ -189,10 +163,10 @@ public final class TokenLibrary
 						+ ":" + tok.getTokenName());
 			}
 		}
-//		if (newToken instanceof ChoiceSetToken)
-//		{
-//			TokenFamily.CURRENT.putChooseToken((ChoiceSetToken<?>) newToken);
-//		}
+		// if (newToken instanceof ChoiceSetToken)
+		// {
+		// TokenFamily.CURRENT.putChooseToken((ChoiceSetToken<?>) newToken);
+		// }
 		if (newToken instanceof PrerequisiteParserInterface)
 		{
 			PrerequisiteParserInterface prereqToken = (PrerequisiteParserInterface) newToken;
@@ -259,27 +233,29 @@ public final class TokenLibrary
 						(CDOMCompatibilityToken<PCClass>) tok));
 			}
 		}
-//		if (newToken instanceof CDOMCompatibilitySubToken)
-//		{
-//			CDOMCompatibilitySubToken<?> tok = (CDOMCompatibilitySubToken<?>) newToken;
-//			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
-//					tok.compatibilitySubLevel(), tok.compatibilityPriority());
-//			fam.putSubToken(tok);
-//			tokenSources.add(fam);
-//		}
-//		if (newToken instanceof ChoiceSetCompatibilityToken)
-//		{
-//			ChoiceSetCompatibilityToken tok = (ChoiceSetCompatibilityToken) newToken;
-//			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
-//					tok.compatibilitySubLevel(), tok.compatibilityPriority());
-//			fam.putChooseToken(tok);
-//			tokenSources.add(fam);
-//		}
+		// if (newToken instanceof CDOMCompatibilitySubToken)
+		// {
+		// CDOMCompatibilitySubToken<?> tok = (CDOMCompatibilitySubToken<?>)
+		// newToken;
+		// TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
+		// tok.compatibilitySubLevel(), tok.compatibilityPriority());
+		// fam.putSubToken(tok);
+		// tokenSources.add(fam);
+		// }
+		// if (newToken instanceof ChoiceSetCompatibilityToken)
+		// {
+		// ChoiceSetCompatibilityToken tok = (ChoiceSetCompatibilityToken)
+		// newToken;
+		// TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
+		// tok.compatibilitySubLevel(), tok.compatibilityPriority());
+		// fam.putChooseToken(tok);
+		// tokenSources.add(fam);
+		// }
 	}
 
 	abstract static class AbstractTokenIterator<C, T> implements Iterator<T>
 	{
-//		private static final Class<Object> OBJECT_CLASS = Object.class;
+		// private static final Class<Object> OBJECT_CLASS = Object.class;
 		private final Class<C> rootClass;
 		private final String tokenKey;
 		private T nextToken = null;
@@ -393,6 +369,43 @@ public final class TokenLibrary
 				return null;
 			}
 			Class<? extends QualifierToken> cl1 = qualifierMap.get(cl, key);
+			if (cl1 == null)
+			{
+				return null;
+			}
+			try
+			{
+				return (T) cl1.newInstance();
+			}
+			catch (InstantiationException e)
+			{
+				throw new UnreachableError("new Instance on " + cl1
+						+ " should not fail", e);
+			}
+			catch (IllegalAccessException e)
+			{
+				throw new UnreachableError("new Instance on " + cl1
+						+ " should not fail due to access", e);
+			}
+		}
+	}
+
+	static class PrimitiveTokenIterator<C extends CDOMObject, T extends PrimitiveToken<? super C>>
+			extends TokenLibrary.AbstractTokenIterator<C, T>
+	{
+		public PrimitiveTokenIterator(Class<C> cl, String key)
+		{
+			super(cl, key);
+		}
+
+		@Override
+		protected T grabToken(TokenFamily family, Class<?> cl, String key)
+		{
+			if (!TokenFamily.CURRENT.equals(family))
+			{
+				return null;
+			}
+			Class<? extends PrimitiveToken> cl1 = primitiveMap.get(cl, key);
 			if (cl1 == null)
 			{
 				return null;

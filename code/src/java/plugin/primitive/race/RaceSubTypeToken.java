@@ -35,7 +35,8 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 	private static final Class<Race> RACE_CLASS = Race.class;
 	private RaceSubType racetype;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Race> cl,
+			String value, String args)
 	{
 		if (args != null)
 		{

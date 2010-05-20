@@ -108,6 +108,14 @@ public class RetainingChooser<T extends CDOMObject> implements
 			throw new IllegalArgumentException(
 					"PrimitiveChoiceFilter to be added cannot be null");
 		}
+		Class<?> refClass = cs.getReferenceClass();
+		if (!baseSet.getReferenceClass().isAssignableFrom(refClass))
+		{
+			throw new IllegalArgumentException(
+					"PrimitiveChoiceFilter to be added " + refClass
+							+ " is a different class type than "
+							+ baseSet.getReferenceClass().getSimpleName());
+		}
 		retainingSet.add(cs);
 	}
 
@@ -133,7 +141,10 @@ public class RetainingChooser<T extends CDOMObject> implements
 			throw new IllegalArgumentException(
 					"Collection of PrimitiveChoiceFilters to be added cannot be null");
 		}
-		retainingSet.addAll(coll);
+		for (PrimitiveChoiceFilter<T> pcf : coll)
+		{
+			addRetainingChoiceFilter(pcf);
+		}
 	}
 
 	/**

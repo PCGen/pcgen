@@ -306,6 +306,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<ChooseInformation<?>> CHOOSE_INFO = new ObjectKey<ChooseInformation<?>>(null);
 
 	public static final ObjectKey<Destination> DESTINATION = new ObjectKey<Destination>(null);
+
+	public static final ObjectKey<CDOMSingleRef<Ability>> FEATEQ_STRING = new ObjectKey<CDOMSingleRef<Ability>>(null);
 	
 	/*
 	 * TODO Okay, this is a hack.

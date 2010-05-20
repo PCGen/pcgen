@@ -15,17 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.util.Logging;
 
-public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -39,7 +46,7 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
@@ -80,26 +87,48 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements CDOM
 					+ value.substring(value.indexOf('|') + 1));
 			pr = cpr;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append("FEAT=").append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.obj.put(obj, ObjectKey.FEATEQ_STRING, context.ref
+				.getCDOMReference(Ability.class, AbilityCategory.FEAT, value));
 		return pr;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null || chooseString.indexOf("FEAT=") == -1
-				|| chooseString.indexOf("[FEAT=") != -1)
-		{
-			return null;
-		}
-		return new String[] { chooseString.substring(5) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		CDOMSingleRef<Ability> ref = obj.get(ObjectKey.FEATEQ_STRING);
+		if (ref != null)
+		{
+			Ability ab = ref.resolvesTo();
+			ChooseInformation<?> info = ab.get(ObjectKey.CHOOSE_INFO);
+			if (info == null)
+			{
+				Logging.errorPrint("Feat " + ref.getLSTformat()
+						+ " was referred to in "
+						+ obj.getClass().getSimpleName() + " "
+						+ obj.getKeyName()
+						+ " but it was not a FEAT with CHOOSE");
+				return false;
+			}
+			/*
+			 * TODO This breaks for Abilities (no cat :( )
+			 */
+			context.unconditionallyProcess(obj, "CHOOSE", info.getName()
+					+ "|FEAT=" + ref.getLSTformat());
+		}
+		return true;
 	}
 }

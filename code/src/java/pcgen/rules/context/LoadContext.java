@@ -49,6 +49,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
@@ -170,6 +171,32 @@ public abstract class LoadContext
 	}
 
 	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
+	{
+		Class<T> cl = token.getDeferredTokenClass();
+		Collection<? extends ReferenceManufacturer> mfgs = ref
+				.getAllManufacturers();
+		for (ReferenceManufacturer<? extends T> rm : mfgs)
+		{
+			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			{
+				for (T po : rm.getAllObjects())
+				{
+					token.process(this, po);
+				}
+			}
+		}
+	}
+
+	public void resolvePostDeferredTokens()
+	{
+		for (PostDeferredToken<? extends CDOMObject> token : TokenLibrary
+				.getPostDeferredTokens())
+		{
+			processPostRes(token);
+		}
+	}
+
+	private <T extends CDOMObject> void processPostRes(PostDeferredToken<T> token)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer> mfgs = ref

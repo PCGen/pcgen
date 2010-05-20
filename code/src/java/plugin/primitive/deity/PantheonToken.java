@@ -36,7 +36,8 @@ public class PantheonToken implements PrimitiveToken<Deity>
 
 	private Pantheon pantheon;
 
-	public boolean initialize(LoadContext context, String value, String args)
+	public boolean initialize(LoadContext context, Class<Deity> cl,
+			String value, String args)
 	{
 		if (args != null)
 		{

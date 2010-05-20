@@ -81,13 +81,9 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.DomainChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.FeatChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SpellListChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SpellsChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.WeaponFocusChoiceManagerTest.class));
 
 		// core.levelability
 		suite.addTest(new TestSuite(
