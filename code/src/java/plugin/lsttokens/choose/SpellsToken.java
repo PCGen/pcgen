@@ -20,289 +20,105 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.core.Globals;
+import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
-public class SpellsToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 {
+	private static final Class<Spell> SPELL_CLASS = Spell.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLS";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
-	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (value.charAt(0) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
-		}
-		if (value.charAt(value.length() - 1) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
-		}
-		if (value.indexOf("||") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		ComplexParseResult cpr = new ComplexParseResult();
-		while (tok.hasMoreTokens())
-		{
-			String item = tok.nextToken();
-			StringTokenizer st = new StringTokenizer(item, ",");
-			while (st.hasMoreTokens())
-			{
-				String token = st.nextToken();
-				if (token.startsWith("DOMAIN=") || token.startsWith("DOMAIN."))
-				{
-					cpr.addWarningMessage("DOMAIN is deprecated in "
-							+ "CHOOSE:SPELLS, please use DOMAINLIST=x");
-				}
-				else if (token.startsWith("CLASS=")
-						|| token.startsWith("CLASS."))
-				{
-					cpr.addWarningMessage("CLASS is deprecated in "
-							+ "CHOOSE:SPELLS, please use CLASSLIST=x");
-				}
-				else if (token.startsWith("DOMAINLIST="))
-				{
-					int bracketLoc = token.indexOf('[');
-					if (bracketLoc == -1)
-					{
-						if (token.length() < 12)
-						{
-							return new ParseResult.Fail("Invalid DOMAINLIST= entry for "
-													+ "CHOOSE:SPELLS: requires a domain name");
-						}
-					}
-					else
-					{
-						if (!token.endsWith("]"))
-						{
-							return new ParseResult.Fail("Invalid entry in "
-									+ "CHOOSE:SPELLS: " + token
-									+ " did not have matching brackets");
-						}
-						String domainName = token.substring(11, bracketLoc);
-						if (domainName == null || domainName.length() == 0)
-						{
-							return new ParseResult.Fail("Invalid DOMAINLIST= entry for "
-													+ "CHOOSE:SPELLS: requires a domain name");
-						}
-						cpr = validateRestriction(token.substring(bracketLoc + 1,
-								token.length() - 1));
-					}
-				}
-				else if (token.startsWith("CLASSLIST="))
-				{
-					int bracketLoc = token.indexOf('[');
-					if (bracketLoc == -1)
-					{
-						if (token.length() < 10)
-						{
-							return new ParseResult.Fail("Invalid CLASSLIST= entry for "
-													+ "CHOOSE:SPELLS: requires a class name");
-						}
-					}
-					else
-					{
-						if (!token.endsWith("]"))
-						{
-							return new ParseResult.Fail("Invalid entry in "
-									+ "CHOOSE:SPELLS: " + token
-									+ " did not have matching brackets");
-						}
-						String className = token.substring(10, bracketLoc);
-						if (className == null || className.length() == 0)
-						{
-							return new ParseResult.Fail("Invalid CLASSLIST= entry for "
-													+ "CHOOSE:SPELLS: requires a class name");
-						}
-						cpr = validateRestriction(token.substring(bracketLoc + 1,
-								token.length() - 1));
-					}
-				}
-				else if (token.startsWith("SPELLTYPE="))
-				{
-					int bracketLoc = token.indexOf('[');
-					if (bracketLoc == -1)
-					{
-						if (token.length() < 10)
-						{
-							return new ParseResult.Fail("Invalid SPELLTYPE= entry for "
-													+ "CHOOSE:SPELLS: requires a spell type");
-						}
-					}
-					else
-					{
-						if (!token.endsWith("]"))
-						{
-							return new ParseResult.Fail("Invalid entry in "
-									+ "CHOOSE:SPELLS: " + token
-									+ " did not have matching brackets");
-						}
-						String className = token.substring(10, bracketLoc);
-						if (className == null || className.length() == 0)
-						{
-							return new ParseResult.Fail("Invalid SPELLTYPE= entry for "
-													+ "CHOOSE:SPELLS: requires a spell type");
-						}
-						cpr = validateRestriction(token.substring(bracketLoc + 1,
-								token.length() - 1));
-					}
-				}
-				else if (token.startsWith("ANY"))
-				{
-					int bracketLoc = token.indexOf('[');
-					if (bracketLoc > -1 && bracketLoc != 3)
-					{
-						return new ParseResult.Fail("Invalid ANY entry for "
-												+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
-					}
-					else
-					{
-						if (!token.endsWith("]"))
-						{
-							return new ParseResult.Fail("Invalid entry in "
-									+ "CHOOSE:SPELLS: " + token
-									+ " did not have matching brackets");
-						}
-						cpr = validateRestriction(token.substring(bracketLoc + 1,
-								token.length() - 1));
-					}
-				}
-				else if (token.startsWith("SCHOOL="))
-				{
-					if (token.length() < 8)
-					{
-						return new ParseResult.Fail("Invalid SCHOOL= entry for "
-												+ "CHOOSE:SPELLS: requires a school name");
-					}
-				}
-				else if (token.startsWith("SUBSCHOOL="))
-				{
-					if (token.length() < 11)
-					{
-						return new ParseResult.Fail("Invalid SUBSCHOOL= entry for "
-												+ "CHOOSE:SPELLS: requires a subschool name");
-					}
-				}
-				else if (token.startsWith("DESCRIPTOR="))
-				{
-					if (token.length() < 12)
-					{
-						return new ParseResult.Fail("Invalid DESCRIPTOR= entry for "
-												+ "CHOOSE:SPELLS: requires a descriptor name");
-					}
-				}
-				else if (token.startsWith("SPELLBOOK="))
-				{
-					if (token.length() < 11)
-					{
-						return new ParseResult.Fail("Invalid SPELLBOOK= entry for "
-												+ "CHOOSE:SPELLS: requires a spellbook name");
-					}
-				}
-				else if (token.startsWith("PROHIBITED="))
-				{
-					String prohibited = token.substring(11);
-					if (!"YES".equals(prohibited) && !"NO".equals(prohibited))
-					{
-						return new ParseResult.Fail(
-								"Invalid PROHIBITED= entry for "
-										+ "CHOOSE:SPELLS: must be YES or NO");
-					}
-				}
-				else if (token.startsWith("TYPE=") || token.startsWith("TYPE."))
-				{
-					if (token.length() < 6)
-					{
-						return new ParseResult.Fail("Invalid TYPE= entry for "
-												+ "CHOOSE:SPELLS: requires a type name");
-					}
-				}
-				else
-				{
-					if (token.indexOf('[') != -1 || token.indexOf('=') != -1)
-					{
-						return new ParseResult.Fail(
-								"Invalid (unknown) entry: " + token + " for "
-										+ "CHOOSE:SPELLS:");
-					}
-					// Just a spell name
-				}
-			}
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return cpr;
-	}
-
-	private ComplexParseResult validateRestriction(String restrString)
-	{
-		ComplexParseResult cpr = new ComplexParseResult();
-		StringTokenizer restr = new StringTokenizer(restrString, ";");
-		while (restr.hasMoreTokens())
-		{
-			String tok = restr.nextToken();
-			if (tok.startsWith("LEVELMAX="))
-			{
-			}
-			else if (tok.startsWith("LEVELMIN="))
-			{
-			}
-			else if ("KNOWN=YES".equals(tok))
-			{
-			}
-			else if ("KNOWN=NO".equals(tok))
-			{
-			}
-			else
-			{
-				cpr.addWarningMessage("Unknown restriction: " + tok
-						+ " in CHOOSE:SPELLS");
-				continue;
-			}
-		}
-		return cpr;
-	}
-
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
-	}
-
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
+
+	@Override
+	protected String getDefaultTitle()
+	{
+		return "Spell choice";
+	}
+
+	@Override
+	protected AssociationListKey<Spell> getListKey()
+	{
+		return AssociationListKey.CHOOSE_SPELL;
+	}
+
+	public Spell decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			SPELL_CLASS, s);
+	}
+
+	public String encodeChoice(Spell choice)
+	{
+		return choice.getKeyName();
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
+		return super.parseTokenWithSeparator(context, context.ref
+			.getManufacturer(SPELL_CLASS), obj, processMagicalWords(value));
+	}
+
+	private String processMagicalWords(String value)
+	{
+		StringTokenizer st = new StringTokenizer(value, "|", true);
+		StringBuilder sb = new StringBuilder();
+		while (st.hasMoreTokens())
+		{
+			String tok = st.nextToken();
+			if ("DOMAIN.".regionMatches(true, 0, tok, 0, 7))
+			{
+				final String profKey = tok.substring(7);
+				Logging.deprecationPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
+					+ "has been changed to DOMAINLIST=");
+				tok = "DOMAINLIST=" + profKey;
+			}
+			if ("CLASS.".regionMatches(true, 0, tok, 0, 6))
+			{
+				final String profKey = tok.substring(6);
+				Logging.deprecationPrint("CHOOSE:SPELLS|CLASS is deprecated, "
+					+ "has been changed to CLASSLIST=");
+				tok = "CLASSLIST=" + profKey;
+			}
+			if ("DOMAIN=".regionMatches(true, 0, tok, 0, 7))
+			{
+				final String profKey = tok.substring(7);
+				Logging.deprecationPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
+					+ "has been changed to DOMAINLIST=");
+				tok = "DOMAINLIST=" + profKey;
+			}
+			if ("CLASS=".regionMatches(true, 0, tok, 0, 6))
+			{
+				final String profKey = tok.substring(6);
+				Logging.deprecationPrint("CHOOSE:SPELLS|CLASS is deprecated, "
+					+ "has been changed to CLASSLIST=");
+				tok = "CLASSLIST=" + profKey;
+			}
+			sb.append(tok);
+		}
+		return sb.toString();
+	}
+
 }

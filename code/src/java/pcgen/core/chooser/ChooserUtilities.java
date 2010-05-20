@@ -454,7 +454,6 @@ public class ChooserUtilities
 		classLookup = new HashMap<String, String>();
 		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
-		classLookup.put("SPELLS", SpellsChoiceManager.class.getName());
 
 		classLookup.put("USERINPUT", UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF", SimpleWeaponProfChoiceManager.class

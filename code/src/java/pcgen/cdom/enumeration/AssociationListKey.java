@@ -159,6 +159,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> CHOOSE_SCHOOL = new AssociationListKey<String>();
 
 	public static final AssociationListKey<String> CHOOSE_STRING = new AssociationListKey<String>();
+
+	public static final AssociationListKey<Spell> CHOOSE_SPELL = new AssociationListKey<Spell>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
