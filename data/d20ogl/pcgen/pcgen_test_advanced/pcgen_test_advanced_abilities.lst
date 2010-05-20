@@ -69,9 +69,9 @@ Bob Test ~ Chooser ~ Weaponproficiency						CATEGORY:Special Ability	TYPE:BobTes
 #Bob Test ~ Chooser ~ NoChoice							CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality	
 #Bob Test ~ Chooser ~ Userinput				CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
 
+Bob Test ~ Barbarian Move								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality	BONUS:MOVEADD|TYPE.Walk|30+var("TestSpeed")	BONUS:VAR|TestSpeed|(TL*10)+5	DEFINE:TestSpeed|0	DESC:Speed should be Base 30 + 30 + 25 (TL times 10 + 5) for a Total of 85
 
 # End the Bob Test Section
-
 
 
 
