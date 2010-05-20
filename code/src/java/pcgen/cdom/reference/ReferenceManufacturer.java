@@ -192,42 +192,6 @@ public interface ReferenceManufacturer<T extends CDOMObject> extends SelectionCr
 	public boolean forgetObject(T o);
 
 	/**
-	 * Gets a reference to the Class or Class/Context provided by this
-	 * ReferenceManufacturer. The reference will be a reference to the object
-	 * identified by the given key.
-	 * 
-	 * @param key
-	 *            The key used to identify the object to which the returned
-	 *            CDOMReference will refer.
-	 * @return A CDOMReference that refers to the object identified by the given
-	 *         key
-	 */
-	public CDOMSingleRef<T> getReference(String key);
-
-	/**
-	 * Gets a reference to the Class or Class/Context provided by this
-	 * ReferenceManufacturer. The reference will be a reference to the objects
-	 * identified by the given types.
-	 * 
-	 * @param types
-	 *            An array of the types of objects to which the returned
-	 *            CDOMReference will refer.
-	 * @return A CDOMReference which is intended to contain objects of a given
-	 *         Type for the Class or Class/Context this ReferenceManufacturer
-	 *         represents.
-	 */
-	public CDOMGroupRef<T> getTypeReference(String... types);
-
-	/**
-	 * Returns a CDOMReference for the given Class or Class/Context provided by
-	 * this ReferenceManufacturer.
-	 * 
-	 * @return A CDOMReference which is intended to contain all the objects of
-	 *         the Class or Class/Context this ReferenceManufacturer represents.
-	 */
-	public CDOMGroupRef<T> getAllReference();
-
-	/**
 	 * Resolves the references that have been requested from this
 	 * ReferenceManufacturer, using the objects contained within this
 	 * ReferenceManufacturer.
@@ -276,13 +240,6 @@ public interface ReferenceManufacturer<T extends CDOMObject> extends SelectionCr
 	 * automatically built objects under those conditions.
 	 */
 	public void buildDeferredObjects();
-
-	/**
-	 * The class of object this ReferenceManufacturer represents.
-	 * 
-	 * @return The class of object this ReferenceManufacturer represents.
-	 */
-	public Class<T> getReferenceClass();
 
 	/**
 	 * Returns true if this ReferenceManufacturer is "valid". A "valid"
