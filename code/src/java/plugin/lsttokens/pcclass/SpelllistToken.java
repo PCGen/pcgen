@@ -25,6 +25,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PrimitiveChoiceSet;
@@ -111,7 +112,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass> implemen
 		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose list of spells this class will use");
-		TransitionChoice<CDOMListObject<Spell>> tc = new TransitionChoice<CDOMListObject<Spell>>(
+		TransitionChoice<CDOMListObject<Spell>> tc = new ConcreteTransitionChoice<CDOMListObject<Spell>>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
 		tc.setRequired(false);

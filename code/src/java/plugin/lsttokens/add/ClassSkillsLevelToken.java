@@ -25,6 +25,7 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -196,7 +197,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 					+ ": Contains ANY and a specific reference: " + value);
 		}
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, count);
 		// TODO This is a hack, to get this to work pre-CDOM
 		PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);

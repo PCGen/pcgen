@@ -24,9 +24,10 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -698,7 +699,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	{
 		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubTokenName(), rcs);
 		cs.setTitle("Pick a " + getTargetClass().getSimpleName());
-		PersistentTransitionChoice<TC> tc = new PersistentTransitionChoice<TC>(
+		PersistentTransitionChoice<TC> tc = new ConcretePersistentTransitionChoice<TC>(
 				cs, FormulaFactory.ONE);
 		return tc;
 	}

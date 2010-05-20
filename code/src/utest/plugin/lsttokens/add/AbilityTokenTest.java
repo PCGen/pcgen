@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
@@ -840,7 +841,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		tc.allowStack(false);
 		// if (dupChoices != 0)
@@ -946,7 +947,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.getFormulaFor(3));
 		tc.allowStack(true);
 		tc.setStackLimit(2);

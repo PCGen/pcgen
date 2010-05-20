@@ -37,7 +37,7 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -52,44 +52,40 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
 
-
 /**
  * The guts of chooser moved from PObject
- *
- * @author   Andrew Wilson
- * @version  $Revision$
+ * 
+ * @author Andrew Wilson
+ * @version $Revision$
  */
 
 public class ChooserUtilities
 {
-	private static Map<String, String>     classLookup    = null;
+	private static Map<String, String> classLookup = null;
 	private static boolean mapconstructed = false;
 
 	/**
 	 * Construct the choices for a SPELLLEVEL chooser
-	 * @param  availList
-	 * @param  uniqueList
-	 * @param  aPC
-	 * @param  elements
+	 * 
+	 * @param availList
+	 * @param uniqueList
+	 * @param aPC
+	 * @param elements
 	 */
 	public static final void buildSpellTypeChoices(
-		final List<String>            availList,
-		final List<String>            uniqueList,
-		final PlayerCharacter aPC,
-		Enumeration<String>           elements)
+		final List<String> availList, final List<String> uniqueList,
+		final PlayerCharacter aPC, Enumeration<String> elements)
 	{
 		elements.nextElement(); // should be SPELLLEVEL
 
 		while (elements.hasMoreElements())
 		{
-			String aString = elements.nextElement(); //Throw away count
+			String aString = elements.nextElement(); // Throw away count
 
-			while (
-				!aString.startsWith("CLASS=") &&
-				!aString.startsWith("CLASS.") &&
-				!aString.startsWith("TYPE=") &&
-				!aString.startsWith("TYPE.") &&
-				elements.hasMoreElements())
+			while (!aString.startsWith("CLASS=")
+				&& !aString.startsWith("CLASS.")
+				&& !aString.startsWith("TYPE=") && !aString.startsWith("TYPE.")
+				&& elements.hasMoreElements())
 			{
 				aString = elements.nextElement();
 			}
@@ -117,7 +113,7 @@ public class ChooserUtilities
 			if (mString.endsWith(".A"))
 			{
 				endIsUnique = true;
-				mString     = mString.substring(0, mString.lastIndexOf(".A"));
+				mString = mString.substring(0, mString.lastIndexOf(".A"));
 			}
 
 			int maxLevel = minLevel;
@@ -128,11 +124,14 @@ public class ChooserUtilities
 
 				if (mString.indexOf("MAXLEVEL") >= 0)
 				{
-					int maxLevelVal = (aClass == null) ? 0 :
-						aPC.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(aPC.getLevel(aClass));
+					int maxLevelVal =
+							(aClass == null) ? 0 : aPC.getSpellSupport(aClass)
+								.getMaxSpellLevelForClassLevel(
+									aPC.getLevel(aClass));
 
-					mString = mString.replaceAll("MAXLEVEL", String
-						.valueOf(maxLevelVal));
+					mString =
+							mString.replaceAll("MAXLEVEL", String
+								.valueOf(maxLevelVal));
 				}
 				maxLevel = aPC.getVariableValue(mString, "").intValue();
 
@@ -168,10 +167,11 @@ public class ChooserUtilities
 					{
 						if (mString.indexOf("MAXLEVEL") >= 0)
 						{
-							int maxLevelVal = calcMaxSpellLevel(aClass,
-								aString, aPC);
-							mString = mString.replaceAll("MAXLEVEL", String
-								.valueOf(maxLevelVal));
+							int maxLevelVal =
+									calcMaxSpellLevel(aClass, aString, aPC);
+							mString =
+									mString.replaceAll("MAXLEVEL", String
+										.valueOf(maxLevelVal));
 						}
 						maxLevel = aPC.getVariableValue(mString, "").intValue();
 
@@ -199,13 +199,16 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Calculate the maximum level of spell that is castable by the
-	 * PC for the supplied Class. If the class is not restricted in
-	 * what spells can be cast, its limits on known spells will be checked instead.
-	 *
-	 * @param aClass The class to be checked.
-	 * @param aType The class type to be checked.
-	 * @param aPC The character to be checked.
+	 * Calculate the maximum level of spell that is castable by the PC for the
+	 * supplied Class. If the class is not restricted in what spells can be
+	 * cast, its limits on known spells will be checked instead.
+	 * 
+	 * @param aClass
+	 *            The class to be checked.
+	 * @param aType
+	 *            The class type to be checked.
+	 * @param aPC
+	 *            The character to be checked.
 	 * @return The highest level spell castable
 	 */
 	private static int calcMaxSpellLevel(final PCClass aClass,
@@ -219,34 +222,38 @@ public class ChooserUtilities
 		int aLevel = aPC.getLevel(aClass);
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
-		return aPC.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(aLevel);
+		return aPC.getSpellSupport(aClass)
+			.getMaxSpellLevelForClassLevel(aLevel);
 	}
 
 	/**
 	 * Deal with CHOOSE tags. The actual items the choice will be made from are
-	 * based on the choiceString, as applied to current character. Choices already
-	 * made (getAssociatedList) are indicated in the selectedList.  This method
-	 * may also be used to build a list of choices available and choices
+	 * based on the choiceString, as applied to current character. Choices
+	 * already made (getAssociatedList) are indicated in the selectedList. This
+	 * method may also be used to build a list of choices available and choices
 	 * already made by passing false in the process parameter
-	 *
-	 * @param availableList the list of things not already chosen
-	 * @param selectedList the list of things already chosen
-	 * @param process if false do not process the choice, just poplate the lists
-	 * @param aPC the PC that owns the Ability
-	 * @param addIt Whether to add or remove a choice from this Ability
-     * @param category The AbilityCategory whose pool will be charged for the ability (if any). May be null.
-	 *
-	 * @return true if we processed the list of choices, false if we used the routine to
-	 * build the list of choices without processing them.
+	 * 
+	 * @param availableList
+	 *            the list of things not already chosen
+	 * @param selectedList
+	 *            the list of things already chosen
+	 * @param process
+	 *            if false do not process the choice, just poplate the lists
+	 * @param aPC
+	 *            the PC that owns the Ability
+	 * @param addIt
+	 *            Whether to add or remove a choice from this Ability
+	 * @param category
+	 *            The AbilityCategory whose pool will be charged for the ability
+	 *            (if any). May be null.
+	 * 
+	 * @return true if we processed the list of choices, false if we used the
+	 *         routine to build the list of choices without processing them.
 	 */
-	public static final boolean modChoices(
-			final PObject         aPObject,
-				  List            availableList,
-			final List            selectedList,
-			final boolean         process,
-			final PlayerCharacter aPC,
-			final boolean         addIt,
-			final AbilityCategory category)
+	public static final boolean modChoices(final PObject aPObject,
+		List availableList, final List selectedList, final boolean process,
+		final PlayerCharacter aPC, final boolean addIt,
+		final AbilityCategory category)
 	{
 		availableList.clear();
 		selectedList.clear();
@@ -254,16 +261,21 @@ public class ChooserUtilities
 
 		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
 
-		if (aMan == null) {return false;}
+		if (aMan == null)
+		{
+			return false;
+		}
 
-		if (aMan instanceof ControllableChoiceManager && aPObject instanceof Ability)
+		if (aMan instanceof ControllableChoiceManager
+			&& aPObject instanceof Ability)
 		{
 			Ability a = (Ability) aPObject;
 			AbilityCategory cat;
 			if (category == null)
 			{
-				cat = SettingsHandler.getGame().getAbilityCategory(
-						a.getCategory());
+				cat =
+						SettingsHandler.getGame().getAbilityCategory(
+							a.getCategory());
 			}
 			else
 			{
@@ -282,17 +294,22 @@ public class ChooserUtilities
 		aMan.getChoices(aPC, availableList, selectedList);
 		if (aPObject instanceof Ability)
 		{
-			modifyAvailChoicesForAbilityCategory(availableList, category, (Ability) aPObject);
+			modifyAvailChoicesForAbilityCategory(availableList, category,
+				(Ability) aPObject);
 		}
 
-		if (!process) {return false;}
+		if (!process)
+		{
+			return false;
+		}
 
 		if (availableList.size() > 0 || selectedList.size() > 0)
 		{
 			if (addIt)
 			{
-				final List newSelections = aMan.doChooser(aPC, availableList,
-						selectedList, reservedList);
+				final List newSelections =
+						aMan.doChooser(aPC, availableList, selectedList,
+							reservedList);
 				if (newSelections.isEmpty())
 				{
 					return false;
@@ -302,7 +319,7 @@ public class ChooserUtilities
 			else
 			{
 				aMan.doChooserRemove(aPC, availableList, selectedList,
-						reservedList);
+					reservedList);
 			}
 			return true;
 		}
@@ -310,11 +327,15 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Restrict the available choices to what is allowed by the ability category.
+	 * Restrict the available choices to what is allowed by the ability
+	 * category.
 	 * 
-	 * @param availableList The list of available choices, will be modified.
-	 * @param category The ability category
-	 * @param ability The ability the choices are for.
+	 * @param availableList
+	 *            The list of available choices, will be modified.
+	 * @param category
+	 *            The ability category
+	 * @param ability
+	 *            The ability the choices are for.
 	 */
 	private static void modifyAvailChoicesForAbilityCategory(
 		List availableList, AbilityCategory category, Ability ability)
@@ -322,8 +343,9 @@ public class ChooserUtilities
 		AbilityCategory cat;
 		if (category == null)
 		{
-			cat = SettingsHandler.getGame().getAbilityCategory(
-				ability.getCategory());
+			cat =
+					SettingsHandler.getGame().getAbilityCategory(
+						ability.getCategory());
 		}
 		else
 		{
@@ -340,12 +362,14 @@ public class ChooserUtilities
 		for (String decoratedKey : cat.getAbilityKeys())
 		{
 			List<String> allowedChoice = new ArrayList<String>();
-			String bareKey = AbilityUtilities.getUndecoratedName(decoratedKey, allowedChoice);
+			String bareKey =
+					AbilityUtilities.getUndecoratedName(decoratedKey,
+						allowedChoice);
 			if (bareKey.equals(ability.getKeyName()))
 			{
 				allowedSet.addAll(allowedChoice);
 			}
-			
+
 		}
 
 		if (allowedSet.isEmpty())
@@ -358,10 +382,10 @@ public class ChooserUtilities
 		for (Iterator iterator = availableList.iterator(); iterator.hasNext();)
 		{
 			Object obj = iterator.next();
-			String key; 
+			String key;
 			if (obj instanceof CDOMObject)
 			{
-				key = ((CDOMObject)obj).getKeyName();
+				key = ((CDOMObject) obj).getKeyName();
 			}
 			else
 			{
@@ -376,31 +400,27 @@ public class ChooserUtilities
 
 	/**
 	 * Creates a list of choices based on aChoice, or if aChoice is blank, the
-	 * choiceString property of aPObject.  If process is true, a chooser will be
-	 * presented to the user.  Otherwise, availableList will be populated.
-	 *
-	 * @param  aPObject
-	 * @param  aChoice
-	 * @param  availableList
-	 * @param  selectedList
-	 * @param  aPC
+	 * choiceString property of aPObject. If process is true, a chooser will be
+	 * presented to the user. Otherwise, availableList will be populated.
+	 * 
+	 * @param aPObject
+	 * @param aChoice
+	 * @param availableList
+	 * @param selectedList
+	 * @param aPC
 	 */
-	public static void getChoices(
-		final PObject         aPObject,
-		String                aChoice,
-		final List            availableList,
-		final List            selectedList,
+	public static void getChoices(final PObject aPObject, String aChoice,
+		final List availableList, final List selectedList,
 		final PlayerCharacter aPC)
 	{
 		String choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 
-		if (
-			!choiceString.startsWith("FEAT|")      &&
-			!choiceString.startsWith("ARMORPROF")  &&
-			!choiceString.startsWith("SPELLLEVEL") &&
-			!aChoice.startsWith("SPELLLEVEL")      &&
-			!aChoice.startsWith("WEAPONPROF")      &&
-			!aChoice.startsWith("SHIELDPROF"))
+		if (!choiceString.startsWith("FEAT|")
+			&& !choiceString.startsWith("ARMORPROF")
+			&& !choiceString.startsWith("SPELLLEVEL")
+			&& !aChoice.startsWith("SPELLLEVEL")
+			&& !aChoice.startsWith("WEAPONPROF")
+			&& !aChoice.startsWith("SHIELDPROF"))
 		{
 			return;
 		}
@@ -417,48 +437,48 @@ public class ChooserUtilities
 		/*
 		 * TODO is empty reservedList appropriate here?
 		 */
-		final List newSelections = aMan.doChooser(aPC,
-												  availableList,
-												  selectedList,
-												  new ArrayList<String>());
+		final List newSelections =
+				aMan.doChooser(aPC, availableList, selectedList,
+					new ArrayList<String>());
 
 		aMan.applyChoices(aPC, newSelections);
 	}
+
 	/**
 	 * Make a mapping so that we can look up the name of the class that
-	 * implements a given ChoiceManager for  specific type of Chooser.
-	 *
+	 * implements a given ChoiceManager for specific type of Chooser.
+	 * 
 	 */
 	private static void constructMap()
 	{
 		classLookup = new HashMap<String, String>();
-		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());
-		classLookup.put("SPELLLEVEL",           SpellLevelChoiceManager.class.getName());
-		classLookup.put("SPELLLIST",            SpellListChoiceManager.class.getName());
-		classLookup.put("SPELLS",               SpellsChoiceManager.class.getName());
-		classLookup.put("WEAPONFOCUS",          WeaponFocusChoiceManager.class.getName());
+		classLookup.put("SINGLEFEAT", FeatChoiceManager.class.getName());
+		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
+		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
+		classLookup.put("SPELLS", SpellsChoiceManager.class.getName());
+		classLookup
+			.put("WEAPONFOCUS", WeaponFocusChoiceManager.class.getName());
 
-		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
-		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
-		classLookup.put("NOCHOICE",             NoChoiceChoiceManager.class.getName());
-		
+		classLookup.put("USERINPUT", UserInputChoiceManager.class.getName());
+		classLookup.put("WEAPONPROF", SimpleWeaponProfChoiceManager.class
+			.getName());
+		classLookup.put("NOCHOICE", NoChoiceChoiceManager.class.getName());
+
 		mapconstructed = true;
 	}
 
 	/**
 	 * Make a ChoiceManager Object for the chooser appropriate for
 	 * aPObject.getChoiceString();
-	 *
+	 * 
 	 * @param aPObject
 	 * @param theChoices
 	 * @param aPC
-	 *
+	 * 
 	 * @return an initialised ChoiceManager
 	 */
-	public static ChoiceManagerList getChoiceManager (
-			PObject         aPObject,
-			String          theChoices,
-			PlayerCharacter aPC)
+	public static ChoiceManagerList getChoiceManager(PObject aPObject,
+		String theChoices, PlayerCharacter aPC)
 	{
 		if (!mapconstructed)
 		{
@@ -466,7 +486,7 @@ public class ChooserUtilities
 		}
 
 		String choiceString;
-		if(theChoices != null && theChoices.length() > 0)
+		if (theChoices != null && theChoices.length() > 0)
 		{
 			choiceString = theChoices;
 		}
@@ -474,17 +494,20 @@ public class ChooserUtilities
 		{
 			choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 		}
-		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
+		// Note: Number is special temp mod only chooser and should not be
+		// actioned except by temp mods.
 		if (choiceString != null && choiceString.startsWith("NUMBER"))
 		{
 			return null;
 		}
 		if (choiceString == null || choiceString.length() == 0)
 		{
-			PersistentTransitionChoice<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);
+			ChooseInformation<?> chooseInfo =
+					aPObject.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
 			{
-				Formula selectionsPerUnitCost = aPObject.getSafe(FormulaKey.SELECT);
+				Formula selectionsPerUnitCost =
+						aPObject.getSafe(FormulaKey.SELECT);
 				int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
 				return new CDOMChoiceManager(aPObject, chooseInfo, null, cost);
 			}
@@ -493,20 +516,22 @@ public class ChooserUtilities
 
 		List<String> mainList = Arrays.asList(choiceString.split("[|]"));
 
-		/* Find the first element of the array that does not contain an
-		 * equals sign, this is the type of chooser.
+		/*
+		 * Find the first element of the array that does not contain an equals
+		 * sign, this is the type of chooser.
 		 */
 		int i = 0;
-		while (i <= mainList.size() - 1 &&
-				mainList.get(i).indexOf("=") > 0 &&
-				!(mainList.get(i).startsWith("FEAT=") ||
-						mainList.get(i).startsWith("FEAT.")))
+		while (i <= mainList.size() - 1
+			&& mainList.get(i).indexOf("=") > 0
+			&& !(mainList.get(i).startsWith("FEAT=") || mainList.get(i)
+				.startsWith("FEAT.")))
 		{
 			i++;
 		}
 
-		/* Use the name of the chooser to look up the full canonical
-		 * class name of the ChoiceManager that handles that type of chooser
+		/*
+		 * Use the name of the chooser to look up the full canonical class name
+		 * of the ChoiceManager that handles that type of chooser
 		 */
 		String type = (i >= mainList.size()) ? "MISC" : mainList.get(i);
 
@@ -521,55 +546,66 @@ public class ChooserUtilities
 		{
 			if (Globals.getContext().containsType(WeaponProf.class, type))
 			{
-				type      = "WEAPONPROF";
+				type = "WEAPONPROF";
 				className = classLookup.get(type);
 			}
 			else
 			{
-				type      = "MISC";
+				type = "MISC";
 				className = classLookup.get(type);
 			}
 		}
 
 		/* Construct and return the ChoiceManager */
-		try {
-			Class    aClass     = Class.forName(className);
-			Class[]  argsClass  = {
-					PObject.class,
-					choiceString.getClass(),
-					PlayerCharacter.class
-					};
+		try
+		{
+			Class aClass = Class.forName(className);
+			Class[] argsClass =
+					{PObject.class, choiceString.getClass(),
+						PlayerCharacter.class};
 			Object[] argsObject = {aPObject, choiceString, aPC};
 
-			Constructor constructor  = aClass.getConstructor(argsClass);
-			ChoiceManagerList cm = (ChoiceManagerList) constructor.newInstance(argsObject);
+			Constructor constructor = aClass.getConstructor(argsClass);
+			ChoiceManagerList cm =
+					(ChoiceManagerList) constructor.newInstance(argsObject);
 			return cm;
 		}
-		catch (ClassNotFoundException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Class not found", e);
+		catch (ClassNotFoundException e)
+		{
+			Logging.errorPrint("Can't create Choice Manager: " + type
+				+ " Class not found", e);
 		}
-		catch (InstantiationException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Can't instantiate class", e);
+		catch (InstantiationException e)
+		{
+			Logging.errorPrint("Can't create Choice Manager: " + type
+				+ " Can't instantiate class", e);
 		}
-		catch (IllegalAccessException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Illegal access", e);
+		catch (IllegalAccessException e)
+		{
+			Logging.errorPrint("Can't create Choice Manager: " + type
+				+ " Illegal access", e);
 		}
-		catch (NoSuchMethodException e)  {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " no constructor found", e);
+		catch (NoSuchMethodException e)
+		{
+			Logging.errorPrint("Can't create Choice Manager: " + type
+				+ " no constructor found", e);
 		}
-		catch (InvocationTargetException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " class threw an error", e);
+		catch (InvocationTargetException e)
+		{
+			Logging.errorPrint("Can't create Choice Manager: " + type
+				+ " class threw an error", e);
 		}
 		return null;
 	}
-	
 
 	/**
-	 * Mod choices can send back weaponprofs, abilities or strings,
-	 * so we have to do a conversion here.
+	 * Mod choices can send back weaponprofs, abilities or strings, so we have
+	 * to do a conversion here.
 	 * 
-	 * @param choiceList The list of choices provided by modChoices
-	 * @param stringList The list of strings representing the choices.
+	 * @param choiceList
+	 *            The list of choices provided by modChoices
+	 * @param stringList
+	 *            The list of strings representing the choices.
 	 */
 	public static void convertChoiceListToStringList(final List choiceList,
 		final List<String> stringList)
@@ -581,11 +617,12 @@ public class ChooserUtilities
 	}
 
 	public static void getChoices(PObject object, String choice,
-			PlayerCharacter apc)
+		PlayerCharacter apc)
 	{
 		final List availableList = new ArrayList();
-		final List selectedList  = new ArrayList();
-		ChooserUtilities.getChoices(object, choice, availableList, selectedList, apc);
+		final List selectedList = new ArrayList();
+		ChooserUtilities.getChoices(object, choice, availableList,
+			selectedList, apc);
 	}
-	
+
 }

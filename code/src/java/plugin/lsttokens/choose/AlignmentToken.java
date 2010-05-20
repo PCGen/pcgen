@@ -23,14 +23,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -153,11 +152,9 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		ChoiceSet<PCAlignment> cs = new ChoiceSet<PCAlignment>(getTokenName(),
-				pcs);
-		cs.setTitle(title);
-		PersistentTransitionChoice<PCAlignment> tc = new PersistentTransitionChoice<PCAlignment>(
-				cs, null);
+		ChooseInformation<PCAlignment> tc = new BasicChooseInformation<PCAlignment>(
+				getTokenName(), pcs);
+		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
@@ -170,14 +167,13 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		PersistentTransitionChoice<?> tc = context.getObjectContext()
+		ChooseInformation<?> tc = context.getObjectContext()
 				.getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
 		}
-		SelectableSet<?> choices = tc.getChoices();
-		if (!choices.getName().equals(getTokenName()))
+		if (!tc.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			/*
@@ -189,8 +185,8 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(choices.getLSTformat());
-		String title = choices.getTitle();
+		sb.append(tc.getLSTformat());
+		String title = tc.getTitle();
 		if (!title.equals(getDefaultTitle()))
 		{
 			sb.append("|TITLE=");

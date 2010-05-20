@@ -23,10 +23,10 @@ import java.util.Collections;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
@@ -311,7 +311,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSkillList");
-		PersistentTransitionChoice<ClassSkillList> tc = new PersistentTransitionChoice<ClassSkillList>(
+		PersistentTransitionChoice<ClassSkillList> tc = new ConcretePersistentTransitionChoice<ClassSkillList>(
 				cs, FormulaFactory.ONE);
 		return tc;
 	}
@@ -350,7 +350,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(token.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSkillList");
-		PersistentTransitionChoice<ClassSkillList> tc1 = new PersistentTransitionChoice<ClassSkillList>(
+		PersistentTransitionChoice<ClassSkillList> tc1 = new ConcretePersistentTransitionChoice<ClassSkillList>(
 				cs, null);
 		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc1);
 		assertBadUnparse();

@@ -22,10 +22,10 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
@@ -204,7 +204,7 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<PersistentTransitionChoice<?>> getObjectKey()
+	private ObjectKey<ChooseInformation<?>> getObjectKey()
 	{
 		return ObjectKey.CHOOSE_INFO;
 	}
@@ -229,11 +229,9 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);
 		assertTrue(scs.getGroupingState().isValid());
-		ChoiceSet<String> cs = new ChoiceSet<String>(getSubTokenName(), scs);
+		ChooseInformation<String> cs = new BasicChooseInformation<String>(getSubTokenName(), scs);
 		cs.setTitle("Choose an Item");
-		PersistentTransitionChoice<String> tc = new PersistentTransitionChoice<String>(
-				cs, null);
-		primaryProf.put(ObjectKey.CHOOSE_INFO, tc);
+		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}
 
 	@Test

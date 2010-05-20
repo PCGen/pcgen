@@ -22,13 +22,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -54,37 +53,37 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null || value.length() == 0)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have arguments");
+				+ " must have arguments");
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value);
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -94,11 +93,11 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 			String tokString = tok.nextToken();
 			set.add(tokString);
 		}
-		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(set, Constants.PIPE);
-		ChoiceSet<String> cs = new ChoiceSet<String>(getTokenName(), scs);
-		cs.setTitle("Choose an Item");
-		PersistentTransitionChoice<String> tc = new PersistentTransitionChoice<String>(
-				cs, null);
+		SimpleChoiceSet<String> scs =
+				new SimpleChoiceSet<String>(set, Constants.PIPE);
+		ChooseInformation<String> tc =
+				new BasicChooseInformation<String>(getTokenName(), scs);
+		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
@@ -106,20 +105,20 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		PersistentTransitionChoice<?> tc = context.getObjectContext()
-				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
 		}
-		SelectableSet<?> choices = tc.getChoices();
-		if (!choices.getName().equals(getTokenName()))
+		if (!tc.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(choices.getLSTformat());
+		sb.append(tc.getLSTformat());
 		// TODO oops
 		// String title = choices.getTitle();
 		// if (!title.equals(getDefaultTitle()))
@@ -127,7 +126,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 		// sb.append("|TITLE=");
 		// sb.append(title);
 		// }
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	public Class<CDOMObject> getTokenClass()
@@ -148,8 +147,8 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -160,7 +159,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			String choice)
+		String choice)
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
 	}
@@ -173,8 +172,8 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -186,13 +185,13 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,
-			ChooseSelectionActor<String> ca)
+		ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
 	public List<String> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
+		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_STRING);
 	}

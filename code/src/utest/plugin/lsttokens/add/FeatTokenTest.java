@@ -24,10 +24,10 @@ import org.junit.Test;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -283,7 +283,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		tc.allowStack(false);
 		// if (dupChoices != 0)
@@ -388,7 +388,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.getFormulaFor(3));
 		tc.allowStack(true);
 		tc.setStackLimit(2);

@@ -22,8 +22,9 @@ import java.util.Collections;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -141,7 +142,7 @@ public class ChooseLangautoTokenTest extends
 				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getSubTokenName(), rcs);
 		cs.setTitle("Pick a Language");
-		PersistentTransitionChoice<Language> tc1 = new PersistentTransitionChoice<Language>(
+		PersistentTransitionChoice<Language> tc1 = new ConcretePersistentTransitionChoice<Language>(
 				cs, null);
 		tc1.setChoiceActor(subtoken);
 		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc1);

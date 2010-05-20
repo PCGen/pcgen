@@ -2,13 +2,12 @@ package pcgen.rules.persistence.token;
 
 import java.util.List;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -16,9 +15,9 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 
-public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
-		AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<T>
+public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
+		extends AbstractTokenWithSeparator<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<T>
 {
 	public String getParentToken()
 	{
@@ -32,7 +31,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 	}
 
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			ReferenceManufacturer<T> rm, CDOMObject obj, String value)
+		ReferenceManufacturer<T> rm, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
@@ -70,15 +69,14 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
-					+ activeValue);
+				+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			cpr
+				.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		ChoiceSet<T> cs = new ChoiceSet<T>(getTokenName(), pcs);
-		cs.setTitle(title);
-		PersistentTransitionChoice<T> tc = new PersistentTransitionChoice<T>(
-				cs, null);
+		ChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
@@ -91,14 +89,14 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		PersistentTransitionChoice<?> tc = context.getObjectContext()
-				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
 		}
-		SelectableSet<?> choices = tc.getChoices();
-		if (!choices.getName().equals(getTokenName()))
+		if (!tc.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			/*
@@ -109,29 +107,28 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 			 */
 			return null;
 		}
-		if (!choices.getGroupingState().isValid())
+		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-					+ " was used in: " + getParentToken() + ":"
-					+ getTokenName());
+				+ " was used in: " + getParentToken() + ":" + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(choices.getLSTformat());
-		String title = choices.getTitle();
+		sb.append(tc.getLSTformat());
+		String title = tc.getTitle();
 		if (!title.equals(getDefaultTitle()))
 		{
 			sb.append("|TITLE=");
 			sb.append(title);
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	public void applyChoice(CDOMObject owner, T st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -145,8 +142,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)

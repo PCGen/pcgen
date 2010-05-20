@@ -26,6 +26,7 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -164,7 +165,7 @@ public class SpellCasterToken extends AbstractToken implements
 				: new ReferenceChoiceSet<PCClass>(prims);
 		SelectableSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		cs.setTitle("Spell Caster Class Choice");
-		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
+		PersistentTransitionChoice<PCClass> tc = new ConcretePersistentTransitionChoice<PCClass>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);

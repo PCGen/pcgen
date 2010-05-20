@@ -23,14 +23,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -45,8 +44,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCStat>
+public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>,
+		PersistentChoiceActor<PCStat>
 {
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
@@ -94,8 +94,9 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 		PrimitiveChoiceSet<PCStat> pcs;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
-			pcs = new ReferenceChoiceSet<PCStat>(Collections
-					.singletonList(context.ref
+			pcs =
+					new ReferenceChoiceSet<PCStat>(Collections
+						.singletonList(context.ref
 							.getCDOMAllReference(PCSTAT_CLASS)));
 		}
 		else
@@ -104,8 +105,9 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 			Set<PCStat> set = new HashSet<PCStat>();
 			while (st.hasMoreTokens())
 			{
-				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, st
-						.nextToken());
+				PCStat stat =
+						context.ref.getAbbreviatedObject(PCSTAT_CLASS, st
+							.nextToken());
 				if (!set.add(stat))
 				{
 					// Error (second add)
@@ -122,15 +124,15 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
-					+ activeValue);
+				+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
+			cpr
+				.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		ChoiceSet<PCStat> cs = new ChoiceSet<PCStat>(getTokenName(), pcs);
-		cs.setTitle(title);
-		PersistentTransitionChoice<PCStat> tc = new PersistentTransitionChoice<PCStat>(
-				cs, null);
+		ChooseInformation<PCStat> tc =
+				new BasicChooseInformation<PCStat>(getTokenName(), pcs);
+		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
@@ -143,14 +145,14 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		PersistentTransitionChoice<?> tc = context.getObjectContext()
-				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
 		}
-		SelectableSet<?> choices = tc.getChoices();
-		if (!choices.getName().equals(getTokenName()))
+		if (!tc.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			/*
@@ -162,21 +164,21 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(choices.getLSTformat());
-		String title = choices.getTitle();
+		sb.append(tc.getLSTformat());
+		String title = tc.getTitle();
 		if (!title.equals(getDefaultTitle()))
 		{
 			sb.append("|TITLE=");
 			sb.append(title);
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	public void applyChoice(CDOMObject owner, PCStat st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -190,8 +192,8 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCStat choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -203,13 +205,13 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			PCStat choice)
+		PCStat choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 	}
 
 	public List<PCStat> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
+		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -242,7 +244,7 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject> implemen
 	public PCStat decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				PCSTAT_CLASS, s);
+			PCSTAT_CLASS, s);
 	}
 
 	public String encodeChoice(PCStat choice)

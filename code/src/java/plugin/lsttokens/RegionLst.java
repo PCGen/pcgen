@@ -13,6 +13,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
@@ -82,7 +83,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		SimpleChoiceSet<Region> rcs = new SimpleChoiceSet<Region>(regions);
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
 		cs.setTitle("Region Selection");
-		TransitionChoice<Region> tc = new TransitionChoice<Region>(cs, count);
+		TransitionChoice<Region> tc = new ConcreteTransitionChoice<Region>(cs, count);
 		context.obj.put(pcc, ObjectKey.REGION_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);

@@ -27,6 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -119,7 +120,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		ChoiceSet<Equipment> cs = new ChoiceSet<Equipment>(getTokenName(),
 				new QualifiedDecorator<Equipment>(rcs));
 		cs.setTitle("Equipment Choice");
-		PersistentTransitionChoice<Equipment> tc = new PersistentTransitionChoice<Equipment>(
+		PersistentTransitionChoice<Equipment> tc = new ConcretePersistentTransitionChoice<Equipment>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);

@@ -27,6 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -137,7 +138,7 @@ public class SkillToken extends AbstractToken implements
 		}
 
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs, true);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);

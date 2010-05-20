@@ -26,9 +26,10 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -94,7 +95,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	{
 		ReferenceChoiceSet<TC> rcs = new ReferenceChoiceSet<TC>(refs);
 		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<TC> tc = new PersistentTransitionChoice<TC>(
+		PersistentTransitionChoice<TC> tc = new ConcretePersistentTransitionChoice<TC>(
 				cs, count);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(getActor());

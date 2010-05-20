@@ -36,6 +36,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
@@ -302,7 +303,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> ROLLED = new ObjectKey<Boolean>(Boolean.TRUE);
 	
-	public static final ObjectKey<PersistentTransitionChoice<?>> CHOOSE_INFO = new ObjectKey<PersistentTransitionChoice<?>>(null);
+	public static final ObjectKey<ChooseInformation<?>> CHOOSE_INFO = new ObjectKey<ChooseInformation<?>>(null);
 
 	public static final ObjectKey<Destination> DESTINATION = new ObjectKey<Destination>(null);
 	

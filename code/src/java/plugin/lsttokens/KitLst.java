@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
@@ -115,7 +116,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
 				new QualifiedDecorator<Kit>(rcs));
 		cs.setTitle("Kit Selection");
-		TransitionChoice<Kit> tc = new TransitionChoice<Kit>(cs, count);
+		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<Kit>(cs, count);
 		context.obj.addToList(pcc, ListKey.KIT_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);

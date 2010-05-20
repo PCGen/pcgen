@@ -24,9 +24,10 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -370,7 +371,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a SpellList");
-		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new PersistentTransitionChoice<CDOMListObject<Spell>>(
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new ConcretePersistentTransitionChoice<CDOMListObject<Spell>>(
 				cs, FormulaFactory.ONE);
 		return tc;
 	}
@@ -409,7 +410,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
 		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(token.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSpellList");
-		PersistentTransitionChoice<CDOMListObject<Spell>> tc1 = new PersistentTransitionChoice<CDOMListObject<Spell>>(
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc1 = new ConcretePersistentTransitionChoice<CDOMListObject<Spell>>(
 				cs, null);
 		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc1);
 		assertBadUnparse();

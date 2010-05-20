@@ -26,6 +26,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -104,7 +105,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> 
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		cs.setTitle("Pick a Language");
 		PersistentTransitionChoice<Language> tc =
-				new PersistentTransitionChoice<Language>(cs, FormulaFactory.ONE);
+				new ConcretePersistentTransitionChoice<Language>(cs, FormulaFactory.ONE);
 		context.getObjectContext().put(template, ObjectKey.CHOOSE_LANGAUTO, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;

@@ -27,6 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -201,7 +202,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		cs.setTitle("Feat Choice");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);

@@ -21,9 +21,10 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
-import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.PersistentChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -1191,7 +1192,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<PersistentTransitionChoice<?>> getObjectKey()
+	private ObjectKey<ChooseInformation<?>> getObjectKey()
 	{
 		return ObjectKey.CHOOSE_INFO;
 	}
@@ -1259,11 +1260,9 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 				getManufacturer(), value);
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
-		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), pcs);
+		ChooseInformation<TC> cs = new BasicChooseInformation<TC>(getSubToken().getTokenName(), pcs);
 		cs.setTitle(getChoiceTitle());
-		PersistentTransitionChoice<TC> tc = new PersistentTransitionChoice<TC>(
-				cs, null);
-		primaryProf.put(ObjectKey.CHOOSE_INFO, tc);
+		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}
 
 	protected ReferenceManufacturer<TC> getManufacturer()

@@ -23,9 +23,10 @@ import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -100,7 +101,7 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass> implemen
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose class-skills this class will inherit");
-		TransitionChoice<ClassSkillList> tc = new TransitionChoice<ClassSkillList>(
+		TransitionChoice<ClassSkillList> tc = new ConcreteTransitionChoice<ClassSkillList>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
 		tc.setRequired(false);

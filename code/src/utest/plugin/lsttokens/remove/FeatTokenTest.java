@@ -23,10 +23,10 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -227,7 +227,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -242,7 +242,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, null);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -273,7 +273,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -288,7 +288,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -310,7 +310,7 @@ public class FeatTokenTest extends
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);

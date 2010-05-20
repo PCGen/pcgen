@@ -27,6 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -107,7 +108,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<PCTemplate>(
 				refs);
 		ChoiceSet<PCTemplate> cs = new ChoiceSet<PCTemplate>("TEMPLATE", rcs);
-		PersistentTransitionChoice<PCTemplate> tc = new PersistentTransitionChoice<PCTemplate>(
+		PersistentTransitionChoice<PCTemplate> tc = new ConcretePersistentTransitionChoice<PCTemplate>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);

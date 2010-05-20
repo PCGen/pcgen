@@ -24,8 +24,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcreteTransitionChoice;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
@@ -179,7 +180,7 @@ public class ModifyfeatchoiceTokenTest extends
 		cs.setTitle("Select a "
 				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
 				+ " to modify");
-		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
+		TransitionChoice<Ability> tc = new ConcreteTransitionChoice<Ability>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);
 		// tc.setChoiceActor(getToken());

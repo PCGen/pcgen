@@ -19,37 +19,34 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
- * allowed, prior to final implementation of the new choice system
+ * allowed, prior to final implementation of the new choice system.
+ * 
+ * This is a TransitionChoice that is designed to be stored in a PlayerCharacter
+ * file when saved. Thus, encoding and decoding (to a 'persistent' string)
+ * methods are provided.
  * 
  * @param <T>
- *            The type of object that will be chosen when this TransitionChoice
- *            is used
  */
-public interface TransitionChoice<T> extends BasicChoice<T>
+public interface ChooseInformation<T> extends PersistentChoice<T>
 {
 
-	void allowStack(boolean b);
+	void setTitle(String title);
 
-	public boolean allowsStacking();
+	String getName();
 
-	Collection<? extends T> driveChoice(PlayerCharacter apc);
+	String getLSTformat();
 
-	void setStackLimit(int i);
+	String getTitle();
 
-	int getStackLimit();
+	GroupingState getGroupingState();
 
-	Formula getCount();
+	Class<? super T> getChoiceClass();
 
-	void act(Collection<? extends T> name, CDOMObject owner, PlayerCharacter pc);
-
-	void setRequired(boolean b);
-
-	public SelectableSet<? extends T> getChoices();
-
+	Collection<? extends T> getSet(PlayerCharacter pc);
 }

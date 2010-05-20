@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.chooser.ChooserFactory;
@@ -18,12 +18,12 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	private final Integer numberOfChoices;
 	private final int choicesPerUnitCost;
 	private ChooseController<T> controller = new ChooseController<T>();
-	private final PersistentTransitionChoice<T> info;
+	private final ChooseInformation<T> info;
 
 	private transient int preChooserChoices;
 
 	public CDOMChoiceManager(CDOMObject cdo,
-			PersistentTransitionChoice<T> chooseType, Integer numChoices,
+		ChooseInformation<T> chooseType, Integer numChoices,
 			int cost)
 	{
 		numberOfChoices = numChoices;
@@ -35,7 +35,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	public void getChoices(PlayerCharacter pc, List<T> availableList,
 			List<T> selectedList)
 	{
-		availableList.addAll(info.getChoices().getSet(pc));
+		availableList.addAll(info.getSet(pc));
 		List<T> selected = info.getChoiceActor()
 				.getCurrentlySelected(owner, pc);
 		if (selected != null)
@@ -146,7 +146,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	protected ChooserInterface getChooserInstance()
 	{
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-		String title = info.getChoices().getTitle();
+		String title = info.getTitle();
 		if (title != null && title.length() > 0)
 		{
 			chooser.setTitle(title + " (" + owner.getDisplayName() + ')');
@@ -163,8 +163,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	public void doChooserRemove(PlayerCharacter aPC, List<T> availableList,
 			List<T> selectedList, List<String> reservedList)
 	{
-		final List<T> newSelections = doChooser(aPC, availableList,
-				selectedList, reservedList);
+		final List<T> newSelections =
+				doChooser(aPC, availableList, selectedList, reservedList);
 
 		applyChoices(aPC, newSelections);
 	}

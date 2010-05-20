@@ -25,10 +25,10 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
-import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -194,7 +194,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, 3));
@@ -214,7 +214,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -234,7 +234,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -254,7 +254,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -274,7 +274,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));

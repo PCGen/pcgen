@@ -21,10 +21,10 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
 public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryParserToken<CDOMObject>, DeferredToken<CDOMObject>
@@ -51,7 +51,8 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CDOMObject obj, String value)
 	{
 		String key;
 		String val;
@@ -81,8 +82,8 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			String maxCount = key.substring(11);
 			if (maxCount == null || maxCount.length() == 0)
 			{
-				return new ParseResult.Fail("NUMCHOICES in CHOOSE must be a formula: "
-						+ value);
+				return new ParseResult.Fail(
+					"NUMCHOICES in CHOOSE must be a formula: " + value);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
@@ -110,8 +111,9 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			return null;
 		}
 		Formula choices = context.obj.getFormula(obj, FormulaKey.NUMCHOICES);
-		String choicesString = choices == null ? null : "NUMCHOICES="
-				+ choices.toString() + Constants.PIPE;
+		String choicesString =
+				choices == null ? null : "NUMCHOICES=" + choices.toString()
+					+ Constants.PIPE;
 		for (int i = 0; i < str.length; i++)
 		{
 			if (str[i].endsWith(Constants.PIPE))
@@ -160,9 +162,9 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (obj.get(FormulaKey.NUMCHOICES) != null)
 			{
 				Logging.errorPrint("CHOOSE with embedded choice count on "
-						+ obj.getClass().getSimpleName() + " "
-						+ obj.getKeyName() + " cannot have NUMCHOICES prefix:"
-						+ obj.get(StringKey.CHOICE_STRING));
+					+ obj.getClass().getSimpleName() + " " + obj.getKeyName()
+					+ " cannot have NUMCHOICES prefix:"
+					+ obj.get(StringKey.CHOICE_STRING));
 				return false;
 			}
 			if (!FormulaFactory.ONE.equals(emb))
@@ -170,20 +172,20 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 				obj.put(FormulaKey.NUMCHOICES, emb);
 			}
 		}
-		PersistentTransitionChoice<?> newChoose = obj
-				.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> newChoose = obj.get(ObjectKey.CHOOSE_INFO);
 		String oldChoose = obj.get(StringKey.CHOICE_STRING);
 		if (newChoose != null && oldChoose != null)
 		{
 			Logging.errorPrint("New style CHOOSE "
-					+ "and old style CHOOSE both found on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+				+ "and old style CHOOSE both found on "
+				+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 			return false;
 		}
 		if (newChoose != null)
 		{
-			Class<?> chooseClass = newChoose.getChoices().getChoiceClass();
-			List<ChooseSelectionActor<?>> newactors = obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+			Class<?> chooseClass = newChoose.getChoiceClass();
+			List<ChooseSelectionActor<?>> newactors =
+					obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 			if (newactors != null)
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
@@ -191,11 +193,11 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 					if (!chooseClass.equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
-								+ chooseClass.getSimpleName() + " on "
-								+ obj.getClass().getSimpleName() + " "
-								+ obj.getKeyName() + " had an actor from token "
-								+ csa.getSource() + " that was expecting a "
-								+ csa.getChoiceClass().getSimpleName());
+							+ chooseClass.getSimpleName() + " on "
+							+ obj.getClass().getSimpleName() + " "
+							+ obj.getKeyName() + " had an actor from token "
+							+ csa.getSource() + " that was expecting a "
+							+ csa.getChoiceClass().getSimpleName());
 						return false;
 					}
 				}

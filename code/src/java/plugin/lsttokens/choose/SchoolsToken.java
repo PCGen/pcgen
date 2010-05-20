@@ -20,13 +20,12 @@ package plugin.lsttokens.choose;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
@@ -55,20 +54,19 @@ public class SchoolsToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value != null)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addWarningMessage("CHOOSE:" + getTokenName()
-					+ " will ignore arguments: " + value);
+				+ " will ignore arguments: " + value);
 			return cpr;
 		}
 		// No args - legal
-		ChoiceSet<String> cs = new ChoiceSet<String>(getTokenName(), this);
-		cs.setTitle("School Choice");
-		PersistentTransitionChoice<String> tc = new PersistentTransitionChoice<String>(
-				cs, null);
+		ChooseInformation<String> tc =
+				new BasicChooseInformation<String>(getTokenName(), this);
+		tc.setTitle("School Choice");
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
@@ -76,21 +74,20 @@ public class SchoolsToken extends ErrorParsingWrapper<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		PersistentTransitionChoice<?> tc = context.getObjectContext()
-				.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
 		}
-		SelectableSet<?> choices = tc.getChoices();
-		if (!choices.getName().equals(getTokenName()))
+		if (!tc.getName().equals(getTokenName()))
 		{
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(choices.getLSTformat());
-System.err.println("!" + choices.getLSTformat());
+		sb.append(tc.getLSTformat());
 		// TODO oops
 		// String title = choices.getTitle();
 		// if (!title.equals(getDefaultTitle()))
@@ -98,7 +95,7 @@ System.err.println("!" + choices.getLSTformat());
 		// sb.append("|TITLE=");
 		// sb.append(title);
 		// }
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	public Class<CDOMObject> getTokenClass()
@@ -139,8 +136,8 @@ System.err.println("!" + choices.getLSTformat());
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_SCHOOL, choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -151,7 +148,7 @@ System.err.println("!" + choices.getLSTformat());
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			String choice)
+		String choice)
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_SCHOOL, choice);
 	}
@@ -164,8 +161,8 @@ System.err.println("!" + choices.getLSTformat());
 	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -177,13 +174,13 @@ System.err.println("!" + choices.getLSTformat());
 	}
 
 	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,
-			ChooseSelectionActor<String> ca)
+		ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
 	public List<String> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
+		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_SCHOOL);
 	}
