@@ -98,8 +98,8 @@ FEATPOOL:-2.0
 # Character Abilities
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability F|TYPE:ATest
 USERPOOL:FEAT|POOLPOINTS:0.0
 USERPOOL:Internal|POOLPOINTS:0.0
@@ -111,6 +111,7 @@ USERPOOL:Talent|POOLPOINTS:0.0
 USERPOOL:Force Powers|POOLPOINTS:0.0
 USERPOOL:Force Techniques|POOLPOINTS:0.0
 USERPOOL:Force Secrets|POOLPOINTS:0.0
+ABILITY:Test Choosers|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bob Test ~ Bonus Var in a Chooser|APPLIEDTO:,,|TYPE:BobTest.Test.Chooser.SpecialQuality|DESC:Bonus Var should be outputting 3 (ability taken three times) var number is showing %1&pipe;BonusVarTest
 USERPOOL:Test Choosers|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
