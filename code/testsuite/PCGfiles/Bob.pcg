@@ -96,11 +96,13 @@ LANGUAGE:Common
 FEATPOOL:-2.0
 
 # Character Abilities
-#ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
-#ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:MonKee 1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability F|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spells Monkee|APPLIEDTO:Identify|TYPE:General.Tests.BobTest
 USERPOOL:FEAT|POOLPOINTS:0.0
 USERPOOL:Internal|POOLPOINTS:0.0
 USERPOOL:Mutation|POOLPOINTS:0.0
@@ -115,7 +117,8 @@ ABILITY:Test Choosers|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bob Test ~ Bonus 
 USERPOOL:Test Choosers|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
-WEAPONPROF:[WEAPON:Extra Blade|WEAPON:Suns Weapon Of Choice|WEAPON:Uber Sword|WEAPON:Unarmed Strike]
+WEAPONPROF:[WEAPON:Extra Blade|WEAPON:Fine Wine Blade|WEAPON:Suns Weapon Of Choice|WEAPON:Uber Sword|WEAPON:Unarmed Strike]
+WEAPONPROF:[WEAPON:Fine Wine Blade]|SOURCE:[TYPE:DOMAIN|NAME:Bar Ball]
 
 # Character Equipment
 MONEY:0
@@ -129,6 +132,8 @@ CALCEQUIPSET:0.1
 # EquipSet Temp Bonuses
 
 # Character Deity/Domain
+DEITY:Puni Deity|DEITYDOMAINS:[DOMAIN:Bar Ball]|ALIGNALLOW:|HOLYITEM:Wine with Sword|DEITYFAVWEAP:[WEAPON:Fine Wine Blade]|DEITYALIGN:Lawful Neutral
+DOMAIN:Bar Ball|ASSOCIATEDDATA:FEAT?Weapon Focus(Fine Wine Blade)|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 
 # Character Spells Information
 
