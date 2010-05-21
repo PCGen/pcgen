@@ -40,3 +40,12 @@ Weapon Focus										TYPE:General.Fighter					PREATT:1																									
 Weapon Specialization									TYPE:Special.Fighter																	PREFEAT:1,Weapon Focus																																			PREVARGTEQ:WeapSpecQualify,1																	DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus																																																																																																																																																			BONUS:WEAPONPROF=%LIST|DAMAGE|2																						SOURCEPAGE:Feats.rtf
 
 
+
+Bob Test Feat Choose Spells Monkee							TYPE:General.Tests.BobTest		CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMIN=1;LEVELMAX=3]					MULT:YES
+Bob Test Feat Choose Spelllevel Arcane						TYPE:General.Tests.BobTest		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
+
+Bob Testing Type Group A								TYPE:GroupA		DESC:Freebie to Add B
+Bob Testing Type Group B								TYPE:GroupB		DESC:B added by A
+
+Bob Testing Type Group C								TYPE:GroupC		DESC:Triggered by having PREFEAT TYPE=GroupB which is found in Bob Testing Type Group B which is triggered by TYPE=Sword in Weapon Focus.
+

@@ -1,10 +1,10 @@
 #WeaponProf
 Light Blades
 Martial
-Suns Weapon Of Choice	TYPE:Simple
-Fine Wine Blade		TYPE:Martial
+Suns Weapon Of Choice	TYPE:Simple.Sword
+Fine Wine Blade		TYPE:Martial.Sword
 
 Extra Blade			TYPE:Sword
 
 MonKee Fu Hands		TYPE:Exotic
-Uber Sword			TYPE:Exotic
+Uber Sword			TYPE:Exotic.Sword

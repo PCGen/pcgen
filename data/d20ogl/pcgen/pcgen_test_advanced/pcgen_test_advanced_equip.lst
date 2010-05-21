@@ -5,14 +5,14 @@ Lantern	TYPE:Goods.Lightsource.Latern
 
 
 # Weapons
-Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
-Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
-Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:OneHanded
-Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
+Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
+Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
+Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:OneHanded
+Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
 
 
 # Armor
 Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium
 Leather			PROFICIENCY:ARMOR|Leather				TYPE:Armor.Light.Leather
 Moon Cloth			PROFICIENCY:ARMOR|Moon Cloth				TYPE:Armor.Light.Moon Cloth
-Heavy Armor			PROFICIENCY:ARMOR|Heavy				TYPE:Armor.Heavy
+Heavy Armor			PROFICIENCY:ARMOR|Heavy					TYPE:Armor.Heavy
