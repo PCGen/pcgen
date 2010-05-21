@@ -375,7 +375,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// order in which the equipment will be output.
 	private int equipOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
-	private int freeLangs = 0;
 
 	// pool of stats allowed to distribute
 	private int poolAmount = 0;
@@ -9676,14 +9675,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void addFreeLanguage(final Language aLang, CDOMObject source)
 	{
 		freeLangFacet.add(id, aLang, source);
-		++freeLangs;
 		setDirty(true);
 	}
 
 	public void removeFreeLanguage(final Language aLang, CDOMObject source)
 	{
 		freeLangFacet.remove(id, aLang, source);
-		--freeLangs;
 		setDirty(true);
 	}
 
@@ -11921,7 +11918,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.equipOutputOrder = equipOutputOrder;
-		aClone.freeLangs = freeLangs;
 		aClone.poolAmount = poolAmount;
 
 		// order in which the skills will be output.
