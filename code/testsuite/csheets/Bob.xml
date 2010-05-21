@@ -43,15 +43,15 @@ BIO
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name></name>
-			<alignment></alignment>
+			<name>Puni Deity</name>
+			<alignment>LN</alignment>
 			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
+			<domainlist>Bar Ball</domainlist>
+			<favoredweapon>Fine Wine Blade</favoredweapon>
 			<followeralignment></followeralignment>
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
+			<holyitem>Wine with Sword</holyitem>
+			<pantheonlist>Cool Guys</pantheonlist>
+			<source>PCGen Team - PCGen Testing Set</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -713,9 +713,9 @@ BIO
 					<multiplier>3</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+2/-3</hit>
+					<hit>+7/+2</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+2/-3</total_hit>
+					<total_hit>+7/+2</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Both</hand>
@@ -729,7 +729,7 @@ BIO
 				<sequence>0</sequence>
 			</common>
 			<simple>
-				<to_hit>+2/-3</to_hit>
+				<to_hit>+7/+2</to_hit>
 				<damage>3d6</damage>
 				<range>0 ft.</range>
 			</simple>
@@ -794,7 +794,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE</type>
+			<type>WEAPON.MELEE.SWORD</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -824,7 +824,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.MELEE</type>
+					<type>WEAPON.MELEE.SWORD</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -900,6 +900,56 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name>Bob Test Feat Choose Spelllevel Arcane (MonKee 1)</name>
+			<description></description>
+			<type>GENERAL.TESTS.BOBTEST</type>
+			<associated>MonKee 1</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Bob Test Feat Choose Spells Monkee (Identify)</name>
+			<description></description>
+			<type>GENERAL.TESTS.BOBTEST</type>
+			<associated>Identify</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Exotic Weapon Proficiency (Uber Sword)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Uber Sword</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Weapon Focus (Uber Sword, Suns Weapon Of Choice)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Uber Sword,Suns Weapon Of Choice</associated>
+			<count>2</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<!-- Auto feats -->
 		<feat>
 			<name>Ability B</name>
@@ -932,6 +982,26 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>Bob Testing Type Group A</name>
+			<description>Freebie to Add B</description>
+			<type>GROUPA</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Bob Testing Type Group B</name>
+			<description>B added by A</description>
+			<type>GROUPB</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>See Text</description>
 			<type>GENERAL</type>
@@ -947,6 +1017,16 @@ BIO
 			<type>GENERAL.FIGHTER</type>
 			<associated>Longsword</associated>
 			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1067,6 +1147,17 @@ BIO
 		<ability_object>
 			<name>Bob&#39;s Ability triggered by Size M</name>
 			<description>Using Chooser with Size M Selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Weapon Focus Sword wildcard</name>
+			<description>Using PreFeat with Sword Wildcard</description>
 			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1588,8 +1679,15 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
+
+	<domains>
+		<domain>
+			<name>Bar Ball</name>
+			<power>This is the Bar Ball Domain</power>
+		</domain>
+	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Extra Blade, Suns Weapon Of Choice, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Extra Blade, Fine Wine Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Common</languages>
 
 	<templates>
