@@ -56,6 +56,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -99,6 +100,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -163,7 +165,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
 		myClass.addToListFor(ListKey.BONUS, babClassBonus);
-		Globals.getContext().ref.importObject(myClass);
+		LoadContext context = Globals.getContext();
+		context.ref.importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
 		character.calcActiveBonuses();
@@ -194,14 +197,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
 		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZEDEPENDENT);
-		Globals.getContext().ref.importObject(wp);
+		context.ref.importObject(wp);
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard)");
 		wp.put(StringKey.KEY_NAME, "KEY_Sword (Bastard)");
 		TestHelper.addType(wp, "MARTIAL.EXOTIC");
-		Globals.getContext().ref.importObject(wp);
-		character.addWeaponProf(wp.getKeyName());
+		context.ref.importObject(wp);
 
 		bastardSword = new Equipment();
 		bastardSword.setName("Sword, Bastard");
@@ -219,8 +221,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setName("Longsword");
 		wp.put(StringKey.KEY_NAME, "KEY_LONGSWORD");
 		wp.addToListFor(ListKey.TYPE, Type.getConstant("MARTIAL"));
-		Globals.getContext().ref.importObject(wp);
-		character.addWeaponProf(wp.getKeyName());
+		context.ref.importObject(wp);
 
 		largeSword = new Equipment();
 		largeSword.setName("Longsword (Large)");
@@ -274,8 +275,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.put(StringKey.KEY_NAME, "SillyBite");
 		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		wp.addToListFor(ListKey.TYPE, Type.NATURAL);
-		Globals.getContext().ref.importObject(wp);
-		character.addWeaponProf(wp.getKeyName());
+		context.ref.importObject(wp);
 
 		bite = new Equipment();
 		bite.setName("Silly Bite");
@@ -328,7 +328,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(eqMod);
+		context.ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
 		eqMod.put(StringKey.KEY_NAME, "PLUS2W");
@@ -343,7 +343,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(eqMod);
+		context.ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.put(StringKey.KEY_NAME, "MWORKW");
@@ -355,16 +355,22 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(eqMod);
+		context.ref.importObject(eqMod);
+		
+		PCTemplate pct = new PCTemplate();
+		context.unconditionallyProcess(pct, "AUTO",
+				"WEAPONPROF|KEY_Sword (Bastard)|KEY_LONGSWORD|SillyBite");
+		character.addTemplate(pct);
+		context.resolveReferences();
 	}
 
 	/*
 	 * @see TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		dblWpn = null;
-		PlayerCharacter character = getCharacter();
 		str.removeListFor(ListKey.BONUS);
 		intel.removeListFor(ListKey.BONUS);
 

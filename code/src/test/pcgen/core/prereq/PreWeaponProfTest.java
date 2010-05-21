@@ -37,11 +37,13 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -78,6 +80,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
+		PCTemplate pct = new PCTemplate();
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
+		context.resolveReferences();
+
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -86,8 +93,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addWeaponProf("Longsword");
-		character.addWeaponProf("Dagger");
+		character.addTemplate(pct);
 
 		assertTrue("Character has the Longsword proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -111,6 +117,10 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCTemplate pct = new PCTemplate();
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
+		context.resolveReferences();
 
 		Prerequisite prereq;
 
@@ -120,8 +130,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addWeaponProf("Longsword");
-		character.addWeaponProf("Dagger");
+		character.addTemplate(pct);
 
 		assertTrue("Character has one of Longsword or Dagger proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -145,6 +154,12 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCTemplate pctls = new PCTemplate();
+		PCTemplate pctlb = new PCTemplate();
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
+		context.unconditionallyProcess(pctlb, "AUTO", "WEAPONPROF|Longbow");
+		context.resolveReferences();
 
 		Prerequisite prereq;
 
@@ -154,7 +169,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
-		character.addWeaponProf("Longsword");
+		character.addTemplate(pctls);
 		
 		assertTrue("Character has one Martial Weapon Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -164,7 +179,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		assertFalse("Character only has one proficiency", PrereqHandler.passes(
 			prereq, character, null));
 		
-		character.addWeaponProf("Longbow");
+		character.addTemplate(pctlb);
 		
 		assertTrue("Character has two Martial Weapon Proficiencies", 
 				PrereqHandler.passes(prereq, character, null));
@@ -178,6 +193,10 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	public void testInverse() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCTemplate pct = new PCTemplate();
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
+		context.resolveReferences();
 
 		Prerequisite prereq;
 
@@ -187,8 +206,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addWeaponProf("Longsword");
-		character.addWeaponProf("Dagger");
+		character.addTemplate(pct);
 
 		assertFalse("Character has the Longsword proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -257,6 +275,10 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	public void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCTemplate pctls = new PCTemplate();
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
+		context.resolveReferences();
 		
 		final FeatLoader featLoader = new FeatLoader();
 		
@@ -284,7 +306,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 					character.hitPoints()
 					);
 		
-		character.addWeaponProf("Longsword");
+		character.addTemplate(pctls);
 		
 		Ability foo = new Ability();
 		final String fooStr =

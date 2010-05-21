@@ -396,7 +396,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
 
-	private Set<WeaponProf> theWeaponProfs = null;
 	private Set<WeaponProf> cachedWeaponProfs = null;
 
 	// private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String,
@@ -3589,10 +3588,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Set<WeaponProf> buildWeaponProfCache()
 	{
 		final Set<WeaponProf> ret = new HashSet<WeaponProf>();
-		if (theWeaponProfs != null)
-		{
-			ret.addAll(theWeaponProfs);
-		}
 		// Try all possible CDOMObjects
 		for (CDOMObject pobj : getCDOMObjectList())
 		{
@@ -7160,23 +7155,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		adjustMoveRates();
 
 		setDirty(true);
-	}
-
-	public void addWeaponProf(final String aProfKey)
-	{
-		final WeaponProf wp =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					WeaponProf.class, aProfKey);
-		if (wp != null)
-		{
-			// weaponProfList.add(wp);
-			if (theWeaponProfs == null)
-			{
-				theWeaponProfs = new TreeSet<WeaponProf>();
-			}
-			theWeaponProfs.add(wp);
-			setDirty(true);
-		}
 	}
 
 	public void adjustGold(final double delta)
@@ -11893,11 +11871,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tabName = tabName;
 		aClone.setTrait1(getTrait1());
 		aClone.setTrait2(getTrait2());
-		if (theWeaponProfs != null)
-		{
-			aClone.theWeaponProfs = new TreeSet<WeaponProf>();
-			aClone.theWeaponProfs.addAll(theWeaponProfs);
-		}
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;

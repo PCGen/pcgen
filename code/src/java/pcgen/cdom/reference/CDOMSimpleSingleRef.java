@@ -98,7 +98,8 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 		if (referencedObject == null)
 		{
 			throw new IllegalStateException(
-					"Cannot ask for resolution: Reference has not been resolved");
+					"Cannot ask for resolution: Reference " + getName()
+							+ " has not been resolved");
 		}
 		return referencedObject;
 	}
