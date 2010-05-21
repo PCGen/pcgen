@@ -58,4 +58,8 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 		adjustPool(selected);
 	}
 
+	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	{
+		throw new UnsupportedOperationException();
+	}
 }

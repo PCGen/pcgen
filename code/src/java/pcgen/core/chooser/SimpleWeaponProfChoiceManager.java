@@ -493,4 +493,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	{
 		return Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class);
 	}
+
+	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	{
+		throw new UnsupportedOperationException();
+	}
 }

@@ -91,7 +91,6 @@ import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
-import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SubClassApplication;
@@ -5919,20 +5918,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		Set<Language> foundLanguages = new HashSet<Language>();
 		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
 		foundLanguages.addAll(thePC.getLanguageSet());
-		
-		List<Language> selected = new ArrayList<Language>();
-		Skill languageSkill = SkillLanguage.getLanguageSkill(thePC);
-		if (languageSkill != null)
-		{
-			SkillLanguage.buildLanguageListsForSkill(thePC, languageSkill,
-					selected, new ArrayList<Language>(), new ArrayList<Language>());
-			// See if we can figure out where they are from!
-			for (Language l : selected)
-			{
-				thePC.addSkillLanguage(l, languageSkill);
-				foundLanguages.add(l);
-			}
-		}
+		foundLanguages.addAll(thePC.getSkillLanguages());
+
 		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
 		for (Language l : cachedLanguages)
 		{

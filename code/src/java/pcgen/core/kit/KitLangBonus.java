@@ -27,9 +27,14 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 
 /**
  * Deals with applying a bonus language via a Kit
@@ -43,8 +48,7 @@ import pcgen.core.PlayerCharacter;
 public class KitLangBonus extends BaseKit
 {
 	/** The list of language names. */
-	private List<CDOMSingleRef<Language>> langList =
-			new ArrayList<CDOMSingleRef<Language>>();
+	private List<CDOMSingleRef<Language>> langList = new ArrayList<CDOMSingleRef<Language>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -75,45 +79,44 @@ public class KitLangBonus extends BaseKit
 	 */
 	@Override
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+			List<String> warnings)
 	{
-		final List<Language> availableLangs = new ArrayList<Language>();
-		final List<Language> selectedLangs = new ArrayList<Language>();
-		final List<Language> excludedLangs = new ArrayList<Language>();
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
 
-		int numLanguages = aPC.languageNum(false);
+		List<String> reservedList = new ArrayList<String>();
 
-		aPC.buildLangLists(availableLangs, selectedLangs, excludedLangs);
-
-		numLanguages -= selectedLangs.size();
-		if (numLanguages <= 0)
+		ChoiceManagerList<Language> controller = ChooserUtilities
+				.getConfiguredController(a, aPC, AbilityCategory.LANGUAGE,
+						reservedList);
+		if (controller == null)
 		{
 			return false;
 		}
 
-		theLanguages = new ArrayList<Language>(numLanguages);
-		for (CDOMSingleRef<Language> langKey : langList)
+		theLanguages = new ArrayList<Language>();
+		int allowedCount = aPC
+				.getAvailableAbilityPool(AbilityCategory.LANGUAGE).intValue();
+		int remaining = allowedCount;
+		for (CDOMSingleRef<Language> ref : langList)
 		{
-			Language lang = langKey.resolvesTo();
-			if (availableLangs.contains(lang))
+			Language lang = ref.resolvesTo();
+			if (remaining > 0 && controller.conditionallyApply(aPC, lang))
 			{
 				theLanguages.add(lang);
-				if (theLanguages.size() >= numLanguages)
-				{
-					break;
-				}
+				remaining--;
 			}
 			else
 			{
 				warnings.add("LANGUAGE: Could not add bonus language \""
-					+ langKey + "\"");
+						+ lang.getKeyName() + "\"");
 			}
 		}
 
-		if (langList.size() > numLanguages)
+		if (langList.size() > allowedCount)
 		{
 			warnings.add("LANGUAGE: Too many bonus languages specified. "
-				+ (langList.size() - numLanguages) + " had to be ignored.");
+					+ (langList.size() - allowedCount) + " had to be ignored.");
 		}
 
 		if (theLanguages.size() > 0)

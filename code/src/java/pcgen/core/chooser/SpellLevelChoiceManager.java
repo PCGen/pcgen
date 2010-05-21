@@ -168,4 +168,9 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 	{
 		return aBonusList;
 	}
+
+	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	{
+		throw new UnsupportedOperationException();
+	}
 }

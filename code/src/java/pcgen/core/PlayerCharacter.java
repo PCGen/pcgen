@@ -8515,13 +8515,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int languageNum(final boolean includeSpeakLanguage)
 	{
 
-		int i = (int) getStatBonusTo("LANG", "BONUS");
+		int i = Math.max(0, (int) getStatBonusTo("LANG", "BONUS"));
 		final Race pcRace = getRace();
-
-		if (i < 0)
-		{
-			i = 0;
-		}
 
 		if (includeSpeakLanguage)
 		{
@@ -8562,6 +8557,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		i += freeLangs;
 
+		return i;
+	}
+
+	/**
+	 * Calculates the number of languages that the character is qualified 
+	 * for.
+	 *  
+	 * @return The number of languages allowed
+	 */
+	public int getBonusLanguageCount()
+	{
+		int i = Math.max(0, (int) getStatBonusTo("LANG", "BONUS"));
+		if (getRace() != null)
+		{
+			i += getTotalBonusTo("LANGUAGES", "NUMBER");
+		}
 		return i;
 	}
 
@@ -9744,6 +9755,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		addLangFacet.remove(id, aLang, source);
 		setDirty(true);
+	}
+
+	public Set<Language> getSkillLanguages()
+	{
+		return skillLangFacet.getSet(id);
 	}
 
 	public void addSkillLanguage(final Language aLang, CDOMObject source)
@@ -14360,69 +14376,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sb.toString();
 	}
 
-	/**
-	 * Populate the langange lists for this PC.
-	 * 
-	 * @param availableLangs The list of languages available for selection as bonus languages
-	 * @param selectedLangs The list of already selected bonus languages
-	 * @param excludedLangs The list of lnguages that cannot be selected
-	 */
-	public void buildLangLists(final List<Language> availableLangs,
-		final List<Language> selectedLangs, final List<Language> excludedLangs)
-	{
-		Skill speakLanguage = null;
-
-		for (Skill aSkill : getSkillSet())
-		{
-			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf(
-				PropertyFactory.getString("in_language")) >= 0)
-			{
-				speakLanguage = aSkill;
-			}
-		}
-
-		for (final Language aLang : getLanguageBonusSelectionList())
-		{
-			if (aLang != null)
-			{
-				if (aLang.qualifies(this, aLang))
-				{
-					availableLangs.add(aLang);
-				}
-			}
-		}
-		//
-		// Only show selections that are not automatically
-		// granted or granted via the "Speak Language" skill
-		// Remove any language selected via "Speak Language"
-		// from the list of available selections
-		//
-		for (Language aLang : getLanguageSet())
-		{
-			boolean addLang = false;
-
-			if ((speakLanguage != null)
-				&& containsAssociated(speakLanguage, aLang.getKeyName()))
-			{
-				addLang = false;
-			}
-			else if (!autoLangFacet.contains(id, aLang))
-			{
-				addLang = true;
-			}
-
-			availableLangs.remove(aLang);
-			if (addLang)
-			{
-				selectedLangs.add(aLang);
-			}
-			else
-			{
-				excludedLangs.add(aLang);
-			}
-		}
-	}
-
 	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
 	{
 		return assocSupt.containsAssocList(o, alk);
@@ -15133,6 +15086,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (CDOMReference<Language> ref : cdo
 				.getSafeListFor(ListKey.AUTO_LANGUAGES))
+		{
+			Collection<Language> langs = ref.getContainedObjects();
+			autoLangFacet.addAll(id, langs, cdo);
+		}
+		for (CDOMReference<Language> ref : cdo
+				.getSafeListFor(ListKey.AUTO_LANGUAGE))
 		{
 			Collection<Language> langs = ref.getContainedObjects();
 			autoLangFacet.addAll(id, langs, cdo);

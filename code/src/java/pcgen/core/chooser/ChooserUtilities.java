@@ -49,6 +49,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
 
@@ -259,38 +260,13 @@ public class ChooserUtilities
 		selectedList.clear();
 		List reservedList = new ArrayList();
 
-		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
-
+		ChoiceManagerList aMan = getConfiguredController(aPObject, aPC,
+				category, reservedList);
 		if (aMan == null)
 		{
 			return false;
 		}
 
-		if (aMan instanceof ControllableChoiceManager
-			&& aPObject instanceof Ability)
-		{
-			Ability a = (Ability) aPObject;
-			AbilityCategory cat;
-			if (category == null)
-			{
-				cat =
-						SettingsHandler.getGame().getAbilityCategory(
-							a.getCategory());
-			}
-			else
-			{
-				cat = category;
-			}
-			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
-			abcm.setController(new AbilityChooseController(a, cat, aPC, abcm));
-			for (Ability ab : aPC.getAllAbilities())
-			{
-				if (ab.getKeyName().equals(a.getKeyName()))
-				{
-					reservedList.addAll(aPC.getAssociationList(ab));
-				}
-			}
-		}
 		aMan.getChoices(aPC, availableList, selectedList);
 		if (aPObject instanceof Ability)
 		{
@@ -324,6 +300,52 @@ public class ChooserUtilities
 			return true;
 		}
 		return false;
+	}
+
+	public static <T> ChoiceManagerList<T> getConfiguredController(
+			final PObject aPObject, final PlayerCharacter aPC,
+			final AbilityCategory category, List<String> reservedList)
+	{
+		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
+
+		if (aMan == null)
+		{
+			return null;
+		}
+
+		if (aMan instanceof ControllableChoiceManager
+			&& aPObject instanceof Ability)
+		{
+			Ability a = (Ability) aPObject;
+			AbilityCategory cat;
+			if (category == null)
+			{
+				cat =
+						SettingsHandler.getGame().getAbilityCategory(
+							a.getCategory());
+			}
+			else
+			{
+				cat = category;
+			}
+			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
+			abcm.setController(new AbilityChooseController(a, cat, aPC, abcm));
+			for (Ability ab : aPC.getAllAbilities())
+			{
+				if (ab.getKeyName().equals(a.getKeyName()))
+				{
+					reservedList.addAll(aPC.getAssociationList(ab));
+				}
+			}
+		}
+		else if (aMan instanceof ControllableChoiceManager
+				&& aPObject instanceof Skill)
+		{
+			Skill s = (Skill) aPObject;
+			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
+			abcm.setController(new SkillChooseController(s, aPC, abcm));
+		}
+		return aMan;
 	}
 
 	/**

@@ -51,6 +51,29 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	}
 
 	/**
+	 * Conditionally add the selected item
+	 * 
+	 * @param aPC
+	 * @param item
+	 */
+	public boolean conditionallyApply(PlayerCharacter pc, T item)
+	{
+		List<T> oldSelections = info.getChoiceActor().getCurrentlySelected(
+				owner, pc);
+		boolean applied = false;
+		if (oldSelections == null || !oldSelections.contains(item))
+		{
+			if (info.getSet(pc).contains(item))
+			{
+				info.getChoiceActor().applyChoice(owner, item, pc);
+				applied = true;
+			}
+		}
+		adjustPool(info.getChoiceActor().getCurrentlySelected(owner, pc));
+		return applied;
+	}
+
+	/**
 	 * Add the selected Feat proficiencies
 	 * 
 	 * @param aPC

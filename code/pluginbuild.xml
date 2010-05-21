@@ -2413,6 +2413,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/AutoLstToken-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/auto/LanguageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/AutoLstToken-SHIELDPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2853,13 +2860,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/FeatToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/ChooseToken-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/choose/LanguageToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6265,7 +6265,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-equipment-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins, jar-primitive-pobject-plugins, jar-primitive-race-plugins, jar-primitive-spell-plugins, jar-primitive-weaponprof-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
+	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-equipment-plugins, jar-primitive-language-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins, jar-primitive-pobject-plugins, jar-primitive-race-plugins, jar-primitive-spell-plugins, jar-primitive-weaponprof-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
 	<target name="jar-primitive-deity-plugins" depends="makeplugindirs" description="Build (Link) Deity Primitive Token plugin jar files">
@@ -6303,6 +6303,17 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/primitive/equipment/WieldCategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="jar-primitive-language-plugins" depends="makeplugindirs" description="Build (Link) Language Primitive Token plugin jar files">
+		<!-- Language Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/LanguagePrimitive-LANGBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/language/LangBonusToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6774,6 +6785,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/FeatEqToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ChooseToken-DEPRECATED-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/LanguageToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

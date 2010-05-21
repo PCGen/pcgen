@@ -1667,6 +1667,16 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			throw new TermEvaulatorException(sB.toString());
 		}
+	},
+
+	COMPLETE_PC_BONUSLANG("BONUSLANG", new String[] { "BONUSLANG" }, true)
+	{
+
+		public TermEvaluator getTermEvaluator(final String expressionString,
+				final String src, final String matchedSection)
+		{
+			return new PCBonusLangTermEvaluator(expressionString);
+		}
 	};
 
 	static String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";

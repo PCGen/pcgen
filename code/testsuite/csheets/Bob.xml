@@ -1450,7 +1450,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SCHOOLS</name>
+			<name>Chooser ~ Choose SCHOOLS (Evocation)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
 			<associated>Evocation</associated>

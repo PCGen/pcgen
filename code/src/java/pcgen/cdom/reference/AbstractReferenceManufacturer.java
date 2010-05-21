@@ -38,6 +38,7 @@ import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
@@ -874,6 +875,11 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	{
 		for (String key : active.getKeySet())
 		{
+			T value = active.get(key);
+			if (value.getSafe(ObjectKey.INTERNAL))
+			{
+				continue;
+			}
 			/*
 			 * http://wiki.pcgen.org/index.php?title=Data_LST_Standards
 			 * 

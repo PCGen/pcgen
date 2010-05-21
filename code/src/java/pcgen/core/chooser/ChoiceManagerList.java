@@ -86,4 +86,6 @@ public interface ChoiceManagerList<T> {
 			final PlayerCharacter aPC,
 			final List<T> selected);
 
+	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
+
 }

@@ -88,4 +88,9 @@ public class UserInputChoiceManager extends AbstractBasicStringChoiceManager
 	{
 		return ChooserFactory.getUserInputInstance();
 	}
+
+	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	{
+		throw new UnsupportedOperationException();
+	}
 }

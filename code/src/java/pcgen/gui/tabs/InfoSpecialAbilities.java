@@ -55,6 +55,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -66,9 +68,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.SkillLanguage;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -98,7 +101,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 	private JButton weaponButton = null;
 	private JButton langButton = null;
-	private JButton langButton2 = null;
 	private JButton spAddButton = null;
 	private JButton spRemButton = null;
 	private JTextArea languageText = new JTextArea();
@@ -108,6 +110,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 	private PlayerCharacter pc;
 	private int serial = 0;
 	private boolean readyForRefresh = false;
+
+	private JPanel lPanel;
 
 	/**
 	 * Constructor.
@@ -127,6 +131,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
+			resetLangButtons();
 			forceRefresh();
 		}
 	}
@@ -169,13 +174,13 @@ public final class InfoSpecialAbilities extends JPanel implements
 		if (pc.getTotalLevels() <= 1
 			|| Globals.checkRule(RuleConstants.INTBONUSLANG))
 		{
-			int numLanguages = pc.languageNum(false);
-			List<Language> availableLangs = new ArrayList<Language>();
-			List<Language> selectedLangs = new ArrayList<Language>();
-			List<Language> excludedLangs = new ArrayList<Language>();
-			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
+			int bonusLangCount = pc.getBonusLanguageCount();
+			Ability a = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.LANGUAGE, "*LANGBONUS");
+			int currentLangCount = pc.getDetailedAssociationCount(a);
 
-			if (selectedLangs.size() < (numLanguages))
+			if (currentLangCount < bonusLangCount)
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG))
 				{
@@ -188,7 +193,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 						.getString("in_isaTodoLangRemainFirstOnly")); //$NON-NLS-1$
 				}
 			}
-			else if (selectedLangs.size() > (numLanguages))
+			else if (currentLangCount > bonusLangCount)
 			{
 				toDoList
 					.add(PropertyFactory.getString("in_isaTodoLangTooMany")); //$NON-NLS-1$
@@ -336,7 +341,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 	private void initActionListeners()
 	{
 		langButton.addActionListener(new racialLanguageButtonListener());
-		langButton2.addActionListener(new skillLanguageButtonListener());
 		spAddButton.addActionListener(new addSpecialButtonListener());
 		spRemButton.addActionListener(new removeSpecialButtonListener());
 		weaponButton.addActionListener(new weaponSelectButtonListener());
@@ -364,16 +368,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		JPanel langPanel = new JPanel();
 		langPanel.setLayout(new BorderLayout());
 
-		JPanel lPanel = new JPanel();
-		lPanel.setLayout(new FlowLayout());
-		lPanel.add(new JLabel(PropertyFactory.getString("in_languages")));
-
-		langButton = new JButton(PropertyFactory.getString("in_other"));
-
-		langButton2 = new JButton(PropertyFactory.getString("in_skill"));
-
-		lPanel.add(langButton2);
-		lPanel.add(langButton);
+		resetLangButtons();
 		langPanel.add(lPanel, BorderLayout.NORTH);
 
 		JScrollPane languageScroll = new JScrollPane();
@@ -445,74 +440,44 @@ public final class InfoSpecialAbilities extends JPanel implements
 		add(bottomPanel, BorderLayout.CENTER);
 	}
 
+	private void resetLangButtons()
+	{
+		lPanel = new JPanel();
+		lPanel.setLayout(new FlowLayout());
+		lPanel.add(new JLabel(PropertyFactory.getString("in_languages")));
+
+		langButton = new JButton(PropertyFactory.getString("in_other"));
+
+		if (pc != null)
+		{
+			for (Skill sk : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+			{
+				if (ChooseActivation.hasChooseToken(sk))
+				{
+					JButton button = new JButton(PropertyFactory
+							.getString("in_skill")
+							+ " " + sk.getOutputName());
+					lPanel.add(button);
+					button.addActionListener(new skillLanguageButtonListener(sk));
+				}
+			}
+		}
+
+		lPanel.add(langButton);
+	}
+
 	private void racialLanguageSelectPressed()
 	{
 		if (pc != null)
 		{
 			pc.setDirty(true);
+			Ability a = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.LANGUAGE, "*LANGBONUS");
 
-			final List<Language> availableLangs = new ArrayList<Language>();
-			final List<Language> selectedLangs = new ArrayList<Language>();
-			final List<Language> excludedLangs = new ArrayList<Language>();
-
-			int numLanguages = pc.languageNum(false);
-
-			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
-			List<Language> origselected = new ArrayList<Language>(selectedLangs);
-
-			Globals.sortPObjectListByName(availableLangs);
-
-			ChooserInterface lc = ChooserFactory.getChooserInstance();
-			lc.setVisible(false);
-			lc.setAvailableList(availableLangs);
-			lc.setSelectedList(selectedLangs);
-
-			/* modified pklucas 10/2/03 for bug# 765360
-			 * should not be allowed to add languages after 1st lvl from increased intel bonus.
-			 * added check for house rule to allow adding languages after 1st level from Int bonus.
-			 * */
-			if (pc.totalNonMonsterLevels() > 1
-					|| (pc.totalNonMonsterLevels() > 0 && pc.totalHitDice() > 0))
-			{
-				if (Globals.checkRule(RuleConstants.INTBONUSLANG)) //$NON-NLS-1$
-				{
-					lc.setTotalChoicesAvail(numLanguages);
-				}
-				else
-				{
-					lc.setTotalChoicesAvail(0);
-				}
-			}
-			else
-			{
-				lc.setTotalChoicesAvail(numLanguages);
-			}
-
-			lc.setPoolFlag(false);
-			lc.setVisible(true);
-
-			if (lc.getSelectedList().size() > (numLanguages))
-			{
-				return;
-			}
-
-			// Calculate all the newly selected languages and add them
-			List<Language> newSelected = new ArrayList<Language>(selectedLangs);
-			newSelected.removeAll(origselected);
-
-			for (Language lang : newSelected)
-			{
-				pc.addStartingLanguage(lang);
-			}
-			
-			// Calculate all the newly de-selected languages, and remove them 
-			List<Language> newRemoved = new ArrayList<Language>(origselected);
-			newRemoved.removeAll(selectedLangs);
-
-			for (Language lang : newRemoved)
-			{
-				pc.removeStartingLanguage(lang);
-			}
+			ChooserUtilities.modChoices(a, new ArrayList<Language>(),
+					new ArrayList<Language>(), true, pc, true,
+					AbilityCategory.LANGUAGE);
 
 			refresh();
 			ensureFocus();
@@ -617,13 +582,12 @@ public final class InfoSpecialAbilities extends JPanel implements
 		weaponText.setCaretPosition(0);
 	}
 
-	private void skillLanguageSelectPressed()
+	private void skillLanguageSelectPressed(Skill sk)
 	{
-		if (SkillLanguage.chooseLanguageForSkill(pc))
-		{
-			refresh();
-		}
-
+		ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
+				new ArrayList<Language>(), true, pc, true, null);
+		pc.setDirty(true);
+		refresh();
 		ensureFocus();
 	}
 
@@ -737,9 +701,15 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 	private class skillLanguageButtonListener implements ActionListener
 	{
+		private final Skill skill;
+		public skillLanguageButtonListener(Skill sk)
+		{
+			skill = sk;
+		}
+
 		public void actionPerformed(ActionEvent evt)
 		{
-			skillLanguageSelectPressed();
+			skillLanguageSelectPressed(skill);
 		}
 	}
 

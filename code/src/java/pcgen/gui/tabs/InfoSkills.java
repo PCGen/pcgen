@@ -103,7 +103,6 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -115,6 +114,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.core.analysis.SkillModifier;
@@ -724,19 +724,20 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					if (theSkill != null)
 					{
 						int points;
-						if (theSkill.getSafe(StringKey.CHOICE_STRING) == null)
+						if (ChooseActivation.hasChooseToken(theSkill))
 						{
-							points = 1;
-						}
-						else
-						{
-							points =
-									pc.getSkillCostForClass(theSkill, getSelectedPCClass()).getCost();
-							final int classSkillCost = SkillCost.CLASS.getCost();
+							points = pc.getSkillCostForClass(theSkill,
+									getSelectedPCClass()).getCost();
+							final int classSkillCost = SkillCost.CLASS
+									.getCost();
 							if (classSkillCost > 1)
 							{
 								points /= classSkillCost;
 							}
+						}
+						else
+						{
+							points = 1;
 						}
 						addSkill(-points);
 					}

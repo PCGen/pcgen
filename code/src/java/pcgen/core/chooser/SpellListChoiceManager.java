@@ -380,4 +380,9 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			}
 		}
 	}
+
+	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	{
+		throw new UnsupportedOperationException();
+	}
 }

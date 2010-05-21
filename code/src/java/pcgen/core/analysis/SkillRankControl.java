@@ -19,6 +19,7 @@
  */
 package pcgen.core.analysis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -29,13 +30,14 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
+import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
@@ -275,17 +277,18 @@ public class SkillRankControl
 
 		if (!aPC.isImporting())
 		{
-			String choiceString = sk.getSafe(StringKey.CHOICE_STRING);
-			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
-					&& !CoreUtility.doublesEqual(curRank, (int) newRank))
+			if (ChooseActivation.hasChooseToken(sk))
 			{
-				if (choiceString.startsWith("Language"))
+				if (!CoreUtility.doublesEqual(g, 0)
+						&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 				{
 					if (active != null)
 					{
 						active.addWeight(g);
 					}
-					SkillLanguage.chooseLanguageForSkill(aPC, sk);
+					ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
+							new ArrayList<Language>(), true, aPC, true, null);
+					aPC.setDirty(true);
 					int selectedLanguages = aPC
 							.getSelectCorrectedAssociationCount(sk);
 					int maxLanguages = getTotalRank(aPC, sk).intValue();

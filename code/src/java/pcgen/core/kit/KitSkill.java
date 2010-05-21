@@ -38,8 +38,10 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillLanguage;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.CharacterInfo;
@@ -253,12 +255,15 @@ public final class KitSkill extends BaseKit
 		}
 
 		// Add any supplied languages
-		if (!langList.isEmpty())
+		ChoiceManagerList<Language> controller = ChooserUtilities
+				.getConfiguredController(aSkill, pc, null,
+						new ArrayList<String>());
+		for (Language lang : langList)
 		{
-			for (Language l : langList)
+			if (!controller.conditionallyApply(pc, lang))
 			{
-				pc.addSkillLanguage(l, aSkill);
-				pc.addAssociation(aSkill, l.getKeyName());
+				Logging.errorPrint("Failed to apply Language into Skill: "
+						+ lang.getLSTformat());
 			}
 		}
 
@@ -430,11 +435,25 @@ public final class KitSkill extends BaseKit
 
 		}
 		List<Language> langList = new ArrayList<Language>();
-		if (SkillLanguage.isLanguage(aSkill) && !selection.isEmpty())
+		if (ChooseActivation.hasChooseToken(aSkill) && !selection.isEmpty())
 		{
-			langList =
-					KitSkill.getLanguageList(selection, aSkill, pc,
-						(int) ranksToAdd);
+			ChoiceManagerList<Language> controller = ChooserUtilities
+					.getConfiguredController(aSkill, pc, null,
+							new ArrayList<String>());
+			int limit = (int) ranksToAdd;
+			for (CDOMSingleRef<Language> ref : selection)
+			{
+				Language lang = ref.resolvesTo();
+				if (controller.conditionallyApply(pc, lang))
+				{
+					langList.add(lang);
+					limit--;
+				}
+				if (limit <= 0)
+				{
+					break;
+				}
+			}
 		}
 		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend, langList,
 			pcClass);
@@ -483,46 +502,6 @@ public final class KitSkill extends BaseKit
 	public void addSelection(CDOMSingleRef<Language> ref)
 	{
 		selection.add(ref);
-	}
-
-	/**
-	 * Gets the list of languages from the langKeyList that are
-	 * valid to add to the character for the given skill. No more
-	 * than the specified number of languages will be returned. 
-	 * 
-	 * @param selection The list of language keys
-	 * @param skill The language skill 
-	 * @param aPC The character being processed
-	 * @param maxNumLangs The maximum number of languages to add
-	 * 
-	 * @return the language list
-	 */
-	public static List<Language> getLanguageList(
-		List<CDOMSingleRef<Language>> selection, Skill skill,
-		PlayerCharacter aPC, int maxNumLangs)
-	{
-		List<Language> selected = new ArrayList<Language>();
-		List<Language> available = new ArrayList<Language>();
-		List<Language> excludedLangs = new ArrayList<Language>();
-
-		SkillLanguage.buildLanguageListsForSkill(aPC, skill, selected,
-			available, excludedLangs);
-
-		List<Language> theLanguages = new ArrayList<Language>(maxNumLangs);
-		for (CDOMSingleRef<Language> langKey : selection)
-		{
-			Language lang = langKey.resolvesTo();
-			if (available.contains(lang))
-			{
-				theLanguages.add(lang);
-				if (theLanguages.size() >= maxNumLangs)
-				{
-					break;
-				}
-			}
-		}
-
-		return theLanguages;
 	}
 
 	public List<CDOMSingleRef<Language>> getSelections()

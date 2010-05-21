@@ -308,6 +308,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<Destination> DESTINATION = new ObjectKey<Destination>(null);
 
 	public static final ObjectKey<CDOMSingleRef<Ability>> FEATEQ_STRING = new ObjectKey<CDOMSingleRef<Ability>>(null);
+
+	public static final ObjectKey<Boolean> INTERNAL = new ObjectKey<Boolean>(Boolean.FALSE);
 	
 	/*
 	 * TODO Okay, this is a hack.
