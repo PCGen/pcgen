@@ -67,7 +67,6 @@ import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
-import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -8503,61 +8502,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int initiativeMod()
 	{
 		return initiativeFacet.getInitiative(id);
-	}
-
-	/**
-	 * Calculates the number of languages that the character is qualified 
-	 * for.
-	 *  
-	 * @param includeSpeakLanguage Should languages granted by the speak language skill be include
-	 * @return The number of languages allowed
-	 */
-	public int languageNum(final boolean includeSpeakLanguage)
-	{
-
-		int i = Math.max(0, (int) getStatBonusTo("LANG", "BONUS"));
-		final Race pcRace = getRace();
-
-		if (includeSpeakLanguage)
-		{
-			for (Skill skill : getSkillSet())
-			{
-				if (skill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0)
-				{
-					i += SkillRankControl.getTotalRank(this, skill).intValue();
-				}
-			}
-		}
-
-		if (pcRace != null)
-		{
-			i += ((int) getTotalBonusTo("LANGUAGES", "NUMBER"));
-		}
-
-		//
-		// Check all for ADD:LANGUAGE
-		//
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			List<PersistentTransitionChoice<?>> adds =
-					cdo.getListFor(ListKey.ADD);
-			if (adds != null)
-			{
-				for (PersistentTransitionChoice<?> ptc : adds)
-				{
-					SelectableSet<?> ch = ptc.getChoices();
-					if (LANGUAGE_CLASS.equals(ch.getChoiceClass()))
-					{
-						i += ptc.getCount().resolve(this, null).intValue();
-						//i += this.getAssocCount(ptc, AssociationListKey.ADD);
-					}
-				}
-			}
-		}
-
-		i += freeLangs;
-
-		return i;
 	}
 
 	/**
