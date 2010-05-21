@@ -207,8 +207,6 @@ import pcgen.util.enumeration.Visibility;
 public final class PlayerCharacter extends Observable implements Cloneable,
 		VariableContainer, AssociationStore
 {
-	private static final Class<Language> LANGUAGE_CLASS = Language.class;
-
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 
