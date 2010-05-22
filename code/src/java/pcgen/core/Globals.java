@@ -123,7 +123,6 @@ public final class Globals
 	private static String     country         = "US"; //$NON-NLS-1$
 
 	/** The BioSet used for age calculations */
-	private static BioSet     bioSet          = new BioSet();
 	private static final List<String> custColumnWidth = new ArrayList<String>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
