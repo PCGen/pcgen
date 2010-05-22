@@ -3,6 +3,6 @@
 
 Foo Ball													TYPE:TestDomainExtra	DESC:This is the Foo Ball Domain	SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball
 Bar Ball		CHOOSE:WEAPONPROF|1|DEITYWEAPON[WEAPONPROF][FEAT=Weapon Focus]	TYPE:TestDomain		DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify
-
+Dungeon Crawl												TYPE:TestDomainExtra	DESC:This is the Dungeon Crawl Domain				
 
 
