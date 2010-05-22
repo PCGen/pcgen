@@ -46,7 +46,7 @@ BIO
 			<name>Puni Deity</name>
 			<alignment>LN</alignment>
 			<description></description>
-			<domainlist>Bar Ball</domainlist>
+			<domainlist>Bar Ball, Dungeon Crawl, Foo Ball</domainlist>
 			<favoredweapon>Fine Wine Blade</favoredweapon>
 			<followeralignment></followeralignment>
 			<holyitem>Wine with Sword</holyitem>
@@ -96,8 +96,9 @@ BIO
 		<interests></interests>
 		<languages>
 			<language>Common</language>
+			<language>Evilhaasness</language>
 			<language>Terestial Alpha</language>
-			<all>Common, Terestial Alpha</all>
+			<all>Common, Evilhaasness, Terestial Alpha</all>
 		</languages>
 		<location></location>
 		<move>
@@ -1113,28 +1114,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bob&#39;s Ability triggered by PreClass Fighter</name>
-			<description>Using Chooser with Fighter Class chosen</description>
-			<type>SPECIALQUALITY.TESTINGTYPE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by PreDeity</name>
-			<description>Using Chooser with Deity selected</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Bob&#39;s Ability triggered by Preskill is working</name>
 			<description>Using new Chooser with SKILL</description>
 			<type>SPECIALQUALITY</type>
@@ -1235,6 +1214,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Bob Test ~ Chooser ~ Deity</name>
+			<description></description>
+			<type>BOBTEST.TEST.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Test ~ Chooser ~ Domain</name>
 			<description></description>
 			<type>BOBTEST.TEST.SPECIALQUALITY</type>
 			<associated></associated>
@@ -1421,22 +1411,22 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose CLASS (Fighter, MonKee Junior)</name>
+			<name>Chooser ~ Choose CLASS (MonKee Junior)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Fighter,MonKee Junior</associated>
-			<count>2</count>
+			<associated>MonKee Junior</associated>
+			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose DEITY (Test Monkey, Puni Deity)</name>
+			<name>Chooser ~ Choose DEITY (Puni Deity)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Test Monkey,Puni Deity</associated>
-			<count>2</count>
+			<associated>Puni Deity</associated>
+			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1542,10 +1532,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SKILL (Athletics, Acrobatics)</name>
+			<name>Chooser ~ Choose SKILL (Acrobatics, Athletics)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Athletics,Acrobatics</associated>
+			<associated>Acrobatics,Athletics</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1618,28 +1608,6 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-		<ability_object>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -1656,7 +1624,7 @@ BIO
 	</domains>
 	<!-- Domains -->
 	<weapon_proficiencies>Extra Blade, Fine Wine Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
-	<languages>Common, Terestial Alpha</languages>
+	<languages>Common, Evilhaasness, Terestial Alpha</languages>
 
 	<templates>
 		<list>Template A, Template ~ 1 Bob Tests ~ ALL, Template Type TEST</list>
