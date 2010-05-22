@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusAddition;
@@ -172,5 +173,11 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			String choice)
+	{
+		pc.addAssociation(owner, choice);
 	}
 }

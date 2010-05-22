@@ -3,6 +3,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -61,5 +62,11 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			String choice)
+	{
+		pc.addAssociation(owner, choice);
 	}
 }

@@ -292,4 +292,10 @@ public class AbilityChooseInformation implements
 	{
 		return category;
 	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			AbilitySelection choice)
+	{
+		choiceActor.restoreChoice(pc, owner, choice);
+	}
 }

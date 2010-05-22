@@ -210,7 +210,6 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 				applyChoice(owner, st, pc, ca);
 			}
 		}
-		pc.addAssociation(owner, encodeChoice(st));
 	}
 
 	private void applyChoice(CDOMObject owner, T st, PlayerCharacter pc,
@@ -236,6 +235,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	public List<T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)

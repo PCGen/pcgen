@@ -62,9 +62,14 @@ public class KitLangBonus extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+		ChoiceManagerList<Language> controller = ChooserUtilities
+				.getConfiguredController(a, aPC, AbilityCategory.LANGUAGE,
+						new ArrayList<String>());
 		for (Language l : theLanguages)
 		{
-			aPC.addStartingLanguage(l);
+			controller.conditionallyApply(aPC, l);
 		}
 	}
 

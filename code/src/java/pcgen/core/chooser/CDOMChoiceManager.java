@@ -211,4 +211,9 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	{
 		return preChooserChoices;
 	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	{
+		info.restoreChoice(pc, owner, info.decodeChoice(choice));
+	}
 }

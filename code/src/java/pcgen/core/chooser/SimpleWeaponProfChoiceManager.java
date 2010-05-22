@@ -28,6 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -497,5 +498,11 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			String choice)
+	{
+		pc.addAssociation(owner, choice);
 	}
 }

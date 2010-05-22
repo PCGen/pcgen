@@ -102,6 +102,8 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -2482,7 +2484,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add("Unable to Find Ability: " + abilityKey);
 				return;
 			}
-			else
+			else if (abilityKey.charAt(0) != '*')
 			{
 				ability = ability.clone();
 			}
@@ -2538,10 +2540,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					.getSafe(ObjectKey.STACKS))
 					|| !thePC.containsAssociated(ability, appliedToKey))
 				{
+					ChoiceManagerList<Object> controller = ChooserUtilities
+							.getConfiguredController(ability, thePC, category,
+									new ArrayList<String>());
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
 					for (String string : assoc)
 					{
-						thePC.addAssociation(ability, string);
+						controller.restoreChoice(thePC, ability, string);
 					}
 				}
 			}
@@ -5915,26 +5920,35 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void resolveLanguages()
 	{
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+		boolean foundLang = thePC.getDetailedAssociationCount(a) > 0;
+
 		Set<Language> foundLanguages = new HashSet<Language>();
 		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
 		foundLanguages.addAll(thePC.getLanguageSet());
 		foundLanguages.addAll(thePC.getSkillLanguages());
+		cachedLanguages.removeAll(foundLanguages);
 
 		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
-		for (Language l : cachedLanguages)
+		List<Language> foundlist = new ArrayList<Language>();
+		if (!foundLang)
 		{
-			if (!foundLanguages.contains(l))
+			for (Language l : cachedLanguages)
 			{
-				//Haven't seen it, check for starting language
+				// Haven't seen it, check for starting language
 				if (bonusList.contains(l))
 				{
-					//Assume this is right (!)
-					thePC.addStartingLanguage(l);
-					foundLanguages.add(l);
+					ChoiceManagerList<Object> controller = ChooserUtilities
+							.getConfiguredController(a, thePC,
+									AbilityCategory.LANGUAGE,
+									new ArrayList<String>());
+					controller.restoreChoice(thePC, a, l.getKeyName());
 				}
+				foundlist.add(l);
 			}
 		}
-		cachedLanguages.removeAll(foundLanguages);
+		cachedLanguages.removeAll(foundlist);
 		for (Language l : cachedLanguages)
 		{
 			warnings.add("Unable to find source: "

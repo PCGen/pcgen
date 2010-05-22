@@ -26,7 +26,11 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
 
 public class PCBonusLangTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -39,7 +43,20 @@ public class PCBonusLangTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getBonusLanguageCount();
+		if (pc.totalNonMonsterLevels() > 1
+				|| (pc.totalNonMonsterLevels() > 0 && pc.totalHitDice() > 0))
+		{
+			if (!Globals.checkRule(RuleConstants.INTBONUSLANG))
+			{
+				return 0.0f;
+			}
+		}
+		int count = pc.getBonusLanguageCount();
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+		int currentLangCount = pc.getDetailedAssociationCount(a);
+		int result = count - currentLangCount;
+		return (float) result;
 	}
 
 	public boolean isSourceDependant()

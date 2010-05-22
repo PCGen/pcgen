@@ -602,7 +602,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		context.buildTypeLists();
 	}
 
-	private void createLangBonusObject(LoadContext context)
+	public static void createLangBonusObject(LoadContext context)
 	{
 		Ability a = context.ref
 				.constructCDOMObject(Ability.class, "*LANGBONUS");
@@ -612,30 +612,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		context.unconditionallyProcess(a, "VISIBLE", "NO");
 		context.unconditionallyProcess(a, "AUTO", "LANGUAGE|%LIST");
 		context.unconditionallyProcess(a, "MULT", "YES");
-		// TODO Bug 0 of true ignores
-		// Globals.checkRule(RuleConstants.INTBONUSLANG)
-		// "IF(((TL-HD)>1)||(((TL-HD)>0)&&(HD>0)),0,BONUSLANG)");
-		/*
-			//modified pklucas 10/2/03 for bug# 765360
-			//should not be allowed to add languages after 1st lvl from increased intel bonus.
-			//added check for house rule to allow adding languages after 1st level from Int bonus.
-			if (pc.totalNonMonsterLevels() > 1
-					|| (pc.totalNonMonsterLevels() > 0 && pc.totalHitDice() > 0))
-			{
-				if (Globals.checkRule(RuleConstants.INTBONUSLANG)) //$NON-NLS-1$
-				{
-					lc.setTotalChoicesAvail(numLanguages);
-				}
-				else
-				{
-					lc.setTotalChoicesAvail(0);
-				}
-			}
-			else
-			{
-				lc.setTotalChoicesAvail(numLanguages);
-			}
-		 */
+		Globals.addAbility(a);
 	}
 
 	private void addDefaultEquipmentMods(LoadContext context)

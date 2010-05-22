@@ -237,6 +237,7 @@ public class SchoolsToken extends AbstractToken implements
 			String choice)
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_SCHOOL, choice);
+		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
@@ -256,7 +257,6 @@ public class SchoolsToken extends AbstractToken implements
 				applyChoice(owner, choice, pc, ca);
 			}
 		}
-		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,

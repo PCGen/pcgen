@@ -28,6 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import pcgen.base.util.FixedStringList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -384,5 +385,11 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			String choice)
+	{
+		pc.addAssociation(owner, choice);
 	}
 }

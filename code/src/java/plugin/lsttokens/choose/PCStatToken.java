@@ -186,7 +186,6 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject>
 				ca.applyChoice(owner, st, pc);
 			}
 		}
-		pc.addAssociation(owner, encodeChoice(st));
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCStat choice)
@@ -208,6 +207,7 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject>
 		PCStat choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	public List<PCStat> getCurrentlySelected(CDOMObject owner,

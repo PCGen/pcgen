@@ -415,6 +415,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter()
 	{
+		this(true);
+	}
+
+	public PlayerCharacter(boolean load)
+	{
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
 		additionFacet.associatePlayerCharacter(id, this);
@@ -447,6 +452,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
+		if (load)
+		{
+			insertBonusLanguageAbility();
+		}
+	}
+
+	public void insertBonusLanguageAbility()
+	{
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+		setAssoc(a, AssociationKey.NEEDS_SAVING, true);
+		grantedAbilityFacet.add(id, AbilityCategory.LANGUAGE, Nature.VIRTUAL, a, a);
 	}
 
 	/**
@@ -9688,18 +9705,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeSkillLanguage(final Language aLang, CDOMObject source)
 	{
 		skillLangFacet.remove(id, aLang, source);
-		setDirty(true);
-	}
-
-	public void addStartingLanguage(final Language aLang)
-	{
-		startingLangFacet.add(id, aLang, getRace());
-		setDirty(true);
-	}
-
-	public void removeStartingLanguage(final Language aLang)
-	{
-		startingLangFacet.remove(id, aLang, getRace());
 		setDirty(true);
 	}
 

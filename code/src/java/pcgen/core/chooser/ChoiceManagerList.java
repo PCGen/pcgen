@@ -25,6 +25,7 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -87,5 +88,7 @@ public interface ChoiceManagerList<T> {
 			final List<T> selected);
 
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
+
+	public abstract void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice);
 
 }

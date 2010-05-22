@@ -2681,6 +2681,10 @@ public final class GameMode implements Comparable<Object>
 				return cat;
 			}
 		}
+		if (AbilityCategory.LANGUAGE.getKeyName().equals(aKey))
+		{
+			return AbilityCategory.LANGUAGE;
+		}
 		return null;
 	}
 

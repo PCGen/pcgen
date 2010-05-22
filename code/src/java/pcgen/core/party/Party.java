@@ -255,9 +255,10 @@ public class Party
 	 */
 	private static PlayerCharacter loadPCFromFile(final File file)
 	{
-		final PlayerCharacter newPC = new PlayerCharacter();
+		final PlayerCharacter newPC = new PlayerCharacter(false);
 		final PCGIOHandler ioHandler = new PCGIOHandler();
 		ioHandler.read(newPC, file.getAbsolutePath());
+		newPC.insertBonusLanguageAbility();
 
 		if (Globals.getUseGUI())
 		{

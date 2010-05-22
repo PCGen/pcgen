@@ -1279,8 +1279,11 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendAbilityLines(StringBuffer buffer)
 	{
-		for (final AbilityCategory cat : SettingsHandler.getGame()
-			.getAllAbilityCategories())
+		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
+				SettingsHandler.getGame().getAllAbilityCategories());
+		categories.add(AbilityCategory.LANGUAGE);
+		
+		for (final AbilityCategory cat : categories)
 		{
 			final List<Ability> abilitiesToSave =
 					new ArrayList<Ability>(thePC.getRealAbilitiesList(cat));

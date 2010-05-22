@@ -265,4 +265,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	{
 		return pcs.getGroupingState();
 	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
+	{
+		choiceActor.restoreChoice(pc, owner, choice);
+	}
 }

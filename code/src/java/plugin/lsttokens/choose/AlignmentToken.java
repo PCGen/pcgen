@@ -207,7 +207,6 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
 				ca.applyChoice(owner, st, pc);
 			}
 		}
-		pc.addAssociation(owner, encodeChoice(st));
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
@@ -230,6 +229,7 @@ public class AlignmentToken extends AbstractTokenWithSeparator<CDOMObject>
 			PCAlignment choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	public List<PCAlignment> getCurrentlySelected(CDOMObject owner,

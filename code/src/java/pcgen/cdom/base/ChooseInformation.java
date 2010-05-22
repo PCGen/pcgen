@@ -49,4 +49,6 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 	Class<? super T> getChoiceClass();
 
 	Collection<? extends T> getSet(PlayerCharacter pc);
+	
+	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
 }

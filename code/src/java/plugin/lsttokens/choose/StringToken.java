@@ -162,6 +162,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 		String choice)
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
@@ -181,7 +182,6 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 				applyChoice(owner, choice, pc, ca);
 			}
 		}
-		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,

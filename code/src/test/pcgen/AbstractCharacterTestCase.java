@@ -20,6 +20,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.ReferenceContext;
 
 /**
@@ -148,6 +149,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		{
 			ref.registerAbbreviation(al, al.getAbb());
 		}
+		LstSystemLoader.createLangBonusObject(Globals.getContext());
 		
 		character = new PlayerCharacter();
 	}
