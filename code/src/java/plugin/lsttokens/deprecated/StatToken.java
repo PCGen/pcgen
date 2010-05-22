@@ -48,6 +48,8 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
+		Logging.deprecationPrint("CHOOSE:STAT has been deprecated,"
+				+ "please use CHOOSE:PCSTAT");
 		if (value == null)
 		{
 			// No args - use all stats - legal
@@ -100,8 +102,6 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
 			}
 			all.append(pcs.getAbb());
 		}
-		Logging.deprecationPrint("CHOOSE:STAT has been deprecated,"
-				+ "please use CHOOSE:PCSTAT");
 		return context.processSubToken(obj, "CHOOSE", "PCSTAT", all.toString());
 	}
 

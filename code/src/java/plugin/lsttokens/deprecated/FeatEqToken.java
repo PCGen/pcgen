@@ -78,6 +78,10 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 		}
+		Logging.deprecationPrint("CHOOSE:FEAT= has been deprecated, "
+				+ "please use a CHOOSE of the "
+				+ "appropriate type with the FEAT= primitive, "
+				+ "e.g. CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus");
 		ParseResult pr = ParseResult.SUCCESS;
 		if (value.indexOf('|') != -1)
 		{

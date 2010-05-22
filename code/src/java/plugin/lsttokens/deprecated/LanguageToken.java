@@ -23,6 +23,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>
@@ -41,6 +42,9 @@ public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
+		Logging.deprecationPrint("CHOOSE:LANGUAGE has been deprecated,"
+				+ "please use CHOOSE:LANG.  "
+				+ "You may also need AUTO:LANGUAGE if used in a skill");
 		ParseResult pr = context.processSubToken(obj, getParentToken(), "LANG",
 				"TYPE=" + value);
 		if (!pr.passed())

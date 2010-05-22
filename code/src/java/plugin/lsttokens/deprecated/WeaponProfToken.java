@@ -27,6 +27,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>
@@ -50,6 +51,8 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
 		}
+		Logging.deprecationPrint("CHOOSE:WEAPONPROF is deprecated,"
+				+ "please use CHOOSE:WEAPONPROFICIENCY");
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
@@ -68,6 +71,8 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if ("WEAPONPROF".equals(bracketString))
 			{
+				Logging.deprecationPrint("  You need AUTO:WEAPONPROF|%LIST "
+						+ "as [WEAPONPROF] is used");
 				try
 				{
 					if (!context.processToken(obj, "AUTO", "WEAPONPROF|%LIST"))
@@ -86,10 +91,13 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 			else if (bracketString.startsWith("FEAT="))
 			{
 				// This is okay.
+				String feat = bracketString.substring(5);
+				Logging.deprecationPrint("  You need AUTO:FEAT|" + feat
+						+ "(%LIST) " + "as [FEAT=" + feat + "] is used");
 				try
 				{
 					if (!context.processToken(obj, "AUTO", "FEAT|"
-							+ bracketString.substring(5) + "(%LIST)"))
+							+ feat + "(%LIST)"))
 					{
 						return new ParseResult.Fail(
 								"Internal error on conversion");
