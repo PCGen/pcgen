@@ -117,6 +117,10 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
 		if (ref != null)
 		{
 			Ability ab = ref.resolvesTo();
+			if (ab.get(ObjectKey.FEATEQ_STRING) != null)
+			{
+				process(context, ab);
+			}
 			ChooseInformation<?> info = ab.get(ObjectKey.CHOOSE_INFO);
 			if (info == null)
 			{
@@ -132,6 +136,7 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
 			 */
 			context.unconditionallyProcess(obj, "CHOOSE", info.getName()
 					+ "|FEAT=" + ref.getLSTformat());
+			obj.remove(ObjectKey.FEATEQ_STRING);
 		}
 		return true;
 	}
