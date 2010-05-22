@@ -32,7 +32,6 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.DomainSpellList;
@@ -128,10 +127,7 @@ public class DomainApplication
 		}
 
 		// sage_sam stop here
-		String choiceString = d.getSafe(StringKey.CHOICE_STRING);
-
-		if (ChooseActivation.hasChooseToken(d) && !pc.isImporting()
-				&& !choiceString.startsWith("FEAT|"))
+		if (ChooseActivation.hasChooseToken(d) && !pc.isImporting())
 		{
 			ChooserUtilities.modChoices(d, new ArrayList<Object>(),
 					new ArrayList<Object>(), true, pc, true, null);

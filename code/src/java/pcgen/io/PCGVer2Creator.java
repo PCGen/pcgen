@@ -1281,7 +1281,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
 				SettingsHandler.getGame().getAllAbilityCategories());
-		categories.add(AbilityCategory.LANGUAGE);
+		categories.add(AbilityCategory.LANGBONUS);
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -2356,8 +2356,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			return;
 		}
-		final List<String> profs = thePC.getAssocList(source,
-				AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+		final List<WeaponProf> profs = thePC.getBonusWeaponProfs(source);
 		if (profs == null || profs.isEmpty())
 		{
 			return;
@@ -2381,7 +2380,7 @@ final class PCGVer2Creator implements IOConstants
 			{
 				buffer.append(del);
 				buffer.append(TAG_WEAPON).append(':');
-				buffer.append(EntityEncoder.encode(profs.get(i)));
+				buffer.append(EntityEncoder.encode(profs.get(i).getLSTformat()));
 				del = "|"; //$NON-NLS-1$
 			}
 

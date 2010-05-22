@@ -39,11 +39,14 @@ import java.util.StringTokenizer;
 
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -102,6 +105,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -2250,8 +2254,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 											+ domainKey);
 							continue;
 						}
-						thePC.addAssociation(aDomain,
-							EntityEncoder.decode(element.getText()));
+						String fullassoc = EntityEncoder.decode(element.getText());
+						ChoiceManagerList<Object> controller = ChooserUtilities
+								.getConfiguredController(aDomain, thePC,
+										null, new ArrayList<String>());
+						String[] assoc = fullassoc.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							if (string.startsWith("FEAT?"))
+							{
+								int openloc = string.indexOf('(');
+								int closeloc = string.lastIndexOf(')');
+								string = string.substring(openloc + 1, closeloc);
+							}
+							controller.restoreChoice(thePC, aDomain, string);
+						}
 					}
 				}
 				if (source == null)
@@ -4776,9 +4793,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (PCGElement child : element.getChildren())
 			{
-				thePC.addAssoc(source,
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS,
-						getWeaponProf(child.getText()).getKeyName());
+				Collection<CDOMReference<WeaponProf>> wpBonus = source
+						.getListMods(WeaponProf.STARTING_LIST);
+				if (wpBonus != null)
+				{
+					ChooseInformation<WeaponProf> tc = new BasicChooseInformation<WeaponProf>(
+							"WEAPONBONUS", new ReferenceChoiceSet<WeaponProf>(
+									wpBonus));
+					tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
+					CDOMChoiceManager<WeaponProf> mgr = new CDOMChoiceManager<WeaponProf>(
+							source, tc, 1, 1);
+					mgr.conditionallyApply(thePC, getWeaponProf(child.getText()));
+				}
 			}
 		}
 	}
@@ -5921,7 +5947,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void resolveLanguages()
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 		boolean foundLang = thePC.getDetailedAssociationCount(a) > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();
@@ -5941,7 +5967,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					ChoiceManagerList<Object> controller = ChooserUtilities
 							.getConfiguredController(a, thePC,
-									AbilityCategory.LANGUAGE,
+									AbilityCategory.LANGBONUS,
 									new ArrayList<String>());
 					controller.restoreChoice(thePC, a, l.getKeyName());
 				}

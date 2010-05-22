@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
@@ -125,34 +126,6 @@ public class AbilityUtilities
 			return true;
 		}
 		return !pc.hasUserVirtualAbility(cat, anAbility);
-	}
-
-	public static Ability addCloneOfGlobalAbilityToListWithChoices(
-			PlayerCharacter pc,
-			final List<Ability>   anAbilityList,
-			final AbilityCategory aCategory, final String aKey)
-	{
-		final Collection<String> choices = new ArrayList<String>();
-		getUndecoratedName(aKey, choices);
-
-		Ability anAbility = getAbilityFromList(pc, anAbilityList, aCategory.getAbilityCategory(), aKey, Nature.ANY);
-
-		if (anAbility == null)
-		{
-			anAbility = cloneGlobalAbility(pc, aCategory.getAbilityCategory(), aKey);
-
-			if (anAbility != null)
-			{
-				anAbilityList.add(anAbility);
-			}
-		}
-
-		if (anAbility != null)
-		{
-			addChoicesToAbility(pc, anAbility, choices);
-		}
-
-		return anAbility;
 	}
 
 	/**
@@ -261,47 +234,6 @@ public class AbilityUtilities
 		}
 
 		return (nameCheck && first.getCategory().compareToIgnoreCase(second.getCategory()) == 0);
-	}
-
-	/**
-	 * If an ability in Global storage matches the category and name passed
-	 * in, then return a clone of that Ability.
-	 * @param pc TODO
-	 * @param category
-	 * @param anAbilityKey
-	 *
-	 * @return a clone of a global ability
-	 */
-	private static Ability cloneGlobalAbility(
-			PlayerCharacter pc,
-			final String category, final String anAbilityKey)
-	{
-		final Collection<String> choices  = new ArrayList<String>();
-		final String    baseKey = getUndecoratedName(anAbilityKey, choices);
-
-		Ability anAbility = Globals.getAbilityKeyed(category, anAbilityKey);
-
-		if ((anAbility == null) && (baseKey.length() != 0))
-		{
-			anAbility = Globals.getAbilityKeyed(category, baseKey);
-		}
-
-		if (anAbility == null)
-		{
-			Logging.errorPrint("Attempted to add unknown Ability (" + category + "): " + anAbilityKey);
-		}
-		else
-		{
-			anAbility = anAbility.clone();
-
-			if (choices.size() > 0)
-			{
-				addChoicesToAbility(pc, anAbility, choices);
-			}
-
-		}
-
-		return anAbility;
 	}
 
 	/**
@@ -1160,67 +1092,34 @@ public class AbilityUtilities
 		return 	a.getSafe(ObjectKey.STACKS) || (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(a, newAssociation));
 	}
 
-	public static void applyFeat(final PlayerCharacter aPC,
-			final PCLevelInfo pcLevelInfo, String chosenItem)
+	public static Collection<String> getLegalAssociations(PlayerCharacter pc,
+			CDOMObject parent, Ability target, final String newAssociation)
 	{
-		final String featKey        = chosenItem;
-		final List<String>   aBonusList        = new ArrayList<String>();
-		Ability      anAbility         = Globals.getAbilityKeyed("FEAT", featKey);
-		boolean      spellLevelProcess = false;
-	
-		if (
-			(anAbility != null) &&
-			anAbility.getSafe(StringKey.CHOICE_STRING).startsWith("SPELLLEVEL"))
+		List<String> list = new ArrayList<String>();
+		if ("%LIST".equals(newAssociation))
 		{
-			spellLevelProcess = true;
-	
-			final StringTokenizer sTok = new StringTokenizer(
-					anAbility.getSafe(StringKey.CHOICE_STRING),
-					"[]",
-					false);
-			sTok.nextToken();
-	
-			while (sTok.hasMoreTokens())
-			{
-				aBonusList.add(sTok.nextToken());
-			}
-		}
-	
-		if (anAbility != null)
-		{
-			//
-			// Add the cost of the feat to the pool
-			//
-			aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+			list.addAll(pc.getAssociationList(parent));
 		}
 		else
 		{
-			aPC.adjustFeats(1);
-			Logging.debugPrint("There is no feat '" + featKey + "'. Adjusting feat count by 1");
+			list.add(newAssociation);
 		}
-	
-		modFeat(aPC, pcLevelInfo, featKey, true, false);
-	
-		if (spellLevelProcess && (anAbility != null))
+		if (target.getSafe(ObjectKey.STACKS))
 		{
-			if (chosenItem.indexOf('(') > 0)
+			return list;
+		}
+		List<String> returnList = new ArrayList<String>();
+		if (target.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			for (String assoc : list)
 			{
-				final StringTokenizer cTok = new StringTokenizer(
-						chosenItem,
-						"()",
-						false);
-				anAbility  = aPC.getFeatNamed(cTok.nextToken());
-				chosenItem = cTok.nextToken();
-			}
-	
-			if ( anAbility != null )
-			{
-				for ( String bonus : aBonusList )
+				if (!pc.containsAssociated(target, newAssociation))
 				{
-					BonusAddition.applyBonus(bonus, chosenItem, aPC, anAbility, false);
+					returnList.add(assoc);
 				}
 			}
 		}
+		return returnList;
 	}
 
 	public static void applyAbility(PlayerCharacter aPC,

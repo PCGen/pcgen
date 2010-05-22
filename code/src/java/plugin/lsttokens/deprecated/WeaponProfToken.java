@@ -15,23 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
-
-import java.util.StringTokenizer;
+package plugin.lsttokens.deprecated;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -45,7 +43,7 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements 
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
 		if (value == null)
 		{
@@ -57,7 +55,6 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements 
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain , : " + value);
 		}
-		String suffix = "";
 		int bracketLoc;
 		while ((bracketLoc = value.lastIndexOf('[')) != -1)
 		{
@@ -71,13 +68,39 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements 
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if ("WEAPONPROF".equals(bracketString))
 			{
-				// This is okay.
-				suffix = "[WEAPONPROF]" + suffix;
+				try
+				{
+					if (!context.processToken(obj, "AUTO", "WEAPONPROF|%LIST"))
+					{
+						return new ParseResult.Fail(
+								"Internal error on conversion");
+					}
+				}
+				catch (PersistenceLayerException e)
+				{
+					return new ParseResult.Fail(
+							"Internal error on conversion: "
+									+ e.getLocalizedMessage());
+				}
 			}
 			else if (bracketString.startsWith("FEAT="))
 			{
 				// This is okay.
-				suffix = "[" + bracketString + "]" + suffix;
+				try
+				{
+					if (!context.processToken(obj, "AUTO", "FEAT|"
+							+ bracketString.substring(5) + "(%LIST)"))
+					{
+						return new ParseResult.Fail(
+								"Internal error on conversion");
+					}
+				}
+				catch (PersistenceLayerException e)
+				{
+					return new ParseResult.Fail(
+							"Internal error on conversion: "
+									+ e.getLocalizedMessage());
+				}
 			}
 			else
 			{
@@ -106,8 +129,7 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements 
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " must have two or more | delimited arguments : "
-							+ value);
+					+ " must have two or more | delimited arguments : " + value);
 		}
 		String start = value.substring(0, pipeLoc);
 		int firstarg;
@@ -121,28 +143,26 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements 
 					+ " first argument must be an Integer : " + value);
 		}
 		String profs = value.substring(pipeLoc + 1);
-		StringTokenizer st = new StringTokenizer(profs, Constants.PIPE);
-		while (st.hasMoreTokens())
+		try
 		{
-			String tokString = st.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
+			Formula f = FormulaFactory.getFormulaFor(firstarg);
+			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+			context.obj.put(obj, FormulaKey.SELECT, f);
+			boolean result = context.processToken(obj, getParentToken(),
+					"WEAPONPROFICIENCY|" + profs);
+			if (result)
 			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
-				cpr.addErrorMessage("  entire token was: " + value);
-				return cpr;
+				return ParseResult.SUCCESS;
 			}
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(firstarg).append('|')
-				.append(profs).append(suffix);
-		Formula f = FormulaFactory.getFormulaFor(firstarg);
-		context.obj.put(obj, FormulaKey.EMBEDDED_NUMCHOICES, f);
-		context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(
+					"Error on conversion from CHOOSE:WEAPONPROF: "
+							+ e.getLocalizedMessage());
+		}
+		return new ParseResult.Fail(
+				"Error on conversion from CHOOSE:WEAPONPROF");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

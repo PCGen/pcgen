@@ -50,11 +50,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.BasicChooseInformation;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -63,7 +67,6 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleConstants;
@@ -72,6 +75,7 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -177,7 +181,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			int bonusLangCount = pc.getBonusLanguageCount();
 			Ability a = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.LANGUAGE, "*LANGBONUS");
+							AbilityCategory.LANGBONUS, "*LANGBONUS");
 			int currentLangCount = pc.getDetailedAssociationCount(a);
 
 			if (currentLangCount < bonusLangCount)
@@ -296,8 +300,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			for (Domain d : pc.getDomainSet())
 			{
-				if (d.getSafe(StringKey.CHOICE_STRING)
-						.startsWith("WEAPONPROF|"))
+				if (WeaponProf.class.equals(d.get(ObjectKey.CHOOSE_INFO)
+						.getChoiceClass()))
 				{
 					bonusCategory.add(d);
 				}
@@ -473,11 +477,11 @@ public final class InfoSpecialAbilities extends JPanel implements
 			pc.setDirty(true);
 			Ability a = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.LANGUAGE, "*LANGBONUS");
+							AbilityCategory.LANGBONUS, "*LANGBONUS");
 
 			ChooserUtilities.modChoices(a, new ArrayList<Language>(),
 					new ArrayList<Language>(), true, pc, true,
-					AbilityCategory.LANGUAGE);
+					AbilityCategory.LANGBONUS);
 
 			refresh();
 			ensureFocus();
@@ -663,13 +667,22 @@ public final class InfoSpecialAbilities extends JPanel implements
 							|| profBonusObject instanceof Race
 							|| profBonusObject instanceof PCTemplate)
 					{
-						PObject po = (PObject) profBonusObject;
-						Collection<CDOMReference<WeaponProf>> wplist = po
+						CDOMObject cdo = (CDOMObject) profBonusObject;
+						Collection<CDOMReference<WeaponProf>> wplist = cdo
 								.getListMods(WeaponProf.STARTING_LIST);
-						ChooserUtilities.getChoices(po, "WEAPONPROF|1|"
-						+ ReferenceUtilities.joinLstFormat(wplist,
-								"[WEAPONPROF]|")
-						+ PropertyFactory.getString("in_proficiency"), pc);
+						ChooseInformation<WeaponProf> tc = new BasicChooseInformation<WeaponProf>(
+								"WEAPONBONUS", new ReferenceChoiceSet<WeaponProf>(wplist));
+						tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
+						CDOMChoiceManager<WeaponProf> mgr = new CDOMChoiceManager<WeaponProf>(
+								cdo, tc, 1, 1);
+
+						List<WeaponProf> availableList = new ArrayList<WeaponProf>();
+						List<WeaponProf> selectedList = new ArrayList<WeaponProf>();
+						mgr.getChoices(pc, availableList, selectedList);
+						List<WeaponProf> newSelections = mgr.doChooser(pc,
+								availableList, selectedList,
+								new ArrayList<String>());
+						mgr.applyChoices(pc, newSelections);
 					}
 				}
 

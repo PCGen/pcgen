@@ -20,19 +20,25 @@
  */
 package pcgen.core;
 
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.list.WeaponProfList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 
 /**
  * <code>WeaponProf</code>.
- *
+ * 
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
 public final class WeaponProf extends PObject implements Comparable<Object>
 {
 	public static final CDOMReference<WeaponProfList> STARTING_LIST;
+
+	public static final PersistentChoiceActor<WeaponProf> STARTING_ACTOR = new StartingListActor();
 
 	static
 	{
@@ -43,9 +49,10 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 
 	/**
 	 * Compares keyName only.
+	 * 
 	 * @param o1
-	 * @return  a negative integer, zero, or a positive integer as WeaponProf
-	 *        is less than, equal to, or greater than the specified WeaponProf.
+	 * @return a negative integer, zero, or a positive integer as WeaponProf is
+	 *         less than, equal to, or greater than the specified WeaponProf.
 	 */
 	@Override
 	public int compareTo(final Object o1)
@@ -55,23 +62,73 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 
 	/**
 	 * Compares keyName only.
-	 * @param   obj   the WeaponProf with which to compare.
-	 * @return  <code>true</code> if this WeaponProf is the same as the obj
-	 *          argument; <code>false</code> otherwise.
+	 * 
+	 * @param obj
+	 *            the WeaponProf with which to compare.
+	 * @return <code>true</code> if this WeaponProf is the same as the obj
+	 *         argument; <code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof WeaponProf && getKeyName().equals(((WeaponProf) obj).getKeyName());
+		return obj instanceof WeaponProf
+				&& getKeyName().equals(((WeaponProf) obj).getKeyName());
 	}
 
 	/**
 	 * Hashcode of the keyName.
-	 * @return  Hashcode of the keyName.
+	 * 
+	 * @return Hashcode of the keyName.
 	 */
 	@Override
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
+	}
+
+	private static class StartingListActor implements
+			PersistentChoiceActor<WeaponProf>
+	{
+
+		public boolean allow(WeaponProf choice, PlayerCharacter pc,
+				boolean allowStack)
+		{
+			return true;
+		}
+
+		public void applyChoice(CDOMObject owner, WeaponProf choice,
+				PlayerCharacter pc)
+		{
+			pc.addWeaponBonus(owner, choice);
+		}
+
+		public List<WeaponProf> getCurrentlySelected(CDOMObject owner,
+				PlayerCharacter pc)
+		{
+			return pc.getBonusWeaponProfs(owner);
+		}
+
+		public WeaponProf decodeChoice(String s)
+		{
+			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					WeaponProf.class, s);
+		}
+
+		public String encodeChoice(WeaponProf choice)
+		{
+			return choice.getKeyName();
+		}
+
+		public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+				WeaponProf choice)
+		{
+			pc.removeWeaponBonus(owner, choice);
+		}
+
+		public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+				WeaponProf choice)
+		{
+			pc.addWeaponBonus(owner, choice);
+		}
 	}
 }

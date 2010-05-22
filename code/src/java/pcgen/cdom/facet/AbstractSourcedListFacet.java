@@ -17,10 +17,12 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -469,5 +471,28 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 				}
 			}
 		}
+	}
+
+	public List<? extends T> getSet(CharID id, CDOMObject owner)
+	{
+		List<T> list = new ArrayList<T>();
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet()
+					.iterator(); it.hasNext();)
+			{
+				Entry<T, Set<Object>> me = it.next();
+				Set<Object> set = me.getValue();
+				if (set != null)
+				{
+					if (set.contains(owner))
+					{
+						list.add(me.getKey());
+					}
+				}
+			}
+		}
+		return list;
 	}
 }

@@ -63,9 +63,9 @@ public class KitLangBonus extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 		ChoiceManagerList<Language> controller = ChooserUtilities
-				.getConfiguredController(a, aPC, AbilityCategory.LANGUAGE,
+				.getConfiguredController(a, aPC, AbilityCategory.LANGBONUS,
 						new ArrayList<String>());
 		for (Language l : theLanguages)
 		{
@@ -87,12 +87,12 @@ public class KitLangBonus extends BaseKit
 			List<String> warnings)
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 
 		List<String> reservedList = new ArrayList<String>();
 
 		ChoiceManagerList<Language> controller = ChooserUtilities
-				.getConfiguredController(a, aPC, AbilityCategory.LANGUAGE,
+				.getConfiguredController(a, aPC, AbilityCategory.LANGBONUS,
 						reservedList);
 		if (controller == null)
 		{
@@ -101,7 +101,7 @@ public class KitLangBonus extends BaseKit
 
 		theLanguages = new ArrayList<Language>();
 		int allowedCount = aPC
-				.getAvailableAbilityPool(AbilityCategory.LANGUAGE).intValue();
+				.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
 		int remaining = allowedCount;
 		for (CDOMSingleRef<Language> ref : langList)
 		{

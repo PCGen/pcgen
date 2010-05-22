@@ -65,7 +65,8 @@ public class AbilityCategory implements Category<Ability>
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
 	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
-	public static final AbilityCategory LANGUAGE = new AbilityCategory("*INTERNAL", "*INTERNAL"); //$NON-NLS-1$ //$NON-NLS-2$
+	public static final AbilityCategory LANGBONUS = new AbilityCategory("*LANGBONUS", "*LANGBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
+	public static final AbilityCategory WEAPONBONUS = new AbilityCategory("*WEAPONBONUS", "*WEAPONBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/** Value to indicate the modifier should not be visible. */
 	public static final int VISIBLE_NO        = 0;
@@ -78,7 +79,7 @@ public class AbilityCategory implements Category<Ability>
 	{
 		FEAT.thePluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
-		LANGUAGE.setPoolFormula("BONUSLANG");
+		LANGBONUS.setPoolFormula("BONUSLANG");
 	}
 
 	/**

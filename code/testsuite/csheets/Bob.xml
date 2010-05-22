@@ -1014,11 +1014,11 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Longsword)</name>
+			<name>Weapon Focus (Longsword, Fine Wine Blade)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
-			<associated>Longsword</associated>
-			<count>1</count>
+			<associated>Longsword,Fine Wine Blade</associated>
+			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>

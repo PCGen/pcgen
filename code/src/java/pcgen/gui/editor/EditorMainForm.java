@@ -1044,7 +1044,7 @@ public final class EditorMainForm extends JDialog
 				  || editType == EditorConstants.EDIT_RACE)
 				{
 					thisPObject.removeAllFromList(WeaponProf.STARTING_LIST);
-					context.unconditionallyProcess(thisPObject, "LANGBONUS",
+					context.unconditionallyProcess(thisPObject, "WEAPONBONUS",
 							EditUtil.delimitArray(sel, ','));
 				}
 			}

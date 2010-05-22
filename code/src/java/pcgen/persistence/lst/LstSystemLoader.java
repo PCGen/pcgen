@@ -606,7 +606,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		Ability a = context.ref
 				.constructCDOMObject(Ability.class, "*LANGBONUS");
-		context.ref.reassociateCategory(AbilityCategory.LANGUAGE, a);
+		context.ref.reassociateCategory(AbilityCategory.LANGBONUS, a);
 		a.put(ObjectKey.INTERNAL, true);
 		context.unconditionallyProcess(a, "CHOOSE", "LANG|!PC,LANGBONUS");
 		context.unconditionallyProcess(a, "VISIBLE", "NO");

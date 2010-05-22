@@ -478,8 +478,6 @@ public class ChooserUtilities
 		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
 
 		classLookup.put("USERINPUT", UserInputChoiceManager.class.getName());
-		classLookup.put("WEAPONPROF", SimpleWeaponProfChoiceManager.class
-			.getName());
 		classLookup.put("NOCHOICE", NoChoiceChoiceManager.class.getName());
 
 		mapconstructed = true;

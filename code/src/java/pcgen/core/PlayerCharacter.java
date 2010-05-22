@@ -95,6 +95,7 @@ import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.BonusWeaponProfFacet;
 import pcgen.cdom.facet.CampaignFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
@@ -240,6 +241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
+	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -461,9 +463,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void insertBonusLanguageAbility()
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 		setAssoc(a, AssociationKey.NEEDS_SAVING, true);
-		grantedAbilityFacet.add(id, AbilityCategory.LANGUAGE, Nature.VIRTUAL, a, a);
+		grantedAbilityFacet.add(id, AbilityCategory.LANGBONUS, Nature.VIRTUAL, a, a);
 	}
 
 	/**
@@ -3605,28 +3607,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Set<WeaponProf> buildWeaponProfCache()
 	{
 		final Set<WeaponProf> ret = new HashSet<WeaponProf>();
+		//Capture WEAPONBONUS
+		ret.addAll(wpBonusFacet.getSet(id));
+
 		// Try all possible CDOMObjects
 		for (CDOMObject pobj : getCDOMObjectList())
 		{
-			List<String> profKeys =
-					getAssocList(pobj,
-						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-			if (profKeys != null)
-			{
-				Set<String> profKeyList = new TreeSet<String>();
-				profKeyList.addAll(profKeys);
-				for (String profKey : profKeyList)
-				{
-					WeaponProf prof =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(
-									WeaponProf.class, profKey);
-					if (prof != null)
-					{
-						ret.add(prof);
-					}
-				}
-			}
 			//Natural Weapon Proficiencies
 			List<CDOMSingleRef<WeaponProf>> iwp =
 					pobj.getSafeListFor(ListKey.IMPLIED_WEAPONPROF);
@@ -13593,9 +13579,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						for ( final String choice : choices )
 						{
-							if (AbilityUtilities.canAddAssociation(this, ab, choice))
+							for (String subchoice : AbilityUtilities
+									.getLegalAssociations(this, cdo, ab, choice))
 							{
-								addAssociation(ab, choice);
+								addAssociation(ab, subchoice);
 							}
 						}
 					}
@@ -13655,10 +13642,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						for (final String choice : choices)
 						{
-							if (AbilityUtilities.canAddAssociation(this, ab,
-									choice))
+							for (String subchoice : AbilityUtilities
+									.getLegalAssociations(this, cdo, ab, choice))
 							{
-								addAssociation(ab, choice);
+								addAssociation(ab, subchoice);
 							}
 						}
 					}
@@ -15049,9 +15036,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (final String choice : choices)
 				{
-					if (AbilityUtilities.canAddAssociation(this, ab, choice))
+					for (String subchoice : AbilityUtilities
+							.getLegalAssociations(this, cdo, ab, choice))
 					{
-						addAssociation(ab, choice);
+						addAssociation(ab, subchoice);
 					}
 				}
 			}
@@ -15079,7 +15067,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (final String choice : choices)
 				{
-					removeAssociation(ab, choice);
+					for (String subchoice : AbilityUtilities
+							.getLegalAssociations(this, cdo, ab, choice))
+					{
+						removeAssociation(ab, subchoice);
+					}
 				}
 			}
 			//Only remove if no assocs left
@@ -15088,6 +15080,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				grantedAbilityFacet.remove(id, cat, nature, ab, cdo);
 			}
 		}
+	}
+
+	public void addWeaponBonus(CDOMObject owner, WeaponProf choice)
+	{
+		wpBonusFacet.add(id, choice, owner);
+	}
+
+	public List<WeaponProf> getBonusWeaponProfs(CDOMObject owner)
+	{
+		return new ArrayList<WeaponProf>(wpBonusFacet.getSet(id, owner));
+	}
+
+	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
+	{
+		wpBonusFacet.remove(id, choice, owner);
 	}
 
 }

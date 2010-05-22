@@ -118,8 +118,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
 
-	public static final AssociationListKey<String> SELECTED_WEAPON_PROF_BONUS = new AssociationListKey<String>();
-
 	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
 
 	public static final AssociationListKey<PCTemplate> CHOOSE_TEMPLATE = new AssociationListKey<PCTemplate>();

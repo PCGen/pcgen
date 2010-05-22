@@ -53,7 +53,7 @@ public class PCBonusLangTermEvaluator
 		}
 		int count = pc.getBonusLanguageCount();
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGUAGE, "*LANGBONUS");
+				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 		int currentLangCount = pc.getDetailedAssociationCount(a);
 		int result = count - currentLangCount;
 		return (float) result;
