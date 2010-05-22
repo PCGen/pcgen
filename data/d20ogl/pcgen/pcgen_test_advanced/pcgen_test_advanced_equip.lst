@@ -9,7 +9,7 @@ Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee.Sword	DA
 Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
 Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:OneHanded
 Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
-
+Cool Sword			PROFICIENCY:WEAPON|Cool Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
 
 # Armor
 Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium

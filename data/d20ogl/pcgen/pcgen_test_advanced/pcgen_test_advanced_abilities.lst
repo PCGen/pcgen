@@ -71,6 +71,26 @@ Bob Test ~ Chooser ~ Weaponproficiency						CATEGORY:Special Ability	TYPE:BobTes
 
 Bob Test ~ Barbarian Move								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality	BONUS:MOVEADD|TYPE.Walk|30+var("TestSpeed")	BONUS:VAR|TestSpeed|(TL*10)+5	DEFINE:TestSpeed|0	DESC:Speed should be Base 30 + 30 + 25 (TL times 10 + 5) for a Total of 85
 Bob Test ~ Bonus Var in a Chooser							CATEGORY:Special Ability	TYPE:BobTest.Test.Chooser.SpecialQuality									BONUS:VAR|BonusVarTest|1	DEFINE:BonusVarTest|0	DESC:Bonus Var should be outputting 3 (ability taken three times) var number is showing %1|BonusVarTest	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+
+
+#Bob Test TYPEs ~  					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  ABILITY					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  CLASS					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  DEITY					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  DOMAIN					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  EQUIPMENT					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  FEAT					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  LANG					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  RACE					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  SKILL					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  SPELLS					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  TEMPLATE					CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Test TYPEs ~  WEAPONPROF					CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+
+
+
 # End the Bob Test Section
 
 
