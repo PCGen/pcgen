@@ -92,11 +92,12 @@ BIO
 			<feet>5</feet>
 			<inches>11</inches>
 		</height>
-		<hitdice>(1d12)+(1d10)</hitdice>
+		<hitdice>(1d12)+(1d10)+6</hitdice>
 		<interests></interests>
 		<languages>
 			<language>Common</language>
-			<all>Common</all>
+			<language>Terestial Alpha</language>
+			<all>Common, Terestial Alpha</all>
 		</languages>
 		<location></location>
 		<move>
@@ -158,83 +159,83 @@ BIO
 				<long>Strength</long>
 				<short>STR</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>16</score>
+			<modifier>+3</modifier>
+			<base>16</base>
+			<basemod>+3</basemod>
+			<noequip>16</noequip>
+			<noequip_mod>+3</noequip_mod>
+			<no_temp_score>16</no_temp_score>
+			<no_temp_modifier>+3</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Dexterity</long>
 				<short>DEX</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>14</score>
+			<modifier>+2</modifier>
+			<base>14</base>
+			<basemod>+2</basemod>
+			<noequip>14</noequip>
+			<noequip_mod>+2</noequip_mod>
+			<no_temp_score>14</no_temp_score>
+			<no_temp_modifier>+2</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Constitution</long>
 				<short>CON</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>17</score>
+			<modifier>+3</modifier>
+			<base>17</base>
+			<basemod>+3</basemod>
+			<noequip>17</noequip>
+			<noequip_mod>+3</noequip_mod>
+			<no_temp_score>17</no_temp_score>
+			<no_temp_modifier>+3</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Intelligence</long>
 				<short>INT</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>14</score>
+			<modifier>+2</modifier>
+			<base>14</base>
+			<basemod>+2</basemod>
+			<noequip>14</noequip>
+			<noequip_mod>+2</noequip_mod>
+			<no_temp_score>14</no_temp_score>
+			<no_temp_modifier>+2</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Wisdom</long>
 				<short>WIS</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>12</score>
+			<modifier>+1</modifier>
+			<base>12</base>
+			<basemod>+1</basemod>
+			<noequip>12</noequip>
+			<noequip_mod>+1</noequip_mod>
+			<no_temp_score>12</no_temp_score>
+			<no_temp_modifier>+1</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Charisma</long>
 				<short>CHA</short>
 			</name>
-			<score>10</score>
+			<score>11</score>
 			<modifier>+0</modifier>
-			<base>10</base>
+			<base>11</base>
 			<basemod>+0</basemod>
-			<noequip>10</noequip>
+			<noequip>11</noequip>
 			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
+			<no_temp_score>11</no_temp_score>
 			<no_temp_modifier>+0</no_temp_modifier>
 		</ability>
 	</abilities>
@@ -245,9 +246,9 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>17</points>
-		<alternate>10</alternate>
-		<die>(1d12)+(1d10)</die>
+		<points>23</points>
+		<alternate>17</alternate>
+		<die>(1d12)+(1d10)+6</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -256,14 +257,14 @@ BIO
 			<roll>
 				<level>1</level>
 				<roll>12</roll>
-				<stat>0</stat>
-				<total>12</total>
+				<stat>3</stat>
+				<total>15</total>
 			</roll>
 			<roll>
 				<level>2</level>
 				<roll>5</roll>
-				<stat>0</stat>
-				<total>5</total>
+				<stat>3</stat>
+				<total>8</total>
 			</roll>
 		</history>
 	</hit_points>
@@ -274,14 +275,14 @@ BIO
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<total>12</total>
-		<listing>+2, BASE +10</listing>
+		<total>14</total>
+		<listing>+2, ABILITY +2, BASE +10</listing>
 		<flat>12</flat>
-		<touch>12</touch>
+		<touch>14</touch>
 		<base>10</base>
 		<armor_bonus>0</armor_bonus>
 		<shield_bonus>0</shield_bonus>
-		<stat_mod>0</stat_mod>
+		<stat_mod>2</stat_mod>
 		<size_mod>0</size_mod>
 		<natural>0</natural>
 		<class_bonus>0</class_bonus>
@@ -300,8 +301,8 @@ BIO
 	  ====================================
 	  ====================================-->
 	<initiative>
-		<total>+0</total>
-		<dex_mod>+0</dex_mod>
+		<total>+2</total>
+		<dex_mod>+2</dex_mod>
 		<misc_mod>+0</misc_mod>
 	</initiative>
 	<!--
@@ -316,16 +317,16 @@ BIO
 			<used>11</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Acrobatics +5, Combat Focus +1, Linguistics +1</list_mods>
+		<list_mods>Acrobatics +5, Combat Focus +4, Linguistics +1, Poetry +1, Uber Scripting from five ranks in Test Coding Script +3</list_mods>
 		<max_class_skill_level>5</max_class_skill_level>
 		<max_cross_class_skill_level>2.5</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
-			<ranks>5.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<ranks>3.0</ranks>
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
 			<skill_mod>5</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -339,10 +340,10 @@ BIO
 		<skill>
 			<name>Athletics</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>3<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>3</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -350,16 +351,16 @@ BIO
 			<synergy>Athletics</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
 		</skill>
 		<skill>
 			<name>Combat Focus</name>
 			<ranks>1.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>3<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>4</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -367,16 +368,16 @@ BIO
 			<synergy>Combat Focus</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
 		</skill>
 		<skill>
 			<name>Craft (One)</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -384,16 +385,16 @@ BIO
 			<synergy>Craft (One)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Craft (Two)</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -401,16 +402,16 @@ BIO
 			<synergy>Craft (Two)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Knowledge</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -418,8 +419,8 @@ BIO
 			<synergy>Knowledge</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Linguistics</name>
@@ -475,10 +476,10 @@ BIO
 		<skill>
 			<name>Perception</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -486,8 +487,8 @@ BIO
 			<synergy>Perception</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Persuasion</name>
@@ -508,10 +509,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Poetry</name>
-			<ranks>0.0</ranks>
+			<ranks>1.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
+			<skill_mod>1</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -520,8 +521,8 @@ BIO
 			<synergy>Poetry</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Poetry Recitation Specialty</name>
@@ -543,10 +544,10 @@ BIO
 		<skill>
 			<name>Test Coding Script</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -554,16 +555,16 @@ BIO
 			<synergy>Test Coding Script</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Test Crafting</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -571,16 +572,16 @@ BIO
 			<synergy>Test Crafting</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Uber Scripting from five ranks in Test Coding Script</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<ranks>1.0</ranks>
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>3</skill_mod>
+			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -588,8 +589,8 @@ BIO
 			<synergy>Uber Scripting from five ranks in Test Coding Script</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
 		</skill>
 	</skills>
 	<!--
@@ -606,9 +607,9 @@ BIO
 				<short>fort</short>
 			</name>
 			<ability>constitution</ability>
-			<total>+7</total>
+			<total>+10</total>
 			<base>+7</base>
-			<abil_mod>+0</abil_mod>
+			<abil_mod>+3</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
@@ -622,10 +623,10 @@ BIO
 				<short>ref</short>
 			</name>
 			<ability>dexterity</ability>
-			<total>+0</total>
+			<total>+2</total>
 			<base>+0</base>
 			<feats>+0</feats>
-			<abil_mod>+0</abil_mod>
+			<abil_mod>+2</abil_mod>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
 			<race>+0</race>
@@ -638,9 +639,9 @@ BIO
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>+0</total>
+			<total>+1</total>
 			<base>+0</base>
-			<abil_mod>+0</abil_mod>
+			<abil_mod>+1</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
@@ -657,30 +658,30 @@ BIO
 	  ====================================-->
 	<attack>
 		<melee>
-			<total>+6/+1</total>
+			<total>+9/+4</total>
 			<bab>+6</bab>
 			<base_attack_bonus>+6/+1</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
+			<stat_mod>+3</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</melee>
 		<ranged>
-			<total>+6/+1</total>
+			<total>+8/+3</total>
 			<bab>+6</bab>
 			<base_attack_bonus>+6/+1</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
+			<stat_mod>+2</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</ranged>
 		<grapple>
-			<total>+6/+1</total>
+			<total>+9/+4</total>
 			<bab>+6</bab>
 			<base_attack_bonus>+6/+1</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
+			<stat_mod>+3</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
 			<epic_mod>+0</epic_mod>
@@ -695,8 +696,8 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+6/+1</total>
-			<damage>1d3</damage>
+			<total>+9/+4</total>
+			<damage>1d3+3</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
@@ -713,9 +714,9 @@ BIO
 					<multiplier>3</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+7/+2</hit>
+					<hit>+10/+5</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+7/+2</total_hit>
+					<total_hit>+10/+5</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Both</hand>
@@ -729,8 +730,8 @@ BIO
 				<sequence>0</sequence>
 			</common>
 			<simple>
-				<to_hit>+7/+2</to_hit>
-				<damage>3d6</damage>
+				<to_hit>+10/+5</to_hit>
+				<damage>3d6+4</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -802,7 +803,7 @@ BIO
 			<weight>0 lbs.</weight>
 			<value>0 gp</value>
 			<load>Light</load>
-			<capacity>100</capacity>
+			<capacity>230</capacity>
 		</total>
 		<equipmentsets>
 
@@ -833,13 +834,13 @@ BIO
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
-		<light>33</light>
-		<medium>66</medium>
-		<heavy>100</heavy>
-		<lift_over_head>100</lift_over_head>
-		<lift_off_ground>200</lift_off_ground>
+		<light>76</light>
+		<medium>153</medium>
+		<heavy>230</heavy>
+		<lift_over_head>230</lift_over_head>
+		<lift_off_ground>460</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>500</push_drag>
+		<push_drag>1150</push_drag>
 	</weight_allowance>
 	<!--
 	  ====================================
@@ -1233,29 +1234,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bob Test ~ Chooser ~ Class</name>
-			<description></description>
-			<type>BOBTEST.TEST.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Bob Test ~ Chooser ~ Deity</name>
-			<description></description>
-			<type>BOBTEST.TEST.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob Test ~ Chooser ~ Domain</name>
 			<description></description>
 			<type>BOBTEST.TEST.SPECIALQUALITY</type>
 			<associated></associated>
@@ -1387,17 +1366,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bob Test ~ Chooser ~ Template</name>
-			<description></description>
-			<type>BOBTEST.TEST.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Bob Test ~ Chooser ~ Weaponproficiency</name>
 			<description></description>
 			<type>BOBTEST.TEST.SPECIALQUALITY</type>
@@ -1453,10 +1421,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose CLASS (Fighter, MonKee)</name>
+			<name>Chooser ~ Choose CLASS (Fighter, MonKee Junior)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Fighter,MonKee</associated>
+			<associated>Fighter,MonKee Junior</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1475,10 +1443,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose DOMAIN (Foo Ball)</name>
+			<name>Chooser ~ Choose DOMAIN (Bar Ball)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Foo Ball</associated>
+			<associated>Bar Ball</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1607,10 +1575,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose TEMPLATE (TL~BONUSSKILLPOINTS_80)</name>
+			<name>Chooser ~ Choose TEMPLATE (Template Type TEST)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>TL~BONUSSKILLPOINTS_80</associated>
+			<associated>Template Type TEST</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1688,10 +1656,10 @@ BIO
 	</domains>
 	<!-- Domains -->
 	<weapon_proficiencies>Extra Blade, Fine Wine Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
-	<languages>Common</languages>
+	<languages>Common, Terestial Alpha</languages>
 
 	<templates>
-		<list>Template A, Template ~ 1 Bob Tests ~ ALL</list>
+		<list>Template A, Template ~ 1 Bob Tests ~ ALL, Template Type TEST</list>
 		<template>
 			<name>Template A</name>
 			<strmod>0</strmod>
@@ -1709,6 +1677,21 @@ BIO
 		</template>
 		<template>
 			<name>Template ~ 1 Bob Tests ~ ALL</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Template Type TEST</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
