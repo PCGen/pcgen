@@ -293,10 +293,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private final ArrayList<Equipment> secondaryWeapons =
 			new ArrayList<Equipment>();
 
-	// Collections of String (probably should be full objects)
-	private final ArrayList<SpecialAbility> specialAbilityList =
-			new ArrayList<SpecialAbility>();
-
 	// List of VARs
 	private final ArrayList<String> variableList = new ArrayList<String>();
 
@@ -2929,7 +2925,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		// aList will contain a list of SpecialAbility objects
 		List<SpecialAbility> aList =
-				new ArrayList<SpecialAbility>(specialAbilityList);
+				new ArrayList<SpecialAbility>();
 		// Try all possible POBjects
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
@@ -2951,7 +2947,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<String> bList = new ArrayList<String>();
 		List<SpecialAbility> saList =
-			new ArrayList<SpecialAbility>(specialAbilityList);
+			new ArrayList<SpecialAbility>();
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			saList.clear();
@@ -11768,7 +11764,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		for (String s : this.variableList)
 		{
 			aClone.variableList.add(s);
