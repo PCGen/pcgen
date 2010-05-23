@@ -23,8 +23,8 @@ import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ArmorProf;
 
 /**
- * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted to
- * a Player Character.
+ * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
+ * to a Player Character.
  */
 public class ArmorProfFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
@@ -44,18 +44,8 @@ public class ArmorProfFacet extends
 	 */
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		CDOMObject cdo = dfce.getCDOMObject();
-		for (ProfProvider<ArmorProf> app : cdo
-				.getSafeListFor(ListKey.AUTO_ARMORPROF))
-		{
-			CDOMObject source = null;
-			Object s = dfce.getSource();
-			if (s instanceof CDOMObject)
-			{
-				source = (CDOMObject) s;
-			}
-			add(dfce.getCharID(), app, source);
-		}
+		addAll(dfce.getCharID(), dfce.getCDOMObject().getSafeListFor(
+				ListKey.AUTO_ARMORPROF), dfce.getSource());
 	}
 
 	/**

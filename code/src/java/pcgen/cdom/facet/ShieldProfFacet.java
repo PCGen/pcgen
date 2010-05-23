@@ -44,18 +44,8 @@ public class ShieldProfFacet extends
 	 */
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		CDOMObject cdo = dfce.getCDOMObject();
-		for (ProfProvider<ShieldProf> app : cdo
-				.getSafeListFor(ListKey.AUTO_SHIELDPROF))
-		{
-			CDOMObject source = null;
-			Object s = dfce.getSource();
-			if (s instanceof CDOMObject)
-			{
-				source = (CDOMObject) s;
-			}
-			add(dfce.getCharID(), app, source);
-		}
+		addAll(dfce.getCharID(), dfce.getCDOMObject().getSafeListFor(
+				ListKey.AUTO_SHIELDPROF), dfce.getSource());
 	}
 
 	/**

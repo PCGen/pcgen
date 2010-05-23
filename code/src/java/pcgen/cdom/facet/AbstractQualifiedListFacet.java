@@ -121,7 +121,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(CharID id, Collection<T> c, Object source)
+	public void addAll(CharID id, Collection<? extends T> c, Object source)
 	{
 		for (T obj : c)
 		{
