@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
@@ -29,7 +30,7 @@ import pcgen.core.PlayerCharacter;
  *            The type of Proficiency (CDOMObject) that this ProfProvider
  *            provides
  */
-public interface ProfProvider<T extends CDOMObject>
+public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 {
 	/**
 	 * Returns true if this ProfProvider provides proficiency for the given

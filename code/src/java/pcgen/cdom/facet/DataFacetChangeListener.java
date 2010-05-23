@@ -19,8 +19,6 @@ package pcgen.cdom.facet;
 
 import java.util.EventListener;
 
-import pcgen.cdom.base.CDOMObject;
-
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
@@ -28,7 +26,7 @@ import pcgen.cdom.base.CDOMObject;
  * has been added to or removed from a PlayerCharacter, the respective method in
  * the listener object is invoked, and the DataFacetChangeEvent is passed to it.
  */
-public interface DataFacetChangeListener<T extends CDOMObject> extends EventListener
+public interface DataFacetChangeListener<T> extends EventListener
 {
 	/**
 	 * Method called when a CDOMObject has been added to a PlayerCharacter and

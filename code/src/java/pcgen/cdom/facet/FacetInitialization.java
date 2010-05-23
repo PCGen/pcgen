@@ -83,6 +83,8 @@ public class FacetInitialization
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary
 				.getFacet(ActiveAbilityFacet.class);
+		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
+		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -136,5 +138,7 @@ public class FacetInitialization
 		grantedAbilityFacet.addDataFacetChangeListener(cdomObjectFacet);
 		
 		cdomObjectFacet.addDataFacetChangeListener(additionFacet);
+		cdomObjectFacet.addDataFacetChangeListener(spFacet);
+		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 	}
 }

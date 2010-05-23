@@ -53,7 +53,6 @@ import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.core.Ability;
-import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
@@ -229,8 +228,6 @@ public final class ListKey<T> {
 	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<QualifiedObject<CDOMReference<Equipment>>>();
 	public static final ListKey<ArmorProfProvider> AUTO_ARMORPROF = new ListKey<ArmorProfProvider>();
 	public static final ListKey<ShieldProfProvider> AUTO_SHIELDPROF = new ListKey<ShieldProfProvider>();
-	public static final ListKey<ProfProvider<ArmorProf>> ARMORPROF_CACHE = new ListKey<ProfProvider<ArmorProf>>();
-	public static final ListKey<ProfProvider<ShieldProf>> SHIELDPROF_CACHE = new ListKey<ProfProvider<ShieldProf>>();
 	public static final ListKey<CDOMReference<Skill>> CCSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> CSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();

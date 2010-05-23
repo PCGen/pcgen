@@ -92,6 +92,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -127,11 +128,13 @@ import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
+import pcgen.cdom.facet.PrerequisiteFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
 import pcgen.cdom.facet.ReachFacet;
 import pcgen.cdom.facet.RegionFacet;
+import pcgen.cdom.facet.ShieldProfFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
@@ -242,6 +245,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
+	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
+	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -278,6 +283,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
+	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 
@@ -421,6 +427,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
 		additionFacet.associatePlayerCharacter(id, this);
+		prereqFacet.associatePlayerCharacter(id, this);
 
 		variableProcessor = new VariableProcessorPC(this);
 
@@ -522,16 +529,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return armor proficiency list
 	 */
-	public List<ProfProvider<ArmorProf>> getArmorProfList()
+	public Collection<ProfProvider<ArmorProf>> getArmorProfList()
 	{
-		List<ProfProvider<ArmorProf>> sps =
-				cache.getListFor(ListKey.ARMORPROF_CACHE);
-		if (sps == null)
-		{
-			sps = getAutoArmorProfList();
-			cache.addAllToListFor(ListKey.ARMORPROF_CACHE, sps);
-		}
-		return sps;
+		return armorProfFacet.getQualifiedSet(id);
 	}
 
 	/**
@@ -2715,17 +2715,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return shield prof list
 	 */
-	public List<ProfProvider<ShieldProf>> getShieldProfList()
+	public Collection<ProfProvider<ShieldProf>> getShieldProfList()
 	{
-		List<ProfProvider<ShieldProf>> sps =
-				cache.getListFor(ListKey.SHIELDPROF_CACHE);
-		if (sps == null)
-		{
-			sps = getAutoShieldProfList();
-			cache.addAllToListFor(ListKey.SHIELDPROF_CACHE, sps);
-		}
-
-		return sps;
+		return shieldProfFacet.getQualifiedSet(id);
 	}
 
 	/**
@@ -9745,25 +9737,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getActiveBonusList();
 	}
 
-	private List<ProfProvider<ArmorProf>> getAutoArmorProfList()
-	{
-		final ArrayList<ProfProvider<ArmorProf>> aList =
-				new ArrayList<ProfProvider<ArmorProf>>();
-
-		for (CDOMObject aPObj : getCDOMObjectList())
-		{
-			for (ProfProvider<ArmorProf> app : aPObj
-				.getSafeListFor(ListKey.AUTO_ARMORPROF))
-			{
-				if (app.qualifies(this, aPObj))
-				{
-					aList.add(app);
-				}
-			}
-		}
-		return aList;
-	}
-
 	/**
 	 * Calculates total bonus from Checks
 	 * 
@@ -10209,31 +10182,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		setDirty(true);
-	}
-
-	/**
-	 * Gets SHIELDPROF strings from all possible PObjects
-	 * 
-	 * @return List
-	 */
-	private List<ProfProvider<ShieldProf>> getAutoShieldProfList()
-	{
-		final ArrayList<ProfProvider<ShieldProf>> aList =
-				new ArrayList<ProfProvider<ShieldProf>>();
-
-		for (CDOMObject aPObj : getCDOMObjectList())
-		{
-			for (ProfProvider<ShieldProf> pp : aPObj
-				.getSafeListFor(ListKey.AUTO_SHIELDPROF))
-			{
-				if (pp.qualifies(this, aPObj))
-				{
-					aList.add(pp);
-					}
-					}
-				}
-
-		return aList;
 	}
 
 	/**

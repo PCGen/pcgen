@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import java.util.EventObject;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -36,7 +35,7 @@ import pcgen.cdom.enumeration.CharID;
  * makes the guarantee that no modifications are made by DataFacetChangeEvent to
  * the CDOMObject.
  */
-public class DataFacetChangeEvent<T extends CDOMObject> extends EventObject
+public class DataFacetChangeEvent<T> extends EventObject
 {
 	/**
 	 * The constant ID used by an DataFacetChangeEvent to indicate that a

@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import javax.swing.event.EventListenerList;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -29,7 +28,7 @@ import pcgen.cdom.enumeration.CharID;
  * CDOMObjects that are contained in a PlayerCharacter. This serves the basic
  * functions of managing the DataFacetChangeListeners for a DataFacet.
  */
-public abstract class AbstractDataFacet<T extends CDOMObject>
+public abstract class AbstractDataFacet<T>
 {
 	/**
 	 * The listeners to which DataFacetChangeEvents will be fired when a change
