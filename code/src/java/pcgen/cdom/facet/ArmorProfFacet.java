@@ -44,8 +44,9 @@ public class ArmorProfFacet extends
 	 */
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		addAll(dfce.getCharID(), dfce.getCDOMObject().getSafeListFor(
-				ListKey.AUTO_ARMORPROF), dfce.getSource());
+		CDOMObject cdo = dfce.getCDOMObject();
+		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.AUTO_ARMORPROF),
+				cdo);
 	}
 
 	/**
@@ -61,6 +62,6 @@ public class ArmorProfFacet extends
 	 */
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getSource());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 }
