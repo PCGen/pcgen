@@ -129,11 +129,13 @@ import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.cdom.facet.QualifyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
 import pcgen.cdom.facet.ReachFacet;
 import pcgen.cdom.facet.RegionFacet;
+import pcgen.cdom.facet.SerialFacet;
 import pcgen.cdom.facet.ShieldProfFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
@@ -156,7 +158,6 @@ import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.Qualifier;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
@@ -281,6 +282,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
+	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -3898,49 +3900,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean checkQualifyList(CDOMObject testQualObj)
 	{
-		/*
-		 * The use of Object.class here is the "universalizer" to account
-		 * for the 5.10.* format of Qualify - which is "allow anything all at once"
-		 *  - Tom Parker 1/17/07
-		 */
-		// Try all possible CDOMOjects
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			if (grantsQualify(cdo, testQualObj))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public final boolean grantsQualify(CDOMObject owner,
-		CDOMObject qualTestObject)
-	{
-		List<Qualifier> qualList = owner.getListFor(ListKey.QUALIFY);
-		if (qualList == null)
-		{
-			return false;
-		}
-		Class<? extends CDOMObject> cl = qualTestObject.getClass();
-		for (Qualifier qual : qualList)
-		{
-			if (cl.equals(qual.getQualifiedClass()))
-			{
-				CDOMReference qRef = qual.getQualifiedReference();
-				if (checkRef(qRef, qualTestObject))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private <T extends CDOMObject> boolean checkRef(CDOMReference<T> ref,
-		T qualTestObject)
-	{
-		return ref.contains(qualTestObject);
+		return qualifyFacet.grantsQualify(id, testQualObj);
 	}
 
 	public boolean hasWeaponProf(final WeaponProf wp)
