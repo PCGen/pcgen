@@ -4489,8 +4489,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		double bonus = 0;
 		boolean isEpic = false;
 		final int totalClassLevels;
-		Map<String, String> totalLvlMap = null;
-		final Map<String, String> classLvlMap;
+		Map<String, Integer> totalLvlMap = null;
+		final Map<String, Integer> classLvlMap;
 
 		totalClassLevels = totalNonMonsterLevels();
 		if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
@@ -7316,8 +7316,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Check for Epic
 		final int totalClassLevels = totalNonMonsterLevels();
-		Map<String, String> totalLvlMap = null;
-		final Map<String, String> classLvlMap;
+		Map<String, Integer> totalLvlMap = null;
+		final Map<String, Integer> classLvlMap;
 		boolean isEpic = false;
 		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
 		{
@@ -9765,20 +9765,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	private synchronized void setClassLevelsBrazenlyTo(
-		final Map<String, String> lvlMap)
+		final Map<String, Integer> lvlMap)
 	{
 		// set class levels to class name,level pair
 		for (PCClass pcClass : getClassSet())
 		{
-			String lvl = lvlMap.get(pcClass.getKeyName());
-
-			if (lvl == null)
-			{
-				lvl = "0";
-			}
-
-			setLevelWithoutConsequence(pcClass, Integer.parseInt(lvl));
-
+			Integer lvl = lvlMap.get(pcClass.getKeyName());
+			int setLevel = (lvl == null) ? 0 : lvl;
+			setLevelWithoutConsequence(pcClass, setLevel);
 		}
 		// Recalculate bonuses, based on new level
 		calcActiveBonuses();
@@ -9868,10 +9862,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            the maximum character level that we can include in this map
 	 * @return character level map
 	 */
-	private Map<String, String> getCharacterLevelHashMap(
+	private Map<String, Integer> getCharacterLevelHashMap(
 		final int maxCharacterLevel)
 	{
-		final Map<String, String> lvlMap = new HashMap<String, String>();
+		final Map<String, Integer> lvlMap = new HashMap<String, Integer>();
 
 		int characterLevels = 0;
 		for (int i = 0; i < getLevelInfoSize(); ++i)
@@ -9885,14 +9879,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				// we can use this class level if it is a monster level, or if
 				// we have not yet hit our maximum number of characterLevels
-				String val = lvlMap.get(classKeyName);
-				if (val == null)
-				{
-					val = "0";
-				}
-
-				val = String.valueOf(Integer.parseInt(val) + 1);
-				lvlMap.put(classKeyName, val);
+				Integer val = lvlMap.get(classKeyName);
+				Integer newVal = (val == null) ? Integer.valueOf(1) : (val + 1);
+				lvlMap.put(classKeyName, newVal);
 			}
 
 			if (!aClass.isMonster())
@@ -10105,13 +10094,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	private HashMap<String, String> getTotalLevelHashMap()
+	private HashMap<String, Integer> getTotalLevelHashMap()
 	{
-		final HashMap<String, String> lvlMap = new HashMap<String, String>();
+		final HashMap<String, Integer> lvlMap = new HashMap<String, Integer>();
 
 		for (PCClass aClass : getClassSet())
 		{
-			lvlMap.put(aClass.getKeyName(), String.valueOf(getLevel(aClass)));
+			lvlMap.put(aClass.getKeyName(), getLevel(aClass));
 		}
 
 		return lvlMap;
