@@ -71,6 +71,7 @@ public class FacetInitialization
 		LanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
 
+		QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 		SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		BonusChangeFacet bonusChangeFacet = FacetLibrary
@@ -140,5 +141,6 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(additionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(spFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
+		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
 	}
 }

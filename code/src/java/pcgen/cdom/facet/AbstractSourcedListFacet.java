@@ -56,7 +56,7 @@ import pcgen.cdom.enumeration.CharID;
  * 
  * null is a valid source.
  */
-public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
+public abstract class AbstractSourcedListFacet<T> extends
 		AbstractDataFacet<T>
 {
 	/**
