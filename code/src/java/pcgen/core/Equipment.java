@@ -3514,8 +3514,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 		
-		String prof = consolidatedProfName();
-		if (prof.length() == 0) {
+		if (hasConsolidatedProfName()) {
 			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 			if (baseItem != null)
 			{
@@ -3558,6 +3557,23 @@ public final class Equipment extends PObject implements Serializable,
 			return getShieldProf().getKeyName();
 		}
 		return "";
+	}
+
+	public boolean hasConsolidatedProfName()
+	{
+		if (isWeapon())
+		{
+			return get(ObjectKey.WEAPON_PROF) != null;
+		}
+		else if (isArmor())
+		{
+			return get(ObjectKey.ARMOR_PROF) != null;
+		}
+		else if (isShield())
+		{
+			return get(ObjectKey.SHIELD_PROF) != null;
+		}
+		return false;
 	}
 
 	/**
