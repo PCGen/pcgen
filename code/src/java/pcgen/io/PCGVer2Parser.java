@@ -2553,17 +2553,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						warnings.add(msg);
 					}
 				}
-				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
-					.getSafe(ObjectKey.STACKS))
-					|| !thePC.containsAssociated(ability, appliedToKey))
+				else if (appliedToKey.length() > 0)
 				{
-					ChoiceManagerList<Object> controller = ChooserUtilities
-							.getConfiguredController(ability, thePC, category,
-									new ArrayList<String>());
-					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
-					for (String string : assoc)
+					if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
+							.getSafe(ObjectKey.STACKS))
+							|| !thePC.containsAssociated(ability, appliedToKey))
 					{
-						controller.restoreChoice(thePC, ability, string);
+						ChoiceManagerList<Object> controller = ChooserUtilities
+								.getConfiguredController(ability, thePC,
+										category, new ArrayList<String>());
+						String[] assoc = appliedToKey
+								.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							controller.restoreChoice(thePC, ability, string);
+						}
 					}
 				}
 			}
