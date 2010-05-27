@@ -610,7 +610,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		a.put(ObjectKey.INTERNAL, true);
 		context.unconditionallyProcess(a, "CHOOSE", "LANG|!PC,LANGBONUS");
 		context.unconditionallyProcess(a, "VISIBLE", "NO");
-		context.unconditionallyProcess(a, "AUTO", "LANGUAGE|%LIST");
+		context.unconditionallyProcess(a, "AUTO", "LANG|%LIST");
 		context.unconditionallyProcess(a, "MULT", "YES");
 		Globals.addAbility(a);
 	}

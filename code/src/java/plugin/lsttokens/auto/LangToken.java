@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
+public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
 {
 
@@ -51,7 +51,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String getTokenName()
 	{
-		return "LANGUAGE";
+		return "LANG";
 	}
 
 	private String getFullName()

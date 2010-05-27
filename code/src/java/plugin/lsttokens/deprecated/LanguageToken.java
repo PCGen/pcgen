@@ -44,7 +44,7 @@ public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements
 	{
 		Logging.deprecationPrint("CHOOSE:LANGUAGE has been deprecated,"
 				+ "please use CHOOSE:LANG.  "
-				+ "You may also need AUTO:LANGUAGE if used in a skill");
+				+ "You may also need AUTO:LANG if used in a skill");
 		ParseResult pr = context.processSubToken(obj, getParentToken(), "LANG",
 				"TYPE=" + value);
 		if (!pr.passed())
@@ -53,11 +53,11 @@ public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements
 		}
 		try
 		{
-			if (context.processToken(obj, "AUTO", "LANGUAGE|%LIST"))
+			if (context.processToken(obj, "AUTO", "LANG|%LIST"))
 			{
 				return ParseResult.SUCCESS;
 			}
-			return new ParseResult.Fail("Internal Error: AUTO:LANGUAGE failed");
+			return new ParseResult.Fail("Internal Error: AUTO:LANG failed");
 		}
 		catch (PersistenceLayerException e)
 		{
