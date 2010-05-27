@@ -4832,10 +4832,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	@Deprecated
-	private static WeaponProf getWeaponProf(final String aString)
+	private WeaponProf getWeaponProf(final String aString)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			WeaponProf.class, EntityEncoder.decode(aString));
+		if (wp == null)
+		{
+			final String message = "Unable to find Weapon Proficiency in Rules Data:"
+					+ aString;
+			warnings.add(message);
+		}
+		return wp;
 	}
 
 	private void checkWeaponProficiencies()
