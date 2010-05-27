@@ -2413,10 +2413,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/AutoLstToken-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/AutoLstToken-LANG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/auto/LanguageToken.class" />
+					<include name="plugin/lsttokens/auto/LangToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
