@@ -21,6 +21,7 @@ import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SpellLevel;
@@ -30,18 +31,17 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
 public class DomainListToken extends AbstractRestrictedSpellPrimitive
 {
-	private DomainSpellList spelllist;
+	private CDOMSingleRef<DomainSpellList> spelllist;
 
 	public boolean initialize(LoadContext context, Class<Spell> cl,
-		String value, String args)
+			String value, String args)
 	{
 		if (value == null)
 		{
 			return false;
 		}
-		spelllist =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					DomainSpellList.class, value);
+		spelllist = Globals.getContext().ref.getCDOMReference(
+				DomainSpellList.class, value);
 		return initialize(args);
 	}
 
@@ -52,9 +52,10 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		String source = spelllist.getQualifiedKey();
+		DomainSpellList list = spelllist.resolvesTo();
+		String source = list.getQualifiedKey();
 		for (int level : SpellLevel.levelForKey(spell, Collections
-			.singletonList(spelllist), pc))
+				.singletonList(list), pc))
 		{
 			if ((level >= 0) && allow(pc, level, source, spell))
 			{
@@ -80,7 +81,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		{
 			DomainListToken other = (DomainListToken) obj;
 			return spelllist.equals(other.spelllist)
-				&& equalsRestrictedPrimitive(other);
+					&& equalsRestrictedPrimitive(other);
 		}
 		return false;
 	}
@@ -95,7 +96,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	public CharSequence getPrimitiveLST()
 	{
 		return new StringBuilder().append(getTokenName()).append('=').append(
-			spelllist.getKeyName());
+				spelllist.getLSTformat());
 	}
 
 }
