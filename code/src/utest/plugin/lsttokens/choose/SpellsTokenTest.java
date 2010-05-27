@@ -1,4 +1,5 @@
 /*
+ * 
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -14,61 +15,34 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.skill;
+package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
+
+import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
+import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractNoRankQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Skill>
+public class SpellsTokenTest extends
+		AbstractChooseTokenTestCase<CDOMObject, Spell>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
+	static SpellsToken subtoken = new SpellsToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final NoRankToken NORANK_TOKEN = new NoRankToken();
-
-	public AbstractNoRankQualifierTokenTest()
-	{
-		super("NORANK", false);
-	}
-
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public Class<Spell> getCDOMClass()
 	{
-		super.setUp();
-		TokenRegistration.register(NORANK_TOKEN);
-	}
-
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
-
-	@Override
-	public Class<Skill> getTargetClass()
-	{
-		return Skill.class;
-	}
-
-	@Override
-	public Class<Skill> getCDOMClass()
-	{
-		return Skill.class;
+		return Spell.class;
 	}
 
 	@Override
@@ -84,9 +58,50 @@ public class AbstractNoRankQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
+	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return false;
+		return subtoken;
 	}
 
+	@Override
+	public Class<Spell> getTargetClass()
+	{
+		return Spell.class;
+	}
+
+	@Test
+	public void testEmpty()
+	{
+		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+	}
+
+	@Override
+	protected boolean allowsQualifier()
+	{
+		return true;
+	}
+
+	@Override
+	protected String getChoiceTitle()
+	{
+		return subtoken.getDefaultTitle();
+	}
+
+	@Override
+	protected QualifierToken<Spell> getPCQualifier()
+	{
+		return null;
+	}
+
+	@Override
+	protected boolean isTypeLegal()
+	{
+		return true;
+	}
+
+	@Override
+	protected boolean isAllLegal()
+	{
+		return true;
+	}
 }

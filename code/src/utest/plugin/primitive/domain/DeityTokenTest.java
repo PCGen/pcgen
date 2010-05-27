@@ -14,43 +14,43 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.skill;
+package plugin.primitive.domain;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Skill;
+import pcgen.core.Domain;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
+import plugin.lsttokens.choose.DomainToken;
+import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractRanksQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Skill>
+public class DeityTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Domain>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
+	static DomainToken subtoken = new DomainToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final RanksToken RANKS_TOKEN = new RanksToken();
+	private static final plugin.primitive.domain.DeityToken DEITY_TOKEN = new plugin.primitive.domain.DeityToken();
 
-	public AbstractRanksQualifierTokenTest()
+	public DeityTokenTest()
 	{
-		super("RANKS=4", true);
+		super("DEITY", null);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(RANKS_TOKEN);
+		TokenRegistration.register(DEITY_TOKEN);
 	}
 
 	@Override
@@ -60,15 +60,15 @@ public class AbstractRanksQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<Skill> getTargetClass()
+	public Class<Domain> getTargetClass()
 	{
-		return Skill.class;
+		return Domain.class;
 	}
 
 	@Override
-	public Class<Skill> getCDOMClass()
+	public Class<Domain> getCDOMClass()
 	{
-		return Skill.class;
+		return Domain.class;
 	}
 
 	@Override
@@ -81,12 +81,6 @@ public class AbstractRanksQualifierTokenTest extends
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
-	}
-
-	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return false;
 	}
 
 }

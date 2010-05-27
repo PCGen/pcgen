@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractSpellcasterTokenTest extends
+public class SpellcasterTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, PCClass>
 {
 
@@ -41,9 +41,9 @@ public class AbstractSpellcasterTokenTest extends
 
 	private static final SpellcasterToken SPELLCASTER_PRIMITIVE = new SpellcasterToken();
 
-	public AbstractSpellcasterTokenTest()
+	public SpellcasterTokenTest()
 	{
-		super("SPELLCASTER", null, null);
+		super("SPELLCASTER", null);
 	}
 
 	@Override

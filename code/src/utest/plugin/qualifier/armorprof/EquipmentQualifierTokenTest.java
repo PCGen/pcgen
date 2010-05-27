@@ -14,35 +14,34 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.weaponprof;
+package plugin.qualifier.armorprof;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
-import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.WeaponProficiencyToken;
+import plugin.lsttokens.choose.ArmorProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractEquipmentQualifierTokenTest extends
+public class EquipmentQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Equipment>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
+	static ArmorProficiencyToken subtoken = new ArmorProficiencyToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
+	private static final plugin.qualifier.armorprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.armorprof.EquipmentToken();
 
-	private static final plugin.qualifier.weaponprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.weaponprof.EquipmentToken();
-
-	public AbstractEquipmentQualifierTokenTest()
+	public EquipmentQualifierTokenTest()
 	{
 		super("EQUIPMENT", false);
 	}
@@ -67,9 +66,9 @@ public class AbstractEquipmentQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<ArmorProf> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return ArmorProf.class;
 	}
 
 	@Override

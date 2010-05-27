@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractCrossClassQualifierTokenTest extends
+public class NoRankQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
@@ -39,18 +39,18 @@ public class AbstractCrossClassQualifierTokenTest extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final CrossClassToken CROSSCLASS_TOKEN = new CrossClassToken();
+	private static final NoRankToken NORANK_TOKEN = new NoRankToken();
 
-	public AbstractCrossClassQualifierTokenTest()
+	public NoRankQualifierTokenTest()
 	{
-		super("CROSSCLASS", true);
+		super("NORANK", false);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(CROSSCLASS_TOKEN);
+		TokenRegistration.register(NORANK_TOKEN);
 	}
 
 	@Override

@@ -14,44 +14,43 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.shieldprof;
+package plugin.qualifier.skill;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Equipment;
-import pcgen.core.ShieldProf;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.ShieldProficiencyToken;
+import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractEquipmentQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Equipment>
+public class ExclusiveQualifierTokenTest extends
+		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static ShieldProficiencyToken subtoken = new ShieldProficiencyToken();
+	static SkillToken subtoken = new SkillToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final plugin.qualifier.shieldprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.shieldprof.EquipmentToken();
+	private static final ExclusiveToken EXCLUSIVE_TOKEN = new ExclusiveToken();
 
-	public AbstractEquipmentQualifierTokenTest()
+	public ExclusiveQualifierTokenTest()
 	{
-		super("EQUIPMENT", false);
+		super("EXCLUSIVE", true);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(EQUIPMENT_TOKEN);
+		TokenRegistration.register(EXCLUSIVE_TOKEN);
 	}
 
 	@Override
@@ -61,15 +60,15 @@ public class AbstractEquipmentQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<Equipment> getTargetClass()
+	public Class<Skill> getTargetClass()
 	{
-		return Equipment.class;
+		return Skill.class;
 	}
 
 	@Override
-	public Class<ShieldProf> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return ShieldProf.class;
+		return Skill.class;
 	}
 
 	@Override

@@ -14,45 +14,42 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.equipment;
+package plugin.primitive.spell;
 
 import java.net.URISyntaxException;
-import java.util.Arrays;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Deity;
+import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.EquipmentToken;
+import plugin.lsttokens.choose.SpellsToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractWieldTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
+public class SchoolTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
-
 	static ChooseLst token = new ChooseLst();
-	static EquipmentToken subtoken = new EquipmentToken();
+	static SpellsToken subtoken = new SpellsToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final WieldCategoryToken WIELD_PRIMITIVE = new WieldCategoryToken();
+	private static final SchoolToken SCHOOL_TOKEN = new SchoolToken();
 
-	public AbstractWieldTokenTest()
+	public SchoolTokenTest()
 	{
-		super("WIELD", "Light", Arrays.asList(new String[] { "Light.1 Handed",
-				"OneHanded" }));
+		super("SCHOOL", "SampleSchool");
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(WIELD_PRIMITIVE);
+		TokenRegistration.register(SCHOOL_TOKEN);
 	}
 
 	@Override
@@ -62,15 +59,15 @@ public class AbstractWieldTokenTest extends
 	}
 
 	@Override
-	public Class<Deity> getTargetClass()
+	public Class<Spell> getTargetClass()
 	{
-		return Deity.class;
+		return Spell.class;
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Spell> getCDOMClass()
 	{
-		return Deity.class;
+		return Spell.class;
 	}
 
 	@Override

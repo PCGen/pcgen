@@ -29,7 +29,7 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 public class AllToken extends AbstractRestrictedSpellPrimitive
 {
 	public boolean initialize(LoadContext context, Class<Spell> cl,
-		String value, String args)
+			String value, String args)
 	{
 		if (value != null)
 		{
@@ -45,8 +45,8 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				SpellLevel.getMasterLevelInfo(null, spell);
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = SpellLevel
+				.getMasterLevelInfo(null, spell);
 		levelInfo.addAllLists(pc.getPCBasedLevelInfo(spell));
 		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
@@ -63,7 +63,8 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 
 	public GroupingState getGroupingState()
 	{
-		return GroupingState.ANY;
+		return hasRestriction() ? GroupingState.ANY
+				: GroupingState.ALLOWS_INTERSECTION;
 	}
 
 	@Override

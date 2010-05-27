@@ -14,43 +14,49 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.race;
+package plugin.primitive.deity;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
+import pcgen.core.PCAlignment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.RaceToken;
+import plugin.lsttokens.choose.DeityToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractRaceTypeTokenTest extends
+public class AlignTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
 {
-
 	static ChooseLst token = new ChooseLst();
-	static RaceToken subtoken = new RaceToken();
+	static DeityToken subtoken = new DeityToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final RaceTypeToken RACETYPE_TOKEN = new RaceTypeToken();
+	private static final AlignToken ALIGN_TOKEN = new AlignToken();
 
-	public AbstractRaceTypeTokenTest()
+	public AlignTokenTest()
 	{
-		super("RACETYPE", "SampleType", null);
+		super("ALIGN", "LG");
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(RACETYPE_TOKEN);
+		PCAlignment lg = primaryContext.ref.constructCDOMObject(
+				PCAlignment.class, "Lawful Good");
+		primaryContext.ref.registerAbbreviation(lg, "LG");
+		PCAlignment slg = secondaryContext.ref.constructCDOMObject(
+				PCAlignment.class, "Lawful Good");
+		secondaryContext.ref.registerAbbreviation(slg, "LG");
+		TokenRegistration.register(ALIGN_TOKEN);
 	}
 
 	@Override
@@ -83,4 +89,14 @@ public class AbstractRaceTypeTokenTest extends
 		return token;
 	}
 
+	public void testPrimitiveIllegalSpelledOut()
+			throws PersistenceLayerException
+	{
+		doPrimitiveIllegalTarget("LawfulGood");
+	}
+
+	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
+	{
+		doPrimitiveIllegalTarget("LG.NG");
+	}
 }

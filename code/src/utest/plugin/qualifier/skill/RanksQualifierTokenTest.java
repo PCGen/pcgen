@@ -14,51 +14,43 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.deity;
+package plugin.qualifier.skill;
 
 import java.net.URISyntaxException;
-import java.util.Arrays;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Deity;
-import pcgen.core.PCAlignment;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.DeityToken;
-import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractAlignTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
+public class RanksQualifierTokenTest extends
+		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
+
 	static ChooseLst token = new ChooseLst();
-	static DeityToken subtoken = new DeityToken();
+	static SkillToken subtoken = new SkillToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final AlignToken ALIGN_TOKEN = new AlignToken();
+	private static final RanksToken RANKS_TOKEN = new RanksToken();
 
-	public AbstractAlignTokenTest()
+	public RanksQualifierTokenTest()
 	{
-		super("ALIGN", "LG", Arrays
-				.asList(new String[] { "LawfulGood", "LG.NG" }));
+		super("RANKS=4", true);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.ref.constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		primaryContext.ref.registerAbbreviation(lg, "LG");
-		PCAlignment slg = secondaryContext.ref.constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		secondaryContext.ref.registerAbbreviation(slg, "LG");
-		TokenRegistration.register(ALIGN_TOKEN);
+		TokenRegistration.register(RANKS_TOKEN);
 	}
 
 	@Override
@@ -68,15 +60,15 @@ public class AbstractAlignTokenTest extends
 	}
 
 	@Override
-	public Class<Deity> getTargetClass()
+	public Class<Skill> getTargetClass()
 	{
-		return Deity.class;
+		return Skill.class;
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return Deity.class;
+		return Skill.class;
 	}
 
 	@Override
@@ -89,6 +81,12 @@ public class AbstractAlignTokenTest extends
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected boolean allowsNotQualifier()
+	{
+		return false;
 	}
 
 }

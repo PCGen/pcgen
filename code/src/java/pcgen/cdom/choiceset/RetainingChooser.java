@@ -259,6 +259,7 @@ public class RetainingChooser<T extends CDOMObject> implements
 		{
 			gs = cs.getGroupingState().add(gs);
 		}
-		return gs.compound(GroupingState.ALLOWS_UNION);
+		return (retainingSet.size() == 1) ? gs : gs
+				.compound(GroupingState.ALLOWS_UNION);
 	}
 }

@@ -14,43 +14,42 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.deity;
+package plugin.primitive.spell;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Deity;
+import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.DeityToken;
+import plugin.lsttokens.choose.SpellsToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractPantheonTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
+public class DescriptorTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
-
 	static ChooseLst token = new ChooseLst();
-	static DeityToken subtoken = new DeityToken();
+	static SpellsToken subtoken = new SpellsToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final PantheonToken PANTHEON_TOKEN = new PantheonToken();
+	private static final DescriptorToken DESCRIPTOR_TOKEN = new DescriptorToken();
 
-	public AbstractPantheonTokenTest()
+	public DescriptorTokenTest()
 	{
-		super("PANTHEON", "Elven", null);
+		super("DESCRIPTOR", "SampleDescriptor");
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(PANTHEON_TOKEN);
+		TokenRegistration.register(DESCRIPTOR_TOKEN);
 	}
 
 	@Override
@@ -60,15 +59,15 @@ public class AbstractPantheonTokenTest extends
 	}
 
 	@Override
-	public Class<Deity> getTargetClass()
+	public Class<Spell> getTargetClass()
 	{
-		return Deity.class;
+		return Spell.class;
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Spell> getCDOMClass()
 	{
-		return Deity.class;
+		return Spell.class;
 	}
 
 	@Override

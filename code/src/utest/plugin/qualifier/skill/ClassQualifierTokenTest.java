@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractExclusiveQualifierTokenTest extends
+public class ClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
@@ -39,18 +39,18 @@ public class AbstractExclusiveQualifierTokenTest extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final ExclusiveToken EXCLUSIVE_TOKEN = new ExclusiveToken();
+	private static final ClassToken CLASS_TOKEN = new ClassToken();
 
-	public AbstractExclusiveQualifierTokenTest()
+	public ClassQualifierTokenTest()
 	{
-		super("EXCLUSIVE", true);
+		super("CLASS", true);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(EXCLUSIVE_TOKEN);
+		TokenRegistration.register(CLASS_TOKEN);
 	}
 
 	@Override

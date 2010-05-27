@@ -42,6 +42,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		if (args != null)
 		{
 			restriction = getRestriction(args);
+			return restriction != null;
 		}
 		return true;
 	}
@@ -74,8 +75,8 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			else
 			{
 				Logging.errorPrint("Unknown restriction: " + tok
-					+ " in CHOOSE:SPELLS");
-				continue;
+						+ " in CHOOSE:SPELLS");
+				return null;
 			}
 		}
 		return new Restriction(levelMin, levelMax, known);
@@ -114,20 +115,20 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	public abstract CharSequence getPrimitiveLST();
 
 	public boolean allow(PlayerCharacter pc, int level, String source,
-		Spell spell)
+			Spell spell)
 	{
 		String defaultbook = Globals.getDefaultSpellBook();
 		if (restriction != null)
 		{
 			Formula maxLevel = restriction.maxLevel;
 			if (maxLevel != null
-				&& (level > maxLevel.resolve(pc, source).intValue()))
+					&& (level > maxLevel.resolve(pc, source).intValue()))
 			{
 				return false;
 			}
 			Formula minLevel = restriction.minLevel;
 			if (minLevel != null
-				&& (level < minLevel.resolve(pc, source).intValue()))
+					&& (level < minLevel.resolve(pc, source).intValue()))
 			{
 				return false;
 			}
@@ -137,8 +138,8 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				boolean found = false;
 				for (PCClass cl : pc.getClassSet())
 				{
-					List<CharacterSpell> csl =
-							pc.getCharacterSpells(cl, spell, defaultbook, -1);
+					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell,
+							defaultbook, -1);
 					if (csl != null && !csl.isEmpty())
 					{
 						/*
@@ -161,7 +162,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	{
 		HashSet<Spell> spellSet = new HashSet<Spell>();
 		for (Spell spell : Globals.getContext().ref
-			.getConstructedCDOMObjects(SPELL_CLASS))
+				.getConstructedCDOMObjects(SPELL_CLASS))
 		{
 			if (allow(pc, spell))
 			{
@@ -172,9 +173,21 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	}
 
 	public boolean equalsRestrictedPrimitive(
-		AbstractRestrictedSpellPrimitive other)
+			AbstractRestrictedSpellPrimitive other)
 	{
-		return other == this || restriction.equals(other.restriction);
+		if (other == this)
+		{
+			return true;
+		}
+		if (restriction == null)
+		{
+			return other.restriction == null;
+		}
+		return restriction.equals(other.restriction);
 	}
 
+	public boolean hasRestriction()
+	{
+		return restriction != null;
+	}
 }

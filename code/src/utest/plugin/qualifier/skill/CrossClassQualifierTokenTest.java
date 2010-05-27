@@ -14,43 +14,43 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.domain;
+package plugin.qualifier.skill;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Domain;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.DomainToken;
-import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractDeityTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Domain>
+public class CrossClassQualifierTokenTest extends
+		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static DomainToken subtoken = new DomainToken();
+	static SkillToken subtoken = new SkillToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final plugin.primitive.domain.DeityToken DEITY_TOKEN = new plugin.primitive.domain.DeityToken();
+	private static final CrossClassToken CROSSCLASS_TOKEN = new CrossClassToken();
 
-	public AbstractDeityTokenTest()
+	public CrossClassQualifierTokenTest()
 	{
-		super("DEITY", null, null);
+		super("CROSSCLASS", true);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(DEITY_TOKEN);
+		TokenRegistration.register(CROSSCLASS_TOKEN);
 	}
 
 	@Override
@@ -60,15 +60,15 @@ public class AbstractDeityTokenTest extends
 	}
 
 	@Override
-	public Class<Domain> getTargetClass()
+	public Class<Skill> getTargetClass()
 	{
-		return Domain.class;
+		return Skill.class;
 	}
 
 	@Override
-	public Class<Domain> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return Domain.class;
+		return Skill.class;
 	}
 
 	@Override
@@ -81,6 +81,12 @@ public class AbstractDeityTokenTest extends
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected boolean allowsNotQualifier()
+	{
+		return false;
 	}
 
 }

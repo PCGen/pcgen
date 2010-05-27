@@ -14,43 +14,42 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.skill;
+package plugin.primitive.race;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Skill;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
+import plugin.lsttokens.choose.RaceToken;
+import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractClassQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Skill>
+public class RaceSubTypeTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
-
 	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
+	static RaceToken subtoken = new RaceToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final ClassToken CLASS_TOKEN = new ClassToken();
+	private static final RaceSubTypeToken RACESUBTYPE_TOKEN = new RaceSubTypeToken();
 
-	public AbstractClassQualifierTokenTest()
+	public RaceSubTypeTokenTest()
 	{
-		super("CLASS", true);
+		super("RACESUBTYPE", "SampleSubType");
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(CLASS_TOKEN);
+		TokenRegistration.register(RACESUBTYPE_TOKEN);
 	}
 
 	@Override
@@ -60,15 +59,15 @@ public class AbstractClassQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<Skill> getTargetClass()
+	public Class<Race> getTargetClass()
 	{
-		return Skill.class;
+		return Race.class;
 	}
 
 	@Override
-	public Class<Skill> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Skill.class;
+		return Race.class;
 	}
 
 	@Override
@@ -81,12 +80,6 @@ public class AbstractClassQualifierTokenTest extends
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
-	}
-
-	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return false;
 	}
 
 }

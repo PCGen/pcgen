@@ -14,42 +14,44 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.race;
+package plugin.qualifier.weaponprof;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Deity;
+import pcgen.core.Equipment;
+import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.RaceToken;
-import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.choose.WeaponProficiencyToken;
+import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractRaceSubTypeTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
+public class EquipmentQualifierTokenTest extends
+		AbstractQualifierTokenTestCase<CDOMObject, Equipment>
 {
+
 	static ChooseLst token = new ChooseLst();
-	static RaceToken subtoken = new RaceToken();
+	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
-	private static final RaceSubTypeToken RACESUBTYPE_TOKEN = new RaceSubTypeToken();
+	private static final plugin.qualifier.weaponprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.weaponprof.EquipmentToken();
 
-	public AbstractRaceSubTypeTokenTest()
+	public EquipmentQualifierTokenTest()
 	{
-		super("RACESUBTYPE", "SampleSubType", null);
+		super("EQUIPMENT", false);
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(RACESUBTYPE_TOKEN);
+		TokenRegistration.register(EQUIPMENT_TOKEN);
 	}
 
 	@Override
@@ -59,15 +61,15 @@ public class AbstractRaceSubTypeTokenTest extends
 	}
 
 	@Override
-	public Class<Deity> getTargetClass()
+	public Class<Equipment> getTargetClass()
 	{
-		return Deity.class;
+		return Equipment.class;
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<WeaponProf> getCDOMClass()
 	{
-		return Deity.class;
+		return WeaponProf.class;
 	}
 
 	@Override
@@ -80,6 +82,12 @@ public class AbstractRaceSubTypeTokenTest extends
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected boolean allowsNotQualifier()
+	{
+		return false;
 	}
 
 }

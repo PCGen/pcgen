@@ -18,7 +18,6 @@
 package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
-import java.util.List;
 
 import org.junit.Test;
 
@@ -41,15 +40,12 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	private final String prim;
 	private final String target;
 	private final String good;
-	private final List<String> illegalTargets;
 
-	protected AbstractPrimitiveTokenTestCase(String primitive, String tgt,
-			List<String> illegal)
+	protected AbstractPrimitiveTokenTestCase(String primitive, String tgt)
 	{
 		prim = primitive;
 		target = tgt;
 		good = target == null ? prim : prim + "=" + target;
-		illegalTargets = illegal;
 	}
 
 	public String getSubTokenName()
@@ -259,23 +255,23 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveIllegalTargets() throws PersistenceLayerException
+	public void doPrimitiveIllegalTarget(String illegal)
+			throws PersistenceLayerException
 	{
-		if (illegalTargets != null)
+		String primitive = prim;
+		if (illegal != null)
 		{
-			for (String illegal : illegalTargets)
-			{
-				boolean parse = parse(getSubTokenName() + '|' + "QUALIFIED["
-						+ prim + "=" + illegal + "]");
-				if (parse)
-				{
-					assertFalse(primaryContext.ref.validate(null));
-				}
-				else
-				{
-					assertNoSideEffects();
-				}
-			}
+			primitive += "=" + illegal;
+		}
+		boolean parse = parse(getSubTokenName() + '|' + "QUALIFIED["
+				+ primitive + "]");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
 		}
 	}
 

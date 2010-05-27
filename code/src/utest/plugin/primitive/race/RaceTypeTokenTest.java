@@ -14,42 +14,43 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.primitive.weaponprof;
+package plugin.primitive.race;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.WeaponProf;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.WeaponProficiencyToken;
+import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbstractDeityWeaponTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, WeaponProf>
+public class RaceTypeTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
 
 	static ChooseLst token = new ChooseLst();
-	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
+	static RaceToken subtoken = new RaceToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
-	private static final DeityWeaponToken DEITYWEAPON_TOKEN = new DeityWeaponToken();
 
-	public AbstractDeityWeaponTokenTest()
+	private static final RaceTypeToken RACETYPE_TOKEN = new RaceTypeToken();
+
+	public RaceTypeTokenTest()
 	{
-		super("DEITYWEAPON", null, null);
+		super("RACETYPE", "SampleType");
 	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(DEITYWEAPON_TOKEN);
+		TokenRegistration.register(RACETYPE_TOKEN);
 	}
 
 	@Override
@@ -59,15 +60,15 @@ public class AbstractDeityWeaponTokenTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getTargetClass()
+	public Class<Race> getTargetClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override
