@@ -109,7 +109,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				{
 					sb.append(';');
 				}
-				sb.append("MAXLEVEL=");
+				sb.append("LEVELMAX=");
 				sb.append(maxLevel);
 			}
 			if (minLevel != null)
@@ -118,7 +118,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				{
 					sb.append(';');
 				}
-				sb.append("MINLEVEL=");
+				sb.append("LEVELMIN=");
 				sb.append(minLevel);
 			}
 			return sb.toString();
