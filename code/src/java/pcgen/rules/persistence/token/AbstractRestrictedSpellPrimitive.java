@@ -94,6 +94,35 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			maxLevel = levelMax;
 			knownRequired = known;
 		}
+
+		public String getLSTformat()
+		{
+			StringBuilder sb = new StringBuilder();
+			if (knownRequired != null)
+			{
+				sb.append("KNOWN=");
+				sb.append(knownRequired.booleanValue() ? "YES" : "NO");
+			}
+			if (maxLevel != null)
+			{
+				if (sb.length() > 0)
+				{
+					sb.append(';');
+				}
+				sb.append("MAXLEVEL=");
+				sb.append(maxLevel);
+			}
+			if (minLevel != null)
+			{
+				if (sb.length() > 0)
+				{
+					sb.append(';');
+				}
+				sb.append("MINLEVEL=");
+				sb.append(minLevel);
+			}
+			return sb.toString();
+		}
 	}
 
 	public Class<Spell> getReferenceClass()
@@ -189,5 +218,11 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	public boolean hasRestriction()
 	{
 		return restriction != null;
+	}
+
+	public String getRestrictionLST()
+	{
+		return restriction == null ? ""
+				: ('[' + restriction.getLSTformat() + ']');
 	}
 }

@@ -99,7 +99,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 	public CharSequence getPrimitiveLST()
 	{
 		return new StringBuilder().append(getTokenName()).append('=').append(
-			spelltype);
+			spelltype).append(getRestrictionLST());
 	}
 
 }

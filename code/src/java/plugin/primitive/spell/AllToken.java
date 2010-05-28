@@ -91,7 +91,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public CharSequence getPrimitiveLST()
 	{
-		return getTokenName();
+		return getTokenName() + getRestrictionLST();
 	}
 
 }

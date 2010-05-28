@@ -96,7 +96,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	public CharSequence getPrimitiveLST()
 	{
 		return new StringBuilder().append(getTokenName()).append('=').append(
-				spelllist.getLSTformat());
+				spelllist.getLSTformat()).append(getRestrictionLST());
 	}
 
 }
