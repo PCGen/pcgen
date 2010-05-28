@@ -17,213 +17,17 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.StringTokenizer;
-
-import pcgen.cdom.base.BasicChooseInformation;
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
-import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.AbbreviatedCreator;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
-public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<PCStat>
+public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 {
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
-
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
-
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
-	{
-		int pipeLoc = value.indexOf('|');
-		String activeValue;
-		String title;
-		if (pipeLoc == -1)
-		{
-			activeValue = value;
-			title = getDefaultTitle();
-		}
-		else
-		{
-			String titleString = value.substring(pipeLoc + 1);
-			if (titleString.startsWith("TITLE="))
-			{
-				title = titleString.substring(6);
-				if (title.startsWith("\""))
-				{
-					title = title.substring(1, title.length() - 1);
-				}
-				activeValue = value.substring(0, pipeLoc);
-			}
-			else
-			{
-				activeValue = value;
-				title = getDefaultTitle();
-			}
-		}
-		PrimitiveChoiceSet<PCStat> pcs;
-		if (Constants.LST_ALL.equals(activeValue))
-		{
-			pcs =
-					new ReferenceChoiceSet<PCStat>(Collections
-						.singletonList(context.ref
-							.getCDOMAllReference(PCSTAT_CLASS)));
-		}
-		else
-		{
-			StringTokenizer st = new StringTokenizer(activeValue, ",");
-			Set<PCStat> set = new HashSet<PCStat>();
-			while (st.hasMoreTokens())
-			{
-				PCStat stat =
-						context.ref.getAbbreviatedObject(PCSTAT_CLASS, st
-							.nextToken());
-				if (!set.add(stat))
-				{
-					// Error (second add)
-				}
-			}
-			if (set.isEmpty())
-			{
-				return new ParseResult.Fail("Set is empty.");
-			}
-			pcs = new SimpleChoiceSet<PCStat>(set);
-		}
-
-		if (!pcs.getGroupingState().isValid())
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Invalid combination of objects was used in: "
-				+ activeValue);
-			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr
-				.addErrorMessage("  Check that a key is not joined with AND (,)");
-			return cpr;
-		}
-		ChooseInformation<PCStat> tc =
-				new BasicChooseInformation<PCStat>(getTokenName(), pcs);
-		tc.setTitle(title);
-		tc.setChoiceActor(this);
-		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
-		return ParseResult.SUCCESS;
-	}
-
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
-
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
-		if (tc == null)
-		{
-			return null;
-		}
-		if (!tc.getName().equals(getTokenName()))
-		{
-			// Don't unparse anything that isn't owned by this SecondaryToken
-			/*
-			 * TODO Either this really needs to be a check against the subtoken
-			 * (which thus needs to be stored in the ChooseInfo) or there needs
-			 * to be a loadtime check that no more than once CHOOSE subtoken
-			 * uses the same AssociationListKey... :P
-			 */
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(tc.getLSTformat());
-		String title = tc.getTitle();
-		if (!title.equals(getDefaultTitle()))
-		{
-			sb.append("|TITLE=");
-			sb.append(title);
-		}
-		return new String[]{sb.toString()};
-	}
-
-	public void applyChoice(CDOMObject owner, PCStat st, PlayerCharacter pc)
-	{
-		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				ca.applyChoice(owner, st, pc);
-			}
-		}
-	}
-
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCStat choice)
-	{
-		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				ca.removeChoice(owner, choice, pc);
-			}
-		}
-		pc.removeAssociation(owner, encodeChoice(choice));
-	}
-
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		PCStat choice)
-	{
-		pc.addAssoc(owner, getListKey(), choice);
-		pc.addAssociation(owner, encodeChoice(choice));
-	}
-
-	public List<PCStat> getCurrentlySelected(CDOMObject owner,
-		PlayerCharacter pc)
-	{
-		return pc.getAssocList(owner, getListKey());
-	}
-
-	public boolean allow(PCStat choice, PlayerCharacter pc, boolean allowStack)
-	{
-		/*
-		 * This is universally true, as any filter for qualify, etc. was dealt
-		 * with by the ChoiceSet built during parse
-		 */
-		return true;
-	}
 
 	@Override
 	public String getTokenName()
@@ -231,29 +35,40 @@ public class PCStatToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "PCSTAT";
 	}
 
+	@Override
 	protected Class<PCStat> getChooseClass()
 	{
 		return PCSTAT_CLASS;
 	}
 
+	@Override
 	protected String getDefaultTitle()
 	{
 		return "Stat choice";
 	}
 
+	@Override
 	public PCStat decodeChoice(String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			PCSTAT_CLASS, s);
+		return Globals.getContext().ref.getAbbreviatedObject(PCSTAT_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(PCStat choice)
 	{
-		return choice.getKeyName();
+		return choice.getAbb();
 	}
 
+	@Override
 	protected AssociationListKey<PCStat> getListKey()
 	{
 		return AssociationListKey.CHOOSE_PCSTAT;
 	}
+
+	@Override
+	public SelectionCreator<PCStat> getManufacturer(LoadContext context)
+	{
+		return AbbreviatedCreator.get(context, super.getManufacturer(context));
+	}
+
 }

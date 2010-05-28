@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
@@ -116,7 +117,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 				String tok = st.nextToken();
 				PrimitiveChoiceFilter<T> ref =
 						ChoiceSetLoadUtilities.getSimplePrimitive(context,
-							context.ref.getManufacturer(getChooseClass()), tok);
+							getManufacturer(context), tok);
 				if (ref == null)
 				{
 					return new ParseResult.Fail(
@@ -154,6 +155,11 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
+	}
+
+	public SelectionCreator<T> getManufacturer(LoadContext context)
+	{
+		return context.ref.getManufacturer(getChooseClass());
 	}
 
 	public Class<CDOMObject> getTokenClass()
