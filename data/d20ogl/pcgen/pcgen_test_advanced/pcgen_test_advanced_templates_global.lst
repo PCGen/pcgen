@@ -12,8 +12,8 @@ Template ~ 1 Bob Tests ~ ALL		BONUS:ABILITYPOOL|Test Choosers|3				ABILITY:FEAT|
 
 
 Template Type TEST		TYPE:TemplateTest	
-Template Test ~ Choose Persistence / TEST-2a	KEY:TEST 2a		CHOOSE:LANG|Choose Lang Persistence Template|Choose Lang Persistence Template Two	AUTO:LANGUAGE|%LIST
-Template Test ~ Choose Persistence / TEST-2b	KEY:TEST 2b		CHOOSE:LANG|Choose Lang Persistence Template|Choose Lang Persistence Template Two	AUTO:LANGUAGE|%LIST
+Template Test ~ Choose Persistence / TEST-2a	KEY:TEST 2a		CHOOSE:LANG|Choose Lang Persistence Template|Choose Lang Persistence Template Two	AUTO:LANG|%LIST
+Template Test ~ Choose Persistence / TEST-2b	KEY:TEST 2b		CHOOSE:LANG|Choose Lang Persistence Template|Choose Lang Persistence Template Two	AUTO:LANG|%LIST
 
 Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template	WEAPONBONUS:Template Weapon Test|Template Weapon Test Two
 
