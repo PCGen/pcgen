@@ -9,3 +9,36 @@ Extra Blade			TYPE:Sword
 MonKee Fu Hands		TYPE:Exotic
 Uber Sword			TYPE:Exotic.Sword
 Cool Sword			TYPE:Martial.Sword.Blade.Special
+
+
+
+
+# Deity Specific Weapons For Bob Tests
+Deity Weapon Puni			TYPE:Exotic
+Deity Weapon Second Puni	TYPE:Martial
+
+
+
+# Bob Specific Tests
+Bob Long Blade		TYPE:Bob.Exotic
+Bob Short Blade		TYPE:Bob.Exotic
+Bob Two Hand Blade	TYPE:Bob.Exotic
+#
+Jim Long Blade			TYPE:Jim.Exotic
+Jim Short Blade			TYPE:Jim.Exotic
+Jim Two Handed Blade		TYPE:Jim.Exotic
+#
+Auto Weapon Standard		TYPE:Standard.Martial
+#
+Can Have as Simple		TYPE:CanHave.Exotic
+Can Have as Simple Two		TYPE:CanHave.Exotic
+
+# Racial
+Bob Racial Weapon			TYPE:Racial.Martial
+Bob Racial Weapon Two		TYPE:Racial
+
+
+Longsword				TYPE:Martial
+
+Template Weapon Test		TYPE:Exotic
+Template Weapon Test Two	TYPE:Exotic

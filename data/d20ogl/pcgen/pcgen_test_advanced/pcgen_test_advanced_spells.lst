@@ -3,3 +3,7 @@ Fireball	CLASSES:MonKee=1	SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:Dan
 
 Identify												CLASSES:MonKee=1		DOMAINS:Foo Ball=2			SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V, S, M/DF				CASTTIME:1 hour					RANGE:Touch					TARGETAREA:One touched object																											DURATION:Instantaneous					SAVEINFO:None										SPELLRES:No								COST:100	DESC:Determines properties of magic item.																																																																																																																																																																																																									SOURCEPAGE:SpellsH-L.rtf
 Magic Missile									CLASSES:MonKee=1										SCHOOL:Evocation							DESCRIPTOR:Force			TYPE:Arcane			COMPS:V, S				CASTTIME:1 standard action	RANGE:Medium			ITEM:Potion	TARGETAREA:Up to five creatures, no two of which can be more than 15 ft. apart							DURATION:Instantaneous												SAVEINFO:None									SPELLRES:Yes						DESC:(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.																																																																								SOURCEPAGE:SpellsM-O.rtf
+
+
+
+Spell Control DC		TYPE:Arcane.Divine	DESC:DC should be 11	SAVEINFO:Fort Half	SPELLRES:NO

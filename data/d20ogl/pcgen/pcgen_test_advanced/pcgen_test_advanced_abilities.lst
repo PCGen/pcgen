@@ -87,7 +87,13 @@ Bob Test TYPEs ~  SPELLS					CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob Test TYPEs ~  TEMPLATE					CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob Test TYPEs ~  WEAPONPROF					CATEGORY:Special Ability	TYPE:SpecialQuality
 
+#
+Bob Ability ~ Weapon  Auto Weapon Standard	AUTO:WEAPONPROF|Auto Weapon Standard	CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional
+Bob Ability ~ Weapon  Deityweapon			AUTO:WEAPONPROF|DEITYWEAPONS			CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional
+Bob Ability ~ Weapon  TYPE Simple			AUTO:WEAPONPROF|TYPE=Simple			CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional
+Bob Ability ~ Weapon  TYPE Bob			AUTO:WEAPONPROF|TYPE=Bob			CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional
 
+Bob Ability ~ TEST~7  SR Assigned via Companion Mod	DEFINE:CompanionLVL|1+TL	FOLLOWERS:Companion Mod|1	COMPANIONLIST:Companion Mod|Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional	DESC:THis grants a single Companion to test the SR being applied from a Companion to the Master.
 
 
 

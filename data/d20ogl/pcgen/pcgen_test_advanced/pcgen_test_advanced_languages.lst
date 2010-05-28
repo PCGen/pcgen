@@ -16,3 +16,9 @@ LangBonusTwo			TYPE:Spoken.Read.Written
 
 
 Common				TYPE:Spoken.Read.Written
+
+Choose Lang Persistence Race			TYPE:Other
+Choose Lang Persistence Race Two		TYPE:Other
+
+Choose Lang Persistence Template		TYPE:Other
+Choose Lang Persistence Template Two	TYPE:Other

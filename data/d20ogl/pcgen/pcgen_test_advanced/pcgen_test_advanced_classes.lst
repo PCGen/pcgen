@@ -52,3 +52,16 @@ CLASS:Basic Fighter	CSKILL:TYPE.TestSkills	STARTSKILLPTS:2
 1	AUTO:FEAT|Simple Weapon Proficiency		AUTO:WEAPONPROF|Extra Blade
 
 
+CLASS:PreReq Class	HD:4
+CLASS:PreReq Class	PRERACE:1,Hughpert Case Won
+1	SAB:You shouldn't have this unless you are Hughpert Case Won Race
+2	SAB:You are Second Level and shouldn't be
+
+CLASS:PreReq Class Two	HD:4
+CLASS:PreReq Class Two	PREVARLT:1,CL
+1	SAB:How'd you manage this?
+
+
+
+CLASS:Test Spell DC	HD:4
+1	SPELLS:Not Innate|CASTERLEVEL=1|Spell Control DC,11

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
 RANK:1
-GAMEMODE:35e|MSRD|3e|Modern
+GAMEMODE:35e|MSRD|3e|Modern|Pathfinder
 #COMMENT: Will need to break it out into each gamemode eventually
 
 GENRE:Any
@@ -24,7 +24,7 @@ ABILITYCATEGORY:pcgen_test_advanced_ability_categories.lst
 CLASS:pcgen_test_advanced_classes.lst
 
 
-#COMPANIONMOD:pcgen_test_advanced_companionmods.lst
+COMPANIONMOD:pcgen_test_advanced_companionmods.lst
 DEITY:pcgen_test_advanced_deities.lst
 DOMAIN:pcgen_test_advanced_domains.lst
 
@@ -33,7 +33,7 @@ EQUIPMOD:pcgen_test_advanced_equipmods.lst
 
 FEAT:pcgen_test_advanced_feats.lst
 
-#KIT:pcgen_test_advanced_kits.lst
+KIT:pcgen_test_advanced_kits.lst
 
 LANGUAGE:pcgen_test_advanced_languages.lst
 
