@@ -32,7 +32,6 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
-import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
@@ -140,7 +139,7 @@ public final class AssociationListKey<T>
 	
 	public static final AssociationListKey<WeaponProf> CHOOSE_WEAPONPROFICIENCY = new AssociationListKey<WeaponProf>();
 
-	public static final AssociationListKey<AbilitySelection> CHOOSE_FEAT = new AssociationListKey<AbilitySelection>();
+	public static final AssociationListKey<Ability> CHOOSE_FEAT = new AssociationListKey<Ability>();
 
 	public static final AssociationListKey<Deity> CHOOSE_DEITY = new AssociationListKey<Deity>();
 
@@ -152,7 +151,7 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<PCClass> CHOOSE_CLASS = new AssociationListKey<PCClass>();
 
-	public static final AssociationListKey<AbilitySelection> CHOOSE_ABILITY = new AssociationListKey<AbilitySelection>();
+	public static final AssociationListKey<Ability> CHOOSE_ABILITY = new AssociationListKey<Ability>();
 
 	public static final AssociationListKey<SpellSchool> CHOOSE_SCHOOL = new AssociationListKey<SpellSchool>();
 

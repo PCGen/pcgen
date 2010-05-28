@@ -18,21 +18,25 @@
 package plugin.lsttokens.choose;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.cdom.base.AbilityChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -41,7 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
 
 public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<AbilitySelection>
+		PersistentChoiceActor<Ability>
 {
 
 	public String getParentToken()
@@ -148,8 +152,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[]{sb.toString()};
 	}
 
-	public void applyChoice(CDOMObject owner, AbilitySelection st,
-		PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Ability st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
 		List<ChooseSelectionActor<?>> actors =
@@ -164,7 +167,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+			Ability choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors =
@@ -180,19 +183,19 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+			Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<Ability> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(Ability choice, PlayerCharacter pc,
 		boolean allowStack)
 	{
 		/*
@@ -253,19 +256,49 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<AbilitySelection> getListKey()
+	protected AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.CHOOSE_ABILITY;
 	}
 
-	public AbilitySelection decodeChoice(String s)
+	public Ability decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		StringTokenizer st = new StringTokenizer(s, Constants.PIPE);
+		String catString = st.nextToken();
+		if (!catString.startsWith("CATEGORY="))
+		{
+			throw new IllegalArgumentException(
+					"String in getAbilitySelectionFromPersistentFormat "
+							+ "must start with CATEGORY=, found: " + s);
+		}
+		String cat = catString.substring(9);
+		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
+		if (ac == null)
+		{
+			throw new IllegalArgumentException(
+					"Category in getAbilitySelectionFromPersistentFormat "
+							+ "must exist found: " + cat);
+		}
+		String ab = st.nextToken();
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, ac, ab);
+		if (a == null)
+		{
+			throw new IllegalArgumentException(
+					"Third argument in String in getAbilitySelectionFromPersistentFormat "
+							+ "must be an Ability, but it was not found: " + s);
+		}
+		return a;
 	}
 
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(Ability choice)
 	{
-		return choice.getPersistentFormat();
+		StringBuilder sb = new StringBuilder();
+		sb.append("CATEGORY=");
+		sb.append(choice.getCategory());
+		sb.append('|');
+		sb.append(choice.getKeyName());
+		return sb.toString();
 	}
 
 }

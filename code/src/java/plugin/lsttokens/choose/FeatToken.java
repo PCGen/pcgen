@@ -28,10 +28,10 @@ import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -40,7 +40,7 @@ import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Ability>
 {
 
 	public String getParentToken()
@@ -55,7 +55,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
+			ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		String activeValue;
@@ -93,15 +93,14 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
-				+ activeValue);
+					+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
 			cpr
-				.addErrorMessage("  Check that a key is not joined with AND (,)");
+					.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		AbilityChooseInformation tc =
-				new AbilityChooseInformation(getTokenName(),
-					AbilityCategory.FEAT, pcs);
+		AbilityChooseInformation tc = new AbilityChooseInformation(
+				getTokenName(), AbilityCategory.FEAT, pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -110,9 +109,8 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo,
+				ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -131,7 +129,8 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+					+ " was used in: " + getParentToken() + ":"
+					+ getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -142,15 +141,14 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			sb.append("|TITLE=");
 			sb.append(title);
 		}
-		return new String[]{sb.toString()};
+		return new String[] { sb.toString() };
 	}
 
-	public void applyChoice(CDOMObject owner, AbilitySelection st,
-		PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Ability st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner
+				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -161,11 +159,11 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+			Ability choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner
+				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -177,20 +175,19 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+			Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
-		PlayerCharacter pc)
+	public List<Ability> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
-		boolean allowStack)
+	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -209,20 +206,20 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	@Override
 	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+			CDOMObject obj, String value)
 	{
 		if (isEmpty(value))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 		}
 		if (hasIllegalSeparator('|', value))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " has invalid placement of '|'");
+					+ " has invalid placement of '|'");
 		}
 		return parseTokenWithSeparator(context, context.ref.getManufacturer(
-			ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
+				ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
 	}
 
 	public Class<CDOMObject> getTokenClass()
@@ -235,19 +232,20 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<AbilitySelection> getListKey()
+	protected AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.CHOOSE_FEAT;
 	}
 
-	public AbilitySelection decodeChoice(String s)
+	public Ability decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.FEAT, s);
 	}
 
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(Ability choice)
 	{
-		return choice.getPersistentFormat();
+		return choice.getKeyName();
 	}
 
 }

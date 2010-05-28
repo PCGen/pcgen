@@ -17,13 +17,10 @@
  */
 package pcgen.cdom.base;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
@@ -39,7 +36,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  */
 public class AbilityChooseInformation implements
-		ChooseInformation<AbilitySelection>
+		ChooseInformation<Ability>
 {
 
 	/**
@@ -64,7 +61,7 @@ public class AbilityChooseInformation implements
 	 * The PersistentChoiceActor (optional) which will act upon any choices made
 	 * from this PersistentTransitionChoice.
 	 */
-	private PersistentChoiceActor<AbilitySelection> choiceActor;
+	private PersistentChoiceActor<Ability> choiceActor;
 
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
@@ -110,9 +107,9 @@ public class AbilityChooseInformation implements
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<AbilitySelection> ca)
+	public void setChoiceActor(ChoiceActor<Ability> ca)
 	{
-		choiceActor = (PersistentChoiceActor<AbilitySelection>) ca;
+		choiceActor = (PersistentChoiceActor<Ability>) ca;
 	}
 
 	/**
@@ -131,7 +128,7 @@ public class AbilityChooseInformation implements
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(Ability choice)
 	{
 		return choiceActor.encodeChoice(choice);
 	}
@@ -151,12 +148,12 @@ public class AbilityChooseInformation implements
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public AbilitySelection decodeChoice(String persistenceFormat)
+	public Ability decodeChoice(String persistenceFormat)
 	{
 		return choiceActor.decodeChoice(persistenceFormat);
 	}
 
-	public PersistentChoiceActor<AbilitySelection> getChoiceActor()
+	public PersistentChoiceActor<Ability> getChoiceActor()
 	{
 		return choiceActor;
 	}
@@ -215,9 +212,9 @@ public class AbilityChooseInformation implements
 	 * 
 	 * @return the Class contained within this ChoiceSet
 	 */
-	public Class<AbilitySelection> getChoiceClass()
+	public Class<Ability> getChoiceClass()
 	{
-		return AbilitySelection.class;
+		return Ability.class;
 	}
 
 	/**
@@ -230,16 +227,9 @@ public class AbilityChooseInformation implements
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
-	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
+	public Collection<Ability> getSet(PlayerCharacter pc)
 	{
-		Collection<Ability> ab = pcs.getSet(pc);
-		List<AbilitySelection> list =
-				new ArrayList<AbilitySelection>(ab.size());
-		for (Ability a : ab)
-		{
-			list.add(new AbilitySelection(a, Nature.NORMAL));
-		}
-		return list;
+		return Collections.unmodifiableCollection(pcs.getSet(pc));
 	}
 
 	/**
@@ -294,7 +284,7 @@ public class AbilityChooseInformation implements
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+			Ability choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
