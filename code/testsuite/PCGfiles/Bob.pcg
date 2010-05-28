@@ -12,7 +12,7 @@ TABLABEL:0
 AUTOSPELLS:Y
 USEHIGHERKNOWN:N
 USEHIGHERPREPPED:N
-LOADCOMPANIONS:N
+LOADCOMPANIONS:Y
 USETEMPMODS:Y
 AUTOSORTGEAR:Y
 SKILLSOUTPUTORDER:0
@@ -68,6 +68,7 @@ EXPERIENCE:1000
 TEMPLATESAPPLIED:[NAME:Template A]
 TEMPLATESAPPLIED:[NAME:Template ~ 1 Bob Tests ~ ALL]
 TEMPLATESAPPLIED:[NAME:Template Type TEST]
+TEMPLATESAPPLIED:[NAME:Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template]
 
 # Character Region
 REGION:None
@@ -91,7 +92,7 @@ SKILL:Test Crafting|OUTPUTORDER:15|
 SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:16|
 
 # Character Languages
-LANGUAGE:Terestial Alpha|LANGUAGE:Common|LANGUAGE:Evilhaasness
+LANGUAGE:Evilhaasness|LANGUAGE:Common|LANGUAGE:Terestial Alpha
 
 # Character Feats
 FEATPOOL:-2.0
@@ -100,8 +101,8 @@ FEATPOOL:-2.0
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:MonKee 1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability F|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spells Monkee|APPLIEDTO:Identify|TYPE:General.Tests.BobTest
 USERPOOL:FEAT|POOLPOINTS:0.0
@@ -116,10 +117,14 @@ USERPOOL:Force Techniques|POOLPOINTS:0.0
 USERPOOL:Force Secrets|POOLPOINTS:0.0
 ABILITY:Test Choosers|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bob Test ~ Bonus Var in a Chooser|APPLIEDTO:,,|TYPE:BobTest.Test.Chooser.SpecialQuality|DESC:Bonus Var should be outputting 3 (ability taken three times) var number is showing %1&pipe;BonusVarTest
 USERPOOL:Test Choosers|POOLPOINTS:0.0
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
-WEAPONPROF:[WEAPON:Extra Blade|WEAPON:Fine Wine Blade|WEAPON:Suns Weapon Of Choice|WEAPON:Uber Sword|WEAPON:Unarmed Strike]
-WEAPONPROF:[WEAPON:Fine Wine Blade]|SOURCE:[TYPE:DOMAIN|NAME:Bar Ball]
+WEAPONPROF:[WEAPON:Auto Weapon Standard|WEAPON:Bob Long Blade|WEAPON:Bob Racial Weapon|WEAPON:Bob Short Blade|WEAPON:Bob Two Hand Blade|WEAPON:Deity Weapon Puni|WEAPON:Deity Weapon Second Puni|WEAPON:Extra Blade|WEAPON:Fine Wine Blade|WEAPON:Jim Long Blade]
+WEAPONPROF:[WEAPON:Jim Short Blade|WEAPON:Jim Two Handed Blade|WEAPON:Longsword|WEAPON:Suns Weapon Of Choice|WEAPON:Template Weapon Test|WEAPON:Uber Sword|WEAPON:Unarmed Strike]
+WEAPONPROF:[WEAPON:Bob Racial Weapon]|SOURCE:[TYPE:RACE|NAME:Human]
+WEAPONPROF:[WEAPON:Template Weapon Test]|SOURCE:[TYPE:PCTEMPLATE|NAME:Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template]
 
 # Character Equipment
 MONEY:0
@@ -133,8 +138,8 @@ CALCEQUIPSET:0.1
 # EquipSet Temp Bonuses
 
 # Character Deity/Domain
-DEITY:Puni Deity|DEITYDOMAINS:[DOMAIN:Bar Ball|DOMAIN:Foo Ball|DOMAIN:Dungeon Crawl]|ALIGNALLOW:|HOLYITEM:Wine with Sword|DEITYFAVWEAP:[WEAPON:Fine Wine Blade]|DEITYALIGN:Lawful Neutral
-DOMAIN:Bar Ball|ASSOCIATEDDATA:FEAT?Weapon Focus(Fine Wine Blade)|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
+DEITY:Puni Deity|DEITYDOMAINS:[DOMAIN:Bar Ball|DOMAIN:Foo Ball|DOMAIN:Dungeon Crawl]|ALIGNALLOW:|HOLYITEM:Wine with Sword|DEITYFAVWEAP:[WEAPON:Fine Wine Blade|WEAPON:Deity Weapon Second Puni|WEAPON:Deity Weapon Puni]|DEITYALIGN:Lawful Neutral
+DOMAIN:Bar Ball|ASSOCIATEDDATA:Fine Wine Blade|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 
 # Character Spells Information
 
@@ -149,6 +154,7 @@ CHARACTERDMNOTES:
 # Kits
 
 # Character Master/Follower
+FOLLOWER:Companion Mod|TYPE:Companion Mod|RACE:COMPANION|HITDICE:0|FILE:\Bob Companion.pcg
 
 # Character Notes Tab
 NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
