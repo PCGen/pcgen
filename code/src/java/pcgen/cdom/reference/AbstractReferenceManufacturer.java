@@ -743,6 +743,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			throw new IllegalArgumentException(val);
 		}
+		if (val.equals("%LIST"))
+		{
+			throw new IllegalArgumentException(val);
+		}
 		if (refClass.equals(PCClass.class))
 		{
 			if (val.startsWith("CLASS"))
