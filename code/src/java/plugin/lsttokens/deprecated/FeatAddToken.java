@@ -17,16 +17,18 @@
  */
 package plugin.lsttokens.deprecated;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
-public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -40,31 +42,69 @@ public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
-		Logging.deprecationPrint("CHOOSE:FEATADD has been deprecated,"
-				+ "please use CHOOSE:FEAT| and FEAT|%LIST");
-		try
+		if (value == null)
 		{
-			boolean res = context.processToken(obj, "ADD", "FEAT|%LIST");
-			if (!res)
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " requires additional arguments");
+		}
+		if (value.indexOf(',') != -1)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " arguments may not contain , : " + value);
+		}
+		if (value.indexOf('[') != -1)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " arguments may not contain [] : " + value);
+		}
+		if (value.charAt(0) == '|')
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " arguments may not start with | : " + value);
+		}
+		if (value.charAt(value.length() - 1) == '|')
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " arguments may not end with | : " + value);
+		}
+		if (value.indexOf("||") != -1)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " arguments uses double separator || : " + value);
+		}
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			String tokString = st.nextToken();
+			int equalsLoc = tokString.indexOf("=");
+			if (equalsLoc == tokString.length() - 1)
 			{
-				Logging
-						.deprecationPrint("Error in conversion, FEAT|%LIST failed");
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("CHOOSE:" + getTokenName()
+						+ " arguments must have value after = : " + tokString);
+				cpr.addErrorMessage("  entire token was: " + value);
+				return cpr;
 			}
 		}
-		catch (PersistenceLayerException e)
-		{
-			Logging
-					.deprecationPrint("Error in conversion, FEAT|%LIST failed with exception: "
-							+ e.getLocalizedMessage());
-		}
-		return context.processSubToken(obj, "CHOOSE", "FEAT", value);
+		StringBuilder sb = new StringBuilder();
+		sb.append(getTokenName()).append('|').append(value);
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return null;
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null
+				|| chooseString.indexOf(getTokenName() + '|') != 0)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
 	}
 
 	public Class<CDOMObject> getTokenClass()
