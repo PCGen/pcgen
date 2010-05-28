@@ -27,7 +27,6 @@ import java.util.TreeSet;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
@@ -72,11 +71,11 @@ public final class TokenLibrary
 		// Don't instantiate utility class
 	}
 
-	public static <T extends CDOMObject> PrimitiveToken<T> getPrimitive(SelectionCreator<T> sc,
-			String tokKey)
+	public static <T> PrimitiveToken<T> getPrimitive(
+			Class<T> cl, String tokKey)
 	{
 		for (Iterator<PrimitiveToken<T>> it = new PrimitiveTokenIterator<T, PrimitiveToken<T>>(
-				sc.getReferenceClass(), tokKey); it.hasNext();)
+				cl, tokKey); it.hasNext();)
 		{
 			return it.next();
 		}
@@ -390,7 +389,7 @@ public final class TokenLibrary
 		}
 	}
 
-	static class PrimitiveTokenIterator<C extends CDOMObject, T extends PrimitiveToken<? super C>>
+	static class PrimitiveTokenIterator<C, T extends PrimitiveToken<? super C>>
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 		public PrimitiveTokenIterator(Class<C> cl, String key)

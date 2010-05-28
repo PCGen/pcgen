@@ -154,7 +154,7 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<AbilitySelection> CHOOSE_ABILITY = new AssociationListKey<AbilitySelection>();
 
-	public static final AssociationListKey<String> CHOOSE_SCHOOL = new AssociationListKey<String>();
+	public static final AssociationListKey<SpellSchool> CHOOSE_SCHOOL = new AssociationListKey<SpellSchool>();
 
 	public static final AssociationListKey<String> CHOOSE_STRING = new AssociationListKey<String>();
 

@@ -1,9 +1,12 @@
 package pcgen.util.enumeration;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.core.spell.Spell;
 
 public enum ProhibitedSpellType
@@ -39,7 +42,16 @@ public enum ProhibitedSpellType
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
-			return s.getSafeListFor(ListKey.SPELL_SCHOOL);
+			/*
+			 * Long method for now
+			 * TODO Clean up
+			 */
+			List<String> list = new ArrayList<String>();
+			for (SpellSchool ss : s.getSafeListFor(ListKey.SPELL_SCHOOL))
+			{
+				list.add(ss.toString());
+			}
+			return list;
 		}
 		@Override
 		public int getRequiredCount(Collection<String> l)

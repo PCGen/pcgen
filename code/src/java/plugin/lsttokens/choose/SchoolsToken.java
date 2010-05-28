@@ -17,10 +17,12 @@
  */
 package plugin.lsttokens.choose;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
@@ -28,15 +30,20 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.choiceset.CompoundOrChoiceSet;
+import pcgen.cdom.choiceset.RetainingChooser;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities.PrimitiveInfo;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
@@ -45,8 +52,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class SchoolsToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PrimitiveChoiceSet<String>,
-		PersistentChoiceActor<String>
+		CDOMSecondaryToken<CDOMObject>, PrimitiveChoiceSet<SpellSchool>,
+		PersistentChoiceActor<SpellSchool>
 {
 
 	@Override
@@ -101,7 +108,7 @@ public class SchoolsToken extends AbstractToken implements
 				title = getDefaultTitle();
 			}
 		}
-		PrimitiveChoiceSet<String> pcs;
+		PrimitiveChoiceSet<SpellSchool> pcs;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
 			pcs = this;
@@ -113,7 +120,10 @@ public class SchoolsToken extends AbstractToken implements
 				return ParseResult.INTERNAL_ERROR;
 			}
 			StringTokenizer st = new StringTokenizer(activeValue, "|");
-			HashSet<String> set = new HashSet<String>();
+			Set<SpellSchool> set = new TreeSet<SpellSchool>();
+			RetainingChooser<SpellSchool> ret = new RetainingChooser<SpellSchool>(
+					SpellSchool.class, SpellSchool.getContainer());
+
 			while (st.hasMoreTokens())
 			{
 				String tok = st.nextToken();
@@ -123,17 +133,52 @@ public class SchoolsToken extends AbstractToken implements
 							"Error, Found ALL and individual items while parsing "
 									+ getTokenName());
 				}
-				if (!set.add(tok))
+				PrimitiveInfo pi = ChoiceSetLoadUtilities.getPrimitiveInfo(tok);
+				if (pi == null)
 				{
-					return new ParseResult.Fail("Error, Found item: " + tok
-							+ " twice while parsing " + getTokenName());
+					return new ParseResult.Fail("Error, Did not understand : "
+							+ tok + " while parsing " + getTokenName());
+				}
+				PrimitiveChoiceFilter<SpellSchool> prim = ChoiceSetLoadUtilities
+						.getTokenPrimitive(context, SpellSchool.class, pi);
+				if (prim == null)
+				{
+					if (!set.add(SpellSchool.getConstant(tok)))
+					{
+						return new ParseResult.Fail("Error, Found item: " + tok
+								+ " twice while parsing " + getTokenName());
+					}
+				}
+				else
+				{
+					ret.addRetainingChoiceFilter(prim);
 				}
 			}
-			if (set.isEmpty())
+			if (ret.getGroupingState().isValid())
+			{
+				if (set.isEmpty())
+				{
+					pcs = ret;
+				}
+				else
+				{
+					SimpleChoiceSet<SpellSchool> scs = new SimpleChoiceSet<SpellSchool>(
+							set, Constants.PIPE);
+					List<PrimitiveChoiceSet<SpellSchool>> list = new ArrayList<PrimitiveChoiceSet<SpellSchool>>();
+					list.add(scs);
+					list.add(ret);
+					pcs = new CompoundOrChoiceSet<SpellSchool>(list,
+							Constants.PIPE);
+				}
+			}
+			else if (set.isEmpty())
 			{
 				return new ParseResult.Fail("No items in set.");
 			}
-			pcs = new SimpleChoiceSet<String>(set, Constants.PIPE);
+			else
+			{
+				pcs = new SimpleChoiceSet<SpellSchool>(set, Constants.PIPE);
+			}
 		}
 
 		if (!pcs.getGroupingState().isValid())
@@ -141,12 +186,11 @@ public class SchoolsToken extends AbstractToken implements
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
 					+ activeValue);
-			cpr.addErrorMessage("  Check that ALL is not combined");
 			cpr
-					.addErrorMessage("  Check that a key is not joined with AND (,)");
+					.addErrorMessage("  Check that ALL is not combined with other items");
 			return cpr;
 		}
-		ChooseInformation<String> tc = new BasicChooseInformation<String>(
+		ChooseInformation<SpellSchool> tc = new BasicChooseInformation<SpellSchool>(
 				getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
@@ -189,9 +233,9 @@ public class SchoolsToken extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public Class<? super String> getChoiceClass()
+	public Class<? super SpellSchool> getChoiceClass()
 	{
-		return String.class;
+		return SpellSchool.class;
 	}
 
 	public GroupingState getGroupingState()
@@ -204,22 +248,23 @@ public class SchoolsToken extends AbstractToken implements
 		return "ALL";
 	}
 
-	public Collection<String> getSet(PlayerCharacter pc)
+	public Collection<SpellSchool> getSet(PlayerCharacter pc)
 	{
-		return SettingsHandler.getGame().getUnmodifiableSchoolsList();
+		return SpellSchool.getAllConstants();
 	}
 
-	public String decodeChoice(String s)
+	public SpellSchool decodeChoice(String s)
 	{
-		return s;
+		return SpellSchool.getConstant(s);
 	}
 
-	public String encodeChoice(String choice)
+	public String encodeChoice(SpellSchool choice)
 	{
-		return choice;
+		return choice.toString();
 	}
 
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			SpellSchool choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_SCHOOL, choice);
 		List<ChooseSelectionActor<?>> actors = owner
@@ -234,18 +279,20 @@ public class SchoolsToken extends AbstractToken implements
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			String choice)
+			SpellSchool choice)
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_SCHOOL, choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
-	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(SpellSchool choice, PlayerCharacter pc,
+			boolean allowStack)
 	{
 		return true;
 	}
 
-	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, SpellSchool choice,
+			PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
 		List<ChooseSelectionActor<?>> actors = owner
@@ -259,13 +306,13 @@ public class SchoolsToken extends AbstractToken implements
 		}
 	}
 
-	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,
-			ChooseSelectionActor<String> ca)
+	private void applyChoice(CDOMObject owner, SpellSchool st,
+			PlayerCharacter pc, ChooseSelectionActor<SpellSchool> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
-	public List<String> getCurrentlySelected(CDOMObject owner,
+	public List<SpellSchool> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_SCHOOL);

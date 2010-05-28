@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.choiceset.ObjectContainer;
 
 /**
  * A CDOMGroupRef is a CDOMReference which is intended to contain more than one
@@ -29,7 +30,7 @@ import pcgen.cdom.base.PrereqObject;
  *            The Class of the underlying objects contained by this CDOMGroupRef
  */
 public abstract class CDOMGroupRef<T extends PrereqObject> extends
-		CDOMReference<T>
+		CDOMReference<T> implements ObjectContainer<T>
 {
 
 	/**

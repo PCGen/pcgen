@@ -24,7 +24,6 @@ import org.junit.Test;
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.base.PersistentChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;

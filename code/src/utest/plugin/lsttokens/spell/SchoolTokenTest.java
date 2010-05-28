@@ -20,13 +20,15 @@ package plugin.lsttokens.spell;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SchoolTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
+public class SchoolTokenTest extends
+		AbstractTypeSafeListTestCase<Spell, SpellSchool>
 {
 
 	static SchoolToken token = new SchoolToken();
@@ -52,9 +54,9 @@ public class SchoolTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	}
 
 	@Override
-	public String getConstant(String string)
+	public SpellSchool getConstant(String string)
 	{
-		return string;
+		return SpellSchool.getConstant(string);
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class SchoolTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	}
 
 	@Override
-	public ListKey<String> getListKey()
+	public ListKey<SpellSchool> getListKey()
 	{
 		return ListKey.SPELL_SCHOOL;
 	}

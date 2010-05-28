@@ -22,6 +22,8 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -37,6 +39,7 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 
 	static ChooseLst token = new ChooseLst();
 	static SchoolsToken subtoken = new SchoolsToken();
+	static plugin.primitive.pobject.FeatToken<?> featprim = new plugin.primitive.pobject.FeatToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
@@ -45,6 +48,7 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 	{
 		super.setUp();
 		TokenRegistration.register(subtoken);
+		TokenRegistration.register(featprim);
 	}
 
 	@Override
@@ -93,6 +97,18 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
 		runRoundRobin("SCHOOLS|ALL");
+	}
+
+	@Test
+	public void testRoundRobinFeat() throws PersistenceLayerException
+	{
+		Ability ss = primaryContext.ref.constructCDOMObject(Ability.class,
+				"School Stuff");
+		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
+		ss = secondaryContext.ref.constructCDOMObject(Ability.class,
+				"School Stuff");
+		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
+		runRoundRobin("SCHOOLS|FEAT=School Stuff");
 	}
 
 	@Test

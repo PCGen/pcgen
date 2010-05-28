@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -857,9 +858,9 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							primaryMatch = spell.isType(primaryNode.toString());
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
+							SpellSchool ss = SpellSchool.getConstant(primaryNode.toString());
 							primaryMatch =
-									spell.containsInList(ListKey.SPELL_SCHOOL, 
-										primaryNode.toString());
+									spell.containsInList(ListKey.SPELL_SCHOOL, ss);
 							break;
 					}
 
@@ -962,11 +963,10 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								spellMatch = primaryMatch;
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
+								SpellSchool ss = SpellSchool.getConstant(secondaryNodes[sindex].toString());
 								spellMatch =
 										primaryMatch
-											&& spell.containsInList(ListKey.SPELL_SCHOOL,
-												secondaryNodes[sindex]
-													.toString());
+											&& spell.containsInList(ListKey.SPELL_SCHOOL, ss);
 								break;
 						}
 						if (firstPass

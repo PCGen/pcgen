@@ -22,6 +22,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
@@ -71,8 +72,9 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 			}
 			else
 			{
+				SpellSchool ss = SpellSchool.getConstant(tokString);
 				context.getObjectContext().addToList(spell,
-						ListKey.SPELL_SCHOOL, tokString);
+						ListKey.SPELL_SCHOOL, ss);
 				SettingsHandler.getGame().addToSchoolList(tokString);
 			}
 			first = false;
@@ -82,7 +84,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
+		Changes<SpellSchool> changes = context.getObjectContext().getListChanges(
 				spell, ListKey.SPELL_SCHOOL);
 		if (changes == null || changes.isEmpty())
 		{

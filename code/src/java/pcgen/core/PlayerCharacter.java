@@ -86,6 +86,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
@@ -6224,10 +6225,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		 * This wraps in TreeSet because it looks to me like this is ordered
 		 * (given .RESET)
 		 */
-		for (String school : new TreeSet<String>(aSpell
+		for (SpellSchool school : new TreeSet<SpellSchool>(aSpell
 			.getSafeListFor(ListKey.SPELL_SCHOOL)))
 		{
-			tStr = "SCHOOL." + school;
+			tStr = "SCHOOL." + school.toString();
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus != 0) // Allow negative bonus to casterlevel
@@ -7202,8 +7203,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					final Spell aSpell = cs.getSpell();
 
+					SpellSchool ss = SpellSchool.getConstant(school);
+
 					if ((school.length() == 0)
-						|| aSpell.containsInList(ListKey.SPELL_SCHOOL, school)
+						|| aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
 						|| (subschool.length() == 0)
 						|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL,
 							subschool)
@@ -14485,9 +14488,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (String aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
+		for (SpellSchool aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
-			dc += (int) getTotalBonusTo("DC", "SCHOOL." + aType);
+			dc += (int) getTotalBonusTo("DC", "SCHOOL." + aType.toString());
 		}
 
 		for (String aType : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))

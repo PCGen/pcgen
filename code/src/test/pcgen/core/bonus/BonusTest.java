@@ -29,6 +29,7 @@ import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
@@ -194,7 +195,8 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		Spell sp = new Spell();
 		sp.setName("Test");
-		sp.addToListFor(ListKey.SPELL_SCHOOL, "INFUSE");
+		SpellSchool ss = SpellSchool.getConstant("INFUSE");
+		sp.addToListFor(ListKey.SPELL_SCHOOL, ss);
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Duration", 4));
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Infuse Fire", 4));
 		

@@ -51,8 +51,7 @@ import pcgen.core.PlayerCharacter;
  *            The Class of the underlying objects contained by this
  *            RetainingChooser
  */
-public class RetainingChooser<T extends CDOMObject> implements
-		PrimitiveChoiceSet<T>
+public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 {
 
 	/**
@@ -66,7 +65,7 @@ public class RetainingChooser<T extends CDOMObject> implements
 	 * filters with the PrimitiveChoiceFitlers that this RetainingChooser
 	 * contains.
 	 */
-	private final CDOMGroupRef<T> baseSet;
+	private final ObjectContainer<T> baseSet;
 
 	/**
 	 * Constructs a new RetainingChooser for the given Class of objects, and
@@ -79,7 +78,7 @@ public class RetainingChooser<T extends CDOMObject> implements
 	 *            The base set of objects from which this RetainingChooser
 	 *            starts before it applies any PrimitiveChoiceFilters
 	 */
-	public RetainingChooser(Class<T> cl, CDOMGroupRef<T> allRef)
+	public RetainingChooser(Class<T> cl, ObjectContainer<T> allRef)
 	{
 		super();
 		if (cl == null)

@@ -22,6 +22,7 @@ import java.util.Set;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
@@ -31,7 +32,7 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 public class SchoolToken implements PrimitiveToken<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
-	private String school;
+	private SpellSchool school;
 
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
@@ -40,7 +41,7 @@ public class SchoolToken implements PrimitiveToken<Spell>
 		{
 			return false;
 		}
-		school = value;
+		school = SpellSchool.getConstant(value);
 		return true;
 	}
 

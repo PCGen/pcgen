@@ -173,7 +173,7 @@ public final class ListKey<T> {
 	public static final ListKey<String> CASTTIME = new ListKey<String>();
 	public static final ListKey<String> SPELL_RESISTANCE = new ListKey<String>();
 	public static final ListKey<String> VARIANTS = new ListKey<String>();
-	public static final ListKey<String> SPELL_SCHOOL = new ListKey<String>();
+	public static final ListKey<SpellSchool> SPELL_SCHOOL = new ListKey<SpellSchool>();
 	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<String>();
 	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<String>();
 	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<Type>();

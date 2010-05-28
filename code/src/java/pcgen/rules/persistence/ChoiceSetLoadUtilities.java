@@ -221,15 +221,13 @@ public final class ChoiceSetLoadUtilities
 		}
 	}
 
-	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getSimplePrimitive(
-			LoadContext context, SelectionCreator<T> sc, String key)
+	public static PrimitiveInfo getPrimitiveInfo(String key)
 	{
 		int openBracketLoc = key.indexOf('[');
 		int closeBracketLoc = key.indexOf(']');
 		int equalLoc = key.indexOf('=');
-		String tokKey;
-		String tokValue;
-		String tokRestriction;
+		PrimitiveInfo pi = new PrimitiveInfo();
+		pi.key = key;
 		if (openBracketLoc == -1)
 		{
 			if (closeBracketLoc != -1)
@@ -240,21 +238,21 @@ public final class ChoiceSetLoadUtilities
 			}
 			if (equalLoc == -1)
 			{
-				tokKey = key;
-				tokValue = null;
+				pi.tokKey = key;
+				pi.tokValue = null;
 			}
 			else
 			{
-				tokKey = key.substring(0, equalLoc);
-				tokValue = key.substring(equalLoc + 1);
-				if (tokValue.length() == 0)
+				pi.tokKey = key.substring(0, equalLoc);
+				pi.tokValue = key.substring(equalLoc + 1);
+				if (pi.tokValue.length() == 0)
 				{
 					Logging.errorPrint("Found error in Primitive Choice: " + key
 							+ " has equals but no target value");
 					return null;
 				}
 			}
-			tokRestriction = null;
+			pi.tokRestriction = null;
 		}
 		else
 		{
@@ -273,79 +271,115 @@ public final class ChoiceSetLoadUtilities
 			}
 			if (equalLoc == -1 || equalLoc > openBracketLoc)
 			{
-				tokKey = key.substring(0, openBracketLoc);
-				tokValue = null;
-				tokRestriction = key.substring(openBracketLoc + 1,
+				pi.tokKey = key.substring(0, openBracketLoc);
+				pi.tokValue = null;
+				pi.tokRestriction = key.substring(openBracketLoc + 1,
 						closeBracketLoc);
 			}
 			else
 			{
-				tokKey = key.substring(0, equalLoc);
-				tokValue = key.substring(equalLoc + 1, openBracketLoc);
-				tokRestriction = key.substring(openBracketLoc + 1,
+				pi.tokKey = key.substring(0, equalLoc);
+				pi.tokValue = key.substring(equalLoc + 1, openBracketLoc);
+				pi.tokRestriction = key.substring(openBracketLoc + 1,
 						closeBracketLoc);
 			}
 		}
-		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(sc, tokKey);
+		return pi;
+	}
+
+	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getSimplePrimitive(
+			LoadContext context, SelectionCreator<T> sc, String key)
+	{
+		PrimitiveInfo pi = getPrimitiveInfo(key);
+		if (pi == null)
+		{
+			return null;
+		}
+		PrimitiveChoiceFilter<T> prim = getTokenPrimitive(context, sc
+				.getReferenceClass(), pi);
 		if (prim == null)
 		{
-			if (tokRestriction != null)
-			{
-				Logging.errorPrint("Didn't expect tokRestriction on " + tokKey
-					+ " here: " + tokRestriction);
-				return null;
-			}
-			if ("TYPE".equals(tokKey))
-			{
-				return TokenUtilities.getTypeReference(sc, tokValue);
-			}
-			if ("!TYPE".equals(tokKey))
-			{
-				CDOMGroupRef<T> typeReference = TokenUtilities
-						.getTypeReference(sc, tokValue);
-				if (typeReference == null)
-				{
-					return null;
-				}
-				return new NegatingFilter<T>(typeReference);
-			}
-			if (tokValue != null)
-			{
-				Logging.errorPrint("Didn't expect Arguments here: " + tokValue);
-			}
-			if ("ALL".equals(tokKey))
-			{
-				return sc.getAllReference();
-			}
-			if (key.startsWith(Constants.LST_TYPE_OLD))
-			{
-				return TokenUtilities.getTypeReference(sc, key
-						.substring(5));
-			}
-			if (key.startsWith(Constants.LST_NOT_TYPE_OLD))
-			{
-				return new NegatingFilter<T>(TokenUtilities.getTypeReference(
-						sc, key.substring(6)));
-			}
-			if (key.indexOf('%') != -1)
-			{
-				return new PatternMatchingReference<T>(sc.getReferenceClass(),
-						sc.getAllReference(), key);
-			}
-			else
-			{
-				return sc.getReference(key);
-			}
+			return getTraditionalPrimitive(sc, pi);
 		}
-		else
+		return prim;
+	}
+
+	public static <T> PrimitiveChoiceFilter<T> getTokenPrimitive(
+			LoadContext context, Class<T> cl, PrimitiveInfo pi)
+	{
+		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, pi.tokKey);
+		if (prim != null)
 		{
-			if (!prim.initialize(context, sc.getReferenceClass(), tokValue,
-					tokRestriction))
+			if (!prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))
 			{
 				return null;
 			}
 		}
 		return prim;
+	}
+
+	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getTraditionalPrimitive(
+			SelectionCreator<T> sc, PrimitiveInfo pi)
+	{
+		String tokKey = pi.tokKey;
+		String tokValue = pi.tokValue;
+		if (pi.tokRestriction != null)
+		{
+			Logging.errorPrint("Didn't expect tokRestriction on " + tokKey
+				+ " here: " + pi.tokRestriction);
+			return null;
+		}
+		if ("TYPE".equals(tokKey))
+		{
+			return TokenUtilities.getTypeReference(sc, tokValue);
+		}
+		if ("!TYPE".equals(tokKey))
+		{
+			CDOMGroupRef<T> typeReference = TokenUtilities
+					.getTypeReference(sc, tokValue);
+			if (typeReference == null)
+			{
+				return null;
+			}
+			return new NegatingFilter<T>(typeReference);
+		}
+		if (tokValue != null)
+		{
+			Logging.errorPrint("Didn't expect Arguments here: " + tokValue
+					+ " was found in " + pi.key);
+		}
+		if ("ALL".equals(tokKey))
+		{
+			return sc.getAllReference();
+		}
+		String key = pi.key;
+		if (key.startsWith(Constants.LST_TYPE_OLD))
+		{
+			return TokenUtilities.getTypeReference(sc, key
+					.substring(5));
+		}
+		if (key.startsWith(Constants.LST_NOT_TYPE_OLD))
+		{
+			return new NegatingFilter<T>(TokenUtilities.getTypeReference(
+					sc, key.substring(6)));
+		}
+		if (key.indexOf('%') != -1)
+		{
+			return new PatternMatchingReference<T>(sc.getReferenceClass(),
+					sc.getAllReference(), key);
+		}
+		else
+		{
+			return sc.getReference(key);
+		}
+	}
+	
+	public static class PrimitiveInfo
+	{
+		public String key;
+		public String tokKey;
+		public String tokValue;
+		public String tokRestriction;
 	}
 
 	public static <T extends CDOMObject> QualifierToken<T> getQualifier(

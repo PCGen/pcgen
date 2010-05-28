@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.helper.PointCost;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
@@ -76,11 +77,11 @@ public class SpellPoint
 							boolean getBonus = false;
 							if (info.getSpellPointPartFilter() == SpellPointFilterType.SCHOOL)
 							{
-								for (String aSchool : sp
+								for (SpellSchool aSchool : sp
 										.getSafeListFor(ListKey.SPELL_SCHOOL))
 								{
 									if (info.getSpellPointPartFilterValue()
-											.equalsIgnoreCase(aSchool))
+											.equalsIgnoreCase(aSchool.toString()))
 										getBonus = true;
 								}
 							}
@@ -140,10 +141,10 @@ public class SpellPoint
 			final PlayerCharacter aPC, Spell sp, final String aComponent)
 	{
 		int aBonus = 0;
-		for (String school : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
+		for (SpellSchool school : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
 			aBonus += (int) aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL."
-					+ school.toUpperCase() + ";" + aComponent.toUpperCase());
+					+ school.toString().toUpperCase() + ";" + aComponent.toUpperCase());
 		}
 		for (String subSchool : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))
 		{
