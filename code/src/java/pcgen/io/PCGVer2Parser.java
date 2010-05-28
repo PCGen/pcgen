@@ -142,6 +142,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 {
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
+	private static final String TAG_PCTEMPLATE = "PCTEMPLATE";
+
 	/**
 	 * DO NOT CHANGE line separator.
 	 * Need to keep the Unix line separator to ensure cross-platform portability.
@@ -4740,6 +4742,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (TAG_RACE.equals(type))
 				{
 					source = thePC.getRace();
+				}
+				else if (TAG_PCTEMPLATE.equals(type))
+				{
+					PCTemplate template = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(PCTemplate.class,
+									key);
+					if (thePC.hasTemplate(template))
+					{
+						source = template;
+					}
+					else
+					{
+						warnings.add("PC does not have Template: " + key);
+					}
 				}
 				else if (TAG_PCCLASS.equals(type))
 				{

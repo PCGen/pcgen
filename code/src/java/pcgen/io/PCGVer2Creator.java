@@ -2324,6 +2324,14 @@ final class PCGVer2Creator implements IOConstants
 		appendWeaponProficiencyLines(buffer, thePC.getRace());
 
 		//
+		// Save any selected template bonus weapons
+		//
+		for (PCTemplate pct : thePC.getTemplateSet())
+		{
+			appendWeaponProficiencyLines(buffer, pct);
+		}
+
+		//
 		// Save any selected class bonus weapons
 		//
 		for (final PCClass pcClass : thePC.getClassSet())
