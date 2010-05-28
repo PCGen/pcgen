@@ -47,7 +47,7 @@ BIO
 			<alignment>LN</alignment>
 			<description></description>
 			<domainlist>Bar Ball, Dungeon Crawl, Foo Ball</domainlist>
-			<favoredweapon>Fine Wine Blade</favoredweapon>
+			<favoredweapon>Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni</favoredweapon>
 			<followeralignment></followeralignment>
 			<holyitem>Wine with Sword</holyitem>
 			<pantheonlist>Cool Guys</pantheonlist>
@@ -1158,6 +1158,61 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Bob Ability ~ TEST~7  SR Assigned via Companion Mod</name>
+			<description>THis grants a single Companion to test the SR being applied from a Companion to the Master.</description>
+			<type>SPECIALQUALITY.BOBTESTADDITIONAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Ability ~ Weapon  Auto Weapon Standard</name>
+			<description></description>
+			<type>SPECIALQUALITY.BOBTESTADDITIONAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Ability ~ Weapon  Deityweapon</name>
+			<description></description>
+			<type>SPECIALQUALITY.BOBTESTADDITIONAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Ability ~ Weapon  TYPE Bob</name>
+			<description></description>
+			<type>SPECIALQUALITY.BOBTESTADDITIONAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob Ability ~ Weapon  TYPE Simple</name>
+			<description></description>
+			<type>SPECIALQUALITY.BOBTESTADDITIONAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Bob Test ~ Barbarian Move</name>
 			<description>Speed should be Base 30 + 30 + 25 (TL times 10 + 5) for a Total of 85</description>
 			<type>BOBTEST.TEST.SPECIALQUALITY</type>
@@ -1623,11 +1678,11 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Extra Blade, Fine Wine Blade, Suns Weapon Of Choice, Uber Sword, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Auto Weapon Standard, Bob Long Blade, Bob Racial Weapon, Bob Short Blade, Bob Two Hand Blade, Deity Weapon Puni, Deity Weapon Second Puni, Extra Blade, Fine Wine Blade, Jim Long Blade, Jim Short Blade, Jim Two Handed Blade, Longsword, Suns Weapon Of Choice, Template Weapon Test, Uber Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Evilhaasness, Terestial Alpha</languages>
 
 	<templates>
-		<list>Template A, Template ~ 1 Bob Tests ~ ALL, Template Type TEST</list>
+		<list>Template A, Template ~ 1 Bob Tests ~ ALL, Template Type TEST, Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template</list>
 		<template>
 			<name>Template A</name>
 			<strmod>0</strmod>
@@ -1660,6 +1715,21 @@ BIO
 		</template>
 		<template>
 			<name>Template Type TEST</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
