@@ -49,14 +49,16 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	}
 
 	@Override
-	public void applyChoices(PlayerCharacter apc, List<String> selected)
+	public boolean applyChoices(PlayerCharacter apc, List<String> selected)
 	{
+		int count = apc.getDetailedAssociationCount(pobject);
 		apc.removeAllAssociations(pobject);
 		for (int i = 0; i < selected.size(); i++)
 		{
 			apc.addAssociation(pobject, Constants.EMPTY_STRING);
 		}
 		adjustPool(selected);
+		return selected.size() != count;
 	}
 
 	public boolean conditionallyApply(PlayerCharacter pc, String item)

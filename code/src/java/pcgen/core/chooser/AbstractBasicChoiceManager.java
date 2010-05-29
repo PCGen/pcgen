@@ -205,7 +205,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		applyChoices(aPC, newSelections);
 	}
 
-	public abstract void applyChoices(final PlayerCharacter aPC,
+	public abstract boolean applyChoices(final PlayerCharacter aPC,
 			final List<T> selected);
 
 	public List<String> getChoiceList()

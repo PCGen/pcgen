@@ -284,13 +284,9 @@ public class ChooserUtilities
 			if (addIt)
 			{
 				final List newSelections =
-						aMan.doChooser(aPC, availableList, selectedList,
-							reservedList);
-				if (newSelections.isEmpty())
-				{
-					return false;
-				}
-				aMan.applyChoices(aPC, newSelections);
+						aMan.doChooser(aPC, availableList,
+						selectedList, reservedList);
+				return aMan.applyChoices(aPC, newSelections);
 			}
 			else
 			{

@@ -79,7 +79,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 	 * @param aPC
 	 * @param selected
 	 */
-	public void applyChoices(PlayerCharacter pc, List<T> selected)
+	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
 	{
 		List<T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
@@ -91,8 +91,10 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 				toAdd.add(obj);
 			}
 		}
+		int oldSize = 0;
 		if (oldSelections != null)
 		{
+			oldSize = oldSelections.size();
 			for (T obj : oldSelections)
 			{
 				info.getChoiceActor().removeChoice(pc, owner, obj);
@@ -103,6 +105,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 			info.getChoiceActor().applyChoice(owner, obj, pc);
 		}
 		adjustPool(selected);
+		return oldSize != selected.size();
 	}
 
 	/**

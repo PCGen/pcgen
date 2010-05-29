@@ -53,8 +53,9 @@ public abstract class AbstractBasicStringChoiceManager extends
 	 * @param selected
 	 */
 	@Override
-	public void applyChoices(PlayerCharacter aPC, List<String> selected)
+	public boolean applyChoices(PlayerCharacter aPC, List<String> selected)
 	{
+		int count = aPC.getDetailedAssociationCount(pobject);
 		cleanUpAssociated(aPC);
 		for (String st : selected)
 		{
@@ -71,6 +72,7 @@ public abstract class AbstractBasicStringChoiceManager extends
 			}
 		}
 		adjustPool(selected);
+		return selected.size() != count;
 	}
 
 	protected void cleanUpAssociated(PlayerCharacter aPC)

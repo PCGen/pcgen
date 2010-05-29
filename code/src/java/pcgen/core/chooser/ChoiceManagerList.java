@@ -83,7 +83,7 @@ public interface ChoiceManagerList<T> {
 	 * @param aPC
 	 * @param selected
 	 */
-	public abstract void applyChoices(
+	public abstract boolean applyChoices(
 			final PlayerCharacter aPC,
 			final List<T> selected);
 
