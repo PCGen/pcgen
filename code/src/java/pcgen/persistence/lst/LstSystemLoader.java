@@ -529,6 +529,17 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		
 		// load weapon profs first
 		wProfLoader.loadLstFiles(context, weaponProfFileList);
+		WeaponProf wp = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(WeaponProf.class,
+						"Unarmed Strike");
+		if (wp == null)
+		{
+			wp = new WeaponProf();
+			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
+			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
+			Globals.getContext().ref.importObject(wp);
+		}
 		aProfLoader.loadLstFiles(context, armorProfFileList);
 		sProfLoader.loadLstFiles(context, shieldProfFileList);
 
