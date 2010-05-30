@@ -2055,6 +2055,29 @@ Immune
 |ENDIF|
 <!-- STOP Disadvantages Table -->
 
+<!-- START Traits Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Trait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" class="ab" colspan="2"><b>Traits</b></th>
+    </tr>
+|FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%trait,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8" width="70%"><b>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</b></td>
+	<td valign="top" class="font8" width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|]</td>
+	<tr>
+|OIF(EVEN:%trait,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|
+	</td>
+	</tr>
+|ENDFOR|
+	</table>
+|ENDIF|
+<!-- STOP Traits Table -->
+
+
+
 <!-- START Character Creation Recurring Bonuses Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=CharCreation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
