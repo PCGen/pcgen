@@ -2657,10 +2657,6 @@ Immune
 		</mutation>
 |ENDFOR|
 	</mutations>
-
-
-
-
 	<!--
 	  ====================================
 	  ====================================
@@ -2668,16 +2664,21 @@ Immune
 	  ====================================
 	  ====================================-->
 	<traits>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Trait")==0)|
+|ELSE|
+	<!-- Traits -->
+|ENDIF|
 |FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<trait>
-			<name>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
-			<source>|ABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
+			<name>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
+			<description>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.ASSOCIATEDCOUNT|</count>
+			<category>Special Ability</category>
 		</trait>
 |ENDFOR|
 	</traits>
-
-
 
 	<!--
 	  ====================================

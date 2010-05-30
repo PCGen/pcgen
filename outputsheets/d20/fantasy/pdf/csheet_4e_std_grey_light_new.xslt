@@ -314,6 +314,12 @@
 		<feats.lightline><subattrib light=""/></feats.lightline>
 		<feats.darkline><subattrib medium=""/></feats.darkline>
 
+		<traits.title><subattrib centre="" inverse=""/></traits.title>
+		<traits.border padding="0.5pt"><subattrib border="" inverse=""/></traits.border>
+		<traits.lightline><subattrib light=""/></traits.lightline>
+		<traits.darkline><subattrib medium=""/></traits.darkline>
+
+
 		<spelllist.known.header><subattrib border="" inverse="" very.dark=""/></spelllist.known.header>
 		<spelllist.known.header.centre><subattrib border="" inverse="" very.dark="" centre="" /></spelllist.known.header.centre>
 		<spelllist.known.known><subattrib border="" centre="" dark=""/></spelllist.known.known>
