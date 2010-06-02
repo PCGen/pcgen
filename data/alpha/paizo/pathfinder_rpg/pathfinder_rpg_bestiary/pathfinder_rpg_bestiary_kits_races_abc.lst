@@ -55,12 +55,15 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Acrobatics			RANK:15
 SKILL:TYPE.Craft			RANK:15
 SKILL:Diplomacy			RANK:15
+SKILL:Escape Artist		RANK:5
+SKILL:Fly				RANK:15
 SKILL:Intimidate			RANK:15
 SKILL:Knowledge (Planes)	RANK:15
-SKILL:Knowledge (Religion)	RANK:15
+SKILL:Knowledge (Religion)	RANK:12
 SKILL:Perception			RANK:15
 SKILL:Sense Motive		RANK:15
-SKILL:Stealth			RANK:15
+SKILL:Stealth			RANK:13
+SKILL:Stealth			RANK:2	FREE:YES
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Great Fortitude
@@ -135,6 +138,10 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
 
 STARTPACK:Angel (Solar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Solar)],[!PRERACE:1,%]	SOURCEPAGE:p.12
@@ -216,6 +223,10 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Entropic Shield
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
 
 STARTPACK:Animated Object	VISIBLE:NO
@@ -375,6 +386,10 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Sanctuary
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
 
 STARTPACK:Assassin Vine Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Assassin Vine],[!PRERACE:1,%]	SOURCEPAGE:p.22
@@ -389,7 +404,7 @@ ALIGN:CG
 RACE:Azata (Bralani)	!PRERACE:1,%
 NAME:Bralani
 SKILL:Bluff			RANK:7
-SKILL:Fly			RANK:5
+SKILL:Fly			RANK:7
 SKILL:Handle Animal	RANK:7
 SKILL:Perception		RANK:7
 SKILL:Ride			RANK:7
@@ -443,7 +458,6 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Searing Light
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Searing Light
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Restoration (Lesser)
@@ -452,8 +466,11 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Obscuring Mist
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Sanctuary
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
 
 STARTPACK:Azata (Lillend) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Lillend)],[!PRERACE:1,%]	SOURCEPAGE:p.26
@@ -490,7 +507,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Detect Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Lullaby
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cure Serious Wounds
 
 
 STARTPACK:Barghest Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Barghest],[!PRERACE:1,%]	SOURCEPAGE:p.27
@@ -692,9 +709,9 @@ STARTPACK:Bugbear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bugbea
 ALIGN:CE
 RACE:Bugbear	!PRERACE:1,%
 NAME:Bugbear
-SKILL:Intimidate	RANK:2
+SKILL:Intimidate	RANK:1
 SKILL:Perception	RANK:2
-SKILL:Stealth	RANK:2
+SKILL:Stealth	RANK:3
 FEAT:Intimidating Prowess
 FEAT:Skill Focus (Perception)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -874,7 +891,7 @@ SKILL:Fly				RANK:6
 SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:6
 SKILL:Sense Motive		RANK:6
-SKILL:Stealth			RANK:3
+SKILL:Stealth			RANK:6
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Skill Focus (Perception)

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  5 20:15:04 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Jun  2 13:19:31 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: Aasimar abilities
@@ -165,9 +165,10 @@ Poison		KEY:Poison ~ Giant Centipede	CATEGORY:Special Ability	TYPE:SpecialAttack
 Poison		KEY:Poison ~ Centipede Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d4 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.43
 
 ###Block: Choker Abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description																											Source Page
-Strangle		KEY:Strangle ~ Choker	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Chokers have an unerring talent for seizing their victims by the neck. A creature that is grappled by a choker cannot speak or cast spells with verbal components.	SOURCEPAGE:p.45
-Quickness		KEY:Quickness ~ Choker	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A choker is supernaturally quick. It can take an extra move action during its turn each round.												SOURCEPAGE:p.45
+# Ability Name	Unique Key			Category of Ability		Type								Description																																							Modify VAR			Source Page		Description of the Benefits
+Grab			KEY:Grab ~ Choker		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:If a choker hits with the indicated attack, it deals normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. A choker can use its grab attack against a foe of up to Large size.	BONUS:VAR|CMB_Grapple|4	SOURCEPAGE:p.301	BENEFIT:If a choker hits with the indicated attack, it deals normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. A choker can use its grab attack against a foe of up to Large size. A choker has the option to conduct the grapple normally, or simply use the part of its body it used in the grab to hold the opponent. If it chooses to do the latter, it takes a -20 penalty on its CMB check to make and maintain the grapple, but does not gain the grappled condition itself. A successful hold does not deal any extra damage. Each successful grapple check you make during successive rounds automatically deals the damage indicated for the attack that established the hold. A choker receives a +4 bonus on combat maneuver checks made to start and maintain a grapple.
+Strangle		KEY:Strangle ~ Choker	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:Chokers have an unerring talent for seizing their victims by the neck. A creature that is grappled by a choker cannot speak or cast spells with verbal components.																	SOURCEPAGE:p.45
+Quickness		KEY:Quickness ~ Choker	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:A choker is supernaturally quick. It can take an extra move action during its turn each round.																												SOURCEPAGE:p.45
 
 ###Block: Chuul Abilities
 # Ability Name		Unique Key					Category of Ability		Type						Define						Description																																		Modify VAR													Source Page		Aspects								Description of the Benefits
