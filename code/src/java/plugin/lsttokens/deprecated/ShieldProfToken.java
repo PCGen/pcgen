@@ -43,7 +43,7 @@ public class ShieldProfToken extends ErrorParsingWrapper<CDOMObject> implements
 	{
 		Logging.deprecationPrint("CHOOSE:SHIELDPROF has been deprecated,"
 				+ "please use CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[x]");
-		return context.processSubToken(obj, getTokenName(),
+		return context.processSubToken(obj, getParentToken(),
 				"SHIELDPROFICIENCY", "EQUIPMENT[" + value + "]");
 	}
 

@@ -43,7 +43,7 @@ public class ArmorProfToken extends ErrorParsingWrapper<CDOMObject> implements
 	{
 		Logging.deprecationPrint("CHOOSE:ARMORPROF has been deprecated,"
 				+ "please use CHOOSE:ARMORPROFICIENCY|EQUIPMENT[x]");
-		return context.processSubToken(obj, getTokenName(), "ARMORPROFICIENCY",
+		return context.processSubToken(obj, getParentToken(), "ARMORPROFICIENCY",
 				"EQUIPMENT[" + value + "]");
 	}
 

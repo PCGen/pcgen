@@ -43,7 +43,7 @@ public class EquipTypeToken extends ErrorParsingWrapper<CDOMObject> implements
 	{
 		Logging.deprecationPrint("CHOOSE:EQUIPTYPE has been deprecated,"
 				+ "please use CHOOSE:EQUIPMENT|TYPE=x");
-		return context.processSubToken(obj, getTokenName(), "EQUIPMENT",
+		return context.processSubToken(obj, getParentToken(), "EQUIPMENT",
 				"TYPE=" + value);
 	}
 
