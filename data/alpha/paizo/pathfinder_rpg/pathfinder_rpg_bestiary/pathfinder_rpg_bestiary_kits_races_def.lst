@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 28 15:49:10 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Jun  2 17:32:11 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 
@@ -38,10 +38,9 @@ STARTPACK:Darkmantle Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	E
 ALIGN:TN
 RACE:Darkmantle	!PRERACE:1,%
 NAME:Darkmantle
-SKILL:Fly		RANK:1
-SKILL:Stealth	RANK:1
+SKILL:Fly	RANK:2
 FEAT:Improved Initiative
-STAT:STR=17|DEX=7|CON=10|INT=10|WIS=11|CHA=10
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
 STARTPACK:Demon (Babau) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Babau)],[!PRERACE:1,%]	SOURCEPAGE:p.57
@@ -520,7 +519,7 @@ SKILL:Intimidate			RANK:11
 SKILL:Perception			RANK:14
 SKILL:Sense Motive		RANK:11
 SKILL:Spellcraft			RANK:14
-SKILL:Stealth			RANK:11
+SKILL:Stealth			RANK:4
 SKILL:Knowledge (Arcana)	RANK:14
 SKILL:Knowledge (Planes)	RANK:14
 FEAT:Blind-Fight
@@ -829,12 +828,12 @@ NAME:Drow Noble
 CLASS:Cleric	LEVEL:3
 DEITY:None	DOMAIN:Chaos|Death
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
+ABILITY:CATEGORY=Channel Energy|Channel Negative Energy
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Sense Motive		RANK:3
-SKILL:Spellcraft			RANK:3
 FEAT:Channel Smite
 FEAT:Weapon Finesse
 STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
@@ -1408,7 +1407,7 @@ FEAT:Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Leather		SIZE:L	LOCATION:Equipped
 GEAR:Flail			SIZE:L	LOCATION:Primary Hand
-GEAR:Flail			SIZE:L	LOCATION:Carried
+GEAR:Flail			SIZE:L	LOCATION:Secondary Hand
 GEAR:Javelin	QTY:2	SIZE:L	LOCATION:Carried
 
 

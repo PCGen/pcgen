@@ -29,7 +29,7 @@ SKILL:Intimidate			RANK:14
 SKILL:Knowledge (Arcana)	RANK:14
 SKILL:Perception			RANK:14
 SKILL:Spellcraft			RANK:14
-SKILL:Stealth			RANK:11
+SKILL:Stealth			RANK:14
 SKILL:Swim				RANK:14
 FEAT:Alertness
 FEAT:Improved Initiative
@@ -111,7 +111,7 @@ STARTPACK:Dragon (Blue/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY
 ALIGN:LE
 RACE:Dragon (Blue/Young)	!PRERACE:1,%
 NAME:Young Blue Dragon
-SKILL:Appraise		RANK:10
+SKILL:Bluff			RANK:10
 SKILL:Fly			RANK:10
 SKILL:Intimidate		RANK:10
 SKILL:Knowledge (Local)	RANK:10
@@ -131,7 +131,7 @@ STARTPACK:Dragon (Blue/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY
 ALIGN:LE
 RACE:Dragon (Blue/Adult)	!PRERACE:1,%
 NAME:Adult Blue Dragon
-SKILL:Appraise			RANK:16
+SKILL:Bluff				RANK:16
 SKILL:Fly				RANK:16
 SKILL:Intimidate			RANK:16
 SKILL:Knowledge (Local)		RANK:16
@@ -168,7 +168,7 @@ STARTPACK:Dragon (Blue/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALI
 ALIGN:LE
 RACE:Dragon (Blue/Ancient)	!PRERACE:1,%
 NAME:Ancient Blue Dragon
-SKILL:Appraise			RANK:24
+SKILL:Bluff				RANK:24
 SKILL:Fly				RANK:22
 SKILL:Intimidate			RANK:24
 SKILL:Knowledge (Local)		RANK:24
@@ -263,7 +263,6 @@ FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Improved Critical (Bite)
 FEAT:Improved Critical (Claw)
-FEAT:Improved Sunder
 FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Great Cleave
@@ -310,7 +309,6 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Great Cleave
-FEAT:Greater Sunder
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Elven|Giant|Sylvan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disintegrate
@@ -429,7 +427,7 @@ SKILL:Sense Motive		RANK:25
 SKILL:Spellcraft			RANK:25
 SKILL:Stealth			RANK:25
 FEAT:Cleave
-FEAT:Critical Mastery
+FEAT:Critical Focus
 FEAT:Greater Vital Strike
 FEAT:Improved Critical (Bite)
 FEAT:Improved Initiative
@@ -568,7 +566,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 
 STARTPACK:Dragon (Brass/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brass/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CG
@@ -608,7 +610,6 @@ SKILL:Perception		RANK:14
 SKILL:Sense Motive	RANK:14
 SKILL:Spellcraft		RANK:14
 SKILL:Survival		RANK:14
-SKILL:Stealth		RANK:3
 FEAT:Alertness
 FEAT:Flyby Attack
 FEAT:Hover
@@ -635,7 +636,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
-
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prying Eyes
 
 STARTPACK:Dragon (Brass/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brass/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CG
@@ -700,6 +701,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prying Eyes
 
 
 STARTPACK:Dragon (Bronze/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Bronze/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.102
@@ -851,6 +853,7 @@ FEAT:Combat Expertise
 FEAT:Improved Critical (Bite)
 FEAT:Improved Initiative
 FEAT:Improved Trip
+FEAT:Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Gnome
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
@@ -921,7 +924,7 @@ SKILL:Spellcraft			RANK:23
 SKILL:Stealth			RANK:23
 SKILL:Use Magic Device		RANK:23
 FEAT:Combat Expertise
-FEAT:Greater Disarm
+FEAT:Improved Disarm
 FEAT:Greater Trip
 FEAT:Improved Critical (Bite)
 FEAT:Improved Critical (Claw)
