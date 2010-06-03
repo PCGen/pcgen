@@ -326,6 +326,156 @@
 	<!--
 ====================================
 ====================================
+	TEMPLATE - POWER
+====================================
+====================================-->
+	<xsl:template name="power.list">
+		<xsl:param name="attribute"/>
+		<xsl:param name="title" />
+		<xsl:param name="list" />
+		<xsl:param name="name.tag" />
+		<xsl:param name="desc.tag" />
+		<xsl:param name="power_use.tag"  />
+		<xsl:param name="power_type.tag"  />
+		<xsl:param name="action_type.tag"  />
+		<xsl:param name="special.tag" />
+		<xsl:param name="target.tag"  />
+		<xsl:param name="trigger.tag"  />
+		<xsl:param name="attack.tag"  />
+		<xsl:param name="hit.tag"  />
+		<xsl:param name="miss.tag"  />
+		<xsl:param name="effect.tag"  />
+		<xsl:param name="sustain.tag"  />
+
+		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding-top="1pt">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
+						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:for-each select="$list">
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
+						<fo:table-row keep-with-next.within-column="always">
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+							<fo:table-cell padding="1pt">
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:block font-size="9pt"  text-align="left" font-weight="bold">
+									<xsl:value-of select="./*[name()=$name.tag]"/>
+								</fo:block>
+								<fo:block font-size="7pt" text-align="right" font-weight="bold">
+									<xsl:value-of select="./*[name()=$power_type.tag]"/>
+								</fo:block>
+								<xsl:if test="string-length(./*[name()=$desc.tag]) &gt; 0">
+									<fo:block font-size="5pt" font-style="italic"  text-align="center" >
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$desc.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$power_use.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$power_use.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$action_type.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Action Type  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$action_type.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$special.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Special  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$special.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$target.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Target  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$target.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$attack.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Attack  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$attack.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$trigger.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Trigger  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$trigger.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$hit.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Hit  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$hit.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$miss.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Miss  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$miss.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$effect.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Effect  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$effect.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$sustain.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Sustain  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$sustain.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+							</fo:table-cell>
+						</fo:table-row>
+					</xsl:if>
+				</xsl:for-each>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+
+
+	<!--
+====================================
+====================================
 	TEMPLATE - EQUIPMENT_LIST_TO_TREE
 ====================================
 ====================================-->

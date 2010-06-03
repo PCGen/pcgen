@@ -2404,6 +2404,7 @@ Immune
    </table>
 |ENDIF|
 <!-- STOP Encounter Powers Table -->
+
 <!-- START 4e Daily Powers Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Daily";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
@@ -2457,6 +2458,7 @@ Immune
 </table>
 |ENDIF|
 <!-- STOP Daily Powers Table -->
+
 <!-- START 4e Utility Powers Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Utility";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 	<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
@@ -2540,6 +2542,26 @@ Immune
 |ENDIF|
 <!-- STOP Intelligent Item Table -->
 
+<!-- START Animal Tricks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<tr>
+<th bgcolor="black" align="center" class="ab" colspan="2"><b>Animal Tricks</b></th>
+</tr>
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AnimalTrick","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b></td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|
+</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP Animal Tricks Table -->
 
 
 <!-- START Force Powers Table -->
@@ -2583,6 +2605,7 @@ Immune
 	</table>
 |ENDIF|
 <!-- STOP Force Secrets Table -->
+
 <!-- START Force Techniques Table -->
 |IIF(count("ABILITIES";"CATEGORY=Force Techniques";"TYPE=ForceTechniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 	<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
@@ -2663,26 +2686,6 @@ Immune
 |ENDIF|
 <!-- STOP Special Qualities Table -->
 
-<!-- START Animal Tricks Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-<tr>
-<th bgcolor="black" align="center" class="ab" colspan="2"><b>Animal Tricks</b></th>
-</tr>
-|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AnimalTrick","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b></td>
-<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|]</td>
-<tr>
-|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
-|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|
-</td>
-</tr>
-|ENDFOR|
-</table>
-|ENDIF|
-<!-- STOP Animal Tricks Table -->
 
 <!-- START Special Abilities Table -->
 |%COUNT[SA]|
@@ -2714,8 +2717,12 @@ Immune
 </tr>
 |ENDFOR|
 </table>
-
+|%|
+</table>
 <!-- STOP Feat Table -->
+
+
+
 <!-- ================================================================ -->
 <!-- Start Racial Innate Spells -->
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
@@ -2728,14 +2735,14 @@ Immune
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Racial Innate) -->
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
 <!-- Start Racial Innate Spell listing -->
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
@@ -2784,12 +2791,12 @@ at will
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Other Innate) -->
 <br />
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
 </table>
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
