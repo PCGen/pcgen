@@ -21,11 +21,6 @@ Speak with Master										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraord
 Speak with Animals of Its Kind							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	DESC:A familiar can communicate with animals of approximately the same kind as itself.						SOURCEPAGE:p.83	BENEFIT:If the master is 7th level or higher, a familiar can communicate with animals of approximately the same kind as itself (including dire varieties), bats with bats, cats with felines, hawks and owls and ravens with birds, lizards and snakes with reptiles, monkeys with other simians, rats with rodents, toads with amphibians, and weasels with ermines and minks. Such communication is limited by the intelligence of the conversing creatures.
 Speak One Language									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:A raven familiar can speak one language of its master's choice as a supernatural ability.					SOURCEPAGE:p.82
 Spell Resistance				KEY:Spell Resistance ~ Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:A familiar gains spell resistance equal to the master's level + 5.									SOURCEPAGE:p.83	BENEFIT:If the master is 11th level or higher, a familiar gains spell resistance equal to the master's level + 5. To affect the familiar with a spell, another spellcaster must get a result on a caster level check (1d20 + caster level) that equals or exceeds the familiar's spell resistance.
-#
-Use Dex or Str				KEY:Familiar Attack			CATEGORY:Special Ability																																																																																																																												
-#BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX)-STR)|TYPE=NotRanged
-#Using the same code as Weapon Finesse as TYPE.Natural and TOHIT.Natural won't affect the Familiar (Plus, no familiar should be using a Knife, except perhaps a Monkey)
-# None of the Syntax I try works.
 
 
 ###Block:
