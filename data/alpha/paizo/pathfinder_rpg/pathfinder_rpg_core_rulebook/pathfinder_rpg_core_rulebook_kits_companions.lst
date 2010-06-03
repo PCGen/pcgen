@@ -58,38 +58,60 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 ###Block: Familiars --------------------------------------
 STARTPACK:Familiar ~ Bat	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Fly	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Cat	TYPE:Companion	VISIBLE:NO
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Hawk	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Lizard	TYPE:Companion	VISIBLE:NO
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Monkey	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Owl	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Rat	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Raven	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
 STARTPACK:Raven Familiar Language	TYPE:Companion	VISIBLE:NO
 TEMPLATE:Raven Familiar Language
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Toad	TYPE:Companion	VISIBLE:NO
 STAT:CON=10|STR=10|DEX=10|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
 
 STARTPACK:Familiar ~ Viper	TYPE:Companion	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Weasel	TYPE:Companion	VISIBLE:NO
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Escape Artist	RANK:1
+FEAT:Weapon Finesse
 
 
 ###Block: Shadow Companion -------------------------------
