@@ -33,7 +33,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		ReferenceManufacturer<T> rm, CDOMObject obj, String value)
 	{
-		int pipeLoc = value.indexOf('|');
+		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
 		String title;
 		if (pipeLoc == -1)

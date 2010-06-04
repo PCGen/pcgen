@@ -67,7 +67,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 			return new ParseResult.Fail(getParentToken() + ":" + getTokenName()
 				+ " may not contain brackets: " + value);
 		}
-		int pipeLoc = value.indexOf('|');
+		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
 		String title;
 		if (pipeLoc == -1)
