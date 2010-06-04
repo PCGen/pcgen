@@ -267,4 +267,12 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 	{
 		return "STRING|Bar|Baz";
 	}
+
+	@Test
+	public void testInvalidInputNoBrackets() throws PersistenceLayerException
+	{
+		assertFalse(parse("STRING|Sorry No [Brackets]"));
+		assertNoSideEffects();
+	}
+
 }

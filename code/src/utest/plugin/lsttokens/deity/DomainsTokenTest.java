@@ -195,6 +195,16 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
+	public void testRoundRobinBasic() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1,TestWP2");
+	}
+
+	@Test
 	public void testRoundRobinNotPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

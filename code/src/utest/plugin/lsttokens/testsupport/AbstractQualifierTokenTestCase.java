@@ -1539,4 +1539,13 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		}
 	}
 
+	
+	@Test
+	public void testRoundRobinMultTypes()
+			throws PersistenceLayerException
+	{
+		
+		runRoundRobin(getSubTokenName() + '|' + qualifier + "[TYPE=Buckler|TYPE=Heavy|TYPE=Light]");
+	}
+
 }

@@ -41,8 +41,8 @@ public class LevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
 
 	static LevelToken token = new LevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader =
+			new CDOMTokenLoader<PCTemplate>(PCTemplate.class);
 
 	private static boolean classSetUpFired = false;
 
@@ -322,7 +322,8 @@ public class LevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinMultipleDifferent() throws PersistenceLayerException
+	public void testRoundRobinMultipleDifferent()
+		throws PersistenceLayerException
 	{
 		runRoundRobin("4:CR:-5", "6:SAB:Special Ability, Man!");
 	}
@@ -343,6 +344,13 @@ public class LevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	protected String getLegalValue()
 	{
 		return "4:CR:-5";
+	}
+
+	@Test
+	public void testParseClear() throws PersistenceLayerException
+	{
+		assertTrue(parse(".CLEAR"));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Override

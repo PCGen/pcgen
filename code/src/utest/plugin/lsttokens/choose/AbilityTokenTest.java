@@ -149,5 +149,11 @@ public class AbilityTokenTest extends
 		//Hard to get correct - doesn't assume Category :(
 	}
 
-	
+	@Test
+	public void testInvalidBadCategory() throws PersistenceLayerException
+	{
+		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
+		assertNoSideEffects();
+	}
 }
+

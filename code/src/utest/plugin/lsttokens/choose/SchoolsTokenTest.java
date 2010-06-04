@@ -22,26 +22,31 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
+public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 {
 
 	static ChooseLst token = new ChooseLst();
 	static SchoolsToken subtoken = new SchoolsToken();
-	static plugin.primitive.pobject.FeatToken<?> featprim = new plugin.primitive.pobject.FeatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static plugin.primitive.pobject.FeatToken<?> featprim =
+			new plugin.primitive.pobject.FeatToken();
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -78,7 +83,7 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "SCHOOLS|All";
+		return "SCHOOLS|ALL";
 	}
 
 	@Override
@@ -102,11 +107,13 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 	@Test
 	public void testRoundRobinFeat() throws PersistenceLayerException
 	{
-		Ability ss = primaryContext.ref.constructCDOMObject(Ability.class,
-				"School Stuff");
+		Ability ss =
+				primaryContext.ref.constructCDOMObject(Ability.class,
+					"School Stuff");
 		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
-		ss = secondaryContext.ref.constructCDOMObject(Ability.class,
-				"School Stuff");
+		ss =
+				secondaryContext.ref.constructCDOMObject(Ability.class,
+					"School Stuff");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
 		runRoundRobin("SCHOOLS|FEAT=School Stuff");
 	}
@@ -114,6 +121,119 @@ public class SchoolsTokenTest extends AbstractTokenTestCase<CDOMObject>
 	@Test
 	public void testRoundRobinItems() throws PersistenceLayerException
 	{
+		construct(primaryContext, "Abjuration");
+		construct(primaryContext, "Evocation");
+		construct(secondaryContext, "Abjuration");
+		construct(secondaryContext, "Evocation");
 		runRoundRobin("SCHOOLS|Abjuration|Evocation");
 	}
+
+	@Test
+	public void testRoundRobinTitle() throws PersistenceLayerException
+	{
+		construct(primaryContext, "Abjuration");
+		construct(primaryContext, "Evocation");
+		construct(secondaryContext, "Abjuration");
+		construct(secondaryContext, "Evocation");
+		runRoundRobin("SCHOOLS|Abjuration|Evocation|TITLE=Pick a Special School");
+	}
+
+	@Test
+	public void testInvalidInputNoBrackets() throws PersistenceLayerException
+	{
+		assertFalse(parse("SCHOOLS|Sorry No [Brackets]"));
+		assertNoSideEffects();
+	}
+
+	@Override
+	protected boolean allowsQualifier()
+	{
+		return false;
+	}
+
+	@Override
+	protected String getChoiceTitle()
+	{
+		return "Title For Choice";
+	}
+
+	@Override
+	protected QualifierToken getPCQualifier()
+	{
+		return null;
+	}
+
+	@Override
+	public CDOMSecondaryToken getSubToken()
+	{
+		return subtoken;
+	}
+
+	@Override
+	public Class getTargetClass()
+	{
+		return SpellSchool.class;
+	}
+
+	@Override
+	protected boolean isAllLegal()
+	{
+		return true;
+	}
+
+	@Override
+	protected boolean isTypeLegal()
+	{
+		return false;
+	}
+
+	@Override
+	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
+	{
+		// Must ignore due to 5.16 syntax
+	}
+
+	@Override
+	public void testInvalidInputOnlySubTokenPipe()
+		throws PersistenceLayerException
+	{
+		// Must ignore due to 5.16 syntax
+	}
+
+	@Override
+	protected void construct(LoadContext loadContext, String one)
+	{
+		loadContext.ref.constructNowIfNecessary(SpellSchool.class, one);
+	}
+
+	@Override
+	public void testUnparseIllegalAllItem() throws PersistenceLayerException
+	{
+		//Ignore since SpellSchool doesn't have a RM
+	}
+
+	@Override
+	public void testUnparseIllegalAllType() throws PersistenceLayerException
+	{
+		//Ignore since SpellSchool doesn't have a RM
+	}
+
+	@Override
+	public void testUnparseIllegalItemAll() throws PersistenceLayerException
+	{
+		//Ignore since SpellSchool doesn't have a RM
+	}
+
+	@Override
+	public void testUnparseIllegalTypeAll() throws PersistenceLayerException
+	{
+		//Ignore since SpellSchool doesn't have a RM
+	}
+
+	@Override
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		//Ignore since SpellSchool doesn't have a RM
+	}
+
 }

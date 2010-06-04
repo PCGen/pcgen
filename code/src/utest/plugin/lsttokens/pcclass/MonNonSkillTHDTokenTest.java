@@ -31,10 +31,12 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.MonNonSkillHD;
+import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
@@ -42,8 +44,8 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static MonnonskillhdToken token = new MonnonskillhdToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader =
+			new CDOMTokenLoader<PCClass>(PCClass.class);
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
@@ -90,10 +92,23 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOnlyPre() throws PersistenceLayerException
+	public void testOnlyPre() throws PersistenceLayerException
 	{
 		assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
+	}
+
+	@Test
+	public void testOtherBonus() throws PersistenceLayerException
+	{
+		addBonus("MONSKILLPTS", MonSkillPts.class);
+		MonskillToken monskill = new MonskillToken();
+		TokenRegistration.register(new PreLevelMaxParser());
+		TokenRegistration.register(monskill);
+		assertTrue(monskill.parse(primaryContext, primaryProf, "1"));
+		primaryContext.commit();
+		assertNull(token.unparse(primaryContext, primaryProf));
+		assertNotNull(primaryContext.unparse(primaryProf));
 	}
 
 	@Test
@@ -201,7 +216,7 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 		catch (NullPointerException e)
 		{
-			//This is okay too
+			// This is okay too
 		}
 	}
 

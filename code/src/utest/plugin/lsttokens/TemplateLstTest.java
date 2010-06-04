@@ -198,6 +198,23 @@ public class TemplateLstTest extends
 	}
 
 	@Test
+	public void testParseStuffList() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"
+			+ getJoinCharacter() + "%LIST"));
+	}
+
+	@Test
+	public void testRoundRobinList() throws PersistenceLayerException
+	{
+		runRoundRobin("%LIST");
+	}
+
+	@Test
 	public void testChooseRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

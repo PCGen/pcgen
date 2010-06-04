@@ -33,8 +33,8 @@ public class HDTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static HdToken token = new HdToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader =
+			new CDOMTokenLoader<PCClass>(PCClass.class);
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -73,7 +73,8 @@ public class HDTokenTest extends AbstractTokenTestCase<PCClass>
 		Integer con = Integer.valueOf(3);
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
-		assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE).getDie());
+		assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE)
+			.getDie());
 		testInvalidInputs(new HitDie(con));
 		assertNoSideEffects();
 	}
@@ -184,7 +185,7 @@ public class HDTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 		catch (ClassCastException e)
 		{
-			//Yep!
+			// Yep!
 		}
 	}
 
@@ -198,8 +199,21 @@ public class HDTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 		catch (IllegalArgumentException e)
 		{
-			//Good here too :)
+			// Good here too :)
 		}
 	}
 
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(0));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
 }

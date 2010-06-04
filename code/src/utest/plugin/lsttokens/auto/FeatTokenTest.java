@@ -160,6 +160,14 @@ public class FeatTokenTest extends
 	}
 
 	@Test
+	public void testInvalidLateClear() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertFalse(parse(getSubTokenName() + '|' + "TestWP1|.CLEAR"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

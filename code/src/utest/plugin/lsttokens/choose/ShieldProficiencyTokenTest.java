@@ -104,4 +104,5 @@ public class ShieldProficiencyTokenTest extends
 	{
 		return true;
 	}
+
 }

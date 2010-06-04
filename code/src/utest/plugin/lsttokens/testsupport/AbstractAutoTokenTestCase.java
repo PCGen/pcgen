@@ -39,8 +39,8 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>
 {
 	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
@@ -103,20 +103,36 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	protected abstract void loadTypeProf(String... types);
 
+	protected abstract boolean allowsPrerequisite();
+
 	@Test
 	public void testInvalidEmptyPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[]"));
-		assertNoSideEffects();
+		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[]");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidEmptyPre2() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1["));
-		assertNoSideEffects();
+		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -138,77 +154,102 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	public void testInvalidMismatchedBracket() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf"));
-		assertNoSideEffects();
+		boolean parse =
+				parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi"));
-		assertNoSideEffects();
+		boolean parse =
+				parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testRoundRobinOnePre() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
+		if (allowsPrerequisite())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
+		}
 	}
 
 	@Test
 	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
+		if (allowsPrerequisite())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
 				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
+		}
 	}
 
 	@Test
 	public void testRoundRobinAllPlusWithPrereqLegal()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		if (isAllLegal())
+		if (isAllLegal() && allowsPrerequisite())
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getSubTokenName() + '|' + "ALL[PRERACE:1,Dwarf]",
-					getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
+				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
 		}
 	}
 
 	@Test
 	public void testRoundRobinAllIndivPrereq() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		if (allowsPrerequisite())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			assertFalse(parse(getSubTokenName() + '|'
 				+ "TestWP1|ALL[PRERACE:Dwarf]"));
-		assertNoSideEffects();
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testRoundRobinAllDoublePrereq()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		if (isAllLegal())
+		if (isAllLegal() && allowsPrerequisite())
 		{
 			runRoundRobin(getSubTokenName() + '|' + "ALL[PRERACE:1,Dwarf]",
-					getSubTokenName() + '|' + "ALL[PRERACE:1,Human]");
+				getSubTokenName() + '|' + "ALL[PRERACE:1,Human]");
 		}
 	}
 
 	@Test
 	public void testInvalidAllPlusAllPrereqIllegal()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "ALL[PRERACE:Dwarf]|ALL"));
 		assertNoSideEffects();
@@ -216,7 +257,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidAllPlusListIllegal()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{
@@ -227,12 +268,19 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]"));
-		assertNoSideEffects();
+		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -251,7 +299,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		loadTypeProf("Foo", "Bar");
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + getTypePrefix()
-				+ "TYPE=Bar.Foo");
+			+ "TYPE=Bar.Foo");
 	}
 
 	@Test
@@ -287,7 +335,10 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testRoundRobinListPre() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
+		if (allowsPrerequisite())
+		{
+			runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
+		}
 	}
 
 	@Test

@@ -59,6 +59,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
+		assertNull(token.unparse(primaryContext, primaryProf));
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
 		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));

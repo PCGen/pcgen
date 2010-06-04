@@ -25,6 +25,7 @@ import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.bonustokens.MonNonSkillHD;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -153,4 +154,17 @@ public class MonSkillTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		return ConsolidationRule.SEPARATE;
 	}
+
+	@Test
+	public void testOtherBonus() throws PersistenceLayerException
+	{
+		addBonus("MONNONSKILLHD", MonNonSkillHD.class);
+		MonnonskillhdToken othertoken = new MonnonskillhdToken();
+		TokenRegistration.register(othertoken);
+		assertTrue(othertoken.parse(primaryContext, primaryProf, "1"));
+		primaryContext.commit();
+		assertNull(token.unparse(primaryContext, primaryProf));
+		assertNotNull(primaryContext.unparse(primaryProf));
+	}
+
 }

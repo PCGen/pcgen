@@ -118,4 +118,12 @@ public class ItypeTokenTest extends
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+
+	@Test
+	public void testInvalidInputDouble() throws PersistenceLayerException
+	{
+		assertFalse(parse("Double"));
+		assertNoSideEffects();
+	}
 }

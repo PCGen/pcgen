@@ -123,4 +123,9 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
 	}
 
+	@Override
+	protected boolean allowsPrerequisite()
+	{
+		return true;
+	}
 }

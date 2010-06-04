@@ -195,6 +195,21 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	}
 
 	@Test
+	public void testInvalidAutomaticNature() throws PersistenceLayerException
+	{
+		try
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "AUTOMATIC"
+					+ '|' + "FeatName"));
+			assertNoSideEffects();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// This is okay too
+		}
+	}
+
+	@Test
 	public void testInvalidCategory() throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "InvalidCat" + '|'

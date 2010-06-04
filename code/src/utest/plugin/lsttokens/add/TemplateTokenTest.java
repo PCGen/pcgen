@@ -65,4 +65,10 @@ public class TemplateTokenTest extends AbstractAddTokenTestCase<PCTemplate>
 		return subtoken;
 	}
 
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
+
 }

@@ -304,6 +304,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidInputCheckTypeEqualLengthBar()
 			throws PersistenceLayerException
 	{
+		if (isTypeLegal())
+		{
+			
+		}
 		/*
 		 * Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		 * consume the |
@@ -388,6 +392,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	}
 
 	@Test
+	public void testRoundRobinTitle() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1 (Test)");
+		construct(secondaryContext, "TestWP1 (Test)");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1 (Test)|TITLE=Foo Title");
+	}
+
+	@Test
 	public void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -397,6 +409,18 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP2|TestWP3");
+	}
+
+	@Test
+	public void testRoundRobinTitleThree() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP3");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP2|TestWP3|TITLE=New Title");
 	}
 
 	@Test

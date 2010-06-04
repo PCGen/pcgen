@@ -20,11 +20,12 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
-public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
+public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC extends Identified>
 		extends AbstractTokenTestCase<T>
 {
 
@@ -40,7 +41,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 
 	protected TC construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		return loadContext.ref.constructNowIfNecessary(getTargetClass(), one);
 	}
 
 	public abstract boolean isClearLegal();
@@ -79,21 +80,27 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertTrue(parse("String"));
-		assertFalse(primaryContext.ref.validate(null));
+		if (!isMaster())
+		{
+			assertTrue(parse("String"));
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
-		assertTrue(parse("TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		if (!isMaster())
+		{
+			assertTrue(parse("TestType"));
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
 	public void testInvalidInputJoinedComma() throws PersistenceLayerException
 	{
-		if (getJoinCharacter() != ',')
+		if (!isMaster() && getJoinCharacter() != ',')
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
@@ -105,7 +112,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
 	{
-		if (getJoinCharacter() != '|')
+		if (!isMaster() && getJoinCharacter() != '|')
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
@@ -124,7 +131,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputJoinedDot() throws PersistenceLayerException
 	{
-		if (getJoinCharacter() != '.')
+		if (!isMaster() && getJoinCharacter() != '.')
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
@@ -269,7 +276,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputCheckType() throws PersistenceLayerException
 	{
-		if (!isTypeLegal())
+		if (!isMaster() && !isTypeLegal())
 		{
 			try
 			{
@@ -316,10 +323,13 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputCheckMult() throws PersistenceLayerException
 	{
-		// Explicitly do NOT build TestWP2
-		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		if (!isMaster())
+		{
+			// Explicitly do NOT build TestWP2
+			construct(primaryContext, "TestWP1");
+			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -328,7 +338,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
-		if (isTypeLegal())
+		if (!isMaster() && isTypeLegal())
 		{
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TYPE=TestType"
@@ -700,5 +710,10 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return new AppendingConsolidation(getJoinCharacter());
+	}
+	
+	public boolean isMaster()
+	{
+		return false;
 	}
 }

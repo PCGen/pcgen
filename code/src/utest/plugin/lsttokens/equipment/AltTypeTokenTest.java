@@ -149,6 +149,34 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testInputInvalidClearDot() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR."));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	{
+		assertFalse(parse("Type1.CLEAR"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInputInvalidClearDirect() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEARType1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidClearDot() throws PersistenceLayerException
+	{
+		assertTrue(parse(".CLEAR.TestWP1"));
+		assertNoSideEffects();
+	}
+
 	@Override
 	protected CDOMObject getUnparseTarget()
 	{

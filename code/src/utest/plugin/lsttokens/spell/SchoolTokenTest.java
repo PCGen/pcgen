@@ -19,21 +19,20 @@ package plugin.lsttokens.spell;
 
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SpellSchool;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
+import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SchoolTokenTest extends
-		AbstractTypeSafeListTestCase<Spell, SpellSchool>
+		AbstractListTokenTestCase<Spell, SpellSchool>
 {
 
 	static SchoolToken token = new SchoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader =
+			new CDOMTokenLoader<Spell>(Spell.class);
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -54,21 +53,9 @@ public class SchoolTokenTest extends
 	}
 
 	@Override
-	public SpellSchool getConstant(String string)
-	{
-		return SpellSchool.getConstant(string);
-	}
-
-	@Override
 	public char getJoinCharacter()
 	{
 		return '|';
-	}
-
-	@Override
-	public ListKey<SpellSchool> getListKey()
-	{
-		return ListKey.SPELL_SCHOOL;
 	}
 
 	@Test
@@ -90,8 +77,32 @@ public class SchoolTokenTest extends
 	}
 
 	@Override
-	protected boolean requiresPreconstruction()
+	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	public Class<SpellSchool> getTargetClass()
+	{
+		return SpellSchool.class;
+	}
+
+	@Override
+	public boolean isAllLegal()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isTypeLegal()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isMaster()
+	{
+		return true;
 	}
 }

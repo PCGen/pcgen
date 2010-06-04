@@ -385,4 +385,15 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	{
 		return new AppendingConsolidation('|');
 	}
+
+	@Test
+	public void testClearPrereqInvalid() throws PersistenceLayerException
+	{
+		assertEquals(0, primaryContext.getWriteMessageCount());
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
+		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
+	}
+
 }

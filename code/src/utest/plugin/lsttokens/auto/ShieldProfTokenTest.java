@@ -123,4 +123,9 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 		primaryProf.addToListFor(ListKey.AUTO_SHIELDPROF, pp);
 	}
 
+	@Override
+	protected boolean allowsPrerequisite()
+	{
+		return true;
+	}
 }

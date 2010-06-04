@@ -98,9 +98,16 @@ public class ChoiceTokenTest extends AbstractTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testInvalidInputDoubleDot() throws PersistenceLayerException
+	public void testInvalidInputDoublPipe() throws PersistenceLayerException
 	{
 		assertFalse(parse("SCHOOL||Good"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputTripleContent() throws PersistenceLayerException
+	{
+		assertFalse(parse("SCHOOL|Bad|Good"));
 		assertNoSideEffects();
 	}
 
@@ -108,6 +115,13 @@ public class ChoiceTokenTest extends AbstractTokenTestCase<SubClass>
 	public void testInvalidInputNotAType() throws PersistenceLayerException
 	{
 		assertFalse(parse("NOTATYPE|Good"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputIllegalType() throws PersistenceLayerException
+	{
+		assertFalse(parse("ALIGNMENT|LawfulGood"));
 		assertNoSideEffects();
 	}
 

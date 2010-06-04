@@ -197,4 +197,10 @@ public class WeaponProfTokenTest extends
 		wpp.addWeaponProfType(ref);
 		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
 	}
+
+	@Override
+	protected boolean allowsPrerequisite()
+	{
+		return true;
+	}
 }

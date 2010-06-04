@@ -115,4 +115,9 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 				new QualifiedObject<CDOMReference<Equipment>>(ref));
 	}
 
+	@Override
+	protected boolean allowsPrerequisite()
+	{
+		return true;
+	}
 }

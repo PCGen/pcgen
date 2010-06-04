@@ -385,6 +385,13 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 		return "4+:CR:-3";
 	}
 
+	@Test
+	public void testParseClear() throws PersistenceLayerException
+	{
+		assertTrue(parse(".CLEAR"));
+		assertTrue(primaryContext.ref.validate(null));
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
