@@ -48,7 +48,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable
+		Cloneable, Identified
 {
 
 	private URI sourceURI = null;
@@ -770,5 +770,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
 		BonusActivation.activateBonuses(this, aPC);
+	}
+	
+	public boolean isInternal()
+	{
+		return getSafe(ObjectKey.INTERNAL);
 	}
 }

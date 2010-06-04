@@ -44,7 +44,7 @@ public class LoadValidator implements UnconstructedValidator
 		campaignList = new ArrayList<Campaign>(campaigns);
 	}
 
-	public <T extends CDOMObject> boolean allow(Class<T> cl, String s)
+	public <T> boolean allow(Class<T> cl, String s)
 	{
 		if (simpleMap == null)
 		{

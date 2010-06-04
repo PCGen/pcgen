@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -37,7 +36,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentSingleRef
  */
-public class CDOMTransparentSingleRef<T extends CDOMObject> extends
+public class CDOMTransparentSingleRef<T> extends
 		CDOMSingleRef<T> implements TransparentReference<T>
 {
 

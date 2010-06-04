@@ -61,8 +61,8 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -298,8 +298,11 @@ final class ChooseSpellDialog extends JDialog
 
 				if (subType.startsWith("SCHOOL."))
 				{
-					SpellSchool ss = SpellSchool.getConstant(subType.substring(7));
-					if (!aSpell.containsInList(ListKey.SPELL_SCHOOL, ss))
+					SpellSchool ss =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+									SpellSchool.class, subType.substring(7));
+					if (ss == null || !aSpell.containsInList(ListKey.SPELL_SCHOOL, ss))
 					{
 						isOfType = false;
 

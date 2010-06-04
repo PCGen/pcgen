@@ -19,7 +19,6 @@
 package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.choiceset.ObjectContainer;
 
 /**
@@ -29,7 +28,7 @@ import pcgen.cdom.choiceset.ObjectContainer;
  * @param <T>
  *            The Class of the underlying objects contained by this CDOMGroupRef
  */
-public abstract class CDOMGroupRef<T extends PrereqObject> extends
+public abstract class CDOMGroupRef<T> extends
 		CDOMReference<T> implements ObjectContainer<T>
 {
 

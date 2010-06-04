@@ -29,6 +29,7 @@ import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -60,7 +61,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	private final HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
-	public abstract <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
+	public abstract <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
 	/**
@@ -73,7 +74,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	 * @return The reference manufacturer
 	 */
 
-	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject>> getAllManufacturers();
+	public abstract Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
 
 	public boolean validate(UnconstructedValidator validator)
 	{
@@ -85,7 +86,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return returnGood;
 	}
 
-	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
+	public <T extends Identified> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		return getManufacturer(c).getAllReference();
 	}
@@ -130,7 +131,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl).constructIfNecessary(value);
 	}
 
-	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+	public <T extends Identified> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
 		/*
@@ -172,7 +173,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
+	public <T extends Identified> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
@@ -310,10 +311,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	// return categorized.getConstructedCDOMObjects(c, cat);
 	// }
 
-	public Set<CDOMObject> getAllConstructedObjects()
+	public Set<Object> getAllConstructedObjects()
 	{
-		Set<CDOMObject> set = new HashSet<CDOMObject>();
-		for (ReferenceManufacturer<? extends CDOMObject> ref : getAllManufacturers())
+		Set<Object> set = new HashSet<Object>();
+		for (ReferenceManufacturer<?> ref : getAllManufacturers())
 		{
 			set.addAll(ref.getAllObjects());
 		}
@@ -466,7 +467,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	public <T extends CDOMObject> T constructNowIfNecessary(Class<T> cl, String name)
+	public <T extends Identified> T constructNowIfNecessary(Class<T> cl, String name)
 	{
 		return getManufacturer(cl).constructNowIfNecessary(name);
 	}

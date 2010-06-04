@@ -26,6 +26,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -33,12 +34,12 @@ import pcgen.cdom.reference.UnconstructedValidator;
 
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
+	private final Map<Class<?>, TransparentReferenceManufacturer<?>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<?>>();
 
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -57,9 +58,9 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public Collection<TransparentReferenceManufacturer<? extends CDOMObject>> getAllManufacturers()
+	public Collection<TransparentReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>> returnList = new ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>>(
+		ArrayList<TransparentReferenceManufacturer<?>> returnList = new ArrayList<TransparentReferenceManufacturer<?>>(
 				map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{

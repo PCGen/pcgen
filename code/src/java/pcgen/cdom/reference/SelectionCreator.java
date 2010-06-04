@@ -17,9 +17,8 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
 
-public interface SelectionCreator<T extends CDOMObject>
+public interface SelectionCreator<T>
 {
 	/**
 	 * Gets a reference to the Class or Class/Context provided by this

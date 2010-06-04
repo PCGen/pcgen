@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SpellSchool;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
@@ -70,9 +70,21 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_SCHOOL);
 			}
+			else if (Constants.LST_ALL.equals(tokString))
+			{
+				return new ParseResult.Fail(getTokenName()
+					+ "used reserved word ALL: " + value);
+			}
+			else if (Constants.LST_ANY.equals(tokString))
+			{
+				return new ParseResult.Fail(getTokenName()
+					+ "used reserved word ANY: " + value);
+			}
 			else
 			{
-				SpellSchool ss = SpellSchool.getConstant(tokString);
+				SpellSchool ss =
+						context.ref.constructNowIfNecessary(SpellSchool.class,
+							tokString);
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_SCHOOL, ss);
 				SettingsHandler.getGame().addToSchoolList(tokString);

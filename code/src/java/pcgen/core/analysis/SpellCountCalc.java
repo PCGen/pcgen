@@ -25,7 +25,8 @@ import java.util.List;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SpellSchool;
+import pcgen.cdom.identifier.SpellSchool;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
@@ -83,8 +84,11 @@ public class SpellCountCalc
 		String specialty = pc.getAssoc(cl, AssociationKey.SPECIALTY);
 		if (specialty != null)
 		{
-			SpellSchool ss = SpellSchool.getConstant(specialty);
-			return aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
+			SpellSchool ss =
+				Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(
+						SpellSchool.class, specialty);
+			return (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
 					|| aSpell
 							.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
 					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR,

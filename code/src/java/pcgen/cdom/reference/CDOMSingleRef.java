@@ -18,7 +18,6 @@
 package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PrereqObject;
 
 /**
  * A CDOMSimpleSingleRef is a CDOMReference which is intended to contain a
@@ -27,7 +26,7 @@ import pcgen.cdom.base.PrereqObject;
  * @param <T>
  *            The Class of the underlying object contained by this CDOMSingleRef
  */
-public abstract class CDOMSingleRef<T extends PrereqObject> extends
+public abstract class CDOMSingleRef<T> extends
 		CDOMReference<T>
 {
 

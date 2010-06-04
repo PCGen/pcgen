@@ -29,7 +29,6 @@ import java.util.Set;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -46,7 +45,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this ReferenceChoiceSet contains.
  */
-public class ReferenceChoiceSet<T extends PrereqObject> implements
+public class ReferenceChoiceSet<T> implements
 		PrimitiveChoiceSet<T>
 {
 

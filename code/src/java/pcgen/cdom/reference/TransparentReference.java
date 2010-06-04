@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
 
 /**
  * A TransparentReference is a Reference that can be resolved using a
@@ -44,7 +43,7 @@ import pcgen.cdom.base.CDOMObject;
  * @param <T>
  *            The Class of object this TransparentReference references
  */
-public interface TransparentReference<T extends CDOMObject>
+public interface TransparentReference<T>
 {
 	/**
 	 * Resolves this TransparentReference using the given ReferenceManufacturer.

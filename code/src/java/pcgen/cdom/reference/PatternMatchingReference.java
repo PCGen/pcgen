@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The class of object underlying this PatternMatchingReference.
  */
-public class PatternMatchingReference<T extends CDOMObject> extends
+public class PatternMatchingReference<T extends Identified> extends
 		CDOMReference<T>
 {
 

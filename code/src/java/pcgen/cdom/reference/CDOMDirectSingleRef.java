@@ -20,7 +20,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMDirectSingleRef
  */
-public class CDOMDirectSingleRef<T extends CDOMObject> extends CDOMSingleRef<T>
+public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 {
 
 	/**
@@ -173,7 +173,7 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends CDOMSingleRef<T>
 	 *            The object the returned CDOMDirectSingleRef will contain
 	 * @return A new CDOMDirectSingleRef referring to the given object
 	 */
-	public static <R extends CDOMObject> CDOMDirectSingleRef<R> getRef(R obj)
+	public static <R extends Identified> CDOMDirectSingleRef<R> getRef(R obj)
 	{
 		return new CDOMDirectSingleRef<R>(obj);
 	}

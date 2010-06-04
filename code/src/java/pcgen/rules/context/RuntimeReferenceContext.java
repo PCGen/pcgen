@@ -26,6 +26,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -38,12 +39,12 @@ import pcgen.util.PropertyFactory;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject>>();
+	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
 
 	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -62,9 +63,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public Collection<ReferenceManufacturer<? extends CDOMObject>> getAllManufacturers()
+	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<? extends CDOMObject>> returnList = new ArrayList<ReferenceManufacturer<? extends CDOMObject>>(
+		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
 				map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{

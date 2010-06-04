@@ -24,7 +24,6 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -34,7 +33,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The Class of the underlying objects contained by this CDOMTypeRef
  */
-public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
+public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 {
 
 	/**

@@ -29,5 +29,5 @@ public interface UnconstructedValidator
 	
 	public boolean allowDuplicates(Class<?> cl);
 	
-	public <T extends CDOMObject> boolean allow(Class<T> cl, String s);
+	public <T> boolean allow(Class<T> cl, String s);
 }

@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T extends PrereqObject> implements
+public abstract class CDOMReference<T> implements
 		PrimitiveChoiceFilter<T>
 {
 

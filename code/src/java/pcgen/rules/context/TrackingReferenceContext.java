@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -53,7 +54,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+	public <T extends Identified> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, val);
@@ -71,7 +72,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
+	public <T extends Identified> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMAllReference(c);
 		track.addToListFor(ref, getSourceURI(), getSource());
@@ -112,7 +113,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		ReferenceManufacturer mfg = super.getManufacturer(cl);

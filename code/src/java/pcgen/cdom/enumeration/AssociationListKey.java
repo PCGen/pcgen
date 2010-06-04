@@ -33,6 +33,7 @@ import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;

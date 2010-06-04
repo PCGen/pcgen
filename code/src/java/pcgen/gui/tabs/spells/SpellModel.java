@@ -36,8 +36,8 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -858,8 +858,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							primaryMatch = spell.isType(primaryNode.toString());
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
-							SpellSchool ss = SpellSchool.getConstant(primaryNode.toString());
-							primaryMatch =
+							SpellSchool ss =
+								Globals.getContext().ref
+									.silentlyGetConstructedCDOMObject(
+										SpellSchool.class, primaryNode.toString());
+							primaryMatch = (ss != null) &&
 									spell.containsInList(ListKey.SPELL_SCHOOL, ss);
 							break;
 					}
@@ -963,9 +966,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								spellMatch = primaryMatch;
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
-								SpellSchool ss = SpellSchool.getConstant(secondaryNodes[sindex].toString());
+								SpellSchool ss =
+									Globals.getContext().ref
+										.silentlyGetConstructedCDOMObject(
+											SpellSchool.class, secondaryNodes[sindex].toString());
 								spellMatch =
-										primaryMatch
+										primaryMatch && (ss != null)
 											&& spell.containsInList(ListKey.SPELL_SCHOOL, ss);
 								break;
 						}

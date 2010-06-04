@@ -18,9 +18,7 @@
 package plugin.lsttokens.auto;
 
 import java.util.Collection;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -33,6 +31,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -85,17 +84,26 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				foundOther = true;
 				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, this);
 			}
-			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
+			else if (Constants.LST_ALL.equals(aProf))
 			{
 				foundAny = true;
-				context.obj.addToList(obj, ListKey.AUTO_LANGUAGE, context.ref
-						.getCDOMAllReference(LANGUAGE_CLASS));
+				context.getObjectContext().addToList(obj,
+						ListKey.AUTO_LANGUAGE,
+						context.ref.getCDOMAllReference(LANGUAGE_CLASS));
 			}
 			else
 			{
 				foundOther = true;
-				context.obj.addToList(obj, ListKey.AUTO_LANGUAGE, context.ref
-						.getCDOMReference(LANGUAGE_CLASS, aProf));
+				CDOMReference<Language> ref = TokenUtilities
+						.getTypeOrPrimitive(context, LANGUAGE_CLASS, aProf);
+				if (ref == null)
+				{
+					return new ParseResult.Fail(
+							"  Error was encountered while parsing "
+									+ getTokenName());
+				}
+				context.getObjectContext().addToList(obj,
+						ListKey.AUTO_LANGUAGE, ref);
 			}
 		}
 
@@ -115,7 +123,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		Changes<ChooseResultActor> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
 		Collection<CDOMReference<Language>> added = changes.getAdded();
-		Set<String> set = new TreeSet<String>();
+		StringBuilder sb = new StringBuilder();
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -127,7 +135,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					try
 					{
-						set.add(cra.getLstFormat());
+						sb.append(cra.getLstFormat());
 						foundOther = true;
 					}
 					catch (PersistenceLayerException e)
@@ -141,27 +149,33 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (added != null)
 		{
+			boolean needPipe = sb.length() > 0;
 			for (CDOMReference<Language> spp : added)
 			{
 				String ab = spp.getLSTformat();
 				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
 				foundAny |= isUnconditionalAll;
 				foundOther |= !isUnconditionalAll;
-				set.add(ab);
+				if (needPipe)
+				{
+					sb.append('|');
+				}
+				needPipe = true;
+				sb.append(ab);
 			}
 		}
 		if (foundAny && foundOther)
 		{
 			context.addWriteMessage("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + set);
+					+ ": Contains ANY and a specific reference: " + sb);
 			return null;
 		}
-		if (set.isEmpty())
+		if (sb.length() == 0)
 		{
 			// okay
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return new String[] { sb.toString() };
 	}
 
 	public Class<CDOMObject> getTokenClass()

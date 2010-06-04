@@ -37,9 +37,9 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
@@ -2921,7 +2921,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
 		ReferenceContext referenceContext = getRefContext();
-		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
+		for (TransparentReferenceManufacturer<?> rm : gameRefContext
 				.getAllManufacturers())
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
@@ -2942,7 +2942,7 @@ public final class GameMode implements Comparable<Object>
 		}
 	}
 
-	public static <T extends CDOMObject> void resolveReferenceManufacturer(
+	public static <T extends Identified> void resolveReferenceManufacturer(
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();

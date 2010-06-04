@@ -86,7 +86,6 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
@@ -151,6 +150,7 @@ import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
@@ -7202,11 +7202,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (CharacterSpell cs : aList)
 				{
 					final Spell aSpell = cs.getSpell();
-
-					SpellSchool ss = SpellSchool.getConstant(school);
+					SpellSchool ss =
+						Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+								SpellSchool.class, school);
 
 					if ((school.length() == 0)
-						|| aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
+						|| (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
 						|| (subschool.length() == 0)
 						|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL,
 							subschool)

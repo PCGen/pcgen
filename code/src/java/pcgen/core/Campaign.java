@@ -27,7 +27,6 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -82,7 +81,7 @@ public class Campaign extends PObject
 	
 	public void applyTo(ReferenceContext rc)
 	{
-		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
+		for (TransparentReferenceManufacturer<?> rm : gameRefContext
 				.getAllManufacturers())
 		{
 			GameMode.resolveReferenceManufacturer(rc, rm);

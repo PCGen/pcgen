@@ -316,11 +316,6 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject> imp
 			m.addToListFor(new HashSet<Prerequisite>(fo.getPrerequisiteList()),
 					fo.getListRef(), fo.getAdjustment(), fo.getRaceRef());
 		}
-		if (m.isEmpty())
-		{
-			// Legal if no COMPANIONMOD Tokens
-			return null;
-		}
 		Set<String> set = new TreeSet<String>();
 		StringBuilder sb = new StringBuilder();
 		for (Set<Prerequisite> prereqs : m.getKeySet())

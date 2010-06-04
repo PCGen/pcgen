@@ -20,7 +20,6 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -32,7 +31,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMSimpleSingleRef
  */
-public class CDOMSimpleSingleRef<T extends PrereqObject> extends
+public class CDOMSimpleSingleRef<T> extends
 		CDOMSingleRef<T>
 {
 

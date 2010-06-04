@@ -7,8 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SpellSchool;
 import pcgen.cdom.helper.PointCost;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellPointCostInfo;

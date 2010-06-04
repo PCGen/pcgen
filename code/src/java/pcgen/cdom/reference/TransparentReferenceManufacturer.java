@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
+
 
 /**
  * A TransparentReferenceManufacturer is a ReferenceManufacturer capable of
@@ -30,7 +31,7 @@ import pcgen.cdom.base.CDOMObject;
  *            The Class of object this TransparentReferenceManufacturer can
  *            reference
  */
-public class TransparentReferenceManufacturer<T extends CDOMObject>
+public class TransparentReferenceManufacturer<T extends Identified>
 		extends
 		AbstractReferenceManufacturer<T, CDOMTransparentSingleRef<T>, CDOMTransparentTypeRef<T>, CDOMTransparentAllRef<T>>
 		implements ReferenceManufacturer<T>

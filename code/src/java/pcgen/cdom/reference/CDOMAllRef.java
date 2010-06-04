@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -33,7 +32,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The Class of the underlying objects contained by this reference
  */
-public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
+public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 {
 	/**
 	 * The objects (presumably all of the objects) of the Class this CDOMAllRef

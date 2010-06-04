@@ -38,8 +38,7 @@ import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.base.Identified;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
@@ -67,7 +66,7 @@ import pcgen.util.Logging;
  *            The Class of All Reference that this AbstractReferenceManufacturer
  *            will produce
  */
-public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
+public abstract class AbstractReferenceManufacturer<T extends Identified, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
 		implements ReferenceManufacturer<T>
 {
 	
@@ -880,7 +879,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		for (String key : active.getKeySet())
 		{
 			T value = active.get(key);
-			if (value.getSafe(ObjectKey.INTERNAL))
+			if (value.isInternal())
 			{
 				continue;
 			}
@@ -1014,7 +1013,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			{
 				Logging
 						.errorPrint(activeObj.getClass() + " "
-								+ activeObj.get(StringKey.NAME)
+								+ activeObj.getDisplayName()
 								+ " has a null KeyName");
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
@@ -1034,25 +1033,29 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			List<T> list = duplicates.getListFor(second);
 			T good = active.get(second.toString());
-			for (int i = 0; i < list.size(); i++)
+			if (good instanceof CDOMObject)
 			{
-				T dupe = list.get(i);
-				if (dupe.isCDOMEqual(good))
+				CDOMObject cdo = (CDOMObject) good;
+				for (int i = 0; i < list.size(); i++)
 				{
-					for (Iterator<WeakReference<T>> it = manufactured
-							.iterator(); it.hasNext();)
+					T dupe = list.get(i);
+					if (cdo.isCDOMEqual((CDOMObject) dupe))
 					{
-						WeakReference<T> wr = it.next();
-						T mfg = wr.get();
-						if (mfg == null)
+						for (Iterator<WeakReference<T>> it = manufactured
+								.iterator(); it.hasNext();)
 						{
-							it.remove();
-						}
-						//Yes this is instance equality, not .equals
-						else if (mfg == good)
-						{
-							forgetObject(good);
-							break;
+							WeakReference<T> wr = it.next();
+							T mfg = wr.get();
+							if (mfg == null)
+							{
+								it.remove();
+							}
+							//Yes this is instance equality, not .equals
+							else if (mfg == good)
+							{
+								forgetObject(good);
+								break;
+							}
 						}
 					}
 				}

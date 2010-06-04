@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SpellSchool;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.spell.Spell;
 
 public enum ProhibitedSpellType

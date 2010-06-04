@@ -28,6 +28,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
@@ -43,7 +44,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
-public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
+public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 		AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<T>
 {

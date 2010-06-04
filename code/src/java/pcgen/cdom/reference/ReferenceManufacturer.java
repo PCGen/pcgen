@@ -20,8 +20,6 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
-
 /**
  * A ReferenceManufacturer is an object capable of creating CDOMReferences of a
  * given "form". That "form" includes a specific Class of CDOMObject, or a
@@ -53,7 +51,7 @@ import pcgen.cdom.base.CDOMObject;
  *            The Class of Single Reference that this ReferenceManufacturer will
  *            produce
  */
-public interface ReferenceManufacturer<T extends CDOMObject> extends SelectionCreator<T>
+public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by

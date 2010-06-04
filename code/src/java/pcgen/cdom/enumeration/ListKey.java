@@ -47,6 +47,7 @@ import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
