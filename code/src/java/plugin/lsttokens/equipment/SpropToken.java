@@ -75,24 +75,38 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 	{
 		Changes<SpecialProperty> changes = context.getObjectContext()
 				.getListChanges(eq, ListKey.SPECIAL_PROPERTIES);
-		Collection<SpecialProperty> added = changes.getAdded();
-		if (added == null || added.isEmpty())
+		if (changes == null || changes.isEmpty())
 		{
-			// Zero indicates no Token
 			return null;
 		}
 		List<String> list = new ArrayList<String>();
-		for (SpecialProperty sp : added)
+		Collection<SpecialProperty> added = changes.getAdded();
+		boolean globalClear = changes.includesGlobalClear();
+		if (globalClear)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(sp.getDisplayName());
-			if (sp.hasPrerequisites())
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		if (added != null && !added.isEmpty())
+		{
+			for (SpecialProperty sp : added)
 			{
-				sb.append(Constants.PIPE);
-				sb.append(getPrerequisiteString(context, sp
-						.getPrerequisiteList()));
+				StringBuilder sb = new StringBuilder();
+				sb.append(sp.getDisplayName());
+				if (sp.hasPrerequisites())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(getPrerequisiteString(context, sp
+							.getPrerequisiteList()));
+				}
+				list.add(sb.toString());
 			}
-			list.add(sb.toString());
+		}
+		if (list.isEmpty())
+		{
+			context.addWriteMessage(getTokenName()
+					+ " was expecting non-empty changes to include "
+					+ "added items or global clear");
+			return null;
 		}
 		return list.toArray(new String[list.size()]);
 	}
