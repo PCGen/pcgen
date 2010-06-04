@@ -125,7 +125,7 @@ SKILL:Swim		RANK:5
 FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Improved Bull Rush
-FEAT:Improved Critical
+FEAT:Improved Critical (Bite)
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Stealthy
@@ -355,7 +355,7 @@ SKILL:Survival			RANK:8
 FEAT:Improved Initiative
 FEAT:Blind-Fight
 FEAT:Skill Focus (Perception)
-FEAT:Weapon Finesse
+FEAT:Weapon Focus (Incorporeal touch)
 
 STARTPACK:Sphinx (Gynosphinx) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]	SOURCEPAGE:p.257
 RACE:Sphinx (Gynosphinx)	!PRERACE:1,%
@@ -454,7 +454,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Combat Reflexes
 FEAT:Great Fortitude
-FEAT:Improved Critical
+FEAT:Improved Critical (Tentacles)
 FEAT:Skill Focus (Perception)
 
 STARTPACK:Stirge Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]	SOURCEPAGE:p.260
@@ -573,7 +573,7 @@ NAME:Dire Tiger
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:5
-SKILL:Stealth	RANK:1
+SKILL:Stealth	RANK:7
 SKILL:Swim		RANK:2
 FEAT:Improved Critical (Bite)
 FEAT:Improved Initiative
