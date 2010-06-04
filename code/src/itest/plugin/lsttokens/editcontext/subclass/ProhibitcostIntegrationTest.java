@@ -73,4 +73,10 @@ public class ProhibitcostIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

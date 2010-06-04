@@ -73,4 +73,10 @@ public class ReachMultIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

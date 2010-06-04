@@ -234,4 +234,23 @@ public class TemplateIntegrationTest extends
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
+
+	@Test
+	public void testRoundRobinAddchoice() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP4");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "CHOOSE:TestWP1|TestWP2");
+		commit(modCampaign, tc, "ADDCHOICE:TestWP3|TestWP4");
+		completeRoundRobin(tc);
+	}
+
 }

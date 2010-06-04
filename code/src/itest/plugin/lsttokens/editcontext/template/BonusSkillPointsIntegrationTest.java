@@ -73,4 +73,10 @@ public class BonusSkillPointsIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

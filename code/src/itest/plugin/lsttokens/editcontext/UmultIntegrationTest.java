@@ -74,4 +74,10 @@ public class UmultIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return true;
+	}
 }

@@ -19,11 +19,15 @@ package plugin.lsttokens.editcontext.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.SubClass;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.FavoredclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -106,6 +110,26 @@ public class FavoredClassIntegrationTest extends
 	{
 		return "HIGHESTLEVELCLASS";
 	}
-	
-	
+
+
+	@Test
+	public void testRoundRobinSimpleCategorized() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+				"Sub");
+		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
+		primaryContext.ref.reassociateCategory(cat, obj);
+		obj = secondaryContext.ref.constructCDOMObject(SubClass.class, "Sub");
+		secondaryContext.ref.reassociateCategory(cat, obj);
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP1");
+		commit(modCampaign, tc, "TestWP2.Sub");
+		completeRoundRobin(tc);
+	}
+
 }

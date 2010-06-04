@@ -72,4 +72,10 @@ public class MaxDexIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

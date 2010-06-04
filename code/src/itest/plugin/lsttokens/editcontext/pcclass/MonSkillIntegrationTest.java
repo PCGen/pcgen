@@ -96,4 +96,10 @@ public class MonSkillIntegrationTest extends
 	{
 		return false;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

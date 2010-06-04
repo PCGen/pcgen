@@ -98,6 +98,14 @@ public class DeityWeapIntegrationTest extends
 	@Override
 	public boolean isAllLegal()
 	{
-		return false;
+		return true;
 	}
+
+	@Override
+	protected String getAllString()
+	{
+		return "ANY";
+	}
+	
+	
 }

@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.editcontext.template;
 
+import org.junit.Test;
+
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.HitdieToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -70,6 +75,64 @@ public class HitDieIntegrationTest extends
 
 	@Override
 	public boolean isZeroAllowed()
+	{
+		return false;
+	}
+
+	@Test
+	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "4|CLASS=Fighter");
+		commit(modCampaign, tc, "5|CLASS=Wizard");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "6|CLASS=Wizard");
+		commit(modCampaign, tc, "4|CLASS=Fighter");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "4|CLASS=Fighter");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "4|CLASS=Fighter");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+	@Override
+	protected boolean isClearAllowed()
 	{
 		return false;
 	}

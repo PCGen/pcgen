@@ -107,4 +107,44 @@ public class SizeIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Test
+	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Formula");
+		commit(modCampaign, tc, "M");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "S");
+		commit(modCampaign, tc, "Formula");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "Formula");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Formula");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
 }

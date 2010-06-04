@@ -105,6 +105,6 @@ public class KitIntegrationTest extends
 	@Override
 	public boolean isAllLegal()
 	{
-		return false;
+		return true;
 	}
 }

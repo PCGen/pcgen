@@ -21,10 +21,12 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class TypeIntegrationTest extends
@@ -87,6 +89,50 @@ public class TypeIntegrationTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return false;
+	}
+
+	@Test
+	public void testRoundRobinRemove() throws PersistenceLayerException
+	{
+		if (requiresPreconstruction())
+		{
+			getConstant("TestWP2");
+		}
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "REMOVE.TestWP2");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAddRemove() throws PersistenceLayerException
+	{
+		if (requiresPreconstruction())
+		{
+			getConstant("TestWP2");
+		}
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP2");
+		commit(modCampaign, tc, "REMOVE.TestWP2");
+		completeRoundRobin(tc);
+	}
+
+
+	@Test
+	public void testRoundRobinInsert() throws PersistenceLayerException
+	{
+		if (requiresPreconstruction())
+		{
+			getConstant("TestWP1");
+			getConstant("TestWP2");
+		}
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP2");
+		commit(modCampaign, tc, "TestWP1.REMOVE.TestWP2");
+		completeRoundRobin(tc);
 	}
 
 }

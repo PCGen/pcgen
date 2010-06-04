@@ -88,7 +88,7 @@ public class FeatIntegrationTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

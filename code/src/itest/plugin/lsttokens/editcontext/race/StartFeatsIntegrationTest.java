@@ -72,4 +72,10 @@ public class StartFeatsIntegrationTest extends
 	{
 		return false;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

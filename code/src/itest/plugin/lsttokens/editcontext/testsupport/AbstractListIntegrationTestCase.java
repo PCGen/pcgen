@@ -347,6 +347,32 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 		completeRoundRobin(tc);
 	}
 
+	@Test
+	public void testRoundRobinNoOriginalClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			emptyCommit(testCampaign, tc);
+			commit(modCampaign, tc, getPrefix() + getClearString());
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinNoModClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, getPrefix() + getClearString());
+			emptyCommit(modCampaign, tc);
+			completeRoundRobin(tc);
+		}
+	}
+
 	protected void construct(LoadContext loadContext, String one)
 	{
 		loadContext.ref.constructCDOMObject(getTargetClass(), one);

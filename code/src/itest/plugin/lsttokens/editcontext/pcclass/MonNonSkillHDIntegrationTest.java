@@ -85,4 +85,10 @@ public class MonNonSkillHDIntegrationTest extends
 	{
 		return false;
 	}
+
+	@Override
+	protected boolean isClearAllowed()
+	{
+		return false;
+	}
 }

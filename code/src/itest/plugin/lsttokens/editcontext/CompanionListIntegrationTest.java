@@ -22,10 +22,12 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.CompanionListLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CompanionListIntegrationTest extends
@@ -33,8 +35,8 @@ public class CompanionListIntegrationTest extends
 {
 
 	static CompanionListLst token = new CompanionListLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
 
 	@Override
 	public String getPrefix()
@@ -113,6 +115,16 @@ public class CompanionListIntegrationTest extends
 	{
 		return "ANY";
 	}
-	
-	
+
+	@Test
+	public void testRoundRobinDiffAdjustment() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, getPrefix() + "RACETYPE=Align|FOLLOWERADJUSTMENT:-2");
+		commit(modCampaign, tc, getPrefix() + "RACETYPE=Alien|FOLLOWERADJUSTMENT:-5");
+		completeRoundRobin(tc);
+	}
 }

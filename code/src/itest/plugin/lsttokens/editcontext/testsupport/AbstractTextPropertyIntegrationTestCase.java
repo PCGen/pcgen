@@ -132,4 +132,50 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		completeRoundRobin(tc);
 	}
 
+
+	@Test
+	public void testRoundRobinDotClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, "Rheinhessen");
+			commit(modCampaign, tc, getClearString());
+			completeRoundRobin(tc);
+		}
+	}
+
+	protected abstract boolean isClearLegal();
+
+	@Test
+	public void testRoundRobinNoOriginalClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			emptyCommit(testCampaign, tc);
+			commit(modCampaign, tc, getClearString());
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinNoModClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, getClearString());
+			emptyCommit(modCampaign, tc);
+			completeRoundRobin(tc);
+		}
+	}
+
+	protected String getClearString()
+	{
+		return ".CLEAR";
+	}
 }

@@ -48,4 +48,10 @@ public class SPropIntegrationTest extends
 	{
 		return token;
 	}
+
+	@Override
+	protected boolean isClearLegal()
+	{
+		return true;
+	}
 }

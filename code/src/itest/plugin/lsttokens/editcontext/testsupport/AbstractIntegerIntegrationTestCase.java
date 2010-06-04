@@ -80,7 +80,8 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinSimpleOverwrite() throws PersistenceLayerException
+	public void testRoundRobinSimpleOverwrite()
+		throws PersistenceLayerException
 	{
 		if (isPositiveAllowed() && doesOverwrite())
 		{
@@ -93,7 +94,8 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNegativeOverwrite() throws PersistenceLayerException
+	public void testRoundRobinNegativeOverwrite()
+		throws PersistenceLayerException
 	{
 		if (isNegativeAllowed() && doesOverwrite())
 		{
@@ -114,7 +116,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "1");
 			commit(testCampaign, tc, "2");
-			tc.putText(testCampaign.getURI(), new String[] {"1", "2"});
+			tc.putText(testCampaign.getURI(), new String[]{"1", "2"});
 			completeRoundRobin(tc);
 		}
 	}
@@ -128,7 +130,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "-1");
 			commit(testCampaign, tc, "-2");
-			tc.putText(testCampaign.getURI(), new String[] {"-1", "-2"});
+			tc.putText(testCampaign.getURI(), new String[]{"-1", "-2"});
 			completeRoundRobin(tc);
 		}
 	}
@@ -212,4 +214,52 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
+
+	@Test
+	public void testRoundRobinSimpleClear() throws PersistenceLayerException
+	{
+		if (isClearAllowed())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, ".CLEAR");
+			if (isPositiveAllowed())
+			{
+				commit(modCampaign, tc, "3");
+			}
+			else if (isNegativeAllowed())
+			{
+				commit(modCampaign, tc, "-2");
+			}
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinClearNoSet() throws PersistenceLayerException
+	{
+		if (isClearAllowed())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			emptyCommit(testCampaign, tc);
+			commit(modCampaign, tc, ".CLEAR");
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinClearNoReset() throws PersistenceLayerException
+	{
+		if (isClearAllowed())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, ".CLEAR");
+			emptyCommit(modCampaign, tc);
+			completeRoundRobin(tc);
+		}
+	}
+
+	protected abstract boolean isClearAllowed();
 }
