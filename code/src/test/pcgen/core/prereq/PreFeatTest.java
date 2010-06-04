@@ -224,7 +224,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		}
 
 		final String spellFocusStr =
-				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
+				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
@@ -268,7 +268,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		}
 
 		final String spellFocusStr =
-				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
+				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
