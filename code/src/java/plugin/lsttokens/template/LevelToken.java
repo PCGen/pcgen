@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.template;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -56,6 +58,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate> implement
 	{
 		if (".CLEAR".equals(value))
 		{
+
 			context.getObjectContext().removeList(template,
 				ListKey.LEVEL_TEMPLATES);
 			return ParseResult.SUCCESS;
@@ -136,31 +139,37 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate> implement
 		Changes<PCTemplate> changes = context.getObjectContext()
 				.getListChanges(pct, ListKey.LEVEL_TEMPLATES);
 		Collection<PCTemplate> added = changes.getAdded();
-		if (added == null || added.isEmpty())
+		List<String> ret = new ArrayList<String>();
+		boolean globalClear = changes.includesGlobalClear();
+		if (globalClear)
 		{
-			return null;
+			ret.add(Constants.LST_DOT_CLEAR);
 		}
-		Set<String> set = new TreeSet<String>();
-		for (PCTemplate pctChild : added)
+		if(added != null)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(pctChild.get(IntegerKey.LEVEL)).append(':');
-			Collection<String> unparse = context.unparse(pctChild);
-			if (unparse != null)
+			Set<String> set = new TreeSet<String>();
+			for (PCTemplate pctChild : added)
 			{
-				int masterLength = sb.length();
-				for (String str : unparse)
+				StringBuilder sb = new StringBuilder();
+				sb.append(pctChild.get(IntegerKey.LEVEL)).append(':');
+				Collection<String> unparse = context.unparse(pctChild);
+				if (unparse != null)
 				{
-					sb.setLength(masterLength);
-					set.add(sb.append(str).toString());
+					int masterLength = sb.length();
+					for (String str : unparse)
+					{
+						sb.setLength(masterLength);
+						set.add(sb.append(str).toString());
+					}
 				}
 			}
+			ret.addAll(set);
 		}
-		if (set.isEmpty())
+		if (ret.isEmpty())
 		{
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return ret.toArray(new String[ret.size()]);
 	}
 
 	public Class<PCTemplate> getTokenClass()
