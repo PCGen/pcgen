@@ -47,7 +47,7 @@ public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> im
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				new ParseResult.Fail("You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
@@ -56,12 +56,12 @@ public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> im
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				new ParseResult.Fail("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				new ParseResult.Fail("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
