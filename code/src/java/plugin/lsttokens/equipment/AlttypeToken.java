@@ -164,6 +164,16 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 			}
 			sb.append(StringUtil.join(added, Constants.DOT));
 		}
+		Collection<Type> removed = changes.getRemoved();
+		if (removed != null && !removed.isEmpty())
+		{
+			if (sb.length() > 0)
+			{
+				sb.append(Constants.DOT);
+			}
+			sb.append("REMOVE.");
+			sb.append(StringUtil.join(removed, Constants.DOT));
+		}
 		if (sb.length() == 0)
 		{
 			context.addWriteMessage(getTokenName()

@@ -143,8 +143,8 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		Changes<Type> changes = context.getObjectContext().getListChanges(cdo,
-				ListKey.TYPE);
+		Changes<Type> changes =
+				context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -164,14 +164,24 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			sb.append(StringUtil.join(added, Constants.DOT));
 		}
+		Collection<Type> removed = changes.getRemoved();
+		if (removed != null && !removed.isEmpty())
+		{
+			if (sb.length() > 0)
+			{
+				sb.append(Constants.DOT);
+			}
+			sb.append("REMOVE.");
+			sb.append(StringUtil.join(removed, Constants.DOT));
+		}
 		if (sb.length() == 0)
 		{
 			context.addWriteMessage(getTokenName()
-					+ " was expecting non-empty changes to include "
-					+ "added items or global clear");
+				+ " was expecting non-empty changes to include "
+				+ "added items or global clear");
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	public Class<CDOMObject> getTokenClass()
