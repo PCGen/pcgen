@@ -193,12 +193,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				}
 				if (level == -1)
 				{
-					if (prereq != null)
-					{
-						return new ParseResult.Fail("Cannot use Prerequisiste "
-								+ "on effective CLEAR (using level == -1) in "
-								+ getTokenName());
-					}
+					//No need to check for prereq here - done above
 					context.getListContext().removeFromMasterList(
 							getTokenName(), spell, ref, spell);
 				}
