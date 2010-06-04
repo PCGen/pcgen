@@ -56,7 +56,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + school.toString();
+		return getTokenName() + "=" + school;
 	}
 
 	public boolean allow(PlayerCharacter pc, Spell spell)

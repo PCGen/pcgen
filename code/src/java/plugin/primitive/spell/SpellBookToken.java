@@ -55,7 +55,7 @@ public class SpellBookToken implements PrimitiveToken<Spell>
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + spellbook.toString();
+		return getTokenName() + "=" + spellbook;
 	}
 
 	public boolean allow(PlayerCharacter pc, Spell spell)

@@ -28,13 +28,11 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceFilterUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PlayerCharacter;
 
 /**

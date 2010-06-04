@@ -94,7 +94,7 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 		return ci;
 	}
 
-	private class CacheInfo
+	private static class CacheInfo
 	{
 		HashMapToList<Class<? extends CDOMObject>, Qualifier> hml = new HashMapToList<Class<? extends CDOMObject>, Qualifier>();
 		HashMapToList<CDOMObject, Qualifier> sourceMap = new HashMapToList<CDOMObject, Qualifier>();

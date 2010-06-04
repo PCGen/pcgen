@@ -56,7 +56,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + subschool.toString();
+		return getTokenName() + "=" + subschool;
 	}
 
 	public boolean allow(PlayerCharacter pc, Spell spell)
