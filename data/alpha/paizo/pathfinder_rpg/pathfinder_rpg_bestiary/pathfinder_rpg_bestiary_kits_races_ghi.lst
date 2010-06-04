@@ -81,7 +81,7 @@ ALIGN:LE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Bluff			RANK:10
 SKILL:TYPE=Craft		RANK:10
-SKILL:Fly			RANK:2
+SKILL:Fly			RANK:1
 SKILL:Intimidate		RANK:10
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:10
@@ -178,7 +178,7 @@ SKILL:Sense Motive		RANK:9
 SKILL:Spellcraft			RANK:9
 FEAT:Combat Casting
 FEAT:Improved Bull Rush
-FEAT:Improved Natural Attack (Slam)
+FEAT:Greater Bull Rush
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
@@ -258,8 +258,8 @@ SKILL:Perform (String Instruments)	RANK:4
 FEAT:Awesome Blow
 FEAT:Cleave
 FEAT:Great Cleave
-FEAT:Greater Bull Rush
-FEAT:Greater Overrun
+FEAT:Improved Bull Rush
+FEAT:Improved Overrun
 FEAT:Intimidating Prowess
 FEAT:Iron Will
 FEAT:Power Attack
@@ -300,7 +300,7 @@ SKILL:Climb		RANK:3
 SKILL:TYPE=Craft	RANK:4
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:5
-SKILL:Stealth	RANK:9
+SKILL:Stealth	RANK:6
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Overrun
@@ -544,7 +544,7 @@ NAME:Griffon
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Acrobatics	RANK:1
-SKILL:Fly		RANK:2
+SKILL:Fly		RANK:3
 SKILL:Perception	RANK:1
 FEAT:Iron Will
 FEAT:Skill Focus (Perception)
@@ -770,6 +770,13 @@ STARTPACK:Iron Cobra (Adamantine Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMU
 ALIGN:TN
 RACE:Iron Cobra (Adamantine Cobra)	!PRERACE:1,%
 NAME:Adamantine Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra (Cold Iron Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Cold Iron Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra (Cold Iron Cobra)	!PRERACE:1,%
+NAME:Cold Iron Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
