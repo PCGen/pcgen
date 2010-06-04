@@ -3,7 +3,7 @@ SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancerg
 # Original Entry by: Tir Gwaith
 
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Required AL	Combat bonus						Stat bonus											Racial HD Class Skills	Virtual Feat		Nb Legs	Special ABility								Define				Monster Class Name and Starting Level	Main Race Type		Challenge Rating	Source Page
-Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	PREALIGN:TN	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	MONCSKILL:Listen|Spot	VFEAT:Weapon Finesse	LEGS:0	SAB:Air Mastery (Ex)	SAB:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|11+STR	MONSTERCLASS:Elemental (Air/Fire):2		RACETYPE:Elemental	CR:2			SOURCEPAGE:p.120
+Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	KIT:1|TN	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	MONCSKILL:Listen|Spot	VFEAT:Weapon Finesse	LEGS:0	SAB:Air Mastery (Ex)	SAB:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|11+STR	MONSTERCLASS:Elemental (Air/Fire):2		RACETYPE:Elemental	CR:2			SOURCEPAGE:p.120
 #
 # EoF
 #
