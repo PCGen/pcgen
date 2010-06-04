@@ -208,16 +208,6 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (hasIllegalSeparator('|', value))
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " has invalid placement of '|'");
-		}
 		return parseTokenWithSeparator(context, context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
 	}
