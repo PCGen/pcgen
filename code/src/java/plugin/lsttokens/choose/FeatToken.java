@@ -57,7 +57,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
 	{
-		int pipeLoc = value.indexOf('|');
+		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
 		String title;
 		if (pipeLoc == -1)

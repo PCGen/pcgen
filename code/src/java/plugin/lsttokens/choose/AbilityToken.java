@@ -63,7 +63,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		ReferenceManufacturer<Ability> rm, Category<Ability> category,
 		CDOMObject obj, String value)
 	{
-		int pipeLoc = value.indexOf('|');
+		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
 		String title;
 		if (pipeLoc == -1)
