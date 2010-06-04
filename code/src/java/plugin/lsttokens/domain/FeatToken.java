@@ -115,7 +115,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 						Ability.FEATLIST);
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();
-		if (mtl == null || mtl.isEmpty())
+		if ((mtl == null || mtl.isEmpty()) && !changes.includesGlobalClear())
 		{
 			// Zero indicates no Token
 			return null;
