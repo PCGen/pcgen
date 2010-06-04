@@ -91,7 +91,7 @@ Dancing Chains			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISI
 Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura			VISIBLE:YES
 Daylight				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Daylight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
-Death Gaze				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:DeathGazeDC|CHA+(HD/2)+10			DESC:%1|DeathGazeDC		BONUS:VAR|DeathGazeDC|2|PREFEAT:1,Ability Focus (Death Gaze)
+Death Gaze				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:DeathGazeDC|CHA+(HD/2)+10			DESC:DC %1|DeathGazeDC		BONUS:VAR|DeathGazeDC|2|PREFEAT:1,Ability Focus (Death Gaze)
 Death Throes			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Deflecting Force			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																			DESC:You give off a 20-foot radius emanation of utter desecration, imbuing your surroundings with negative energy.																									BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC																			SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
