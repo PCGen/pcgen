@@ -1,24 +1,19 @@
-# CVS $Revision$ $Author$ -- Wed Oct 14 23:30:54 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sat Jun  5 14:44:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith) and Maredudd (Eric C Smith)
 
 ###Block:A
-# Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus																			Special Property
-Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet	COST:5000	WT:.02	SOURCEPAGE:p.496									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
-Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet	COST:20000	WT:.02	SOURCEPAGE:p.496									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
-Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet	COST:45000	WT:.02	SOURCEPAGE:p.496									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
-Amulet of Mighty Fists +4				TYPE:Magic.Wondrous.Amulet	COST:80000	WT:.02	SOURCEPAGE:p.496									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|4|TYPE=Enhancement
-Amulet of Mighty Fists +5				TYPE:Magic.Wondrous.Amulet	COST:125000	WT:.02	SOURCEPAGE:p.496									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|5|TYPE=Enhancement
-#Amulet of Mighty Fists: Need to make modifier for this. COST=PLUS*PLUS*5000, max PLUS w/o Epic is +5, must have +1 minimum.
-Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet	COST:2000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet	COST:8000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet	COST:18000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet	COST:32000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet	COST:50000	WT:.02	SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
-Amulet of the Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.500																															SPROP:This amulet allows its wearer to utilize Plane Shift.
-Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet	COST:35000	WT:.02	SOURCEPAGE:p.500																															SPROP:Protects the wearer from scrying and magical location as Nondetection.
-Apparatus of the Crab					TYPE:Magic.Wondrous		COST:90000	WT:500	SOURCEPAGE:p.500
+# Equipment Name						Type								Cost		Weight	Modifier	Requires Modification?	Source Page		Combat bonus						Special Property
+Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
+Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet				COST:32000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet				COST:50000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
+Amulet of the Planes					TYPE:Magic.Wondrous.Amulet				COST:120000	WT:.02							SOURCEPAGE:p.500									SPROP:This amulet allows its wearer to utilize Plane Shift.
+Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet				COST:35000	WT:.02							SOURCEPAGE:p.500									SPROP:Protects the wearer from scrying and magical location as Nondetection.
+Apparatus of the Crab					TYPE:Magic.Wondrous					COST:90000	WT:500							SOURCEPAGE:p.500
 
 ###Block:B
 # Equipment Name				Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page		Ability							Vision			Innate Spells									Combat bonus			Add to magical move					Bonus to skill					Stat bonus								Weapon prof. bonus																																																																											Automatic Languages	Special Property
@@ -193,48 +188,48 @@ Golem Manual (Stone)			TYPE:Magic.Wondrous						COST:22000	WT:5										SOURCEP
 Golem Manual (Stone/Greater)		TYPE:Magic.Wondrous						COST:44000	WT:5										SOURCEPAGE:p.515
 
 ###Block:H
-# Equipment Name						Output Name					Type						Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
-Hand of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
-Hand of the Mage												TYPE:Magic.Wondrous.Amulet					COST:900	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
-Handy Haversack												TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:p.516
-Harp of Charming												TYPE:Magic.Wondrous.Instrument				COST:7500	WT:5				SOURCEPAGE:p.516
-Hat of Disguise												TYPE:Magic.Wondrous.Headgear					COST:1800	WT:.02			SOURCEPAGE:p.516
-Headband of Alluring Charisma +2									TYPE:Magic.Wondrous.Headband					COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|2|TYPE=Enhancement
-Headband of Alluring Charisma +4									TYPE:Magic.Wondrous.Headband					COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|4|TYPE=Enhancement
-Headband of Alluring Charisma +6									TYPE:Magic.Wondrous.Headband					COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|6|TYPE=Enhancement
-Headband of Inspired Wisdom +2									TYPE:Magic.Wondrous.Headband					COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|2|TYPE=Enhancement
-Headband of Inspired Wisdom +4									TYPE:Magic.Wondrous.Headband					COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|4|TYPE=Enhancement
-Headband of Inspired Wisdom +6									TYPE:Magic.Wondrous.Headband					COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|6|TYPE=Enhancement
-Headband of Mental Prowess (INT/WIS) +2								TYPE:Magic.Wondrous.Headband.Intelligence			COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|2|TYPE=Enhancement
-Headband of Mental Prowess (INT/WIS) +4								TYPE:Magic.Wondrous.Headband.Intelligence			COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|4|TYPE=Enhancement
-Headband of Mental Prowess (INT/WIS) +6								TYPE:Magic.Wondrous.Headband.Intelligence			COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|6|TYPE=Enhancement
-Headband of Mental Prowess (INT/CHA) +2								TYPE:Magic.Wondrous.Headband					COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|2|TYPE=Enhancement
-Headband of Mental Prowess (INT/CHA) +4								TYPE:Magic.Wondrous.Headband					COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|4|TYPE=Enhancement
-Headband of Mental Prowess (INT/CHA) +6								TYPE:Magic.Wondrous.Headband					COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|6|TYPE=Enhancement
-Headband of Mental Prowess (WIS/CHA) +2								TYPE:Magic.Wondrous.Headband					COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|2|TYPE=Enhancement
-Headband of Mental Prowess (WIS/CHA) +4								TYPE:Magic.Wondrous.Headband					COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|4|TYPE=Enhancement
-Headband of Mental Prowess (WIS/CHA) +6								TYPE:Magic.Wondrous.Headband					COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|6|TYPE=Enhancement
-Headband of Mental Superiority +2									TYPE:Magic.Wondrous.Headband.Intelligence			COST:16000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement
-Headband of Mental Superiority +4									TYPE:Magic.Wondrous.Headband.Intelligence			COST:64000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
-Headband of Mental Superiority +6									TYPE:Magic.Wondrous.Headband.Intelligence			COST:144000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
-Headband of Vast Intelligence +2									TYPE:Magic.Wondrous.Headband.Intelligence			COST:4000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|2|TYPE=Enhancement
-Headband of Vast Intelligence +4									TYPE:Magic.Wondrous.Headband.Intelligence			COST:16000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|4|TYPE=Enhancement
-Headband of Vast Intelligence +6									TYPE:Magic.Wondrous.Headband.Intelligence			COST:36000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|6|TYPE=Enhancement
-Helm of Brilliance											TYPE:Magic.Wondrous.Headgear					COST:125000	WT:3				SOURCEPAGE:p.518
-Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Headgear					COST:5200	WT:3				SOURCEPAGE:p.318																																									BONUS:SKILL|Linguistics (Understand exotic written messages)|5|TYPE=Competence
-Helm of Telepathy												TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																																																						SPROP:Suggestion 1/day with Telepathy
-Helm of Teleportation											TYPE:Magic.Wondrous.Headgear					COST:73500	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
-Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear					COST:24000	WT:3				SOURCEPAGE:p.518
-Horn of Blasting												TYPE:Magic.Wondrous.Instrument				COST:20000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
-Horn of Blasting (Greater)				OUTPUTNAME:Horn of Blasting, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:70000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
-Horn of Fog													TYPE:Magic.Wondrous.Instrument				COST:2000	WT:1				SOURCEPAGE:p.519
-Horn of Goodness/Evil											TYPE:Magic.Wondrous.Instrument				COST:6500	WT:1				SOURCEPAGE:p.519	SPELLS:Horn of Goodness/Evil|TIMES=1|CASTERLEVEL=6|Magic Circle against Good|PREALIGN:LE,NE,CE	SPELLS:Horn of Goodness/Evil|TIMES=1|CASTERLEVEL=6|Magic Circle against Evil|PREALIGN:LG,NG,CG
-Horn of Valhalla (Silver)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4+2 2nd level human barbarians to fight for the character who summoned them.
-Horn of Valhalla (Brass)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4+1 3rd level human barbarians to fight for the character who summoned them.|PRECLASS:1,SPELLCASTER=1	SPROP:Once per week can summon 2d4+1 3rd level human barbarians that attack the character who summoned them.|!PRECLASS:1,SPELLCASTER=1
-Horn of Valhalla (Bronze)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4 4th level human barbarians to fight for the character who summoned them.|PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]	SPROP:Once per week can summon 2d4 4th level human barbarians that attack the character who summoned them.|!PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]
-Horn of Valhalla (Iron)					OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument				COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 1d4+1 5th level human barbarians to fight for the character who summoned them.|PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]	SPROP:Once per week can summon 1d4+1 5th level human barbarians that attack the character who summoned them.|!PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]
-Horseshoes of Speed											TYPE:Magic.Wondrous.Feet					COST:3000	WT:12		SLOTS:4	SOURCEPAGE:p.520																																	BONUS:POSTMOVEADD|TYPE.Walk|30|TYPE=Enhancement
-Horseshoes of a Zephyr											TYPE:Magic.Wondrous.Feet					COST:6000	WT:4		SLOTS:4	SOURCEPAGE:p.520																																																																		SPROP:Nonsolid or unstable surfaces can be crossed, and movement is possible without leaving tracks on any sort of ground
+# Equipment Name						Output Name					Type							Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
+Hand of Glory												TYPE:Magic.Wondrous.Amulet						COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
+Hand of the Mage												TYPE:Magic.Wondrous.Amulet						COST:900	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
+Handy Haversack												TYPE:Magic.Wondrous.Container			CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:p.516
+Harp of Charming												TYPE:Magic.Wondrous.Instrument					COST:7500	WT:5				SOURCEPAGE:p.516
+Hat of Disguise												TYPE:Magic.Wondrous.Headgear						COST:1800	WT:.02			SOURCEPAGE:p.516
+Headband of Alluring Charisma +2									TYPE:Magic.Wondrous.Headband						COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|2|TYPE=Enhancement
+Headband of Alluring Charisma +4									TYPE:Magic.Wondrous.Headband						COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|4|TYPE=Enhancement
+Headband of Alluring Charisma +6									TYPE:Magic.Wondrous.Headband						COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|6|TYPE=Enhancement
+Headband of Inspired Wisdom +2									TYPE:Magic.Wondrous.Headband						COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|2|TYPE=Enhancement
+Headband of Inspired Wisdom +4									TYPE:Magic.Wondrous.Headband						COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|4|TYPE=Enhancement
+Headband of Inspired Wisdom +6									TYPE:Magic.Wondrous.Headband						COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|WIS|6|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +2								TYPE:Magic.Wondrous.Headband.Intelligence				COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|2|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +4								TYPE:Magic.Wondrous.Headband.Intelligence				COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|4|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +6								TYPE:Magic.Wondrous.Headband.Intelligence				COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS|6|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +2								TYPE:Magic.Wondrous.Headband						COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|2|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +4								TYPE:Magic.Wondrous.Headband						COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|4|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +6								TYPE:Magic.Wondrous.Headband						COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,CHA|6|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +2								TYPE:Magic.Wondrous.Headband						COST:10000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|2|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +4								TYPE:Magic.Wondrous.Headband						COST:40000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|4|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +6								TYPE:Magic.Wondrous.Headband						COST:90000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|WIS,CHA|6|TYPE=Enhancement
+Headband of Mental Superiority +2									TYPE:Magic.Wondrous.Headband.Intelligence				COST:16000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement
+Headband of Mental Superiority +4									TYPE:Magic.Wondrous.Headband.Intelligence				COST:64000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
+Headband of Mental Superiority +6									TYPE:Magic.Wondrous.Headband.Intelligence				COST:144000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
+Headband of Vast Intelligence +2									TYPE:Magic.Wondrous.Headband.Intelligence				COST:4000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|2|TYPE=Enhancement
+Headband of Vast Intelligence +4									TYPE:Magic.Wondrous.Headband.Intelligence				COST:16000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|4|TYPE=Enhancement
+Headband of Vast Intelligence +6									TYPE:Magic.Wondrous.Headband.Intelligence				COST:36000	WT:1				SOURCEPAGE:p.517																																																											BONUS:STAT|INT|6|TYPE=Enhancement
+Helm of Brilliance											TYPE:Magic.Wondrous.Headgear						COST:125000	WT:3				SOURCEPAGE:p.518
+Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Headgear						COST:5200	WT:3				SOURCEPAGE:p.318																																									BONUS:SKILL|Linguistics (Understand exotic written messages)|5|TYPE=Competence
+Helm of Telepathy												TYPE:Magic.Wondrous.Headgear						COST:27000	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																																																						SPROP:Suggestion 1/day with Telepathy
+Helm of Teleportation											TYPE:Magic.Wondrous.Headgear						COST:73500	WT:3				SOURCEPAGE:p.518	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
+Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear						COST:24000	WT:3				SOURCEPAGE:p.518
+Horn of Blasting												TYPE:Magic.Wondrous.Instrument					COST:20000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
+Horn of Blasting (Greater)				OUTPUTNAME:Horn of Blasting, [NAME]	TYPE:Magic.Wondrous.Instrument					COST:70000	WT:1				SOURCEPAGE:p.519																																																																		SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
+Horn of Fog													TYPE:Magic.Wondrous.Instrument					COST:2000	WT:1				SOURCEPAGE:p.519
+Horn of Goodness/Evil											TYPE:Magic.Wondrous.Instrument					COST:6500	WT:1				SOURCEPAGE:p.519	SPELLS:Horn of Goodness/Evil|TIMES=1|CASTERLEVEL=6|Magic Circle against Good|PREALIGN:LE,NE,CE	SPELLS:Horn of Goodness/Evil|TIMES=1|CASTERLEVEL=6|Magic Circle against Evil|PREALIGN:LG,NG,CG
+Horn of Valhalla (Silver)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument					COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4+2 2nd level human barbarians to fight for the character who summoned them.
+Horn of Valhalla (Brass)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument					COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4+1 3rd level human barbarians to fight for the character who summoned them.|PRECLASS:1,SPELLCASTER=1	SPROP:Once per week can summon 2d4+1 3rd level human barbarians that attack the character who summoned them.|!PRECLASS:1,SPELLCASTER=1
+Horn of Valhalla (Bronze)				OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument					COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 2d4 4th level human barbarians to fight for the character who summoned them.|PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]	SPROP:Once per week can summon 2d4 4th level human barbarians that attack the character who summoned them.|!PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]
+Horn of Valhalla (Iron)					OUTPUTNAME:Horn of Valhalla, [NAME]	TYPE:Magic.Wondrous.Instrument					COST:50000	WT:2				SOURCEPAGE:p.519																																																																		SPROP:Once per week can summon 1d4+1 5th level human barbarians to fight for the character who summoned them.|PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]	SPROP:Once per week can summon 1d4+1 5th level human barbarians that attack the character who summoned them.|!PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies],[PREVARGTEQ:BardicPerformanceLVL,1]
+Horseshoes of Speed											TYPE:Magic.Wondrous.Feet						COST:3000	WT:12		SLOTS:4	SOURCEPAGE:p.520																																	BONUS:POSTMOVEADD|TYPE.Walk|30|TYPE=Enhancement
+Horseshoes of a Zephyr											TYPE:Magic.Wondrous.Feet						COST:6000	WT:4		SLOTS:4	SOURCEPAGE:p.520																																																																		SPROP:Nonsolid or unstable surfaces can be crossed, and movement is possible without leaving tracks on any sort of ground
 
 # Equipment Name						Output Name					Type						Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
 

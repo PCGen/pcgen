@@ -99,6 +99,7 @@ PCC:pathfinder_bestiary_core/pathfinder_rpg_bestiary_core.pcc
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
 HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+HIDETYPE:EQUIP|AmuletOfMightyFists
 
 BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
 
