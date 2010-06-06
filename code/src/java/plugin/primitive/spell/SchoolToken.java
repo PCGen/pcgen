@@ -58,7 +58,7 @@ public class SchoolToken implements PrimitiveToken<Spell>
 
 	public String getLSTformat()
 	{
-		return getTokenName() + "=" + school.toString();
+		return getTokenName() + "=" + school.getLSTformat();
 	}
 
 	public boolean allow(PlayerCharacter pc, Spell spell)
