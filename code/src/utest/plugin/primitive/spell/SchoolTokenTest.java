@@ -19,6 +19,7 @@ package plugin.primitive.spell;
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -49,6 +50,8 @@ public class SchoolTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
+		primaryContext.ref.constructNowIfNecessary(SpellSchool.class, "SampleSchool");
+		secondaryContext.ref.constructNowIfNecessary(SpellSchool.class, "SampleSchool");
 		TokenRegistration.register(SCHOOL_TOKEN);
 	}
 
