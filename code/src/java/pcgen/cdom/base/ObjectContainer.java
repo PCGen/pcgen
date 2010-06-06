@@ -1,4 +1,4 @@
-package pcgen.cdom.choiceset;
+package pcgen.cdom.base;
 
 import java.util.Collection;
 

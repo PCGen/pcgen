@@ -1,6 +1,10 @@
-package pcgen.cdom.reference;
+package pcgen.rules.persistence;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.SelectionCreator;
 import pcgen.rules.context.LoadContext;
 
 public class AbbreviatedCreator<T extends CDOMObject> implements
