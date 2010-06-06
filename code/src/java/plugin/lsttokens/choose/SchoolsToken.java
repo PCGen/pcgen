@@ -17,10 +17,14 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Globals;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 {
@@ -63,4 +67,21 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 		return AssociationListKey.CHOOSE_SCHOOL;
 	}
 
+	@Override
+	public ParseResult parseToken(LoadContext context, CDOMObject obj,
+			String value)
+	{
+		if (value == null)
+		{
+			// No args - deprecated
+			Logging.deprecationPrint("CHOOSE:" + getTokenName()
+					+ " with no argument has been deprecated");
+			value = "ALL";
+		}
+		return super.parseToken(context, obj, value);
+	}
+
+
+	
+	
 }
