@@ -49,7 +49,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat, String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, cat, val);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -58,7 +58,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, val);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -67,7 +67,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMAllReference(c, cat);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -75,7 +75,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	public <T extends Identified> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMAllReference(c);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -84,7 +84,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat, String... val)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, cat, val);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -93,7 +93,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, String... val)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, val);
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track(ref);
 		return ref;
 	}
 
@@ -109,7 +109,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return mfg;
+		return new TrackingManufacturer(this, mfg);
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return mfg;
+		return new TrackingManufacturer(this, mfg);
 	}
 
 	public void unconstructedReferenceFound(UnconstructedEvent e)
@@ -158,6 +158,11 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			}
 		}
 		return source;
+	}
+
+	<T> void track(CDOMReference<T> ref)
+	{
+		track.addToListFor(ref, getSourceURI(), getSource());
 	}
 
 }
