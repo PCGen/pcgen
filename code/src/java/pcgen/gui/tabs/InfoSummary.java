@@ -75,7 +75,6 @@ import javax.swing.table.TableColumn;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -945,15 +944,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			else if (aRace.getSafe(ObjectKey.ANY_FAVORED_CLASS))
 			{
 				fcs = "Any (Highest Level Class)";
-			}
-			else
-			{
-				TransitionChoice<PCClass> fcc = aRace
-						.get(ObjectKey.FAVCLASS_CHOICE);
-				if (fcc != null)
-				{
-					fcs = "CHOOSE:" + fcc.getChoices().getLSTformat();
-				}
 			}
 
 			if (fcs != null)

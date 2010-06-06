@@ -5499,11 +5499,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			addNaturalWeapons(newRace.getListFor(ListKey.NATURAL_WEAPON));
-			if (!isImporting())
-			{
-				selectRacialFavoredClass();
-			}
-
 			selectTemplates(newRace, isImporting()); // gets and adds templates
 		}
 
@@ -10046,16 +10041,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return hasWeaponProf(ref.resolvesTo());
-	}
-
-	private void selectRacialFavoredClass()
-	{
-		TransitionChoice<PCClass> fcChoice =
-				getRace().get(ObjectKey.FAVCLASS_CHOICE);
-		if (fcChoice != null)
-		{
-			selectedFavoredClass = fcChoice.driveChoice(this).iterator().next();
-		}
 	}
 
 	private HashMap<String, Integer> getTotalLevelHashMap()

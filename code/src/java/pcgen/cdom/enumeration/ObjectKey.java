@@ -224,8 +224,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> ANY_FAVORED_CLASS = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<TransitionChoice<PCClass>> FAVCLASS_CHOICE = new ObjectKey<TransitionChoice<PCClass>>(null);
-
 	public static final ObjectKey<LevelCommandFactory> MONSTER_CLASS = new ObjectKey<LevelCommandFactory>(null);
 
 	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
