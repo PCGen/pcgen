@@ -67,7 +67,6 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
-import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -2004,71 +2003,6 @@ public final class Globals
 	}
 
 	/**
-	 * @param loadScoreValue
-	 * @param weight
-	 * @param aPC
-	 */
-	public static Load loadTypeForLoadScore(int loadScoreValue, final Float weight, final PlayerCharacter aPC)
-	{
-		final double dbl = weight.doubleValue() / maxLoadForLoadScore(loadScoreValue, aPC).doubleValue();
-
-		if (SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT") != null &&
-				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT").doubleValue() )
-		{
-			return Load.LIGHT;
-		}
-
-		if (SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM") != null &&
-				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM").doubleValue() )
-		{
-			return Load.MEDIUM;
-		}
-
-		if (SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY") != null &&
-				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY").doubleValue() )
-		{
-			return Load.HEAVY;
-		}
-
-		return Load.OVERLOAD;
-	}
-
-	/**
-	 * Size is taken into account for the currentPC.
-	 * @param loadScore
-	 * @param aPC
-	 * @return Float
-	 */
-	public static Float maxLoadForLoadScore(final int loadScore, final PlayerCharacter aPC)
-	{
-		return maxLoadForLoadScore(loadScore, aPC, new Float(1.0));
-	}
-
-	/**
-	 * @param loadScore
-	 * @param aPC
-	 * @param mult
-	 * @return Float
-	 */
-	public static Float maxLoadForLoadScore(
-			final int loadScore,
-			final PlayerCharacter aPC,
-			final Float mult)
-	{
-		final Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
-		String formula = SystemCollections.getLoadInfo().getLoadModifierFormula();
-		if (formula.length() != 0)
-		{
-			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"),
-			                             Double.toString(loadValue.doubleValue() * 
-			                                             mult.doubleValue() * 
-			                                             getLoadMultForSize(aPC)));
-			return (float) aPC.getVariableValue(formula, "").intValue();
-		}
-		return new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize(aPC));
-	}
-
-	/**
 	 * roll HP
 	 * @param min
 	 * @param max
@@ -2656,29 +2590,6 @@ public final class Globals
 			// use the specified directory
 			return fType + File.separator + aString;
 		}
-	}
-
-	private static double getLoadMultForSize(final PlayerCharacter aPC)
-	{
-		double mult = 1.0;
-		final String size = aPC.getSize();
-		final Float value = SystemCollections.getLoadInfo().getSizeAdjustment(size);
-		if (value != null)
-		{
-			mult = value.doubleValue();
-		}
-
-		SizeAdjustment sadj = aPC.getSizeAdjustment();
-		if (sadj == null)
-		{
-			sadj = SizeUtilities.getDefaultSizeAdjustment();
-		}
-
-		if (sadj != null)
-		{
-			mult += BonusCalc.bonusTo(sadj, "LOADMULT", "TYPE=SIZE", aPC, aPC);
-		}
-		return mult;
 	}
 
 	private static Random getRandom()

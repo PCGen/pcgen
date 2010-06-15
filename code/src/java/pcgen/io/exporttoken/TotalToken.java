@@ -92,9 +92,7 @@ public class TotalToken extends Token
 	public static String getCapacityToken(PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			Globals.maxLoadForLoadScore(
-				pc.getVariableValue("LOADSCORE", "").intValue(), pc)
-				.doubleValue());
+			pc.getMaxLoad().doubleValue());
 	}
 
 	/**
@@ -105,8 +103,7 @@ public class TotalToken extends Token
 	public static String getLoadToken(PlayerCharacter pc)
 	{
 		Load load =
-				Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE",
-					"").intValue(), pc.totalWeight(), pc);
+				pc.getLoadType(pc.totalWeight());
 
 		switch (load)
 		{

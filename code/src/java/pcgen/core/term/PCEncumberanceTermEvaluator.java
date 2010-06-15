@@ -27,7 +27,6 @@
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 
@@ -48,9 +47,7 @@ public class PCEncumberanceTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		final float val = pc.getVariable("LOADSCORE", true);
-		final int ls = (int) val;
-		final Load l = Globals.loadTypeForLoadScore(ls, pc.totalWeight(), pc);
+		final Load l = pc.getLoadType(pc.totalWeight());
 		return String.valueOf(l);
 	}
 

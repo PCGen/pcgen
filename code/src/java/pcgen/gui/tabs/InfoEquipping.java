@@ -4132,8 +4132,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		totalWeight.setText(Globals.getGameModeUnitSet()
 			.displayWeightInUnitSet(roundedValue.doubleValue())
 			+ Globals.getGameModeUnitSet().getWeightUnit());
-		loadWeight.setText(Globals.loadTypeForLoadScore(
-			pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc)
+		loadWeight.setText(pc.getLoadType(weight)
 			.toString());
 
 		updateTotalWeightLoadLimits();

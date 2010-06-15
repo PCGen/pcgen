@@ -52,6 +52,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
@@ -8603,8 +8604,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
-			final int loadScore = getVariableValue("LOADSCORE", "").intValue();
-			return Globals.loadTypeForLoadScore(loadScore, totalWeight(), this);
+			return getLoadType(totalWeight());
 		}
 		return Load.LIGHT;
 	}
@@ -8830,9 +8830,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final double armorMove =
 				Globals.calcEncumberedMove(armorLoad, moveInFeet, true, null);
 
-		final Load pcLoad =
-				Globals.loadTypeForLoadScore(getVariableValue("LOADSCORE", "")
-					.intValue(), totalWeight(), this);
+		final Load pcLoad = getLoadType(totalWeight());
 		final double loadMove =
 				Globals.calcEncumberedMove(pcLoad, moveInFeet, true, this);
 
@@ -14913,6 +14911,63 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public double getLoadMultForSize()
+	{
+		SizeAdjustment sadj = getSizeAdjustment();
+		double mult = sadj.getLoadMultiplier();
+		mult += BonusCalc.bonusTo(sadj, "LOADMULT", "TYPE=SIZE", this, this);
+		return mult;
+	}
+
+	/*
+	 * Size is taken into account for the currentPC via getLoadMultForSize
+	 */
+	public Float getMaxLoad()
+	{
+		return getMaxLoad(new Float(1.0));
+	}
+
+	public Float getMaxLoad(Float mult)
+	{
+		int loadScore = getVariableValue("LOADSCORE", "").intValue();
+		final Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
+		String formula = SystemCollections.getLoadInfo().getLoadModifierFormula();
+		if (formula.length() != 0)
+		{
+			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"),
+			                             Double.toString(loadValue.doubleValue() * 
+			                                             mult.doubleValue() * 
+			                                             getLoadMultForSize()));
+			return (float) getVariableValue(formula, "").intValue();
+		}
+		return new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize());
+	}
+
+	public Load getLoadType(Float weight)
+	{
+		double dbl = weight.doubleValue() / getMaxLoad().doubleValue();
+	
+		Float lightMult = SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT");
+		if (lightMult != null && dbl <= lightMult.doubleValue())
+		{
+			return Load.LIGHT;
+		}
+	
+		Float mediumMult = SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM");
+		if (mediumMult != null && dbl <= mediumMult.doubleValue())
+		{
+			return Load.MEDIUM;
+		}
+	
+		Float heavyMult = SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY");
+		if (heavyMult != null && dbl <= heavyMult.doubleValue())
+		{
+			return Load.HEAVY;
+		}
+	
+		return Load.OVERLOAD;
 	}
 
 }

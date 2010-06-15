@@ -79,4 +79,11 @@ public final class SizeAdjustment extends PObject
 
 		return defaultValue;
 	}
+
+	public double getLoadMultiplier()
+	{
+		final Float value = SystemCollections.getLoadInfo().getSizeAdjustment(
+				getAbbreviation());
+		return (value == null) ? 1.0 : value.doubleValue();
+	}
 }

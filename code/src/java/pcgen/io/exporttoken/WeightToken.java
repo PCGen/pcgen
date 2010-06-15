@@ -105,9 +105,7 @@ public class WeightToken extends Token
 					type.toUpperCase());
 		if (mult != null)
 		{
-			return Globals.maxLoadForLoadScore(
-				pc.getVariableValue("LOADSCORE", "").intValue(), pc, mult)
-				.intValue();
+			return pc.getMaxLoad(mult).intValue();
 		}
 		return 0.0;
 	}
