@@ -86,9 +86,15 @@ public class FacetInitialization
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
+		CharacterSpellResistanceFacet srFacet = FacetLibrary
+				.getFacet(CharacterSpellResistanceFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
+		CharacterConsolidationFacet charObjectFacet = FacetLibrary
+				.getFacet(CharacterConsolidationFacet.class);
+		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary
+				.getFacet(EquipmentConsolidationFacet.class);
 		ObjectAdditionFacet additionFacet = FacetLibrary
 				.getFacet(ObjectAdditionFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
@@ -116,30 +122,35 @@ public class FacetInitialization
 		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
-		expandedCampaignFacet.addDataFacetChangeListener(cdomObjectFacet);
-		alignmentFacet.addDataFacetChangeListener(cdomObjectFacet);
-		bioSetFacet.addDataFacetChangeListener(cdomObjectFacet);
-		checkFacet.addDataFacetChangeListener(cdomObjectFacet);
-		classFacet.addDataFacetChangeListener(cdomObjectFacet);
-		companionModFacet.addDataFacetChangeListener(cdomObjectFacet);
-		deityFacet.addDataFacetChangeListener(cdomObjectFacet);
-		domainFacet.addDataFacetChangeListener(cdomObjectFacet);
-		activeEquipmentFacet.addDataFacetChangeListener(cdomObjectFacet);
-		activeEqModFacet.addDataFacetChangeListener(cdomObjectFacet);
-		abFacet.addDataFacetChangeListener(cdomObjectFacet);
-		raceFacet.addDataFacetChangeListener(cdomObjectFacet);
-		sizeFacet.addDataFacetChangeListener(cdomObjectFacet);
-		skillFacet.addDataFacetChangeListener(cdomObjectFacet);
-		statFacet.addDataFacetChangeListener(cdomObjectFacet);
-		templateFacet.addDataFacetChangeListener(cdomObjectFacet);
+		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
+		alignmentFacet.addDataFacetChangeListener(charObjectFacet);
+		bioSetFacet.addDataFacetChangeListener(charObjectFacet);
+		checkFacet.addDataFacetChangeListener(charObjectFacet);
+		classFacet.addDataFacetChangeListener(charObjectFacet);
+		deityFacet.addDataFacetChangeListener(charObjectFacet);
+		domainFacet.addDataFacetChangeListener(charObjectFacet);
+		abFacet.addDataFacetChangeListener(charObjectFacet);
+		raceFacet.addDataFacetChangeListener(charObjectFacet);
+		sizeFacet.addDataFacetChangeListener(charObjectFacet);
+		skillFacet.addDataFacetChangeListener(charObjectFacet);
+		statFacet.addDataFacetChangeListener(charObjectFacet);
+		templateFacet.addDataFacetChangeListener(charObjectFacet);
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
-		classLevelFacet.addDataFacetChangeListener(cdomObjectFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(cdomObjectFacet);
-		grantedAbilityFacet.addDataFacetChangeListener(cdomObjectFacet);
-		
+		classLevelFacet.addDataFacetChangeListener(charObjectFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(charObjectFacet);
+		grantedAbilityFacet.addDataFacetChangeListener(charObjectFacet);
+		companionModFacet.addDataFacetChangeListener(charObjectFacet);
+
+		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);
+		activeEqModFacet.addDataFacetChangeListener(eqObjectFacet);
+
+		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
+		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
+
 		cdomObjectFacet.addDataFacetChangeListener(additionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(spFacet);
+		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
 	}

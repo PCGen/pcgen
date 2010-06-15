@@ -139,6 +139,7 @@ import pcgen.cdom.facet.ShieldProfFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
+import pcgen.cdom.facet.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
@@ -248,6 +249,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
+	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -7549,64 +7551,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int calcSR(final boolean includeEquipment)
 	{
-		Race race = getRace();
-		int SR =
-				race.getSafe(ObjectKey.SR).getReduction().resolve(this,
-					race.getQualifiedKey()).intValue();
-
-		Deity deity = deityFacet.get(id);
-		if (deity != null)
-		{
-			SR =
-					Math.max(SR, deity.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, deity.getQualifiedKey()).intValue());
-		}
-
-		for (CompanionMod cMod : companionModFacet.getSet(id))
-		{
-			SR =
-					Math.max(SR, cMod.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, cMod.getQualifiedKey()).intValue());
-		}
-
-		for (PCClass pcClass : getClassSet())
-		{
-			SR =
-					Math.max(SR, pcClass.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, pcClass.getQualifiedKey()).intValue());
-			int lvl = getLevel(pcClass);
-			for (int i = 0; i <= lvl; i++)
-			{
-				PCClassLevel pcl = getActiveClassLevel(pcClass, i);
-				if (pcl != null)
-				{
-					SR =
-						Math.max(SR, pcl.getSafe(ObjectKey.SR).getReduction()
-							.resolve(this, pcl.getQualifiedKey()).intValue());
-				}
-			}
-		}
-
-		for (Ability aFeat : getFullAbilitySet())
-		{
-			SR =
-					Math.max(SR, aFeat.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, aFeat.getQualifiedKey()).intValue());
-		}
-
-		for (Skill skill : getSkillSet())
-		{
-			SR =
-					Math.max(SR, skill.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, skill.getQualifiedKey()).intValue());
-		}
-
-		for (Domain d : domainFacet.getSet(id))
-		{
-			SR =
-					Math.max(d.getSafe(ObjectKey.SR).getReduction()
-						.resolve(this, d.getQualifiedKey()).intValue(), SR);
-		}
+		int SR = srFacet.getSR(id);
 
 		if (includeEquipment)
 		{
@@ -7625,14 +7570,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					SR = Math.max(SR, eqMod.getSR(eq, this));
 				}
 			}
-		}
-
-		final int atl = getTotalLevels();
-		final int thd = totalHitDice();
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			SR = Math.max(SR, TemplateSR.getSR(template, atl, thd, this));
 		}
 
 		SR += (int) getTotalBonusTo("MISC", "SR");

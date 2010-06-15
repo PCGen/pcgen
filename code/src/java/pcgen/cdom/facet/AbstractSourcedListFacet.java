@@ -335,7 +335,7 @@ public abstract class AbstractSourcedListFacet<T> extends
 	 *         null if no information has been set in this
 	 *         AbstractSourcedListFacet for the Player Character.
 	 */
-	private Map<T, Set<Object>> getCachedMap(CharID id)
+	protected Map<T, Set<Object>> getCachedMap(CharID id)
 	{
 		return (Map<T, Set<Object>>) FacetCache.get(id, getClass());
 	}
