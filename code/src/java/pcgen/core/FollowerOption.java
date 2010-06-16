@@ -29,6 +29,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -42,7 +43,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
  * @author boomer70
  */
 public class FollowerOption extends ConcretePrereqObject implements
-		Comparable<FollowerOption>
+		Comparable<FollowerOption>, QualifyingObject
 {
 	private int theAdjustment = 0;
 	private final CDOMReference<Race> ref;

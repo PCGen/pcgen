@@ -49,7 +49,6 @@ import java.util.Observable;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
@@ -100,6 +99,7 @@ import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.BonusWeaponProfFacet;
 import pcgen.cdom.facet.CampaignFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
+import pcgen.cdom.facet.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
@@ -116,6 +116,7 @@ import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FollowerLimitFacet;
+import pcgen.cdom.facet.FollowerOptionFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
@@ -141,7 +142,6 @@ import pcgen.cdom.facet.ShieldProfFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
-import pcgen.cdom.facet.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
@@ -171,7 +171,6 @@ import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
-import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
@@ -286,6 +285,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
@@ -2358,28 +2358,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
 	{
-		final Map<FollowerOption, CDOMObject> ret = new TreeMap<FollowerOption, CDOMObject>(comp);
-
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			List<FollowerOption> followers =
-					cdo.getListFor(ListKey.COMPANIONLIST);
-			if (followers != null)
-			{
-				for (FollowerOption fo : followers)
-				{
-					if (fo.getListRef().getName().equalsIgnoreCase(aType))
-					{
-						for (FollowerOption efo : fo.getExpandedOptions())
-						{
-							ret.put(efo, cdo);
-						}
-					}
-				}
-			}
-		}
-
-		return ret;
+		return foFacet.getAvailableFollowers(id, aType, comp);
 	}
 
 	/**

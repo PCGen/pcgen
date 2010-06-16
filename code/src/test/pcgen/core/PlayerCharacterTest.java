@@ -986,21 +986,29 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetAvailableFollowers()
 	{
 		readyToRun();
-		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Container");
+		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Empty Container");
+		Ability mab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Mount Container");
+		Ability fab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Familiar Container");
 		PlayerCharacter pc = getCharacter();
 		
 		pc.addAbility(AbilityCategory.FEAT, ab, null);
+		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
+				CompanionList.class, "Mount");
+		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
+		FollowerOption option = new FollowerOption(race, ref);
+		mab.addToListFor(ListKey.COMPANIONLIST, option);
+		ref = new CDOMSimpleSingleRef<CompanionList>(
+				CompanionList.class, "Familiar");
+		race  = new  CDOMDirectSingleRef<Race>(human);
+		option = new FollowerOption(race, ref);
+		fab.addToListFor(ListKey.COMPANIONLIST, option);
 		
 		Set<FollowerOption> fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Initially familiar list should be empty", fo.isEmpty());
 		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
 		assertTrue("Initially mount list should be empty", fo.isEmpty());
 		
-		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
-				CompanionList.class, "Mount");
-		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
-		FollowerOption option = new FollowerOption(race, ref);
-		ab.addToListFor(ListKey.COMPANIONLIST, option);
+		pc.addAbility(AbilityCategory.FEAT, mab, null);
 		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
 		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
@@ -1008,11 +1016,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
-		ref = new CDOMSimpleSingleRef<CompanionList>(
-				CompanionList.class, "Familiar");
-		race  = new  CDOMDirectSingleRef<Race>(human);
-		option = new FollowerOption(race, ref);
-		ab.addToListFor(ListKey.COMPANIONLIST, option);
+		pc.addAbility(AbilityCategory.FEAT, fab, null);
 		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
 		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
