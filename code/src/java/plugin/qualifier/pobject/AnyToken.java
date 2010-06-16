@@ -25,8 +25,8 @@ import java.util.logging.Level;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -38,6 +38,8 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 	private Class<T> refClass;
 
 	private PrimitiveChoiceFilter<T> pcs = null;
+
+	private CDOMGroupRef<T> allRef;
 
 	private boolean negated = false;
 
@@ -61,12 +63,13 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 			throw new IllegalArgumentException();
 		}
 		refClass = sc.getReferenceClass();
+		allRef = sc.getAllReference();
+		negated = negate;
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
 			return pcs != null;
 		}
-		negated = negate;
 		return true;
 	}
 
@@ -84,8 +87,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Collection<T> objects = Globals.getContext().ref
-				.getConstructedCDOMObjects(refClass);
+		Collection<T> objects = allRef.getContainedObjects();
 		Set<T> returnSet = new HashSet<T>();
 		if (objects != null)
 		{
