@@ -53,41 +53,31 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements
 		VisionType requiredVisionType =
 			VisionType.getVisionType(prereq.getKey());
 		int runningTotal = 0;
-		boolean found = false;
 		if (range.equals("ANY"))
 		{
-			for (Vision charVision : character.getVisionList())
-			{
-				if (charVision.getType().equals(requiredVisionType))
-				{
-					runningTotal += prereq.getOperator().compare(1, 0);
-					found = true;
-					break;
-				}
-			}
-			if (!found)
+			Vision v = character.getVision(requiredVisionType);
+			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, 1);
+			}
+			else
+			{
+				runningTotal += prereq.getOperator().compare(1, 0);
 			}
 		}
 		else
 		{
 			int requiredRange = Integer.parseInt(range);
-			for (Vision charVision : character.getVisionList())
-			{
-				if (charVision.getType().equals(requiredVisionType))
-				{
-					int visionRange = Integer.parseInt(charVision.getDistance());
-					runningTotal +=
-							prereq.getOperator()
-								.compare(visionRange, requiredRange);
-					found = true;
-					break;
-				}
-			}
-			if (!found)
+			Vision v = character.getVision(requiredVisionType);
+			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, requiredRange);
+			}
+			else
+			{
+				int visionRange = Integer.parseInt(v.getDistance());
+				runningTotal += prereq.getOperator().compare(visionRange,
+						requiredRange);
 			}
 		}
 

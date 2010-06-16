@@ -145,6 +145,7 @@ import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.VisionFacet;
 import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
@@ -203,6 +204,7 @@ import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -285,6 +287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 
@@ -6410,28 +6413,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getSpellBonusType(bonusType, bonusName);
 	}
 
-	public List<Vision> getVisionList()
+	public Collection<Vision> getVisionList()
 	{
-		/*
-		 * TODO This is a temporary hack until a better cache dirty method
-		 * is established - the problem is that initializeVisionCache triggers
-		 * cache reset, which is a problem for getting back the right value 
-		 * from this method unless the cache is maintained :P
-		 */
-		ObjectCache myCache = cache;
-		if (!myCache.containsListFor(ListKey.VISION_CACHE))
-		{
-			myCache.initializeVisionCache(this);
-		}
-		return myCache.getListFor(ListKey.VISION_CACHE);
+		return visionFacet.getActiveVision(id);
 	}
 
 	public String getVision()
 	{
 		final StringBuffer visionString = new StringBuffer();
 
-		final List<Vision> visionList = getVisionList();
-		for (Vision vision : visionList)
+		for (Vision vision : getVisionList())
 		{
 			if (visionString.length() > 0)
 			{
@@ -14866,6 +14857,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public Vision getVision(VisionType type)
+	{
+		return visionFacet.getActiveVision(id, type);
+	}
+
+	public int getVisionCount()
+	{
+		return visionFacet.getVisionCount(id);
 	}
 
 	public double getLoadMultForSize()

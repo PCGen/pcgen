@@ -39,7 +39,7 @@ public class PCCountVisionTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getVisionList().size();
+		return (float) pc.getVisionCount();
 	}
 
 	public boolean isSourceDependant()

@@ -30,6 +30,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -41,7 +42,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @param <T> 
  */
-public class QualifiedObject<T> extends ConcretePrereqObject
+public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject
 {
 
 	private T theObject = null;
