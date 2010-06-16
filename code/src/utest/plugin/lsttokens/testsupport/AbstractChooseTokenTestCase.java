@@ -130,9 +130,9 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
-		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+		assertEquals(!usesComma(), parse(getSubTokenName() + '|'
 				+ ","));
-		if (requiresLiteral())
+		if (usesComma())
 		{
 			assertNoSideEffects();
 		}
@@ -253,9 +253,9 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidListEndComma() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+		assertEquals(!usesComma(), parse(getSubTokenName() + '|'
 				+ "TestWP1,"));
-		if (requiresLiteral())
+		if (usesComma())
 		{
 			assertNoSideEffects();
 		}
@@ -277,9 +277,9 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidListStartComma() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+		assertEquals(!usesComma(), parse(getSubTokenName() + '|'
 				+ ",TestWP1"));
-		if (requiresLiteral())
+		if (usesComma())
 		{
 			assertNoSideEffects();
 		}
@@ -1487,4 +1487,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			runRoundRobin(getSubTokenName() + "|PC[ALL]");
 		}
 	}
+
+	protected boolean usesComma()
+	{
+		return true;
+	}
+
 }

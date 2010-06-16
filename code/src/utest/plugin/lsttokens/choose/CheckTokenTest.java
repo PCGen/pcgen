@@ -106,6 +106,12 @@ public class CheckTokenTest extends
 	}
 
 	@Override
+	protected boolean usesComma()
+	{
+		return false;
+	}
+
+	@Override
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

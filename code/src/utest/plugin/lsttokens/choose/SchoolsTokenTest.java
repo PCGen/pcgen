@@ -236,4 +236,9 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
+	@Override
+	protected boolean usesComma()
+	{
+		return false;
+	}
 }
