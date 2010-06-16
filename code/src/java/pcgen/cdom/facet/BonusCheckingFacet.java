@@ -17,8 +17,12 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Map;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.BonusObj;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -39,6 +43,27 @@ public class BonusCheckingFacet
 	{
 		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
 		return pc.getTotalBonusTo(bonusType, bonusName);
+	}
+
+	public double calcBonus(CharID id, Map<BonusObj, ? extends CDOMObject> map)
+	{
+		double iBonus = 0;
+
+		for (Map.Entry<BonusObj, ? extends CDOMObject> me : map.entrySet())
+		{
+			BonusObj bonus = me.getKey();
+			CDOMObject source = me.getValue();
+			iBonus += getBonusValue(id, bonus, source.getQualifiedKey())
+					.doubleValue();
+		}
+
+		return iBonus;
+	}
+
+	private Number getBonusValue(CharID id, BonusObj bonus, String qualifiedKey)
+	{
+		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		return bonus.resolve(pc, qualifiedKey);
 	}
 
 }

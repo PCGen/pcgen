@@ -36,6 +36,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -46,7 +47,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  **/
-public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable
+public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
 {
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
 	private Map<String, String>     dependMap  = new HashMap<String, String>();

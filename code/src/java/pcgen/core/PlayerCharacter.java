@@ -3833,26 +3833,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aList
 	 * @return bonus from list
 	 */
-	public double calcBonusFromList(final Map<BonusObj, PCStat> aList)
-	{
-		double iBonus = 0;
-
-		for (Map.Entry<BonusObj, PCStat> me : aList.entrySet())
-		{
-			BonusObj bonus = me.getKey();
-			PCStat source = me.getValue();
-			iBonus += bonus.resolve(this, source.getQualifiedKey()).doubleValue();
-		}
-
-		return iBonus;
-	}
-
-	/**
-	 * Compute total bonus from a List of BonusObj's
-	 * 
-	 * @param aList
-	 * @return bonus from list
-	 */
 	public double calcBonusFromList(final List<BonusObj> aList, CDOMObject source)
 	{
 		double iBonus = 0;
@@ -5823,19 +5803,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public double getStatBonusTo(String aType, String aName)
 	{
-		final Map<BonusObj, PCStat> aList =
-				StatAnalysis.getBonusListOfType(this, aType.toUpperCase(), aName
-					.toUpperCase());
-		for (Iterator<Map.Entry<BonusObj, PCStat>> it = aList.entrySet().iterator(); it.hasNext();)
-		{
-			Entry<BonusObj, PCStat> me = it.next();
-			BonusObj bo = me.getKey();
-			if (!bo.qualifies(this, me.getValue()))
-			{
-				it.remove();
-			}
-		}
-		return calcBonusFromList(aList);
+		return statFacet.getStatBonusTo(id, aType, aName);
 	}
 
 	/**

@@ -19,17 +19,11 @@
  */
 package pcgen.core.analysis;
 
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 
 public class StatAnalysis
 {
@@ -53,23 +47,6 @@ public class StatAnalysis
 		}
 		Integer score = aPC.getAssoc(stat, AssociationKey.STAT_SCORE);
 		return score == null ? 0 : score;
-	}
-
-	public static Map<BonusObj, PCStat> getBonusListOfType(PlayerCharacter pc, final String aType, final String aName)
-	{
-		final Map<BonusObj, PCStat> aList = new IdentityHashMap<BonusObj, PCStat>();
-
-		for ( PCStat stat : pc.getStatSet() )
-		{
-			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
-					aType, aName);
-			for (BonusObj bonus : bonuses)
-			{
-				aList.put(bonus, stat);
-			}
-		}
-
-		return aList;
 	}
 
 	public static int getModForNumber(PlayerCharacter ownerPC, int aNum, PCStat stat)
