@@ -577,6 +577,108 @@ BIO
 			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
+			<name>Test Skill (Class Level)</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Test Skill (Class Level)</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test Skill Chooser_1</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Test Skill Chooser_1</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test Skill Chooser_2</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Test Skill Chooser_2</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test Skill Chooser_3</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Test Skill Chooser_3</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test Skill Chooser_4</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Test Skill Chooser_4</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test Skill Chooser_5</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Test Skill Chooser_5</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
 			<name>Uber Scripting from five ranks in Test Coding Script</name>
 			<ranks>1.0</ranks>
 			<mod>2<!-- Mods from abilities, equipment, etc -->
