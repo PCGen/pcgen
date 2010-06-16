@@ -82,7 +82,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.facet.StatFacet;
+import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -884,7 +884,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			for (PCStat aStat : pc.getStatSet())
 			{
-				if (StatFacet.isNonAbilityForObject(aStat, aRace))
+				if (NonAbilityFacet.isNonAbilityForObject(aStat, aRace))
 				{
 					if (aString.length() > 0)
 					{

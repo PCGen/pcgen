@@ -129,6 +129,7 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
@@ -143,8 +144,10 @@ import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.StatFacet;
+import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.UnlockedStatFacet;
 import pcgen.cdom.facet.VisionFacet;
 import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
@@ -232,6 +235,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
+	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
@@ -5266,7 +5272,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean isNonAbility(PCStat stat)
 	{
-		return statFacet.isNonAbility(id, stat);
+		return nonAbilityFacet.isNonAbility(id, stat);
 	}
 
 	public int getNumberOfMovements()
@@ -13996,12 +14002,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasUnlockedStat(PCStat stat)
 	{
-		return statFacet.hasUnlockedStat(id, stat);
+		return unlockedStatFacet.contains(id, stat);
 	}
 
 	public Number getLockedStat(PCStat stat)
 	{
-		return statFacet.getLockedStat(id, stat);
+		return statLockFacet.getLockedStat(id, stat);
 	}
 
 	public PCClass getSelectedFavoredClass()

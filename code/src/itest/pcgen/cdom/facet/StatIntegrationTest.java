@@ -31,7 +31,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-public class StatFacetTest extends TestCase
+public class StatIntegrationTest extends TestCase
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -42,7 +42,9 @@ public class StatFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private StatFacet facet;
+	private UnlockedStatFacet unlockedFacet;
+	private StatLockFacet lockFacet;
+	private NonAbilityFacet nonAbilityFacet;
 	private RaceFacet rfacet;
 	private TemplateFacet tfacet;
 	private CDOMObjectConsolidationFacet cdomFacet;
@@ -61,28 +63,32 @@ public class StatFacetTest extends TestCase
 		stat1.setName("Stat1");
 		stat2.put(StringKey.ABB, "Stat2");
 		stat2.setName("Stat2");
-		facet = new StatFacet();
+		unlockedFacet = new UnlockedStatFacet();
+		lockFacet = new StatLockFacet();
+		nonAbilityFacet = new NonAbilityFacet();
 		rfacet = new RaceFacet();
 		tfacet = new TemplateFacet();
 		cdomFacet = new CDOMObjectConsolidationFacet();
 		rfacet.addDataFacetChangeListener(cdomFacet);
 		tfacet.addDataFacetChangeListener(cdomFacet);
+		cdomFacet.addDataFacetChangeListener(lockFacet);
+		cdomFacet.addDataFacetChangeListener(unlockedFacet);
 	}
 
 	@Test
 	public void testNonAbilityUnset()
 	{
-		assertFalse(facet.isNonAbility(id, stat1));
-		assertFalse(facet.isNonAbility(id, stat2));
-		assertFalse(facet.isNonAbility(altid, stat1));
-		assertFalse(facet.isNonAbility(altid, stat2));
+		assertFalse(nonAbilityFacet.isNonAbility(id, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(id, stat2));
+		assertFalse(nonAbilityFacet.isNonAbility(altid, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(altid, stat2));
 	}
 
 	@Test
 	public void testLockUnset()
 	{
-		assertNull(facet.getLockedStat(id, stat1));
-		assertNull(facet.getLockedStat(id, stat2));
+		assertNull(lockFacet.getLockedStat(id, stat1));
+		assertNull(lockFacet.getLockedStat(id, stat2));
 	}
 
 	/*
@@ -92,13 +98,13 @@ public class StatFacetTest extends TestCase
 	@Test
 	public void testLockUnsetConditional()
 	{
-		if (!facet.hasUnlockedStat(id, stat1))
+		if (!unlockedFacet.contains(id, stat1))
 		{
-			assertNull(facet.getLockedStat(id, stat1));
+			assertNull(lockFacet.getLockedStat(id, stat1));
 		}
-		if (!facet.hasUnlockedStat(id, stat2))
+		if (!unlockedFacet.contains(id, stat2))
 		{
-			assertNull(facet.getLockedStat(id, stat2));
+			assertNull(lockFacet.getLockedStat(id, stat2));
 		}
 	}
 
@@ -117,9 +123,9 @@ public class StatFacetTest extends TestCase
 		Race r = new Race();
 		causeLockNonAbility(r, stat1);
 		rfacet.set(id, r);
-		assertFalse(facet.isNonAbility(id, stat2));
-		assertTrue(facet.isNonAbility(id, stat1));
-		assertFalse(facet.isNonAbility(altid, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(id, stat2));
+		assertTrue(nonAbilityFacet.isNonAbility(id, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(altid, stat1));
 		// Make sure cleans up when race changed
 		rfacet.set(id, new Race());
 		testNonAbilityUnset();
@@ -133,8 +139,8 @@ public class StatFacetTest extends TestCase
 		causeLock(r, stat1, 14);
 		rfacet.set(id, r);
 		testNonAbilityUnset();
-		assertEquals(14, facet.getLockedStat(id, stat1));
-		assertNull(facet.getLockedStat(id, stat2));
+		assertEquals(14, lockFacet.getLockedStat(id, stat1));
+		assertNull(lockFacet.getLockedStat(id, stat2));
 		// Make sure cleans up when race changed
 		rfacet.set(id, new Race());
 		testNonAbilityUnset();
@@ -181,9 +187,9 @@ public class StatFacetTest extends TestCase
 		PCTemplate t1 = new PCTemplate();
 		causeLockNonAbility(t1, stat1);
 		tfacet.add(id, t1);
-		assertFalse(facet.isNonAbility(id, stat2));
-		assertTrue(facet.isNonAbility(id, stat1));
-		assertFalse(facet.isNonAbility(altid, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(id, stat2));
+		assertTrue(nonAbilityFacet.isNonAbility(id, stat1));
+		assertFalse(nonAbilityFacet.isNonAbility(altid, stat1));
 		// Make sure cleans up when template removed
 		tfacet.remove(id, t1);
 		testNonAbilityUnset();
@@ -197,19 +203,19 @@ public class StatFacetTest extends TestCase
 		causeLock(r, stat1, 14);
 		rfacet.set(id, r);
 		testNonAbilityUnset();
-		assertEquals(14, facet.getLockedStat(id, stat1));
-		assertNull(facet.getLockedStat(id, stat2));
+		assertEquals(14, lockFacet.getLockedStat(id, stat1));
+		assertNull(lockFacet.getLockedStat(id, stat2));
 		PCTemplate t1 = new PCTemplate();
 		causeLock(t1, stat1, 15);
 		tfacet.add(id, t1);
 		testNonAbilityUnset();
-		assertEquals(15, facet.getLockedStat(id, stat1));
-		assertNull(facet.getLockedStat(id, stat2));
+		assertEquals(15, lockFacet.getLockedStat(id, stat1));
+		assertNull(lockFacet.getLockedStat(id, stat2));
 		// Make sure cleans up when template removed
 		tfacet.remove(id, t1);
 		testNonAbilityUnset();
-		assertEquals(14, facet.getLockedStat(id, stat1));
-		assertNull(facet.getLockedStat(id, stat2));
+		assertEquals(14, lockFacet.getLockedStat(id, stat1));
+		assertNull(lockFacet.getLockedStat(id, stat2));
 	}
 
 	@Test

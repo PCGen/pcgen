@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.facet.StatFacet;
+import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -181,7 +181,7 @@ public class TemplateToken extends Token
 
 			if (aLabel.equals(modName))
 			{
-				if (StatFacet.isNonAbilityForObject(stat, template))
+				if (NonAbilityFacet.isNonAbilityForObject(stat, template))
 				{
 					retString.append("*");
 				}

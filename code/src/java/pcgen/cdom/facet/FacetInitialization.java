@@ -86,6 +86,8 @@ public class FacetInitialization
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
+		UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+		StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 		FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 		FollowerLimitFacet flFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
@@ -156,6 +158,8 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
+		cdomObjectFacet.addDataFacetChangeListener(unlockedStatFacet);
+		cdomObjectFacet.addDataFacetChangeListener(statLockFacet);
 		cdomObjectFacet.addDataFacetChangeListener(visionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(foFacet);
 		cdomObjectFacet.addDataFacetChangeListener(flFacet);
