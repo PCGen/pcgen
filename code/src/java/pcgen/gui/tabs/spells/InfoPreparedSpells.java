@@ -63,7 +63,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
@@ -1102,8 +1101,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				boolean canAdd = false;
 				List<BonusObj> bonusList =
 						BonusUtilities.getBonusFromList(anAbility
-							.getRawBonusList(pc), Bonus
-							.getBonusTypeFromName("PPCOST")); //$NON-NLS-1$
+							.getRawBonusList(pc), "PPCOST"); //$NON-NLS-1$
 				if (bonusList.size() == 0)
 				{
 					canAdd = true; // if doesn't modify PP COST, then allow it

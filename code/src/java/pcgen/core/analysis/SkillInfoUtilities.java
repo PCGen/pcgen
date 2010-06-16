@@ -22,7 +22,6 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,8 +30,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
 
 public class SkillInfoUtilities
 {
@@ -93,8 +92,10 @@ public class SkillInfoUtilities
 					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this
 					// skill that would come from current stat
 					//
-					List<BonusObj> bonusList = SkillInfoUtilities.getBonusListOfType(stat, Bonus
-							.getBonusTypeFromName("SKILL"), "TYPE." + aType);
+					List<BonusObj> bonusList =
+							BonusUtilities.getBonusFromList(stat
+								.getSafeListFor(ListKey.BONUS), "SKILL",
+								"TYPE." + aType);
 					if (bonusList.size() > 0)
 					{
 						for (int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
@@ -109,46 +110,6 @@ public class SkillInfoUtilities
 				}
 			}
 		}
-		return aList;
-	}
-
-	//
-	// Get a list of all BonusObj's from passed stat that apply a bonus of the
-	// passed type and name
-	//
-	public static List<BonusObj> getBonusListOfType(final PCStat aStat,
-			final int iType, final String aName)
-	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-	
-		for (BonusObj bonus : aStat.getSafeListFor(ListKey.BONUS))
-		{
-			if (bonus.getTypeOfBonusAsInt() != iType)
-			{
-				continue;
-			}
-	
-			if (bonus.getBonusInfoList().size() > 1)
-			{
-				final StringTokenizer aTok = new StringTokenizer(bonus
-						.getBonusInfo(), ",");
-	
-				while (aTok.hasMoreTokens())
-				{
-					final String aBI = aTok.nextToken();
-	
-					if (aBI.equalsIgnoreCase(aName))
-					{
-						aList.add(bonus);
-					}
-				}
-			}
-			else if (bonus.getBonusInfo().equalsIgnoreCase(aName))
-			{
-				aList.add(bonus);
-			}
-		}
-	
 		return aList;
 	}
 

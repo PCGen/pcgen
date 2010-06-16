@@ -91,14 +91,14 @@ public final class BonusUtilities
 	 * @param iType
 	 * @return List
 	 */
-	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final int iType)
+	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>(bonusList.size());
 
 		// Analysis reveals that bonusList is never null
 		for ( BonusObj bonus : bonusList )
 		{
-			if (bonus.getTypeOfBonusAsInt() != iType)
+			if (bonus.getTypeOfBonus().equals(type))
 			{
 				continue;
 			}

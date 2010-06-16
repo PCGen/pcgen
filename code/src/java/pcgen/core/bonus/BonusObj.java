@@ -284,15 +284,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	}
 
 	/**
-	 * Get the type of bonus as an int
-	 * @return type of bouns as int
-	 */
-	public int getTypeOfBonusAsInt()
-	{
-		return typeOfBonus;
-	}
-
-	/**
 	 * Get the bonus type
 	 * @return the bonus type
 	 */
