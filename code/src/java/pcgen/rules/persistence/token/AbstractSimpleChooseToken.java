@@ -105,14 +105,13 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 		}
 		else
 		{
-			if (hasIllegalSeparator(',', activeValue)
-				|| hasIllegalSeparator('|', activeValue))
+			if (hasIllegalSeparator('|', activeValue))
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
 			Set<PrimitiveChoiceFilter<T>> set =
 					new HashSet<PrimitiveChoiceFilter<T>>();
-			StringTokenizer st = new StringTokenizer(activeValue, ",|");
+			StringTokenizer st = new StringTokenizer(activeValue, "|");
 			while (st.hasMoreTokens())
 			{
 				String tok = st.nextToken();
@@ -146,9 +145,7 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
 				+ activeValue);
-			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr
-				.addErrorMessage("  Check that a key is not joined with AND (,)");
+			cpr.addErrorMessage("  Check that ALL is not combined with another item");
 			return cpr;
 		}
 		ChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
