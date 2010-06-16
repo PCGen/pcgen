@@ -39,7 +39,7 @@ public class PCCountSpellbookTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getSpellBooks().size();
+		return (float) pc.getSpellBookCount();
 	}
 
 	public boolean isSourceDependant()

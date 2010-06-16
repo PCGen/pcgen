@@ -641,14 +641,16 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		availableBookList.add(Globals.getDefaultSpellBook());
 
 		selectedBookList.clear();
-		for (String bookName : pc.getSpellBooks())
+		for (SpellBook book : pc.getSpellBooks())
 		{
 			// build spell book list
-			SpellBook book = pc.getSpellBookByName(bookName);
-			if (book.getType() == SpellBook.TYPE_SPELL_BOOK
-				&& !selectedBookList.contains(bookName))
+			if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 			{
-				selectedBookList.add(bookName);
+				String bookName = book.getName();
+				if (!selectedBookList.contains(bookName))
+				{
+					selectedBookList.add(bookName);
+				}
 			}
 		}
 
@@ -790,7 +792,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			bookName = getBookName((PObjectNode) selCPath.getPathComponent(1));
 		}
 
-		if (bookName.length() <= 0 || pc.getSpellBookByName(bookName) == null)
+		if (bookName.length() <= 0 || !pc.hasSpellBook(bookName))
 		{
 			ShowMessageDelegate
 				.showMessageDialog(

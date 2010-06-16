@@ -54,7 +54,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 
 		if (sbookNum > 0)
 		{
-			bookName = pc.getSpellBooks().get(sbookNum);
+			bookName = pc.getSpellBookNames().get(sbookNum);
 		}
 
 		final PObject pObj = pc.getSpellClassAtIndex(classNum);

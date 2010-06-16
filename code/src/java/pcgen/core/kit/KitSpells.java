@@ -330,7 +330,7 @@ public final class KitSpells extends BaseKit
 		{
 			metamagicFeatList = null;
 		}
-		if (pc.getSpellBookByName(aSpell.getBookName()) == null)
+		if (!pc.hasSpellBook(aSpell.getBookName()))
 		{
 			pc.addSpellBook(aSpell.getBookName());
 		}

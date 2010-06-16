@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -50,7 +51,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
@@ -331,9 +331,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
-	private final List<String> spellBooks = new ArrayList<String>();
 	private Map<String, SpellBook> spellBookMap =
-			new HashMap<String, SpellBook>();
+			new LinkedHashMap<String, SpellBook>();
 
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
@@ -3034,9 +3033,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return spellBooks
 	 */
-	public List<String> getSpellBooks()
+	public List<String> getSpellBookNames()
 	{
-		return spellBooks;
+		return new ArrayList<String>(spellBookMap.keySet());
+	}
+
+	/**
+	 * Get spell books
+	 * 
+	 * @return spellBooks
+	 */
+	public Collection<SpellBook> getSpellBooks()
+	{
+		return Collections.unmodifiableCollection(spellBookMap.values());
 	}
 
 	/**
@@ -6539,8 +6548,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return "Invalid spell list/book name.";
 		}
 
-		SpellBook spellBook = getSpellBookByName(bookName);
-		if (spellBook == null)
+		if (!hasSpellBook(bookName))
 		{
 			return "Could not find spell list/book " + bookName;
 		}
@@ -6559,6 +6567,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// If this is a spellbook, the class doesn't have to be one the PC has
 		// already.
+		SpellBook spellBook = getSpellBookByName(bookName);
 		if (aClass == null && spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
 			aClass =
@@ -6852,7 +6861,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean addSpellBook(final String aName)
 	{
 		if (aName != null && (aName.length() > 0)
-			&& !spellBooks.contains(aName))
+			&& !spellBookMap.containsKey(aName))
 		{
 			return addSpellBook(new SpellBook(aName,
 				SpellBook.TYPE_PREPARED_LIST));
@@ -6873,9 +6882,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (book != null)
 		{
 			String aName = book.getName();
-			if (!spellBooks.contains(aName))
+			if (!spellBookMap.containsKey(aName))
 			{
-				spellBooks.add(aName);
 				spellBookMap.put(aName, book);
 				setDirty(true);
 
@@ -7849,7 +7857,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if ((aName.length() > 0)
 			&& !aName.equals(Globals.getDefaultSpellBook())
-			&& spellBooks.contains(aName))
+			&& spellBookMap.containsKey(aName))
 		{
 			return delSpellBook(spellBookMap.get(aName));
 		}
@@ -7869,9 +7877,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			String aName = book.getName();
 			if (!aName.equals(Globals.getDefaultSpellBook())
-				&& spellBooks.contains(aName))
+				&& spellBookMap.containsKey(aName))
 			{
-				spellBooks.remove(aName);
 				spellBookMap.remove(aName);
 				setDirty(true);
 
@@ -10661,7 +10668,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int sbookNum = Integer.parseInt(aTok.nextToken());
 		final int levelNum;
 
-		if (sbookNum >= getSpellBooks().size())
+		if (sbookNum >= getSpellBookCount())
 		{
 			return 0;
 		}
@@ -10692,7 +10699,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (sbookNum > 0)
 		{
-			bookName = getSpellBooks().get(sbookNum);
+			bookName = getSpellBookNames().get(sbookNum);
 		}
 
 		final PObject aObject = getSpellClassAtIndex(classNum);
@@ -11558,7 +11565,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.pcLevelInfo.add(info.clone());
 		}
-		for (String book : spellBooks)
+		for (String book : spellBookMap.keySet())
 		{
 			aClone.addSpellBook(book);
 		}
@@ -14831,6 +14838,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public double getSpellBookCount()
+	{
+		return spellBookMap.size();
+	}
+
+	public boolean hasSpellBook(String bookName)
+	{
+		return spellBookMap.containsKey(bookName);
 	}
 
 	public Vision getVision(VisionType type)

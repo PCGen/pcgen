@@ -2,7 +2,6 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -34,8 +33,6 @@ public class SpellBookNameToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		String retString = Constants.EMPTY_STRING;
-
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString = aTok.nextToken();
 		final int bookNum;
@@ -59,8 +56,7 @@ public class SpellBookNameToken extends Token
 		//			return spellBooks.get(bookNum);
 		//		}
 
-		retString = pc.getSpellBooks().get(bookNum);
-		return retString;
+		return pc.getSpellBookNames().get(bookNum);
 	}
 
 }

@@ -1965,12 +1965,12 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSpellBookLines(StringBuffer buffer)
 	{
-		for (String bookName : thePC.getSpellBooks())
+		for (SpellBook book : thePC.getSpellBooks())
 		{
+			String bookName = book.getName();
 			if (!bookName.equals(Globals.getDefaultSpellBook())
 				&& !bookName.equals(Globals.INNATE_SPELL_BOOK_NAME))
 			{
-				final SpellBook book = thePC.getSpellBookByName(bookName);
 				buffer.append(TAG_SPELLBOOK).append(':');
 				buffer.append(book.getName());
 				buffer.append('|');

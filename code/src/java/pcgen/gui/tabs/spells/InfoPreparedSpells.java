@@ -771,17 +771,18 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		availableBookList.add(Globals.getDefaultSpellBook());
 
 		selectedBookList.clear();
-		for (String bookName : pc.getSpellBooks())
+		for (SpellBook book : pc.getSpellBooks())
 		{
 			// build spell book list
-			SpellBook book = pc.getSpellBookByName(bookName);
-			if (book.getType() == SpellBook.TYPE_PREPARED_LIST
-				&& !selectedBookList.contains(bookName))
+			if (book.getType() == SpellBook.TYPE_PREPARED_LIST)
 			{
-				selectedBookList.add(bookName);
+				String bookName = book.getName();
+				if (!selectedBookList.contains(bookName))
+				{
+					selectedBookList.add(bookName);
+				}
 			}
 		}
-
 	}
 
 	/**
@@ -974,8 +975,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	 */
 	private boolean ensureDefaultBookPresent()
 	{
-		SpellBook book = pc.getSpellBookByName(currSpellBook);
-		if (book == null)
+		if (!pc.hasSpellBook(currSpellBook))
 		{
 			if (pc.addSpellBook(currSpellBook))
 			{

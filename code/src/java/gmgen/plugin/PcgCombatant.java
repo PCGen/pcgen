@@ -1019,7 +1019,7 @@ public class PcgCombatant extends Combatant
 					new ArrayList<PObject>(pc.getClassSet());
 			classList.add(pc.getRace());
 
-			List<String> bookList = new ArrayList<String>(pc.getSpellBooks());
+			List<String> bookList = new ArrayList<String>(pc.getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
 			for (String book : bookList)
 			{

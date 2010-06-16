@@ -762,14 +762,16 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		selectedBookList.clear();
 		selectedBookList.add(Globals.INNATE_SPELL_BOOK_NAME);
 		selectedBookList.add(Globals.getDefaultSpellBook());
-		for (String bookName : pc.getSpellBooks())
+		for (SpellBook book : pc.getSpellBooks())
 		{
 			// build spell book list
-			SpellBook book = pc.getSpellBookByName(bookName);
-			if (book.getType() == SpellBook.TYPE_INNATE_SPELLS
-				&& !selectedBookList.contains(bookName))
+			if (book.getType() == SpellBook.TYPE_INNATE_SPELLS)
 			{
-				selectedBookList.add(bookName);
+				String bookName = book.getName();
+				if (!selectedBookList.contains(bookName))
+				{
+					selectedBookList.add(bookName);
+				}
 			}
 		}
 	}

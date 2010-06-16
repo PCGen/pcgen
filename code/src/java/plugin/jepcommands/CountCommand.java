@@ -720,7 +720,7 @@ public class CountCommand extends PCGenCommand
 							final PlayerCharacter pc, final Object[] params) throws
 																			 ParseException
 					{
-						return (double) pc.getSpellBooks().size();
+						return (double) pc.getSpellBookCount();
 					}
 
 					protected void getData(final PlayerCharacter pc)
