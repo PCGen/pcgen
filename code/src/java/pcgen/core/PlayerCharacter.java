@@ -115,6 +115,7 @@ import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
+import pcgen.cdom.facet.FollowerLimitFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
@@ -149,7 +150,6 @@ import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ConditionalAbility;
-import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
@@ -286,6 +286,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -2306,70 +2307,45 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getMaxFollowers(CompanionList cList)
 	{
-		int ret = -1;
+		int ret = followerLimitFacet.getMaxFollowers(id, cList);
+		return (ret == -1) ? getOldFollowerLimit(cList) : ret;
+	}
 
-		List<? extends CDOMObject> cdomObjs = getCDOMObjectList();
-		for (CDOMObject cdo : cdomObjs)
+	private int getOldFollowerLimit(CompanionList cList)
+	{
+		// Old way of handling this
+		// If the character qualifies for any companion mod of this type
+		// they can take unlimited number of them.
+		for (CompanionMod cMod : Globals.getCompanionMods(cList))
 		{
-			List<FollowerLimit> limits = cdo.getListFor(ListKey.FOLLOWERS);
-			if (limits != null)
+			Map<String, Integer> varmap =
+					cMod.getMapFor(MapKey.APPLIED_VARIABLE);
+			for (String varName : varmap.keySet())
 			{
-				for (FollowerLimit fl : limits)
+				if (this.getVariableValue(varName, Constants.EMPTY_STRING)
+					.intValue() > 0)
 				{
-					if (fl.getCompanionList().resolvesTo().equals(cList))
+					return -1;
+				}
+			}
+			Map<CDOMSingleRef<? extends PCClass>, Integer> ac =
+					cMod.getMapFor(MapKey.APPLIED_CLASS);
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac
+				.entrySet())
+			{
+				PCClass pcclass = me.getKey().resolvesTo();
+				String key = pcclass.getKeyName();
+				for (PCClass pcClass : getClassSet())
+				{
+					if (pcClass.getKeyName().equals(key))
 					{
-						int val =
-								fl.getValue().resolve(this,
-									Constants.EMPTY_STRING).intValue();
-						ret = Math.max(ret, val);
+						return me.getValue();
 					}
 				}
 			}
 		}
 
-		String aType = cList.getKeyName();
-		if (ret != -1)
-		{
-			// ret += (int)getBonusValue("FOLLOWERS", aType.toUpperCase());
-			ret += this.getTotalBonusTo("FOLLOWERS", aType.toUpperCase());
-		}
-		else
-		{
-			// Old way of handling this
-			// If the character qualifies for any companion mod of this type
-			// they can take unlimited number of them.
-			for (CompanionMod cMod : Globals.getCompanionMods(cList))
-			{
-				Map<String, Integer> varmap =
-						cMod.getMapFor(MapKey.APPLIED_VARIABLE);
-				for (String varName : varmap.keySet())
-				{
-					if (this.getVariableValue(varName, Constants.EMPTY_STRING)
-						.intValue() > 0)
-					{
-						return -1;
-					}
-				}
-				Map<CDOMSingleRef<? extends PCClass>, Integer> ac =
-						cMod.getMapFor(MapKey.APPLIED_CLASS);
-				for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac
-					.entrySet())
-				{
-					PCClass pcclass = me.getKey().resolvesTo();
-					String key = pcclass.getKeyName();
-					for (PCClass pcClass : getClassSet())
-					{
-						if (pcClass.getKeyName().equals(key))
-						{
-							return me.getValue();
-						}
-					}
-				}
-			}
-
-			return 0;
-		}
-		return ret;
+		return 0;
 	}
 
 	/**

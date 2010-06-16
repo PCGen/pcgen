@@ -86,6 +86,7 @@ public class FacetInitialization
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
+		FollowerLimitFacet flFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 		CharacterSpellResistanceFacet srFacet = FacetLibrary
 				.getFacet(CharacterSpellResistanceFacet.class);
 
@@ -153,5 +154,6 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
+		cdomObjectFacet.addDataFacetChangeListener(flFacet);
 	}
 }
