@@ -130,8 +130,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	@Test
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|,"));
-		assertNoSideEffects();
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ ","));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -245,8 +253,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidListEndComma() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1,"));
-		assertNoSideEffects();
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ "TestWP1,"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -261,8 +277,16 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidListStartComma() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + ",TestWP1"));
-		assertNoSideEffects();
+		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+				+ ",TestWP1"));
+		if (requiresLiteral())
+		{
+			assertNoSideEffects();
+		}
+		else
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
 	}
 
 	@Test
@@ -279,7 +303,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testInvalidListDoubleJoinComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
+		try
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK too :)
+		}
 		assertNoSideEffects();
 	}
 
