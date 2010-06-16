@@ -579,6 +579,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test retrieval for a spell casting class.
 		character.incrementClassLevel(1, megaCasterClass);
 		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
+		setPCStat(character, cha, 10);
 		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, "null", character));
 		assertEquals("Known 1st level where stat is too low", 0, character.getSpellSupport(charClass).getKnownForLevel(1, "null", character));
 		setPCStat(character, cha, 11);

@@ -74,26 +74,48 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		str = new PCStat();
 		str.setName("Strength");
 		str.put(StringKey.ABB, "STR");
+		str.put(VariableKey.getConstant("LOADSCORE"),
+				FormulaFactory.getFormulaFor("STRSCORE"));
+		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
+				FormulaFactory.getFormulaFor(2));
+		str.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getAbb()),
+				FormulaFactory.getFormulaFor(str.getAbb() + "SCORE-10"));
 
 		dex = new PCStat();
 		dex.setName("Dexterity");
 		dex.put(StringKey.ABB, "DEX");
+		dex.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getAbb()),
+				FormulaFactory.getFormulaFor(dex.getAbb() + "SCORE-10"));
 
 		final PCStat con = new PCStat();
 		con.setName("Constitution");
 		con.put(StringKey.ABB, "CON");
+		con.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getAbb()),
+				FormulaFactory.getFormulaFor(con.getAbb() + "SCORE-10"));
 
 		intel = new PCStat();
 		intel.setName("Intelligence");
 		intel.put(StringKey.ABB, "INT");
+		intel.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getAbb()),
+				FormulaFactory.getFormulaFor(intel.getAbb() + "SCORE-10"));
 
 		wis = new PCStat();
 		wis.setName("Wisdom");
 		wis.put(StringKey.ABB, "WIS");
+		wis.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getAbb()),
+				FormulaFactory.getFormulaFor(wis.getAbb() + "SCORE-10"));
 
 		cha = new PCStat();
 		cha.setName("Charisma");
 		cha.put(StringKey.ABB, "CHA");
+		cha.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getAbb()),
+				FormulaFactory.getFormulaFor(cha.getAbb() + "SCORE-10"));
 
 		ReferenceContext ref = Globals.getContext().ref;
 		lg = createAlignment("Lawful Good", "LG");
@@ -236,16 +258,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
 			final int value)
 	{
-		String statName = stat.getAbb();
 		pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
-		stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
-		stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
-				FormulaFactory.getFormulaFor(statName + "SCORE-10"));
-		if (statName.equals("STR"))
-		{
-			Globals.getContext().getObjectContext().put(stat,
-					VariableKey.getConstant("LOADSCORE"),
-					FormulaFactory.getFormulaFor("STRSCORE"));
-		}
 	}
 }

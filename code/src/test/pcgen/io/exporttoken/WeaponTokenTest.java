@@ -36,7 +36,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -110,7 +109,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		setPCStat(character, str, 15);
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		str.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
 		BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		
 		if (aBonus != null)
@@ -141,8 +139,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
-				.getFormulaFor(2));
 
 		aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
 		

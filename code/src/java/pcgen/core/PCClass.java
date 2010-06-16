@@ -1454,8 +1454,6 @@ public class PCClass extends PObject
 		PCClassLevel pcl = aPC.getActiveClassLevel(this, oldLevel);
 		CDOMObjectUtilities.removeAdds(pcl, aPC);
 		CDOMObjectUtilities.restoreRemovals(pcl, aPC);
-		aPC.removeVariable("CLASS:" + getKeyName() + "|"
-			+ Integer.toString(oldLevel));
 	}
 
 	/*
@@ -1466,12 +1464,6 @@ public class PCClass extends PObject
 	void doPlusLevelMods(final int newLevel, final PlayerCharacter aPC,
 		final PCLevelInfo pcLevelInfo)
 	{
-		if (newLevel == 1)
-		{
-			addVariablesForLevel(0, aPC);
-		}
-		addVariablesForLevel(newLevel, aPC);
-
 		// moved after changeSpecials and addVariablesForLevel
 		// for bug #688564 -- sage_sam, 18 March 2003
 		aPC.calcActiveBonuses();
@@ -1614,44 +1606,6 @@ public class PCClass extends PObject
 				.errorPrint("No current pc in subLevel()? How did this happen?");
 
 			return;
-		}
-	}
-
-	/*
-	 * REFACTOR This should really be better at recognizing level dependent
-	 * items and storing them appropriately and not relying on PObject to ever
-	 * be level aware. This is a general problem across PCClass and I would like
-	 * this to be solved before the great PCClass/PCClassLevel splitting.
-	 */
-	/*
-	 * PCCLASSONLY Since this is really just an extracted method of something
-	 * that happens in the factory production of a PCClassLevel, it is only
-	 * required in PCClass.
-	 */
-	private void addVariablesForLevel(final int aLevel,
-		final PlayerCharacter aPC)
-	{
-		StringBuilder prefix = new StringBuilder();
-		prefix.append(getQualifiedKey()).append('|').append(aLevel);
-		CDOMObject cdo;
-		if (aLevel == 0)
-		{
-			cdo = this;
-		}
-		else
-		{
-			//Note: May return null
-			cdo = aPC.getActiveClassLevel(this, aLevel);
-		}
-		if (cdo != null)
-		{
-			for (VariableKey vk : cdo.getVariableKeys())
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(prefix).append('|').append(vk.toString()).append('|')
-						.append(cdo.get(vk));
-				aPC.addVariable(sb.toString());
-			}
 		}
 	}
 

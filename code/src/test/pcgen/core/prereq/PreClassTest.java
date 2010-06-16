@@ -202,6 +202,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
+		setPCStat(character, cha, 12);
+		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 
@@ -239,6 +241,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
+		setPCStat(character, cha, 12);
+		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 
@@ -376,6 +380,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 
 		final PlayerCharacter character = getCharacter();
+		setPCStat(character, cha, 12);
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -428,6 +433,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 
 		final PlayerCharacter character = getCharacter();
+		setPCStat(character, cha, 12);
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -455,6 +461,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
+		setPCStat(character, cha, 12);
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("class");

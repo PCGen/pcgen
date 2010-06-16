@@ -127,6 +127,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Skill.class, "KEY_bluff");
 		PlayerCharacter pc = getCharacter();
+		setPCStat(pc, cha, 10);
 
 		assertEquals("Initial state", "", SkillModifier.getModifierExplanation(
 			bluff, pc, false));

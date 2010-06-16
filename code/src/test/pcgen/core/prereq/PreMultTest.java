@@ -130,6 +130,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
+		setPCStat(character, cha, 12);
+		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 

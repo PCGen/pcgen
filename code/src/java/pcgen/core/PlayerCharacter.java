@@ -52,6 +52,7 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.logging.Level;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
@@ -148,6 +149,7 @@ import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
+import pcgen.cdom.facet.VariableFacet;
 import pcgen.cdom.facet.VisionFacet;
 import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
@@ -293,6 +295,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
@@ -313,9 +316,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			new ArrayList<Equipment>();
 	private final ArrayList<Equipment> secondaryWeapons =
 			new ArrayList<Equipment>();
-
-	// List of VARs
-	private final ArrayList<String> variableList = new ArrayList<String>();
 
 	private ClassSource defaultDomainSource = null;
 
@@ -342,8 +342,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
-	private TreeSet<String> variableSet =
-			new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 
 	// Weapon, Armor and Shield proficiencies
 	// private final TreeSet<WeaponProf> weaponProfList = new
@@ -3266,16 +3264,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.TRAIT2);
 	}
 
-	private double getMinMaxFirstValue(final boolean isNewValue,
-		final boolean isMax, final double oldValue, final double newValue)
-	{
-		if (!isNewValue)
-			return newValue;
-		if (isMax)
-			return Math.max(oldValue, newValue);
-		return Math.min(oldValue, newValue);
-	}
-
 	/**
 	 * Should probably be refactored to return a String instead. TODO This
 	 * should call getPObjectList() to get a list of PObjects to test against. I
@@ -3311,244 +3299,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				return new Float(value);
 			}
 		}
-
-		for (String vString : variableList)
+		
+		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(vString, Constants.PIPE);
-			final String src = aTok.nextToken();
-
-			//Throw away subsource
-			aTok.nextToken();
-			final String nString = aTok.nextToken();
-
-			if (nString.equalsIgnoreCase(variableString))
+			VariableKey vk = VariableKey.valueOf(variableString);
+			Double val = variableFacet.getVariableValue(id, vk, isMax);
+			if (val != null)
 			{
-				final String sString = aTok.nextToken();
-				final double newValue =
-						getVariableValue(sString, src).doubleValue();
-				value = getMinMaxFirstValue(found, isMax, value, newValue);
-
+				value = val;
 				found = true;
 			}
 		}
-
-		// Now check Abilities to see if they modify the variable
-		Set<Ability> abilitySet = getFullAbilitySet();
-		for (Ability obj : abilitySet)
+		catch (IllegalArgumentException e)
 		{
-			final String varInList =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (varInList.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(varInList));
-				found = true;
-			}
-		}
-
-		for (Skill obj : getSkillSet())
-		{
-			final String varInList =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (varInList.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(varInList));
-				found = true;
-			}
-		}
-
-		for (Equipment obj : getEquipmentSet())
-		{
-			final String eS =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (eS.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(eS));
-				found = true;
-			}
-
-			for (EquipmentModifier em : (obj.getEqModifierList(true)))
-			{
-				final String varInList =
-						checkForVariableInList(em, variableString, isMax,
-							found, value);
-
-				if (varInList.length() > 0)
-				{
-					value =
-							getMinMaxFirstValue(found, isMax, value, Float
-								.parseFloat(varInList));
-					found = true;
-				}
-			}
-
-			for (EquipmentModifier em : (obj.getEqModifierList(false)))
-			{
-				final String varInList =
-						checkForVariableInList(em, variableString, isMax,
-							found, value);
-
-				if (varInList.length() > 0)
-				{
-					value =
-							getMinMaxFirstValue(found, isMax, value, Float
-								.parseFloat(varInList));
-					found = true;
-				}
-			}
-		}
-
-		for (PCTemplate obj : templateFacet.getSet(id))
-		{
-			final String aString =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-			for (PCTemplate pct : obj.getConditionalTemplates(getTotalLevels(),
-				totalHitDice()))
-			{
-				final String vString =
-						checkForVariableInList(pct, variableString, isMax,
-							found, value);
-
-				if (vString.length() > 0)
-				{
-					value =
-							getMinMaxFirstValue(found, isMax, value, Float
-								.parseFloat(vString));
-					found = true;
-				}
-			}
-		}
-
-		for (CompanionMod obj : companionModFacet.getSet(id))
-		{
-			final String aString =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-		}
-
-		Race race = getRace();
-		if (race != null)
-		{
-			final String aString =
-					checkForVariableInList(race, variableString, isMax, found,
-						value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-		}
-
-		Deity deity = getDeity();
-		if (deity != null)
-		{
-			final String aString =
-					checkForVariableInList(deity, variableString, isMax, found,
-						value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-		}
-
-		for (Domain obj : domainFacet.getSet(id))
-		{
-			final String aString =
-					checkForVariableInList(obj, variableString,
-						isMax, found, value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-		}
-
-		// for ( final WeaponProf obj : getWeaponProfs() )
-		// {
-		// if (obj == null)
-		// {
-		// continue;
-		// }
-		//
-		// final String aString = checkForVariableInList(obj, variableString,
-		// isMax, Constants.EMPTY_STRING,
-		// Constants.EMPTY_STRING, found,
-		// value, decrement);
-		//
-		// if (aString.length() > 0)
-		// {
-		// value = getMinMaxFirstValue(found, isMax, value,
-		// Float.parseFloat(aString));
-		// found = true;
-		// }
-		// }
-
-		for (PCStat obj : statFacet.getSet(id))
-		{
-			final String aString =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
-
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
-		}
-
-		PCAlignment alignment = getPCAlignment();
-		if (alignment != null)
-		{
-			final String aString = checkForVariableInList(alignment,
-					variableString, isMax, found, value);
-
-			if (aString.length() > 0)
-			{
-				value = getMinMaxFirstValue(found, isMax, value, Float
-						.parseFloat(aString));
-				found = true;
-			}
+			//This variable is not in the data - must be builtin?
 		}
 
 		boolean includeBonus = true;
@@ -3878,25 +3642,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return miscList;
 	}
 
-	public void buildVariableSet()
-	{
-		// Building the PObject list relies on variables for evaluating prereqs,
-		// so we have to grab it before clearing out the variables.
-		List<? extends CDOMObject> pObjList = getCDOMObjectList();
-		variableSet.clear();
-
-		// Go through all objects that could add a VAR
-		// and build the HashSet
-		// Try all possible POBjects
-		for (CDOMObject aPObj : pObjList)
-		{
-			for (VariableKey vk : aPObj.getVariableKeys())
-			{
-				variableSet.add(vk.toString());
-			}
-		}
-	}
-
 	public boolean delEquipSet(final EquipSet eSet)
 	{
 		if (equipSetList.isEmpty())
@@ -3964,26 +3709,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasVariable(final String variableString)
 	{
-		for (String var : variableList)
+		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(var, Constants.PIPE);
-			aTok.nextToken(); // source
-			aTok.nextToken(); // subSource
-
-			if ((aTok.nextToken()).equalsIgnoreCase(variableString)) // nString
-			{
-				return true;
-			}
+			return variableFacet.contains(id, VariableKey
+					.valueOf(variableString));
 		}
-
-		// if (Globals.hasWeaponProfVariableNamed(getWeaponProfs(),
-		// variableString))
-		// {
-		// return true;
-		// }
-
-		return variableSet.contains(variableString.toUpperCase());
+		catch (IllegalArgumentException e)
+		{
+			//Built in variable
+			return false;
+		}
 	}
 
 	public int racialSizeInt()
@@ -5274,7 +5009,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int div =
 				getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING)
 					.intValue();
-
 		return div;
 	}
 
@@ -7330,9 +7064,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		// build the Variable HashSet
-		buildVariableSet();
-
 		// Keep rebuilding the active bonus map until the
 		// contents do not change. This is to cope with the
 		// situation where we have a variable A that has a prereq
@@ -9383,12 +9114,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return Double.valueOf(0);
 	}
 
-	void addVariable(final String variableString)
-	{
-		variableList.add(variableString);
-		setDirty(true);
-	}
-
 	public void giveClassesAway(final PCClass toClass, final PCClass fromClass,
 		int iCount)
 	{
@@ -9501,20 +9226,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		skillLangFacet.remove(id, aLang, source);
 		setDirty(true);
-	}
-
-	void removeVariable(final String variableString)
-	{
-		for (Iterator<String> e = variableList.iterator(); e.hasNext();)
-		{
-			final String aString = e.next();
-
-			if (aString.startsWith(variableString))
-			{
-				e.remove();
-				setDirty(true);
-			}
-		}
 	}
 
 	/**
@@ -10751,48 +10462,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return aList;
 	}
 
-	private String checkForVariableInList(final PObject obj,
-		final String variableString, final boolean isMax, boolean found,
-		double value)
-	{
-		boolean flag = false;
-
-		String src = obj.getVariableSource();
-
-		for (VariableKey vk : obj.getVariableKeys())
-		{
-			String nString = vk.toString();
-
-			if (nString.equalsIgnoreCase(variableString))
-			{
-				Float newValue = getVariableValue(obj.get(vk).toString(), src);
-
-				if (!found)
-				{
-					value = newValue.floatValue();
-				}
-				else if (isMax)
-				{
-					value = Math.max(value, newValue.doubleValue());
-				}
-				else
-				{
-					value = Math.min(value, newValue.doubleValue());
-				}
-
-				found = true;
-				flag = true;
-			}
-		}
-
-		if (flag)
-		{
-			return Double.toString(value);
-		}
-		return Constants.EMPTY_STRING; // signifies that the variable was found
-		// in this list
-	}
-
 	/**
 	 * Check if the character has the given Deity.
 	 * 
@@ -11512,10 +11181,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		for (String s : this.variableList)
-		{
-			aClone.variableList.add(s);
-		}
 		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
@@ -14407,7 +14072,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						domainClass, 0, _maxLevel);
 			}
 		}
-		modifyVariables(domain, true);
 		setDirty(true);
 	}
 
@@ -14419,7 +14083,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeDomain(Domain domain)
 	{
 		domainFacet.remove(id, domain);
-		modifyVariables(domain, false);
 		setDirty(true);
 	}
 
@@ -14441,29 +14104,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public ClassSource getDomainSource(Domain d)
 	{
 		return getAssoc(d, AssociationKey.CLASS_SOURCE);
-	}
-
-	private void modifyVariables(Domain aDomain, boolean addIt)
-	{
-		StringBuilder prefix = new StringBuilder();
-		prefix.append("DOMAIN:").append(aDomain.getKeyName()).append('|')
-				.append(-9).append('|');
-
-		for (VariableKey vk : aDomain.getVariableKeys())
-		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(prefix).append(vk.toString()).append('|').append(
-					aDomain.get(vk));
-
-			if (addIt)
-			{
-				addVariable(sb.toString());
-			}
-			else
-			{
-				removeVariable(sb.toString());
-			}
-		}
 	}
 
 	public void setTempBonusMap(Map<BonusObj, BonusManager.TempBonusInfo> tempBonusMap)

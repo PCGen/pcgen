@@ -199,13 +199,11 @@ public class SpellSupportForPCClass
 			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
 			statString = aStat.getAbb();
 		}
-
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "KNOWN."
 				+ statString)
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS."
 						+ source.getKeyName());
-
 		if (!source.getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
 			final int maxSpellLevel = aPC.getVariableValue(
