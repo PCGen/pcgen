@@ -14,6 +14,7 @@ Monkey Building
 
 Linguistics				TYPE:TestSkills			
 
+Test Skill (Class Level)	TYPE:ClassLevelTest	CHOOSE:SKILL|ALL
 
 # Test Skills
 Athletics			KEYSTAT:STR	TYPE:Strength.TestSkills
@@ -25,3 +26,16 @@ Persuasion			KEYSTAT:CHA	TYPE:Charisma.TestSkills
 
 # Test Sub Skills Section
 
+
+# Alice Test Skills
+Exclusing Skill_1		KEYSTAT:INT	EXCLUSIVE:YES	TYPE:ExclusiveSkill
+Exclusing Skill_2		KEYSTAT:INT	EXCLUSIVE:YES	TYPE:ExclusiveSkill
+Exclusing Skill_3		KEYSTAT:INT	EXCLUSIVE:YES	TYPE:ExclusiveSkill
+Exclusing Skill_4		KEYSTAT:INT	EXCLUSIVE:YES	TYPE:ExclusiveSkill
+Exclusing Skill_5		KEYSTAT:INT	EXCLUSIVE:YES	TYPE:ExclusiveSkill
+
+Test Skill Chooser_1	KEYSTAT:WIS				TYPE:ChooserTestingSkill
+Test Skill Chooser_2	KEYSTAT:WIS				TYPE:ChooserTestingSkill
+Test Skill Chooser_3	KEYSTAT:WIS				TYPE:ChooserTestingSkill
+Test Skill Chooser_4	KEYSTAT:WIS				TYPE:ChooserTestingSkill
+Test Skill Chooser_5	KEYSTAT:WIS				TYPE:ChooserTestingSkill

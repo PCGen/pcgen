@@ -2,6 +2,14 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+#GLOBAL ~ Alice Feat Chooser Tests
+ALICE ~ Language			CATEGORY:FEAT	TYPE:AliceTests	AUTO:LANG|%LIST				CHOOSE:LANG|ALL			MULT:YES
+ALICE ~ Weapon Prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:WEAPONPROF|%LIST			CHOOSE:WEAPONPROFICIENCY|ALL		MULT:YES
+ALICE ~ Shield Prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:SHIELDPROF|%LIST			CHOOSE:SHIELDPROFICIENCY|ALL		MULT:YES
+ALICE ~ Equipment			CATEGORY:FEAT	TYPE:AliceTests	AUTO:EQUIP|%LIST				CHOOSE:EQUIPMENT|TYPE=Weapon		MULT:YES
+ALICE ~ Armor prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:ARMORPROF|%LIST			CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES
+ALICE ~ Class Skill		CATEGORY:FEAT	TYPE:AliceTests	CSKILL:LIST				CHOOSE:SKILL|CROSSCLASS			MULT:YES
+ALICE ~ Cross Class Test	CATEGORY:FEAT	TYPE:AliceTests	CCSKILL:LIST				CHOOSE:SKILL|EXCLUSIVE			MULT:YES
 
 
 #Block: Chooser Tests ----------------------------------------------------------------------------------------------------------

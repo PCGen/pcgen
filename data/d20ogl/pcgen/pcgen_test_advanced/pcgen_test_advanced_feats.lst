@@ -1,5 +1,19 @@
 
 
+a Choose Armor Prof Test	TYPE:Test	CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES	AUTO:ARMORPROF|%LIST
+
+a Choose Shield Prof Test	TYPE:Test	CHOOSE:SHIELDPROFICIENCY|ALL	MULT:YES	AUTO:SHIELDPROF|%LIST
+
+#A test Movement ~ MOVEMULT			TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|2.5
+#A test Movement ~ MOVEMULT formula		TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|1/2
+
+
+#A test Movement ~ MOVECLONE			TYPE:Test		MOVECLONE:Walk,Fly,*2.5
+#A test Movement ~ MOVECLONE formula		TYPE:Test		MOVECLONE:Walk,Fly,*1/2
+
+A Add Spells					TYPE:Test		SPELLLEVEL:CLASS|Druid=1|Magic Missile
+
+
 
 DodgeBall	TYPE:TestMonkey
 MonkeyFu	TYPE:TestMonkey
