@@ -323,8 +323,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
-	private HashMapToList<Class, String> qualifyArrayMap =
-			new HashMapToList<Class, String>();
 	private Follower followerMaster = null; // Who is the master now?
 
 	// List of Equip Sets
@@ -11187,7 +11185,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}
-		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);
 		if (followerMaster != null)
 		{
 			aClone.followerMaster = followerMaster.clone();
