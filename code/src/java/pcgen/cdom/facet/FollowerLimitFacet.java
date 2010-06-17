@@ -32,8 +32,8 @@ import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.list.CompanionList;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * FollowerLimitFacet is a Facet that tracks the Follower Limits that have been
+ * set for a Player Character.
  */
 public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -128,9 +128,9 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
+	 * Returns the type-safe Map for this FollowerLimitFacet and the given
 	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * FollowerLimitFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
 	 * AbstractSourcedListFacet, and since it can be modified, a reference to
@@ -140,8 +140,8 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *         null if no information has been set in this FollowerLimitFacet
+	 *         for the Player Character.
 	 */
 	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(
 			CharID id)
@@ -151,14 +151,14 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Map for this FollowerLimitFacet and the given CharID.
+	 * Will return a new, empty Map if no information has been set in this
+	 * AbstractSourcedListFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
 	 * AbstractSourcedListFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * FollowerLimitFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned

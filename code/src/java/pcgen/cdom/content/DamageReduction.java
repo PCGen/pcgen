@@ -36,10 +36,11 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 
 /**
- * Encapsulates a single DR entity. This class encapsulates a DR entity and
- * provides utility methods to manipulate and combine multiple DRs together. The
- * consensus seems to be that brievity over clarity is preferred in the output
- * so that is what the methods attempt to provide.
+ * Encapsulates a single DamageReduction entity. This class encapsulates a
+ * DamageReduction entity and provides utility methods to manipulate and combine
+ * multiple DamageReductions together. The consensus seems to be that brievity
+ * over clarity is preferred in the output so that is what the methods attempt
+ * to provide.
  * 
  * @author boomer70
  * 

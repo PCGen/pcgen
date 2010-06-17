@@ -24,7 +24,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
 /**
- * Faceacet is a Facet that tracks the Face of a Player Character (in game
+ * FaceFacet is a Facet that tracks the Face of a Player Character (in game
  * rules, the exposed size of a Player Character on each side of the Player
  * Character)
  */

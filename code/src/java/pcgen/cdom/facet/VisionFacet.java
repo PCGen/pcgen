@@ -37,8 +37,8 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.util.enumeration.VisionType;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * VisionFacet is a Facet that tracks the Vision objects that are contained in a
+ * Player Character.
  */
 public class VisionFacet extends
 		AbstractSourcedListFacet<QualifiedObject<Vision>> implements
@@ -55,8 +55,8 @@ public class VisionFacet extends
 			.getFacet(PrerequisiteFacet.class);
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which VisionFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -90,8 +90,8 @@ public class VisionFacet extends
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which VisionFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -224,7 +224,7 @@ public class VisionFacet extends
 
 	public int getVisionCount(CharID id)
 	{
-		//Slow method for now...
+		// Slow method for now...
 		return getActiveVision(id).size();
 	}
 }

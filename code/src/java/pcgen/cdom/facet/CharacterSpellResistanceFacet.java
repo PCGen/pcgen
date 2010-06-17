@@ -27,19 +27,20 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * CharacterSpellResistanceFacet is a Facet that tracks the SpellResistance
+ * objects that have been granted to a Player Character.
  */
-public class CharacterSpellResistanceFacet extends AbstractSourcedListFacet<Formula>
-		implements DataFacetChangeListener<CDOMObject>
+public class CharacterSpellResistanceFacet extends
+		AbstractSourcedListFacet<Formula> implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet resolveFacet = FacetLibrary
 			.getFacet(FormulaResolvingFacet.class);
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
-	 * Character.
+	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
+	 * to a Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -58,9 +59,9 @@ public class CharacterSpellResistanceFacet extends AbstractSourcedListFacet<Form
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
-	 * Character.
+	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the

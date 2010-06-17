@@ -30,8 +30,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * VariableFacet is a Facet that tracks the Variables that are contained in a
+ * Player Character.
  */
 public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -39,8 +39,8 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 			.getFacet(FormulaResolvingFacet.class);
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which VariableFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -61,8 +61,8 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which VariableFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -119,14 +119,13 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Map for this VariableFacet and the given CharID. Will
+	 * return a new, empty Map if no information has been set in this
+	 * VariableFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * VariableFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than VariableFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned

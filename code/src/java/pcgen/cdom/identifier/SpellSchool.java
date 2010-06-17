@@ -54,6 +54,7 @@ public class SpellSchool implements Identified
 		name = s;
 	}
 
+	@Override
 	public String toString()
 	{
 		return name;

@@ -36,10 +36,11 @@ import pcgen.cdom.enumeration.CharID;
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
- * A AbstractSourcedListFacet is a DataFacet that contains information about
+ * A AbstractQualifiedListFacet is a DataFacet that contains information about
  * CDOMObjects that are contained in a PlayerCharacter when a PlayerCharacter
- * may have more than one of that type of CDOMObject (e.g. Language, PCTemplate)
- * and the source of that object should be tracked.
+ * may have more than one of that type of CDOMObject (e.g. Language,
+ * PCTemplate), the source of that object should be tracked, and the
+ * PlayerCharacter can qualify for the object (they have prerequisites)
  * 
  * This class is designed to assume that each CDOMObject may only be contained
  * one time by the PlayerCharacter, even if received from multiple sources. The
@@ -51,15 +52,15 @@ import pcgen.cdom.enumeration.CharID;
  * DATA_REMOVED event (it will only trigger removal if it was the last source
  * when removed)
  * 
- * The sources stored in this AbstractSourceListFacet are stored as a List,
+ * The sources stored in this AbstractQualifiedListFacet are stored as a List,
  * meaning the list of sources may contain the same source multiple times. If
  * so, each call to remove will only remove that source one time from the list
  * of sources.
  * 
  * null is a valid source.
  */
-public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> extends
-		AbstractDataFacet<T>
+public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
+		extends AbstractDataFacet<T>
 {
 
 	private PrerequisiteFacet prereqFacet = FacetLibrary
@@ -67,16 +68,16 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 
 	/**
 	 * Add the given object with the given source to the list of objects stored
-	 * in this AbstractSourcedListFacet for the Player Character represented by
-	 * the given CharID
+	 * in this AbstractQualifiedListFacet for the Player Character represented
+	 * by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
-	 *            AbstractListFacet for the Player Character represented by the
-	 *            given CharID
+	 *            AbstractQualifiedListFacet for the Player Character
+	 *            represented by the given CharID
 	 * @param source
 	 *            The source for the given object
 	 */
@@ -106,16 +107,16 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 
 	/**
 	 * Adds all of the objects with the given source in the given Collection to
-	 * the list of objects stored in this AbstractListFacet for the Player
-	 * Character represented by the given CharID
+	 * the list of objects stored in this AbstractQualifiedListFacet for the
+	 * Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this AbstractListFacet for the Player Character
-	 *            represented by the given CharID
+	 *            stored in this AbstractQualifiedListFacet for the Player
+	 *            Character represented by the given CharID
 	 * @param source
 	 *            The source for the given object
 	 * @throws NullPointerException
@@ -131,11 +132,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 
 	/**
 	 * Removes the given source entry from the list of sources for the given
-	 * object stored in this AbstractListFacet for the Player Character
+	 * object stored in this AbstractQualifiedListFacet for the Player Character
 	 * represented by the given CharID. If the given source was the only source
 	 * for the given object, then the object is removed from the list of objects
-	 * stored in this AbstractListFacet for the Player Character represented by
-	 * the given CharID.
+	 * stored in this AbstractQualifiedListFacet for the Player Character
+	 * represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -160,16 +161,16 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	 * objects in the given Collection for the Player Character represented by
 	 * the given CharID. If the given source was the only source for any of the
 	 * objects in the collection, then those objects are removed from the list
-	 * of objects stored in this AbstractListFacet for the Player Character
-	 * represented by the given CharID.
+	 * of objects stored in this AbstractQualifiedListFacet for the Player
+	 * Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this AbstractListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            objects stored in this AbstractQualifiedListFacet for the
+	 *            Player Character represented by the given CharID
 	 * @param source
 	 *            The source for the objects in the given Collection to be
 	 *            removed from the list of sources.
@@ -190,14 +191,14 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 
 	/**
 	 * Removes all objects (and all sources for those objects) from the list of
-	 * objects stored in this AbstractSourcedListFacet for the Player Character
-	 * represented by the given CharID
+	 * objects stored in this AbstractQualifiedListFacet for the Player
+	 * Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
 	 * @return A non-null Set of objects removed from the list of objects stored
-	 *         in this AbstractSourcedListFacet for the Player Character
+	 *         in this AbstractQualifiedListFacet for the Player Character
 	 *         represented by the given CharID
 	 */
 	public Map<T, Set<Object>> removeAll(CharID id)
@@ -216,13 +217,13 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns the Set of objects in this AbstractSourcedListFacet for the
+	 * Returns the Set of objects in this AbstractQualifiedListFacet for the
 	 * Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            items in this AbstractSourcedListFacet should be returned.
-	 * @return A non-null Set of objects in this AbstractSourcedListFacet for
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @return A non-null Set of objects in this AbstractQualifiedListFacet for
 	 *         the Player Character represented by the given CharID
 	 */
 	public Set<T> getSet(CharID id)
@@ -236,13 +237,13 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns the count of items in this AbstractSourcedListFacet for the
+	 * Returns the count of items in this AbstractQualifiedListFacet for the
 	 * Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            count of items should be returned
-	 * @return The count of items in this AbstractSourcedListFacet for the
+	 * @return The count of items in this AbstractQualifiedListFacet for the
 	 *         Player Character represented by the given CharID
 	 */
 	public int getCount(CharID id)
@@ -256,15 +257,16 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns true if this AbstractSourcedListFacet does not contain any items
-	 * for the Player Character represented by the given CharID
+	 * Returns true if this AbstractQualifiedListFacet does not contain any
+	 * items for the Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
 	 *            items are contained by this AbstractsSourcedListFacet
-	 * @return true if this AbstractSourcedListFacet does not contain any items
-	 *         for the Player Character represented by the given CharID; false
-	 *         otherwise (if it does contain items for the Player Character)
+	 * @return true if this AbstractQualifiedListFacet does not contain any
+	 *         items for the Player Character represented by the given CharID;
+	 *         false otherwise (if it does contain items for the Player
+	 *         Character)
 	 */
 	public boolean isEmpty(CharID id)
 	{
@@ -273,17 +275,17 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns true if this AbstractSourcedListFacet contains the given value in
-	 * the list of items for the Player Character represented by the given
+	 * Returns true if this AbstractQualifiedListFacet contains the given value
+	 * in the list of items for the Player Character represented by the given
 	 * CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
 	 * @param obj
-	 *            The object to test if this AbstractSourcedListFacet contains
+	 *            The object to test if this AbstractQualifiedListFacet contains
 	 *            that item for the Player Character represented by the given
 	 *            CharID
-	 * @return true if this AbstractSourcedListFacet contains the given value
+	 * @return true if this AbstractQualifiedListFacet contains the given value
 	 *         for the Player Character represented by the given CharID; false
 	 *         otherwise
 	 */
@@ -294,17 +296,17 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns a Set of sources for this AbstractSourcedListFacet, the
+	 * Returns a Set of sources for this AbstractQualifiedListFacet, the
 	 * PlayerCharacter represented by the given CharID, and the given object.
 	 * Will add the given object to the list of items for the PlayerCharacter
 	 * represented by the given CharID and will return a new, empty Set if no
-	 * information has been set in this AbstractSourcedListFacet for the given
+	 * information has been set in this AbstractQualifiedListFacet for the given
 	 * CharID and given object. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
+	 * AbstractQualifiedListFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
@@ -326,20 +328,20 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * Returns the type-safe Map for this AbstractQualifiedListFacet and the
+	 * given CharID. May return null if no information has been set in this
+	 * AbstractQualifiedListFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
+	 * AbstractQualifiedListFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
 	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *         AbstractQualifiedListFacet for the Player Character.
 	 */
 	private Map<T, Set<Object>> getCachedMap(CharID id)
 	{
@@ -347,14 +349,15 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
+	 * Returns a type-safe Map for this AbstractQualifiedListFacet and the given
 	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * this AbstractQualifiedListFacet for the given CharID. Will not return
+	 * null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
+	 * AbstractQualifiedListFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
@@ -372,20 +375,20 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 	}
 
 	/**
-	 * Copies the contents of the AbstractSourcedListFacet from one Player
+	 * Copies the contents of the AbstractQualifiedListFacet from one Player
 	 * Character to another Player Character, based on the given CharIDs
 	 * representing those Player Characters.
 	 * 
-	 * This is a method in AbstractSourcedListFacet in order to avoid exposing
+	 * This is a method in AbstractQualifiedListFacet in order to avoid exposing
 	 * the mutable Map object to other classes. This should not be inlined, as
-	 * the Map is internal information to AbstractSourcedListFacet and should
+	 * the Map is internal information to AbstractQualifiedListFacet and should
 	 * not be exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
 	 * between the Player Characters represented by the given CharIDs (meaning
-	 * once this copy takes place, any change to the AbstractSourcedListFacet of
-	 * one Player Character will only impact the Player Character where the
-	 * AbstractSourcedListFacet was changed).
+	 * once this copy takes place, any change to the AbstractQualifiedListFacet
+	 * of one Player Character will only impact the Player Character where the
+	 * AbstractQualifiedListFacet was changed).
 	 * 
 	 * @param source
 	 *            The CharID representing the Player Character from which the
@@ -415,19 +418,19 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> ext
 
 	/**
 	 * This method implements removal of a source for an object contained by
-	 * this AbstractSourcedListFacet. This implements the actual check that
+	 * this AbstractQualifiedListFacet. This implements the actual check that
 	 * determines if the given source was the only source for the given object.
 	 * If so, then that object is removed from the list of objects stored in
-	 * this AbstractListFacet for the Player Character represented by the given
-	 * CharID.
+	 * this AbstractQualifiedListFacet for the Player Character represented by
+	 * the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character which may have
 	 *            the given item removed.
 	 * @param componentMap
-	 *            The (private) Map for this AbstractSourcedListFacet that will
-	 *            as least have the given source removed from the list for the
-	 *            given object.
+	 *            The (private) Map for this AbstractQualifiedListFacet that
+	 *            will as least have the given source removed from the list for
+	 *            the given object.
 	 * @param obj
 	 *            The object which may be removed if the given source is the
 	 *            only source for this object in the Player Character

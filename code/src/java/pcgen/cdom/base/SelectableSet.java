@@ -28,19 +28,10 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
- * A ChoiceSet is a named container of a Collection of objects (stored in a
- * PrimitiveChoiceSet).
- * 
- * It is expected that a ChoiceSet will be useful in situations where a
- * pre-defined list of choices is available.
- * 
- * If the set of choices is dynamic, consider using the List infrastructure,
- * including classes like CDOMList.
- * 
- * @see pcgen.cdom.base.CDOMList
+ * A SelectableSet is a named container of a Collection of objects.
  * 
  * @param <T>
- *            the Class contained within this ChoiceSet
+ *            the Class contained within this SelectableSet
  */
 public interface SelectableSet<T>
 {

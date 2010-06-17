@@ -20,8 +20,8 @@ package pcgen.cdom.facet;
 import pcgen.core.WeaponProf;
 
 /**
- * WeaponProfFacet is a Facet that tracks the WeaponProfs that have been granted
- * to a Player Character via WEAPONBONUS
+ * BonusWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
+ * granted to a Player Character via WEAPONBONUS
  */
 public class BonusWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 {

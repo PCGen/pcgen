@@ -29,8 +29,8 @@ import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * StatLockFacet is a Facet that tracks the Stats that have been locked on a
+ * Player Character.
  */
 public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		DataFacetChangeListener<CDOMObject>
@@ -39,8 +39,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 			.getFacet(FormulaResolvingFacet.class);
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which StatLockFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -56,8 +56,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which StatLockFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce

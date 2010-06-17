@@ -27,8 +27,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.Qualifier;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * QualifyFacet is a Facet that tracks the objects to which the Player Character
+ * should Qualify.
  */
 public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -36,8 +36,8 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	private final Class<?> thisClass = getClass();
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which QualifyFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -62,8 +62,8 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which QualifyFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce

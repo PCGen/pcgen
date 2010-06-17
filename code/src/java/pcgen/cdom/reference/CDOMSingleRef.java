@@ -20,14 +20,13 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.CDOMReference;
 
 /**
- * A CDOMSimpleSingleRef is a CDOMReference which is intended to contain a
+ * A CDOMSingleRef is a CDOMReference which is intended to contain a
  * single object of a given Type for the Class this CDOMSingleRef represents.
  * 
  * @param <T>
  *            The Class of the underlying object contained by this CDOMSingleRef
  */
-public abstract class CDOMSingleRef<T> extends
-		CDOMReference<T>
+public abstract class CDOMSingleRef<T> extends CDOMReference<T>
 {
 
 	/**

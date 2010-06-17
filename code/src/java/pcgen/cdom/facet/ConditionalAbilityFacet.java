@@ -29,8 +29,8 @@ import pcgen.cdom.helper.ConditionalAbility;
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
- * An DeniedAbilityFacet is a DataFacet that contains information about Ability
- * objects that are not contained in a PlayerCharacter because the PC did not
+ * An ConditionalAbilityFacet is a DataFacet that contains information about
+ * Ability objects that are contained in a PlayerCharacter because the PC did
  * pass prerequisites
  */
 public class ConditionalAbilityFacet
@@ -40,7 +40,7 @@ public class ConditionalAbilityFacet
 
 	/**
 	 * Add the given object to the list of objects stored in this
-	 * DeniedAbilityFacet for the Player Character represented by the given
+	 * ConditionalAbilityFacet for the Player Character represented by the given
 	 * CharID
 	 * 
 	 * @param id
@@ -48,8 +48,8 @@ public class ConditionalAbilityFacet
 	 *            given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
-	 *            DeniedAbilityFacet for the Player Character represented by the
-	 *            given CharID
+	 *            ConditionalAbilityFacet for the Player Character represented
+	 *            by the given CharID
 	 */
 	public void add(CharID id, ConditionalAbility obj)
 	{
@@ -62,16 +62,16 @@ public class ConditionalAbilityFacet
 
 	/**
 	 * Adds all of the objects in the given Collection to the list of objects
-	 * stored in this DeniedAbilityFacet for the Player Character represented by
-	 * the given CharID
+	 * stored in this ConditionalAbilityFacet for the Player Character
+	 * represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this DeniedAbilityFacet for the Player Character
-	 *            represented by the given CharID
+	 *            stored in this ConditionalAbilityFacet for the Player
+	 *            Character represented by the given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -91,7 +91,7 @@ public class ConditionalAbilityFacet
 
 	/**
 	 * Removes the given object from the list of objects stored in this
-	 * DeniedAbilityFacet for the Player Character represented by the given
+	 * ConditionalAbilityFacet for the Player Character represented by the given
 	 * CharID
 	 * 
 	 * @param id
@@ -99,8 +99,8 @@ public class ConditionalAbilityFacet
 	 *            given item should be removed
 	 * @param obj
 	 *            The object to be removed from the list of objects stored in
-	 *            this DeniedAbilityFacet for the Player Character represented
-	 *            by the given CharID
+	 *            this ConditionalAbilityFacet for the Player Character
+	 *            represented by the given CharID
 	 */
 	public void remove(CharID id, ConditionalAbility obj)
 	{
@@ -117,7 +117,7 @@ public class ConditionalAbilityFacet
 
 	/**
 	 * Removes all of the objects in the given Collection from the list of
-	 * objects stored in this DeniedAbilityFacet for the Player Character
+	 * objects stored in this ConditionalAbilityFacet for the Player Character
 	 * represented by the given CharID
 	 * 
 	 * @param id
@@ -125,7 +125,7 @@ public class ConditionalAbilityFacet
 	 *            given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this DeniedAbilityFacet for the Player
+	 *            objects stored in this ConditionalAbilityFacet for the Player
 	 *            Character represented by the given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
@@ -149,15 +149,15 @@ public class ConditionalAbilityFacet
 
 	/**
 	 * Removes all objects from the list of objects stored in this
-	 * DeniedAbilityFacet for the Player Character represented by the given
+	 * ConditionalAbilityFacet for the Player Character represented by the given
 	 * CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
 	 * @return A non-null Set of objects removed from the list of objects stored
-	 *         in this DeniedAbilityFacet for the Player Character represented
-	 *         by the given CharID
+	 *         in this ConditionalAbilityFacet for the Player Character
+	 *         represented by the given CharID
 	 */
 	public Set<ConditionalAbility> removeAll(CharID id)
 	{
@@ -171,13 +171,13 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns the Set of objects in this DeniedAbilityFacet for the Player
+	 * Returns the Set of objects in this ConditionalAbilityFacet for the Player
 	 * Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            items in this DeniedAbilityFacet should be returned.
-	 * @return A non-null Set of objects in this DeniedAbilityFacet for the
+	 *            items in this ConditionalAbilityFacet should be returned.
+	 * @return A non-null Set of objects in this ConditionalAbilityFacet for the
 	 *         Player Character represented by the given CharID
 	 */
 	public Set<ConditionalAbility> getSet(CharID id)
@@ -191,13 +191,13 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns the count of items in this DeniedAbilityFacet for the Player
+	 * Returns the count of items in this ConditionalAbilityFacet for the Player
 	 * Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            count of items should be returned
-	 * @return The count of items in this DeniedAbilityFacet for the Player
+	 * @return The count of items in this ConditionalAbilityFacet for the Player
 	 *         Character represented by the given CharID
 	 */
 	public int getCount(CharID id)
@@ -211,14 +211,14 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns true if this DeniedAbilityFacet does not contain any items for
-	 * the Player Character represented by the given CharID
+	 * Returns true if this ConditionalAbilityFacet does not contain any items
+	 * for the Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
-	 *            items are contained by this DeniedAbilityFacet
-	 * @return true if this DeniedAbilityFacet does not contain any items for
-	 *         the Player Character represented by the given CharID; false
+	 *            items are contained by this ConditionalAbilityFacet
+	 * @return true if this ConditionalAbilityFacet does not contain any items
+	 *         for the Player Character represented by the given CharID; false
 	 *         otherwise (if it does contain items for the Player Character)
 	 */
 	public boolean isEmpty(CharID id)
@@ -228,16 +228,19 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns true if this DeniedAbilityFacet contains the given value in the
-	 * list of items for the Player Character represented by the given CharID.
+	 * Returns true if this ConditionalAbilityFacet contains the given value in
+	 * the list of items for the Player Character represented by the given
+	 * CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
 	 * @param obj
-	 *            The object to test if this DeniedAbilityFacet contains that
-	 *            item for the Player Character represented by the given CharID
-	 * @return true if this DeniedAbilityFacet contains the given value for the
-	 *         Player Character represented by the given CharID; false otherwise
+	 *            The object to test if this ConditionalAbilityFacet contains
+	 *            that item for the Player Character represented by the given
+	 *            CharID
+	 * @return true if this ConditionalAbilityFacet contains the given value for
+	 *         the Player Character represented by the given CharID; false
+	 *         otherwise
 	 */
 	public boolean contains(CharID id, ConditionalAbility obj)
 	{
@@ -249,19 +252,20 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns the type-safe Set for this DeniedAbilityFacet and the given
+	 * Returns the type-safe Set for this ConditionalAbilityFacet and the given
 	 * CharID. May return null if no information has been set in this
-	 * DeniedAbilityFacet for the given CharID.
+	 * ConditionalAbilityFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set is owned by
-	 * DeniedAbilityFacet, and since it can be modified, a reference to that
-	 * object should not be exposed to any object other than DeniedAbilityFacet.
+	 * ConditionalAbilityFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * ConditionalAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this DeniedAbilityFacet
-	 *         for the Player Character.
+	 *         null if no information has been set in this
+	 *         ConditionalAbilityFacet for the Player Character.
 	 */
 	private Set<ConditionalAbility> getCachedSet(CharID id)
 	{
@@ -269,13 +273,14 @@ public class ConditionalAbilityFacet
 	}
 
 	/**
-	 * Returns a type-safe Set for this DeniedAbilityFacet and the given CharID.
-	 * Will return a new, empty Set if no information has been set in this
-	 * DeniedAbilityFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Set for this ConditionalAbilityFacet and the given
+	 * CharID. Will return a new, empty Set if no information has been set in
+	 * this ConditionalAbilityFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set object is owned by
-	 * DeniedAbilityFacet, and since it can be modified, a reference to that
-	 * object should not be exposed to any object other than DeniedAbilityFacet.
+	 * ConditionalAbilityFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * ConditionalAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned

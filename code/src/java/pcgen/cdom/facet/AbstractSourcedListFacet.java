@@ -49,15 +49,14 @@ import pcgen.cdom.enumeration.CharID;
  * DATA_REMOVED event (it will only trigger removal if it was the last source
  * when removed)
  * 
- * The sources stored in this AbstractSourceListFacet are stored as a List,
+ * The sources stored in this AbstractSourcedListFacet are stored as a List,
  * meaning the list of sources may contain the same source multiple times. If
  * so, each call to remove will only remove that source one time from the list
  * of sources.
  * 
  * null is a valid source.
  */
-public abstract class AbstractSourcedListFacet<T> extends
-		AbstractDataFacet<T>
+public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -69,8 +68,8 @@ public abstract class AbstractSourcedListFacet<T> extends
 	 *            given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
-	 *            AbstractListFacet for the Player Character represented by the
-	 *            given CharID
+	 *            AbstractQualifiedListFacet for the Player Character
+	 *            represented by the given CharID
 	 * @param source
 	 *            The source for the given object
 	 */
@@ -100,16 +99,16 @@ public abstract class AbstractSourcedListFacet<T> extends
 
 	/**
 	 * Adds all of the objects with the given source in the given Collection to
-	 * the list of objects stored in this AbstractListFacet for the Player
-	 * Character represented by the given CharID
+	 * the list of objects stored in this AbstractQualifiedListFacet for the
+	 * Player Character represented by the given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this AbstractListFacet for the Player Character
-	 *            represented by the given CharID
+	 *            stored in this AbstractQualifiedListFacet for the Player
+	 *            Character represented by the given CharID
 	 * @param source
 	 *            The source for the given object
 	 * @throws NullPointerException
@@ -125,11 +124,11 @@ public abstract class AbstractSourcedListFacet<T> extends
 
 	/**
 	 * Removes the given source entry from the list of sources for the given
-	 * object stored in this AbstractListFacet for the Player Character
+	 * object stored in this AbstractQualifiedListFacet for the Player Character
 	 * represented by the given CharID. If the given source was the only source
 	 * for the given object, then the object is removed from the list of objects
-	 * stored in this AbstractListFacet for the Player Character represented by
-	 * the given CharID.
+	 * stored in this AbstractQualifiedListFacet for the Player Character
+	 * represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -154,16 +153,16 @@ public abstract class AbstractSourcedListFacet<T> extends
 	 * objects in the given Collection for the Player Character represented by
 	 * the given CharID. If the given source was the only source for any of the
 	 * objects in the collection, then those objects are removed from the list
-	 * of objects stored in this AbstractListFacet for the Player Character
-	 * represented by the given CharID.
+	 * of objects stored in this AbstractQualifiedListFacet for the Player
+	 * Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this AbstractListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            objects stored in this AbstractQualifiedListFacet for the
+	 *            Player Character represented by the given CharID
 	 * @param source
 	 *            The source for the objects in the given Collection to be
 	 *            removed from the list of sources.
@@ -412,8 +411,8 @@ public abstract class AbstractSourcedListFacet<T> extends
 	 * this AbstractSourcedListFacet. This implements the actual check that
 	 * determines if the given source was the only source for the given object.
 	 * If so, then that object is removed from the list of objects stored in
-	 * this AbstractListFacet for the Player Character represented by the given
-	 * CharID.
+	 * this AbstractQualifiedListFacet for the Player Character represented by
+	 * the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character which may have
@@ -454,8 +453,8 @@ public abstract class AbstractSourcedListFacet<T> extends
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
+					.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -479,8 +478,8 @@ public abstract class AbstractSourcedListFacet<T> extends
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
+					.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();

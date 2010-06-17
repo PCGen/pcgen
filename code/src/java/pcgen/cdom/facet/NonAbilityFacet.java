@@ -24,8 +24,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PObject;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * NonAbilityFacet is a Facet that tracks the Non-Abilities (PCStat objects)
+ * that have been set on a Player Character.
  */
 public class NonAbilityFacet
 {
