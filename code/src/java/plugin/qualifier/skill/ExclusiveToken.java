@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -38,6 +39,8 @@ public class ExclusiveToken implements QualifierToken<Skill>
 {
 
 	private PrimitiveChoiceFilter<Skill> pcs = null;
+
+	private CDOMGroupRef<Skill> allRef;
 
 	private boolean negated = false;
 
@@ -77,6 +80,7 @@ public class ExclusiveToken implements QualifierToken<Skill>
 			return false;
 		}
 		negated = negate;
+		allRef = sc.getAllReference();
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
@@ -89,7 +93,7 @@ public class ExclusiveToken implements QualifierToken<Skill>
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
 		Collection<PCClass> classlist = pc.getClassSet();
-		for (Skill sk : pc.getSkillSet())
+		for (Skill sk : allRef.getContainedObjects())
 		{
 			CLASS: for (PCClass cl : classlist)
 			{

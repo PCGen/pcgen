@@ -23,6 +23,7 @@ import java.util.logging.Level;
 
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -35,6 +36,8 @@ public class NoRankToken implements QualifierToken<Skill>
 {
 
 	private PrimitiveChoiceFilter<Skill> pcs = null;
+
+	private CDOMGroupRef<Skill> allRef;
 
 	public String getTokenName()
 	{
@@ -73,6 +76,7 @@ public class NoRankToken implements QualifierToken<Skill>
 					+ getTokenName() + " into a negated Qualifier, remove !");
 			return false;
 		}
+		allRef = sc.getAllReference();
 		if (value != null)
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
@@ -84,7 +88,7 @@ public class NoRankToken implements QualifierToken<Skill>
 	public Set<Skill> getSet(PlayerCharacter pc)
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
-		for (Skill sk : pc.getSkillSet())
+		for (Skill sk : allRef.getContainedObjects())
 		{
 			if (SkillRankControl.getRank(pc, sk) == 0)
 			{
