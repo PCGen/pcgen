@@ -30,13 +30,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryParserToken<CDOMObject>
 {
 
 	@Override
@@ -53,7 +54,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+			CDOMObject obj, String value)
 	{
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 
@@ -71,35 +72,62 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 
 		if (formulaString.startsWith("/"))
 		{
-			int denom = Integer.parseInt(formulaString.substring(1));
-			if (denom <= 0)
+			try
+			{
+				int denom = Integer.parseInt(formulaString.substring(1));
+				if (denom <= 0)
+				{
+					return new ParseResult.Fail(getTokenName()
+							+ " was expecting a Positive Integer "
+							+ "for dividing Movement, was : "
+							+ formulaString.substring(1));
+				}
+			}
+			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting a Positive Integer "
-						+ "for dividing Movement, was : "
-						+ formulaString.substring(1));
+						+ " was expecting an integer to follow /, was : "
+						+ formulaString);
 			}
 		}
 		else if (formulaString.startsWith("*"))
 		{
-			int mult = Integer.parseInt(formulaString.substring(1));
-			if (mult < 0)
+			try
+			{
+				int mult = Integer.parseInt(formulaString.substring(1));
+				if (mult < 0)
+				{
+					return new ParseResult.Fail(getTokenName()
+							+ " was expecting an "
+							+ "Integer >= 0 for multiplying Movement, was : "
+							+ formulaString.substring(1));
+				}
+			}
+			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an "
-						+ "Integer >= 0 for multiplying Movement, was : "
-						+ formulaString.substring(1));
+						+ " was expecting an integer to follow *, was : "
+						+ formulaString);
 			}
 		}
 		else if (formulaString.startsWith("+"))
 		{
-			int add = Integer.parseInt(formulaString.substring(1));
-			if (add < 0)
+			try
+			{
+				int add = Integer.parseInt(formulaString.substring(1));
+				if (add < 0)
+				{
+					return new ParseResult.Fail(getTokenName()
+							+ " was expecting a Non-Negative "
+							+ "Integer for adding Movement, was : "
+							+ formulaString.substring(1));
+				}
+			}
+			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting a Non-Negative "
-						+ "Integer for adding Movement, was : "
-						+ formulaString.substring(1));
+						+ " was expecting an integer to follow +, was : "
+						+ formulaString);
 			}
 		}
 		else
