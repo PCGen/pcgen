@@ -1373,7 +1373,7 @@ BIO
 			<name>Extra Turning</name>
 			<description>Allows a character to turn undead four more times per day than normal.</description>
 			<type>SPECIAL</type>
-			<associated>TurnUndead</associated>
+			<associated></associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>

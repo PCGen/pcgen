@@ -473,9 +473,6 @@ public class ChooserUtilities
 		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
 		classLookup.put("FEATADD", FeatAddChoiceManager.class.getName());
-		
-		classLookup.put("USERINPUT", UserInputChoiceManager.class.getName());
-		classLookup.put("NOCHOICE", NoChoiceChoiceManager.class.getName());
 
 		mapconstructed = true;
 	}
@@ -522,7 +519,7 @@ public class ChooserUtilities
 				Formula selectionsPerUnitCost =
 						aPObject.getSafe(FormulaKey.SELECT);
 				int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
-				return new CDOMChoiceManager(aPObject, chooseInfo, null, cost);
+				return chooseInfo.getChoiceManager(aPObject, cost);
 			}
 			return null;
 		}

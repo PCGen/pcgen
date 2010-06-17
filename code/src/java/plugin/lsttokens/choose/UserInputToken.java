@@ -17,18 +17,17 @@
  */
 package plugin.lsttokens.choose;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.UserChooseInformation;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
+public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -44,119 +43,56 @@ public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements C
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		if (value == null)
+		UserChooseInformation ci = new UserChooseInformation();
+		if (value != null)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
-		}
-		if (value.indexOf(',') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
-		}
-		if (value.indexOf('[') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-		}
-		if (value.charAt(0) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
-		}
-		if (value.charAt(value.length() - 1) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
-		}
-		if (value.indexOf("||") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
-		}
-		int pipeLoc = value.indexOf("|");
-		String title;
-		Integer firstarg = null;
-		if (pipeLoc == -1)
-		{
-			title = value;
+			if (!value.startsWith("TITLE="))
+			{
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " had invalid arguments: " + value);
+			}
+			String title = value.substring(6);
+			if (title.startsWith("\""))
+			{
+				title = title.substring(1, title.length() - 1);
+			}
+			ci.setTitle(title);
 		}
 		else
 		{
-			String start = value.substring(0, pipeLoc);
-			try
-			{
-				firstarg = Integer.valueOf(start);
-			}
-			catch (NumberFormatException nfe)
-			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " first argument must be an Integer : " + value);
-			}
-			title = value.substring(pipeLoc + 1);
+			ci.setTitle(getDefaultTitle());
 		}
-		if (!title.startsWith("TITLE="))
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " argument must start with TITLE= : " + value);
-		}
-
-		ComplexParseResult cpr = new ComplexParseResult();
-		if (title.startsWith("TITLE=\""))
-		{
-			if (!title.endsWith("\""))
-			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " argument which starts \" with must end with \" : "
-						+ value);
-			}
-		}
-		else
-		{
-			cpr.addWarningMessage("CHOOSE:" + getTokenName()
-					+ " argument TITLE= should use \" around the title : "
-					+ value);
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|');
-		if (firstarg != null)
-		{
-			sb.append(firstarg).append('|');
-		}
-		sb.append(title);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		if (firstarg != null)
-		{
-			Formula f = FormulaFactory.getFormulaFor(firstarg);
-			context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
-		}
-		return cpr;
+		// No args - legal
+		context.obj.put(obj, ObjectKey.CHOOSE_INFO, ci);
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
+		ChooseInformation<?> ci =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		if ((ci == null)
+			|| !ci.getName().equals(UserChooseInformation.UCI_NAME))
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		String title = ci.getTitle();
+		String result = "";
+		if (!title.equals(getDefaultTitle()))
+		{
+			result = "TITLE=" + title;
+		}
+		return new String[]{result};
+	}
+
+	private String getDefaultTitle()
+	{
+		return "Provide User Input";
 	}
 
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
-
-	// TODO Deferred?
-	// if (prefix.indexOf("NUMCHOICES=") != -1)
-	// {
-	// return new ParseResult.Fail("Cannot use NUMCHOICES= with
-	// CHOOSE:USERINPUT, "
-	// + "as it has an integrated choice count");
-	// return false;
-	// }
 }

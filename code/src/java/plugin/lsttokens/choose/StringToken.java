@@ -95,7 +95,7 @@ public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
 		}
 		SimpleChoiceSet<String> scs =
 				new SimpleChoiceSet<String>(set, Constants.PIPE);
-		ChooseInformation<String> tc =
+		BasicChooseInformation<String> tc =
 				new BasicChooseInformation<String>(getTokenName(), scs);
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);

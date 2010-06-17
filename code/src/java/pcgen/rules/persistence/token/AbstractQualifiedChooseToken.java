@@ -52,6 +52,11 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
+				if (title == null || title.length() == 0)
+				{
+					return new ParseResult.Fail(getParentToken() + ":"
+						+ getTokenName() + " had TITLE= but no title: " + value);
+				}
 			}
 			else
 			{
@@ -75,7 +80,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 				.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		ChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);

@@ -23,11 +23,11 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -281,12 +281,12 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				// If 1st selection has no length, then in is from CHOOSE:NOCHOICE
 				//
 				final int subCount = aPC.getDetailedAssociationCount(aFeat);
-				if ((subCount > 1)
-					&& (aFeat.getSafe(StringKey.CHOICE_STRING).endsWith("NOCHOICE")))
+				ChooseInformation<?> chooseInfo =
+						aFeat.get(ObjectKey.CHOOSE_INFO);
+
+				if (chooseInfo != null)
 				{
-					aString.append('(');
-					aString.append(subCount);
-					aString.append("x)");
+					aString.append(chooseInfo.getDisplay(aPC, aFeat));
 				}
 				else
 				{

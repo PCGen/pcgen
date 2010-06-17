@@ -21,6 +21,7 @@ import java.util.Collection;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -36,8 +37,6 @@ import pcgen.core.PlayerCharacter;
 public interface ChooseInformation<T> extends PersistentChoice<T>
 {
 
-	void setTitle(String title);
-
 	String getName();
 
 	String getLSTformat();
@@ -51,4 +50,8 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 	Collection<? extends T> getSet(PlayerCharacter pc);
 	
 	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+
+	ChoiceManagerList getChoiceManager(CDOMObject owner, int cost);
+
+	CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner);
 }

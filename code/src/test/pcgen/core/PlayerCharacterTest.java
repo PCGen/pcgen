@@ -190,7 +190,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		toughness.setName("Toughness");
 		toughness.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
-		toughness.put(StringKey.CHOICE_STRING, "NOCHOICE");
+		context.unconditionallyProcess(toughness, "CHOOSE", "NOCHOICE");
 		toughness.setCDOMCategory(AbilityCategory.FEAT);
 		final BonusObj aBonus = Bonus.newBonus("HP|CURRENTMAX|3");
 		

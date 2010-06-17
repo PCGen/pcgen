@@ -300,6 +300,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	}
 
 	@Test
+	public void testInvalidTitle()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		boolean ret = parse(getSubTokenName() + '|' + "TestWP1|TITLE=");
+		if (ret)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
 	public void testInvalidListDoubleJoinComma()
 			throws PersistenceLayerException
 	{
@@ -412,6 +428,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1");
+	}
+
+	@Test
+	public void testRoundRobinOneTitle() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TITLE=Test Title");
 	}
 
 	@Test
@@ -1314,7 +1338,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 				getManufacturer(), value);
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
-		ChooseInformation<TC> cs = new BasicChooseInformation<TC>(getSubToken().getTokenName(), pcs);
+		BasicChooseInformation<TC> cs = new BasicChooseInformation<TC>(getSubToken().getTokenName(), pcs);
 		cs.setTitle(getChoiceTitle());
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}

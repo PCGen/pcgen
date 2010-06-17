@@ -160,6 +160,8 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<Spell> CHOOSE_SPELL = new AssociationListKey<Spell>();
 	
+	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
+
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
 	private AssociationListKey()

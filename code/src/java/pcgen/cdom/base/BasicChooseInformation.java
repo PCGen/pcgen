@@ -19,8 +19,11 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.CDOMChoiceManager;
+import pcgen.core.chooser.ChoiceManagerList;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -269,5 +272,16 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
+	}
+
+	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
+	{
+		return new CDOMChoiceManager<T>(owner, this, null, cost);
+	}
+
+	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
+	{
+		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
+			",");
 	}
 }
