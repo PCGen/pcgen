@@ -29,7 +29,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.SimpleArmorProfProvider;
@@ -258,8 +257,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
 		if (wp != null)
 		{
-			pc.addAssoc(obj, AssociationListKey.ARMORPROF,
-					new SimpleArmorProfProvider(wp));
+			pc.addArmorProf(obj, new SimpleArmorProfProvider(wp));
 		}
 	}
 
@@ -269,8 +267,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
 		if (wp != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.ARMORPROF,
-					new SimpleArmorProfProvider(wp));
+			pc.removeArmorProf(obj, new SimpleArmorProfProvider(wp));
 		}
 	}
 

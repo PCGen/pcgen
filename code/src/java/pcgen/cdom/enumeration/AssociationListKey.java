@@ -91,10 +91,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<Equipment> EQUIPMENT = new AssociationListKey<Equipment>();
 
-	public static final AssociationListKey<ProfProvider<ArmorProf>> ARMORPROF = new AssociationListKey<ProfProvider<ArmorProf>>();
-
-	public static final AssociationListKey<ProfProvider<ShieldProf>> SHIELDPROF = new AssociationListKey<ProfProvider<ShieldProf>>();
-
 	public static final AssociationListKey<Skill> CCSKILL = new AssociationListKey<Skill>();
 
 	public static final AssociationListKey<Skill> CSKILL = new AssociationListKey<Skill>();

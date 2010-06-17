@@ -14546,4 +14546,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return Load.OVERLOAD;
 	}
 
+	public void addArmorProf(CDOMObject owner, ProfProvider<ArmorProf> choice)
+	{
+		armorProfFacet.add(id, choice, owner);
+	}
+
+	public void removeArmorProf(CDOMObject owner, ProfProvider<ArmorProf> choice)
+	{
+		armorProfFacet.remove(id, choice, owner);
+	}
+
+	public void addShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
+	{
+		shieldProfFacet.add(id, choice, owner);
+	}
+
+	public void removeShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
+	{
+		shieldProfFacet.remove(id, choice, owner);
+	}
+
 }
