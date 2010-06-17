@@ -34,7 +34,9 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -113,17 +115,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 		race.setName("Template");
 
 		//		race.setDR("5/Good");
-		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("5", "Good"));
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(5), "Good"));
 		assertEquals("Basic DR set.", "5/Good", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0)
 			.toString());
 
 		race.removeListFor(ListKey.DAMAGE_REDUCTION);
 		//		race.setDR("0/-");
-		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("0", "-"));
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(0), "-"));
 		assertEquals("Basic DR set.", "0/-", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0).toString());
 
 		//		template.setDR("0/-");
-		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("0", "-"));
+		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(0), "-"));
 		final BonusObj aBonus = Bonus.newBonus("DR|-|1");
 		
 		if (aBonus != null)

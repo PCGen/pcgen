@@ -106,6 +106,7 @@ import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionalTemplateFacet;
+import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DeniedAbilityFacet;
 import pcgen.cdom.facet.DomainFacet;
@@ -257,6 +258,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
+	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
@@ -7151,41 +7153,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets a list of all sources of DRs.
-	 * 
-	 * @return List of DRs
-	 */
-	public List<DamageReduction> getDRList()
-	{
-		return DamageReduction.getDRList(this, getDRMap());
-	}
-
-	private Map<DamageReduction, CDOMObject> getDRMap()
-	{
-		Map<DamageReduction, CDOMObject> drList = new IdentityHashMap<DamageReduction, CDOMObject>();
-		for (CDOMObject obj : getCDOMObjectList())
-		{
-			List<DamageReduction> objList =
-					obj.getListFor(ListKey.DAMAGE_REDUCTION);
-			if (objList != null)
-			{
-				for (DamageReduction dr : objList)
-				{
-					drList.put(dr, obj);
-				}
-			}
-		}
-		return drList;
-	}
-
-	/**
 	 * Get all possible sources of Damage Resistance and calculate
 	 * 
 	 * @return DR
 	 */
 	public String calcDR()
 	{
-		return DamageReduction.getDRString(this, getDRMap());
+		return drFacet.getDRString(id);
 	}
 
 	public double calcMoveMult(final double move, final int index)
@@ -14478,6 +14452,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public Integer getDR(String key)
+	{
+		return drFacet.getDR(id, key);
+	}
+
+	/*
+	 * WARNING: Use this method SPARINGLY... and only for transition to the
+	 * facet model. It is NOT an excuse to throw around a PlayerCharacter object
+	 * when unnecessary
+	 */
+	public CharID getCharID()
+	{
+		return id;
 	}
 
 	public double getSpellBookCount()

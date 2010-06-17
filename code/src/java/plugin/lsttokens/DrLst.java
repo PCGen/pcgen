@@ -26,8 +26,9 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.DamageReduction;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -83,7 +84,8 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			cpr.addErrorMessage("  ...expected a String with one / as a separator");
 			return cpr;
 		}
-		DamageReduction dr = new DamageReduction(values[0], values[1]);
+		DamageReduction dr = new DamageReduction(FormulaFactory
+				.getFormulaFor(values[0]), values[1]);
 
 		if (tok.hasMoreTokens())
 		{

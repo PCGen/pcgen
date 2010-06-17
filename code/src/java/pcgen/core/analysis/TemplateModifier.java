@@ -20,20 +20,25 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.DamageReductionFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.NonAbilityFacet;
-import pcgen.core.DamageReduction;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 
 public class TemplateModifier
 {
+
+	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 
 	/**
 	 * Generate a string that represents the changes this Template will apply.
@@ -67,7 +72,7 @@ public class TemplateModifier
 			}
 		}
 
-		Map<DamageReduction, CDOMObject> drList = new IdentityHashMap<DamageReduction, CDOMObject>();
+		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<DamageReduction, Set<Object>>();
 		int totalLevels = aPC.getTotalLevels();
 		int totalHitDice = aPC.totalHitDice();
 		List<PCTemplate> templList = new ArrayList<PCTemplate>();
@@ -81,13 +86,19 @@ public class TemplateModifier
 			{
 				for (DamageReduction dr : tList)
 				{
-					drList.put(dr, pct);
+					Set<Object> set = drMap.get(dr);
+					if (set == null)
+					{
+						set = new HashSet<Object>();
+						drMap.put(dr, set);
+					}
+					set.add(pct);
 				}
 			}
 		}
-		if (drList.size() != 0)
+		if (drMap.size() != 0)
 		{
-			mods.append("DR:").append(DamageReduction.getDRString(aPC, drList));
+			mods.append("DR:").append(drFacet.getDRString(aPC.getCharID(), drMap));
 		}
 
 		int nat = (int) BonusCalc.bonusTo(pct, "COMBAT", "AC", aPC, aPC);

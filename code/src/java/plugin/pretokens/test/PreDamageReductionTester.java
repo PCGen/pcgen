@@ -32,8 +32,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import pcgen.core.DamageReduction;
-
 /**
  * @author wardc
  *
@@ -51,15 +49,10 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest
 		int runningTotal = 0;
 
 		final int target = Integer.parseInt(prereq.getOperand());
-		for (DamageReduction dr : character.getDRList())
+		Integer reduction = character.getDR(prereq.getKey());
+		if (reduction != null)
 		{
-			if (dr.getBypass().equalsIgnoreCase(prereq.getKey()))
-			{
-				runningTotal =
-						prereq.getOperator().compare(dr.getReductionValue(character),
-							target);
-				break;
-			}
+			runningTotal = prereq.getOperator().compare(reduction, target);
 		}
 
 		return countedTotal(prereq, runningTotal);

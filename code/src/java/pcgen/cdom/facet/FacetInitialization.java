@@ -82,6 +82,7 @@ public class FacetInitialization
 				.getFacet(CompanionModFacet.class);
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+		DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
@@ -159,6 +160,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
+		cdomObjectFacet.addDataFacetChangeListener(drFacet);
 		cdomObjectFacet.addDataFacetChangeListener(variableFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unlockedStatFacet);
 		cdomObjectFacet.addDataFacetChangeListener(statLockFacet);
