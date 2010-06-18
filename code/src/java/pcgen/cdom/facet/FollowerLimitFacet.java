@@ -110,7 +110,7 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 					.values().iterator(); it.hasNext();)
 			{
 				Map<FollowerLimit, Set<CDOMObject>> foMap = it.next();
-				for (Iterator<Set<CDOMObject>> it2 = foMap.values().iterator(); it
+				for (Iterator<Set<CDOMObject>> it2 = foMap.values().iterator(); it2
 						.hasNext();)
 				{
 					Set<CDOMObject> set = it2.next();
