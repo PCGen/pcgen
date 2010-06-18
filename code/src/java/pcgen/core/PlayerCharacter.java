@@ -52,7 +52,6 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-import java.util.logging.Level;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
@@ -94,6 +93,8 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
+import pcgen.cdom.facet.AutoListWeaponProfFacet;
+import pcgen.cdom.facet.AutoWeaponProfFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -123,6 +124,7 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.HasDeityWeaponProfFacet;
 import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
 import pcgen.cdom.facet.KitFacet;
@@ -131,6 +133,7 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.NaturalWeaponProfFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
@@ -158,7 +161,6 @@ import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.ProfProvider;
-import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
@@ -258,9 +260,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
+	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+	private NaturalWeaponProfFacet naturalWeaponProfFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
+	private HasDeityWeaponProfFacet dwpFacet = FacetLibrary.getFacet(HasDeityWeaponProfFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
+	private AutoWeaponProfFacet autoWeaponProfFacet = FacetLibrary.getFacet(AutoWeaponProfFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -3337,58 +3343,28 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Set<WeaponProf> buildWeaponProfCache()
 	{
 		final Set<WeaponProf> ret = new HashSet<WeaponProf>();
-		//Capture WEAPONBONUS
 		ret.addAll(wpBonusFacet.getSet(id));
-
-		// Try all possible CDOMObjects
-		for (CDOMObject pobj : getCDOMObjectList())
+		ret.addAll(naturalWeaponProfFacet.getSet(id));
+		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
+		ret.addAll(alWeaponProfFacet.getSet(id));
+		if (dwpFacet.hasDeityWeaponProf(id) && getDeity() != null)
 		{
-			//Natural Weapon Proficiencies
-			List<CDOMSingleRef<WeaponProf>> iwp =
-					pobj.getSafeListFor(ListKey.IMPLIED_WEAPONPROF);
-			for (CDOMSingleRef<WeaponProf> ref : iwp)
+			List<CDOMReference<WeaponProf>> weaponList = getDeity().getListFor(
+					ListKey.DEITYWEAPON);
+			if (weaponList != null)
 			{
-				ret.add(ref.resolvesTo());
-			}
-			// AUTO:WEAPONPROF except LIST
-			List<WeaponProfProvider> potentialProfs =
-					pobj.getSafeListFor(ListKey.WEAPONPROF);
-			for (WeaponProfProvider wpp : potentialProfs)
-			{
-				if (wpp.qualifies(this, pobj))
+				for (CDOMReference<WeaponProf> ref : weaponList)
 				{
-					ret.addAll(wpp.getContainedProficiencies(this));
-				}
-			}
-			// AUTO:WEAPONPROF LIST
-			List<WeaponProf> profs =
-					getAssocList(pobj, AssociationListKey.WEAPONPROF);
-			if (profs != null)
-			{
-				ret.addAll(profs);
-			}
-			Boolean dwp =
-					pobj.getSafe(ObjectKey.HAS_DEITY_WEAPONPROF)
-						.getObject(this, pobj);
-			if (dwp != null && dwp && getDeity() != null)
-			{
-				List<CDOMReference<WeaponProf>> weaponList =
-						getDeity().getListFor(ListKey.DEITYWEAPON);
-				if (weaponList != null)
-				{
-					for (CDOMReference<WeaponProf> ref : weaponList)
+					for (WeaponProf wp : ref.getContainedObjects())
 					{
-						for (WeaponProf wp : ref.getContainedObjects())
+						/*
+						 * CONSIDER This is an open question, IMHO - why is
+						 * natural excluded here? This is magic to me - thpr Oct
+						 * 14, 2008
+						 */
+						if (!wp.isType("Natural"))
 						{
-							/*
-							 * CONSIDER This is an open question, IMHO - why is
-							 * natural excluded here? This is magic to me - thpr
-							 * Oct 14, 2008
-							 */
-							if (!wp.isType("Natural"))
-							{
-								ret.add(wp);
-							}
+							ret.add(wp);
 						}
 					}
 				}
@@ -14435,7 +14411,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 	}
-
+	
 	public void addWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.add(id, choice, owner);
@@ -14449,6 +14425,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public void addWeaponProf(CDOMObject owner, WeaponProf choice)
+	{
+		alWeaponProfFacet.add(id, choice, owner);
+	}
+
+	public void removeWeaponProf(CDOMObject owner, WeaponProf choice)
+	{
+		alWeaponProfFacet.remove(id, choice, owner);
 	}
 
 	public Integer getDR(String key)
@@ -14562,5 +14548,4 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		shieldProfFacet.remove(id, choice, owner);
 	}
-
 }

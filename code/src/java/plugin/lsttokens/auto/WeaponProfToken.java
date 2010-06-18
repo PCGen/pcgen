@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.WeaponProfProvider;
@@ -291,7 +290,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
 		if (wp != null)
 		{
-			pc.addAssoc(obj, AssociationListKey.WEAPONPROF, wp);
+			pc.addWeaponProf(obj, wp);
 		}
 	}
 
@@ -301,7 +300,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
 		if (wp != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.WEAPONPROF, wp);
+			pc.removeWeaponProf(obj, wp);
 		}
 	}
 

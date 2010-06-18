@@ -86,8 +86,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
 
-	public static final AssociationListKey<WeaponProf> WEAPONPROF = new AssociationListKey<WeaponProf>();
-
 	public static final AssociationListKey<Equipment> EQUIPMENT = new AssociationListKey<Equipment>();
 
 	public static final AssociationListKey<Skill> CCSKILL = new AssociationListKey<Skill>();

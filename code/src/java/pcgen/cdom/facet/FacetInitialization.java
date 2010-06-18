@@ -91,10 +91,19 @@ public class FacetInitialization
 		UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
 		StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
-		FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
-		FollowerLimitFacet flFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+		FollowerOptionFacet foFacet = FacetLibrary
+				.getFacet(FollowerOptionFacet.class);
+		FollowerLimitFacet flFacet = FacetLibrary
+				.getFacet(FollowerLimitFacet.class);
 		CharacterSpellResistanceFacet srFacet = FacetLibrary
 				.getFacet(CharacterSpellResistanceFacet.class);
+		ChangeProfFacet cpFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
+		AutoWeaponProfFacet awpFacet = FacetLibrary
+				.getFacet(AutoWeaponProfFacet.class);
+		HasDeityWeaponProfFacet hdwpFacet = FacetLibrary
+				.getFacet(HasDeityWeaponProfFacet.class);
+		NaturalWeaponProfFacet nwpFacet = FacetLibrary
+				.getFacet(NaturalWeaponProfFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -167,5 +176,9 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(visionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(foFacet);
 		cdomObjectFacet.addDataFacetChangeListener(flFacet);
+		cdomObjectFacet.addDataFacetChangeListener(cpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(awpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(hdwpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 	}
 }

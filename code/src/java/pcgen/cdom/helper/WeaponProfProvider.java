@@ -23,12 +23,14 @@ import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.ChangeProfFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.WeaponProfType;
 
 /**
  * A WeaponProfProvider is an object that contains the ability to contain
@@ -39,8 +41,10 @@ import pcgen.core.analysis.WeaponProfType;
  * This is typically used for an AUTO:WEAPONPROF token to store the granted
  * proficiencies.
  */
-public class WeaponProfProvider extends ConcretePrereqObject
+public class WeaponProfProvider extends ConcretePrereqObject implements QualifyingObject
 {
+
+	private static ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 
 	/**
 	 * Contains the list of primitive WeaponProf objects that this
@@ -121,7 +125,7 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	 * @return A Collection of the WeaponProf objects that this
 	 *         WeaponProfProvider contains relative to the given PlayerCharacter
 	 */
-	public Collection<WeaponProf> getContainedProficiencies(PlayerCharacter pc)
+	public Collection<WeaponProf> getContainedProficiencies(CharID id)
 	{
 		List<WeaponProf> list = new ArrayList<WeaponProf>();
 		if (all != null)
@@ -141,7 +145,7 @@ public class WeaponProfProvider extends ConcretePrereqObject
 			{
 				for (CDOMGroupRef<WeaponProf> ref : type)
 				{
-					list.addAll(WeaponProfType.getWeaponProfsInTarget(pc, ref));
+					list.addAll(getWeaponProfsInTarget(id, ref));
 				}
 			}
 		}
@@ -267,5 +271,17 @@ public class WeaponProfProvider extends ConcretePrereqObject
 		boolean hasIndividual = hasDirect || hasType;
 		boolean hasAll = all != null;
 		return hasAll ^ hasIndividual;
+	}
+
+	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
+			CDOMGroupRef<WeaponProf> master)
+	{
+		String masterType = master.getLSTformat();
+		if (!masterType.startsWith("TYPE="))
+		{
+			throw new IllegalArgumentException("Cannot get targets for: "
+					+ masterType);
+		}
+		return changeProfFacet.getWeaponProfsInTarget(masterType.substring(5), id, master);
 	}
 }
