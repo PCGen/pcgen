@@ -80,59 +80,59 @@ public class DamageReductionFacetTest extends TestCase
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(15), "Good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic");
+		assertEquals(listResult,"15/Good; 10/magic");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic");
+		assertEquals(listResult,"15/Good; 10/magic");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic");
+		assertEquals(listResult,"15/Good; 10/magic");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(5), "good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic");
+		assertEquals(listResult,"15/Good; 10/magic");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic and good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic");
+		assertEquals(listResult,"15/Good; 10/magic");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(5), "evil"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic or good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic or good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(5), "good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic and good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(5), "magic and good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic or good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(5), "magic and good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
-		assertEquals(listResult,"15/good; 10/magic; 5/evil");
+		assertEquals(listResult,"15/Good; 10/magic; 5/evil");
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10), "magic or good"), sourceSet);
 		listResult = drFacet.getDRString(null, drList);
