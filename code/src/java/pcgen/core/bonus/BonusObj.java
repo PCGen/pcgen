@@ -527,23 +527,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		this.addOnceOnly = addOnceOnly;
 	}
 
-	protected boolean parseToken(final String token)
-	{
-		System.err.println("Need to override parseToken in " + getClass().getName());
-		return false;
-	}
+	protected abstract boolean parseToken(final String token);
 
-	protected String unparseToken(final Object obj)
-	{
-		System.err.println("Need to override unparseToken in " + getClass().getName());
-		return "";
-	}
+	protected abstract String unparseToken(final Object obj);
 
-	protected String[] getBonusesHandled()
-	{
-		System.err.println("Need to override getBonusesHandled " + getClass().getName());
-		return new String[]{ "" };
-	}
+	protected abstract String[] getBonusesHandled();
 
 	private void buildDependMap(String aString)
 	{
