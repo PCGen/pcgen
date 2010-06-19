@@ -33,7 +33,7 @@ public class ArmorProfFacet extends
 
 	/**
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ArmorProf was added to a Player
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -51,7 +51,7 @@ public class ArmorProfFacet extends
 
 	/**
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ArmorProf was removed from a Player
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce

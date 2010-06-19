@@ -33,7 +33,7 @@ public class ShieldProfFacet extends
 
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -51,7 +51,7 @@ public class ShieldProfFacet extends
 
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce
