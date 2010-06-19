@@ -4,7 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Tests a Modern Fast Hero 3/Infiltrator 3.
+ * Tests a Unit Test Case designed to hit many features of PCGen
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
