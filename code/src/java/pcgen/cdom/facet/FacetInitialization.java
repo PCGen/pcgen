@@ -108,6 +108,7 @@ public class FacetInitialization
 				.getFacet(HasDeityWeaponProfFacet.class);
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
+		MovementFacet moveFacet = FacetLibrary.getFacet(MovementFacet.class);
 		UnarmedDamageFacet unarmedDamageFacet = FacetLibrary
 				.getFacet(UnarmedDamageFacet.class);
 		AutoEquipmentFacet autoEquipFacet = FacetLibrary
@@ -188,6 +189,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(awpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(hdwpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(moveFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
 	}

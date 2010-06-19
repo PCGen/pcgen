@@ -91,14 +91,6 @@ public class Movement
 	 */
 
 	/**
-	 * Creates a Movement object with arrays of length zero.
-	 */
-	public Movement()
-	{
-		this(0);
-	}
-
-	/**
 	 * Creates a Movement object with arrays of the given length. It is assumed
 	 * that the user of this constructor will initialize all of the arrays, as
 	 * this constructor does not perform initialization.
@@ -108,11 +100,11 @@ public class Movement
 	 */
 	public Movement(int i)
 	{
-		if (i < 0)
+		if (i <= 0)
 		{
 			throw new IllegalArgumentException(
 				"Argument of array length to ConcreteMovement"
-					+ "constructor cannot be negative");
+					+ "constructor must be positive");
 		}
 		movementTypes = new String[i];
 		movements = new Double[i];

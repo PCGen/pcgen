@@ -134,6 +134,7 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.MovementFacet;
 import pcgen.cdom.facet.NaturalWeaponProfFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
@@ -312,6 +313,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+	private MovementFacet moveFacet = FacetLibrary.getFacet(MovementFacet.class);
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
@@ -6743,20 +6745,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		movementMult = movement.getMovementMult();
 		movementMultOp = movement.getMovementMultOp();
 
-		setMoveFromList(getCDOMObjectList());
-
-		// temp mods
-		// TODO This would never do anything since setMoveFromList only
-		// handles PObjects
-		// if (!getTempBonusList().isEmpty() && getUseTempMods())
-		// {
-		// setMoveFromList(getTempBonusList());
-		// }
+		for (Movement mv : moveFacet.getSet(id))
+		{
+			for (int i1 = 0; i1 < mv.getNumberOfMovements(); i1++)
+			{
+				setMyMoveRates(mv.getMovementType(i1), mv.getMovement(i1)
+						.doubleValue(), mv.getMovementMult(i1), mv
+						.getMovementMultOp(i1), mv.getMoveRatesFlag());
+			}
+		}
 
 		// Need to create movement entries if there is a BONUS:MOVEADD
 		// associated with that type of movement
 		for (final BonusObj bonus : getActiveBonusList())
-		// for ( final BonusObj bonus : getAllActiveBonuses() )
 		{
 			if (bonus.getTypeOfBonus().equals("MOVEADD"))
 			{
@@ -9289,35 +9290,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return lvlMap;
-	}
-
-	private void setMoveFromList(final List<? extends CDOMObject> aList)
-	{
-		for (CDOMObject pObj : aList)
-		{
-			List<Movement> ml = pObj.getListFor(ListKey.MOVEMENT);
-			if (ml == null || ml.isEmpty())
-			{
-				continue;
-			}
-
-			for (Movement movement : ml)
-			{
-				if (movement == null || movement.getNumberOfMovements() < 1)
-				{
-					continue;
-				}
-
-				for (int i = 0; i < movement.getNumberOfMovements(); i++)
-				{
-					setMyMoveRates(movement.getMovementType(i), movement
-						.getMovement(i).doubleValue(), movement
-						.getMovementMult(i), movement.getMovementMultOp(i),
-						movement.getMoveRatesFlag());
-				}
-			}
-		}
-		// setDirty(true);
 	}
 
 	/**
