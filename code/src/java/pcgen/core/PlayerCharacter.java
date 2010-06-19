@@ -153,6 +153,7 @@ import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.UnarmedDamageFacet;
 import pcgen.cdom.facet.UnencumberedArmorFacet;
 import pcgen.cdom.facet.UnencumberedLoadFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
@@ -285,6 +286,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BonusManager bonusManager = new BonusManager(this);
 	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
 
+	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
@@ -5614,20 +5616,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		int sizeInt = sizeInt();
-		String pObjDamage = null;
-		for (PObject pObj : getPObjectList())
+		for (List<String> unarmedDamage : unarmedDamageFacet.getSet(id))
 		{
-			if (pObj == null || pObj instanceof PCClass)
-			{
-				continue;
-			}
-			List<String> unarmedDamage =
-					pObj.getListFor(ListKey.UNARMED_DAMAGE);
-			if (unarmedDamage == null)
-			{
-				continue;
-			}
-			String aDamage = "";
+			String aDamage;
 			if (unarmedDamage.size() == 1)
 			{
 				aDamage = unarmedDamage.get(0);
@@ -5640,15 +5631,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					PlayerCharacterUtilities.getBestUDamString(retString,
 						aDamage);
 		}
-		if (pObjDamage == null)
-		{
-			// If no UDAM exists, just grab default damage for the race, Michael Osterlie
-			pObjDamage = getRace().getUdam(this);
-		}
-		else
-		{
-			pObjDamage = pObjDamage.substring(pObjDamage.indexOf('|') + 1);
-		}
+		//Test against the default for the race
+		String pObjDamage = getRace().getUdam(this);
 		retString =
 				PlayerCharacterUtilities.getBestUDamString(retString,
 					pObjDamage);
