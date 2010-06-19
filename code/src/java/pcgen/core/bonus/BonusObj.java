@@ -297,7 +297,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * Set value
 	 * @param bValue
 	 */
-	public void setValue(final String bValue)
+	void setValue(final String bValue)
 	{
 		bonusFormula = FormulaFactory.getFormulaFor(bValue);
 		if (!bonusFormula.isStatic())

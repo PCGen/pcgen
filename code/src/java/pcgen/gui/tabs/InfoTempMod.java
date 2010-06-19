@@ -383,29 +383,25 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 * @param repeatValue
 	 * @return bonus choice
 	 **/
-	private String getBonusChoice(
-			final BonusObj newB,
-			final CDOMObject source,
+	private BonusInfo getBonusChoice(String oldValue, final CDOMObject source,
 			String repeatValue)
 	{
+		String value = oldValue;
 
 		// If repeatValue is set, this is a multi BONUS and they all
 		// should get the same value as the first choice
 		if (repeatValue.length() > 0)
 		{
-			final String aS = newB.getValue(); 
-
 			// need to parse the aChoice string
 			// and replace %CHOICE with choice
-			if (aS.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+			if (value.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 			{
-				final String ac = aS.replaceAll(
+				value = value.replaceAll(
 						Pattern.quote("%CHOICE"), //$NON-NLS-1$ 
 						repeatValue);
-				newB.setValue(ac);
 			}
 
-			return repeatValue;
+			return new BonusInfo(value, repeatValue);
 		}
 
 		String aChoice = source.getSafe(StringKey.CHOICE_STRING);
@@ -484,26 +480,23 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					final String aI = selectedList.get(0);
 
-					final String bValue = newB.getValue(); 
-					
 					// need to parse the bonus.getValue()
 					// string and replace %CHOICE
-					if (bValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+					if (oldValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 					{
-						final String ac =
-								bValue.replaceAll(Pattern.quote("%CHOICE"),  //$NON-NLS-1$
+						value =
+							oldValue.replaceAll(Pattern.quote("%CHOICE"),  //$NON-NLS-1$
 								                  aI);
-						newB.setValue(ac);
 					}
 
-					return aI;
+					return new BonusInfo(value, aI);
 				}
 				// they hit the cancel button
-				newB.setValue("0");
+				return null;
 			}
 		}
 
-		return "";
+		return null;
 	}
 
 	/*
@@ -1071,28 +1064,33 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		// get the bonus string
 		for (BonusObj aBonus : aMod.getBonusList(aEq == null ? pc : aEq))
 		{
-			String aString = aBonus.toString();
-
-			//if (aString.indexOf("PREAPPLY:") >= 0)
 			if (aBonus.isTempBonus())
 			{
-				BonusObj newB = null;
+				String oldValue = aBonus.toString();
 				if (aMod instanceof PCClass || aMod instanceof PCClassLevel)
 				{
 					if (aBonus.getPCLevel() == bonusLevel)
 					{
-						int idx = aString.indexOf('|');
-						newB = Bonus.newBonus(aString.substring(idx + 1));
+						int idx = oldValue.indexOf('|');
+						oldValue = oldValue.substring(idx + 1);
 					}
 				}
-				else
+
+				String newValue = oldValue;
+				if (aMod.getSafe(StringKey.CHOICE_STRING).length() > 0)
 				{
-					newB = Bonus.newBonus(aString);
+					BonusInfo bi = getBonusChoice(oldValue, aMod, repeatValue);
+					if (bi != null)
+					{
+						newValue = bi.getBonusValue();
+						repeatValue = bi.getRepeatValue();
+					}
 				}
+				BonusObj newB = Bonus.newBonus(newValue);
 				if (newB != null)
 				{
 					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus
-					// TODO - Why are we doing this?
+					// Why are we doing this? (for qualifies)
 					newB.clearPrerequisiteList();
 					for (Prerequisite prereq : aBonus.getPrerequisiteList())
 					{
@@ -1112,37 +1110,22 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						}
 					}
 
-					pc.setApplied(newB, false);
 					// if Target was this PC, then add
 					// bonus to TempBonusMap
 					if (aTarget instanceof PlayerCharacter)
 					{
-						if (newB.qualifies(pc, aEq))
-						{
-							pc.setApplied(newB, true);
-						}
+						pc.setApplied(newB, newB.qualifies(pc, aEq));
 						pc.addTempBonus(newB, aMod, aTarget);
 					}
 					else if (aEq != null)
 					{
-						// TODO - This looks like a bug.  It should be testing
-						// for aEq in the passesAll() check.
-						//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
-						if (PrereqHandler.passesAll(newB.getPrerequisiteList(), aEq, pc))
-						{
-							pc.setApplied(newB, true);
-						}
+						pc.setApplied(newB, PrereqHandler.passesAll(newB.getPrerequisiteList(), aEq, pc));
 						aEq.addTempBonus(newB);
 						pc.addTempBonus(newB, aMod, aEq);
 						// TODO - Why does this case make us mark the PC as 
 						// dirty when the other case doesn't?
 						pc.setDirty(true);
 					}
-					if (aMod.getSafe(StringKey.CHOICE_STRING).length() > 0)
-					{
-						repeatValue = getBonusChoice(newB, aMod, repeatValue);
-					}
-
 				}
 			}
 		}
@@ -3000,5 +2983,29 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				return super.toString();
 			}
 		}
+	}
+	
+	private class BonusInfo
+	{
+
+		private final String bonusValue;
+		private final String repeatValue;
+		
+		public BonusInfo(String value, String repeat)
+		{
+			bonusValue = value;
+			repeatValue = repeat;
+		}
+
+		public String getBonusValue()
+		{
+			return bonusValue;
+		}
+
+		public String getRepeatValue()
+		{
+			return repeatValue;
+		}
+		
 	}
 }
