@@ -153,6 +153,8 @@ import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.UnencumberedArmorFacet;
+import pcgen.cdom.facet.UnencumberedLoadFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
 import pcgen.cdom.facet.VariableFacet;
 import pcgen.cdom.facet.VisionFacet;
@@ -308,6 +310,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
+	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
@@ -7857,7 +7861,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean ignoreEncumberedArmorMove(final Load armor)
 	{
-		return compareLoad(armor, ObjectKey.UNENCUMBERED_ARMOR);
+		return unencumberedArmorFacet.ignoreLoad(id, armor);
 	}
 
 	/**
@@ -7870,57 +7874,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean ignoreEncumberedLoadMove(final Load load)
 	{
-		return compareLoad(load, ObjectKey.UNENCUMBERED_LOAD);
-	}
-
-	private boolean compareLoad(final Load load, ObjectKey<Load> loadKey)
-	{
-		Load pcload = cache.get(loadKey);
-		if (pcload == null)
-		{
-			pcload = Load.LIGHT;
-			/*
-			 * Can't use getCDOMObjectList here due to override in Class LST file :P
-			 */
-			for (PObject po : getPObjectList())
-			{
-				if (po != null && !(po instanceof PCClass))
-				{
-					Load poLoad = po.get(loadKey);
-					if (poLoad != null && pcload.compareTo(poLoad) < 0)
-					{
-						pcload = poLoad;
-					}
-				}
-			}
-			for (CDOMObject po : getConditionalTemplateObjects())
-			{
-				Load poLoad = po.get(loadKey);
-				if (poLoad != null && pcload.compareTo(poLoad) < 0)
-				{
-					pcload = poLoad;
-				}
-			}
-			for (PCClass cl : getClassSet())
-			{
-				Load active = cl.getSafe(loadKey);
-				for (int i = 0; i < getLevel(cl); i++)
-				{
-					PCClassLevel classLevel = getActiveClassLevel(cl, i);
-					Load override = classLevel.get(loadKey);
-					if (override != null)
-					{
-						active = override;
-					}
-				}
-				if (pcload.compareTo(active) < 0)
-				{
-					pcload = active;
-				}
-			}
-			cache.put(loadKey, pcload);
-		}
-		return pcload.compareTo(load) >= 0;
+		return unencumberedLoadFacet.ignoreLoad(id, load);
 	}
 
 	/**

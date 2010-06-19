@@ -358,10 +358,15 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new IdentityHashMap<T, Set<Object>>();
+			componentMap = getComponentMap();
 			FacetCache.set(id, getClass(), componentMap);
 		}
 		return componentMap;
+	}
+
+	protected Map<T, Set<Object>> getComponentMap()
+	{
+		return new IdentityHashMap<T, Set<Object>>();
 	}
 
 	/**
