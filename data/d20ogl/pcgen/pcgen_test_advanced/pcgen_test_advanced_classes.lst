@@ -54,6 +54,33 @@ CLASS:Basic Fighter	CSKILL:TYPE.TestSkills	STARTSKILLPTS:2
 1	AUTO:FEAT|Simple Weapon Proficiency		AUTO:WEAPONPROF|Extra Blade
 
 
+# Alice and Charlie Classes -
+CLASS:Alice Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
+CLASS:Alice Class	STARTSKILLPTS:2	KNOWNSPELLS:Alice Class Known Spell	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLEVEL|Alice Class|CL
+1	CAST:1,1,1,1,1,1,1,1,1,1,1
+
+
+
+
+CLASS:Charlie Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|AC|22|TYPE=Deflection
+CLASS:Charlie Class	STARTSKILLPTS:2
+CLASS:Charlie Class	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Charlie Class|CL
+1	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,1,1,1,1,1,1,1,1,1,1
+1	BONUS:COMBAT|AC|22|TYPE=Shield	ABILITY:Special Ability|AUTOMATIC|Charlie Explanation
+2	BONUS:HP|CURRENTMAX|22
+3	BONUS:STAT|STR|22
+5	BONUS:COMBAT|AC|22|TYPE=Armor
+
+
+#1 BONUS object should be on a CLASS LST line
+#1 BONUS object should be on a class level below the current PC level in that class (e.g. 1 if the PC is level 2 in that class)
+#1 BONUS object should be on a class level exactly matching the current PC level in that class (e.g. 2 if the PC is level 2 in that class)
+#1 BONUS object should be on a class level above the current PC level in that class but below the total level of the PC (e.g. 3 if the PC is level 2 in that class but level 4 overall)
+#1 BONUS object should be on a class level above the current PC level in that class and above the current total level of the PC (e.g. 5 if the PC is level 2 in that class, but level 4 overall) 
+
+
+
+
 CLASS:PreReq Class	HD:4
 CLASS:PreReq Class	PRERACE:1,Hughpert Case Won
 1	SAB:You shouldn't have this unless you are Hughpert Case Won Race
@@ -68,5 +95,5 @@ CLASS:PreReq Class Two	PREVARGT:1,CL
 CLASS:Test Spell DC	HD:4
 1	SPELLS:Not Innate|CASTERLEVEL=1|Spell Control DC,11
 
-CLASS:Cleric.MOD	SPELLLIST:1|Druid
+#CLASS:Cleric.MOD	SPELLLIST:1|Druid
 

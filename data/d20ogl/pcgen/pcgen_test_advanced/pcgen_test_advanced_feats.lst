@@ -11,7 +11,7 @@ a Choose Shield Prof Test	TYPE:Test	CHOOSE:SHIELDPROFICIENCY|ALL	MULT:YES	AUTO:S
 #A test Movement ~ MOVECLONE			TYPE:Test		MOVECLONE:Walk,Fly,*2.5
 #A test Movement ~ MOVECLONE formula		TYPE:Test		MOVECLONE:Walk,Fly,*1/2
 
-A Add Spells					TYPE:Test		SPELLLEVEL:CLASS|Druid=1|Magic Missile
+#A Add Spells					TYPE:Test		SPELLLEVEL:CLASS|Druid=1|Magic Missile
 
 
 

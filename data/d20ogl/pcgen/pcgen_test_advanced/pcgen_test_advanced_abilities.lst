@@ -10,6 +10,19 @@ ALICE ~ Equipment			CATEGORY:FEAT	TYPE:AliceTests	AUTO:EQUIP|%LIST				CHOOSE:EQU
 ALICE ~ Armor prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:ARMORPROF|%LIST			CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES
 ALICE ~ Class Skill		CATEGORY:FEAT	TYPE:AliceTests	CSKILL:LIST				CHOOSE:SKILL|CROSSCLASS			MULT:YES
 ALICE ~ Cross Class Test	CATEGORY:FEAT	TYPE:AliceTests	CCSKILL:LIST				CHOOSE:SKILL|EXCLUSIVE			MULT:YES
+#
+ALICE ~ SPELLLEVEL Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLLEVEL:CLASS|Alice Class=1|Alice Adds Spell Through SPELLLEVEL
+ALICE ~ SPELLKNOWN Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLKNOWN:CLASS|Alice Class=1|Alice Known Spell	
+
+
+#GLOBAL ~ Charlie Feats
+CHARLIE ~ Bonus Stat Base Spell Stat ~ Semicolon		CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLSTAT;Class=Charlie Class|20
+CHARLIE ~ Bonus Stat Base Spell Known Stat ~ Semicolon	CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Charlie Class|10
+# Colon Tests
+CHARLIE ~ Bonus Stat Base Spell Stat ~ colon			CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLSTAT:Class=Charlie Class|30
+CHARLIE ~ Bonus Stat Base Spell Known Stat ~ colon		CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLKNOWNSTAT:Class=Charlie Class|20
+
+Charlie Explanation	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This is what should be appearing from the class levels - BONUS.COMBAT.AC.22.TYPE=Shield @ L1; BONUS.HP.CURRENTMAX.22 @ L2; BONUS.STAT.STR.22 @L3; BONUS.COMBAT.AC.22.TYPE=Armor @L5; BONUS.COMBAT.AC.22.TYPE=Deflection on Class Line
 
 
 #Block: Chooser Tests ----------------------------------------------------------------------------------------------------------
@@ -45,7 +58,7 @@ Bob's Ability with PreFeat Weapon Focus Longsword is working	DESC:Using PreFeat 
 Bob's Ability triggered by Weapon Focus Sword wildcard		DESC:Using PreFeat with Sword Wildcard		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Preskill is working				DESC:Using new Chooser with SKILL			CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by PreAlign LG					DESC:Using Chooser with Align LG chosen		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by PreClass Fighter				DESC:Using Chooser with Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality.TesterType
+Bob's Ability triggered by PreClass Basic Fighter			DESC:Using Chooser with Basic Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality.TesterType
 Bob's Ability triggered by PreDeity						DESC:Using Chooser with Deity selected		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Size M						DESC:Using Chooser with Size M Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
 Bob's Ability triggered by Check						DESC:Using Chooser with Check Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -113,7 +126,7 @@ Bob Ability ~ TEST~7  SR Assigned via Companion Mod	DEFINE:CompanionLVL|1+TL	FOL
 
 Ability That Grants Two		CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Ability Grant One|Ability Grant Two	DESC:[Desc]This Ability Grants Two More Abilities	BENEFIT:[Benefit] This ability Greants Two More Abilities
 
-Tentacles of the Fey		CATEGORY:Special Ability	TYPE:Racial.SpecialAttack	NATURALATTACKS:Tentacles of the Fey,Weapon.Melee.Ranged.Slashing.Bludgeoning.Piercing.Natural,*6,1d3	DESC:Grants Six Attacks %1d%2 each [Display should be 1d3]|1|1+1+1+1+var("TentaclesOfTheFey")	DEFINE:TentaclesOfTheFey|0	BONUS:VAR|TentaclesOfTheFey|-1
+Tentacles of the Fey		CATEGORY:Special Ability	TYPE:AliceTestAdditional.Racial.SpecialAttack	NATURALATTACKS:Tentacles of the Fey,Weapon.Melee.Ranged.Slashing.Bludgeoning.Piercing.Natural,*6,1d3	DESC:Grants Six Attacks %1d%2 each [Display should be 1d3]|1|1+1+1+1+var("TentaclesOfTheFey")	DEFINE:TentaclesOfTheFey|0	BONUS:VAR|TentaclesOfTheFey|-1
 Fey Dust Test			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:Fey Dust Test ~ Grants the ability to fly, no aspect granted			MOVE:Fly,30	
 
 
