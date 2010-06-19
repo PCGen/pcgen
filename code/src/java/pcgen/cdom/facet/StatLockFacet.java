@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -52,7 +53,11 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.STAT_LOCKS), cdo);
+		List<StatLock> locks = cdo.getListFor(ListKey.STAT_LOCKS);
+		if (locks != null)
+		{
+			addAll(dfce.getCharID(), locks, cdo);
+		}
 	}
 
 	/**

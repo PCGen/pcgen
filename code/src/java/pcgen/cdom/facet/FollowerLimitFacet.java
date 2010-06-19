@@ -56,7 +56,11 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.FOLLOWERS), cdo);
+		List<FollowerLimit> followers = cdo.getListFor(ListKey.FOLLOWERS);
+		if (followers != null)
+		{
+			addAll(dfce.getCharID(), followers, cdo);
+		}
 	}
 
 	/**

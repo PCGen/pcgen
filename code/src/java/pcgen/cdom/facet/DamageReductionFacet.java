@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -63,8 +64,11 @@ public class DamageReductionFacet extends
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.DAMAGE_REDUCTION),
-				cdo);
+		List<DamageReduction> drs = cdo.getListFor(ListKey.DAMAGE_REDUCTION);
+		if (drs != null)
+		{
+			addAll(dfce.getCharID(), drs, cdo);
+		}
 	}
 
 	/**

@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -49,7 +50,11 @@ public class AutoWeaponProfFacet extends
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.WEAPONPROF), cdo);
+		List<WeaponProfProvider> weaponProfs = cdo.getListFor(ListKey.WEAPONPROF);
+		if (weaponProfs != null)
+		{
+			addAll(dfce.getCharID(), weaponProfs, cdo);
+		}
 	}
 
 	/**

@@ -17,9 +17,12 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.core.ShieldProf;
 
 /**
@@ -45,8 +48,11 @@ public class ShieldProfFacet extends
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.AUTO_SHIELDPROF),
-				cdo);
+		List<ShieldProfProvider> shieldProfs = cdo.getListFor(ListKey.AUTO_SHIELDPROF);
+		if (shieldProfs != null)
+		{
+			addAll(dfce.getCharID(), shieldProfs, cdo);
+		}
 	}
 
 	/**

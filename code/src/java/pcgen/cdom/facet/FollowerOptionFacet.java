@@ -54,7 +54,11 @@ public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.COMPANIONLIST), cdo);
+		List<FollowerOption> lists = cdo.getListFor(ListKey.COMPANIONLIST);
+		if (lists != null)
+		{
+			addAll(dfce.getCharID(), lists, cdo);
+		}
 	}
 
 	/**

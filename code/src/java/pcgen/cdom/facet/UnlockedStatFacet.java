@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCStat;
@@ -43,8 +45,11 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.UNLOCKED_STATS),
-				cdo);
+		List<PCStat> unlocked = cdo.getListFor(ListKey.UNLOCKED_STATS);
+		if (unlocked != null)
+		{
+			addAll(dfce.getCharID(), unlocked, cdo);
+		}
 	}
 
 	/**
