@@ -19,7 +19,7 @@ package pcgen.cdom.identifier;
 
 import pcgen.cdom.base.Identified;
 
-public class SpellSchool implements Identified
+public class SpellSchool implements Identified, Comparable<SpellSchool>
 {
 
 	private String name;
@@ -71,6 +71,11 @@ public class SpellSchool implements Identified
 	public int hashCode()
 	{
 		return name.hashCode();
+	}
+
+	public int compareTo(SpellSchool other)
+	{
+		return name.compareTo(other.name);
 	}
 
 }
