@@ -863,6 +863,7 @@ public final class EditorMainForm extends JDialog
 				Spell sp = (Spell) thisPObject;
 				context.getListContext().clearAllMasterLists("CLASSES", sp);
 				context.getListContext().clearAllMasterLists("DOMAINS", sp);
+				context.commit();
 				for (Object o : pnlQClasses.getSelectedList())
 				{
 					context.unconditionallyProcess(sp, "CLASSES", o.toString());
