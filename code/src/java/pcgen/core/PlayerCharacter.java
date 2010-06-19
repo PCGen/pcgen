@@ -93,6 +93,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
+import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.AutoWeaponProfFacet;
 import pcgen.cdom.facet.BioSetFacet;
@@ -307,6 +308,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -1516,30 +1518,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sortEquipmentList(getEquipmentSet(), merge);
 	}
 
-	private List<Equipment> getAutoEquipmentList()
-	{
-		final ArrayList<Equipment> aList = new ArrayList<Equipment>();
-
-		for (CDOMObject aPObj : getCDOMObjectList())
-		{
-			List<QualifiedObject<CDOMReference<Equipment>>> spl =
-					aPObj.getSafeListFor(ListKey.EQUIPMENT);
-			for (QualifiedObject<CDOMReference<Equipment>> qo : spl)
-			{
-				CDOMReference<Equipment> ref = qo.getObject(this, aPObj);
-				if (ref != null)
-				{
-					for (Equipment sp : ref.getContainedObjects())
-					{
-						aList.add(sp);
-					}
-				}
-			}
-		}
-
-		return aList;
-	}
-
 	/**
 	 * Get equipment master list
 	 * 
@@ -1549,7 +1527,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Set<Equipment> set = userEquipmentFacet.getSet(id);
 		final List<Equipment> aList = new ArrayList<Equipment>(set);
-		aList.addAll(getAutoEquipmentList());
+		aList.addAll(autoEquipFacet.getAutoEquipment(id));
 		return aList;
 	}
 

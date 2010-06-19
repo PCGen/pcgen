@@ -82,14 +82,18 @@ public class FacetInitialization
 				.getFacet(CompanionModFacet.class);
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
-		DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
+		DamageReductionFacet drFacet = FacetLibrary
+				.getFacet(DamageReductionFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
-		VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
-		UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
-		StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+		VariableFacet variableFacet = FacetLibrary
+				.getFacet(VariableFacet.class);
+		UnlockedStatFacet unlockedStatFacet = FacetLibrary
+				.getFacet(UnlockedStatFacet.class);
+		StatLockFacet statLockFacet = FacetLibrary
+				.getFacet(StatLockFacet.class);
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 		FollowerOptionFacet foFacet = FacetLibrary
 				.getFacet(FollowerOptionFacet.class);
@@ -104,6 +108,8 @@ public class FacetInitialization
 				.getFacet(HasDeityWeaponProfFacet.class);
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
+		AutoEquipmentFacet autoEquipFacet = FacetLibrary
+				.getFacet(AutoEquipmentFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -180,5 +186,6 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(awpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(hdwpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
 	}
 }
