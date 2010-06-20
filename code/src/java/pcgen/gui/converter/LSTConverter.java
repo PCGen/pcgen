@@ -149,6 +149,7 @@ public class LSTConverter extends Observable
 				}
 				String relative = in.toString().substring(
 						base.toString().length() + 1);
+System.err.println(base + " " + relative);
 				File outFile = new File(outDir, File.separator + relative);
 				if (outFile.exists())
 				{
@@ -239,15 +240,16 @@ public class LSTConverter extends Observable
 
 	private File findSubRoot(File root, File in)
 	{
-		if (in.getParentFile() == null)
+		File parent = in.getParentFile();
+		if (parent == null)
 		{
 			return null;
 		}
-		if (in.getParentFile().getAbsolutePath().equals(root.getAbsolutePath()))
+		if (parent.getAbsolutePath().equals(root.getAbsolutePath()))
 		{
-			return in;
+			return parent;
 		}
-		return findSubRoot(root, in.getParentFile());
+		return findSubRoot(root, parent);
 	}
 
 	private String load(URI uri, Loader loader) throws InterruptedException,
