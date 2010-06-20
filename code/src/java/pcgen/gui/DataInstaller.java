@@ -392,7 +392,7 @@ public class DataInstaller extends JFrame
 				if (!dir.mkdirs())
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getFormattedString("in_diDirNotCreated", destDir
+						.getFormattedString("in_diDirNotCreated", dir
 							.getAbsoluteFile()), TITLE, MessageType.ERROR);
 					return false;
 				}
