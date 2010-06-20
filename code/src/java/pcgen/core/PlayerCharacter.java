@@ -119,6 +119,7 @@ import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
+import pcgen.cdom.facet.FavoredClassFacet;
 import pcgen.cdom.facet.FollowerLimitFacet;
 import pcgen.cdom.facet.FollowerOptionFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
@@ -309,6 +310,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
@@ -352,8 +354,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
-
-	private PCClass selectedFavoredClass = null;
 
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
@@ -4606,57 +4606,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public SortedSet<PCClass> getFavoredClasses()
 	{
-		/*
-		 * CONSIDER Can this be cached?
-		 */
-		SortedSet<PCClass> favored =
-				new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
-
-		if (selectedFavoredClass != null)
-		{
-			favored.add(selectedFavoredClass);
-		}
-
-		List<CDOMReference<? extends PCClass>> favClass =
-				getRace().getListFor(ListKey.FAVORED_CLASS);
-		if (favClass != null)
-		{
-			for (CDOMReference<? extends PCClass> ref : favClass)
-			{
-				favored.addAll(ref.getContainedObjects());
-			}
-		}
-		List<PCClass> assocFavclass =
-				getAssocList(getRace(), AssociationListKey.FAVCLASS);
-		if (assocFavclass != null && !assocFavclass.isEmpty())
-		{
-			for (PCClass cls : assocFavclass)
-			{
-				favored.add(cls);
-			}
-		}
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			List<CDOMReference<? extends PCClass>> fc =
-					template.getListFor(ListKey.FAVORED_CLASS);
-			if (fc != null)
-			{
-				for (CDOMReference<? extends PCClass> ref : fc)
-				{
-					favored.addAll(ref.getContainedObjects());
-				}
-			}
-			assocFavclass = getAssocList(template, AssociationListKey.FAVCLASS);
-			if (assocFavclass != null && !assocFavclass.isEmpty())
-			{
-				for (PCClass cls : assocFavclass)
-				{
-					favored.add(cls);
-				}
-			}
-		}
-
+		SortedSet<PCClass> favored = new TreeSet<PCClass>(
+				CDOMObjectUtilities.CDOM_SORTER);
+		favored.addAll(favClassFacet.getSet(id));
 		return favored;
 	}
 
@@ -5049,7 +5001,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			removeNaturalWeapons(oldRace);
 			removeTemplatesFrom(oldRace);
-			selectedFavoredClass = null;
 			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
 			{
@@ -11071,7 +11022,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
-		aClone.selectedFavoredClass = selectedFavoredClass;
 		aClone.setBio(getBio());
 		aClone.setBirthday(getBirthday());
 		aClone.setBirthplace(getBirthplace());
@@ -13485,16 +13435,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return statLockFacet.getLockedStat(id, stat);
 	}
 
-	public PCClass getSelectedFavoredClass()
-	{
-		return selectedFavoredClass;
-	}
-
-	public void setSelectedFavoredClass(PCClass sfc)
-	{
-		selectedFavoredClass = sfc;
-	}
-
 	public String getDescription(PObject cdo)
 	{
 		List<Description> theDescriptions =
@@ -14313,6 +14253,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.remove(id, choice, owner);
+	}
+
+	public void addFavoredClass(PCClass cls, Object source)
+	{
+		favClassFacet.add(id, cls, source);
+	}
+
+	public void removeFavoredClass(PCClass cls, Object source)
+	{
+		favClassFacet.remove(id, cls, source);
+	}
+
+	public PCClass getLegacyFavoredClass()
+	{
+		List<? extends PCClass> list = favClassFacet.getSet(id, this);
+		if (list.isEmpty())
+		{
+			return null;
+		}
+		return list.get(0);
 	}
 
 	public void addWeaponProf(CDOMObject owner, WeaponProf choice)

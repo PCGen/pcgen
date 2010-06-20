@@ -28,7 +28,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
@@ -211,7 +210,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate> im
 				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
-			pc.addAssoc(obj, AssociationListKey.FAVCLASS, cls);
+			pc.addFavoredClass(cls, obj);
 		}
 	}
 
@@ -227,7 +226,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate> im
 				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
+			pc.removeFavoredClass(cls, obj);
 		}
 
 	}

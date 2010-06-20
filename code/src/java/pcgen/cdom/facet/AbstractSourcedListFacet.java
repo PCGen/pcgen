@@ -28,7 +28,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -114,7 +113,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(CharID id, Collection<T> c, Object source)
+	public void addAll(CharID id, Collection<? extends T> c, Object source)
 	{
 		for (T obj : c)
 		{
@@ -477,7 +476,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		}
 	}
 
-	public List<? extends T> getSet(CharID id, CDOMObject owner)
+	public List<? extends T> getSet(CharID id, Object owner)
 	{
 		List<T> list = new ArrayList<T>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);

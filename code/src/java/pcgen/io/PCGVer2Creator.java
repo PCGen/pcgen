@@ -1729,7 +1729,7 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendFavoredClassLine(StringBuffer buffer)
 	{
-		PCClass sfc = thePC.getSelectedFavoredClass();
+		PCClass sfc = thePC.getLegacyFavoredClass();
 		if (sfc != null)
 		{
 			buffer.append(TAG_FAVOREDCLASS).append(':');

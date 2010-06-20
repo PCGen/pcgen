@@ -43,6 +43,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.SortedSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -73,6 +74,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -1118,11 +1120,11 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			//
 			// Show character's favored class
 			//
-			PCClass favClass = pc.getSelectedFavoredClass();
-			if (favClass != null)
+			SortedSet<PCClass> favClass = pc.getFavoredClasses();
+			if (!favClass.isEmpty())
 			{
 				statBuf
-					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(favClass.getDisplayName()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(StringUtil.join(favClass, ", ")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			//

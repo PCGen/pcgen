@@ -3572,7 +3572,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					PCClass.class, favClass);
 		if (cl != null)
 		{
-			thePC.setSelectedFavoredClass(cl);
+			thePC.addFavoredClass(cl, thePC);
 		}
 	}
 

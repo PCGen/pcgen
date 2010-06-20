@@ -88,6 +88,8 @@ public class FacetInitialization
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
+
+		FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 		VariableFacet variableFacet = FacetLibrary
 				.getFacet(VariableFacet.class);
 		UnlockedStatFacet unlockedStatFacet = FacetLibrary
@@ -147,6 +149,10 @@ public class FacetInitialization
 		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
+		raceFacet.addDataFacetChangeListener(favClassFacet);
+		templateFacet.addDataFacetChangeListener(favClassFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(favClassFacet);
+
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet);
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet);
@@ -160,6 +166,7 @@ public class FacetInitialization
 		skillFacet.addDataFacetChangeListener(charObjectFacet);
 		statFacet.addDataFacetChangeListener(charObjectFacet);
 		templateFacet.addDataFacetChangeListener(charObjectFacet);
+
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
 		classLevelFacet.addDataFacetChangeListener(charObjectFacet);

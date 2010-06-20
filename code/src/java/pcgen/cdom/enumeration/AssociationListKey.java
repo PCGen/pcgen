@@ -106,9 +106,6 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS =
 			new AssociationListKey<CharacterSpell>();
 
-	public static final AssociationListKey<PCClass> FAVCLASS =
-			new AssociationListKey<PCClass>();
-
 	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
 
 	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();

@@ -25,6 +25,9 @@
  */
 package plugin.exporttokens;
 
+import java.util.SortedSet;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -54,7 +57,7 @@ public class FavoredClassToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		PCClass sfc = pc.getSelectedFavoredClass();
-		return sfc == null ? "" : sfc.getKeyName();
+		SortedSet<PCClass> favClass = pc.getFavoredClasses();
+		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
 	}
 }

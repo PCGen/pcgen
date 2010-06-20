@@ -29,7 +29,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 
@@ -482,7 +481,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		}
 	}
 
-	public List<? extends T> getSet(CharID id, CDOMObject owner)
+	public List<? extends T> getSet(CharID id, Object owner)
 	{
 		List<T> list = new ArrayList<T>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
