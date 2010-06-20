@@ -159,8 +159,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(StringKey.KEY_NAME, "KEY_MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
-		myClass.addToListFor(ListKey.BONUS, babClassBonus);
+		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+15");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		LoadContext context = Globals.getContext();
 		context.ref.importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);

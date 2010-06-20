@@ -86,8 +86,8 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+5");
-		myClass.addToListFor(ListKey.BONUS, babClassBonus);
+		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+5");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 
 	}

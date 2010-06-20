@@ -1067,15 +1067,6 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			if (aBonus.isTempBonus())
 			{
 				String oldValue = aBonus.toString();
-				if (aMod instanceof PCClass || aMod instanceof PCClassLevel)
-				{
-					if (aBonus.getPCLevel() == bonusLevel)
-					{
-						int idx = oldValue.indexOf('|');
-						oldValue = oldValue.substring(idx + 1);
-					}
-				}
-
 				String newValue = oldValue;
 				if (aMod.getSafe(StringKey.CHOICE_STRING).length() > 0)
 				{

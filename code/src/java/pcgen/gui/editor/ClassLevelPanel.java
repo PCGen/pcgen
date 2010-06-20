@@ -220,14 +220,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			// updated 29 Jul 2003 -- sage_sam
 			BonusObj bonus = bonusIter.next();
 			String bonusValue = bonus.toString();
-			final String levelString = String.valueOf(bonus.getPCLevel());
-
-			if (bonusValue.startsWith(levelString))
-			{
-				bonusValue = bonusValue.substring(levelString.length() + 1);
-			}
-
-			LevelTag lt = new LevelTag(bonus.getPCLevel(), LevelTag.TAG_BONUS, bonusValue);
+			LevelTag lt = new LevelTag(0, LevelTag.TAG_BONUS, bonusValue);
 			levelTagList.add(lt);
 		}
 

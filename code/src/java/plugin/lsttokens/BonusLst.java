@@ -61,7 +61,7 @@ public class BonusLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPri
 	{
 		final String v = value.replaceAll(Pattern.quote("<this>"), obj
 				.getKeyName());
-		BonusObj bon = Bonus.newBonus(obj.bonusStringPrefix() + v);
+		BonusObj bon = Bonus.newBonus(v);
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -85,25 +85,11 @@ public class BonusLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPri
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
 		Set<String> bonusSet = new TreeSet<String>();
-		String prefix = obj.bonusStringPrefix();
-		int prefixLength = prefix.length();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
 			{
 				String bonusString = bonus.getLSTformat();
-				if (prefixLength != 0)
-				{
-					if (bonusString.startsWith(prefix))
-					{
-						bonusString = bonusString.substring(prefixLength);
-					}
-					else
-					{
-						Logging.errorPrint("Expected BONUS to start with "
-								+ prefix);
-					}
-				}
 				bonusSet.add(bonusString);
 			}
 		}

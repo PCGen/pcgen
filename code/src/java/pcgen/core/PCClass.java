@@ -215,9 +215,8 @@ public class PCClass extends PObject
 		double i = 0;
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
-		int currentLevel = aPC.getLevel(this);
 
-		for (int lvl = 1 ; lvl < currentLevel; lvl++)
+		for (int lvl = 1 ; lvl < asLevel; lvl++)
 		{
 			rawBonusList.addAll(aPC.getActiveClassLevel(this, lvl).getRawBonusList(aPC));
 		}
@@ -234,7 +233,6 @@ public class PCClass extends PObject
 			final StringTokenizer breakOnPipes =
 					new StringTokenizer(bonus.toString().toUpperCase(),
 						Constants.PIPE, false);
-			final int aLevel = Integer.parseInt(breakOnPipes.nextToken());
 			final String theType = breakOnPipes.nextToken();
 
 			if (!theType.equals(type))
@@ -250,7 +248,7 @@ public class PCClass extends PObject
 			{
 				final String theName = breakOnCommas.nextToken();
 
-				if ((aLevel <= asLevel) && theName.equals(mname))
+				if (theName.equals(mname))
 				{
 					final String aString = breakOnPipes.nextToken();
 					final List<Prerequisite> localPreReqList =
@@ -626,7 +624,7 @@ public class PCClass extends PObject
 			if (divisor > 0)
 			{
 				StringBuffer aBuf =
-					new StringBuffer("0|FEAT|PCPOOL|")
+					new StringBuffer("FEAT|PCPOOL|")
 						.append("max(CL");
 				// Make sure we only take off the startlevel value once
 				if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
@@ -702,36 +700,6 @@ public class PCClass extends PObject
 		}
 
 		return pccTxt.toString();
-	}
-
-	/**
-	 * Sets qualified BonusObj's to "active"
-	 *
-	 * @param aPC
-	 */
-	/*
-	 * DELETEMETHOD Because this appears to be simply a correction for PCLevel
-	 * (above and beyond what PObject's activateBonuses method does), this
-	 * becomes useless in the new architecture, as the bonuses will only be
-	 * present and visible to the PlayerCharacter in the PCClassLevels that the
-	 * PlayerCharacter has.
-	 *
-	 * The hasPreReqs test here which is not in PObject is simply a shortcut
-	 * of what is already done in bonus.qualifies, so the operation of this
-	 * (while looking more complicated) really only differs from PObject in
-	 * the level dependence
-	 */
-	@Override
-	public void activateBonuses(final PlayerCharacter aPC)
-	{
-		for (BonusObj bonus : getRawBonusList(aPC))
-		{
-			if ((bonus.getPCLevel() <= aPC.getLevel(this)))
-			{
-				boolean apply = !bonus.hasPrerequisites() || bonus.qualifies(aPC, this);
-				aPC.setApplied(bonus, apply);
-			}
-		}
 	}
 
 	/*
@@ -1919,13 +1887,6 @@ public class PCClass extends PObject
 	public String getFullKey()
 	{
 		return getKeyName();
-	}
-
-	//Temporary hack
-	@Override
-	public String bonusStringPrefix()
-	{
-		return "0|";
 	}
 
 	@Override

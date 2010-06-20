@@ -57,7 +57,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	/** The type of the bonus e.g. Enhancement or Dodge */
 	private String  bonusType            = Constants.EMPTY_STRING;
 	private String  varPart              = Constants.EMPTY_STRING;
-	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
 	private boolean addOnceOnly          = false;
@@ -179,24 +178,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		buff.append("]");
 		return buff.toString();
-	}
-
-	/**
-	 * Set the PC Level
-	 * @param anInt
-	 */
-	public void setPCLevel(final int anInt)
-	{
-		pcLevel = anInt;
-	}
-
-	/**
-	 * Get the PCLevel
-	 * @return pcLevel
-	 */
-	public int getPCLevel()
-	{
-		return pcLevel;
 	}
 
 	/**
@@ -391,11 +372,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		if (stringRepresentation == null)
 		{
 			final StringBuffer sb = new StringBuffer(50);
-	
-			if (pcLevel >= 0)
-			{
-				sb.append(pcLevel).append('|');
-			}
 	
 			sb.append(getTypeOfBonus());
 			if (varPart != null && varPart.length() > 0)
@@ -693,7 +669,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				&& bonusFormula.equals(other.bonusFormula)
 				&& bonusName.equals(other.bonusName)
 				&& bonusType.equals(other.bonusType)
-				&& pcLevel == other.pcLevel && addOnceOnly == other.addOnceOnly
+				&& addOnceOnly == other.addOnceOnly
 				&& theStackingFlag.equals(other.theStackingFlag)
 				&& bonusInfo.equals(other.bonusInfo);
 	}

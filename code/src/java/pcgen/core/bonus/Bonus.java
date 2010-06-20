@@ -181,8 +181,6 @@ public class Bonus
 	public static BonusObj newBonus(final String bonusString)
 	{
 		final int typeOfBonus;
-		int aLevel = -1;
-
 		StringTokenizer aTok = new StringTokenizer(bonusString, Constants.PIPE);
 
 		if ((bonusString.indexOf(Constants.PIPE) == bonusString
@@ -198,26 +196,14 @@ public class Bonus
 
 		try
 		{
-			aLevel = Integer.parseInt(bonusName);
+			//Throw away old level value if present
+			Integer.parseInt(bonusName);
+			bonusName = aTok.nextToken().toUpperCase();
 		}
 		catch (NumberFormatException exc)
 		{
-			// not an error, just means that this is not a Level
-			// dependent bonus, so don't need to do anything
-		}
-
-		//
-		// If level-dependent bonus, then next tag is the bonus name
-		//
-		if (aLevel >= 0)
-		{
-			bonusName = aTok.nextToken().toUpperCase();
-		}
-		else
-		{
 			bonusName = bonusName.toUpperCase();
 		}
-
 
 		int equalOffset = -1;
 		BonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
@@ -341,11 +327,6 @@ public class Bonus
 							.append(" from bonusInfo ").append(bonusInfo)
 							.append(" in BonusObj.newBonus.").toString());
 				}
-			}
-
-			if (aLevel >= 0)
-			{
-				aBonus.setPCLevel(aLevel);
 			}
 		}
 		else

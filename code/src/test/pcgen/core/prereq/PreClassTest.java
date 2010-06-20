@@ -668,7 +668,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		BonusObj aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus("CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
 		{
@@ -678,7 +678,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
-		aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus("CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)
 		{
@@ -702,7 +702,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		BonusObj aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus("CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
 		{
@@ -712,7 +712,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
-		aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus("CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)
 		{

@@ -18,7 +18,6 @@
 package pcgen.cdom.inst;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 
 /**
@@ -74,17 +73,6 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	public PCClassLevel clone() throws CloneNotSupportedException
 	{
 		return (PCClassLevel) super.clone();
-	}
-
-	/*
-	 * This is hopefully a temporary fix, this is required because PCClass 
-	 * expects BONUSES that it owns to have a level prefix (and currently
-	 * BONUS processing is delegated to PCClass)
-	 */
-	@Override
-	public String bonusStringPrefix()
-	{
-		return get(IntegerKey.LEVEL) + "|";
 	}
 
 	@Override

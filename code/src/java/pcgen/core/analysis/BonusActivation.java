@@ -42,9 +42,7 @@ public class BonusActivation
 		for (Iterator<BonusObj> ab = po.getRawBonusList(aPC).iterator(); ab.hasNext();)
 		{
 			final BonusObj aBonus = ab.next();
-			boolean apply = aBonus.qualifies(aPC, po)
-					&& aBonus.getPCLevel() <= aPC.getTotalLevels();
-			aPC.setApplied(aBonus, apply);
+			aPC.setApplied(aBonus, aBonus.qualifies(aPC, po));
 		}
 	}
 

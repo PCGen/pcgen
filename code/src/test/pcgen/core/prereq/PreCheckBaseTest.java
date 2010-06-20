@@ -99,8 +99,8 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		final BonusObj fortBonus = Bonus.newBonus("1|CHECKS|Fortitude|1");
-		myClass.addToListFor(ListKey.BONUS, fortBonus);
+		final BonusObj fortBonus = Bonus.newBonus("CHECKS|Fortitude|1");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortBonus);
 
 		character.incrementClassLevel(1, myClass, true);
 
@@ -146,10 +146,10 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj fortRefBonus =
-				Bonus.newBonus("1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
-		myClass.addToListFor(ListKey.BONUS, fortRefBonus);
-		final BonusObj willBonus = Bonus.newBonus("1|CHECKS|BASE.Will|CL/2+2");
-		myClass.addToListFor(ListKey.BONUS, willBonus);
+				Bonus.newBonus("CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortRefBonus);
+		final BonusObj willBonus = Bonus.newBonus("CHECKS|BASE.Will|CL/2+2");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, willBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}
 }

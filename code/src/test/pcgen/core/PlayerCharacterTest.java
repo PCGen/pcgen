@@ -127,8 +127,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
 		giantClass.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
+		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL*3/4");
+		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		LoadContext context = Globals.getContext();
 		context.ref.importObject(giantClass);
 	
@@ -370,14 +370,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.put(VariableKey.getConstant("GiantVar1"), FormulaFactory.ZERO);
-		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
-		giantClass.addToListFor(ListKey.BONUS, raceBonus);
+		final BonusObj raceBonus = Bonus.newBonus("VAR|GiantVar1|7+HD");
+		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, raceBonus);
 
 		giantClass.getOriginalClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
 				FormulaFactory.ZERO);
 		final BonusObj babClassBonus =
-				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
-		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
+				Bonus.newBonus("VAR|GiantClass1|CL=Giant");
+		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 
 		final PlayerCharacter character = new PlayerCharacter();
 		// NOTE: This will add 4 levels of giantClass to the character 
@@ -563,7 +563,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Base stat.", "14", statTok.getToken(
 			"STAT.1.NOEQUIP.NOTEMP", pc, null));
 
-		final BonusObj raceBonus = Bonus.newBonus("1|STAT|DEX|-2");
+		final BonusObj raceBonus = Bonus.newBonus("STAT|DEX|-2");
 		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 		pc.setRace(giantRace);
 		pc.incrementClassLevel(4, giantClass, true);

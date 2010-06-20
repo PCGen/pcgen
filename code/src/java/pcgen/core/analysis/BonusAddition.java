@@ -48,7 +48,7 @@ public final class BonusAddition
 	public static void applyBonus(String bonusString, String chooseString,
 			PlayerCharacter aPC, CDOMObject target, boolean addOnceOnly)
 	{
-		bonusString = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
+		bonusString = makeBonusString(bonusString, chooseString, aPC);
 
 		final BonusObj aBonus = Bonus.newBonus(bonusString);
 		if (aBonus != null)
@@ -71,7 +71,7 @@ public final class BonusAddition
 	public static void removeBonus(String bonusString, String chooseString,
 			PlayerCharacter aPC, CDOMObject target)
 	{
-		String bonus = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
+		String bonus = makeBonusString(bonusString, chooseString, aPC);
 
 		BonusObj toRemove = null;
 

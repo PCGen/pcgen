@@ -665,14 +665,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	/**
 	 * Hopefully this is a temporary import - thpr Oct 11, 2008
-	 */
-	public String bonusStringPrefix()
-	{
-		return "";
-	}
-
-	/**
-	 * Hopefully this is a temporary import - thpr Oct 11, 2008
 	 * 
 	 * Return the qualified key, ususally used as the source in a 
 	 * getVariableValue call. Always returns an empty string, but 

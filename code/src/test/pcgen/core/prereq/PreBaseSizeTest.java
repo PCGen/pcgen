@@ -170,7 +170,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
-		final BonusObj sizeBonus = Bonus.newBonus("1|SIZEMOD|NUMBER|1");
+		final BonusObj sizeBonus = Bonus.newBonus("SIZEMOD|NUMBER|1");
 		race.addToListFor(ListKey.BONUS, sizeBonus);
 
 		character.calcActiveBonuses();

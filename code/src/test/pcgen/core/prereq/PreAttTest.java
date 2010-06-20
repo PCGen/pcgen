@@ -86,8 +86,8 @@ public class PreAttTest extends AbstractCharacterTestCase
 		assertFalse("Character's BAB should be less than 7", PrereqHandler
 			.passes(prereq, character, null));
 
-		final BonusObj toHitBonus = Bonus.newBonus("1|COMBAT|TOHIT|1");
-		myClass.addToListFor(ListKey.BONUS, toHitBonus);
+		final BonusObj toHitBonus = Bonus.newBonus("COMBAT|TOHIT|1");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
 		character.calcActiveBonuses();
 
 		assertFalse("Character's BAB should be less than 7", PrereqHandler
@@ -100,8 +100,8 @@ public class PreAttTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+5");
-		myClass.addToListFor(ListKey.BONUS, babClassBonus);
+		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+5");
+		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}
 }

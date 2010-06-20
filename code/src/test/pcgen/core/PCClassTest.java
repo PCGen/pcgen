@@ -250,7 +250,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{
@@ -328,7 +328,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{
@@ -709,7 +709,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, nymphClass);
 		bonusList = pc.getClassKeyed(nymphClass.getKeyName()).getRawBonusList(pc);
 		assertEquals("Only one bonus", 1, bonusList.size());
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(0).toString());
+		assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(0).toString());
 	}
 
 	/**
@@ -744,7 +744,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		pc.incrementClassLevel(1, humanoidClass);
 		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(3).toString());
+		assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
 
@@ -878,7 +878,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
 		prClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{
