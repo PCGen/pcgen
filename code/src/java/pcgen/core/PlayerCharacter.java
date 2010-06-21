@@ -4199,59 +4199,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public String getCopyMasterBAB()
 	{
-		for (CompanionMod cMod : companionModFacet.getSet(id))
-		{
-			/*
-			 * TODO This is the "slow" method - proper solution here is to
-			 * get TYPE in CompanionMod to be "special" and actually store 
-			 * a CompanionList object, not a String
-			 */
-			if (cMod.getType().equalsIgnoreCase(
-				getMaster().getType().getKeyName()))
-			{
-				String copyMasterBAB = cMod.get(StringKey.MASTER_BAB_FORMULA);
-				if (copyMasterBAB != null)
-				{
-					return copyMasterBAB;
-				}
-			}
-		}
-
-		return Constants.EMPTY_STRING;
+		return masterFacet.getCopyMasterBAB(id);
 	}
 
 	public String getCopyMasterCheck()
 	{
-		for (CompanionMod cMod : companionModFacet.getSet(id))
-		{
-			if (cMod.getType().equalsIgnoreCase(
-				getMaster().getType().getKeyName()))
-			{
-				if (cMod.get(StringKey.MASTER_CHECK_FORMULA) != null)
-				{
-					return cMod.get(StringKey.MASTER_CHECK_FORMULA);
-				}
-			}
-		}
-
-		return Constants.EMPTY_STRING;
+		return masterFacet.getCopyMasterCheck(id);
 	}
 
 	public String getCopyMasterHP()
 	{
-		for (CompanionMod cMod : companionModFacet.getSet(id))
-		{
-			if (cMod.getType().equalsIgnoreCase(
-				getMaster().getType().getKeyName()))
-			{
-				if (cMod.get(StringKey.MASTER_HP_FORMULA) != null)
-				{
-					return cMod.get(StringKey.MASTER_HP_FORMULA);
-				}
-			}
-		}
-
-		return Constants.EMPTY_STRING;
+		return masterFacet.getCopyMasterHP(id);
 	}
 
 	public void setCurrentHP(final int currentHP)
@@ -5611,19 +5569,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean getUseMasterSkill()
 	{
-		for (CompanionMod cMod : companionModFacet.getSet(id))
-		{
-			if (cMod.getType().equalsIgnoreCase(
-				getMaster().getType().getKeyName()))
-			{
-				if (cMod.getUseMasterSkill())
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
+		return masterFacet.getUseMasterSkill(id);
 	}
 
 	/**
