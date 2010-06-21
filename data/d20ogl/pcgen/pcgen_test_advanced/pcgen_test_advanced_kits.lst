@@ -1,0 +1,5 @@
+
+
+STARTPACK:Test 5 - Assign Class from Kit ignores PREREQ	APPLY:INSTANT	EQUIPBUY:0	VISIBLE:YES
+CLASS:PreReq Class	LEVEL:2
+CLASS:PreReq Class Two	LEVEL:2
