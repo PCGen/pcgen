@@ -14346,4 +14346,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		shieldProfFacet.remove(id, choice, owner);
 	}
+
+	public boolean hasFollowers()
+	{
+		return followerList.isEmpty();
+	}
 }

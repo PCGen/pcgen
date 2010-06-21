@@ -2223,7 +2223,7 @@ public final class ExportHandler
 		// Filter out FOLLOWER
 		if ("FOLLOWER".equals(aString.substring(1)))
 		{
-			if (aPC.getFollowerList().isEmpty())
+			if (!aPC.hasFollowers())
 			{
 				canWrite = false;
 			}

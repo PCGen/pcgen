@@ -479,9 +479,7 @@ public class CountCommand extends PCGenCommand
 
 					protected void getData(final PlayerCharacter pc)
 					{
-						final List<Follower> followerdata = pc.getFollowerList();
-
-						for (final Follower f : followerdata)
+						for (final Follower f : pc.getFollowerList())
 						{
 
 							// map each followoer to an empty string. Each of these

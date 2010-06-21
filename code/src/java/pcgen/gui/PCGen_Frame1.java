@@ -767,7 +767,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 		addPCTab(aPC);
 
-		if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
+		if (aPC.getLoadCompanion() && aPC.hasFollowers())
 		{
 			for (Follower nPC : aPC.getFollowerList())
 			{
