@@ -134,6 +134,7 @@ import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
+import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.MovementFacet;
 import pcgen.cdom.facet.NaturalWeaponProfFacet;
@@ -274,6 +275,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 	private AutoWeaponProfFacet autoWeaponProfFacet = FacetLibrary.getFacet(AutoWeaponProfFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
+	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -341,7 +343,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
-	private Follower followerMaster = null; // Who is the master now?
 
 	// List of Equip Sets
 	private final List<EquipSet> equipSetList = new ArrayList<EquipSet>();
@@ -2072,7 +2073,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setMaster(final Follower aM)
 	{
-		followerMaster = aM;
+		masterFacet.set(id, aM);
+		Follower followerMaster = aM;
 
 		final PlayerCharacter mPC = getMasterPC();
 
@@ -2366,7 +2368,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Follower getMaster()
 	{
-		return followerMaster;
+		return masterFacet.get(id);
 	}
 
 	/**
@@ -2376,6 +2378,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter getMasterPC()
 	{
+		Follower followerMaster = getMaster();
 		if (followerMaster == null)
 		{
 			return null;
@@ -11000,13 +11003,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}
+		Follower followerMaster = getMaster();
 		if (followerMaster != null)
 		{
-			aClone.followerMaster = followerMaster.clone();
+			aClone.masterFacet.set(id, followerMaster.clone());
 		}
 		else
 		{
-			aClone.followerMaster = null;
+			aClone.masterFacet.remove(id);
 		}
 		for (EquipSet eqSet : equipSetList)
 		{

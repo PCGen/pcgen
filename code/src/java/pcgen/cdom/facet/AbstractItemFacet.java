@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.util.Logging;
 
@@ -30,8 +29,7 @@ import pcgen.util.Logging;
  * used for CDOMObjects where the PlayerCharacter may possesse more than one of
  * that type of object (e.g. Template, Language)
  */
-public abstract class AbstractItemFacet<T extends CDOMObject> extends
-		AbstractDataFacet<T>
+public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 {
 	private final Class<?> thisClass = getClass();
 
