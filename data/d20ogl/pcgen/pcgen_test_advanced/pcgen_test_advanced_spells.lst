@@ -18,6 +18,10 @@ Spell Test ~ MM			SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:DangerousFu
 
 Alice Class Known Spell			CLASSES:Alice Class=1		SCHOOL:Evocation|Divination	SUBSCHOOL:Awesome	DESCRIPTOR:Dangerous	DESC:This is a Test of the Known Spells on a Class Called 'Alice Class'		TARGETAREA:Self	RANGE:0'	COMPS:V
 Alice Adds Spell Through SPELLLEVEL		SCHOOL:Evocation|Divination	SUBSCHOOL:Awesome	DESCRIPTOR:Dangerous	DESC:This is a Test of the SPELLLEVEL on a Class Called 'Alice Class'		TARGETAREA:Self	RANGE:0'	COMPS:V
+Alice Adds Spell Through SPELLLEVEL Lv8		SCHOOL:Evocation|Divination	SUBSCHOOL:Awesome	DESCRIPTOR:Dangerous	DESC:This is a Test of the SPELLLEVEL on a Class Called 'Alice Class'		TARGETAREA:Self	RANGE:0'	COMPS:V
+
+
+
 
 Alice Known Spell					SCHOOL:Evocation|Divination	SUBSCHOOL:Awesome	DESCRIPTOR:Dangerous	DESC:This is a Test of the Known SPELL on a Class Called 'Alice Class'		TARGETAREA:Self	RANGE:0'	COMPS:V
 
