@@ -20,9 +20,11 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.ShieldProfProvider;
+import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 
 /**
@@ -69,5 +71,17 @@ public class ShieldProfFacet extends
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public boolean isProficientWithShield(CharID id, Equipment eq)
+	{
+		for (ProfProvider<ShieldProf> pp : getQualifiedSet(id))
+		{
+			if (pp.providesProficiencyFor(eq))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

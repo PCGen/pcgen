@@ -4914,25 +4914,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (eq.isShield())
 		{
-			for (ProfProvider<ShieldProf> pp : getShieldProfList())
-			{
-				if (pp.providesProficiencyFor(eq))
-				{
-					return true;
-				}
-			}
-			return false;
+			return shieldProfFacet.isProficientWithShield(id, eq);
 		}
 		else if (eq.isArmor())
 		{
-			for (ProfProvider<ArmorProf> pp : getArmorProfList())
-			{
-				if (pp.providesProficiencyFor(eq))
-				{
-					return true;
-				}
-			}
-			return false;
+			return armorProfFacet.isProficientWithArmor(id, eq);
 		}
 		else if (eq.isWeapon())
 		{

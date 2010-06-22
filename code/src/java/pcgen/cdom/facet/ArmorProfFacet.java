@@ -20,10 +20,12 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 
 /**
  * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
@@ -69,5 +71,17 @@ public class ArmorProfFacet extends
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public boolean isProficientWithArmor(CharID id, Equipment eq)
+	{
+		for (ProfProvider<ArmorProf> pp : getQualifiedSet(id))
+		{
+			if (pp.providesProficiencyFor(eq))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
