@@ -293,7 +293,7 @@ BIO
 		<max_dex></max_dex>
 		<spell_failure>0</spell_failure>
 		<check_penalty>+0</check_penalty>
-		<spell_resistance>0</spell_resistance>
+		<spell_resistance>12</spell_resistance>
 	</armor_class>
 	<!--
 	  ====================================

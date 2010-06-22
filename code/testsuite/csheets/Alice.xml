@@ -83,8 +83,8 @@ BIO
 		<favoredlist>MonKee</favoredlist>
 		<followerlist></followerlist>
 		<gender>
-			<long>Female</long>
-			<short>Female</short>
+			<long>Male</long>
+			<short>Male</short>
 		</gender>
 		<handed>Right</handed>
 		<height>
@@ -1485,7 +1485,37 @@ BIO
 			<level number="2" known="0" cast="0"/>
 			<level number="3" known="0" cast="0"/>
 			<level number="4" known="0" cast="0"/>
-			<level number="5" known="0" cast="0"/>
+			<level number="5" known="0" cast="1">
+				<spell>
+						<name>Alice Adds Spell Through SPELLLEVEL</name>
+						<outputname>Alice Adds Spell Through SPELLLEVEL</outputname>
+						<times_memorized>1</times_memorized>
+						<range>0&#39;</range>
+						<components>V</components>
+						<castingtime></castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration></duration>
+						<effect>This is a Test of the SPELLLEVEL on a Class Called &#39;Alice Class&#39;</effect>
+						<target>Self</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation, Divination</school>
+							<subschool>Awesome</subschool>
+							<descriptor>Dangerous</descriptor>
+							<fullschool>Evocation, Divination (Awesome) [Dangerous]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Ali5</sourcelevel>
+							<source>PCGen Team - PCGen Testing Set</source>
+							<sourcepage>null</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>This is a Test of the SPELLLEVEL on a Class Called &#39;Alice Class&#39;</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</level>
 			<level number="6" known="0" cast="0"/>
 			<level number="7" known="0" cast="0"/>
 			<level number="8" known="0" cast="0"/>
