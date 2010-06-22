@@ -126,6 +126,8 @@ public class FacetInitialization
 				.getFacet(ObjectAdditionFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
 				.getFacet(GrantedAbilityFacet.class);
+		HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
+				.getFacet(HasAnyFavoredClassFacet.class);
 
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
@@ -152,6 +154,9 @@ public class FacetInitialization
 		raceFacet.addDataFacetChangeListener(favClassFacet);
 		templateFacet.addDataFacetChangeListener(favClassFacet);
 		conditionalTemplateFacet.addDataFacetChangeListener(favClassFacet);
+		raceFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
+		templateFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet);

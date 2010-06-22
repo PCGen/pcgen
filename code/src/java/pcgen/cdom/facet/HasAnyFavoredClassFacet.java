@@ -17,24 +17,19 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Collection;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.QualifiedObject;
 
 /**
- * HasDeityWeaponProfFacet is a Facet that tracks if the Deity Weapon Profs are
- * contained in the Player Character.
+ * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
+ * "ANY" ("HIGHESTCLASS") as a Favored Class.
  */
-public class HasDeityWeaponProfFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<Boolean>> implements
-		DataFacetChangeListener<CDOMObject>
+public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
+		implements DataFacetChangeListener<CDOMObject>
 {
 
 	/**
-	 * Triggered when one of the Facets to which HasDeityWeaponProfFacet listens
+	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
 	 * 
@@ -47,7 +42,7 @@ public class HasDeityWeaponProfFacet extends
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		QualifiedObject<Boolean> hdw = cdo.get(ObjectKey.HAS_DEITY_WEAPONPROF);
+		Boolean hdw = cdo.get(ObjectKey.ANY_FAVORED_CLASS);
 		if (hdw != null)
 		{
 			add(dfce.getCharID(), hdw, cdo);
@@ -55,7 +50,7 @@ public class HasDeityWeaponProfFacet extends
 	}
 
 	/**
-	 * Triggered when one of the Facets to which HasDeityWeaponProfFacet listens
+	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
 	 * 
@@ -68,18 +63,5 @@ public class HasDeityWeaponProfFacet extends
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
-	}
-
-	public boolean hasDeityWeaponProf(CharID id)
-	{
-		Collection<QualifiedObject<Boolean>> set = getQualifiedSet(id);
-		for (QualifiedObject<Boolean> qo : set)
-		{
-			if (qo.getRawObject())
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 }

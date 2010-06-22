@@ -127,6 +127,7 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.HasDeityWeaponProfFacet;
 import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
@@ -322,6 +323,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
+	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -8332,19 +8334,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasAnyFavoredClass()
 	{
-		if (getRace().getSafe(ObjectKey.ANY_FAVORED_CLASS))
-		{
-			return true;
-		}
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (template.getSafe(ObjectKey.ANY_FAVORED_CLASS))
-			{
-				return true;
-			}
-		}
-		return false;
+		return hasAnyFavoredFacet.contains(id, Boolean.TRUE);
 	}
 
 	public int naturalAC()
