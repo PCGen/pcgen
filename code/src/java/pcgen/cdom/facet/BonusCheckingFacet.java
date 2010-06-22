@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Collection;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
@@ -64,6 +65,18 @@ public class BonusCheckingFacet
 	{
 		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
 		return bonus.resolve(pc, qualifiedKey);
+	}
+
+	public double getAllBonusValues(CharID id, Collection<BonusObj> bonuses,
+			String qualifiedKey)
+	{
+		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		double value = 0;
+		for (BonusObj bo : bonuses)
+		{
+			value += bo.resolve(pc, qualifiedKey).doubleValue();
+		}
+		return value;
 	}
 
 }

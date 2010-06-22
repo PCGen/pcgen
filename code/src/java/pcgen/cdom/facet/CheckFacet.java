@@ -17,12 +17,42 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCCheck;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
 
 /**
- * CheckFacet is a Facet that tracks the PCCheck objects available to a Player Character.
+ * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
+ * Character.
  */
 public class CheckFacet extends AbstractListFacet<PCCheck>
 {
+
+	private BonusCheckingFacet bonusFacet = FacetLibrary
+			.getFacet(BonusCheckingFacet.class);
+
+	public double getCheckBonusTo(CharID id, String type, String name)
+	{
+		double bonus = 0;
+		type = type.toUpperCase();
+		name = name.toUpperCase();
+
+		for (PCCheck check : getSet(id))
+		{
+			List<BonusObj> tempList = BonusUtilities.getBonusFromList(check
+					.getListFor(ListKey.BONUS), type, name);
+			if (!tempList.isEmpty())
+			{
+				bonus += bonusFacet.getAllBonusValues(id, tempList, check
+						.getQualifiedKey());
+			}
+		}
+
+		return bonus;
+	}
 
 }

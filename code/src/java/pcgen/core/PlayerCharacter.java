@@ -7359,7 +7359,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("STATMOD".equals(tokens[i]))
 			{
-				save += (int) getCheckBonusTo("CHECKS", saveType);
+				save += (int) checkFacet.getCheckBonusTo(id, "CHECKS", saveType);
 			}
 
 			/**
@@ -7387,7 +7387,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
 			{
-				save -= (int) getCheckBonusTo("CHECKS", saveType);
+				save -= (int) checkFacet.getCheckBonusTo(id, "CHECKS", saveType);
 			}
 		}
 
@@ -9033,33 +9033,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Collection<BonusObj> getActiveBonusList()
 	{
 		return bonusManager.getActiveBonusList();
-	}
-
-	/**
-	 * Calculates total bonus from Checks
-	 * 
-	 * @param aType
-	 * @param aName
-	 * @return check bonus to
-	 */
-	private double getCheckBonusTo(String aType, String aName)
-	{
-		double bonus = 0;
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		for (PObject obj : checkFacet.getSet(id))
-		{
-			final List<BonusObj> tempList = BonusUtilities.getBonusFromList(obj
-					.getBonusList(this), aType, aName);
-
-			if (!tempList.isEmpty())
-			{
-				bonus += calcBonusFromList(tempList, obj);
-			}
-		}
-
-		return bonus;
 	}
 
 	private synchronized void setClassLevelsBrazenlyTo(
