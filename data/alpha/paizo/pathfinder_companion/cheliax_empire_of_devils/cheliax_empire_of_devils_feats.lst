@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Wed Apr 21 12:54:49 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CED	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Combat Feats
+# Feat Name		Type		Required Ability							Req. Att.	Required Feat							Required Skill		Required Stat	Var. Min. Value			Description													Combat bonus										Modify VAR			Source Page
+Belier's Bite	TYPE:Combat												PREFEAT:1,Improved Unarmed Strike																DESC:Your unarmed strikes cause your opponents to bleed.																					SOURCEPAGE:p.26
+Cornugon Shield	TYPE:Combat												PREFEAT:1,Weapon Focus (Chain (Spiked))							PRESTAT:1,DEX=15						DESC:You can use your spiked chain as both armor and weapon.				BONUS:COMBAT|AC|TwoWeaponShield|TYPE=Shield|PREEQUIP:1,Chain (Spiked)					SOURCEPAGE:p.26
+Cornugon Smash	TYPE:Combat												PREFEAT:1,Power Attack						PRESKILL:1,Intimidate=6									DESC:Your terrible attacks strike fear into your enemies.																					SOURCEPAGE:p.26
+Cornugon Stun	TYPE:Combat												PREFEAT:1,Stunning Fist																		DESC:You are able to make stunning attacks with special monk weapons.																			SOURCEPAGE:p.26
+Cornugon Trip	TYPE:Combat												PREFEAT:2,Improved Trip,Weapon Focus (Chain (Spiked))					PRESTAT:1,DEX=15						DESC:You can throw your spiked chain to make trip attacks.																					SOURCEPAGE:p.26
+Fury's Fall		TYPE:Combat												PREFEAT:1,Improved Trip																		DESC:You can use your strength and agility to send foes crashing to the ground.													BONUS:VAR|CMB_Trip|DEX	SOURCEPAGE:p.26
+Fury's Snare	TYPE:Combat												PREFEAT:2,Fury's Fall,Improved Trip																DESC:You entangle your foe in your weapon.																							SOURCEPAGE:p.26
+Hamatula Grasp	TYPE:Combat										PREATT:9	PREFEAT:2,Hamatula Strike,Improved Grapple						PRESTAT:1,STR=13						DESC:You deal terrible damage to impaled foes.																							SOURCEPAGE:p.27
+Hamatula Strike	TYPE:Combat										PREATT:7	PREFEAT:1,Improved Grapple									PRESTAT:1,STR=13						DESC:You can cath your opponents on your weapon and hold them in place.																			SOURCEPAGE:p.27
+Hellcat Pounce	TYPE:Combat	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack			PREFEAT:2,Hellcat Stealth,Skill Focus (Stealth)									PREVARGTEQ:SneakAttack,2	DESC:You attack unsuspecting foes twice.																								SOURCEPAGE:p.27
+Hellcat Stealth	TYPE:Combat												PREFEAT:1,Skill Focus (Stealth)				PRESKILL:1,Stealth=6									DESC:You are difficult to see in the light.																							SOURCEPAGE:p.27
+Osyluth Guile	TYPE:Combat												PREFEAT:1,Dodge							PRESKILL:1,Bluff=8									DESC:You are skilled at misdirecting an opponent's attack.																					SOURCEPAGE:p.27
+
+#
+# End
+#
