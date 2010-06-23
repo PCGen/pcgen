@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 14 21:43:26 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Jun 22 15:33:53 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -6,6 +6,7 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 # Sorted by the "Magic Items on the Body" listing for now...
 # Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
 # Belt slot
+# Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
 Belt			TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
 Girdle		TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
 # Body slot
