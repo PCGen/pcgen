@@ -1,0 +1,129 @@
+# CVS $Revision$ $Author$ -- Sat May  8 15:45:46 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+
+
+STARTPACK:Deathweb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathweb]	SOURCEPAGE:p.79
+RACE:Deathweb	!PRERACE:1,%
+NAME:Deathweb
+ALIGN:TN
+SKILL:Perception	RANK:12
+SKILL:Stealth	RANK:12
+FEAT:Power Attack
+FEAT:Multiattack
+FEAT:Improved Bull Rush
+FEAT:Cleave
+FEAT:Awesome Blow
+FEAT:Combat Reflexes
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Redcap Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.80
+RACE:Redcap	!PRERACE:1,%
+NAME:Redcap
+ALIGN:NE
+SKILL:Acrobatics			RANK:8
+SKILL:Bluff				RANK:8
+SKILL:Climb				RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Nature)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Focus (Scythe)
+FEAT:Cleave
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+GEAR:Scythe	SIZE:M	LOCATION:Both Hands	EQMOD:STEEL
+
+
+STARTPACK:Hound of Tindalos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]	SOURCEPAGE:p.82
+RACE:Hound of Tindalos	!PRERACE:1,%
+NAME:Hound of Tindalos
+ALIGN:NE
+SKILL:Acrobatics			RANK:10
+SKILL:Climb				RANK:10
+SKILL:Escape Artist		RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Knowledge (Geography)	RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Survival			RANK:10
+SKILL:Swim				RANK:10
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Great Fortitude
+FEAT:Weapon Finesse
+FEAT:Nimble Moves
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Giant (Tiaga) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Tiaga)]	SOURCEPAGE:p.84
+RACE:Giant (Tiaga)	!PRERACE:1,%
+NAME:Tiaga Giant
+ALIGN:CN
+SKILL:Climb				RANK:8
+SKILL:Knowledge (Religion)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Stealth			RANK:13
+SKILL:Survival			RANK:7
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Intimidating Prowess
+FEAT:Cleave
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+GEAR:Greatclub		SIZE:H	LOCATION:Both Hands
+GEAR:Javelin		SIZE:H	LOCATION:Carried
+GEAR:Studded Leather	SIZE:H	LOCATION:Equipped
+GEAR:Rock (Medium)	SIZE:H	LOCATION:Carried
+
+
+STARTPACK:Scanderig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scanderig]	SOURCEPAGE:p.86
+RACE:Scanderig	!PRERACE:1,%
+NAME:Scanderig
+ALIGN:LE
+SKILL:Acrobatics				RANK:11
+SKILL:Disable Device			RANK:11
+SKILL:Escape Artist			RANK:11
+SKILL:Intimidate				RANK:11
+SKILL:Knowledge (Dungeoneering)	RANK:11
+SKILL:Perception				RANK:11
+SKILL:Stealth				RANK:11
+SKILL:Sense Motive			RANK:11
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Quicken Spell-Like Ability(Produce Flame)
+FEAT:Critical Focus
+FEAT:Lightning Reflexes
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Shining Child of Thassilon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child of Thassilon]	SOURCEPAGE:p.88
+RACE:Shining Child of Thassilon	!PRERACE:1,%
+NAME:Shining Child of Thassilon
+ALIGN:CE
+SKILL:Bluff				RANK:18
+SKILL:Diplomacy			RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Use Magic Device		RANK:18
+FEAT:Ability Focus(Aura of Blinding Light)
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Quicken Spell-Like Ability(Teleport (Greater))
+FEAT:Spring Attack
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10

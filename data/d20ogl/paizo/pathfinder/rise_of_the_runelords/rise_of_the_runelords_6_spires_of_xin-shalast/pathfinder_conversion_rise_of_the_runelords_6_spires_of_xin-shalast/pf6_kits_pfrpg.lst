@@ -1,0 +1,146 @@
+# CVS $Revision$ $Author$ -- Tue May 11 18:47:16 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 6: Spires of Xin-Shalast	SOURCESHORT:PF6	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+
+STARTPACK:Crag Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Craig Spider]
+RACE:Craig Spider	!PRERACE:1,%
+NAME:Craig Spider
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Denizen of Leng Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
+RACE:Denizen of Leng	!PRERACE:1,%
+NAME:Denizen of Leng
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Bluff				RANK:10
+SKILL:Craft (Alchemy)		RANK:10
+SKILL:Disable Device		RANK:10
+SKILL:Disguise			RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Linguistics			RANK:10
+SKILL:Perception			RANK:10
+SKILL:Profession (Sailor)	RANK:10
+SKILL:Sleight of Hand		RANK:10
+SKILL:Spellcraft			RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Use Magic Device		RANK:10
+FEAT:Improved Critical(Dagger)
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Quick Draw
+FEAT:Weapon Finesse
+GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Leather			LOCATION:Equipped
+
+
+STARTPACK:Kuchrima Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuchrima]
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+RACE:Kuchrima	!PRERACE:1,%
+NAME:Kuchrima
+ALIGN:CE
+SKILL:Perception	RANK:11
+FEAT:Alertness
+FEAT:Altitude Affinity
+FEAT:Endurance
+FEAT:Point-Blank Shot
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+GEAR:Dagger				SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|+2
+
+
+STARTPACK:Harridan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harridan]
+RACE:Harridan	!PRERACE:1,%
+NAME:Harridan
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Bluff				RANK:5
+SKILL:Climb				RANK:2
+SKILL:Diplomacy			RANK:5
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Perception			RANK:17
+SKILL:Stealth			RANK:17
+FEAT:Altitude Affinity
+FEAT:Dodge
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Multiattack
+FEAT:Spring Attack
+FEAT:Improved Initiative
+FEAT:Combat Reflexes
+FEAT:Weapon Focus(Greatsword)
+GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Hungerer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hungerer]
+RACE:Hungerer	!PRERACE:1,%
+NAME:Hungerer
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Climb			RANK:15
+SKILL:Intimidate		RANK:11
+SKILL:Perception		RANK:17
+SKILL:Stealth		RANK:10
+SKILL:Use Magic Device	RANK:10
+FEAT:Altitude Affinity
+FEAT:Diehard
+FEAT:Dodge
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Spring Attack
+FEAT:Improved Great Fortitude
+FEAT:Improved Iron Will
+FEAT:Improved Initiative
+
+
+STARTPACK:Rune Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rune Giant]
+RACE:Rune Giant	!PRERACE:1,%
+NAME:Rune Giant
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:20
+SKILL:Acrobatics	RANK:20
+SKILL:Intimidate	RANK:20
+SKILL:Perception	RANK:20
+FEAT:Altitude Affinity
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Greatsword)
+FEAT:Power Attack
+FEAT:Quick Draw
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Greatsword)
+GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand
+
+
+STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
+RACE:Wendigo	!PRERACE:1,%
+NAME:Wendigo
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+FEAT:Ability Focus(Howl)
+FEAT:Ability Focus(Dream Haunting)
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Iron Will
+FEAT:Improved Iron Will
+FEAT:Dodge
+SKILL:Acrobatics			RANK:18
+SKILL:Knowledge (Geography)	RANK:18
+SKILL:Knowledge (Nature)	RANK:18
+SKILL:Knowledge (Religion)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Perception			RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Survival			RANK:18

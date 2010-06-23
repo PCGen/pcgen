@@ -1,0 +1,54 @@
+# CVS $Revision$ $Author$ -- Sat Jan 17 15:39:52 2004 -- reformated by prettylst.pl v1.31 (build 327)
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 2: The Skinsaw Murders - Pathfinder Conversion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide - Pathfinder Conversion
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders
+SOURCESHORT:PF2
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029
+SOURCEDATE:2007-10
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007, Paizo Publishing LLC. Author F. Wesley Schneider.
+COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs
+COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett
+COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 2: The Skinsaw Murders" Copyright 2007-2008, PCGen Data Team (including, but not limited to, Stefan Radermacher.)
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/rise_of_the_runelords_2_the_skinsaw_murders.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy8029|Buy this publication from Paizo Publishing!
+DESC:A sudden string of brutal killings terrorizes Sandpoint, and the killer's mark bears a disturbing similarity to the strange rune the goblins in the previous adventure had taken as their tribal totem. Investigation leads the heroes to confront a sinister murderer who has claimed a notorious haunted mansion as his lair. Yet this murderer is one of many, a member of a group of killers who call themselves the Skinsaw Men and have adopted an ancient magic involving the seven deadly sins. The PCs must travel to the bustling city of Magnimar to unravel the truth behind the rune, but in so doing may become prime suspects in the killings themselves!
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_abilities_class_prestige.lst
+ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_abilities_racial.lst
+CLASS:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_classes_prestige.lst
+CLASS:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_classes_monsters_specific.lst
+COMPANIONMOD:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_companionmods.lst
+DEITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_deities.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_equip_wondrousitems.lst
+FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_feats.lst
+RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_races.lst|(EXCLUDE:Boggard)
+SPELL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_spells.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_2_the_skinsaw_murders/pf2_templates_hidden.lst
+
+CLASS:pf2_classes_pfrpg.lst
+KIT:pf2_kits_races_pfrpg.lst
+RACE:pf2_races_pfrpg.lst

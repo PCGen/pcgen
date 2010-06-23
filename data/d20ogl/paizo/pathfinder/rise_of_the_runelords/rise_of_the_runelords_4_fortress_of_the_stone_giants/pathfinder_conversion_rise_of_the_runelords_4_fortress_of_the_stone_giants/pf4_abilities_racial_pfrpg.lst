@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Sat May  8 15:45:46 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+###Block: Racial Abilities
+# Ability Name		Category of Ability		Type						Visible	Description
+Earth Glide ~ Scanderig	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A forgefiend can glide through stone, dirt, or almost any other sort of earth except metal.

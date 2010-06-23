@@ -1,0 +1,223 @@
+# CVS $Revision$ $Author$ -- Sat May  8 22:11:16 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+
+STARTPACK:Ercinee Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ercinee]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Ercinee	!PRERACE:1,%
+NAME:Ercinee
+ALIGN:TN
+SKILL:Bluff		RANK:7
+SKILL:Perception	RANK:7
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Wingover
+
+
+STARTPACK:Marsh Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Marsh Giant	!PRERACE:1,%
+NAME:Marsh Giant
+ALIGN:CE
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:6
+SKILL:Survival			RANK:1
+FEAT:Combat Reflexes
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Greatclub		SIZE:PC	LOCATION:Primary Hand
+GEAR:Rock (Medium)			LOCATION:Carried
+
+
+STARTPACK:Marsh Giant (Brineborn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant (Brineborn)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Marsh Giant (Brineborn)	!PRERACE:1,%
+NAME:Brineborn
+ALIGN:CE
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:6
+SKILL:Survival			RANK:1
+FEAT:Combat Reflexes
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Greatclub		SIZE:PC	LOCATION:Primary Hand
+GEAR:Rock (Medium)			LOCATION:Carried
+
+
+STARTPACK:Witchfire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+RACE:Witchfire	!PRERACE:1,%
+NAME:Witchfire
+ALIGN:CE
+SKILL:Bluff			RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:Perception		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Stealth		RANK:13
+SKILL:TYPE=Knowledge	RANK:13	COUNT:2
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Flyby Attack
+
+
+STARTPACK:Demon (Shemhazian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Demon (Shemhazian)	!PRERACE:1,%
+NAME:Shemhazian
+ALIGN:CE
+SKILL:Acrobatics		RANK:16
+SKILL:Climb			RANK:16
+SKILL:Intimidate		RANK:16
+SKILL:Perception		RANK:16
+SKILL:Sense Motive	RANK:16
+SKILL:Stealth		RANK:16
+FEAT:Alertness
+FEAT:Awesome Blow
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Great Fortitude
+
+
+STARTPACK:Night Monarch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Monarch]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Night Monarch	!PRERACE:1,%
+NAME:Night Monarch
+ALIGN:CG
+SKILL:Diplomacy			RANK:18
+SKILL:Handle Animal		RANK:18
+SKILL:Heal				RANK:18
+SKILL:Knowledge (Geography)	RANK:18
+SKILL:Knowledge (Nature)	RANK:18
+SKILL:Knowledge (Religion)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Survival			RANK:18
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Snatch
+FEAT:Wingover
+
+
+STARTPACK:Star Monarch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Monarch]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Star Monarch	!PRERACE:1,%
+NAME:Star Monarch
+ALIGN:CG
+SKILL:Heal		RANK:9
+SKILL:Perception	RANK:9
+SKILL:Stealth	RANK:9
+SKILL:Survival	RANK:9
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Snatch
+FEAT:Wingover
+
+
+STARTPACK:Yethazmari Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yethazmari]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+RACE:Yethazmari	!PRERACE:1,%
+NAME:Yethazmari
+ALIGN:CE
+SKILL:Acrobatics			RANK:18
+SKILL:Bluff				RANK:18
+SKILL:Climb				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Perception			RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Survival			RANK:18
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Lightning Reflexes
+
+
+
+###NPCS and Core Book modified monsters----------------------------------------------------------------------------------------
+#STARTPACK:Default Hounds of Lamashtu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
+#STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+##Str 21, Dex 14, Con 20, Int 2, Wis 12, Cha 15
+#RACE:Shadow Mastiff	!PRERACE:1,%
+#NAME:Hounds of Lamashtu
+#ALIGN:NE
+##Skills Hide +11, Listen +10, Move Silently +11, Spot +10, Survival +1 (+5 tracking by scent)
+##SKILL:Hide			RANK:9
+##SKILL:Listen		RANK:9
+##SKILL:Move Silently	RANK:9
+##SKILL:Spot			RANK:9
+##SKILL:Survival		RANK:0
+#FEAT:Improved Initiative
+#FEAT:Improved Natural Attack(Bite)
+#FEAT:Track
+#FEAT:Weapon Focus(Bite)
+##Hounds of Lamashtu (6) CR 6
+##Advanced elite shadow mastiff (MM 222)
+##NE Medium outsider (extraplanar)
+#
+#
+##Not Complete - missing STAT, SKILL, FEAT, Gear
+#STARTPACK:Default Yaenit-Ku	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Glabrezu)]
+#STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#RACE:Demon (Glabrezu)	!PRERACE:1,%
+#NAME:Yaenit-Ku
+#ALIGN:CE
+##Male glabrezu demon (MM 43)
+##hp 174
+#
+#
+##Not Complete - missing STAT,, FEAT, Gear
+#STARTPACK:Default Arkrhyst	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Old)]
+#STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#RACE:Dragon (White Old)	!PRERACE:1,%
+#NAME:Arkrhyst
+#ALIGN:LE
+##Skills Listen +28, Spot +28
+##SKILL:Listen	RANK:27
+##SKILL:Spot		RANK:27
+##Arkrhyst CR 15
+##Male old white dragon (MM 77)
+##CE Huge dragon (cold)
+#
+#
+##Not Complete - missing STAT, SKILL, FEAT, Gear
+#STARTPACK:Default Thassilonian Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+#STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#RACE:Mummy	!PRERACE:1,%
+#NAME:Thassilonian Mummy
+#ALIGN:LE
+##Skills Listen +19, Spot +19
+##SKILL:Listen	RANK:6
+##SKILL:Spot		RANK:6
+##Thassilonian Mummy (6) CR 7
+##Elite advanced mummy (MM 190)
+##No Elite advanced mummy specified... What is it?
+##LE Medium undead

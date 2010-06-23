@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue May 11 18:47:16 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 6: Spires of Xin-Shalast	SOURCESHORT:PF6	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+# Ability Name	Unique Key				Category of Ability		Type						Description
+Dream Haunting	KEY:Dream Haunting ~ Wendigo	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A wendigo can visit the dreams of a single victim within 1 mile while that individual sleeps.
+Howl			KEY:Howl ~ Wendigo		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:a wendigo can let loose a forlorn howl that echoes throughout the countryside and can be heard up to a mile away—even during the fiercest storm—unless magically silenced.
