@@ -99,7 +99,7 @@ SKILL:Sense Motive			RANK:11
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Iron Will
-FEAT:Quicken Spell-Like Ability(Produce Flame)
+FEAT:Quicken Spell-Like Ability ~ Spell (Produce Flame)
 FEAT:Critical Focus
 FEAT:Lightning Reflexes
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
@@ -123,7 +123,7 @@ FEAT:Dodge
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Mobility
-FEAT:Quicken Spell-Like Ability(Teleport (Greater))
+FEAT:Quicken Spell-Like Ability ~ Spell (Teleport (Greater))
 FEAT:Spring Attack
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
