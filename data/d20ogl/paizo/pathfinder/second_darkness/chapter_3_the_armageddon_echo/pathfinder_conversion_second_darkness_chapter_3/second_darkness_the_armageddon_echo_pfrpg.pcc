@@ -24,7 +24,7 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 3: The Armaged
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/second_darkness_the_armageddon_echo.jpg
+COVER:../second_darkness_the_armageddon_echo.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,13 +34,13 @@ DESC:The End is Nigh! The city of Celwynvian hides a terrible sin. For countless
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_abilities.lst
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_ability_categories.lst
-CLASS:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_classes.lst
-DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_deity_drow_demon_lords.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_feat.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_races.lst
+ABILITY:../pf15_abilities.lst
+ABILITYCATEGORY:../pf15_ability_categories.lst
+CLASS:../pf15_classes.lst
+DEITY:../pf15_deity_drow_demon_lords.lst
+EQUIPMENT:../pf15_equipment.lst
+FEAT:../pf15_feat.lst
+RACE:../pf15_races.lst
 
 CLASS:pf15_classes_pfrpg.lst
 KIT:pf15_kits_monsters_pfrpg.lst

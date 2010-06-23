@@ -26,7 +26,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder 4: Fortress of the Stone Gian
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/rise_of_the_runelords_4_fortress_of_the_stone_giants.jpg
+COVER:../rise_of_the_runelords_4_fortress_of_the_stone_giants.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -37,13 +37,13 @@ DESC:A sudden assault on the town of Sandpoint by stone giants and a dragon brin
 #EXTRAFILE:pf4_OGL.txt
 
 # Data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_abilities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_equip_magic_weapons_melee.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_equip_magic_rodsstaveswands.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_equip_magic_wondrousitems.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_races.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_4_fortress_of_the_stone_giants/pf4_templates.lst
+ABILITY:../pf4_abilities.lst
+EQUIPMENT:../pf4_equip_magic_weapons_melee.lst
+EQUIPMENT:../pf4_equip_magic_rodsstaveswands.lst
+EQUIPMENT:../pf4_equip_magic_wondrousitems.lst
+FEAT:../pf4_feats.lst
+RACE:../pf4_races.lst
+TEMPLATE:../pf4_templates.lst
 
 ABILITY:pf4_abilities_racial_pfrpg.lst
 KIT:pf4_kits_races_pfrpg.lst

@@ -26,7 +26,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder 3: The Hook Mountain Massacre
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/rise_of_the_runelords_3_the_hook_mountain_massacre.jpg
+COVER:../rise_of_the_runelords_3_the_hook_mountain_massacre.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -37,12 +37,12 @@ DESC:The third installment of the Rise of the Runelords Adventure Path begins wi
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_abilities_racial.lst
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_ability_categories.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_equip_wondrousitems.lst|(EXCLUDE:Belt of Giant Strength +2)
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_races.lst
-SKILL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_skills.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_3_the_hook_mountain_massacre/pf3_templates.lst
+ABILITY:../pf3_abilities_racial.lst
+ABILITYCATEGORY:../pf3_ability_categories.lst
+EQUIPMENT:../pf3_equip_wondrousitems.lst|(EXCLUDE:Belt of Giant Strength +2)
+RACE:../pf3_races.lst
+SKILL:../pf3_skills.lst
+TEMPLATE:../pf3_templates.lst
 
 ABILITY:pf3_abilities_pfrpg.lst
 #KIT:pf3_kits_npcs_pfrpg.lst

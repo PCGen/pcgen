@@ -28,7 +28,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder 5: Sins of the Saviors" Copyr
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/rise_of_the_runelords_5_sins_of_the_saviors.jpg
+COVER:../rise_of_the_runelords_5_sins_of_the_saviors.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,11 +38,11 @@ DESC:After defeating the giants of Mokmurian, the heroes discover that Karzoug, 
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/pf5_abilities_monster.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/pf5_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/pf5_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/pf5_race.lst
-SPELL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_5_sins_of_the_saviors/pf5_spells.lst
+ABILITY:../pf5_abilities_monster.lst
+EQUIPMENT:../pf5_equipment.lst
+FEAT:../pf5_feats.lst
+RACE:../pf5_race.lst
+SPELL:../pf5_spells.lst
 
 ABILITY:pf5_abilities_pfrpg.lst
 CLASS:pf5_classes_pfrpg.lst

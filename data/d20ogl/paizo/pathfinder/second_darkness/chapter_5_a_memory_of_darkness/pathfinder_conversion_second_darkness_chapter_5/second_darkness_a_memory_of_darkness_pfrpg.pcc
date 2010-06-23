@@ -24,7 +24,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder 17: A Memory of Darkness" Cop
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/second_darkness_a_memory_of_darkness.jpg
+COVER:../second_darkness_a_memory_of_darkness.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,10 +34,10 @@ DESC:Armed with the knowledge that an elven traitor supplied the drow with the m
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_abilities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_equipment.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_race.lst
-SPELL:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_spells.lst
+ABILITY:../pf17_abilities.lst
+EQUIPMENT:../pf17_equipment.lst
+RACE:../pf17_race.lst
+SPELL:../pf17_spells.lst
 
 ABILITY:pf17_abilities_pfrpg.lst
 KIT:pf17_kit_monster_pfrpg.lst

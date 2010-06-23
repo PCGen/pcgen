@@ -28,7 +28,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder 18: Descent Into Midnight" Co
 COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/second_darkness_descent_into_midnight.jpg
+COVER:../second_darkness_descent_into_midnight.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,10 +38,10 @@ DESC:The Second Darkness Adventure Path comes to its explosive conclusion as the
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_abilities.lst
-DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_demon_lords.lst|(EXCLUDE:Lamashtu)
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_races.lst|(EXCLUDE:Shaitan)
-TEMPLATE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_templates.lst
+ABILITY:../pf18_abilities.lst
+DEITY:../pf18_demon_lords.lst|(EXCLUDE:Lamashtu)
+RACE:../pf18_races.lst|(EXCLUDE:Shaitan)
+TEMPLATE:../pf18_templates.lst
 
 EQUIPMENT:pf18_equipment_pfrpg.lst
 KIT:pf18_kits_monsters_pfrpg.lst
