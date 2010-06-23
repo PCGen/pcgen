@@ -1,0 +1,28 @@
+# CVS $Revision$ $Author$ -- Wed Feb 17 22:46:33 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+
+# Feat Name				Required Feat									Required Skill
+Arcane Vendetta.MOD													PRESKILL:1,Spellcraft=1
+Crossbow Mastery.MOD		PREFEAT:3,Point Blank Shot,Rapid Reload,Rapid Shot
+Enforcer.MOD														PRESKILL:1,Intimidate=1
+Eye of the Arclord.MOD													PRESKILL:1,Concentration=4
+Focused Shot.MOD			PREFEAT:2,Point Blank Shot,Precise Shot
+Hamatulatsu.MOD														PRESKILL:1,Intimidate=5
+Massed charge.MOD														PRESKILL:2,Handle Animal=4,Ride=9
+Parting Shot.MOD			PREFEAT:4,Dodge,Mobility,Point Blank Shot,Shot on the Run
+Profits of Kalistrade.MOD												PRESKILL:1,Diplomacy=1
+Sniper Shot.MOD			PREFEAT:4,Far Shot,Focused Shot,Point Blank Shot,Precise Shot
+Storm-Lashed.MOD														PRESKILL:1,Profession (Sailor)=1
+
+###Block: General Feats
+# Feat Name			Required Ability							Required Skill					Allowed Companions
+Harmonic Spell.MOD										PRESKILL:1,TYPE=Perform=8
+One Finger.MOD		PREABILITY:1,CATEGORY=Special Ability,Ki Strike
+Spirit Strike.MOD		PREABILITY:1,CATEGORY=Special Ability,TYPE=TurnUndead	PRESKILL:1,Knowledge (Religion)=5
+Vermin Companion.MOD																	COMPANIONLIST:Animal Companion|Giant Ant (Worker),Giant Fire Beetle,Monstrous Centipede (Medium),Monstrous Scorpion (Medium),Monstrous Spider (Medium)	COMPANIONLIST:Animal Companion|Giant Ant (Soldier),Giant Bee,Giant Bombardier Beetle,Monstrous Centipede (Large),Monstrous Scorpion (Large),Monstrous Spider (Large)|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Giant Praying Mantis,Giant Stag Beetle,Giant Wasp,Monstrous Centipede (Huge)|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Monstrous Centipede (Gargantuan),Monstrous Spider (Huge)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Monstrous Scorpion (Huge)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Monstrous Spider (Gargantuan)|FOLLOWERADJUSTMENT:-15
+Wand Dancer.MOD											PRESKILL:2,Perform (Dance)=1,Tumble=1
+
+#
+# End
+#

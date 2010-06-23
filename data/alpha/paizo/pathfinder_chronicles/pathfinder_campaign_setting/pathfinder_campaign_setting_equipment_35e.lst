@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Wed Feb 17 18:57:39 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+#Simple Ranged Weapon
+# Equipment Name	Required Weapon Proficiency	Type									Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Source Page
+Blowgun		PROFICIENCY:WEAPON|Blowgun	TYPE:Weapon.Simple.Ranged.Standard.Container.Piercing	CONTAINS:1|Dart=1	COST:2	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:WOOD				RANGE:20	SOURCEPAGE:p.209
+
+#Light Martial Melee Weapons
+Starknife		PROFICIENCY:WEAPON|Starknife	TYPE:Weapon.Martial.Melee.Thrown.Standard.Piercing				COST:24	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL	WIELD:Light		RANGE:20	SOURCEPAGE:p.209
+
+#
+# End
+#

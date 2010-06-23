@@ -1,0 +1,58 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder Chronicles: Campaign Setting
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Chronicles
+RANK:2
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Pathfinder Chronicles: Campaign Setting
+SOURCESHORT:PFCS
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search
+SOURCEDATE:2008-08
+ISOGL:YES
+ISLICENSED:NO
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Art of the Duel. Copyright 2008, Sinister Adventures; Author: Craig Shackleton.
+COPYRIGHT:Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Campaign Setting" Copyright 2010, PCGen Data team (Including, but not limited to Eddy Anthony (MoSaT))
+
+COVER:pathfinder_campaign_setting.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search|Buy this publication from Paizo Publishing!
+DESC:Golarion, the exciting world of the Pathfinder Adventure Paths and Pathfinder Modules, comes alive in this massive 256-page full-color hardcover tome primed up and ready to go for your new campaign! Detailed sections on more than 40 nations--from the frontiers of Varisia to the devil-tainted cities of Cheliax to the frigid Hold of the Mammoth Lords--provide a full picture of the world of the Pathfinder Chronicles campaign setting, with new rules, new magic and spells, detailed descriptions of more than twenty gods and their religions, and a gorgeous poster map detailing the entire campaign setting. The Pathfinder Chronicles campaign setting provides classic adventuring style and cutting-edge game design perfectly suitable for the world's most popular roleplaying game!
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:pathfinder_campaign_setting_abilitycategories.lst
+ABILITY:pathfinder_campaign_setting_abilities_35e.lst
+ABILITY:pathfinder_campaign_setting_abilities.lst
+CLASS:pathfinder_campaign_setting_classes_35e.lst
+CLASS:pathfinder_campaign_setting_classes.lst
+DEITY:pathfinder_campaign_setting_deities_35e.lst
+DEITY:pathfinder_campaign_setting_deities.lst
+EQUIPMENT:pathfinder_campaign_setting_equipment_35e.lst
+EQUIPMENT:pathfinder_campaign_setting_equipment.lst
+FEAT:pathfinder_campaign_setting_feats_35e.lst
+FEAT:pathfinder_campaign_setting_feats.lst
+KIT:pathfinder_campaign_setting_kits_npc_35e.lst
+LANGUAGE:pathfinder_campaign_setting_languages.lst
+RACE:pathfinder_campaign_setting_races.lst
+SKILL:pathfinder_campaign_setting_skills_35e.lst
+TEMPLATE:pathfinder_campaign_setting_templates_35e.lst
+TEMPLATE:pathfinder_campaign_setting_templates.lst
+WEAPONPROF:pathfinder_campaign_setting_profs_weapons_35e.lst
+WEAPONPROF:pathfinder_campaign_setting_profs_weapons.lst
+
+#
+# End
+#

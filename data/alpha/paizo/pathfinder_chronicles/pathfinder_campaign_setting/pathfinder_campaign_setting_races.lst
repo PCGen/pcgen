@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Thu Apr 22 12:20:08 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+
+# Race Name		Template
+Half-Elf.MOD	TEMPLATE:Human Ethnicity
+Half-Orc.MOD	TEMPLATE:Human Ethnicity
+Human.MOD		TEMPLATE:Human Ethnicity
+
+#
+# End
+#
