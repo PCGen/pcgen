@@ -1,0 +1,107 @@
+# CVS $Revision$ $Author$ -- Thu May 27 15:23:37 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness	SOURCESHORT:PF17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tr	SOURCEDATE:2008-12
+# Original Entry by Eddy Anthony (MoSaT)
+
+
+STARTPACK:Banshee Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Banshee],[!PRERACE:1,%]	SOURCEPAGE:p. 80
+ALIGN:CE
+RACE:Banshee	!PRERACE:1,%
+NAME:Banshee
+SKILL:Perception	RANK:14
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Leucrotta Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leucrotta],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+ALIGN:CE
+RACE:Leucrotta	!PRERACE:1,%
+NAME:Leucrotta
+SKILL:Bluff		RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Improved Initiative
+FEAT:Skill Focus(Bluff)
+FEAT:Stealthy
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Mandragora Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mandragora],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+ALIGN:CE
+RACE:Mandragora	!PRERACE:1,%
+NAME:Mandragora
+SKILL:Stealth	RANK:5
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Menotherian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Menotherian],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+ALIGN:CN
+RACE:Menotherian	!PRERACE:1,%
+NAME:Menotherian
+SKILL:Acrobatics			RANK:14
+SKILL:Bluff				RANK:14
+SKILL:Diplomacy			RANK:14
+SKILL:Heal				RANK:8
+SKILL:Intimidate			RANK:14
+SKILL:Knowledge (History)	RANK:5
+SKILL:Knowledge (Nature)	RANK:10
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Perception			RANK:14
+SKILL:Perform (Dance)		RANK:5
+SKILL:Sense Motive		RANK:14
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:14
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Treerazer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treerazer],[!PRERACE:1,%]	SOURCEPAGE:p. 88
+ALIGN:CE
+RACE:Treerazer	!PRERACE:1,%
+NAME:Treerazer
+SKILL:Fly				RANK:31
+SKILL:Intimidate			RANK:31
+SKILL:Knowledge (Arcana)	RANK:31
+SKILL:Knowledge (Nature)	RANK:31
+SKILL:Knowledge (Planes)	RANK:31
+SKILL:Perception			RANK:31
+SKILL:Sense Motive		RANK:31
+SKILL:Spellcraft			RANK:31
+SKILL:Stealth			RANK:31
+SKILL:Survival			RANK:31
+SKILL:Swim				RANK:31
+FEAT:Alertness
+FEAT:Awesome Blow
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Battleaxe)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability(Dispel Magic (Greater))
+FEAT:Spell Stowaway(Time Stop)
+FEAT:Weapon Focus(Battleaxe)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Blackaxe	LOCATION:Both Hands
+
+#
+# End
+#

@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 6: Descent Into Midnight - Pathfinder Conversion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide - Pathfinder Conversion
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 6: Descent Into Midnight
+SOURCESHORT:PF18
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84bc
+SOURCEDATE:2009-01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 18: Descent into Midnight. Copyright 2009, Paizo Publishing, LLC; Author: Brian Cortijo.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing, LL; Authors Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Kobold Quarterly #7. Copyright 2008, Open Design; Author; Wolfgang Baur, Philip Larwood, et al.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Casey Christofferson, Eric Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnston, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, Bill Webb.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 18: Descent Into Midnight" Copyright 2009, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/second_darkness_descent_into_midnight.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy86v1|Buy this publication from Paizo Publishing!
+DESC:The Second Darkness Adventure Path comes to its explosive conclusion as the heroes travel into a forgotten world hidden deep underground--the Land of Black Blood. There, they must contend with the region's monstrous guardians and defeat the drow who would use ancient magic to call down a star from the sky to destroy their enemies on the world above.
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_abilities.lst
+DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_demon_lords.lst|(EXCLUDE:Lamashtu)
+RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_races.lst|(EXCLUDE:Shaitan)
+TEMPLATE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_templates.lst
+
+EQUIPMENT:pf18_equipment_pfrpg.lst
+KIT:pf18_kits_monsters_pfrpg.lst
+RACE:pf18_races_pfrpg.lst
+
+#
+# End
+#

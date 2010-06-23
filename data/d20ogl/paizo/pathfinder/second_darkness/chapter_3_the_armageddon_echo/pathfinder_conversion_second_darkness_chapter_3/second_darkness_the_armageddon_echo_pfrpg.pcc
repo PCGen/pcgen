@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 3: The Armageddon Echo - Pathfinder Conversion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide - Pathfinder Conversion
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo
+SOURCESHORT:PF15
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep
+SOURCEDATE:2008-10
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 15: The Armageddon Echo. Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 3: The Armageddon Echo" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/second_darkness_the_armageddon_echo.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy85ep|Buy this publication from Paizo Publishing!
+DESC:The End is Nigh! The city of Celwynvian hides a terrible sin. For countless centuries the elves of the Mierani Forest have barred outsiders from the fabled City of Emerald Rains, in a desperate attempt to contain an ancient shame. But as a new power rises in the depths, the elves' secret threatens not only to escape, but to rain down devastation upon the entire world. In desperation, elven eyes fall to a band of outsiders for aid. Tread the forsaken ground of Celwynvian, once one of the greatest capitals of elven culture, now a graveyard haunted by the spirits of the past, foul dragons, demons, and worse. Discover the darkest secret of the Mierani Forest and the truth of the cataclysm known as Earthfall. And dare to shed the bonds of eternity and pay witness to an apocalypse that has borne out a thousand times and threatens to devastate Golarion once more!
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_abilities.lst
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_ability_categories.lst
+CLASS:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_classes.lst
+DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_deity_drow_demon_lords.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_feat.lst
+RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_races.lst
+
+CLASS:pf15_classes_pfrpg.lst
+KIT:pf15_kits_monsters_pfrpg.lst
+RACE:pf15_races_pfrpg.lst
+
+FORWARDREF:DOMAIN|Creation
+
+#
+# End
+#
