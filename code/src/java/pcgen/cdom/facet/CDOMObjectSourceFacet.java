@@ -37,4 +37,10 @@ public class CDOMObjectSourceFacet
 		return bridge.getSet(id);
 	}
 
+	public void addDataFacetChangeListener(
+			DataFacetChangeListener<? super CDOMObject> listener)
+	{
+		bridge.addDataFacetChangeListener(listener);
+	}
+
 }

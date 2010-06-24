@@ -95,6 +95,7 @@ import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
+import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.AutoWeaponProfFacet;
 import pcgen.cdom.facet.BioSetFacet;
@@ -281,10 +282,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private LanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 	private LanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private LanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
-	//private LanguageFacet langAutoFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 	private LanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
@@ -13966,8 +13966,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
 	 * with different parameters in a DI system if we go that direction
 	 */
-	public static class AutoLanguageFacet extends LanguageFacet {}
-
 	public static class FreeLanguageFacet extends LanguageFacet {}
 
 	public static class AddLanguageFacet extends LanguageFacet {}
@@ -14054,23 +14052,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void processAddition(CDOMObject cdo)
 	{
 		processFeatListOnAdd(cdo);
-		processAutoLangOnAdd(cdo);
-	}
-
-	private void processAutoLangOnAdd(CDOMObject cdo)
-	{
-		for (CDOMReference<Language> ref : cdo
-				.getSafeListFor(ListKey.AUTO_LANGUAGES))
-		{
-			Collection<Language> langs = ref.getContainedObjects();
-			autoLangFacet.addAll(id, langs, cdo);
-		}
-		for (CDOMReference<Language> ref : cdo
-				.getSafeListFor(ListKey.AUTO_LANGUAGE))
-		{
-			Collection<Language> langs = ref.getContainedObjects();
-			autoLangFacet.addAll(id, langs, cdo);
-		}
 	}
 
 	public void processRemoval(CDOMObject cdo)

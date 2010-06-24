@@ -18,7 +18,6 @@
 package pcgen.cdom.facet;
 
 import pcgen.core.PlayerCharacter.AddLanguageFacet;
-import pcgen.core.PlayerCharacter.AutoLanguageFacet;
 import pcgen.core.PlayerCharacter.FreeLanguageFacet;
 import pcgen.core.PlayerCharacter.SkillLanguageFacet;
 import pcgen.core.PlayerCharacter.StartingLanguageFacet;
@@ -60,14 +59,12 @@ public class FacetInitialization
 				.getFacet(LanguageFacet.class);
 		LanguageFacet freeLangFacet = FacetLibrary
 				.getFacet(FreeLanguageFacet.class);
-		LanguageFacet autoLangFacet = FacetLibrary
+		AutoLanguageFacet autoLangFacet = FacetLibrary
 				.getFacet(AutoLanguageFacet.class);
 		LanguageFacet addLangFacet = FacetLibrary
 				.getFacet(AddLanguageFacet.class);
 		LanguageFacet skillLangFacet = FacetLibrary
 				.getFacet(SkillLanguageFacet.class);
-		// LanguageFacet langAutoFacet =
-		// FacetLibrary.getFacet(AutoLanguageFacet.class);
 		LanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
 
@@ -89,7 +86,8 @@ public class FacetInitialization
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 
-		FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
+		FavoredClassFacet favClassFacet = FacetLibrary
+				.getFacet(FavoredClassFacet.class);
 		VariableFacet variableFacet = FacetLibrary
 				.getFacet(VariableFacet.class);
 		UnlockedStatFacet unlockedStatFacet = FacetLibrary
@@ -118,6 +116,8 @@ public class FacetInitialization
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
+		CDOMObjectSourceFacet cdomSourceFacet = FacetLibrary
+				.getFacet(CDOMObjectSourceFacet.class);
 		CharacterConsolidationFacet charObjectFacet = FacetLibrary
 				.getFacet(CharacterConsolidationFacet.class);
 		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary
@@ -204,5 +204,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(moveFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
+
+		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 	}
 }
