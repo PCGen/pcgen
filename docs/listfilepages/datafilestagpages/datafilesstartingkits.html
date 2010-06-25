@@ -108,6 +108,21 @@
 			the kit will give you the feat.</p>
 		<p></p>
 
+
+		<h4>A Note on Kit/Race Interactions</h4>
+		
+		<p class="indent0">Use of a KIT tag, calling out a racial kit, in a Race object will cause PCGen to crash 
+			if the following two conditions are met:</p>
+		<ol class="indent1">
+			<li>The racial kit x contains a RACE:x tag, e.g. <code>RACE:Goblin</code></li>
+			<li>The race x object contains a KIT:x tag, e.g. <code>KIT:Goblin</code></li>
+		</ol>
+		
+		<p class="indent0">This combination of objects/tags will cause an infinite loop which in tuen will 
+			cause PCGen to crash.</p>
+		
+		<p></p>
+
 <hr>
 
 		<h2><a name="DICTIONARY">Starting Kit Tag Dictionary</a></h2>
