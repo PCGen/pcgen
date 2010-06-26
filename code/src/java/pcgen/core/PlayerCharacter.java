@@ -96,7 +96,7 @@ import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.AutoListWeaponProfFacet;
-import pcgen.cdom.facet.AutoWeaponProfFacet;
+import pcgen.cdom.facet.AvailableSpellFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -128,7 +128,6 @@ import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.HasAnyFavoredClassFacet;
-import pcgen.cdom.facet.HasDeityWeaponProfFacet;
 import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
 import pcgen.cdom.facet.KitFacet;
@@ -139,7 +138,6 @@ import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.MovementFacet;
-import pcgen.cdom.facet.NaturalWeaponProfFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
@@ -320,6 +318,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
 	private MovementFacet moveFacet = FacetLibrary.getFacet(MovementFacet.class);
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
@@ -9423,7 +9422,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvl;
 	}
 
-	public List<? extends CDOMObject> getCDOMObjectList()
+	private List<? extends CDOMObject> getCDOMObjectList()
 	{
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (PObject po : getPObjectList())
@@ -13288,7 +13287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				cache.get(MapKey.SPELL_PC_INFO, sp);
 		if (hml == null)
 		{
-			hml = SpellLevel.getPCBasedLevelInfo(this, sp);
+			hml = availSpellFacet.getPCBasedLevelInfo(id, sp);
 			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
 		}
 		HashMapToList<CDOMList<Spell>, Integer> newhml =
@@ -13303,7 +13302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				.get(ObjectKey.SPELL_PC_INFO);
 		if (map == null)
 		{
-			map = SpellLevel.getPCBasedLevelInfo(this);
+			map = availSpellFacet.getPCBasedLevelInfo(id);
 			cache.put(ObjectKey.SPELL_PC_INFO, map);
 		}
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> newmap = new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();

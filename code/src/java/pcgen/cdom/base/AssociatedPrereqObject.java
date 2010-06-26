@@ -22,7 +22,8 @@ package pcgen.cdom.base;
  * interfaces to provide easy identification and type safety of objects that
  * perform both functions.
  */
-public interface AssociatedPrereqObject extends AssociatedObject, PrereqObject
+public interface AssociatedPrereqObject extends AssociatedObject, PrereqObject,
+		QualifyingObject
 {
 
 }

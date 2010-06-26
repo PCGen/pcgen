@@ -88,15 +88,15 @@ public class FacetInitialization
 				.getFacet(ActiveAbilityFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
-
-		FavoredClassFacet favClassFacet = FacetLibrary
-				.getFacet(FavoredClassFacet.class);
 		VariableFacet variableFacet = FacetLibrary
 				.getFacet(VariableFacet.class);
 		UnlockedStatFacet unlockedStatFacet = FacetLibrary
 				.getFacet(UnlockedStatFacet.class);
 		StatLockFacet statLockFacet = FacetLibrary
 				.getFacet(StatLockFacet.class);
+		FavoredClassFacet favClassFacet = FacetLibrary
+				.getFacet(FavoredClassFacet.class);
+
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 		FollowerOptionFacet foFacet = FacetLibrary
 				.getFacet(FollowerOptionFacet.class);
@@ -111,6 +111,10 @@ public class FacetInitialization
 				.getFacet(HasDeityWeaponProfFacet.class);
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
+		KnownSpellFacet knownSpellFacet = FacetLibrary
+				.getFacet(KnownSpellFacet.class);
+		AvailableSpellFacet availSpellFacet = FacetLibrary
+				.getFacet(AvailableSpellFacet.class);
 		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary
 				.getFacet(AutoListWeaponProfFacet.class);
 		BonusWeaponProfFacet wpBonusFacet = FacetLibrary
@@ -218,10 +222,11 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(awpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(hdwpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
+		cdomObjectFacet.addDataFacetChangeListener(knownSpellFacet);
+		cdomObjectFacet.addDataFacetChangeListener(availSpellFacet);
 		cdomObjectFacet.addDataFacetChangeListener(moveFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
-
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 	}
 }

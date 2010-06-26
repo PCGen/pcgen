@@ -31,6 +31,8 @@ import java.util.Map;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -55,6 +57,9 @@ import pcgen.util.TestHelper;
  */
 public class SpellLevelTest extends AbstractCharacterTestCase
 {
+
+	private static KnownSpellFacet listManagerFacet = FacetLibrary
+			.getFacet(KnownSpellFacet.class);
 
 	/**
 	 * Test method for {@link pcgen.core.analysis.SpellLevel#getPCBasedBonusKnownSpells(pcgen.core.PlayerCharacter, pcgen.core.PCClass)}.
@@ -99,13 +104,13 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		Map<Integer, List<Spell>> spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc.get(ObjectKey.CLASS_SPELLLIST));
+		Map<Integer, List<Spell>> spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Initial number of spell levels incorrect", 0, spellsMap.size());
 		
 		aPC.addAbility(AbilityCategory.FEAT, ab1, null);
 
 		// Now for the tests
-		spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc.get(ObjectKey.CLASS_SPELLLIST));
+		spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Incorrect number of spell levels returned", 1, spellsMap.size());
 		assertEquals("Incorrect spell level returned", new Integer(3), spellsMap.keySet().iterator().next());
 		List<Spell> result = spellsMap.values().iterator().next();

@@ -36,6 +36,8 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SpellCountCalc;
@@ -46,6 +48,8 @@ import pcgen.core.spell.Spell;
 
 public class SpellSupportForPCClass
 {
+	private static KnownSpellFacet listManagerFacet = FacetLibrary
+			.getFacet(KnownSpellFacet.class);
 	/*
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE
@@ -274,10 +278,12 @@ public class SpellSupportForPCClass
 				total += assoc;
 			}
 		}
+		List<Spell> spells = listManagerFacet
+				.getKnownSpellsForLevel(aPC.getCharID(), source
+						.get(ObjectKey.CLASS_SPELLLIST), spellLevel);
 
 		// Add in any from SPELLKNOWN
-		total += SpellLevel.getNumBonusKnowSpellsForLevel(aPC, spellLevel,
-				source.get(ObjectKey.CLASS_SPELLLIST));
+		total += spells != null ? spells.size() : 0;
 
 		return total;
 	}
