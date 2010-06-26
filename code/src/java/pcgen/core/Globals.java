@@ -211,31 +211,6 @@ public final class Globals
 			}
 		};
 
-	private static final Comparator<Object> pObjectStringComp = new Comparator<Object>()
-		{
-			public int compare(final Object o1, final Object o2)
-			{
-				final String key1;
-				final String key2;
-				if ( o1 instanceof PObject )
-				{
-					key1 = ((PObject)o1).getKeyName();
-				}
-				else
-				{
-					key1 = o1.toString();
-				}
-				if ( o2 instanceof PObject )
-				{
-					key2 = ((PObject)o2).getKeyName();
-				}
-				else
-				{
-					key2 = o2.toString();
-				}
-				return key1.compareToIgnoreCase(key2);
-			}
-		};
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
 	/** EMPTY_CLASS_ARRAY*/
