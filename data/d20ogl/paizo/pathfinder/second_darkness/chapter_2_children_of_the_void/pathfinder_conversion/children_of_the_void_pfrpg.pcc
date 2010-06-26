@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness - Chapter 2: Children of the Void
-GAMEMODE:35e
+CAMPAIGN:Paizo - Second Darkness - Chapter 2: Children of the Void - Pathfinder Conversion
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide - Pathfinder Conversion
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -22,9 +22,10 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Pathfinder 14: Children of the Void. Copyright 2008, Paizo Publishing, LLC; Author: Mike McArtor.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 2: Children of the Void" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:second_darkness_children_of_the_void.jpg
+COVER:../children_of_the_void.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,15 +35,20 @@ DESC:The Sky is Falling! A star has fallen and the rush is on! While the crimelo
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:pf14_ability.lst
-CLASS:pf14_classes.lst
-EQUIPMOD:pf14_equip_modifier.lst
-EQUIPMENT:pf14_equipment.lst
-KIT:pf14_kits_monsters.lst
-LANGUAGE:pf14_languages.lst
-RACE:pf14_races.lst
-SKILL:pf14_skils.lst
-SPELL:pf14_spells.lst
+ABILITY:../pf14_ability.lst
+CLASS:../pf14_classes.lst
+EQUIPMOD:../pf14_equip_modifier.lst
+EQUIPMENT:../pf14_equipment.lst
+LANGUAGE:../pf14_languages.lst
+RACE:../pf14_races.lst
+SPELL:../pf14_spells.lst
+
+CLASS:pf14_classes_pfrpg.lst
+EQUIPMENT:pf14_equipment_pfrpg.lst
+KIT:pf14_kits_monsters_pfrpg.lst
+RACE:pf14_races_pfrpg.lst
+
+FORWARDREF:EQMOD|CHAOS_M,MWORKI
 
 #
 # End

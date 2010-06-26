@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness - Chapter 5: A Memory of Darkness - Pathfinder Conversion
-GAMEMODE:Pathfinder
+CAMPAIGN:Paizo - Second Darkness - Chapter 5: A Memory of Darkness
+GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide - Pathfinder Conversion
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -21,10 +21,9 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Pathfinder 17: A Memory of Darkness. Copyright 2008, Paizo Publishing, LLC; Author: J. D. Wiker.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder 17: A Memory of Darkness" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
-COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:../second_darkness_a_memory_of_darkness.jpg
+COVER:a_memory_of_darkness.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,15 +33,11 @@ DESC:Armed with the knowledge that an elven traitor supplied the drow with the m
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:../pf17_abilities.lst
-EQUIPMENT:../pf17_equipment.lst
-RACE:../pf17_race.lst
-SPELL:../pf17_spells.lst
-
-ABILITY:pf17_abilities_pfrpg.lst
-KIT:pf17_kit_monster_pfrpg.lst
-RACE:pf17_race_pfrpg.lst
-FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Spell Stowaway)
+ABILITY:pf17_abilities.lst
+EQUIPMENT:pf17_equipment.lst
+KIT:pf17_kit_monster.lst
+RACE:pf17_race.lst
+SPELL:pf17_spells.lst
 
 #
 # End
