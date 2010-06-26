@@ -94,6 +94,7 @@ import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
+import pcgen.cdom.facet.AutoEquipmentListFacet;
 import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
@@ -278,6 +279,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
+	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -1525,15 +1527,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Set<Equipment> set = userEquipmentFacet.getSet(id);
 		final List<Equipment> aList = new ArrayList<Equipment>(set);
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			 List<Equipment> equip = getAssocList(cdo, AssociationListKey.EQUIPMENT);
-			 if (equip != null)
-			 {
-				 aList.addAll(equip);
-			 }
-		}
-
+		aList.addAll(autoListEquipmentFacet.getSet(id));
 		aList.addAll(autoEquipFacet.getAutoEquipment(id));
 		return aList;
 	}
@@ -14170,6 +14164,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)
 	{
 		grantedAbilityFacet.remove(id, as.getAbilityCategory(), nat, as.getAbility(), obj);
+	}
+
+	public void addAutoEquipment(Equipment e, CDOMObject obj)
+	{
+		autoListEquipmentFacet.add(id, e, obj);
+	}
+
+	public void removeAutoEquipment(Equipment e, CDOMObject obj)
+	{
+		autoListEquipmentFacet.remove(id, e, obj);
 	}
 
 }

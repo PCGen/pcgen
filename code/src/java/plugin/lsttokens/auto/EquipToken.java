@@ -30,7 +30,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Equipment;
@@ -242,7 +241,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			e = e.clone();
 			e.setQty(1);
 			e.setAutomatic(true);
-			pc.addAssoc(obj, AssociationListKey.EQUIPMENT, e);
+			pc.addAutoEquipment(e, obj);
 		}
 	}
 
@@ -252,7 +251,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, o);
 		if (e != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.EQUIPMENT, e);
+			pc.removeAutoEquipment(e, obj);
 		}
 	}
 
