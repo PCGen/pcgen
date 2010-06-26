@@ -3402,24 +3402,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		equipmentFacet.add(id, eq);
 		userEquipmentFacet.add(id, eq);
-
-		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
-		{
-			String baseBookname = eq.getName();
-			String bookName = eq.getName();
-			int qty = (int) eq.qty();
-			for (int i = 0; i < qty; i++)
-			{
-				if (i > 0)
-				{
-					bookName = baseBookname + " #" + (i + 1);
-				}
-				SpellBook book =
-						new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
-				book.setEquip(eq);
-				addSpellBook(book);
-			}
-		}
 		setDirty(true);
 	}
 

@@ -23,15 +23,71 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.core.Equipment;
 import pcgen.core.character.SpellBook;
 
 /**
  * SpellBookFacet is a Facet that tracks the SpellBooks possessed by a Player
  * Character.
  */
-public class SpellBookFacet
+public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 {
+
+	/**
+	 * Triggered when one of the Facets to which SpellBookFacet listens fires a
+	 * DataFacetChangeEvent to indicate a Equipment was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
+	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	{
+		Equipment eq = dfce.getCDOMObject();
+		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		{
+			CharID id = dfce.getCharID();
+			String baseBookname = eq.getName();
+			String bookName = eq.getName();
+			int qty = (int) eq.qty();
+			for (int i = 0; i < qty; i++)
+			{
+				if (i > 0)
+				{
+					bookName = baseBookname + " #" + (i + 1);
+				}
+				SpellBook book =
+						new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				book.setEquip(eq);
+				if (!containsBookNamed(id, book.getName()))
+				{
+					add(id, book);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Triggered when one of the Facets to which SpellBookFacet listens fires a
+	 * DataFacetChangeEvent to indicate a Equipment was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
+	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	{
+		//Ignore - for now this is one in PlayerCharacter...
+	}
+
 	public void addAll(CharID id, List<SpellBook> list)
 	{
 		for (SpellBook sb : list)
