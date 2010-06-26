@@ -1,5 +1,5 @@
 /**
- * pcgen.core.term.PCStatModTermEvaluator.java
+ * pcgen.core.term.PCScoreTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created 11-Sep-2008 02:30:27
+ * Created 10-Aug-2008 00:06:33
  *
  * Current Ver: $Revision:$
  * Last Editor: $Author:$
@@ -26,33 +26,27 @@
 
 package pcgen.core.term;
 
-import pcgen.core.Globals;
-import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.StatAnalysis;
 
-public class PCStatModTermEvaluator
+public class FixedTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String statAbbrev;
-	
-	public PCStatModTermEvaluator(String originalText, String statAbbrev)
+	private final int value;
+
+	public FixedTermEvaluator(int i)
 	{
-		this.originalText = originalText;
-		this.statAbbrev   = statAbbrev;
+		value = i;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		final PCStat stat = Globals.getContext().ref
-				.getAbbreviatedObject(PCStat.class, statAbbrev);
-		return (float) StatAnalysis.getStatModFor(pc, stat);
+		return new Float(value);
 	}
 
 	public boolean isSourceDependant()
 	{
-		return false;
+		return true;
 	}
 
 	public boolean isStatic()

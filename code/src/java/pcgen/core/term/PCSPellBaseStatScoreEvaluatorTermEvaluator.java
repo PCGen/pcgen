@@ -60,9 +60,7 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 			return 10f;
 		}
 
-		final int statNum   = StatAnalysis.getTotalStatFor(pc, ss);
-
-		return (float) StatAnalysis.getModForNumber(pc, statNum, ss);
+		return (float) StatAnalysis.getStatModFor(pc, ss);
 	}
 
 	public boolean isSourceDependant()

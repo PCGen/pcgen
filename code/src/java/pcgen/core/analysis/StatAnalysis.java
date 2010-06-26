@@ -19,9 +19,8 @@
  */
 package pcgen.core.analysis;
 
-import java.util.regex.Pattern;
-
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
@@ -49,31 +48,19 @@ public class StatAnalysis
 		return score == null ? 0 : score;
 	}
 
-	public static int getModForNumber(PlayerCharacter ownerPC, int aNum, PCStat stat)
+	public static int getModForNumber(PlayerCharacter ownerPC, int aNum,
+		PCStat stat)
 	{
-		String aString = stat.getStatMod();
-
-		/////////////////////////////////////////////////////////////////////////
-		// Need to replace all occurances of 'SCORE' in the formula, not just the
-		// first. For some systems (High Adventure Role Playing for example), it
-		// is necessary to have multiple 'SCORE' values in the formula.
-		//
-		// This whole method should probably be revisited as a valid variable name
-		// that contains 'SCORE' can be trounced by the replacement (e.g. IQ_SCORE
-		// could be changed to IQ_12)
-		//
-		// - Byngl Dec 16, 2004
-
-		aString = aString.replaceAll(Pattern.quote("SCORE"), Integer.toString(aNum));
-
-		/////////////////////////////////////////////////////////////////////////
-
-		return ownerPC.getVariableValue(aString, "").intValue();
+		return ownerPC.getVariableValue(
+			stat.getSafe(FormulaKey.STAT_MOD).toString(),
+			Integer.toString(aNum)).intValue();
 	}
 
 	public static int getStatModFor(PlayerCharacter ownerPC, PCStat stat)
 	{
-		return ownerPC.getVariableValue(stat.getStatMod(), "STAT:" + stat.getAbb()).intValue();
+		return ownerPC.getVariableValue(
+			stat.getSafe(FormulaKey.STAT_MOD).toString(),
+			"STAT:" + stat.getAbb()).intValue();
 	}
 
 	/**

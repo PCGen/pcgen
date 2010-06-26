@@ -729,6 +729,15 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				final String src, 
 				final String matchedSection) {
 
+			try
+			{
+				int i = Integer.parseInt(src);
+				return new FixedTermEvaluator(i);
+			}
+			catch (NumberFormatException e)
+			{
+				//OK
+			}
 			String source = (src.startsWith("STAT:")) ? src.substring(5) : "";
 			
 			return new PCScoreTermEvaluator(expressionString, source);

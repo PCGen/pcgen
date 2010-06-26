@@ -1,6 +1,8 @@
 package plugin.lsttokens.statsandchecks.stat;
 
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -24,19 +26,19 @@ public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPri
 		{
 			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
-		context.getObjectContext().put(stat, StringKey.STAT_MOD, value);
+		context.getObjectContext().put(stat, FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor(value));
 		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		String target = context.getObjectContext().getString(stat,
-				StringKey.STAT_MOD);
+		Formula target = context.getObjectContext().getFormula(stat,
+			FormulaKey.STAT_MOD);
 		if (target == null)
 		{
 			return null;
 		}
-		return new String[] { target };
+		return new String[] { target.toString() };
 	}
 
 	public Class<PCStat> getTokenClass()

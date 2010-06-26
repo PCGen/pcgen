@@ -71,6 +71,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey EMBEDDED_NUMCHOICES = getConstant("EMBEDDED_NUMCHOICES");
 
+	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 
@@ -41,7 +42,7 @@ public final class PCStat extends PObject
 	{
 		final StringBuffer sb = new StringBuffer(30);
 		sb.append("stat:").append(getAbb()).append(' ');
-		sb.append("formula:").append(getStatMod()).append(' ');
+		sb.append("formula:").append(getSafe(FormulaKey.STAT_MOD)).append(' ');
 		boolean rolled = getSafe(ObjectKey.ROLLED);
 		if (!rolled)
 		{
@@ -49,11 +50,5 @@ public final class PCStat extends PObject
 		}
 
 		return sb.toString();
-	}
-
-	public String getStatMod()
-	{
-		String s = get(StringKey.STAT_MOD);
-		return s == null ? "0" : s;
 	}
 }

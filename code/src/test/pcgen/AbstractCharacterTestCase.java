@@ -10,6 +10,7 @@ import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -78,42 +79,42 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 				FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
 				FormulaFactory.getFormulaFor(2));
-		str.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		str.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getAbb()),
 				FormulaFactory.getFormulaFor(str.getAbb() + "SCORE-10"));
 
 		dex = new PCStat();
 		dex.setName("Dexterity");
 		dex.put(StringKey.ABB, "DEX");
-		dex.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		dex.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getAbb()),
 				FormulaFactory.getFormulaFor(dex.getAbb() + "SCORE-10"));
 
 		final PCStat con = new PCStat();
 		con.setName("Constitution");
 		con.put(StringKey.ABB, "CON");
-		con.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		con.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getAbb()),
 				FormulaFactory.getFormulaFor(con.getAbb() + "SCORE-10"));
 
 		intel = new PCStat();
 		intel.setName("Intelligence");
 		intel.put(StringKey.ABB, "INT");
-		intel.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		intel.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getAbb()),
 				FormulaFactory.getFormulaFor(intel.getAbb() + "SCORE-10"));
 
 		wis = new PCStat();
 		wis.setName("Wisdom");
 		wis.put(StringKey.ABB, "WIS");
-		wis.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		wis.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getAbb()),
 				FormulaFactory.getFormulaFor(wis.getAbb() + "SCORE-10"));
 
 		cha = new PCStat();
 		cha.setName("Charisma");
 		cha.put(StringKey.ABB, "CHA");
-		cha.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		cha.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getAbb()),
 				FormulaFactory.getFormulaFor(cha.getAbb() + "SCORE-10"));
 

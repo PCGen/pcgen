@@ -49,5 +49,5 @@ public interface TermEvaluator
 
 	boolean isSourceDependant();
 
-	boolean isStatic();
+	//boolean isStatic();
 }
