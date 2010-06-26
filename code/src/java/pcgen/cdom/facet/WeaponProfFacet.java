@@ -22,6 +22,9 @@ import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
 import pcgen.core.WeaponProf;
 
 /**
@@ -88,6 +91,22 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		return contains(id, wp) || awpFacet.getWeaponProfs(id).contains(wp)
 				|| hdwpFacet.hasDeityWeaponProf(id)
 				&& deityWeaponProfFacet.getSet(id).contains(wp);
+	}
+
+	public boolean isProficientWithWeapon(CharID id, Equipment eq)
+	{
+		if (eq.isNatural())
+		{
+			return true;
+		}
+
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		if (ref == null)
+		{
+			return false;
+		}
+
+		return containsProf(id, ref.resolvesTo());
 	}
 
 }

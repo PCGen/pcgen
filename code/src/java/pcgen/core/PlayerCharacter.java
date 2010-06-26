@@ -4860,7 +4860,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else if (eq.isWeapon())
 		{
-			return isProficientWithWeapon(eq);
+			return weaponProfFacet.isProficientWithWeapon(id, eq);
 		}
 
 		return false;
@@ -9203,22 +9203,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return iBonus;
-	}
-
-	private boolean isProficientWithWeapon(final Equipment eq)
-	{
-		if (eq.isNatural())
-		{
-			return true;
-		}
-
-		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
-		if (ref == null)
-		{
-			return false;
-		}
-
-		return hasWeaponProf(ref.resolvesTo());
 	}
 
 	private HashMap<String, Integer> getTotalLevelHashMap()
