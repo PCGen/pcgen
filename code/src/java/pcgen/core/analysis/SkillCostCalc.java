@@ -326,13 +326,9 @@ public final class SkillCostCalc
 
 	public static boolean hasMonsterClassSkill(PlayerCharacter pc, Race r, Skill s)
 	{
-		List<Skill> list = pc.getAssocList(r, AssociationListKey.MONCSKILL);
-		if (list != null)
+		if (pc.getMonCSkills().contains(s))
 		{
-			if (list.contains(s))
-			{
-				return true;
-			}
+			return true;
 		}
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
 		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);

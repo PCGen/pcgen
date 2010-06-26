@@ -138,6 +138,7 @@ import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.MonsterCSkillFacet;
 import pcgen.cdom.facet.MovementFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
@@ -280,6 +281,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
+	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -14174,6 +14176,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeAutoEquipment(Equipment e, CDOMObject obj)
 	{
 		autoListEquipmentFacet.remove(id, e, obj);
+	}
+
+	public void addMonCSkill(Skill skill, CDOMObject obj)
+	{
+		monCSkillFacet.add(id, skill, obj);
+	}
+
+	public void removeMonCSkill(Skill skill, CDOMObject obj)
+	{
+		monCSkillFacet.remove(id, skill, obj);
+	}
+
+	public Set<Skill> getMonCSkills()
+	{
+		return monCSkillFacet.getSet(id);
 	}
 
 }

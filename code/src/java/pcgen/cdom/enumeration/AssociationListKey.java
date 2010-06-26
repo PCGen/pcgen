@@ -92,8 +92,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<Skill> CSKILL = new AssociationListKey<Skill>();
 
-	public static final AssociationListKey<Skill> MONCSKILL = new AssociationListKey<Skill>();
-
 	public static final AssociationListKey<BonusObj> BONUS = new AssociationListKey<BonusObj>();
 
 	public static final AssociationListKey<SpellProhibitor> PROHIBITED_SCHOOLS =

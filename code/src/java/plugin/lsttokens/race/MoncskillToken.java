@@ -30,7 +30,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.reference.PatternMatchingReference;
@@ -286,7 +285,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
 		if (skill != null)
 		{
-			pc.addAssoc(obj, AssociationListKey.MONCSKILL, skill);
+			pc.addMonCSkill(skill, obj);
 		}
 	}
 
@@ -296,7 +295,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
 		if (skill != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.MONCSKILL, skill);
+			pc.removeMonCSkill(skill, obj);
 		}
 	}
 
