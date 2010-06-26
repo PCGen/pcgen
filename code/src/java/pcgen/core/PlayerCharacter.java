@@ -114,6 +114,7 @@ import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DeniedAbilityFacet;
 import pcgen.cdom.facet.DomainFacet;
+import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.ExpandedCampaignFacet;
@@ -294,6 +295,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
 	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
+	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
 	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
@@ -348,9 +350,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
-
-	// List of Equip Sets
-	private final List<EquipSet> equipSetList = new ArrayList<EquipSet>();
 
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
@@ -671,7 +670,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getCalcEquipSetId()
 	{
-		if (equipSetList.isEmpty())
+		if (equipSetFacet.isEmpty(id))
 		{
 			return calcEquipSetId;
 		}
@@ -680,7 +679,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			// PC does not have that equipset ID
 			// so we need to find one they do have
-			for (EquipSet eSet : equipSetList)
+			for (EquipSet eSet : equipSetFacet.getSet(id))
 			{
 				if (eSet.getParentIdPath().equals(EquipSet.ROOT_ID))
 				{
@@ -1325,9 +1324,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public List<EquipSet> getEquipSet()
+	public Set<EquipSet> getEquipSet()
 	{
-		return equipSetList;
+		return equipSetFacet.getSet(id);
 	}
 
 	/**
@@ -1336,22 +1335,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param id
 	 * @return EquipSet
 	 */
-	public EquipSet getEquipSetByIdPath(final String id)
+	public EquipSet getEquipSetByIdPath(final String path)
 	{
-		if (equipSetList.isEmpty())
-		{
-			return null;
-		}
-
-		for (EquipSet eSet : equipSetList)
-		{
-			if (eSet.getIdPath().equals(id))
-			{
-				return eSet;
-			}
-		}
-
-		return null;
+		return equipSetFacet.getEquipSetByIdPath(id, path);
 	}
 
 	/**
@@ -1362,20 +1348,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public EquipSet getEquipSetByName(final String aName)
 	{
-		if (equipSetList.isEmpty())
-		{
-			return null;
-		}
-
-		for (EquipSet eSet : equipSetList)
-		{
-			if (eSet.getName().equals(aName))
-			{
-				return eSet;
-			}
-		}
-
-		return null;
+		return equipSetFacet.getEquipSetByName(id, aName);
 	}
 
 	/**
@@ -1407,14 +1380,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public double getEquipSetWeightDouble(final String idPath)
 	{
-		if (equipSetList.isEmpty())
+		if (equipSetFacet.isEmpty(id))
 		{
 			return 0.0;
 		}
 
 		double totalWeight = 0.0;
 
-		for (EquipSet es : equipSetList)
+		for (EquipSet es : equipSetFacet.getSet(id))
 		{
 			final String abIdPath = idPath + EquipSet.PATH_SEPARATOR;
 			final String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
@@ -1459,20 +1432,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Float getEquipSetCount(final String idPath, final String aName)
 	{
-		float count = 0;
-		for (EquipSet eSet : getEquipSet())
-		{
-			final String esID = eSet.getIdPath() + EquipSet.PATH_SEPARATOR;
-			final String abID = idPath + EquipSet.PATH_SEPARATOR;
-			if (esID.startsWith(abID))
-			{
-				if (eSet.getValue().equals(aName))
-				{
-					count += eSet.getQty().floatValue();
-				}
-			}
-		}
-		return Float.valueOf(count);
+		return equipSetFacet.getEquipSetCount(id, idPath, aName);
 	}
 
 	/**
@@ -3384,7 +3344,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addEquipSet(final EquipSet set)
 	{
-		equipSetList.add(set);
+		equipSetFacet.add(id, set);
 		setDirty(true);
 	}
 
@@ -3544,60 +3504,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean delEquipSet(final EquipSet eSet)
 	{
-		if (equipSetList.isEmpty())
-		{
-			return false;
-		}
-
-		boolean found = false;
-		final String pid = eSet.getIdPath();
-
-		// first remove this EquipSet
-		equipSetList.remove(eSet);
-
-		// now find and remove all it's children
-		for (Iterator<EquipSet> e = equipSetList.iterator(); e.hasNext();)
-		{
-			final EquipSet es = e.next();
-			final String abParentId =
-					es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
-			final String abPid = pid + EquipSet.PATH_SEPARATOR;
-
-			if (abParentId.startsWith(abPid))
-			{
-				e.remove();
-				found = true;
-			}
-		}
+		boolean found = equipSetFacet.delEquipSet(id, eSet);
 		setDirty(true);
-
 		return found;
 	}
 
 	public void delEquipSetItem(final Equipment eq)
 	{
-		if (equipSetList.isEmpty())
-		{
-			return;
-		}
-
-		final List<EquipSet> tmpList = new ArrayList<EquipSet>();
-
-		// now find and remove equipment from all EquipSet's
-		for (EquipSet es : equipSetList)
-		{
-			final Equipment eqI = es.getItem();
-
-			if ((eqI != null) && eq.equals(eqI))
-			{
-				tmpList.add(es);
-			}
-		}
-
-		for (EquipSet es : tmpList)
-		{
-			delEquipSet(es);
-		}
+		equipSetFacet.delEquipSetItem(id, eq);
 		setDirty(true);
 	}
 
@@ -8638,29 +8552,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void updateEquipSetItem(final Equipment oldItem,
 		final Equipment newItem)
 	{
-		if (equipSetList.isEmpty())
-		{
-			return;
-		}
-
-		final List<EquipSet> tmpList = new ArrayList<EquipSet>();
-
-		// find all oldItem EquipSet's
-		for (EquipSet es : equipSetList)
-		{
-			final Equipment eqI = es.getItem();
-
-			if ((eqI != null) && oldItem.equals(eqI))
-			{
-				tmpList.add(es);
-			}
-		}
-
-		for (EquipSet es : tmpList)
-		{
-			es.setValue(newItem.getName());
-			es.setItem(newItem);
-		}
+		equipSetFacet.updateEquipSetItem(id, oldItem, newItem);
 		setDirty(true);
 	}
 
@@ -10777,7 +10669,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.masterFacet.remove(id);
 		}
-		for (EquipSet eqSet : equipSetList)
+		for (EquipSet eqSet : equipSetFacet.getSet(id))
 		{
 			aClone.addEquipSet((EquipSet) eqSet.clone());
 		}
@@ -10878,25 +10770,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private Float getEquippedQty(EquipSet eSet, Equipment eqI)
 	{
-		final String rPath = eSet.getIdPath();
-
-		for (EquipSet es : getEquipSet())
-		{
-			String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
-			String rIdPath = rPath + EquipSet.PATH_SEPARATOR;
-
-			if (!esIdPath.startsWith(rIdPath))
-			{
-				continue;
-			}
-
-			if (eqI.getName().equals(es.getValue()))
-			{
-				return es.getQty();
-			}
-		}
-
-		return Float.valueOf(0);
+		return equipSetFacet.getEquippedQuantity(id, eSet, eqI);
 	}
 
 	/**
@@ -14140,7 +14014,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasEquipSet()
 	{
-		return !equipSetList.isEmpty();
+		return !equipSetFacet.isEmpty(id);
 	}
 
 	public boolean hasFollowers()

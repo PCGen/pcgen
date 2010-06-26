@@ -277,7 +277,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *         null if no information has been set in this AbstractListFacet for
 	 *         the Player Character.
 	 */
-	private Set<T> getCachedSet(CharID id)
+	protected Set<T> getCachedSet(CharID id)
 	{
 		return (Set<T>) FacetCache.get(id, thisClass);
 	}

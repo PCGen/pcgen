@@ -794,7 +794,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else
 		{
-			eSet = aPC.getEquipSet().get(0);
+			eSet = aPC.getEquipSetByIdPath("0.1");
 		}
 
 		return eSet;

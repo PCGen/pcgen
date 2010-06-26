@@ -37,6 +37,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.StringWriter;
 import java.net.URI;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -505,7 +506,7 @@ class SelectPanel extends JPanel implements ActionListener
 	 * @param eqSetList a <code>List</code> of Equipment set items
 	 * @return a <code>Set</code> of equipment set names
 	 */
-	private Set<String> equipSet2Set(List<EquipSet> eqSetList)
+	private Set<String> equipSet2Set(Collection<EquipSet> eqSetList)
 	{
 		final Set<String> ret = new TreeSet<String>();
 		for (EquipSet e : eqSetList)
