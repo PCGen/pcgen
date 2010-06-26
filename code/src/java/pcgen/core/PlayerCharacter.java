@@ -1539,6 +1539,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Set<Equipment> set = userEquipmentFacet.getSet(id);
 		final List<Equipment> aList = new ArrayList<Equipment>(set);
+		for (CDOMObject cdo : getCDOMObjectList())
+		{
+			 List<Equipment> equip = getAssocList(cdo, AssociationListKey.EQUIPMENT);
+			 if (equip != null)
+			 {
+				 aList.addAll(equip);
+			 }
+		}
+
 		aList.addAll(autoEquipFacet.getAutoEquipment(id));
 		return aList;
 	}

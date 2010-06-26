@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
@@ -79,7 +80,14 @@ public class AutoEquipmentFacet extends
 		List<Equipment> list = new ArrayList<Equipment>();
 		for (QualifiedObject<CDOMReference<Equipment>> qo : getQualifiedSet(id))
 		{
-			list.addAll(qo.getRawObject().getContainedObjects());
+			Collection<Equipment> equipList = qo.getRawObject().getContainedObjects();
+			for (Equipment e : equipList)
+			{
+				e = e.clone();
+				e.setQty(1);
+				e.setAutomatic(true);
+				list.add(e);
+			}
 		}
 		return list;
 	}

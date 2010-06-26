@@ -142,11 +142,6 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				context.obj.addToList(obj, ListKey.EQUIPMENT,
 						new QualifiedObject<CDOMReference<Equipment>>(ref,
 								prereq));
-				// apo.setAssociation(AssociationKey.EQUIPMENT_NATURE,
-				// EquipmentNature.AUTOMATIC);
-				// apo.setAssociation(AssociationKey.QUANTITY, INTEGER_ONE);
-				// TODO Need to account for output index??
-				// newEq.setOutputIndex(aList.size());
 			}
 		}
 
@@ -244,6 +239,9 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, o);
 		if (e != null)
 		{
+			e = e.clone();
+			e.setQty(1);
+			e.setAutomatic(true);
 			pc.addAssoc(obj, AssociationListKey.EQUIPMENT, e);
 		}
 	}
