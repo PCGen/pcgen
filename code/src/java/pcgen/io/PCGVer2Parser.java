@@ -1511,16 +1511,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterAssetLine(final String line)
 	{
-		thePC.getMiscList().set(
-			0,
+		thePC.setStringFor(StringKey.MISC_ASSETS,
 			EntityEncoder.decode(line
 				.substring(TAG_CHARACTERASSET.length() + 1)));
 	}
 
 	private void parseCharacterCompLine(final String line)
 	{
-		thePC.getMiscList().set(
-			1,
+		thePC.setStringFor(StringKey.MISC_COMPANIONS,
 			EntityEncoder
 				.decode(line.substring(TAG_CHARACTERCOMP.length() + 1)));
 	}
@@ -1533,16 +1531,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterMagicLine(final String line)
 	{
-		thePC.getMiscList().set(
-			2,
+		thePC.setStringFor(StringKey.MISC_MAGIC,
 			EntityEncoder.decode(line
 				.substring(TAG_CHARACTERMAGIC.length() + 1)));
 	}
 
 	private void parseCharacterDmNotesLine(final String line)
 	{
-		thePC.getMiscList().set(
-			3,
+		thePC.setStringFor(StringKey.MISC_DM,
 			EntityEncoder.decode(line
 				.substring(TAG_CHARACTERDMNOTES.length() + 1)));
 	}

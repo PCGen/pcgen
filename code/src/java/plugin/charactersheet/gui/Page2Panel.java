@@ -18,6 +18,7 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
@@ -331,7 +332,7 @@ public class Page2Panel extends javax.swing.JPanel
 	{
 		List<String> returnList = new ArrayList<String>();
 		StringTokenizer aTok =
-				new StringTokenizer(aPC.getMiscList().get(2), "\r\n", false);
+				new StringTokenizer(aPC.getSafeStringFor(StringKey.MISC_MAGIC), "\r\n", false);
 
 		while (aTok.hasMoreTokens())
 		{

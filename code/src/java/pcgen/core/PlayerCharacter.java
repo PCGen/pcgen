@@ -331,9 +331,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 
-	// List of misc items (Assets, Magic items, etc)
-	private final ArrayList<String> miscList = new ArrayList<String>(4);
-
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
 
@@ -473,10 +470,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
-		miscList.add(Constants.EMPTY_STRING);
-		miscList.add(Constants.EMPTY_STRING);
-		miscList.add(Constants.EMPTY_STRING);
-		miscList.add(Constants.EMPTY_STRING);
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(),
 			SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
@@ -3569,11 +3562,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Equipment getEquipmentNamed(final String aString)
 	{
 		return getEquipmentNamed(aString, getEquipmentMasterList());
-	}
-
-	public List<String> getMiscList()
-	{
-		return miscList;
 	}
 
 	public boolean delEquipSet(final EquipSet eSet)
@@ -10781,7 +10769,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter();
-		aClone.miscList.addAll(getMiscList());
 		for (NoteItem n : getNotesList())
 		{
 			aClone.addNotesItem(n);

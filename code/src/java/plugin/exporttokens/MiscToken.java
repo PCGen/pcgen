@@ -1,9 +1,7 @@
 package plugin.exporttokens;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
-
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -47,54 +45,43 @@ public class MiscToken extends Token
 		String headTokens[] = tokenHead.split("\\.");
 		String subToken = headTokens[1];
 
-		int index = -1;
+		StringKey key;
 		if ("FUNDS".equals(subToken))
 		{
-			index = 0;
+			key = StringKey.MISC_ASSETS;
 		}
 		else if ("COMPANIONS".equals(subToken))
 		{
-			index = 1;
+			key = StringKey.MISC_COMPANIONS;
 		}
 		else if ("MAGIC".equals(subToken))
 		{
-			index = 2;
+			key = StringKey.MISC_MAGIC;
+		}
+		else
+		{
+			return Constants.EMPTY_STRING;
 		}
 
-		StringBuffer buf = new StringBuffer();
-		if (-1 != index)
+		StringBuilder buf = new StringBuilder();
+		String[] stringList = pc.getSafeStringFor(key).split("\r?\n");
+		if (3 == headTokens.length)
 		{
-			List<String> stringList = getLineForMiscList(index, pc);
-			if(3 == headTokens.length)
+			buf.append(stringList[Integer.parseInt(headTokens[2])]);
+		}
+		else
+		{
+			// This should be deprecated now
+			// For tags like the following in FOR loops
+			// will add after the ',' at end of each line
+			// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
+			for (String str : stringList)
 			{
-				buf.append(stringList.get(Integer.parseInt(headTokens[2])));
-			}
-			else
-			{
-				// This should be deprecated now
-				// For tags like the following in FOR loops
-				// will add after the ',' at end of each line
-				// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
-				for (String str : stringList)
-				{
-					buf.append(str);
-					buf.append(sourceText);
-				}
+				buf.append(str);
+				buf.append(sourceText);
 			}
 		}
 
 		return buf.toString();
 	}
-
-	/**
-	 * Helper method for getToken of MISC
-	 * @param index
-	 * @param aPC
-	 * @return a Line to process
-	 */
-	private List<String> getLineForMiscList(int index, PlayerCharacter aPC)
-	{
-		return new ArrayList<String>(Arrays.asList(aPC.getMiscList().get(index).split("\r?\n")));
-	}
-
 }

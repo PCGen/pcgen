@@ -29,6 +29,7 @@ package pcgen.core.term;
 import java.util.Arrays;
 import java.util.List;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 
 public class PCCountMiscCompanionsTermEvaluator
@@ -42,7 +43,7 @@ public class PCCountMiscCompanionsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		String CompString = pc.getMiscList().get(1);
+		String CompString = pc.getSafeStringFor(StringKey.MISC_COMPANIONS);
 		List<String> companions = Arrays.asList(CompString.split("\r?\n"));
 		return (float) companions.size();
 	}

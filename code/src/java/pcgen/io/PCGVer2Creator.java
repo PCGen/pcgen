@@ -618,7 +618,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterAssetLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERASSET).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getMiscList().get(0)));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_ASSETS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -637,7 +637,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterCompLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERCOMP).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getMiscList().get(1)));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_COMPANIONS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -651,14 +651,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterMagicLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERMAGIC).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getMiscList().get(2)));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_MAGIC)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterDmNotesLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERDMNOTES).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getMiscList().get(3)));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_DM)));
 		buffer.append(LINE_SEP);
 	}
 

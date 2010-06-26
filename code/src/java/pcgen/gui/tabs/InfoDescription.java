@@ -72,6 +72,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
@@ -476,20 +477,20 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			nodesToBeAddedList.add(order++, descriptionNote);
 			companionNote =
 					new NoteItem(COMPANION_NOTEID, -1, PropertyFactory
-						.getString("in_companions"), pc.getMiscList().get(1));
+						.getString("in_companions"), pc.getSafeStringFor(StringKey.MISC_COMPANIONS));
 			nodesToBeAddedList.add(order++, companionNote);
 			otherAssetsNote =
 					new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory
-						.getString("in_otherAssets"), pc.getMiscList().get(0));
+						.getString("in_otherAssets"), pc.getSafeStringFor(StringKey.MISC_ASSETS));
 			nodesToBeAddedList.add(order++, otherAssetsNote);
 			magicItemsNote =
 					new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
-						.getString("in_magicItems"), pc.getMiscList().get(2));
+						.getString("in_magicItems"), pc.getSafeStringFor(StringKey.MISC_MAGIC));
 			nodesToBeAddedList.add(order++, magicItemsNote);
 
 			dmNote =
 					new NoteItem(DMNOTES_NOTEID, -1, PropertyFactory
-						.getString("in_dmNotes"), pc.getMiscList().get(3));
+						.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_DM));
 			nodesToBeAddedList.add(order++, dmNote);
 
 		}
@@ -2082,22 +2083,22 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 			else if (currentItem == companionNote)
 			{
-				pc.getMiscList().set(1, dataText.getText());
+				pc.setStringFor(StringKey.MISC_COMPANIONS, dataText.getText());
 				pc.setDirty(true);
 			}
 			else if (currentItem == otherAssetsNote)
 			{
-				pc.getMiscList().set(0, dataText.getText());
+				pc.setStringFor(StringKey.MISC_ASSETS, dataText.getText());
 				pc.setDirty(true);
 			}
 			else if (currentItem == magicItemsNote)
 			{
-				pc.getMiscList().set(2, dataText.getText());
+				pc.setStringFor(StringKey.MISC_MAGIC, dataText.getText());
 				pc.setDirty(true);
 			}
 			else if (currentItem == dmNote)
 			{
-				pc.getMiscList().set(3, dataText.getText());
+				pc.setStringFor(StringKey.MISC_DM, dataText.getText());
 				pc.setDirty(true);
 			}
 

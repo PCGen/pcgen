@@ -45,6 +45,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -2417,11 +2418,11 @@ public final class ExportHandler
 		// Filter out MISC.FUNDS
 		if ("MISC.FUNDS".equals(aString.substring(1)))
 		{
-			if (aPC.getMiscList().get(0).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_ASSETS).equals(Constants.s_NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getMiscList().get(0)).trim().length() == 0)
+			else if ((aPC.getSafeStringFor(StringKey.MISC_ASSETS)).trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2432,11 +2433,11 @@ public final class ExportHandler
 		if ("COMPANIONS".equals(aString.substring(1))
 			|| "MISC.COMPANIONS".equals(aString.substring(1)))
 		{
-			if (aPC.getMiscList().get(1).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_COMPANIONS).equals(Constants.s_NONE))
 			{
 				canWrite = false;
 			}
-			else if (aPC.getMiscList().get(1).trim().length() == 0)
+			else if (aPC.getSafeStringFor(StringKey.MISC_COMPANIONS).trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2446,11 +2447,11 @@ public final class ExportHandler
 		// Filter out MISC.MAGIC
 		if ("MISC.MAGIC".equals(aString.substring(1)))
 		{
-			if (aPC.getMiscList().get(2).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_MAGIC).equals(Constants.s_NONE))
 			{
 				canWrite = false;
 			}
-			else if (aPC.getMiscList().get(2).trim().length() == 0)
+			else if (aPC.getSafeStringFor(StringKey.MISC_MAGIC).trim().length() == 0)
 			{
 				canWrite = false;
 			}
