@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Sat Jan 17 15:39:52 2004 -- reformated by prettylst.pl v1.31 (build 327)
-CAMPAIGN:Paizo - Rise of the Runelords - Chapter 2: The Skinsaw Murders
-GAMEMODE:35e
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 2: The Skinsaw Murders - Pathfinder Conversion
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide
+PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide - Pathfinder Conversion
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -24,9 +24,10 @@ COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Au
 COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett
 COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
 COPYRIGHT:PCGen dataset conversion for "Pathfinder 2: The Skinsaw Murders" Copyright 2007-2008, PCGen Data Team (including, but not limited to, Stefan Radermacher.)
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:rise_of_the_runelords_2_the_skinsaw_murders.jpg
+COVER:../the_skinsaw_murders.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,15 +37,18 @@ DESC:A sudden string of brutal killings terrorizes Sandpoint, and the killer's m
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
 
-ABILITY:pf2_abilities_class_prestige.lst
-ABILITY:pf2_abilities_racial.lst
-CLASS:pf2_classes_prestige.lst
-CLASS:pf2_classes_monsters_specific.lst
-COMPANIONMOD:pf2_companionmods.lst
-DEITY:pf2_deities.lst
-EQUIPMENT:pf2_equip_wondrousitems.lst
-FEAT:pf2_feats.lst
-KIT:pf2_kits_races.lst
-RACE:pf2_races.lst
-SPELL:pf2_spells.lst
-TEMPLATE:pf2_templates_hidden.lst
+ABILITY:../pf2_abilities_class_prestige.lst
+ABILITY:../pf2_abilities_racial.lst
+CLASS:../pf2_classes_prestige.lst
+CLASS:../pf2_classes_monsters_specific.lst
+COMPANIONMOD:../pf2_companionmods.lst
+DEITY:../pf2_deities.lst
+EQUIPMENT:../pf2_equip_wondrousitems.lst
+FEAT:../pf2_feats.lst
+RACE:../pf2_races.lst|(EXCLUDE:Boggard)
+SPELL:../pf2_spells.lst
+TEMPLATE:../pf2_templates_hidden.lst
+
+CLASS:pf2_classes_pfrpg.lst
+KIT:pf2_kits_races_pfrpg.lst
+RACE:pf2_races_pfrpg.lst

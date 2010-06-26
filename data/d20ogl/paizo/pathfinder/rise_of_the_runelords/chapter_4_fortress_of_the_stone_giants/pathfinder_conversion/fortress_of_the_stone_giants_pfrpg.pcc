@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Mon Aug  4 12:09:38 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Rise of the Runelords - Chapter 4: Fortress of the Stone Giants
-GAMEMODE:35e
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 4: Fortress of the Stone Giants - Pathfinder Conversion
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide
+PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide - Pathfinder Conversion
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -23,9 +23,10 @@ COPYRIGHT:Pathfinder 4: Fortress of the Stone Giants, Copyright 2007, Paizo Publ
 COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
 COPYRIGHT:Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder 4: Fortress of the Stone Giants" Copyright 2008, PCGen Data Team (including, but not limited to Eric C. Smith)
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:rise_of_the_runelords_4_fortress_of_the_stone_giants.jpg
+COVER:../fortress_of_the_stone_giants.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,16 +37,16 @@ DESC:A sudden assault on the town of Sandpoint by stone giants and a dragon brin
 #EXTRAFILE:pf4_OGL.txt
 
 # Data files
-ABILITY:pf4_abilities.lst
-EQUIPMENT:pf4_equip_magic_weapons_melee.lst
-EQUIPMENT:pf4_equip_magic_rodsstaveswands.lst
-EQUIPMENT:pf4_equip_magic_wondrousitems.lst
-FEAT:pf4_feats.lst
-KIT:pf4_kits_races.lst
-RACE:pf4_races.lst
-TEMPLATE:pf4_templates.lst
+ABILITY:../pf4_abilities.lst
+EQUIPMENT:../pf4_equip_magic_weapons_melee.lst
+EQUIPMENT:../pf4_equip_magic_rodsstaveswands.lst
+EQUIPMENT:../pf4_equip_magic_wondrousitems.lst
+FEAT:../pf4_feats.lst
+RACE:../pf4_races.lst
+TEMPLATE:../pf4_templates.lst
 
-#
-#KIT:pf4_kits_animals.lst
-#KIT:pf4_kits_npcs.lst
-#WEAPONPROF:pf4_weaponprofs.lst
+ABILITY:pf4_abilities_racial_pfrpg.lst
+KIT:pf4_kits_races_pfrpg.lst
+RACE:pf4_races_pfrpg.lst
+
+FORWARDREF:TEMPLATE|Fey,Outsider
