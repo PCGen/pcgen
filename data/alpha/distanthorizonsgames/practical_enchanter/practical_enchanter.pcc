@@ -6,8 +6,10 @@ GAMEMODE:35e|3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:RSRD.SRD
-TYPE:Alpha.Distant Horizons Games.Supplement
-#PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Distant Horizons Games.Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Distant Horizon Games
 PUBNAMESHORT:DHG
 PUBNAMEWEB:http://ruscumag.wordpress.com/atheria-d20/
