@@ -58,7 +58,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -659,7 +658,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 				if (profBonusObject instanceof Domain)
 				{
 					final Domain aDomain = (Domain) profBonusObject;
-					ChooserUtilities.getChoices(aDomain, aDomain.getSafe(StringKey.CHOICE_STRING), pc);
+					ChooserUtilities.modChoices(aDomain, new ArrayList(),
+						new ArrayList(), true, pc, true, null);
 				}
 				else
 				{

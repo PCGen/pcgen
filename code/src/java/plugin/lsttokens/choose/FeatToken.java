@@ -19,8 +19,8 @@ package plugin.lsttokens.choose;
 
 import java.util.List;
 
-import pcgen.cdom.base.AbilityChooseInformation;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedChooseInformation;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -104,8 +104,9 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 					.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		AbilityChooseInformation tc = new AbilityChooseInformation(
-				getTokenName(), AbilityCategory.FEAT, pcs);
+		CategorizedChooseInformation<Ability> tc =
+				new CategorizedChooseInformation<Ability>(getTokenName(),
+					AbilityCategory.FEAT, pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);

@@ -29,16 +29,21 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -47,7 +52,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -117,6 +122,11 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, clearText);
 				context.getListContext().removeFromList(getFullName(), obj,
 						abilList, ref);
+			}
+			else if ("%LIST".equals(token))
+			{
+				ChooseResultActor cra = this;
+				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
 			}
 			else
 			{
@@ -235,6 +245,35 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
+	{
+		AbilitySelection as =
+				AbilitySelection
+					.getAbilitySelectionFromPersistentFormat(choice);
+		if (as != null)
+		{
+			pc.addAppliedAbility(obj, as, Nature.AUTOMATIC);
+		}
+	}
+
+	public String getLstFormat() throws PersistenceLayerException
+	{
+		return "%LIST";
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
+	{
+		AbilitySelection as =
+			AbilitySelection
+				.getAbilitySelectionFromPersistentFormat(choice);
+		pc.removeAppliedAbility(obj, as, Nature.AUTOMATIC);
 	}
 
 }

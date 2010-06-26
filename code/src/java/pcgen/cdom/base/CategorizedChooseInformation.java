@@ -38,19 +38,19 @@ import pcgen.core.chooser.ChoiceManagerList;
  * 
  * @param <T>
  */
-public class AbilityChooseInformation implements ChooseInformation<Ability>
+public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 {
 
 	/**
 	 * The PrimitiveChoiceSet containing the Collection of Objects in this
 	 * ChoiceSet
 	 */
-	private final PrimitiveChoiceSet<Ability> pcs;
+	private final PrimitiveChoiceSet<T> pcs;
 
 	private final Category<Ability> category;
 
 	/**
-	 * The name of this ChoiceSet
+	 * The name of Abilitythis ChoiceSet
 	 */
 	private final String setName;
 
@@ -63,7 +63,9 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * The PersistentChoiceActor (optional) which will act upon any choices made
 	 * from this PersistentTransitionChoice.
 	 */
-	private PersistentChoiceActor<Ability> choiceActor;
+	private PersistentChoiceActor<T> choiceActor;
+
+	private Class<T> underlyingClass;
 
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
@@ -77,8 +79,8 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public AbilityChooseInformation(String name, Category<Ability> cat,
-		PrimitiveChoiceSet<Ability> choice)
+	public CategorizedChooseInformation(String name, Category<Ability> cat,
+		PrimitiveChoiceSet<T> choice, Class<T> cl)
 	{
 		if (name == null)
 		{
@@ -109,9 +111,9 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<Ability> ca)
+	public void setChoiceActor(ChoiceActor<T> ca)
 	{
-		choiceActor = (PersistentChoiceActor<Ability>) ca;
+		choiceActor = (PersistentChoiceActor<T>) ca;
 	}
 
 	/**
@@ -130,7 +132,7 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(Ability choice)
+	public String encodeChoice(T choice)
 	{
 		return choiceActor.encodeChoice(choice);
 	}
@@ -150,12 +152,12 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public Ability decodeChoice(String persistenceFormat)
+	public T decodeChoice(String persistenceFormat)
 	{
 		return choiceActor.decodeChoice(persistenceFormat);
 	}
 
-	public PersistentChoiceActor<Ability> getChoiceActor()
+	public PersistentChoiceActor<T> getChoiceActor()
 	{
 		return choiceActor;
 	}
@@ -169,9 +171,10 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof AbilityChooseInformation)
+		if (obj instanceof CategorizedChooseInformation)
 		{
-			AbilityChooseInformation other = (AbilityChooseInformation) obj;
+			CategorizedChooseInformation other =
+					(CategorizedChooseInformation) obj;
 			if (title == null)
 			{
 				if (other.title != null)
@@ -214,9 +217,9 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * 
 	 * @return the Class contained within this ChoiceSet
 	 */
-	public Class<Ability> getChoiceClass()
+	public Class<T> getChoiceClass()
 	{
-		return Ability.class;
+		return underlyingClass;
 	}
 
 	/**
@@ -229,7 +232,7 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
-	public Collection<Ability> getSet(PlayerCharacter pc)
+	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		return Collections.unmodifiableCollection(pcs.getSet(pc));
 	}
@@ -285,20 +288,19 @@ public class AbilityChooseInformation implements ChooseInformation<Ability>
 		return category;
 	}
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		Ability choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
 
 	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
 	{
-		return new CDOMChoiceManager<Ability>(owner, this, null, cost);
+		return new CDOMChoiceManager<T>(owner, this, null, cost);
 	}
 
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
-			",");
+				",");
 	}
 }

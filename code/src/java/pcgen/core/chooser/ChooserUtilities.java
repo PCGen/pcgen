@@ -44,13 +44,11 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
-import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
 
 /**
@@ -417,52 +415,6 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Creates a list of choices based on aChoice, or if aChoice is blank, the
-	 * choiceString property of aPObject. If process is true, a chooser will be
-	 * presented to the user. Otherwise, availableList will be populated.
-	 * 
-	 * @param aPObject
-	 * @param aChoice
-	 * @param availableList
-	 * @param selectedList
-	 * @param aPC
-	 */
-	public static void getChoices(final PObject aPObject, String aChoice,
-		final List availableList, final List selectedList,
-		final PlayerCharacter aPC)
-	{
-		String choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
-
-		if (!choiceString.startsWith("FEAT|")
-			&& !choiceString.startsWith("ARMORPROF")
-			&& !choiceString.startsWith("SPELLLEVEL")
-			&& !aChoice.startsWith("SPELLLEVEL")
-			&& !aChoice.startsWith("WEAPONPROF")
-			&& !aChoice.startsWith("SHIELDPROF"))
-		{
-			return;
-		}
-
-		ChoiceManagerList aMan = getChoiceManager(aPObject, aChoice, aPC);
-
-		aMan.getChoices(aPC, availableList, selectedList);
-
-		if (availableList.size() + selectedList.size() == 0)
-		{
-			return;
-		}
-
-		/*
-		 * TODO is empty reservedList appropriate here?
-		 */
-		final List newSelections =
-				aMan.doChooser(aPC, availableList, selectedList,
-					new ArrayList<String>());
-
-		aMan.applyChoices(aPC, newSelections);
-	}
-
-	/**
 	 * Make a mapping so that we can look up the name of the class that
 	 * implements a given ChoiceManager for specific type of Chooser.
 	 * 
@@ -472,7 +424,6 @@ public class ChooserUtilities
 		classLookup = new HashMap<String, String>();
 		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
-		classLookup.put("FEATADD", FeatAddChoiceManager.class.getName());
 
 		mapconstructed = true;
 	}
@@ -552,20 +503,6 @@ public class ChooserUtilities
 		}
 		String className = classLookup.get(type);
 
-		if (className == null)
-		{
-			if (Globals.getContext().containsType(WeaponProf.class, type))
-			{
-				type = "WEAPONPROF";
-				className = classLookup.get(type);
-			}
-			else
-			{
-				type = "MISC";
-				className = classLookup.get(type);
-			}
-		}
-
 		/* Construct and return the ChoiceManager */
 		try
 		{
@@ -624,15 +561,6 @@ public class ChooserUtilities
 		{
 			stringList.add(String.valueOf(iter.next()));
 		}
-	}
-
-	public static void getChoices(PObject object, String choice,
-		PlayerCharacter apc)
-	{
-		final List availableList = new ArrayList();
-		final List selectedList = new ArrayList();
-		ChooserUtilities.getChoices(object, choice, availableList,
-			selectedList, apc);
 	}
 
 }

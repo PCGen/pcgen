@@ -32,6 +32,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
@@ -152,6 +153,8 @@ public final class AssociationListKey<T>
 	
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
+	public static final AssociationListKey<AbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<AbilitySelection>();
+	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
 	private AssociationListKey()

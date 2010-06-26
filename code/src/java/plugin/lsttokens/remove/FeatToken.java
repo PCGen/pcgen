@@ -133,7 +133,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 					|| Constants.LST_ANY.equals(token))
 			{
 				foundAny = true;
-				ab = context.ref.getCDOMAllReference(ABILITY_CLASS, category);
+				ab = rm.getAllReference();
 			}
 			else if (token.startsWith("CLASS.") || token.startsWith("CLASS="))
 			{

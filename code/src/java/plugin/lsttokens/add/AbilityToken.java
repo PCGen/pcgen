@@ -234,8 +234,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 			{
 				if (Constants.LST_ALL.equals(token))
 				{
-					ab = context.ref.getCDOMAllReference(ABILITY_CLASS,
-							category);
+					ab = rm.getAllReference();
 				}
 				else
 				{

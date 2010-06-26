@@ -168,6 +168,7 @@ import pcgen.cdom.facet.VisionFacet;
 import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.ProfProvider;
@@ -14305,4 +14306,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return followerList.isEmpty();
 	}
+
+	public void addAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)
+	{
+		Ability ab = as.getAbility();
+		grantedAbilityFacet.add(id, as.getAbilityCategory(), nat, ab, obj);
+		String selection = as.getSelection();
+		if (selection != null)
+		{
+			for (String subchoice : AbilityUtilities.getLegalAssociations(this,
+				obj, ab, selection))
+			{
+				addAssociation(ab, subchoice);
+			}
+		}
+	}
+
+	public void removeAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)
+	{
+		grantedAbilityFacet.remove(id, as.getAbilityCategory(), nat, as.getAbility(), obj);
+	}
+
 }

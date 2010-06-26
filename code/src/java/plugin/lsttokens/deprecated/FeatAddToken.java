@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
@@ -88,23 +88,33 @@ public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements CDO
 				return cpr;
 			}
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		try
+		{
+			boolean proc = context.processToken(obj, "CHOOSE", "FEATSELECTION|" + value + "|TITLE=Add a Feat");
+			if (!proc)
+			{
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " encountered an error delegating to "
+					+ "CHOOSE:FEATSELECTION|" + value + "|TITLE=Add a Feat");
+			}
+			proc = context.processToken(obj, "AUTO", "FEAT|%LIST");
+			if (!proc)
+			{
+				return new ParseResult.Fail("CHOOSE:" + getTokenName()
+					+ " encountered an error delegating to AUTO:FEAT|%LIST");
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+				+ " found error : " + e.getMessage());
+		}
 		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()
