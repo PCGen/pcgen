@@ -34,8 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class PPCost extends BonusObj
 {
-	private static final String[] bonusHandled = {"PPCOST"};
-
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		if (token.startsWith("TYPE="))
@@ -50,13 +49,15 @@ public final class PPCost extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "PPCOST";
 	}
 }

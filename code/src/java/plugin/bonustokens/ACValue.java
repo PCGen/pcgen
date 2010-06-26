@@ -34,8 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class ACValue extends BonusObj
 {
-	private static final String[] bonusHandled = {"ACVALUE"};
-
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		addBonusInfo(token);
@@ -43,13 +42,15 @@ public final class ACValue extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "ACVALUE";
 	}
 }

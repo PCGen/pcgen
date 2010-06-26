@@ -4,13 +4,13 @@ import pcgen.core.bonus.BonusObj;
 
 public class Followers extends BonusObj
 {
-	private static final String[] bonusHandled = {"FOLLOWERS"};
-
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "FOLLOWERS";
 	}
 
+	@Override
 	protected boolean parseToken(final String argToken)
 	{
 		//		Collection<String> followerTypes = Globals.getFollowerTypes();
@@ -22,6 +22,7 @@ public class Followers extends BonusObj
 		//		return false;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;

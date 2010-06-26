@@ -34,20 +34,22 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Eqm extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"EQM"};
 	private static final String[] bonusTags =
 			{"WEIGHTADD", "WEIGHTDIV", "WEIGHTMULT"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "EQM";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

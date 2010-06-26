@@ -34,20 +34,22 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Misc extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"MISC"};
 	private static final String[] bonusTags =
 			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "MISC";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

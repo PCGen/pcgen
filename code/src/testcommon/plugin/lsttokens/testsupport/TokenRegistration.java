@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.testsupport;
 
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
@@ -94,7 +94,7 @@ public class TokenRegistration
 	{
 		try
 		{
-			Bonus.addBonusClass(cl, "Custom");
+			TokenLibrary.addBonusClass(cl, "Custom");
 		}
 		catch (InstantiationException e)
 		{

@@ -34,10 +34,9 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Skill extends BonusObj
 {
-	private static final String[] bonusHandled = {"SKILL"};
-
 	private static final String[] bonusTags = {"LIST", "ALL"};
 
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
@@ -62,6 +61,7 @@ public final class Skill extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
@@ -72,8 +72,9 @@ public final class Skill extends BonusObj
 		return (String) obj;
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "SKILL";
 	}
 }

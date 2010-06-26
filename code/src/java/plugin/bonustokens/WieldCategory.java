@@ -34,20 +34,22 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class WieldCategory extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"WIELDCATEGORY"};
 	private static final String[] bonusTags =
 			{"LIGHT", "ONEHANDED", "TWOHANDED"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "WIELDCATEGORY";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

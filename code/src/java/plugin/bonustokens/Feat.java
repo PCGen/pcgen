@@ -35,8 +35,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Feat extends BonusObj
 {
-	private static final String[] bonusHandled = {"FEAT"};
-
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		if ("POOL".equals(token) || "MONSTERPOOL".equals(token)
@@ -49,13 +48,15 @@ public final class Feat extends BonusObj
 		return false;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "FEAT";
 	}
 }

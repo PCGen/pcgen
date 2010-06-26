@@ -1148,10 +1148,17 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-MOVE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${bonusplugins.dir}/BonusToken-MOVEADD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/bonustokens/Move.class" />
+					<include name="plugin/bonustokens/MoveAdd.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-MOVEMULT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/MoveMult.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -1169,6 +1176,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-POSTMOVEADD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/PostMoveAdd.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-POSTRANGEADD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1180,6 +1194,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/PPCost.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-RANGEADD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/RangeAdd.class" />
 				</patternset>
 			</fileset>
 		</jar>

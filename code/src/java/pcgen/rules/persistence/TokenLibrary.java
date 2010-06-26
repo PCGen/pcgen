@@ -25,9 +25,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
+import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -65,6 +67,8 @@ public final class TokenLibrary
 		TOKEN_FAMILIES.add(TokenFamily.CURRENT);
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
 	}
+
+	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP = new CaseInsensitiveMap<Class<? extends BonusObj>>();
 
 	private TokenLibrary()
 	{
@@ -441,5 +445,29 @@ public final class TokenLibrary
 		{
 			return family.getPrerequisiteToken(key);
 		}
+	}
+
+	/**
+	 * Add a CLASS via a BONUS
+	 * 
+	 * @param bonusClass
+	 * @param bonusName
+	 * @return true if successful
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public static boolean addBonusClass(Class bonusClass, String bonusName) throws InstantiationException, IllegalAccessException {
+		if (BonusObj.class.isAssignableFrom(bonusClass))
+		{
+			final BonusObj bonusObj = (BonusObj) bonusClass.newInstance();
+			BONUS_TAG_MAP.put(bonusObj.getBonusHandled(), bonusClass);
+			return true;
+		}
+		return false;
+	}
+
+	public static Class<? extends BonusObj> getBonus(String bonusName)
+	{
+		return BONUS_TAG_MAP.get(bonusName);
 	}
 }

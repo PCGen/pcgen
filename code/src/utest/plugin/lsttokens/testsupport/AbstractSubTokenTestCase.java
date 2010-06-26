@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -27,7 +28,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.core.Campaign;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -111,7 +111,7 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 	{
 		try
 		{
-			Bonus.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz, name);
 		}
 		catch (InstantiationException e)
 		{

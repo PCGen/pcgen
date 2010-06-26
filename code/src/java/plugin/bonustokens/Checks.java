@@ -38,8 +38,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Checks extends BonusObj
 {
-	private static final String[] bonusHandled = {"CHECKS"};
-
+	@Override
 	protected boolean parseToken(final String argToken)
 	{
 		boolean isBase = false;
@@ -86,6 +85,7 @@ public final class Checks extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		String token = "";
@@ -126,8 +126,9 @@ public final class Checks extends BonusObj
 
 	public static CheckInfo LIST_CHECK = new CheckInfo(null, false);
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "CHECKS";
 	}
 }

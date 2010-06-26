@@ -34,8 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class SkillPool extends BonusObj
 {
-	private static final String[] bonusHandled = {"SKILLPOOL"};
-
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		if (token.startsWith("CLASS"))
@@ -58,13 +57,15 @@ public final class SkillPool extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "SKILLPOOL";
 	}
 }

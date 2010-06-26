@@ -35,14 +35,13 @@ import pcgen.core.bonus.util.SpellCastInfo;
  */
 public final class SpellCast extends BonusObj
 {
-	private static final String[] bonusHandled = {"SPELLCAST"};
-
 	/*
 	 * CLASS.<classname OR Any>;LEVEL.<level>
 	 * TYPE.<type>;LEVEL.<level>
 	 * @param token
 	 * @return
 	 */
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		int idx = token.indexOf(";LEVEL=");
@@ -64,6 +63,7 @@ public final class SpellCast extends BonusObj
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		final StringBuffer sb = new StringBuffer(30);
@@ -83,8 +83,9 @@ public final class SpellCast extends BonusObj
 		return sb.toString();
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "SPELLCAST";
 	}
 }

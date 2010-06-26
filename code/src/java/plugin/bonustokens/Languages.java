@@ -34,19 +34,21 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Languages extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"LANGUAGES"};
 	private static final String[] bonusTags = {"NUMBER"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "LANGUAGES";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

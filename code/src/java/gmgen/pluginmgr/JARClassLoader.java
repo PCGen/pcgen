@@ -41,7 +41,6 @@ import java.util.zip.ZipFile;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
@@ -530,7 +529,7 @@ public class JARClassLoader extends ClassLoader
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && BonusObj.class.isAssignableFrom(clazz))
 		{
-			Bonus.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz, name);
 		}
 	}
 

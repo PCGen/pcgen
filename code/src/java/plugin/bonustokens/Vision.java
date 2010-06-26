@@ -34,7 +34,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Vision extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"VISION"};
 	private static final String[] bonusTags =
 			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE",
 				"ECHOSENSE", "X-RAY"};
@@ -42,14 +41,16 @@ public final class Vision extends MultiTagBonusObj
 	/**
 	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
 	 */
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "VISION";
 	}
 
 	/**
 	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 */
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
@@ -58,6 +59,7 @@ public final class Vision extends MultiTagBonusObj
 	/**
 	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTagLength()
 	 */
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

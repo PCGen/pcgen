@@ -37,8 +37,7 @@ import pcgen.util.Logging;
  */
 public final class UDam extends BonusObj
 {
-	private static final String[] bonusHandled = {"UDAM"};
-
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		if (token.startsWith("CLASS=") || token.startsWith("CLASS."))
@@ -52,6 +51,7 @@ public final class UDam extends BonusObj
 		return false;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof String)
@@ -66,8 +66,9 @@ public final class UDam extends BonusObj
 		return "CLASS." + ((PCClass) obj).getKeyName();
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "UDAM";
 	}
 }

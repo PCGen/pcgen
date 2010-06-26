@@ -34,21 +34,23 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Weapon extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = new String[]{"WEAPON"};
 	private static final String[] bonusTags =
 			new String[]{"ATTACKS", "ATTACKSPROGRESS", "WEAPONBAB", "DAMAGE",
 				"DAMAGESIZE", "TOHIT", "WIELDCATEGORY"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "WEAPON";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

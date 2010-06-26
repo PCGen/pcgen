@@ -36,9 +36,6 @@ import pcgen.util.Logging;
  */
 public final class AbilityPool extends BonusObj
 {
-	private static final String[] bonusHandled = {"ABILITYPOOL" //$NON-NLS-1$
-			};
-
 	/**
 	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
 	 */
@@ -66,8 +63,8 @@ public final class AbilityPool extends BonusObj
 	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
 	 */
 	@Override
-	protected String[] getBonusesHandled()
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "ABILITYPOOL";
 	}
 }

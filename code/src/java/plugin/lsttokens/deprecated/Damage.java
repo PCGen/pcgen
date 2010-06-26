@@ -36,8 +36,6 @@ import pcgen.persistence.lst.DeprecatedToken;
  */
 public final class Damage extends BonusObj implements DeprecatedToken
 {
-	private static final String[] bonusHandled = {"DAMAGE"};
-
 	@Override
 	protected boolean parseToken(final String token)
 	{
@@ -60,9 +58,9 @@ public final class Damage extends BonusObj implements DeprecatedToken
 	}
 
 	@Override
-	protected String[] getBonusesHandled()
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "DAMAGE";
 	}
 
 	/* (non-Javadoc)

@@ -34,22 +34,24 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Slots extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"SLOTS"};
 	private static final String[] bonusTags =
 			{"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE",
 				"HANDS", "HEADGEAR", "LEGS", "ROBE", "RING", "Shield", "SHIRT",
 				"SUIT", "WEAPON"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "SLOTS";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

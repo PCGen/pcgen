@@ -34,19 +34,21 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class MonSkillPts extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"MONSKILLPTS"};
 	private static final String[] bonusTags = {"NUMBER", "LOCKNUMBER"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "MONSKILLPTS";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

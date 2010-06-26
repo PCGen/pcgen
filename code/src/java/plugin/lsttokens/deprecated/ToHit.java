@@ -36,8 +36,6 @@ import pcgen.persistence.lst.DeprecatedToken;
  */
 public final class ToHit extends BonusObj implements DeprecatedToken
 {
-	private static final String[] bonusHandled = {"TOHIT"};
-
 	private static final String[] bonusTags = {"TOHIT"};
 
 	@Override
@@ -77,9 +75,9 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 	}
 
 	@Override
-	protected String[] getBonusesHandled()
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "TOHIT";
 	}
 
 	/* (non-Javadoc)

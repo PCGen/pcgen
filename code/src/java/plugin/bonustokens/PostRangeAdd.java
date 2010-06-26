@@ -34,19 +34,21 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class PostRangeAdd extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"POSTRANGEADD"};
 	private static final String[] bonusTags = {"PROJECTILE", "THROWN"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "POSTRANGEADD";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

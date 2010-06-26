@@ -30,10 +30,11 @@ import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -44,55 +45,10 @@ import java.util.StringTokenizer;
  */
 public class Bonus
 {
-	static final int BONUS_UNDEFINED = -1;
-
-	private static int bonusTagMapNum = 0;
-
-	private static final HashMap<String, BonusMapEntry> BONUS_TAG_MAP = new HashMap<String, BonusMapEntry>();
+	static final String BONUS_UNDEFINED = "*UNDEFINED";
 
 	private Bonus() {
 		// Constructor
-	}
-
-	/**
-	 * Get the bonus type given a name
-	 * @param bonusName
-	 * @return bonus type
-	 */
-	public static int getBonusTypeFromName(final String bonusName)
-	{
-		BonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
-		if (bEntry == null)
-		{
-			final int equalOffset = bonusName.indexOf('=');
-			if (equalOffset >= 0)
-			{
-				bEntry = BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
-			}
-			if (bEntry == null)
-			{
-				return BONUS_UNDEFINED;
-			}
-		}
-		return bEntry.getBonusType();
-	}
-
-	/**
-	 * Get the bonus name given a type
-	 * @param bonusType
-	 * @return bonus name
-	 */
-	public static String getBonusNameFromType(final int bonusType)
-	{
-		for ( String key : BONUS_TAG_MAP.keySet() )
-		{
-			final BonusMapEntry bme = BONUS_TAG_MAP.get(key);
-			if (bme.getBonusType() == bonusType)
-			{
-				return key;
-			}
-		}
-		return Constants.EMPTY_STRING;
 	}
 
 	/**
@@ -180,7 +136,6 @@ public class Bonus
 	 */
 	public static BonusObj newBonus(final String bonusString)
 	{
-		final int typeOfBonus;
 		StringTokenizer aTok = new StringTokenizer(bonusString, Constants.PIPE);
 
 		if ((bonusString.indexOf(Constants.PIPE) == bonusString
@@ -206,23 +161,23 @@ public class Bonus
 		}
 
 		int equalOffset = -1;
-		BonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
+		Class<? extends BonusObj> bEntry = TokenLibrary.getBonus(bonusName);
+		String typeOfBonus = bonusName;
 		if (bEntry == null)
 		{
 			equalOffset = bonusName.indexOf('=');
 			if (equalOffset >= 0)
 			{
-				bEntry = BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
+				typeOfBonus = bonusName.substring(0, equalOffset + 1);
+				bEntry = TokenLibrary.getBonus(typeOfBonus);
 			}
 			if (bEntry == null)
 			{
+				typeOfBonus = Bonus.BONUS_UNDEFINED;
 				Logging.errorPrint("Unrecognized bonus: " + bonusString);
 				return null;
 			}
 		}
-
-		typeOfBonus = bEntry.getBonusType();
-
 
 		final String bonusInfo = aTok.nextToken().toUpperCase();
 		String bValue = "0";
@@ -243,181 +198,92 @@ public class Bonus
 		BonusObj aBonus = null;
 		try
 		{
-			aBonus = (BonusObj) bEntry.getBonusClass().newInstance();
+			aBonus = bEntry.newInstance();
 		}
 		catch (Exception exc)
 		{
-			// Do nothing
+			Logging.errorPrint("Could not create bonusObj for:" + bonusString);
+			return null;
 		}
 
-		if (aBonus != null)
-		{
 			aBonus.putOriginalString(bonusString);
-			aBonus.setBonusName(bonusName);
-			aBonus.setTypeOfBonus(typeOfBonus);
-			aBonus.setValue(bValue);
+		aBonus.setBonusName(bonusName);
+		aBonus.setTypeOfBonus(typeOfBonus);
+		aBonus.setValue(bValue);
 
-			while (aTok.hasMoreTokens())
+		while (aTok.hasMoreTokens())
+		{
+			final String aString = aTok.nextToken().toUpperCase();
+
+			if (PreParserFactory.isPreReqString(aString))
 			{
-				final String aString = aTok.nextToken().toUpperCase();
+				// Logging.errorPrint("Why is this not parsed in loading: " +
+				// aString + " rather than in Bonus.newBonus()");
 
-				if (PreParserFactory.isPreReqString(aString))
+				try
 				{
-					//Logging.errorPrint("Why is this not parsed in loading: " + aString + " rather than in Bonus.newBonus()");
-
-					try
-					{
-						final PreParserFactory factory = PreParserFactory.getInstance();
-						aBonus.addPrerequisite(factory.parse(aString));
-					}
-					catch ( PersistenceLayerException ple)
-					{
-						Logging.errorPrint(ple.getMessage(), ple);
-					}
+					final PreParserFactory factory = PreParserFactory
+							.getInstance();
+					aBonus.addPrerequisite(factory.parse(aString));
 				}
-				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
+				catch (PersistenceLayerException ple)
 				{
-					String bonusType = aString.substring(5);
-					int dotLoc = bonusType.indexOf('.');
-					if ( dotLoc != -1 )
-					{
-						final String stackingFlag = bonusType.substring(dotLoc + 1);
-						// TODO - Need to reset bonusType to exclude this but
-						// there is too much dependancy on it being there
-						// built into the code.
-						if ( stackingFlag.startsWith("REPLACE") ) //$NON-NLS-1$
-						{
-							aBonus.setStackingFlag( StackType.REPLACE );
-						}
-						else if ( stackingFlag.startsWith("STACK") ) //$NON-NLS-1$
-						{
-							aBonus.setStackingFlag( StackType.STACK );
-						}
-					}
-					final boolean result = aBonus.addType(bonusType);
-
-					if (!result)
-					{
-						Logging.debugPrint(new StringBuffer()
-								.append("Could not add type ")
-								.append(aString.substring(5))
-								.append(" to bonusType ").append(typeOfBonus)
-								.append(" in Bonus.newBonus").toString());
-					}
+					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-
-			if (equalOffset >= 0)
+			else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
-				aBonus.setVariable(bonusName.substring(equalOffset + 1));
-			}
-
-			aTok = new StringTokenizer(bonusInfo, ",");
-
-			LstUtils.deprecationCheck(aBonus, bonusName, bonusString);
-			while (aTok.hasMoreTokens())
-			{
-				final String token = aTok.nextToken();
-				final boolean result = aBonus.parseToken(token);
+				String bonusType = aString.substring(5);
+				int dotLoc = bonusType.indexOf('.');
+				if (dotLoc != -1)
+				{
+					final String stackingFlag = bonusType.substring(dotLoc + 1);
+					// TODO - Need to reset bonusType to exclude this but
+					// there is too much dependancy on it being there
+					// built into the code.
+					if (stackingFlag.startsWith("REPLACE")) //$NON-NLS-1$
+					{
+						aBonus.setStackingFlag(StackType.REPLACE);
+					}
+					else if (stackingFlag.startsWith("STACK")) //$NON-NLS-1$
+					{
+						aBonus.setStackingFlag(StackType.STACK);
+					}
+				}
+				final boolean result = aBonus.addType(bonusType);
 
 				if (!result)
 				{
-					Logging.debugPrint(new StringBuffer()
-							.append("Could not parse token ").append(token)
-							.append(" from bonusInfo ").append(bonusInfo)
-							.append(" in BonusObj.newBonus.").toString());
+					Logging.debugPrint(new StringBuffer().append(
+							"Could not add type ").append(aString.substring(5))
+							.append(" to bonusType ").append(typeOfBonus)
+							.append(" in Bonus.newBonus").toString());
 				}
 			}
 		}
-		else
+
+		if (equalOffset >= 0)
 		{
-			Logging.errorPrint("Could not create bonusObj for:" + bonusString);
+			aBonus.setVariable(bonusName.substring(equalOffset + 1));
+		}
+
+		aTok = new StringTokenizer(bonusInfo, ",");
+
+		LstUtils.deprecationCheck(aBonus, bonusName, bonusString);
+		while (aTok.hasMoreTokens())
+		{
+			final String token = aTok.nextToken();
+			final boolean result = aBonus.parseToken(token);
+
+			if (!result)
+			{
+				Logging.debugPrint(new StringBuffer().append(
+						"Could not parse token ").append(token).append(
+						" from bonusInfo ").append(bonusInfo).append(
+						" in BonusObj.newBonus.").toString());
+			}
 		}
 
 		return aBonus;
 	}
-
-	/**
-	 * Add a CLASS via a BONUS
-	 * @param bonusClass
-	 * @param bonusName
-	 * @return true if successful
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
-	 */
-	public static boolean addBonusClass(Class bonusClass, String bonusName) throws InstantiationException, IllegalAccessException {
-		boolean added = false;
-		if (BonusObj.class.isAssignableFrom(bonusClass))
-		{
-			final BonusObj bonusObj = (BonusObj) bonusClass.newInstance();
-			final String[] handled = bonusObj.getBonusesHandled();
-			if (handled != null)
-			{
-				added = true;
-				for (int i = 0; i < handled.length; ++i)
-				{
-					BONUS_TAG_MAP.put(handled[i], new BonusMapEntry(bonusName, bonusTagMapNum++, bonusClass));
-				}
-			}
-		}
-		return added;
-	}
-
-	private static class BonusMapEntry
-	{
-		private int bonusType = BONUS_UNDEFINED;
-		private String bonusObjectName = "";
-		private Class bonusClass;
-
-		/**
-		 * Constructor
-		 * @param bonusObjectName
-		 * @param bonusType
-		 * @param bonusClass
-		 */
-		public BonusMapEntry(final String bonusObjectName, final int bonusType, final Class bonusClass)
-		{
-			this.bonusObjectName = bonusObjectName;
-			this.bonusType = bonusType;
-			this.bonusClass = bonusClass;
-		}
-
-		/**
-		 * Get the bonus object name
-		 * @return bonus object name
-		 */
-		public final String getBonusObjectName()
-		{
-			return bonusObjectName;
-		}
-
-		/**
-		 * Get the bonus type
-		 * @return bonus type
-		 */
-		public final int getBonusType()
-		{
-			return bonusType;
-		}
-
-		/**
-		 * Return the bonus class
-		 * @return the bonus class
-		 */
-		public final Class getBonusClass()
-		{
-			return bonusClass;
-		}
-
-        /**
-         * toString function bonusname:bonustype
-         * @return String bonusname:bonustype
-         */
-		@Override
-		public String toString()
-		{
-			return bonusObjectName + ':' + Integer.toString(bonusType);
-		}
-	}
-
 }

@@ -34,19 +34,21 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Domain extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"DOMAIN"};
 	private static final String[] bonusTags = {"NUMBER"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "DOMAIN";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

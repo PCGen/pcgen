@@ -57,7 +57,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	/** The type of the bonus e.g. Enhancement or Dodge */
 	private String  bonusType            = Constants.EMPTY_STRING;
 	private String  varPart              = Constants.EMPTY_STRING;
-	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
+	private String typeOfBonus           = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
 	private boolean addOnceOnly          = false;
 	private String tokenSource = null;
@@ -262,7 +262,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public String getTypeOfBonus()
 	{
-		return Bonus.getBonusNameFromType(typeOfBonus);
+		return typeOfBonus;
 	}
 
 	/**
@@ -426,7 +426,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		bonusName = aName;
 	}
 
-	protected void setTypeOfBonus(final int type)
+	protected void setTypeOfBonus(final String type)
 	{
 		typeOfBonus = type;
 	}
@@ -507,7 +507,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 	protected abstract String unparseToken(final Object obj);
 
-	protected abstract String[] getBonusesHandled();
+	public abstract String getBonusHandled();
 
 	private void buildDependMap(String aString)
 	{

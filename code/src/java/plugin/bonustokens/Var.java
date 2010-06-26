@@ -34,12 +34,10 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Var extends BonusObj
 {
-	/** The type of bonus tags dealt with by this object. */
-	private static final String[] bonusHandled = {"VAR"};
-
 	/**
 	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
 	 */
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		addBonusInfo(token);
@@ -50,6 +48,7 @@ public final class Var extends BonusObj
 	/**
 	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
 	 */
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
@@ -58,9 +57,10 @@ public final class Var extends BonusObj
 	/**
 	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
 	 */
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "VAR";
 	}
 
 }

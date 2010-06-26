@@ -38,10 +38,10 @@ import pcgen.core.bonus.util.MissingObject;
  */
 public final class Stat extends BonusObj
 {
-	private static final String[] bonusHandled = {"STAT"};
 	private static final String[] bonusTags =
 			{"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
 
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
@@ -95,6 +95,7 @@ public final class Stat extends BonusObj
 		return false;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
@@ -135,8 +136,9 @@ public final class Stat extends BonusObj
 		}
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "STAT";
 	}
 }

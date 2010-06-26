@@ -18,16 +18,14 @@
  *
  * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1777 $
+ * Current Ver: $Revision: 7801 $
  * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
+ * Last Edited: $Date: 2008-09-27 02:42:23 -0400 (Sat, 27 Sep 2008) $
  *
  */
-package plugin.lsttokens.deprecated;
+package plugin.bonustokens;
 
-import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -35,15 +33,12 @@ import pcgen.util.enumeration.Load;
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  **/
-public final class MoveBonus extends BonusObj implements DeprecatedToken
+public final class MoveMult extends BonusObj
 {
 	private static final String[] bonusTags =
 			{Load.LIGHT.toString(), Load.MEDIUM.toString(),
 				Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
-	 */
 	@Override
 	protected boolean parseToken(final String token)
 	{
@@ -69,9 +64,6 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
-	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
@@ -83,20 +75,9 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 		return (String) obj;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
-	 */
 	@Override
 	public String getBonusHandled()
 	{
-		return "MOVE";
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
-	 */
-	public String getMessage(PObject obj, String value)
-	{
-		return "The bonus will not be applied. You should use either BONUS:MOVEADD or BONUS:POSTMOVEADD instead.";
+		return "MOVEMULT";
 	}
 }

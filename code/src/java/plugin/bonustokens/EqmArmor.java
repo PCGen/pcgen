@@ -34,20 +34,22 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class EqmArmor extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = {"EQMARMOR"};
 	private static final String[] bonusTags =
 			{"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "EQMARMOR";
 	}
 
+	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	@Override
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;

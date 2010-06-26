@@ -16,8 +16,7 @@ import pcgen.util.Logging;
  */
 public class SpellPointCosts extends BonusObj
 {
-	private static final String[] bonusHandled = {"SPELLPOINTCOST" };
-	
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		SpellPointCostInfo spi = null;
@@ -84,6 +83,7 @@ public class SpellPointCosts extends BonusObj
 		return true;
 	}
 	
+	@Override
 	protected String unparseToken(Object obj)
 	{
 		SpellPointCostInfo spInfo = (SpellPointCostInfo) obj;
@@ -98,9 +98,10 @@ public class SpellPointCosts extends BonusObj
 		return sb.toString();
 	}
 
-	protected String[] getBonusesHandled()
+	@Override
+	public String getBonusHandled()
 	{
-		return bonusHandled;
+		return "SPELLPOINTCOST";
 	}
 	
 }

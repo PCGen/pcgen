@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -29,7 +30,6 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -114,7 +114,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 	{
 		try
 		{
-			Bonus.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz, name);
 		}
 		catch (InstantiationException e)
 		{
