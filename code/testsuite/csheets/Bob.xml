@@ -1005,10 +1005,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Bob Test Feat Choose Spelllevel Arcane (MonKee 1)</name>
+			<name>Bob Test Feat Choose Spelllevel Arcane (CLASS.MonKee;LEVEL.1)</name>
 			<description></description>
 			<type>GENERAL.TESTS.BOBTEST</type>
-			<associated>MonKee 1</associated>
+			<associated>CLASS.MonKee;LEVEL.1</associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>

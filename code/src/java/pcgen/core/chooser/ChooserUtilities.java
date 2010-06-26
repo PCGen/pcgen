@@ -27,7 +27,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -44,7 +43,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -62,168 +60,6 @@ public class ChooserUtilities
 {
 	private static Map<String, String> classLookup = null;
 	private static boolean mapconstructed = false;
-
-	/**
-	 * Construct the choices for a SPELLLEVEL chooser
-	 * 
-	 * @param availList
-	 * @param uniqueList
-	 * @param aPC
-	 * @param elements
-	 */
-	public static final void buildSpellTypeChoices(
-		final List<String> availList, final List<String> uniqueList,
-		final PlayerCharacter aPC, Enumeration<String> elements)
-	{
-		elements.nextElement(); // should be SPELLLEVEL
-
-		while (elements.hasMoreElements())
-		{
-			String aString = elements.nextElement(); // Throw away count
-
-			while (!aString.startsWith("CLASS=")
-				&& !aString.startsWith("CLASS.")
-				&& !aString.startsWith("TYPE=") && !aString.startsWith("TYPE.")
-				&& elements.hasMoreElements())
-			{
-				aString = elements.nextElement();
-			}
-
-			if (!elements.hasMoreElements())
-			{
-				break;
-			}
-
-			boolean endIsUnique = false;
-
-			int minLevel = 1;
-
-			try
-			{
-				minLevel = Integer.parseInt(elements.nextElement());
-			}
-			catch (NumberFormatException e)
-			{
-				Logging.errorPrint("Badly formed minLevel token: " + aString);
-			}
-
-			String mString = elements.nextElement();
-
-			if (mString.endsWith(".A"))
-			{
-				endIsUnique = true;
-				mString = mString.substring(0, mString.lastIndexOf(".A"));
-			}
-
-			int maxLevel = minLevel;
-
-			if (aString.startsWith("CLASS=") || aString.startsWith("CLASS."))
-			{
-				final PCClass aClass = aPC.getClassKeyed(aString.substring(6));
-
-				if (mString.indexOf("MAXLEVEL") >= 0)
-				{
-					int maxLevelVal =
-							(aClass == null) ? 0 : aPC.getSpellSupport(aClass)
-								.getMaxSpellLevelForClassLevel(
-									aPC.getLevel(aClass));
-
-					mString =
-							mString.replaceAll("MAXLEVEL", String
-								.valueOf(maxLevelVal));
-				}
-				maxLevel = aPC.getVariableValue(mString, "").intValue();
-
-				if (aClass != null)
-				{
-					// TODO check this
-					final String prefix = aClass.getKeyName() + " ";
-
-					for (int j = minLevel; j <= maxLevel; ++j)
-					{
-						final String bString = prefix + j;
-
-						if (!availList.contains(bString))
-						{
-							availList.add(bString);
-						}
-
-						if ((j == maxLevel) && endIsUnique)
-						{
-							uniqueList.add(bString);
-						}
-					}
-				}
-			}
-
-			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
-			{
-				aString = aString.substring(5);
-
-				for (PCClass aClass : aPC.getClassSet())
-				{
-					if (aClass.getSpellType().equals(aString))
-					{
-						if (mString.indexOf("MAXLEVEL") >= 0)
-						{
-							int maxLevelVal =
-									calcMaxSpellLevel(aClass, aString, aPC);
-							mString =
-									mString.replaceAll("MAXLEVEL", String
-										.valueOf(maxLevelVal));
-						}
-						maxLevel = aPC.getVariableValue(mString, "").intValue();
-
-						// TODO check this
-						final String prefix = aClass.getKeyName() + " ";
-
-						for (int i = minLevel; i <= maxLevel; ++i)
-						{
-							final String bString = prefix + i;
-
-							if (!availList.contains(bString))
-							{
-								availList.add(bString);
-							}
-
-							if ((i == maxLevel) && endIsUnique)
-							{
-								uniqueList.add(bString);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Calculate the maximum level of spell that is castable by the PC for the
-	 * supplied Class. If the class is not restricted in what spells can be
-	 * cast, its limits on known spells will be checked instead.
-	 * 
-	 * @param aClass
-	 *            The class to be checked.
-	 * @param aType
-	 *            The class type to be checked.
-	 * @param aPC
-	 *            The character to be checked.
-	 * @return The highest level spell castable
-	 */
-	private static int calcMaxSpellLevel(final PCClass aClass,
-		final String aType, PlayerCharacter aPC)
-	{
-		if (aClass == null)
-		{
-			return 0;
-		}
-
-		int aLevel = aPC.getLevel(aClass);
-		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
-		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
-		return aPC.getSpellSupport(aClass)
-			.getMaxSpellLevelForClassLevel(aLevel);
-	}
 
 	/**
 	 * Deal with CHOOSE tags. The actual items the choice will be made from are
@@ -422,7 +258,6 @@ public class ChooserUtilities
 	private static void constructMap()
 	{
 		classLookup = new HashMap<String, String>();
-		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
 
 		mapconstructed = true;

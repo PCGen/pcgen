@@ -38,9 +38,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.AddObjectActions;
-import pcgen.core.analysis.BonusAddition;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
@@ -1159,30 +1157,8 @@ public class AbilityUtilities
 		{
 			aPC.adjustAbilities(abilityCat, ab.getSafe(ObjectKey.SELECTION_COST));
 	
-			final List<String> aBonusList = new ArrayList<String>();
-			boolean spellLevelProcess = false;
-			if (ab.getSafe(StringKey.CHOICE_STRING).startsWith("SPELLLEVEL"))
-			{
-				spellLevelProcess = true;
-	
-				final StringTokenizer sTok = new StringTokenizer(ab.getSafe(StringKey.CHOICE_STRING), "[]", false);
-				sTok.nextToken(); // COnsume CHOOSE (get to Bonuses)
-	
-				while (sTok.hasMoreTokens())
-				{
-					aBonusList.add(sTok.nextToken());
-				}
-			}
 			modAbility(aPC, pcLevelInfo, ab, choice, true,
 					abilityCat);
-	
-			if (spellLevelProcess)
-			{
-				for (String bonus : aBonusList)
-				{
-					BonusAddition.applyBonus(bonus, choice, aPC, ab, false);
-				}
-			}
 		}
 	}
 

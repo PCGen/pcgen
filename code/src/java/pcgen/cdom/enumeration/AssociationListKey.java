@@ -34,6 +34,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
@@ -150,6 +151,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> CHOOSE_STRING = new AssociationListKey<String>();
 
 	public static final AssociationListKey<Spell> CHOOSE_SPELL = new AssociationListKey<Spell>();
+
+	public static final AssociationListKey<SpellLevel> CHOOSE_SPELLLEVEL = new AssociationListKey<SpellLevel>();
 	
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 

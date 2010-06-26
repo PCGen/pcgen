@@ -26,11 +26,12 @@
 
 package pcgen.core.term;
 
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.AbilityCategory;
+import pcgen.util.Logging;
 import pcgen.util.TermUtilities;
 
 /**
@@ -1500,6 +1501,24 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			return new PCHasFeatTermEvaluator(
 					expressionString,
 					expressionString.substring(8));
+		}
+	},
+
+	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, false) {
+
+		public TermEvaluator getTermEvaluator(final String expressionString,
+			final String src, final String matchedSection)
+		{
+
+			if (src.startsWith("CLASS:") || src.startsWith("CLASS|"))
+			{
+				return new PCMaxLevelTermEvaluator(expressionString, src.substring(6));
+			}
+			else
+			{
+				Logging.errorPrint("MAXLEVEL term called without a CLASS source");
+				return new PCMaxLevelTermEvaluator(expressionString, "");
+			}
 		}
 	},
 
