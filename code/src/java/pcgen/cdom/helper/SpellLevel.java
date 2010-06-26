@@ -3,7 +3,7 @@ package pcgen.cdom.helper;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 
-public class SpellLevel
+public class SpellLevel implements Comparable<SpellLevel>
 {
 
 	public final PCClass pcc;
@@ -76,5 +76,22 @@ public class SpellLevel
 			return level == other.level && pcc.equals(other.pcc);
 		}
 		return false;
+	}
+
+	public int compareTo(SpellLevel sl)
+	{
+		int cc = pcc.compareTo(sl.pcc);
+		if (cc == 0)
+		{
+			if (level < sl.level)
+			{
+				return -1;
+			}
+			else if (level > sl.level)
+			{
+				return 1;
+			}
+		}
+		return cc;
 	}
 }

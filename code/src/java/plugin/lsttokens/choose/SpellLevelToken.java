@@ -229,7 +229,8 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		String newVal = value.substring(pipeLoc + 1);
 		try
 		{
-			if (context.processToken(obj, "CHOOSE", "SPELLLEVEL|" + newVal))
+			String repl = newVal.replaceAll("TYPE=", "SPELLTYPE=").replaceAll("TYPE\\.", "SPELLTYPE=");
+			if (context.processToken(obj, "CHOOSE", "SPELLLEVEL|" + repl))
 			{
 				for (String bonus : bonuses)
 				{
