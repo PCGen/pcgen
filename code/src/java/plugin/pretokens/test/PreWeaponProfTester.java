@@ -111,7 +111,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final String requiredType = aString.substring(5);
-			for (WeaponProf wp : character.getWeaponProfs())
+			for (WeaponProf wp : character.getWeaponProfSet())
 			{
 				if (wp.isType(requiredType))
 				{

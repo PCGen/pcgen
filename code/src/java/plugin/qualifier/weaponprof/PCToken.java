@@ -29,7 +29,7 @@ public class PCToken extends AbstractPCQualifierToken<WeaponProf>
 	@Override
 	protected Collection<WeaponProf> getPossessed(PlayerCharacter pc)
 	{
-		return pc.getWeaponProfs();
+		return pc.getWeaponProfSet();
 	}
 
 	public Class<? super WeaponProf> getChoiceClass()

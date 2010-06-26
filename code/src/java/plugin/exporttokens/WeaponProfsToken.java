@@ -84,7 +84,7 @@ public class WeaponProfsToken extends Token
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
 			boolean first = true;
-			for (final WeaponProf wp : pc.getWeaponProfs())
+			for (final WeaponProf wp : pc.getSortedWeaponProfs())
 			{
 				if (first == false)
 				{

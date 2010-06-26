@@ -554,7 +554,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		}
 
 		// This is now going to be sorted on key
-		SortedSet<WeaponProf> weaponProfs = pc.getWeaponProfs();
+		SortedSet<WeaponProf> weaponProfs = pc.getSortedWeaponProfs();
 		StringBuffer buf;
 		if (weaponProfs.size() > 0)
 		{

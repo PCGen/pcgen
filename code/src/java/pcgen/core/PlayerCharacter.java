@@ -166,6 +166,7 @@ import pcgen.cdom.facet.UnencumberedLoadFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
 import pcgen.cdom.facet.VariableFacet;
 import pcgen.cdom.facet.VisionFacet;
+import pcgen.cdom.facet.WeaponProfFacet;
 import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
@@ -273,13 +274,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
-	private NaturalWeaponProfFacet naturalWeaponProfFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
-	private HasDeityWeaponProfFacet dwpFacet = FacetLibrary.getFacet(HasDeityWeaponProfFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
-	private AutoWeaponProfFacet autoWeaponProfFacet = FacetLibrary.getFacet(AutoWeaponProfFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
+	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -432,11 +431,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * corrisponding ability pool.
 	 */
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
-
-	private Set<WeaponProf> cachedWeaponProfs = null;
-
-	// private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String,
-	// List<TypedBonus>>();
 
 	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
 	Integer epicBAB = null;
@@ -1223,7 +1217,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (dirtyState)
 		{
-			cachedWeaponProfs = null;
 			serial++;
 			cache = new ObjectCache();
 			getVariableProcessor().setSerial(serial);
@@ -3342,47 +3335,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new Float(value);
 	}
 
-	private Set<WeaponProf> buildWeaponProfCache()
+	public Collection<WeaponProf> getWeaponProfSet()
 	{
-		final Set<WeaponProf> ret = new HashSet<WeaponProf>();
-		ret.addAll(wpBonusFacet.getSet(id));
-		ret.addAll(naturalWeaponProfFacet.getSet(id));
-		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
-		ret.addAll(alWeaponProfFacet.getSet(id));
-		if (dwpFacet.hasDeityWeaponProf(id) && getDeity() != null)
-		{
-			List<CDOMReference<WeaponProf>> weaponList = getDeity().getListFor(
-					ListKey.DEITYWEAPON);
-			if (weaponList != null)
-			{
-				for (CDOMReference<WeaponProf> ref : weaponList)
-				{
-					for (WeaponProf wp : ref.getContainedObjects())
-					{
-						/*
-						 * CONSIDER This is an open question, IMHO - why is
-						 * natural excluded here? This is magic to me - thpr Oct
-						 * 14, 2008
-						 */
-						if (!wp.isType("Natural"))
-						{
-							ret.add(wp);
-						}
-					}
-				}
-			}
-		}
-		return ret;
+		return weaponProfFacet.getProfs(id);
 	}
 
-	public SortedSet<WeaponProf> getWeaponProfs()
+	public SortedSet<WeaponProf> getSortedWeaponProfs()
 	{
-		if (this.cachedWeaponProfs == null)
-		{
-			cachedWeaponProfs = buildWeaponProfCache();
-		}
 		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(
-			cachedWeaponProfs));
+				weaponProfFacet.getProfs(id)));
 	}
 
 	/**
@@ -3603,11 +3564,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasWeaponProf(final WeaponProf wp)
 	{
-		if (cachedWeaponProfs == null)
-		{
-			cachedWeaponProfs = buildWeaponProfCache();
-		}
-		return cachedWeaponProfs.contains(wp);
+		return weaponProfFacet.containsProf(id, wp);
 	}
 
 	public Equipment getEquipmentNamed(final String aString)
@@ -4956,9 +4913,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!raceIsNull)
 		{
 			removeAllAssocs(oldRace, AssociationListKey.CHARACTER_SPELLS);
-
-			cachedWeaponProfs = null;
-
 			removeNaturalWeapons(oldRace);
 			removeTemplatesFrom(oldRace);
 			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
@@ -5064,8 +5018,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addNaturalWeapons(newRace.getListFor(ListKey.NATURAL_WEAPON));
 			selectTemplates(newRace, isImporting()); // gets and adds templates
 		}
-
-		setAggregateFeatsStable(false);
 
 		if (!isImporting())
 		{
@@ -6531,7 +6483,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			AddObjectActions.globalChecks(inTemplate, this);
 		}
 
-		clearWeaponProfCache();
 		getAutomaticAbilityList(AbilityCategory.FEAT);
 
 		calcActiveBonuses();
@@ -8555,8 +8506,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		cachedWeaponProfs = null;
-
 		removeNaturalWeapons(inTmpl);
 
 		List<LevelCommandFactory> lcfList = inTmpl.getSafeListFor(ListKey.ADD_LEVEL);
@@ -10387,7 +10336,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		clearWeaponProfCache();
 		calcActiveBonuses();
 	}
 
@@ -11512,25 +11460,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
-	/** Status flag so that ability lists aren't cleared mid way through being rebuilt. */
-
-	/**
-	 * Set aggregate Feats stable
-	 * 
-	 * @param stable
-	 */
-	private void setAggregateFeatsStable(final boolean stable)
-	{
-		if (!stable)
-		{
-			clearWeaponProfCache();
-		}
-	}
-
-	public void clearWeaponProfCache()
-	{
-		cachedWeaponProfs = null;
-	}
 
 	/**
 	 * Sets a 'stable' list of automatic feats
@@ -12138,7 +12067,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			playerCharacterLevelInfo.addObject(aFeat);
 		}
 		addNaturalWeapons(aFeat.getListFor(ListKey.NATURAL_WEAPON));
-		setAggregateFeatsStable(false);
 		calcActiveBonuses();
 	}
 
@@ -12162,7 +12090,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aLevelInfo.addObject(anAbility);
 		}
 		addNaturalWeapons(anAbility.getListFor(ListKey.NATURAL_WEAPON));
-		clearWeaponProfCache();
 		calcActiveBonuses();
 	}
 

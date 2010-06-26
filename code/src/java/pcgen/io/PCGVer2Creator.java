@@ -2272,7 +2272,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendWeaponProficiencyLines(StringBuffer buffer)
 	{
-		final int size = thePC.getWeaponProfs().size();
+		final int size = thePC.getWeaponProfSet().size();
 
 		if (size > 0)
 		{
@@ -2288,7 +2288,7 @@ final class PCGVer2Creator implements IOConstants
 
 			int j = 0;
 
-			for (WeaponProf wp : thePC.getWeaponProfs())
+			for (WeaponProf wp : thePC.getSortedWeaponProfs())
 			{
 				weaponProficiencies[j++] = wp.getKeyName();
 			}

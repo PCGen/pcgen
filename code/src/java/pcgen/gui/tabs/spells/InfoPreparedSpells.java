@@ -221,8 +221,6 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	 **/
 	private void createFeatList()
 	{
-		pc.clearWeaponProfCache();
-
 		// get the list of metamagic feats for the PC
 		characterMetaMagicFeats.clear();
 		List<Ability> feats =

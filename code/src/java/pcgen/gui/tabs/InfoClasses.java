@@ -1483,8 +1483,6 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			pnlVariableDisplay3.setVisible(false);
 		}
 
-		pc.clearWeaponProfCache();
-
 		updateAvailableModel();
 		updateSelectedModel();
 

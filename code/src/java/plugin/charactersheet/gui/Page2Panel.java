@@ -202,7 +202,7 @@ public class Page2Panel extends javax.swing.JPanel
 			specialPane.setList("SPECIAL ABILITIES", pc
 				.getSpecialAbilityTimesList());
 			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList<WeaponProf>(pc
-				.getWeaponProfs()));
+				.getSortedWeaponProfs()));
 			languagePane.setList("LANGUAGES", new ArrayList<Language>(pc
 				.getSortedLanguageSet()));
 			templatePane

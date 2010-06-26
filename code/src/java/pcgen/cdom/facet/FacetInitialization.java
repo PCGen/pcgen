@@ -66,6 +66,10 @@ public class FacetInitialization
 				.getFacet(SkillLanguageFacet.class);
 		StartingLanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
+		DeityWeaponProfFacet deityWeaponProfFacet = FacetLibrary
+				.getFacet(DeityWeaponProfFacet.class);
+		WeaponProfFacet weaponProfFacet = FacetLibrary
+				.getFacet(WeaponProfFacet.class);
 
 		QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
@@ -107,6 +111,10 @@ public class FacetInitialization
 				.getFacet(HasDeityWeaponProfFacet.class);
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
+		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary
+				.getFacet(AutoListWeaponProfFacet.class);
+		BonusWeaponProfFacet wpBonusFacet = FacetLibrary
+				.getFacet(BonusWeaponProfFacet.class);
 		MovementFacet moveFacet = FacetLibrary.getFacet(MovementFacet.class);
 		UnarmedDamageFacet unarmedDamageFacet = FacetLibrary
 				.getFacet(UnarmedDamageFacet.class);
@@ -139,6 +147,12 @@ public class FacetInitialization
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
+
+		wpBonusFacet.addDataFacetChangeListener(weaponProfFacet);
+		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
+		alWeaponProfFacet.addDataFacetChangeListener(weaponProfFacet);
+
+		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);

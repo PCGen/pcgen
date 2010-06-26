@@ -2197,8 +2197,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		pc.clearWeaponProfCache();
-
 		updateClassSelection();
 
 		if (Globals.getGameModeHasPointPool())
@@ -2238,8 +2236,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		resetSelectedModel = true;
 		updateAvailableModel();
 		updateSelectedModel();
-
-		pc.clearWeaponProfCache();
 
 		needsUpdate = false;
 	}

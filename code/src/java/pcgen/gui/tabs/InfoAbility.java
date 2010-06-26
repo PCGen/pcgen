@@ -560,7 +560,6 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			return;
 		}
 
-		getPc().clearWeaponProfCache();
 		if (theCategory == AbilityCategory.FEAT)
 		{
 			// Called for side effects
