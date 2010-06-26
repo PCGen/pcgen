@@ -30,7 +30,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * @author djones4
