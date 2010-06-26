@@ -784,7 +784,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	{
 		EquipSet eSet;
 
-		if (aPC.getEquipSet().size() == 0)
+		if (!aPC.hasEquipSet())
 		{
 			String id = getNewIdPath(aPC, null);
 			String defaultEquipSet = "Default Set";
@@ -1302,8 +1302,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 		aPC.addEquipSet(newSet);
 		aPC.setCurrentEquipSetName(eSet.getName());
-
-		aPC.getEquipSet();
 
 		return newSet;
 	}

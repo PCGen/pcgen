@@ -332,10 +332,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		List<String> toDoList = new ArrayList<String>();
 
 		boolean hasEquip = false;
-		List<EquipSet> equipmentSetList = pc.getEquipSet();
-		for (int iSet = 0; iSet < equipmentSetList.size(); ++iSet)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = equipmentSetList.get(iSet);
 			if (es.getItem() != null)
 			{
 				hasEquip = true;
@@ -2154,7 +2152,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		List<String> calcList = new ArrayList<String>(1);
 		calcComboBox.removeAllItems();
-		equipSetList = pc.getEquipSet();
+		equipSetList = new ArrayList<EquipSet>(pc.getEquipSet());
 
 		// loop through all root EquipSet's and add
 		// to calcComboBox list
@@ -3779,9 +3777,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				final String idPath = eqSet.getIdPath();
 
 				// process all EquipSet Items
-				for (int iSet = 0; iSet < pc.getEquipSet().size(); ++iSet)
+				for (EquipSet es : pc.getEquipSet())
 				{
-					EquipSet es = pc.getEquipSet().get(iSet);
 					String esID = es.getParentIdPath() + ".";
 					String abID = idPath + ".";
 
@@ -5034,7 +5031,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			Collections.sort(locList);
 
 			// Setup the default EquipSet if not already present
-			if (pc.getEquipSet().size() == 0)
+			if (!pc.hasEquipSet())
 			{
 				String id = getNewIdPath(null);
 				EquipSet eSet = new EquipSet(id, defaultEquipSet);
@@ -5196,7 +5193,6 @@ public class InfoEquipping extends FilterAdapterPanel implements
 							break;
 						}
 
-						pc.getEquipSet();
 						String pId = pSet.getIdPath();
 						MyPONode[] add = new MyPONode[2];
 						add[0] = new MyPONode(nameAdded);
@@ -5256,7 +5252,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				selRoot = new MyPONode();
 
 				// get the current EquiSet's
-				equipSetList = pc.getEquipSet();
+				equipSetList = new ArrayList<EquipSet>(pc.getEquipSet());
 
 				// Make sure it's sorted by pathId
 				Collections.sort(equipSetList);

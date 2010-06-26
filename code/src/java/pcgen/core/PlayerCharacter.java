@@ -730,7 +730,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		equipmentFacet.removeAll(id);
 
 		// get all the PC's EquipSet's
-		final List<EquipSet> pcEquipSetList = getEquipSet();
+		final List<EquipSet> pcEquipSetList = new ArrayList<EquipSet>(getEquipSet());
 
 		if (pcEquipSetList.isEmpty())
 		{
@@ -2248,7 +2248,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Setup the default EquipSet if not already present
-		if (getEquipSet().size() == 0)
+		if (!hasEquipSet())
 		{
 			String id = getNewIdPath(null);
 			EquipSet eSet =
@@ -14140,6 +14140,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
 	{
 		shieldProfFacet.remove(id, choice, owner);
+	}
+
+	public boolean hasEquipSet()
+	{
+		return !equipSetList.isEmpty();
 	}
 
 	public boolean hasFollowers()

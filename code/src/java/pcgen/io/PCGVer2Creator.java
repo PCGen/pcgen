@@ -1207,7 +1207,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendEquipmentSetLines(StringBuffer buffer)
 	{
 		// Output all the EquipSets
-		final List<EquipSet> eqSetList = thePC.getEquipSet();
+		final List<EquipSet> eqSetList = new ArrayList<EquipSet>(thePC.getEquipSet());
 		Collections.sort(eqSetList);
 
 		for (EquipSet eqSet : eqSetList)
