@@ -25,6 +25,7 @@ public class SpellLevelInfo
 		maximumLevel = maxLevel;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();

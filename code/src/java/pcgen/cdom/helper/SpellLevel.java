@@ -15,6 +15,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 		level = lvl;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -63,11 +64,13 @@ public class SpellLevel implements Comparable<SpellLevel>
 		}
 	}
 
+	@Override
 	public int hashCode()
 	{
 		return level ^ pcc.hashCode();
 	}
 
+	@Override
 	public boolean equals(Object o)
 	{
 		if (o instanceof SpellLevel)
