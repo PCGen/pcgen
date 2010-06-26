@@ -3906,8 +3906,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 			}
 		}
-
-		thePC.addSpellBook(aSpellBook);
+		if (aSpellBook == null)
+		{
+			warnings.add("Internal Error: Did not build Spell Book from SPELLBOOK line");
+		}
+		else
+		{
+			thePC.addSpellBook(aSpellBook);
+		}
 	}
 
 	/*

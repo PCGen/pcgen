@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -155,6 +154,7 @@ import pcgen.cdom.facet.ShieldProfFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
+import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
@@ -324,6 +324,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
+	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
@@ -354,8 +355,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
-	private Map<String, SpellBook> spellBookMap =
-			new LinkedHashMap<String, SpellBook>();
 
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
@@ -3031,7 +3030,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public SpellBook getSpellBookByName(final String name)
 	{
-		return spellBookMap.get(name);
+		return spellBookFacet.getBookNamed(id, name);
 	}
 
 	/**
@@ -3041,7 +3040,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<String> getSpellBookNames()
 	{
-		return new ArrayList<String>(spellBookMap.keySet());
+		return new ArrayList<String>(spellBookFacet.getBookNames(id));
 	}
 
 	/**
@@ -3051,7 +3050,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Collection<SpellBook> getSpellBooks()
 	{
-		return Collections.unmodifiableCollection(spellBookMap.values());
+		return spellBookFacet.getBooks(id);
 	}
 
 	/**
@@ -6438,36 +6437,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean addSpellBook(final String aName)
 	{
 		if (aName != null && (aName.length() > 0)
-			&& !spellBookMap.containsKey(aName))
+			&& !spellBookFacet.containsBookNamed(id, aName))
 		{
 			return addSpellBook(new SpellBook(aName,
-				SpellBook.TYPE_PREPARED_LIST));
+					SpellBook.TYPE_PREPARED_LIST));
 		}
-
 		return false;
 	}
 
-	/**
-	 * return value indicates if book was actually added or not
-	 * 
-	 * @param book
-	 * @return TRUE or FALSE
-	 */
 	public boolean addSpellBook(final SpellBook book)
 	{
-
-		if (book != null)
+		if (!spellBookFacet.containsBookNamed(id, book.getName()))
 		{
-			String aName = book.getName();
-			if (!spellBookMap.containsKey(aName))
-			{
-				spellBookMap.put(aName, book);
-				setDirty(true);
-
-				return true;
-			}
+			spellBookFacet.add(id, book);
+			setDirty(true);
+			return true;
 		}
-
 		return false;
 	}
 
@@ -7402,9 +7387,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if ((aName.length() > 0)
 			&& !aName.equals(Globals.getDefaultSpellBook())
-			&& spellBookMap.containsKey(aName))
+			&& spellBookFacet.containsBookNamed(id, aName))
 		{
-			return delSpellBook(spellBookMap.get(aName));
+			processSpellBookRemoval(aName);
+			return true;
 		}
 
 		return false;
@@ -7422,29 +7408,33 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			String aName = book.getName();
 			if (!aName.equals(Globals.getDefaultSpellBook())
-				&& spellBookMap.containsKey(aName))
+				&& spellBookFacet.containsBookNamed(id, aName))
 			{
-				spellBookMap.remove(aName);
-				setDirty(true);
-
-				for (PCClass pcClass : getClassSet())
-				{
-					final List<CharacterSpell> aList =
-							getCharacterSpells(pcClass, null, aName, -1);
-
-					for (int j = aList.size() - 1; j >= 0; --j)
-					{
-						final CharacterSpell cs = aList.get(j);
-						cs.removeSpellInfo(cs.getSpellInfoFor(this, aName, -1,
-							-1));
-					}
-				}
-
+				processSpellBookRemoval(aName);
 				return true;
 			}
 		}
 
 		return false;
+	}
+
+	private void processSpellBookRemoval(String aName)
+	{
+		spellBookFacet.removeBookNamed(id, aName);
+		setDirty(true);
+
+		for (PCClass pcClass : getClassSet())
+		{
+			final List<CharacterSpell> aList =
+					getCharacterSpells(pcClass, null, aName, -1);
+
+			for (int j = aList.size() - 1; j >= 0; --j)
+			{
+				final CharacterSpell cs = aList.get(j);
+				cs.removeSpellInfo(cs.getSpellInfoFor(this, aName, -1,
+					-1));
+			}
+		}
 	}
 
 	public void determinePrimaryOffWeapon()
@@ -10926,7 +10916,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.pcLevelInfo.add(info.clone());
 		}
-		for (String book : spellBookMap.keySet())
+		for (String book : spellBookFacet.getBookNames(id))
 		{
 			aClone.addSpellBook(book);
 		}
@@ -14207,12 +14197,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public double getSpellBookCount()
 	{
-		return spellBookMap.size();
+		return spellBookFacet.getCount(id);
 	}
 
 	public boolean hasSpellBook(String bookName)
 	{
-		return spellBookMap.containsKey(bookName);
+		return spellBookFacet.containsBookNamed(id, bookName);
 	}
 
 	public Vision getVision(VisionType type)

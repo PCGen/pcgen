@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -34,8 +33,7 @@ import pcgen.cdom.enumeration.CharID;
  * PCTemplate). This is not used for CDOMObjects where the PlayerCharacter only
  * possesses one of that type of object (e.g. Race, Deity)
  */
-public abstract class AbstractListFacet<T extends CDOMObject> extends
-		AbstractDataFacet<T>
+public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 {
 	private final Class<?> thisClass = getClass();
 
