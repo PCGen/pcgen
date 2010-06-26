@@ -17,7 +17,6 @@
  */
 package plugin.primitive.language;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import pcgen.cdom.enumeration.GroupingState;
@@ -63,7 +62,7 @@ public class LangBonusToken implements PrimitiveToken<Language>
 
 	public Set<Language> getSet(PlayerCharacter pc)
 	{
-		return new HashSet<Language>(pc.getLanguageBonusSelectionList());
+		return pc.getLanguageBonusSelectionList();
 	}
 
 	public GroupingState getGroupingState()

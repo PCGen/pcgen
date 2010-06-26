@@ -155,6 +155,7 @@ import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
@@ -286,7 +287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 	private LanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private LanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
-	private LanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
+	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -10760,34 +10761,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Set<Language> getLanguageBonusSelectionList()
 	{
-		Set<Language> languageList = new HashSet<Language>();
-		addStartingLanguages(getRace(), languageList);
-
-		// Templates
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			addStartingLanguages(template, languageList);
-		}
-
-		// Classes
-		for (PCClass pcClass : getClassSet())
-		{
-			addStartingLanguages(pcClass, languageList);
-		}
-		return languageList;
-	}
-
-	private void addStartingLanguages(CDOMObject cdo, Set<Language> languageList)
-	{
-		Collection<CDOMReference<Language>> racemods =
-				cdo.getListMods(Language.STARTING_LIST);
-		if (racemods != null)
-		{
-			for (CDOMReference<Language> ref : racemods)
-			{
-				languageList.addAll(ref.getContainedObjects());
-			}
-		}
+		return startingLangFacet.getSet(id);
 	}
 
 	/**
@@ -10884,7 +10858,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.freeLangFacet.copyContents(id, aClone.id);
 		aClone.addLangFacet.copyContents(id, aClone.id);
 		aClone.skillLangFacet.copyContents(id, aClone.id);
-		aClone.startingLangFacet.copyContents(id, aClone.id);
 		aClone.classFacet.copyContents(id, aClone.id);
 		aClone.regionFacet.copyContents(id, aClone.id);
 		aClone.moneyFacet.copyContents(id, aClone.id);
@@ -13971,8 +13944,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static class AddLanguageFacet extends LanguageFacet {}
 
 	public static class SkillLanguageFacet extends LanguageFacet {}
-
-	public static class StartingLanguageFacet extends LanguageFacet {}
 
 	public static class UserEquipmentFacet extends EquipmentFacet {}
 

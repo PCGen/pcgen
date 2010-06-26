@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import pcgen.core.PlayerCharacter.AddLanguageFacet;
 import pcgen.core.PlayerCharacter.FreeLanguageFacet;
 import pcgen.core.PlayerCharacter.SkillLanguageFacet;
-import pcgen.core.PlayerCharacter.StartingLanguageFacet;
 
 public class FacetInitialization
 {
@@ -65,7 +64,7 @@ public class FacetInitialization
 				.getFacet(AddLanguageFacet.class);
 		LanguageFacet skillLangFacet = FacetLibrary
 				.getFacet(SkillLanguageFacet.class);
-		LanguageFacet startingLangFacet = FacetLibrary
+		StartingLanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
 
 		QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
@@ -133,7 +132,6 @@ public class FacetInitialization
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
-		startingLangFacet.addDataFacetChangeListener(languageFacet);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
@@ -145,6 +143,11 @@ public class FacetInitialization
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
+
+		raceFacet.addDataFacetChangeListener(startingLangFacet);
+		templateFacet.addDataFacetChangeListener(startingLangFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(startingLangFacet);
+		classFacet.addDataFacetChangeListener(startingLangFacet);
 
 		raceFacet.addDataFacetChangeListener(sizeFacet);
 		templateFacet.addDataFacetChangeListener(sizeFacet);
