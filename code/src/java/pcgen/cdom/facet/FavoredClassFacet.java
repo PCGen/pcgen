@@ -25,16 +25,16 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
- * to a Player Character.
+ * FavoredClassFacet is a Facet that tracks the Favored Classes that have been
+ * granted to a Player Character.
  */
 public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -58,8 +58,8 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce
