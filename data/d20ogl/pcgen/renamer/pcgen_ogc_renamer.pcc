@@ -1,0 +1,27 @@
+# CVS $Revision $ $Author $ -- Thu Aug  4 14:38:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:PCGen Enhancement Re-namer
+RANK:7
+GAMEMODE:3e|35e|Pathfinder
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:PCGen OGL
+PUBNAMELONG:PCGen Open Source Team
+PUBNAMESHORT:PCGen
+PUBNAMEWEB:http://pcgen.sourceforge.net/
+SOURCELONG:PCGen Enhancement Re-namer
+SOURCESHORT:PCGen RNM
+SOURCEWEB:http://pcgen.sourceforge.net/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen OGC dataset Copyright 2006, PCGen Data team (Including, but not limited to Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith)).
+
+DESC:The PCGen Enhancement Re-namer modifies the Magic Equipment Modifiers so that at the time of item creation the + is put in front of the item name instead of behind, i.e. "+1 Longsword".
+COVER:@/d20ogl/pcgen/fantasy/pcgen_banner.jpg
+
+EQUIPMOD:pcgen_ogc_equipmods.lst
+
+#
+# End
+#
