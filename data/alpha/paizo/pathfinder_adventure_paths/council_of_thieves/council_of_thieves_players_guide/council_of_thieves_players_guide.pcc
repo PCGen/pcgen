@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Pathfinder Adventure Path: Council of Thieves Player's Guide
+RANK:3
+GAMEMODE:Pathfinder
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Chronicles
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Council of Thieves
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Council of Thieves Player's Guide
+SOURCESHORT:CTPG
+SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/councilOfThieves/v5748btpy89m7
+SOURCEDATE:2009-08
+ISOGL:YES
+ISLICENSED:NO
+
+COVER:council_of_thieves_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/paizo/pathfinder/adventurePath/councilOfThieves/v5748btpy89m7|Get this publication from Paizo Publishing!
+DESC:Aside from introducing the Council of Thieves Adventure Path, this guide is intended to aid players in the creation of characters native to Cheliax. The information presented herein is common knowledge, especially to characters who call Cheliax home. This guide is organized to help root characters in the area in and around Westcrown—the focal point of this entire Adventure Path. While any character can take part in the Council of Thieves, those created and using this guide are likely to have more personal motivation as the events of the Adventure Path unfold.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Council of Thieves Player's Guide, Copyright 2009, Paizo Publishing, LLC; Authors: James Jacobs, F. Wesley Schneider, Amber Scott, and Hank Woon.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Council of Thieves Player's Guide" Copyright 2009-2010, PCGen Data Team (including, but not limited to Stefan Radermacher)
+COPYRIGHT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:council_of_thieves_players_guide_abilities_traits.lst
+ABILITYCATEGORY:council_of_thieves_players_guide_abilitycategory.lst
+KIT:council_of_thieves_players_guide_kits.lst
+TEMPLATE:council_of_thieves_players_guide_templates.lst

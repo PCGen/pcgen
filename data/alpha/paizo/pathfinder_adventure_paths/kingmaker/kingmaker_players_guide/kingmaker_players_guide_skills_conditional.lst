@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Mon Mar 15 11:43:24 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block: Conditional Skills for output only
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Source Page
+Appraise (Natural stones or metals)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90
+
+###Block: Skill .MODs
+# Skill Name	Bonus to skill										Bonus to skill rank
+Appraise.MOD	BONUS:SKILL|Appraise (Natural stones or metals)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Natural stones or metals)|SKILLRANK=Appraise|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),var("SKILL.Appraise.MISC")
+
+#
+# End
+#
