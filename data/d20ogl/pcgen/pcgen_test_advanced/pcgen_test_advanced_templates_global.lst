@@ -29,7 +29,7 @@ TEMPLATE ~ TEST~24		LEVEL:2:ADD:FEAT|Feat For Test 24
 TEMPLATE ~ Bonus Test		DEFINE:TestVar|0	LEVEL:1:BONUS:VAR|TestVar|1	ABILITY:Special Ability|AUTOMATIC|Template Test Bonus Viewer
 
 
-#TEST 32
+TEST32		TEMPDESC:This is an applied Template
 
 RemoveTestNot32				
 
@@ -38,8 +38,7 @@ A Template with TEMPLATE CHOOSE.MOD	TEMPLATE:ADDCHOICE:A Template added with Add
 #That Template modded to use TEMPLATE:ADDCHOICE
 Choice 1
 Choice 2
-
-#A Template added with Add Choice
+A Template added with Add Choice
 
 #The Template listed in the ADDCHOICE added to the PC 
 
