@@ -104,10 +104,20 @@ BIO
 		<move>
 			<move>
 				<name>Walk</name>
-				<rate>85 ft.</rate>
-				<squares>17</squares>
+				<rate>445 ft.</rate>
+				<squares>89</squares>
 			</move>
-			<all>Walk 85 ft.</all>
+			<move>
+				<name>Fly</name>
+				<rate>445 ft.</rate>
+				<squares>89</squares>
+			</move>
+			<move>
+				<name>All</name>
+				<rate>650 ft.</rate>
+				<squares>130</squares>
+			</move>
+			<all>Walk 445 ft., Fly 445 ft., All 650 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>
@@ -1005,6 +1015,16 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>BOB ~ TEST 31</name>
+			<description></description>
+			<type>BOBTEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Bob Test Feat Choose Spelllevel Arcane (CLASS.MonKee;LEVEL.1)</name>
 			<description></description>
 			<type>GENERAL.TESTS.BOBTEST</type>
@@ -1193,6 +1213,50 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>BOB ~ Bonus MoveAdd 25</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31B</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>BOB ~ Bonus MoveMult 4</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31B</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>BOB ~ Bonus Post Move Add 5</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31B</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>BOB ~ MoveClone Fly times 2</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31B</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 		<ability_object>
 			<name>Bob&#39;s Ability triggered by Check</name>
 			<description>Using Chooser with Check Selected</description>

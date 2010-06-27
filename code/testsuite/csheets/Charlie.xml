@@ -105,7 +105,17 @@ BIO
 				<rate>30 ft.</rate>
 				<squares>6</squares>
 			</move>
-			<all>Walk 30 ft.</all>
+			<move>
+				<name>Trot</name>
+				<rate>35 ft.</rate>
+				<squares>7</squares>
+			</move>
+			<move>
+				<name>Crawl</name>
+				<rate>35 ft.</rate>
+				<squares>7</squares>
+			</move>
+			<all>Walk 30 ft., Trot 35 ft., Crawl 35 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>
@@ -136,7 +146,7 @@ BIO
 			<weight_nounit>0</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>78</cost>
+			<cost>0</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
@@ -1001,6 +1011,26 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>CHARLIE ~ TEST 31</name>
+			<description></description>
+			<type>CHARLIETESTS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>CHARLIE ~ TEST 32</name>
+			<description></description>
+			<type>CHARLIETESTS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Exotic Weapon Proficiency (Bob Two Hand Blade)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
@@ -1046,6 +1076,50 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>CHARLIE ~ Bonus MoveAdd Crawl</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31C</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>CHARLIE ~ Bonus Movemult Shuffle</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31C</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>CHARLIE ~ Bonus Post Move Add Scramble</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31C</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>CHARLIE ~ MOVECLONE Trot +5</name>
+			<description></description>
+			<type>SPECIALQUALITY.TEST31C</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Charlie Explanation</name>
 			<description>This is what should be appearing from the class levels - BONUS.COMBAT.AC.22.TYPE=Shield @ L1; BONUS.HP.CURRENTMAX.22 @ L2; BONUS.STAT.STR.22 @L3; BONUS.COMBAT.AC.22.TYPE=Armor @L5; BONUS.COMBAT.AC.22.TYPE=Deflection on Class Line</description>
 			<type>SPECIALQUALITY</type>
@@ -1068,9 +1142,39 @@ BIO
 	<languages>Common</languages>
 
 	<templates>
-		<list>Charlie ~ Template</list>
+		<list>Charlie ~ Template, A Template with TEMPLATE CHOOSE, Test32</list>
 		<template>
 			<name>Charlie ~ Template</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>A Template with TEMPLATE CHOOSE</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Test32</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
