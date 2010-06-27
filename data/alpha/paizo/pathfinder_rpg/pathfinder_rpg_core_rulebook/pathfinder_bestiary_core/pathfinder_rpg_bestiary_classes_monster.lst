@@ -141,8 +141,8 @@ CLASS:Undead	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth
 
-# Class Name		Output Name		Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus					Template
-CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead|Mindless
+# Class Name		Output Name		Hit Dice	Type			Max Level		Source Page		Levels per Feat	Ability																	Save checks bonus											Combat bonus					Template
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead|Mindless
 # Class Name		Reg. Race Type
 CLASS:Undead (Mindless)	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
