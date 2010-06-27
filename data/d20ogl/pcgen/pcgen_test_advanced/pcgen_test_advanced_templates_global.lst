@@ -9,6 +9,43 @@ Charlie ~ Template	FAVOREDCLASS:%LIST	CHOOSE:CLASS|ALL
 # Bob #2 Is for Granting all the Feats and Abilities, but leaves the PRExxx testing the user.
 # Bob #3 is for testing the PRExxx are working, in conjunction with Bob #2
 
+TEMPLATE ~ Global Test Same Spells				
+
+TEMPLATE ~ TEST~26						FEAT:Toughness|Weapon Focus(DEITYWEAPON)
+
+
+TEMPLATE ~ TEST~25 Test A	FEAT:Agile
+
+#I believe this should properly apply to the PC and the PC will be charged a point from the Feat Pool 
+
+TEMPLATE ~ TEST~25 Test B	FEAT:Toughness
+
+#I believe this should properly apply to the PC and the PC will be NOT charged a point from the Feat Pool 
+
+TEMPLATE ~ TEST~25 Test C	FEAT:Weapon Focus(Longsword)
+
+TEMPLATE ~ TEST~24		LEVEL:2:ADD:FEAT|Feat For Test 24
+
+TEMPLATE ~ Bonus Test		DEFINE:TestVar|0	LEVEL:1:BONUS:VAR|TestVar|1	ABILITY:Special Ability|AUTOMATIC|Template Test Bonus Viewer
+
+
+#TEST 32
+
+RemoveTestNot32				
+
+A Template with TEMPLATE CHOOSE	TEMPLATE:CHOOSE:Choice 1|Choice 2
+A Template with TEMPLATE CHOOSE.MOD	TEMPLATE:ADDCHOICE:A Template added with Add Choice
+#That Template modded to use TEMPLATE:ADDCHOICE
+Choice 1
+Choice 2
+
+#A Template added with Add Choice
+
+#The Template listed in the ADDCHOICE added to the PC 
+
+
+#####
+
 TEMPLATE ~ SIZE Fine		SIZE:F
 TEMPLATE ~ SIZE Colossal	SIZE:C
 

@@ -1,6 +1,10 @@
 
 
-Puni Deity	TYPE:Puni	DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni	PANTHEON:Cool Guys	SYMBOL:Wine with Sword	ALIGN:LN	DOMAINS:Bar Ball,Foo Ball,Dungeon Crawl
+Puni Deity	TYPE:Puni				DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni	PANTHEON:Cool Guys	SYMBOL:Wine with Sword	ALIGN:LN	DOMAINS:Bar Ball,Foo Ball,Dungeon Crawl
 
-Elf Deity	TYPE:Elf	PANTHEON:Elf	ALIGN:LG
+Elf Deity	TYPE:Elf																PANTHEON:Elf						ALIGN:LG
+
+Test Deity	TYPE:Test				DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni											DOMAINS:ALL
+
+
 

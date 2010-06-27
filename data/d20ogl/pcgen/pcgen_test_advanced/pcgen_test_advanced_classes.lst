@@ -57,8 +57,9 @@ CLASS:Basic Fighter	CSKILL:TYPE.TestSkills	STARTSKILLPTS:2
 # Alice and Charlie Classes -
 CLASS:Alice Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
 CLASS:Alice Class	STARTSKILLPTS:2	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLEVEL|Alice Class|CL
+CLASS:Alice Class	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	CSKILL:Class Skill 1
 1	CAST:1,1,1,1,1,1,1,1,1,1,1
-
+2	ADD:CLASSSKILLS|Exclusing Skill_4,Exclusing Skill_5	CSKILL:Class Skill 2
 
 
 

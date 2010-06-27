@@ -24,6 +24,21 @@ Knowledge			KEYSTAT:INT	TYPE:Intelligence.TestSkills
 Perception			KEYSTAT:WIS	TYPE:Wisdom.Perception.TestSkills
 Persuasion			KEYSTAT:CHA	TYPE:Charisma.TestSkills
 
+Ability Skill 1		USEUNTRAINED:NO	
+Ability Skill 2		USEUNTRAINED:NO
+Ability Skill 3		USEUNTRAINED:NO
+Ability Skill 4		USEUNTRAINED:NO
+
+Domain Skill 1		USEUNTRAINED:NO
+Domain Skill 2		USEUNTRAINED:NO
+Domain Skill 3		USEUNTRAINED:NO
+
+Other Skill 1		USEUNTRAINED:NO	CLASSES:Alice Class
+Other Skill 2		USEUNTRAINED:NO	CLASSES:Alice Class
+
+Class Skill 1		USEUNTRAINED:NO
+Class Skill 2		USEUNTRAINED:NO
+
 # Test Sub Skills Section
 
 

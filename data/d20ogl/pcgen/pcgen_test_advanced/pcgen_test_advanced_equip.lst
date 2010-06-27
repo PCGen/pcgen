@@ -10,6 +10,8 @@ Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee.Sword	DAMAGE:d
 Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:OneHanded
 Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
 Cool Sword			PROFICIENCY:WEAPON|Cool Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
+Longsword			PROFICIENCY:WEAPON|Longsword				TYPE:Weapon.Melee.Sword	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	WIELD:OneHanded
+
 
 # Armor Basic Test
 Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium			BONUS:COMBAT|AC|2|TYPE=Armor

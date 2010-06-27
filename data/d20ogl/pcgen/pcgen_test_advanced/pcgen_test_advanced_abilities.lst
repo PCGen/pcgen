@@ -15,6 +15,16 @@ ALICE ~ SPELLLEVEL Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLLEVEL:CLASS|Alice C
 ALICE ~ SPELLKNOWN Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLKNOWN:CLASS|Alice Class=1|Alice Known Spell	
 
 GLOBAL ~ COMPANIONLIST WITHOUT MATCH	CATEGORY:FEAT	TYPE:GlobalTests	COMPANIONLIST:Test|Companion	FOLLOWERS:Test|1	
+GLOBAL ~ MOVE by Walk 30			CATEGORY:FEAT	TYPE:GlobalTests	MOVE:Walk,30	
+
+GLOBAL ~ Same Spells Test		CATEGORY:FEAT	TYPE:GlobalTests		SPELLS:YourTest|TIMES=5|CASTERLEVEL=1|Same Spell Test
+
+Feat For Test 24				CATEGORY:FEAT	TYPE:TestResult
+
+GLOBAL ~ CSKILL				CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:Ability Skill 1
+GLOBAL ~ CHOOSE CSKILL			CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:LIST				CHOOSE:SKILLS|Ability Skill 2|Ability Skill 3|Ability Skill 4|TITLE=Skill
+
+
 
 #GLOBAL ~ Charlie Feats
 CHARLIE ~ Bonus Stat Base Spell Stat ~ Semicolon		CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLSTAT;Class=Charlie Class|20
@@ -24,6 +34,38 @@ CHARLIE ~ Bonus Stat Base Spell Stat ~ colon			CATEGORY:FEAT	TYPE:CharlieTests	B
 CHARLIE ~ Bonus Stat Base Spell Known Stat ~ colon		CATEGORY:FEAT	TYPE:CharlieTests	BONUS:STAT|BASESPELLKNOWNSTAT:Class=Charlie Class|20
 
 Charlie Explanation	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This is what should be appearing from the class levels - BONUS.COMBAT.AC.22.TYPE=Shield @ L1; BONUS.HP.CURRENTMAX.22 @ L2; BONUS.STAT.STR.22 @L3; BONUS.COMBAT.AC.22.TYPE=Armor @L5; BONUS.COMBAT.AC.22.TYPE=Deflection on Class Line
+
+
+# Test 32
+CHARLIE ~ TEST 32		CATEGORY:FEAT	TYPE:CharlieTests	TEMPLATE:Test32	TEMPLATE:RemoveTestNot32.REMOVE
+
+
+###Test 31
+
+CHARLIE ~ TEST 31		CATEGORY:FEAT	TYPE:CharlieTests	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31C
+#
+CHARLIE ~ MOVECLONE Trot +5				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		MOVECLONE:Walk,Trot,+5
+CHARLIE ~ Bonus MoveAdd Crawl			CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		BONUS:MOVEADD|TYPE.Crawl|5
+#   (this type of movement should be added)
+CHARLIE ~ Bonus Movemult Shuffle		CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		BONUS:MOVEMULT|TYPE.Shuffle|10
+#   (this type of movement should NOT be added)
+CHARLIE ~ Bonus Post Move Add Scramble	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		BONUS:POSTMOVEADD|TYPE.Scramble|15
+#   (this type of movement should NOT be added) 
+
+
+
+
+BOB ~ TEST 31	CATEGORY:FEAT	TYPE:BobTest	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31b
+
+BOB ~ MoveClone Fly times 2	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		MOVECLONE:Walk,Fly,*2
+#using a * with a new movement type (e.g. Fly)
+BOB ~ Bonus MoveAdd 25	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEADD|TYPE.ALL|25
+#(need to pick X)
+#   (should impact all types of movement, but NOT add an "ALL" movement type)
+BOB ~ Bonus MoveMult 4	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEMULT|TYPE.ALL|4
+#(need to pick X)
+BOB ~ Bonus Post Move Add 5	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:POSTMOVEADD|TYPE.ALL|5
+#(need to pick X)
 
 
 #Block: Chooser Tests ----------------------------------------------------------------------------------------------------------
@@ -121,7 +163,7 @@ Bob Ability ~ TEST~7  SR Assigned via Companion Mod	DEFINE:CompanionLVL|1+TL	FOL
 
 # End the Bob Test Section
 
-
+Template Test Bonus Viewer	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1 < that should be "1" any other number is incorrect - comes from the template testing LEVEL|TestVar
 
 
 

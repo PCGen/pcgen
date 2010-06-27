@@ -12,6 +12,9 @@ Spell Control DC		TYPE:Arcane.Divine	DESC:DC should be 11	SAVEINFO:Fort Half	SPE
 
 Spell Test ~ MM			SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:DangerousFubarStuff|I wouldn't touch it if I were you	TARGETAREA:Anywhere but here	DURATION:As long as you want up to (CASTERLEVEL*10) days [Should be CL x 10]	DESC:What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]	SOURCEPAGE:test
 
+Spells Test				SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:DangerousFubarStuff|I wouldn't touch it if I were you	TARGETAREA:Anywhere but here	DURATION:As long as you want up to (CASTERLEVEL*10) days [Should be CL x 10]	DESC:What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]	SOURCEPAGE:test
+
+Same Spell Test			SCHOOL:Evocation	SUBSCHOOL:BlowThingsUp	DESCRIPTOR:DangerousFubarStuff|I wouldn't touch it if I were you	TARGETAREA:Anywhere but here	DURATION:As long as you want up to (CASTERLEVEL*10) days [Should be CL x 10]	DESC:What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]	SOURCEPAGE:test
 
 #Alice Spells
 
