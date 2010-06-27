@@ -2,7 +2,7 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
-VERSION:5.17.2
+VERSION:5.17.3
 ROLLMETHOD:1|EXPRESSION:10
 PURCHASEPOINTS:N
 POOLPOINTS:0
@@ -89,17 +89,24 @@ SKILL:Poetry|OUTPUTORDER:12|CLASSBOUGHT:[CLASS:Basic Fighter|RANKS:1.0|COST:2|CL
 SKILL:Poetry Recitation Specialty|OUTPUTORDER:13|
 SKILL:Test Coding Script|OUTPUTORDER:14|
 SKILL:Test Crafting|OUTPUTORDER:15|
-SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:16|
+SKILL:Test Skill (Class Level)|OUTPUTORDER:16|
+SKILL:Test Skill Chooser_1|OUTPUTORDER:17|
+SKILL:Test Skill Chooser_2|OUTPUTORDER:18|
+SKILL:Test Skill Chooser_3|OUTPUTORDER:19|
+SKILL:Test Skill Chooser_4|OUTPUTORDER:20|
+SKILL:Test Skill Chooser_5|OUTPUTORDER:21|
+SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:22|
 
 # Character Languages
-LANGUAGE:Evilhaasness|LANGUAGE:Common|LANGUAGE:Terestial Alpha
+LANGUAGE:Evilhaasness|LANGUAGE:Terestial Alpha|LANGUAGE:Common
 
 # Character Feats
 FEATPOOL:-2.0
 
 # Character Abilities
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:MonKee 1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:BOB ~ TEST 31|TYPE:BobTest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:CLASS.MonKee;LEVEL.1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
