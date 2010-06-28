@@ -23,17 +23,12 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * This class stores an association between an object and a set of prereqs.
@@ -132,53 +127,6 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 		return result.toString();
 	}
 
-	/**
-     * Create the qualified object 
-     * @param unparsed
-     * @param aDelim
-     * @return qualified object
-	 */
-    public static QualifiedObject<String> createQualifiedObject( final String unparsed, final char aDelim )
-	{
-
-		int start = unparsed.indexOf(aDelim);
-
-		if ((start < 0))
-		{
-			// no Prereqs, assign directly to key field
-			return new QualifiedObject<String>(unparsed);
-		}
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
-		String obj = "";
-
-		List<String> tokens = Arrays.asList(unparsed.split(aDelim == '<'
-															? angleSplit
-															: squareSplit));
-		Iterator<String> tokIt  = tokens.iterator();
-
-		// extract and assign the choice from the unparsed string
-		obj = tokIt.next();
-
-		try
-		{
-			final PreParserFactory factory = PreParserFactory.getInstance();
-			for (; tokIt.hasNext();)
-			{
-				final Prerequisite prereq = factory.parse(tokIt.next());
-
-                if (prereq != null)
-				{
-					prereqs.add(prereq);
-				}
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			e.printStackTrace();
-		}
-		return new QualifiedObject<String>( obj, prereqs );
-	}
-    
 	@Override
 	public boolean equals(Object obj)
 	{
