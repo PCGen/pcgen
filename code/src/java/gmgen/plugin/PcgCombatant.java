@@ -45,6 +45,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
@@ -678,25 +679,25 @@ public class PcgCombatant extends Combatant
 			statBuf.append("; ");
 
 			statBuf
-				.append("<font class='type'>Sv:</font> Fort <font class='highlight'>");
-			statBuf.append("<a href='save:FORTITUDE\\");
-			statBuf.append(pcOut.getSaveFort()); //|CHECK.FORTITUDE.TOTAL|
-			statBuf.append("' class='highlight'> ");
-			statBuf.append(pcOut.getSaveFort()); //|CHECK.FORTITUDE.TOTAL|
-			statBuf.append("</a>");
-			statBuf.append("</font>, Ref <font class='highlight'>");
-			statBuf.append("<a href='save:REFLEX\\");
-			statBuf.append(pcOut.getSaveRef()); //|CHECK.REFLEX.TOTAL|
-			statBuf.append("' class='highlight'> ");
-			statBuf.append(pcOut.getSaveRef()); //|CHECK.REFLEX.TOTAL|
-			statBuf.append("</a>");
-			statBuf.append("</font>, Will <font class='highlight'>");
-			statBuf.append("<a href='save:WILL\\");
-			statBuf.append(pcOut.getSaveWill()); //|CHECK.WILL.TOTAL|
-			statBuf.append("' class='highlight'> ");
-			statBuf.append(pcOut.getSaveWill()); //|CHECK.WILL.TOTAL|
-			statBuf.append("</a>");
-			statBuf.append("</font>; ");
+				.append("<font class='type'>Sv:</font> ");
+			boolean firstChk = true;
+			for (PCCheck chk : Globals.getContext().ref
+					.getOrderSortedCDOMObjects(PCCheck.class))
+			{
+				if (!firstChk)
+				{
+					statBuf.append(", ");
+				}
+				firstChk = false;
+				statBuf.append(chk.getDisplayName());
+				statBuf.append(" <font class='highlight'>");
+				statBuf.append("<a href='save:").append(chk.getDisplayName()).append("\\");
+				statBuf.append(pc.calculateSaveBonus(chk, "TOTAL")); //|CHECK.FORTITUDE.TOTAL|
+				statBuf.append("' class='highlight'> ");
+				statBuf.append(pc.calculateSaveBonus(chk, "TOTAL")); //|CHECK.FORTITUDE.TOTAL|
+				statBuf.append("</a></font>");
+			}
+			statBuf.append("; ");
 
 			for (PCStat stat : pcOut.getUnmodifiableStatList())
 			{
@@ -1019,7 +1020,7 @@ public class PcgCombatant extends Combatant
 					new ArrayList<PObject>(pc.getClassSet());
 			classList.add(pc.getRace());
 
-			List<String> bookList = new ArrayList<String>(pc.getSpellBookNames());
+			Set<String> bookList = new HashSet<String>(pc.getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
 			for (String book : bookList)
 			{
@@ -1042,7 +1043,7 @@ public class PcgCombatant extends Combatant
 					if (pObj instanceof PCClass) 
 					{
 						PCClass theClass = (PCClass) pObj;
-						maxLevel = (aPC.getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel();
+						maxLevel = (aPC.getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
 					}
 					StringBuffer spellBuff = new StringBuffer();
 					for (int level = 0; level <=maxLevel; level++)
