@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -53,7 +54,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
-	KeyedListContainer
+	KeyedListContainer, QualifyingObject
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;

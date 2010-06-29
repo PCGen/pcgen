@@ -134,6 +134,7 @@ import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.LanguageFacet;
+import pcgen.cdom.facet.LegalDeityFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
@@ -188,7 +189,6 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
@@ -284,6 +284,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
+	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -6983,42 +6984,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canSelectDeity(final Deity aDeity)
 	{
-		if (aDeity == null)
-		{
-			return false;
-		}
-		boolean result;
-		if (classFacet.isEmpty(id))
-		{
-			result = true;
-		}
-		else
-		{
-			result = false;
-			CLASS: for (PCClass aClass : getClassSet())
-			{
-				List<CDOMReference<Deity>> deityList =
-						aClass.getListFor(ListKey.DEITY);
-				if (deityList == null)
-				{
-					result = true;
-					break;
-				}
-				else
-				{
-					for (CDOMReference<Deity> deity : deityList)
-					{
-						if (deity.contains(aDeity))
-						{
-							result = true;
-							break CLASS;
-						}
-					}
-				}
-			}
-		}
-
-		return result && aDeity.qualifies(this, aDeity);
+		return legalDeityFacet.allows(id, aDeity);
 	}
 
 	public int classAC()
