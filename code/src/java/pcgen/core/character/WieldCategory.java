@@ -199,41 +199,7 @@ public final class WieldCategory
 					eq.put(ObjectKey.SIZE, sadj);
 				}
 			}
-			final PrerequisiteParserInterface parser = PreParserFactory.
-				getInstance().getParser("VAR");
-			for (Iterator<String> pc = switchMap.keySet().iterator(); pc.hasNext(); )
-			{
-				String aKey = pc.next();
-
-				boolean invertResult = false;
-				if (aKey.startsWith("!"))
-				{
-					invertResult = true;
-					aKey = aKey.substring(1);
-				}
-				final String aType = aKey.substring(3, aKey.indexOf(":"));
-				final String preVar = aKey.substring(aKey.indexOf(":") + 1);
-
-				try
-				{
-					final Prerequisite prereq = parser.parse(aType, preVar,
-						invertResult, false);
-					if (PrereqHandler.passes(prereq, eq, aPC))
-					{
-						final String mappedCat = switchMap.get(aKey);
-						WieldCategory wCat = SettingsHandler.getGame().
-							getWieldCategory(mappedCat);
-						if (wCat != null)
-						{
-							pcWCat = wCat;
-						}
-					}
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple);
-				}
-			}
+			pcWCat = getSwitch(aPC, eq);
 			eq.put(ObjectKey.SIZE, oldEqSa);
 		}
 		catch (PersistenceLayerException ple)
@@ -241,6 +207,49 @@ public final class WieldCategory
 			Logging.errorPrint(ple.getMessage(), ple);
 		}
 
+		return pcWCat;
+	}
+
+	private WieldCategory getSwitch(final PlayerCharacter aPC,
+			final Equipment eq)
+			throws PersistenceLayerException
+	{
+		WieldCategory pcWCat = this;
+		final PrerequisiteParserInterface parser = PreParserFactory.
+			getInstance().getParser("VAR");
+		for (Iterator<String> pc = switchMap.keySet().iterator(); pc.hasNext(); )
+		{
+			String aKey = pc.next();
+
+			boolean invertResult = false;
+			if (aKey.startsWith("!"))
+			{
+				invertResult = true;
+				aKey = aKey.substring(1);
+			}
+			final String aType = aKey.substring(3, aKey.indexOf(":"));
+			final String preVar = aKey.substring(aKey.indexOf(":") + 1);
+
+			try
+			{
+				final Prerequisite prereq = parser.parse(aType, preVar,
+					invertResult, false);
+				if (PrereqHandler.passes(prereq, eq, aPC))
+				{
+					final String mappedCat = switchMap.get(aKey);
+					WieldCategory wCat = SettingsHandler.getGame().
+						getWieldCategory(mappedCat);
+					if (wCat != null)
+					{
+						pcWCat = wCat;
+					}
+				}
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint(ple.getMessage(), ple);
+			}
+		}
 		return pcWCat;
 	}
 
