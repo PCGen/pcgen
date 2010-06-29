@@ -26,10 +26,8 @@ import java.awt.geom.Point2D;
 import java.math.BigDecimal;
 import java.util.List;
 
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.analysis.SizeUtilities;
 
 /**
  * <code>Race</code>.
@@ -62,24 +60,6 @@ public final class Race extends PObject
 			return null;
 		}
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
-	}
-
-	/**
-	 * Retrieve Unarmed Damage according to the Race
-	 * @param pc TODO
-	 * @return UDAM damage die (ie 1d3)
-	 */
-	public String getUdam(PlayerCharacter pc)
-	{
-		final int iSize = getSafe(FormulaKey.SIZE).resolve(pc, "").intValue();
-		final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
-		final SizeAdjustment sizAdj = Globals.getContext().ref.getItemInOrder(
-				SizeAdjustment.class, iSize);
-		if ((defAdj != null) && (sizAdj != null))
-		{
-			return Globals.adjustDamage("1d3", defAdj, sizAdj);
-		}
-		return "1d3";
 	}
 
 	/**

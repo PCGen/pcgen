@@ -20,9 +20,15 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.analysis.SizeUtilities;
 
 /**
  * UnarmedDamageFacet is a Facet that tracks the Unarmed Damage info that have
@@ -31,6 +37,11 @@ import pcgen.core.PCClass;
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		implements DataFacetChangeListener<CDOMObject>
 {
+	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+
+	private FormulaResolvingFacet resolveFacet = FacetLibrary
+			.getFacet(FormulaResolvingFacet.class);
+
 	/**
 	 * Triggered when one of the Facets to which UnarmedDamageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -70,5 +81,20 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public String getUDamForRace(CharID id)
+	{
+		Race race = raceFacet.get(id);
+		int iSize = resolveFacet.resolve(id, race.getSafe(FormulaKey.SIZE),
+				race.getQualifiedKey()).intValue();
+		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
+		SizeAdjustment sizAdj = Globals.getContext().ref.getItemInOrder(
+				SizeAdjustment.class, iSize);
+		if (sizAdj != null)
+		{
+			return Globals.adjustDamage("1d3", defAdj, sizAdj);
+		}
+		return "1d3";
 	}
 }

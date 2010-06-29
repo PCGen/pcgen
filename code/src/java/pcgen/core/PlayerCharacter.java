@@ -188,6 +188,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
@@ -5376,7 +5377,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						aDamage);
 		}
 		//Test against the default for the race
-		String pObjDamage = getRace().getUdam(this);
+		String pObjDamage = unarmedDamageFacet.getUDamForRace(id);
 		retString =
 				PlayerCharacterUtilities.getBestUDamString(retString,
 					pObjDamage);

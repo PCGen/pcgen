@@ -77,6 +77,7 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.gui.pcGenGUI;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
@@ -609,6 +610,19 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				.getConstructedCDOMObjects(Equipment.class))
 		{
 			EqModAttachment.finishEquipment(eq);
+		}
+		int defaults = SizeUtilities.getDefaultSizeAdjustments();
+		if (defaults == 0)
+		{
+			Logging.log(Logging.LST_WARNING,
+					"Did not find a default size in Game Mode: "
+							+ SettingsHandler.getGame().getName());
+		}
+		else if (defaults > 1)
+		{
+			Logging.log(Logging.LST_WARNING,
+					"Found more than one size claiming to be default in Game Mode: "
+							+ SettingsHandler.getGame().getName());
 		}
 		context.buildTypeLists();
 	}

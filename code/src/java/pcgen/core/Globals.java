@@ -2385,7 +2385,7 @@ public final class Globals
 	 * @param sNewSize
 	 * @return String
 	 */
-	static String adjustDamage(String aDamage, SizeAdjustment baseSize, SizeAdjustment newSize)
+	public static String adjustDamage(String aDamage, SizeAdjustment baseSize, SizeAdjustment newSize)
 	{
 		if (aDamage.length() == 0)
 		{
