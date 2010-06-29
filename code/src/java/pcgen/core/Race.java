@@ -22,12 +22,9 @@
  */
 package pcgen.core;
 
-import java.awt.geom.Point2D;
-import java.math.BigDecimal;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 
 /**
  * <code>Race</code>.
@@ -49,17 +46,6 @@ public final class Race extends PObject
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null
 				|| Integer.MAX_VALUE == hda.get(hda.size() - 1).intValue();
-	}
-
-	public Point2D.Double getFace()
-	{
-		BigDecimal width = get(ObjectKey.FACE_WIDTH);
-		BigDecimal height = get(ObjectKey.FACE_HEIGHT);
-		if (width == null && height == null)
-		{
-			return null;
-		}
-		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
 
 	/**

@@ -18,8 +18,11 @@
 package pcgen.cdom.facet;
 
 import java.awt.geom.Point2D;
+import java.math.BigDecimal;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -53,7 +56,7 @@ public class FaceFacet
 		Point2D.Double face = new Point2D.Double(5, 0);
 		if (aRace != null)
 		{
-			Point2D.Double rf = aRace.getFace();
+			Point2D.Double rf = getFace(aRace);
 			if (rf != null)
 			{
 				face = rf;
@@ -63,7 +66,7 @@ public class FaceFacet
 		// Scan templates for any overrides
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			Point2D.Double tf = template.getFace();
+			Point2D.Double tf = getFace(template);
 			if (tf != null)
 			{
 				face = tf;
@@ -72,4 +75,14 @@ public class FaceFacet
 		return face;
 	}
 
+	private Point2D.Double getFace(CDOMObject cdo)
+	{
+		BigDecimal width = cdo.get(ObjectKey.FACE_WIDTH);
+		BigDecimal height = cdo.get(ObjectKey.FACE_HEIGHT);
+		if (width == null && height == null)
+		{
+			return null;
+		}
+		return new Point2D.Double(width.doubleValue(), height.doubleValue());
+	}
 }

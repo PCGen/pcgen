@@ -25,8 +25,6 @@
  */
 package pcgen.core;
 
-import java.awt.geom.Point2D;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,22 +81,6 @@ public final class PCTemplate extends PObject
 		}
 
 		return result;
-	}
-
-	/**
-	 * Get face
-	 * 
-	 * @return face
-	 */
-	public Point2D.Double getFace()
-	{
-		BigDecimal width = get(ObjectKey.FACE_WIDTH);
-		BigDecimal height = get(ObjectKey.FACE_HEIGHT);
-		if (width == null && height == null)
-		{
-			return null;
-		}
-		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
 
 	public List<PCTemplate> getConditionalTemplates(int totalLevels,
