@@ -180,44 +180,42 @@ public final class WieldCategory
 			return this;
 		}
 
-		WieldCategory pcWCat = this;
-		try
+		// Check if we have a bonus that changes the weapons effective size
+		// for wield purposes.
+		SizeAdjustment oldEqSa = eq.getSizeAdjustment();
+		if (aPC.sizeInt() != eq.sizeInt())
 		{
-			// Check if we have a bonus that changes the weapons effective size
-			// for wield purposes.
-			SizeAdjustment oldEqSa = eq.getSizeAdjustment();
-			if (aPC.sizeInt() != eq.sizeInt())
+			int aBump = 0;
+			aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", eq
+					.getWieldName());
+			aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", "ALL");
+			if (aBump != 0)
 			{
-				int aBump = 0;
-				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", eq.getWieldName());
-				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", "ALL");
-				if (aBump != 0)
-				{
-					final int newSizeInt = eq.sizeInt() + aBump;
-					final SizeAdjustment sadj = Globals.getContext().ref
-							.getItemInOrder(SizeAdjustment.class, newSizeInt);
-					eq.put(ObjectKey.SIZE, sadj);
-				}
+				final int newSizeInt = eq.sizeInt() + aBump;
+				final SizeAdjustment sadj = Globals.getContext().ref
+						.getItemInOrder(SizeAdjustment.class, newSizeInt);
+				eq.put(ObjectKey.SIZE, sadj);
 			}
-			pcWCat = getSwitch(aPC, eq);
-			eq.put(ObjectKey.SIZE, oldEqSa);
 		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint(ple.getMessage(), ple);
-		}
-
+		WieldCategory pcWCat = getSwitch(aPC, eq);
+		eq.put(ObjectKey.SIZE, oldEqSa);
 		return pcWCat;
 	}
 
 	private WieldCategory getSwitch(final PlayerCharacter aPC,
 			final Equipment eq)
-			throws PersistenceLayerException
 	{
+		PrerequisiteParserInterface parser;
+		try
+		{
+			parser = PreParserFactory.getInstance().getParser("VAR");
+		}
+		catch (PersistenceLayerException ple)
+		{
+			return this;
+		}
 		WieldCategory pcWCat = this;
-		final PrerequisiteParserInterface parser = PreParserFactory.
-			getInstance().getParser("VAR");
-		for (Iterator<String> pc = switchMap.keySet().iterator(); pc.hasNext(); )
+		for (Iterator<String> pc = switchMap.keySet().iterator(); pc.hasNext();)
 		{
 			String aKey = pc.next();
 
