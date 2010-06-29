@@ -243,6 +243,10 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 		}
 		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap = listMap
 				.get(csl);
+		if (spellMap == null)
+		{
+			return levelInfo;
+		}
 		for (Map.Entry<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> me : spellMap
 				.entrySet())
 		{
