@@ -37,9 +37,11 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.core.Globals;
 
 public abstract class AbstractListContext
 {
@@ -737,4 +739,49 @@ public abstract class AbstractListContext
 	}
 	
 	protected abstract ListCommitStrategy getCommitStrategy();
+	
+	/**
+	 * Create a copy of any associations to the original object and link them 
+	 * to the new object. This will scan lists such as ClassSpellLists and 
+	 * DomainSpellLists which may link to the original object. For each 
+	 * association found, a new association will be created linking to the new object 
+	 * and the association will be added to the list.
+	 * 
+	 * @param <T>    The type of CDOMObject being copied (e.g. Spell, Domain etc)
+	 * @param cdoOld The original object being copied. 
+	 * @param cdoNew The new object to be linked in.
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
+	{
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference ref : masterLists.getActiveLists())
+		{
+			Collection<AssociatedPrereqObject> assocs = masterLists
+					.getAssociations(ref, cdoOld);
+			if (assocs != null)
+			{
+				for (AssociatedPrereqObject apo : assocs)
+				{
+//					Logging.debugPrint("Found assoc from " + ref + " to "
+//							+ apo.getAssociationKeys() + " / "
+//							+ apo.getAssociation(AssociationKey.OWNER));
+					AssociatedPrereqObject newapo = getCommitStrategy()
+							.addToMasterList(
+									apo.getAssociation(AssociationKey.TOKEN),
+									cdoNew, ref, cdoNew);
+					newapo.addAllPrerequisites(apo.getPrerequisiteList());
+					for (AssociationKey assocKey : apo.getAssociationKeys())
+					{
+						if (assocKey != AssociationKey.TOKEN
+								&& assocKey != AssociationKey.OWNER)
+						{
+							newapo.setAssociation(assocKey, apo
+									.getAssociation(assocKey));
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -191,7 +191,6 @@ public final class LstEditorMain extends JFrame
 		{
 			try
 			{
-				final PObject newItem = lstItem.clone();
 				final String nameEnding = " of " + lstItem.getKeyName();
 
 				//
@@ -204,7 +203,9 @@ public final class LstEditorMain extends JFrame
 
 					if (findObject(newName) == null)
 					{
-						newItem.setName(newName);
+						final PObject newItem =
+								Globals.getContext().cloneInMasterLists(
+									lstItem, newName);
 
 						prepareCopy(lstItem, newItem);
 

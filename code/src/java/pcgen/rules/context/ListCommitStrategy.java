@@ -29,6 +29,19 @@ import pcgen.cdom.base.PrereqObject;
 public interface ListCommitStrategy
 {
 
+	/**
+	 * Create a new AssociatedPrereqObject for the owner and link it to the 
+	 * list. The type of link is characterised by the token, which is normally 
+	 * the LSTToken that would define the link (e.g. CLASSES to define a 
+	 * spell's membership in a ClassSpellList). 
+	 * 
+	 * @param <T> The type of CDOMObject being held in the list (e.g. Spell in a classSpellList)
+	 * @param tokenName The name of the LST token defining the link between the owner and the list. (e.g. CLASSES)  
+	 * @param owner The object being linked from (e.g. spell)
+	 * @param list The list being linked to. (e.g. ClassSpellList)
+	 * @param allowed TODO: often the same as the owner.
+	 * @return The new AssociatedPrereqObject, now part of the list.
+	 */
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(String tokenName,
 			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
 			T allowed);

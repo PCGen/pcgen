@@ -66,6 +66,9 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 	private final DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject> masterList =
 			new DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject>();
 
+	/* (non-Javadoc)
+	 * @see pcgen.rules.context.ListCommitStrategy#addToMasterList(java.lang.String, pcgen.cdom.base.CDOMObject, pcgen.cdom.base.CDOMReference, pcgen.cdom.base.CDOMObject)
+	 */
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)

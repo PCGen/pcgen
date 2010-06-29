@@ -295,6 +295,34 @@ public abstract class LoadContext
 		return newObj;
 	}
 
+	/**
+	 * Create a copy of a CDOMObject duplicating any references to the old 
+	 * object.
+	 *  
+	 * @param <T>    The type of CDOMObject being copied (e.g. Spell, Domain etc)
+	 * @param cdoOld The original object being copied. 
+	 * @param newName The name that should be given to the new object.
+	 * @return The newly created CDOMObject.
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends CDOMObject> T cloneInMasterLists(T cdo, String newName)
+	{
+		T newObj;
+		try
+		{
+			newObj = (T) cdo.clone();
+			newObj.setName(newName);
+			list.cloneInMasterLists(cdo, newObj);
+		}
+		catch (CloneNotSupportedException e)
+		{
+			Logging.errorPrint("Failed to clone " + cdo, e);
+			e.printStackTrace();
+			return null;
+		}
+		return newObj;
+	}
+	
 	private static final PrerequisiteWriter PREREQ_WRITER =
 			new PrerequisiteWriter();
 
