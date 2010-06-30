@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Mon Jun 28 00:53:10 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
+
+
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Umbral Dragon.MOD	CSKILL:.CLEAR		CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Diplomacy|Fly|Heal|Intimidate|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+
+18	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Basic Turning|.CLEAR.Rebuke Undead|Channel Energy|Channel Negative Energy

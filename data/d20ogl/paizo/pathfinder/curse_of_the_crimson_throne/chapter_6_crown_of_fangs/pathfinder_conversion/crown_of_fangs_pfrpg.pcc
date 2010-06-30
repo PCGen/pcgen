@@ -1,13 +1,13 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
-CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 6: Crown of Fangs
+CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 6: Crown of Fangs - Pathfinder Conversion
 RANK:6
-GAMEMODE:35e
+GAMEMODE:Pathfinder
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide
+PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide - Pathfinder Conversion
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -22,9 +22,10 @@ COPYRIGHT:Pathfinder 12: Crown of Fangs. Copyright 2008, Paizo Publishing, LLC; 
 COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder 12: Crown of Fangs" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony)
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:curse_of_the_crimson_throne_crown_of_fangs.jpg
+COVER:../crown_of_fangs.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,12 +35,14 @@ DESC:The heroes return to Korvosa to find their home city in a stranglehold of m
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:pf12_ability.lst
-EQUIPMENT:pf12_equipment.lst
-FEAT:pf12_feat.lst
-KIT:pf12_kit_monsters.lst
-RACE:pf12_race.lst
-SKILL:pf12_skills.lst
+ABILITY:../pf12_ability.lst
+EQUIPMENT:../pf12_equipment.lst|(EXCLUDE:Staff of the Slain)
+FEAT:../pf12_feat.lst
+
+ABILITY:pf12_ability_pfrpg.lst
+EQUIPMENT:pf12_equipment_pfrpg.lst
+KIT:pf12_kit_monsters_pfrpg.lst
+RACE:pf12_race_pfrpg.lst
 
 #
 # End

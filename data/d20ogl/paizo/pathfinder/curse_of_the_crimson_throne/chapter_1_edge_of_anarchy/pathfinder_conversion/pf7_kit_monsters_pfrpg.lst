@@ -1,0 +1,71 @@
+# CVS $Revision$ $Author$ -- Mon May 31 19:28:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy	SOURCESHORT:CotCT:EoA	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+
+STARTPACK:Carrion Golem Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Carrion Golem],[!PRERACE:1,%]	SOURCEPAGE:p. 78
+ALIGN:TN
+RACE:Carrion Golem	!PRERACE:1,%
+NAME:Carrion Golem
+STAT:STR=11|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+
+
+STARTPACK:Devilfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devilfish],[!PRERACE:1,%]	SOURCEPAGE:p. 80
+ALIGN:NE
+RACE:Devilfish	!PRERACE:1,%
+NAME:Devilfish
+SKILL:Escape Artist	RANK:2
+SKILL:Perception		RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Swim			RANK:1
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=10|WIS=10|INT=11|CHA=10
+
+
+STARTPACK:Doll (Soulbound) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Doll (Soulbound)],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+ALIGN:NG|LN|NE|CN|TN
+RACE:Doll (Soulbound)	!PRERACE:1,%
+NAME:Doll, Soulbound
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Improved Initiative
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=10|WIS=10|INT=11|CHA=11
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+
+
+STARTPACK:Dream Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dream Spider],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+ALIGN:TN
+RACE:Dream Spider	!PRERACE:1,%
+NAME:Dream Spider
+STAT:STR=10|DEX=11|CON=10|WIS=10|INT=10|CHA=11
+
+
+STARTPACK:Raktavarna Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Raktavarna],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+ALIGN:LE
+RACE:Raktavarna	!PRERACE:1,%
+NAME:Raktavarna
+SKILL:Bluff			RANK:3
+SKILL:Climb			RANK:3
+SKILL:Disguise		RANK:3
+SKILL:Escape Artist	RANK:3
+SKILL:Linguistics		RANK:3
+SKILL:Perception		RANK:3
+SKILL:Stealth		RANK:3
+FEAT:Alertness
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=10|CON=11|WIS=10|INT=10|CHA=11
+
+
+STARTPACK:Reefclaw Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Reefclaw],[!PRERACE:1,%]
+ALIGN:CN
+RACE:Reefclaw	!PRERACE:1,%
+NAME:Reefclaw
+SKILL:Swim	RANK:2
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|WIS=10|INT=11|CHA=11
+
+
+#
+# End
+#

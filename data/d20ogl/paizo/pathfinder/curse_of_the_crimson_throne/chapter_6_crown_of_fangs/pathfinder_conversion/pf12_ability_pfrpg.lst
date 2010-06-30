@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Mon Jun 28 02:44:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs	SOURCESHORT:CotCT:CoF	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el	SOURCEDATE:2008-08
+
+
+###Block: Mobogo Abilities
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Description
+Crush			KEY:Crush ~ Mobogo	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:As a standard action, a flying mobogo may land on opponents of Medium size or smaller, using its terrible girth to crush them.
+
+#
+# End
+#

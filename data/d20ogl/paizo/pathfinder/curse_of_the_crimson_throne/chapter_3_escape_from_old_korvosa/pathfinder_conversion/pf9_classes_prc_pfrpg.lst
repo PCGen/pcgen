@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Sat Jun 26 11:18:36 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa	SOURCESHORT:CotCT:EfOK	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy82t5	SOURCEDATE:2008-05
+
+# Class Name			Clear Prereq.	Required AL	Required Feat											Required Skill
+CLASS:Red Mantis Assassin.MOD	PRE:.CLEAR		PREALIGN:LE	PREFEAT:3,Alertness,Weapon Finesse,Exotic Weapon Proficiency (Sawtooth Sabre)	PRESKILL:2,Intimidate=2,Stealth=5

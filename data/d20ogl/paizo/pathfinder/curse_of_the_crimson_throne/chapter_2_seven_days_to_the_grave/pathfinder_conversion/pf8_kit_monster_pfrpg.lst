@@ -1,0 +1,136 @@
+# CVS $Revision$ $Author$ -- Mon Jun 21 12:46:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+STARTPACK:Daemon (Leukodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daemon (Leukodaemon)],[!PRERACE:1,%]
+ALIGN:NE
+RACE:Daemon (Leukodaemon)	!PRERACE:1,%
+NAME:Daemon (Leukodaemon)
+STAT:STR=11|DEX=10|CON=10|WIS=11|INT=10|CHA=10
+SKILL:Fly				RANK:10
+SKILL:Heal				RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:TYPE.Knowledge		RANK:10	COUNT:2
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Survival			RANK:10
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Shortbow)
+GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.BOWSTR|+4.WOOD
+
+
+STARTPACK:Giant Fly Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Fly],[!PRERACE:1,%]
+ALIGN:TN
+RACE:Giant Fly	!PRERACE:1,%
+NAME:Giant Fly
+STAT:STR=10|DEX=11|CON=10|WIS=11|INT=10|CHA=10
+
+
+STARTPACK:Giant Maggot Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Maggot],[!PRERACE:1,%]
+ALIGN:TN
+RACE:Giant Maggot	!PRERACE:1,%
+NAME:Giant Maggot
+STAT:STR=10|DEX=10|CON=10|WIS=11|INT=10|CHA=11
+
+
+STARTPACK:Daughter of Urgathoa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daughter of Urgathoa],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+ALIGN:NE
+RACE:Daughter of Urgathoa	!PRERACE:1,%
+NAME:Daughter of Urgathoa
+GENDER:Female
+SKILL:Acrobatics			RANK:11
+SKILL:Bluff				RANK:11
+SKILL:Escape Artist		RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Religion)	RANK:7
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:8
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:11
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=10|WIS=10|INT=11|CHA=11
+SPELLS:Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
+
+
+STARTPACK:Lawgiver Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+ALIGN:LN
+RACE:Lawgiver	!PRERACE:1,%
+NAME:Lawgiver
+SKILL:Appraise			RANK:10
+SKILL:Knowledge (Engineering)	RANK:10
+SKILL:Knowledge (Local)		RANK:10
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:15
+FEAT:Alertness
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Greater Bull Rush
+FEAT:Improved Bull Rush
+FEAT:Improved Overrun
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+GEAR:Gavel of Abadar	LOCATION:Both Hands
+
+
+STARTPACK:NPC (Ramoska Arkminos/Sample Nosferatu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p. 89
+ALIGN:LE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Ramoska Arkminos
+STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
+TEMPLATE:Nosferatu
+CLASS:Wizard	LEVEL:8	SUBCLASS:Wizard
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Wizard Bonus Feat|Silent Spell
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+SKILL:Craft (Alchemy)		RANK:2
+SKILL:Diplomacy			RANK:4
+SKILL:Heal				RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (History)	RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Knowledge (Religion)	RANK:2
+SKILL:Linguistics			RANK:4
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:4
+SKILL:Spellcraft			RANK:4
+SKILL:Stealth			RANK:8
+FEAT:Combat Casting
+FEAT:Iron Will
+FEAT:Persuasive
+FEAT:Spell Focus (Enchantment)
+FEAT:Greater Spell Focus (Enchantment)
+ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Craft (Alchemy))
+ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Heal)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
+GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:SPL_1USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
+GEAR:Ring (Protection +2)			LOCATION:Equipped
+GEAR:Cape of the Mountebank			LOCATION:Equipped
+GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
+
+
+#
+# End
+#

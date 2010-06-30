@@ -1,13 +1,13 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
-CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 2: Seven Days to the Grave
+CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 2: Seven Days to the Grave - Pathfinder Conversion
 RANK:6
-GAMEMODE:35e
+GAMEMODE:Pathfinder
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide
+PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide - Pathfinder Conversion
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -20,9 +20,10 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder 8: Seven Days to the Grave. Copyright 2008, Paizo Publishing, LLC; Author: F. Wesley Schneider.
 COPYRIGHT:PCGen dataset conversion for Pathfinder 8: Seven Days to the Grave Copyright 2008, PCGen Data team (Including, but not limited to Eddy Anthony)
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COVER:curse_of_the_crimson_throne_seven_days_to_the_grave.jpg
+COVER:../seven_days_to_the_grave.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -32,17 +33,22 @@ DESC:The civil unrest in Korvosa has been dealt with, only to be replaced by a f
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITYCATEGORY:pf8_ability_category.lst
-ABILITY:pf8_ability.lst
-CLASS:pf8_class.lst
-EQUIPMENT:pf8_equipment.lst
-FEAT:pf8_feat.lst
-KIT:pf8_kit_monster.lst
-KIT:pf8_kit_npc.lst
-RACE:pf8_race.lst
-SKILL:pf8_skill.lst
-SPELL:pf8_spells.lst
-TEMPLATE:pf8_template.lst
+ABILITYCATEGORY:../pf8_ability_category.lst
+ABILITY:../pf8_ability.lst
+CLASS:../pf8_class.lst
+EQUIPMENT:../pf8_equipment.lst
+FEAT:../pf8_feat.lst
+RACE:../pf8_race.lst
+SKILL:../pf8_skill.lst
+SPELL:../pf8_spells.lst
+TEMPLATE:../pf8_template.lst
+
+ABILITY:pf8_ability_pfrpg.lst
+CLASS:pf8_class_pfrpg.lst
+KIT:pf8_kit_monster_pfrpg.lst
+KIT:pf8_kit_npc_pfrpg.lst
+RACE:pf8_race_pfrpg.lst
+TEMPLATE:pf8_template_pfrpg.lst
 
 #
 # End
