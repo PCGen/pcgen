@@ -117,7 +117,10 @@ class ClassBasePanel extends BasePanel
 		obj.put(StringKey.OUTPUT_NAME, txtDisplayName.getText().trim());
 		LoadContext context = Globals.getContext();
 		context.ref.registerAbbreviation(obj, abbreviation.getText().trim());
-		context.unconditionallyProcess(obj, "EXCHANGELEVEL", exchangeLevel.getText().trim());
+		if (exchangeLevel.getText().trim().length() > 0)
+		{
+			context.unconditionallyProcess(obj, "EXCHANGELEVEL", exchangeLevel.getText().trim());
+		}
 		String form = startSkillPoints.getText().trim();
 		if (form.length() > 0)
 		{
@@ -129,7 +132,10 @@ class ClassBasePanel extends BasePanel
 		{
 			context.unconditionallyProcess(obj, "QUALIFY", qualify.getText());
 		}
-		context.unconditionallyProcess(obj, "EXCLASS", exClass.getText().trim());
+		if (exClass.getText().trim().length() > 0)
+		{
+			context.unconditionallyProcess(obj, "EXCLASS", exClass.getText().trim());
+		}
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.put(ObjectKey.VISIBILITY, chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
