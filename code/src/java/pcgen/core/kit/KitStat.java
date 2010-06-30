@@ -117,9 +117,9 @@ public class KitStat extends BaseKit
 							final int spMod =
 									pcClass.recalcSkillPointMod(aPC, j + 1);
 
-							pcl.setSkillPointsGained(spMod);
+							pcl.setSkillPointsGained(aPC, spMod);
 							pcl.setSkillPointsRemaining(pcl
-								.getSkillPointsGained());
+								.getSkillPointsGained(aPC));
 							Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
 							int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
 							aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);

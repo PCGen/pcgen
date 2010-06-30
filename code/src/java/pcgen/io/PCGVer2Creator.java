@@ -888,7 +888,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 			}
 
-			int sp = pcl.getSkillPointsGained();
+			int sp = pcl.getSkillPointsGained(thePC);
 
 			//if (sp != 0)
 			{

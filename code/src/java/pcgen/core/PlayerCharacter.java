@@ -2768,7 +2768,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// to display this as -x on the "Total Skill Points" field
 		for (PCLevelInfo li : getLevelInfo())
 		{
-			returnValue += li.getSkillPointsGained();
+			returnValue += li.getSkillPointsGained(this);
 		}
 
 		for (Skill aSkill : getSkillSet())
@@ -6387,8 +6387,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									.recalcSkillPointMod(this, pi.getLevel());
 						if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 						{
-							final int formerGained = pi.getSkillPointsGained();
-							pi.setSkillPointsGained(newSkillPointsGained);
+							final int formerGained = pi.getSkillPointsGained(this);
+							pi.setSkillPointsGained(this, newSkillPointsGained);
 							pi.setSkillPointsRemaining(pi
 								.getSkillPointsRemaining()
 								+ newSkillPointsGained - formerGained);
@@ -8398,7 +8398,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public PCLevelInfo saveLevelInfo(final String classKeyName)
 	{
-		final PCLevelInfo li = new PCLevelInfo(this, classKeyName);
+		final PCLevelInfo li = new PCLevelInfo(classKeyName);
 		pcLevelInfo.add(li);
 
 		return li;

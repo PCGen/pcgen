@@ -1878,12 +1878,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			skillPool = pcl.getSkillPointsRemaining();
 
 			if ((points < 0.0)
-				&& ((skillPool - points) > pcl.getSkillPointsGained()))
+				&& ((skillPool - points) > pcl.getSkillPointsGained(pc)))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_iskErr_message_05a",
 					pcl.getClassKeyName(),
 					String.valueOf(pcl.getLevel()),
-					String.valueOf(pcl.getSkillPointsGained())),
+					String.valueOf(pcl.getSkillPointsGained(pc))),
 					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 				return false;
@@ -2259,7 +2259,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				sb.append(pcl.getClassKeyName()).append('/').append(
 					pcl.getLevel()).append(' ').append('[').append(
 					pcl.getSkillPointsRemaining()).append('/').append(
-					pcl.getSkillPointsGained()).append(']');
+					pcl.getSkillPointsGained(pc)).append(']');
 				comboStrings[i] = sb.toString();
 				i++;
 			}
@@ -4342,7 +4342,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			for (int i = pc.getLevelInfo().size() - 1; i >= 0; --i)
 			{
 				pcl = pc.getLevelInfo().get(i);
-				final int ptsGained = pcl.getSkillPointsGained();
+				final int ptsGained = pcl.getSkillPointsGained(pc);
 				int ptsUsed = ptsGained - pcl.getSkillPointsRemaining();
 				if (ptsUsed >= points)
 				{

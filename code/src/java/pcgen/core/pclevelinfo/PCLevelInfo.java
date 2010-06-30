@@ -22,11 +22,17 @@
  */
 package pcgen.core.pclevelinfo;
 
-import pcgen.core.*;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import pcgen.core.Ability;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.PointBuyMethod;
+import pcgen.core.SettingsHandler;
 
 /**
  * <code>PCLevelInfo</code>.
@@ -44,7 +50,6 @@ public final class PCLevelInfo implements Cloneable
 	private int             level                = 0;
 	private int             skillPointsGained    = Integer.MIN_VALUE;
 	private int             skillPointsRemaining = 0;
-	private PlayerCharacter aPC;
 	private List<Ability>            objects              = new ArrayList<Ability>(1);
 
 	/**
@@ -53,10 +58,9 @@ public final class PCLevelInfo implements Cloneable
 	 * @param  aPC              The PC this level is part of
 	 * @param  argClassKeyName  The KeyName of the class taken at this level
 	 */
-	public PCLevelInfo(final PlayerCharacter aPC, final String argClassKeyName)
+	public PCLevelInfo(final String argClassKeyName)
 	{
 		super();
-		this.aPC     = aPC;
 		classKeyName = argClassKeyName;
 	}
 
@@ -121,23 +125,24 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @param  arg  the number of skill points gained
 	 */
-	public void setSkillPointsGained(final int arg)
+	public void setSkillPointsGained(PlayerCharacter aPC, final int arg)
 	{
-		final int bonusPoints = getBonusSkillPool();
+		final int bonusPoints = getBonusSkillPool(aPC);
 		setFixedSkillPointsGained(arg + bonusPoints);
 	}
 
 	/**
+	 * @param pc TODO
 	 * @return  the number of skill points gained
 	 */
-	public int getSkillPointsGained()
+	public int getSkillPointsGained(PlayerCharacter aPC)
 	{
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
 			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			skillPointsGained = aClass.recalcSkillPointMod(aPC, level) +
-				getBonusSkillPool();
+				getBonusSkillPool(aPC);
 		}
 
 		return skillPointsGained;
@@ -267,7 +272,7 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @return  the number of bonus skill points added by this level
 	 */
-	private int getBonusSkillPool()
+	private int getBonusSkillPool(PlayerCharacter aPC)
 	{
 		int           returnValue = 0;
 		final PCClass aClass      = aPC.getClassKeyed(classKeyName);
@@ -327,7 +332,7 @@ public final class PCLevelInfo implements Cloneable
 	@Override
 	public PCLevelInfo clone()
 	{
-		PCLevelInfo clone = new PCLevelInfo(aPC, classKeyName);
+		PCLevelInfo clone = new PCLevelInfo(classKeyName);
 		for (Iterator<? extends Ability> i = objects.iterator(); i.hasNext(); )
 		{
 			clone.objects.add(i.next());

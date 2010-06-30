@@ -82,7 +82,7 @@ public class SkillLevelToken extends SkillToken
 
 				final PCLevelInfo wLevelInfo =
 						pc.getLevelInfo().get(aLevelOffset);
-				final int wOutput = wLevelInfo.getSkillPointsGained();
+				final int wOutput = wLevelInfo.getSkillPointsGained(pc);
 				return Integer.toString(wOutput);
 			}
 			catch (NumberFormatException nfe)

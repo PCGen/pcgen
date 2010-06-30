@@ -3492,7 +3492,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		for (PCLevelInfo pcl : pc.getLevelInfo())
 		{
-			poolPointsTotal += pcl.getSkillPointsGained();
+			poolPointsTotal += pcl.getSkillPointsGained(pc);
 		}
 
 		int poolPointsUsed = poolPointsTotal - pc.getSkillPoints();

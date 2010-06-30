@@ -108,7 +108,7 @@ public class LevelToken extends Token
 			}
 			if (tokName.equals("SKILLPOINTS"))
 			{
-				retString = getLevelSkillPoints(pcl);
+				retString = Integer.toString(pcl.getSkillPointsGained(pc));
 			}
 		}
 		return retString;
@@ -173,15 +173,5 @@ public class LevelToken extends Token
 			return hp == null ? "0" : hp.toString();
 		}
 		return "";
-	}
-
-	/**
-	 * Get the skill points for the level
-	 * @param pcl
-	 * @return the skill points for the level
-	 */
-	public static String getLevelSkillPoints(PCLevelInfo pcl)
-	{
-		return Integer.toString(pcl.getSkillPointsGained());
 	}
 }
