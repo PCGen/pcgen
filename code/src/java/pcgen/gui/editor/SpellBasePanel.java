@@ -174,7 +174,14 @@ public class SpellBasePanel extends BasePanel
 		{
 			s.addToListFor(ListKey.SPELL_DESCRIPTOR, tokenizer.nextToken());
 		}
-		s.put(ObjectKey.COST, new BigDecimal(txtCost.getValue()));
+		if (txtCost.getValue() > 0.0d)
+		{
+			s.put(ObjectKey.COST, new BigDecimal(txtCost.getValue()));
+		}
+		else
+		{
+			s.remove(ObjectKey.COST);
+		}
 		s.put(IntegerKey.XP_COST, txtXpCost.getValue());
 		Object stat = cmbStat.getSelectedItem();
 		if (stat instanceof PCStat)
