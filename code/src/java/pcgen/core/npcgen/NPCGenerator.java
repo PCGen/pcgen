@@ -189,11 +189,10 @@ public class NPCGenerator
 	{
 		// Select a potential skill
 
-		final List<PCLevelInfo> pcLvlInfo = aPC.getLevelInfo();
 		PCLevelInfo levelInfo = null;
 
 		int curLevel = 0;
-		for ( PCLevelInfo li : pcLvlInfo )
+		for ( PCLevelInfo li : aPC.getLevelInfo() )
 		{
 			if (li.getClassKeyName().equals(aClass.getKeyName()))
 			{
