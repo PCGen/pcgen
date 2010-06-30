@@ -299,9 +299,7 @@ public final class PCLevelInfo implements Cloneable
 				"SKILLPOOL",
 				"CLASS." + classKeyName + ";LEVEL." + Integer.toString(level));
 
-		returnValue += (int) aPC.getTotalBonusTo(
-				"SKILLPOOL",
-				"LEVEL." + aPC.getCharacterLevel(this));
+		returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "LEVEL." + level);
 
 		return returnValue;
 	}

@@ -10487,24 +10487,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * @param info
-	 * @return character level
-	 */
-	public int getCharacterLevel(final PCLevelInfo info)
-	{
-		int i = 1;
-		for (PCLevelInfo element : pcLevelInfo)
-		{
-			if (info == element)
-			{
-				return i;
-			}
-			i++;
-		}
-		return -1;
-	}
-
-	/**
 	 * Return a list of bonus languages which the character may select from.
 	 * This function is not efficient, but is sufficient for it's current use of
 	 * only being called when the user requests the bonus language selection
