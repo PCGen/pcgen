@@ -270,11 +270,10 @@ public final class KitSkill extends BaseKit
 		//
 		// Fix up the skill pools to reflect what we just spent.
 		//
-		List<PCLevelInfo> pcLvlInfo = pc.getLevelInfo();
 		double ptsToSpend = aCost;
 		if (ptsToSpend >= 0.0)
 		{
-			for (PCLevelInfo info : pcLvlInfo)
+			for (PCLevelInfo info : pc.getLevelInfo())
 			{
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
