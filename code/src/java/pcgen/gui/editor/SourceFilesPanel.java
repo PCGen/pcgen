@@ -196,7 +196,10 @@ final class SourceFilesPanel extends JPanel
 					if ((d == null) || d.equals(""))
 					{
 						URI uri = theCampaign.getSourceURI();
-						d = uri.getPath();
+						if (uri != null)
+						{
+							d = uri.getPath();
+						}
 					}
 
 					if ((d == null) || d.equals(""))
