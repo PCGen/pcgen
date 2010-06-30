@@ -352,7 +352,14 @@ public class RaceBasePanel extends BasePanel
 		final BonusObj bon = Bonus.newBonus(sb.toString());
 		thisRace.addToListFor(ListKey.BONUS, bon);
 
-		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
+		if (getBonusSkillPoints() > 0)
+		{
+			thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
+		}
+		else
+		{
+			thisRace.remove(IntegerKey.SKILL_POINTS_PER_LEVEL);
+		}
 		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
 		if (getDisplayName() != null && getDisplayName().trim().length() > 0)
 		{
@@ -360,7 +367,10 @@ public class RaceBasePanel extends BasePanel
 		}
 		thisRace.put(IntegerKey.CREATURE_HANDS, getHands());
 		LoadContext context = Globals.getContext();
-		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
+		if (txtHitDiceAdvancement.getText().trim().length() > 0)
+		{
+			context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
+		}
 		thisRace.put(IntegerKey.LEGS, getLegs());
 		thisRace.put(FormulaKey.LEVEL_ADJUSTMENT, getLevelAdjustment());
 		String monsterClass = getMonsterClass();
