@@ -680,19 +680,24 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 
-				//
-				// Save feats
-				//
+				// Clear old data 
 				thisPObject.removeAllFromList(Ability.FEATLIST);
+				EditorMainForm.clearSpellListInfo(thisPObject);
+				context.commit();
 				
+				// Save feats
 				sel = pnlFeats.getSelectedList();
-				aString = EditUtil.delimitArray(sel, '|');
-				context.unconditionallyProcess(thisPObject, "FEAT", aString);
+				if (sel.length>0)
+				{
+					aString = EditUtil.delimitArray(sel, '|');
+					context.unconditionallyProcess(thisPObject, "FEAT", aString);
+				}
 
 				sel = pnlQSpells.getSelectedList();
 				oldItems.add(thisPObject);
-				EditorMainForm.clearSpellListInfo(thisPObject);
 
+				context.ref.constructNowIfNecessary(
+					DomainSpellList.class, thisPObject.getKeyName());
 				for (int i = 0; i < sel.length; ++i)
 				{
 					aString = sel[i].toString();
@@ -1034,8 +1039,11 @@ public final class EditorMainForm extends JDialog
 				}
 				selList.append((String) sel[i]);
 			}
-			context.unconditionallyProcess(thisPObject, "AUTO:WEAPONPROF",
-					selList.toString());
+			if (selList.length() > 0)
+			{
+				context.unconditionallyProcess(thisPObject, "AUTO:WEAPONPROF",
+						selList.toString());
+			}
 
 			sel = pnlWeapons.getSelectedList2();
 
