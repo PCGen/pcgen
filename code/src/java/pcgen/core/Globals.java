@@ -323,6 +323,23 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyed(final String aKey)
 	{
+		
+		Campaign campaign = getCampaignKeyedSilently(aKey);
+		if (campaign == null)
+		{
+			Logging.errorPrint("Could not find campaign: " + aKey);
+		}
+
+		return campaign;
+	}
+
+	/**
+	 * Get campaign by key
+	 * @param aKey
+	 * @return Campaign
+	 */
+	public static Campaign getCampaignKeyedSilently(final String aKey)
+	{
 		for ( Campaign campaign : getCampaignList() )
 		{
 			if (campaign.getKeyName().equalsIgnoreCase(aKey))
@@ -330,8 +347,6 @@ public final class Globals
 				return campaign;
 			}
 		}
-
-		Logging.errorPrint("Could not find campaign: " + aKey);
 
 		return null;
 	}
@@ -2720,6 +2735,9 @@ public final class Globals
 		return SettingsHandler.getGame().getContext();
 	}
 
+	/**
+	 * @return The class instance controlling the association lists for the current game mode.
+	 */
 	public static MasterListInterface getMasterLists()
 	{
 		return SettingsHandler.getGame().getMasterLists();

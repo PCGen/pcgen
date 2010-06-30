@@ -133,20 +133,20 @@ class SourceBasePanel extends BasePanel
 		{
 			theCampaign.addToListFor(ListKey.GAME_MODE, "Sidewinder");
 		}
-		theCampaign.put(StringKey.SOURCE_LONG, pubNameLong.getText().trim());
-		theCampaign.put(StringKey.SOURCE_SHORT, pubNameShort.getText().trim());
-		theCampaign.put(StringKey.SOURCE_WEB, pubNameWeb.getText().trim());
+		setStringValue(StringKey.SOURCE_LONG, pubNameLong.getText());
+		setStringValue(StringKey.SOURCE_SHORT, pubNameShort.getText());
+		setStringValue(StringKey.SOURCE_WEB, pubNameWeb.getText());
 		theCampaign.put(ObjectKey.IS_OGL, isOGL.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.IS_D20, isD20.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.SHOW_IN_MENU, showInMenu.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.IS_LICENSED, isLicensed.getSelectedObjects() != null);
-		theCampaign.put(StringKey.INFO_TEXT, infoText.getText().trim());
-		theCampaign.put(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
+		setStringValue(StringKey.INFO_TEXT, infoText.getText());
+		setStringValue(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
 		theCampaign.put(StringKey.DESTINATION, destination.getText().trim());
 		theCampaign.removeListFor(ListKey.LICENSE);
 		theCampaign.removeListFor(ListKey.SECTION_15);
-		theCampaign.put(StringKey.SETTING, setting.getText().trim());
-		theCampaign.put(StringKey.GENRE, genre.getText().trim());
+		setStringValue(StringKey.SETTING, setting.getText());
+		setStringValue(StringKey.GENRE, genre.getText());
 
 		for (int i = 0; i < sourceModel.getOptionList().size(); i++)
 		{
@@ -163,6 +163,26 @@ class SourceBasePanel extends BasePanel
 		for (Iterator i = sourceModel.getCopyrightList().iterator(); i.hasNext();)
 		{
 			theCampaign.addToListFor(ListKey.SECTION_15, (String) i.next());
+		}
+	}
+
+	/**
+	 * Set a string value for the current campaign. Will remove the value if 
+	 * the value is null or empty.
+	 * 
+	 * @param stringKey The StringKey to be updated
+	 * @param value The new value.
+	 * 
+	 */
+	private void setStringValue(StringKey stringKey, String value)
+	{
+		if (value == null || value.trim().length()==0)
+		{
+			theCampaign.remove(stringKey);
+		}
+		else
+		{
+			theCampaign.put(StringKey.SETTING, value.trim());
 		}
 	}
 
@@ -232,6 +252,11 @@ class SourceBasePanel extends BasePanel
 			if (a.startsWith(b))
 			{
 				a = a.substring(b.length() + 1);
+			}
+			else if (a.substring(1).startsWith(b))
+			{
+				// The / after file:/ can remain here, so account for it.
+				a = a.substring(b.length() + 2);
 			}
 
 			destination.setText(a);

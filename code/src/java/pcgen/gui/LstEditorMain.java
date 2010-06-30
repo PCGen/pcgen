@@ -396,7 +396,7 @@ public final class LstEditorMain extends JFrame
 				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, aName);
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				return Globals.getCampaignKeyed(aName);
+				return Globals.getCampaignKeyedSilently(aName);
 
 			default:
 				break;
