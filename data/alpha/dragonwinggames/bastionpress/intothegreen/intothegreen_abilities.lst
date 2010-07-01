@@ -185,10 +185,5 @@ Maakantu Druid Caster		CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Maak
 Elderwitch Sorcerer Caster	CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Elderwitch	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|7
 
 
-###Block: Traits
-# Ability Name	Category of Ability		Type						Visible	Description																																										Vision		Source Page
-Evil Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES	DESC:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
-Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.	VISION:Low-light	SOURCEPAGE:TypesSubtypesAbilities.rtf
-
 
 
