@@ -121,7 +121,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		String[] unparsed = context.unparse(obj, getTokenName());
+		String[] unparsed = context.unparseSubtoken(obj, getTokenName());
 		Changes<PersistentTransitionChoice<?>> changes = context
 				.getObjectContext().getListChanges(obj, ListKey.ADD);
 		if (changes.includesGlobalClear())

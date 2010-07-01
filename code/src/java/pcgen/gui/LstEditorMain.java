@@ -235,7 +235,7 @@ public final class LstEditorMain extends JFrame
 	{
 		if (originalItem instanceof Race)
 		{
-			String[] unp = Globals.getContext().unparse(originalItem, "REGION");
+			String[] unp = Globals.getContext().unparseSubtoken(originalItem, "REGION");
 
 			String region;
 			if (unp == null)

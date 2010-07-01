@@ -1204,7 +1204,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				String[] favClass = Globals.getContext().unparse(race, "FAVCLASS");
+				String[] favClass = Globals.getContext().unparseSubtoken(race, "FAVCLASS");
 				return StringUtil.join(favClass, "");
 			}
 			return null;

@@ -189,7 +189,7 @@ class ClassBasePanel extends BasePanel
 		txtDisplayName.setText(OutputNameFormatting.getOutputName(obj));
 		abbreviation.setText(obj.getAbbrev());
 		LoadContext context = Globals.getContext();
-		String[] le = context.unparse(obj, "EXCHANGELEVEL");
+		String[] le = context.unparseSubtoken(obj, "EXCHANGELEVEL");
 		exchangeLevel.setText(le == null ? "" : le[0]);
 		Formula spf = obj.get(FormulaKey.START_SKILL_POINTS);
 		startSkillPoints.setText(spf == null ? "" : spf.toString());
@@ -211,7 +211,7 @@ class ClassBasePanel extends BasePanel
 			}
 			qualify.setText(StringUtil.join(ol, "|"));
 		}
-		String[] exc = context.unparse(obj, "EXCLASS");
+		String[] exc = context.unparseSubtoken(obj, "EXCLASS");
 		exClass.setText(exc == null ? "" : exc[0]);
 		Boolean mts = obj.get(ObjectKey.MOD_TO_SKILLS);
 		modToSkills.setSelected(mts == null ? true : mts);

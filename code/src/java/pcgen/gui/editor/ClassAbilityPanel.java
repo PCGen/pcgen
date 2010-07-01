@@ -210,7 +210,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			levelsPerFeat.setText(lpf.toString());
 		}
 
-		String[] known = Globals.getContext().unparse(obj, "KNOWNSPELLS");
+		String[] known = Globals.getContext().unparseSubtoken(obj, "KNOWNSPELLS");
 		if (known != null && known.length > 0)
 		{
 			knownSpells.setText(known[0]);

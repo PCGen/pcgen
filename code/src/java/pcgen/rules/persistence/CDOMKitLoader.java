@@ -140,7 +140,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 					if (cse.getURI().equals(k.get(ObjectKey.SOURCE_URI)))
 					{
 						StringBuilder sb = new StringBuilder();
-						String[] unparse = lc.unparse(k, "*KITTOKEN");
+						String[] unparse = lc.unparseSubtoken(k, "*KITTOKEN");
 						sb.append("STARTPACK:");
 						sb.append(k.getDisplayName());
 						if (unparse != null)

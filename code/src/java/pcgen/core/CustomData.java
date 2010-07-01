@@ -477,7 +477,7 @@ public final class CustomData
 				if (race.isType(Constants.s_CUSTOM))
 				{
 					String region;
-					String[] unp = Globals.getContext().unparse(race, "REGION");
+					String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
 					if (unp == null)
 					{

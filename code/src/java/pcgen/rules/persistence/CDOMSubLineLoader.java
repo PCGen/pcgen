@@ -104,7 +104,7 @@ public class CDOMSubLineLoader<T>
 
 	public void unloadObject(LoadContext lc, T object, StringBuilder sb)
 	{
-		String[] unparse = lc.unparse(object, subTokenType);
+		String[] unparse = lc.unparseSubtoken(object, subTokenType);
 		StringBuilder temp = new StringBuilder();
 		if (unparse != null)
 		{

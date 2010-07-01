@@ -271,9 +271,17 @@ public abstract class LoadContext
 		}
 	}
 
-	public <T> String[] unparse(T cdo, String tokenName)
+	/**
+	 * Produce the LST code for any occurrences of subtokens of the parent token.
+	 *  
+	 * @param <T> The type of object to be processed, generally a CDOMObject.
+	 * @param cdo The object to be partially unparsed
+	 * @param tokenName The name of the parent token
+	 * @return An array of LST code 'fields' all of which are subtokens of the parent token.
+	 */
+	public <T> String[] unparseSubtoken(T cdo, String tokenName)
 	{
-		return support.unparse(this, cdo, tokenName);
+		return support.unparseSubtoken(this, cdo, tokenName);
 	}
 
 	public <T> Collection<String> unparse(T cdo)

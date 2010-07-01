@@ -185,7 +185,7 @@ public class RaceBasePanel extends BasePanel
 	public void setHitDiceAdvancement(final Race thisRace)
 	{
 		LoadContext context = Globals.getContext();
-		String[] hitdice = context.unparse(thisRace, "HITDICE");
+		String[] hitdice = context.unparseSubtoken(thisRace, "HITDICE");
 		if (hitdice != null)
 		{
 			if (hitdice.length == 1)

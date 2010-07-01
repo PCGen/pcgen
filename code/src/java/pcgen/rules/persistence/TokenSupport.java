@@ -134,7 +134,7 @@ public class TokenSupport
 		return cpr;
 	}
 
-	public <T> String[] unparse(LoadContext context, T cdo, String tokenName)
+	public <T> String[] unparseSubtoken(LoadContext context, T cdo, String tokenName)
 	{
 		char separator = tokenName.charAt(0) == '*' ? ':' : '|';
 		Collection<String> set = new WeightedCollection<String>(

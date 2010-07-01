@@ -246,21 +246,21 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			Integer cl = pcl.get(IntegerKey.LEVEL);
 			
-			String[] unparse = Globals.getContext().unparse(pcl, "CAST");
+			String[] unparse = Globals.getContext().unparseSubtoken(pcl, "CAST");
 			if (unparse != null)
 			{
 				LevelTag lt = new LevelTag(cl, LevelTag.TAG_CAST, unparse[0]);
 				levelTagList.add(lt);
 			}
 
-			unparse = Globals.getContext().unparse(pcl, "KNOWN");
+			unparse = Globals.getContext().unparseSubtoken(pcl, "KNOWN");
 			if (unparse != null)
 			{
 				LevelTag lt = new LevelTag(cl, LevelTag.TAG_KNOWN, unparse[0]);
 				levelTagList.add(lt);
 			}
 
-			unparse = Globals.getContext().unparse(pcl, "SPELLS");
+			unparse = Globals.getContext().unparseSubtoken(pcl, "SPELLS");
 			if (unparse != null)
 			{
 				for (String s : unparse)
@@ -324,7 +324,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		LoadContext context = Globals.getContext();
 		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
-			String[] unp = context.unparse(pcl, "TEMPLATE");
+			String[] unp = context.unparseSubtoken(pcl, "TEMPLATE");
 			if (unp != null)
 			{
 				for (String ts : unp)
