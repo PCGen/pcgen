@@ -1,0 +1,629 @@
+# CVS $Revision$ $Author$ -- Fri May 14 12:40:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+###Block: Arboreal Nemesis --------------------------------------------------
+STARTPACK:Arboreal Nemesis	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Arboreal Nemesis],[!PRERACE:1,%]
+RACE:Arboreal Nemesis	PRERACE:1,%
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#STR=29|DEX=8|CON=21|INT=14|WIS=15|CHA=12
+SKILL:Bluff				RANK:8
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (Nature)	RANK:7
+SKILL:Listen			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Spot				RANK:6
+SKILL:Wilderness Lore		RANK:7
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Power Attack
+
+###Block: Dark Woodsman --------------------------------------------------
+STARTPACK:Dark Woodsman	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dark Woodsman],[!PRERACE:1,%]
+RACE:Dark Woodsman	PRERACE:1,%
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Skills: Dark woodsmen gain a +10 competence bonus to Move Silently and Hide checks made while within their protected area.
+#Skills: Hide +2*, Move Silently +2*, Wilderness Lore +6
+#STAT:STR=14|DEX=11|CON=15|INT=10|WIS=14|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Wilderness Lore	RANK:4
+FEAT:Track
+GEAR:Greataxe	SIZE:PC	LOCATION:Primary Hand
+
+###Block: The Flood Brute-------------------------------
+STARTPACK:The Flood Brute	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Flood Brute],[!PRERACE:1,%]
+RACE:The Flood Brute	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+##Skills: Listen +5, Move Silently +6, Hide +5, Spot +8
+#STR=22|DEX=11|CON=18|INT=4|WIS=11|CHA=10
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:6
+SKILL:Hide			RANK:5
+SKILL:Spot			RANK:8
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+
+###Block: Greenfeeder-------------------------------
+STARTPACK:Greenfeeder	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Greenfeeder],[!PRERACE:1,%]
+RACE:Greenfeeder	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+#STAT:STR=22|DEX=12|CON=18|INT=4|WIS=10|CHA=3
+##Skills: Hide +0*, Listen +3, Move Silently +3*, Spot +3, Wilderness Lore +2*
+##Skills: *Greenfeeders receive a +10 competence bonus to any Wilderness Lore checks made when tracking an injured creature by scent. They also have a +4 racial bonus to all Hide and Move Silently checks made while in a forest
+ALIGN:CN
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:3
+SKILL:Wilderness Lore	RANK:2
+
+###Block: Grovenger-------------------------------
+STARTPACK:Grovenger	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grovenger],[!PRERACE:1,%]
+RACE:Grovenger	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+#Skills: Animal Empathy +12, Handle Animal +12, Hide +8, Knowledge (nature) +10, Listen +13, Move Silently +9, Wilderness Lore +9
+#STR=30|DEX=8|CON=21|INT=10|WIS=16|CHA=15
+SKILL:Animal Empathy		RANK:9
+SKILL:Handle Animal		RANK:9
+SKILL:Hide				RANK:9
+SKILL:Knowledge (Nature)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Wilderness Lore		RANK:9
+#SKILL:	RANK:
+FEAT:Cleave
+FEAT:Iron Will
+FEAT:Power Attack
+
+
+###Block: Horned Man-------------------------------
+STARTPACK:Horned Man	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Horned Man],[!PRERACE:1,%]
+RACE:Horned Man	PRERACE:1,%
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Animal Empathy +12, Hide +5, Intimidate +6, Listen +16, Move Silently +5, Sense Motive +8, Spot +16, Wilderness Lore +16
+#STR=17|DEX=15|CON=20|INT=12|WIS=18|CHA=16
+SKILL:Animal Empathy	RANK:8
+SKILL:Hide			RANK:2
+SKILL:Intimidate		RANK:3
+SKILL:Listen		RANK:12
+SKILL:Move Silently	RANK:3
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:12
+SKILL:Wilderness Lore	RANK:12
+FEAT:Power Attack
+FEAT:Track
+FEAT:Weapon Focus (Shortspear)
+GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
+ALIGN:TN
+
+
+
+
+###Block: Makesh -------------------------------
+STARTPACK:Makesh	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Makesh],[!PRERACE:1,%]
+RACE:Makesh	PRERACE:1,%
+STAT:STR=10|DEX=13|CON=10|INT=12|WIS=10|CHA=8
+#Skills: Climb +2, Hide +2, Listen +3, Move Silently +2, Spot +3, Wilderness Lore +1
+#STR=10|DEX=13|CON=10|INT=12|WIS=10|CHA=8
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:3
+SKILL:Wilderness Lore	RANK:1
+FEAT:Alertness
+GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Flail (Light)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin		SIZE:PC	LOCATION:Carried
+
+###Block: Shadow Stalker-------------------------------
+STARTPACK:Shadow Stalker	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Shadow Stalker],[!PRERACE:1,%]
+RACE:Shadow Stalker	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Climb +6, Listen +4, Move Silently +11, Hide +8, Spot +9
+#STR=18|DEX=16|CON=16|INT=10|WIS=10|CHA=6
+SKILL:Climb			RANK:2
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:8
+SKILL:Hide			RANK:5
+SKILL:Spot			RANK:9
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Claw)
+
+###Block: Ubi-------------------------------
+STARTPACK:Ubi	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ubi],[!PRERACE:1,%]
+RACE:Ubi	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+#STR=10|DEX=18|CON=11|INT=17|WIS=12|CHA=14
+#Skills: Alchemy + 8, Bluff +6, Craft (any one, skill focus) +11, Craft (any additional one) + 6, Disable Device +5,
+# Escape Artist +5, Hide +9, Listen +3, Move Silently +8, Open Lock +8, Search +6, Sense Motive +3, Spot +4,
+# Use Magic Device +5, Use Rope +9
+#SKILL:Alchemy		RANK:
+#SKILL:Bluff		RANK:
+#SKILL:Disable Device	RANK:
+#SKILL:Escape Artist	RANK:
+#SKILL:Hide			RANK:
+#SKILL:Listen		RANK:
+#SKILL:Move Silently	RANK:
+#SKILL:Open Lock		RANK:
+#SKILL:Search		RANK:
+#SKILL:Sense Motive	RANK:
+#SKILL:Spot			RANK:
+#SKILL:Use Magic Device	RANK:
+#SKILL:Use Rope		RANK:
+#SKILL:Craft|Craft	RANK:
+FEAT:Exotic Weapon Proficiency (Crossbow (Hand))
+#FEAT:Skill Focus
+# Supposed to be a Craft
+GEAR:Dagger			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Hand)	SIZE:PC	LOCATION:Carried
+# NO way to just choose a Craft Skill and then a Second One without the possibility of overlap; corner case
+# NO way to just choose a Skill Focus in a Craft Skill that was chosen.
+
+
+###Block: Bayowulf-------------------------------
+STARTPACK:Bayowulf	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bayowulf],[!PRERACE:1,%]
+RACE:Bayowulf	PRERACE:1,%
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+#Skills: Climb +5, Hide +6, Jump +6, Listen +6, Move Silently +10, Spot +4, Swim +12, Wilderness Lore +1*.
+#STR=18|DEX=15|CON=18|INT=9|WIS=13|CHA=10
+#SKILL:Climb		RANK:1
+#SKILL:Hide			RANK:2
+#SKILL:Jump			RANK:2
+#SKILL:Listen		RANK:3
+#SKILL:Move Silently	RANK:
+#SKILL:Spot			RANK:3
+#SKILL:Swim			RANK:
+
+FEAT:Blind-Fight
+FEAT:Weapon Focus (Bite)
+#Skills: Bayowulfs receive a +2 racial bonus to Hide, Listen, Move Silently and Swim skill checks.
+# They also benefit from a +4 racial bonus to Wilderness Lore skill checks while tracking by scent.
+
+###Block: Bloodfrog-------------------------------
+STARTPACK:Bloodfrog	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bloodfrog],[!PRERACE:1,%]
+RACE:Bloodfrog	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Jump +10, Listen +5, Move Silently +7, Hide +23*, Spot +5
+#*They have a +10 circumstance bonus to Hide checks when hanging in the trees.
+#STR=2|DEX=20|CON=12|INT=2|WIS=12|CHA=4
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Weapon Finesse (Bite)
+ALIGN:TN
+
+
+###Block: Gloomfog-------------------------------
+STARTPACK:Gloomfog	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gloomfog],[!PRERACE:1,%]
+RACE:Gloomfog	PRERACE:1,%
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+#Skills: Hide -8*, Intimidate +7, Knowledge (any one) +8, Listen +10, Sense Motive +9, Spot +10, Wilderness Lore +9
+#They have a +16 racial bonus to Hide checks made in forested areas.
+#STR=20|DEX=10|CON=17|INT=12|WIS=15|CHA=9
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+FEAT:Improved Initiative
+
+###Block: Maakantu-------------------------------
+STARTPACK:Maakantu	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Maakantu],[!PRERACE:1,%]
+RACE:Maakantu	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Balance +13, Climb +15, Knowledge (nature) +19, Listen + 15, Move Silently +17, Hide +13, Spellcraft +21, Spot +18, Swim +15, Wilderness Lore +21
+#Skills: A maakantu receives a +4 racial bonus to Hide, Knowledge (nature), Move Silently, and Wilderness Lore. A maakantu possesses a base number of ranks in Spellcraft equal to one-half its hit dice, rounded down.
+#STR=24|DEX=18|CON=18|INT=10|WIS=18|CHA=12
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Sunder
+
+###Block: Spindleshank-------------------------------
+STARTPACK:Spindleshank	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spindleshank],[!PRERACE:1,%]
+RACE:Spindleshank	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+#Skills: Jump +4, Spot +1, Wilderness Lore +3
+#STR=14|DEX=12|CON=10|INT=13|WIS=7|CHA=10
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Improved Initiative
+#	MONCSKILL:Jump +4|Spot +1|Wilderness Lore +3
+#Attacks: trident +4 melee; sling +3 ranged
+#Damage: trident 1d8+2 plus poison, sling 1d4
+
+###Block: Thornclaw-------------------------------
+STARTPACK:Thornclaw	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thornclaw],[!PRERACE:1,%]
+RACE:Thornclaw	PRERACE:1,%
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#Skills: Alchemy +3, Bluff +5, Disable Device +3, Escape Artist +7, Hide +7*, Knowledge (nature) +3, Listen +8, Move Silently +7*, Spot +8, Wilderness Lore +6
+#Skills: Thornclaws have a +2 racial bonus to Spot, Search and Listen checks. *They gain a +8 racial bonus to Move Silently and Hide checks when in wilderness locations
+#STAT:STR=5|DEX=18|CON=11|INT=10|WIS=17|CHA=14
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Weapon Finesse (Claws)
+
+###Block: Treell-------------------------------
+STARTPACK:Treell	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treell],[!PRERACE:1,%]
+RACE:Treell	PRERACE:1,%
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#Skills: Bluff +9, Hide -7*, Listen +14, Move Silently +9, Sense	Motive +10, Spot +12, Wilderness Lore +10
+#They have a +16 racial bonus to Hide checks made in forested areas.
+#STR=29|DEX=12|CON=21|INT=14|WIS=15|CHA=12
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Power Attack
+
+
+###Block: Verdant Guardian-------------------------------
+STARTPACK:Verdant Guardian	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Verdant Guardian],[!PRERACE:1,%]
+RACE:Verdant Guardian	PRERACE:1,%
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+#Skills: Animal Empathy +11, Handle Animal +11, Hide +6*, Knowledge (nature) +11, Listen +13, Move Silently +11*, Spot +9, Wilderness Lore +10
+#Skills: *The leafy exterior of a verdant guardian affords it a +14 bonus to Hide and Move Silently checks while surrounded by dense foliage.
+#STR=16|DEX=15|CON=12|INT=15|WIS=18|CHA=14
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Improved Initiative
+FEAT:Point Blank Shot
+GEAR:Whip	SIZE:PC	LOCATION:Primary Hand
+
+###Block: Arborgeist-------------------------------
+STARTPACK:Arborgeist	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Arborgeist],[!PRERACE:1,%]
+RACE:Arborgeist	PRERACE:1,%
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+#Skills: Hide +1, Intimidate +12, Intuit Direction +14, Listen +17, Search +13, Sense Motive +14, Spot +16, Wilderness Lore +14
+#STAT:STR=-|DEX=8|CON=-|INT=17|WIS=18|CHA=14
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Great Fortitude
+FEAT:Improved Critical (Incorporeal Touch)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Track
+FEAT:Weapon Focus (Incorporeal Touch)
+
+###Block: Autumnal Mourners-------------------------------
+STARTPACK:Autumnal Mourners	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Autumnal Mourners],[!PRERACE:1,%]
+RACE:Autumnal Mourners	PRERACE:1,%
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+#Skills: Hide +2, Listen +4, Knowledge (Religion) +4, Move Silently +4, Perform (Dirge) +4, Spot +4
+#STR=-|DEX=11|CON=-|INT=7|WIS=15|CHA=11
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+
+###Block: Bedwen------------------------------------
+STARTPACK:Bedwen	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bedwen],[!PRERACE:1,%]
+RACE:Bedwen	PRERACE:1,%
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+#Skills: Knowledge (Arcana) +3, Listen +15, Sense Motive +7, Spellcraft +3
+#Skills: Bedwen receive a +8 racial bonus to Listen checks.
+#STR=-|DEX=19|CON=14|INT=6|WIS=15|CHA=11
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Flyby Attack
+
+###Block: Bracken Corpse ------------------------------------
+STARTPACK:Bracken Corpse	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bracken Corpse],[!PRERACE:1,%]
+RACE:Bracken Corpse	PRERACE:1,%
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+#ALIGN:Usually lawful evil
+#STAT:STR=15|DEX=12|CON=—|INT=—|WIS=12|CHA=13
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Toughness
+
+###Block: Elderwitch------------------------------------
+STARTPACK:Elderwitch	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Elderwitch],[!PRERACE:1,%]
+RACE:Elderwitch	PRERACE:1,%
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+#Skills: Concentration +9, Intimidate +8, Knowledge (Arcana) +11, Listen +10, Spellcraft +8, Spot +10
+#STR=15|DEX=10|CON=14|INT=13|WIS=12|CHA=17
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Toughness
+
+###Block: Fierling------------------------------------
+STARTPACK:Fierling	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fierling],[!PRERACE:1,%]
+RACE:Fierling	PRERACE:1,%
+ALIGN:CN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+#Skills: Hide +5, Intimidate +9, Listen +12, Move Silently +13, Spot +12
+#STR=18|DEX=18|CON=14|INT=11|WIS=16|CHA=10
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+###Block: Lostling------------------------------------
+STARTPACK:Lostling	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lostling],[!PRERACE:1,%]
+RACE:Lostling	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+ALIGN:CE
+#Skills: Bluff +17, Listen +26, Search +22, Spot +26
+#STR=—|DEX=18|CON=—|INT=14|WIS=12|CHA=17
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Expertise
+FEAT:Improved Initiative
+FEAT:Mobility
+
+###Block: Magpine------------------------------------
+STARTPACK:Magpine	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Magpine],[!PRERACE:1,%]
+RACE:Magpine	PRERACE:1,%
+ALIGN:CG
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=11
+#Skills: Bluff +7*, Hide +6*, Knowledge (local) +5, Listen +6, Sense Motive +6, Spot +6, Wilderness Lore +6
+#STR=21|DEX=17|CON=17|INT=13|WIS=15|CHA=15
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Rapier)
+
+#Skills: *Magpines receive a +2 racial bonus to Bluff checks used to seduce other creatures. They also benefit from a +16 racial bonus to Hide checks made in forested areas
+
+###Block: Onnen------------------------------------
+STARTPACK:Onnen	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Onnen],[!PRERACE:1,%]
+RACE:Onnen	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+#Skills: Heal +6, Hide +12*, Listen +4, Move Silently +8, Spot +6
+#Skills: *Onnen receive a +8 racial bonus to Hide checks when in a forested or wooded area during the summer.
+#STR=10|DEX=19|CON=14|INT=6|WIS=15|CHA=12
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Weapon Finesse (Claws)
+
+###Block: Unfamiliar------------------------------------
+STARTPACK:Unfamiliar	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unfamiliar],[!PRERACE:1,%]
+RACE:Unfamiliar	PRERACE:1,%
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+#Skills: Balance +16, Climb +18, Escape Artist +11, Heal +14, Hide +18, Intimidate +4, Intuit Direction +10, Jump +19, Knowledge (arcana) +14, Knowledge (nature) +12, Listen +17, Move Silently +16, Pick Pockets +11, Spellcraft +12, Spot +18, Swim +11, Use Magic Device +9, Wilderness Lore +14*.
+#Skills: *Unfamiliars benefit from a +4 racial bonus to Wilderness Lore skill checks while tracking by scent.
+#STR=14|DEX=20|CON=18|INT=17|WIS=18|CHA=15
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Multiattack
+FEAT:Track
+
+###Block: Uragh Dhu------------------------------------
+STARTPACK:Uragh Dhu	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Uragh Dhu],[!PRERACE:1,%]
+RACE:Uragh Dhu	PRERACE:1,%
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Knowledge (Undead) +11, Listen +12, Move Silently +12, Hide + 6*, Spot + 8
+#STR=25|DEX=13|CON=—|INT=12|WIS=12|CHA=14
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+#SKILL:	RANK:
+FEAT:Expertise
+FEAT:Improved Trip
+FEAT:Power Attack
+
+###Block: Blightsower------------------------------------
+STARTPACK:Blightsower	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blightsower],[!PRERACE:1,%]
+RACE:Blightsower	PRERACE:1,%
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#Skills: Bluff +5, Concentration +4, Hide +8, Intimidate +7, Knowledge (nature) +10, Listen +5, Profession (farmer) +9
+#, Search +6, Spot +6, Wilderness Lore +8
+#STR=16|DEX=15|CON=—|INT=12|WIS=16|CHA=15
+#SKILL:Bluff			RANK:2
+#SKILL:Concentration		RANK:4
+#SKILL:Hide				RANK:6
+#SKILL:Intimidate			RANK:5
+#SKILL:Knowledge (Nature)	RANK:9
+#SKILL:Listen			RANK:2
+#SKILL:Profession (Farmer)	RANK:6
+#SKILL:Search			RANK:3
+#SKILL:Spot				RANK:3
+#SKILL:Wilderness Lore		RANK:5
+
+FEAT:Combat Reflexes
+FEAT:Power Attack
+FEAT:Toughness
+
+###Block: Grass Cloaker------------------------------------
+STARTPACK:Grass Cloaker	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grass Cloaker],[!PRERACE:1,%]
+RACE:Grass Cloaker	PRERACE:1,%
+ALIGN:CN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+#Skills: Hide +20*, Listen +10, Move Silently +12, Spot +18
+#Skills: The grass cloaker's body takes on the color and texture of the surrounding terrain, 
+#conferring a +12 racial bonus to Hide checks.
+#a grass cloaker receives a +4 racial bonus to Spot checks, and it can't be flanked.
+#STR=19|DEX=18|CON=14|INT=14|WIS=15|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:14
+FEAT:Alertness
+FEAT:Improved Initiative
+
+###Block: Grimdeath Vulture------------------------------------
+STARTPACK:Grimdeath Vulture	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grimdeath Vulture],[!PRERACE:1,%]
+RACE:Grimdeath Vulture	PRERACE:1,%
+ALIGN:TN|NE
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=10
+#Skills: Hide +10*, Listen +5, Spot +4, Wilderness Lore +4*  // 35.e surival
+#Skills: Grimdeath vultures receive a +4 racial bonus to Hide checks. *At night or in darkness, this racial Hide bonus doubles to +8; grimdeath also receive a +4 racial bonus to Wilderness Lore checks when tracking by scent.
+#STR=13|DEX=15|CON=13|INT=5|WIS=13|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:3
+SKILL:Wilderness Lore	RANK:3
+FEAT:Dodge
+FEAT:Multiattack
+
+###Block: Liger------------------------------------
+STARTPACK:Liger	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Liger],[!PRERACE:1,%]
+RACE:Liger	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+#Skills: Balance +7, Climb +7, Hide +3*, Listen +3, Move Silently +11, Spot +5, Swim +7
+#Skills: Ligers receive a +4 racial bonus to Balance, Hide, and Move Silently checks. *In areas of tall grass or heavy undergrowth, the Hide bonus improves to +8.
+#STR=24|DEX=16|CON=17|INT=2|WIS=12|CHA=6
+#SKILL:Balance		RANK:0
+#SKILL:Climb		RANK:0
+#SKILL:Hide			RANK:0
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+#SKILL:Swim			RANK:0
+
+###Block: Lyrmir------------------------------------
+STARTPACK:Lyrmir	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lyrmir],[!PRERACE:1,%]
+RACE:Lyrmir	PRERACE:1,%
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Skills: Hide +9, Listen +10, Move Silently +13, Spot +10
+#Skills: The lyrmir gains a natural +5 racial bonus to all of its skills.
+#STR=19|DEX=17|CON=17|INT=6|WIS=10|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+###Block: Plain Strider------------------------------------
+STARTPACK:Plain Strider	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Plain Strider],[!PRERACE:1,%]
+RACE:Plain Strider	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#Skills: Hide +7, Listen +9, Move Silently +7, Spot +9
+#STR=14|DEX=16|CON=11|INT=8|WIS=13|CHA=6
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:8
+FEAT:Multiattack
+
+###Block: Rognak Burrower------------------------------------
+STARTPACK:Rognak Burrower	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Rognak Burrower],[!PRERACE:1,%]
+RACE:Rognak Burrower	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills: Climb +20, Balance +10, Hide +10
+#Skills: Because the rognak burrower has Blindsight, it does not need to make Spot or Listen checks. Anything that normally requires a Spot or Listen check is detected automatically.
+#STR=30|DEX=12|CON=20|INT=8|WIS=10|CHA=12
+SKILL:Climb		RANK:10
+SKILL:Balance	RANK:9
+SKILL:Hide		RANK:13
+FEAT:Cleave
+FEAT:Power Attack
+
+###Block: Vermilion Hound------------------------------------
+STARTPACK:Vermilion Hound	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vermilion Hound],[!PRERACE:1,%]
+RACE:Vermilion Hound	PRERACE:1,%
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+##Skills: Intuit Direction +4, Listen +4, Spot +5, Sense Motive+2
+#STAT:STR=24|DEX=18|CON=16|INT=5|WIS=12|CHA=6
+SKILL:Intuit Direction	RANK:3
+SKILL:Listen		RANK:3	
+SKILL:Spot			RANK:4
+SKILL:Sense Motive	RANK:1
+FEAT:Improved Initiative
+
+###Block: Zephtaur------------------------------------
+STARTPACK:Zephtaur	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zephtaur],[!PRERACE:1,%]
+RACE:Zephtaur	PRERACE:1,%
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+##Skills: Hide +10, Diplomacy +6, Listen +6, Knowledge (the planes) +14, Move Silently +6, Perform (ballad, chant, flute) +6,
+#Spot +8, Wilderness Lore +10
+#STR=20|DEX=17|CON=20|INT=16|WIS=18|CHA=16
+SKILL:Hide				RANK:7
+SKILL:Diplomacy			RANK:3
+SKILL:Listen			RANK:2
+SKILL:Knowledge (the Planes)	RANK:11
+SKILL:Move Silently		RANK:3
+SKILL:Perform			RANK:3
+#SELECTION:Ballad,Chant,Flute
+SKILL:Spot				RANK:4
+SKILL:Wilderness Lore		RANK:7
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Shield (Large/Wood)		SIZE:PC	LOCATION:Equipped
+GEAR:Shortspear				SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow (+4 Mighty/Composite)	SIZE:PC	LOCATION:Equipped
+#+12 melee (or heavy lance +12 melee), 2 hooves +7 melee; or mighty composite longbow (+4) +10 ranged

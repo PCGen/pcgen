@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Sun Apr 18 17:23:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+#Diseases via Templates
+
+###Block: Diseases
+# Template Name	Visible		Bonus to HP							Stat bonus						Choose										Type
+Jungle Rot		VISIBLE:DISPLAY									BONUS:STAT|CON,DEX|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Roll 1d3 and pick a number		TYPE:Disease
+Malaria		VISIBLE:DISPLAY									BONUS:STAT|CON|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4 and pick a number		TYPE:Disease
+Monkey's Bite	VISIBLE:DISPLAY									BONUS:STAT|CON|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Roll 1d10 and pick a number	TYPE:Disease
+Trypanosomiasis	VISIBLE:DISPLAY	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC								CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Roll 1d3 and pick a number		TYPE:Disease
+Yellow Fever	VISIBLE:DISPLAY									BONUS:STAT|CON|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4 and pick a number		TYPE:Disease
+
+#Forest
+Loosegut		VISIBLE:DISPLAY									BONUS:STAT|CON,DEX|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Roll 1d3 and pick a number		TYPE:Disease
+Numbing Sickness	VISIBLE:DISPLAY									BONUS:STAT|DEX|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4 and pick a number		TYPE:Disease
+Spotted Fever	VISIBLE:DISPLAY									BONUS:STAT|CON|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Roll 1d6 and pick a number		TYPE:Disease
+#EOF
