@@ -97,6 +97,13 @@ Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
 Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
 Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
+###Block: Missing in the 3e main set
+# Template Name	Visible	Source Page						Ability
+Fey			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
+Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Evil Traits
+Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
+
 
 
 #
