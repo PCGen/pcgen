@@ -82,7 +82,7 @@ final class AgePanel extends JPanel implements PObjectUpdater
 
 		race = (Race) obj;
 
-		String[] unp = Globals.getContext().unparse(race, "REGION");
+		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
 		if (unp == null)
 		{
@@ -117,7 +117,7 @@ final class AgePanel extends JPanel implements PObjectUpdater
 
 		race = (Race) obj;
 
-		String[] unp = Globals.getContext().unparse(race, "REGION");
+		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
 		if (unp == null)
 		{
