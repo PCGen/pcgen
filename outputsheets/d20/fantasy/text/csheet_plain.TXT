@@ -169,6 +169,8 @@ Level |%level|
 Saves: |SPELLMEM.%class.%sbook.%level.%spell.SAVEINFO|	DC: |SPELLMEM.%class.%sbook.%level.%spell.DC|	Casting: |SPELLMEM.%class.%sbook.%level.%spell.CASTINGTIME|
 Duration: |SPELLMEM.%class.%sbook.%level.%spell.DURATION|	Range: |SPELLMEM.%class.%sbook.%level.%spell.RANGE|	Components: |SPELLMEM.%class.%sbook.%level.%spell.COMPONENTS|
 SR: |SPELLMEM.%class.%sbook.%level.%spell.SR|	Effect: |SPELLMEM.%class.%sbook.%level.%spell.EFFECT|	Target: |SPELLMEM.%class.%sbook.%level.%spell.TARGET|
+DESC: |SPELLMEM.%class.%sbook.%level.%spell.DESCRIPTION|
+DESC 2:  |SPELLMEM.%class.%sbook.%level.%spell.DESC|
 
 |ELSE|
 |SPELLMEM.%class.%sbook.%level.%spell.NAME| (|SPELLMEM.%class.%sbook.%level.%spell.SCHOOL|) - |SPELLMEM.%class.%sbook.%level.%spell.TIMES| per day
