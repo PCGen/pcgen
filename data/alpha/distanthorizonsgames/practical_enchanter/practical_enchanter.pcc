@@ -34,7 +34,7 @@ COVER:PracticalEnchanter.jpg
 #
 
 ABILITY:practical_enchanter_abilities.lst
-ABILITY:practical_enchanter_abilities_eclipse.lst|PRECAMPAIGN:1,Eclipse - The Codex Persona (Base)
+#ABILITY:practical_enchanter_abilities_eclipse.lst|PRECAMPAIGN:1,Eclipse - The Codex Persona (Base)
 
 ABILITY:practical_enchanter_abilities_talents.lst
 ABILITY:practical_enchanter_abilities_companions.lst
