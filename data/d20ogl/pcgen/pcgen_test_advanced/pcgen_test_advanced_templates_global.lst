@@ -3,6 +3,7 @@
 ###Block: Charlies Test 1.0 - PCGEN v. 5.17.4 Cycle Testing
 Charlie ~ Template	FAVOREDCLASS:%LIST	CHOOSE:CLASS|ALL
 
+BOB ~ Template ~ Test 34 Favored Class Highest		FAVOREDCLASS:HIGHESTLEVELCLASS
 
 ###Block: Bob Test v1.2 - PCGEN v. 5.17.2-3 Cycle Testing
 # Bob Template Testers - #1 is for the PCG file, it will apply ALL abilities, along with the PRExxx requirements and in theory Bob should be getting everything.

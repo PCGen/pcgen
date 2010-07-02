@@ -3,16 +3,30 @@
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
 #GLOBAL ~ Alice Feat Chooser Tests
-ALICE ~ Language			CATEGORY:FEAT	TYPE:AliceTests	AUTO:LANG|%LIST				CHOOSE:LANG|ALL			MULT:YES
+ALICE ~ Language			CATEGORY:FEAT	TYPE:AliceTests	AUTO:LANG|%LIST				CHOOSE:LANG|ALL				MULT:YES
 ALICE ~ Weapon Prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:WEAPONPROF|%LIST			CHOOSE:WEAPONPROFICIENCY|ALL		MULT:YES
 ALICE ~ Shield Prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:SHIELDPROF|%LIST			CHOOSE:SHIELDPROFICIENCY|ALL		MULT:YES
 ALICE ~ Equipment			CATEGORY:FEAT	TYPE:AliceTests	AUTO:EQUIP|%LIST				CHOOSE:EQUIPMENT|TYPE=Weapon		MULT:YES
 ALICE ~ Armor prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:ARMORPROF|%LIST			CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES
-ALICE ~ Class Skill		CATEGORY:FEAT	TYPE:AliceTests	CSKILL:LIST				CHOOSE:SKILL|CROSSCLASS			MULT:YES
+ALICE ~ Class Skill		CATEGORY:FEAT	TYPE:AliceTests	CSKILL:LIST					CHOOSE:SKILL|CROSSCLASS			MULT:YES
 ALICE ~ Cross Class Test	CATEGORY:FEAT	TYPE:AliceTests	CCSKILL:LIST				CHOOSE:SKILL|EXCLUSIVE			MULT:YES
 #
 ALICE ~ SPELLLEVEL Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLLEVEL:CLASS|Alice Class=5|Alice Adds Spell Through SPELLLEVEL|Alice Class=8|Alice Adds Spell Through SPELLLEVEL Lv8
 ALICE ~ SPELLKNOWN Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLKNOWN:CLASS|Alice Class=1|Alice Known Spell	
+
+
+ALICE ~ TEST 31			CATEGORY:FEAT	TYPE:AliceTests	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31A
+#Have the following in a third PC:
+
+ALICE ~ MOVECLONE Swim div 2			CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	MOVECLONE:Walk,Swim,/2
+ALICE ~ Move Add 1				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	BONUS:MOVEADD|TYPE.Swim|1
+ALICE ~ MoveMult 2				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	BONUS:MOVEMULT|TYPE.Swim|2
+ALICE ~ PostMoveAdd 3				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	BONUS:POSTMOVEADD|TYPE.Swim|3
+
+#
+
+
+
 
 GLOBAL ~ COMPANIONLIST WITHOUT MATCH	CATEGORY:FEAT	TYPE:GlobalTests	COMPANIONLIST:Test|Companion	FOLLOWERS:Test|1	
 GLOBAL ~ MOVE by Walk 30			CATEGORY:FEAT	TYPE:GlobalTests	MOVE:Walk,30	
@@ -22,7 +36,7 @@ GLOBAL ~ Same Spells Test		CATEGORY:FEAT	TYPE:GlobalTests		SPELLS:YourTest|TIMES
 Feat For Test 24				CATEGORY:FEAT	TYPE:TestResult
 
 GLOBAL ~ CSKILL				CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:Ability Skill 1
-GLOBAL ~ CHOOSE CSKILL			CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:LIST				CHOOSE:SKILLS|Ability Skill 2|Ability Skill 3|Ability Skill 4|TITLE=Skill
+GLOBAL ~ CHOOSE CSKILL			CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:LIST				CHOOSE:SKILL|Ability Skill 2|Ability Skill 3|Ability Skill 4|TITLE=Skill
 
 
 
@@ -59,10 +73,10 @@ BOB ~ TEST 31	CATEGORY:FEAT	TYPE:BobTest	ABILITY:Special Ability|AUTOMATIC|TYPE.
 
 BOB ~ MoveClone Fly times 2	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		MOVECLONE:Walk,Fly,*2
 #using a * with a new movement type (e.g. Fly)
-BOB ~ Bonus MoveAdd 25	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEADD|TYPE.ALL|25
+BOB ~ Bonus MoveAdd 25		CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEADD|TYPE.ALL|25
 #(need to pick X)
 #   (should impact all types of movement, but NOT add an "ALL" movement type)
-BOB ~ Bonus MoveMult 4	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEMULT|TYPE.ALL|4
+BOB ~ Bonus MoveMult 4		CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:MOVEMULT|TYPE.ALL|4
 #(need to pick X)
 BOB ~ Bonus Post Move Add 5	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		BONUS:POSTMOVEADD|TYPE.ALL|5
 #(need to pick X)
