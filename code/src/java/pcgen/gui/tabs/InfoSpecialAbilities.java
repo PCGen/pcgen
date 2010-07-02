@@ -299,7 +299,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			for (Domain d : pc.getDomainSet())
 			{
-				if (WeaponProf.class.equals(d.get(ObjectKey.CHOOSE_INFO)
+				if (d.get(ObjectKey.CHOOSE_INFO) != null
+					&& WeaponProf.class.equals(d.get(ObjectKey.CHOOSE_INFO)
 						.getChoiceClass()))
 				{
 					bonusCategory.add(d);
