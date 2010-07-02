@@ -272,6 +272,21 @@ public abstract class LoadContext
 	}
 
 	/**
+	 * Produce the LST code for any occurrences of the token. An attempt to 
+	 * unparse an invalid or non-existent token will result in an 
+	 * IllegalArgumentError.
+	 *  
+	 * @param <T> The type of object to be processed, generally a CDOMObject.
+	 * @param cdo The object to be partially unparsed
+	 * @param tokenName The name of the token to be extracted, must be a primary token.
+	 * @return An array of LST code 'fields' being each occurrence of the token for the target object.
+	 */
+	public <T> String[] unparseToken(T cdo, String tokenName)
+	{
+		return support.unparseToken(this, cdo, tokenName);
+	}
+
+	/**
 	 * Produce the LST code for any occurrences of subtokens of the parent token.
 	 *  
 	 * @param <T> The type of object to be processed, generally a CDOMObject.
