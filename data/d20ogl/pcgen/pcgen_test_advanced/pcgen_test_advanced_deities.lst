@@ -4,7 +4,7 @@ Puni Deity	TYPE:Puni				DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity
 
 Elf Deity	TYPE:Elf																PANTHEON:Elf						ALIGN:LG
 
-Test Deity	TYPE:Test				DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni											DOMAINS:ALL
+Test Deity	TYPE:Test				DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni											DOMAINS:ALL	ADD:FEAT|Add Feat Deity
 
 
 

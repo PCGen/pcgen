@@ -1,5 +1,24 @@
 
 
+###Add Stuff
+Add Feat Ability			TYPE:Test
+Add Feat Race			TYPE:Test
+Add Feat Deity			TYPE:Test
+Add Feat Domain			TYPE:Test
+Add Feat Skill			TYPE:Test
+Add Feat Template			TYPE:Test
+Add Feat CompanionMod		TYPE:Test
+Add Feat Master Bonus Race	TYPE:Test
+Add Feat Class Line		TYPE:Test
+Add Feat Class Level		TYPE:Test
+#
+#Class - part of the ADD:CLASSSKILLS test
+#Class Level - Part of the 
+
+CompanionMod
+PCTemplate
+
+
 a Choose Armor Prof Test	TYPE:Test	CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES	AUTO:ARMORPROF|%LIST
 
 a Choose Shield Prof Test	TYPE:Test	CHOOSE:SHIELDPROFICIENCY|ALL	MULT:YES	AUTO:SHIELDPROF|%LIST

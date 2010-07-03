@@ -24,7 +24,7 @@ ALICE ~ MoveMult 2				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	BONUS
 ALICE ~ PostMoveAdd 3				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	BONUS:POSTMOVEADD|TYPE.Swim|3
 
 #
-
+ALICE ~ Add Feat			CATEGORY:FEAT	TYPE:AliceTests	ADD:FEAT|Add Feat Ability
 
 
 

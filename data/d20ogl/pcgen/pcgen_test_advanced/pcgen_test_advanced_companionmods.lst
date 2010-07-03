@@ -1,8 +1,8 @@
 
 
-FOLLOWER:CompanionLVL=1	TYPE:Companion Mod		SAB:This Companion Mod Works
+FOLLOWER:CompanionLVL=1	TYPE:Companion Mod		SAB:This Companion Mod Works	ADD:FEAT|Add Feat CompanionMod
 
 
-MASTERBONUSRACE:Companion		TYPE:Companion Mod	SR:10+TL
+MASTERBONUSRACE:Companion		TYPE:Companion Mod	SR:10+TL	ADD:FEAT|Add Feat Master Bonus Race
 
 

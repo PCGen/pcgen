@@ -39,6 +39,8 @@ Other Skill 2		USEUNTRAINED:NO	CLASSES:Alice Class
 Class Skill 1		USEUNTRAINED:NO
 Class Skill 2		USEUNTRAINED:NO
 
+Add Feat Skill		USEUNTRAINED:NO	ADD:FEAT|Add Feat Skill	CLASSES:ALL
+
 # Test Sub Skills Section
 
 
