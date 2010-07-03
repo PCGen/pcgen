@@ -2,7 +2,7 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
-VERSION:5.17.2
+VERSION:5.17.3
 ROLLMETHOD:1|EXPRESSION:10
 PURCHASEPOINTS:N
 POOLPOINTS:60
@@ -81,7 +81,13 @@ SKILL:Poetry|OUTPUTORDER:12|
 SKILL:Poetry Recitation Specialty|OUTPUTORDER:13|
 SKILL:Test Coding Script|OUTPUTORDER:14|
 SKILL:Test Crafting|OUTPUTORDER:15|
-SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:16|
+SKILL:Test Skill (Class Level)|OUTPUTORDER:16|
+SKILL:Test Skill Chooser_1|OUTPUTORDER:17|
+SKILL:Test Skill Chooser_2|OUTPUTORDER:18|
+SKILL:Test Skill Chooser_3|OUTPUTORDER:19|
+SKILL:Test Skill Chooser_4|OUTPUTORDER:20|
+SKILL:Test Skill Chooser_5|OUTPUTORDER:21|
+SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:22|
 
 # Character Languages
 
@@ -90,6 +96,7 @@ SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:16|
 FEATPOOL:0.0
 
 # Character Abilities
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Add Feat CompanionMod|TYPE:Test
 USERPOOL:FEAT|POOLPOINTS:0.0
 USERPOOL:Internal|POOLPOINTS:0.0
 USERPOOL:Mutation|POOLPOINTS:0.0
