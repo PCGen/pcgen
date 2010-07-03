@@ -17,7 +17,7 @@ BIO
 			<long>Lawful Evil</long>
 			<short>LE</short>
 		</alignment>
-		<bab>+5</bab>
+		<bab>+7</bab>
 		<bio></bio>
 		<birthplace>The Grove Cemmetary</birthplace>
 		<catchphrase>You&#39;d better watch yourself</catchphrase>
@@ -32,25 +32,25 @@ BIO
 			<class>
 				<name>Alice Class</name>
 				<abbreviation>Ali</abbreviation>
-				<level>2</level>
+				<level>3</level>
 				<bonuslist>Alice Class</bonuslist>
 				<sequence>1</sequence>
 			</class>
-			<levels_total>3</levels_total>
-			<levels_ecl>3</levels_ecl>
+			<levels_total>4</levels_total>
+			<levels_ecl>4</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Bas1  Ali2                 </shortform>
+			<shortform> Bas1  Ali3                 </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name>Elf Deity</name>
-			<alignment>LG</alignment>
+			<name>Test Deity</name>
+			<alignment></alignment>
 			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
+			<domainlist>Bar Ball, Domain Add Feat, Domain Test Skill, Domain Test Skill List, Dungeon Crawl, Foo Ball, Test Spells Domain</domainlist>
+			<favoredweapon>Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni</favoredweapon>
 			<followeralignment></followeralignment>
 			<holyitem></holyitem>
-			<pantheonlist>Elf</pantheonlist>
+			<pantheonlist></pantheonlist>
 			<source>PCGen Team - PCGen Testing Set</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
@@ -59,8 +59,8 @@ BIO
 		</deity>
 		<description><para>TEST-23 - </para><para>CSKILL in an Ability = Feat.</para><para>CSKILL in a PCClass (on the CLASS: line) - Check</para><para>CSKILL in a Class Level (on a class level line - please do not use level 1) - Check </para><para>ADD:CLASSSKILLS on a CLASS: line</para><para>ADD:CLASSSKILLS on a class level line (please do not use level 1)</para><para>CSKILL:LIST in an Ability</para><para>CLASSES in the Skill LST file</para><para></para></description>
 		<experience>
-			<current>3000</current>
-			<next_level>6000</next_level>
+			<current>6000</current>
+			<next_level>10000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
@@ -74,13 +74,13 @@ BIO
 		<skin>
 			<color>Green</color>
 		</skin>
-		<cr>3</cr>
+		<cr>4</cr>
 		<face>
 		<face>5 ft.</face>
 			<short>5 ft.</short>
 			<squares>1</squares>
 		</face>
-		<favoredlist>MonKee</favoredlist>
+		<favoredlist>Alice Class</favoredlist>
 		<followerlist></followerlist>
 		<gender>
 			<long>Male</long>
@@ -92,7 +92,7 @@ BIO
 			<feet>5</feet>
 			<inches>5</inches>
 		</height>
-		<hitdice>(1d10)+(2d10)</hitdice>
+		<hitdice>(1d10)+(3d10)</hitdice>
 		<interests>Power, Minions and Wealth</interests>
 		<languages>
 			<language>Common</language>
@@ -164,13 +164,13 @@ BIO
 				<long>Strength</long>
 				<short>STR</short>
 			</name>
-			<score>10</score>
+			<score>11</score>
 			<modifier>+0</modifier>
-			<base>10</base>
+			<base>11</base>
 			<basemod>+0</basemod>
-			<noequip>10</noequip>
+			<noequip>11</noequip>
 			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
+			<no_temp_score>11</no_temp_score>
 			<no_temp_modifier>+0</no_temp_modifier>
 		</ability>
 		<ability>
@@ -251,9 +251,9 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>23</points>
+		<points>32</points>
 		<alternate>10</alternate>
-		<die>(1d10)+(2d10)</die>
+		<die>(1d10)+(3d10)</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -276,6 +276,12 @@ BIO
 				<roll>7</roll>
 				<stat>0</stat>
 				<total>7</total>
+			</roll>
+			<roll>
+				<level>4</level>
+				<roll>9</roll>
+				<stat>0</stat>
+				<total>9</total>
 			</roll>
 		</history>
 	</hit_points>
@@ -324,13 +330,13 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>18</total>
+			<total>21</total>
 			<used>18</used>
-			<unused>0</unused>
+			<unused>3</unused>
 		</skillpoints>
 		<list_mods>Class Skill 1 +1, Combat Focus +4, Exclusing Skill_4 +1, Knowledge +1, Other Skill 1 +1, Other Skill 2 +1, Test Skill Chooser_1 +4, Test Skill Chooser_2 +4</list_mods>
-		<max_class_skill_level>6</max_class_skill_level>
-		<max_cross_class_skill_level>3</max_cross_class_skill_level>
+		<max_class_skill_level>7</max_class_skill_level>
+		<max_cross_class_skill_level>3.5</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -821,8 +827,8 @@ BIO
 				<short>ref</short>
 			</name>
 			<ability>dexterity</ability>
-			<total>+0</total>
-			<base>+0</base>
+			<total>+1</total>
+			<base>+1</base>
 			<feats>+0</feats>
 			<abil_mod>+0</abil_mod>
 			<magic_mod>+0</magic_mod>
@@ -837,8 +843,8 @@ BIO
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>+0</total>
-			<base>+0</base>
+			<total>+1</total>
+			<base>+1</base>
 			<abil_mod>+0</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
@@ -856,9 +862,9 @@ BIO
 	  ====================================-->
 	<attack>
 		<melee>
-			<total>+5</total>
-			<bab>+5</bab>
-			<base_attack_bonus>+5</base_attack_bonus>
+			<total>+7/+2</total>
+			<bab>+7</bab>
+			<base_attack_bonus>+7/+2</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -866,9 +872,9 @@ BIO
 			<temp_mod/>
 		</melee>
 		<ranged>
-			<total>+5</total>
-			<bab>+5</bab>
-			<base_attack_bonus>+5</base_attack_bonus>
+			<total>+7/+2</total>
+			<bab>+7</bab>
+			<base_attack_bonus>+7/+2</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -876,9 +882,9 @@ BIO
 			<temp_mod/>
 		</ranged>
 		<grapple>
-			<total>+5</total>
-			<bab>+5</bab>
-			<base_attack_bonus>+5</base_attack_bonus>
+			<total>+7/+2</total>
+			<bab>+7</bab>
+			<base_attack_bonus>+7/+2</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -894,7 +900,7 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+5</total>
+			<total>+7/+2</total>
 			<damage>1d3</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
@@ -912,13 +918,13 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+6/+6/+6/+6/+6/+6</hit>
+					<hit>+8/+8/+8/+8/+8/+8</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+6/+6/+6/+6/+6/+6</total_hit>
+					<total_hit>+8/+8/+8/+8/+8/+8</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>6</num_attacks>
+				<num_attacks>7</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -930,59 +936,59 @@ BIO
 			<melee>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</w1_h1_p>
 				<w1_h1_o>
 					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</w1_h1_o>
 				<w1_h2>
 					<!-- One weapon, 2 handed -->
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</w1_h2>
 				<w2_p_oh>
 					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</w2_p_oh>
 				<w2_p_ol>
 					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</w2_p_ol>
 				<w2_o>
 					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>+6</to_hit>
+					<to_hit>+8</to_hit>
 					<damage>1d3</damage>
 				</w2_o>
 			</melee>
 			<ranges>
 				<range>
 					<distance>10 ft.</distance>
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
 					<distance>20 ft.</distance>
-					<to_hit>+4/+4/+4/+4/+4/+4</to_hit>
+					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
 					<distance>30 ft.</distance>
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+					<to_hit>+4/+4/+4/+4/+4/+4</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
 					<distance>40 ft.</distance>
-					<to_hit>+0/+0/+0/+0/+0/+0</to_hit>
+					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
 					<distance>50 ft.</distance>
-					<to_hit>-2/-2/-2/-2/-2/-2</to_hit>
+					<to_hit>+0/+0/+0/+0/+0/+0</to_hit>
 					<damage>1d3</damage>
 				</range>
 			</ranges>
@@ -1135,7 +1141,7 @@ BIO
 			<weight>0 lbs.</weight>
 			<value>0 gp</value>
 			<load>Light</load>
-			<capacity>100</capacity>
+			<capacity>115</capacity>
 		</total>
 		<equipmentsets>
 
@@ -1208,13 +1214,13 @@ BIO
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
-		<light>33</light>
-		<medium>66</medium>
-		<heavy>100</heavy>
-		<lift_over_head>100</lift_over_head>
-		<lift_off_ground>200</lift_off_ground>
+		<light>38</light>
+		<medium>76</medium>
+		<heavy>115</heavy>
+		<lift_over_head>115</lift_over_head>
+		<lift_off_ground>230</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>500</push_drag>
+		<push_drag>575</push_drag>
 	</weight_allowance>
 	<!--
 	  ====================================
@@ -1241,6 +1247,46 @@ BIO
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
+		<feat>
+			<name>Add Feat Class Level</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Add Feat Class Line</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Add Feat Deity</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Add Feat Domain</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<feat>
 			<name>ALICE ~ Armor prof (Heavy, Leather)</name>
 			<description></description>
@@ -1538,6 +1584,17 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
+
+	<domains>
+		<domain>
+			<name>Test Spells Domain</name>
+			<power>This has a Spells</power>
+		</domain>
+		<domain>
+			<name>Domain Add Feat</name>
+			<power></power>
+		</domain>
+	</domains>
 	<!-- Domains -->
 	<weapon_proficiencies>Bob Racial Weapon, Extra Blade, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, MonKee Language</languages>
@@ -1568,12 +1625,81 @@ BIO
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/>
+	<spells_innate>
+
+		<racial_innate>
+			<spell>
+					<name>Spells Test</name>
+					<outputname>Spells Test</outputname>
+					<times_memorized>1</times_memorized>
+					<range></range>
+					<components></components>
+					<castingtime></castingtime>
+					<casterlevel>1</casterlevel>
+					<dc></dc>
+					<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+					<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+					<target>Anywhere but here</target>
+					<saveinfo></saveinfo>
+					<school>
+						<school>Evocation</school>
+						<subschool>BlowThingsUp</subschool>
+						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+					</school>
+					<source>
+						<sourcelevel></sourcelevel>
+						<source>PCGen Team - PCGen Testing Set, test</source>
+						<sourcepage>test</sourcepage>
+						<sourceshort>PTS</sourceshort>
+					</source>
+					<spell_resistance></spell_resistance>
+					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+					<bonusspell></bonusspell>
+				</spell>
+		</racial_innate>
+
+		<class_innate>
+
+			<spellbook number="2" name="YourTest">
+				<spell>
+						<name>Same Spell Test</name>
+						<outputname>Same Spell Test</outputname>
+						<times_memorized>3</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</spellbook>
+
+		</class_innate>
+		</spells_innate>
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
-		<class number="0" spelllistclass="Alice Class" spellcastertype="Arcane">
+		<class number="1" spelllistclass="Alice Class" spellcastertype="Arcane">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="0" cast="1">
 				<spell>
@@ -1583,7 +1709,7 @@ BIO
 						<range>0&#39;</range>
 						<components>V</components>
 						<castingtime></castingtime>
-						<casterlevel>2</casterlevel>
+						<casterlevel>3</casterlevel>
 						<dc></dc>
 						<duration></duration>
 						<effect>This is a Test of the Known Spells on a Class Called &#39;Alice Class&#39;</effect>
@@ -1612,7 +1738,7 @@ BIO
 						<range>0&#39;</range>
 						<components>V</components>
 						<castingtime></castingtime>
-						<casterlevel>2</casterlevel>
+						<casterlevel>3</casterlevel>
 						<dc></dc>
 						<duration></duration>
 						<effect>This is a Test of the Known SPELL on a Class Called &#39;Alice Class&#39;</effect>
@@ -1646,7 +1772,7 @@ BIO
 						<range>0&#39;</range>
 						<components>V</components>
 						<castingtime></castingtime>
-						<casterlevel>2</casterlevel>
+						<casterlevel>3</casterlevel>
 						<dc></dc>
 						<duration></duration>
 						<effect>This is a Test of the SPELLLEVEL on a Class Called &#39;Alice Class&#39;</effect>
@@ -1679,7 +1805,135 @@ BIO
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/>
+	<memorized_spells>
+			<!-- ### BEGIN innate memorized spell section -->	
+<!-- ### BEGIN innate memorized spells ### -->
+
+		<racial_innate_memorized>
+			<spell>
+					<name>Spells Test</name>
+					<outputname>Spells Test</outputname>
+					<times_memorized>1</times_memorized>
+					<range></range>
+					<components></components>
+					<castingtime></castingtime>
+					<casterlevel>1</casterlevel>
+					<dc></dc>
+					<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+					<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+					<target>Anywhere but here</target>
+					<saveinfo></saveinfo>
+					<school>
+						<school>Evocation</school>
+						<subschool>BlowThingsUp</subschool>
+						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+					</school>
+					<source>
+						<sourcelevel></sourcelevel>
+						<source>PCGen Team - PCGen Testing Set, test</source>
+						<sourcepage>test</sourcepage>
+						<sourceshort>PTS</sourceshort>
+					</source>
+					<spell_resistance></spell_resistance>
+					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+					<bonusspell></bonusspell>
+				</spell>
+		</racial_innate_memorized>
+
+<!-- ### END innate memorized spells ### -->
+			<!-- ### BEGIN class innate memorized spells ### -->
+			<class_innate_memorized>
+
+			<spellbook number="2" name="YourTest">
+				<spell>
+						<name>Same Spell Test</name>
+						<outputname>Same Spell Test</outputname>
+						<times_memorized>3</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</spellbook>
+
+		</class_innate_memorized>
+			<!-- ### END class innate memorized spells ### -->
+<!-- ### END innate memorized spell section -->
+			<!-- ### BEGIN class Spellbook memorized spells ### -->
+<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+			<spellbook number="2" name="YourTest">
+
+			<class number="1" spelllistclass="Alice Class">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="1">
+					<spell>
+							<name>Same Spell Test</name>
+							<outputname>Same Spell Test</outputname>
+							<times_memorized>3</times_memorized>
+							<range></range>
+							<components></components>
+							<castingtime></castingtime>
+							<casterlevel>3</casterlevel>
+							<dc></dc>
+							<duration>As long as you want up to 30 days [Should be CL x 10]</duration>
+							<effect>What ever you want here, 3 [casterlevel], 30 [casterlevel x 10], 3 [min casterlevel ,10]</effect>
+							<target>Anywhere but here</target>
+							<saveinfo></saveinfo>
+							<school>
+								<school>Evocation</school>
+								<subschool>BlowThingsUp</subschool>
+								<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+								<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+							</school>
+							<source>
+								<sourcelevel></sourcelevel>
+								<source>PCGen Team - PCGen Testing Set, test</source>
+								<sourcepage>test</sourcepage>
+								<sourceshort>PTS</sourceshort>
+							</source>
+							<spell_resistance></spell_resistance>
+							<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+							<bonusspell>*</bonusspell>
+						</spell>
+				</level>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
+
+
+		</spellbook>
+<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

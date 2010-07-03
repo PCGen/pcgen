@@ -46,7 +46,7 @@ BIO
 			<name>Test Deity</name>
 			<alignment></alignment>
 			<description></description>
-			<domainlist>Bar Ball, Domain Test Skill, Domain Test Skill List, Dungeon Crawl, Foo Ball, Test Spells Domain</domainlist>
+			<domainlist>Bar Ball, Domain Add Feat, Domain Test Skill, Domain Test Skill List, Dungeon Crawl, Foo Ball, Test Spells Domain</domainlist>
 			<favoredweapon>Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni</favoredweapon>
 			<followeralignment></followeralignment>
 			<holyitem></holyitem>

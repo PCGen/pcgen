@@ -335,10 +335,10 @@ BIO
 	<skills>
 		<skillpoints>
 			<total>21</total>
-			<used>0</used>
-			<unused>21</unused>
+			<used>2</used>
+			<unused>19</unused>
 		</skillpoints>
-		<list_mods>Uber Scripting from five ranks in Test Coding Script +5</list_mods>
+		<list_mods>Add Feat Skill +2, Uber Scripting from five ranks in Test Coding Script +5</list_mods>
 		<max_class_skill_level>7</max_class_skill_level>
 		<max_cross_class_skill_level>3.5</max_cross_class_skill_level>
 		<skill>
@@ -357,6 +357,23 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Add Feat Skill</name>
+			<ranks>2.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>2</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Add Feat Skill</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Athletics</name>
@@ -991,6 +1008,36 @@ BIO
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
+			<name>Add Feat Race</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Add Feat Skill</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Add Feat Template</name>
+			<description></description>
+			<type>TEST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>CHARLIE ~ Bonus Stat Base Spell Known Stat ~ colon</name>
 			<description></description>
 			<type>CHARLIETESTS</type>
@@ -1142,7 +1189,7 @@ BIO
 	<languages>Common</languages>
 
 	<templates>
-		<list>Charlie ~ Template, A Template with TEMPLATE CHOOSE, A Template added with Add Choice, TEST32</list>
+		<list>Charlie ~ Template, A Template with TEMPLATE CHOOSE, A Template added with Add Choice, TEST32, TEMPLATE ~ TEST~24</list>
 		<template>
 			<name>Charlie ~ Template</name>
 			<strmod>0</strmod>
@@ -1190,6 +1237,21 @@ BIO
 		</template>
 		<template>
 			<name>TEST32</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>TEMPLATE ~ TEST~24</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
