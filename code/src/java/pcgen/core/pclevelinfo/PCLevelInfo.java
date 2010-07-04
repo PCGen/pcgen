@@ -47,7 +47,7 @@ public final class PCLevelInfo implements Cloneable
 	private List<PCLevelInfoStat>            statsPostModified    = null;
 	private List<PCLevelInfoStat>            statsPreModified     = null;
 	private String          classKeyName         = "";
-	private int             level                = 0;
+	private int             classLevel 			 = 0;
 	private int             skillPointsGained    = Integer.MIN_VALUE;
 	private int             skillPointsRemaining = 0;
 	private List<Ability>            objects              = new ArrayList<Ability>(1);
@@ -87,17 +87,17 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @param  arg  an int representing the level
 	 */
-	public void setLevel(final int arg)
+	public void setClassLevel(final int arg)
 	{
-		level = arg;
+		classLevel = arg;
 	}
 
 	/**
 	 * @return  an int representing the level
 	 */
-	public int getLevel()
+	public int getClassLevel()
 	{
-		return level;
+		return classLevel;
 	}
 
 	/**
@@ -141,7 +141,7 @@ public final class PCLevelInfo implements Cloneable
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
 			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
-			skillPointsGained = aClass.recalcSkillPointMod(aPC, level) +
+			skillPointsGained = aClass.recalcSkillPointMod(aPC, classLevel) +
 				getBonusSkillPool(aPC);
 		}
 
@@ -290,11 +290,11 @@ public final class PCLevelInfo implements Cloneable
 		{
 			// These bonuses apply to the level or higher. We have to add and then remove
 			// the previous to get the effective level bonus
-			returnValue += (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", level, aPC);
-			returnValue -= (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", level - 1, aPC);
+			returnValue += (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel, aPC);
+			returnValue -= (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel - 1, aPC);
 		}
 
-		if (level == 1)
+		if (classLevel == 1)
 		{
 			returnValue +=
 				(int) aPC.getTotalBonusTo("SKILLPOOL", "CLASS." + classKeyName);
@@ -302,7 +302,7 @@ public final class PCLevelInfo implements Cloneable
 
 		returnValue += (int) aPC.getTotalBonusTo(
 				"SKILLPOOL",
-				"CLASS." + classKeyName + ";LEVEL." + Integer.toString(level));
+				"CLASS." + classKeyName + ";LEVEL." + Integer.toString(classLevel));
 
 		returnValue += (int) aPC.getTotalBonusTo(
 				"SKILLPOOL",

@@ -25,7 +25,7 @@
  */
 package plugin.exporttokens;
 
-import java.util.Iterator;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.AssociationKey;
@@ -74,18 +74,13 @@ public class LevelToken extends Token
 			level = Integer.parseInt(aTok.nextToken());
 		}
 
-		PCLevelInfo pcl = null;
-
-		//CONSIDER Shouldn't this for loop really be a method in PlayerCharacter?
-		for (Iterator<PCLevelInfo> i = pc.getLevelInfo().iterator(); i
-			.hasNext();)
+		List<PCLevelInfo> li = pc.getLevelInfo();
+		if (level < 1 || level > li.size())
 		{
-			pcl = i.next();
-			if (pcl.getLevel() == level)
-			{
-				break;
-			}
+			//TODO Error?
+			return "";
 		}
+		PCLevelInfo pcl = li.get(level - 1);
 
 		if (aTok.hasMoreTokens())
 		{
@@ -133,7 +128,7 @@ public class LevelToken extends Token
 	 */
 	public static String getLevelClassLevel(PlayerCharacter pc, PCLevelInfo pcl)
 	{
-		return Integer.toString(pcl.getLevel());
+		return Integer.toString(pcl.getClassLevel());
 	}
 
 	/**
@@ -168,7 +163,7 @@ public class LevelToken extends Token
 		}
 		if (aClass != null)
 		{
-			PCClassLevel classLevel = pc.getActiveClassLevel(aClass, pcl.getLevel() - 1);
+			PCClassLevel classLevel = pc.getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
 			Integer hp = pc.getAssoc(classLevel, AssociationKey.HIT_POINTS);
 			return hp == null ? "0" : hp.toString();
 		}

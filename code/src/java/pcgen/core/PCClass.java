@@ -1329,7 +1329,7 @@ public class PCClass extends PObject
 
 			if (pcl != null)
 			{
-				pcl.setLevel(aPC.getLevel(this));
+				pcl.setClassLevel(aPC.getLevel(this));
 				pcl.setSkillPointsGained(aPC, spMod);
 				pcl.setSkillPointsRemaining(pcl.getSkillPointsGained(aPC));
 			}

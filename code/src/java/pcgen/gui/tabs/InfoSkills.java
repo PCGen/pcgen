@@ -1869,7 +1869,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getFormattedString("in_iskErr_message_03a",
 						pcl.getClassKeyName(),
-						String.valueOf(pcl.getLevel())),
+						String.valueOf(pcl.getClassLevel())),
 						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 					return false;
@@ -1882,7 +1882,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_iskErr_message_05a",
 					pcl.getClassKeyName(),
-					String.valueOf(pcl.getLevel()),
+					String.valueOf(pcl.getClassLevel()),
 					String.valueOf(pcl.getSkillPointsGained(pc))),
 					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
@@ -2257,7 +2257,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				StringBuffer sb = new StringBuffer();
 				sb.append(pcl.getClassKeyName()).append('/').append(
-					pcl.getLevel()).append(' ').append('[').append(
+					pcl.getClassLevel()).append(' ').append('[').append(
 					pcl.getSkillPointsRemaining()).append('/').append(
 					pcl.getSkillPointsGained(pc)).append(']');
 				comboStrings[i] = sb.toString();

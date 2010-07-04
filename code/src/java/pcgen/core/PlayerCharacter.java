@@ -188,7 +188,6 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
@@ -4533,7 +4532,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return pcLevelInfo.get(idx).getLevel();
+			return pcLevelInfo.get(idx).getClassLevel();
 		}
 
 		return 0;
@@ -6383,7 +6382,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						final int newSkillPointsGained =
 								pcClass
-									.recalcSkillPointMod(this, pi.getLevel());
+									.recalcSkillPointMod(this, pi.getClassLevel());
 						if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 						{
 							final int formerGained = pi.getSkillPointsGained(this);
@@ -8712,8 +8711,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (pcl.getClassKeyName().equals(toClass.getKeyName()))
 			{
 				final int iTo =
-						(pcl.getLevel() + getLevel(toClass)) - iToLevel;
-				pcl.setLevel(iTo);
+						(pcl.getClassLevel() + getLevel(toClass)) - iToLevel;
+				pcl.setClassLevel(iTo);
 			}
 		}
 
@@ -8721,11 +8720,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (PCLevelInfo pcl : pcLevelInfo)
 		{
 			if (pcl.getClassKeyName().equals(fromClass.getKeyName())
-				&& (pcl.getLevel() > iFromLevel))
+				&& (pcl.getClassLevel() > iFromLevel))
 			{
-				final int iFrom = pcl.getLevel() - iFromLevel;
+				final int iFrom = pcl.getClassLevel() - iFromLevel;
 				pcl.setClassKeyName(toClass.getKeyName());
-				pcl.setLevel(iFrom);
+				pcl.setClassLevel(iFrom);
 			}
 		}
 

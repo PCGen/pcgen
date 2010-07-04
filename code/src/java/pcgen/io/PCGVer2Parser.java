@@ -1653,7 +1653,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			for (PCLevelInfo info : pcLevelInfoList)
 			{
 				if (classKeyName.equalsIgnoreCase(info.getClassKeyName())
-					&& level == info.getLevel())
+					&& level == info.getClassLevel())
 				{
 					pcl = info;
 					break;
@@ -1662,7 +1662,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (pcl == null)
 			{
 				pcl = thePC.saveLevelInfo(classKeyName);
-				pcl.setLevel(level);
+				pcl.setClassLevel(level);
 			}
 			else
 			{

@@ -801,7 +801,7 @@ final class PCGVer2Creator implements IOConstants
 		for (PCLevelInfo pcl : thePC.getLevelInfo())
 		{
 			final String classKeyName = pcl.getClassKeyName();
-			int lvl = pcl.getLevel() - 1;
+			int lvl = pcl.getClassLevel() - 1;
 			PCClass pcClass = thePC.getClassKeyed(classKeyName);
 			buffer.append(TAG_CLASSABILITIESLEVEL).append(':');
 
