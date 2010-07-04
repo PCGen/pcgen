@@ -1513,7 +1513,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, false) {
+	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, true) {
 
 		public TermEvaluator getTermEvaluator(final String expressionString,
 			final String src, final String matchedSection)
