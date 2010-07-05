@@ -164,6 +164,7 @@ import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.TotalWeightFacet;
 import pcgen.cdom.facet.UnarmedDamageFacet;
 import pcgen.cdom.facet.UnencumberedArmorFacet;
 import pcgen.cdom.facet.UnencumberedLoadFacet;
@@ -336,6 +337,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -8406,45 +8408,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Float totalWeight()
 	{
-		float totalWeight = 0;
-		final Float floatZero = Float.valueOf(0);
-		boolean firstClothing = true;
-
-		for (Equipment eq : getEquipmentSet())
-		{
-			// Loop through the list of top
-			if ((eq.getCarried().compareTo(floatZero) > 0)
-				&& (eq.getParent() == null))
-			{
-				if (eq.getChildCount() > 0)
-				{
-					totalWeight +=
-							(eq.getWeightAsDouble(this) + eq
-								.getContainedWeight(this).floatValue());
-				}
-				else
-				{
-					if (firstClothing && eq.isEquipped()
-						&& eq.isType("CLOTHING"))
-					{
-						// The first equipped set of clothing should have a
-						// weight of 0. Feature #437410
-						firstClothing = false;
-						totalWeight +=
-								(eq.getWeightAsDouble(this) * Math.max(eq
-									.getCarried().floatValue() - 1, 0));
-					}
-					else
-					{
-						totalWeight +=
-								(eq.getWeightAsDouble(this) * eq.getCarried()
-									.floatValue());
-					}
-				}
-			}
-		}
-
-		return Float.valueOf(totalWeight);
+		return totalWeightFacet.getTotalWeight(id);
 	}
 
 	public int touchAC()
