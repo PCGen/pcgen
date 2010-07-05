@@ -78,14 +78,10 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}
 
-			for (int x = 0; x < character.getNumberOfMovements(); ++x)
+			int speed = character.getMovementOfType(moveType).intValue();
+			if (speed >= moveAmount)
 			{
-				final String type = character.getMovementType(x);
-				final int speed = character.getMovement(x).intValue();
-				if (moveType.equalsIgnoreCase(type) && speed >= moveAmount)
-				{
-					runningTotal += character.getMovement(x).intValue();
-				}
+				runningTotal += speed;
 			}
 		}
 

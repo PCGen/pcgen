@@ -4675,7 +4675,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param moveIdx
 	 * @return the integer movement speed for Index
 	 */
-	public Double getMovement(final int moveIdx)
+	private Double getMovement(final int moveIdx)
 	{
 		if ((movements != null) && (moveIdx < movements.length))
 		{
@@ -6612,23 +6612,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		getVariableProcessor().addCachedVariable(cacheLookup,
 			Float.valueOf(bab));
 		return bab;
-	}
-
-	/**
-	 * get the base MOVE: plus any bonuses from BONUS:MOVE additions does not
-	 * take into account Armor penalties to movement does not take into account
-	 * penalties due to load carried
-	 * 
-	 * @param moveIdx
-	 * @param load
-	 * @return base movement
-	 */
-	public int basemovement(final int moveIdx, final Load load)
-	{
-		// get base movement
-		final int move = getMovement(moveIdx).intValue();
-
-		return move;
 	}
 
 	/**
@@ -13795,6 +13778,53 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
 	{
 		shieldProfFacet.remove(id, choice, owner);
+	}
+
+	public Double getMovementOfType(String moveType)
+	{
+		for (int x = 0; x < getNumberOfMovements(); ++x)
+		{
+			final String type = getMovementType(x);
+			if (moveType.equalsIgnoreCase(type))
+			{
+				return getMovement(x);
+			}
+		}
+		return Double.valueOf(0);
+	}
+
+	public int getBaseMovement(String moveType, Load load)
+	{
+		for (int i = 0; i < getNumberOfMovements(); i++)
+		{
+			if (getMovementType(i).equalsIgnoreCase(moveType))
+			{
+				return getMovement(i).intValue();
+			}
+		}
+		return 0;
+	}
+
+	public boolean hasMovement(String moveType)
+	{
+		for (int i = 0; i < getNumberOfMovements(); i++)
+		{
+			if (getMovementType(i).equalsIgnoreCase(moveType))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Collection<NamedValue> getMovementValues()
+	{
+		List<NamedValue> list = new ArrayList<NamedValue>();
+		for (int i = 0; i < getNumberOfMovements(); i++)
+		{
+			list.add(new NamedValue(getMovementType(i), movement(i)));
+		}
+		return list;
 	}
 
 	public boolean hasEquipSet()

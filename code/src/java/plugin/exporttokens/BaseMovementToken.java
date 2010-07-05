@@ -96,7 +96,7 @@ public class BaseMovementToken extends Token
 				}
 				catch (NumberFormatException e)
 				{
-					// Delibrately ignore exception, means movetype is not am index
+					// Delibrately ignore exception, means movetype is not an index
 				}
 			}
 
@@ -134,22 +134,20 @@ public class BaseMovementToken extends Token
 	public static String getBaseMovementToken(PlayerCharacter pc,
 		String moveType, Load load, boolean displayFlag)
 	{
-		for (int i = 0; i < pc.getNumberOfMovements(); i++)
+		if (!pc.hasMovement(moveType))
 		{
-			if (pc.getMovementType(i).equalsIgnoreCase(moveType))
-			{
-				if (displayFlag)
-				{
-					return moveType
-						+ " "
-						+ Globals.getGameModeUnitSet()
-							.displayDistanceInUnitSet(pc.basemovement(i, load))
-						+ Globals.getGameModeUnitSet().getDistanceUnit();
-				}
-				return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-					pc.basemovement(i, load));
-			}
+			return "";
 		}
-		return "";
+		int baseMovement = pc.getBaseMovement(moveType, load);
+		if (displayFlag)
+		{
+			return moveType
+				+ " "
+				+ Globals.getGameModeUnitSet()
+					.displayDistanceInUnitSet(baseMovement)
+				+ Globals.getGameModeUnitSet().getDistanceUnit();
+		}
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+				baseMovement);
 	}
 }

@@ -25,11 +25,12 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
+import pcgen.base.util.NamedValue;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-
-import java.util.StringTokenizer;
 
 //MOVEMENT
 //MOVEMENT.movetype
@@ -76,12 +77,9 @@ public class MovementToken extends Token
 	{
 		String retString = "";
 
-		for (int i = 0; i < pc.getNumberOfMovements(); i++)
+		if (pc.hasMovement(moveType))
 		{
-			if (pc.getMovementType(i).equalsIgnoreCase(moveType))
-			{
-				retString = getRateToken(pc, i);
-			}
+			retString = getRateToken(pc.getMovementOfType(moveType));
 		}
 
 		return retString;
@@ -92,26 +90,24 @@ public class MovementToken extends Token
 		StringBuffer retString = new StringBuffer();
 		boolean firstLine = true;
 
-		for (int i = 0; i < pc.getNumberOfMovements(); i++)
+		for (NamedValue move : pc.getMovementValues())
 		{
 			if (!firstLine)
 			{
 				retString.append(", ");
 			}
-
 			firstLine = false;
-
-			retString.append(pc.getMovementType(i)).append(" ");
-			retString.append(getRateToken(pc, i));
+			retString.append(move.getName()).append(" ");
+			retString.append(getRateToken(move.getWeight()));
 		}
 
 		return retString.toString();
 	}
 
-	public static String getRateToken(PlayerCharacter pc, int moveNumber)
+	public static String getRateToken(double movement)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			pc.movement(moveNumber))
+			movement)
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 }

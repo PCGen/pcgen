@@ -101,4 +101,9 @@ public final class NamedValue
 		// CONSIDER what if less than zero?
 	}
 
+	public String getName()
+	{
+		return name;
+	}
+
 }

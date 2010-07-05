@@ -25,12 +25,13 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
 
 //MOVE prints out all movename/move pairs
 //MOVE.x prints out movename/move pair
@@ -71,11 +72,11 @@ public class MoveToken extends Token
 
 				if ("NAME".equals(subToken))
 				{
-					retString = getNameToken(pc, moveIndex);
+					retString = pc.getMovementType(moveIndex);
 				}
 				else if ("RATE".equals(subToken))
 				{
-					retString = getRateToken(pc, moveIndex);
+					retString = MovementToken.getRateToken(pc.movement(moveIndex));
 				}
 				else if ("SQUARES".equals(subToken))
 				{
@@ -83,7 +84,7 @@ public class MoveToken extends Token
 				}
 				else
 				{
-					retString = getMoveToken(pc);
+					retString = MovementToken.getMovementToken(pc);
 				}
 			}
 			else
@@ -97,41 +98,10 @@ public class MoveToken extends Token
 		return retString;
 	}
 
-	public static String getMoveToken(PlayerCharacter pc)
-	{
-		StringBuffer retString = new StringBuffer();
-		boolean firstLine = true;
-
-		for (int i = 0; i < pc.getNumberOfMovements(); i++)
-		{
-			if (!firstLine)
-			{
-				retString.append(", ");
-			}
-
-			firstLine = false;
-
-			retString.append(getMoveXToken(pc, i));
-		}
-
-		return retString.toString();
-	}
-
 	public static String getMoveXToken(PlayerCharacter pc, int moveIndex)
 	{
-		return getNameToken(pc, moveIndex) + " " + getRateToken(pc, moveIndex);
-	}
-
-	public static String getNameToken(PlayerCharacter pc, int moveIndex)
-	{
-		return pc.getMovementType(moveIndex);
-	}
-
-	public static String getRateToken(PlayerCharacter pc, int moveIndex)
-	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			pc.movement(moveIndex))
-			+ Globals.getGameModeUnitSet().getDistanceUnit();
+		return pc.getMovementType(moveIndex) + " "
+				+ MovementToken.getRateToken(pc.movement(moveIndex));
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)

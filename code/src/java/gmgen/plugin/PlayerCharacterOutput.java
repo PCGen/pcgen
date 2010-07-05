@@ -24,6 +24,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.enumeration.AttackType;
 
 public class PlayerCharacterOutput
@@ -322,18 +323,7 @@ public class PlayerCharacterOutput
 
 	public String getSpeed()
 	{
-		StringBuffer sb = new StringBuffer();
-
-		for (int i = 0; i < pc.getNumberOfMovements(); i++)
-		{
-			sb.append(pc.getMovementType(i)
-				+ " "
-				+ Globals.getGameModeUnitSet().convertDistanceToUnitSet(
-					pc.movement(i))
-				+ Globals.getGameModeUnitSet().getDistanceUnit());
-		}
-
-		return sb.toString();
+		return MovementToken.getMovementToken(pc);
 	}
 
 	public String getStat(PCStat stat)
