@@ -55,13 +55,11 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EquipmentHead;
-import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -2362,7 +2360,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The feature to be added to the EqModifiers attribute
 	 * @param isLoading Is the equipment item being loaded currently. 
 	 */
-	public void addEqModifiers(final String aString, final boolean bPrimary, final boolean isLoading) {
+	private void addEqModifiers(final String aString, final boolean bPrimary, final boolean isLoading) {
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
 
 		while (aTok.hasMoreTokens()) {
@@ -2408,7 +2406,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *          If true get bonuses for primary head
 	 * @return bonus
 	 */
-	public double bonusTo(
+	private double bonusTo(
 			final PlayerCharacter aPC,
 			final String aType,
 			final String aName,
@@ -2755,17 +2753,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Has virtual feats
-	 * 
-	 * @return true if it has virtual feats
-	 */
-	public boolean hasVFeats()
-	{
-		return hasListMods(AbilityList.getAbilityListReference(
-				AbilityCategory.FEAT, Nature.VIRTUAL));
-	}
-
-	/**
 	 * Description of the Method
 	 * 
 	 * @return Description of the Return Value
@@ -2782,7 +2769,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The child
 	 * @return the index of the child
 	 */
-	public int indexOfChild(final Object child) {
+	private int indexOfChild(final Object child) {
 		if (!(child instanceof Equipment)) {
 			return -1;
 		}
@@ -2872,7 +2859,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param endPart
 	 *             The separator used between a label and its associated data
 	 */
-	public void load(
+	private void load(
 			final String aLine,
 			final String sep,
 			final String endPart) {
@@ -3326,7 +3313,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the Equipment as a String
 	 */
-	public String toString(final boolean addCharges) {
+	private String toString(final boolean addCharges) {
 		if (isDirty()
 				|| (cachedNameWithCharges == null && cachedNameWithoutCharges == null)) {
 			// If we have modified the equipment details with
@@ -3559,7 +3546,7 @@ public final class Equipment extends PObject implements Serializable,
 		return "";
 	}
 
-	public boolean hasConsolidatedProfName()
+	private boolean hasConsolidatedProfName()
 	{
 		if (isWeapon())
 		{
@@ -5194,7 +5181,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The index of the child to get
 	 * @return The child value
 	 */
-	public Object getChild(final int childIndex) {
+	private Object getChild(final int childIndex) {
 		return getContainedEquipment(childIndex);
 	}
 
@@ -5215,7 +5202,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param quantity
 	 *            How many of the Child Type are currently contained
 	 */
-	public void setChildType(
+	private void setChildType(
 			final String aType,
 			final Float quantity) {
 		d_childTypes.put(aType, quantity);
@@ -5315,7 +5302,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param effective Should we recurse child objects?
 	 * @return Base contained weight
 	 */
-	public Float getBaseContainedWeight(final boolean effective) {
+	private Float getBaseContainedWeight(final boolean effective) {
 
 		Float total = (float) 0;
 
@@ -5663,7 +5650,7 @@ public final class Equipment extends PObject implements Serializable,
 		return r;
 	}
 
-	String getWeaponInfo(final String infoType, final boolean bPrimary)
+	private String getWeaponInfo(final String infoType, final boolean bPrimary)
 	{
 		final String it = infoType + "|";
 		final EquipmentModifier eqMod = getEqModifierKeyed(
@@ -5893,7 +5880,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aKey The Key to store the bonus under
 	 * @param aVal The value of the Bonus
 	 */
-	public void putBonusMap(final String aKey, final String aVal)
+	private void putBonusMap(final String aKey, final String aVal)
 	{
 		getBonusMap().put(aKey, aVal);
 	}
@@ -6013,7 +6000,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 	}
 	
-	public void dumpTypeCache()
+	private void dumpTypeCache()
 	{
 		usePrimaryCache = false;
 		useSecondaryCache = false;
