@@ -697,7 +697,7 @@ public final class Globals
 	 * Get equipment slot map
 	 * @return equipment slot map
 	 */
-	public static Map<String, String> getEquipSlotMap()
+	private static Map<String, String> getEquipSlotMap()
 	{
 		return eqSlotMap;
 	}
@@ -1194,20 +1194,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get load strings
-	 * @return List of Strings
-	 */
-	public static List<String> getLoadStrings()
-	{
-		if (SettingsHandler.getGame() != null)
-		{
-			return SettingsHandler.getGame().getLoadStrings();
-		}
-
-		return new ArrayList<String>();
-	}
-
-	/**
 	 * Get long currency display
 	 * @return long currency display
 	 */
@@ -1578,15 +1564,6 @@ public final class Globals
 	}
 
 	/**
-	 * Add to the type for spells set
-	 * @param arg
-	 */
-	public static void addTypeForSpells(final String arg)
-	{
-		typeForSpellsSet.add(arg);
-	}
-
-	/**
 	 * Sets whether to use the GUI or not
 	 * @param aBool
 	 */
@@ -1602,11 +1579,6 @@ public final class Globals
 	public static boolean getUseGUI()
 	{
 		return isUseGUI();
-	}
-
-	public static String getWeaponReachForumla ()
-	{
-		return SettingsHandler.getGame().getWeaponReachFormula();
 	}
 
 	/**
@@ -1694,18 +1666,6 @@ public final class Globals
 	public static void addSpellTargetSet(final String aString)
 	{
 		targetSet.add(aString);
-	}
-
-	// Special Abilities List
-
-	/**
-	 * Add to the saList.
-	 *
-	 * @param sa
-	 */
-	public static void addToSASet(final SpecialAbility sa)
-	{
-		saSet.add(sa);
 	}
 
 	/**
@@ -1824,14 +1784,6 @@ public final class Globals
 		campaignMap.clear();
 		campaignList.clear();
 		hasSpellPPCost = false;
-	}
-
-	/**
-	 * Clear out the SA list.
-	 */
-	public static void clearSASet()
-	{
-		saSet.clear();
 	}
 
 	/**
@@ -1959,7 +1911,7 @@ public final class Globals
 	 * @param fileName
 	 * @param postExportCommand
 	 */
-	public static void executePostExportCommand(final String fileName, String postExportCommand)
+	private static void executePostExportCommand(final String fileName, String postExportCommand)
 	{
 		ArrayList<String> aList = new ArrayList<String>();
 		StringTokenizer aTok = new StringTokenizer(postExportCommand, " ");
@@ -2713,22 +2665,6 @@ public final class Globals
 	{
 		return SettingsHandler.getGame().getDieSizes();
 	}
-	/**
-	 * Get's current gamemodes MinDieSize
-	 * @return minDieSize
-	 */
-	public static int getMaxDieSize()
-	{
-		return SettingsHandler.getGame().getMaxDieSize();
-	}
-	/**
-	 * Get's current gamemodes MaxDieSize
-	 * @return minDieSize
-	 */
-	public static int getMinDieSize()
-	{
-		return SettingsHandler.getGame().getMinDieSize();
-	}
 
 	public static LoadContext getContext()
 	{
@@ -2748,11 +2684,6 @@ public final class Globals
 	public static boolean hasSpellPPCost()
 	{
 		return hasSpellPPCost;
-	}
-
-	public static void setSpellPPCost(boolean b)
-	{
-		hasSpellPPCost = b;
 	}
 	
 	public static <T extends PObject> List<T> getObjectsOfVisibility(Collection<T> c, Visibility v)
