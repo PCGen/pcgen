@@ -25,12 +25,11 @@
  */
 package plugin.exporttokens;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -88,9 +87,8 @@ public class ProhibitedListToken extends Token
 					set.addAll(sp.getValueList());
 				}
 
-				List<SpellProhibitor> prohibList =
-						pc.getAssocList(pcClass,
-							AssociationListKey.PROHIBITED_SCHOOLS);
+				Collection<? extends SpellProhibitor> prohibList =
+					pc.getProhibitedSchools(pcClass);
 				if (prohibList != null)
 				{
 					for (SpellProhibitor sp : prohibList)

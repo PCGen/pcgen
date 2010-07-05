@@ -724,8 +724,8 @@ final class PCGVer2Creator implements IOConstants
 					.getCastListForLevel(classLevel), ","));
 			}
 
-			List<SpellProhibitor> prohib = thePC.getAssocList(pcClass,
-					AssociationListKey.PROHIBITED_SCHOOLS);
+			Collection<? extends SpellProhibitor> prohib = thePC
+					.getProhibitedSchools(pcClass);
 			if (prohib != null)
 			{
 				Set<String> set = new TreeSet<String>();

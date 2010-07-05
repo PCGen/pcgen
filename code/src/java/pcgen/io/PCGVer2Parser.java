@@ -2103,10 +2103,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						SpellProhibitor prohibSubSchool = new SpellProhibitor();
 						prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
 						prohibSubSchool.addValue(choice);
-						thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
-								prohibSchool);
-						thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
-								prohibSubSchool);
+						thePC.addProhibitedSchool(prohibSchool, aPCClass);
+						thePC.addProhibitedSchool(prohibSubSchool, aPCClass);
 					}
 				}
 			}

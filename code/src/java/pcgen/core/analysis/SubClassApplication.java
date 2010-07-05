@@ -170,7 +170,7 @@ public class SubClassApplication
 	
 		if (!selectedList.isEmpty() && subselected instanceof SubClass)
 		{
-			aPC.removeAllAssocs(cl, AssociationListKey.PROHIBITED_SCHOOLS);
+			aPC.removeProhibitedSchools(cl);
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
@@ -244,10 +244,8 @@ public class SubClassApplication
 					SpellProhibitor prohibSubSchool = new SpellProhibitor();
 					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
 					prohibSubSchool.addValue(sc.getChoice());
-					aPC.addAssoc(cl, AssociationListKey.PROHIBITED_SCHOOLS,
-						prohibSchool);
-					aPC.addAssoc(cl, AssociationListKey.PROHIBITED_SCHOOLS,
-						prohibSubSchool);
+					aPC.addProhibitedSchool(prohibSchool, cl);
+					aPC.addProhibitedSchool(prohibSubSchool, cl);
 				}
 			}
 		}

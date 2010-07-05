@@ -145,6 +145,7 @@ import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.cdom.facet.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.QualifyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
@@ -283,6 +284,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
+	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -13561,7 +13563,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public static class SkillLanguageFacet extends LanguageFacet {}
 
-	private static class UserEquipmentFacet extends EquipmentFacet {}
+	public static class UserEquipmentFacet extends EquipmentFacet {}
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
@@ -13934,4 +13936,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return monCSkillFacet.getSet(id);
 	}
 
+	public Collection<? extends SpellProhibitor> getProhibitedSchools(Object source)
+	{
+		return prohibitedSchoolFacet.getSet(id, source);
+	}
+
+	public boolean containsProhibitedSchools(Object source)
+	{
+		return prohibitedSchoolFacet.containsFrom(id, source);
+	}
+
+	public void addProhibitedSchool(SpellProhibitor prohibSchool, Object source)
+	{
+		prohibitedSchoolFacet.add(id, prohibSchool, source);
+	}
+
+	public void removeProhibitedSchools(Object source)
+	{
+		prohibitedSchoolFacet.removeAll(id, source);
+	}
 }

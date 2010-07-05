@@ -42,7 +42,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -2290,8 +2289,7 @@ public final class ExportHandler
 				if (aPC.getLevel(pcClass) > 0)
 				{
 					if (pcClass.containsListFor(ListKey.PROHIBITED_SPELLS)
-						|| aPC.containsAssocList(pcClass,
-							AssociationListKey.PROHIBITED_SCHOOLS))
+						|| aPC.containsProhibitedSchools(pcClass))
 					{
 						return 0;
 					}

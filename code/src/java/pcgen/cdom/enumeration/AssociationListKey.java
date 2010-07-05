@@ -33,8 +33,8 @@ import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.helper.AbilitySelection;
-import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.helper.SpellLevel;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
@@ -52,7 +52,6 @@ import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
-import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -93,9 +92,6 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Skill> CSKILL = new AssociationListKey<Skill>();
 
 	public static final AssociationListKey<BonusObj> BONUS = new AssociationListKey<BonusObj>();
-
-	public static final AssociationListKey<SpellProhibitor> PROHIBITED_SCHOOLS =
-			new AssociationListKey<SpellProhibitor>();
 
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 

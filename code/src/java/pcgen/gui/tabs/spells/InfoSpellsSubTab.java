@@ -56,7 +56,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -784,9 +783,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				set.addAll(sp.getValueList());
 			}
 
-			List<SpellProhibitor> prohibList =
-					pc.getAssocList(aClass,
-						AssociationListKey.PROHIBITED_SCHOOLS);
+			Collection<? extends SpellProhibitor> prohibList = pc
+					.getProhibitedSchools(aClass);
 			if (prohibList != null)
 			{
 				for (SpellProhibitor sp : prohibList)

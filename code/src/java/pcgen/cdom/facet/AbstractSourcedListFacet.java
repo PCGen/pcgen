@@ -498,4 +498,27 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		}
 		return list;
 	}
+
+	public boolean containsFrom(CharID id, Object owner)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
+					.entrySet().iterator(); it.hasNext();)
+			{
+				Entry<T, Set<Object>> me = it.next();
+				Set<Object> set = me.getValue();
+				if (set != null)
+				{
+					if (set.contains(owner))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }
