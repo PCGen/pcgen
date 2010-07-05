@@ -91,6 +91,7 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
+import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
@@ -195,7 +196,6 @@ import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
-import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.BonusUtilities;
@@ -280,6 +280,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
+	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
@@ -436,9 +437,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
 	private Integer epicBAB = null;
 	private HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
-
-	private HashMapToList<CDOMObject, PCTemplate> templatesAdded =
-			new HashMapToList<CDOMObject, PCTemplate>();
 
 	// /////////////////////////////////////
 	// operations
@@ -12572,48 +12570,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	void selectTemplates(CDOMObject po, boolean isImporting)
 	{
-		// older version of this cleared the
-		// templateAdded list, so this may have to do that as well?
-		templatesAdded.removeListFor(po);
-		if (!isImporting)
-		{
-			for (CDOMReference<PCTemplate> ref : po
-				.getSafeListFor(ListKey.TEMPLATE))
-			{
-				for (PCTemplate pct : ref.getContainedObjects())
-				{
-					templatesAdded.addToListFor(po, pct);
-					addTemplate(pct);
-				}
-			}
-			List<PCTemplate> added = new ArrayList<PCTemplate>();
-			for (CDOMReference<PCTemplate> ref : po
-				.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
-			{
-				added.addAll(ref.getContainedObjects());
-			}
-			for (CDOMReference<PCTemplate> ref : po
-				.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
-			{
-				List<PCTemplate> list = new ArrayList<PCTemplate>(added);
-				list.addAll(ref.getContainedObjects());
-				PCTemplate selected =
-						TemplateSelect.chooseTemplate(po, list, true, this);
-				if (selected != null)
-				{
-					templatesAdded.addToListFor(po, selected);
-					addTemplate(selected);
-				}
-			}
-			for (CDOMReference<PCTemplate> ref : po
-				.getSafeListFor(ListKey.REMOVE_TEMPLATES))
-			{
-				for (PCTemplate pct : ref.getContainedObjects())
-				{
-					removeTemplate(pct);
-				}
-			}
-		}
+		addedTemplateFacet.remove(id, po, isImporting);
+		addedTemplateFacet.select(id, po, isImporting);
 	}
 
 	public void removeTemplatesFrom(PObject po)
@@ -12644,12 +12602,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Collection<PCTemplate> getTemplatesAdded(PObject po)
 	{
-		return templatesAdded.getListFor(po);
+		return addedTemplateFacet.getFromSource(id, po);
 	}
 
 	public void setTemplatesAdded(PObject po, PCTemplate pct)
 	{
-		templatesAdded.addToListFor(po, pct);
+		addedTemplateFacet.add(id, pct, po);
 	}
 
 	public boolean isClassSkill(Skill sk, PCClass pcc)
