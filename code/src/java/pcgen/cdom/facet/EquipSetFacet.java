@@ -29,7 +29,8 @@ import pcgen.core.character.EquipSet;
 /**
  * EquipSetFacet is a Facet that tracks the EquipSets for a Player Character.
  */
-public class EquipSetFacet extends AbstractListFacet<EquipSet>
+public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
+		DataFacetChangeListener<Equipment>
 {
 
 	public boolean delEquipSet(CharID id, EquipSet eSet)
@@ -182,5 +183,15 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet>
 		}
 
 		return Float.valueOf(0);
+	}
+
+	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	{
+		//Ignore
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	{
+		delEquipSetItem(dfce.getCharID(), dfce.getCDOMObject());
 	}
 }

@@ -20,11 +20,11 @@ package pcgen.cdom.facet;
 import pcgen.core.Equipment;
 
 /**
- * EquipmentFacet is a Facet that tracks the Equipment possessed by a Player
+ * UserEquipmentFacet is a Facet that tracks the Equipment possessed by a Player
  * Character. Possessed in this case does not mean active, it could be carried
  * or owned.
  */
-public class EquipmentFacet extends AbstractSourcedListFacet<Equipment>
+public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)

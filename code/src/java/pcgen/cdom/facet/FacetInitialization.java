@@ -124,6 +124,12 @@ public class FacetInitialization
 				.getFacet(UnarmedDamageFacet.class);
 		AutoEquipmentFacet autoEquipFacet = FacetLibrary
 				.getFacet(AutoEquipmentFacet.class);
+		UserEquipmentFacet userEquipmentFacet = FacetLibrary
+				.getFacet(UserEquipmentFacet.class);
+		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary
+				.getFacet(NaturalWeaponFacet.class);
+		EquipSetFacet equipSetFacet = FacetLibrary
+				.getFacet(EquipSetFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -164,6 +170,11 @@ public class FacetInitialization
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);
+
+		templateFacet.addDataFacetChangeListener(naturalWeaponFacet);
+		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
+		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);
+		naturalWeaponFacet.addDataFacetChangeListener(equipSetFacet);
 
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);

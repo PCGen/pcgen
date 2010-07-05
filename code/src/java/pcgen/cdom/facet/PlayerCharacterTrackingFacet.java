@@ -17,24 +17,25 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.core.Equipment;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.core.PlayerCharacter;
 
 /**
- * EquipmentFacet is a Facet that tracks the Equipment possessed by a Player
- * Character. Possessed in this case does not mean active, it could be carried
- * or owned.
+ * This is a transition class, designed to allow things to be taken out of
+ * PlayerCharacter while a transition is made to the new facet system.
  */
-public class EquipmentFacet extends AbstractSourcedListFacet<Equipment>
-		implements DataFacetChangeListener<Equipment>
+public class PlayerCharacterTrackingFacet
 {
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	private final Class<?> thisClass = getClass();
+
+	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
-		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+		FacetCache.set(id, thisClass, pc);
 	}
 
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public PlayerCharacter getPC(CharID id)
 	{
-		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+		return (PlayerCharacter) FacetCache.get(id, thisClass);
 	}
 
 }

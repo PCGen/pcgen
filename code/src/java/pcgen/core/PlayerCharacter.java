@@ -145,6 +145,7 @@ import pcgen.cdom.facet.MovementFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
 import pcgen.cdom.facet.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.QualifyFacet;
@@ -167,6 +168,7 @@ import pcgen.cdom.facet.UnarmedDamageFacet;
 import pcgen.cdom.facet.UnencumberedArmorFacet;
 import pcgen.cdom.facet.UnencumberedLoadFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
+import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.VariableFacet;
 import pcgen.cdom.facet.VisionFacet;
 import pcgen.cdom.facet.WeaponProfFacet;
@@ -265,7 +267,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
 	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
-	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
+	private UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
@@ -340,6 +342,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
@@ -456,6 +459,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		additionFacet.associatePlayerCharacter(id, this);
 		prereqFacet.associatePlayerCharacter(id, this);
 		addLevelFacet.associatePlayerCharacter(id, this);
+		trackingFacet.associatePlayerCharacter(id, this);
 		
 		variableProcessor = new VariableProcessorPC(this);
 
@@ -3344,8 +3348,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void addEquipment(final Equipment eq)
 	{
-		equipmentFacet.add(id, eq);
-		userEquipmentFacet.add(id, eq);
+		equipmentFacet.add(id, eq, this);
+		userEquipmentFacet.add(id, eq, this);
 		setDirty(true);
 	}
 
@@ -3431,7 +3435,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private void addLocalEquipment(final Equipment eq)
 	{
-		equipmentFacet.add(id, eq);
+		equipmentFacet.add(id, eq, this);
 	}
 
 	public void addNotesItem(final NoteItem item)
@@ -3535,14 +3539,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			delSpellBook(eq.getName());
 		}
 
-		equipmentFacet.remove(id, eq);
-		userEquipmentFacet.remove(id, eq);
+		equipmentFacet.remove(id, eq, this);
+		userEquipmentFacet.remove(id, eq, this);
 		setDirty(true);
 	}
 
 	private void removeLocalEquipment(final Equipment eq)
 	{
-		equipmentFacet.remove(id, eq);
+		equipmentFacet.remove(id, eq, this);
 		setDirty(true);
 	}
 
@@ -6312,7 +6316,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		this.setDirty(true);
 
 		calcActiveBonuses();
-		addNaturalWeapons(inTemplate.getListFor(ListKey.NATURAL_WEAPON));
 
 		setAutomaticAbilitiesStable(null, false);
 
@@ -8341,7 +8344,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		removeNaturalWeapons(inTmpl);
 		removeTemplatesFrom(inTmpl);
 
 		templateFacet.remove(id, inTmpl);
@@ -10519,9 +10521,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		aClone.languageFacet.copyContents(id, aClone.id);
 		aClone.kitFacet.addAll(aClone.id, kitFacet.getSet(id));
-		aClone.equipmentFacet.addAll(aClone.id, equipmentFacet.getSet(id));
-		aClone.userEquipmentFacet.addAll(aClone.id, userEquipmentFacet.getSet(id));
-		//aClone.userEquipmentFacet.copyContents(id, aClone.id);
+		aClone.equipmentFacet.copyContents(id, aClone.id);
+		aClone.userEquipmentFacet.copyContents(id, aClone.id);
 		aClone.autoLangFacet.copyContents(id, aClone.id);
 		aClone.freeLangFacet.copyContents(id, aClone.id);
 		aClone.addLangFacet.copyContents(id, aClone.id);
@@ -13504,8 +13505,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static class AddLanguageFacet extends LanguageFacet {}
 
 	public static class SkillLanguageFacet extends LanguageFacet {}
-
-	public static class UserEquipmentFacet extends EquipmentFacet {}
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
