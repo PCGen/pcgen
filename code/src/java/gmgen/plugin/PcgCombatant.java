@@ -1069,7 +1069,7 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("<a href=" + '"' + "spell:");
 								spellBuff.append(spell.getDisplayName());
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell)));
 								spellBuff.append("\\");
 								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
@@ -1077,9 +1077,9 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA)));
 								spellBuff.append('"' + " class=" + '"' + "dialog" + '"' + ">");
 
 								spellBuff.append(spell.getDisplayName());

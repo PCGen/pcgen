@@ -553,8 +553,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		duration.setWrapStyleWord(true);
 		duration.setBackground(color);
 		duration.setFont(new java.awt.Font(DIALOG, 0, 10));
-		duration.setText(pc.parseSpellString(cs, spell.getListAsString(ListKey.DURATION), cs
-			.getOwner()));
+		duration.setText(pc.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 5;
 		gridBagConstraints.gridy = gridY;
@@ -569,7 +568,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			1, 0));
 		rangePanel.setBackground(color);
 		range.setFont(new java.awt.Font(DIALOG, 1, 10));
-		range.setText(pc.getSpellRange(cs, cs.getOwner(), si));
+		range.setText(pc.getSpellRange(cs, si));
 		rangePanel.add(range);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
@@ -672,8 +671,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		effect.setFont(new java.awt.Font(DIALOG, 0, 10));
 		effect.setText(new StringBuffer(EFFECT)
 			.append(
-				pc.parseSpellString(cs, pc.getDescription(spell), cs
-					.getOwner())).toString());
+				pc.parseSpellString(cs, pc.getDescription(spell))).toString());
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridY;
@@ -689,7 +687,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		target.setBackground(color);
 		target.setFont(new java.awt.Font(DIALOG, 0, 10));
 		target.setText(new StringBuffer(TARGET).append(
-			pc.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA), cs.getOwner()))
+			pc.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA)))
 			.toString());
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;

@@ -5152,12 +5152,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            The info about conditions applied to the spell
 	 * @return spell range
 	 */
-	public String getSpellRange(final CharacterSpell aSpell,
-		final PObject owner, final SpellInfo si)
+	public String getSpellRange(final CharacterSpell aSpell, final SpellInfo si)
 	{
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
-		final String aSpellClass =
-				"CLASS:" + (owner != null ? owner.getKeyName() : "");
+		String aSpellClass = aSpell.getVariableSource(this);
 		int rangeInFeet = 0;
 		String aString =
 				Globals.getGameModeSpellRangeFormula(aRange.toUpperCase());
@@ -5210,7 +5208,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			aRange = parseSpellString(aSpell, aRange, owner);
+			aRange = parseSpellString(aSpell, aRange);
 		}
 
 		return aRange;
@@ -5223,14 +5221,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aName
 	 * @return caster level for spell
 	 */
-	public int getCasterLevelForSpell(final CharacterSpell aSpell,
-		final String aName)
+	public int getCasterLevelForSpell(final CharacterSpell aSpell)
 	{
-		final String aSpellClass = "CLASS:" + aName;
-		int casterLevel =
-				getVariableValue(aSpell, "CASTERLEVEL", aSpellClass).intValue();
-
-		return casterLevel;
+		return getVariableValue(aSpell, "CASTERLEVEL",
+				aSpell.getVariableSource(this)).intValue();
 	}
 
 	/**
@@ -8141,29 +8135,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param anObj
 	 * @return String
 	 */
-	public String parseSpellString(final CharacterSpell aSpell, String aString,
-		final PObject anObj)
+	public String parseSpellString(final CharacterSpell aSpell, String aString)
 	{
-		String aSpellClass = null;
+		String aSpellClass = aSpell.getVariableSource(this);
 
-		if (anObj instanceof Domain)
-		{
-			ClassSource source = getDomainSource((Domain) anObj);
-			if (source != null)
-			{
-				aSpellClass = "CLASS:" + getClassKeyed(source.getPcclass().getKeyName());
-			}
-		}
-		else if (anObj instanceof PCClass)
-		{
-			aSpellClass = "CLASS:" + anObj.getKeyName();
-		}
-		else if (anObj instanceof Race) // could be innate spell for race
-		{
-			aSpellClass = "RACE:" + anObj.getKeyName();
-		}
-
-		if (aSpellClass == null)
+		if (aSpellClass.length() == 0)
 		{
 			return aString;
 		}

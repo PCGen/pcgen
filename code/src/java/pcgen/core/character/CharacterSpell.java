@@ -27,11 +27,14 @@ package pcgen.core.character;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 
@@ -348,6 +351,27 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	public void setFixedCasterLevel(final String fixedCasterLevel)
 	{
 		this.fixedCasterLevel = fixedCasterLevel;
+	}
+
+	public String getVariableSource(PlayerCharacter pc)
+	{
+		if (owner instanceof Domain)
+		{
+			ClassSource source = pc.getDomainSource((Domain) owner);
+			if (source != null)
+			{
+				return "CLASS:" + pc.getClassKeyed(source.getPcclass().getKeyName());
+			}
+		}
+		else if (owner instanceof PCClass)
+		{
+			return "CLASS:" + owner.getKeyName();
+		}
+		else if (owner instanceof Race) // could be innate spell for race
+		{
+			return "RACE:" + owner.getKeyName();
+		}
+		return Constants.EMPTY_STRING;
 	}
 
 }

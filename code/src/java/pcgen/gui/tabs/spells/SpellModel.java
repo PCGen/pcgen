@@ -473,7 +473,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				if ((aSpell != null) && (spellA != null))
 				{
 					return pc.parseSpellString(spellA, pc
-						.getDescription(aSpell), spellA.getOwner());
+						.getDescription(aSpell));
 				}
 
 				return (aSpell != null) ? DescriptionFormatting.piDescString(pc, aSpell) : null;
@@ -482,8 +482,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 				if ((aSpell != null) && (spellA != null))
 				{
-					return pc.parseSpellString(spellA, aSpell.getSafe(StringKey.TARGET_AREA),
-						spellA.getOwner());
+					return pc.parseSpellString(spellA, aSpell.getSafe(StringKey.TARGET_AREA));
 				}
 
 				return (aSpell != null) ? aSpell.getSafe(StringKey.TARGET_AREA) : null;
@@ -492,8 +491,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 				if ((aSpell != null) && (spellA != null))
 				{
-					return pc.parseSpellString(spellA, aSpell.getListAsString(ListKey.DURATION),
-						spellA.getOwner());
+					return pc.parseSpellString(spellA, aSpell.getListAsString(ListKey.DURATION));
 				}
 
 				return (aSpell != null) ? aSpell.getListAsString(ListKey.DURATION) : null;

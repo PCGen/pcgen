@@ -844,7 +844,6 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
             StringBuffer levelString = new StringBuffer();
 			if (cs.getOwner() != null)
 			{
-
 				Integer[] levels =
 						SpellLevel.levelForKey(aSpell, cs.getOwner().getSpellLists(pc), pc);
 
@@ -878,11 +877,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
                     aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR),
                     aSpell.getListAsString(ListKey.COMPONENTS),
                     aSpell.getListAsString(ListKey.CASTTIME),
-                    pc.parseSpellString(cs, aSpell.getListAsString(ListKey.DURATION), cs
-                        .getOwner()),
-                    pc.getSpellRange(cs, cs.getOwner(), si),
-                    pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA), cs
-                        .getOwner()),
+                    pc.parseSpellString(cs, aSpell.getListAsString(ListKey.DURATION)),
+                    pc.getSpellRange(cs, si),
+                    pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA)),
                     aSpell.getListAsString(ListKey.SAVE_INFO),
                     aSpell.getListAsString(ListKey.SPELL_RESISTANCE)));
 			
@@ -900,7 +897,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("in_descrip", pc.parseSpellString(cs, 
-				pc.getDescription(aSpell), cs.getOwner()));
+				pc.getDescription(aSpell)));
 
 			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			aSpell.getPrerequisiteList(), false);
