@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.base.util.NamedValue;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -72,11 +73,11 @@ public class MoveToken extends Token
 
 				if ("NAME".equals(subToken))
 				{
-					retString = pc.getMovementType(moveIndex);
+					retString = pc.getMovementValues().get(moveIndex).getName();
 				}
 				else if ("RATE".equals(subToken))
 				{
-					retString = MovementToken.getRateToken(pc.movement(moveIndex));
+					retString = MovementToken.getRateToken(pc.getMovementValues().get(moveIndex).getWeight());
 				}
 				else if ("SQUARES".equals(subToken))
 				{
@@ -100,13 +101,14 @@ public class MoveToken extends Token
 
 	public static String getMoveXToken(PlayerCharacter pc, int moveIndex)
 	{
-		return pc.getMovementType(moveIndex) + " "
-				+ MovementToken.getRateToken(pc.movement(moveIndex));
+		NamedValue move = pc.getMovementValues().get(moveIndex);
+		return move.getName() + " "
+				+ MovementToken.getRateToken(move.getWeight());
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)
 	{
-		return Integer.toString((int) (pc.movement(moveIndex) / Globals
-			.getGameModeSquareSize()));
+		return Integer.toString((int) (pc.getMovementValues().get(moveIndex)
+				.getWeight() / Globals.getGameModeSquareSize()));
 	}
 }

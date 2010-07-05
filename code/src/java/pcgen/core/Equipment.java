@@ -3002,7 +3002,7 @@ public final class Equipment extends PObject implements Serializable,
 					}
 
 					retString.append(Globals.calcEncumberedMove(eqLoad,
-							baseMove, true));
+							baseMove));
 					baseMove -= 10;
 				}
 

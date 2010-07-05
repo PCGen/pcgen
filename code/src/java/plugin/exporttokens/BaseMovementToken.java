@@ -91,7 +91,7 @@ public class BaseMovementToken extends Token
 					int movNum = Integer.parseInt(moveType);
 					if (movNum < pc.getNumberOfMovements())
 					{
-						moveType = pc.getMovementType(movNum);
+						moveType = pc.getMovementValues().get(movNum).getName();
 					}
 				}
 				catch (NumberFormatException e)

@@ -2363,90 +2363,88 @@ public final class Globals
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
-	static double calcEncumberedMove(final Load load, final double moveInt, final boolean checkLoad)
+	static double calcEncumberedMove(final Load load,
+			final double unencumberedMove)
 	{
-		return calcEncumberedMove(load, moveInt, checkLoad, null);
+		double encumberedMove;
+
+		switch (load)
+		{
+		case LIGHT:
+			encumberedMove = unencumberedMove;
+
+			break;
+
+		case MEDIUM:
+		case HEAVY:
+
+			if (CoreUtility.doublesEqual(unencumberedMove, 5))
+			{
+				encumberedMove = 5;
+			}
+			else if (CoreUtility.doublesEqual(unencumberedMove, 10))
+			{
+				encumberedMove = 5;
+			}
+			else
+			{
+				encumberedMove = (Math.floor(unencumberedMove / 15) * 10)
+						+ (((int) unencumberedMove) % 15);
+			}
+
+			break;
+
+		case OVERLOAD:
+			encumberedMove = 0;
+
+			break;
+
+		default:
+			Logging.errorPrint("The load " + load + " is not possible.");
+			encumberedMove = 0;
+
+			break;
+		}
+
+		return encumberedMove;
 	}
 
 	/**
-	 * Works for dnd according to the method noted in the faq.
-	 * (NOTE: The table in the dnd faq is wrong for speeds 80 and 90)
-	 * Not as sure it works for all other d20 games.
-	 *
+	 * Works for dnd according to the method noted in the faq. (NOTE: The table
+	 * in the dnd faq is wrong for speeds 80 and 90) Not as sure it works for
+	 * all other d20 games.
+	 * 
 	 * @param load
-	 * @param unencumberedMove the unencumbered move value
+	 * @param unencumberedMove
+	 *            the unencumbered move value
 	 * @param checkLoad
 	 * @param aPC
 	 * @return encumbered move as an integer
 	 */
-	static double calcEncumberedMove(final Load load, final double unencumberedMove, final boolean checkLoad, final PlayerCharacter aPC)
+	static double calcEncumberedMove(final Load load, final double unencumberedMove, final PlayerCharacter aPC)
 	{
 		double encumberedMove;
 
-		if (checkLoad)
+		//
+		// Can we ignore any encumberance for this type? If we can, then there's
+		// no need to do any more calculations.
+		//
+		if (aPC.ignoreEncumberedLoadMove(load))
 		{
-			//
-			// Can we ignore any encumberance for this type? If we can, then there's no
-			// need to do any more calculations.
-			//
-			if ((aPC != null) && (aPC.ignoreEncumberedLoadMove(load)))
-			{
-				encumberedMove = unencumberedMove;
-			}
-			else
-			{
-				if (aPC != null)
-				{
-					String formula = SystemCollections.getLoadInfo().getLoadMoveFormula(load.toString());
-					if (formula.length() != 0)
-					{
-						formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
-						                             Double.toString(Math.floor(unencumberedMove)));
-						return aPC.getVariableValue(formula, "").doubleValue();
-					}
-				}
-
-				switch (load)
-				{
-					case LIGHT:
-						encumberedMove = unencumberedMove;
-
-						break;
-
-					case MEDIUM:
-					case HEAVY:
-
-						if (CoreUtility.doublesEqual(unencumberedMove,5))
-						{
-							encumberedMove = 5;
-						}
-						else if (CoreUtility.doublesEqual(unencumberedMove,10))
-						{
-							encumberedMove = 5;
-						}
-						else
-						{
-							encumberedMove = (Math.floor(unencumberedMove / 15) * 10) + (((int)unencumberedMove) % 15);
-						}
-
-						break;
-
-					case OVERLOAD:
-						encumberedMove = 0;
-
-						break;
-
-					default:
-						Logging.errorPrint("The load " + load + " is not possible.");
-						encumberedMove = 0;
-
-						break;
-				}
-			}
+			encumberedMove = unencumberedMove;
 		}
 		else
 		{
-			encumberedMove = unencumberedMove;
+			String formula = SystemCollections.getLoadInfo()
+					.getLoadMoveFormula(load.toString());
+			if (formula.length() != 0)
+			{
+				formula = formula.replaceAll(Pattern.quote("$$MOVE$$"), Double
+						.toString(Math.floor(unencumberedMove)));
+				return aPC.getVariableValue(formula, "").doubleValue();
+			}
+
+			encumberedMove = calcEncumberedMove(load, unencumberedMove);
 		}
 
 		return encumberedMove;

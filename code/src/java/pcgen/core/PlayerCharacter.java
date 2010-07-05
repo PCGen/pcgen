@@ -8009,11 +8009,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		final double armorMove =
-				Globals.calcEncumberedMove(armorLoad, moveInFeet, true, null);
+				Globals.calcEncumberedMove(armorLoad, moveInFeet);
 
 		final Load pcLoad = getLoadType(totalWeight());
 		final double loadMove =
-				Globals.calcEncumberedMove(pcLoad, moveInFeet, true, this);
+				Globals.calcEncumberedMove(pcLoad, moveInFeet, this);
 
 		// It is possible to have a PC that is not encumbered by Armor
 		// But is encumbered by Weight carried (and visa-versa)
@@ -13781,7 +13781,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
-	public Collection<NamedValue> getMovementValues()
+	public List<NamedValue> getMovementValues()
 	{
 		List<NamedValue> list = new ArrayList<NamedValue>();
 		for (int i = 0; i < getNumberOfMovements(); i++)
