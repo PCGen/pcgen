@@ -432,8 +432,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
 
 	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
-	Integer epicBAB = null;
-	HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
+	private Integer epicBAB = null;
+	private HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
 
 	private HashMapToList<CDOMObject, PCTemplate> templatesAdded =
 			new HashMapToList<CDOMObject, PCTemplate>();
@@ -1521,7 +1521,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
 	 */
-	public Equipment getEquipmentNamed(final String aString,
+	private Equipment getEquipmentNamed(final String aString,
 		final Collection<Equipment> aList)
 	{
 		Equipment match = null;
@@ -3133,20 +3133,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
-	/**
-	 * Given a Source and a Target object, get a list of BonusObj's
-	 * 
-	 * @param aCreator
-	 * @param aTarget
-	 * 
-	 * @return List of BonusObj
-	 */
-	public List<BonusObj> getTempBonusList(final String aCreator,
-		final String aTarget)
-	{
-		return bonusManager.getTempBonusList(aCreator, aTarget);
-	}
-
 	public Set<PCTemplate> getTemplateSet()
 	{
 		return templateFacet.getSet(id);
@@ -3441,7 +3427,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void addLocalEquipment(final Equipment eq)
+	private void addLocalEquipment(final Equipment eq)
 	{
 		equipmentFacet.add(id, eq);
 	}
@@ -3552,7 +3538,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void removeLocalEquipment(final Equipment eq)
+	private void removeLocalEquipment(final Equipment eq)
 	{
 		equipmentFacet.remove(id, eq);
 		setDirty(true);
@@ -6818,7 +6804,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return drFacet.getDRString(id);
 	}
 
-	public double calcMoveMult(final double move, final int index)
+	private double calcMoveMult(final double move, final int index)
 	{
 		double iMove = 0;
 
@@ -6889,7 +6875,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return boolean <p/> author David Wilson
 	 *         <eldiosyeldiablo@users.sourceforge.net>
 	 */
-	public boolean canCastSpellTypeLevel(final String spellType,
+	private boolean canCastSpellTypeLevel(final String spellType,
 		final int spellLevel, final int minNumSpells)
 	{
 		for (PCClass aClass : getClassSet())
@@ -7227,28 +7213,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
-	/**
-	 * return value indicates whether or not a book was actually removed
-	 * 
-	 * @param book
-	 * @return true or false
-	 */
-	public boolean delSpellBook(final SpellBook book)
-	{
-		if (book != null)
-		{
-			String aName = book.getName();
-			if (!aName.equals(Globals.getDefaultSpellBook())
-				&& spellBookFacet.containsBookNamed(id, aName))
-			{
-				processSpellBookRemoval(aName);
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	private void processSpellBookRemoval(String aName)
 	{
 		spellBookFacet.removeBookNamed(id, aName);
@@ -7268,7 +7232,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public void determinePrimaryOffWeapon()
+	private void determinePrimaryOffWeapon()
 	{
 		primaryWeapons.clear();
 		secondaryWeapons.clear();
@@ -7412,7 +7376,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return <tt>true</tt> if the character has the ability
 	 */
-	public boolean hasAutomaticAbility(final AbilityCategory aCategory,
+	private boolean hasAutomaticAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
 		if (aCategory == AbilityCategory.FEAT)
@@ -7564,7 +7528,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param armor
 	 * @return true or false
 	 */
-	public boolean ignoreEncumberedArmorMove(final Load armor)
+	private boolean ignoreEncumberedArmorMove(final Load armor)
 	{
 		return unencumberedArmorFacet.ignoreLoad(id, armor);
 	}
@@ -8410,7 +8374,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public String replaceMasterString(String aString, final int aNum)
+	private String replaceMasterString(String aString, final int aNum)
 	{
 		while (true)
 		{
@@ -8567,74 +8531,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Returns a list of Ability Objects of the given Category from the global
-	 * list, which 1) match the given abilityType, 2) the character qualifies
-	 * for, and 3) the character does not already have.
-	 * 
-	 * @param category
-	 *            of ability to return
-	 * @param abilityType
-	 *            String type of ability to return.
-	 * @param autoQualify
-	 *            assume PC qualifies for feat. Used for virtual feats
-	 * 
-	 * @return List of Ability Objects.
-	 */
-
-	public List<Ability> getAvailableAbilities(final String category,
-		final String abilityType, final boolean autoQualify)
-	{
-		final List<Ability> anAbilityList = new ArrayList<Ability>();
-		final Iterator<? extends Categorisable> it =
-				Globals.getAbilityKeyIterator(category);
-
-		while (it.hasNext())
-		{
-			final Ability anAbility = (Ability) it.next();
-
-			if (anAbility.isType(abilityType)
-				&& canSelectAbility(anAbility, autoQualify))
-			{
-				anAbilityList.add(anAbility);
-			}
-		}
-
-		return anAbilityList;
-	}
-
-	/**
-	 * Returns the list of names of available feats of given type. That is, all
-	 * feats from the global list, which match the given featType, the character
-	 * qualifies for, and the character does not already have.
-	 * 
-	 * @param featType
-	 *            String category of feat to list.
-	 * @param autoQualify
-	 *            assume PC qualifies for feat. Used for virtual feats
-	 * @return List of Feats.
-	 */
-	public List<String> getAvailableFeatNames(final String featType,
-		final boolean autoQualify)
-	{
-		final List<String> anAbilityList = new ArrayList<String>();
-		final Iterator<? extends Categorisable> it =
-				Globals.getAbilityKeyIterator("FEAT");
-
-		for (; it.hasNext();)
-		{
-			final Ability anAbility = (Ability) it.next();
-
-			if (anAbility.isType(featType)
-				&& canSelectAbility(anAbility, autoQualify))
-			{
-				anAbilityList.add(anAbility.getKeyName());
-			}
-		}
-
-		return anAbilityList;
-	}
-
-	/**
 	 * @return true if character is not currently being read from file.
 	 */
 	public boolean isNotImporting()
@@ -8654,7 +8550,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param moveIdx
 	 * @return the integer movement speed multiplier for Index
 	 */
-	Double getMovementMult(final int moveIdx)
+	private Double getMovementMult(final int moveIdx)
 	{
 		if ((movements != null) && (moveIdx < movementMult.length))
 		{
@@ -8855,7 +8751,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aName
 	 * @return equipment bonus to
 	 */
-	public double getEquipmentBonusTo(String aType, String aName)
+	private double getEquipmentBonusTo(String aType, String aName)
 	{
 		double bonus = 0;
 
@@ -10832,7 +10728,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param eqTarget
 	 * @return true if equipment can be added
 	 */
-	public boolean canEquipItem(EquipSet eSet, String locName, Equipment eqI,
+	private boolean canEquipItem(EquipSet eSet, String locName, Equipment eqI,
 		Equipment eqTarget)
 	{
 		final String idPath = eSet.getIdPath();
@@ -11185,17 +11081,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the String for a characteristic
-	 * 
-	 * @param key
-	 * @return String
-	 */
-	public String getStringFor(StringKey key)
-	{
-		return factFacet.get(id, key);
-	}
-
-	/**
 	 * Gets a 'safe' String representation
 	 * 
 	 * @param key
@@ -11303,7 +11188,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public boolean addRealAbility(final Category<Ability> aCategory,
+	private boolean addRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
 		if (anAbility == null)
@@ -11414,7 +11299,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getRealAbilityKeyed(AbilityCategory.FEAT, featName);
 	}
 
-	public Ability getRealAbilityKeyed(final AbilityCategory aCategory,
+	private Ability getRealAbilityKeyed(final AbilityCategory aCategory,
 		final String aKey)
 	{
 		final Set<Ability> abilities = getRealAbilitiesList(aCategory);
@@ -11456,7 +11341,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return True if the character has the feat
 	 */
-	public boolean hasRealAbility(final AbilityCategory aCategory,
+	private boolean hasRealAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
 		boolean newReturn = abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
@@ -11681,7 +11566,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return BigDecimal.valueOf(basePool + bonus + userBonus);
 	}
 
-	public Set<Ability> getSelectedAbilities(final AbilityCategory aCategory)
+	private Set<Ability> getSelectedAbilities(final AbilityCategory aCategory)
 	{
 		return getRealAbilitiesList(aCategory);
 	}
@@ -11920,7 +11805,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getAutomaticAbilityKeyed(AbilityCategory.FEAT, aFeatKey);
 	}
 
-	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
+	private Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
 		final String anAbilityKey)
 	{
 		for (final Ability ability : getAutomaticAbilityList(aCategory))
@@ -12026,24 +11911,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	public Ability getAbilityKeyed(final AbilityCategory aCategory,
-		Nature nature, final String aKey)
-	{
-		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, aCategory, nature));
-		newSet.addAll(grantedAbilityFacet.get(id, aCategory, nature));
-		
-		Set<Ability> abilityList = newSet;
-		for (Ability ab : abilityList)
-		{
-			if (ab.getKeyName().equals(aKey))
-			{
-				return ab;
-			}
-		}
-		return null;
-	}
-
-	public Ability getAbilityKeyed(final AbilityCategory aCategory,
 		final String aKey)
 	{
 		final List<Ability> abilities = getAggregateAbilityList(aCategory);
@@ -12063,7 +11930,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aKey The key to search for
 	 * @return An ability with the key, or null if none.
 	 */
-	public Ability getAbilityKeyed(final String aKey)
+	private Ability getAbilityKeyed(final String aKey)
 	{
 		final List<Ability> abilities = getFullAbilityList();
 		for (final Ability ability : abilities)
@@ -12247,7 +12114,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getVirtualAbilityList(AbilityCategory.FEAT);
 	}
 
-	public Set<Ability> getAbilitySetByNature(Nature n)
+	private Set<Ability> getAbilitySetByNature(Nature n)
 	{
 		GameMode gm = SettingsHandler.getGame();
 
@@ -12800,12 +12667,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
-	public boolean isCrossClassSkill(Skill sk, PCClass pcc)
+	private boolean isCrossClassSkill(Skill sk, PCClass pcc)
 	{
 		return SkillCost.CROSS_CLASS.equals(cache.getSkillCost(this, sk, pcc));
 	}
 
-	public boolean isCrossClassSkill(Skill sk)
+	private boolean isCrossClassSkill(Skill sk)
 	{
 		for (PCClass cl : getClassSet())
 		{
@@ -13694,7 +13561,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public static class SkillLanguageFacet extends LanguageFacet {}
 
-	public static class UserEquipmentFacet extends EquipmentFacet {}
+	private static class UserEquipmentFacet extends EquipmentFacet {}
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
