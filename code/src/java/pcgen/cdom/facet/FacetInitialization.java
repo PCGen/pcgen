@@ -139,8 +139,10 @@ public class FacetInitialization
 				.getFacet(GrantedAbilityFacet.class);
 		HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
 				.getFacet(HasAnyFavoredClassFacet.class);
-		SpellBookFacet spellBookFacet =
-				FacetLibrary.getFacet(SpellBookFacet.class);
+		SpellBookFacet spellBookFacet = FacetLibrary
+				.getFacet(SpellBookFacet.class);
+		AddLevelFacet addLevelFacet = FacetLibrary
+				.getFacet(AddLevelFacet.class);
 
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
@@ -161,6 +163,7 @@ public class FacetInitialization
 		alWeaponProfFacet.addDataFacetChangeListener(weaponProfFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
+		templateFacet.addDataFacetChangeListener(addLevelFacet);
 
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);

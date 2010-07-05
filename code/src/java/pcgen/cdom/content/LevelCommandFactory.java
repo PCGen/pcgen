@@ -19,12 +19,9 @@ package pcgen.cdom.content;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 
 /**
  * A LevelCommandFactory is used to identify a PCClass which is to be applied
@@ -177,84 +174,5 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 			return levels.toString().compareTo(other.levels.toString());
 		}
 		return i;
-	}
-
-	/**
-	 * Adds levels of the PCClass in this LevelCommandFactory to the given
-	 * PlayerCharacter.
-	 * 
-	 * The number of levels added is defined by the level formula in this
-	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
-	 * provided when this LevelCommandFactory was constructed.
-	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
-	 * 
-	 * @param pc
-	 *            The PlayerCharacter to which the levels of the PCClass in this
-	 *            LevelCommandFactory will be added.
-	 * @throws NullPointerException
-	 *             if the given PlayerCharacter is null
-	 */
-	public void add(PlayerCharacter pc)
-	{
-		apply(pc, levels.resolve(pc, "").intValue());
-	}
-
-	/**
-	 * Removes levels of the PCClass in this LevelCommandFactory to the given
-	 * PlayerCharacter.
-	 * 
-	 * The number of levels removed is defined by the level formula in this
-	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
-	 * provided when this LevelCommandFactory was constructed.
-	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
-	 * 
-	 * @param pc
-	 *            The PlayerCharacter from which the levels of the PCClass in
-	 *            this LevelCommandFactory will be removed.
-	 * @throws NullPointerException
-	 *             if the given PlayerCharacter is null
-	 */
-	public void remove(PlayerCharacter pc)
-	{
-		apply(pc, -levels.resolve(pc, "").intValue());
-	}
-
-	/**
-	 * Applies a change in level of the PCClass in this LevelCommandFactory to
-	 * the given PlayerCharacter. The change is provided as an argument to this
-	 * method. If the number of levels is greater than zero, then levels are
-	 * added to the given PlayerCharacter, if less than zero, levels are removed
-	 * from the given PlayerCharacter
-	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
-	 * 
-	 * @param pc
-	 *            The PlayerCharacter from which the levels of the PCClass in
-	 *            this LevelCommandFactory will be removed.
-	 * @param lvls
-	 *            The number of levels to apply to the PlayerCharacter
-	 * @throws NullPointerException
-	 *             if the given PlayerCharacter is null
-	 */
-	private void apply(PlayerCharacter pc, int lvls)
-	{
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler
-				.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-
-		pc.incrementClassLevel(lvls, pcClass.resolvesTo(), true, true);
-
-		SettingsHandler.setSingleChoicePreference(tempChoicePref);
-		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 }

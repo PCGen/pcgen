@@ -1,0 +1,138 @@
+package pcgen.cdom.facet;
+
+import java.util.List;
+import java.util.ListIterator;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+
+public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
+{
+
+	private final Class<?> thisClass = getClass();
+
+	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
+	{
+		FacetCache.set(id, thisClass, pc);
+	}
+
+	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		PCTemplate template = dfce.getCDOMObject();
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+
+		// If we are importing these levels will have been saved with the
+		// character so don't apply them again.
+		if (!pc.isImporting())
+		{
+			for (LevelCommandFactory lcf : template
+					.getSafeListFor(ListKey.ADD_LEVEL))
+			{
+				add(lcf.getLevelCount(), lcf.getPCClass(), pc);
+			}
+		}
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		PCTemplate template = dfce.getCDOMObject();
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+
+		List<LevelCommandFactory> lcfList = template
+				.getSafeListFor(ListKey.ADD_LEVEL);
+		for (ListIterator<LevelCommandFactory> it = lcfList
+				.listIterator(lcfList.size()); it.hasPrevious();)
+		{
+			LevelCommandFactory lcf = it.previous();
+			remove(lcf.getLevelCount(), lcf.getPCClass(), pc);
+		}
+	}
+
+	/**
+	 * Adds levels of the PCClass in this LevelCommandFactory to the given
+	 * PlayerCharacter.
+	 * 
+	 * The number of levels added is defined by the level formula in this
+	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
+	 * provided when this LevelCommandFactory was constructed.
+	 * 
+	 * NOTE: It is important that the CDOMReference provided during construction
+	 * of this LevelCommandFactory is resolved before this method is called.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to which the levels of the PCClass in this
+	 *            LevelCommandFactory will be added.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
+	 */
+	public void add(Formula levels, PCClass cl, PlayerCharacter pc)
+	{
+		apply(pc, cl, levels.resolve(pc, "").intValue());
+	}
+
+	/**
+	 * Removes levels of the PCClass in this LevelCommandFactory to the given
+	 * PlayerCharacter.
+	 * 
+	 * The number of levels removed is defined by the level formula in this
+	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
+	 * provided when this LevelCommandFactory was constructed.
+	 * 
+	 * NOTE: It is important that the CDOMReference provided during construction
+	 * of this LevelCommandFactory is resolved before this method is called.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter from which the levels of the PCClass in
+	 *            this LevelCommandFactory will be removed.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
+	 */
+	public void remove(Formula levels, PCClass cl, PlayerCharacter pc)
+	{
+		apply(pc, cl, -levels.resolve(pc, "").intValue());
+	}
+
+	/**
+	 * Applies a change in level of the PCClass in this LevelCommandFactory to
+	 * the given PlayerCharacter. The change is provided as an argument to this
+	 * method. If the number of levels is greater than zero, then levels are
+	 * added to the given PlayerCharacter, if less than zero, levels are removed
+	 * from the given PlayerCharacter
+	 * 
+	 * NOTE: It is important that the CDOMReference provided during construction
+	 * of this LevelCommandFactory is resolved before this method is called.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter from which the levels of the PCClass in
+	 *            this LevelCommandFactory will be removed.
+	 * @param lvls
+	 *            The number of levels to apply to the PlayerCharacter
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
+	 */
+	private void apply(PlayerCharacter pc, PCClass pcClass, int lvls)
+	{
+		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+		SettingsHandler.setShowHPDialogAtLevelUp(false);
+		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+		SettingsHandler.setShowFeatDialogAtLevelUp(false);
+		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
+		SettingsHandler
+				.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+
+		pc.incrementClassLevel(lvls, pcClass, true, true);
+
+		SettingsHandler.setSingleChoicePreference(tempChoicePref);
+		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+	}
+}

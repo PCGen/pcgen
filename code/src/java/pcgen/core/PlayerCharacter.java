@@ -43,7 +43,6 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
@@ -91,6 +90,7 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
+import pcgen.cdom.facet.AddLevelFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
@@ -339,6 +339,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
+	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
 
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
@@ -454,7 +455,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		bonusFacet.associatePlayerCharacter(id, this);
 		additionFacet.associatePlayerCharacter(id, this);
 		prereqFacet.associatePlayerCharacter(id, this);
-
+		addLevelFacet.associatePlayerCharacter(id, this);
+		
 		variableProcessor = new VariableProcessorPC(this);
 
 		for (int i = 0; i < 10; i++)
@@ -6307,16 +6309,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		templateFacet.add(id, inTemplate);
 
-		// If we are importing these levels will have been saved with the
-		// character so don't apply them again.
-		if (!isImporting())
-		{
-			for (LevelCommandFactory lcf : inTemplate
-				.getSafeListFor(ListKey.ADD_LEVEL))
-			{
-				lcf.add(this);
-			}
-		}
 		this.setDirty(true);
 
 		calcActiveBonuses();
@@ -8350,14 +8342,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		removeNaturalWeapons(inTmpl);
-
-		List<LevelCommandFactory> lcfList = inTmpl.getSafeListFor(ListKey.ADD_LEVEL);
-		for (ListIterator<LevelCommandFactory> it =
-				lcfList.listIterator(lcfList.size()); it.hasPrevious();)
-		{
-			it.previous().remove(this);
-		}
-
 		removeTemplatesFrom(inTmpl);
 
 		templateFacet.remove(id, inTmpl);
