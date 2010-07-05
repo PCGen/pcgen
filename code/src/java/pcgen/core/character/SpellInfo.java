@@ -55,6 +55,7 @@ public final class SpellInfo
 	private int actualPPCost = -1;
 	private int actualSpellPointCost = 0;
 	private int numPages = 0;
+	private String fixedDC = null;
 
 	SpellInfo(final CharacterSpell owner, final int actualLevel,
 			final int times, final String book)
@@ -176,4 +177,21 @@ public final class SpellInfo
 
 		return aBuf.toString();
 	}
+
+	/**
+	 * @return Returns the fixedDC.
+	 */
+	public String getFixedDC()
+	{
+		return fixedDC;
+	}
+
+	/**
+	 * @param fixedDC The fixedDC to set.
+	 */
+	public void setFixedDC(final String fixedDC)
+	{
+		this.fixedDC = fixedDC;
+	}
+
 }

@@ -9039,11 +9039,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					final CharacterSpell cs = new CharacterSpell(race, sp);
 					cs.setFixedCasterLevel(apo
 						.getAssociation(AssociationKey.CASTER_LEVEL));
-					cs
-						.setFixedDC(apo
-							.getAssociation(AssociationKey.DC_FORMULA));
 					SpellInfo si = cs.addInfo(0, resolvedTimes, book);
 					si.setTimeUnit(timeunit);
+					si.setFixedDC(apo
+						.getAssociation(AssociationKey.DC_FORMULA));
 
 					addSpellBook(new SpellBook(book,
 						SpellBook.TYPE_INNATE_SPELLS));
@@ -13113,7 +13112,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				spellLevel = si.getActualLevel();
 				ow = cs.getOwner();
 
-				String fixedDC = cs.getFixedDC();
+				String fixedDC = si.getFixedDC();
 				// TODO Temp fix for 1223858, better fix would be to move fixedDC to spellInfo
 				/*
 				 * TODO Need to evaluate how duplicative this logic is and what

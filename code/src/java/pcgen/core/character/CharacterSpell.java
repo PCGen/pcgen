@@ -351,20 +351,4 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		this.fixedCasterLevel = fixedCasterLevel;
 	}
 
-	/**
-	 * @return Returns the fixedDC.
-	 */
-	public String getFixedDC()
-	{
-		return fixedDC;
-	}
-
-	/**
-	 * @param fixedDC The fixedDC to set.
-	 */
-	public void setFixedDC(final String fixedDC)
-	{
-		this.fixedDC = fixedDC;
-	}
-
 }
