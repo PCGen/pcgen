@@ -49,7 +49,8 @@ public final class SpellInfo
 	private CharacterSpell owner;
 	private List<Ability> featList; // a List of Feat objects
 	private String book = Globals.getDefaultSpellBook(); // name of book
-	private int actualLevel = -1;
+	private final int origLevel;
+	private final int actualLevel;
 	private int times; // times the spell is in this list
 	private String timeUnit; // the timeunit the times is for (day, week etc)
 	private int actualPPCost = -1;
@@ -57,11 +58,12 @@ public final class SpellInfo
 	private int numPages = 0;
 	private String fixedDC = null;
 
-	SpellInfo(final CharacterSpell owner, final int actualLevel,
+	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel,
 			final int times, final String book)
 	{
 		this.owner = owner;
 		this.actualLevel = actualLevel;
+		this.origLevel = originalLevel;
 		this.times = times;
 
 		//
@@ -76,6 +78,11 @@ public final class SpellInfo
 	public int getActualLevel()
 	{
 		return actualLevel;
+	}
+
+	public int getOriginalLevel()
+	{
+		return origLevel;
 	}
 
 	public void setActualPPCost(final int argActualPPCost)

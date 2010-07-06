@@ -6175,7 +6175,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 				}
 			}
-			si = acs.addInfo(adjSpellLevel, 1, bookName, aFeatList);
+			si = acs.addInfo(spellLevel, adjSpellLevel, 1, bookName, aFeatList);
 
 			//
 			//

@@ -221,7 +221,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 */
 	public SpellInfo addInfo(final int level, final int times, final String book)
 	{
-		return addInfo(level, times, book, null);
+		return addInfo(level, level, times, book, null);
 	}
 
 	/**
@@ -232,10 +232,10 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param featList
 	 * @return SpellInfo
 	 */
-	public SpellInfo addInfo(final int level, final int times,
+	public SpellInfo addInfo(final int origLevel, final int level, final int times,
 			final String book, final List<Ability> featList)
 	{
-		final SpellInfo si = new SpellInfo(this, level, times, book);
+		final SpellInfo si = new SpellInfo(this, origLevel, level, times, book);
 
 		if (featList != null)
 		{

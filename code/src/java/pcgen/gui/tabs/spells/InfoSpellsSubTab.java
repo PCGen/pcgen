@@ -72,7 +72,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
@@ -564,7 +563,6 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected final List<Object> getInfoFromNode(PObjectNode fNode)
 	{
 		Spell aSpell;
-		String classKey = ""; //$NON-NLS-1$
 		int spLevel = -1;
 		ArrayList<Object> returnList = new ArrayList<Object>(); // 0 = CharacterSpell; 1 = className; 2 = spellLevel
 
@@ -582,7 +580,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		CharacterSpell cs = null;
 		PObject theOwner = spellA.getOwner();
-		PCClass aClass = null;
+		PCClass aClass;
+		String classKey; //$NON-NLS-1$
 		if (theOwner == null) // should only be true for multi-spellcasting-classed characters not sorted by class/level
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
@@ -619,18 +618,11 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		for (Iterator<CharacterSpell> ai = aList.iterator(); ai.hasNext();)
 		{
 			cs = ai.next();
-			if (cs.equals(spellA))
+			if (cs.equals(spellA) || theOwner.equals(cs.getOwner()))
 			{
 				returnList.set(0, cs);
 				return returnList;
 			}
-			if (!theOwner.equals(cs.getOwner()))
-			{
-				cs = null;
-				continue;
-			}
-			returnList.set(0, cs);
-			return returnList;
 		}
 		cs = new CharacterSpell(theOwner, aSpell);
 		returnList.set(0, cs);
@@ -840,35 +832,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.append(" ").append(addString); //$NON-NLS-1$
 			}
 
-            //compute the String that displays the spell's level
-            StringBuffer levelString = new StringBuffer();
-			if (cs.getOwner() != null)
-			{
-				Integer[] levels =
-						SpellLevel.levelForKey(aSpell, cs.getOwner().getSpellLists(pc), pc);
-
-				for (Integer level : levels)
-				{
-                    //ignore the -1 in the level array
-                    if (level == -1)
-					{
-						continue;
-					}
-                    //if it's not the first level in the list, add a ","
-                    if (levelString.length() > 0)
-					{
-						levelString.append(',');
-					}
-                    //add the current level
-					levelString.append(level);
-				}
-			}
-			else
-			{
-				levelString.append(InfoSpellsSubTab.getLevelString(aSpell));
-			}
 			b.appendLineBreak();
-			b.appendI18nElement("InfoSpells.level.title", levelString.toString()); //$NON-NLS-1$
+			b.appendI18nElement("InfoSpells.level.title", Integer.toString(si.getOriginalLevel())); //$NON-NLS-1$
 
 			b.append(PropertyFactory.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
