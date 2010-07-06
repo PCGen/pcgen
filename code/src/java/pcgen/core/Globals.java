@@ -2363,7 +2363,7 @@ public final class Globals
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
-	static double calcEncumberedMove(final Load load,
+	public static double calcEncumberedMove(final Load load,
 			final double unencumberedMove)
 	{
 		double encumberedMove;

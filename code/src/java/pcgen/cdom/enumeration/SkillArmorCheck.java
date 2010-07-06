@@ -110,7 +110,7 @@ public enum SkillArmorCheck
 		int penalty = 0;
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
-			final Load load = pc.getLoadType(pc.totalWeight());
+			final Load load = pc.getLoadType();
 
 			switch (load)
 			{

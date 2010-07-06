@@ -49,7 +49,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMapToList;
@@ -138,10 +137,11 @@ import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
+import pcgen.cdom.facet.LoadFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.MonsterCSkillFacet;
-import pcgen.cdom.facet.MovementFacet;
+import pcgen.cdom.facet.MovementResultFacet;
 import pcgen.cdom.facet.NonAbilityFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.ObjectAdditionFacet;
@@ -331,13 +331,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
-	private MovementFacet moveFacet = FacetLibrary.getFacet(MovementFacet.class);
+	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
+	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -370,16 +371,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
-
-	// Weapon, Armor and Shield proficiencies
-	// private final TreeSet<WeaponProf> weaponProfList = new
-	// TreeSet<WeaponProf>();
-	private Double[] movementMult = Globals.EMPTY_DOUBLE_ARRAY;
-	private String[] movementMultOp = Globals.EMPTY_STRING_ARRAY;
-	private String[] movementTypes = Globals.EMPTY_STRING_ARRAY;
-
-	// Movement lists
-	private Double[] movements = Globals.EMPTY_DOUBLE_ARRAY;
 
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
@@ -4673,38 +4664,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new Float(maxRanks.floatValue());
 	}
 
-	/**
-	 * @param moveIdx
-	 * @return the integer movement speed for Index
-	 */
-	private Double getMovement(final int moveIdx)
-	{
-		if ((movements != null) && (moveIdx < movements.length))
-		{
-			return movements[moveIdx];
-		}
-		return Double.valueOf(0);
-	}
-
-	public String getMovementType(final int moveIdx)
-	{
-		if ((movementTypes != null) && (moveIdx < movementTypes.length))
-		{
-			return movementTypes[moveIdx];
-		}
-		return Constants.EMPTY_STRING;
-	}
-
 	public double movementOfType(final String moveType)
 	{
-		if (movementTypes == null)
-			return 0.0;
-		for (int moveIdx = 0; moveIdx < movementTypes.length; moveIdx++)
-		{
-			if (movementTypes[moveIdx].equalsIgnoreCase(moveType))
-				return movement(moveIdx);
-		}
-		return 0.0;
+		return moveResultFacet.movementOfType(id, moveType);
 	}
 
 	/**
@@ -4719,7 +4681,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getNumberOfMovements()
 	{
-		return (movements != null) ? movements.length : 0;
+		return moveResultFacet.countMovementTypes(id);
 	}
 
 	public int getOffHandLightBonus()
@@ -6415,69 +6377,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void adjustMoveRates()
 	{
-		movements = null;
-		movementTypes = null;
-		movementMult = null;
-		movementMultOp = null;
-
-		if (getRace() == null)
-		{
-			return;
-		}
-
-		List<Movement> mms = getRace().getListFor(ListKey.MOVEMENT);
-		if (mms == null || mms.isEmpty() || (!mms.get(0).isInitialized()))
-		{
-			return;
-		}
-
-		Movement movement = mms.get(0);
-		movements = movement.getMovements();
-		movementTypes = movement.getMovementTypes();
-		movementMult = movement.getMovementMult();
-		movementMultOp = movement.getMovementMultOp();
-
-		for (Movement mv : moveFacet.getSet(id))
-		{
-			for (int i1 = 0; i1 < mv.getNumberOfMovements(); i1++)
-			{
-				setMyMoveRates(mv.getMovementType(i1), mv.getMovement(i1)
-						.doubleValue(), mv.getMovementMult(i1), mv
-						.getMovementMultOp(i1), mv.getMoveRatesFlag());
-			}
-		}
-
-		// Need to create movement entries if there is a BONUS:MOVEADD
-		// associated with that type of movement
-		for (final BonusObj bonus : getActiveBonusList())
-		{
-			if (bonus.getTypeOfBonus().equals("MOVEADD"))
-			{
-				String moveType = bonus.getBonusInfo();
-
-				if (moveType.startsWith("TYPE"))
-				{
-					moveType = moveType.substring(5);
-				}
-
-				moveType = CoreUtility.capitalizeFirstLetter(moveType);
-
-				boolean found = false;
-
-				for (int i = 0; i < movements.length; i++)
-				{
-					if (moveType.equals(movementTypes[i]))
-					{
-						found = true;
-					}
-				}
-
-				if (!found)
-				{
-					setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 1);
-				}
-			}
-		}
+		moveResultFacet.reset(id);
 		setDirty(true);
 	}
 
@@ -6776,27 +6676,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public String calcDR()
 	{
 		return drFacet.getDRString(id);
-	}
-
-	private double calcMoveMult(final double move, final int index)
-	{
-		double iMove = 0;
-
-		if (movementMultOp[index].charAt(0) == '*')
-		{
-			iMove = move * movementMult[index].doubleValue();
-		}
-		else if (movementMultOp[index].charAt(0) == '/')
-		{
-			iMove = move / movementMult[index].doubleValue();
-		}
-
-		if (iMove > 0)
-		{
-			return iMove;
-		}
-
-		return move;
 	}
 
 	public int calcSR(final boolean includeEquipment)
@@ -7781,11 +7660,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return a loadType appropriate for this Pc
 	 */
-	private Load getLoadType()
+	private Load getHouseRuledLoadType()
 	{
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
-			return getLoadType(totalWeight());
+			return getLoadType();
 		}
 		return Load.LIGHT;
 	}
@@ -7816,7 +7695,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private int modToACCHECKFromEquipment()
 	{
-		Load load = getLoadType();
+		Load load = getHouseRuledLoadType();
 		int bonus = 0;
 
 		int penaltyForLoad =
@@ -7861,7 +7740,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int modToMaxDexFromEquipment()
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
-		final Load load = getLoadType();
+		final Load load = getHouseRuledLoadType();
 		int bonus =
 				(load == Load.MEDIUM) ? 3 : (load == Load.HEAVY) ? 1
 					: (load == Load.OVERLOAD) ? 0 : statBonus;
@@ -7927,100 +7806,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return modToSpellFailureFromEquipment();
 		}
 		return 0;
-	}
-
-	/**
-	 * get the base MOVE: plus any bonuses from BONUS:MOVE additions takes into
-	 * account Armor restrictions to movement and load carried
-	 * 
-	 * @param moveIdx
-	 * @return movement
-	 */
-	public double movement(final int moveIdx)
-	{
-		// get base movement
-		double moveInFeet = getMovement(moveIdx).doubleValue();
-
-		// First get the MOVEADD bonus
-		moveInFeet +=
-				getTotalBonusTo("MOVEADD", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
-
-		// also check for special case of TYPE=ALL
-		moveInFeet += getTotalBonusTo("MOVEADD", "TYPE.ALL");
-
-		double calcMove = moveInFeet;
-
-		// now we apply any multipliers to the BASE move + MOVEADD move
-		// First we get possible multipliers/divisors from the MOVE:
-		// MOVEA: and MOVECLONE: tags
-		if (getMovementMult(moveIdx).doubleValue() > 0)
-		{
-			calcMove = calcMoveMult(moveInFeet, moveIdx);
-		}
-
-		// Now we get the BONUS:MOVEMULT multipliers
-		double moveMult =
-				getTotalBonusTo("MOVEMULT", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
-
-		// also check for special case of TYPE=ALL
-		moveMult += getTotalBonusTo("MOVEMULT", "TYPE.ALL");
-
-		if (moveMult > 0)
-		{
-			calcMove = (int) (calcMove * moveMult);
-		}
-
-		double postMove = calcMove;
-
-		// now add on any POSTMOVE bonuses
-		postMove +=
-				getTotalBonusTo("POSTMOVEADD", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
-
-		// also check for special case of TYPE=ALL
-		postMove += getTotalBonusTo("POSTMOVEADD", "TYPE.ALL");
-
-		// because POSTMOVE is magical movement which should not be
-		// multiplied by magical items, etc, we now see which is larger,
-		// (baseMove + postMove) or (baseMove * moveMultiplier)
-		// and keep the larger one, discarding the other
-		moveInFeet = Math.max(calcMove, postMove);
-
-		// get a list of all equipped Armor
-		Load armorLoad = Load.LIGHT;
-
-		for (Equipment armor : getEquipmentOfType("Armor", 1))
-		{
-			if (armor.isShield())
-			{
-				continue;
-			}
-			if (armor.isHeavy() && !ignoreEncumberedArmorMove(Load.HEAVY))
-			{
-				armorLoad = armorLoad.max(Load.HEAVY);
-			}
-			else if (armor.isMedium()
-				&& !ignoreEncumberedArmorMove(Load.MEDIUM))
-			{
-				armorLoad = armorLoad.max(Load.MEDIUM);
-			}
-		}
-
-		final double armorMove =
-				Globals.calcEncumberedMove(armorLoad, moveInFeet);
-
-		final Load pcLoad = getLoadType(totalWeight());
-		final double loadMove =
-				Globals.calcEncumberedMove(pcLoad, moveInFeet, this);
-
-		// It is possible to have a PC that is not encumbered by Armor
-		// But is encumbered by Weight carried (and visa-versa)
-		// So do two calcs and take the slowest
-		moveInFeet = Math.min(armorMove, loadMove);
-
-		return moveInFeet;
 	}
 
 	public double multiclassXPMultiplier()
@@ -8455,19 +8240,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return importing;
 	}
 
-	/**
-	 * @param moveIdx
-	 * @return the integer movement speed multiplier for Index
-	 */
-	private Double getMovementMult(final int moveIdx)
-	{
-		if ((movements != null) && (moveIdx < movementMult.length))
-		{
-			return movementMult[moveIdx];
-		}
-		return Double.valueOf(0);
-	}
-
 	public void giveClassesAway(final PCClass toClass, final PCClass fromClass,
 		int iCount)
 	{
@@ -8752,98 +8524,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return lvlMap;
-	}
-
-	/**
-	 * sets up the movement arrays creates them if they do not exist
-	 * 
-	 * @param moveType
-	 * @param anDouble
-	 * @param moveMult
-	 * @param multOp
-	 * @param moveFlag
-	 */
-	private void setMyMoveRates(final String moveType, final double anDouble,
-		final Double moveMult, final String multOp, final int moveFlag)
-	{
-		//
-		// NOTE: can not use getMovements() accessor as it calls
-		// this function, so use the variable: movements
-		//
-		Double moveRate;
-
-		// The ALL type can only be applied to existing movement
-		// so just loop and add or set as appropriate
-		if ("ALL".equals(moveType))
-		{
-			if (moveFlag == 0)
-			{ // set all types of movement to moveRate
-
-				for (int i = 0; i < movements.length; i++)
-				{
-					moveRate = new Double(anDouble);
-					movements[i] = moveRate;
-				}
-			}
-			else
-			{ // add moveRate to all types of movement.
-
-				for (int i = 0; i < movements.length; i++)
-				{
-					moveRate =
-							new Double(anDouble + movements[i].doubleValue());
-					movements[i] = moveRate;
-				}
-			}
-		}
-		else
-		{
-			if (moveFlag == 0)
-			{ // set movement to moveRate
-				moveRate = new Double(anDouble);
-
-				for (int i = 0; i < movements.length; i++)
-				{
-					if (moveType.equals(movementTypes[i]))
-					{
-						if (moveRate > movements[i])
-						{
-							movements[i] = moveRate;
-						}
-						if (multOp != null
-							&& (movementMultOp[i] == null || multOp.length() > 0))
-						{
-							movementMult[i] = moveMult;
-							movementMultOp[i] = multOp;
-						}
-
-						return;
-					}
-				}
-
-				increaseMoveArray(moveRate, moveType, moveMult, multOp);
-			}
-			else
-			{ // get base movement, then add moveRate
-				moveRate = new Double(anDouble + movements[0].doubleValue());
-
-				// for existing types of movement:
-				for (int i = 0; i < movements.length; i++)
-				{
-					if (moveType.equals(movementTypes[i]))
-					{
-						movements[i] = moveRate;
-						movementMult[i] = moveMult;
-						movementMultOp[i] = multOp;
-
-						return;
-					}
-				}
-
-				increaseMoveArray(moveRate, moveType, moveMult, multOp);
-			}
-		}
-		setDirty(true);
 	}
 
 	public int getNumAttacks()
@@ -9775,36 +9455,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return skill.qualifies(this, skill);
 		}
-	}
-
-	private void increaseMoveArray(final Double moveRate,
-		final String moveType, final Double moveMult, final String multOp)
-	{
-		// could not find an existing one so
-		// need to add new item to array
-		//
-		final Double[] tempMove = movements;
-		final String[] tempType = movementTypes;
-		final Double[] tempMult = movementMult;
-		final String[] tempMultOp = movementMultOp;
-
-		// now increase the size of the array by one
-		movements = new Double[tempMove.length + 1];
-		movementTypes = new String[tempMove.length + 1];
-		movementMult = new Double[tempMove.length + 1];
-		movementMultOp = new String[tempMove.length + 1];
-
-		System.arraycopy(tempMove, 0, movements, 0, tempMove.length);
-		System.arraycopy(tempType, 0, movementTypes, 0, tempMove.length);
-		System.arraycopy(tempMult, 0, movementMult, 0, tempMove.length);
-		System.arraycopy(tempMultOp, 0, movementMultOp, 0, tempMove.length);
-
-		// the size is larger, but arrays start at 0
-		// so an array length=3 would have 0, 1, 2 as the targets
-		movements[tempMove.length] = moveRate;
-		movementTypes[tempMove.length] = moveType;
-		movementMult[tempMove.length] = moveMult;
-		movementMultOp[tempMove.length] = multOp;
 	}
 
 	/**
@@ -13667,61 +13317,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return visionFacet.getVisionCount(id);
 	}
 
-	public double getLoadMultForSize()
-	{
-		SizeAdjustment sadj = getSizeAdjustment();
-		double mult = sadj.getLoadMultiplier();
-		mult += BonusCalc.bonusTo(sadj, "LOADMULT", "TYPE=SIZE", this, this);
-		return mult;
-	}
-
 	/*
 	 * Size is taken into account for the currentPC via getLoadMultForSize
 	 */
 	public Float getMaxLoad()
 	{
-		return getMaxLoad(new Float(1.0));
+		return loadFacet.getMaxLoad(id);
 	}
 
-	public Float getMaxLoad(Float mult)
+	public Float getMaxLoad(double mult)
 	{
-		int loadScore = getVariableValue("LOADSCORE", "").intValue();
-		final Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
-		String formula = SystemCollections.getLoadInfo().getLoadModifierFormula();
-		if (formula.length() != 0)
-		{
-			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"),
-			                             Double.toString(loadValue.doubleValue() * 
-			                                             mult.doubleValue() * 
-			                                             getLoadMultForSize()));
-			return (float) getVariableValue(formula, "").intValue();
-		}
-		return new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize());
+		return loadFacet.getMaxLoad(id, mult);
 	}
 
-	public Load getLoadType(Float weight)
+	public Load getLoadType()
 	{
-		double dbl = weight.doubleValue() / getMaxLoad().doubleValue();
-	
-		Float lightMult = SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT");
-		if (lightMult != null && dbl <= lightMult.doubleValue())
-		{
-			return Load.LIGHT;
-		}
-	
-		Float mediumMult = SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM");
-		if (mediumMult != null && dbl <= mediumMult.doubleValue())
-		{
-			return Load.MEDIUM;
-		}
-	
-		Float heavyMult = SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY");
-		if (heavyMult != null && dbl <= heavyMult.doubleValue())
-		{
-			return Load.HEAVY;
-		}
-	
-		return Load.OVERLOAD;
+		return loadFacet.getLoadType(id);
 	}
 
 	public void addArmorProf(CDOMObject owner, ProfProvider<ArmorProf> choice)
@@ -13746,49 +13357,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Double getMovementOfType(String moveType)
 	{
-		for (int x = 0; x < getNumberOfMovements(); ++x)
-		{
-			final String type = getMovementType(x);
-			if (moveType.equalsIgnoreCase(type))
-			{
-				return getMovement(x);
-			}
-		}
-		return Double.valueOf(0);
+		return moveResultFacet.getMovementOfType(id, moveType);
 	}
 
 	public int getBaseMovement(String moveType, Load load)
 	{
-		for (int i = 0; i < getNumberOfMovements(); i++)
-		{
-			if (getMovementType(i).equalsIgnoreCase(moveType))
-			{
-				return getMovement(i).intValue();
-			}
-		}
-		return 0;
+		return moveResultFacet.getBaseMovement(id, moveType, load);
 	}
 
 	public boolean hasMovement(String moveType)
 	{
-		for (int i = 0; i < getNumberOfMovements(); i++)
-		{
-			if (getMovementType(i).equalsIgnoreCase(moveType))
-			{
-				return true;
-			}
-		}
-		return false;
+		return moveResultFacet.hasMovement(id, moveType);
 	}
 
 	public List<NamedValue> getMovementValues()
 	{
-		List<NamedValue> list = new ArrayList<NamedValue>();
-		for (int i = 0; i < getNumberOfMovements(); i++)
-		{
-			list.add(new NamedValue(getMovementType(i), movement(i)));
-		}
-		return list;
+		return moveResultFacet.getMovementValues(id);
 	}
 
 	public boolean hasEquipSet()

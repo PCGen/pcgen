@@ -103,7 +103,7 @@ public class TotalToken extends Token
 	public static String getLoadToken(PlayerCharacter pc)
 	{
 		Load load =
-				pc.getLoadType(pc.totalWeight());
+				pc.getLoadType();
 
 		switch (load)
 		{
