@@ -140,7 +140,7 @@ class SourceBasePanel extends BasePanel
 		theCampaign.put(ObjectKey.IS_D20, isD20.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.SHOW_IN_MENU, showInMenu.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.IS_LICENSED, isLicensed.getSelectedObjects() != null);
-		setStringValue(StringKey.INFO_TEXT, infoText.getText());
+		theCampaign.removeListFor(ListKey.INFO_TEXT);
 		setStringValue(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
 		theCampaign.put(StringKey.DESTINATION, destination.getText().trim());
 		theCampaign.removeListFor(ListKey.LICENSE);
@@ -195,7 +195,7 @@ class SourceBasePanel extends BasePanel
 
 		theCampaign = (Campaign) thisPObject;
 		sourceModel.setLists(buildOptionsList(theCampaign), theCampaign.getSafeListFor(ListKey.LICENSE),
-		    theCampaign.getSafeListFor(ListKey.SECTION_15));
+				theCampaign.getSafeListFor(ListKey.INFO_TEXT), theCampaign.getSafeListFor(ListKey.SECTION_15));
 		rank.setValue(Integer.valueOf(theCampaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
 		game = StringUtil.join(theCampaign.getSafeListFor(ListKey.GAME_MODE), ", ");
 
@@ -227,7 +227,6 @@ class SourceBasePanel extends BasePanel
 		isD20.setSelected(theCampaign.getSafe(ObjectKey.IS_D20));
 		isLicensed.setSelected(theCampaign.getSafe(ObjectKey.IS_LICENSED));
 		showInMenu.setSelected(theCampaign.getSafe(ObjectKey.SHOW_IN_MENU));
-		infoText.setText(theCampaign.getSafe(StringKey.INFO_TEXT));
 		infoText.setCaretPosition(0); //Scroll to beginning of inserted text
 		bookType.setSelectedItem(theCampaign.getSafe(StringKey.BOOK_TYPE));
 		setting.setText(theCampaign.getSafe(StringKey.SETTING));
@@ -603,6 +602,7 @@ class SourceBasePanel extends BasePanel
 
 	final class SourceTableModel extends AbstractTableModel
 	{
+		List<String> infotextList = null;
 		List<String> copyrightList = null;
 		List<String> licenseList = null;
 		List<String> optionList = null;
@@ -650,7 +650,8 @@ class SourceBasePanel extends BasePanel
 			return licenseList;
 		}
 
-		public void setLists(List<String> optList, List<String> licList, List<String> copyList)
+		public void setLists(List<String> optList, List<String> licList, List<String> infoList, 
+				List<String> copyList)
 		{
 			optionList = (optList == null) ? new ArrayList<String>() : optList;
 			optionValues = new ArrayList<String>();
@@ -666,6 +667,7 @@ class SourceBasePanel extends BasePanel
 			}
 
 			licenseList = (licList == null) ? new ArrayList<String>() : licList;
+			infotextList = (infoList == null) ? new ArrayList<String>() : infoList;
 			copyrightList = (copyList == null) ? new ArrayList<String>() : copyList;
 		}
 

@@ -153,6 +153,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> RACEPANTHEON = new ListKey<String>();
 	/** SECTION 15 - a ListKey */
 	public static final ListKey<String> SECTION_15 = new ListKey<String>();
+	/** INFO_TEXT - a ListKey */
+	public static final ListKey<String> INFO_TEXT = new ListKey<String>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
 //	/** Key for a list of weapon proficiencies */

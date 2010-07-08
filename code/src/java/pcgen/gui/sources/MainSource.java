@@ -573,13 +573,19 @@ public class MainSource extends FilterAdapterPanel
 		}
 		
 		boolean infoDisplayed = false;
-		bString = aCamp.getSafe(StringKey.INFO_TEXT);
-
-		if (bString.length() > 0)
+		List<String> info = aCamp.getListFor(ListKey.INFO_TEXT);
+		if (info != null)
 		{
-			sb.append("<p><b>INFORMATION</b>:<br>")
-				.append(bString)
-				.append("</p>");
+			if (!infoDisplayed)
+			{
+				sb.append("<br>");
+			}
+
+			sb.append("<b>INFORMATION</b>:<br>");
+			for (String infotext : info)
+			{
+				sb.append(infotext).append("<br>");
+			}
 			infoDisplayed = true;
 		}
 

@@ -223,7 +223,12 @@ public final class GameModes extends JMenu
 
 					JRadioButtonMenuItem campaignMenuItem = new JRadioButtonMenuItem(aCamp.getDisplayName());
 					gameModeGroup.add(firstSubMenu.add(campaignMenuItem));
-					Utility.setDescription(campaignMenuItem, aCamp.getSafe(StringKey.INFO_TEXT));
+					String description = "";
+					for (String info : aCamp.getListFor(ListKey.INFO_TEXT))
+					{
+						description += info + "\n";
+					}
+					Utility.setDescription(campaignMenuItem, description);
 					campaigns.add(aCamp);
 					campaignMenuItems.add(campaignMenuItem);
 					campaignMenuItem.addActionListener(checkBoxHandler);

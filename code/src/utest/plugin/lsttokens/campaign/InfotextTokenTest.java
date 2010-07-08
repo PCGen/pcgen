@@ -17,14 +17,20 @@
  */
 package plugin.lsttokens.campaign;
 
-import pcgen.cdom.enumeration.StringKey;
+import java.util.List;
+
+import org.junit.Test;
+
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class InfotextTokenTest extends AbstractStringTokenTestCase<Campaign>
+public class InfotextTokenTest extends AbstractTokenTestCase<Campaign>
 {
 
 	static InfotextToken token = new InfotextToken();
@@ -49,15 +55,203 @@ public class InfotextTokenTest extends AbstractStringTokenTestCase<Campaign>
 		return token;
 	}
 
-	@Override
-	protected boolean isClearLegal()
+	public ListKey<?> getListKey()
 	{
-		return false;
+		return ListKey.INFO_TEXT;
+	}
+
+	@Test
+	public void dummyTest()
+	{
+		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+	}
+
+	@Test
+	public void testValidInputSimple() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Rheinhessen"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains("Rheinhessen"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputNonEnglish() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Nieder�sterreich"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputSpace() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Finger Lakes"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains("Finger Lakes"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputHyphen() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Languedoc-Roussillon"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains("Languedoc-Roussillon"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputY() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Yarra Valley"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains("Yarra Valley"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputList() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Nieder�sterreich"));
+			assertTrue(parse("Finger Lakes"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(2, coll.size());
+			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(coll.contains("Finger Lakes"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testValidInputMultList() throws PersistenceLayerException
+	{
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Nieder�sterreich"));
+			assertTrue(parse("Finger Lakes"));
+			assertTrue(parse("Languedoc-Roussillon"));
+			assertTrue(parse("Rheinhessen"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(4, coll.size());
+			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(coll.contains("Finger Lakes"));
+			assertTrue(coll.contains("Languedoc-Roussillon"));
+			assertTrue(coll.contains("Rheinhessen"));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+
+	@Test
+	public void testInvalidListEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertNull(primaryProf.getListFor(getListKey()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertNull(primaryProf.getListFor(getListKey()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinBase() throws PersistenceLayerException
+	{
+		runRoundRobin("Rheinhessen");
+	}
+
+	@Test
+	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	{
+		runRoundRobin("Finger Lakes");
+	}
+
+	@Test
+	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	{
+		runRoundRobin("Nieder�sterreich");
+	}
+
+	@Test
+	public void testRoundRobinHyphen() throws PersistenceLayerException
+	{
+		runRoundRobin("Languedoc-Roussillon");
+	}
+
+	@Test
+	public void testRoundRobinY() throws PersistenceLayerException
+	{
+		runRoundRobin("Yarra Valley");
+	}
+
+	@Test
+	public void testRoundRobinThree() throws PersistenceLayerException
+	{
+		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Yarra Valley");
+	}
+
+	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Rheinhessen");
 	}
 
 	@Override
-	public StringKey getStringKey()
+	protected String getAlternateLegalValue()
 	{
-		return StringKey.INFO_TEXT;
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }
