@@ -179,7 +179,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 			.get(1));
 		assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSafeListFor(ListKey.SECTION_15)
 			.get(2));
-		assertEquals("Checking info text 1", INFOTEXT, camp.getSafeListFor(ListKey.INFO_TEXT)
+		assertEquals("Checking info text", INFOTEXT, camp.getSafeListFor(ListKey.INFO_TEXT)
 			.get(0));
 		assertEquals("Checking pub name short", PUBNAMESHORT, camp.getSafe(StringKey.PUB_NAME_SHORT));
 		assertEquals("Checking pub name long", PUBNAMELONG, camp.getSafe(StringKey.PUB_NAME_LONG));
