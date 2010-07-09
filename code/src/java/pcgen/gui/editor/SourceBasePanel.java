@@ -89,7 +89,6 @@ class SourceBasePanel extends BasePanel
 	private JTextField destination;
 	private String game;
 	private JTextField genre;
-	private JTextField infoText;
 	private JTextField pubNameLong;
 	private JTextField pubNameShort;
 	private JTextField pubNameWeb;
@@ -160,6 +159,11 @@ class SourceBasePanel extends BasePanel
 			theCampaign.addToListFor(ListKey.LICENSE, ((String) i.next()));
 		}
 
+		for (Iterator i = sourceModel.getInfotextList().iterator(); i.hasNext();)
+		{
+			theCampaign.addToListFor(ListKey.INFO_TEXT, (String) i.next());
+		}
+
 		for (Iterator i = sourceModel.getCopyrightList().iterator(); i.hasNext();)
 		{
 			theCampaign.addToListFor(ListKey.SECTION_15, (String) i.next());
@@ -227,7 +231,6 @@ class SourceBasePanel extends BasePanel
 		isD20.setSelected(theCampaign.getSafe(ObjectKey.IS_D20));
 		isLicensed.setSelected(theCampaign.getSafe(ObjectKey.IS_LICENSED));
 		showInMenu.setSelected(theCampaign.getSafe(ObjectKey.SHOW_IN_MENU));
-		infoText.setCaretPosition(0); //Scroll to beginning of inserted text
 		bookType.setSelectedItem(theCampaign.getSafe(StringKey.BOOK_TYPE));
 		setting.setText(theCampaign.getSafe(StringKey.SETTING));
 		setting.setCaretPosition(0); //Scroll to beginning of inserted text
@@ -278,6 +281,11 @@ class SourceBasePanel extends BasePanel
 		return returnList;
 	}
 
+	private void addInfotext()
+	{
+		sourceModel.addInfotext();
+	}
+
 	private void addCopyright()
 	{
 		sourceModel.addCopyright();
@@ -312,10 +320,8 @@ class SourceBasePanel extends BasePanel
 		gmxcrawl = new JCheckBox("XCrawl");
 		gmsidewinder = new JCheckBox("Sidewinder");
 
-		infoText = new JTextField();
 		// SwingConstants.LEFT is equivalent to JTextField.LEFT but more
 		// 'correct' in a Java coding context (it is a static reference)
-		infoText.setHorizontalAlignment(SwingConstants.LEFT);
 		pubNameWeb = new JTextField();
 		pubNameWeb.setHorizontalAlignment(SwingConstants.LEFT);
 		pubNameShort = new JTextField();
@@ -450,10 +456,6 @@ class SourceBasePanel extends BasePanel
 	                                              , GridBagConstraints.CENTER,
 	                                              GridBagConstraints.NONE,
 	                                              new Insets(0, 0, 0, 0), 0, 0));
-	    aPanel.add(new JLabel("Info Text"), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0
-	                                             , GridBagConstraints.EAST,
-	                                             GridBagConstraints.NONE,
-	                                             new Insets(5, 5, 5, 2), 0, 0));
 	    aPanel.add(new JLabel("Game Mode"), new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0
 	                                             , GridBagConstraints.EAST,
 	                                             GridBagConstraints.NONE,
@@ -495,10 +497,6 @@ class SourceBasePanel extends BasePanel
 	                                              , GridBagConstraints.WEST,
 	                                              GridBagConstraints.HORIZONTAL,
 	                                              new Insets(5, 2, 5, 5), 0, 0));
-	    aPanel.add(infoText, new GridBagConstraints(1, 0, 8, 1, 1.0, 0.0
-	                                                 , GridBagConstraints.WEST,
-	                                                 GridBagConstraints.HORIZONTAL,
-	                                                 new Insets(5, 2, 5, 5), 0, 0));
 	    aPanel.add(pubNameWeb, new GridBagConstraints(1, 2, 2, 1, 0.8, 0.0
 	                                                 , GridBagConstraints.WEST,
 	                                                 GridBagConstraints.HORIZONTAL,
@@ -543,6 +541,7 @@ class SourceBasePanel extends BasePanel
 		aPanel = new JPanel();
 		final JComboBoxEx legalCombo = new JComboBoxEx();
 		legalCombo.addItem("COPYRIGHT");
+		legalCombo.addItem("INFOTEXT");
 		legalCombo.addItem("LICENSE");
 		legalCombo.addItem("OPTION");
 		legalCombo.setSelectedIndex(0);
@@ -559,10 +558,13 @@ class SourceBasePanel extends BasePanel
 						case 0 : //COPYRIGHT
 							addCopyright();
 							break;
-						case 1 : //LICENSE
+						case 1 : //INFOTEXT
+							addInfotext();
+							break;
+						case 2 : //LICENSE
 							addLicense();
 							break;
-						case 2 : //OPTION
+						case 3 : //OPTION
 							addOption();
 							break;
 					}
@@ -640,6 +642,11 @@ class SourceBasePanel extends BasePanel
 			return "Out Of Bounds";
 		}
 
+		public List<String> getInfotextList()
+		{
+			return infotextList;
+		}
+
 		public List<String> getCopyrightList()
 		{
 			return copyrightList;
@@ -650,7 +657,7 @@ class SourceBasePanel extends BasePanel
 			return licenseList;
 		}
 
-		public void setLists(List<String> optList, List<String> licList, List<String> infoList, 
+		public void setLists(List<String> optList, List<String> licList, List<String> infoList,
 				List<String> copyList)
 		{
 			optionList = (optList == null) ? new ArrayList<String>() : optList;
@@ -688,7 +695,7 @@ class SourceBasePanel extends BasePanel
 				return 0;
 			}
 
-			return optionList.size() + licenseList.size() + copyrightList.size();
+			return optionList.size() + licenseList.size() + infotextList.size() + copyrightList.size();
 		}
 
 		public void setValueAt(String aValue, int rowIndex, int columnIndex)
@@ -725,6 +732,15 @@ class SourceBasePanel extends BasePanel
 
 			rowIndex -= copyrightList.size();
 
+			if (rowIndex < infotextList.size())
+			{
+				infotextList.set(rowIndex, aValue);
+
+				return;
+			}
+
+			rowIndex -= infotextList.size();
+
 			if (rowIndex < licenseList.size())
 			{
 				licenseList.set(rowIndex, aValue);
@@ -749,6 +765,18 @@ class SourceBasePanel extends BasePanel
 
 			rowIndex -= optionList.size();
 
+			if (rowIndex < infotextList.size())
+			{
+				if (columnIndex == 0)
+				{
+					return "INFOTEXT:";
+				}
+
+				return infotextList.get(rowIndex);
+			}
+
+			rowIndex -= infotextList.size();
+
 			if (rowIndex < copyrightList.size())
 			{
 				if (columnIndex == 0)
@@ -772,6 +800,11 @@ class SourceBasePanel extends BasePanel
 			}
 
 			return "";
+		}
+
+		public void addInfotext()
+		{
+			infotextList.add("");
 		}
 
 		public void addCopyright()
@@ -806,6 +839,15 @@ class SourceBasePanel extends BasePanel
 			}
 
 			row -= optionList.size();
+
+			if (row < infotextList.size())
+			{
+				infotextList.remove(row);
+
+				return;
+			}
+
+			row -= infotextList.size();
 
 			if (row < copyrightList.size())
 			{
