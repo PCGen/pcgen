@@ -33,6 +33,6 @@ public class EditorLoadContext extends LoadContext
 	{
 		((EditorObjectContext) obj).purge(cdo);
 		((EditorListContext) list).purge(cdo);
-		ref.forget(cdo);
+		((EditorReferenceContext) ref).purge(cdo);
 	}
 }

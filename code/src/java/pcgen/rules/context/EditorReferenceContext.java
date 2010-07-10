@@ -105,4 +105,9 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 		return true;
 	}
 
+	public void purge(CDOMObject cdo)
+	{
+		super.forget(cdo);
+	}
+
 }
