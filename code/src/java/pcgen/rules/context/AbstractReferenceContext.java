@@ -64,6 +64,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	public abstract <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
+	public abstract <T extends CDOMObject> boolean hasManufacturer(Class<T> cl);
+
+	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
+			Class<T> cl, Category<T> cat);
+
 	/**
 	 * Retrieve the Reference manufacturer that handles this class and category. Note that 
 	 * even though abilities are categorized, the category may not be know initially, so 
@@ -263,12 +268,20 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		{
 			Class cl = obj.getClass();
 			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
-			return getManufacturer(cl, cdo.getCDOMCategory()).forgetObject(obj);
+			if (hasManufacturer(cl, cdo.getCDOMCategory()))
+			{
+				return getManufacturer(cl, cdo.getCDOMCategory()).forgetObject(obj);
+			}
 		}
 		else
 		{
-			return getManufacturer((Class<T>) obj.getClass()).forgetObject(obj);
+			if (hasManufacturer((Class<T>) obj.getClass()))
+			{
+				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
+						obj);
+			}
 		}
+		return false;
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> T
