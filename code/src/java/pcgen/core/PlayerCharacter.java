@@ -92,6 +92,7 @@ import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AddLevelFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoEquipmentListFacet;
@@ -337,6 +338,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
+	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -12841,8 +12843,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean isApplied(BonusObj bonus)
 	{
-		Boolean applied = getAssoc(bonus, AssociationKey.IS_APPLIED);
-		return applied != null && applied;
+		return appliedBonusFacet.contains(id, bonus);
 	}
 
 	public SpellSupportForPCClass getSpellSupport(PCClass cl)
@@ -12878,7 +12879,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void setApplied(BonusObj bonusObj, boolean bool)
 	{
-		setAssoc(bonusObj, AssociationKey.IS_APPLIED, bool);
+		if (bool)
+		{
+			appliedBonusFacet.add(id, bonusObj);
+		}
+		else
+		{
+			appliedBonusFacet.remove(id, bonusObj);
+		}
 	}
 
 	public boolean hasTemplates()
