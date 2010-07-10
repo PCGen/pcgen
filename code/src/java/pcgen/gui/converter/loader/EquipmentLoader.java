@@ -23,7 +23,9 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.Loader;
 import pcgen.gui.converter.TokenConverter;
@@ -33,19 +35,18 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 
-public class BasicLoader<T extends CDOMObject> implements Loader
+public class EquipmentLoader implements Loader
 {
 
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
-	private final Class<T> cdomClass;
+	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 	private final ListKey<CampaignSourceEntry> listkey;
 	private final EditorLoadContext context;
 
-	public BasicLoader(EditorLoadContext lc, Class<T> cl,
-			ListKey<CampaignSourceEntry> lk)
+	public EquipmentLoader(EditorLoadContext lc, 
+		ListKey<CampaignSourceEntry> lk)
 	{
 		context = lc;
-		cdomClass = cl;
 		listkey = lk;
 	}
 
@@ -69,13 +70,24 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 				continue;
 			}
 
-			T obj = context.ref.constructCDOMObject(cdomClass, line + "Test"
-					+ tok + " " + token);
+			Equipment obj =
+					context.ref.constructCDOMObject(EQUIPMENT_CLASS, line + "Test"
+						+ tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
 			List<CDOMObject> injected = processToken(sb, obj, token, decider);
 			if (injected != null)
 			{
 				list.addAll(injected);
+			}
+			EquipmentHead h1 = obj.getEquipmentHeadReference(1);
+			if (h1 != null)
+			{
+				context.purge(h1);
+			}
+			EquipmentHead h2 = obj.getEquipmentHeadReference(1);
+			if (h2 != null)
+			{
+				context.purge(h2);
 			}
 			context.purge(obj);
 			TokenConverter.clearConstants();
@@ -124,7 +136,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 
 	public String getLoadName()
 	{
-		return cdomClass.getSimpleName();
+		return EQUIPMENT_CLASS.getSimpleName();
 	}
 
 }

@@ -36,7 +36,6 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
-import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -55,6 +54,7 @@ import pcgen.core.spell.Spell;
 import pcgen.gui.converter.loader.BasicLoader;
 import pcgen.gui.converter.loader.ClassLoader;
 import pcgen.gui.converter.loader.CopyLoader;
+import pcgen.gui.converter.loader.EquipmentLoader;
 import pcgen.gui.converter.loader.SelfCopyLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -149,7 +149,7 @@ public class LSTConverter extends Observable
 				}
 				String relative = in.toString().substring(
 						base.toString().length() + 1);
-System.err.println(base + " " + relative);
+
 				File outFile = new File(outDir, File.separator + relative);
 				if (outFile.exists())
 				{
@@ -213,8 +213,7 @@ System.err.println(base + " " + relative);
 				ListKey.FILE_DEITY));
 		loaders.add(new BasicLoader<PCTemplate>(context, PCTemplate.class,
 				ListKey.FILE_TEMPLATE));
-		loaders.add(new BasicLoader<Equipment>(context, Equipment.class,
-				ListKey.FILE_EQUIP));
+		loaders.add(new EquipmentLoader(context, ListKey.FILE_EQUIP));
 		loaders.add(new BasicLoader<EquipmentModifier>(context,
 				EquipmentModifier.class, ListKey.FILE_EQUIP_MOD));
 		loaders.add(new BasicLoader<CompanionMod>(context, CompanionMod.class,
