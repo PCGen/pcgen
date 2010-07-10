@@ -92,17 +92,16 @@ public class GameModePanel extends ConvertSubPanel
 		{
 			fireProgressEvent(ProgressEvent.ALLOWED);
 		}
+		else
+		{
+			fireProgressEvent(ProgressEvent.NOT_ALLOWED);
+		}
 		return advance;
 	}
 
 	private void getSelection(CDOMObject pc)
 	{
-		String gameModeKey = (String) gameModeCombo.getSelectedItem();
-		if (gameModeKey != null)
-		{
-			GameMode gamemode = SystemCollections.getGameModeWithDisplayName(gameModeKey);
-			pc.put(ObjectKey.GAME_MODE, gamemode);
-		}
+		pc.put(ObjectKey.GAME_MODE, (GameMode) gameModeCombo.getSelectedItem());
 	}
 
 	@Override
@@ -118,12 +117,7 @@ public class GameModePanel extends ConvertSubPanel
 			SpringLayout.WEST, panel);
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
-		String gameModeNames[] = new String[games.size()];
-		for (int i = 0; i < gameModeNames.length; i++)
-		{
-			gameModeNames[i] = games.get(i).getDisplayName();
-		}
-		gameModeCombo = new JComboBoxEx(gameModeNames);
+		gameModeCombo = new JComboBoxEx(games.toArray());
 		gameModeCombo.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -138,6 +132,8 @@ public class GameModePanel extends ConvertSubPanel
 			currGame = pc.get(ObjectKey.GAME_MODE);
 		}
 		gameModeCombo.setSelectedItem(currGame.getDisplayName());
+		getSelection(pc);
+		saveGameMode(pc);
 
 		panel.add(gameModeCombo);
 		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,
