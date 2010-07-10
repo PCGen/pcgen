@@ -122,7 +122,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 	private void addSkillAllowed(LoadContext context, Skill skill,
 			CDOMReference<ClassSkillList> ref)
 	{
-		context.obj.addToList(skill, ListKey.CLASSES, ref);
+		context.list.addToMasterList(getTokenName(), skill, ref, skill);
 	}
 
 	private void addSkillNotAllowed(LoadContext context, Skill skill,
@@ -133,8 +133,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Changes<CDOMReference<ClassSkillList>> masterChanges = context.obj
-				.getListChanges(skill, ListKey.CLASSES);
+		Changes<CDOMReference> masterChanges = context.getListContext()
+				.getMasterListChanges(getTokenName(), skill, SKILLLIST_CLASS);
 		Changes<CDOMReference<ClassSkillList>> removedChanges = context.obj
 				.getListChanges(skill, ListKey.PREVENTED_CLASSES);
 		if (masterChanges.includesGlobalClear()
@@ -151,12 +151,11 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 					+ " does not support .CLEAR.");
 			return null;
 		}
-		Collection<CDOMReference<ClassSkillList>> added = masterChanges
-				.getAdded();
+		Collection<CDOMReference> added = masterChanges.getAdded();
 		Collection<CDOMReference<ClassSkillList>> prevented = removedChanges
 				.getAdded();
 		StringBuilder sb = new StringBuilder();
-		if (added == null || added.isEmpty())
+		if (added.isEmpty())
 		{
 			if (prevented == null || prevented.isEmpty())
 			{

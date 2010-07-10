@@ -26,6 +26,7 @@ import java.util.List;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -36,6 +37,7 @@ import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
@@ -166,18 +168,27 @@ public final class SkillCostCalc
 				}
 			}
 		}
-		List<CDOMReference<ClassSkillList>> classes = sk
-				.getListFor(ListKey.CLASSES);
-		if (classes != null)
+		
+		List<ClassSkillList> skillLists = ClassSkillApplication
+				.getClassSkillList(aPC, aClass);
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference<ClassSkillList> ref : masterLists.getActiveLists())
 		{
-			for (CDOMReference<ClassSkillList> ref : classes)
+			boolean found = false;
+			for (ClassSkillList csl : skillLists)
 			{
-				for (ClassSkillList csl : ClassSkillApplication.getClassSkillList(aPC, aClass))
+				if (ref.contains(csl))
 				{
-					if (ref.contains(csl))
-					{
-						return true;
-					}
+					found = true;
+					break;
+				}
+			}
+			if (found)
+			{
+				Collection<AssociatedPrereqObject> assoc = masterLists.getAssociations(ref, sk);
+				if (assoc != null && !assoc.isEmpty())
+				{
+					return true;
 				}
 			}
 		}

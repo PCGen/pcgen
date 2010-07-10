@@ -39,11 +39,8 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.list.ClassSkillList;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
@@ -59,6 +56,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -137,13 +135,12 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		character.incrementClassLevel(5, myClass, true);
 
-		ClassSkillList csl = new ClassSkillList();
-		csl.put(StringKey.NAME, "MyClass");
+		LoadContext context = Globals.getContext();
 
 		// Skills
 		knowledge = new Skill[2];
 		knowledge[0] = new Skill();
-		knowledge[0].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(knowledge[0], "CLASSES", "MyClass");
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
@@ -153,7 +150,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
-		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
@@ -163,7 +160,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
-		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dex);
@@ -173,7 +170,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
-		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dex);
@@ -202,6 +199,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		armor = new Equipment();
 		armor.setName("TestArmorSuit");
 		TestHelper.addType(armor, "armor.suit");
+
+		context.ref.buildDerivedObjects();
+		context.resolveReferences();
 	}
 
 	/**

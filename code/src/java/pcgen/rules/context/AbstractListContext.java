@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
@@ -41,6 +42,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Globals;
 
 public abstract class AbstractListContext
@@ -449,7 +451,8 @@ public abstract class AbstractListContext
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
 			OwnerURI lo = new OwnerURI(extractURI, owner);
-			ArrayList<CDOMReference> list = new ArrayList<CDOMReference>();
+			TreeSet<CDOMReference> list = new TreeSet(
+					ReferenceUtilities.REFERENCE_SORTER);
 			Set<CDOMReference<? extends CDOMList<?>>> set = positiveMasterMap
 					.getKeySet();
 			if (set != null)

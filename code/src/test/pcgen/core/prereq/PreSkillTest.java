@@ -33,9 +33,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -43,6 +41,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 public class PreSkillTest extends AbstractCharacterTestCase
@@ -80,63 +79,64 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		final PCClass myClass = new PCClass();
 		myClass.setName("My Class");
 
-		ClassSkillList csl = new ClassSkillList();
-		csl.put(StringKey.NAME, "MyClass");
+		LoadContext context = Globals.getContext();
 		
 		knowledge = new Skill();
-		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(knowledge, "CLASSES", "MyClass");
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
-		Globals.getContext().ref.importObject(knowledge);
+		context.ref.importObject(knowledge);
 		character.addSkill(knowledge);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge);
 
 		tumble = new Skill();
-		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		Globals.getContext().ref.importObject(tumble);
+		context.ref.importObject(tumble);
 		character.addSkill(tumble);
 		SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
 
 		balance = new Skill();
-		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		Globals.getContext().ref.importObject(balance);
+		context.ref.importObject(balance);
 		character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 		
 		target = new Skill();
-		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(target, "CLASSES", "MyClass");
 		target.setName("Target");
 		target.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		Globals.getContext().ref.importObject(target);
+		context.ref.importObject(target);
 		
 		target2 = new Skill();
-		target2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(target2, "CLASSES", "MyClass");
 		target2.setName("Target2");
 		target2.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		Globals.getContext().ref.importObject(target2);
+		context.ref.importObject(target2);
 
 		fake = new Skill();
-		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(fake, "CLASSES", "MyClass");
 		fake.setName("Fake");
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("WIS"));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
-		Globals.getContext().ref.importObject(fake);
+		context.ref.importObject(fake);
 		character.addSkill(fake);
 		SkillRankControl.modRanks(6.0, myClass, true, character, fake);
 		
 		fake2 = new Skill();
-		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(fake2, "CLASSES", "MyClass");
 		fake2.setName("Fake 2");
 		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
-		Globals.getContext().ref.importObject(fake2);
+		context.ref.importObject(fake2);
 		character.addSkill(fake2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 		
+		context.ref.buildDerivedObjects();
+		context.resolveReferences();
 	}
 
 	/* (non-Javadoc)

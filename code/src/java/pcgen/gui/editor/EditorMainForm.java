@@ -111,6 +111,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -846,7 +847,9 @@ public final class EditorMainForm extends JDialog
 					}
 				}
 
-				((Skill) thisPObject).removeListFor(ListKey.CLASSES);
+				Globals.getContext().getListContext().clearAllMasterLists(
+					"CLASSES", thisPObject);
+				context.commit();
 				((Skill) thisPObject).removeListFor(ListKey.PREVENTED_CLASSES);
 				sel = pnlClasses.getSelectedList2();
 
@@ -859,15 +862,9 @@ public final class EditorMainForm extends JDialog
 						CDOMDirectSingleRef.getRef(cl));
 				}
 
-				sel = pnlClasses.getSelectedList();
-
-				for (int i = 0; i < sel.length; ++i)
+				for (Object o : pnlClasses.getSelectedList())
 				{
-					ClassSkillList cl = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(ClassSkillList.class,
-								sel[i].toString());
-					((Skill) thisPObject).addToListFor(ListKey.CLASSES,
-							CDOMDirectSingleRef.getRef(cl));
+					context.unconditionallyProcess(thisPObject, "CLASSES", o.toString());
 				}
 
 				break;
@@ -1782,11 +1779,13 @@ public final class EditorMainForm extends JDialog
 					availableSkillList.add(aClass.getKeyName());
 				}
 
-				Collection<CDOMReference<ClassSkillList>> added = ((Skill) thisPObject)
-					.getListFor(ListKey.CLASSES);
-				if (added != null)
+				Changes<CDOMReference> masterChanges = Globals.getContext().getListContext()
+					.getMasterListChanges("CLASSES", thisPObject,
+							ClassSkillList.class);
+				Collection<CDOMReference> add = masterChanges.getAdded();
+				if (add != null)
 				{
-					for (CDOMReference<ClassSkillList> ref : added)
+					for (CDOMReference<ClassSkillList> ref : add)
 					{
 						String className = ref.getLSTformat();
 						selectedSkillList.add(className);

@@ -32,7 +32,6 @@ import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 import plugin.pretokens.parser.PreClassParser;
 
 public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
@@ -266,12 +265,19 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	@Override
 	protected String getLegalValue()
 	{
-		return "Wizard|Bard";
+		return "Bard|Wizard";
 	}
 
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new AppendingConsolidation('|');
+		return new ConsolidationRule()
+		{
+
+			public String[] getAnswer(String... strings)
+			{
+				return new String[]{"Bard|Sorcerer|Wizard"};
+			}
+		};
 	}
 }

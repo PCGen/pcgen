@@ -37,4 +37,19 @@ public final class Skill extends PObject
 		PCStat keyStat = get(ObjectKey.KEY_STAT);
 		return keyStat == null ? "" : keyStat.getAbb();
 	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+		return obj instanceof Skill
+				&& getKeyName().equals(((Skill) obj).getKeyName())
+				&& isCDOMEqual(((Skill) obj));
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getKeyName().hashCode();
+	}
+
 }

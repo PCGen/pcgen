@@ -53,7 +53,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSimpleSingleRef;
@@ -613,24 +612,24 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Skill guiSkill = new Skill();
 		Skill outputSkill = new Skill();
 		Skill defaultSkill = new Skill();
-		ClassSkillList csl = new ClassSkillList();
-		csl.put(StringKey.NAME, "MyClass");
 
-		guiSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		LoadContext context = Globals.getContext();
+
+		context.unconditionallyProcess(guiSkill, "CLASSES", "MyClass");
 		guiSkill.setName("GUI");
 		guiSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		guiSkill.put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, guiSkill);
 		pc.addSkill(guiSkill);
 
-		outputSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(outputSkill, "CLASSES", "MyClass");
 		outputSkill.setName("Output");
 		outputSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		outputSkill.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, outputSkill);
 		pc.addSkill(outputSkill);
 
-		defaultSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		context.unconditionallyProcess(defaultSkill, "CLASSES", "MyClass");
 		defaultSkill.setName("Default");
 		defaultSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		defaultSkill.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);

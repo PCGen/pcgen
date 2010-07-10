@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.MapToList;
@@ -35,6 +36,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 
 public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		MasterListInterface
@@ -90,7 +92,8 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 	public Changes<CDOMReference> getMasterListChanges(String tokenName,
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
-		ArrayList<CDOMReference> list = new ArrayList<CDOMReference>();
+		TreeSet<CDOMReference> set = new TreeSet(
+				ReferenceUtilities.REFERENCE_SORTER);
 		LIST: for (CDOMReference<? extends CDOMList<?>> ref : masterList
 			.getKeySet())
 		{
@@ -108,13 +111,13 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 						&& tokenName.equals(assoc
 							.getAssociation(AssociationKey.TOKEN)))
 					{
-						list.add(ref);
+						set.add(ref);
 						continue LIST;
 					}
 				}
 			}
 		}
-		return new CollectionChanges<CDOMReference>(list, null, false);
+		return new CollectionChanges<CDOMReference>(set, null, false);
 	}
 
 	public void clearAllMasterLists(String tokenName, CDOMObject owner)
