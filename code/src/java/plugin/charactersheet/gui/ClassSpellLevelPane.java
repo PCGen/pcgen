@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -422,9 +421,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			}
 			else
 			{
-				spellList =
-						pc.getSafeAssocList(pc.getRace(),
-							AssociationListKey.CHARACTER_SPELLS);
+				spellList = pc.getCharacterSpells(pc.getRace());
 				spellBook = Globals.INNATE_SPELL_BOOK_NAME;
 			}
 

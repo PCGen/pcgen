@@ -26,11 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.PObject;
-import pcgen.core.Globals;
 
 public class PCCountSpellsKnownTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -55,7 +54,7 @@ public class PCCountSpellsKnownTermEvaluator
 			{
 				for (PObject pcClass : pc.getClassSet())
 				{
-					count += pc.getAssocCount(pcClass, AssociationListKey.CHARACTER_SPELLS);
+					count += pc.getCharacterSpellCount(pcClass);
 				}
 			}
 			else

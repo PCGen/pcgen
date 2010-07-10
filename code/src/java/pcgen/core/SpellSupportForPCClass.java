@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +33,6 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -587,8 +587,8 @@ public class SpellSupportForPCClass
 			// we might wind up using THIS level's slots for them.
 			for (int ix = 0; ix <= spellLevel; ++ix)
 			{
-				final List<CharacterSpell> aList = aPC.getCharacterSpells(
-						source, null, Constants.EMPTY_STRING, ix);
+				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
+						source, ix);
 				List<Spell> bList = new ArrayList<Spell>();
 
 				if (!aList.isEmpty())
@@ -747,11 +747,7 @@ public class SpellSupportForPCClass
 								cs = new CharacterSpell(source, spell);
 								cs.addInfo(spellLevel, 1, Globals
 										.getDefaultSpellBook());
-								aPC
-										.addAssoc(
-												source,
-												AssociationListKey.CHARACTER_SPELLS,
-												cs);
+								aPC.addCharacterSpell(source, cs);
 							}
 							else
 							{
@@ -869,15 +865,14 @@ public class SpellSupportForPCClass
 			return;
 		}
 
-		if (!aPC.hasAssocs(source, AssociationListKey.CHARACTER_SPELLS))
+		if (!aPC.hasCharacterSpells(source))
 		{
 			return;
 		}
 
 		List<? extends CDOMList<Spell>> lists = source.getSpellLists(aPC);
 
-		for (Iterator<CharacterSpell> iter = aPC.getSafeAssocList(source,
-				AssociationListKey.CHARACTER_SPELLS).iterator(); iter.hasNext();)
+		for (Iterator<CharacterSpell> iter = aPC.getCharacterSpells(source).iterator(); iter.hasNext();)
 		{
 			final CharacterSpell charSpell = iter.next();
 

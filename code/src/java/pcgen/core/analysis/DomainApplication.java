@@ -28,7 +28,6 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -120,7 +119,7 @@ public class DomainApplication
 						int resolvedTimes = times.resolve(pc,
 								d.getQualifiedKey()).intValue();
 						cs.addInfo(1, resolvedTimes, book);
-						pc.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
+						pc.addCharacterSpell(aClass, cs);
 					}
 				}
 			}
@@ -174,7 +173,7 @@ public class DomainApplication
 				{
 					CharacterSpell cs = new CharacterSpell(d, spell);
 					cs.addInfo(aLevel, 1, Globals.getDefaultSpellBook());
-					pc.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
+					pc.addCharacterSpell(aClass, cs);
 				}
 			}
 		}

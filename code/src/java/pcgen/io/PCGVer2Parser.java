@@ -4223,8 +4223,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				aCharacterSpell = new CharacterSpell(source, aSpell);
 				aCharacterSpell.addInfo(level, times, spellBook);
-				thePC.addAssoc(aPCClass, AssociationListKey.CHARACTER_SPELLS,
-					aCharacterSpell);
+				thePC.addCharacterSpell(aPCClass, aCharacterSpell);
 			}
 
 			SpellInfo aSpellInfo = null;

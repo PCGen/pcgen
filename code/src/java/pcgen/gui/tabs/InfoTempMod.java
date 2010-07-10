@@ -43,6 +43,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -2483,7 +2484,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 				
 				// Do all the pc's innate spells.
-				final List<CharacterSpell> innateSpells= pc.getCharacterSpells(pc.getRace(),null, Globals.INNATE_SPELL_BOOK_NAME, -1);
+				Collection<CharacterSpell> innateSpells= pc.getCharacterSpells(pc.getRace(), Globals.INNATE_SPELL_BOOK_NAME);
 				for (CharacterSpell aCharacterSpell : innateSpells) {
 					if (aCharacterSpell == null)
 					{

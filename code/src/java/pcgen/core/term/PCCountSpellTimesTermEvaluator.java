@@ -26,15 +26,15 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.PObject;
 import pcgen.core.Globals;
-import pcgen.core.character.SpellInfo;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellInfo;
 
 public class PCCountSpellTimesTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -73,11 +73,8 @@ public class PCCountSpellTimesTermEvaluator
 
 				for (PObject cl : pc.getClassSet())
 				{
-					final List<CharacterSpell> bookList =
-							pc
-									.getCharacterSpells(cl, null, bookName, -1);
-
-					for (CharacterSpell cs : bookList)
+					for (CharacterSpell cs : pc
+							.getCharacterSpells(cl, bookName))
 					{
 						if (!csList.contains(cs))
 						{

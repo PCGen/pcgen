@@ -166,7 +166,6 @@ import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.TotalWeightFacet;
 import pcgen.cdom.facet.UnarmedDamageFacet;
-import pcgen.cdom.facet.UnencumberedArmorFacet;
 import pcgen.cdom.facet.UnencumberedLoadFacet;
 import pcgen.cdom.facet.UnlockedStatFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
@@ -333,7 +332,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
 	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
-	private UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
@@ -4747,7 +4745,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// remove current race attributes
 		if (!raceIsNull)
 		{
-			removeAllAssocs(oldRace, AssociationListKey.CHARACTER_SPELLS);
+			removeAllCharacterSpells(oldRace);
 			removeNaturalWeapons(oldRace);
 			removeTemplatesFrom(oldRace);
 			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
@@ -5043,7 +5041,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		removeAllAssocs(race, AssociationListKey.CHARACTER_SPELLS);
+		removeAllCharacterSpells(race);
 		addSpells(race);
 
 		Deity deity = deityFacet.get(id);
@@ -6157,17 +6155,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			if (isEmpty
-				&& !containsAssoc(aClass, AssociationListKey.CHARACTER_SPELLS,
-					acs))
+			if (isEmpty && !containsCharacterSpell(aClass, acs))
 			{
-				addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
+				addCharacterSpell(aClass, acs);
 			}
 			else if (isEmpty)
 			{
 				// Make sure that we are working on the same spell object, not just the same spell
-				for (CharacterSpell characterSpell : getSafeAssocList(aClass,
-					AssociationListKey.CHARACTER_SPELLS))
+				for (CharacterSpell characterSpell : getCharacterSpells(aClass))
 				{
 					if (characterSpell.equals(acs))
 					{
@@ -6391,10 +6386,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (int a = minLevel; a <= maxLevel; a++)
 			{
-				final List<CharacterSpell> aList =
-						getCharacterSpells(pObj, null, "", a);
-
-				for (CharacterSpell cs : aList)
+				for (CharacterSpell cs : getCharacterSpells(pObj, a))
 				{
 					final Spell aSpell = cs.getSpell();
 					SpellSchool ss =
@@ -6924,7 +6916,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// is no longer present in any book
 		if (acs.getInfoList().isEmpty())
 		{
-			removeAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
+			removeCharacterSpell(aClass, acs);
 		}
 
 		return "";
@@ -7073,12 +7065,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCClass pcClass : getClassSet())
 		{
-			final List<CharacterSpell> aList =
-					getCharacterSpells(pcClass, null, aName, -1);
-
-			for (int j = aList.size() - 1; j >= 0; --j)
+			for (CharacterSpell cs : getCharacterSpells(pcClass, aName))
 			{
-				final CharacterSpell cs = aList.get(j);
 				cs.removeSpellInfo(cs.getSpellInfoFor(this, aName, -1,
 					-1));
 			}
@@ -7371,19 +7359,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return total;
-	}
-
-	/**
-	 * Check to see if this PC should ignore Encumbrance for a specified armor
-	 * (Constants.HEAVY_LOAD, etc) If the check is more than the testing type,
-	 * return true
-	 * 
-	 * @param armor
-	 * @return true or false
-	 */
-	private boolean ignoreEncumberedArmorMove(final Load armor)
-	{
-		return unencumberedArmorFacet.ignoreLoad(id, armor);
 	}
 
 	/**
@@ -8649,7 +8624,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					addSpellBook(new SpellBook(book,
 						SpellBook.TYPE_INNATE_SPELLS));
-					addAssoc(race, AssociationListKey.CHARACTER_SPELLS, cs);
+					addCharacterSpell(race, cs);
 				}
 			}
 		}
@@ -9406,8 +9381,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final ArrayList<PObject> aList = new ArrayList<PObject>();
 
 		Race race = getRace();
-		if (!getCharacterSpells(race, null, Constants.EMPTY_STRING, -1)
-			.isEmpty())
+		if (!getCharacterSpells(race).isEmpty())
 		{
 			aList.add(race);
 		}
@@ -12537,12 +12511,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell)
 	{
-		List<CharacterSpell> cspells =
-				getAssocList(po, AssociationListKey.CHARACTER_SPELLS);
-		if (cspells == null)
-		{
-			cspells = new ArrayList<CharacterSpell>();
-		}
+		List<CharacterSpell> cspells = new ArrayList<CharacterSpell>(
+				getCharacterSpells(po));
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, po, cspells);
 
@@ -12569,57 +12539,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public final List<CharacterSpell> getCharacterSpells(PObject spellSource,
 		final Spell aSpell, final String book, final int level)
 	{
-		List<CharacterSpell> csList =
-				getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
-		if (csList == null)
-		{
-			csList = new ArrayList<CharacterSpell>();
-		}
+		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
+				getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
-
-		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
-		if (csList.size() == 0)
-		{
-			return aList;
-		}
-
-		for (CharacterSpell cs : csList)
-		{
-			if ((aSpell == null) || cs.getSpell().equals(aSpell))
-			{
-				final SpellInfo si =
-						cs.getSpellInfoFor(this, book, level, -1, null);
-
-				if (si != null)
-				{
-					aList.add(cs);
-				}
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * Get a list of CharacterSpells from the character spell list
-	 * @param fList
-	 * @param spellSource TODO
-	 * @param aSpell
-	 * @param book
-	 * @param level
-	 * @return list of CharacterSpells from the character spell list
-	 */
-	public final List<CharacterSpell> getCharacterSpellsNoBonus(
-		PObject spellSource, final Spell aSpell, final String book,
-		final int level)
-	{
-		List<CharacterSpell> csList =
-				getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
-		if (csList == null)
-		{
-			csList = new ArrayList<CharacterSpell>();
-		}
 
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList.size() == 0)
@@ -13449,4 +13372,80 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		prohibitedSchoolFacet.removeAll(id, source);
 	}
+
+	public boolean hasCharacterSpells(CDOMObject cdo)
+	{
+		return hasAssocs(cdo, AssociationListKey.CHARACTER_SPELLS);
+	}
+
+	public Collection<CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	{
+		return getSafeAssocList(cdo, AssociationListKey.CHARACTER_SPELLS);
+	}
+
+	public Collection<CharacterSpell> getCharacterSpells(PObject spellSource,
+			int level)
+	{
+		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
+				getCharacterSpells(spellSource));
+		// Add in the spells granted by objects
+		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+
+		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		for (CharacterSpell cs : csList)
+		{
+			if (cs.hasSpellInfoFor(level))
+			{
+				aList.add(cs);
+			}
+		}
+
+		return aList;
+	}
+
+	public Collection<CharacterSpell> getCharacterSpells(PObject spellSource,
+			String bookName)
+	{
+		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
+				getCharacterSpells(spellSource));
+		// Add in the spells granted by objects
+		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+
+		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		for (CharacterSpell cs : csList)
+		{
+			if (cs.hasSpellInfoFor(bookName))
+			{
+				aList.add(cs);
+			}
+		}
+
+		return aList;
+	}
+
+	public int getCharacterSpellCount(CDOMObject cdo)
+	{
+		return getAssocCount(cdo, AssociationListKey.CHARACTER_SPELLS);
+	}
+
+	public void addCharacterSpell(CDOMObject cdo, CharacterSpell cs)
+	{
+		addAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+	}
+
+	public void removeCharacterSpell(CDOMObject cdo, CharacterSpell cs)
+	{
+		removeAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+	}
+
+	public boolean containsCharacterSpell(CDOMObject cdo, CharacterSpell cs)
+	{
+		return containsAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+	}
+
+	private void removeAllCharacterSpells(CDOMObject cdo)
+	{
+		removeAllAssocs(cdo, AssociationListKey.CHARACTER_SPELLS);
+	}
+
 }

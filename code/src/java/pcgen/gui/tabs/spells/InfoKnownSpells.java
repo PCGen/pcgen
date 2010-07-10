@@ -61,7 +61,6 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -1014,7 +1013,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				cs.removeSpellInfo(si);
 			}
 		}
-		pc.removeAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
+		pc.removeCharacterSpell(aClass, cs);
 	}
 
 	/**

@@ -212,6 +212,42 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		return null;
 	}
 
+	public boolean hasSpellInfoFor(int level)
+	{
+		if (infoList.isEmpty())
+		{
+			return false;
+		}
+
+		for (SpellInfo s : infoList)
+		{
+			if (s.getActualLevel() == level)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public boolean hasSpellInfoFor(String bookName)
+	{
+		if (infoList.isEmpty())
+		{
+			return false;
+		}
+
+		for (SpellInfo s : infoList)
+		{
+			if (bookName.equals(s.getBook()))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	/**
 	 * Add Spell info
 	 * @param level

@@ -28,7 +28,6 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -147,8 +146,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		CharacterSpell aCharacterSpell =
 				new CharacterSpell(ac, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
-		character.addAssoc(ac, AssociationListKey.CHARACTER_SPELLS,
-			aCharacterSpell);
+		character.addCharacterSpell(ac, aCharacterSpell);
 		character.addSpellBook(spellBook);
 		List<CharacterSpell> spellList =
 				character.getCharacterSpells(ac, testSpell, "", 1);
@@ -183,8 +181,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		CharacterSpell aCharacterSpell =
 				new CharacterSpell(dc, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
-		character.addAssoc(dc, AssociationListKey.CHARACTER_SPELLS,
-			aCharacterSpell);
+		character.addCharacterSpell(dc, aCharacterSpell);
 		character.addSpellBook(spellBook);
 		List<CharacterSpell> spellList =
 				character.getCharacterSpells(dc, testSpell, "", 1);

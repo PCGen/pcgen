@@ -24,6 +24,7 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -325,9 +326,8 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			{
 				final PCClass aClass = classes.get(j);
 
-				final List<CharacterSpell> aList = aPC.getCharacterSpells(
-						aClass,
-						null, Globals.getDefaultSpellBook(), -1);
+				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
+						aClass, Globals.getDefaultSpellBook());
 
 				for ( CharacterSpell cs : aList )
 				{

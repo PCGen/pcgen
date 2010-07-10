@@ -31,7 +31,6 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -677,27 +676,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 					bookNodes[ix].setItem(bookName);
 				}
 				bookNodes[ix].setParent(theRoot);
-				List<CharacterSpell> spells =
-						pc.getCharacterSpells(pc.getRace(), null, bookName, -1);
-				for (Object obj : spells)
+				for (CharacterSpell charSpell : pc.getCharacterSpells(pc.getRace(), bookName))
 				{
-					if (obj instanceof Spell)
+					if (spellTab.shouldDisplayThis(charSpell.getSpell()))
 					{
-						Spell spell = (Spell) obj;
-						if (spellTab.shouldDisplayThis(spell))
-						{
-							spellList.add(spell);
-						}
+						spellList.add(charSpell);
 					}
-					else if (obj instanceof CharacterSpell)
-					{
-						CharacterSpell charSpell = (CharacterSpell) obj;
-						if (spellTab.shouldDisplayThis(charSpell.getSpell()))
-						{
-							spellList.add(charSpell);
-						}
-					}
-
 				}
 				ix++;
 			}
@@ -805,12 +789,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								}
 								else if (cs.getOwner() instanceof Domain)
 								{
-									primaryMatch =
-											pc
-												.containsAssoc(
-													aClass,
-													AssociationListKey.CHARACTER_SPELLS,
-													cs);
+									primaryMatch = pc.containsCharacterSpell(
+										aClass, cs);
 								}
 								else
 								{
@@ -1157,9 +1137,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				 */
 				else
 				{
-					Collection<CharacterSpell> cSpells =
-							pc.getSafeAssocList(aClass,
-								AssociationListKey.CHARACTER_SPELLS);
+					Collection<CharacterSpell> cSpells = pc.getCharacterSpells(aClass);
 					// Add in the spells granted by objects
 					SpellLevel.addBonusKnowSpellsToList(pc, aClass, cSpells);
 					

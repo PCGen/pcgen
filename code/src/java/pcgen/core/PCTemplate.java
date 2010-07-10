@@ -28,7 +28,6 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
