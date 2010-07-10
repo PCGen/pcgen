@@ -166,4 +166,17 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return obj;
 	}
 
+	@Override
+	public <T extends CDOMObject> boolean hasManufacturer(Class<T> cl)
+	{
+		return map.containsKey(cl);
+	}
+
+	@Override
+	protected <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		return catmap.containsKey(cl, cat);
+	}
+
 }

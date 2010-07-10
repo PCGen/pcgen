@@ -115,4 +115,17 @@ public class GameReferenceContext extends AbstractReferenceContext
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot mod objects");
 	}
+
+	@Override
+	public <T extends CDOMObject> boolean hasManufacturer(Class<T> cl)
+	{
+		return false;
+	}
+
+	@Override
+	protected <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		return false;
+	}
 }
