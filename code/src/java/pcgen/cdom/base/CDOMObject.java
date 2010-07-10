@@ -686,11 +686,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
 		if (pc != null)
 		{
-			List<BonusObj> listToo = pc.getAddedBonusList(this);
-			if (listToo != null)
-			{
-				bonusList.addAll(listToo);
-			}
+			bonusList.addAll(pc.getAddedBonusList(this));
 		}
 		return bonusList;
 	}

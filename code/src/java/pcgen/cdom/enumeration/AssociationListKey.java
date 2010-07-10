@@ -91,8 +91,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<Skill> CSKILL = new AssociationListKey<Skill>();
 
-	public static final AssociationListKey<BonusObj> BONUS = new AssociationListKey<BonusObj>();
-
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 
 	public static final AssociationListKey<CDOMList<Spell>> SPELL_LIST_CACHE = new AssociationListKey<CDOMList<Spell>>();

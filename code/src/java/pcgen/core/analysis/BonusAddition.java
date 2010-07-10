@@ -19,10 +19,7 @@
  */
 package pcgen.core.analysis;
 
-import java.util.List;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -78,19 +75,12 @@ public final class BonusAddition
 		BonusObj aBonus = Bonus.newBonus(bonus);
 		String bonusStrRep = String.valueOf(aBonus);
 
-		List<BonusObj> bonusList = aPC.getAddedBonusList(target);
-		
-		if (bonusList != null)
+		for (BonusObj listBonus : aPC.getAddedBonusList(target))
 		{
-			int count = 0;
-			for (BonusObj listBonus : bonusList)
+			if (target.equals(aPC.getCreatorObject(listBonus))
+					&& listBonus.toString().equals(bonusStrRep))
 			{
-				if (target.equals(aPC.getCreatorObject(listBonus))
-						&& listBonus.toString().equals(bonusStrRep))
-				{
-					toRemove = listBonus;
-				}
-				count++;
+				toRemove = listBonus;
 			}
 		}
 
@@ -101,7 +91,7 @@ public final class BonusAddition
 		else
 		{
 			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus
-					+ " in bonusList " + bonusList);
+					+ " in bonusList " + aPC.getAddedBonusList(target));
 		}
 	}
 

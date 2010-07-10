@@ -90,6 +90,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AddLevelFacet;
+import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
@@ -339,6 +340,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
+	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -13458,17 +13460,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addBonus(BonusObj bonus, CDOMObject source)
 	{
-		addAssoc(source, AssociationListKey.BONUS, bonus);
+		addedBonusFacet.add(id, bonus, source);
 	}
 
-	public List<BonusObj> getAddedBonusList(CDOMObject source)
+	public List<? extends BonusObj> getAddedBonusList(CDOMObject source)
 	{
-		return getAssocList(source, AssociationListKey.BONUS);
+		return addedBonusFacet.getSet(id, source);
 	}
 
 	public void removeAddedBonus(BonusObj bonus, CDOMObject source)
 	{
-		removeAssoc(source, AssociationListKey.BONUS, bonus);
+		addedBonusFacet.remove(id, bonus, source);
 	}
 
 }
