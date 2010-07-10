@@ -741,6 +741,7 @@ final class PCGVer2Creator implements IOConstants
 							.join(set, ",")));
 				}
 			}
+			appendAddTokenInfo(buffer, pcClass);
 
 			buffer.append(LINE_SEP);
 
