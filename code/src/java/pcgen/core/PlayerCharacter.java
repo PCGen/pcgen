@@ -4750,7 +4750,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!raceIsNull)
 		{
 			removeAllCharacterSpells(oldRace);
-			removeNaturalWeapons(oldRace);
 			removeTemplatesFrom(oldRace);
 			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
@@ -4851,7 +4850,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			addNaturalWeapons(newRace.getListFor(ListKey.NATURAL_WEAPON));
 			selectTemplates(newRace, isImporting()); // gets and adds templates
 		}
 

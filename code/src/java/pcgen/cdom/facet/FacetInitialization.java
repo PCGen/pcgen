@@ -175,6 +175,7 @@ public class FacetInitialization
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);
 
+		raceFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		templateFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);
