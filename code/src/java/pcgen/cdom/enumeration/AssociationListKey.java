@@ -53,7 +53,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
-import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 

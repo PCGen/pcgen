@@ -149,6 +149,8 @@ public class FacetInitialization
 				.getFacet(SpellBookFacet.class);
 		AddLevelFacet addLevelFacet = FacetLibrary
 				.getFacet(AddLevelFacet.class);
+		AppliedBonusFacet appliedBonusFacet = FacetLibrary
+				.getFacet(AppliedBonusFacet.class);
 
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
@@ -156,6 +158,8 @@ public class FacetInitialization
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
 
 		equipmentFacet.addDataFacetChangeListener(spellBookFacet);
+
+		raceFacet.addDataFacetChangeListener(appliedBonusFacet);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);

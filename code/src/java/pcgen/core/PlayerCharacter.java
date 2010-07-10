@@ -4768,7 +4768,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (newRace != null)
 		{
 			raceFacet.set(id, newRace);
-			BonusActivation.activateBonuses(newRace, this);
 
 			if (!isImporting())
 			{
