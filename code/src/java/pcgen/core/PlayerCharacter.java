@@ -13456,4 +13456,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		removeAllAssocs(cdo, AssociationListKey.CHARACTER_SPELLS);
 	}
 
+	public void addBonus(BonusObj bonus, CDOMObject source)
+	{
+		addAssoc(source, AssociationListKey.BONUS, bonus);
+	}
+
+	public List<BonusObj> getAddedBonusList(CDOMObject source)
+	{
+		return getAssocList(source, AssociationListKey.BONUS);
+	}
+
+	public void removeAddedBonus(BonusObj bonus, CDOMObject source)
+	{
+		removeAssoc(source, AssociationListKey.BONUS, bonus);
+	}
+
 }

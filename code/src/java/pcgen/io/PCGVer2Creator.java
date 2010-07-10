@@ -765,8 +765,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 			}
 
-			List<BonusObj> list =
-					thePC.getAssocList(pcClass, AssociationListKey.BONUS);
+			List<BonusObj> list = thePC.getAddedBonusList(pcClass);
 			if (list != null)
 			{
 				for (final BonusObj save : list)
@@ -779,9 +778,8 @@ final class PCGVer2Creator implements IOConstants
 			}
 			for (int i = 1; i <= thePC.getLevel(pcClass); i++)
 			{
-				list =
-						thePC.getAssocList(thePC.getActiveClassLevel(pcClass, i),
-							AssociationListKey.BONUS);
+				PCClassLevel pcl = thePC.getActiveClassLevel(pcClass, i);
+				list = thePC.getAddedBonusList(pcl);
 				if (list != null)
 				{
 					for (final BonusObj save : list)
@@ -1339,8 +1337,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_TYPE).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getType()));
 
-				List<BonusObj> list =
-						thePC.getAssocList(ability, AssociationListKey.BONUS);
+				List<BonusObj> list = thePC.getAddedBonusList(ability);
 				if (list != null)
 				{
 					for (final BonusObj save : list)

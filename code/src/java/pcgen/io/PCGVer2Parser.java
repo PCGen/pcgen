@@ -2575,8 +2575,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						thePC.addAssoc(ability, AssociationListKey.BONUS,
-							aBonus);
+						thePC.addBonus(aBonus, ability);
 					}
 				}
 				else
@@ -2851,7 +2850,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						thePC.addAssoc(aFeat, AssociationListKey.BONUS, aBonus);
+						thePC.addBonus(aBonus, aFeat);
 					}
 				}
 				else

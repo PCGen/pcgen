@@ -637,7 +637,7 @@ public class PCClass extends PObject
 //							+ aBuf.toString());
 				BonusObj bon = Bonus.newBonus(aBuf.toString());
 				bon.setSaveToPCG(false);
-				aPC.addAssoc(this, AssociationListKey.BONUS, bon);
+				aPC.addBonus(bon, this);
 			}
 		}
 	}

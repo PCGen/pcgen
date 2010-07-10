@@ -54,7 +54,7 @@ public final class BonusAddition
 		if (aBonus != null)
 		{
 			aBonus.setAddOnceOnly(addOnceOnly);
-			aPC.addAssoc(target, AssociationListKey.BONUS, aBonus);
+			aPC.addBonus(aBonus, target);
 		}
 	}
 
@@ -78,8 +78,8 @@ public final class BonusAddition
 		BonusObj aBonus = Bonus.newBonus(bonus);
 		String bonusStrRep = String.valueOf(aBonus);
 
-		List<BonusObj> bonusList = aPC.getAssocList(target, AssociationListKey.BONUS);
-
+		List<BonusObj> bonusList = aPC.getAddedBonusList(target);
+		
 		if (bonusList != null)
 		{
 			int count = 0;
@@ -96,7 +96,7 @@ public final class BonusAddition
 
 		if (toRemove != null)
 		{
-			aPC.removeAssoc(target, AssociationListKey.BONUS, toRemove);
+			aPC.removeAddedBonus(toRemove, target);
 		}
 		else
 		{
