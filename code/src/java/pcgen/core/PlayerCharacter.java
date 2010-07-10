@@ -5820,31 +5820,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void addNaturalWeapons(final List<Equipment> weapons)
-	{
-		if (weapons == null || weapons.isEmpty())
-		{
-			return;
-		}
-		for (Equipment e : weapons)
-		{
-			addEquipment(e);
-		}
-		EquipSet eSet = getEquipSetByIdPath("0.1");
-		if (eSet != null)
-		{
-			for (Equipment eq : weapons)
-			{
-				EquipSet es = addEquipToTarget(eSet, null, "", eq, null);
-				if (es == null)
-				{
-					addEquipToTarget(eSet, null, Constants.S_CARRIED, eq, null);
-				}
-			}
-		}
-		setDirty(true);
-	}
-
 	public void addSkill(final Skill addSkill)
 	{
 		// First, check to see if skill is already in list
@@ -8026,19 +8001,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				this.setAssoc(skill, AssociationKey.OUTPUT_INDEX,
 					nextOutputIndex++);
 			}
-		}
-	}
-
-	public void removeNaturalWeapons(final PObject obj)
-	{
-		for (Equipment weapon : obj.getSafeListFor(ListKey.NATURAL_WEAPON))
-		{
-			// Need to make sure weapons are removed from
-			// equip sets as well, or they will get added back
-			// to the character. sage_sam 20 March 2003
-			removeEquipment(weapon);
-			delEquipSetItem(weapon);
-			setDirty(true);
 		}
 	}
 
@@ -11305,7 +11267,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Add this feat to the level Info
 			playerCharacterLevelInfo.addObject(aFeat);
 		}
-		addNaturalWeapons(aFeat.getListFor(ListKey.NATURAL_WEAPON));
 		calcActiveBonuses();
 	}
 
@@ -11328,7 +11289,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Add this feat to the level Info
 			aLevelInfo.addObject(anAbility);
 		}
-		addNaturalWeapons(anAbility.getListFor(ListKey.NATURAL_WEAPON));
 		calcActiveBonuses();
 	}
 
@@ -11762,7 +11722,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			addTemplatesIfMissing(tr.getContainedObjects());
 		}
-		addNaturalWeaponsIfMissing(cdo.getSafeListFor(ListKey.NATURAL_WEAPON));
 
 		for (CDOMReference<Ability> ref : cdo.getSafeListMods(Ability.FEATLIST))
 		{
@@ -11874,20 +11833,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			addTemplate(pct);
 		}
-	}
-
-	private void addNaturalWeaponsIfMissing(List<Equipment> naturalWeaponsList)
-	{
-		for (Iterator<Equipment> iterator = naturalWeaponsList.iterator(); iterator
-				.hasNext();)
-		{
-			Equipment wpn = iterator.next();
-			if (equipmentFacet.contains(id, wpn))
-			{
-				iterator.remove();
-			}
-		}
-		addNaturalWeapons(naturalWeaponsList);
 	}
 
 	/**

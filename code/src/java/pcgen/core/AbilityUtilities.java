@@ -316,7 +316,6 @@ public class AbilityUtilities
 		if (! result)
 		{
 			removed = aPC.removeRealAbility(category, ability);
-			aPC.removeNaturalWeapons(ability);
 			aPC.removeTemplatesFrom(ability);
 			CDOMObjectUtilities.removeAdds(ability, aPC);
 			CDOMObjectUtilities.restoreRemovals(ability, aPC);

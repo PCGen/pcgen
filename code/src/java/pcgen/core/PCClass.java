@@ -1356,7 +1356,6 @@ public class PCClass extends PObject
 				AddObjectActions.doBaseChecks(this, aPC);
 				CDOMObjectUtilities.addAdds(this, aPC);
 				CDOMObjectUtilities.checkRemovals(this, aPC);
-				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
 			}
 
 			for (TransitionChoice<Kit> kit : classLevel
@@ -1370,9 +1369,6 @@ public class PCClass extends PObject
 			{
 				region.act(region.driveChoice(aPC), classLevel, aPC);
 			}
-
-			// Make sure any natural weapons are added
-			aPC.addNaturalWeapons(classLevel.getListFor(ListKey.NATURAL_WEAPON));
 		}
 
 		// this is a monster class, so don't worry about experience
@@ -1551,22 +1547,6 @@ public class PCClass extends PObject
 			}
 
 			aPC.validateCharacterDomains();
-
-			// be sure to remove any natural weapons
-			for (Equipment eq : classLevel.getSafeListFor(ListKey.NATURAL_WEAPON))
-			{
-				/*
-				 * This is a COMPLETE hack to emulate PC.removeNaturalWeapons
-				 * without going through the convoluted "I am level dependent,
-				 * you're not" game that is required in today's PCClass is
-				 * level-aware world.  This becomes a lot easier in a
-				 * PCClass/PCClassLevel world, and the system can go back to
-				 * using PC.removeNaturalWeapons
-				 */
-				aPC.removeEquipment(eq);
-				aPC.delEquipSetItem(eq);
-				aPC.setDirty(true);
-			}
 		}
 		else
 		{
