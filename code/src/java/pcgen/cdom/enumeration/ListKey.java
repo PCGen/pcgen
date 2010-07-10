@@ -49,7 +49,6 @@ import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
@@ -162,7 +161,6 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<CDOMReference<WeaponProf>>();
-	public static final ListKey<CDOMReference<ClassSkillList>> PREVENTED_CLASSES = new ListKey<CDOMReference<ClassSkillList>>();
 	public static final ListKey<RaceSubType> RACESUBTYPE = new ListKey<RaceSubType>();
 	public static final ListKey<RaceSubType> REMOVED_RACESUBTYPE = new ListKey<RaceSubType>();
 	public static final ListKey<LevelCommandFactory> ADD_LEVEL = new ListKey<LevelCommandFactory>();

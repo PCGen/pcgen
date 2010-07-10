@@ -150,25 +150,6 @@ public final class SkillCostCalc
 			}
 		}
 
-		List<CDOMReference<ClassSkillList>> prev = sk
-				.getListFor(ListKey.PREVENTED_CLASSES);
-		if (prev != null)
-		{
-			for (CDOMReference<ClassSkillList> ref : prev)
-			{
-				/*
-				 * Should be direct reference comparison, but for now, fall back
-				 * to String
-				 */
-				String aString = ref.getLSTformat();
-				if (aString.equalsIgnoreCase(aClass.getKeyName())
-						|| aString.equalsIgnoreCase(aPC.getAssoc(aClass, AssociationKey.SUBCLASS_KEY)))
-				{
-					return false; // this is an excluded-from-class-skill list
-				}
-			}
-		}
-		
 		List<ClassSkillList> skillLists = ClassSkillApplication
 				.getClassSkillList(aPC, aClass);
 		MasterListInterface masterLists = Globals.getMasterLists();

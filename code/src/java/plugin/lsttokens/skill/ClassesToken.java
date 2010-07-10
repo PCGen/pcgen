@@ -17,13 +17,16 @@
  */
 package plugin.lsttokens.skill;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.FilteredReference;
 import pcgen.core.Skill;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -45,18 +48,6 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 	{
 		return "CLASSES";
 	}
-	
-	@Override
-	public ParseResult parseToken(LoadContext context, Skill skill, String value)
-	{
-		if (Constants.LST_ALL.equals(value))
-		{
-			addSkillAllowed(context, skill, context.ref
-					.getCDOMAllReference(SKILLLIST_CLASS));
-			return ParseResult.SUCCESS;
-		}
-		return super.parseToken(context, skill, value);
-	}
 
 	@Override
 	protected char separator()
@@ -66,11 +57,12 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Skill skill, String value)
+			Skill skill, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean added = false;
 
+		List<CDOMReference<ClassSkillList>> allow = new ArrayList<CDOMReference<ClassSkillList>>();
 		while (pipeTok.hasMoreTokens())
 		{
 			String className = pipeTok.nextToken();
@@ -78,135 +70,105 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			{
 				if (added)
 				{
-					return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
+					return new ParseResult.Fail("Non-sensical Skill "
+							+ getTokenName()
 							+ ": Contains ALL after a specific reference: "
 							+ value);
 				}
-				addSkillAllowed(context, skill, context.ref
-						.getCDOMAllReference(SKILLLIST_CLASS));
 				break;
 			}
 			if (className.startsWith("!"))
 			{
-				return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
+				return new ParseResult.Fail("Non-sensical Skill "
+						+ getTokenName()
 						+ ": Contains ! without (or before) ALL: " + value);
 			}
-			addSkillAllowed(context, skill, context.ref.getCDOMReference(
-					SKILLLIST_CLASS, className));
+			allow.add(context.ref.getCDOMReference(SKILLLIST_CLASS, className));
 			added = true;
 		}
-		while (pipeTok.hasMoreTokens())
+		if (pipeTok.hasMoreTokens())
 		{
-			String className = pipeTok.nextToken();
-			if (className.startsWith("!"))
+			// allow is not used (empty or an error)
+			FilteredReference<ClassSkillList> filtered = new FilteredReference<ClassSkillList>(
+					SKILLLIST_CLASS, context.ref
+							.getCDOMAllReference(SKILLLIST_CLASS));
+			while (pipeTok.hasMoreTokens())
 			{
-				String clString = className.substring(1);
-				if (Constants.LST_ALL.equals(clString)
-						|| Constants.LST_ANY.equals(clString))
+				String className = pipeTok.nextToken();
+				if (className.startsWith("!"))
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " cannot use !ALL");
+					String clString = className.substring(1);
+					if (Constants.LST_ALL.equals(clString)
+							|| Constants.LST_ANY.equals(clString))
+					{
+						return new ParseResult.Fail("Invalid " + getTokenName()
+								+ " cannot use !ALL");
+					}
+					CDOMSingleRef<ClassSkillList> ref = context.ref
+							.getCDOMReference(SKILLLIST_CLASS, clString);
+					filtered.addProhibitedItem(ref);
 				}
-				addSkillNotAllowed(context, skill, context.ref
-						.getCDOMReference(SKILLLIST_CLASS, clString));
+				else
+				{
+					return new ParseResult.Fail("Non-sensical Skill "
+							+ getTokenName()
+							+ ": Contains ALL and a specific reference: "
+							+ value);
+				}
 			}
-			else
+			context.list
+					.addToMasterList(getTokenName(), skill, filtered, skill);
+		}
+		else if (allow.isEmpty())
+		{
+			// unqualified ALL
+			context.list.addToMasterList(getTokenName(), skill, context.ref
+					.getCDOMAllReference(SKILLLIST_CLASS), skill);
+		}
+		else
+		{
+			// use allow
+			for (CDOMReference<ClassSkillList> ref : allow)
 			{
-				return new ParseResult.Fail("Non-sensical Skill " + getTokenName()
-						+ ": Contains ALL and a specific reference: " + value);
+				context.list.addToMasterList(getTokenName(), skill, ref, skill);
 			}
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	private void addSkillAllowed(LoadContext context, Skill skill,
-			CDOMReference<ClassSkillList> ref)
-	{
-		context.list.addToMasterList(getTokenName(), skill, ref, skill);
-	}
-
-	private void addSkillNotAllowed(LoadContext context, Skill skill,
-			CDOMReference<ClassSkillList> ref)
-	{
-		context.obj.addToList(skill, ListKey.PREVENTED_CLASSES, ref);
 	}
 
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		Changes<CDOMReference> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), skill, SKILLLIST_CLASS);
-		Changes<CDOMReference<ClassSkillList>> removedChanges = context.obj
-				.getListChanges(skill, ListKey.PREVENTED_CLASSES);
-		if (masterChanges.includesGlobalClear()
-				|| removedChanges.includesGlobalClear())
+		if (masterChanges.includesGlobalClear())
 		{
 			context
 					.addWriteMessage(getTokenName()
 							+ " does not support .CLEAR");
 			return null;
 		}
-		if (masterChanges.hasRemovedItems() || removedChanges.hasRemovedItems())
+		if (masterChanges.hasRemovedItems())
 		{
 			context.addWriteMessage(getTokenName()
 					+ " does not support .CLEAR.");
 			return null;
 		}
 		Collection<CDOMReference> added = masterChanges.getAdded();
-		Collection<CDOMReference<ClassSkillList>> prevented = removedChanges
-				.getAdded();
 		StringBuilder sb = new StringBuilder();
 		if (added.isEmpty())
 		{
-			if (prevented == null || prevented.isEmpty())
-			{
-				// That's fine - nothing to do
-				return null;
-			}
+			// That's fine - nothing to do
+			return null;
 		}
-		if (added.size() == 1
-				&& added.contains(context.ref
-						.getCDOMAllReference(SKILLLIST_CLASS)))
+		boolean needBar = false;
+		for (CDOMReference<ClassSkillList> ref : added)
 		{
-			sb.append("ALL");
-			if (prevented != null && !prevented.isEmpty())
+			if (needBar)
 			{
-				for (CDOMReference<ClassSkillList> ref : prevented)
-				{
-					sb.append("|!");
-					sb.append(ref.getLSTformat());
-				}
+				sb.append(Constants.PIPE);
 			}
-		}
-		else
-		{
-			if (prevented != null && !prevented.isEmpty())
-			{
-				context.addWriteMessage("Non-sensical " + getTokenName()
-						+ ": has both addition and removal");
-				return null;
-			}
-			boolean needBar = false;
-			if (added.size() > 1
-					&& added.contains(context.ref
-							.getCDOMAllReference(SKILLLIST_CLASS)))
-			{
-				context.addWriteMessage("All SkillList Reference was "
-						+ "attached to " + skill.getDisplayName()
-						+ " by Token " + getTokenName()
-						+ " but there are also " + "other references granting "
-						+ skill.getDisplayName() + " as a Class Skill.  "
-						+ "This is non-sensical");
-				return null;
-			}
-			for (CDOMReference<ClassSkillList> ref : added)
-			{
-				if (needBar)
-				{
-					sb.append(Constants.PIPE);
-				}
-				sb.append(ref.getLSTformat());
-				needBar = true;
-			}
+			sb.append(ref.getLSTformat());
+			needBar = true;
 		}
 		return new String[] { sb.toString() };
 	}

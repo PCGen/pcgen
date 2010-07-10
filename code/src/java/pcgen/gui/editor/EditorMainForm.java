@@ -49,6 +49,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -850,16 +851,11 @@ public final class EditorMainForm extends JDialog
 				Globals.getContext().getListContext().clearAllMasterLists(
 					"CLASSES", thisPObject);
 				context.commit();
-				((Skill) thisPObject).removeListFor(ListKey.PREVENTED_CLASSES);
 				sel = pnlClasses.getSelectedList2();
-
-				for (int i = 0; i < sel.length; ++i)
+				if (sel.length > 0)
 				{
-					ClassSkillList cl = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(ClassSkillList.class,
-								sel[i].toString());
-					((Skill) thisPObject).addToListFor(ListKey.PREVENTED_CLASSES,
-						CDOMDirectSingleRef.getRef(cl));
+					context.unconditionallyProcess(thisPObject, "CLASSES", "ALL|!"
+							+ StringUtil.join(Arrays.asList(sel), "|!"));
 				}
 
 				for (Object o : pnlClasses.getSelectedList())
@@ -1788,22 +1784,22 @@ public final class EditorMainForm extends JDialog
 					for (CDOMReference<ClassSkillList> ref : add)
 					{
 						String className = ref.getLSTformat();
-						selectedSkillList.add(className);
-						availableSkillList.remove(className);
+						if (className.startsWith("ALL|!"))
+						{
+							for (String prev : className.substring(5).split(
+							"\\|\\!"))
+							{
+								selectedSkillList2.add(prev);
+								availableSkillList.remove(prev);
+							}
+						}
+						else
+						{
+							selectedSkillList.add(className);
+							availableSkillList.remove(className);
+						}
 					}
 				}
-				Collection<CDOMReference<ClassSkillList>> prevented = ((Skill) thisPObject)
-					.getListFor(ListKey.PREVENTED_CLASSES);
-				if (prevented != null)
-				{
-					for (CDOMReference<ClassSkillList> ref : prevented)
-					{
-						String className = ref.getLSTformat();
-						selectedSkillList2.add(className);
-						availableSkillList.remove(className);
-					}
-				}
-
 
 				pnlClasses.setAvailableList(availableSkillList, true);
 				pnlClasses.setSelectedList(selectedSkillList, true);
