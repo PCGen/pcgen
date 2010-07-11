@@ -23,15 +23,10 @@
 
 package pcgen.core.chooser;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -39,7 +34,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -47,7 +41,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
-import pcgen.util.Logging;
 
 /**
  * The guts of chooser moved from PObject
@@ -58,9 +51,6 @@ import pcgen.util.Logging;
 
 public class ChooserUtilities
 {
-	private static Map<String, String> classLookup = null;
-	private static boolean mapconstructed = false;
-
 	/**
 	 * Deal with CHOOSE tags. The actual items the choice will be made from are
 	 * based on the choiceString, as applied to current character. Choices
@@ -136,15 +126,13 @@ public class ChooserUtilities
 			final PObject aPObject, final PlayerCharacter aPC,
 			final AbilityCategory category, List<String> reservedList)
 	{
-		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
-
+		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
 		if (aMan == null)
 		{
 			return null;
 		}
 
-		if (aMan instanceof ControllableChoiceManager
-			&& aPObject instanceof Ability)
+		if (aPObject instanceof Ability)
 		{
 			Ability a = (Ability) aPObject;
 			AbilityCategory cat;
@@ -158,8 +146,7 @@ public class ChooserUtilities
 			{
 				cat = category;
 			}
-			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
-			abcm.setController(new AbilityChooseController(a, cat, aPC, abcm));
+			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
 			for (Ability ab : aPC.getAllAbilities())
 			{
 				if (ab.getKeyName().equals(a.getKeyName()))
@@ -168,12 +155,10 @@ public class ChooserUtilities
 				}
 			}
 		}
-		else if (aMan instanceof ControllableChoiceManager
-				&& aPObject instanceof Skill)
+		else if (aPObject instanceof Skill)
 		{
 			Skill s = (Skill) aPObject;
-			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
-			abcm.setController(new SkillChooseController(s, aPC, abcm));
+			aMan.setController(new SkillChooseController(s, aPC, aMan));
 		}
 		return aMan;
 	}
@@ -251,19 +236,6 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Make a mapping so that we can look up the name of the class that
-	 * implements a given ChoiceManager for specific type of Chooser.
-	 * 
-	 */
-	private static void constructMap()
-	{
-		classLookup = new HashMap<String, String>();
-		classLookup.put("SPELLLIST", SpellListChoiceManager.class.getName());
-
-		mapconstructed = true;
-	}
-
-	/**
 	 * Make a ChoiceManager Object for the chooser appropriate for
 	 * aPObject.getChoiceString();
 	 * 
@@ -274,128 +246,15 @@ public class ChooserUtilities
 	 * @return an initialised ChoiceManager
 	 */
 	public static ChoiceManagerList getChoiceManager(PObject aPObject,
-		String theChoices, PlayerCharacter aPC)
+		PlayerCharacter aPC)
 	{
-		if (!mapconstructed)
+		ChooseInformation<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);
+		if (chooseInfo != null)
 		{
-			constructMap();
-		}
-
-		String choiceString;
-		if (theChoices != null && theChoices.length() > 0)
-		{
-			choiceString = theChoices;
-		}
-		else
-		{
-			choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
-		}
-		// Note: Number is special temp mod only chooser and should not be
-		// actioned except by temp mods.
-		if (choiceString != null && choiceString.startsWith("NUMBER"))
-		{
-			return null;
-		}
-		if (choiceString == null || choiceString.length() == 0)
-		{
-			ChooseInformation<?> chooseInfo =
-					aPObject.get(ObjectKey.CHOOSE_INFO);
-			if (chooseInfo != null)
-			{
-				Formula selectionsPerUnitCost =
-						aPObject.getSafe(FormulaKey.SELECT);
-				int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
-				return chooseInfo.getChoiceManager(aPObject, cost);
-			}
-			return null;
-		}
-
-		List<String> mainList = Arrays.asList(choiceString.split("[|]"));
-
-		/*
-		 * Find the first element of the array that does not contain an equals
-		 * sign, this is the type of chooser.
-		 */
-		int i = 0;
-		while (i <= mainList.size() - 1
-			&& mainList.get(i).indexOf("=") > 0
-			&& !(mainList.get(i).startsWith("FEAT=") || mainList.get(i)
-				.startsWith("FEAT.")))
-		{
-			i++;
-		}
-
-		/*
-		 * Use the name of the chooser to look up the full canonical class name
-		 * of the ChoiceManager that handles that type of chooser
-		 */
-		String type = (i >= mainList.size()) ? "MISC" : mainList.get(i);
-
-		if (type.startsWith("FEAT=") || type.startsWith("FEAT."))
-		{
-			type = "SINGLEFEAT";
-			choiceString = "SINGLEFEAT|" + choiceString.substring(5);
-		}
-		String className = classLookup.get(type);
-
-		/* Construct and return the ChoiceManager */
-		try
-		{
-			Class aClass = Class.forName(className);
-			Class[] argsClass =
-					{PObject.class, choiceString.getClass(),
-						PlayerCharacter.class};
-			Object[] argsObject = {aPObject, choiceString, aPC};
-
-			Constructor constructor = aClass.getConstructor(argsClass);
-			ChoiceManagerList cm =
-					(ChoiceManagerList) constructor.newInstance(argsObject);
-			return cm;
-		}
-		catch (ClassNotFoundException e)
-		{
-			Logging.errorPrint("Can't create Choice Manager: " + type
-				+ " Class not found", e);
-		}
-		catch (InstantiationException e)
-		{
-			Logging.errorPrint("Can't create Choice Manager: " + type
-				+ " Can't instantiate class", e);
-		}
-		catch (IllegalAccessException e)
-		{
-			Logging.errorPrint("Can't create Choice Manager: " + type
-				+ " Illegal access", e);
-		}
-		catch (NoSuchMethodException e)
-		{
-			Logging.errorPrint("Can't create Choice Manager: " + type
-				+ " no constructor found", e);
-		}
-		catch (InvocationTargetException e)
-		{
-			Logging.errorPrint("Can't create Choice Manager: " + type
-				+ " class threw an error", e);
+			Formula selectionsPerUnitCost = aPObject.getSafe(FormulaKey.SELECT);
+			int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
+			return chooseInfo.getChoiceManager(aPObject, cost);
 		}
 		return null;
 	}
-
-	/**
-	 * Mod choices can send back weaponprofs, abilities or strings, so we have
-	 * to do a conversion here.
-	 * 
-	 * @param choiceList
-	 *            The list of choices provided by modChoices
-	 * @param stringList
-	 *            The list of strings representing the choices.
-	 */
-	public static void convertChoiceListToStringList(final List choiceList,
-		final List<String> stringList)
-	{
-		for (Iterator iter = choiceList.iterator(); iter.hasNext();)
-		{
-			stringList.add(String.valueOf(iter.next()));
-		}
-	}
-
 }

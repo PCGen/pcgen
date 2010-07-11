@@ -8,8 +8,7 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 
-public class NoChoiceManager implements ChoiceManagerList<String>,
-		ControllableChoiceManager<String>
+public class NoChoiceManager implements ChoiceManagerList<String>
 {
 
 	private final CDOMObject owner;

@@ -8,14 +8,13 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 
-class SkillChooseController extends ChooseController<Ability>
+public class SkillChooseController extends ChooseController<Ability>
 {
 	private final Skill skill;
 	private final PlayerCharacter pc;
-	ControllableChoiceManager<?> ccm;
 
 	public SkillChooseController(Skill sk, PlayerCharacter aPC,
-			ControllableChoiceManager<?> cont)
+			ChoiceManagerList<?> cont)
 	{
 		if (sk == null)
 		{
@@ -24,7 +23,6 @@ class SkillChooseController extends ChooseController<Ability>
 		}
 		skill = sk;
 		pc = aPC;
-		ccm = cont;
 	}
 
 	@Override

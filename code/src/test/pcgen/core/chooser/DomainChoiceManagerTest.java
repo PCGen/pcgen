@@ -77,7 +77,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		PlayerCharacter aPC = getCharacter();
 
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(
-				pObj, null, aPC);
+				pObj, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		List<Domain> aList = new ArrayList<Domain>();

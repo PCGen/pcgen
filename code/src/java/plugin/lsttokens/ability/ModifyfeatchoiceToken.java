@@ -128,11 +128,11 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability> i
 
 	public void applyChoice(CDOMObject owner, Ability choice, PlayerCharacter pc)
 	{
-		final List<String> abilityList = new ArrayList<String>();
+		final List<String> availableList = new ArrayList<String>();
 		final List<String> selectedList = new ArrayList<String>();
 
 		// build a list of available choices and choices already made.
-		ChooserUtilities.modChoices(choice, abilityList, selectedList, false,
+		ChooserUtilities.modChoices(choice, availableList, selectedList, false,
 				pc, true, SettingsHandler.getGame().getAbilityCategory(
 						choice.getCategory()));
 
@@ -141,7 +141,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability> i
 		//
 		// If nothing to choose, or nothing selected, then leave
 		//
-		if ((abilityList.size() == 0) || (currentSelections == 0))
+		if ((availableList.size() == 0) || (currentSelections == 0))
 		{
 			return;
 		}
@@ -153,8 +153,8 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability> i
 		// to add another
 
 		chooser.setTitle("Modify selections for " + choice);
-		Globals.sortChooserLists(abilityList, selectedList);
-		chooser.setAvailableList(abilityList);
+		Globals.sortChooserLists(availableList, selectedList);
+		chooser.setAvailableList(availableList);
 		chooser.setSelectedList(selectedList);
 		chooser.setVisible(true);
 

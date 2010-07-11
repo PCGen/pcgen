@@ -91,4 +91,10 @@ public interface ChoiceManagerList<T> {
 
 	public abstract void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice);
 
+	public void setController(ChooseController<T> cc);
+
+	public int getPreChooserChoices();
+
+	public int getChoicesPerUnitCost();
+
 }

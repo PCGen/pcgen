@@ -10,15 +10,15 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-class AbilityChooseController extends ChooseController<Ability>
+public class AbilityChooseController extends ChooseController<Ability>
 {
 	private final Ability ability;
 	private final AbilityCategory ac;
 	private final PlayerCharacter pc;
-	ControllableChoiceManager<?> ccm;
+	ChoiceManagerList<?> ccm;
 
 	public AbilityChooseController(Ability a, AbilityCategory cat,
-			PlayerCharacter aPC, ControllableChoiceManager<?> cont)
+			PlayerCharacter aPC, ChoiceManagerList<?> cont)
 	{
 		if (a == null)
 		{

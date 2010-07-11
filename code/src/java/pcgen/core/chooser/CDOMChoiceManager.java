@@ -10,8 +10,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
-public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
-		ControllableChoiceManager<T>
+public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 {
 
 	private final CDOMObject owner;

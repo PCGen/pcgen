@@ -148,30 +148,6 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	 */
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
-		Formula emb = obj.get(FormulaKey.EMBEDDED_SELECT);
-		if (emb != null)
-		{
-			if (!FormulaFactory.ONE.equals(emb))
-			{
-				obj.put(FormulaKey.SELECT, emb);
-			}
-		}
-		emb = obj.get(FormulaKey.EMBEDDED_NUMCHOICES);
-		if (emb != null)
-		{
-			if (obj.get(FormulaKey.NUMCHOICES) != null)
-			{
-				Logging.errorPrint("CHOOSE with embedded choice count on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName()
-					+ " cannot have NUMCHOICES prefix:"
-					+ obj.get(StringKey.CHOICE_STRING));
-				return false;
-			}
-			if (!FormulaFactory.ONE.equals(emb))
-			{
-				obj.put(FormulaKey.NUMCHOICES, emb);
-			}
-		}
 		ChooseInformation<?> newChoose = obj.get(ObjectKey.CHOOSE_INFO);
 		String oldChoose = obj.get(StringKey.CHOICE_STRING);
 		if (newChoose != null && oldChoose != null)
