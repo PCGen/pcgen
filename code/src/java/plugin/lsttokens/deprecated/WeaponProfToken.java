@@ -175,15 +175,7 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return null;
 	}
 
 	public Class<CDOMObject> getTokenClass()
