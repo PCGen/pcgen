@@ -179,7 +179,14 @@ final class DeityBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		thisPObject.put(StringKey.HOLY_ITEM, getHolyItemText());
+		if (getHolyItemText() == null || getHolyItemText().trim().length()>0)
+		{
+			thisPObject.put(StringKey.HOLY_ITEM, getHolyItemText());
+		}
+		else
+		{
+			thisPObject.remove(StringKey.HOLY_ITEM);
+		}
 		PCAlignment align = (PCAlignment) cmbDeityAlignment.getSelectedItem();
 		thisPObject.put(ObjectKey.ALIGNMENT, align);
 
