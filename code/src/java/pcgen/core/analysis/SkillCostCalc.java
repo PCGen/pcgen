@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -32,6 +33,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
@@ -40,7 +42,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -71,6 +72,15 @@ public final class SkillCostCalc
 		if (SkillCostCalc.hasCSkill(aPC, aClass, sk))
 		{
 			return true;
+		}
+
+		for (int i = 1; i <= aPC.getLevel(aClass); i++)
+		{
+			PCClassLevel classLevel = aPC.getActiveClassLevel(aClass, i);
+			if (SkillCostCalc.hasCSkill(aPC, classLevel, sk))
+			{
+				return true;
+			}
 		}
 
 		// test for SKILLLIST skill
@@ -232,6 +242,15 @@ public final class SkillCostCalc
 			return true;
 		}
 
+		for (int i = 1; i <= aPC.getLevel(aClass); i++)
+		{
+			PCClassLevel classLevel = aPC.getActiveClassLevel(aClass, i);
+			if (SkillCostCalc.hasCcSkill(aPC, classLevel, sk))
+			{
+				return true;
+			}
+		}
+
 		if (aClass.isMonster())
 		{
 			if (hasMonsterCCSkill(aPC.getRace(), sk))
@@ -345,7 +364,7 @@ public final class SkillCostCalc
 		return false;
 	}
 
-	public static boolean hasCcSkill(PlayerCharacter pc, PObject po, Skill skill)
+	public static boolean hasCcSkill(PlayerCharacter pc, CDOMObject po, Skill skill)
 	{
 		List<CDOMReference<Skill>> ccSkillList = po.getListFor(ListKey.CCSKILL);
 		List<Skill> assocCCSkill = pc.getAssocList(po,
@@ -370,7 +389,7 @@ public final class SkillCostCalc
 		return false;
 	}
 
-	public static boolean hasCSkill(PlayerCharacter pc, PObject po, Skill skill)
+	public static boolean hasCSkill(PlayerCharacter pc, CDOMObject po, Skill skill)
 	{
 		List<CDOMReference<Skill>> cSkillList = po.getListFor(ListKey.CSKILL);
 		if (cSkillList != null)
