@@ -77,7 +77,7 @@ public final class SkillCostCalc
 		for (int i = 1; i <= aPC.getLevel(aClass); i++)
 		{
 			PCClassLevel classLevel = aPC.getActiveClassLevel(aClass, i);
-			if (SkillCostCalc.hasCSkill(aPC, classLevel, sk))
+			if (SkillCostCalc.hasParentCSkill(aPC, classLevel, sk))
 			{
 				return true;
 			}
@@ -101,7 +101,7 @@ public final class SkillCostCalc
 		{
 			if (aClass.getKeyName().equals(
 					aPC.getDomainSource(d).getPcclass().getKeyName())
-					&& SkillCostCalc.hasCSkill(aPC, d, sk))
+					&& SkillCostCalc.hasParentCSkill(aPC, d, sk))
 			{
 				return true;
 			}
@@ -403,6 +403,30 @@ public final class SkillCostCalc
 			}
 		}
 		List<Skill> assocCSkill = pc.getAssocList(po, AssociationListKey.CSKILL);
+		if (assocCSkill != null)
+		{
+			if (assocCSkill.contains(skill))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasParentCSkill(PlayerCharacter pc, CDOMObject po, Skill skill)
+	{
+		List<CDOMReference<Skill>> cSkillList = po.getListFor(ListKey.PARENTCSKILL);
+		if (cSkillList != null)
+		{
+			for (CDOMReference<Skill> ref : cSkillList)
+			{
+				if (ref.contains(skill))
+				{
+					return true;
+				}
+			}
+		}
+		List<Skill> assocCSkill = pc.getAssocList(po, AssociationListKey.PARENTCSKILL);
 		if (assocCSkill != null)
 		{
 			if (assocCSkill.contains(skill))

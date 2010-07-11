@@ -146,6 +146,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
 	public static final AssociationListKey<AbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<AbilitySelection>();
+
+	public static final AssociationListKey<Skill> PARENTCSKILL = new AssociationListKey<Skill>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
