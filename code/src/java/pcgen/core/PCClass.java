@@ -917,34 +917,10 @@ public class PCClass extends PObject
 	 */
 	public boolean hasClassSkill(PlayerCharacter pc, Skill skill)
 	{
-		List<ClassSkillList> classSkillList = pc.getAssocList(this, AssociationListKey.CLASSSKILLLIST);
-		if ((classSkillList == null) || classSkillList.isEmpty())
-		{
-			return false;
-		}
-
-		for (ClassSkillList key : classSkillList)
-		{
-			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key.getLSTformat());
-
-			if ((pcClass != null) && SkillCostCalc.hasCSkill(pc, pcClass, skill))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public boolean hasSkill(PlayerCharacter pc, Skill skill)
-	{
-		return hasSkill(pc, skill, this);
-	}
-
-	private boolean hasSkill(PlayerCharacter pc, Skill skill, CDOMObject cdo)
-	{
-		List<Skill> assocCSkill = pc.getAssocList(cdo, AssociationListKey.CSKILL);
-		return assocCSkill != null && assocCSkill.contains(skill);
+		List<ClassSkillList> classSkillList = pc.getAssocList(this,
+				AssociationListKey.CLASSSKILLLIST);
+		return (classSkillList != null)
+				&& SkillCostCalc.hasMasterSkill(classSkillList, skill);
 	}
 
 	/*

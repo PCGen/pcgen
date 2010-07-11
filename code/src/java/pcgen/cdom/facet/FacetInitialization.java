@@ -130,6 +130,8 @@ public class FacetInitialization
 				.getFacet(NaturalWeaponFacet.class);
 		EquipSetFacet equipSetFacet = FacetLibrary
 				.getFacet(EquipSetFacet.class);
+		GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary
+				.getFacet(GlobalSkillCostFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -249,6 +251,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(moveFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
+		cdomObjectFacet.addDataFacetChangeListener(globalSkillCostFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 	}
 }

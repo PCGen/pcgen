@@ -57,19 +57,13 @@ public final class SkillCostCalc
 			return false;
 		}
 
-		if (SkillCostCalc.hasCSkill(aPC, aPC.getRace(), sk))
+		if (aPC.hasGlobalCost(sk, SkillCost.CLASS))
 		{
 			return true;
 		}
 
 		// hasSkill is a LevelAbility skill
-		if (aClass.hasSkill(aPC, sk))
-		{
-			return true;
-		}
-
-		// hasCSkill is a class.lst loader skill
-		if (SkillCostCalc.hasCSkill(aPC, aClass, sk))
+		if (hasClassSkill(aPC, aClass, sk))
 		{
 			return true;
 		}
@@ -107,61 +101,25 @@ public final class SkillCostCalc
 			}
 		}
 
-		if ((aPC.getDeity() != null) && SkillCostCalc.hasCSkill(aPC, aPC.getDeity(), sk))
+		List<ClassSkillList> skillLists = ClassSkillApplication
+				.getClassSkillList(aPC, aClass);
+		if (hasMasterSkill(skillLists, sk))
 		{
 			return true;
 		}
+		return false;
+	}
 
-		for (Ability aFeat : aPC.getFullAbilitySet())
-		{
-			if (SkillCostCalc.hasCSkill(aPC, aFeat, sk))
-			{
-				return true;
-			}
-		}
+	private static boolean hasClassSkill(PlayerCharacter pc, PCClass cl,
+			Skill sk)
+	{
+		List<Skill> assocCSkill = pc
+				.getAssocList(cl, AssociationListKey.CSKILL);
+		return assocCSkill != null && assocCSkill.contains(sk);
+	}
 
-		for (Skill aSkill : aPC.getSkillSet())
-		{
-			if (SkillCostCalc.hasCSkill(aPC, aSkill, sk))
-			{
-				return true;
-			}
-		}
-
-		for (Equipment eq : aPC.getEquippedEquipmentSet())
-		{
-			if (SkillCostCalc.hasCSkill(aPC, eq, sk))
-			{
-				return true;
-			}
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-			{
-				if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
-				{
-					return true;
-				}
-			}
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-			{
-				if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
-				{
-					return true;
-				}
-			}
-		}
-
-		for (PCTemplate aTemplate : aPC.getTemplateSet())
-		{
-			if (SkillCostCalc.hasCSkill(aPC, aTemplate, sk))
-			{
-				return true;
-			}
-		}
-
-		List<ClassSkillList> skillLists = ClassSkillApplication
-				.getClassSkillList(aPC, aClass);
+	public static boolean hasMasterSkill(List<ClassSkillList> skillLists, Skill sk)
+	{
 		MasterListInterface masterLists = Globals.getMasterLists();
 		for (CDOMReference<ClassSkillList> ref : masterLists.getActiveLists())
 		{
@@ -382,30 +340,6 @@ public final class SkillCostCalc
 		if (assocCCSkill != null && !assocCCSkill.isEmpty())
 		{
 			if (assocCCSkill.contains(skill))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean hasCSkill(PlayerCharacter pc, CDOMObject po, Skill skill)
-	{
-		List<CDOMReference<Skill>> cSkillList = po.getListFor(ListKey.CSKILL);
-		if (cSkillList != null)
-		{
-			for (CDOMReference<Skill> ref : cSkillList)
-			{
-				if (ref.contains(skill))
-				{
-					return true;
-				}
-			}
-		}
-		List<Skill> assocCSkill = pc.getAssocList(po, AssociationListKey.CSKILL);
-		if (assocCSkill != null)
-		{
-			if (assocCSkill.contains(skill))
 			{
 				return true;
 			}

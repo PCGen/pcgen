@@ -129,6 +129,8 @@ import pcgen.cdom.facet.FollowerLimitFacet;
 import pcgen.cdom.facet.FollowerOptionFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
+import pcgen.cdom.facet.GlobalAddedSkillCostFacet;
+import pcgen.cdom.facet.GlobalSkillCostFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.HasAnyFavoredClassFacet;
@@ -341,6 +343,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary.getFacet(GlobalAddedSkillCostFacet.class);
+	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -13413,6 +13417,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void removeAddedBonus(BonusObj bonus, CDOMObject source)
 	{
 		addedBonusFacet.remove(id, bonus, source);
+	}
+
+	public void addGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
+	{
+		globalAddedSkillCostFacet.add(id, skill, sc, obj);
+	}
+
+	public void removeGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
+	{
+		globalAddedSkillCostFacet.remove(id, skill, sc, obj);
+	}
+
+	public boolean hasGlobalCost(Skill skill, SkillCost sc)
+	{
+		return globalSkillCostFacet.contains(id, sc, skill)
+				|| globalAddedSkillCostFacet.contains(id, skill, sc);
 	}
 
 }
