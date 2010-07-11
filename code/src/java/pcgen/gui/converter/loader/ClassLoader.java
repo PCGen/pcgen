@@ -105,7 +105,7 @@ public class ClassLoader implements Loader
 						+ "Test" + tok);
 				obj.put(ObjectKey.TOKEN_PARENT, parent);
 			}
-			List<CDOMObject> injected = processToken(sb, obj, parent, token,
+			List<CDOMObject> injected = processToken(sb, firstToken, obj, parent, token,
 					decider);
 			if (injected != null)
 			{
@@ -121,7 +121,7 @@ public class ClassLoader implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj,
+	private List<CDOMObject> processToken(StringBuilder sb, String firstToken, CDOMObject obj,
 			CDOMObject alt, String token, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
@@ -142,11 +142,11 @@ public class ClassLoader implements Loader
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1);
 		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, obj);
+				value, firstToken, obj);
 		String error = TokenConverter.process(tpe);
 		if (!tpe.isConsumed() && alt != null)
 		{
-			tpe = new TokenProcessEvent(context, decider, key, value, alt);
+			tpe = new TokenProcessEvent(context, decider, key, value, firstToken, alt);
 			error += TokenConverter.process(tpe);
 		}
 		if (tpe.isConsumed())

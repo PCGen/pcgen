@@ -33,6 +33,7 @@ public class TokenProcessEvent extends EventObject
 	private final EditorLoadContext context;
 	private final String key;
 	private final String value;
+	private final String objectName;
 	private final CDOMObject obj;
 	private StringBuilder result = new StringBuilder();
 	private boolean consumed = false;
@@ -40,13 +41,15 @@ public class TokenProcessEvent extends EventObject
 	private final ConversionDecider decider;
 
 	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd,
-			String tokenName, String tokenValue, CDOMObject object)
+			String tokenName, String tokenValue, String name,
+			CDOMObject object)
 	{
 		super(object);
 		key = tokenName;
 		value = tokenValue;
 		obj = object;
 		context = lc;
+		objectName = name;
 		decider = cd;
 	}
 
@@ -68,6 +71,11 @@ public class TokenProcessEvent extends EventObject
 	public String getValue()
 	{
 		return value;
+	}
+
+	public String getObjectName()
+	{
+		return objectName;
 	}
 
 	public void append(CharSequence s)

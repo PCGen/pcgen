@@ -439,4 +439,31 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return choiceTokenResults.get(result);
 	}
 
+	public String getConversionInput(String overallDescription)
+	{
+		final ConversionInputDialog ccd = new ConversionInputDialog(null,
+				overallDescription);
+
+		Runnable showDialog = new Runnable()
+		{
+			public void run()
+			{
+				ccd.setVisible(true);
+			}
+		};
+		try
+		{
+			SwingUtilities.invokeAndWait(showDialog);
+		}
+		catch (InterruptedException e)
+		{
+			Logging.errorPrint("Failed to display user choice, due to: ", e);
+		}
+		catch (InvocationTargetException e)
+		{
+			Logging.errorPrint("Failed to display user choice, due to: ", e);
+		}
+		return ccd.getResult();
+	}
+
 }

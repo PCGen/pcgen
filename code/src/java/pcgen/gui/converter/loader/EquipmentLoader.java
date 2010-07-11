@@ -43,8 +43,7 @@ public class EquipmentLoader implements Loader
 	private final ListKey<CampaignSourceEntry> listkey;
 	private final EditorLoadContext context;
 
-	public EquipmentLoader(EditorLoadContext lc, 
-		ListKey<CampaignSourceEntry> lk)
+	public EquipmentLoader(EditorLoadContext lc, ListKey<CampaignSourceEntry> lk)
 	{
 		context = lc;
 		listkey = lk;
@@ -59,7 +58,8 @@ public class EquipmentLoader implements Loader
 		{
 			return null;
 		}
-		sb.append(tokens[0]);
+		String objectName = tokens[0];
+		sb.append(objectName);
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
@@ -70,11 +70,11 @@ public class EquipmentLoader implements Loader
 				continue;
 			}
 
-			Equipment obj =
-					context.ref.constructCDOMObject(EQUIPMENT_CLASS, line + "Test"
-						+ tok + " " + token);
+			Equipment obj = context.ref.constructCDOMObject(EQUIPMENT_CLASS,
+					line + "Test" + tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
-			List<CDOMObject> injected = processToken(sb, obj, token, decider);
+			List<CDOMObject> injected = processToken(sb, objectName, obj,
+					token, decider);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -95,8 +95,8 @@ public class EquipmentLoader implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj,
-			String token, ConversionDecider decider)
+	private List<CDOMObject> processToken(StringBuilder sb, String objectName,
+			CDOMObject obj, String token, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
@@ -116,7 +116,7 @@ public class EquipmentLoader implements Loader
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1);
 		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, obj);
+				value, objectName, obj);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{

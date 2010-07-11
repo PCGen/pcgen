@@ -135,6 +135,7 @@ public class ConversionChoiceDialog extends JDialog implements
 
 		addWindowListener(new WindowAdapter()
 		{
+			@Override
 			public void windowClosing(WindowEvent e)
 			{
 				result = choiceCombo.getSelectedIndex();

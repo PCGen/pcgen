@@ -37,6 +37,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		tpe.append(':');
 		String value = tpe.getValue();
 		StringBuilder result = new StringBuilder(value.length() + 10);
+		String objectName = tpe.getObjectName();
 		while (true)
 		{
 			int pipeLoc = value.lastIndexOf('|');
@@ -47,7 +48,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			{
 				break;
 			}
-			String pre = process(tpe.getContext(), tpe.getDecider(), preString);
+			String pre = process(tpe.getContext(), tpe.getDecider(), objectName, preString);
 			result.insert(0, pre);
 			result.insert(0, '|');
 			value = value.substring(0, pipeLoc);
@@ -58,7 +59,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-	private String process(EditorLoadContext context, ConversionDecider decider, String token)
+	private String process(EditorLoadContext context,
+			ConversionDecider decider, String objectName, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -80,7 +82,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		CDOMObject cdo = new ObjectCache();
 		cdo.setName("BONUS" + bonusCount++);
 		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, cdo);
+				value, objectName, cdo);
 		String error = TokenConverter.process(tpe);
 		context.purge(cdo);
 		TokenConverter.clearConstants();

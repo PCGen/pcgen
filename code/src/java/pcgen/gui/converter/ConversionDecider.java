@@ -53,4 +53,5 @@ public interface ConversionDecider
 	public String getConversionDecision(String overallDescription,
 		List<String> choiceDescriptions, List<String> choiceTokenResults);
 
+	public String getConversionInput(String overallDescription);
 }
