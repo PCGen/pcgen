@@ -355,7 +355,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		for (PCClass pcc : classes)
 		{
 			String key = pcc.getKeyName();
-			constructCDOMObject(CLASSSKILLLIST_CLASS, key);
+			ClassSkillList skl = constructCDOMObject(CLASSSKILLLIST_CLASS, key);
+			pcc.put(ObjectKey.CLASS_SKILLLIST, skl);
 			// TODO Need to limit which are built to only spellcasters...
 			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
 			String spelltype = pcc.get(StringKey.SPELLTYPE);
@@ -380,7 +381,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					{
 						needSelf = false;
 					}
-					constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
+					skl = constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
+					subcl.put(ObjectKey.CLASS_SKILLLIST, skl);
 					// TODO Need to limit which are built to only
 					// spellcasters...
 					csl = constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);

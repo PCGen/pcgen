@@ -600,9 +600,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			LoadContext context)
 	{
 		createLangBonusObject(context);
-		context.resolveDeferredTokens();
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
+		context.resolveDeferredTokens();
 		context.ref.validate(new LoadValidator(aSelectedCampaignsList));
 		context.resolveReferences();
 		context.resolvePostDeferredTokens();

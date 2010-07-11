@@ -313,6 +313,8 @@ public class ObjectKey<T>
 	
 	public static final ObjectKey<DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>> SPELL_PC_INFO = new ObjectKey<DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>>(null);
 
+	public static final ObjectKey<ClassSkillList> CLASS_SKILLLIST = new ObjectKey<ClassSkillList>(null);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */
