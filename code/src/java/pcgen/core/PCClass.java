@@ -1864,6 +1864,15 @@ public class PCClass extends PObject
 		}
 	}
 
+	/**
+	 * Clear any data from the class levels. Primarily for use by the Classes 
+	 * LST editor. 
+	 */
+	public void clearClassLevels()
+	{
+		levelMap.clear();
+	}
+	
 	public String getFullKey()
 	{
 		return getKeyName();
