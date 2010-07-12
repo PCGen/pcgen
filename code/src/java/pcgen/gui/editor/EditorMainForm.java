@@ -1159,6 +1159,9 @@ public final class EditorMainForm extends JDialog
 			default:
 				break;
 		}
+		context.getListContext().removeAllFromList("VISION", thisPObject,
+			Vision.VISIONLIST);
+		context.commit();
 
 		if (editType == EditorConstants.EDIT_SKILL)
 		{
@@ -3309,6 +3312,20 @@ public final class EditorMainForm extends JDialog
 				{
 					selectedList.add("ADD:" + s);
 				}
+			}
+		}
+		
+		//KEY
+		//QUALIFY
+		//UDAM
+		//UMULT
+		// VISION
+		String vision[] = Globals.getContext().unparseToken(thisPObject, "VISION");
+		if (vision != null)
+		{
+			for (String tag : vision)
+			{
+				selectedList.add(tag);
 			}
 		}
 		
