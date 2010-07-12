@@ -626,6 +626,8 @@ public final class EditorMainForm extends JDialog
 		// Save P.I. flag
 		//
 		thisPObject.put(ObjectKey.NAME_PI, pnlMainTab.getProductIdentity());
+		thisPObject.removeListFor(ListKey.TYPE);
+		context.commit();
 
 		pnlMainTab.updateData(thisPObject);
 
@@ -641,7 +643,6 @@ public final class EditorMainForm extends JDialog
 		thisPObject.remove(ObjectKey.HAS_DEITY_WEAPONPROF);
 		thisPObject.removeListFor(ListKey.AUTO_SHIELDPROF);
 		thisPObject.removeListFor(ListKey.AUTO_ARMORPROF);
-		thisPObject.removeListFor(ListKey.TYPE);		
 
 		switch (editType)
 		{

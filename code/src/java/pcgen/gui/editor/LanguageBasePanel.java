@@ -82,7 +82,6 @@ public class LanguageBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		thisPObject.removeListFor(ListKey.TYPE);
 		for (Object o : getTypesSelectedList())
 		{
 			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
