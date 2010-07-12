@@ -27,7 +27,6 @@ package pcgen.gui;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.utils.Utility;
@@ -224,9 +223,12 @@ public final class GameModes extends JMenu
 					JRadioButtonMenuItem campaignMenuItem = new JRadioButtonMenuItem(aCamp.getDisplayName());
 					gameModeGroup.add(firstSubMenu.add(campaignMenuItem));
 					String description = "";
-					for (String info : aCamp.getListFor(ListKey.INFO_TEXT))
+					if (aCamp.getSizeOfListFor(ListKey.INFO_TEXT) > 0)
 					{
-						description += info + "\n";
+						for (String info : aCamp.getListFor(ListKey.INFO_TEXT))
+						{
+							description += info + "\n";
+						}
 					}
 					Utility.setDescription(campaignMenuItem, description);
 					campaigns.add(aCamp);
