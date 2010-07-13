@@ -24,7 +24,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.ChoiceFilterUtilities;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.ObjectContainer;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
