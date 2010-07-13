@@ -179,6 +179,7 @@ public class FacetInitialization
 		alWeaponProfFacet.addDataFacetChangeListener(weaponProfFacet);
 
 		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
+		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);

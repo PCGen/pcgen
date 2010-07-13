@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -42,20 +43,7 @@ public class ChooseDriverFacet extends
 			String fullassoc = getSource(pc.getCharID(), cdo);
 			if (fullassoc != null)
 			{
-				ChoiceManagerList<Object> controller = ChooserUtilities
-						.getConfiguredController(cdo, pc, null,
-								new ArrayList<String>());
-				String[] assoc = fullassoc.split(Constants.COMMA, -1);
-				for (String string : assoc)
-				{
-					if (string.startsWith("FEAT?"))
-					{
-						int openloc = string.indexOf('(');
-						int closeloc = string.lastIndexOf(')');
-						string = string.substring(openloc + 1, closeloc);
-					}
-					controller.restoreChoice(pc, cdo, string);
-				}
+				processAssociations(pc, cdo, fullassoc);
 			}
 		}
 		else
@@ -65,6 +53,49 @@ public class ChooseDriverFacet extends
 				ChooserUtilities.modChoices(cdo, new ArrayList<Object>(),
 						new ArrayList<Object>(), true, pc, true, null);
 			}
+		}
+	}
+
+	private void processAssociations(PlayerCharacter pc, CDOMObject cdo,
+			String fullassoc)
+	{
+		if (cdo instanceof Domain)
+		{
+			processDomainAssocs(pc, cdo, fullassoc);
+		}
+		else
+		{
+			processAssocs(pc, cdo, fullassoc);
+		}
+	}
+
+	private void processAssocs(PlayerCharacter pc, CDOMObject cdo,
+			String fullassoc)
+	{
+		ChoiceManagerList<Object> controller = ChooserUtilities
+				.getConfiguredController(cdo, pc, null, new ArrayList<String>());
+		String[] assoc = fullassoc.split("\\|", -1);
+		for (String string : assoc)
+		{
+			controller.restoreChoice(pc, cdo, string);
+		}
+	}
+
+	private void processDomainAssocs(PlayerCharacter pc, CDOMObject cdo,
+			String fullassoc)
+	{
+		ChoiceManagerList<Object> controller = ChooserUtilities
+				.getConfiguredController(cdo, pc, null, new ArrayList<String>());
+		String[] assoc = fullassoc.split(Constants.COMMA, -1);
+		for (String string : assoc)
+		{
+			if (string.startsWith("FEAT?"))
+			{
+				int openloc = string.indexOf('(');
+				int closeloc = string.lastIndexOf(')');
+				string = string.substring(openloc + 1, closeloc);
+			}
+			controller.restoreChoice(pc, cdo, string);
 		}
 	}
 

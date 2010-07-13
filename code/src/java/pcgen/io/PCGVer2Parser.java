@@ -48,7 +48,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
-import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
@@ -3454,143 +3453,34 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Race.class, race_name);
 
-		if (aRace != null)
+		if (aRace == null)
 		{
-			thePC.setRace(aRace);
-
-			if (sTok.hasMoreTokens())
-			{
-				final String aString = sTok.nextToken();
-
-				if (aString.startsWith(TAG_HITPOINTS))
-				{
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(TAG_HITPOINTS
-								.length()), TAG_END, false);
-
-					String msgKey = "Warnings.PCGenParser.RaceNoHD"; //$NON-NLS-1$
-
-					Race race = thePC.getRace();
-					LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
-
-					if (lcf != null)
-					{
-						final PCClass mclass = lcf.getPCClass();
-
-						int levels =
-								lcf.getLevelCount().resolve(thePC, "")
-									.intValue();
-						thePC.incrementClassLevel(levels, mclass, true);
-						final HashMap<String, Integer> hitPointMap =
-								processHitPoints(race_name, levels, aString,
-									aTok);
-						for (String lvlStr : hitPointMap.keySet())
-						{
-							int lvl = Integer.parseInt(lvlStr);
-							PCLevelInfo info = thePC.getLevelInfo().get(lvl);
-							PCClass pcClass =
-									thePC.getClassKeyed(info.getClassKeyName());
-							PCClassLevel classLevel = thePC.getActiveClassLevel(pcClass, lvl);
-							thePC.setAssoc(classLevel,
-									AssociationKey.HIT_POINTS, hitPointMap
-											.get(lvlStr));
-						}
-						msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
-					}
-					final String msg =
-							PropertyFactory.getFormattedString(msgKey,
-								race_name);
-					warnings.add(msg);
-				}
-				else if (aString.startsWith(TAG_APPLIEDTO))
-				{
-					Race race = thePC.getRace();
-					parseAppliedTo(line, aString, race);
-				}
-				else
-				{
-					final String msg =
-							PropertyFactory.getFormattedString(
-								"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
-								aString);
-					warnings.add(msg);
-				}
-			}
-		}
-		else
-		{
-			final String msg =
-					PropertyFactory.getFormattedString(
-						"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
-						race_name);
+			final String msg = PropertyFactory.getFormattedString(
+					"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
+					race_name);
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 		}
-
-		// TODO
-		// adjust for more information according to PCGVer1Creator.appendRaceLine
-	}
-
-	/**
-	 * Parse an applied to element, indicating a value associated with the 
-	 * item, generally the result of a chooser.
-	 * 
-	 * @param line The line being parsed, only for error reporting.
-	 * @param aString The APPLIEDTO element
-	 * @param pObj The object that this data is to be added to.
-	 */
-	private void parseAppliedTo(final String line, final String aString,
-		PObject pObj)
-	{
-		final StringTokenizer aTok =
-				new StringTokenizer(aString
-					.substring(TAG_APPLIEDTO.length() + 1), TAG_SEPARATOR,
-					false);
-		while (aTok.hasMoreTokens())
+		if (sTok.hasMoreTokens())
 		{
-			final String appliedToKey = aTok.nextToken();
-			if (appliedToKey.startsWith(TAG_MULTISELECT))
+			final String aString = sTok.nextToken();
+			if (aString.startsWith(TAG_APPLIEDTO))
 			{
-				//
-				// Should be in the form:
-				// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-				//
-				final StringTokenizer msTok =
-						new StringTokenizer(appliedToKey, TAG_END, false);
-
-				if (msTok.countTokens() > 2)
-				{
-					msTok.nextToken(); // should be TAG_MULTISELECT
-
-					final int maxChoices = Integer.parseInt(msTok.nextToken());
-					msTok.nextToken(); // toss this--number of choices made
-
-					final FixedStringList array =
-							new FixedStringList(maxChoices);
-					while (msTok.hasMoreTokens())
-					{
-						array.add(msTok.nextToken());
-					}
-
-					thePC.addAssociation(pObj, array);
-				}
-				else
-				{
-					final String msg =
-							PropertyFactory.getFormattedString(
-								"Warnings.PCGenParser.IllegalRaceIgnored", //$NON-NLS-1$
-								line);
-					warnings.add(msg);
-				}
+				chooseDriverFacet.addAssociation(thePC.getCharID(), aRace,
+						aString.substring(TAG_APPLIEDTO.length() + 1));
 			}
-			else if (!thePC.containsAssociated(pObj, appliedToKey))
+			else
 			{
-				String[] assoc = appliedToKey.split(Constants.COMMA, -1);
-				for (String string : assoc)
-				{
-					thePC.addAssociation(pObj, string);
-				}
+				final String msg = PropertyFactory.getFormattedString(
+						"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
+						aString);
+				warnings.add(msg);
 			}
 		}
+		thePC.setRace(aRace);
+
+		// TODO
+		// adjust for more information according to
+		// PCGVer1Creator.appendRaceLine
 	}
 
 	private void parseFavoredClassLine(final String line)

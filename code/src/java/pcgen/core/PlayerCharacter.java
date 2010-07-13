@@ -4779,9 +4779,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (!isImporting())
 			{
 				Globals.getBioSet().randomize("AGE.HT.WT", this);
-
-				ChooserUtilities.modChoices(newRace, new ArrayList(),
-					new ArrayList(), true, this, true, null);
 			}
 
 			// Get existing classes
