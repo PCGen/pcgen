@@ -1639,11 +1639,11 @@ public class PCClass extends PObject
 					.getListFor(ListKey.CSKILL));
 		}
 
-		if (otherClass.containsListFor(ListKey.CCSKILL))
+		if (otherClass.containsListFor(ListKey.LOCALCCSKILL))
 		{
-			removeListFor(ListKey.CCSKILL);
-			addAllToListFor(ListKey.CCSKILL, otherClass
-					.getListFor(ListKey.CCSKILL));
+			removeListFor(ListKey.LOCALCCSKILL);
+			addAllToListFor(ListKey.LOCALCCSKILL, otherClass
+					.getListFor(ListKey.LOCALCCSKILL));
 		}
 
 		removeListFor(ListKey.KIT_CHOICE);

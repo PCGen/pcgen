@@ -26,9 +26,9 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
@@ -68,130 +68,129 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		return new TestSuite(PreCSkillTest.class);
 	}
 
-//	/**
-//	 * Test that CSkill works
-//	 * @throws Exception
-//	 */
-//	public void testCSkill() throws Exception
-//	{
-//		final PlayerCharacter character = getCharacter();
-//		character.incrementClassLevel(1, myClass, true);
-//
-//		myClass = character.getClassKeyed("My Class");
-//
-//		Prerequisite prereq;
-//
-//		final PreParserFactory factory = PreParserFactory.getInstance();
-//		prereq = factory.parse("PRECSKILL:1,Spot,Listen");
-//
-//		assertFalse("Character has no class skills", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		character.addAssoc(myClass, AssociationListKey.CSKILL, spot);
-//		character.setDirty(true); //Need to throw out the cache
-//
-//		assertTrue("Character has spot class skills", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy1));
-//		character.setDirty(true); //Need to throw out the cache
-//
-//		assertTrue("Character has spot class skills", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		prereq = factory.parse("PRECSKILL:2,TYPE.Spy");
-//
-//		assertFalse("Character has only one Spy Skill", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy2));
-//		character.setDirty(true); //Need to throw out the cache
-//
-//		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		prereq = factory.parse("PRECSKILL:3,Spot,TYPE.Spy");
-//
-//		assertTrue("Character has 2 Spy and Spot class skills", PrereqHandler
-//			.passes(prereq, character, null));
-//
-//		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
-//
-//		assertFalse("Character has only 2 Spy Skills", PrereqHandler.passes(
-//			prereq, character, null));
-//
-//		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy3));
-//		character.setDirty(true); //Need to throw out the cache
-//
-//		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
-//
-//		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
-//			character, null));
-//	}
-//	public void testCSkillServesAs() throws Exception
-//	{
-//		final PlayerCharacter character = getCharacter();
-//		character.incrementClassLevel(1, myClass, true);
-//
-//		myClass = character.getClassKeyed("My Class");
-//
-//		Prerequisite prereq;
-//		final PreParserFactory factory = PreParserFactory.getInstance();
-//		
-//		Skill bar = new Skill();
-//		bar.setName("Bar");
-//		bar.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
-//		Globals.getContext().ref.importObject(bar); 
-//		
-//		Skill foo = new Skill();
-//		foo.setName("Foo");
-//		foo.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(bar));
-//		foo.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
-//		Globals.getContext().ref.importObject(foo);
-//		
-//		Skill baz = new Skill();
-//		baz.setName("Baz");
-//		baz.addToListFor(ListKey.TYPE, Type.getConstant("Baz"));
-//		Globals.getContext().ref.importObject(baz); 
-//		
-//		Skill fee = new Skill();
-//		fee.setName("Fee");
-//		fee.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
-//		Globals.getContext().ref.importObject(fee); 
-//		
-//		
-//		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(foo));
-//		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(fee));
-//		prereq = factory.parse("PRECSKILL:1,Bar");		
-//		assertTrue("Character has 1 Listen Skill", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		
-//		prereq = factory.parse("PRECSKILL:2,Bar,Fee");		
-//		assertTrue("Character has a Bar Skill and a Fee Skill", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		prereq = factory.parse("PRECSKILL:2,Baz,Fee");		
-//		assertFalse("Character does not have both Baz and Fee Skills", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		
-//		
-//		prereq = factory.parse("PRECSKILL:1,TYPE=Bar");		
-//		assertTrue("Character has 1 Bar Type Skill", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		
-//		prereq = factory.parse("PRECSKILL:2,TYPE=Bar");		
-//		assertTrue("Character has 2 Bar Type Skills", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		prereq = factory.parse("PRECSKILL:3,TYPE=Bar");		
-//		assertFalse("Character has less than 3 Bar Type Skills", PrereqHandler.passes(prereq,
-//			character, null));
-//		
-//		
-//	}
+	/**
+	 * Test that CSkill works
+	 * @throws Exception
+	 */
+	public void testCSkill() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, myClass, true);
+
+		myClass = character.getClassKeyed("My Class");
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PRECSKILL:1,Spot,Listen");
+
+		assertFalse("Character has no class skills", PrereqHandler.passes(
+			prereq, character, null));
+
+		character.addLocalCost(myClass, spot, SkillCost.CLASS, myClass);
+		character.setDirty(true); //Need to throw out the cache
+
+		assertTrue("Character has spot class skills", PrereqHandler.passes(
+			prereq, character, null));
+
+		character.addLocalCost(myClass, spy1, SkillCost.CLASS, myClass);
+		character.setDirty(true); //Need to throw out the cache
+
+		assertTrue("Character has spot class skills", PrereqHandler.passes(
+			prereq, character, null));
+
+		prereq = factory.parse("PRECSKILL:2,TYPE.Spy");
+
+		assertFalse("Character has only one Spy Skill", PrereqHandler.passes(
+			prereq, character, null));
+
+		character.addLocalCost(myClass, spy2, SkillCost.CLASS, myClass);
+		character.setDirty(true); //Need to throw out the cache
+
+		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
+			prereq, character, null));
+
+		prereq = factory.parse("PRECSKILL:3,Spot,TYPE.Spy");
+
+		assertTrue("Character has 2 Spy and Spot class skills", PrereqHandler
+			.passes(prereq, character, null));
+
+		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
+
+		assertFalse("Character has only 2 Spy Skills", PrereqHandler.passes(
+			prereq, character, null));
+
+		character.addLocalCost(myClass, spy3, SkillCost.CLASS, myClass);
+		character.setDirty(true); //Need to throw out the cache
+
+		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
+
+		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
+			character, null));
+	}
+	public void testCSkillServesAs() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, myClass, true);
+
+		myClass = character.getClassKeyed("My Class");
+
+		Prerequisite prereq;
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		
+		Skill bar = new Skill();
+		bar.setName("Bar");
+		bar.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		Globals.getContext().ref.importObject(bar); 
+		
+		Skill foo = new Skill();
+		foo.setName("Foo");
+		foo.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(bar));
+		foo.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		Globals.getContext().ref.importObject(foo);
+		
+		Skill baz = new Skill();
+		baz.setName("Baz");
+		baz.addToListFor(ListKey.TYPE, Type.getConstant("Baz"));
+		Globals.getContext().ref.importObject(baz); 
+		
+		Skill fee = new Skill();
+		fee.setName("Fee");
+		fee.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		Globals.getContext().ref.importObject(fee); 
+		
+		character.addLocalCost(myClass, fee, SkillCost.CLASS, myClass);
+		character.addLocalCost(myClass, foo, SkillCost.CLASS, myClass);
+		prereq = factory.parse("PRECSKILL:1,Bar");		
+		assertTrue("Character has 1 Listen Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		prereq = factory.parse("PRECSKILL:2,Bar,Fee");		
+		assertTrue("Character has a Bar Skill and a Fee Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		prereq = factory.parse("PRECSKILL:2,Baz,Fee");		
+		assertFalse("Character does not have both Baz and Fee Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		
+		prereq = factory.parse("PRECSKILL:1,TYPE=Bar");		
+		assertTrue("Character has 1 Bar Type Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		prereq = factory.parse("PRECSKILL:2,TYPE=Bar");		
+		assertTrue("Character has 2 Bar Type Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		prereq = factory.parse("PRECSKILL:3,TYPE=Bar");		
+		assertFalse("Character has less than 3 Bar Type Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+	}
 	protected void setUp() throws Exception
 	{
 		super.setUp();

@@ -86,10 +86,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
 
-	public static final AssociationListKey<Skill> CCSKILL = new AssociationListKey<Skill>();
-
-	public static final AssociationListKey<Skill> CSKILL = new AssociationListKey<Skill>();
-
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 
 	public static final AssociationListKey<CDOMList<Spell>> SPELL_LIST_CACHE = new AssociationListKey<CDOMList<Spell>>();
@@ -146,8 +142,6 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
 	public static final AssociationListKey<AbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<AbilitySelection>();
-
-	public static final AssociationListKey<Skill> PARENTCSKILL = new AssociationListKey<Skill>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

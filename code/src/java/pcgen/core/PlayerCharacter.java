@@ -142,6 +142,8 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.LoadFacet;
+import pcgen.cdom.facet.LocalAddedSkillCostFacet;
+import pcgen.cdom.facet.LocalSkillCostFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.MonsterCSkillFacet;
@@ -345,6 +347,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary.getFacet(GlobalAddedSkillCostFacet.class);
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
+	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
+	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -13444,4 +13448,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				|| globalAddedSkillCostFacet.contains(id, skill, sc);
 	}
 
+	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc,
+			CDOMObject owner)
+	{
+		localAddedSkillCostFacet.add(id, pcc, skill, sc, owner);
+	}
+
+	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc,
+			CDOMObject owner)
+	{
+		localAddedSkillCostFacet.remove(id, pcc, skill, sc, owner);
+	}
+
+	public boolean hasLocalCost(PCClass cl, Skill skill, SkillCost sc)
+	{
+		return localSkillCostFacet.contains(id, cl, sc, skill)
+				|| localAddedSkillCostFacet.contains(id, cl, skill, sc);
+	}
 }

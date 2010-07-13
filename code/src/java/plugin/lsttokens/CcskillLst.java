@@ -26,8 +26,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Globals;
@@ -250,7 +250,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject> implement
 				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
 		if (skill != null)
 		{
-			pc.addAssoc(obj, AssociationListKey.CCSKILL, skill);
+			pc.addGlobalCost(SkillCost.CROSS_CLASS, skill, obj);
 		}
 	}
 
@@ -260,7 +260,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject> implement
 				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
 		if (skill != null)
 		{
-			pc.removeAssoc(obj, AssociationListKey.CCSKILL, skill);
+			pc.removeGlobalCost(SkillCost.CROSS_CLASS, skill, obj);
 		}
 	}
 

@@ -78,7 +78,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 							+ ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext()
-						.removeList(obj, ListKey.PARENTCSKILL);
+						.removeList(obj, ListKey.LOCALCSKILL);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -86,7 +86,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 				if (Constants.LST_ALL.equals(clearText))
 				{
 					context.getObjectContext().removeFromList(obj,
-							ListKey.PARENTCSKILL,
+							ListKey.LOCALCSKILL,
 							context.ref.getCDOMAllReference(SKILL_CLASS));
 				}
 				else
@@ -100,7 +100,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 										+ getTokenName());
 					}
 					context.getObjectContext().removeFromList(obj,
-							ListKey.PARENTCSKILL, ref);
+							ListKey.LOCALCSKILL, ref);
 				}
 			}
 			else
@@ -115,7 +115,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 				{
 					foundAny = true;
 					context.getObjectContext().addToList(obj,
-							ListKey.PARENTCSKILL,
+							ListKey.LOCALCSKILL,
 							context.ref.getCDOMAllReference(SKILL_CLASS));
 				}
 				else
@@ -130,7 +130,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 										+ getTokenName());
 					}
 					context.getObjectContext().addToList(obj,
-							ListKey.PARENTCSKILL, ref);
+							ListKey.LOCALCSKILL, ref);
 				}
 			}
 			first = false;
@@ -161,7 +161,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 	public String[] unparse(LoadContext context, PCClassLevel obj)
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.PARENTCSKILL);
+				.getListChanges(obj, ListKey.LOCALCSKILL);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())

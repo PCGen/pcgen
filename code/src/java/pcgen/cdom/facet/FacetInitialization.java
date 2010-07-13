@@ -132,6 +132,8 @@ public class FacetInitialization
 				.getFacet(EquipSetFacet.class);
 		GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary
 				.getFacet(GlobalSkillCostFacet.class);
+		LocalSkillCostFacet localSkillCostFacet = FacetLibrary
+				.getFacet(LocalSkillCostFacet.class);
 		ChooseDriverFacet chooseDriverFacet = FacetLibrary
 				.getFacet(ChooseDriverFacet.class);
 
@@ -181,6 +183,10 @@ public class FacetInitialization
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);
 
+		classFacet.addDataFacetChangeListener(localSkillCostFacet);
+		domainFacet.addDataFacetChangeListener(localSkillCostFacet);
+		classLevelFacet.addDataFacetChangeListener(localSkillCostFacet);
+		
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);

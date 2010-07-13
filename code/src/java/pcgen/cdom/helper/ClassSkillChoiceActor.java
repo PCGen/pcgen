@@ -22,7 +22,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -89,7 +89,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	{
 		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
-		pc.addAssoc(pcc, AssociationListKey.CSKILL, choice);
+		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
 		if (applyRank != null)
 		{
 			SkillRankControl.modRanks(applyRank, pcc, false, pc, choice);
@@ -174,7 +174,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	{
 		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
-		pc.addAssoc(pcc, AssociationListKey.CSKILL, choice);
+		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		{
 			SkillRankControl.modRanks(-applyRank, pcc, false, pc, choice);
 		}
-		pc.removeAssoc(pcc, AssociationListKey.CSKILL, choice);
+		pc.removeLocalCost(pcc, choice, SkillCost.CLASS, owner);
 	}
 
 	/**

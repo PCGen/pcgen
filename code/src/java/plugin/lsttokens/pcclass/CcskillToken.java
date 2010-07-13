@@ -15,27 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.domain;
+package plugin.lsttokens.pcclass;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -47,15 +40,16 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author djones4
  * 
  */
-public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
-		CDOMPrimaryParserToken<Domain>, ChooseResultActor
+public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
+
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
 	@Override
 	public String getTokenName()
 	{
-		return "CSKILL";
+		return "CCSKILL";
 	}
 
 	@Override
@@ -66,7 +60,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			Domain obj, String value)
+			PCClass obj, String value)
 	{
 		boolean first = true;
 		boolean foundAny = false;
@@ -84,8 +78,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 							+ getTokenName()
 							+ ": .CLEAR was not the first list item");
 				}
-				context.getObjectContext()
-						.removeList(obj, ListKey.LOCALCSKILL);
+				context.getObjectContext().removeList(obj, ListKey.LOCALCCSKILL);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -93,13 +86,8 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 				if (Constants.LST_ALL.equals(clearText))
 				{
 					context.getObjectContext().removeFromList(obj,
-							ListKey.LOCALCSKILL,
+							ListKey.LOCALCCSKILL,
 							context.ref.getCDOMAllReference(SKILL_CLASS));
-				}
-				else if (Constants.LST_LIST.equals(clearText))
-				{
-					context.getObjectContext().removeFromList(obj,
-							ListKey.CHOOSE_ACTOR, this);
 				}
 				else
 				{
@@ -112,7 +100,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 										+ getTokenName());
 					}
 					context.getObjectContext().removeFromList(obj,
-							ListKey.LOCALCSKILL, ref);
+							ListKey.LOCALCCSKILL, ref);
 				}
 			}
 			else
@@ -127,30 +115,22 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 				{
 					foundAny = true;
 					context.getObjectContext().addToList(obj,
-							ListKey.LOCALCSKILL,
+							ListKey.LOCALCCSKILL,
 							context.ref.getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
 					foundOther = true;
-					if (Constants.LST_LIST.equals(tokText))
+					CDOMReference<Skill> ref = getSkillReference(context,
+							tokText);
+					if (ref == null)
 					{
-						context.getObjectContext().addToList(obj,
-								ListKey.CHOOSE_ACTOR, this);
+						return new ParseResult.Fail(
+								"  Error was encountered while parsing "
+										+ getTokenName());
 					}
-					else
-					{
-						CDOMReference<Skill> ref = getSkillReference(context,
-								tokText);
-						if (ref == null)
-						{
-							return new ParseResult.Fail(
-									"  Error was encountered while parsing "
-											+ getTokenName());
-						}
-						context.getObjectContext().addToList(obj,
-								ListKey.LOCALCSKILL, ref);
-					}
+					context.getObjectContext().addToList(obj,
+							ListKey.LOCALCCSKILL, ref);
 				}
 			}
 			first = false;
@@ -178,12 +158,10 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		}
 	}
 
-	public String[] unparse(LoadContext context, Domain obj)
+	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.LOCALCSKILL);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+				.getListChanges(obj, ListKey.LOCALCCSKILL);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
@@ -199,14 +177,6 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 					+ ReferenceUtilities
 							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
-		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
-		if (listRemoved != null && !listRemoved.isEmpty())
-		{
-			if (listRemoved.contains(this))
-			{
-				list.add(".CLEAR.LIST");
-			}
-		}
 		if (changes.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR);
@@ -216,26 +186,6 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		{
 			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
-		if (listAdded != null && !listAdded.isEmpty())
-		{
-			for (ChooseResultActor cra : listAdded)
-			{
-				if (cra.getSource().equals(getTokenName()))
-				{
-					try
-					{
-						list.add(cra.getLstFormat());
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
-						return null;
-					}
-				}
-			}
-		}
 		if (list.isEmpty())
 		{
 			return null;
@@ -243,40 +193,13 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		return list.toArray(new String[list.size()]);
 	}
 
-	public Class<Domain> getTokenClass()
+	public Class<PCClass> getTokenClass()
 	{
-		return Domain.class;
-	}
-
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
-	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
-			pc.addLocalCost(pcc, skill, SkillCost.CLASS, obj);
-		}
-	}
-
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
-	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
-			pc.removeLocalCost(pcc, skill, SkillCost.CLASS, obj);
-		}
+		return PCClass.class;
 	}
 
 	public String getSource()
 	{
 		return getTokenName();
-	}
-
-	public String getLstFormat()
-	{
-		return "LIST";
 	}
 }

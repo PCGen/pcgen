@@ -255,7 +255,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
 	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGE = new ListKey<CDOMReference<Language>>();
 	public static final ListKey<CDOMReference<Skill>> CLASS_SKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<CDOMReference<Skill>> PARENTCSKILL = new ListKey<CDOMReference<Skill>>();
+	public static final ListKey<CDOMReference<Skill>> LOCALCSKILL = new ListKey<CDOMReference<Skill>>();
+	public static final ListKey<CDOMReference<Skill>> LOCALCCSKILL = new ListKey<CDOMReference<Skill>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

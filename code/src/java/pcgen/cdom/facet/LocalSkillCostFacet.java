@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -28,15 +27,22 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
 /**
  * SkillCostFacet is a Facet to track Skill costs
  */
-public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
+public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
+
+	private final DomainFacet domainFacet = FacetLibrary
+			.getFacet(DomainFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
@@ -53,18 +59,35 @@ public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.CSKILL))
+		PCClass owner;
+		if (cdo instanceof Domain)
+		{
+			owner = domainFacet.getSource(id, (Domain) cdo).getPcclass();
+		}
+		else if (cdo instanceof PCClassLevel)
+		{
+			owner = (PCClass) cdo.get(ObjectKey.PARENT);
+		}
+		else if (cdo instanceof PCClass)
+		{
+			owner = (PCClass) cdo;
+		}
+		else
+		{
+			return;
+		}
+		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCSKILL))
 		{
 			for (Skill sk : ref.getContainedObjects())
 			{
-				add(id, sk, SkillCost.CLASS, cdo);
+				add(id, owner, sk, SkillCost.CLASS, cdo);
 			}
 		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.CCSKILL))
+		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCCSKILL))
 		{
 			for (Skill sk : ref.getContainedObjects())
 			{
-				add(id, sk, SkillCost.CROSS_CLASS, cdo);
+				add(id, owner, sk, SkillCost.CROSS_CLASS, cdo);
 			}
 		}
 	}
@@ -131,45 +154,63 @@ public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * CacheInfo is the data structure used by SkillCostFacet to store a Player
-	 * Character's Skill Costs
+	 * CacheInfo is the data structure used by LocalSkillCostFacet to store a
+	 * Player Character's Skill Costs
 	 */
 	private static class CacheInfo
 	{
-		Map<SkillCost, Map<Skill, Set<Object>>> map = new HashMap<SkillCost, Map<Skill, Set<Object>>>();
+		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = new IdentityHashMap<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
 
-		public void add(Skill skill, SkillCost sc, Object source)
+		public void add(PCClass cl, Skill skill, SkillCost sc, CDOMObject source)
 		{
-			Map<Skill, Set<Object>> skMap = map.get(sc);
+			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+			if (scMap == null)
+			{
+				scMap = new IdentityHashMap<SkillCost, Map<Skill, Set<CDOMObject>>>();
+				map.put(cl, scMap);
+			}
+			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
 			if (skMap == null)
 			{
-				skMap = new IdentityHashMap<Skill, Set<Object>>();
-				map.put(sc, skMap);
+				skMap = new IdentityHashMap<Skill, Set<CDOMObject>>();
+				scMap.put(sc, skMap);
 			}
-			Set<Object> set = skMap.get(skill);
+			Set<CDOMObject> set = skMap.get(skill);
 			if (set == null)
 			{
-				set = new WrappedMapSet<Object>(IdentityHashMap.class);
+				set = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
 				skMap.put(skill, set);
 			}
 			set.add(source);
 		}
 
-		public void remove(Skill skill, SkillCost sc, Object source)
+		public void remove(PCClass cl, Skill skill, SkillCost sc,
+				CDOMObject source)
 		{
-			Map<Skill, Set<Object>> skMap = map.get(sc);
-			if (skMap != null)
+			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+			if (scMap == null)
 			{
-				Set<Object> set = skMap.get(skill);
-				if (set != null)
+				return;
+			}
+			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
+			if (skMap == null)
+			{
+				return;
+			}
+			Set<CDOMObject> set = skMap.get(skill);
+			if (set == null)
+			{
+				return;
+			}
+			if (set.remove(source) && set.isEmpty())
+			{
+				skMap.remove(skill);
+				if (skMap.isEmpty())
 				{
-					if (set.remove(source) && set.isEmpty())
+					scMap.remove(sc);
+					if (scMap.isEmpty())
 					{
-						skMap.remove(skill);
-						if (skMap.isEmpty())
-						{
-							map.remove(sc);
-						}
+						map.remove(cl);
 					}
 				}
 			}
@@ -177,48 +218,65 @@ public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 
 		public void removeAll(Object source)
 		{
-			for (Iterator<Map<Skill, Set<Object>>> mit = map.values()
-					.iterator(); mit.hasNext();)
+			for (Iterator<Map<SkillCost, Map<Skill, Set<CDOMObject>>>> clValues = map
+					.values().iterator(); clValues.hasNext();)
 			{
-				Map<Skill, Set<Object>> skMap = mit.next();
-				for (Iterator<Set<Object>> sit = skMap.values().iterator(); sit
-						.hasNext();)
+				Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = clValues
+						.next();
+				for (Iterator<Map<Skill, Set<CDOMObject>>> scValues = scMap
+						.values().iterator(); scValues.hasNext();)
 				{
-					Set<Object> set = sit.next();
-					if (set.remove(source) && set.isEmpty())
+					Map<Skill, Set<CDOMObject>> skMap = scValues.next();
+					for (Iterator<Set<CDOMObject>> skValues = skMap.values()
+							.iterator(); skValues.hasNext();)
 					{
-						sit.remove();
+						Set<CDOMObject> set = skValues.next();
+						if (set.remove(source) && set.isEmpty())
+						{
+							skValues.remove();
+						}
+					}
+					if (skMap.isEmpty())
+					{
+						scValues.remove();
 					}
 				}
-				if (skMap.isEmpty())
+				if (scMap.isEmpty())
 				{
-					mit.remove();
+					clValues.remove();
 				}
 			}
 		}
 
-		public boolean contains(SkillCost sc, Skill skill)
+		public boolean contains(PCClass cl, SkillCost sc, Skill skill)
 		{
-			Map<Skill, Set<Object>> skMap = map.get(sc);
+			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+			if (scMap == null)
+			{
+				return false;
+			}
+			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
 			return (skMap != null) && skMap.containsKey(skill);
 		}
 	}
 
-	public void add(CharID id, Skill skill, SkillCost sc, Object source)
+	public void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
+			CDOMObject source)
 	{
-		getConstructingInfo(id).add(skill, sc, source);
+		getConstructingInfo(id).add(cl, skill, sc, source);
 	}
 
-	public void remove(CharID id, Skill skill, SkillCost sc, Object source)
+	public void remove(CharID id, PCClass cl, Skill skill, SkillCost sc,
+			CDOMObject source)
 	{
 		CacheInfo info = getInfo(id);
 		if (info != null)
 		{
-			info.remove(skill, sc, source);
+			info.remove(cl, skill, sc, source);
 		}
 	}
 
-	public void removeAll(CharID id, Object source)
+	public void removeAll(CharID id, CDOMObject source)
 	{
 		CacheInfo ci = getInfo(id);
 		if (ci != null)
@@ -227,9 +285,9 @@ public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		}
 	}
 
-	public boolean contains(CharID id, SkillCost sc, Skill sk)
+	public boolean contains(CharID id, PCClass cl, SkillCost sc, Skill sk)
 	{
 		CacheInfo ci = getInfo(id);
-		return ci != null && ci.contains(sc, sk);
+		return ci != null && ci.contains(cl, sc, sk);
 	}
 }
