@@ -1587,12 +1587,12 @@ BIO
 
 	<domains>
 		<domain>
-			<name>Test Spells Domain</name>
-			<power>This has a Spells</power>
-		</domain>
-		<domain>
 			<name>Domain Add Feat</name>
 			<power></power>
+		</domain>
+		<domain>
+			<name>Test Spells Domain</name>
+			<power>This has a Spells</power>
 		</domain>
 	</domains>
 	<!-- Domains -->

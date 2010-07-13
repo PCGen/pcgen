@@ -850,7 +850,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for (Domain dom : pc.getDomainSet())
+				for (Domain dom : pc.getSortedDomainSet())
 				{
 					if (!firstLine)
 					{

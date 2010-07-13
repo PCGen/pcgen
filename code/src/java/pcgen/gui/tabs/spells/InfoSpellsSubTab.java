@@ -755,7 +755,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					needComma = true;
 				}
 
-				for (Domain d : pc.getDomainSet())
+				for (Domain d : pc.getSortedDomainSet())
 				{
 					if (needComma)
 					{

@@ -17,13 +17,14 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 
 /**
  * DomainFacet is a Facet that tracks the Domains possessed by a Player
  * Character.
  */
-public class DomainFacet extends AbstractListFacet<Domain>
+public class DomainFacet extends AbstractSingleSourceListFacet<Domain, ClassSource>
 {
 
 }

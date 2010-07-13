@@ -10024,7 +10024,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
+		aClone.domainFacet.copyContents(id, aClone.id);
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
@@ -12727,8 +12727,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addDomain(Domain domain, ClassSource source)
 	{
-		domainFacet.add(id, domain);
-		setAssoc(domain, AssociationKey.CLASS_SOURCE, source);
+		domainFacet.add(id, domain, source);
 		if (source != null)
 		{
 			String classKey = source.getPcclass().getKeyName();
@@ -12769,17 +12768,27 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return domainFacet.getSet(id);
 	}
 
-	public ClassSource getDomainSource(Domain d)
+		public Set<Domain> getSortedDomainSet()
 	{
-		return getAssoc(d, AssociationKey.CLASS_SOURCE);
+		SortedSet<Domain> domains = new TreeSet<Domain>(
+				CDOMObjectUtilities.CDOM_SORTER);
+		domains.addAll(getDomainSet());
+		return domains;
 	}
 
-	public void setTempBonusMap(Map<BonusObj, BonusManager.TempBonusInfo> tempBonusMap)
+	public ClassSource getDomainSource(Domain d)
+	{
+		return domainFacet.getSource(id, d);
+	}
+
+	public void setTempBonusMap(
+			Map<BonusObj, BonusManager.TempBonusInfo> tempBonusMap)
 	{
 		bonusManager.setTempBonusMap(tempBonusMap);
 	}
 
-	public Map<String, String> getBonusStrings(String bonusString, String substring)
+	public Map<String, String> getBonusStrings(String bonusString,
+			String substring)
 	{
 		return bonusManager.getBonuses(bonusString, substring);
 	}
