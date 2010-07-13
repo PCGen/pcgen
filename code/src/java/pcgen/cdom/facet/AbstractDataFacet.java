@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.facet;
 
-import javax.swing.event.EventListenerList;
+import java.util.Map;
+import java.util.TreeMap;
 
 import pcgen.cdom.enumeration.CharID;
 
@@ -30,11 +31,7 @@ import pcgen.cdom.enumeration.CharID;
  */
 public abstract class AbstractDataFacet<T>
 {
-	/**
-	 * The listeners to which DataFacetChangeEvents will be fired when a change
-	 * in the source DataFacet occurs.
-	 */
-	private final EventListenerList listenerList = new EventListenerList();
+	private final Map<Integer, DataFacetChangeListener<? super T>[]> listeners = new TreeMap<Integer, DataFacetChangeListener<? super T>[]>();
 
 	/**
 	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
@@ -46,25 +43,21 @@ public abstract class AbstractDataFacet<T>
 	public void addDataFacetChangeListener(
 			DataFacetChangeListener<? super T> listener)
 	{
-		listenerList.add(DataFacetChangeListener.class, listener);
+		addDataFacetChangeListener(0, listener);
 	}
 
-	/**
-	 * Returns an Array of DataFacetChangeListeners receiving
-	 * DataFacetChangeEvents from the source DataFacet.
-	 * 
-	 * Ownership of the returned Array is transferred to the calling Object. No
-	 * reference to the Array is maintained by DataFacetChangeSupport. However,
-	 * the DataFacetChangeListeners contained in the Array are (obviously!)
-	 * returned BY REFERENCE, and care should be taken with modifying those
-	 * DataFacetChangeListeners.*
-	 * 
-	 * @return An Array of DataFacetChangeListeners receiving
-	 *         DataFacetChangeEvents from the source DataFacet
-	 */
-	public synchronized DataFacetChangeListener<? super T>[] getDataFacetChangeListeners()
+	public void addDataFacetChangeListener(int priority,
+			DataFacetChangeListener<? super T> listener)
 	{
-		return listenerList.getListeners(DataFacetChangeListener.class);
+		DataFacetChangeListener<? super T>[] dfcl = listeners.get(priority);
+		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
+		DataFacetChangeListener<? super T>[] newArray = new DataFacetChangeListener[newSize];
+		if (dfcl != null)
+		{
+			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
+		}
+		newArray[0] = listener;
+		listeners.put(priority, newArray);
 	}
 
 	/**
@@ -77,7 +70,49 @@ public abstract class AbstractDataFacet<T>
 	public void removeDataFacetChangeListener(
 			DataFacetChangeListener<? super T> listener)
 	{
-		listenerList.remove(DataFacetChangeListener.class, listener);
+		removeDataFacetChangeListener(0, listener);
+	}
+
+	public void removeDataFacetChangeListener(int priority,
+			DataFacetChangeListener<? super T> listener)
+	{
+		DataFacetChangeListener<? super T>[] dfcl = listeners.get(priority);
+		if (dfcl == null)
+		{
+			// No worries
+			return;
+		}
+		int foundLoc = -1;
+		int newSize = dfcl.length - 1;
+		for (int i = newSize; i >= 0; i--)
+		{
+			if (dfcl[i] == listener)
+			{
+				foundLoc = i;
+				break;
+			}
+		}
+		if (foundLoc != -1)
+		{
+			if (dfcl.length == 1)
+			{
+				listeners.remove(priority);
+			}
+			else
+			{
+				DataFacetChangeListener<? super T>[] newArray = new DataFacetChangeListener[newSize];
+				if (foundLoc != 0)
+				{
+					System.arraycopy(dfcl, 0, newArray, 0, foundLoc);
+				}
+				if (foundLoc != newSize)
+				{
+					System.arraycopy(dfcl, foundLoc + 1, newArray,
+							foundLoc, newSize - foundLoc);
+				}
+				listeners.put(priority, newArray);
+			}
+		}
 	}
 
 	/**
@@ -93,32 +128,36 @@ public abstract class AbstractDataFacet<T>
 	 */
 	protected void fireDataFacetChangeEvent(CharID id, T node, int type)
 	{
-		DataFacetChangeListener<T>[] listeners = listenerList
-				.getListeners(DataFacetChangeListener.class);
-		/*
-		 * This list is decremented from the end of the list to the beginning in
-		 * order to maintain consistent operation with how Java AWT and Swing
-		 * listeners are notified of Events (they are in reverse order to how
-		 * they were added to the Event-owning object).
-		 */
-		DataFacetChangeEvent<T> ccEvent = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
+		for (DataFacetChangeListener<? super T>[] dfclArray : listeners
+				.values())
 		{
-			// Lazily create event
-			if (ccEvent == null)
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events (they are in
+			 * reverse order to how they were added to the Event-owning object).
+			 * This is obviously subordinate to the priority (loop above).
+			 */
+			DataFacetChangeEvent<T> ccEvent = null;
+			for (int i = dfclArray.length - 1; i >= 0; i--)
 			{
-				ccEvent = new DataFacetChangeEvent<T>(id, node, type);
-			}
-			switch (ccEvent.getEventType())
-			{
-			case DataFacetChangeEvent.DATA_ADDED:
-				listeners[i].dataAdded(ccEvent);
-				break;
-			case DataFacetChangeEvent.DATA_REMOVED:
-				listeners[i].dataRemoved(ccEvent);
-				break;
-			default:
-				break;
+				// Lazily create event
+				if (ccEvent == null)
+				{
+					ccEvent = new DataFacetChangeEvent<T>(id, node, type);
+				}
+				DataFacetChangeListener dfcl = dfclArray[i];
+				switch (ccEvent.getEventType())
+				{
+				case DataFacetChangeEvent.DATA_ADDED:
+					dfcl.dataAdded(ccEvent);
+					break;
+				case DataFacetChangeEvent.DATA_REMOVED:
+					dfcl.dataRemoved(ccEvent);
+					break;
+				default:
+					break;
+				}
 			}
 		}
 	}
