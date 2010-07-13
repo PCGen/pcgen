@@ -27,10 +27,12 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -69,6 +71,8 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
+		PCClass cl = new PCClass();
+		character.setDefaultDomainSource(new ClassSource(cl, 1));
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -97,6 +101,8 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCClass cl = new PCClass();
+		character.setDefaultDomainSource(new ClassSource(cl, 1));
 
 		Prerequisite prereq;
 
@@ -141,6 +147,8 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	public void testAny() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		PCClass cl = new PCClass();
+		character.setDefaultDomainSource(new ClassSource(cl, 1));
 
 		Prerequisite prereq;
 
