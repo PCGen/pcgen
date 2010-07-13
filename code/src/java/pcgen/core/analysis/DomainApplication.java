@@ -19,7 +19,6 @@
  */
 package pcgen.core.analysis;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +40,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
@@ -123,13 +121,6 @@ public class DomainApplication
 					}
 				}
 			}
-		}
-
-		// sage_sam stop here
-		if (ChooseActivation.hasChooseToken(d) && !pc.isImporting())
-		{
-			ChooserUtilities.modChoices(d, new ArrayList<Object>(),
-					new ArrayList<Object>(), true, pc, true, null);
 		}
 
 		if (!pc.isImporting())

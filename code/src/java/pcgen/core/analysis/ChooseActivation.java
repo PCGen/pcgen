@@ -17,14 +17,14 @@
  */
 package pcgen.core.analysis;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PObject;
 
 public class ChooseActivation
 {
 
-	public static final boolean hasChooseToken(PObject po)
+	public static final boolean hasChooseToken(CDOMObject po)
 	{
 		String oldchoice = po.get(StringKey.CHOICE_STRING);
 		return oldchoice != null && oldchoice.length() > 0

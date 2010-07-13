@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -75,7 +74,7 @@ public class ChooserUtilities
 	 * @return true if we processed the list of choices, false if we used the
 	 *         routine to build the list of choices without processing them.
 	 */
-	public static final boolean modChoices(final PObject aPObject,
+	public static final boolean modChoices(final CDOMObject aPObject,
 		List availableList, final List selectedList, final boolean process,
 		final PlayerCharacter aPC, final boolean addIt,
 		final AbilityCategory category)
@@ -123,7 +122,7 @@ public class ChooserUtilities
 	}
 
 	public static <T> ChoiceManagerList<T> getConfiguredController(
-			final PObject aPObject, final PlayerCharacter aPC,
+			final CDOMObject aPObject, final PlayerCharacter aPC,
 			final AbilityCategory category, List<String> reservedList)
 	{
 		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
@@ -245,7 +244,7 @@ public class ChooserUtilities
 	 * 
 	 * @return an initialised ChoiceManager
 	 */
-	public static ChoiceManagerList getChoiceManager(PObject aPObject,
+	public static ChoiceManagerList getChoiceManager(CDOMObject aPObject,
 		PlayerCharacter aPC)
 	{
 		ChooseInformation<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);

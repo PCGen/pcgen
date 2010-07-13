@@ -132,6 +132,8 @@ public class FacetInitialization
 				.getFacet(EquipSetFacet.class);
 		GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary
 				.getFacet(GlobalSkillCostFacet.class);
+		ChooseDriverFacet chooseDriverFacet = FacetLibrary
+				.getFacet(ChooseDriverFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -173,6 +175,8 @@ public class FacetInitialization
 		wpBonusFacet.addDataFacetChangeListener(weaponProfFacet);
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
 		alWeaponProfFacet.addDataFacetChangeListener(weaponProfFacet);
+
+		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);

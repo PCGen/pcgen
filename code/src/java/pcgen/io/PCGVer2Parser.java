@@ -51,12 +51,15 @@ import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.ChooseDriverFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
@@ -115,7 +118,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
-import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.ReferenceContext;
@@ -144,6 +146,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
 	private static final String TAG_PCTEMPLATE = "PCTEMPLATE";
+
+	private ChooseDriverFacet chooseDriverFacet = FacetLibrary
+			.getFacet(ChooseDriverFacet.class);
 
 	/**
 	 * DO NOT CHANGE line separator.
@@ -2294,35 +2299,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (TAG_SOURCE.equals(tag))
 					{
-						CharacterDomainParser parser =
-								new CharacterDomainParser();
-						source = parser.getDomainSource(
-							sourceElementToString(element));
+						source = getDomainSource(sourceElementToString(element));
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						if (aDomain == null)
-						{
-							warnings
-									.add("Domain has associated data, but no source: "
-											+ domainKey);
-							continue;
-						}
 						String fullassoc = EntityEncoder.decode(element.getText());
-						ChoiceManagerList<Object> controller = ChooserUtilities
-								.getConfiguredController(aDomain, thePC,
-										null, new ArrayList<String>());
-						String[] assoc = fullassoc.split(Constants.COMMA, -1);
-						for (String string : assoc)
-						{
-							if (string.startsWith("FEAT?"))
-							{
-								int openloc = string.indexOf('(');
-								int closeloc = string.lastIndexOf(')');
-								string = string.substring(openloc + 1, closeloc);
-							}
-							controller.restoreChoice(thePC, aDomain, string);
-						}
+						CharID id = thePC.getCharID();
+						chooseDriverFacet.addAssociation(id, aDomain, fullassoc);
 					}
 				}
 				if (source == null)
@@ -2335,9 +2318,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					thePC.addDomain(aDomain, source);
 					DomainApplication.applyDomain(thePC, aDomain);
 				}
-
-				// TODO
-				// set associated list
 			}
 			else
 			{
@@ -6060,6 +6040,45 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					+ "Character no longer speaks language: "
 					+ l.getDisplayName());
 		}
+	}
+
+	/**
+	 * Set the source of the domain
+	 * This method should NOT be called outside of file i/o routines!
+	 * @param charDomain
+	 * @param aSource the source to be set
+	 * See getDomainSource() for details.
+	 **/
+	public ClassSource getDomainSource(String aSource)
+	{
+		final StringTokenizer aTok = new StringTokenizer(aSource, "|", false);
+	
+		if (aTok.countTokens() < 2)
+		{
+			Logging.errorPrint("Invalid Domain Source:" + aSource);
+			return null;
+		}
+	
+		aTok.nextToken(); //Throw away "PCClass"
+	
+		String classString = aTok.nextToken();
+		PCClass cl = thePC.getClassKeyed(classString);
+		if (cl == null)
+		{
+			Logging.errorPrint("Invalid Class in Domain Source:" + aSource);
+			return null;
+		}
+		ClassSource cs;
+		if (aTok.hasMoreTokens())
+		{
+			int level = Integer.parseInt(aTok.nextToken());
+			cs = new ClassSource(cl, level);
+		}
+		else
+		{
+			cs = new ClassSource(cl);
+		}
+		return cs;
 	}
 
 }
