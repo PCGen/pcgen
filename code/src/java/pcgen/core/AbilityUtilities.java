@@ -357,7 +357,6 @@ public class AbilityUtilities
 			}
 		}
 
-		aPC.setAutomaticAbilitiesStable(null, false);
 		aPC.adjustMoveRates();
 
 		if (addIt && !aPC.isImporting())
@@ -764,8 +763,6 @@ public class AbilityUtilities
 				modFeat(aPC, LevelInfo, aString, addIt, all);
 			}
 		}
-
-		aPC.setAutomaticAbilitiesStable(null, false);
 	}
 
 	/**

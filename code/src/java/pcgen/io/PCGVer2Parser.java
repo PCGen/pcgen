@@ -4753,9 +4753,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkWeaponProficiencies()
 	{
-		//		thePC.setAutomaticFeatsStable(false);
-		thePC.setAutomaticAbilitiesStable(null, false);
-
 		for (final Iterator<WeaponProf> it = weaponprofs.iterator(); it.hasNext();)
 		{
 			if (thePC.hasWeaponProf(it.next()))

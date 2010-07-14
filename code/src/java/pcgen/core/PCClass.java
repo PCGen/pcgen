@@ -1207,8 +1207,6 @@ public class PCClass extends PObject
 			aPC.setDefaultDomainSource(new ClassSource(this, newLevel));
 		}
 
-		aPC.setAutomaticAbilitiesStable(null, false);
-		//		aPC.setAutomaticFeatsStable(false);
 		doPlusLevelMods(newLevel, aPC, pcLevelInfo);
 
 		// Don't roll the hit points if the gui is not being used.

@@ -6250,8 +6250,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		calcActiveBonuses();
 
-		setAutomaticAbilitiesStable(null, false);
-
 		if (doChoose)
 		{
 			selectTemplates(inTemplate, isImporting());
@@ -8031,9 +8029,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		removeTemplatesFrom(inTmpl);
 
 		templateFacet.remove(id, inTmpl);
-
-		// TODO - ABILITYOBJECT
-		setAutomaticFeatsStable(false);
 
 		// karianna 1184888
 		adjustMoveRates();
@@ -10136,8 +10131,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.pointBuyPoints = pointBuyPoints;
 
 		aClone.setDirty(true);
-		// TODO - ABILITYOBJECT
-		aClone.setAutomaticFeatsStable(false);
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();
 		//Just to be safe
@@ -10661,26 +10654,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
-
-	/**
-	 * Sets a 'stable' list of automatic feats
-	 * 
-	 * @param stable
-	 */
-	private void setAutomaticFeatsStable(final boolean stable)
-	{
-		setAutomaticAbilitiesStable(AbilityCategory.FEAT, stable);
-	}
-
-	public void setAutomaticAbilitiesStable(final AbilityCategory aCategory,
-		final boolean stable)
-	{
-		if (aCategory == null)
-		{
-			setAutomaticFeatsStable(stable);
-			return;
-		}
-	}
 
 	private boolean addRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
