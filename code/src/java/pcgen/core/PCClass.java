@@ -920,7 +920,7 @@ public class PCClass extends PObject
 		List<ClassSkillList> classSkillList = pc.getAssocList(this,
 				AssociationListKey.CLASSSKILLLIST);
 		return (classSkillList != null)
-				&& SkillCostCalc.hasMasterSkill(classSkillList, skill);
+				&& pc.hasMasterSkill(classSkillList, skill);
 	}
 
 	/*

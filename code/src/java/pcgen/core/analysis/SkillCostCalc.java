@@ -26,12 +26,10 @@ import java.util.List;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -43,7 +41,7 @@ public final class SkillCostCalc
 	public static boolean isClassSkill(Skill sk, PCClass aClass,
 			PlayerCharacter aPC)
 	{
-		if ((aPC == null) || (aClass == null))
+		if (aClass == null)
 		{
 			return false;
 		}
@@ -74,35 +72,9 @@ public final class SkillCostCalc
 
 		List<ClassSkillList> skillLists = ClassSkillApplication
 				.getClassSkillList(aPC, aClass);
-		if (hasMasterSkill(skillLists, sk))
+		if (aPC.hasMasterSkill(skillLists, sk))
 		{
 			return true;
-		}
-		return false;
-	}
-
-	public static boolean hasMasterSkill(List<ClassSkillList> skillLists, Skill sk)
-	{
-		MasterListInterface masterLists = Globals.getMasterLists();
-		for (CDOMReference<ClassSkillList> ref : masterLists.getActiveLists())
-		{
-			boolean found = false;
-			for (ClassSkillList csl : skillLists)
-			{
-				if (ref.contains(csl))
-				{
-					found = true;
-					break;
-				}
-			}
-			if (found)
-			{
-				Collection<AssociatedPrereqObject> assoc = masterLists.getAssociations(ref, sk);
-				if (assoc != null && !assoc.isEmpty())
-				{
-					return true;
-				}
-			}
 		}
 		return false;
 	}
@@ -133,7 +105,7 @@ public final class SkillCostCalc
 			return false;
 		}
 
-		if ((aPC == null) || (aClass == null))
+		if (aClass == null)
 		{
 			return false;
 		}

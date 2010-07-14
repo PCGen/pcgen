@@ -145,6 +145,7 @@ import pcgen.cdom.facet.LoadFacet;
 import pcgen.cdom.facet.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.LocalSkillCostFacet;
 import pcgen.cdom.facet.MasterFacet;
+import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.MonsterCSkillFacet;
 import pcgen.cdom.facet.MovementResultFacet;
@@ -190,6 +191,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -293,6 +295,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
+	private MasterSkillFacet masterSkillFacet = FacetLibrary.getFacet(MasterSkillFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -13435,5 +13438,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return localSkillCostFacet.contains(id, cl, sc, skill)
 				|| localAddedSkillCostFacet.contains(id, cl, skill, sc);
+	}
+
+	public boolean hasMasterSkill(List<ClassSkillList> skillLists, Skill sk)
+	{
+		for (ClassSkillList csl : skillLists)
+		{
+			if (masterSkillFacet.hasMasterSkill(csl, sk))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
