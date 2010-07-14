@@ -12047,8 +12047,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	void selectTemplates(CDOMObject po, boolean isImporting)
 	{
-		addedTemplateFacet.remove(id, po, isImporting);
-		addedTemplateFacet.select(id, po, isImporting);
+		for (PCTemplate pct : addedTemplateFacet.select(id, po, isImporting))
+		{
+			addTemplate(pct);
+		}
+		for (PCTemplate pct : addedTemplateFacet.remove(id, po, isImporting))
+		{
+			removeTemplate(pct);
+		}
 	}
 
 	public void removeTemplatesFrom(PObject po)
