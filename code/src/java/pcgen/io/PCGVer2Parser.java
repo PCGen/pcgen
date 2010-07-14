@@ -328,28 +328,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return thePC.getTempBonusMap(sourceStr, targetStr);
 	}
 
-	private PCTemplate addKeyedTemplate(final String templateKey)
+	private void addKeyedTemplate(PCTemplate template)
 	{
-		PCTemplate aPCTemplate =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					PCTemplate.class, EntityEncoder.decode(templateKey));
+		final int preXP = thePC.getXP();
+		thePC.addTemplate(template);
 
-		if (aPCTemplate != null)
+		//
+		// XP written to file contains leveladjustment XP. If template modifies
+		// XP, then
+		// it will have already been added into total. Need to make sure it is
+		// not doubled.
+		//
+		if (thePC.getXP() != preXP)
 		{
-			final int preXP = thePC.getXP();
-			thePC.addTemplate(aPCTemplate);
-
-			//
-			// XP written to file contains leveladjustment XP. If template modifies XP, then
-			// it will have already been added into total. Need to make sure it is not doubled.
-			//
-			if (thePC.getXP() != preXP)
-			{
-				thePC.setXP(preXP);
-			}
+			thePC.setXP(preXP);
 		}
-
-		return aPCTemplate;
 	}
 
 	private void cacheLine(String s)
@@ -4363,18 +4356,38 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final PCGElement element = it.next();
 
+				//Must deal with APPLIEDTO first (before item is added to the PC)
+				for (final PCGElement child : element.getChildren())
+				{
+					String childTag = child.getName();
+					if (TAG_NAME.equals(childTag))
+					{
+						aPCTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+								PCTemplate.class, EntityEncoder.decode(child.getText()));
+
+						if (aPCTemplate == null)
+						{
+							break;
+						}
+					}
+					else if (TAG_APPLIEDTO.equals(childTag))
+					{
+						chooseDriverFacet.addAssociation(thePC.getCharID(),
+								aPCTemplate, child.getText());
+					}
+				}
+
 				for (final PCGElement child : element.getChildren())
 				{
 					final String childTag = child.getName();
 
 					if (TAG_NAME.equals(childTag))
 					{
-						aPCTemplate = addKeyedTemplate(child.getText());
-
 						if (aPCTemplate == null)
 						{
 							break;
 						}
+						addKeyedTemplate(aPCTemplate);
 					}
 					else if (TAG_CHOSENFEAT.equals(childTag))
 					{
@@ -4432,73 +4445,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 						}
 					}
-					else if (TAG_APPLIEDTO.equals(childTag))
-					{
-						child.getText();
-						final String appliedToKey = child.getText();
-						if (appliedToKey.startsWith(TAG_MULTISELECT))
-						{
-							//
-							// Should be in the form:
-							// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-							//
-							final StringTokenizer msTok =
-									new StringTokenizer(appliedToKey, TAG_END,
-										false);
-
-							if (msTok.countTokens() > 2)
-							{
-								msTok.nextToken(); // should be TAG_MULTISELECT
-
-								final int maxChoices =
-										Integer.parseInt(msTok.nextToken());
-								msTok.nextToken(); // toss this--number of choices made
-
-								final FixedStringList array =
-										new FixedStringList(maxChoices);
-								while (msTok.hasMoreTokens())
-								{
-									array.add(msTok.nextToken());
-								}
-
-								thePC.addAssociation(aPCTemplate, array);
-							}
-							else
-							{
-								final String msg =
-										PropertyFactory
-											.getFormattedString(
-												"Warnings.PCGenParser.IllegalTemplateIgnored", //$NON-NLS-1$
-												line);
-								warnings.add(msg);
-							}
-						}
-						else if (!thePC.containsAssociated(aPCTemplate,
-							appliedToKey))
-						{
-							String[] assoc =
-									appliedToKey.split(Constants.COMMA, -1);
-							for (String string : assoc)
-							{
-								thePC.addAssociation(aPCTemplate, string);
-							}
-						}
-
-					}
-
 				}
 			}
 		}
 		else
 		{
-			addKeyedTemplate(line.substring(TAG_TEMPLATESAPPLIED.length() + 1));
+			String key = EntityEncoder.decode(line
+					.substring(TAG_TEMPLATESAPPLIED.length() + 1));
+			PCTemplate aPCTemplate = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(PCTemplate.class, key);
+			addKeyedTemplate(aPCTemplate);
 		}
 	}
 
 	/**
 	 * # Use temporary mods/bonuses?
+	 * 
 	 * @param line
-	 **/
+	 */
 	private void parseUseTempModsLine(final String line)
 	{
 		thePC.setUseTempMods(line.endsWith(VALUE_Y));

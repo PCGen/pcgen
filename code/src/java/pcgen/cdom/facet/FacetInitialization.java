@@ -180,6 +180,7 @@ public class FacetInitialization
 
 		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
+		templateFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);

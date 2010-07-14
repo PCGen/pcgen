@@ -214,7 +214,6 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -6268,10 +6267,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			// Do chooser (if any)
-			ChooserUtilities.modChoices(inTemplate, new ArrayList(),
-				new ArrayList(), true, this, true, null);
-
 			getSpellList();
 			feats(inTemplate, getTotalLevels(), totalHitDice(), true);
 			AddObjectActions.globalChecks(inTemplate, this);
