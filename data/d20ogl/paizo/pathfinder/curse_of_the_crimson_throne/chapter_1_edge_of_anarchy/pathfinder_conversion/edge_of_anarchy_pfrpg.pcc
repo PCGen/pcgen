@@ -1,45 +1,48 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
-CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 1: Edge of Anarchy - Pathfinder Conversion
-RANK:6
+CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 1: Edge of Anarchy
 GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
+RANK:3
 GENRE:Fantasy
-BOOKTYPE:Supplement
-SETTING:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
+BOOKTYPE:Adventure
+SETTING:Pathfinder Chronicles
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide - Pathfinder Conversion
 PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
+PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy
-SOURCESHORT:CotCT:EoA
-SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Curse of the Crimson Throne, Chaper 1: Edge of Anarchy
+SOURCESHORT:PF7
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw
 SOURCEDATE:2008-03
 ISOGL:YES
 
+COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/edge_of_anarchy.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw|Buy this publication from Paizo Publishing!
+DESC:The King has died, and the city of Korvosa is in chaos! Riots, banditry, monsters, and mayhem are turning the normally safe streets of the city into a war zone. Desperate to regain control of her city, Queen Ileosa seeks heroes to aid her in reclaiming control before the largest city in all Varisia consumes itself from within, as Pathfinder's second Adventure Path, Curse of the Crimson Throne, begins with a bang!
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder 7: Edge of Anarchy. Copyright 2008, Paizo Publishing, LLC; Author: Nicolas Logue.
 COPYRIGHT:Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder 7: Edge of Anarchy" Copyright 2008, PCGen Data team (Including, but not limited to Eddy Anthony)
-COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-
-COVER:../edge_of_anarchy.jpg
-LOGO:@/publisher_logos/Paizo_Publishing.png
-URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
-URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw|Buy this publication from Paizo Publishing!
-DESC:The King has died, and the city of Korvosa is in chaos! Riots, banditry, monsters, and mayhem are turning the normally safe streets of the city into a war zone. Desperate to regain control of her city, Queen Ileosa seeks heroes to aid her in reclaiming control before the largest city in all Varisia consumes itself from within, as Pathfinder's second Adventure Path, Curse of the Crimson Throne, begins with a bang!
+COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 1: Edge of Anarchy" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:../pf7_ability.lst
-RACE:../pf7_race.lst
-TEMPLATE:../pf7_template.lst
+# Imported 35e data files
+ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_ability.lst
+RACE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_race.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_template.lst
 
+# Customized Pathfinder RPG data files
 ABILITY:pf7_ability_pfrpg.lst
 KIT:pf7_kit_monsters_pfrpg.lst
 KIT:pf7_kit_npc_pfrpg.lst

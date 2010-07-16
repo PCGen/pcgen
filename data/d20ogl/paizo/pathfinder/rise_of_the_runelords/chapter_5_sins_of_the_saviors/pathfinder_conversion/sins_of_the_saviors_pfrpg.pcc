@@ -1,22 +1,32 @@
 # CVS $Revision$ $Author$ -- Sun Jun 29 20:21:35 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-CAMPAIGN:Paizo - Rise of the Runelords - Chapter 5: Sins of the Saviors - Pathfinder Conversion
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 5: Sins of the Saviors
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide - Pathfinder Conversion
-RANK:5
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
+RANK:3
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Adventure
+SETTING:Pathfinder Chronicles
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
-SETTING:Pathfinder Chronicles
-SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords, Chapter 5: Sins of the Saviors
 SOURCESHORT:PF5
-SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o
 SOURCEDATE:2007-10
 ISOGL:YES
-ISLICENSED:NO
+
+COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/sins_of_the_saviors.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o|Buy this publication from Paizo Publishing!
+DESC:After defeating the giants of Mokmurian, the heroes discover that Karzoug, an ancient wizard from the long-dead empire of Thassilon, has returned to life. From his city fortress of Xin-Shalast high in the mountains, he has been using the giants to harvest souls to reclaim his lost power.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder 5: Sins of the Saviors, Copyright 2007, Paizo Publishing, LLC; Author: Stephen S. Greer.
@@ -24,32 +34,27 @@ COPYRIGHT:Plot & Poison. Copyright 2002 Green Ronin Publishing; Author: Matthew 
 COPYRIGHT:The Book of Fiends. Copyright 2003 Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
 COPYRIGHT:Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:Unearthed Arcana. Copyright 2004 Wizards of the Coast; Authors: Andy Collins, Jesse Decker, David Noonan, Rich Redman.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder 5: Sins of the Saviors" Copyright 2007-2008, PCGen Data Team (including, but not limited to, Andrew Maitland.)
-COPYRIGHT:Pathfinder RPG Conversion Copyright 2010, Eddy Anthony.
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 5: Sins of the Saviors" Copyright 2007-2010, PCGen Data Team (including, but not limited to Andrew Maitland).
 
-COVER:../sins_of_the_saviors.jpg
-LOGO:@/publisher_logos/Paizo_Publishing.png
-URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
-URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy815p|Buy this publication from Paizo Publishing!
-DESC:After defeating the giants of Mokmurian, the heroes discover that Karzoug, an ancient wizard from the long-dead empire of Thassilon, has returned to life. From his city fortress of Xin-Shalast high in the mountains, he has been using the giants to harvest souls to reclaim his lost power.
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
 
-#Do Not Remove Comment
-#INFOTEXT:OGL.txt
+# Imported 35e data files
+ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_abilities_monster.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_feats.lst
+RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_race.lst
+SPELL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_spells.lst
 
-ABILITY:../pf5_abilities_monster.lst
-EQUIPMENT:../pf5_equipment.lst
-FEAT:../pf5_feats.lst
-RACE:../pf5_race.lst
-SPELL:../pf5_spells.lst
-
+# Customized Pathfinder RPG data files
 ABILITY:pf5_abilities_pfrpg.lst
 CLASS:pf5_classes_pfrpg.lst
 EQUIPMENT:pf5_equipment_pfrpg.lst
 KIT:pf5_kits_pfrpg.lst
 RACE:pf5_race_pfrpg.lst
 
+# Prevent unconstructed reference errors
 FORWARDREF:TEMPLATE|Outsider
 FORWARDREF:EQMOD|UNHLY_M
 FORWARDREF:LANGUAGE|Telepathy

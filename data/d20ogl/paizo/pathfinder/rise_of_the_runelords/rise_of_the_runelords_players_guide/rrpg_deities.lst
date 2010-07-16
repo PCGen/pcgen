@@ -18,7 +18,7 @@ Nethys		NAMEISPI:YES	DOMAINS:Destruction,Knowledge,Magic,Protection,Rune|PREALIG
 Norgorber		NAMEISPI:YES	DOMAINS:Charm,Death,Evil,Knowledge,Trickery|PREALIGN:LE,NE,CE			DESC:God of greed, secrets, poison, murder		DEITYWEAP:Sword (Short)					ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Pharasma		NAMEISPI:YES	DOMAINS:Death,Healing,Knowledge,Repose,Water|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of fate, death, prophecy, birth		DEITYWEAP:Dagger						ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of wrath, disaster, destruction			DEITYWEAP:Greataxe					ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
-Saranrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:LG,NG,CG					DESC:Goddess of the sun, redemption, honesty, healing	DEITYWEAP:Scimitar					ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
+Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:LG,NG,CG					DESC:Goddess of the sun, redemption, honesty, healing	DEITYWEAP:Scimitar					ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Shelyn		NAMEISPI:YES	DOMAINS:Air,Charm,Good,Luck,Protection|PREALIGN:LG,NG,CG				DESC:Goddess of beauty, art, love, music			DEITYWEAP:Glaive						ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,LN,NG			DESC:God of the forge, protection, strategy		DEITYWEAP:Warhammer					ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Urgathoa		NAMEISPI:YES	DOMAINS:Death,Evil,Magic,Strength,War|PREALIGN:LE,NE,CE				DESC:Goddess of gluttony, disease, undeath		DEITYWEAP:Scythe						ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7

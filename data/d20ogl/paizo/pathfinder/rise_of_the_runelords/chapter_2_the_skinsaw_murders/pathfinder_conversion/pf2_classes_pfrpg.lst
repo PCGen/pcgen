@@ -5,4 +5,4 @@ SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF
 # Class Name		Clear Prereq.	Req. Att.	Required Deity	Required Feat																			Required Skill																				Req. Weapond Prof.
 CLASS:Spherewalker.MOD	PRE:.CLEAR		PREATT:5	PREDEITY:1,Desna	PREFEAT:1,Great Fortitude,Iron Will,Lightning Reflexes	PREFEAT:1,Acrobatic,Agile,Athletic,Endurance,Run,Self Sufficient	PRESKILL:2,Climb=2,Knowledge (Geography)=2,Knowledge (Nature)=2,Knowledge (Religion)=2,TYPE.Perform=2,Ride=2,Survival=2,Swim=2	PREWEAPONPROF:1,Starknife
 # Class Name		Remove Class Skill	Class Skill
-CLASS:Spherewalker.MOD	CSKILL:.CLEAR		CSKILL:Acrobatics|Climb|Escape Artist|Handle Animal|Heal|Jump|Knowledge (Geography)|Perception|TYPE=Perform|Ride|Survival|Swim
+CLASS:Spherewalker.MOD	CSKILL:.CLEAR		CSKILL:Acrobatics|Climb|Escape Artist|Handle Animal|Heal|Knowledge (Geography)|Perception|TYPE=Perform|Ride|Survival|Swim
