@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Jul  2 22:55:22 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
-
-#Original Entry: Andrew Maitland
-# Feat Name		Type			Required Class			Description
-Inscribe Rune	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER=3	DESC:You can tattoo arcane runes upon your flesh or the flesh of others.

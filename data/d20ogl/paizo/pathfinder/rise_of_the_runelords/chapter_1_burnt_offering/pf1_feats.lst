@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 22:49:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
-
-# Feat Name		Type			Required Deity		Required Stat	Description										Bonus to skill												Source Page
-Lamashtu's Mark	TYPE:General	PREDEITY:1,Lamashtu	PRESTAT:1,CON=13	DESC:You have been marked as one of Lamashtu's favored minions.	BONUS:SKILL|Intimidate|2|PREAPPLY:PC	BONUS:SKILL|Diplomacy|-2|PREAPPLY:PC	SOURCEPAGE:p.56

@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Jun 28 02:03:15 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs	SOURCESHORT:CotCT:CoF	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el	SOURCEDATE:2008-08
-
-# Equipment Name		Required Weapon Proficiency		Type																				Alternative Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Requires Modification?	Source Page		Innate Spells																																									Stat bonus					Weapon prop. bonus					Special Property
-Staff of the Slain	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Artifact.Weapon.Melee.TwoHanded.Simple.Double.Standard.Bludgeoning.Quarterstaff.Masterwork.Enhancement.Magic.Plus5	ALTTYPE:Weapon.Melee.Bludgeoning.Masterwork.Enhancement.Magic.Plus5	COST:0	WT:6		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		WIELD:TwoHanded	MODS:NO			SOURCEPAGE:p. 66	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=20|Detect Magic|Ventriloquism	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=20|Hallucinatory Terrain|Mirage Arcana	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=20|Create Water|Dimension Door|Lightning Bolt|Major Image|Veil	BONUS:STAT|INT|4|TYPE=Enhancement	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:+1d6 electricity damage, can store a single targeted spell of up to 3rd level with a casting time of 1 action
-
-#
-# End
-#

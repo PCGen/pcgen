@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Apr 27 12:58:27 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8	SOURCEDATE:2007-08
-
-# Ability Name	Unique Key				Category of Ability		Type						Visible	Description
-Death Throes	KEY:Death Throes ~ Argorth	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:When an argorth is reduced to -10 hit points, it collapses to the ground and thrashes wildly. It gets one final tail slam attack on every creature within 10 feet, after which it dies. It cannot grapple or constrict with this final attack.
-

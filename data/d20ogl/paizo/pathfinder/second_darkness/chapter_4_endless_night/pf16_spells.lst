@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Thu Nov 20 23:30:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Second Darkness - Chapter 4: Endless Night	SOURCESHORT:PF16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq	SOURCEDATE:2008-11
-
-# Spell Name		Classes of caster			School		Type		Components									Casting Time		Range		Target Area or Effect					Duration			Save Info					Spell Resistance	Description																Source Page
-Recorporeal Incarnation	CLASSES:Sorcerer,Wizard=7	SCHOOL:Necromancy	TYPE:Arcane	COMPS:V, S, F (a gem or crystal worth at least 250 gp)	CASTTIME:10 minutes	RANGE:Touch	TARGETAREA:One living creature and one corpse	DURATION:Instantaneous	SAVEINFO:Will negates (harmless)	SPELLRES:Yes	DESC:Recorporeal incarnation replaces the target's body with that of a recently deceased corpse.	SOURCEPAGE:p. 10
-
-#
-# End
-#

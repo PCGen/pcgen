@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Sat May 29 15:02:18 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
-
-STARTPACK:Companion ~ Hippogriff	TYPE:Companion	VISIBLE:NO
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-
-#
-# End
-#
