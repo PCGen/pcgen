@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Mon Dec 15 15:33:17 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+CAMPAIGN:Paizo - GameMastery Module - D0: Hollow's Last Hope
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:35e
+TYPE:Paizo Publishing.GameMastery Module
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:D0: Hollow's Last Hope
+SOURCESHORT:GMMD0
+SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy82qz
+SOURCEDATE:2007-06
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:GameMastery Module D0: Hollow's Last Hope, Copyright 2007 Paizo Publishing, LLC. Author: Jason Bulmahn and F. Wesley Schneider.
+COPYRIGHT:PCGen Data Set Conversion for "GameMastery Module D0: Hollow's Last Hope", Copyright 2008 PCGen Data Team (including, but not limited to Eric C. Smith)
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:gmm_d0_hollows_last_hope.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/paizoExclusives/v5748btpy82r0|Buy this publication from Paizo Publishing!
+DESC:The town of Falcon's Hollow needs a miracle. The plague has come to the town of Falcon's Hollow, and not even the town's priest can abate its wretched course. With the coughs of the sick and the wails of the dying echoing through town, the local herbalist uncovers a cure, but she needs some brave heroes to retrieve the ingredients. Finding the cure means risking the dangerous Darkmoon Vale, infiltrating a witch's haunted hut, and delving the ruins of an abandoned dwarven monastery.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:gmm_d0_racial_abilities.lst
+EQUIPMENT:gmm_d0_equipment_magic.lst
+KIT:gmm_d0_monster_kits.lst
+#KIT:gmm_d0_npc_kits.lst
+RACE:gmm_d0_race.lst
+
+##
+## eof
+##

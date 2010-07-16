@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Sun Dec 28 00:34:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:D1: Crown of the Kobold King	SOURCESHORT:GMMD1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderModules/v5748btpy7yqz	SOURCEDATE:2007-07
+
+###Block: Forge Spurned Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility								Define					Combat bonus							Modify VAR
+Burning Barbs	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Burning Barbs (Su)
+Forge Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Forge Breath (Su) (DC% Reflex)|ForgeBreathBlindnessDC	DEFINE:ForgeBreathBlindnessDC|0										BONUS:VAR|ForgeBreathBlindnessDC|10+(HD/2)
+Soul Chain		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Soul Chain (Su) ~ % souls captured|SoulChainLinkCount	DEFINE:SoulChainLinkCount|0		BONUS:COMBAT|AC|(SoulChainLinkCount/10)*2|TYPE=Armor
+Eternal Damnation	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Eternal Damnation (Su)
+
+###Block: Slurk Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility
+Back Slime		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Back Slime (Ex)
+Belly Grease	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Belly Grease (Ex)
+Wall Crawl		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Wall Crawl (Ex)

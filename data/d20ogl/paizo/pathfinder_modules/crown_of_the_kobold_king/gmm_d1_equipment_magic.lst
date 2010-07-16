@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Thu Oct  8 17:49:03 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:D1: Crown of the Kobold King	SOURCESHORT:GMMD1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderModules/v5748btpy7yqz	SOURCEDATE:2007-07
+
+##
+## Rings
+##
+# Equipment Name		Type				Cost		Weight		Source Page				Special Ability
+
+
+##
+## Wonderous Items
+##
+# Equipment Name			Required Weapon Proficiency	Type															Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Caster level			Combat bonus						Stat bonus					Special Property	Special ABility
+Crown of the Kobold King						TYPE:Magic.Wondrous.Headgear											COST:15000	WT:1																									SOURCEPAGE:pg.24	BONUS:CASTERLEVEL|Sorcerer|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.Replace	BONUS:STAT|CHA|2|TYPE=Enhancement				SAB:Immune to the Frightful Presence of Dragons
+Grasp of Droskar								TYPE:Magic.Wondrous.Glove.Cursed										COST:12302	WT:1																									SOURCEPAGE:pg.12														BONUS:STAT|STR|2|TYPE=Enhancement
+
+##
+## Magic Weapons
+##
+# Equipment Name			Required Weapon Proficiency	Type															Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Caster level			Combat bonus						Stat bonus					Special Property	Special ABility
+Heartripper Blade			PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger	COST:11302	WT:1		SLOTS:1	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS1W.STEEL	WIELD:Light		RANGE:10	SIZE:M																							SPROP:See text

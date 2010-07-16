@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sun Dec 28 00:34:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:D0: Hollow's Last Hope	SOURCESHORT:GMMD0	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy82qz	SOURCEDATE:2007-06
+
+###Block: Tatzlwyrm Racial Abilities
+# Ability Name	Category of Ability		Type						Visible
+Poison Grasp	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES
