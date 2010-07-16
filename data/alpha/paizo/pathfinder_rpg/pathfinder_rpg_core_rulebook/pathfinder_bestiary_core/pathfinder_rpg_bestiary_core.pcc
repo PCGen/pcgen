@@ -1,20 +1,21 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary - Core Data
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary (Core Data)
 #GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Roleplaying Game
-RANK:3
+RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
-PUBNAMELONG:Paizo Publishing LLC
-PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
 SETTING:Pathfinder Chronicles
-SOURCELONG:Pathfinder Roleplaying Game Bestiary
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary
 SOURCESHORT:PFB
-SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5
-SOURCEDATE:2009-09
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu
+SOURCEDATE:2009-10
 ISOGL:YES
-ISLICENSED:NO
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. (c) 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder RPG Bestiary, (c) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
@@ -38,20 +39,18 @@ COPYRIGHT:Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.
 COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
 COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
 COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing))
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+ABILITYCATEGORY:pathfinder_rpg_bestiary_abilitycategories.lst
 ABILITY:pathfinder_rpg_bestiary_abilities_constant_spelllike.lst
 ABILITY:pathfinder_rpg_bestiary_abilities_monsters_general.lst
-ABILITYCATEGORY:pathfinder_rpg_bestiary_abilitycategories.lst
 CLASS:pathfinder_rpg_bestiary_classes_monster.lst
 FEAT:pathfinder_rpg_bestiary_feats_monster.lst
 LANGUAGE:pathfinder_rpg_bestiary_languages.lst
 SKILL:pathfinder_rpg_bestiary_skills_conditional.lst
 SPELL:pathfinder_rpg_bestiary_spells.lst
-TEMPLATE:pathfinder_rpg_bestiary_templates_types.lst
 TEMPLATE:pathfinder_rpg_bestiary_templates_simple.lst
+TEMPLATE:pathfinder_rpg_bestiary_templates_types.lst
