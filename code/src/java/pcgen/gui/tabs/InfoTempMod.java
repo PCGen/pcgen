@@ -1034,20 +1034,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			String currAppName = aEq.getAppliedName();
 			if (currAppName != null && currAppName.length() > 2)
 			{
-				for (BonusObj eqBonus : aEq.getTempBonusList())
+				if (pc.hasTempApplied(aMod))
 				{
-					CDOMObject creatorObj = (CDOMObject) pc.getCreatorObject(eqBonus);
-					if (creatorObj != null
-						&& (aMod.equals(creatorObj) || (aMod.getClass() == creatorObj
-							.getClass() && aMod.getKeyName().equals(
-							creatorObj.getKeyName()))))
-					{
-						ShowMessageDelegate.showMessageDialog(
-							PropertyFactory.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
-							Constants.s_APPNAME, MessageType.ERROR);
-						return;
-					}
-
+					ShowMessageDelegate.showMessageDialog(
+						PropertyFactory.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
+						Constants.s_APPNAME, MessageType.ERROR);
+					return;
 				}
 				// We need to remove the [] from the old name
 				aEq.setAppliedName(currAppName.substring(2, currAppName

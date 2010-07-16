@@ -239,7 +239,7 @@ public class SpellCasterToken extends AbstractToken implements
 		}
 
 		BonusAddition.applyBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",
-				pc, owner, false);
+				pc, owner);
 
 		theClass.setLevel(pc.getLevel(theClass), pc);
 	}
@@ -273,7 +273,7 @@ public class SpellCasterToken extends AbstractToken implements
 
 		if (theClass != null)
 		{
-			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",
+			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1",
 					pc, owner);
 			theClass.setLevel(pc.getLevel(theClass), pc);
 		}

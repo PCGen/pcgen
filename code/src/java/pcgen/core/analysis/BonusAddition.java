@@ -38,19 +38,15 @@ public final class BonusAddition
 	 *            The choice to be added.
 	 * @param aPC
 	 *            The character to apply thr bonus to.
-	 * @param addOnceOnly
-	 *            Should the bonus only be added once irrespective of number of
-	 *            choices
 	 */
 	public static void applyBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, CDOMObject target, boolean addOnceOnly)
+			PlayerCharacter aPC, CDOMObject target)
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
 
 		final BonusObj aBonus = Bonus.newBonus(bonusString);
 		if (aBonus != null)
 		{
-			aBonus.setAddOnceOnly(addOnceOnly);
 			aPC.addBonus(aBonus, target);
 		}
 	}
@@ -60,25 +56,19 @@ public final class BonusAddition
 	 * 
 	 * @param bonusString
 	 *            The string representing the bonus
-	 * @param chooseString
-	 *            The choice that was made.
 	 * @param aPC
 	 *            The player character to remove th bonus from.
 	 */
-	public static void removeBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, CDOMObject target)
+	public static void removeBonus(String bonusString, PlayerCharacter aPC,
+			CDOMObject target)
 	{
-		String bonus = makeBonusString(bonusString, chooseString, aPC);
-
 		BonusObj toRemove = null;
-
-		BonusObj aBonus = Bonus.newBonus(bonus);
+		BonusObj aBonus = Bonus.newBonus(bonusString);
 		String bonusStrRep = String.valueOf(aBonus);
 
 		for (BonusObj listBonus : aPC.getAddedBonusList(target))
 		{
-			if (target.equals(aPC.getCreatorObject(listBonus))
-					&& listBonus.toString().equals(bonusStrRep))
+			if (listBonus.toString().equals(bonusStrRep))
 			{
 				toRemove = listBonus;
 			}
@@ -90,7 +80,7 @@ public final class BonusAddition
 		}
 		else
 		{
-			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus
+			Logging.errorPrint("removeBonus: Could not find bonus: " + bonusString
 					+ " in bonusList " + aPC.getAddedBonusList(target));
 		}
 	}

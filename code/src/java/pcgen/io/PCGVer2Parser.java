@@ -1787,7 +1787,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 							bonusString = bonusString.substring(pipeLoc + 1);
 							BonusAddition.applyBonus(bonusString, "", thePC,
-								target, false);
+								target);
 						}
 					}
 				}

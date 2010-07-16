@@ -59,7 +59,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private String  varPart              = Constants.EMPTY_STRING;
 	private String typeOfBonus           = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
-	private boolean addOnceOnly          = false;
 	private String tokenSource = null;
 	private boolean saveToPCG = true;
 
@@ -481,28 +480,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		return theStackingFlag;
 	}
 	
-	/**
-	 * Should this bonus only be added once no matter how many associated 
-	 * values are present in the PObject owning this bonus?
-	 *  
-	 * @return the addOnceOnly
-	 */
-	public boolean isAddOnceOnly()
-	{
-		return addOnceOnly;
-	}
-
-	/**
-	 * Should this bonus only be added once no matter how many associated 
-	 * values are present in the PObject owning this bonus?
-	 * 
-	 * @param addOnceOnly the addOnceOnly to set
-	 */
-	public void setAddOnceOnly(boolean addOnceOnly)
-	{
-		this.addOnceOnly = addOnceOnly;
-	}
-
 	protected abstract boolean parseToken(final String token);
 
 	protected abstract String unparseToken(final Object obj);
@@ -669,7 +646,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				&& bonusFormula.equals(other.bonusFormula)
 				&& bonusName.equals(other.bonusName)
 				&& bonusType.equals(other.bonusType)
-				&& addOnceOnly == other.addOnceOnly
 				&& theStackingFlag.equals(other.theStackingFlag)
 				&& bonusInfo.equals(other.bonusInfo);
 	}

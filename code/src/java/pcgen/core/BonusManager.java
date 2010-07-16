@@ -44,6 +44,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.util.MissingObject;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
@@ -1083,7 +1084,7 @@ public class BonusManager
 		}
 	}
 
-	public Object getSourceObject(BonusObj bo)
+	private Object getSourceObject(BonusObj bo)
 	{
 		Object source = activeBonusBySource.get(bo);
 		if (source == null)
@@ -1156,10 +1157,86 @@ public class BonusManager
 		String[] infoArray = bo.getBonusInfo().split(",");
 		String thisType = bo.getTypeString();
 
-		if (bo.isAddOnceOnly())
+		for (FixedStringList assoc : associatedList)
 		{
-			String thisName = name;
-			for (String thisInfo : infoArray)
+			StringBuilder asb = new StringBuilder();
+			int size = assoc.size();
+			if (size == 1)
+			{
+				asb.append(assoc.get(0));
+			}
+			else
+			{
+				asb.append(size).append(':');
+				int loc = asb.length();
+				int count = 0;
+				for (String s : assoc)
+				{
+					if (s != null)
+					{
+						count++;
+						asb.append(':').append(s);
+					}
+				}
+				asb.insert(loc, count);
+			}
+			String assocString = asb.toString();
+
+			String thisName;
+			if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+			{
+				thisName = name.replaceAll(VALUE_TOKEN_PATTERN, assocString);
+			}
+			else
+			{
+				thisName = name;
+			}
+			List<String> infoList = new ArrayList<String>(4);
+			for (String info : infoArray)
+			{
+				if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+				{
+					for (String expInfo : assoc)
+					{
+						infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
+								expInfo));
+					}
+				}
+				else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
+				{
+					infoList.add(name
+							.replaceAll(VAR_TOKEN_PATTERN, assocString));
+				}
+				else if (info.equals(LIST_TOKEN_REPLACEMENT))
+				{
+					infoList.add(assocString);
+				}
+				else
+				{
+					infoList.add(info);
+				}
+			}
+			Formula newFormula;
+			if (bo.isValueStatic())
+			{
+				newFormula = bo.getFormula();
+			}
+			else
+			{
+				String value = bo.getValue();
+
+				// A %LIST substitution also needs to be done in the val
+				// section
+				int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);
+				String thisValue = value;
+				if (listIndex >= 0)
+				{
+					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
+							assocString);
+				}
+				newFormula = FormulaFactory.getFormulaFor(thisValue);
+			}
+			for (String thisInfo : infoList)
 			{
 				StringBuilder sb = new StringBuilder();
 				sb.append(thisName).append('.').append(thisInfo);
@@ -1167,103 +1244,8 @@ public class BonusManager
 				{
 					sb.append(':').append(thisType);
 				}
-				bonusList.add(new BonusPair(sb.toString(), bo.getFormula(),
+				bonusList.add(new BonusPair(sb.toString(), newFormula,
 						creatorObj));
-			}
-		}
-		else
-		{
-			for (FixedStringList assoc : associatedList)
-			{
-				StringBuilder asb = new StringBuilder();
-				int size = assoc.size();
-				if (size == 1)
-				{
-					asb.append(assoc.get(0));
-				}
-				else
-				{
-					asb.append(size).append(':');
-					int loc = asb.length();
-					int count = 0;
-					for (String s : assoc)
-					{
-						if (s != null)
-						{
-							count++;
-							asb.append(':').append(s);
-						}
-					}
-					asb.insert(loc, count);
-				}
-				String assocString = asb.toString();
-
-				String thisName;
-				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-				{
-					thisName = name
-							.replaceAll(VALUE_TOKEN_PATTERN, assocString);
-				}
-				else
-				{
-					thisName = name;
-				}
-				List<String> infoList = new ArrayList<String>(4);
-				for (String info : infoArray)
-				{
-					if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-					{
-						for (String expInfo : assoc)
-						{
-							infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
-									expInfo));
-						}
-					}
-					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
-					{
-						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN,
-								assocString));
-					}
-					else if (info.equals(LIST_TOKEN_REPLACEMENT))
-					{
-						infoList.add(assocString);
-					}
-					else
-					{
-						infoList.add(info);
-					}
-				}
-				Formula newFormula;
-				if (bo.isValueStatic())
-				{
-					newFormula = bo.getFormula();
-				}
-				else
-				{
-					String value = bo.getValue();
-
-					// A %LIST substitution also needs to be done in the val
-					// section
-					int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);
-					String thisValue = value;
-					if (listIndex >= 0)
-					{
-						thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
-								assocString);
-					}
-					newFormula = FormulaFactory.getFormulaFor(thisValue);
-				}
-				for (String thisInfo : infoList)
-				{
-					StringBuilder sb = new StringBuilder();
-					sb.append(thisName).append('.').append(thisInfo);
-					if (bo.hasTypeString())
-					{
-						sb.append(':').append(thisType);
-					}
-					bonusList.add(new BonusPair(sb.toString(), newFormula,
-							creatorObj));
-				}
 			}
 		}
 		return bonusList;
@@ -1279,5 +1261,69 @@ public class BonusManager
 			source = src;
 			target = tgt;
 		}
+	}
+
+	public double calcBonusesWithCost(List<BonusObj> list)
+	{
+		double totalBonus = 0;
+
+		for (BonusObj aBonus : list)
+		{
+			final CDOMObject anObj = (CDOMObject) getSourceObject(aBonus);
+
+			if (anObj == null)
+			{
+				continue;
+			}
+
+			double iBonus = 0;
+
+			if (aBonus.qualifies(pc, anObj))
+			{
+				iBonus = aBonus.resolve(pc, anObj.getQualifiedKey())
+						.doubleValue();
+			}
+
+			int k;
+			if (pc.hasAssociations(anObj))
+			{
+				k = 0;
+
+				for (String aString : pc.getAssociationList(anObj))
+				{
+					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))
+					{
+						++k;
+					}
+				}
+			}
+			else
+			{
+				k = 1;
+			}
+
+			if ((k == 0) && !CoreUtility.doublesEqual(iBonus, 0))
+			{
+				totalBonus += iBonus;
+			}
+			else
+			{
+				totalBonus += (iBonus * k);
+			}
+		}
+
+		return totalBonus;
+	}
+
+	public boolean hasTempBonusesApplied(CDOMObject mod)
+	{
+		for (TempBonusInfo tbi : tempBonusBySource.values())
+		{
+			if (tbi.source.equals(mod))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

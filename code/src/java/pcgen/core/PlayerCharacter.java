@@ -9168,58 +9168,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            a list of bonus objects
 	 * @return the calculated cumulative bonus
 	 */
-
 	private double calcBonusWithCostFromList(final List<BonusObj> aList)
 	{
-		double totalBonus = 0;
-
-		for (BonusObj aBonus : aList)
-		{
-			final CDOMObject anObj = (CDOMObject) getCreatorObject(aBonus);
-
-			if (anObj == null)
-			{
-				continue;
-			}
-
-			double iBonus = 0;
-
-			if (aBonus.qualifies(this, anObj))
-			{
-				iBonus =
-						aBonus.resolve(this, anObj.getQualifiedKey())
-							.doubleValue();
-			}
-
-			int k;
-			if (hasAssociations(anObj))
-			{
-				k = 0;
-
-				for (String aString : getAssociationList(anObj))
-				{
-					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))
-					{
-						++k;
-					}
-				}
-			}
-			else
-			{
-				k = 1;
-			}
-
-			if ((k == 0) && !CoreUtility.doublesEqual(iBonus, 0))
-			{
-				totalBonus += iBonus;
-			}
-			else
-			{
-				totalBonus += (iBonus * k);
-			}
-		}
-
-		return totalBonus;
+		return bonusManager.calcBonusesWithCost(aList);
 	}
 
 	private Map<BonusObj, Object> getPurchaseModeBonuses()
@@ -12807,11 +12758,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getStringListFromBonus(bonus);
 	}
 
-	public Object getCreatorObject(BonusObj obj)
-	{
-		return bonusManager.getSourceObject(obj);
-	}
-
 	public void setApplied(BonusObj bonusObj, boolean bool)
 	{
 		if (bool)
@@ -13450,5 +13396,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return false;
+	}
+
+	public boolean hasTempApplied(CDOMObject mod)
+	{
+		return bonusManager.hasTempBonusesApplied(mod);
 	}
 }

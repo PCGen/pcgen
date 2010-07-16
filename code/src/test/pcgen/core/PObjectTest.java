@@ -205,28 +205,21 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		aPC.addAssociation(pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj, false);
+			aPC, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		aPC.addAssociation(pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj, true);
+			aPC, pObj);
 		aPC.calcActiveBonuses();
-		assertEquals("Should get 3 bonus known spells", (2 * 1) + 1, (int) aPC
+		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		aPC.addAssociation(pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj, false);
+			aPC, pObj);
 		aPC.calcActiveBonuses();
-		assertEquals("Should get 7 bonus known spells", (3 * 2) + 1, (int) aPC
-			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		for (BonusObj bonus : pObj.getRawBonusList(aPC))
-		{
-			bonus.setAddOnceOnly(true);
-		}
-		aPC.calcActiveBonuses();
-		assertEquals("Should get 3 bonus known spells", 3, (int) aPC
+		assertEquals("Should get 9 bonus known spells", (3 * 3), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 	}
 
