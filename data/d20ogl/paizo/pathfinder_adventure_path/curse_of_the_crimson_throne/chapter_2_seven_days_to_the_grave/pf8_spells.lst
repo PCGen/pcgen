@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Jul 24 15:11:02 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+# Spell Name		Classes of caster			School			Sub-School			Spell Descriptors			Type		Components		Casting Time			Range			Item		Target Area or Effect											Duration					Save Info			Spell Resistance		Description																									Combat bonus						Source Page
+Abadar's Truthtelling	CLASSES:Cleric,Paladin=1	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched										DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates	SPELLRES:Yes		DESC:This spell functions like zone of truth. Abadar's symbol appears above the head of the target so all present can see that he is affected by the spell.									SOURCEPAGE:p. 71
+Blessing of the Watch	CLASSES:Cleric,Paladin=1	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:50 ft.	ITEM:Potion	TARGETAREA:The caster and all allies within a 50-ft. burst, centered on the caster	DURATION:(CASTERLEVEL) hours		SAVEINFO:None		SPELLRES:Yes (harmless)	DESC:This spell functions like bless. It only works in the caster's home city, specifically referring to areas under the jurisdiction of the city watch.	BONUS:COMBAT|TOHIT|1|TYPE=Morale|PREAPPLY:ANYPC	SOURCEPAGE:p. 71
+
+#
+# End
+#

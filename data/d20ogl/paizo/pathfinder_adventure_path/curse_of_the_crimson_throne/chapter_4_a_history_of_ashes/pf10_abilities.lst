@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Thu Oct 30 23:23:42 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHORT:PF10	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9	SOURCEDATE:2008-7
+# Original Entry by Eric C Smith
+
+## Racial Abilities
+###Block: Bonestorm Racial Abilities
+# Ability Name		Output Name			Category of Ability		Type							Define			Description								Modify VAR
+Bonestorm Distraction	OUTPUTNAME:Distraction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DEFINE:DistractionDC|0	DESC:Distraction (Ex) ~ DC %1 Fortitude|DistractionDC	BONUS:VAR|DistractionDC|10+(HD/2)+CHA
+Gather Bones						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Unholy Winds						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura	DEFINE:UnholyWindDC|0	DESC:DC %1 Fortitude|UnholyWindDC				BONUS:VAR|UnholyWindDC|10+(HD/2)+
+Bonestorm Wrath		OUTPUTNAME:Wrath		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+
+###Block: Cinder Wolf Racial Abilities
+# Ability Name	Output Name		Category of Ability		Type						Visible	Special ABility
+Fiery Body					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Fiery Body (Su)
+Cinder Wolf Trip	OUTPUTNAME:Trip	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Trip (Ex)
+
+###Block: Havero Racial Abilities
+# Ability Name				Output Name			Category of Ability		Type								Visible	Special ABility										Define			Ability																					Modify VAR
+Alien Mind									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Alien Mind (Ex) ~ DC % Will|AlienMindDC					DEFINE:AlienMindDC|0																							BONUS:VAR|AlienMindDC|10+(HD/2)+WIS
+Appendages									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:NO	SAB:Appendages (Ex)
+Havero No Breath				OUTPUTNAME:No Breath	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:No Breath (Ex)
+Telepathic Savant								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communication	VISIBLE:NO	SAB:Telepathic Savant (Su)
+Havero Immunities and Resistances					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity				VISIBLE:NO	SAB:Immune To Inhaled Effects	SAB:Immune to Mind-affecting Effects					ABILITY:Special Ability|AUTOMATIC|Fast Healing|Immunity To Cold|Resistance To Acid|Resistance To Electricity|Resistance To Fire	BONUS:VAR|AcidResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|30
+
+###Block: Havero Appendage Abilities
+# Ability Name					Output Name					Category of Ability		Type									Visible		Special ABility																										Define										Stackable?	Multiple?	Choose		Ability									Combat bonus					Bonus to skill		Modify VAR															Cost		Natural Attacks
+Havero Appendage ~ Tentacle			OUTPUTNAME:Tentacle			CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Tentacle|PREVAREQ:HaveroTentacleAttack,1	SAB:Tentacles (% attacks)|HaveroTentacleAttack|PREVARGT:HaveroTentacleAttack,1							DEFINE:HaveroTentacleAttack|0							STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroTentacleAttack|1											COST:1	NATURALATTACKS:Tentacle,Weapon.Natural.Melee,*1,2d6
+Havero Appendage ~ Ocular Tentacle		OUTPUTNAME:Ocular Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Ocular Tentacle|PREVAREQ:HaveroOcularTentacle,1	SAB:Ocular Tentacles (%)|HaveroOcularTentacle|PREVARGT:HaveroOcularTentacle,1							DEFINE:HaveroOcularTentacle|0							STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:SKILL|Spot|8	BONUS:VAR|HaveroOcularTentacle|1											COST:2
+Havero Appendage ~ Slashing Tentacle	OUTPUTNAME:Slashing Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Slashing Tentacle|PREVAREQ:HaveroSlashingTentacle,1	SAB:Slashing Tentacles (% attacks)|PREVARGT:HaveroSlashingTentacle,1							DEFINE:HaveroSlashingTentacle|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroSlashingTentacle|1											COST:2	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*1,2d6
+Havero Appendage ~ Armored Tentacle		OUTPUTNAME:Armored Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Armored Tentacle|PREVAREQ:HaveroArmoredTentacle,1	SAB:Armored Tentacles (% attacks)|HaveroArmoredTentacle|PREVARGT:HaveroArmoredTentacle,1					DEFINE:HaveroArmoredTentacle|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:VAR|HaveroArmoredTentacle|1											COST:3
+Havero Appendage ~ Grasping Tentacle	OUTPUTNAME:Grasping Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Grasping Tentacle|PREVAREQ:HaveroGraspingTentacle,1	SAB:Grasping Tentacles (% attacks)|HaveroGraspingTentacle|PREVARGT:HaveroGraspingTentacle,1			DEFINE:HaveroGraspingTentacle|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Constrict|Improved Grab												BONUS:VAR|HaveroGraspingTentacle|1											COST:3	NATURALATTACKS:Grasping Tentacle,Weapon.Natural.Melee,*1,2d6
+Havero Appendage ~ Reaving Tentacle		OUTPUTNAME:Reaving Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Reaving Tentacle|PREVAREQ:HaveroReavingTentacle,1	SAB:Reaving Tentacles (% attacks)|HaveroReavingTentacle|PREVARGT:HaveroReavingTentacle,1					DEFINE:HaveroReavingTentacle|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroReavingTentacle|1											COST:3	NATURALATTACKS:Reaving Tentacle,Weapon.Natural.Melee,*1,2d6
+Havero Appendage ~ Acid-Spewer		OUTPUTNAME:Acid-Spewer			CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Acid Spewer ~ %d6 damage, DC % Reflex|HaveroAcidSpewerDamage|HaveroAcidSpewerDC															DEFINE:HaveroAcidSpewerDamage|0	DEFINE:HaveroAcidSpewerDC|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroAcidSpewerDamage|6	BONUS:VAR|HaveroAcidSpewerDC|10+(HD/2)+CON|TYPE=Racial	COST:4
+Havero Appendage ~ Poison Stinger		OUTPUTNAME:Poison Stinger		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Poison Stinger ~ DC % Fortitude (% attacks)|HaveroPoisonDC|HaveroStingerTentacle														DEFINE:HaveroStingerTentacle|0	DEFINE:HaveroPoisonDC|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroStingerTentacle|1	BONUS:VAR|HaveroPoisonDC|10+(HD/2)+CON|TYPE=Racial		COST:4	NATURALATTACKS:Sting,Weapon.Natural.Melee.Piercing,1,2d6
+Havero Appendage ~ Incorporeal Tentacle	OUTPUTNAME:Incorporeal Tentacle	CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Incorporeal Tentacle|PREVAREQ:HaveroIncorporealTentacle,1	SAB:Incorporeal Tentacles (% attacks)|HaveroIncorporealTentacle|PREVARGT:HaveroIncorporealTentacle,1	DEFINE:HaveroIncorporealTentacle|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroIncorporealTentacle|1										COST:5	NATURALATTACKS:Incorporeal Touch,Weapon.Natural.Melee,*1,2d6
+Havero Appendage ~ Vorpal Tentacle		OUTPUTNAME:Vorpal Tentacle		CATEGORY:Special Ability	TYPE:HaveroAppendages.SpecialAttack.Extraordinary	VISIBLE:DISPLAY	SAB:Vorpal Tentacle|PREVAREQ:HaveroVorpalTentacle,1	SAB:Vorpal Tentacles (% attacks)|HaveroVorpalTentacle|PREVARGT:HaveroVorpalTentacle,1					DEFINE:HaveroVorpalTentacle|0							STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|HaveroVorpalTentacle|1											COST:10	NATURALATTACKS:Pincer,Weapon.Natural.Melee.Slashing,*1,4d6
+
+###Block: Red Reaver Racial Abilities
+# Ability Name		Output Name			Category of Ability		Type						Visible	Define			Description										Modify VAR
+Red Reaver Distracted	OUTPUTNAME:Distracted	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Red Reaver Flight		OUTPUTNAME:Flight		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO					DESC:May fly for short distances only
+Red Reaver Rend		OUTPUTNAME:Rend		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Red Reaver Roar		OUTPUTNAME:Roar		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:RoarSaveDC|0	DESC:DC %1 Will save (Mind-affecting fear effect)|RoarSaveDC	BONUS:VAR|RoarSaveDC|10+(HD/2)+CHA
+
+###Block: Horned Spirestalker Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility		Bonus to skill
+Expert Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Expert Climber (Ex)	BONUS:SKILL|Climb|8
+
+#
+# EOF
+#

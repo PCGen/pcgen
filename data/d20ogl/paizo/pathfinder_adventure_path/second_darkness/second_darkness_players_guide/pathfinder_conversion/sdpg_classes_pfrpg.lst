@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Wed Nov 25 16:12:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+
+# Class Name		Clear Prereq.	Required AL				Req. Att.	Required Feat						Required Skill
+CLASS:Liberator.MOD	PRE:.CLEAR		PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:5	PREFEAT:3,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3
+# Class Name		Class Skill
+CLASS:Liberator.MOD	CSKILL:Diplomacy|Disable Device|Perception|Stealth
+10	ABILITY:Special Ability|AUTOMATIC|.CLEAR	ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Liberator
+
+#
+# End
+#

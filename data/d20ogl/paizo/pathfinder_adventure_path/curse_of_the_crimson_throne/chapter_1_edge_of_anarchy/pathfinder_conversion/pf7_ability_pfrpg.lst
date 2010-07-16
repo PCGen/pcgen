@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Mon May 31 19:28:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy	SOURCESHORT:CotCT:EoA	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+
+# Carrion Golem
+
+
+###Block: Doll (Soulbound)
+
+
+###Block: Devilfish
+# Ability Name	Unique Key					Category of Ability		Type									Visible	Description
+Jet			KEY:Jet ~ Devilfish			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES	DESC:A devilfish can jet backward once per round as a full-round action, at a speed of 240 feet.
+Water Dependent	KEY:Water Dependent ~ Devilfish	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES	DESC:A devilfish can survive out of the water for 1 hour, after which it becomes fatigued.
+
+
+###Block: Dream Spider
+
+
+###Block: Raktavarna
+
+
+###Block: Reefclaw
+
+
+###Block: Cabbagehead's Deformities
+
+
+#
+# End
+#

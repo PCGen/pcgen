@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 5: A Memory of Darkness
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness
+SOURCESHORT:PF17
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tr
+SOURCEDATE:2008-12
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 17: A Memory of Darkness. Copyright 2008, Paizo Publishing, LLC; Author: J. D. Wiker.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 17: A Memory of Darkness" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:a_memory_of_darkness.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy86j6|Buy this publication from Paizo Publishing!
+DESC:Armed with the knowledge that an elven traitor supplied the drow with the magical means to call down the stars and devastate Golarion, the PCs arrive at the elven nation of Kyonin to find their claims falling on deaf ears. Courtly intrigue leads to a confrontation with a mysterious elven order called the Winter Council, deep in the demon-haunted shadows of the legendary forest known as the Tanglebriar. Yet one final tragic and horrific secret awaits them as they discover the true source of the dark elves' curse.
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf17_abilities.lst
+EQUIPMENT:pf17_equipment.lst
+KIT:pf17_kit_monster.lst
+RACE:pf17_race.lst
+SPELL:pf17_spells.lst
+
+#
+# End
+#

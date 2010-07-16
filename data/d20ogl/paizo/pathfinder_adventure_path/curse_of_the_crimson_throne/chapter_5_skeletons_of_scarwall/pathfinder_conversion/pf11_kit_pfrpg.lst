@@ -1,0 +1,107 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
+
+STARTPACK:Chained Spirit Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chained Spirit],[!PRERACE:1,%]	SOURCEPAGE:p. 78
+RACE:Chained Spirit	!PRERACE:1,%
+NAME:Chained Spirit
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Bluff				RANK:14
+SKILL:Diplomacy			RANK:14
+SKILL:Intimidate			RANK:14
+SKILL:Knowledge (History)	RANK:14
+SKILL:Perception			RANK:14
+SKILL:Sense Motive		RANK:14
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Dodge
+FEAT:Improved Lightning Reflexes
+
+STARTPACK:Danse Macabre Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Danse Macabre],[!PRERACE:1,%]	SOURCEPAGE:p. 80
+RACE:Danse Macabre	!PRERACE:1,%
+NAME:Danse Macabre
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Intimidate		RANK:16
+SKILL:Perception		RANK:16
+SKILL:Sense Motive	RANK:16
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Flyby Attack
+FEAT:Improved Lightning Reflexes
+
+STARTPACK:Gug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gug],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+RACE:Gug	!PRERACE:1,%
+NAME:Gug
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Escape Artist			RANK:8
+SKILL:Knowledge (Dungeoneering)	RANK:12
+SKILL:Perception				RANK:15
+SKILL:Stealth				RANK:15
+SKILL:Survival				RANK:10
+FEAT:Alertness
+FEAT:Power Attack
+FEAT:Awesome Blow
+FEAT:Blind-Fight
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Critical (Claws)
+FEAT:Greater Bull Rush
+
+STARTPACK:The Prince in Chains Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Prince in Chains],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+RACE:The Prince in Chains	!PRERACE:1,%
+NAME:The Prince in Chains
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Acrobatics			RANK:15
+SKILL:Climb				RANK:9
+SKILL:Escape Artist		RANK:12
+SKILL:Knowledge (Religion)	RANK:15
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Perception			RANK:15
+SKILL:Stealth			RANK:15
+SKILL:Survival			RANK:15
+FEAT:Combat Reflexes
+FEAT:Power Attack
+FEAT:Improved Overrun
+FEAT:Improved Sunder
+FEAT:Run
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+
+STARTPACK:Sample Umbral Dragon (Belshallam/Adult Umbral Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Umbral Adult)]
+RACE:Dragon (Umbral Adult)	!PRERACE:1,%
+NAME:Belshallam
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Appraise			RANK:21
+SKILL:Bluff				RANK:21
+SKILL:Diplomacy			RANK:21
+SKILL:Knowledge (Arcana)	RANK:14
+SKILL:Knowledge (Local)		RANK:14
+SKILL:Knowledge (Planes)	RANK:14
+SKILL:Perception			RANK:21
+SKILL:Sense Motive		RANK:21
+SKILL:Stealth			RANK:21
+SKILL:Survival			RANK:21
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Snatch
+FEAT:Wingover
+FEAT:Improved Bull Rush
+FEAT:Alertness
+SPELLS:SPELLBOOK=Known Spells|CLASS=Umbral Dragon|Acid Arrow|Silence|Detect Undead|Grease|Magic Missile|Shield|Create Water|Dancing Lights|Detect Magic|Disrupt Undead|Ray of Frost|Read Magic

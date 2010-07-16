@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 07:46:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Companion support
+# Ability Name									Allowed Companions
+CATEGORY=Special Ability|Nature's Bond ~ Animal Companion.MOD	COMPANIONLIST:Animal Companion|Cindersnake,Donkey Rat,Storm Roc	COMPANIONLIST:Animal Companion|Auroch,Fire Pelt|FOLLOWERADJUSTMENT:-3
+CATEGORY=Special Ability|Companion ~ Hunter's Bond.MOD		COMPANIONLIST:Animal Companion|Cindersnake,Donkey Rat,Storm Roc	COMPANIONLIST:Animal Companion|Auroch,Fire Pelt|FOLLOWERADJUSTMENT:-3

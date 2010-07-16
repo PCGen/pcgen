@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Thu Oct 30 23:23:42 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Ability														Save checks bonus											Combat bonus
+CLASS:Daughter of Urgathoa	HD:12		TYPE:Monster	MAXLEVEL:11	SOURCEPAGE:p. 82	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Race				Reg. Race Type
+CLASS:Daughter of Urgathoa	PRERACE:1,Daughter of Urgathoa	PRERACETYPE:Undead
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Daughter of Urgathoa	STARTSKILLPTS:4	MODTOSKILLS:YES
+1	DOMAIN:Death|War	BONUS:DOMAIN|NUMBER|2					ADD:SPELLCASTER|Cleric
+2								BONUS:PCLEVEL|Cleric|1
+3								BONUS:PCLEVEL|Cleric|1
+4								BONUS:PCLEVEL|Cleric|1
+5								BONUS:PCLEVEL|Cleric|1
+6								BONUS:PCLEVEL|Cleric|1
+
+
+#
+# End
+#

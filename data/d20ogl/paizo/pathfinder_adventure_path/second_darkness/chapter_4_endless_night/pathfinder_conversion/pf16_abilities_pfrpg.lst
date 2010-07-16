@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Tue May 25 16:05:56 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Second Darkness - Chapter 4: Endless Night	SOURCESHORT:PF16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq	SOURCEDATE:2008-11
+
+# Deep Crow Abilities
+# Ability Name	Output Name										Category of Ability		Type				Source Page
+Deep Crow Stealth	OUTPUTNAME:+8 racial bonus on Stealth checks when underground	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p. 80
+
+###Block: Ghonhatine Abilities
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Description													Source Page
+Feed			KEY:Ghonhatine Feed	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:Insatiable predators, ghonhatines are invigorated immediately after feeding.	SOURCEPAGE:p.84
+
+#
+# End
+#

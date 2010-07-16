@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Mon May 31 19:28:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy	SOURCESHORT:CotCT:EoA	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+
+# Race Name			Clear Prereq.	Modify VAR									Racial HD Class Skills	Automatically Gained Feat	Ability																										Monster Class Name and Starting Level	Apply Kit
+Carrion Golem.MOD		PRE:.CLEAR												MONCSKILL:.CLEAR																																									KIT:1|TN
+Devilfish.MOD		PRE:.CLEAR		BONUS:VAR|ColdResistanceBonus|10					MONCSKILL:.CLEAR							ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab|.CLEAR.Jet|Jet ~ Devilfish|.CLEAR.Water Dependent|Water Dependent ~ Devilfish|Resistance to Cold								KIT:1|NE
+Doll (Soulbound).MOD														MONCSKILL:.CLEAR
+Dream Spider.MOD		PRE:.CLEAR												MONCSKILL:.CLEAR		AUTO:FEAT|Weapon Finesse																																			KIT:1|TN
+Raktavarna.MOD		PRE:.CLEAR		BONUS:VAR|TelepathyRange|-40						MONCSKILL:.CLEAR							ABILITY:Special Ability|AUTOMATIC|Telepathy																				MONSTERCLASS:Outsider (Fort/Ref):3		KIT:1|LE
+Reefclaw.MOD		PRE:.CLEAR		BONUS:VAR|ConstrictDieSize|4	BONUS:VAR|ConstrictDice|1	MONCSKILL:.CLEAR		AUTO:FEAT|Weapon Finesse	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab																									KIT:1|CN
+
+#TODO: Add Resistance to Cold to Devilfish; Dagon's blood is special attack
+#TODO: Add 	AUTO:FEAT|Weapon Finesse to Dream Spider
+#TODO: Add Telepathy to Raktavarna
+#TODO: Add Constrict vars to Reefclaw
+#TODO: Add 	AUTO:FEAT|Weapon Finesse to Reefclaw
+
+#
+# End
+#

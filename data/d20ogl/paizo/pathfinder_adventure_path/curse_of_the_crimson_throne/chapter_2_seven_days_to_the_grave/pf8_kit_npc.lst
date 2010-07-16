@@ -1,0 +1,317 @@
+# CVS $Revision$ $Author$ -- Tue Jul 29 11:54:20 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+
+STARTPACK:NPC (Vendra Loaggri)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25
+RACE:Human	!PRERACE:1,%
+NAME:Vendra Loaggri
+ALIGN:CN
+TEMPLATE:Vendra Loaggri Expert Skills
+CLASS:Expert	LEVEL:2
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff,Craft (Alchemy),Diplomacy,Escape Artist,Forgery,Knowledge (Local),Listen,Move Silently,Spot,Use Magic Device)
+CLASS:Rogue		LEVEL:4
+STAT:STR=10|DEX=14|CON=8|INT=13|WIS=12|CHA=16
+SKILL:Bluff				RANK:9
+SKILL:Craft (Alchemy)		RANK:9
+SKILL:Diplomacy			RANK:9
+SKILL:Escape Artist		RANK:4
+SKILL:Forgery			RANK:5
+SKILL:Knowledge (Local)		RANK:9
+SKILL:Listen			RANK:9
+SKILL:Move Silently		RANK:4
+SKILL:Profession (Perfumer)	RANK:9
+SKILL:Spot				RANK:4
+SKILL:Use Magic Device		RANK:9
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Weapon Finesse
+FEAT:Skill Focus(Use Magic Device)
+GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Poison (Giant wasp poison)	LOCATION:Equipped
+GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Remove Disease] CASTER[Cleric] SPELLTYPE[Divine] SPELLLEVEL[3] CASTERLEVEL[5] CHARGES[7]
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Bracers of Armor +2		LOCATION:Equipped
+
+
+STARTPACK:NPC (Lavender Thug)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25
+RACE:Human	!PRERACE:1,%
+NAME:Lavender Thug
+ALIGN:CN
+CLASS:Fighter	LEVEL:3
+STAT:STR=15|DEX=13|CON=14|INT=10|WIS=8|CHA=12
+SKILL:Intimidate	RANK:6
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Diehard
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sap)
+GEAR:Chainmail						LOCATION:Equipped
+GEAR:Sap							LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Coin (Gold)				QTY:20	LOCATION:Equipped
+GEAR:Lavender's Luxuriant Liniment			LOCATION:Equipped
+
+
+STARTPACK:NPC (Girrigz)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 30
+RACE:Human	!PRERACE:1,%
+NAME:Girrigz
+ALIGN:CE
+STAT:STR=13|DEX=14|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Fighter	LEVEL:5
+TEMPLATE:Lycanthrope (Girrigz)
+TEMPLATE:Wererat
+TEMPLATE:Natural Lycanthrope
+TEMPLATE:Lycanthrope (Hybrid Form)
+TEMPLATE:Girrigz's Magic Buffs
+SKILL:Handle Animal	RANK:4
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Lightning Reflexes
+FEAT:Dodge
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Rapier)
+ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Rapier)
+ABILITY:CATEGORY=Fighter Feat|Improved Initiative
+GEAR:Potion (Blur)					LOCATION:Pouch (Belt)
+GEAR:Potion (Shield of Faith +3)			LOCATION:Pouch (Belt)
+GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Rapier							LOCATION:Primary Hand	EQMOD:PLUS1W.ALCHM
+GEAR:Coin (Gold)				QTY:30	LOCATION:Pouch (Belt)
+GEAR:Pouch (Belt)						LOCATION:Equipped
+
+
+STARTPACK:NPC (Yvicca)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]	SOURCEPAGE:p. 33
+RACE:Hag (Sea)	!PRERACE:1,%
+NAME:Yvicca
+ALIGN:NE
+CLASS:Druid	LEVEL:5
+STAT:STR=12|DEX=14|CON=14|INT=8|WIS=16|CHA=10
+SKILL:Concentration		RANK:5
+SKILL:Handle Animal		RANK:1
+SKILL:Knowledge (Nature)	RANK:5
+SKILL:Listen			RANK:4
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+GEAR:Bracers of Armor +2	LOCATION:Equipped
+GEAR:Shortspear			LOCATION:Primary Hand	EQMOD:PLUS1W
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Bull's Strength|Charm Animal|Cure Light Wounds|Cure Moderate Wounds|Detect Magic|Detect Poison|Faerie Fire|Flare|Magic Fang (Greater)|Read Magic|Resist Energy|Resistance|Speak with Animals
+TEMPLATE:Yvicca's Magic Buffs
+
+
+STARTPACK:NPC (Jolistina Susperio)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]	SOURCEPAGE:p. 35
+RACE:Elf	!PRERACE:1,%
+NAME:Jolistina Susperio
+ALIGN:CE
+CLASS:Rogue		LEVEL:6
+CLASS:Sorcerer	LEVEL:2
+STAT:STR=12|DEX=14|CON=16|INT=10|WIS=8|CHA=14
+SKILL:Balance			RANK:5
+SKILL:Bluff				RANK:5
+SKILL:Climb				RANK:2
+SKILL:Concentration		RANK:4
+SKILL:Disguise			RANK:5
+SKILL:Gather Information	RANK:3
+SKILL:Hide				RANK:7
+SKILL:Jump				RANK:2
+SKILL:Knowledge (Local)		RANK:6
+SKILL:Listen			RANK:2
+SKILL:Literacy			RANK:0
+SKILL:Move Silently		RANK:7
+SKILL:Open Lock			RANK:3
+SKILL:Perform (Comedy)		RANK:4
+SKILL:Sleight of Hand		RANK:3
+SKILL:Spot				RANK:2
+SKILL:Tumble			RANK:7
+FEAT:Improved Initiative
+FEAT:Point Blank Shot
+FEAT:Precise Shot
+GEAR:Potion (Invisibility)	QTY:3		LOCATION:Pouch (Belt)
+GEAR:Potion (Remove Disease)	QTY:2		LOCATION:Pouch (Belt)
+GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:SPL_CHRG|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
+GEAR:Smokestick			QTY:5		LOCATION:Pouch (Belt)
+GEAR:Studded Leather				LOCATION:Equipped		EQMOD:PLUS1A.GLAM
+GEAR:Bolt (Crossbow)		QTY:30	LOCATION:Carried
+GEAR:Crossbow (Light)				LOCATION:Carried		EQMOD:PLUS1W
+GEAR:Dagger						LOCATION:Primary Hamd	EQMOD:MWORKW
+GEAR:Alchemist's Fire (Flask)	QTY:2.0	LOCATION:Pouch (Belt)
+GEAR:Flint and Steel				LOCATION:Pouch (Belt)
+GEAR:Manacles (Medium)				LOCATION:Pouch (Belt)
+GEAR:Sealing Wax					LOCATION:Pouch (Belt)
+GEAR:Sewing Needle				LOCATION:Pouch (Belt)
+GEAR:Pouch (Belt)					LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement|Shield|Acid Splash|Dancing Lights|Ghost Sound|Mage Hand|Open/Close
+TEMPLATE:Jolistina Susperio's Magic Buffs
+
+
+STARTPACK:NPC (Gray Maiden)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
+RACE:Human	!PRERACE:1,%
+GENDER:Female
+NAME:Gray Maiden
+ALIGN:LE
+CLASS:Fighter	LEVEL:2
+STAT:STR=14|DEX=12|CON=15|INT=10|WIS=8|CHA=13
+SKILL:Climb		RANK:5
+SKILL:Intimidate	RANK:5
+SKILL:Jump		RANK:5
+FEAT:Iron Will
+FEAT:Point Blank Shot
+ABILITY:CATEGORY=Fighter Feat|Quick Draw
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longsword)
+GEAR:Full Plate			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Shield (Heavy/Metal)	LOCATION:Equipped
+GEAR:Longsword			LOCATION:Promary Hand	EQMOD:MWORKW
+GEAR:Arrows (20)			LOCATION:Carried
+GEAR:Longbow (Composite +0)	LOCATION:Carried
+
+
+STARTPACK:NPC (Queen's Physician)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
+RACE:Human	!PRERACE:1,%
+NAME:Queen's Physician
+ALIGN:NE
+CLASS:Rogue	LEVEL:2
+STAT:STR=14|DEX=15|CON=12|INT=13|WIS=10|CHA=8
+SKILL:Bluff				RANK:5
+SKILL:Diplomacy			RANK:3
+SKILL:Disguise			RANK:4
+SKILL:Gather Information	RANK:2
+SKILL:Heal				RANK:2
+SKILL:Hide				RANK:5
+SKILL:Knowledge (Local)		RANK:5
+SKILL:Listen			RANK:5
+SKILL:Move Silently		RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Spot				RANK:5
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+GEAR:Leather			LOCATION:Equipped
+GEAR:Healer's Kit			LOCATION:Equipped
+GEAR:Club				LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Plaguebringer's Mask	LOCATION:Equipped
+
+
+STARTPACK:NPC (Dr. Davaulus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 46
+RACE:Human	!PRERACE:1,%
+NAME:Dr. Davaulus
+ALIGN:NE
+TEMPLATE:Dr. Davaulus Expert Skills
+CLASS:Rogue		LEVEL:3
+CLASS:Expert	LEVEL:3
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Heal,Move Silently,Knowledge (Nature),Knowledge (Religion),Open Lock,Profession (Doctor),Search,Sense Motive,Sleight of Hand,Spot)
+CLASS:Bard		LEVEL:4
+STAT:STR=8|DEX=14|CON=10|INT=16|WIS=12|CHA=14
+SKILL:Appraise			RANK:4
+SKILL:Bluff				RANK:13
+SKILL:Diplomacy			RANK:13
+SKILL:Gather Information	RANK:11
+SKILL:Hide				RANK:4
+SKILL:Knowledge (Arcana)	RANK:2
+SKILL:Knowledge (Local)		RANK:6
+SKILL:Listen			RANK:11
+SKILL:Move Silently		RANK:9
+SKILL:Open Lock			RANK:4
+SKILL:Profession (Doctor)	RANK:8
+SKILL:Search			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Sleight of Hand		RANK:4
+SKILL:Spot				RANK:6
+SKILL:Spellcraft			RANK:2
+SKILL:Perform (Oratory)		RANK:10
+SKILL:Heal				RANK:9
+SKILL:Knowledge (Nature)	RANK:5
+SKILL:Knowledge (Religion)	RANK:8
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Quick Draw
+FEAT:Weapon Finesse
+GEAR:Potion (Remove Disease)		LOCATION:Equipped
+GEAR:Rapier					LOCATION:Primary Hand	EQMOD:PLUS1W.BANE_M|Humanoids (human)
+GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
+GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Dancing Lights|Detect Magic|Disguise Self|Ghost Sound|Hideous Laughter|Invisibility|Mage Hand|Mending|Misdirection|Prestidigitation
+
+
+STARTPACK:NPC (Rolth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 48
+RACE:Human	!PRERACE:1,%
+NAME:Rolth
+ALIGN:CE
+CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
+STAT:STR=8|DEX=14|CON=14|INT=16|WIS=10|CHA=12
+SKILL:Concentration		RANK:11
+SKILL:Craft (Alchemy)		RANK:11
+SKILL:Knowledge (Arcana)	RANK:11
+SKILL:Knowledge (Religion)	RANK:11
+SKILL:Knowledge (The Planes)	RANK:11
+SKILL:Listen			RANK:2
+SKILL:Spellcraft			RANK:11
+SKILL:Spot				RANK:2
+FEAT:Craft Wondrous Item
+FEAT:Spell Focus(Necromancy)
+FEAT:Greater Spell Focus(Necromancy)
+FEAT:Craft Construct
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
+GEAR:Wand				LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
+GEAR:Dagger				LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Cloak of Resistance +1	LOCATION:Equipped
+GEAR:Headband of Intellect +2	LOCATION:Equipped
+GEAR:Ring (Protection +1)	LOCATION:Equipped
+GEAR:Unguent of Timelessness	LOCATION:Equipped
+GEAR:Mortician's Tools		LOCATION:Equipped
+TEMPLATE:Rolth's Magic Buffs
+
+
+STARTPACK:NPC (Priest of Urgathoa)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 49
+RACE:Human	!PRERACE:1,%
+NAME:Priest of Urgathoa
+ALIGN:NE
+CLASS:Cleric	LEVEL:2
+DEITY:Urgathoa	DOMAIN:Death|War
+STAT:STR=13|DEX=10|CON=14|INT=12|WIS=15|CHA=8
+SKILL:Concentration		RANK:5
+SKILL:Heal				RANK:5
+SKILL:Knowledge (Religion)	RANK:5
+SKILL:Spellcraft			RANK:5
+FEAT:Combat Casting
+FEAT:Great Fortitude
+ABILITY:CATEGORY=Turn Undead|Rebuke Undead
+GEAR:Scythe					LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Potion (Cure Moderate Wounds)	LOCATION:Equipped
+GEAR:Breastplate				LOCATION:Equipped		EQMOD:PLUS1A
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds|Cure Minor Wounds|Detect Magic|Divine Favor|Inflict Minor Wounds|Resistance|Shield of Faith
+# Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Weapon
+TEMPLATE:Priest of Urgathoa's Magic Buffs
+
+
+STARTPACK:NPC (Lady Andaisin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 55
+RACE:Human	!PRERACE:1,%
+GENDER:Female
+NAME:Lady Andaisin
+ALIGN:NE
+CLASS:Cleric	LEVEL:9
+DEITY:Urgathoa	DOMAIN:Death|War
+STAT:STR=12|DEX=8|CON=18|INT=10|WIS=17|CHA=13
+SKILL:Concentration		RANK:12
+SKILL:Knowledge (Religion)	RANK:12
+SKILL:Spellcraft			RANK:12
+FEAT:Combat Casting
+FEAT:Craft Magic Arms and Armor
+FEAT:Craft Wondrous Item
+FEAT:Extend Spell
+FEAT:Spell Focus(Necromancy)
+ABILITY:CATEGORY=Turn Undead|Rebuke Undead
+GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOU
+GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Cloak of Resistance +2	LOCATION:Equipped
+GEAR:Periapt of Wisdom +2	LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Air Walk|Bear's Endurance|Blindness/Deafness|Command (Greater)|Contagion|Cure Critical Wounds|Cure Light Wounds=2|Cure Minor Wounds|Cure Moderate Wounds=2|Dispel Magic|Status|Guidance|Light=2|Shield of Faith|Shield of Faith[Extend Spell]|Status[Extend Spell]
+# Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Magic Vestment|Magic Weapon|Slay Living|Spiritual Weapon
+TEMPLATE:Lady Andaisin's Magic Buffs
+
+#
+# End
+#

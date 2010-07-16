@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sat May 29 15:02:18 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
+
+
+# Ability Name				Category of Ability		Type			Visible		Required Race				Ability							Combat bonus						Stat bonus			Natural Attacks
+Companion Advancement (Hippogriff)	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Hippogriff)	ABILITY:Special Ability|AUTOMATIC|War Trained	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR,CON|2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+
+#
+# End
+#

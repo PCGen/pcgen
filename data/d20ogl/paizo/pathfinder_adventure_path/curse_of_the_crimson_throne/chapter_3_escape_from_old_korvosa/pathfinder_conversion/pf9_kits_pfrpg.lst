@@ -1,0 +1,117 @@
+# CVS $Revision$ $Author$ -- Sun Jun 27 18:01:48 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa	SOURCESHORT:CotCT:EfOK	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy82t5	SOURCEDATE:2008-05
+
+
+STARTPACK:Achaekek (The Mantis God) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaekek (The Mantis God)]
+ALIGN:LE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Achaekek (The Mantis God)	!PRERACE:1,%
+NAME:Achaekek, The Mantis God
+SKILL:Climb		RANK:34
+SKILL:Acrobatics	RANK:34
+SKILL:Perception	RANK:34
+SKILL:Stealth	RANK:34
+FEAT:Awesome Blow
+FEAT:Combat Reflexes
+FEAT:Hover
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Sting)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Wingover
+FEAT:Flyby Attack
+FEAT:Weapon Focus (Claws)
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Sting)
+FEAT:Snatch
+
+
+STARTPACK:Beatific One Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beatific One]
+ALIGN:LE
+RACE:Beatific One	!PRERACE:1,%
+NAME:Beatific One
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:11
+SKILL:Appraise			RANK:11
+SKILL:Climb				RANK:11
+SKILL:Escape Artist		RANK:11
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:11
+SKILL:Perform (Dance)		RANK:7
+SKILL:Stealth			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Survival			RANK:11
+ABILITY:CATEGORY=Monk Bonus Feat|Deflect Arrows
+ABILITY:CATEGORY=Monk Bonus Feat|Improved Disarm
+ABILITY:CATEGORY=Monk Bonus Feat|Improved Grapple
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Snatch Arrows
+FEAT:Spring Attack
+FEAT:Great Fortitude
+FEAT:Combat Reflexes
+GEAR:Temple Sword		SIZE:PC	LOCATION:Primary Hand
+GEAR:Spear			SIZE:PC	LOCATION:Equipped
+GEAR:Kukri			SIZE:PC	LOCATION:Equipped
+GEAR:Flurry of Blows			LOCATION:Equipped
+
+
+STARTPACK:Rajput Ambari Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rajput Ambari]
+ALIGN:TN
+RACE:Rajput Ambari	!PRERACE:1,%
+NAME:Rajput Ambari
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Rakshasa Maharajah Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa Maharajah]
+ALIGN:LE
+RACE:Rakshasa Maharajah	!PRERACE:1,%
+NAME:Rakshasa Maharajah
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+FEAT:Combat Casting
+FEAT:Eschew Materials
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Quicken Spell
+FEAT:Widen Spell
+FEAT:Still Spell
+FEAT:Spell Penetration
+SKILL:Appraise			RANK:18
+SKILL:Bluff				RANK:18
+SKILL:Diplomacy			RANK:18
+SKILL:Disguise			RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (Nobility)	RANK:18
+SKILL:Linguistics			RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Survival			RANK:18
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Magic|Flare|Mage Hand|Message|Prestidigitation|Read Magic|Touch of Fatigue|Identify|Mage Armor|Magic Missile|Obscuring Mist|Ray of Enfeeblement|Darkness|Misdirection|Resist Energy|See Invisibility|Touch of Idiocy|Fireball|Slow|Vampiric Touch|Dimension Door|Invisibility (Greater)|Globe of Invulnerability (Lesser)|Solid Fog|Dominate Person|Seeming|Teleport|Flesh to Stone|Dispel Magic (Greater)|Bull's Strength (Mass)|Delayed Blast Fireball|Hold Person (Mass)|Hold Monster|Haste
+GEAR:Falchion	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS3W
+
+
+STARTPACK:Sikari Macaque Swarm Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sikari Macaque Swarm]
+ALIGN:TN
+RACE:Sikari Macaque Swarm	!PRERACE:1,%
+NAME:Sikari Macaque Swarm
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+FEAT:Nimble Moves
+FEAT:Alertness
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+FEAT:Combat Reflexes
+SKILL:Acrobatics		RANK:2
+SKILL:Escape Artist	RANK:6
+SKILL:Perception		RANK:2
+
+#
+# End
+#

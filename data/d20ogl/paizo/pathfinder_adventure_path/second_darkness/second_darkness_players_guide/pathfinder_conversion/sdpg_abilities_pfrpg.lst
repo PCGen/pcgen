@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Wed Nov 25 16:12:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+
+# Ability Name		Unique Key					Category of Ability		Type								Visible	Description																			Description of the Benefits
+Freedom of Movement	KEY:Freedom of Movement ~ Liberator	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES	DESC:The liberator's focus against slavery and restriction to mobility develops into a potent resistance to restraint.	BENEFIT:The liberator's focus against slavery and restriction to mobility develops into a potent resistance to restraint. He is now treated as if under the effects of a freedom of movement spell at all times. This ability cannot be dispelled. Once per day, he can also use freedom of movement as a spell-like ability (caster level equals his class level) to share this benefit with others.
+
+#
+# End
+#
+

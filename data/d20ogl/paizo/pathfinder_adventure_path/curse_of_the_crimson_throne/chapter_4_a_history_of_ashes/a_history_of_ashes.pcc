@@ -1,0 +1,59 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 4: A History of Ashes
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes
+SOURCESHORT:PF10
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9
+SOURCEDATE:2008-7
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 10: A History of Ashes. Copyright 2008, Paizo Publishing, LLC; Author: Michael Kortes
+COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 10: A History of Ashes" Copyright 2008, PCGen Data Team (including, but not limited to, Paul Grosse, Eric C Smith)
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:a_history_of_ashes.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9|Buy this publication from Paizo Publishing!
+DESC:Forced to flee the city of Korvosa and pursued by sinister agents of Queen Ileosa, the heroes travel to the Cinderlands to seek out advice on how to defeat the ancient evil that has claimed their queen's mind. Few living today know the truth behind this evil--and those who do are among the Shoanti barbarian tribes preparing to invade Korvosa. The PCs must earn the trust of three tribes in order to realize their goals and save Korvosa from a brutal war.
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+# Items needed to be loaded for this source that might not be
+#RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_1_burnt_offering/pf1_races.lst|(INCLUDE:Gecko (Giant))
+#FEAT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_thrown_players_guide/cotct_pg_feats.lst|(INCLUDE:CATEGORY=FEAT,Shingle Runner)
+#EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_thrown_players_guide/cotct_pg_equipment_weapons.lst|(INCLUDE:Earth Breaker|Klar (as weapon))
+#EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_thrown_players_guide/cotct_pg_equipment_armor.lst|(INCLUDE:Klar)
+
+# Items Unique to this source
+ABILITY:pf10_abilities.lst
+ABILITYCATEGORY:pf10_ability_categories.lst
+EQUIPMENT:pf10_equip_weap_melee.lst
+EQUIPMENT:pf10_equip_wondrousitems.lst
+EQUIPMENT:pf10_equip_mundane.lst
+EQUIPMOD:pf10_equipmods_enhancing.lst
+FEAT:pf10_feats.lst
+KIT:pf10_kits_races_monsters.lst
+KIT:pf10_kits_npcs.lst
+RACE:pf10_races_monsters.lst
+TEMPLATE:pf10_templates.lst
+WEAPONPROF:pf10_weaponprofs.lst
+
+#
+# Eof
+#

@@ -1,0 +1,106 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
+
+STARTPACK:Chained Spirit Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chained Spirit],[!PRERACE:1,%]	SOURCEPAGE:p. 78
+RACE:Chained Spirit	!PRERACE:1,%
+NAME:Chained Spirit
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Bluff				RANK:17
+SKILL:Diplomacy			RANK:9
+SKILL:Knowledge (History)	RANK:8
+SKILL:Listen			RANK:17
+SKILL:Search			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Spot				RANK:17
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+
+STARTPACK:Danse Macabre Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Danse Macabre],[!PRERACE:1,%]	SOURCEPAGE:p. 80
+RACE:Danse Macabre	!PRERACE:1,%
+NAME:Danse Macabre
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Listen		RANK:19
+SKILL:Search		RANK:10
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:19
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+
+STARTPACK:Gug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gug],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+RACE:Gug	!PRERACE:1,%
+NAME:Gug
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Hide					RANK:6
+SKILL:Knowledge (Dungeoneering)	RANK:6
+SKILL:Listen				RANK:4
+SKILL:Move Silently			RANK:6
+SKILL:Spot					RANK:4
+SKILL:Survival				RANK:4
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind Fight
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Track
+
+STARTPACK:The Prince in Chains Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Prince in Chains],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+RACE:The Prince in Chains	!PRERACE:1,%
+NAME:The Prince in Chains
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Climb				RANK:9
+SKILL:Escape Artist		RANK:9
+SKILL:Jump				RANK:9
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Knowledge (The Planes)	RANK:18
+SKILL:Listen			RANK:18
+SKILL:Move Silently		RANK:18
+SKILL:Search			RANK:18
+SKILL:Spot				RANK:18
+SKILL:Survival			RANK:18
+SKILL:Tumble			RANK:18
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Track
+
+STARTPACK:Sample Umbral Dragon (Belshallam/Adult Umbral Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Umbral Adult)]
+RACE:Dragon (Umbral Adult)	!PRERACE:1,%
+NAME:Belshallam
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Appraise			RANK:12
+SKILL:Bluff				RANK:12
+SKILL:Concentration		RANK:12
+SKILL:Diplomacy			RANK:14
+SKILL:Hide				RANK:24
+SKILL:Knowledge (Arcana)	RANK:12
+SKILL:Knowledge (Local)		RANK:12
+SKILL:Knowledge (The Planes)	RANK:12
+SKILL:Listen			RANK:24
+SKILL:Move Silently		RANK:24
+SKILL:Search			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spot				RANK:24
+SKILL:Survival			RANK:10
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Snatch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Umbral Dragon|Acid Arrow|Silence|Detect Undead|Grease|Magic Missile|Shield|Create Water|Dancing Lights|Detect Magic|Disrupt Undead|Ray of Frost|Read Magic

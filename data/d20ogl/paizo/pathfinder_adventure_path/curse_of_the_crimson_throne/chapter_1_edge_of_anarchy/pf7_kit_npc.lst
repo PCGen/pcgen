@@ -1,0 +1,250 @@
+# CVS $Revision$ $Author$ -- Mon Jul  7 16:59:30 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy	SOURCESHORT:CotCT:EoA	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+
+
+STARTPACK:NPC (Yargin Balko)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 16
+RACE:Human	!PRERACE:1,%
+NAME:Yargin Balko
+ALIGN:LE
+TEMPLATE:Yargin Balko's Skills
+CLASS:Expert	LEVEL:2
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Craft (Alchemy),Disable Device,Forgery,Knowledge (Arcana),Search,Spellcraft,Use Magic Device,Bluff,Craft (Trapmaking))
+STAT:STR=10|DEX=12|CON=13|INT=11|WIS=9|CHA=8
+SKILL:Appraise		RANK:5
+SKILL:Craft (Alchemy)	RANK:5
+SKILL:Disable Device	RANK:5
+SKILL:Forgery		RANK:5
+SKILL:Search		RANK:5
+SKILL:Spellcraft		RANK:5
+SKILL:Use Magic Device	RANK:5
+FEAT:Point Blank Shot
+FEAT:Skill Focus(Use Magic Device)
+GEAR:Dagger					LOCATION:Primary Hand
+GEAR:Wand					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
+GEAR:Thunderstone				LOCATION:Carried
+GEAR:Tanglefoot Bag		QTY:3	LOCATION:Carried
+GEAR:Acid (Flask)			QTY:3	LOCATION:Carried
+GEAR:Leather				LOCATION:Equipped
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolts (Crossbow/10)		LOCATION:Carried
+GEAR:Garnet (Red)				LOCATION:Carried
+
+
+STARTPACK:NPC (Lamm's Lambs)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 16
+RACE:Human	!PRERACE:1,%
+NAME:Lamm's Lambs
+ALIGN:TN
+STAT:STR=7|DEX=15|CON=10|INT=9|WIS=8|CHA=10
+TEMPLATE:Lamm's Lambs Skills
+CLASS:Expert	LEVEL:1
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Balance,Bluff,Climb,Escape Artist,Sleight of Hand,Tumble,Spot,Search,Hide,Listen)
+SKILL:Balance		RANK:4
+SKILL:Bluff			RANK:4
+SKILL:Climb			RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Sleight of Hand	RANK:4
+SKILL:Tumble		RANK:4
+FEAT:Agile
+FEAT:Skill Focus(Sleight of Hand)
+GEAR:Dagger	SIZE:S	LOCATION:Primary Hand
+
+
+STARTPACK:NPC (Hookshanks Gruller)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome]	SOURCEPAGE:p. 17
+RACE:Gnome	!PRERACE:1,%
+NAME:Hookshanks Gruller
+ALIGN:NE
+CLASS:Rogue	LEVEL:1
+STAT:STR=13|DEX=15|CON=12|INT=10|WIS=14|CHA=8
+SKILL:Bluff			RANK:4
+SKILL:Climb			RANK:3
+SKILL:Disguise		RANK:4
+SKILL:Hide			RANK:3
+SKILL:Intimidate		RANK:4
+SKILL:Knowledge (Local)	RANK:4
+SKILL:Move Silently	RANK:3
+SKILL:Sleight of Hand	RANK:3
+FEAT:Martial Weapon Proficiency(Kukri)
+GEAR:Kukri			SIZE:S	LOCATION:Primary Hand
+GEAR:Sap			SIZE:S	LOCATION:Secondary Hand
+GEAR:Studded Leather	SIZE:S	LOCATION:Equipped
+GEAR:Disguise Kit		SIZE:S	LOCATION:Carried
+
+
+STARTPACK:NPC (Giggles)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Half-Orc]	SOURCEPAGE:p. 18
+RACE:Half-Orc	!PRERACE:1,%
+NAME:Giggles
+ALIGN:CE
+CLASS:Fighter	LEVEL:1
+STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
+SKILL:Intimidate	RANK:4
+FEAT:Weapon Focus(Flail)
+GEAR:Studded Leather		LOCATION:Equipped
+GEAR:Shield (Light/Wood)	LOCATION:Equipped
+GEAR:Flail				LOCATION:Primary Hand
+
+
+STARTPACK:NPC (Gaedren Lamm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 20
+RACE:Human	!PRERACE:1,%
+NAME:Gaedren Lamm
+ALIGN:NE
+STAT:STR=5|DEX=13|CON=7|INT=16|WIS=14|CHA=15
+TEMPLATE:Gaedren Lamm's Skills
+CLASS:Expert	LEVEL:4
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Bluff,Forgery,Handle Animal,Intimidate,Knowledge (Local),Open Lock,Sleight of Hand,Spot,Listen)
+CLASS:Rogue		LEVEL:2
+SKILL:Appraise		RANK:9
+SKILL:Bluff			RANK:9
+SKILL:Forgery		RANK:9
+SKILL:Handle Animal	RANK:7
+SKILL:Intimidate		RANK:9
+SKILL:Knowledge (Local)	RANK:9
+SKILL:Open Lock		RANK:9
+SKILL:Sleight of Hand	RANK:9
+SKILL:Spot			RANK:6
+FEAT:Combat Expertise
+FEAT:Improved Initiative
+FEAT:Skill Focus(Bluff)
+FEAT:Weapon Finesse
+GEAR:Dagger				LOCATION:Carried		EQMOD:MWORKW
+GEAR:Crossbow (Hand)		LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Bolts (Crossbow/10)	LOCATION:Carried
+
+
+STARTPACK:NPC (Renegade Guards)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 29
+RACE:Human	!PRERACE:1,%
+NAME:Renegade Guard
+ALIGN:CE
+CLASS:Warrior	LEVEL:2
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+SKILL:Handle Animal	RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Ride			RANK:5
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Longsword)
+GEAR:Longsword					LOCATION:Primary Hand
+GEAR:Crossbow (Light)				LOCATION:Carried
+GEAR:Bolts (Crossbow/10)			LOCATION:Carried
+GEAR:Shield (Heavy/Metal)			LOCATION:Equipped
+GEAR:Chainmail					LOCATION:Equipped
+GEAR:Coin (Gold)			QTY:20	LOCATION:Carried
+
+
+STARTPACK:NPC (Verik Vancaskerkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 32
+RACE:Human	!PRERACE:1,%
+NAME:Verik Vancaskerkin
+ALIGN:CN
+CLASS:Fighter	LEVEL:3
+STAT:STR=15|DEX=14|CON=12|INT=10|WIS=8|CHA=13
+SKILL:Handle Animal	RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Ride			RANK:6
+FEAT:Iron Will
+FEAT:Quick Draw
+FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=Fighter Feat|Point Blank Shot
+ABILITY:CATEGORY=Fighter Feat|Precise Shot
+GEAR:Chainmail						LOCATION:Equipped			EQMOD:MWORKA
+GEAR:Spear							LOCATION:Carried			EQMOD:MWORKW
+GEAR:Longbow (Composite)				LOCATION:Both Hands		EQMOD:BOWSTR|+2.MWORKW
+GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Arrow							LOCATION:Longbow (Composite)	EQMOD:PLUS2W
+GEAR:Arrow					QTY:19	LOCATION:Carried			EQMOD:PLUS2W
+
+
+STARTPACK:NPC (Devargo Barvasi)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 38
+RACE:Human	!PRERACE:1,%
+NAME:Devargo Barvasi
+ALIGN:LE
+CLASS:Rogue	LEVEL:4
+STAT:STR=12|DEX=16|CON=14|INT=10|WIS=8|CHA=13
+SKILL:Bluff			RANK:7
+SKILL:Climb			RANK:7
+SKILL:Craft (Alchemy)	RANK:7
+SKILL:Diplomacy		RANK:7
+SKILL:Intimidate		RANK:7
+SKILL:Knowledge (Local)	RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Sleight of Hand	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Two Weapon Fighting
+FEAT:Two Weapon Defense
+FEAT:Weapon Finesse
+GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Potion (Invisibility)				LOCATION:Carried
+GEAR:Poison (Medium spider venom)			LOCATION:Carried
+GEAR:Leather						LOCATION:Equipped
+GEAR:Gauntlet (Spiked)			QTY:2		LOCATION:Equipped
+GEAR:Crossbow (Hand)					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
+
+
+STARTPACK:NPC (Trinia Sabor/lvl 4)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 44
+RACE:Human	!PRERACE:1,%
+NAME:Trinia Sabor
+ALIGN:CG
+CLASS:Bard	LEVEL:4
+STAT:STR=10|DEX=14|CON=13|INT=12|WIS=8|CHA=16
+SKILL:Balance		RANK:7
+SKILL:Bluff			RANK:7
+SKILL:Climb			RANK:7
+SKILL:Craft (Painting)	RANK:7
+SKILL:Jump			RANK:7
+SKILL:Knowledge (Local)	RANK:7
+SKILL:Perform (Comedy)	RANK:7
+SKILL:Tumble		RANK:7
+FEAT:Acrobatic
+FEAT:Shingle Runner
+FEAT:Weapon Finesse
+GEAR:Potion (Cat's Grace)		LOCATION:Carried
+GEAR:Potion (Jump)			LOCATION:Carried
+GEAR:Potion (Shield of Faith +3)	LOCATION:Carried
+GEAR:Wand					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Daze Monster]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[10]
+GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze|Light|Mage Hand|Mending|Message|Prestidigitation|Cure Light Wounds|Feather Fall|Hideous Laughter|Minor Image
+
+
+STARTPACK:NPC (Cabbagehead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 53
+RACE:Human	!PRERACE:1,%
+NAME:Cabbagehead
+ALIGN:CN
+TEMPLATE:Cabbagehead Ogrekin
+CLASS:Fighter	LEVEL:2
+STAT:STR=15|DEX=13|CON=14|INT=10|WIS=8|CHA=10
+SKILL:Swim	RANK:5
+FEAT:Weapon Focus(Unarmed Strike)
+ABILITY:CATEGORY=Fighter Feat|Improved Initiative
+ABILITY:CATEGORY=Fighter Feat|Improved Unarmed Strike
+GEAR:Studded Leather			LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Unarmed Strike	SIZE:L	LOCATION:Equipped
+
+
+STARTPACK:NPC (Vreeg)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Derro]	SOURCEPAGE:p. 54
+RACE:Derro	!PRERACE:1,%
+NAME:Vreeg
+ALIGN:NE
+CLASS:Wizard	LEVEL:5	SUBCLASS:Necromancer
+STAT:STR=10|DEX=14|CON=14|INT=16|WIS=9|CHA=12
+SKILL:Bluff				RANK:6
+SKILL:Hide				RANK:2
+SKILL:Listen			RANK:4
+SKILL:Move Silently		RANK:3
+SKILL:Concentration		RANK:5
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Spellcraft			RANK:5
+FEAT:Combat Casting
+FEAT:Craft Wand
+FEAT:Spell Focus(Necromancy)
+ABILITY:CATEGORY=Wizard Feat|Extend Spell
+GEAR:Ring (Protection +1)				LOCATION:Equipped
+GEAR:Robe of Bones					LOCATION:Equipped
+GEAR:Dagger					SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Wand							LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ghoul Touch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[44]
+GEAR:Poison (Blue whinnis)	QTY:5			LOCATION:Carried
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Vampiric Touch|Fly|False Life|Blindness/Deafness|Shield|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Vampiric Touch|Fly|False Life[Extend Spell]|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Blindness/Deafness|Shield[Extend Spell]|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep
+
+
+#
+# End
+#

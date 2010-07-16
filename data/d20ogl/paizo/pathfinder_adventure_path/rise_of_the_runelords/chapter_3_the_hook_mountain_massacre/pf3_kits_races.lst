@@ -1,0 +1,83 @@
+# CVS $Revision$ $Author$ -- Mon Jun 30 17:16:58 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8	SOURCEDATE:2007-08
+
+STARTPACK:Smoke Haunt Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Smoke Haunt]	SOURCEPAGE:p.81
+RACE:Smoke Haunt	!PRERACE:1,%
+NAME:Smoke Haunt
+ALIGN:CE
+SKILL:Hide			RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Tumble		RANK:9
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+STAT:DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Totenmaske Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Totenmaske]	SOURCEPAGE:p.82
+RACE:Totenmaske	!PRERACE:1,%
+NAME:Totenmaske
+ALIGN:NE
+SKILL:Disguise		RANK:15
+SKILL:Hide			RANK:15
+SKILL:Jump			RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Spot			RANK:15
+SKILL:Tumble		RANK:15
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Skull Ripper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skull Ripper]	SOURCEPAGE:p.84
+RACE:Skull Ripper	!PRERACE:1,%
+NAME:Skull Ripper
+ALIGN:CN
+SKILL:Hide			RANK:9
+SKILL:Move Silently	RANK:9
+FEAT:Combat Reflexes
+FEAT:Lightning Reflexes
+FEAT:Improved Critical(Claw)
+FEAT:Power Attack
+FEAT:Stealthy
+FEAT:Weapon Focus(Claw)
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Argorth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Argorth]	SOURCEPAGE:p.86
+RACE:Argorth	!PRERACE:1,%
+NAME:Argorth
+ALIGN:CE
+SKILL:Spot	RANK:15
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Weapon Focus(Bite)
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Mother of Oblivian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mother of Oblivian]	SOURCEPAGE:p.88
+RACE:Mother of Oblivian	!PRERACE:1,%
+NAME:Mother of Oblivian
+ALIGN:CE
+SKILL:Climb				RANK:18
+SKILL:Concentration		RANK:18
+SKILL:Escape Artist		RANK:18
+SKILL:Hide				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Knowledge (History)	RANK:9
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Knowledge (The Planes)	RANK:9
+SKILL:Move Silently		RANK:18
+SKILL:Search			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Swim				RANK:18
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10

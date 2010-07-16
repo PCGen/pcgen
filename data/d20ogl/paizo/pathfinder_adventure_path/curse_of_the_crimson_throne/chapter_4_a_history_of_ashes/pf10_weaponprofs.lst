@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHORT:PF10	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9	SOURCEDATE:2008-7
+# Original Entry by: Paul Grosse
+
+#Weapon Groupings used to facilitate homebrews:
+#	Sword, Spear, Axe, Bow, Unarmed
+#	Melee, Ranged, Thrown, Spell
+#	Bludgeoning, Slashing, Piercing
+#	TwoHanded, DoubleWeapon, MeleeTwoHanded, Reach
+#	MeleeSlashing, MeleePiercing, MeeleBludgeoning, RangedSlashing, RangedPiercing, RangerBludgeoning
+#	RangedTouch
+
+# Weapon Name	Type
+Totem Spear		TYPE:Exotic.Melee.Thrown.Slashing.Piercing.MeleePiercing.MeleeSlashing.TwoHanded
+
+#
+# Eof
+#

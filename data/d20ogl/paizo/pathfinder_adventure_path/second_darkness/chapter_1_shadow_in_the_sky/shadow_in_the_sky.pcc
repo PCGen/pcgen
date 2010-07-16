@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 1: Shadow in the Sky
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky
+SOURCESHORT:PF13
+SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em
+SOURCEDATE:2008-08
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 13: Shadow in the Sky. Copyright 2008, Paizo Publishing, LLC; Author: Greg A. Vaughan.
+COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 1: Shadow in the Sky" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:shadow_in_the_sky.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy84em|Buy this publication from Paizo Publishing!
+DESC:The elves of the Mierani Forest have been hiding something from outside eyes for hundreds of years, but now, this sinister secret has escaped. What at first seems to be a sudden uprising in unsanctioned banditry in the Riddleport hinterlands is in fact something altogether more menacing--the dark elves have come to Varisia. Yet the threat presented by the drow from below may be nothing compared to a new threat from the skies above. Can a new group of heroes save the world from the Second Darkness?
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf13_ability.lst
+EQUIPMENT:pf13_equipment.lst
+KIT:pf13_kit_npc.lst
+KIT:pf13_kit_monster.lst
+RACE:pf13_race.lst
+SKILL:pf13_skill.lst
+TEMPLATE:pf13_template.lst
+
+#
+# End
+#

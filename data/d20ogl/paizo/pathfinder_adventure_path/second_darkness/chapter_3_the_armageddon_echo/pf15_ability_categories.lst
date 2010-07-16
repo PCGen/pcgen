@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Wed Oct 22 13:13:10 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+#SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Disciple of Pain Routine	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DiscipleOfPainRoutine	PLURAL:Disciple of Pain Routines	DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#

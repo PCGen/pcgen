@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Wed Nov 25 17:22:31 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em	SOURCEDATE:2008-08
+
+
+# Race Name					Vision			Clear Prereq.	Bonus to skill						Racial HD Class Skills	Apply Kit
+Darklands Sentinel.MOD							PRE:.CLEAR		BONUS:SKILL|Stealth (In caverns)|4|TYPE=Racial	MONCSKILL:.CLEAR		KIT:1|TN
+Fungal Crawler.MOD			VISION:Darkvision (60')	PRE:.CLEAR										MONCSKILL:.CLEAR		KIT:1|TN
+Monstrous Cockroach.MOD			VISION:Darkvision (60')	PRE:.CLEAR		BONUS:SKILL|Stealth,Perception|4|TYPE=Racial	MONCSKILL:.CLEAR		KIT:1|TN
+Flesh-Eating Cockroach Swarm.MOD	VISION:Darkvision (60')	PRE:.CLEAR		BONUS:SKILL|Stealth,Perception|4|TYPE=Racial	MONCSKILL:.CLEAR		KIT:1|TN
+Swamp Barracuda.MOD							PRE:.CLEAR		BONUS:SKILL|Stealth (In water)|4|TYPE=Racial	MONCSKILL:.CLEAR		KIT:1|TN
+
+#
+# End
+#
