@@ -20,11 +20,6 @@
  */
 package pcgen.gui.utils;
 
-import pcgen.util.Logging;
-
-import javax.swing.SwingUtilities;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumnModel;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -33,6 +28,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import javax.swing.SwingUtilities;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
+
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.PObject;
+import pcgen.util.Logging;
 
 /**
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
@@ -139,7 +142,8 @@ public final class JTreeTableSorter
 			return node;
 		}
 
-		// Inefficient!  XXX
+		boolean isNameCol = (tableModel.getColumnClass(col)==TreeTableModel.class);
+
 		List<List<Object>> itemsToSort =
 				new ArrayList<List<Object>>(master.size());
 
@@ -150,31 +154,37 @@ public final class JTreeTableSorter
 
 			sortItem.add(pi);
 
-			Object pir = null;
-
-			try
+			Object sortKey = null;
+			
+			if (isNameCol && pi.getItem() instanceof PObject)
 			{
-				pir = tableModel.getValueAt(pi, col);
+				sortKey = ((PObject)pi.getItem()).get(StringKey.SORT_KEY);
+				if (sortKey == null)
+				{
+					sortKey = ((PObject)pi.getItem()).getDisplayName();
+				}
 			}
-			catch (Exception exc)
+			else
 			{
-				Logging.errorPrint("", exc);
+				try
+				{
+					sortKey = tableModel.getValueAt(pi, col);
+				}
+				catch (Exception exc)
+				{
+					Logging.errorPrint("", exc);
+				}
+				if (sortKey instanceof String)
+				{
+					// color coding is done before a pipe |, ignore that for sorting purposes.
+					sortKey =
+							sortKey.toString().substring(
+								sortKey.toString().lastIndexOf("|") + 1);
+				}
 			}
 
-			//			if (pir == null)
-			//			{
-			//				continue;
-			//			}
 
-			if (pir instanceof String)
-			{
-				// color coding is done before a pipe |, ignore that for sorting purposes.
-				pir =
-						pir.toString().substring(
-							pir.toString().lastIndexOf("|") + 1);
-			}
-
-			sortItem.add(pir);
+			sortItem.add(sortKey);
 			itemsToSort.add(sortItem);
 		}
 

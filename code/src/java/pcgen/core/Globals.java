@@ -65,6 +65,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SizeUtilities;
@@ -207,6 +208,22 @@ public final class Globals
 			public int compare(final CDOMObject o1, final CDOMObject o2)
 			{
 				final Collator collator = Collator.getInstance();
+				
+				// Check sort keys first
+				String key1 = o1.get(StringKey.SORT_KEY);
+				if (key1 == null)
+				{
+					key1 = o1.getDisplayName();
+				}
+				String key2 = o2.get(StringKey.SORT_KEY);
+				if (key2 == null)
+				{
+					key2 = o2.getDisplayName();
+				}
+				if (!key1.equals(key2))
+				{
+					return collator.compare(key1, key2);
+				}
 				return collator.compare(o1.getDisplayName(), o2.getDisplayName());
 			}
 		};
