@@ -130,6 +130,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 				bw.write("pcgen.options.pccFilesLocation=" + pccLoc + "\r\n");
 			}
 			bw.write("pcgen.files.pcgenCustomDir=testsuite\\\\customdata\r\n");
+			bw.write("pcgen.options.loadCampaignsWithPC=true\r\n");
 			bw.close();
 
 			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
