@@ -343,9 +343,9 @@ public class BonusManager
 		return activeBonusBySource.keySet();
 	}
 
-	public void setActiveBonusList(Map<BonusObj, Object> map)
+	public void setActiveBonusList()
 	{
-		activeBonusBySource = map;
+		activeBonusBySource = getAllActiveBonuses();
 	}
 
 	public String listBonusesFor(String bonusType, String bonusName)
@@ -810,7 +810,8 @@ public class BonusManager
 	public Set<String> getTempBonusNames()
 	{
 		final Set<String> ret = new TreeSet<String>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			ret.add(getBonusName(me.getKey(), me.getValue()));
 		}
@@ -821,7 +822,8 @@ public class BonusManager
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			final Object aTO = me.getValue().target;
@@ -857,7 +859,8 @@ public class BonusManager
 	{
 		final List<String> aList = new ArrayList<String>();
 
-		for (Map.Entry<BonusObj,TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
 			if (aBonus == null)
@@ -892,7 +895,8 @@ public class BonusManager
 	{
 		final List<String> aList = new ArrayList<String>();
 
-		for (Map.Entry<BonusObj,TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
 			if (aBonus == null)
@@ -906,7 +910,7 @@ public class BonusManager
 			}
 
 			final CDOMObject aCreator = (CDOMObject) me.getValue().source;
-			
+
 			if (aCreator == null)
 			{
 				continue;
@@ -926,7 +930,8 @@ public class BonusManager
 	public Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
 	{
 		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<BonusObj, TempBonusInfo>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
@@ -978,17 +983,19 @@ public class BonusManager
 		return map;
 	}
 
-	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator, String aTarget)
+	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator,
+			String aTarget)
 	{
 		final Map<BonusObj, TempBonusInfo> aMap = new IdentityHashMap<BonusObj, TempBonusInfo>();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+				.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo tbi = me.getValue();
 			final Object aTO = tbi.target;
 			final Object aCO = tbi.source;
-			
+
 			String targetName = Constants.EMPTY_STRING;
 			String creatorName = Constants.EMPTY_STRING;
 
@@ -1325,5 +1332,67 @@ public class BonusManager
 			}
 		}
 		return false;
+	}
+
+	private Map<BonusObj, Object> getAllActiveBonuses()
+	{
+		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
+
+		for (final CDOMObject pobj : pc.getCDOMObjectList())
+		{
+			// We exclude equipmods here as their bonuses are already counted in
+			// the equipment they belong to.
+			if (pobj != null && !(pobj instanceof EquipmentModifier))
+			{
+				boolean use = true;
+				if (pobj instanceof PCClass)
+				{
+					// Class bonuses are only included if the level is greater
+					// than 0
+					// This is because 0 levels of a class can be added to
+					// access spell casting etc
+					use = pc.getLevel(((PCClass) pobj)) > 0;
+				}
+				if (use)
+				{
+					pobj.activateBonuses(pc);
+					List<BonusObj> abs = pobj.getActiveBonuses(pc);
+					for (BonusObj bo : abs)
+					{
+						ret.put(bo, pobj);
+					}
+				}
+			}
+		}
+
+		ret.putAll(getPurchaseModeBonuses());
+
+		if (pc.getUseTempMods())
+		{
+			ret.putAll(getTempBonuses());
+		}
+
+		return ret;
+	}
+
+	private Map<BonusObj, Object> getPurchaseModeBonuses()
+	{
+		Map<BonusObj, Object> map = new IdentityHashMap<BonusObj, Object>();
+		final GameMode gm = SettingsHandler.getGame();
+		final String purchaseMethodName = gm.getPurchaseModeMethodName();
+		if (gm.isPurchaseStatMode())
+		{
+			final PointBuyMethod pbm = gm
+					.getPurchaseMethodByName(purchaseMethodName);
+			pbm.activateBonuses(pc);
+
+			List<BonusObj> abs = pbm.getActiveBonuses(pc);
+			for (BonusObj bo : abs)
+			{
+				map.put(bo, pbm);
+			}
+			return map;
+		}
+		return map;
 	}
 }

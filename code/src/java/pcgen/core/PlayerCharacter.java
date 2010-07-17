@@ -6567,45 +6567,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// loop again until they are the same.
 	}
 
-	private Map<BonusObj, Object> getAllActiveBonuses()
-	{
-		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
-
-		for (final CDOMObject pobj : getCDOMObjectList())
-		{
-			// We exclude equipmods here as their bonuses are already counted in
-			// the equipment they belong to.
-			if (pobj != null && !(pobj instanceof EquipmentModifier))
-			{
-				boolean use = true;
-				if (pobj instanceof PCClass)
-				{
-					// Class bonuses are only included if the level is greater than 0
-					// This is because 0 levels of a class can be added to access spell casting etc
-					use = getLevel(((PCClass) pobj)) > 0;
-				}
-				if (use)
-				{
-					pobj.activateBonuses(this);
-					List<BonusObj> abs = pobj.getActiveBonuses(this);
-					for (BonusObj bo : abs)
-					{
-						ret.put(bo, pobj);
-					}
-				}
-			}
-		}
-
-		ret.putAll(getPurchaseModeBonuses());
-
-		if (getUseTempMods())
-		{
-			ret.putAll(bonusManager.getTempBonuses());
-		}
-		//ret = Bonus.sortBonusList(ret);
-		return ret;
-	}
-
 	/*
 	 * These are designed to catch a re-entrant bonus loop, which can occur
 	 * when a BONUS contains a level limited item in a Formula, such as BAB
@@ -6620,7 +6581,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 		lastCablInt = cablInt;
-		bonusManager.setActiveBonusList(getAllActiveBonuses());
+		bonusManager.setActiveBonusList();
 		// buildBonusMap(bonuses);
 		bonusManager.buildActiveBonusMap();
 		cablInt++;
@@ -8684,7 +8645,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvl;
 	}
 
-	private List<? extends CDOMObject> getCDOMObjectList()
+	List<? extends CDOMObject> getCDOMObjectList()
 	{
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (PObject po : getPObjectList())
@@ -9171,27 +9132,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private double calcBonusWithCostFromList(final List<BonusObj> aList)
 	{
 		return bonusManager.calcBonusesWithCost(aList);
-	}
-
-	private Map<BonusObj, Object> getPurchaseModeBonuses()
-	{
-		Map<BonusObj, Object> map = new IdentityHashMap<BonusObj, Object>();
-		final GameMode gm = SettingsHandler.getGame();
-		final String purchaseMethodName = gm.getPurchaseModeMethodName();
-		if (gm.isPurchaseStatMode())
-		{
-			final PointBuyMethod pbm =
-					gm.getPurchaseMethodByName(purchaseMethodName);
-			pbm.activateBonuses(this);
-
-			List<BonusObj> abs = pbm.getActiveBonuses(this);
-			for (BonusObj bo : abs)
-			{
-				map.put(bo, pbm);
-			}
-			return map;
-		}
-		return map;
 	}
 
 	/**
