@@ -89,7 +89,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 * 
 	 * Since HitDieStep is universal, the given context is ignored.
 	 * 
-	 * @param hd
+	 * @param origHD
 	 *            The input HitDie this HitDieStep will act upon.
 	 * @param context
 	 *            The context, ignored by HitDieStep.
@@ -97,10 +97,10 @@ public class HitDieStep implements Modifier<HitDie>
 	 * @throws NullPointerException
 	 *             if the given HitDie is null
 	 */
-	public HitDie applyModifier(HitDie hd, Object context)
+	public HitDie applyModifier(HitDie origHD, Object context)
 	{
 		int steps = numSteps;
-		HitDie currentDie = hd;
+		HitDie currentDie = origHD;
 		while (steps != 0)
 		{
 			// Order is important, dieLimit may be null
@@ -194,11 +194,11 @@ public class HitDieStep implements Modifier<HitDie>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof HitDieStep)
+		if (obj instanceof HitDieStep)
 		{
-			HitDieStep other = (HitDieStep) o;
+			HitDieStep other = (HitDieStep) obj;
 			return other.numSteps == numSteps
 					&& (dieLimit == null && other.dieLimit == null || dieLimit != null
 							&& dieLimit.equals(other.dieLimit));

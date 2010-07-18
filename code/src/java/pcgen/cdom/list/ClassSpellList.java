@@ -45,9 +45,9 @@ public class ClassSpellList extends CDOMListObject<Spell>
 	}
 
 	@Override
-	public boolean isType(final String aType)
+	public boolean isType(String type)
 	{
-		if (aType.length() == 0)
+		if (type.length() == 0)
 		{
 			return false;
 		}
@@ -55,7 +55,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		//
 		// Must match all listed types in order to qualify
 		//
-		StringTokenizer tok = new StringTokenizer(aType, ".");
+		StringTokenizer tok = new StringTokenizer(type, ".");
 		while (tok.hasMoreTokens())
 		{
 			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))

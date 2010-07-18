@@ -60,13 +60,13 @@ public class HitDieLock implements Modifier<HitDie>
 	 * 
 	 * Since HitDieLock is universal, the given context is ignored.
 	 * 
-	 * @param hd
+	 * @param origHD
 	 *            The input HitDie this Modifier will act upon
 	 * @param context
 	 *            The context of this Modifier, ignored by HitDieLock.
 	 * @return The modified object, of the same class as the input object.
 	 */
-	public HitDie applyModifier(HitDie hd, Object context)
+	public HitDie applyModifier(HitDie origHD, Object context)
 	{
 		return hitDie;
 	}
@@ -112,10 +112,10 @@ public class HitDieLock implements Modifier<HitDie>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof HitDieLock
-				&& ((HitDieLock) o).hitDie.equals(hitDie);
+		return obj instanceof HitDieLock
+				&& ((HitDieLock) obj).hitDie.equals(hitDie);
 	}
 
 }

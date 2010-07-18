@@ -55,26 +55,26 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 * @param mod
 	 *            The underlying Modifier that this ContextModifer will apply
 	 *            when the given context is matched.
-	 * @param context
+	 * @param contextRef
 	 *            The CDOMReference which contains the objects for which the
 	 *            underlying Modifier should be applied.
 	 * @throws IllegalArgumentException
 	 *             if the given Modifier or the given CDOMReference is null
 	 */
-	public ContextModifier(Modifier<T> mod, CDOMReference<R> context)
+	public ContextModifier(Modifier<T> mod, CDOMReference<R> contextRef)
 	{
 		if (mod == null)
 		{
 			throw new IllegalArgumentException(
 					"Modifier in ContextModifier cannot be null");
 		}
-		if (context == null)
+		if (contextRef == null)
 		{
 			throw new IllegalArgumentException(
 					"Context in ContextModifier cannot be null");
 		}
 		modifier = mod;
-		contextItems = context;
+		contextItems = contextRef;
 	}
 
 	/**
@@ -112,13 +112,13 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 */
 	public String getLSTformat()
 	{
-		String cf = contextItems.getLSTformat();
+		String contextString = contextItems.getLSTformat();
 		StringBuilder sb = new StringBuilder();
 		sb.append(modifier.getLSTformat()).append('|');
 		sb.append(StringPClassUtil.getStringFor(contextItems
 				.getReferenceClass()));
-		sb.append(cf.indexOf('=') == -1 ? '=' : '.');
-		sb.append(cf);
+		sb.append(contextString.indexOf('=') == -1 ? '=' : '.');
+		sb.append(contextString);
 		return sb.toString();
 	}
 

@@ -57,7 +57,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 * Lists never have a Type, so this returns false
 	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(String type)
 	{
 		return false;
 	}
@@ -79,17 +79,17 @@ public class AbilityList extends CDOMListObject<Ability>
 	public static CDOMReference<AbilityList> getAbilityListReference(
 			Category<Ability> category, Nature nature)
 	{
-		CDOMReference<AbilityList> list = MASTER_MAP.get(category, nature);
-		if (list == null)
+		CDOMReference<AbilityList> ref = MASTER_MAP.get(category, nature);
+		if (ref == null)
 		{
-			AbilityList al = new AbilityList();
-			al.setName("*" + category.toString() + ":" + nature.toString());
-			al.put(ObjectKey.ABILITY_CAT, category);
-			al.put(ObjectKey.ABILITY_NATURE, nature);
-			list = CDOMDirectSingleRef.getRef(al);
-			MASTER_MAP.put(category, nature, list);
+			AbilityList list = new AbilityList();
+			list.setName("*" + category.toString() + ":" + nature.toString());
+			list.put(ObjectKey.ABILITY_CAT, category);
+			list.put(ObjectKey.ABILITY_NATURE, nature);
+			ref = CDOMDirectSingleRef.getRef(list);
+			MASTER_MAP.put(category, nature, ref);
 		}
-		return list;
+		return ref;
 	}
 
 	/**

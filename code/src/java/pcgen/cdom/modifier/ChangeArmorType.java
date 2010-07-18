@@ -93,7 +93,7 @@ public class ChangeArmorType implements Modifier<String>
 	 * "RemoveArmorType", in that the result type can be null. Therefore, users
 	 * should account for the possibility that this method may return null.
 	 * 
-	 * @param obj
+	 * @param sourceType
 	 *            The input armor type this Modifier will act upon
 	 * @param context
 	 *            The context of this Modifier, ignored by ChangeArmorType.
@@ -101,9 +101,9 @@ public class ChangeArmorType implements Modifier<String>
 	 *         source type of the ChangeArmorType object; otherwise the source
 	 *         armor type
 	 */
-	public String applyModifier(String obj, Object context)
+	public String applyModifier(String sourceType, Object context)
 	{
-		return source.equalsIgnoreCase(obj) ? result : obj;
+		return source.equalsIgnoreCase(sourceType) ? result : sourceType;
 	}
 
 	/**
@@ -135,17 +135,17 @@ public class ChangeArmorType implements Modifier<String>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof ChangeArmorType))
+		if (!(obj instanceof ChangeArmorType))
 		{
 			return false;
 		}
-		ChangeArmorType other = (ChangeArmorType) o;
+		ChangeArmorType other = (ChangeArmorType) obj;
 		if (result == null)
 		{
 			return other.result == null;

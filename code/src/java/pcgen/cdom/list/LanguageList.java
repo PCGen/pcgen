@@ -41,7 +41,7 @@ public class LanguageList extends CDOMListObject<Language>
 	 * Lists never have a Type, so this returns false
 	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(String type)
 	{
 		return false;
 	}

@@ -32,20 +32,20 @@ public class HitDieFormula implements Modifier<HitDie>
 	 * The ReferenceFormula used by this HitDieFormula to modify an incoming
 	 * HitDie.
 	 */
-	private final ReferenceFormula<Integer> f;
+	private final ReferenceFormula<Integer> formula;
 
 	/**
 	 * Constructs a new HitDieFormula object with the given ReferenceFormula to
 	 * modify HitDie objects.
 	 * 
-	 * @param formula
+	 * @param refFormula
 	 *            A ReferenceFormula to modify a HitDie when this HitDieFormula
 	 *            acts on a given HitDie
 	 */
-	public HitDieFormula(ReferenceFormula<Integer> formula)
+	public HitDieFormula(ReferenceFormula<Integer> refFormula)
 	{
 		super();
-		f = formula;
+		formula = refFormula;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class HitDieFormula implements Modifier<HitDie>
 	 * 
 	 * Since HitDieFormula is universal, the given context is ignored.
 	 * 
-	 * @param hd
+	 * @param origHD
 	 *            The input HitDie this HitDieFormula will act upon.
 	 * @param context
 	 *            The context, ignored by HitDieFormula.
@@ -63,9 +63,10 @@ public class HitDieFormula implements Modifier<HitDie>
 	 * @throws NullPointerException
 	 *             if the given HitDie is null
 	 */
-	public HitDie applyModifier(HitDie hd, Object context)
+	public HitDie applyModifier(HitDie origHD, Object context)
 	{
-		return new HitDie(f.resolve(Integer.valueOf(hd.getDie())).intValue());
+		return new HitDie(formula.resolve(Integer.valueOf(origHD.getDie()))
+				.intValue());
 	}
 
 	/**
@@ -77,7 +78,7 @@ public class HitDieFormula implements Modifier<HitDie>
 	 */
 	public String getLSTformat()
 	{
-		return '%' + f.toString();
+		return '%' + formula.toString();
 	}
 
 	/**
@@ -98,7 +99,7 @@ public class HitDieFormula implements Modifier<HitDie>
 	@Override
 	public int hashCode()
 	{
-		return f.hashCode();
+		return formula.hashCode();
 	}
 
 	/**
@@ -109,8 +110,9 @@ public class HitDieFormula implements Modifier<HitDie>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof HitDieFormula && ((HitDieFormula) o).f.equals(f);
+		return obj instanceof HitDieFormula
+				&& ((HitDieFormula) obj).formula.equals(formula);
 	}
 }
