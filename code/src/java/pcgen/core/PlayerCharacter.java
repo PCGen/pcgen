@@ -140,6 +140,7 @@ import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.LanguageFacet;
+import pcgen.cdom.facet.LegalDeityFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.LevelTableFacet;
@@ -353,6 +354,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
+	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
@@ -6733,42 +6735,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canSelectDeity(final Deity aDeity)
 	{
-		if (aDeity == null)
-		{
-			return false;
-		}
-		boolean result;
-		if (classFacet.isEmpty(id))
-		{
-			result = true;
-		}
-		else
-		{
-			result = false;
-			CLASS: for (PCClass aClass : getClassSet())
-			{
-				List<CDOMReference<Deity>> deityList =
-						aClass.getListFor(ListKey.DEITY);
-				if (deityList == null)
-				{
-					result = true;
-					break;
-				}
-				else
-				{
-					for (CDOMReference<Deity> deity : deityList)
-					{
-						if (deity.contains(aDeity))
-						{
-							result = true;
-							break CLASS;
-						}
-					}
-				}
-			}
-		}
-
-		return result && aDeity.qualifies(this, aDeity);
+		return legalDeityFacet.allows(id, aDeity);
 	}
 
 	public int classAC()

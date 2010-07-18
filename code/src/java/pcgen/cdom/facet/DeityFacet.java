@@ -24,5 +24,4 @@ import pcgen.core.Deity;
  */
 public class DeityFacet extends AbstractItemFacet<Deity>
 {
-
 }
