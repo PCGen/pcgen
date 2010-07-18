@@ -98,6 +98,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 		setName = name;
 		category = cat;
 		pcs = choice;
+		underlyingClass = cl;
 	}
 
 	/**
