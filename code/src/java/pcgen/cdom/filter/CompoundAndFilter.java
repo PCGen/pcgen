@@ -80,7 +80,6 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 					"Collection for CompoundAndFilter cannot be empty");
 		}
 		Class<? super T> pcfClass = null;
-		refClass = pcfClass;
 		pcfSet.addAll(pcfCollection);
 		for (PrimitiveChoiceFilter<T> pcf : pcfSet)
 		{
@@ -104,6 +103,7 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 				}
 			}
 		}
+		refClass = pcfClass;
 	}
 
 	/**
