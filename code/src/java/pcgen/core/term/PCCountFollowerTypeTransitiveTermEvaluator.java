@@ -56,13 +56,11 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter apc)
 	{
-		final List<Follower> followers = apc.getFollowerList();
-
-		if (!followers.isEmpty())
+		if (apc.hasFollowers())
 		{
 			final List<Follower> aList = new ArrayList<Follower>();
 
-			for ( Follower follower : followers )
+			for ( Follower follower : apc.getFollowerList() )
 			{
 				if (follower.getType().getKeyName().equalsIgnoreCase(type))
 				{

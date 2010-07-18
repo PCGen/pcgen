@@ -126,6 +126,7 @@ import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FavoredClassFacet;
+import pcgen.cdom.facet.FollowerFacet;
 import pcgen.cdom.facet.FollowerLimitFacet;
 import pcgen.cdom.facet.FollowerOptionFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
@@ -301,6 +302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private MasterSkillFacet masterSkillFacet = FacetLibrary.getFacet(MasterSkillFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
+	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -377,9 +379,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			new ArrayList<Equipment>();
 
 	private ClassSource defaultDomainSource = null;
-
-	/** This character's list of followers */
-	private final List<Follower> followerList = new ArrayList<Follower>();
 
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
@@ -1703,11 +1702,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Returns the followers associated with this character.
 	 * 
-	 * @return A <tt>List</tt> of <tt>Follower</tt> objects.
+	 * @return A <tt>Set</tt> of <tt>Follower</tt> objects.
 	 */
-	public List<Follower> getFollowerList()
+	public Set<Follower> getFollowerList()
 	{
-		return followerList;
+		return followerFacet.getSet(id);
 	}
 
 	/**
@@ -3441,7 +3440,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addFollower(final Follower aFollower)
 	{
-		followerList.add(aFollower);
+		followerFacet.add(id, aFollower);
 		setDirty(true);
 	}
 
@@ -3521,7 +3520,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void delFollower(final Follower aFollower)
 	{
-		followerList.remove(aFollower);
+		followerFacet.remove(id, aFollower);
 		setDirty(true);
 	}
 
@@ -13086,7 +13085,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasFollowers()
 	{
-		return followerList.isEmpty();
+		return !followerFacet.isEmpty(id);
 	}
 
 	public void addAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)

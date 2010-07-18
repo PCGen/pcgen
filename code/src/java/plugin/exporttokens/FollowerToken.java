@@ -26,6 +26,7 @@ package plugin.exporttokens;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -98,7 +99,7 @@ public class FollowerToken extends Token
 		}
 
 		String result = "";
-		final List<Follower> followers = pc.getFollowerList();
+		final List<Follower> followers = new ArrayList<Follower>(pc.getFollowerList());
 		if (i < followers.size())
 		{
 			result =

@@ -1387,11 +1387,9 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 
-		final List<Follower> followers = thePC.getFollowerList();
-
-		if (!followers.isEmpty())
+		if (thePC.hasFollowers())
 		{
-			for (Follower follower : followers)
+			for (Follower follower : thePC.getFollowerList())
 			{
 				buffer.append(TAG_FOLLOWER).append(':');
 				buffer.append(EntityEncoder.encode(follower.getName()));
