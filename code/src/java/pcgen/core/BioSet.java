@@ -206,7 +206,7 @@ public final class BioSet extends PObject
 			return;
 		}
 
-		AgeSet ageSetObj = getAgeMapIndex(Region.getConstant(pc.getRegionString()), ageSet);
+		AgeSet ageSetObj = getAgeSetLine(pc);
 
 		if (ageSetObj == null)
 		{
