@@ -40,7 +40,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +91,7 @@ import pcgen.cdom.facet.ActiveAbilityFacet;
 import pcgen.cdom.facet.AddLevelFacet;
 import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
+import pcgen.cdom.facet.AgeFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.ArmorProfFacet;
@@ -351,6 +351,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
+	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -413,8 +414,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// Should temp mods/bonuses be used/saved?
 	private boolean useTempMods = true;
-
-	private int age = 0;
 
 	// null is <none selected>
 	private int costPool = 0;
@@ -511,7 +510,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setAge(final int i)
 	{
-		age = i;
+		ageFacet.set(id, i);
 		setDirty(true);
 		calcActiveBonuses();
 
@@ -528,7 +527,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getAge()
 	{
-		return age;
+		return ageFacet.get(id);
 	}
 
 	/**
@@ -9929,6 +9928,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.regionFacet.copyContents(id, aClone.id);
 		aClone.moneyFacet.copyContents(id, aClone.id);
 		aClone.factFacet.copyContents(id, aClone.id);
+		aClone.ageFacet.set(id, ageFacet.get(id));
 		aClone.abFacet.copyContents(id, aClone.id);
 		aClone.grantedAbilityFacet.copyContents(id, aClone.id);
 		aClone.xpFacet.setEarnedXP(aClone.id, xpFacet.getEarnedXP(id));
@@ -10011,7 +10011,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.setImporting(false);
 		aClone.useTempMods = useTempMods;
 		aClone.setFeats(numberOfRemainingFeats);
-		aClone.age = age;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.equipOutputOrder = equipOutputOrder;
