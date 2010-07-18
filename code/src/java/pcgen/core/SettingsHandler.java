@@ -1231,7 +1231,6 @@ public final class SettingsHandler
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
 		setLoadCampaignsWithPC(getPCGenOption("loadCampaignsWithPC", false)); //$NON-NLS-1$
-System.err.println(getPCGenOption("loadCampaignsWithPC", false));
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
