@@ -42,7 +42,7 @@ public class OutputNameFormatting
 	 * @param aPC
 	 * @return the output name to get a useable Name token
 	 */
-	public static String parseOutputName(final String aString, final PlayerCharacter aPC)
+	private static String parseOutputName(final String aString, final PlayerCharacter aPC)
 	{
 		final int varIndex = aString.indexOf('|');
 	
@@ -142,7 +142,7 @@ public class OutputNameFormatting
 	 * rephrase parenthetical name components, if appropriate
 	 * @return pre formatted output name
 	 */
-	public static String getPreFormatedOutputName(String displayName)
+	private static String getPreFormatedOutputName(String displayName)
 	{
 		//if there are no () to pull from, just return the name
 		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))

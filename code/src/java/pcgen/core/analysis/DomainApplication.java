@@ -170,7 +170,7 @@ public class DomainApplication
 		}
 	}
 
-	public static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d,
+	private static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d,
 			final boolean adding)
 	{
 		if (d.qualifies(aPC, d))

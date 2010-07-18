@@ -131,7 +131,7 @@ public final class SkillCostCalc
 		return false;
 	}
 
-	public static boolean hasMonsterCCSkill(Race r, Skill s)
+	private static boolean hasMonsterCCSkill(Race r, Skill s)
 	{
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
 		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
@@ -156,7 +156,7 @@ public final class SkillCostCalc
 		return false;
 	}
 
-	public static boolean hasMonsterClassSkill(PlayerCharacter pc, Race r, Skill s)
+	private static boolean hasMonsterClassSkill(PlayerCharacter pc, Race r, Skill s)
 	{
 		if (pc.getMonCSkills().contains(s))
 		{

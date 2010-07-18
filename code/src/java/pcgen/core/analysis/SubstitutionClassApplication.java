@@ -109,7 +109,7 @@ public class SubstitutionClassApplication
 	 *            The class level to determine the choices for
 	 * @param aPC
 	 */
-	public static void buildSubstitutionClassChoiceList(PCClass cl,
+	private static void buildSubstitutionClassChoiceList(PCClass cl,
 			final List<PCClass> choiceList, final int level,
 			final PlayerCharacter aPC)
 	{

@@ -352,7 +352,7 @@ public class SkillRankControl
 		return bonus;
 	}
 
-	public static void updateAdds(PlayerCharacter aPC, Skill sk, double bonus)
+	private static void updateAdds(PlayerCharacter aPC, Skill sk, double bonus)
 	{
 		// Check for ADDs
 		List<PersistentTransitionChoice<?>> adds = sk.getListFor(ListKey.ADD);

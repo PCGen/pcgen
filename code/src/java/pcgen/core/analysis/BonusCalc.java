@@ -140,7 +140,7 @@ public class BonusCalc
 	 * @param aPC
 	 * @return bonus
 	 */
-	public static double calcBonus(PObject po, final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
+	private static double calcBonus(PObject po, final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
 							 final BonusObj aBonusObj, final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|");

@@ -302,7 +302,7 @@ public final class SkillModifier
 	 * @param description
 	 *            The description of the bonus.
 	 */
-	public static void appendBonusDesc(Skill sk, StringBuilder bonusDetails,
+	private static void appendBonusDesc(Skill sk, StringBuilder bonusDetails,
 			double bonus, String description)
 	{
 		if (CoreUtility.doublesEqual(bonus, 0.0))

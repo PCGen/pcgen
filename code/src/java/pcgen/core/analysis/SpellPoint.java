@@ -137,7 +137,7 @@ public class SpellPoint
 	 * @param aComponent
 	 * @return aBonus
 	 */
-	public static int getBonusForSpellPointCostComponent(
+	private static int getBonusForSpellPointCostComponent(
 			final PlayerCharacter aPC, Spell sp, final String aComponent)
 	{
 		int aBonus = 0;
@@ -236,74 +236,6 @@ public class SpellPoint
 		sb.append(total);
 		sb.append(" [");
 		sb.append(sb3.toString());
-		sb.append(sb2.toString());
-		sb.append("]");
-		return sb.toString();
-	}
-
-	public static String getSPCostStrings(Spell sp)
-	{
-		Map<String, Integer> spCost = getSpellPointCostActualParts(sp);
-		int totalSpellPoints = getSpellPointCostActual(sp);
-		StringBuffer sb = new StringBuffer();
-		StringBuffer sb2 = new StringBuffer();
-
-		sb2.append("");
-		sb.append(totalSpellPoints);
-		if (spCost.size() == 0)
-		{
-			return sb.toString();
-		}
-		if (spCost.size() == 1 && spCost.containsKey("TOTAL"))
-		{
-			return sb.toString();
-		}
-		sb.append(" [");
-
-		// Using a TreeSet so they are sorted no matter what order the data is
-		// input
-		// by the lst coder
-		TreeSet<String> fields = new TreeSet<String>();
-		fields.addAll(spCost.keySet());
-
-		for (String aComponent : fields)
-		{
-			if (aComponent.equalsIgnoreCase("Range"))
-			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-				sb2.append("/");
-			}
-			else if (aComponent.equalsIgnoreCase("Area of Effect"))
-			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-				sb2.append("/");
-			}
-			else if (aComponent.equalsIgnoreCase("Duration"))
-			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-				sb2.append("/");
-			}
-			else
-			{
-				sb.append(aComponent);
-				sb.append(" ");
-				sb.append(spCost.get(aComponent));
-				sb.append("/");
-			}
-
-		}
-		if (sb2.length() < 1)
-		{
-			sb.replace(sb.length() - 1, sb.length(), "");
-		}
-		sb2.replace(sb2.length() - 1, sb2.length(), "");
-
 		sb.append(sb2.toString());
 		sb.append("]");
 		return sb.toString();

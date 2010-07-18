@@ -18,7 +18,7 @@ import pcgen.util.Logging;
 public class SubstitutionLevelSupport
 {
 
-	public static boolean levelArrayQualifies(int level,
+	private static boolean levelArrayQualifies(int level,
 			final PlayerCharacter pc, final String aLine,
 			final SourceEntry tempSource, CDOMObject source)
 	{

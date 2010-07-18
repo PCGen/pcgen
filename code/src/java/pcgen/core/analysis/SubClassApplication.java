@@ -274,7 +274,7 @@ public class SubClassApplication
 		cl.getSpellLists(pc);
 	}
 
-	public static String getSupplementalDisplayInfo(SubClass sc) {
+	private static String getSupplementalDisplayInfo(SubClass sc) {
 		boolean added = false;
 		StringBuffer displayInfo = new StringBuffer();
 		if (sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
