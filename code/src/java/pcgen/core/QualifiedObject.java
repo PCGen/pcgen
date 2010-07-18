@@ -42,9 +42,6 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 
 	private T theObject = null;
 
-	private static final String angleSplit = "[<>\\|]";
-	private static final String squareSplit = "[\\[\\]\\|]";
-
     /**
      * Constructor
      * @param anObj

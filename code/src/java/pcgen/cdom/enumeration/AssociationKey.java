@@ -33,7 +33,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.core.Ability;
-import pcgen.core.SpellSupportForPCClass;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
