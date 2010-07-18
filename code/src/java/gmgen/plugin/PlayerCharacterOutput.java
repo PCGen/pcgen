@@ -287,7 +287,7 @@ public class PlayerCharacterOutput
 
 	public String getRegion()
 	{
-		return pc.getRegion();
+		return pc.getRegionString();
 	}
 
 	public String getSaveFort()

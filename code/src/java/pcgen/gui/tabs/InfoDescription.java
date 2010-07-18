@@ -2021,7 +2021,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
 		{
 			int idx = Globals.getBioSet().getPCAgeSet(pc);
-			AgeSet ageSet = Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegion()), idx);
+			AgeSet ageSet = Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegionString()), idx);
 
 			if ((idx >= 0) && (ageSet != null))
 			{

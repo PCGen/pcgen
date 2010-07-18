@@ -230,7 +230,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		idx = Globals.getBioSet().getPCAgeSet(pc);
 		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
 
-		Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegion()), idx);
+		Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegionString()), idx);
 
 	}
 }

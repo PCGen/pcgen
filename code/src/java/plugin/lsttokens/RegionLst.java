@@ -118,7 +118,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public void applyChoice(CDOMObject owner, Region choice, PlayerCharacter pc)
 	{
-		if (!pc.getRegion().equalsIgnoreCase(choice.toString()))
+		if (!pc.getRegionString().equalsIgnoreCase(choice.toString()))
 		{
 			pc.setRegion(choice.toString());
 		}

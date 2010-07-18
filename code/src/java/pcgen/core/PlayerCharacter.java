@@ -2557,7 +2557,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return character region
 	 */
-	public String getRegion()
+	public String getRegionString()
 	{
 		return regionFacet.getRegion(id);
 	}
@@ -9933,9 +9933,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.setPhobias(getPhobias());
 		aClone.setPlayersName(getPlayersName());
 		aClone.setPortraitPath(getPortraitPath());
-		if (getRegion() != null)
+		if (getRegionString() != null)
 		{
-			aClone.setRegion(getRegion());
+			aClone.setRegion(getRegionString());
 		}
 		aClone.setResidence(getResidence());
 		aClone.setSkinColor(getSkinColor());

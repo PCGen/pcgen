@@ -56,7 +56,7 @@ public class RegionToken extends Token
 
 	public static String getRegionToken(PlayerCharacter pc)
 	{
-		String retString = pc.getRegion();
+		String retString = pc.getRegionString();
 
 		if (!pc.getSubRegion().equals(Constants.s_NONE))
 		{

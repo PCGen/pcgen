@@ -2148,7 +2148,7 @@ public final class ExportHandler
 		// Filter out REGION
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (aPC.getRegion().equals(Constants.s_NONE))
+			if (aPC.getRegionString().equals(Constants.s_NONE))
 			{
 				canWrite = false;
 			}
