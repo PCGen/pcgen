@@ -415,7 +415,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key used to identify the list from which the specified
 	 *            value will be returned
-	 * @param i
+	 * @param loc
 	 *            The location in the list (for the given key) of the value to
 	 *            be returned
 	 * @return The value in the given location in the list for the given key
@@ -426,7 +426,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *             (index is less than zero OR greater than or equal to the size
 	 *             of the list)
 	 */
-	public V getElementInList(K key, int i)
+	public V getElementInList(K key, int loc)
 	{
 		List<V> subList = mapToList.get(key);
 		if (subList == null)
@@ -434,7 +434,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 			throw new IllegalArgumentException(key
 					+ " is not a key in this AbstractMapToList");
 		}
-		return subList.get(i);
+		return subList.get(loc);
 	}
 
 	/**
@@ -521,15 +521,15 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof AbstractMapToList)
+		if (obj instanceof AbstractMapToList)
 		{
-			return mapToList.equals(((AbstractMapToList<?, ?>) o).mapToList);
+			return mapToList.equals(((AbstractMapToList<?, ?>) obj).mapToList);
 		}
-		else if (o instanceof MapToList)
+		else if (obj instanceof MapToList)
 		{
-			MapToList<Object, ?> other = (MapToList<Object, ?>) o;
+			MapToList<Object, ?> other = (MapToList<Object, ?>) obj;
 			Set<K> keySet = mapToList.keySet();
 			if (keySet.equals(other.getKeySet()))
 			{

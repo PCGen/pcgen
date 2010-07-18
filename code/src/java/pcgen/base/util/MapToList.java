@@ -181,7 +181,7 @@ public interface MapToList<K, V>
 	 * @param key
 	 *            The key used to identify the list from which the specified
 	 *            value will be returned
-	 * @param i
+	 * @param index
 	 *            The location in the list (for the given key) of the value to
 	 *            be returned
 	 * @return The value in the given location in the list for the given key
@@ -192,7 +192,7 @@ public interface MapToList<K, V>
 	 *             (index is less than zero OR greater than or equal to the size
 	 *             of the list)
 	 */
-	public V getElementInList(K key, int i);
+	public V getElementInList(K key, int index);
 
 	/**
 	 * Clears this MapToList (removes all keys/list combiantions).

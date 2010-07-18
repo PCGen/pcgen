@@ -39,15 +39,15 @@ public final class NamedFormula
 	/**
 	 * Creates a new NamedFormula for the given name and formula value.
 	 * 
-	 * @param s
+	 * @param formulaName
 	 *            The String to be used as the name of the NamedFormula.
 	 * @param d
 	 *            The Formula value of the NamedFormula.
 	 */
-	public NamedFormula(String s, Formula d)
+	public NamedFormula(String formulaName, Formula value)
 	{
-		name = s;
-		formula = d;
+		name = formulaName;
+		formula = value;
 	}
 
 	/**

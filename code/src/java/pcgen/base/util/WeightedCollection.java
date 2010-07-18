@@ -75,7 +75,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @exception IllegalArgumentException
 	 *                if the specified initial capacity is negative
 	 */
-	public WeightedCollection(final int initialSize)
+	public WeightedCollection(int initialSize)
 	{
 		theData = new ArrayList<WeightedItem<E>>(initialSize);
 	}
@@ -91,15 +91,15 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * maintained by the WeightedCollection, and the WeightedCollection may
 	 * return references to those objects contained in the Collection.
 	 * 
-	 * @param c
+	 * @param collection
 	 *            The <tt>Collection</tt> to copy.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public WeightedCollection(final Collection<? extends E> c)
+	public WeightedCollection(Collection<? extends E> collection)
 	{
 		this();
-		addAll(c, 1);
+		addAll(collection, 1);
 	}
 
 	/**
@@ -118,9 +118,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		}
 		else
 		{
-			theData =
-					new TreeSet<WeightedItem<E>>(new WeightedItemComparator<E>(
-						comp));
+			theData = new TreeSet<WeightedItem<E>>(
+					new WeightedItemComparator<E>(comp));
 		}
 	}
 
@@ -151,7 +150,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * maintained by the WeightedCollection, and the WeightedCollection may
 	 * return references to those objects contained in the Collection.
 	 * 
-	 * @param c
+	 * @param collection
 	 *            The <tt>Collection</tt> to add the elements from.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
@@ -159,9 +158,9 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @see java.util.List#addAll(java.util.Collection)
 	 */
 	@Override
-	public boolean addAll(final Collection<? extends E> c)
+	public boolean addAll(Collection<? extends E> collection)
 	{
-		return addAll(c, 1);
+		return addAll(collection, 1);
 	}
 
 	/**
@@ -180,7 +179,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @throws IllegalArgumentException
 	 *             if the given weight is less than zero
 	 */
-	public final boolean add(final E element, final int weight)
+	public final boolean add(E element, int weight)
 	{
 		if (weight < 0)
 		{
@@ -191,11 +190,11 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			return false;
 		}
 		// Lets see if we can find this element
-		for (final WeightedItem<E> wi : theData)
+		for (WeightedItem<E> wi : theData)
 		{
 			E wie = wi.getElement();
 			if (wie == null && element == null || wie != null
-				&& wie.equals(element))
+					&& wie.equals(element))
 			{
 				wi.addWeight(weight);
 				return true;
@@ -215,7 +214,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @see java.util.List#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(final E element)
+	public boolean add(E element)
 	{
 		return add(element, 1);
 	}
@@ -239,7 +238,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 				// See
 				// http://sourceforge.net/tracker/index.php?func=detail&aid=1961021&group_id=25576&atid=1036937
 				// for details
-   				return wi.getElement();
+				return wi.getElement();
 			}
 		}
 		/*
@@ -292,19 +291,19 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * Checks if the object specified exists in this WeightedCollection.
 	 * 
-	 * @param o
+	 * @param obj
 	 *            The object to test for
 	 * @return <tt>true</tt> if the object is in the WeightedCollection.
 	 * 
 	 * @see java.util.Collection#contains(java.lang.Object)
 	 */
 	@Override
-	public boolean contains(final Object o)
+	public boolean contains(Object obj)
 	{
-		for (final WeightedItem<E> wi : theData)
+		for (WeightedItem<E> wi : theData)
 		{
 			E wie = wi.getElement();
-			if (wie == null && o == null || wie != null && wie.equals(o))
+			if (wie == null && obj == null || wie != null && wie.equals(obj))
 			{
 				return true;
 			}
@@ -316,18 +315,18 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * Returns the weight for the given object in this WeightedCollection. If
 	 * the given object is not in this collection, zero is returned.
 	 * 
-	 * @param o
+	 * @param obj
 	 *            The object for which the weight in this WeightedCollection
 	 *            will be returned.
 	 * @return the weight of the given object in this WeightedCollection, or
 	 *         zero if the object is not in this WeightedCollection
 	 */
-	public int getWeight(Object o)
+	public int getWeight(Object obj)
 	{
-		for (final WeightedItem<E> wi : theData)
+		for (WeightedItem<E> wi : theData)
 		{
 			E wie = wi.getElement();
-			if (wie == null && o == null || wie != null && wie.equals(o))
+			if (wie == null && obj == null || wie != null && wie.equals(obj))
 			{
 				return wi.theWeight;
 			}
@@ -343,20 +342,20 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * WeightedCollection will decrease by two, and NO copies of the given
 	 * object will remain in this WeightedCollection.
 	 * 
-	 * @param o
+	 * @param obj
 	 *            The element to remove
 	 * @return <tt>true</tt> if the element was removed.
 	 * 
 	 * @see java.util.Collection#remove(java.lang.Object)
 	 */
 	@Override
-	public boolean remove(final Object o)
+	public boolean remove(Object obj)
 	{
 		for (Iterator<WeightedItem<E>> i = theData.iterator(); i.hasNext();)
 		{
-			final WeightedItem<E> wi = i.next();
-			E wie = wi.getElement();
-			if (wie == null && o == null || wie != null && wie.equals(o))
+			WeightedItem<E> item = i.next();
+			E wie = item.getElement();
+			if (wie == null && obj == null || wie != null && wie.equals(obj))
 			{
 				i.remove();
 				return true;
@@ -401,7 +400,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * elements in the same order.
 	 * <p>
 	 * 
-	 * @param o
+	 * @param obj
 	 *            The object to be compared for equality with this
 	 *            WeightedCollection.
 	 * @return <tt>true</tt> if the specified object is equal to this
@@ -410,7 +409,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(final Object o)
+	public boolean equals(Object obj)
 	{
 		/*
 		 * CONSIDER Currently, this is ORDER SENSITIVE, which is probably bad
@@ -419,8 +418,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * is no solution for sorting a WeightedCollection and thus it is not
 		 * possible to actually sort before doing the comparison. - thpr 2/5/07
 		 */
-		return o instanceof WeightedCollection
-			&& theData.equals(((WeightedCollection<?>) o).theData);
+		return obj instanceof WeightedCollection
+				&& theData.equals(((WeightedCollection<?>) obj).theData);
 	}
 
 	/**
@@ -463,7 +462,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @param aWeight
 	 *            The weight value to use for each element added.
-	 * @param c
+	 * @param collection
 	 *            The elements to add to the WeightedCollection
 	 * @return <tt>true</tt> if the WeightedCollection is changed by this
 	 *         call.
@@ -472,11 +471,10 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
-	public final boolean addAll(final Collection<? extends E> c,
-		final int aWeight)
+	public final boolean addAll(Collection<? extends E> collection, int aWeight)
 	{
 		boolean modified = false;
-		for (E item : c)
+		for (E item : collection)
 		{
 			modified |= add(item, aWeight);
 		}
@@ -506,7 +504,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            The weight of the item within the list.
 		 */
-		public WeightedItem(final T element, final int weight)
+		public WeightedItem(T element, int weight)
 		{
 			theElement = element;
 			theWeight = weight;
@@ -538,7 +536,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param aWeight
 		 *            an amount of weight to add.
 		 */
-		public void addWeight(final int aWeight)
+		public void addWeight(int aWeight)
 		{
 			theWeight += aWeight;
 		}
@@ -547,7 +545,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		public int hashCode()
 		{
 			return theWeight * 29
-				+ (theElement == null ? 0 : theElement.hashCode());
+					+ (theElement == null ? 0 : theElement.hashCode());
 		}
 
 		/**
@@ -557,22 +555,22 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
-		public boolean equals(Object o)
+		public boolean equals(Object obj)
 		{
-			if (o == null)
+			if (obj == null)
 			{
 				return false;
 			}
-			else if (o == this)
+			else if (obj == this)
 			{
 				return true;
 			}
-			else if (o instanceof WeightedItem)
+			else if (obj instanceof WeightedItem)
 			{
-				WeightedItem<?> wi = (WeightedItem<?>) o;
-				return theWeight == wi.theWeight
-					&& (theElement == null && wi.theElement == null || theElement != null
-						&& theElement.equals(wi.theElement));
+				WeightedItem<?> item = (WeightedItem<?>) obj;
+				return theWeight == item.theWeight
+						&& (theElement == null && item.theElement == null || theElement != null
+								&& theElement.equals(item.theElement));
 			}
 			return false;
 		}
@@ -614,7 +612,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		public E next()
 		{
 			if (currentEntry == null
-				|| currentReturned >= currentEntry.theWeight)
+					|| currentReturned >= currentEntry.theWeight)
 			{
 				currentEntry = iter.next();
 				currentReturned = 0;
@@ -633,8 +631,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	private class UnweightedIterator implements Iterator<E>
 	{
 		/** An iterator that iterates over the raw data elements. */
-		private final Iterator<WeightedItem<E>> realIterator =
-				theData.iterator();
+		private final Iterator<WeightedItem<E>> realIterator = theData
+				.iterator();
 
 		/**
 		 * Checks if there are any more elements in the iteration.
@@ -672,21 +670,46 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		}
 	}
 
+	/**
+	 * Implements a Comparator of WeightedItems. Takes in a Comparator to which
+	 * it will delegate comparison of the underlying objects.
+	 * 
+	 * @param <WICT>
+	 *            The type of the object underlying the WeightedItem objects
+	 *            that this WeightedItemComparator can compare.
+	 */
 	private static class WeightedItemComparator<WICT> implements
 			Comparator<WeightedItem<WICT>>
 	{
 
-		private final Comparator<? super WICT> delegateComparator;
+		/**
+		 * The Comparator to which this WeightedItemComparator will delegate
+		 * comparison of the underlying objects.
+		 */
+		private final Comparator<? super WICT> delegate;
 
+		/**
+		 * Constructs a new WeightedItemComparator with the given Comparator as
+		 * the delegate given to provide comparison of the underlying objects.
+		 * 
+		 * @param comp
+		 *            The delegate Comparator given to provide comparison of the
+		 *            objects underlying the WeightedItem objects compared by
+		 *            this WeightedItemComparator
+		 */
 		public WeightedItemComparator(Comparator<? super WICT> comp)
 		{
-			delegateComparator = comp;
+			delegate = comp;
 		}
 
+		/**
+		 * Compare two WeightedItem objects
+		 * 
+		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+		 */
 		public int compare(WeightedItem<WICT> arg0, WeightedItem<WICT> arg1)
 		{
-			return delegateComparator.compare(arg0.getElement(), arg1
-				.getElement());
+			return delegate.compare(arg0.getElement(), arg1.getElement());
 		}
 
 	}

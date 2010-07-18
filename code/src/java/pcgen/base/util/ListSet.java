@@ -34,7 +34,8 @@ import java.util.Set;
  * Set. This is most useful to minimize the memory footprint for very small sets
  * where search time will not be a concern.
  * 
- * @param <T> The type of object stored in this ListSet
+ * @param <T>
+ *            The type of object stored in this ListSet
  */
 public class ListSet<T> extends AbstractSet<T> implements Set<T>
 {
@@ -76,12 +77,12 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * Construct a new, empty ListSet, which will use the given Comparator to
 	 * determine equality for purposes of determining presence in the Set.
 	 * 
-	 * @param c
+	 * @param comp
 	 *            The Comparator this Set will use to determine equality
 	 */
-	public ListSet(Comparator<T> c)
+	public ListSet(Comparator<T> comp)
 	{
-		this(10, c);
+		this(10, comp);
 	}
 
 	/**
@@ -94,13 +95,13 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * 
 	 * @param size
 	 *            The initial size of the List backing this Set
-	 * @param c
+	 * @param comp
 	 *            The Comparator this Set will use to determine equality
 	 */
-	public ListSet(int size, Comparator<T> c)
+	public ListSet(int size, Comparator<T> comp)
 	{
 		list = new ArrayList<T>(size);
-		comparator = c;
+		comparator = comp;
 	}
 
 	/**

@@ -314,13 +314,13 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		{
 			return null;
 		}
-		List<V> o = localMap.removeListFor(key2);
+		List<V> removed = localMap.removeListFor(key2);
 		// cleanup!
 		if (localMap.isEmpty())
 		{
 			mtmtl.remove(key1);
 		}
-		return o;
+		return removed;
 	}
 
 	/**
@@ -351,13 +351,13 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		{
 			return false;
 		}
-		boolean b = localMap.removeFromListFor(key2, value);
+		boolean wasRemoved = localMap.removeFromListFor(key2, value);
 		// cleanup!
-		if (b && localMap.isEmpty())
+		if (wasRemoved && localMap.isEmpty())
 		{
 			mtmtl.remove(key1);
 		}
-		return b;
+		return wasRemoved;
 	}
 
 	/**
@@ -403,7 +403,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
-	public Set<K2> getSecondaryKeySet(final K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(K1 aPrimaryKey)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(aPrimaryKey);
 		if (localMap == null)
@@ -468,15 +468,17 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public DoubleKeyMapToList<K1, K2, V> clone()
 			throws CloneNotSupportedException
 	{
-		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super.clone();
+		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super
+				.clone();
 		dkm.mtmtl = createGlobalMap();
 		for (Iterator<K1> it = mtmtl.keySet().iterator(); it.hasNext();)
 		{
 			K1 key = it.next();
-			MapToList<K2, V> m = mtmtl.get(key);
-			MapToList<K2, V> hmtl = GenericMapToList.getMapToList(secondClass);
-			hmtl.addAllLists(m);
-			dkm.mtmtl.put(key, hmtl);
+			MapToList<K2, V> currentMTL = mtmtl.get(key);
+			MapToList<K2, V> newMTL = GenericMapToList
+					.getMapToList(secondClass);
+			newMTL.addAllLists(currentMTL);
+			dkm.mtmtl.put(key, newMTL);
 		}
 		return dkm;
 	}
@@ -543,10 +545,10 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof DoubleKeyMapToList
-				&& mtmtl.equals(((DoubleKeyMapToList<?, ?, ?>) o).mtmtl);
+		return obj instanceof DoubleKeyMapToList
+				&& mtmtl.equals(((DoubleKeyMapToList<?, ?, ?>) obj).mtmtl);
 	}
 
 	/**

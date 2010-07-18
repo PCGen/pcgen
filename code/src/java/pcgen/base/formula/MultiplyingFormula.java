@@ -34,7 +34,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 */
 	private final int multiplier;
 
-    /**
+	/**
 	 * Creates a new MultiplyingFormula with the given int as the value to be
 	 * multiplied with the input to the resolve method
 	 * 
@@ -42,9 +42,9 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 *            the int to be multiplied with the input when this
 	 *            MultiplyingFormula is used
 	 */
-	public MultiplyingFormula(int multiplier)
+	public MultiplyingFormula(int mult)
 	{
-		this.multiplier = multiplier;
+		multiplier = mult;
 	}
 
 	/**
@@ -105,9 +105,9 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof MultiplyingFormula
-				&& ((MultiplyingFormula) o).multiplier == multiplier;
+		return obj instanceof MultiplyingFormula
+				&& ((MultiplyingFormula) obj).multiplier == multiplier;
 	}
 }

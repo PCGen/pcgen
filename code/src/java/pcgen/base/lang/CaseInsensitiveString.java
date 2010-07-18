@@ -58,30 +58,30 @@ public class CaseInsensitiveString
 	 * Create a new CaseInsensitiveString with the given String used for the
 	 * basis of [case insensitive] equality of thsi object.
 	 * 
-	 * @param s
+	 * @param str
 	 *            The underlying String of this CaseInsensitiveString
 	 * @throws IllegalArgumentException
 	 *             if the given String is null
 	 */
-	public CaseInsensitiveString(String s)
+	public CaseInsensitiveString(String str)
 	{
-		if (s == null)
+		if (str == null)
 		{
 			throw new IllegalArgumentException(
 					"Cannot make a Case Insensitive String for null");
 		}
-		string = s;
+		string = str;
 	}
 
 	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object s)
+	public boolean equals(Object obj)
 	{
-		if (s instanceof CaseInsensitiveString)
+		if (obj instanceof CaseInsensitiveString)
 		{
-			CaseInsensitiveString cis = (CaseInsensitiveString) s;
+			CaseInsensitiveString cis = (CaseInsensitiveString) obj;
 			return string == cis.string || string.equalsIgnoreCase(cis.string);
 		}
 		return false;

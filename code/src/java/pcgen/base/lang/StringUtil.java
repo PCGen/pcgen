@@ -39,9 +39,9 @@ public final class StringUtil
 	 */
 	public static final Comparator<String> CASE_SENSITIVE_ORDER = new Comparator<String>()
 	{
-		public int compare(String o1, String o2)
+		public int compare(String str1, String str2)
 		{
-			return o1.compareTo(o2);
+			return str1.compareTo(str2);
 		}
 
 	};
@@ -64,8 +64,7 @@ public final class StringUtil
 	 *            The separating string
 	 * @return A 'separator' separated String
 	 */
-	public static String join(final Collection<?> strings,
-			final String separator)
+	public static String join(Collection<?> strings, String separator)
 	{
 		return joinToStringBuffer(strings, separator).toString();
 	}
@@ -85,15 +84,15 @@ public final class StringUtil
 	 *            The separating character
 	 * @return A 'separator' separated String
 	 */
-	public static StringBuilder joinToStringBuffer(final Collection<?> strings,
-			final String separator)
+	public static StringBuilder joinToStringBuffer(Collection<?> strings,
+			String separator)
 	{
 		if (strings == null)
 		{
 			return new StringBuilder();
 		}
 
-		final StringBuilder result = new StringBuilder(strings.size() * 10);
+		StringBuilder result = new StringBuilder(strings.size() * 10);
 
 		boolean needjoin = false;
 
@@ -130,7 +129,7 @@ public final class StringUtil
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(strings.length * 10);
+		StringBuilder result = new StringBuilder(strings.length * 10);
 
 		boolean needjoin = false;
 
@@ -164,12 +163,10 @@ public final class StringUtil
 	 *         replace all instances of the String to find with the newStr
 	 *         replacement String
 	 */
-	public static String replaceAll(final String in, final String find,
-			final String newStr)
+	public static String replaceAll(String in, String find, String newStr)
 	{
-		final char[] working = in.toCharArray();
-		final StringBuilder sb = new StringBuilder(in.length()
-				+ newStr.length());
+		char[] working = in.toCharArray();
+		StringBuilder sb = new StringBuilder(in.length() + newStr.length());
 		int startindex = in.indexOf(find);
 
 		if (startindex < 0)
@@ -206,15 +203,15 @@ public final class StringUtil
 	 * the parenthesis are in a "sensible" format. "Sensible" means that a close
 	 * parenthesis cannot appear before an open parenthesis.
 	 * 
-	 * @param ds
+	 * @param str
 	 *            The String to be tested to see if it has balanced parenthesis
 	 * @return true if the given String has balanced parenthesis; false
 	 *         otherwise
 	 */
-	public static boolean hasBalancedParens(String ds)
+	public static boolean hasBalancedParens(String str)
 	{
 		int level = 0;
-		StringTokenizer st = new StringTokenizer(ds, "()", true);
+		StringTokenizer st = new StringTokenizer(str, "()", true);
 		while (st.hasMoreTokens())
 		{
 			String tok = st.nextToken();

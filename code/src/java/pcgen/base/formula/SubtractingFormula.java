@@ -110,9 +110,9 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof SubtractingFormula
-				&& ((SubtractingFormula) o).sub == sub;
+		return obj instanceof SubtractingFormula
+				&& ((SubtractingFormula) obj).sub == sub;
 	}
 }

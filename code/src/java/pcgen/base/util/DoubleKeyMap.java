@@ -156,7 +156,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @throws NullPointerException
 	 *             if the given DoubleKeyMap is null
 	 */
-	public DoubleKeyMap(final DoubleKeyMap<K1, K2, V> otherMap)
+	public DoubleKeyMap(DoubleKeyMap<K1, K2, V> otherMap)
 	{
 		this(otherMap.firstClass, otherMap.secondClass);
 		putAll(otherMap);
@@ -242,8 +242,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Retrieves the Map from DoubleKeyMap for the given primary key. If this DoubleKeyMap
-	 * does not a mapping for the given key, an empty map is returned.
+	 * Retrieves the Map from DoubleKeyMap for the given primary key. If this
+	 * DoubleKeyMap does not a mapping for the given key, an empty map is
+	 * returned.
 	 * 
 	 * This method is value-semantic in that no changes are made to the object
 	 * passed into the method and ownership of the returned List is transferred
@@ -314,13 +315,13 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		{
 			return null;
 		}
-		V o = localMap.remove(key2);
+		V removed = localMap.remove(key2);
 		// cleanup!
 		if (localMap.isEmpty())
 		{
 			map.remove(key1);
 		}
-		return o;
+		return removed;
 	}
 
 	/**
@@ -371,9 +372,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
-	public Set<K2> getSecondaryKeySet(final K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(K1 aPrimaryKey)
 	{
-		final Map<K2, V> localMap = map.get(aPrimaryKey);
+		Map<K2, V> localMap = map.get(aPrimaryKey);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -404,7 +405,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public Set<V> values(K1 key1)
 	{
-		final Map<K2, V> localMap = map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -469,7 +470,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public boolean removeValue(K1 key1, V obj)
 	{
-		final Map<K2, V> localMap = map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap != null)
 		{
 			return localMap.values().remove(obj);
@@ -496,10 +497,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof DoubleKeyMap
-				&& map.equals(((DoubleKeyMap<?, ?, ?>) o).map);
+		return obj instanceof DoubleKeyMap
+				&& map.equals(((DoubleKeyMap<?, ?, ?>) obj).map);
 	}
 
 	/**

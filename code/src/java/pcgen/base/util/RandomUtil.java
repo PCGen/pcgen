@@ -58,13 +58,13 @@ public final class RandomUtil
 	 *            value.
 	 * @return a Random Integer that is 0 < x < high
 	 */
-	public static int getRandomInt(final int high)
+	public static int getRandomInt(int high)
 	{
 		if (high <= 0)
 		{
 			return 0;
 		}
-		final int rand = RANDOM.nextInt(high);
+		int rand = RANDOM.nextInt(high);
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("Generated random number between " //$NON-NLS-1$

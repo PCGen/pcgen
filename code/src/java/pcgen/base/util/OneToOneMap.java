@@ -39,13 +39,13 @@ public class OneToOneMap<K, V>
 	/**
 	 * The underlying map used to store references from the Keys to the Values.
 	 */
-	private final HashMap<K, V> forwardMap = new HashMap<K, V>();
+	private final Map<K, V> forwardMap = new HashMap<K, V>();
 
 	/**
 	 * The underlying map used to store references from the Values back to the
 	 * Keys.
 	 */
-	private final HashMap<V, K> reverseMap = new HashMap<V, K>();
+	private final Map<V, K> reverseMap = new HashMap<V, K>();
 
 	/**
 	 * Clears the OneToOneMap (removes all keys and values)
@@ -170,15 +170,15 @@ public class OneToOneMap<K, V>
 	 * OneToOneMap will maintain a strong reference to both the key objects and
 	 * the objects contained in the given Map.
 	 * 
-	 * @param m
+	 * @param map
 	 *            The Map for which the key/value combinations should be placed
 	 *            into this OneToOneMap
 	 * @throws NullPointerException
 	 *             if the given Map is null
 	 */
-	public void putAll(Map<? extends K, ? extends V> m)
+	public void putAll(Map<? extends K, ? extends V> map)
 	{
-		for (Map.Entry<? extends K, ? extends V> me : m.entrySet())
+		for (Map.Entry<? extends K, ? extends V> me : map.entrySet())
 		{
 			put(me.getKey(), me.getValue());
 		}
@@ -229,6 +229,8 @@ public class OneToOneMap<K, V>
 	 * Returns a String representation of this OneToOneMap, primarily for
 	 * purposes of debugging. It is strongly advised that no dependency on this
 	 * method be created, as the return value may be changed without warning.
+	 * 
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()

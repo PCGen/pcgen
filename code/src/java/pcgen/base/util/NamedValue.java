@@ -42,26 +42,26 @@ public final class NamedValue
 	 * Creates a new NamedValue for the given name. The Double value defaults to
 	 * 0.0.
 	 * 
-	 * @param s
+	 * @param nvName
 	 *            The String to be used as the name of the NamedValue.
 	 */
-	public NamedValue(String s)
+	public NamedValue(String nvName)
 	{
-		name = s;
+		name = nvName;
 	}
 
 	/**
 	 * Creates a new NamedValue for the given name and double value.
 	 * 
-	 * @param s
+	 * @param nvName
 	 *            The String to be used as the name of the NamedValue.
-	 * @param d
+	 * @param startingValue
 	 *            The double value of the NamedValue.
 	 */
-	public NamedValue(String s, double d)
+	public NamedValue(String nvName, double startingValue)
 	{
-		this(s);
-		weight = d;
+		this(nvName);
+		weight = startingValue;
 	}
 
 	/**
@@ -77,17 +77,19 @@ public final class NamedValue
 	/**
 	 * Adds weight to a NamedValue
 	 * 
-	 * @param d
+	 * @param addedWeight
 	 *            the weight to add to this NamedValue
 	 */
-	public void addWeight(double d)
+	public void addWeight(double addedWeight)
 	{
-		weight += d;
+		weight += addedWeight;
 		// CONSIDER what if less than zero?
 	}
 
 	/**
 	 * Returns a String representation of this NamedValue
+	 * 
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
@@ -95,12 +97,23 @@ public final class NamedValue
 		return name + ":" + weight;
 	}
 
-	public void removeWeight(double d)
+	/**
+	 * Removes an amount of the "weight" from this NamedValue.
+	 * 
+	 * @param removedWeight
+	 *            The amount the value of this NamedValue should be reduced by.
+	 */
+	public void removeWeight(double removedWeight)
 	{
-		weight -= d;
+		weight -= removedWeight;
 		// CONSIDER what if less than zero?
 	}
 
+	/**
+	 * Returns the Name of this NamedValue.
+	 * 
+	 * @return The Name of this NamedValue.
+	 */
 	public String getName()
 	{
 		return name;

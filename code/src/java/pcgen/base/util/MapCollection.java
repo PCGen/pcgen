@@ -79,19 +79,19 @@ public class MapCollection extends AbstractCollection<Object>
 	 * provided Map is maintained, in order to iterate over the contents of the
 	 * Map.
 	 * 
-	 * @param m
+	 * @param otherMap
 	 *            The map to be treated as a Collection.
 	 * @throws IllegalArgumentException
 	 *             if the given Map is null
 	 */
-	public MapCollection(Map<?, ?> m)
+	public MapCollection(Map<?, ?> otherMap)
 	{
-		if (m == null)
+		if (otherMap == null)
 		{
 			throw new IllegalArgumentException(
 					"Cannot provide null to MapCollection");
 		}
-		map = m;
+		map = otherMap;
 	}
 
 	/**
@@ -294,9 +294,9 @@ public class MapCollection extends AbstractCollection<Object>
 
 		private final Iterator<?> hashIterator;
 
-		MapCollectionIterator(Map<?, ?> m)
+		MapCollectionIterator(Map<?, ?> map)
 		{
-			hashIterator = m.entrySet().iterator();
+			hashIterator = map.entrySet().iterator();
 		}
 
 		public boolean hasNext()

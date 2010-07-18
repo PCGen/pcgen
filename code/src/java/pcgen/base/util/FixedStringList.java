@@ -45,9 +45,9 @@ public class FixedStringList extends AbstractList<String> implements
 	 */
 	public static final Comparator<FixedStringList> CASE_SENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
-		public int compare(FixedStringList o1, FixedStringList o2)
+		public int compare(FixedStringList fsl1, FixedStringList fsl2)
 		{
-			return FixedStringList.compare(o1, o2,
+			return FixedStringList.compare(fsl1, fsl2,
 					StringUtil.CASE_SENSITIVE_ORDER);
 		}
 	};
@@ -59,9 +59,9 @@ public class FixedStringList extends AbstractList<String> implements
 	 */
 	public static final Comparator<FixedStringList> CASE_INSENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
-		public int compare(FixedStringList o1, FixedStringList o2)
+		public int compare(FixedStringList fsl1, FixedStringList fsl2)
 		{
-			return FixedStringList.compare(o1, o2,
+			return FixedStringList.compare(fsl1, fsl2,
 					String.CASE_INSENSITIVE_ORDER);
 		}
 	};
@@ -96,13 +96,13 @@ public class FixedStringList extends AbstractList<String> implements
 	 * be maintained, but as Strings are immutable objects, that is a 'safe'
 	 * operation)
 	 * 
-	 * @param c
+	 * @param collection
 	 *            The String Collection to be used to initialize the size and
 	 *            contents of this FixedStringList
 	 */
-	public FixedStringList(Collection<String> c)
+	public FixedStringList(Collection<String> collection)
 	{
-		array = c.toArray(new String[c.size()]);
+		array = collection.toArray(new String[collection.size()]);
 	}
 
 	/**
@@ -117,15 +117,16 @@ public class FixedStringList extends AbstractList<String> implements
 	 * maintained. (References to the Strings within the Array will be
 	 * maintained, but as Strings are immutable objects, that is a 'safe'
 	 * operation)
-	 *
-     * @param a The String Array to be used to initialize the size and
-     * contents of this FixedStringList
-     *
-     */
-	public FixedStringList(String... a)
+	 * 
+	 * @param stringArray
+	 *            The String Array to be used to initialize the size and
+	 *            contents of this FixedStringList
+	 * 
+	 */
+	public FixedStringList(String... stringArray)
 	{
-		array = new String[a.length];
-		System.arraycopy(a, 0, array, 0, a.length);
+		array = new String[stringArray.length];
+		System.arraycopy(stringArray, 0, array, 0, stringArray.length);
 	}
 
 	/**
@@ -140,13 +141,13 @@ public class FixedStringList extends AbstractList<String> implements
 	 * @see java.util.AbstractList#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(String o)
+	public boolean add(String str)
 	{
 		for (int i = 0; i < array.length; i++)
 		{
 			if (array[i] == null)
 			{
-				array[i] = o;
+				array[i] = str;
 				return true;
 			}
 		}
@@ -173,9 +174,9 @@ public class FixedStringList extends AbstractList<String> implements
 	 * @see java.util.AbstractList#addAll(int, java.util.Collection)
 	 */
 	@Override
-	public boolean addAll(int index, Collection<? extends String> c)
+	public boolean addAll(int index, Collection<? extends String> collection)
 	{
-		for (String s : c)
+		for (String s : collection)
 		{
 			if (!add(s))
 			{
@@ -251,14 +252,14 @@ public class FixedStringList extends AbstractList<String> implements
 	 * @see java.util.AbstractList#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof FixedStringList)
+		if (obj instanceof FixedStringList)
 		{
-			FixedStringList other = (FixedStringList) o;
+			FixedStringList other = (FixedStringList) obj;
 			return Arrays.deepEquals(array, other.array);
 		}
-		return super.equals(o);
+		return super.equals(obj);
 	}
 
 	@Override
@@ -278,10 +279,10 @@ public class FixedStringList extends AbstractList<String> implements
 	 * 
 	 * @see java.util.AbstractList#equals(java.lang.Object)
 	 */
-	public boolean equalsIgnoreCase(FixedStringList o)
+	public boolean equalsIgnoreCase(FixedStringList fsl)
 	{
 		int thisArrayLength = array.length;
-		String[] otherArray = o.array;
+		String[] otherArray = fsl.array;
 		if (otherArray.length != thisArrayLength)
 		{
 			return false;
@@ -314,12 +315,12 @@ public class FixedStringList extends AbstractList<String> implements
 	 * contents of a FixedStringList (tested after size), null sorts first
 	 * (before any non-null Strings).
 	 */
-	public static int compare(FixedStringList a, FixedStringList b,
-			Comparator<String> c)
+	public static int compare(FixedStringList fsl1, FixedStringList fsl2,
+			Comparator<String> comparator)
 	{
-		String[] thisArray = a.array;
+		String[] thisArray = fsl1.array;
 		int thisArrayLength = thisArray.length;
-		String[] otherArray = b.array;
+		String[] otherArray = fsl2.array;
 		int otherLength = otherArray.length;
 		if (thisArrayLength < otherLength)
 		{
@@ -349,7 +350,7 @@ public class FixedStringList extends AbstractList<String> implements
 			}
 			else
 			{
-				int compare = c.compare(thisItem, otherItem);
+				int compare = comparator.compare(thisItem, otherItem);
 				if (compare != 0)
 				{
 					return compare;

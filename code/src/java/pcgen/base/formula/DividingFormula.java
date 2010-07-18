@@ -34,7 +34,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 */
 	private final int denominator;
 
-    /**
+	/**
 	 * Creates a new DividingFormula with the given int as the value to divide
 	 * the input to the resolve method by
 	 * 
@@ -44,15 +44,15 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * @throws IllegalArgumentException
 	 *             if the given int is zero
 	 */
-	public DividingFormula(int denominator)
+	public DividingFormula(int denom)
 	{
-		if (denominator == 0)
+		if (denom == 0)
 		{
 			throw new IllegalArgumentException(
 					"Cannot build a DividingFormula that divides by Zero - "
 							+ "will always cause an ArithmeticException when resolved");
 		}
-		this.denominator = denominator;
+		denominator = denom;
 	}
 
 	/**
@@ -65,8 +65,8 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * 
 	 * @param numbers
 	 *            The array of Numbers used to resolve the value of this
-	 *            DividingFormula (array length must be 1 and the Number must
-	 *            be non-null)
+	 *            DividingFormula (array length must be 1 and the Number must be
+	 *            non-null)
 	 * @return the result of the division
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
@@ -117,9 +117,9 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof DividingFormula
-				&& ((DividingFormula) o).denominator == denominator;
+		return obj instanceof DividingFormula
+				&& ((DividingFormula) obj).denominator == denominator;
 	}
 }

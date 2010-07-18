@@ -80,17 +80,17 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public TripleKeyMap()
 	{
 		thirdClass = HashMap.class;
-		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class,
-				HashMap.class);
+		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class, HashMap.class);
 	}
 
 	/**
 	 * Constructs a new (empty) TripleKeyMap.
 	 * 
-	 * @throws IllegalArgumentException if any of the given Classes is null
+	 * @throws IllegalArgumentException
+	 *             if any of the given Classes is null
 	 */
-	public TripleKeyMap(Class<? extends Map> cl1,
-			Class<? extends Map> cl2, Class<? extends Map> cl3)
+	public TripleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2,
+			Class<? extends Map> cl3)
 	{
 		super();
 		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(cl1, cl2);
@@ -210,7 +210,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		{
 			return null;
 		}
-		V o = localMap.remove(key3);
+		V removed = localMap.remove(key3);
 		/*
 		 * Clean up the primary maps if the secondary maps are empty. This is
 		 * required to avoid a false report from get*KeySet. Generally, if an
@@ -224,7 +224,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		{
 			map.remove(key1, key2);
 		}
-		return o;
+		return removed;
 	}
 
 	/**
@@ -259,7 +259,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * @return A Set containing the secondary keys for the given primary key
 	 *         within this TripleKeyMap.
 	 */
-	public Set<K2> getSecondaryKeySet(final K1 key1)
+	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
 		return map.getSecondaryKeySet(key1);
 	}
@@ -285,7 +285,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<K3> getTertiaryKeySet(K1 key1, K2 key2)
 	{
-		final Map<K3, V> localMap = map.get(key1, key2);
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -333,7 +333,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	@Override
 	public TripleKeyMap<K1, K2, K3, V> clone()
-		throws CloneNotSupportedException
+			throws CloneNotSupportedException
 	{
 		/*
 		 * This cast will cause a Generic type safety warning. This is
@@ -341,8 +341,8 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * TripleKeyMap with the proper Generic arguments. - Thomas Parker
 		 * 1/26/07
 		 */
-		TripleKeyMap<K1, K2, K3, V> tkm =
-				(TripleKeyMap<K1, K2, K3, V>) super.clone();
+		TripleKeyMap<K1, K2, K3, V> tkm = (TripleKeyMap<K1, K2, K3, V>) super
+				.clone();
 		/*
 		 * This provides a semi-deep clone of the TripleKeyMap, in order to
 		 * protect the internal structure of the TripleKeyMap from modification.
@@ -381,7 +381,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<V> values(K1 key1, K2 key2)
 	{
-		final Map<K3, V> localMap = map.get(key1, key2);
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -408,12 +408,11 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof TripleKeyMap
-				&& map.equals(((TripleKeyMap<?, ?, ?, ?>) o).map);
+		return obj instanceof TripleKeyMap
+				&& map.equals(((TripleKeyMap<?, ?, ?, ?>) obj).map);
 	}
-
 
 	/**
 	 * Creates a new local map (map from the third key to the value of the

@@ -62,6 +62,9 @@ import java.util.TreeSet;
 public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 {
 
+	/**
+	 * The Comparator used to order the key elements of this TreeMapToList
+	 */
 	private final Comparator<? super K> comparator;
 
 	/**

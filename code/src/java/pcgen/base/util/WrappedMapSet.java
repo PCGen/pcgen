@@ -42,7 +42,8 @@ import java.util.Set;
  * JDK, as well as performance, as it is expected that the classes in the JDK
  * will have better performance and test coverage than this class)
  * 
- * @param <T> The type of object stored in this WrappedMapSet
+ * @param <T>
+ *            The type of object stored in this WrappedMapSet
  */
 public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 {
@@ -117,7 +118,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @param cl
 	 *            The Class (must implement the java.util.Map interface) used
 	 *            for the Map underlying this WrappedMapSet
-	 * @param c
+	 * @param collection
 	 *            A collection to be used to initialize the contents of the
 	 *            WrappedMapSet.
 	 * @throws IllegalArgumentException
@@ -126,10 +127,11 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public <C extends Map> WrappedMapSet(Class<C> cl, Collection<? extends T> c)
+	public <C extends Map> WrappedMapSet(Class<C> cl,
+			Collection<? extends T> collection)
 	{
 		this(cl);
-		addAll(c);
+		addAll(collection);
 	}
 
 	/**
@@ -174,9 +176,9 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @see java.util.AbstractCollection#contains(java.lang.Object)
 	 */
 	@Override
-	public boolean contains(Object o)
+	public boolean contains(Object obj)
 	{
-		return map.containsKey(o);
+		return map.containsKey(obj);
 	}
 
 	/**
@@ -185,9 +187,9 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @see java.util.AbstractCollection#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(T o)
+	public boolean add(T obj)
 	{
-		return map.put(o, PRESENCE) == null;
+		return map.put(obj, PRESENCE) == null;
 	}
 
 	/**
@@ -196,9 +198,9 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @see java.util.AbstractCollection#remove(java.lang.Object)
 	 */
 	@Override
-	public boolean remove(Object o)
+	public boolean remove(Object item)
 	{
-		return map.remove(o) == PRESENCE;
+		return map.remove(item) == PRESENCE;
 	}
 
 	/**
