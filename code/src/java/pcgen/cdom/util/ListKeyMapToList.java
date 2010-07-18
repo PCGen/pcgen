@@ -92,7 +92,8 @@ public class ListKeyMapToList
 	 * @param lcs
 	 *            The ListKeyMapToList from which all of the Lists should be
 	 *            imported
-     * @throws NullPointerException if the specified ListKeyMapToList is null.
+	 * @throws NullPointerException
+	 *             if the specified ListKeyMapToList is null.
 	 */
 	public void addAllLists(ListKeyMapToList lcs)
 	{
@@ -112,13 +113,13 @@ public class ListKeyMapToList
 	 * @param key
 	 *            The ListKey indicating which List the objects in the given
 	 *            List should be added to.
-	 * @param list
+	 * @param values
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
-	public <T> void addAllToListFor(ListKey<T> key, Collection<T> list)
+	public <T> void addAllToListFor(ListKey<T> key, Collection<T> values)
 	{
-		map.addAllToListFor(key, list);
+		map.addAllToListFor(key, values);
 	}
 
 	/**
@@ -134,12 +135,12 @@ public class ListKeyMapToList
 	 * @param key
 	 *            The ListKey indicating which List the given object should be
 	 *            added to.
-	 * @param value
+	 * @param valueElement
 	 *            The value to be added to the List for the given key.
 	 */
-	public <T> void addToListFor(ListKey<T> key, T value)
+	public <T> void addToListFor(ListKey<T> key, T valueElement)
 	{
-		map.addToListFor(key, value);
+		map.addToListFor(key, valueElement);
 	}
 
 	/**
@@ -188,15 +189,15 @@ public class ListKeyMapToList
 	 * @param key
 	 *            The ListKey indicating which List the given object should be
 	 *            returned from
-	 * @param i
+	 * @param index
 	 *            The location of the Object to be returned within the List
 	 *            defined by the given key.
 	 * @return The Object at the given position within the list for the given
 	 *         key.
 	 */
-	public <T> T getElementInList(ListKey<T> key, int i)
+	public <T> T getElementInList(ListKey<T> key, int index)
 	{
-		return (T) map.getElementInList(key, i);
+		return (T) map.getElementInList(key, index);
 	}
 
 	/**
@@ -224,14 +225,14 @@ public class ListKeyMapToList
 	 * @param key
 	 *            The ListKey indicating which List the given object should be
 	 *            removed from
-	 * @param value
+	 * @param valueElement
 	 *            The value to be removed from the List for the given key
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
-	public <T> boolean removeFromListFor(ListKey<T> key, T value)
+	public <T> boolean removeFromListFor(ListKey<T> key, T valueElement)
 	{
-		return map.removeFromListFor(key, value);
+		return map.removeFromListFor(key, valueElement);
 	}
 
 	/**
@@ -279,14 +280,14 @@ public class ListKeyMapToList
 	 * 
 	 * @param key
 	 *            The key for the List being tested.
-	 * @param value
+	 * @param valueElement
 	 *            The value to find in the List for the given key.
 	 * @return true if this ListKeyMapToList contains a List for the given key
 	 *         AND that list contains the given value; false otherwise.
 	 */
-	public <T> boolean containsInList(ListKey<T> key, T value)
+	public <T> boolean containsInList(ListKey<T> key, T valueElement)
 	{
-		return map.containsInList(key, value);
+		return map.containsInList(key, valueElement);
 	}
 
 	/**
@@ -351,9 +352,9 @@ public class ListKeyMapToList
 	 * @see java.lang.Object#equals()
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof ListKeyMapToList
-				&& map.equals(((ListKeyMapToList) o).map);
+		return obj instanceof ListKeyMapToList
+				&& map.equals(((ListKeyMapToList) obj).map);
 	}
 }

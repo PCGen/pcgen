@@ -49,9 +49,9 @@ public class SpellSchool implements Identified, Comparable<SpellSchool>
 		return false;
 	}
 
-	public void setName(String s)
+	public void setName(String newName)
 	{
-		name = s;
+		name = newName;
 	}
 
 	@Override

@@ -43,18 +43,18 @@ public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 	 * PrimitiveChoiceFilter. This NegatingFilter will negate the results (from
 	 * the allow method) of the given PrimitiveChoiceFilter.
 	 * 
-	 * @param f
+	 * @param pcf
 	 *            The underlying PrimitiveChoiceFilter that this NegatingFilter
 	 *            uses
 	 */
-	public NegatingFilter(PrimitiveChoiceFilter<T> f)
+	public NegatingFilter(PrimitiveChoiceFilter<T> pcf)
 	{
-		if (f == null)
+		if (pcf == null)
 		{
 			throw new IllegalArgumentException(
 					"PrimitiveChoiceFilter for NegatingFilter cannot be null");
 		}
-		filter = f;
+		filter = pcf;
 	}
 
 	/**
@@ -64,15 +64,15 @@ public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 	 * @param pc
 	 *            The PlayerCharacter to be tested to determine if the given
 	 *            object is allowed to be selected by this PlayerCharacter
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to determine if the given
 	 *            PlayerCharacter is allowed to select this object
 	 * @return true if the given PlayerCharacter is allowed to select the given
 	 *         object; false otherwise
 	 */
-	public boolean allow(PlayerCharacter pc, T obj)
+	public boolean allow(PlayerCharacter pc, T item)
 	{
-		return !filter.allow(pc, obj);
+		return !filter.allow(pc, item);
 	}
 
 	/**

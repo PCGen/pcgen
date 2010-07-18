@@ -37,7 +37,7 @@ public class ObjectCache extends CDOMObject
 	 * Returns false, as ObjectCache never has a type.
 	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(String type)
 	{
 		return false;
 	}

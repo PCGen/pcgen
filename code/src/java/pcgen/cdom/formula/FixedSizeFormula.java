@@ -41,20 +41,20 @@ public class FixedSizeFormula implements Formula
 	/**
 	 * Creates a new FixedSizeFormula for the given SizeAdjustment.
 	 * 
-	 * @param s
+	 * @param sAdj
 	 *            The SizeAdjustment for which this Formula will return the
 	 *            identifying value.
 	 * @throws IllegalArgumentException
 	 *             if the given SizeAdjustment is null
 	 */
-	public FixedSizeFormula(SizeAdjustment s)
+	public FixedSizeFormula(SizeAdjustment sAdj)
 	{
-		if (s == null)
+		if (sAdj == null)
 		{
 			throw new IllegalArgumentException(
 					"Size Adjustment for FixedSizeFormula cannot be null");
 		}
-		size = s;
+		size = sAdj;
 	}
 
 	/**
@@ -87,10 +87,10 @@ public class FixedSizeFormula implements Formula
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof FixedSizeFormula
-				&& size.equals(((FixedSizeFormula) o).size);
+		return obj instanceof FixedSizeFormula
+				&& size.equals(((FixedSizeFormula) obj).size);
 	}
 
 	/**

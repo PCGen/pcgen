@@ -95,17 +95,17 @@ public final class EquipmentHead extends CDOMObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof EquipmentHead))
+		if (!(obj instanceof EquipmentHead))
 		{
 			return false;
 		}
-		EquipmentHead other = (EquipmentHead) o;
+		EquipmentHead other = (EquipmentHead) obj;
 		return other.index == index && other.headSource.equals(headSource);
 	}
 
@@ -115,7 +115,7 @@ public final class EquipmentHead extends CDOMObject
 	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
 	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(String type)
 	{
 		return false;
 	}

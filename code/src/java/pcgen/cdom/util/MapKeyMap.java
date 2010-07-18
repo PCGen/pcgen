@@ -31,33 +31,31 @@ import pcgen.cdom.enumeration.MapKey;
 /**
  * This encapsulates a DoubleKeyMap in a typesafe and value-semantic way.
  * 
- * Specifically, when Generics are properly used by a class using a
- * MapKeyMap, this class ensures that any MapKey will only return a Map
- * of the same Generic type as the MapKey. Note this relationship is only
- * enforced with Generics, and could be violated if Generics are not properly
- * used.
+ * Specifically, when Generics are properly used by a class using a MapKeyMap,
+ * this class ensures that any MapKey will only return a Map of the same Generic
+ * type as the MapKey. Note this relationship is only enforced with Generics,
+ * and could be violated if Generics are not properly used.
  * 
- * This Class also is reference-semantic with respect to the Maps.
- * In other words, the modification of any Collection returned by a
- * MapKeyMap will not impact the internal contents of the
- * MapKeyMap. Also, any Collection used as a parameter to a method is not
- * stored directly, the Collection can be modified after the method has returned
- * without impacting the internal contents of the MapKeyMap.
+ * This Class also is reference-semantic with respect to the Maps. In other
+ * words, the modification of any Collection returned by a MapKeyMap will not
+ * impact the internal contents of the MapKeyMap. Also, any Collection used as a
+ * parameter to a method is not stored directly, the Collection can be modified
+ * after the method has returned without impacting the internal contents of the
+ * MapKeyMap.
  * 
  * **NOTE** This class is NOT thread safe.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision: $
  */
 public class MapKeyMap
 {
 
 	/*
-	 * Much as for ListKeyMapToList.map this must remain generic. See Tom's 
-	 * comment in that class for the full explanation. 
+	 * Much as for ListKeyMapToList.map this must remain generic. See Tom's
+	 * comment in that class for the full explanation.
 	 */
 	/** The internal storage of this MapKeyMap. */
 	private final DoubleKeyMap map = new DoubleKeyMap();
@@ -69,17 +67,19 @@ public class MapKeyMap
 	{
 		// Do Nothing
 	}
-	
+
 	/**
 	 * Copies the key/value combinations from the given MapKeyMap into this
-	 * MapKeyMap. If this MapKeyMap already contained a mapping for the
-	 * any of the key combinations in the given MapKeyMap, the previous value
-	 * is overwritten.
+	 * MapKeyMap. If this MapKeyMap already contained a mapping for the any of
+	 * the key combinations in the given MapKeyMap, the previous value is
+	 * overwritten.
 	 * 
-	 * @param mkm The MapKeyMap for which the key/value combinations should
-	 * be placed into this MapKeyMap
+	 * @param mkm
+	 *            The MapKeyMap for which the key/value combinations should be
+	 *            placed into this MapKeyMap
 	 * 
-	 * @throws NullPointerException if the given MapKeyMap is null
+	 * @throws NullPointerException
+	 *             if the given MapKeyMap is null
 	 */
 	public final void putAll(MapKeyMap mkm)
 	{
@@ -88,12 +88,12 @@ public class MapKeyMap
 
 	/**
 	 * Adds the given value to the List for the given ListKey. The null value
-	 * cannot be used as a key in a MapKeyMap. This method will
-	 * automatically initialize the map for the given primary key if there is not
-	 * already a Map for that primary key.
+	 * cannot be used as a key in a MapKeyMap. This method will automatically
+	 * initialize the map for the given primary key if there is not already a
+	 * Map for that primary key.
 	 * 
-	 * This method is reference-semantic and this MapKeyMap will maintain
-	 * a strong reference to both the key object and the value object given as
+	 * This method is reference-semantic and this MapKeyMap will maintain a
+	 * strong reference to both the key object and the value object given as
 	 * arguments to this method.
 	 * 
 	 * @param key1
@@ -108,17 +108,16 @@ public class MapKeyMap
 	}
 
 	/**
-	 * Returns true if this MapKeyMap contains a Map for the given
-	 * MapKey. This method returns false if the given key is not in this
-	 * MapKeyMap.
+	 * Returns true if this MapKeyMap contains a Map for the given MapKey. This
+	 * method returns false if the given key is not in this MapKeyMap.
 	 * 
 	 * This method is value-semantic in that no changes are made to the object
 	 * passed into the method.
 	 * 
 	 * @param key
 	 *            The MapKey being tested.
-	 * @return true if this MapKeyMap contains a Map for the given key;
-	 *         false otherwise.
+	 * @return true if this MapKeyMap contains a Map for the given key; false
+	 *         otherwise.
 	 */
 	public boolean containsMapFor(MapKey<?, ?> key)
 	{
@@ -126,8 +125,8 @@ public class MapKeyMap
 	}
 
 	/**
-	 * Returns a copy of the List contained in this MapKeyMap for the
-	 * given ListKey. This method returns null if the given key is not in this
+	 * Returns a copy of the List contained in this MapKeyMap for the given
+	 * ListKey. This method returns null if the given key is not in this
 	 * MapKeyMap.
 	 * 
 	 * This method is value-semantic in that no changes are made to the object
@@ -136,9 +135,8 @@ public class MapKeyMap
 	 * 
 	 * @param key
 	 *            The ListKey for which a copy of the list should be returned.
-	 * @return a copy of the List contained in this MapKeyMap for the
-	 *         given key; null if the given key is not a key in this
-	 *         MapKeyMap.
+	 * @return a copy of the List contained in this MapKeyMap for the given key;
+	 *         null if the given key is not a key in this MapKeyMap.
 	 */
 	public <K, V> V get(MapKey<K, V> key1, K key2)
 	{
@@ -146,8 +144,8 @@ public class MapKeyMap
 	}
 
 	/**
-	 * Returns a copy of the List contained in this MapKeyMap for the
-	 * given ListKey. This method returns null if the given key is not in this
+	 * Returns a copy of the List contained in this MapKeyMap for the given
+	 * ListKey. This method returns null if the given key is not in this
 	 * MapKeyMap.
 	 * 
 	 * This method is value-semantic in that no changes are made to the object
@@ -156,9 +154,8 @@ public class MapKeyMap
 	 * 
 	 * @param key
 	 *            The ListKey for which a copy of the list should be returned.
-	 * @return a copy of the List contained in this MapKeyMap for the
-	 *         given key; null if the given key is not a key in this
-	 *         MapKeyMap.
+	 * @return a copy of the List contained in this MapKeyMap for the given key;
+	 *         null if the given key is not a key in this MapKeyMap.
 	 */
 	public <K, V> Map<K, V> getMapFor(MapKey<K, V> key1)
 	{
@@ -167,8 +164,8 @@ public class MapKeyMap
 
 	/**
 	 * Returns a Set of the secondary keys for the given primary key in this
-	 * MapKeyMap. This method returns an empty set if the given key is not in this
-	 * MapKeyMap.
+	 * MapKeyMap. This method returns an empty set if the given key is not in
+	 * this MapKeyMap.
 	 * 
 	 * Note: This Set is reference-semantic. The ownership of the Set is
 	 * transferred to the calling Object; therefore, changes to the returned Set
@@ -186,17 +183,17 @@ public class MapKeyMap
 
 	/**
 	 * Removes the given value from the map for the given MapKey. Returns true
-	 * if the value was successfully removed from the map for the given
-	 * MapKey. Returns false if there is not a map for the given MapKey or if
-	 * the map for the given MapKey did not contain the given secondary key.
+	 * if the value was successfully removed from the map for the given MapKey.
+	 * Returns false if there is not a map for the given MapKey or if the map
+	 * for the given MapKey did not contain the given secondary key.
 	 * 
 	 * @param key1
 	 *            The MapKey indicating which Map the given object should be
 	 *            removed from
 	 * @param key2
 	 *            The key to be removed from the Map
-	 * @return true if the key and its associated value were successfully removed 
-	 *         from the map; false otherwise
+	 * @return true if the key and its associated value were successfully
+	 *         removed from the map; false otherwise
 	 */
 	public <K, V> boolean removeFromMapFor(MapKey<K, V> key1, K key2)
 	{
@@ -210,8 +207,7 @@ public class MapKeyMap
 	 * Ownership of the returned Map is transferred to the object calling this
 	 * method.
 	 * 
-	 * @return The Map which this MapKeyMap previous mapped the given
-	 * key
+	 * @return The Map which this MapKeyMap previous mapped the given key
 	 */
 	public <K, V> Map<K, V> removeMapFor(MapKey<K, V> key)
 	{
@@ -219,15 +215,15 @@ public class MapKeyMap
 	}
 
 	/**
-	 * Returns a Set indicating the Keys of this MapKeyMap. Ownership of
-	 * the Set is transferred to the calling Object, no association is kept
-	 * between the Set and this MapKeyMap. (Thus, removal of a key from
-	 * the returned Set will not remove that key from this MapKeyMap)
+	 * Returns a Set indicating the Keys of this MapKeyMap. Ownership of the Set
+	 * is transferred to the calling Object, no association is kept between the
+	 * Set and this MapKeyMap. (Thus, removal of a key from the returned Set
+	 * will not remove that key from this MapKeyMap)
 	 * 
-	 * NOTE: This method returns all of the keys this MapKeyMap contains.
-	 * It DOES NOT determine whether the Lists defined for the keys are empty.
-	 * Therefore, it is possible that this MapKeyMap contains one or more
-	 * keys, and all of the lists associated with those keys are empty, yet this
+	 * NOTE: This method returns all of the keys this MapKeyMap contains. It
+	 * DOES NOT determine whether the Lists defined for the keys are empty.
+	 * Therefore, it is possible that this MapKeyMap contains one or more keys,
+	 * and all of the lists associated with those keys are empty, yet this
 	 * method will return a non-zero length Set.
 	 * 
 	 * @return a Set containing the keys in this MapKeyMap
@@ -253,19 +249,19 @@ public class MapKeyMap
 	/**
 	 * Returns true if this MapKeyMap is equal to the given Object.
 	 * 
-	 * Note that equality as defined by this method is both a class of
-	 * MapKeyMap and equality of contents of the MapKeyMap.
+	 * Note that equality as defined by this method is both a class of MapKeyMap
+	 * and equality of contents of the MapKeyMap.
 	 * 
-	 * @param o the o
+	 * @param obj
+	 *            the o
 	 * 
 	 * @return true, if equals
 	 * 
 	 * @see java.lang.Object#equals()
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof MapKeyMap
-				&& map.equals(((MapKeyMap) o).map);
+		return obj instanceof MapKeyMap && map.equals(((MapKeyMap) obj).map);
 	}
 }

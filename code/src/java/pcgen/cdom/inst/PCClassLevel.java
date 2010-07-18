@@ -27,11 +27,6 @@ import pcgen.cdom.enumeration.StringKey;
 public final class PCClassLevel extends CDOMObject implements Cloneable
 {
 
-	public PCClassLevel()
-	{
-		
-	}
-
 	/**
 	 * Returns the consistent-with-equals hashCode for this PCClassLevel
 	 * 
@@ -52,10 +47,10 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof PCClassLevel
-				&& ((PCClassLevel) o).isCDOMEqual(this);
+		return obj instanceof PCClassLevel
+				&& ((PCClassLevel) obj).isCDOMEqual(this);
 	}
 
 	/**
@@ -64,7 +59,7 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
 	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(String type)
 	{
 		return false;
 	}

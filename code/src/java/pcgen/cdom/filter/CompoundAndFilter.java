@@ -46,7 +46,7 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	 * The list of underlying PrimitiveChoiceFilters that this CompoundAndFilter
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceFilter<T>> set = new TreeSet<PrimitiveChoiceFilter<T>>(
+	private final Set<PrimitiveChoiceFilter<T>> pcfSet = new TreeSet<PrimitiveChoiceFilter<T>>(
 			ChoiceFilterUtilities.FILTER_SORTER);
 
 	/**
@@ -67,43 +67,43 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public CompoundAndFilter(Collection<PrimitiveChoiceFilter<T>> coll)
+	public CompoundAndFilter(Collection<PrimitiveChoiceFilter<T>> pcfCollection)
 	{
-		if (coll == null)
+		if (pcfCollection == null)
 		{
 			throw new IllegalArgumentException(
 					"Collection for CompoundAndFilter cannot be null");
 		}
-		if (coll.isEmpty())
+		if (pcfCollection.isEmpty())
 		{
 			throw new IllegalArgumentException(
 					"Collection for CompoundAndFilter cannot be empty");
 		}
 		Class<? super T> pcfClass = null;
-		for (PrimitiveChoiceFilter<T> pcf : coll)
+		refClass = pcfClass;
+		pcfSet.addAll(pcfCollection);
+		for (PrimitiveChoiceFilter<T> pcf : pcfSet)
 		{
-			Class<? super T> rc = pcf.getReferenceClass();
+			Class<? super T> refClass = pcf.getReferenceClass();
 			if (pcfClass == null)
 			{
-				pcfClass = rc;
+				pcfClass = refClass;
 			}
-			else if (!pcfClass.isAssignableFrom(rc))
+			else if (!pcfClass.isAssignableFrom(refClass))
 			{
-				if (rc.isAssignableFrom(pcfClass))
+				if (refClass.isAssignableFrom(pcfClass))
 				{
-					pcfClass = rc;
+					pcfClass = refClass;
 				}
 				else
 				{
 					throw new IllegalArgumentException(
 							"List contains incompatible types: "
-									+ pcfClass.getSimpleName() + " and "
-									+ rc.getSimpleName());
+							+ pcfClass.getSimpleName() + " and "
+							+ refClass.getSimpleName());
 				}
 			}
 		}
-		refClass = pcfClass;
-		set.addAll(coll);
 	}
 
 	/**
@@ -113,17 +113,17 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	 * @param pc
 	 *            The PlayerCharacter to be tested to determine if the given
 	 *            object is allowed to be selected by this PlayerCharacter
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to determine if the given
 	 *            PlayerCharacter is allowed to select this object
 	 * @return true if the given PlayerCharacter is allowed to select the given
 	 *         object; false otherwise
 	 */
-	public boolean allow(PlayerCharacter pc, T obj)
+	public boolean allow(PlayerCharacter pc, T item)
 	{
-		for (PrimitiveChoiceFilter<T> cs : set)
+		for (PrimitiveChoiceFilter<T> pcf : pcfSet)
 		{
-			if (!cs.allow(pc, obj))
+			if (!pcf.allow(pc, item))
 			{
 				return false;
 			}
@@ -152,7 +152,7 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	 */
 	public String getLSTformat()
 	{
-		return ChoiceFilterUtilities.joinLstFormat(set, Constants.COMMA);
+		return ChoiceFilterUtilities.joinLstFormat(pcfSet, Constants.COMMA);
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	@Override
 	public int hashCode()
 	{
-		return refClass.hashCode() * 31 + set.size();
+		return refClass.hashCode() * 31 + pcfSet.size();
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 		if (obj instanceof CompoundAndFilter)
 		{
 			CompoundAndFilter<?> other = (CompoundAndFilter<?>) obj;
-			return refClass.equals(other.refClass) && set.equals(other.set);
+			return refClass.equals(other.refClass) && pcfSet.equals(other.pcfSet);
 		}
 		return false;
 	}
@@ -193,11 +193,11 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (PrimitiveChoiceFilter<T> cs : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (PrimitiveChoiceFilter<T> pcf : pcfSet)
 		{
-			gs = cs.getGroupingState().add(gs);
+			state = pcf.getGroupingState().add(state);
 		}
-		return gs.compound(GroupingState.ALLOWS_INTERSECTION);
+		return state.compound(GroupingState.ALLOWS_INTERSECTION);
 	}
 }
