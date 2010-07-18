@@ -604,7 +604,7 @@ public class MovementResultFacet
 		MovementCacheInfo mci = getInfo(id);
 		if (mci == null)
 		{
-			Double.valueOf(0);
+			return Double.valueOf(0);
 		}
 		return mci.getMovementOfType(moveType);
 	}
