@@ -17,6 +17,14 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
+
 public class AgeFacet extends AbstractItemFacet<Integer>
 {
+
+	public int getAge(CharID id)
+	{
+		Integer age = get(id);
+		return age == null ? 0 : age;
+	}
 }
