@@ -6376,8 +6376,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * Calculate the AC for a particular ACTYPE e.g.  Flatfooted
-	 * 
-	 * TODO - Fix this to do 90% of the parsing work up front.
 	 */
 	public int calcACOfType(final String ACType)
 	{
