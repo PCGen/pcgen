@@ -27,7 +27,6 @@ import java.util.List;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
@@ -70,7 +69,7 @@ public class KitClass extends BaseKit
 	{
 		theClass = pcClass.resolvesTo();
 
-		theOrigSubClass = aPC.getAssoc(theClass, AssociationKey.SUBCLASS_KEY);
+		theOrigSubClass = aPC.getSubClassName(theClass);
 		if (subClass != null)
 		{
 			// try and set a subclass too.

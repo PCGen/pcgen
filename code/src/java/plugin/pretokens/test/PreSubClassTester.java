@@ -27,7 +27,6 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -66,7 +65,7 @@ public class PreSubClassTester extends AbstractPrerequisiteTest implements
 		final String thisClass = prereq.getKey();
 		for (PCClass aClass : character.getClassSet())
 		{
-			final String subClassName = character.getAssoc(aClass, AssociationKey.SUBCLASS_KEY);
+			final String subClassName = character.getSubClassName(aClass);
 			if (subClassName != null && subClassName.length() != 0)
 			{
 				if (thisClass.equalsIgnoreCase(subClassName))

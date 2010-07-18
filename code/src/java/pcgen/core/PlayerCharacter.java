@@ -172,6 +172,7 @@ import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
+import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.TotalWeightFacet;
@@ -299,7 +300,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private MasterSkillFacet masterSkillFacet = FacetLibrary.getFacet(MasterSkillFacet.class);
-
+	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
+	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
@@ -7688,7 +7690,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
-			String subClassKey = getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
+			String subClassKey = getSubClassName(pcClass);
 			PCClass evalClass = pcClass;
 			if (subClassKey != null && !subClassKey.equals("None"))
 			{
@@ -13285,6 +13287,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return false;
+	}
+
+	public String getSubClassName(PCClass cl)
+	{
+		return subClassFacet.getSource(id, cl);
+	}
+
+	public void setSubClassName(PCClass cl, String key)
+	{
+		subClassFacet.add(id, cl, key);
 	}
 
 	public boolean hasTempApplied(CDOMObject mod)

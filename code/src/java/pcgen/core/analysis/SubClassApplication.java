@@ -57,7 +57,7 @@ public class SubClassApplication
 		columnNames.add("Other");
 	
 		List<List> choiceList = new ArrayList<List>();
-		String subClassKey = aPC.getAssoc(cl, AssociationKey.SUBCLASS_KEY);
+		String subClassKey = aPC.getSubClassName(cl);
 		boolean subClassSelected = subClassKey != null
 				&& !subClassKey.equals(Constants.s_NONE)
 				&& !subClassKey.equals("");
@@ -78,7 +78,7 @@ public class SubClassApplication
 			// If a subclass has already been selected, only add that one
 			if (!subClassSelected
 					|| sc.getKeyName().equals(
-							aPC.getAssoc(cl, AssociationKey.SUBCLASS_KEY)))
+							aPC.getSubClassName(cl)))
 			{
 				choiceList.add(columnList);
 			}
@@ -104,7 +104,7 @@ public class SubClassApplication
 		// add base class to the chooser at the TOP
 		if (cl.getSafe(ObjectKey.ALLOWBASECLASS)
 				&& (!subClassSelected || cl.getKeyName().equals(
-						aPC.getAssoc(cl, AssociationKey.SUBCLASS_KEY))))
+						aPC.getSubClassName(cl))))
 		{
 			final List<Object> columnList2 = new ArrayList<Object>(3);
 			columnList2.add(cl);
@@ -258,7 +258,7 @@ public class SubClassApplication
 			return;
 		}
 		
-		pc.setAssoc(cl, AssociationKey.SUBCLASS_KEY, aKey);
+		pc.setSubClassName(cl, aKey);
 	
 		if (!aKey.equals(cl.getKeyName()))
 		{

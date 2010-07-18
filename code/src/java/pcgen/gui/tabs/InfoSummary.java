@@ -1184,7 +1184,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
 		// Check if the subclass (if any) is qualified for
-		String subClassKey = pc.getAssoc(aClass, AssociationKey.SUBCLASS_KEY);
+		String subClassKey = pc.getSubClassName(aClass);
 		if (aClass != null && subClassKey != null)
 		{
 			final PCClass subClass =

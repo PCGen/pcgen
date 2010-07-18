@@ -26,7 +26,6 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -79,7 +78,7 @@ public class ClassListToken extends Token
 
 			firstLine = false;
 
-			String subClassKey = pc.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
+			String subClassKey = pc.getSubClassName(pcClass);
 			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
 					|| "".equals(subClassKey))
 			{

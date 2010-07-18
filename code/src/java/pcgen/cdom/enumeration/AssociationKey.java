@@ -94,8 +94,6 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> SPECIALTY = new AssociationKey<String>();
 
-	public static final AssociationKey<String> SUBCLASS_KEY = new AssociationKey<String>();
-
 	public static final AssociationKey<String> SUBSTITUTIONCLASS_KEY = new AssociationKey<String>();
 
 	public static final AssociationKey<Integer> SKILL_POOL = new AssociationKey<Integer>();

@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
@@ -64,7 +63,7 @@ public class ClassSkillApplication
 			{
 				returnList.add(l);
 			}
-			String subClassKey = pc.getAssoc(cl, AssociationKey.SUBCLASS_KEY);
+			String subClassKey = pc.getSubClassName(cl);
 			if (subClassKey != null)
 			{
 				l = ref.silentlyGetConstructedCDOMObject(csl, subClassKey);

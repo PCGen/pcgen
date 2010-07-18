@@ -634,8 +634,7 @@ public class SpellSupportForPCClass
 						if (x > -1)
 						{
 							PCClass target = source;
-							String subClassKey = aPC.getAssoc(source,
-									AssociationKey.SUBCLASS_KEY);
+							String subClassKey = aPC.getSubClassName(source);
 							if (subClassKey != null
 									&& (subClassKey.length() > 0)
 									&& !subClassKey.equals(Constants.s_NONE))
@@ -809,8 +808,7 @@ public class SpellSupportForPCClass
 			if (aPC.hasAssocs(source, AssociationKey.SPECIALTY))
 			{
 				PCClass target = source;
-				String subClassKey = aPC.getAssoc(source,
-						AssociationKey.SUBCLASS_KEY);
+				String subClassKey = aPC.getSubClassName(source);
 				if (subClassKey != null && (subClassKey.length() > 0)
 						&& !subClassKey.equals(Constants.s_NONE))
 				{

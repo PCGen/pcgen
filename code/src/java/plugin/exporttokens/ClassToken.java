@@ -32,7 +32,6 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -106,7 +105,7 @@ public class ClassToken extends Token {
 		if (pc.getClassCount() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
-			String subClassKey = pc.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
+			String subClassKey = pc.getSubClassName(pcClass);
 			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
 					|| "".equals(subClassKey)) {
 				retString = OutputNameFormatting.getOutputName(pcClass);

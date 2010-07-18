@@ -70,7 +70,6 @@ import pcgen.core.analysis.ClassSpellApplication;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.ExchangeLevelApplication;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.StatApplication;
 import pcgen.core.analysis.SubClassApplication;
@@ -364,7 +363,7 @@ public class PCClass extends PObject
 	{
 		if (pc != null)
 		{
-			String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
+			String subClassKey = pc.getSubClassName(this);
 			if (subClassKey != null && (subClassKey.length() > 0)
 					&& !subClassKey.equals(Constants.s_NONE))
 			{
