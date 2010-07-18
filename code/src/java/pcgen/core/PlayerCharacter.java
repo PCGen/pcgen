@@ -361,6 +361,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
+	//private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -13316,5 +13317,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			list.add(pbm);
 		}
 		return list;
+	}
+
+	public int getAgeSet()
+	{
+		return ageFacet.getAgeSet(id);
 	}
 }

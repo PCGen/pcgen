@@ -173,8 +173,14 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			ref.registerAbbreviation(al, al.getAbb());
 		}
 		LstSystemLoader.createLangBonusObject(Globals.getContext());
-		
+		additionalSetUp();
+
 		character = new PlayerCharacter();
+	}
+
+	protected void additionalSetUp() throws Exception
+	{
+		//override to provide info
 	}
 
 	private SizeAdjustment createSize(String name)

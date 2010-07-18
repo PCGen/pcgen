@@ -87,14 +87,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	@Override
-	protected void setUp() throws Exception
+	protected void additionalSetUp() throws Exception
 	{
-		super.setUp();
-
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);
 	}
 
@@ -211,23 +205,23 @@ public class BioSetTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 		pc.setAge(12);
-		int idx = Globals.getBioSet().getPCAgeSet(pc);
+		int idx = pc.getAgeSet();
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
 
 		pc.setAge(17);
-		idx = Globals.getBioSet().getPCAgeSet(pc);
+		idx = pc.getAgeSet();
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
 
 		pc.setAge(36);
-		idx = Globals.getBioSet().getPCAgeSet(pc);
+		idx = pc.getAgeSet();
 		assertEquals("Ageset for " + pc.getAge() + ".", 1, idx);
 
 		pc.setAge(54);
-		idx = Globals.getBioSet().getPCAgeSet(pc);
+		idx = pc.getAgeSet();
 		assertEquals("Ageset for " + pc.getAge() + ".", 2, idx);
 
 		pc.setAge(72);
-		idx = Globals.getBioSet().getPCAgeSet(pc);
+		idx = pc.getAgeSet();
 		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
 
 		Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegionString()), idx);

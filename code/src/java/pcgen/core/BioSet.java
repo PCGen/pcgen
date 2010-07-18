@@ -77,7 +77,7 @@ public final class BioSet extends PObject
 	public AgeSet getAgeSetLine(final PlayerCharacter pc)
 	{
 		return getAgeMapIndex(Region.getConstant(pc.getRegionString()),
-				getPCAgeSet(pc));
+				pc.getAgeSet());
 	}
 
 	/**
@@ -89,47 +89,6 @@ public final class BioSet extends PObject
 	{
 		Integer cat = ageNames.get(ageCategory);
 		return (cat == null) ? -1 : cat;
-	}
-
-	/**
-	 * Get the pc Age Set
-	 * @param pc
-	 * @return age set
-	 */
-	public int getPCAgeSet(final PlayerCharacter pc)
-	{
-		final List<String> values = getValueInMaps(pc.getRegionString(), pc.getRace().getKeyName().trim(), "BASEAGE");
-
-		if (values == null)
-		{
-			return 0;
-		}
-
-		final int pcAge = pc.getAge();
-		int ageSet = -1;
-
-		for (String s : values)
-		{
-			final int setBaseAge = Integer.parseInt(s);
-
-			if (pcAge < setBaseAge)
-			{
-				break;
-			}
-
-			++ageSet;
-		}
-
-		//
-		// Check to see if character is younger than earliest age group
-		//
-		if (ageSet < 0)
-		{
-			//Globals.errorPrint("Warning: character is younger than any age information available. Using adjustments for first age category.");
-			ageSet = 0;
-		}
-
-		return ageSet;
 	}
 
 	/**
@@ -240,7 +199,7 @@ public final class BioSet extends PObject
 	 */
 	public void makeKitSelectionFor(final PlayerCharacter pc)
 	{
-		final int ageSet = getPCAgeSet(pc);
+		final int ageSet = pc.getAgeSet();
 
 		if (pc.hasMadeKitSelectionForAgeSet(ageSet))
 		{
@@ -407,7 +366,7 @@ public final class BioSet extends PObject
 		return r.get(tokenNum);
 	}
 
-	private List<String> getValueInMaps(final String argRegionName, final String argRaceName, final String addKey)
+	public List<String> getValueInMaps(final String argRegionName, final String argRaceName, final String addKey)
 	{
 		final String anotherRaceName;
 
