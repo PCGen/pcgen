@@ -265,6 +265,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
+	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -7577,80 +7578,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public double multiclassXPMultiplier()
 	{
-		final HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
-		final SortedSet<PCClass> aList = getFavoredClasses();
-		boolean hasAny = hasAnyFavoredClass();
-		PCClass maxClass = null;
-		PCClass secondClass = null;
-		int maxClassLevel = 0;
-		int secondClassLevel = 0;
-		int xpPenalty = 0;
-		double xpMultiplier = 1.0;
-
-		for (PCClass pcClass : getClassSet())
-		{
-			if (!pcClass.hasXPPenalty())
-			{
-				continue;
-			}
-			String subClassKey = getSubClassName(pcClass);
-			PCClass evalClass = pcClass;
-			if (subClassKey != null && !subClassKey.equals("None"))
-			{
-				evalClass = pcClass.getSubClassKeyed(subClassKey);
-			}
-			if (!aList.contains(evalClass))
-			{
-				unfavoredClasses.add(pcClass);
-
-				if (getLevel(pcClass) > maxClassLevel)
-				{
-					if (hasAny)
-					{
-						secondClassLevel = maxClassLevel;
-						secondClass = maxClass;
-					}
-
-					maxClassLevel = getLevel(pcClass);
-					maxClass = pcClass;
-				}
-				else if ((getLevel(pcClass) > secondClassLevel)
-					&& (hasAny))
-				{
-					secondClassLevel = getLevel(pcClass);
-					secondClass = pcClass;
-				}
-			}
-		}
-
-		if ((hasAny) && (secondClassLevel > 0))
-		{
-			maxClassLevel = secondClassLevel;
-			unfavoredClasses.remove(maxClass);
-			maxClass = secondClass;
-		}
-
-		if (maxClassLevel > 0)
-		{
-			unfavoredClasses.remove(maxClass);
-
-			for (PCClass aClass : unfavoredClasses)
-			{
-				if ((maxClassLevel - (getLevel(aClass))) > 1)
-				{
-					++xpPenalty;
-				}
-			}
-
-			xpMultiplier = 1.0 - (xpPenalty * 0.2);
-
-			if (xpMultiplier < 0)
-			{
-				xpMultiplier = 0;
-			}
-		}
-
-		return xpMultiplier;
+		return multiClassFacet.getMultiClassXPMultiplier(id);
 	}
 
 	public boolean hasAnyFavoredClass()
