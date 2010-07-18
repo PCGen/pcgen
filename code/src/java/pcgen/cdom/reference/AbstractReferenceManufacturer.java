@@ -69,9 +69,9 @@ import pcgen.util.Logging;
 public abstract class AbstractReferenceManufacturer<T extends Identified, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
 		implements ReferenceManufacturer<T>
 {
-	
+
 	private boolean isResolved = false;
-	
+
 	/**
 	 * The class of object this AbstractReferenceManufacturer constructs or
 	 * builds references to.
@@ -175,7 +175,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
 	 * @throws IllegalArgumentException
@@ -183,16 +183,16 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 *             public, zero argument constructor
 	 * 
 	 */
-	public AbstractReferenceManufacturer(Class<T> cl)
+	public AbstractReferenceManufacturer(Class<T> objClass)
 	{
-		if (cl == null)
+		if (objClass == null)
 		{
 			throw new IllegalArgumentException("Reference Class for "
 					+ getClass().getName() + " cannot be null");
 		}
 		try
 		{
-			cl.newInstance();
+			objClass.newInstance();
 		}
 		catch (InstantiationException e)
 		{
@@ -206,7 +206,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 					+ getClass().getName()
 					+ " must possess a public zero-argument constructor", e);
 		}
-		refClass = cl;
+		refClass = objClass;
 	}
 
 	/**
@@ -358,8 +358,8 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 					}
 					if (activeObj == null)
 					{
-						Logging.errorPrint("Unable to Resolve: " + refClass + " "
-								+ me1.getKey());
+						Logging.errorPrint("Unable to Resolve: " + refClass
+								+ " " + me1.getKey());
 					}
 					else
 					{
@@ -421,7 +421,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * construction" may happen - the primary one being loading of "game mode"
 	 * information like CDOMStat objects.
 	 * 
-	 * @param o
+	 * @param item
 	 *            The object to be imported into this
 	 *            AbstractReferenceManufacturer
 	 * @param key
@@ -431,22 +431,22 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 *             if the given object is not of the Class that this
 	 *             AbstractReferenceManufacturer constructs and references
 	 */
-	public void addObject(T obj, String key)
+	public void addObject(T item, String key)
 	{
-		if (!refClass.isInstance(obj))
+		if (!refClass.isInstance(item))
 		{
 			throw new IllegalArgumentException("Attempted to register a "
-					+ obj.getClass().getName() + " in " + refClass.getName()
+					+ item.getClass().getName() + " in " + refClass.getName()
 					+ " ReferenceSupport");
 		}
 		T current = active.get(key);
 		if (current == null)
 		{
-			active.put(key, obj);
+			active.put(key, item);
 		}
 		else
 		{
-			duplicates.addToListFor(new CaseInsensitiveString(key), obj);
+			duplicates.addToListFor(new CaseInsensitiveString(key), item);
 		}
 	}
 
@@ -461,15 +461,15 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * will only return true if an object with the given identifier has actually
 	 * been constructed by or imported into this AbstractReferenceManufacturer.
 	 * 
-	 * @param val
+	 * @param key
 	 *            identifier of the object to be returned
 	 * @return The object stored in this AbstractReferenceManufacturer with the
 	 *         given identifier, or null if this AbstractReferenceManufacturer
 	 *         does not contain an object with the given identifier.
 	 */
-	public T getActiveObject(String val)
+	public T getActiveObject(String key)
 	{
-		return active.get(val);
+		return active.get(key);
 	}
 
 	/**
@@ -482,21 +482,21 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * will only return true if an object with the given identifier has actually
 	 * been constructed by or imported into this AbstractReferenceManufacturer.
 	 * 
-	 * @param val
+	 * @param key
 	 *            identifier of the object to be returned
 	 * @return The object stored in this AbstractReferenceManufacturer with the
 	 *         given identifier, or null if this AbstractReferenceManufacturer
 	 *         does not contain an object with the given identifier.
 	 */
-	public T getObject(String val)
+	public T getObject(String key)
 	{
-		T po = active.get(val);
+		T po = active.get(key);
 		if (po != null)
 		{
-			if (duplicates.containsListFor(new CaseInsensitiveString(val)))
+			if (duplicates.containsListFor(new CaseInsensitiveString(key)))
 			{
 				Logging.errorPrint("Reference to Constructed "
-						+ refClass.getSimpleName() + " " + val
+						+ refClass.getSimpleName() + " " + key
 						+ " is ambiguous");
 			}
 			return po;
@@ -523,10 +523,10 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
-	public T constructObject(String val)
+	public T constructObject(String key)
 	{
-		T obj = buildObject(val);
-		addObject(obj, val);
+		T obj = buildObject(key);
+		addObject(obj, key);
 		return obj;
 	}
 
@@ -546,16 +546,16 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
-	protected T buildObject(String val)
+	protected T buildObject(String key)
 	{
-		if (val == null || val.equals(""))
+		if (key == null || key.equals(""))
 		{
 			throw new IllegalArgumentException("Cannot build empty name");
 		}
 		try
 		{
 			T obj = refClass.newInstance();
-			obj.setName(val);
+			obj.setName(key);
 			return obj;
 		}
 		catch (InstantiationException e)
@@ -578,20 +578,20 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * 
 	 * @param key
 	 *            The new identifier to be used for the given object
-	 * @param o
+	 * @param item
 	 *            The object for which the identifier in this
 	 *            AbstractReferenceManufacturer should be changed
 	 */
-	public void renameObject(String value, T obj)
+	public void renameObject(String key, T item)
 	{
-		String oldKey = obj.getKeyName();
-		if (oldKey.equalsIgnoreCase(value))
+		String oldKey = item.getKeyName();
+		if (oldKey.equalsIgnoreCase(key))
 		{
 			Logging.debugPrint("Worthless Key change encountered: "
-					+ obj.getDisplayName() + " " + oldKey);
+					+ item.getDisplayName() + " " + oldKey);
 		}
-		forgetObject(obj);
-		addObject(obj, value);
+		forgetObject(item);
+		addObject(item, key);
 	}
 
 	/**
@@ -599,29 +599,29 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * true if the object was removed from this AbstractReferenceManufacturer;
 	 * false otherwise.
 	 * 
-	 * @param o
+	 * @param item
 	 *            The object to be removed from this
 	 *            AbstractReferenceManufacturer.
 	 * @return true if the object was removed from this
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
-	public boolean forgetObject(T obj) throws InternalError
+	public boolean forgetObject(T item) throws InternalError
 	{
-		if (!refClass.isInstance(obj))
+		if (!refClass.isInstance(item))
 		{
 			throw new IllegalArgumentException(
 					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
 		}
-		String key = active.getKeyFor(obj);
+		String key = active.getKeyFor(item);
 		if (key == null)
 		{
 			/*
 			 * TODO This is a bug - the key name is not necessarily loaded into
 			 * the object, it may have been consumed by the object context... :P
 			 */
-			CaseInsensitiveString ocik = new CaseInsensitiveString(obj
+			CaseInsensitiveString ocik = new CaseInsensitiveString(item
 					.getKeyName());
-			duplicates.removeFromListFor(ocik, obj);
+			duplicates.removeFromListFor(ocik, item);
 		}
 		else
 		{
@@ -926,13 +926,13 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 						+ " which contains a semicolon "
 						+ "(prohibited character in a key)");
 			}
-//			if (key.indexOf('.') != -1)
-//			{
-//				Logging.log(Logging.LST_WARNING, "Found "
-//						+ getReferenceDescription() + " with KEY: " + key
-//						+ " which contains a period "
-//						+ "(prohibited character in a key)");
-//			}
+			// if (key.indexOf('.') != -1)
+			// {
+			// Logging.log(Logging.LST_WARNING, "Found "
+			// + getReferenceDescription() + " with KEY: " + key
+			// + " which contains a period "
+			// + "(prohibited character in a key)");
+			// }
 			if (key.indexOf('%') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
@@ -1011,10 +1011,8 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 			String keyName = activeObj.getKeyName();
 			if (keyName == null)
 			{
-				Logging
-						.errorPrint(activeObj.getClass() + " "
-								+ activeObj.getDisplayName()
-								+ " has a null KeyName");
+				Logging.errorPrint(activeObj.getClass() + " "
+						+ activeObj.getDisplayName() + " has a null KeyName");
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
 			{
@@ -1050,7 +1048,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 							{
 								it.remove();
 							}
-							//Yes this is instance equality, not .equals
+							// Yes this is instance equality, not .equals
 							else if (mfg == good)
 							{
 								forgetObject(good);
@@ -1062,9 +1060,8 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 			}
 			if (duplicates.containsListFor(second))
 			{
-				Logging.errorPrint("More than one "
-						+ refClass.getSimpleName() + " with key/name "
-						+ second + " was built");
+				Logging.errorPrint("More than one " + refClass.getSimpleName()
+						+ " with key/name " + second + " was built");
 				returnGood = false;
 			}
 		}
@@ -1072,23 +1069,23 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	}
 
 	/**
-	 * Returns true if the given String (a reference name) is permitted by the
+	 * Returns true if the given String (an identifier) is permitted by the
 	 * given UnconstructedValidator. Will always return false if the
 	 * UnconstructedValidator is null.
 	 * 
 	 * @param validator
 	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (a reference name) should be permitted as an
-	 *            unconstructed reference.
-	 * @param s
-	 *            The reference name to be checked to see if the
+	 *            String (an identifier) should be permitted as an unconstructed
+	 *            reference.
+	 * @param key
+	 *            The identifier to be checked to see if the
 	 *            UnconstructedValidator will permit it as an unconstructed
 	 *            reference.
-	 * @return true if the given String (a reference name) is permitted by the
+	 * @return true if the given String (an identifier) is permitted by the
 	 *         given UnconstructedValidator; false otherwise.
 	 */
 	protected abstract boolean validate(UnconstructedValidator validator,
-			String s);
+			String key);
 
 	/**
 	 * Returns a description of the type of Class or Class/Category that this
@@ -1113,19 +1110,19 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * to previous versions of PCGen or to items that are built automatically
 	 * (such as Weapon Proficiencies for Natural Attacks)
 	 * 
-	 * @param value
+	 * @param key
 	 *            The identifier of the CDOMObject to be built (if otherwise not
 	 *            constructed or imported into this
 	 *            AbstractReferenceManufacturer) when buildDeferredObjects() is
 	 *            called.
 	 */
-	public void constructIfNecessary(String value)
+	public void constructIfNecessary(String key)
 	{
 		/*
 		 * TODO FIXME Need to ensure that items that are built here are tagged
 		 * as manufactured, so that they are not written out to LST files
 		 */
-		deferred.add(value);
+		deferred.add(key);
 	}
 
 	/**
@@ -1280,7 +1277,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 */
 	protected void injectConstructed(ReferenceManufacturer<T> arm)
 	{
-		//Must maintain order
+		// Must maintain order
 		for (T value : active.insertOrderValues())
 		{
 			arm.addObject(value, active.getKeyFor(value));
@@ -1318,7 +1315,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * containsObject, getObject, and constructObject into a single method call
 	 * (and avoids the contains-triggered branch)
 	 * 
-	 * @param name
+	 * @param key
 	 *            The identifier of the CDOMObject to be built (if otherwise not
 	 *            constructed or imported into this
 	 *            AbstractReferenceManufacturer), or if an object with that
@@ -1327,12 +1324,12 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	 * @return The previously existing or new CDOMObject with the given
 	 *         identifier.
 	 */
-	public T constructNowIfNecessary(String name)
+	public T constructNowIfNecessary(String key)
 	{
-		T obj = active.get(name);
+		T obj = active.get(key);
 		if (obj == null)
 		{
-			obj = constructObject(name);
+			obj = constructObject(key);
 			manufactured.add(new WeakReference<T>(obj));
 		}
 		return obj;
@@ -1427,8 +1424,8 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 		return active.size();
 	}
 
-	public T getItemInOrder(int item)
+	public T getItemInOrder(int index)
 	{
-		return active.getItemInOrder(item);
+		return active.getItemInOrder(index);
 	}
 }

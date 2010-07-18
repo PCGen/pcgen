@@ -28,22 +28,22 @@ import pcgen.cdom.base.ObjectContainer;
  * @param <T>
  *            The Class of the underlying objects contained by this CDOMGroupRef
  */
-public abstract class CDOMGroupRef<T> extends
-		CDOMReference<T> implements ObjectContainer<T>
+public abstract class CDOMGroupRef<T> extends CDOMReference<T> implements
+		ObjectContainer<T>
 {
 
 	/**
 	 * Constructs a new CDOMGroupRef for the given Class and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMGroupRef.
-	 * @param nm
+	 * @param groupName
 	 *            An identifier of the objects this CDOMGroupRef contains.
 	 */
-	public CDOMGroupRef(Class<T> cl, String nm)
+	public CDOMGroupRef(Class<T> objClass, String groupName)
 	{
-		super(cl, nm);
+		super(objClass, groupName);
 	}
 
 	/**
@@ -53,12 +53,12 @@ public abstract class CDOMGroupRef<T> extends
 	 * Note that the behavior of this class is undefined if the CDOMGroupRef has
 	 * not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMGroupRef.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMGroupRef refers; false otherwise.
 	 */
 	@Override
-	public abstract boolean contains(T obj);
+	public abstract boolean contains(T item);
 }

@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.reference;
 
-
 /**
  * A TransparentReference is a Reference that can be resolved using a
  * ReferenceManufacturer.

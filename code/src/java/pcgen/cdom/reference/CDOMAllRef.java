@@ -44,13 +44,13 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * Constructs a new CDOMAllRef for the given Class to be represented by this
 	 * CDOMAllRef.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
 	 */
-	public CDOMAllRef(Class<T> cl)
+	public CDOMAllRef(Class<T> objClass)
 	{
-		super(cl, Constants.ALLREF_LST + ": " + cl.getSimpleName());
+		super(objClass, Constants.ALLREF_LST + ": " + objClass.getSimpleName());
 	}
 
 	/**
@@ -77,7 +77,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * Note that the behavior of this class is undefined if the CDOMAllRef has
 	 * not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMAllRef.
 	 * @return true if the given Object is included in the Collection of Objects
@@ -86,14 +86,14 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 *             if this CDOMAllRef has not been resolved
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		if (referencedList == null)
 		{
 			throw new IllegalStateException(
 					"Cannot ask for contains: Reference has not been resolved");
 		}
-		return referencedList.contains(obj);
+		return referencedList.contains(item);
 	}
 
 	/**
@@ -105,11 +105,11 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof CDOMAllRef
+		return obj instanceof CDOMAllRef
 				&& getReferenceClass().equals(
-						((CDOMAllRef<?>) o).getReferenceClass());
+						((CDOMAllRef<?>) obj).getReferenceClass());
 	}
 
 	/**
@@ -127,7 +127,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * Adds an object to be included in the Collection of objects to which this
 	 * CDOMAllRef refers.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            An object to be included in the Collection of objects to which
 	 *            this CDOMAllRef refers.
 	 * @throws IllegalArgumentException
@@ -137,21 +137,21 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 *             if the given object is null
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
-		if (obj.getClass().equals(getReferenceClass()))
+		if (item.getClass().equals(getReferenceClass()))
 		{
 			if (referencedList == null)
 			{
 				referencedList = new ArrayList<T>();
 			}
-			referencedList.add(obj);
+			referencedList.add(item);
 		}
 		else
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
 					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ obj.getClass().getSimpleName());
+					+ item.getClass().getSimpleName());
 		}
 	}
 

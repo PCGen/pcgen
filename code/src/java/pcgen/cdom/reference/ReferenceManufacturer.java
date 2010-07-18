@@ -80,13 +80,13 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * construction" may happen - the primary one being loading of "game mode"
 	 * information like CDOMStat objects.
 	 * 
-	 * @param o
+	 * @param item
 	 *            The object to be imported into this ReferenceManufacturer
 	 * @param key
 	 *            The identifier of the object to be imported into this
 	 *            ReferenceManufacturer
 	 */
-	public void addObject(T o, String key);
+	public void addObject(T item, String key);
 
 	/**
 	 * Returns true if this ReferenceManufacturer contains an object of the
@@ -172,22 +172,22 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * 
 	 * @param key
 	 *            The new identifier to be used for the given object
-	 * @param o
+	 * @param item
 	 *            The object for which the identifier in this
 	 *            ReferenceManufacturer should be changed
 	 */
-	public void renameObject(String key, T o);
+	public void renameObject(String key, T item);
 
 	/**
 	 * Remove the given object from this ReferenceManufacturer. Returns true if
 	 * the object was removed from this ReferenceManufacturer; false otherwise.
 	 * 
-	 * @param o
+	 * @param item
 	 *            The object to be removed from this ReferenceManufacturer.
 	 * @return true if the object was removed from this ReferenceManufacturer;
 	 *         false otherwise.
 	 */
-	public boolean forgetObject(T o);
+	public boolean forgetObject(T item);
 
 	/**
 	 * Resolves the references that have been requested from this
@@ -215,12 +215,12 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * to previous versions of PCGen or to items that are built automatically
 	 * (such as Weapon Proficiencies for Natural Attacks)
 	 * 
-	 * @param value
+	 * @param key
 	 *            The identifier of the CDOMObject to be built (if otherwise not
 	 *            constructed or imported into this ReferenceManufacturer) when
 	 *            buildDeferredObjects() is called.
 	 */
-	public void constructIfNecessary(String value);
+	public void constructIfNecessary(String key);
 
 	/**
 	 * Builds any objects whose construction was deferred. Identifiers for
@@ -283,7 +283,7 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * containsObject, getObject, and constructObject into a single method call
 	 * (and avoids the contains-triggered branch)
 	 * 
-	 * @param name
+	 * @param key
 	 *            The identifier of the CDOMObject to be built (if otherwise not
 	 *            constructed or imported into this ReferenceManufacturer), or
 	 *            if an object with that identifier already exists, the
@@ -291,7 +291,7 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * @return The previously existing or new CDOMObject with the given
 	 *         identifier.
 	 */
-	public T constructNowIfNecessary(String name);
+	public T constructNowIfNecessary(String key);
 
 	/**
 	 * Adds an UnconstructedListener to this ReferenceManufacturer, that will
@@ -336,6 +336,6 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 */
 	public int getConstructedObjectCount();
 
-	public T getItemInOrder(int item);
+	public T getItemInOrder(int index);
 
 }

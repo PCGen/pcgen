@@ -59,16 +59,16 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
 	 * reference non-categorized CDOMObjects of the given Class.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
 	 * @param cat
 	 *            The Category of objects that this
 	 *            AbstractReferenceManufacturer will construct and reference.
 	 */
-	public CategorizedReferenceManufacturer(Class<T> cl, Category<T> cat)
+	public CategorizedReferenceManufacturer(Class<T> objClass, Category<T> cat)
 	{
-		super(cl);
+		super(objClass);
 		/*
 		 * Note: null must be a legal value here, as Categorized objects (e.g.
 		 * Ability) are constructed with the "null" Category and then reassigned
@@ -213,16 +213,16 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * Builds a new CDOMObject of the Class and Category this
 	 * CategorizedReferenceManufacturer constructs.
 	 * 
-	 * @param val
+	 * @param key
 	 *            The identifier of the CDOMObject to be constructed
 	 * @return The new CDOMObject of the Class or Class/Category represented by
 	 *         this AbstractReferenceManufacturer
 	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#constructObject(java.lang.String)
 	 */
 	@Override
-	protected T buildObject(String val)
+	protected T buildObject(String key)
 	{
-		T obj = super.buildObject(val);
+		T obj = super.buildObject(key);
 		obj.setCDOMCategory(category);
 		return obj;
 	}
@@ -241,26 +241,26 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	}
 
 	/**
-	 * Returns true if the given String (a reference name) is permitted by the
+	 * Returns true if the given String (an identifier) is permitted by the
 	 * given UnconstructedValidator. Will always return false if the
 	 * UnconstructedValidator is null.
 	 * 
 	 * @param validator
 	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (a reference name) should be permitted as an
-	 *            unconstructed reference.
-	 * @param s
-	 *            The reference name to be checked to see if the
+	 *            String (an identifier) should be permitted as an unconstructed
+	 *            reference.
+	 * @param key
+	 *            The identifier to be checked to see if the
 	 *            UnconstructedValidator will permit it as an unconstructed
 	 *            reference.
-	 * @return true if the given String (a reference name) is permitted by the
+	 * @return true if the given String (an identifier) is permitted by the
 	 *         given UnconstructedValidator; false otherwise.
 	 */
 	@Override
-	protected boolean validate(UnconstructedValidator validator, String s)
+	protected boolean validate(UnconstructedValidator validator, String key)
 	{
 		return validator != null
-				&& validator.allow(getReferenceClass(), category, s);
+				&& validator.allow(getReferenceClass(), category, key);
 	}
 
 	public Category<T> getCategory()

@@ -51,21 +51,22 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	/**
 	 * Constructs a new CDOMCategorizedSingleRef for the given Class and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMCategorizedSingleRef.
 	 * @param cat
 	 *            The Category of the underlying object contained by this
 	 *            CDOMCategorizedSingleRef.
-	 * @param nm
+	 * @param key
 	 *            An identifier of the object this CDOMCategorizedSingleRef
 	 *            contains.
 	 * @throws IllegalArgumentException
 	 *             if the given Cagegory is null
 	 */
-	public CDOMCategorizedSingleRef(Class<T> cl, Category<T> cat, String nm)
+	public CDOMCategorizedSingleRef(Class<T> objClass, Category<T> cat,
+			String key)
 	{
-		super(cl, nm);
+		super(objClass, key);
 		if (cat == null)
 		{
 			throw new IllegalArgumentException(
@@ -81,7 +82,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * Note that the behavior of this class is undefined if the
 	 * CDOMCategorizedSingleRef has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it matches the object to
 	 *            which this CDOMCategorizedSingleRef contains.
 	 * @return true if the given Object is the object this
@@ -90,14 +91,14 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 *             if this CDOMCategorizedSingleRef has not been resolved
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		if (referencedObject == null)
 		{
 			throw new IllegalStateException(
 					"Cannot ask for contains: Reference has not been resolved");
 		}
-		return referencedObject.equals(obj);
+		return referencedObject.equals(item);
 	}
 
 	/**
@@ -148,11 +149,11 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof CDOMCategorizedSingleRef)
+		if (obj instanceof CDOMCategorizedSingleRef)
 		{
-			CDOMCategorizedSingleRef<?> ref = (CDOMCategorizedSingleRef<?>) o;
+			CDOMCategorizedSingleRef<?> ref = (CDOMCategorizedSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& getName().equals(ref.getName())
 					&& category.equals(ref.category);
@@ -190,7 +191,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * a Reference which can be redefined, check out objects that extend the
 	 * TransparentReference interface.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to which this CDOMCategorizedSingleRef refers.
 	 * @throws IllegalArgumentException
 	 *             if the given object for addition to this
@@ -203,31 +204,31 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 *             if the given object is null
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		if (referencedObject != null)
 		{
 			throw new IllegalStateException(
 					"Cannot resolve a Single Reference twice");
 		}
-		if (!obj.getClass().equals(getReferenceClass()))
+		if (!item.getClass().equals(getReferenceClass()))
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
 					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ obj.getClass().getSimpleName());
+					+ item.getClass().getSimpleName());
 		}
-		if (!category.equals(obj.getCDOMCategory()))
+		if (!category.equals(item.getCDOMCategory()))
 		{
 			Category<T> parent = category.getParentCategory();
-			if (parent != null && !parent.equals(obj.getCDOMCategory()))
+			if (parent != null && !parent.equals(item.getCDOMCategory()))
 			{
 				throw new IllegalArgumentException("Cannot resolve "
 						+ getReferenceClass().getSimpleName() + " " + getName()
-						+ obj.getCDOMCategory() + " Reference to category "
+						+ item.getCDOMCategory() + " Reference to category "
 						+ category);
 			}
 		}
-		referencedObject = obj;
+		referencedObject = item;
 	}
 
 	/**

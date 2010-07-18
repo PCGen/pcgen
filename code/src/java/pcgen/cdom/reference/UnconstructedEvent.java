@@ -36,16 +36,16 @@ public class UnconstructedEvent extends EventObject
 	 * Creates a new UnconstructedEvent, triggered by the given source, and
 	 * referring to the given CDOMReference.
 	 * 
-	 * @param arg0
+	 * @param source
 	 *            The source for this UnconstructedEvent
 	 * @param ref
 	 *            The CDOMReference to which this UnconstructedEvent refers (the
 	 *            CDOMReference that does not have an underlying constructed
 	 *            object)
 	 */
-	public UnconstructedEvent(Object arg0, CDOMReference<?> ref)
+	public UnconstructedEvent(Object source, CDOMReference<?> ref)
 	{
-		super(arg0);
+		super(source);
 		if (ref == null)
 		{
 			throw new IllegalArgumentException(

@@ -36,8 +36,8 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentTypeRef
  */
-public class CDOMTransparentTypeRef<T> extends
-		CDOMGroupRef<T> implements TransparentReference<T>
+public class CDOMTransparentTypeRef<T> extends CDOMGroupRef<T> implements
+		TransparentReference<T>
 {
 
 	/**
@@ -55,18 +55,19 @@ public class CDOMTransparentTypeRef<T> extends
 	 * Constructs a new CDOMTransparentTypeRef for the given Class to be
 	 * represented by this CDOMTransparentTypeRef and the given types.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
-	 * @param val
+	 * @param typeArray
 	 *            An array of the Types of objects this CDOMTransparentTypeRef
 	 *            contains.
 	 */
-	public CDOMTransparentTypeRef(Class<T> cl, String[] val)
+	public CDOMTransparentTypeRef(Class<T> objClass, String[] typeArray)
 	{
-		super(cl, cl.getSimpleName() + " " + Arrays.deepToString(val));
-		types = new String[val.length];
-		System.arraycopy(val, 0, types, 0, val.length);
+		super(objClass, objClass.getSimpleName() + " "
+				+ Arrays.deepToString(typeArray));
+		types = new String[typeArray.length];
+		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
 	}
 
 	/**
@@ -76,7 +77,7 @@ public class CDOMTransparentTypeRef<T> extends
 	 * Note that the behavior of this class is undefined if the underlying
 	 * CDOMGroupRef has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMTransparentTypeRef.
 	 * @return true if the given Object is the Object to which this
@@ -85,7 +86,7 @@ public class CDOMTransparentTypeRef<T> extends
 	 *             if no underlying CDOMGroupRef has been defined.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		if (subReference == null)
 		{
@@ -93,7 +94,7 @@ public class CDOMTransparentTypeRef<T> extends
 					+ getReferenceClass().getName() + " Reference " + getName()
 					+ " has not been resolved");
 		}
-		return subReference.contains(obj);
+		return subReference.contains(item);
 	}
 
 	/**
@@ -124,11 +125,11 @@ public class CDOMTransparentTypeRef<T> extends
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof CDOMTransparentTypeRef)
+		if (obj instanceof CDOMTransparentTypeRef)
 		{
-			CDOMTransparentTypeRef<?> ref = (CDOMTransparentTypeRef<?>) o;
+			CDOMTransparentTypeRef<?> ref = (CDOMTransparentTypeRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& getName().equals(ref.getName());
 		}
@@ -153,14 +154,14 @@ public class CDOMTransparentTypeRef<T> extends
 	 * 
 	 * @see Resolve(ReferenceManufacturer<T, ?>)
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a CDOMTransparentTypeRef is resolved using an
 	 *             underlying CDOMGroupRef.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"Cannot resolve a Transparent Reference");

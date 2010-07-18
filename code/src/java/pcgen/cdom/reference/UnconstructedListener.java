@@ -29,9 +29,9 @@ public interface UnconstructedListener extends EventListener
 	 * Receives an UnconstructedEvent for processing by the
 	 * UnconstructedListener.
 	 * 
-	 * @param e
+	 * @param event
 	 *            The UnconstructedEvent to be processed by the
 	 *            UnconstructedListener
 	 */
-	public void unconstructedReferenceFound(UnconstructedEvent e);
+	public void unconstructedReferenceFound(UnconstructedEvent event);
 }

@@ -45,29 +45,29 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	/**
 	 * Constructs a new CDOMDirectSingleRef referring to the given object
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object this CDOMDirectSingleRef will contain
 	 */
-	public CDOMDirectSingleRef(T obj)
+	public CDOMDirectSingleRef(T item)
 	{
-		super((Class<T>) obj.getClass(), obj.getLSTformat());
-		referencedObject = obj;
+		super((Class<T>) item.getClass(), item.getLSTformat());
+		referencedObject = item;
 	}
 
 	/**
 	 * Returns true if the given Object matches the object to which this
 	 * CDOMDirectSingleRef refers.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it matches the object to
 	 *            which this CDOMDirectSingleRef contains.
 	 * @return true if the given Object is the object this CDOMDirectSingleRef
 	 *         contains; false otherwise.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
-		return referencedObject.equals(obj);
+		return referencedObject.equals(item);
 	}
 
 	/**
@@ -106,11 +106,11 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof CDOMDirectSingleRef
+		return obj instanceof CDOMDirectSingleRef
 				&& referencedObject
-						.equals(((CDOMDirectSingleRef<?>) o).referencedObject);
+						.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
 	}
 
 	/**
@@ -128,13 +128,13 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	 * Throws an exception. This method may not be called because a
 	 * CDOMDirectSingleRef was resolved at construction.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a CDOMDirectSingleRef was resolved at construction.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException("Cannot resolve a Direct Reference");
 	}
@@ -169,13 +169,13 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	 * @param <R>
 	 *            The Class of the underlying object contained by the returned
 	 *            CDOMDirectSingleRef
-	 * @param obj
+	 * @param item
 	 *            The object the returned CDOMDirectSingleRef will contain
 	 * @return A new CDOMDirectSingleRef referring to the given object
 	 */
-	public static <R extends Identified> CDOMDirectSingleRef<R> getRef(R obj)
+	public static <R extends Identified> CDOMDirectSingleRef<R> getRef(R item)
 	{
-		return new CDOMDirectSingleRef<R>(obj);
+		return new CDOMDirectSingleRef<R>(item);
 	}
 
 	/**

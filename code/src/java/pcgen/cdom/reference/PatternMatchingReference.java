@@ -63,13 +63,13 @@ public class PatternMatchingReference<T extends Identified> extends
 	/**
 	 * Constructs a new PatternMatchingReference
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
-	 * @param start
+	 * @param startingGroup
 	 *            The underlying list of objects from which this
 	 *            PatternMatchingReference will draw.
-	 * @param tokText
+	 * @param patternText
 	 *            The pattern used to identify items which this
 	 *            PatternMatchingReference will contain. Note that this pattern
 	 *            must end with the PCGen pattern characters (defined by
@@ -78,25 +78,25 @@ public class PatternMatchingReference<T extends Identified> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public PatternMatchingReference(Class<T> cl, CDOMGroupRef<T> start,
-			String tokText)
+	public PatternMatchingReference(Class<T> objClass,
+			CDOMGroupRef<T> startingGroup, String patternText)
 	{
-		super(cl, tokText);
-		if (start == null)
+		super(objClass, patternText);
+		if (startingGroup == null)
 		{
 			throw new IllegalArgumentException(
 					"Starting Group cannot be null in PatternMatchingReference");
 		}
-		all = start;
+		all = startingGroup;
 		String lstPattern = Constants.LST_PATTERN;
-		int patternchar = tokText.length() - lstPattern.length();
-		if (tokText.indexOf(lstPattern) != patternchar)
+		int patternchar = patternText.length() - lstPattern.length();
+		if (patternText.indexOf(lstPattern) != patternchar)
 		{
 			throw new IllegalArgumentException(
 					"Pattern for PatternMatchingReference must end with "
 							+ lstPattern);
 		}
-		pattern = tokText.substring(0, patternchar);
+		pattern = patternText.substring(0, patternchar);
 	}
 
 	/**
@@ -104,14 +104,14 @@ public class PatternMatchingReference<T extends Identified> extends
 	 * PatternMatchingReference is resolved based on the pattern provided at
 	 * construction.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a PatternMatchingReference is resolved based on the
 	 *             pattern provided at construction.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"Cannot add resolution to PatternMatchingReference");
@@ -124,16 +124,16 @@ public class PatternMatchingReference<T extends Identified> extends
 	 * Note that the behavior of this class is undefined if the CDOMGroupRef
 	 * underlying this PatternMatchingReference has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            PatternMatchingReference.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this PatternMatchingReference refers; false otherwise.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
-		return all.contains(obj) && obj.getKeyName().startsWith(pattern);
+		return all.contains(item) && item.getKeyName().startsWith(pattern);
 	}
 
 	/**
@@ -219,11 +219,11 @@ public class PatternMatchingReference<T extends Identified> extends
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof PatternMatchingReference)
+		if (obj instanceof PatternMatchingReference)
 		{
-			PatternMatchingReference<?> other = (PatternMatchingReference<?>) o;
+			PatternMatchingReference<?> other = (PatternMatchingReference<?>) obj;
 			return getReferenceClass().equals(other.getReferenceClass())
 					&& all.equals(other.all) && pattern.equals(other.pattern);
 		}

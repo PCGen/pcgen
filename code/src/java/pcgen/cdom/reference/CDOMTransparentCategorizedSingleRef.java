@@ -35,9 +35,9 @@ import pcgen.cdom.base.CDOMObject;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentCategorizedSingleRef
  */
-//Should be T extends CategorizedCDOMObject<T>
-public class CDOMTransparentCategorizedSingleRef<T extends CDOMObject>
-		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>
+// Should be T extends CategorizedCDOMObject<T>
+public class CDOMTransparentCategorizedSingleRef<T extends CDOMObject> extends
+		CDOMTransparentSingleRef<T> implements TransparentReference<T>
 {
 	/**
 	 * The Category of the object of the Class this CDOMCategorizedSingleRef
@@ -49,20 +49,20 @@ public class CDOMTransparentCategorizedSingleRef<T extends CDOMObject>
 	 * Constructs a new CDOMTransparentCategorizedSingleRef for the given Class
 	 * and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMTransparentCategorizedSingleRef.
 	 * @param cat
 	 *            The Category of objects that this
 	 *            CDOMTransparentCategorizedSingleRef will reference.
-	 * @param nm
+	 * @param key
 	 *            An identifier of the object this
 	 *            CDOMTransparentCategorizedSingleRef contains.
 	 */
-	public CDOMTransparentCategorizedSingleRef(Class<T> cl, String cat,
-			String nm)
+	public CDOMTransparentCategorizedSingleRef(Class<T> objClass, String cat,
+			String key)
 	{
-		super(cl, nm);
+		super(objClass, key);
 		if (cat == null)
 		{
 			throw new IllegalArgumentException(
@@ -89,11 +89,11 @@ public class CDOMTransparentCategorizedSingleRef<T extends CDOMObject>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof CDOMTransparentCategorizedSingleRef)
+		if (obj instanceof CDOMTransparentCategorizedSingleRef)
 		{
-			CDOMTransparentCategorizedSingleRef<?> ref = (CDOMTransparentCategorizedSingleRef<?>) o;
+			CDOMTransparentCategorizedSingleRef<?> ref = (CDOMTransparentCategorizedSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& category.equals(ref.getCDOMCategory())
 					&& getName().equals(ref.getName());

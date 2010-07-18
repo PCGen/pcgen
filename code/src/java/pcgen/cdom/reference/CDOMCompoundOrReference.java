@@ -51,16 +51,16 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * Creates a new CDOMCompoundOrReference with the given name which will
 	 * contain CDOMReferences that contain objects of the given Class.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMCompoundOrReference.
-	 * @param nm
+	 * @param refName
 	 *            An identifier of the objects this CDOMCompoundOrReference
 	 *            contains.
 	 */
-	public CDOMCompoundOrReference(Class<T> cl, String nm)
+	public CDOMCompoundOrReference(Class<T> objClass, String refName)
 	{
-		super(cl, nm);
+		super(objClass, refName);
 	}
 
 	/**
@@ -97,18 +97,18 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * not been added to this CDOMCompoundOrReference or if any of the
 	 * underlying CDOMReference objects have not been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMCompoundOrReference.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMCompoundOrReference refers; false otherwise.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		for (CDOMReference<T> ref : references)
 		{
-			if (ref.contains(obj))
+			if (ref.contains(item))
 			{
 				return true;
 			}
@@ -154,14 +154,14 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * To add items to this CDOMCompoundOrReference, see
 	 * addReference(CDOMReference)
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a CDOMCompoundOrReference does not get directly
 	 *             resolved.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"CompoundReference cannot be given a resolution");
@@ -226,11 +226,11 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
+		GroupingState state = GroupingState.EMPTY;
 		for (CDOMReference<T> ref : references)
 		{
-			gs = gs.add(ref.getGroupingState());
+			state = state.add(ref.getGroupingState());
 		}
-		return gs.compound(GroupingState.ALLOWS_UNION);
+		return state.compound(GroupingState.ALLOWS_UNION);
 	}
 }

@@ -36,8 +36,8 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentSingleRef
  */
-public class CDOMTransparentSingleRef<T> extends
-		CDOMSingleRef<T> implements TransparentReference<T>
+public class CDOMTransparentSingleRef<T> extends CDOMSingleRef<T> implements
+		TransparentReference<T>
 {
 
 	/**
@@ -49,16 +49,16 @@ public class CDOMTransparentSingleRef<T> extends
 	/**
 	 * Constructs a new CDOMTransparentSingleRef for the given Class and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMTransparentSingleRef.
-	 * @param nm
+	 * @param key
 	 *            An identifier of the object this CDOMTransparentSingleRef
 	 *            contains.
 	 */
-	public CDOMTransparentSingleRef(Class<T> cl, String nm)
+	public CDOMTransparentSingleRef(Class<T> objClass, String key)
 	{
-		super(cl, nm);
+		super(objClass, key);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class CDOMTransparentSingleRef<T> extends
 	 * Note that the behavior of this class is undefined if the underlying
 	 * CDOMSingleRef has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMTransparentSingleRef.
 	 * @return true if the given Object is the Object to which this
@@ -77,7 +77,7 @@ public class CDOMTransparentSingleRef<T> extends
 	 *             if no underlying CDOMSingleRef has been defined.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		if (subReference == null)
 		{
@@ -85,7 +85,7 @@ public class CDOMTransparentSingleRef<T> extends
 					+ getReferenceClass().getName() + " Reference " + getName()
 					+ " has not been resolved");
 		}
-		return subReference.contains(obj);
+		return subReference.contains(item);
 	}
 
 	/**
@@ -137,11 +137,11 @@ public class CDOMTransparentSingleRef<T> extends
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof CDOMTransparentSingleRef)
+		if (obj instanceof CDOMTransparentSingleRef)
 		{
-			CDOMTransparentSingleRef<?> ref = (CDOMTransparentSingleRef<?>) o;
+			CDOMTransparentSingleRef<?> ref = (CDOMTransparentSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& getName().equals(ref.getName());
 		}
@@ -166,14 +166,14 @@ public class CDOMTransparentSingleRef<T> extends
 	 * 
 	 * @see Resolve(ReferenceManufacturer<T, ?>)
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a CDOMTransparentSingleRef is resolved using an
 	 *             underlying CDOMSingleRef.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"Cannot resolve a Transparent Reference");

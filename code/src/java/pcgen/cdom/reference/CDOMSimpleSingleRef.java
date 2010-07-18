@@ -31,8 +31,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMSimpleSingleRef
  */
-public class CDOMSimpleSingleRef<T> extends
-		CDOMSingleRef<T>
+public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 {
 
 	/**
@@ -43,15 +42,15 @@ public class CDOMSimpleSingleRef<T> extends
 	/**
 	 * Constructs a new CDOMSimpleSingleRef for the given Class and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMSimpleSingleRef.
-	 * @param nm
+	 * @param key
 	 *            An identifier of the object this CDOMSimpleSingleRef contains.
 	 */
-	public CDOMSimpleSingleRef(Class<T> cl, String nm)
+	public CDOMSimpleSingleRef(Class<T> objClass, String key)
 	{
-		super(cl, nm);
+		super(objClass, key);
 	}
 
 	/**
@@ -61,7 +60,7 @@ public class CDOMSimpleSingleRef<T> extends
 	 * Note that the behavior of this class is undefined if the
 	 * CDOMSimpleSingleRef has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it matches the object to
 	 *            which this CDOMSimpleSingleRef contains.
 	 * @return true if the given Object is the object this CDOMSimpleSingleRef
@@ -70,7 +69,7 @@ public class CDOMSimpleSingleRef<T> extends
 	 *             if this CDOMSimpleSingleRef has not been resolved
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
 		if (referencedObject == null)
 		{
@@ -78,7 +77,7 @@ public class CDOMSimpleSingleRef<T> extends
 					+ getReferenceClass().getName() + " Reference " + getName()
 					+ " has not been resolved");
 		}
-		return referencedObject.equals(obj);
+		return referencedObject.equals(item);
 	}
 
 	/**
@@ -130,11 +129,11 @@ public class CDOMSimpleSingleRef<T> extends
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof CDOMSimpleSingleRef)
+		if (obj instanceof CDOMSimpleSingleRef)
 		{
-			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) o;
+			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& getName().equals(ref.getName());
 		}
@@ -160,7 +159,7 @@ public class CDOMSimpleSingleRef<T> extends
 	 * redefined, check out objects that extend the TransparentReference
 	 * interface.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to which this CDOMSimpleSingleRef will refer.
 	 * @throws IllegalArgumentException
 	 *             if the given object for addition to this CDOMTypeRef is not
@@ -171,20 +170,20 @@ public class CDOMSimpleSingleRef<T> extends
 	 *             if the given object is null
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		if (referencedObject != null)
 		{
 			throw new IllegalStateException(
 					"Cannot resolve a Single Reference twice");
 		}
-		if (!obj.getClass().equals(getReferenceClass()))
+		if (!item.getClass().equals(getReferenceClass()))
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
 					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ obj.getClass().getSimpleName());
+					+ item.getClass().getSimpleName());
 		}
-		referencedObject = obj;
+		referencedObject = item;
 	}
 
 	/**

@@ -44,16 +44,16 @@ public class Qualifier
 	 * given reference to the specific instance of CDOMObject this Qualifier
 	 * contains.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The given Class of CDOMObject this Qualifier contains
 	 * @param ref
 	 *            The reference to the specific instance of CDOMObject this
 	 *            Qualifier contains.
 	 */
-	public Qualifier(Class<? extends CDOMObject> cl,
+	public Qualifier(Class<? extends CDOMObject> objClass,
 			CDOMSingleRef<? extends CDOMObject> ref)
 	{
-		if (cl == null)
+		if (objClass == null)
 		{
 			throw new IllegalArgumentException("Class cannot be null");
 		}
@@ -61,7 +61,7 @@ public class Qualifier
 		{
 			throw new IllegalArgumentException("Reference cannot be null");
 		}
-		qualClass = cl;
+		qualClass = objClass;
 		qualRef = ref;
 	}
 
@@ -105,11 +105,11 @@ public class Qualifier
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof Qualifier)
+		if (obj instanceof Qualifier)
 		{
-			Qualifier other = (Qualifier) o;
+			Qualifier other = (Qualifier) obj;
 			return qualClass.equals(other.qualClass)
 					&& qualRef.equals(other.qualRef);
 		}

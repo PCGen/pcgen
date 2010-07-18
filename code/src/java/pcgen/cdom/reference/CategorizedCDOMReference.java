@@ -72,10 +72,10 @@ public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
 	 * method may be called, and may throw an IllegalStateException if that
 	 * limit is exceeded.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            an object to be included in the Collection of objects to which
 	 *            this CategorizedCDOMReference refers.
 	 */
-	public void addResolution(T obj);
+	public void addResolution(T item);
 
 }

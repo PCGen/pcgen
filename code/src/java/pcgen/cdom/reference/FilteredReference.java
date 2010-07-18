@@ -35,10 +35,10 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 
 	private final ObjectContainer<T> baseSet;
 
-	public FilteredReference(Class<T> cl, ObjectContainer<T> allRef)
+	public FilteredReference(Class<T> objClass, ObjectContainer<T> allRef)
 	{
-		super(cl, "Filtered Reference");
-		if (cl == null)
+		super(objClass, "Filtered Reference");
+		if (objClass == null)
 		{
 			throw new IllegalArgumentException(
 					"Class for FilteredReference cannot be null");
@@ -51,21 +51,21 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 		baseSet = allRef;
 	}
 
-	public void addProhibitedItem(CDOMSingleRef<? super T> cs)
+	public void addProhibitedItem(CDOMSingleRef<? super T> prohibitedRef)
 	{
-		if (cs == null)
+		if (prohibitedRef == null)
 		{
 			throw new IllegalArgumentException(
 					"CDOMSingleRef to be added cannot be null");
 		}
-		Class<?> refClass = cs.getReferenceClass();
+		Class<?> refClass = prohibitedRef.getReferenceClass();
 		if (!baseSet.getReferenceClass().isAssignableFrom(refClass))
 		{
 			throw new IllegalArgumentException("CDOMSingleRef to be added "
 					+ refClass + " is a different class type than "
 					+ baseSet.getReferenceClass().getSimpleName());
 		}
-		filterSet.add(cs);
+		filterSet.add(prohibitedRef);
 	}
 
 	public Class<? super T> getChoiceClass()
@@ -80,11 +80,11 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof FilteredReference)
+		if (obj instanceof FilteredReference)
 		{
-			FilteredReference<?> other = (FilteredReference<?>) o;
+			FilteredReference<?> other = (FilteredReference<?>) obj;
 			return baseSet.equals(other.baseSet)
 					&& filterSet.equals(other.filterSet);
 		}
@@ -93,23 +93,23 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (PrimitiveChoiceFilter<? super T> cs : filterSet)
+		GroupingState state = GroupingState.EMPTY;
+		for (PrimitiveChoiceFilter<? super T> pcf : filterSet)
 		{
-			gs = cs.getGroupingState().add(gs);
+			state = pcf.getGroupingState().add(state);
 		}
-		return (filterSet.size() == 1) ? gs : gs
+		return (filterSet.size() == 1) ? state : state
 				.compound(GroupingState.ALLOWS_UNION);
 	}
 
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
-		return getContainedObjects().contains(obj);
+		return getContainedObjects().contains(item);
 	}
 
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"CompoundReference cannot be given a resolution");
@@ -123,9 +123,9 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 		RETAIN: for (Iterator<T> it = choices.iterator(); it.hasNext();)
 		{
 			T choice = it.next();
-			for (CDOMSingleRef<? super T> cf : filterSet)
+			for (CDOMSingleRef<? super T> prohibitedRef : filterSet)
 			{
-				if (cf.contains(choice))
+				if (prohibitedRef.contains(choice))
 				{
 					it.remove();
 					continue RETAIN;

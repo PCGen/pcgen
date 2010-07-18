@@ -68,17 +68,18 @@ public final class ReferenceUtilities
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
 	 * 
-	 * @param c
-	 *            An Collection of CDOMReference objects
+	 * @param refCollection
+	 *            A Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of CDOMReference objects
 	 */
 	public static String joinLstFormat(
-			Collection<? extends CDOMReference<?>> c, String separator)
+			Collection<? extends CDOMReference<?>> refCollection,
+			String separator)
 	{
-		return ChoiceFilterUtilities.joinLstFormat(c, separator);
+		return ChoiceFilterUtilities.joinLstFormat(refCollection, separator);
 	}
 
 	/**
@@ -96,8 +97,8 @@ public final class ReferenceUtilities
 	 * given Collection and the getContainedObjects() method of the
 	 * CDOMReferences contained in the given Collection.
 	 * 
-	 * @param c
-	 *            An Collection of CDOMReference objects
+	 * @param refCollection
+	 *            A Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String containing the Display Name of the
@@ -105,16 +106,16 @@ public final class ReferenceUtilities
 	 *         CDOMReference objects
 	 */
 	public static String joinDisplayFormat(
-			Collection<? extends CDOMReference<? extends CDOMObject>> c,
+			Collection<? extends CDOMReference<? extends CDOMObject>> refCollection,
 			String separator)
 	{
-		if (c == null)
+		if (refCollection == null)
 		{
 			return "";
 		}
 
 		Set<String> resultSet = new TreeSet<String>();
-		for (CDOMReference<? extends CDOMObject> ref : c)
+		for (CDOMReference<? extends CDOMObject> ref : refCollection)
 		{
 			for (CDOMObject obj : ref.getContainedObjects())
 			{
@@ -138,9 +139,9 @@ public final class ReferenceUtilities
 	 * CDOMReference should be sorted before the second, and greater than zero
 	 * if the first given CDOMReference should be sorted after the second.
 	 * 
-	 * @param arg0
+	 * @param ref1
 	 *            The first CDOMReference to be compared
-	 * @param arg1
+	 * @param ref2
 	 *            The second CDOMReference to be compared
 	 * @return 0 if the CDOMReference objects are equal (at least in name, may
 	 *         not be consistent-with-equals), less than zero if the first given
@@ -148,21 +149,21 @@ public final class ReferenceUtilities
 	 *         than zero if the first given CDOMReference should be sorted after
 	 *         the second.
 	 */
-	public static int compareRefs(CDOMReference<?> arg0, CDOMReference<?> arg1)
+	public static int compareRefs(CDOMReference<?> ref1, CDOMReference<?> ref2)
 	{
-		if (arg0 instanceof CDOMSingleRef)
+		if (ref1 instanceof CDOMSingleRef)
 		{
-			if (!(arg1 instanceof CDOMSingleRef))
+			if (!(ref2 instanceof CDOMSingleRef))
 			{
 				return -1;
 			}
-			return COLLATOR.compare(arg0.getName(), arg1.getName());
+			return COLLATOR.compare(ref1.getName(), ref2.getName());
 		}
-		if (arg1 instanceof CDOMSingleRef)
+		if (ref2 instanceof CDOMSingleRef)
 		{
 			return 1;
 		}
-		return COLLATOR.compare(arg0.getName(), arg1.getName());
+		return COLLATOR.compare(ref1.getName(), ref2.getName());
 	}
 
 	/**
@@ -177,7 +178,7 @@ public final class ReferenceUtilities
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
 	 * 
-	 * @param c
+	 * @param refCollection
 	 *            An Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
@@ -188,19 +189,20 @@ public final class ReferenceUtilities
 	 *         given Collection of CDOMReference objects
 	 */
 	public static String joinLstFormat(
-			Collection<? extends CDOMReference<?>> c, String separator,
-			boolean useAny)
+			Collection<? extends CDOMReference<?>> refCollection,
+			String separator, boolean useAny)
 	{
-		if (c == null)
+		if (refCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(c.size() * 10);
+		final StringBuilder result = new StringBuilder(
+				refCollection.size() * 10);
 
 		boolean needjoin = false;
 
-		for (CDOMReference<?> obj : c)
+		for (CDOMReference<?> obj : refCollection)
 		{
 			if (needjoin)
 			{

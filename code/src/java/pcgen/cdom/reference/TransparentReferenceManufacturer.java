@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.Identified;
 
-
 /**
  * A TransparentReferenceManufacturer is a ReferenceManufacturer capable of
  * creating TransparentReferences of a given "form". That "form" includes a
@@ -39,13 +38,13 @@ public class TransparentReferenceManufacturer<T extends Identified>
 	/**
 	 * Constructs a new TransparentReferenceManufacturer for the given Class.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of object this TransparentReferenceManufacturer will
 	 *            construct and reference.
 	 */
-	public TransparentReferenceManufacturer(Class<T> cl)
+	public TransparentReferenceManufacturer(Class<T> objClass)
 	{
-		super(cl);
+		super(objClass);
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class TransparentReferenceManufacturer<T extends Identified>
 	 * AbstractReferenceManufacturer template Class and should not be called by
 	 * other objects.
 	 * 
-	 * @param ident
+	 * @param key
 	 *            The identifier for which a CDOMTransparentSingleRef should be
 	 *            returned.
 	 * @return a CDOMTransparentSingleRef for the given identifier as defined by
@@ -63,9 +62,9 @@ public class TransparentReferenceManufacturer<T extends Identified>
 	 *         constructed.
 	 */
 	@Override
-	protected CDOMTransparentSingleRef<T> getLocalReference(String ident)
+	protected CDOMTransparentSingleRef<T> getLocalReference(String key)
 	{
-		return new CDOMTransparentSingleRef<T>(getReferenceClass(), ident);
+		return new CDOMTransparentSingleRef<T>(getReferenceClass(), key);
 	}
 
 	/**
@@ -157,24 +156,24 @@ public class TransparentReferenceManufacturer<T extends Identified>
 	}
 
 	/**
-	 * Returns true if the given String (a reference name) is permitted by the
+	 * Returns true if the given String (an identifier) is permitted by the
 	 * given UnconstructedValidator. Will always return false if the
 	 * UnconstructedValidator is null.
 	 * 
 	 * @param validator
 	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (a reference name) should be permitted as an
+	 *            String (an identifier) should be permitted as an
 	 *            unconstructed reference.
-	 * @param s
-	 *            The reference name to be checked to see if the
+	 * @param key
+	 *            The identifier to be checked to see if the
 	 *            UnconstructedValidator will permit it as an unconstructed
 	 *            reference.
-	 * @return true if the given String (a reference name) is permitted by the
+	 * @return true if the given String (an identifier) is permitted by the
 	 *         given UnconstructedValidator; false otherwise.
 	 */
 	@Override
-	protected boolean validate(UnconstructedValidator validator, String s)
+	protected boolean validate(UnconstructedValidator validator, String key)
 	{
-		return validator != null && validator.allow(getReferenceClass(), s);
+		return validator != null && validator.allow(getReferenceClass(), key);
 	}
 }

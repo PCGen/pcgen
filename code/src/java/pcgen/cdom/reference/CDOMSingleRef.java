@@ -20,8 +20,8 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.CDOMReference;
 
 /**
- * A CDOMSingleRef is a CDOMReference which is intended to contain a
- * single object of a given Type for the Class this CDOMSingleRef represents.
+ * A CDOMSingleRef is a CDOMReference which is intended to contain a single
+ * object of a given Type for the Class this CDOMSingleRef represents.
  * 
  * @param <T>
  *            The Class of the underlying object contained by this CDOMSingleRef
@@ -32,15 +32,15 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T>
 	/**
 	 * Constructs a new CDOMSingleRef for the given Class and name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMSingleRef.
-	 * @param nm
+	 * @param key
 	 *            An identifier of the object this CDOMSingleRef contains.
 	 */
-	public CDOMSingleRef(Class<T> cl, String nm)
+	public CDOMSingleRef(Class<T> objClass, String key)
 	{
-		super(cl, nm);
+		super(objClass, key);
 	}
 
 	/**

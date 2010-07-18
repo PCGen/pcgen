@@ -21,13 +21,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 
-
 public interface UnconstructedValidator
 {
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> boolean allow(
-			Class<T> cl, Category<T> cat, String s);
-	
-	public boolean allowDuplicates(Class<?> cl);
-	
-	public <T> boolean allow(Class<T> cl, String s);
+			Class<T> objClass, Category<T> cat, String key);
+
+	public boolean allowDuplicates(Class<?> objClass);
+
+	public <T> boolean allow(Class<T> objClass, String key);
 }

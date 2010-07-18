@@ -66,21 +66,22 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	/**
 	 * Constructs a new ObjectMatchingReference
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
-	 * @param start
+	 * @param startingGroup
 	 *            The underlying list of objects from which this
 	 *            ObjectMatchingReference will draw.
 	 * @throws IllegalArgumentException
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ObjectMatchingReference(String unparse, Class<T> cl,
-			CDOMGroupRef<T> start, ObjectKey<V> targetKey, V expectedValue)
+	public ObjectMatchingReference(String unparse, Class<T> objClass,
+			CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
+			V expectedValue)
 	{
-		super(cl, unparse);
-		if (start == null)
+		super(objClass, unparse);
+		if (startingGroup == null)
 		{
 			throw new IllegalArgumentException(
 					"Starting Group cannot be null in ObjectMatchingReference");
@@ -90,7 +91,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 			throw new IllegalArgumentException(
 					"Target Key cannot be null in ObjectMatchingReference");
 		}
-		all = start;
+		all = startingGroup;
 		key = targetKey;
 		value = expectedValue;
 	}
@@ -100,14 +101,14 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * ObjectMatchingReference is resolved based on the pattern provided at
 	 * construction.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            ignored
 	 * @throws IllegalStateException
 	 *             because a ObjectMatchingReference is resolved based on the
 	 *             key/value pair provided at construction.
 	 */
 	@Override
-	public void addResolution(T obj)
+	public void addResolution(T item)
 	{
 		throw new IllegalStateException(
 				"Cannot add resolution to ObjectMatchingReference");
@@ -120,20 +121,20 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * Note that the behavior of this class is undefined if the CDOMGroupRef
 	 * underlying this ObjectMatchingReference has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            ObjectMatchingReference.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this ObjectMatchingReference refers; false otherwise.
 	 */
 	@Override
-	public boolean contains(T obj)
+	public boolean contains(T item)
 	{
-		if (!all.contains(obj))
+		if (!all.contains(item))
 		{
 			return false;
 		}
-		V actual = obj.get(key);
+		V actual = item.get(key);
 		if (actual == null)
 		{
 			return allowNull || value == null;
@@ -216,9 +217,9 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		return count;
 	}
 
-	public void returnIncludesNulls(boolean b)
+	public void returnIncludesNulls(boolean includesNulls)
 	{
-		allowNull = b;
+		allowNull = includesNulls;
 	}
 
 	/**
@@ -233,11 +234,11 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof ObjectMatchingReference)
+		if (obj instanceof ObjectMatchingReference)
 		{
-			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) o;
+			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) obj;
 			if (getReferenceClass().equals(other.getReferenceClass())
 					&& all.equals(other.all) && key.equals(other.key))
 			{

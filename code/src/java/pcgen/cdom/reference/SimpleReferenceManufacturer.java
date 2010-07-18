@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.Identified;
 
-
 /**
  * A SimpleReferenceManufacturer is a ReferenceManufacturer that will construct
  * or reference non-categorized CDOMObjects.
@@ -39,13 +38,13 @@ public class SimpleReferenceManufacturer<T extends Identified>
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
 	 * reference non-categorized CDOMObjects of the given Class.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
 	 */
-	public SimpleReferenceManufacturer(Class<T> cl)
+	public SimpleReferenceManufacturer(Class<T> objClass)
 	{
-		super(cl);
+		super(objClass);
 	}
 
 	/**
@@ -54,7 +53,7 @@ public class SimpleReferenceManufacturer<T extends Identified>
 	 * This is designed to be used ONLY by the AbstractReferenceManufacturer
 	 * template Class and should not be called by other objects.
 	 * 
-	 * @param val
+	 * @param key
 	 *            The identifier for which a SimpleReferenceManufacturer should
 	 *            be returned.
 	 * @return a CDOMSimpleSingleRef for the given identifier as defined by the
@@ -62,9 +61,9 @@ public class SimpleReferenceManufacturer<T extends Identified>
 	 *         constructed.
 	 */
 	@Override
-	protected CDOMSimpleSingleRef<T> getLocalReference(String val)
+	protected CDOMSimpleSingleRef<T> getLocalReference(String key)
 	{
-		return new CDOMSimpleSingleRef<T>(getReferenceClass(), val);
+		return new CDOMSimpleSingleRef<T>(getReferenceClass(), key);
 	}
 
 	/**
@@ -116,24 +115,24 @@ public class SimpleReferenceManufacturer<T extends Identified>
 	}
 
 	/**
-	 * Returns true if the given String (a reference name) is permitted by the
+	 * Returns true if the given String (an identifier) is permitted by the
 	 * given UnconstructedValidator. Will always return false if the
 	 * UnconstructedValidator is null.
 	 * 
 	 * @param validator
 	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (a reference name) should be permitted as an
-	 *            unconstructed reference.
-	 * @param s
-	 *            The reference name to be checked to see if the
+	 *            String (an identifier) should be permitted as an unconstructed
+	 *            reference.
+	 * @param key
+	 *            The identifier to be checked to see if the
 	 *            UnconstructedValidator will permit it as an unconstructed
 	 *            reference.
-	 * @return true if the given String (a reference name) is permitted by the
+	 * @return true if the given String (an identifier) is permitted by the
 	 *         given UnconstructedValidator; false otherwise.
 	 */
 	@Override
-	protected boolean validate(UnconstructedValidator validator, String s)
+	protected boolean validate(UnconstructedValidator validator, String key)
 	{
-		return validator != null && validator.allow(getReferenceClass(), s);
+		return validator != null && validator.allow(getReferenceClass(), key);
 	}
 }
