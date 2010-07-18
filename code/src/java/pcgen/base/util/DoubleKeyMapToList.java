@@ -145,12 +145,12 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @param key2
 	 *            The secondary key indicating which List the given object
 	 *            should be added to.
-	 * @param value
+	 * @param valueElement
 	 *            The value to be added to the List for the given keys.
 	 */
-	public void addToListFor(K1 key1, K2 key2, V value)
+	public void addToListFor(K1 key1, K2 key2, V valueElement)
 	{
-		getMapToListFor(key1).addToListFor(key2, value);
+		getMapToListFor(key1).addToListFor(key2, valueElement);
 	}
 
 	/**
@@ -335,12 +335,12 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @param key2
 	 *            The secondary key indicating which List the given object
 	 *            should be removed from
-	 * @param value
+	 * @param valueElement
 	 *            The value to be removed from the List for the given keys
 	 * @return true if the value was successfully removed from the list for the
 	 *         given keys; false otherwise
 	 */
-	public boolean removeFromListFor(K1 key1, K2 key2, V value)
+	public boolean removeFromListFor(K1 key1, K2 key2, V valueElement)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -351,7 +351,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		{
 			return false;
 		}
-		boolean wasRemoved = localMap.removeFromListFor(key2, value);
+		boolean wasRemoved = localMap.removeFromListFor(key2, valueElement);
 		// cleanup!
 		if (wasRemoved && localMap.isEmpty())
 		{
@@ -397,15 +397,15 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * therefore, changes to the returned Set will NOT impact the
 	 * DoubleKeyMapToList.
 	 * 
-	 * @param aPrimaryKey
+	 * @param key1
 	 *            The primary key to retrieve keys for.
 	 * 
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
-	public Set<K2> getSecondaryKeySet(K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
-		MapToList<K2, V> localMap = mtmtl.get(aPrimaryKey);
+		MapToList<K2, V> localMap = mtmtl.get(key1);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -495,15 +495,15 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 *            The primary key for retrieving the List to be checked
 	 * @param key2
 	 *            The secondary key for retrieving the List to be checked
-	 * @param value
+	 * @param valueElement
 	 *            The value to find in the List for the given keys.
 	 * @return true if this DoubleKeyMapToList contains a List for the given
 	 *         keys AND that list contains the given value; false otherwise.
 	 */
-	public boolean containsInList(K1 key1, K2 key2, V value)
+	public boolean containsInList(K1 key1, K2 key2, V valueElement)
 	{
 		return containsListFor(key1, key2)
-				&& mtmtl.get(key1).containsInList(key2, value);
+				&& mtmtl.get(key1).containsInList(key2, valueElement);
 	}
 
 	/**

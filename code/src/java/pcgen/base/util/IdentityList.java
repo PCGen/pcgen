@@ -74,17 +74,17 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#add(int, java.lang.Object)
 	 */
-	public void add(int loc, T item)
+	public void add(int index, T element)
 	{
-		embeddedList.add(loc, getIdentity(item));
+		embeddedList.add(index, getIdentity(element));
 	}
 
 	/**
 	 * @see java.util.List#add(java.lang.Object)
 	 */
-	public final boolean add(T item)
+	public final boolean add(T element)
 	{
-		return embeddedList.add(getIdentity(item));
+		return embeddedList.add(getIdentity(element));
 	}
 
 	/**
@@ -102,9 +102,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
-	public boolean addAll(int loc, Collection<? extends T> collection)
+	public boolean addAll(int index, Collection<? extends T> collection)
 	{
-		int location = loc;
+		int location = index;
 		for (T t : collection)
 		{
 			add(location++, t);
@@ -123,9 +123,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#contains(java.lang.Object)
 	 */
-	public boolean contains(Object item)
+	public boolean contains(Object element)
 	{
-		return embeddedList.contains(getIdentity(item));
+		return embeddedList.contains(getIdentity(element));
 	}
 
 	/**
@@ -156,9 +156,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#get(int)
 	 */
-	public T get(int loc)
+	public T get(int index)
 	{
-		Identity<T> und = embeddedList.get(loc);
+		Identity<T> und = embeddedList.get(index);
 		return und == null ? null : und.getUnderlying();
 	}
 
@@ -174,9 +174,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#indexOf(java.lang.Object)
 	 */
-	public int indexOf(Object item)
+	public int indexOf(Object element)
 	{
-		return embeddedList.indexOf(item);
+		return embeddedList.indexOf(element);
 	}
 
 	/**
@@ -198,9 +198,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#lastIndexOf(java.lang.Object)
 	 */
-	public int lastIndexOf(Object item)
+	public int lastIndexOf(Object element)
 	{
-		return embeddedList.lastIndexOf(getIdentity(item));
+		return embeddedList.lastIndexOf(getIdentity(element));
 	}
 
 	/**
@@ -214,26 +214,26 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#listIterator(int)
 	 */
-	public ListIterator<T> listIterator(int loc)
+	public ListIterator<T> listIterator(int index)
 	{
-		return new IdentityIterator<T>(embeddedList.listIterator(loc));
+		return new IdentityIterator<T>(embeddedList.listIterator(index));
 	}
 
 	/**
 	 * @see java.util.List#remove(int)
 	 */
-	public T remove(int loc)
+	public T remove(int index)
 	{
-		Identity<T> und = embeddedList.remove(loc);
+		Identity<T> und = embeddedList.remove(index);
 		return und == null ? null : und.getUnderlying();
 	}
 
 	/**
 	 * @see java.util.List#remove(java.lang.Object)
 	 */
-	public boolean remove(Object item)
+	public boolean remove(Object element)
 	{
-		return embeddedList.remove(getIdentity(item));
+		return embeddedList.remove(getIdentity(element));
 	}
 
 	/**
@@ -260,9 +260,9 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#set(int, java.lang.Object)
 	 */
-	public T set(int loc, T item)
+	public T set(int index, T element)
 	{
-		Identity<T> und = embeddedList.set(loc, getIdentity(item));
+		Identity<T> und = embeddedList.set(index, getIdentity(element));
 		return und == null ? null : und.getUnderlying();
 	}
 
@@ -277,7 +277,7 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#subList(int, int)
 	 */
-	public List<T> subList(int startLoc, int endLoc)
+	public List<T> subList(int startIndex, int endIndex)
 	{
 		throw new UnsupportedOperationException();
 	}

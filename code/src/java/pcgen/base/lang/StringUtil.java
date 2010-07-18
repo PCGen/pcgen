@@ -52,51 +52,51 @@ public final class StringUtil
 	}
 
 	/**
-	 * Concatenates the Collection of Strings into a String using the separator
-	 * as the delimiter.
+	 * Concatenates the Collection of Objects (converted to Strings using
+	 * .toString()) into a String using the separator as the delimiter.
 	 * 
 	 * This method is value-semantic and will not modify or maintain a reference
-	 * to the given Collection of strings.
+	 * to the given Collection of Objects.
 	 * 
-	 * @param strings
-	 *            An Collection of strings
+	 * @param collection
+	 *            An Collection of objects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String
 	 */
-	public static String join(Collection<?> strings, String separator)
+	public static String join(Collection<?> collection, String separator)
 	{
-		return joinToStringBuffer(strings, separator).toString();
+		return joinToStringBuffer(collection, separator).toString();
 	}
 
 	/**
-	 * Concatenates the Collection of Strings into a StringBuffer using the
-	 * separator as the delimiter.
+	 * Concatenates the Collection of Objects (converted to Strings using
+	 * .toString()) into a StringBuffer using the separator as the delimiter.
 	 * 
 	 * This method is value-semantic and will not modify or maintain a reference
-	 * to the given Collection of strings. Ownership of the returned
+	 * to the given Collection of Objects. Ownership of the returned
 	 * StringBuilder is transferred to the calling object. No reference to the
 	 * StringBuilder is maintained by StringUtil.
 	 * 
-	 * @param strings
-	 *            An Collection of strings
+	 * @param collection
+	 *            An Collection of objects
 	 * @param separator
 	 *            The separating character
-	 * @return A 'separator' separated String
+	 * @return A 'separator' separated StringBuilder
 	 */
-	public static StringBuilder joinToStringBuffer(Collection<?> strings,
+	public static StringBuilder joinToStringBuffer(Collection<?> collection,
 			String separator)
 	{
-		if (strings == null)
+		if (collection == null)
 		{
 			return new StringBuilder();
 		}
 
-		StringBuilder result = new StringBuilder(strings.size() * 10);
+		StringBuilder result = new StringBuilder(collection.size() * 10);
 
 		boolean needjoin = false;
 
-		for (Object obj : strings)
+		for (Object obj : collection)
 		{
 			if (needjoin)
 			{
@@ -116,24 +116,24 @@ public final class StringUtil
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of strings.
 	 * 
-	 * @param strings
+	 * @param stringArray
 	 *            An Array of strings
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String
 	 */
-	public static String join(String[] strings, String separator)
+	public static String join(String[] stringArray, String separator)
 	{
-		if (strings == null)
+		if (stringArray == null)
 		{
 			return "";
 		}
 
-		StringBuilder result = new StringBuilder(strings.length * 10);
+		StringBuilder result = new StringBuilder(stringArray.length * 10);
 
 		boolean needjoin = false;
 
-		for (String obj : strings)
+		for (String obj : stringArray)
 		{
 			if (needjoin)
 			{
@@ -150,28 +150,29 @@ public final class StringUtil
 	 * Replaces all of the instances of the find String with newStr in the
 	 * (first) given String.
 	 * 
-	 * @param in
+	 * @param original
 	 *            The input String in which the String replacement should take
 	 *            place
 	 * @param find
 	 *            The String to find within the input String, and which will be
 	 *            replaced by the newStr
-	 * @param newStr
+	 * @param replace
 	 *            The new String that replaces the String to find within the
 	 *            input String
 	 * @return A new String created as a result of modifying the input String to
 	 *         replace all instances of the String to find with the newStr
 	 *         replacement String
 	 */
-	public static String replaceAll(String in, String find, String newStr)
+	public static String replaceAll(String original, String find, String replace)
 	{
-		char[] working = in.toCharArray();
-		StringBuilder sb = new StringBuilder(in.length() + newStr.length());
-		int startindex = in.indexOf(find);
+		char[] working = original.toCharArray();
+		StringBuilder sb = new StringBuilder(original.length()
+				+ replace.length());
+		int startindex = original.indexOf(find);
 
 		if (startindex < 0)
 		{
-			return in;
+			return original;
 		}
 
 		int currindex = 0;
@@ -184,9 +185,9 @@ public final class StringUtil
 			}
 
 			currindex = startindex;
-			sb.append(newStr);
+			sb.append(replace);
 			currindex += find.length();
-			startindex = in.indexOf(find, currindex);
+			startindex = original.indexOf(find, currindex);
 		}
 
 		for (int i = currindex; i < working.length; ++i)

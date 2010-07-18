@@ -54,23 +54,23 @@ public class UnreachableError extends Error
 	/**
 	 * Create a new UnreachableError with the given message
 	 * 
-	 * @param arg0
+	 * @param message
 	 *            The message indicating the cause of UnreachableError
 	 */
-	public UnreachableError(String arg0)
+	public UnreachableError(String message)
 	{
-		super(arg0);
+		super(message);
 	}
 
 	/**
 	 * Create a new UnreachableError with the given cause
 	 * 
-	 * @param arg0
+	 * @param throwable
 	 *            The cause of the UnreachableError
 	 */
-	public UnreachableError(Throwable arg0)
+	public UnreachableError(Throwable throwable)
 	{
-		super(arg0);
+		super(throwable);
 	}
 
 	/**

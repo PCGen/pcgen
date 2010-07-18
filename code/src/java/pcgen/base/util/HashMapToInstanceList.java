@@ -86,13 +86,13 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	 * 
 	 * @param key
 	 *            The key for the List being tested.
-	 * @param object
+	 * @param valueElement
 	 *            The object to find in the List for the given key.
 	 * @return true if this MapToList contains a List for the given key AND that
 	 *         list contains the given value; false otherwise.
 	 */
 	@Override
-	public boolean containsInList(K key, V object)
+	public boolean containsInList(K key, V valueElement)
 	{
 		if (!containsListFor(key))
 		{
@@ -100,7 +100,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 		}
 		for (V o : getListFor(key))
 		{
-			if (o == object)
+			if (o == valueElement)
 			{
 				return true;
 			}
@@ -119,13 +119,13 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	 * @param key
 	 *            The key indicating which List the given object should be
 	 *            removed from
-	 * @param object
+	 * @param valueElement
 	 *            The object to be removed from the List for the given key
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
 	@Override
-	public boolean removeFromListFor(K key, V object)
+	public boolean removeFromListFor(K key, V valueElement)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -138,7 +138,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 		List<V> list = mapToList.get(key);
 		for (Iterator<V> it = list.iterator(); it.hasNext();)
 		{
-			if (it.next() == object)
+			if (it.next() == valueElement)
 			{
 				it.remove();
 				if (list.isEmpty())

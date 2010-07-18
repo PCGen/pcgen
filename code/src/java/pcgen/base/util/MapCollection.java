@@ -106,7 +106,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             unconditionally
 	 */
 	@Override
-	public boolean add(Object arg0)
+	public boolean add(Object element)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -123,7 +123,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             unconditionally
 	 */
 	@Override
-	public boolean addAll(Collection<?> arg0)
+	public boolean addAll(Collection<?> coll)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -156,16 +156,16 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Returns true if the underlying Map contains the given Object as either a
 	 * Key or a Value in the Map.
 	 * 
-	 * @param arg0
+	 * @param element
 	 *            The Object to check to see if it is present in the underlying
 	 *            Map.
 	 * @return true if the underlying Map contains the given Object; false
 	 *         otherwise.
 	 */
 	@Override
-	public boolean contains(Object arg0)
+	public boolean contains(Object element)
 	{
-		return map.containsKey(arg0) || map.containsValue(arg0);
+		return map.containsKey(element) || map.containsValue(element);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This method is value-semantic in that the given Collection and the
 	 * contents of the Collection are not modified by this method call.
 	 * 
-	 * @param arg0
+	 * @param collection
 	 *            The Collection of Objects to be tested for presence in the
 	 *            underlying Map.
 	 * @return true if all of the Objects in the given Collection are present in
@@ -187,11 +187,11 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             if the given Collection is null
 	 */
 	@Override
-	public boolean containsAll(Collection<?> arg0)
+	public boolean containsAll(Collection<?> collection)
 	{
-		for (Object obj : arg0)
+		for (Object element : collection)
 		{
-			if (!map.containsKey(obj) && !map.containsValue(obj))
+			if (!map.containsKey(element) && !map.containsValue(element))
 			{
 				return false;
 			}
@@ -235,7 +235,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             unconditionally
 	 */
 	@Override
-	public boolean remove(Object arg0)
+	public boolean remove(Object element)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -252,7 +252,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             unconditionally
 	 */
 	@Override
-	public boolean removeAll(Collection<?> arg0)
+	public boolean removeAll(Collection<?> collection)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -269,7 +269,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 *             unconditionally
 	 */
 	@Override
-	public boolean retainAll(Collection<?> arg0)
+	public boolean retainAll(Collection<?> collection)
 	{
 		throw new UnsupportedOperationException();
 	}

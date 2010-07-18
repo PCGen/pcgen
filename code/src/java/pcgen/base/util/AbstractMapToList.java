@@ -113,10 +113,10 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key indicating which List the given object should be added
 	 *            to.
-	 * @param value
+	 * @param valueElement
 	 *            The value to be added to the List for the given key.
 	 */
-	public void addToListFor(K key, V value)
+	public void addToListFor(K key, V valueElement)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -126,7 +126,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		{
 			initializeListFor(key);
 		}
-		mapToList.get(key).add(value);
+		mapToList.get(key).add(valueElement);
 	}
 
 	/**
@@ -143,13 +143,13 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key indicating which List the objects in the given List
 	 *            should be added to.
-	 * @param list
+	 * @param values
 	 *            A Collection containing the items to be added to the List for
 	 *            the given key.
 	 */
-	public void addAllToListFor(K key, Collection<V> list)
+	public void addAllToListFor(K key, Collection<V> values)
 	{
-		if (list == null || list.isEmpty())
+		if (values == null || values.isEmpty())
 		{
 			return;
 		}
@@ -161,7 +161,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		{
 			initializeListFor(key);
 		}
-		mapToList.get(key).addAll(list);
+		mapToList.get(key).addAll(values);
 	}
 
 	/**
@@ -218,14 +218,15 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * @param key
 	 *            The key for the List being tested.
-	 * @param value
+	 * @param valueElement
 	 *            The value to find in the List for the given key.
 	 * @return true if this MapToList contains a List for the given key AND that
 	 *         list contains the given value; false otherwise.
 	 */
-	public boolean containsInList(K key, V value)
+	public boolean containsInList(K key, V valueElement)
 	{
-		return containsListFor(key) && mapToList.get(key).contains(value);
+		return containsListFor(key)
+				&& mapToList.get(key).contains(valueElement);
 	}
 
 	/**
@@ -333,12 +334,12 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key indicating which List the given object should be
 	 *            removed from
-	 * @param value
+	 * @param valueElement
 	 *            The value to be removed from the List for the given key
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
-	public boolean removeFromListFor(K key, V value)
+	public boolean removeFromListFor(K key, V valueElement)
 	{
 		List<V> list = mapToList.get(key);
 		/*
@@ -349,7 +350,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		{
 			return false;
 		}
-		boolean removed = list.remove(value);
+		boolean removed = list.remove(valueElement);
 		if (removed && list.isEmpty())
 		{
 			mapToList.remove(key);
@@ -415,7 +416,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key used to identify the list from which the specified
 	 *            value will be returned
-	 * @param loc
+	 * @param index
 	 *            The location in the list (for the given key) of the value to
 	 *            be returned
 	 * @return The value in the given location in the list for the given key
@@ -426,7 +427,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *             (index is less than zero OR greater than or equal to the size
 	 *             of the list)
 	 */
-	public V getElementInList(K key, int loc)
+	public V getElementInList(K key, int index)
 	{
 		List<V> subList = mapToList.get(key);
 		if (subList == null)
@@ -434,7 +435,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 			throw new IllegalArgumentException(key
 					+ " is not a key in this AbstractMapToList");
 		}
-		return subList.get(loc);
+		return subList.get(index);
 	}
 
 	/**

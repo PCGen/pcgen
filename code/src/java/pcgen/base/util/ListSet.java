@@ -150,23 +150,23 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * Adds the given Object to this set if it was not already part of the Set.
 	 * returns true if the Object was added to the Set; false otherwise.
 	 * 
-	 * @param arg0
+	 * @param element
 	 *            The Object to be added to this Set.
 	 * @return true if the Object was added to the Set; false otherwise
 	 */
 	@Override
-	public boolean add(T arg0)
+	public boolean add(T element)
 	{
 		boolean contains = false;
 		if (comparator == null)
 		{
-			contains = list.contains(arg0);
+			contains = list.contains(element);
 		}
 		else
 		{
 			for (Iterator<T> it = list.iterator(); it.hasNext();)
 			{
-				if (comparator.compare(it.next(), arg0) == 0)
+				if (comparator.compare(it.next(), element) == 0)
 				{
 					contains = true;
 					break;
@@ -175,7 +175,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 		}
 		if (!contains)
 		{
-			return list.add(arg0);
+			return list.add(element);
 		}
 		return false;
 	}
@@ -185,12 +185,12 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * method is used for performance optimization when a large number of
 	 * objects will be added to the Set
 	 * 
-	 * @param arg0
+	 * @param capacity
 	 *            The desired capacity of the underlying List
 	 */
-	public void ensureCapacity(int arg0)
+	public void ensureCapacity(int capacity)
 	{
-		list.ensureCapacity(arg0);
+		list.ensureCapacity(capacity);
 	}
 
 	/**
@@ -214,18 +214,18 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	/**
 	 * Returns true if the given object is present in this Set.
 	 * 
-	 * @param arg0
+	 * @param element
 	 *            The Object to be tested
 	 * @return true if the Object is present in this Set; false otherwise
 	 */
 	@Override
-	public boolean contains(Object arg0)
+	public boolean contains(Object element)
 	{
 		if (comparator == null)
 		{
-			return list.contains(arg0);
+			return list.contains(element);
 		}
-		T comp = (T) arg0;
+		T comp = (T) element;
 		for (Iterator<T> it = list.iterator(); it.hasNext();)
 		{
 			if (comparator.compare(comp, it.next()) == 0)
@@ -251,18 +251,18 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * Removes the given Object from this Set. Returns true if the object was
 	 * removed, false otherwise.
 	 * 
-	 * @param arg0
+	 * @param element
 	 *            The Object to be removed from this Set.
 	 * @return true if the Object was removed from the Set; false otherwise
 	 */
 	@Override
-	public boolean remove(Object arg0)
+	public boolean remove(Object element)
 	{
 		if (comparator == null)
 		{
-			return list.remove(arg0);
+			return list.remove(element);
 		}
-		T comp = (T) arg0;
+		T comp = (T) element;
 		for (Iterator<T> it = list.iterator(); it.hasNext();)
 		{
 			if (comparator.compare(comp, it.next()) == 0)

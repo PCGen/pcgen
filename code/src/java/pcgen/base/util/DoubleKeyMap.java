@@ -366,15 +366,15 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * transferred to the calling Object; therefore, changes to the returned Set
 	 * will NOT impact the DoubleKeyMap.
 	 * 
-	 * @param aPrimaryKey
+	 * @param key1
 	 *            The primary key to retrieve keys for.
 	 * 
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
-	public Set<K2> getSecondaryKeySet(K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
-		Map<K2, V> localMap = map.get(aPrimaryKey);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return Collections.emptySet();

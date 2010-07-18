@@ -176,9 +176,9 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @see java.util.AbstractCollection#contains(java.lang.Object)
 	 */
 	@Override
-	public boolean contains(Object obj)
+	public boolean contains(Object item)
 	{
-		return map.containsKey(obj);
+		return map.containsKey(item);
 	}
 
 	/**
@@ -187,9 +187,9 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @see java.util.AbstractCollection#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(T obj)
+	public boolean add(T item)
 	{
-		return map.put(obj, PRESENCE) == null;
+		return map.put(item, PRESENCE) == null;
 	}
 
 	/**

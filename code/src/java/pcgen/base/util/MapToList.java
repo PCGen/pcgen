@@ -62,13 +62,13 @@ public interface MapToList<K, V>
 	 * @param key
 	 *            The key indicating which List the objects in the given List
 	 *            should be added to.
-	 * @param list
+	 * @param valueCollection
 	 *            A Collection containing the items to be added to the List for
 	 *            the given key.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAllToListFor(K key, Collection<V> list);
+	public void addAllToListFor(K key, Collection<V> valueCollection);
 
 	/**
 	 * Adds all of the Lists in the given MapToList to this MapToList.

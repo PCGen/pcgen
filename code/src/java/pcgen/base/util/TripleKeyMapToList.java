@@ -124,10 +124,10 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * @param key3
 	 *            The tertiary key indicating which List the given object should
 	 *            be added to.
-	 * @param value
+	 * @param valueElement
 	 *            The value to be added to the List for the given keys.
 	 */
-	public void addToListFor(K1 key1, K2 key2, K3 key3, V value)
+	public void addToListFor(K1 key1, K2 key2, K3 key3, V valueElement)
 	{
 		MapToList<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
@@ -135,7 +135,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 			localMap = GenericMapToList.getMapToList(thirdClass);
 			map.put(key1, key2, localMap);
 		}
-		localMap.addToListFor(key3, value);
+		localMap.addToListFor(key3, valueElement);
 	}
 
 	/**
@@ -158,11 +158,11 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * @param key3
 	 *            The tertiary key indicating which List the given object should
 	 *            be added to.
-	 * @param value
+	 * @param values
 	 *            A Collection containing the items to be added to the List for
 	 *            the given keys.
 	 */
-	public void addAllToListFor(K1 key1, K2 key2, K3 key3, Collection<V> value)
+	public void addAllToListFor(K1 key1, K2 key2, K3 key3, Collection<V> values)
 	{
 		MapToList<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
@@ -170,7 +170,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 			localMap = GenericMapToList.getMapToList(thirdClass);
 			map.put(key1, key2, localMap);
 		}
-		localMap.addAllToListFor(key3, value);
+		localMap.addAllToListFor(key3, values);
 	}
 
 	/**
@@ -304,15 +304,15 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * TripleKeyMapToList, and modification of this TripleKeyMapToList will not
 	 * alter the returned Set.
 	 * 
-	 * @param aPrimaryKey
+	 * @param key1
 	 *            The primary key to retrieve keys for.
 	 * 
 	 * @return A Set containing the secondary keys for the given primary key
 	 *         within this TripleKeyMapToList.
 	 */
-	public Set<K2> getSecondaryKeySet(K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
-		return map.getSecondaryKeySet(aPrimaryKey);
+		return map.getSecondaryKeySet(key1);
 	}
 
 	/**

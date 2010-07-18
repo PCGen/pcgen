@@ -141,13 +141,13 @@ public class FixedStringList extends AbstractList<String> implements
 	 * @see java.util.AbstractList#add(java.lang.Object)
 	 */
 	@Override
-	public boolean add(String str)
+	public boolean add(String element)
 	{
 		for (int i = 0; i < array.length; i++)
 		{
 			if (array[i] == null)
 			{
-				array[i] = str;
+				array[i] = element;
 				return true;
 			}
 		}
@@ -224,9 +224,9 @@ public class FixedStringList extends AbstractList<String> implements
 	 * @see java.util.AbstractList#get(int)
 	 */
 	@Override
-	public String get(int arg0)
+	public String get(int index)
 	{
-		return array[arg0];
+		return array[index];
 	}
 
 	/**

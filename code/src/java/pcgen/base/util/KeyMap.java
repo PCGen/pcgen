@@ -298,14 +298,14 @@ public class KeyMap<V>
 	 * Value, then the new Value is placed at the end of this List, not at the
 	 * point where the old Value was present in the List.
 	 * 
-	 * @param item
+	 * @param index
 	 *            The element number used to fetch a Value from this KeyMap.
 	 * @return the Value of this KeyMap inserted as the nth element, as provided
 	 *         by the given int
 	 */
-	public V getItemInOrder(int item)
+	public V getItemInOrder(int index)
 	{
-		return inputOrder.get(item);
+		return inputOrder.get(index);
 	}
 
 	/**
