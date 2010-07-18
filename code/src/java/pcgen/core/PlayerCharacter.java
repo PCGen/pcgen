@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -13341,5 +13343,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasTempApplied(CDOMObject mod)
 	{
 		return bonusManager.hasTempBonusesApplied(mod);
+	}
+
+	public Collection<BonusContainer> getBonusContainerList()
+	{
+		List<BonusContainer> list = new ArrayList<BonusContainer>(getCDOMObjectList());
+		list.add(Globals.getBioSet().getAgeSetLine(this));
+		GameMode gm = SettingsHandler.getGame();
+		if (gm.isPurchaseStatMode())
+		{
+			PointBuyMethod pbm = gm.getPurchaseMethodByName(gm
+					.getPurchaseModeMethodName());
+			list.add(pbm);
+		}
+		return list;
 	}
 }

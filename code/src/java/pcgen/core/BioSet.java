@@ -41,7 +41,6 @@ import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.Region;
-import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
 
 /**
@@ -739,34 +738,6 @@ public final class BioSet extends PObject
 			}
 		}
 		return r;
-	}
-
-	/**
-	 * This overrides the PObject method since the bonuses are not stored in
-	 * the normal fashion.
-	 * 
-	 * @see pcgen.core.PObject#getActiveBonuses(pcgen.core.PlayerCharacter)
-	 * <p><b>TODO</b> - Change this to store the bonuses like normal PObjects 
-	 */
-	@Override
-	public List<BonusObj> getActiveBonuses( final PlayerCharacter aPC )
-	{
-		final List<BonusObj> ret = new ArrayList<BonusObj>();
-		
-		ret.addAll(super.getActiveBonuses(aPC));
-		
-		AgeSet ageSet = Globals.getBioSet().getAgeSetLine(aPC);
-		if (ageSet == null)
-		{
-			return ret;
-		}
-		List<BonusObj> bonuses = ageSet.getBonuses();
-		for (BonusObj bo : bonuses)
-		{
-			aPC.setApplied(bo, true);
-			ret.add(bo);
-		}
-		return ret;
 	}
 
 	public AgeSet addToAgeMap(String regionName, AgeSet ageSet)

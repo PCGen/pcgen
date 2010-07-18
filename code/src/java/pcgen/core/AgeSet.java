@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.core.bonus.BonusObj;
@@ -27,7 +28,7 @@ import pcgen.core.bonus.BonusObj;
 /**
  * This represents the AGESET entries in the BioSettings Game Mode file
  */
-public class AgeSet
+public class AgeSet implements BonusContainer
 {
 
 	private List<BonusObj> bonuses = null;
@@ -111,6 +112,36 @@ public class AgeSet
 			}
 		}
 		return sb.toString();
+	}
+
+	public void activateBonuses(PlayerCharacter pc)
+	{
+		if (bonuses != null)
+		{
+			for (BonusObj bo : bonuses)
+			{
+				pc.setApplied(bo, bo.qualifies(pc, null));
+			}
+		}
+	}
+
+	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
+	{
+		if (bonuses == null)
+		{
+			return Collections.emptyList();
+		}
+		List<BonusObj> aList = new ArrayList<BonusObj>();
+
+		for (BonusObj bo : bonuses)
+		{
+			if (pc.isApplied(bo))
+			{
+				aList.add(bo);
+			}
+		}
+
+		return aList;
 	}
 
 }

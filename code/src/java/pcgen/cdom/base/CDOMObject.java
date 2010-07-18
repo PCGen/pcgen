@@ -47,7 +47,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, Identified
+		Cloneable, Identified, BonusContainer
 {
 
 	private URI sourceURI = null;

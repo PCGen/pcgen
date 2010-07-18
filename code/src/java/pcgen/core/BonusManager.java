@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -295,9 +296,9 @@ public class BonusManager
 				continue;
 			}
 
-			final CDOMObject anObj = (CDOMObject) getSourceObject(bonus);
+			final Object source = getSourceObject(bonus);
 
-			if (anObj == null)
+			if (source == null)
 			{
 				Logging.debugPrint("BONUS: " + bonus
 						+ " ignored due to no creator");
@@ -310,8 +311,20 @@ public class BonusManager
 			{
 				final double iBonus = bp.resolve(pc).doubleValue();
 				setActiveBonusStack(iBonus, bp.bonusKey, activeBonusMap);
-				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
-						+ iBonus + " : " + bp.bonusKey);
+				if (Logging.isDebugMode())
+				{
+					String id;
+					if (source instanceof CDOMObject)
+					{
+						id = ((CDOMObject)source).getDisplayName();
+					}
+					else
+					{
+						id = source.toString();
+					}
+					Logging.debugPrint("BONUS: " + id + " : " + iBonus + " : "
+							+ bp.bonusKey);
+				}
 			}
 		}
 
@@ -1338,7 +1351,7 @@ public class BonusManager
 	{
 		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
 
-		for (final CDOMObject pobj : pc.getCDOMObjectList())
+		for (final BonusContainer pobj : pc.getBonusContainerList())
 		{
 			// We exclude equipmods here as their bonuses are already counted in
 			// the equipment they belong to.
@@ -1365,34 +1378,11 @@ public class BonusManager
 			}
 		}
 
-		ret.putAll(getPurchaseModeBonuses());
-
 		if (pc.getUseTempMods())
 		{
 			ret.putAll(getTempBonuses());
 		}
 
 		return ret;
-	}
-
-	private Map<BonusObj, Object> getPurchaseModeBonuses()
-	{
-		Map<BonusObj, Object> map = new IdentityHashMap<BonusObj, Object>();
-		final GameMode gm = SettingsHandler.getGame();
-		final String purchaseMethodName = gm.getPurchaseModeMethodName();
-		if (gm.isPurchaseStatMode())
-		{
-			final PointBuyMethod pbm = gm
-					.getPurchaseMethodByName(purchaseMethodName);
-			pbm.activateBonuses(pc);
-
-			List<BonusObj> abs = pbm.getActiveBonuses(pc);
-			for (BonusObj bo : abs)
-			{
-				map.put(bo, pbm);
-			}
-			return map;
-		}
-		return map;
 	}
 }

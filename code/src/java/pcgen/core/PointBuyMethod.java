@@ -22,6 +22,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.BonusContainer;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import java.util.List;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class PointBuyMethod
+public final class PointBuyMethod implements BonusContainer
 {
 	private String methodName = "";
 	private String pointFormula = "0";
