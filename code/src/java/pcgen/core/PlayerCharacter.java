@@ -527,7 +527,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getAge()
 	{
-		return ageFacet.get(id);
+		Integer age = ageFacet.get(id);
+		return age == null ? 0 : age;
 	}
 
 	/**
