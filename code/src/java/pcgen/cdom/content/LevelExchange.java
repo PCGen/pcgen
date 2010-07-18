@@ -172,17 +172,17 @@ public class LevelExchange extends ConcretePrereqObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof LevelExchange))
+		if (!(obj instanceof LevelExchange))
 		{
 			return false;
 		}
-		LevelExchange other = (LevelExchange) o;
+		LevelExchange other = (LevelExchange) obj;
 		return minDonatingLevel == other.minDonatingLevel
 				&& maxDonatedLevels == other.maxDonatedLevels
 				&& donatingLowerLevelBound == other.donatingLowerLevelBound

@@ -45,15 +45,14 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this ReferenceChoiceSet contains.
  */
-public class ReferenceChoiceSet<T> implements
-		PrimitiveChoiceSet<T>
+public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
 
 	/**
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * ReferenceChoiceSet
 	 */
-	private final Collection<CDOMReference<T>> set;
+	private final Collection<CDOMReference<T>> refCollection;
 
 	/**
 	 * Constructs a new ReferenceChoiceSet which contains the Set of objects
@@ -87,7 +86,7 @@ public class ReferenceChoiceSet<T> implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new WeightedCollection<CDOMReference<T>>(col);
+		refCollection = new WeightedCollection<CDOMReference<T>>(col);
 	}
 
 	/**
@@ -104,7 +103,7 @@ public class ReferenceChoiceSet<T> implements
 	{
 		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		sortedSet.addAll(set);
+		sortedSet.addAll(refCollection);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
 	}
@@ -120,7 +119,8 @@ public class ReferenceChoiceSet<T> implements
 	 */
 	public Class<T> getChoiceClass()
 	{
-		return set == null ? null : set.iterator().next().getReferenceClass();
+		return refCollection == null ? null : refCollection.iterator().next()
+				.getReferenceClass();
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class ReferenceChoiceSet<T> implements
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
-		for (CDOMReference<T> ref : set)
+		for (CDOMReference<T> ref : refCollection)
 		{
 			returnSet.addAll(ref.getContainedObjects());
 		}
@@ -164,7 +164,7 @@ public class ReferenceChoiceSet<T> implements
 	@Override
 	public int hashCode()
 	{
-		return set.size();
+		return refCollection.size();
 	}
 
 	/**
@@ -175,16 +175,16 @@ public class ReferenceChoiceSet<T> implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof ReferenceChoiceSet)
+		if (obj instanceof ReferenceChoiceSet)
 		{
-			ReferenceChoiceSet<?> other = (ReferenceChoiceSet<?>) o;
-			return set.equals(other.set);
+			ReferenceChoiceSet<?> other = (ReferenceChoiceSet<?>) obj;
+			return refCollection.equals(other.refCollection);
 		}
 		return false;
 	}
@@ -198,11 +198,11 @@ public class ReferenceChoiceSet<T> implements
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (CDOMReference<T> ref : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (CDOMReference<T> ref : refCollection)
 		{
-			gs = ref.getGroupingState().add(gs);
+			state = ref.getGroupingState().add(state);
 		}
-		return gs.compound(GroupingState.ALLOWS_UNION);
+		return state.compound(GroupingState.ALLOWS_UNION);
 	}
 }

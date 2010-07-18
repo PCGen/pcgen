@@ -30,17 +30,17 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * This Class is a Type Safe Constant. It is designed to allow Ability Aspect 
- * names in a type-safe fashion, so that they can be quickly compared and use 
+ * This Class is a Type Safe Constant. It is designed to allow Ability Aspect
+ * names in a type-safe fashion, so that they can be quickly compared and use
  * less memory when identical Aspect names exist in two CDOMObjects.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision: $
  */
-public final class AspectName implements TypeSafeConstant, Comparable<AspectName>
+public final class AspectName implements TypeSafeConstant,
+		Comparable<AspectName>
 {
 
 	/** This Map contains the mappings from Strings to the Type Safe Constant. */
@@ -58,7 +58,8 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 	/**
 	 * Instantiates a new ability aspect.
 	 * 
-	 * @param name the name
+	 * @param name
+	 *            the name
 	 */
 	private AspectName(String name)
 	{
@@ -97,20 +98,21 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s The name of the constant to be returned
+	 * @param name
+	 *            The name of the constant to be returned
 	 * 
 	 * @return The Constant for the given name
 	 */
-	public static AspectName getConstant(String s)
+	public static AspectName getConstant(String name)
 	{
 		initializeNameMap();
-		AspectName o = nameMap.get(s);
-		if (o == null)
+		AspectName aspect = nameMap.get(name);
+		if (aspect == null)
 		{
-			o = new AspectName(s);
-			nameMap.put(s, o);
+			aspect = new AspectName(name);
+			nameMap.put(name, aspect);
 		}
-		return o;
+		return aspect;
 	}
 
 	/**
@@ -129,22 +131,24 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s The name of the constant to be returned
+	 * @param name
+	 *            The name of the constant to be returned
 	 * 
 	 * @return The Constant for the given name
 	 * 
-	 * @throws IllegalArgumentException if the given String is not a previously defined RaceSubType
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined RaceSubType
 	 */
-	public static AspectName valueOf(String s)
+	public static AspectName valueOf(String name)
 	{
 		initializeNameMap();
-		AspectName o = nameMap.get(s);
-		if (o == null)
+		AspectName aspect = nameMap.get(name);
+		if (aspect == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined AspectName");
 		}
-		return o;
+		return aspect;
 	}
 
 	/**
@@ -183,19 +187,21 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	public int compareTo(AspectName o)
+	public int compareTo(AspectName aspectName)
 	{
-		return fieldName.compareTo(o.fieldName);
+		return fieldName.compareTo(aspectName.fieldName);
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o == this || o instanceof AspectName
-				&& ((AspectName) o).ordinal == ordinal;
+		return obj == this || obj instanceof AspectName
+				&& ((AspectName) obj).ordinal == ordinal;
 	}
 
 	@Override

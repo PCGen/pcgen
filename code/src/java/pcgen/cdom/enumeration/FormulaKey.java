@@ -61,7 +61,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey CR = getConstant("CR");
 
-	public static final FormulaKey SELECT = getConstant("SELECT", FormulaFactory.ONE);
+	public static final FormulaKey SELECT = getConstant("SELECT",
+			FormulaFactory.ONE);
 
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
@@ -80,7 +81,8 @@ public class FormulaKey implements TypeSafeConstant
 			@Override
 			public Formula getDefault()
 			{
-				return new FixedSizeFormula(SizeUtilities.getDefaultSizeAdjustment());
+				return new FixedSizeFormula(SizeUtilities
+						.getDefaultSizeAdjustment());
 			}
 
 		};
@@ -145,19 +147,19 @@ public class FormulaKey implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static FormulaKey getConstant(String s)
+	public static FormulaKey getConstant(String name)
 	{
-		FormulaKey o = typeMap.get(s);
-		if (o == null)
+		FormulaKey key = typeMap.get(name);
+		if (key == null)
 		{
-			o = new FormulaKey(s, FormulaFactory.ZERO);
-			typeMap.put(s, o);
+			key = new FormulaKey(name, FormulaFactory.ZERO);
+			typeMap.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	/**
@@ -165,22 +167,22 @@ public class FormulaKey implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
-	 * @param f
+	 * @param formula
 	 *            The Formula to be used as the default value if the FormulaKey
 	 *            is not set
 	 * @return The Constant for the given name
 	 */
-	public static FormulaKey getConstant(String s, Formula f)
+	public static FormulaKey getConstant(String name, Formula formula)
 	{
-		FormulaKey o = typeMap.get(s);
-		if (o == null)
+		FormulaKey key = typeMap.get(name);
+		if (key == null)
 		{
-			o = new FormulaKey(s, f);
-			typeMap.put(s, o);
+			key = new FormulaKey(name, formula);
+			typeMap.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	/**
@@ -188,21 +190,21 @@ public class FormulaKey implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined FormulaKey
 	 */
-	public static FormulaKey valueOf(String s)
+	public static FormulaKey valueOf(String name)
 	{
-		FormulaKey o = typeMap.get(s);
-		if (o == null)
+		FormulaKey key = typeMap.get(name);
+		if (key == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined FormulaKey");
 		}
-		return o;
+		return key;
 	}
 
 	/**

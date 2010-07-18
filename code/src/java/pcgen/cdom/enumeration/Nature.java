@@ -30,22 +30,22 @@ public enum Nature {
 	/** Ability of any type */
 	ANY;
 
-	public static Nature getBestNature(Nature n1, Nature n2)
+	public static Nature getBestNature(Nature nature1, Nature nature2)
 	{
-		if (n1 == null)
+		if (nature1 == null)
 		{
-			return n2;
+			return nature2;
 		}
 		//n1 has a valid value
-		if (n2 == null || n2 == AUTOMATIC)
+		if (nature2 == null || nature2 == AUTOMATIC)
 		{
-			return n1;
+			return nature1;
 		}
 		//n2 is VIRTUAL or NORMAL, can use VIRTUAL unless n1 == NORMAL
-		if (n1 == NORMAL)
+		if (nature1 == NORMAL)
 		{
-			return n1;
+			return nature1;
 		}
-		return n2;
+		return nature2;
 	}
 }

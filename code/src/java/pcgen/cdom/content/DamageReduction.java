@@ -160,9 +160,9 @@ public class DamageReduction extends ConcretePrereqObject implements
 		{
 			return false;
 		}
-		Collection<String> l1 = getBypassList();
-		Collection<String> l2 = ((DamageReduction) other).getBypassList();
-		if (l1.containsAll(l2) && l2.containsAll(l1))
+		Collection<String> coll1 = getBypassList();
+		Collection<String> coll2 = ((DamageReduction) other).getBypassList();
+		if (coll1.containsAll(coll2) && coll2.containsAll(coll1))
 		{
 			return theReduction.equals(((DamageReduction) other).theReduction);
 		}
@@ -179,10 +179,10 @@ public class DamageReduction extends ConcretePrereqObject implements
 	@Override
 	public int hashCode()
 	{
-		ArrayList<String> l = new ArrayList<String>(getBypassList());
-		Collections.sort(l);
+		ArrayList<String> list = new ArrayList<String>(getBypassList());
+		Collections.sort(list);
 		int hash = 0;
-		for (Iterator<String> i = l.iterator(); i.hasNext();)
+		for (Iterator<String> i = list.iterator(); i.hasNext();)
 		{
 			hash += i.next().hashCode();
 		}
@@ -193,7 +193,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	{
 		StringBuffer result = new StringBuffer();
 		result.append(theReduction);
-		result.append("/");
+		result.append('/');
 		result.append(theBypass);
 		return result.toString();
 	}

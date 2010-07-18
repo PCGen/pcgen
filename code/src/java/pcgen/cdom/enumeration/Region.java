@@ -87,20 +87,20 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static Region getConstant(String s)
+	public static Region getConstant(String name)
 	{
 		initializeTypeMap();
-		Region o = typeMap.get(s);
-		if (o == null)
+		Region region = typeMap.get(name);
+		if (region == null)
 		{
-			o = new Region(s);
-			typeMap.put(s, o);
+			region = new Region(name);
+			typeMap.put(name, region);
 		}
-		return o;
+		return region;
 	}
 
 	/**
@@ -119,22 +119,22 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined Region
 	 */
-	public static Region valueOf(String s)
+	public static Region valueOf(String name)
 	{
 		initializeTypeMap();
-		Region o = typeMap.get(s);
-		if (o == null)
+		Region region = typeMap.get(name);
+		if (region == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined Region");
 		}
-		return o;
+		return region;
 	}
 
 	/**
@@ -173,7 +173,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 		}
 	}
 
-	public int compareTo(Region r0)
+	public int compareTo(Region region)
 	{
 		/*
 		 * Note: Some tools will report a problem here because Region implements
@@ -182,7 +182,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 		 * has a private constructor, it is unnecessary to implement a custom
 		 * hashCode or equals.
 		 */
-		return fieldName.compareToIgnoreCase(r0.fieldName);
+		return fieldName.compareToIgnoreCase(region.fieldName);
 	}
 
 }

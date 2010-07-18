@@ -54,10 +54,10 @@ public final class ChoiceSetUtilities
 	 * Compares two PrimitiveChoiceSet objects to establish which should "sort"
 	 * first.
 	 * 
-	 * @param arg0
+	 * @param pcs1
 	 *            The first PrimitiveChoiceSet object to be used in the
 	 *            comparison
-	 * @param arg1
+	 * @param pcs2
 	 *            The second PrimitiveChoiceSet object to be used in the
 	 *            comparison
 	 * @return 0 if the PrimitiveChoiceSet objects are equal (at least in name,
@@ -66,13 +66,13 @@ public final class ChoiceSetUtilities
 	 *         greater than zero if the first given PrimitiveChoiceSet should be
 	 *         sorted after the second.
 	 */
-	public static int compareChoiceSets(PrimitiveChoiceSet<?> arg0,
-			PrimitiveChoiceSet<?> arg1)
+	public static int compareChoiceSets(PrimitiveChoiceSet<?> pcs1,
+			PrimitiveChoiceSet<?> pcs2)
 	{
-		String base = arg0.getLSTformat(false);
+		String base = pcs1.getLSTformat(false);
 		if (base == null)
 		{
-			if (arg1.getLSTformat(false) == null)
+			if (pcs2.getLSTformat(false) == null)
 			{
 				return 0;
 			}
@@ -83,13 +83,13 @@ public final class ChoiceSetUtilities
 		}
 		else
 		{
-			if (arg1.getLSTformat(false) == null)
+			if (pcs2.getLSTformat(false) == null)
 			{
 				return 1;
 			}
 			else
 			{
-				return base.compareTo(arg1.getLSTformat(false));
+				return base.compareTo(pcs2.getLSTformat(false));
 			}
 		}
 	}
@@ -107,7 +107,7 @@ public final class ChoiceSetUtilities
 	 * Ownership of the Collection provided to this method is not transferred
 	 * and this constructor will not modify the given Collection.
 	 * 
-	 * @param c
+	 * @param pcsCollection
 	 *            An Collection of PrimitiveChoiceSet objects
 	 * @param separator
 	 *            The separating string
@@ -118,26 +118,27 @@ public final class ChoiceSetUtilities
 	 *         given Collection of PrimitiveChoiceSet objects
 	 */
 	public static String joinLstFormat(
-			Collection<? extends PrimitiveChoiceSet<?>> c, String separator,
-			boolean useAny)
+			Collection<? extends PrimitiveChoiceSet<?>> pcsCollection,
+			String separator, boolean useAny)
 	{
-		if (c == null)
+		if (pcsCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(c.size() * 10);
+		final StringBuilder result = new StringBuilder(
+				pcsCollection.size() * 10);
 
 		boolean needjoin = false;
 
-		for (PrimitiveChoiceSet<?> obj : c)
+		for (PrimitiveChoiceSet<?> pcs : pcsCollection)
 		{
 			if (needjoin)
 			{
 				result.append(separator);
 			}
 			needjoin = true;
-			result.append(obj.getLSTformat(useAny));
+			result.append(pcs.getLSTformat(useAny));
 		}
 
 		return result.toString();

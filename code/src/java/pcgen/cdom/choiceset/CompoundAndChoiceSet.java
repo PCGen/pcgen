@@ -48,7 +48,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundAndChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> set = new TreeSet<PrimitiveChoiceSet<T>>(
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<PrimitiveChoiceSet<T>>(
 			ChoiceSetUtilities.WRITEABLE_SORTER);
 
 	/**
@@ -69,13 +69,13 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public CompoundAndChoiceSet(Collection<PrimitiveChoiceSet<T>> coll)
+	public CompoundAndChoiceSet(Collection<PrimitiveChoiceSet<T>> pcsCollection)
 	{
-		if (coll == null)
+		if (pcsCollection == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		set.addAll(coll);
+		pcsSet.addAll(pcsCollection);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		Collection<T> returnSet = null;
-		for (PrimitiveChoiceSet<T> cs : set)
+		for (PrimitiveChoiceSet<T> cs : pcsSet)
 		{
 			if (returnSet == null)
 			{
@@ -125,7 +125,8 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities.joinLstFormat(set, Constants.COMMA, useAny);
+		return ChoiceSetUtilities
+				.joinLstFormat(pcsSet, Constants.COMMA, useAny);
 	}
 
 	/**
@@ -135,7 +136,8 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public Class<? super T> getChoiceClass()
 	{
-		return set == null ? null : set.iterator().next().getChoiceClass();
+		return pcsSet == null ? null : pcsSet.iterator().next()
+				.getChoiceClass();
 	}
 
 	/**
@@ -146,7 +148,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public int hashCode()
 	{
-		return set.hashCode();
+		return pcsSet.hashCode();
 	}
 
 	/**
@@ -157,10 +159,10 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return (o instanceof CompoundAndChoiceSet)
-				&& ((CompoundAndChoiceSet<?>) o).set.equals(set);
+		return (obj instanceof CompoundAndChoiceSet)
+				&& ((CompoundAndChoiceSet<?>) obj).pcsSet.equals(pcsSet);
 	}
 
 	/**
@@ -172,11 +174,11 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (PrimitiveChoiceSet<T> cs : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (PrimitiveChoiceSet<T> pcs : pcsSet)
 		{
-			gs = cs.getGroupingState().add(gs);
+			state = pcs.getGroupingState().add(state);
 		}
-		return gs.compound(GroupingState.ALLOWS_INTERSECTION);
+		return state.compound(GroupingState.ALLOWS_INTERSECTION);
 	}
 }

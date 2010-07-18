@@ -88,20 +88,20 @@ public final class RaceSubType implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static RaceSubType getConstant(String s)
+	public static RaceSubType getConstant(String name)
 	{
 		initializeTypeMap();
-		RaceSubType o = typeMap.get(s);
-		if (o == null)
+		RaceSubType type = typeMap.get(name);
+		if (type == null)
 		{
-			o = new RaceSubType(s);
-			typeMap.put(s, o);
+			type = new RaceSubType(name);
+			typeMap.put(name, type);
 		}
-		return o;
+		return type;
 	}
 
 	/**
@@ -120,22 +120,22 @@ public final class RaceSubType implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined RaceSubType
 	 */
-	public static RaceSubType valueOf(String s)
+	public static RaceSubType valueOf(String name)
 	{
 		initializeTypeMap();
-		RaceSubType o = typeMap.get(s);
-		if (o == null)
+		RaceSubType type = typeMap.get(name);
+		if (type == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined RaceSubType");
 		}
-		return o;
+		return type;
 	}
 
 	/**

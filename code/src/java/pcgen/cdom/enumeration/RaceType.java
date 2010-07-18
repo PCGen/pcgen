@@ -88,20 +88,20 @@ public final class RaceType implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static RaceType getConstant(String s)
+	public static RaceType getConstant(String name)
 	{
 		initializeTypeMap();
-		RaceType o = typeMap.get(s);
-		if (o == null)
+		RaceType racetype = typeMap.get(name);
+		if (racetype == null)
 		{
-			o = new RaceType(s);
-			typeMap.put(s, o);
+			racetype = new RaceType(name);
+			typeMap.put(name, racetype);
 		}
-		return o;
+		return racetype;
 	}
 
 	/**
@@ -109,22 +109,22 @@ public final class RaceType implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined RaceType
 	 */
-	public static RaceType valueOf(String s)
+	public static RaceType valueOf(String name)
 	{
 		initializeTypeMap();
-		RaceType o = typeMap.get(s);
-		if (o == null)
+		RaceType racetype= typeMap.get(name);
+		if (racetype == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined RaceType");
 		}
-		return o;
+		return racetype;
 	}
 
 	/**

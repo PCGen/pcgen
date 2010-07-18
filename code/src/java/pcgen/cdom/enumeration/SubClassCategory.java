@@ -95,32 +95,37 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static SubClassCategory getConstant(String s)
+	public static SubClassCategory getConstant(String name)
+	{
+		initializeTypeMap();
+		String lookup = name.replace('_', ' ');
+		SubClassCategory category = typeMap.get(lookup);
+		if (category == null)
+		{
+			/*
+			 * TODO FIXME Should .,| or other stuff be banned here? (probably)
+			 */
+			if (name.length() == 0)
+			{
+				throw new IllegalArgumentException(
+					"Type Name cannot be zero length");
+			}
+			category = new SubClassCategory(lookup);
+			typeMap.put(lookup, category);
+		}
+		return category;
+	}
+
+	private static synchronized void initializeTypeMap()
 	{
 		if (typeMap == null)
 		{
 			typeMap = new CaseInsensitiveMap<SubClassCategory>();
 		}
-		String lookup = s.replace('_', ' ');
-		SubClassCategory o = typeMap.get(lookup);
-		if (o == null)
-		{
-			/*
-			 * TODO FIXME Should .,| or other stuff be banned here? (probably)
-			 */
-			if (s.length() == 0)
-			{
-				throw new IllegalArgumentException(
-					"Type Name cannot be zero length");
-			}
-			o = new SubClassCategory(lookup);
-			typeMap.put(lookup, o);
-		}
-		return o;
 	}
 
 	/**
@@ -128,22 +133,19 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static SubClassCategory valueOf(String s)
+	public static SubClassCategory valueOf(String name)
 	{
-		if (typeMap == null)
+		initializeTypeMap();
+		SubClassCategory category = typeMap.get(name);
+		if (category == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubClassCategory>();
+			throw new IllegalArgumentException(name);
 		}
-		SubClassCategory o = typeMap.get(s);
-		if (o == null)
-		{
-			throw new IllegalArgumentException(s);
-		}
-		return o;
+		return category;
 	}
 
 	/**

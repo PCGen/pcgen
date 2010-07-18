@@ -27,6 +27,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Map;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
@@ -90,8 +91,7 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<CDOMList<Spell>> SPELL_LIST_CACHE = new AssociationListKey<CDOMList<Spell>>();
 
-	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS =
-			new AssociationListKey<CharacterSpell>();
+	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS = new AssociationListKey<CharacterSpell>();
 
 	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
 
@@ -114,7 +114,7 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<ArmorProf> CHOOSE_ARMORPROFICIENCY = new AssociationListKey<ArmorProf>();
 
 	public static final AssociationListKey<ShieldProf> CHOOSE_SHIELDPROFICIENCY = new AssociationListKey<ShieldProf>();
-	
+
 	public static final AssociationListKey<WeaponProf> CHOOSE_WEAPONPROFICIENCY = new AssociationListKey<WeaponProf>();
 
 	public static final AssociationListKey<Ability> CHOOSE_FEAT = new AssociationListKey<Ability>();
@@ -138,11 +138,11 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Spell> CHOOSE_SPELL = new AssociationListKey<Spell>();
 
 	public static final AssociationListKey<SpellLevel> CHOOSE_SPELLLEVEL = new AssociationListKey<SpellLevel>();
-	
+
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
 	public static final AssociationListKey<AbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<AbilitySelection>();
-	
+
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
 	private AssociationListKey()
@@ -150,12 +150,13 @@ public final class AssociationListKey<T>
 		// Only allow instantation here
 	}
 
-	public T cast(Object o)
+	public T cast(Object obj)
 	{
-		return (T) o;
+		return (T) obj;
 	}
 
-	public static <OT> AssociationListKey<OT> getKeyFor(Class<OT> c, String s)
+	public static <OT> AssociationListKey<OT> getKeyFor(Class<OT> keyClass,
+			String keyName)
 	{
 		if (map == null)
 		{
@@ -170,13 +171,13 @@ public final class AssociationListKey<T>
 		 * Class and validate that with a an error message if a different class
 		 * is requested.
 		 */
-		AssociationListKey<OT> o = (AssociationListKey<OT>) map.get(s);
-		if (o == null)
+		AssociationListKey<OT> key = (AssociationListKey<OT>) map.get(keyName);
+		if (key == null)
 		{
-			o = new AssociationListKey<OT>();
-			map.put(s, o);
+			key = new AssociationListKey<OT>();
+			map.put(keyName, key);
 		}
-		return o;
+		return key;
 	}
 
 	private static void buildMap()
@@ -192,19 +193,20 @@ public final class AssociationListKey<T>
 			{
 				try
 				{
-					Object o = fields[i].get(null);
-					if (o instanceof AssociationListKey)
+					Object obj = fields[i].get(null);
+					if (obj instanceof AssociationListKey)
 					{
-						map.put(fields[i].getName(), (AssociationListKey<?>) o);
+						map.put(fields[i].getName(),
+								(AssociationListKey<?>) obj);
 					}
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

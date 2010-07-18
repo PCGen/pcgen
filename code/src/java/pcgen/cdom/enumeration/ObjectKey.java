@@ -33,6 +33,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMList;
@@ -356,12 +357,12 @@ public class ObjectKey<T>
 		return defaultValue;
 	}
 
-	public T cast(Object o)
+	public T cast(Object obj)
 	{
-		return (T) o;
+		return (T) obj;
 	}
 
-	public static <OT> ObjectKey<OT> getKeyFor(Class<OT> c, String s)
+	public static <OT> ObjectKey<OT> getKeyFor(Class<OT> objectClass, String name)
 	{
 		if (map == null)
 		{
@@ -376,13 +377,13 @@ public class ObjectKey<T>
 		 * Class and validate that with a an error message if a different class
 		 * is requested.
 		 */
-		ObjectKey<OT> o = (ObjectKey<OT>) map.get(s);
-		if (o == null)
+		ObjectKey<OT> key = (ObjectKey<OT>) map.get(name);
+		if (key == null)
 		{
-			o = new ObjectKey<OT>(null);
-			map.put(s, o);
+			key = new ObjectKey<OT>(null);
+			map.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	private static void buildMap()
@@ -399,19 +400,19 @@ public class ObjectKey<T>
 			{
 				try
 				{
-					Object o = fields[i].get(null);
-					if (o instanceof ObjectKey)
+					Object obj = fields[i].get(null);
+					if (obj instanceof ObjectKey)
 					{
-						map.put(fields[i].getName(), (ObjectKey<?>) o);
+						map.put(fields[i].getName(), (ObjectKey<?>) obj);
 					}
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

@@ -250,15 +250,15 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof SimpleChoiceSet)
+		if (obj instanceof SimpleChoiceSet)
 		{
-			SimpleChoiceSet<?> other = (SimpleChoiceSet<?>) o;
+			SimpleChoiceSet<?> other = (SimpleChoiceSet<?>) obj;
 			return set.equals(other.set);
 		}
 		return false;

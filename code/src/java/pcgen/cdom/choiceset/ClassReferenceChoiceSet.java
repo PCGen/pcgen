@@ -54,7 +54,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * ClassReferenceChoiceSet
 	 */
-	private final Set<CDOMReference<? extends PCClass>> set;
+	private final Set<CDOMReference<? extends PCClass>> classRefSet;
 
 	/**
 	 * Constructs a new ClassReferenceChoiceSet which contains the Set of
@@ -70,27 +70,28 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * strong references are maintained to the CDOMReference objects contained
 	 * within the given Collection.
 	 * 
-	 * @param col
+	 * @param classRefCollection
 	 *            A Collection of CDOMReferences which define the Set of objects
 	 *            contained within the ClassReferenceChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
 	public ClassReferenceChoiceSet(
-			Collection<? extends CDOMReference<? extends PCClass>> col)
+			Collection<? extends CDOMReference<? extends PCClass>> classRefCollection)
 	{
 		super();
-		if (col == null)
+		if (classRefCollection == null)
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be null");
 		}
-		if (col.isEmpty())
+		if (classRefCollection.isEmpty())
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<CDOMReference<? extends PCClass>>(col);
+		classRefSet = new HashSet<CDOMReference<? extends PCClass>>(
+				classRefCollection);
 	}
 
 	/**
@@ -107,7 +108,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		sortedSet.addAll(set);
+		sortedSet.addAll(classRefSet);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
 	}
@@ -153,7 +154,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		Set<PCClass> returnSet = new HashSet<PCClass>();
-		for (CDOMReference<? extends PCClass> ref : set)
+		for (CDOMReference<? extends PCClass> ref : classRefSet)
 		{
 			returnSet.addAll(ref.getContainedObjects());
 		}
@@ -169,7 +170,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	@Override
 	public int hashCode()
 	{
-		return set.size();
+		return classRefSet.size();
 	}
 
 	/**
@@ -180,16 +181,16 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof ClassReferenceChoiceSet)
+		if (obj instanceof ClassReferenceChoiceSet)
 		{
-			ClassReferenceChoiceSet other = (ClassReferenceChoiceSet) o;
-			return set.equals(other.set);
+			ClassReferenceChoiceSet other = (ClassReferenceChoiceSet) obj;
+			return classRefSet.equals(other.classRefSet);
 		}
 		return false;
 	}
@@ -203,11 +204,11 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (CDOMReference<? extends PCClass> ref : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (CDOMReference<? extends PCClass> classRef : classRefSet)
 		{
-			gs = gs.add(ref.getGroupingState());
+			state = state.add(classRef.getGroupingState());
 		}
-		return gs.compound(GroupingState.ALLOWS_UNION);
+		return state.compound(GroupingState.ALLOWS_UNION);
 	}
 }

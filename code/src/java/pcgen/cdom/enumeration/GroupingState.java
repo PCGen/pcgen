@@ -35,7 +35,7 @@ public enum GroupingState
 	INVALID
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
 			return INVALID;
 		}
@@ -47,7 +47,7 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
 			return INVALID;
 		}
@@ -67,14 +67,17 @@ public enum GroupingState
 	ALLOWS_NONE
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
-			if (gs != EMPTY)
+			if (state != EMPTY)
 			{
-				Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_NONE' resulted in 'INVALID'.");
+				Logging
+						.errorPrint("Attempt to add '"
+								+ state
+								+ "' grouping state to 'ALLOWS_NONE' resulted in 'INVALID'.");
 				return INVALID;
 			}
-			return gs == EMPTY ? ALLOWS_NONE : INVALID;
+			return state == EMPTY ? ALLOWS_NONE : INVALID;
 		}
 
 		@Override
@@ -84,7 +87,7 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
 			return ALLOWS_NONE;
 		}
@@ -103,13 +106,16 @@ public enum GroupingState
 	ALLOWS_INTERSECTION
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
-			if (gs == this || gs == EMPTY || gs == ANY)
+			if (state == this || state == EMPTY || state == ANY)
 			{
 				return this;
 			}
-			Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_INTERSECTION' resulted in 'INVALID'.");
+			Logging
+					.errorPrint("Attempt to add '"
+							+ state
+							+ "' grouping state to 'ALLOWS_INTERSECTION' resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -120,9 +126,9 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
-			return gs == ALLOWS_UNION ? INVALID : ANY;
+			return state == ALLOWS_UNION ? INVALID : ANY;
 		}
 
 		@Override
@@ -142,13 +148,16 @@ public enum GroupingState
 	ALLOWS_UNION
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
-			if (gs == this || gs == EMPTY || gs == ANY)
+			if (state == this || state == EMPTY || state == ANY)
 			{
 				return this;
 			}
-			Logging.errorPrint("Attempt to add '" + gs + "' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.");
+			Logging
+					.errorPrint("Attempt to add '"
+							+ state
+							+ "' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -159,9 +168,9 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
-			return gs == ALLOWS_INTERSECTION ? INVALID : ANY;
+			return state == ALLOWS_INTERSECTION ? INVALID : ANY;
 		}
 
 		@Override
@@ -178,14 +187,16 @@ public enum GroupingState
 	ANY
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
-			if (gs == ALLOWS_NONE)
+			if (state == ALLOWS_NONE)
 			{
-				Logging.errorPrint("Attempt to add 'ALLOWS_NONE' grouping state to 'ANY' resulted in 'INVALID'.");
+				Logging
+						.errorPrint("Attempt to add 'ALLOWS_NONE' grouping state to 'ANY' resulted in 'INVALID'.");
 				return INVALID;
 			}
-			return gs == EMPTY ? ANY : gs == ALLOWS_NONE ? INVALID : gs;
+			return state == EMPTY ? ANY : state == ALLOWS_NONE ? INVALID
+					: state;
 		}
 
 		@Override
@@ -195,7 +206,7 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
 			return ANY;
 		}
@@ -215,9 +226,9 @@ public enum GroupingState
 	EMPTY
 	{
 		@Override
-		public GroupingState add(GroupingState gs)
+		public GroupingState add(GroupingState state)
 		{
-			return gs;
+			return state;
 		}
 
 		@Override
@@ -227,7 +238,7 @@ public enum GroupingState
 		}
 
 		@Override
-		public GroupingState compound(GroupingState gs)
+		public GroupingState compound(GroupingState state)
 		{
 			return EMPTY;
 		}
@@ -244,12 +255,12 @@ public enum GroupingState
 	 * GroupingState produced by a combination of the given GroupingState and
 	 * this GroupingState.
 	 * 
-	 * @param gs
+	 * @param state
 	 *            The GroupingState to be combined with this GroupingState
 	 * @return The GroupingState produced by a combination of the given
 	 *         GroupingState and this GroupingState
 	 */
-	public abstract GroupingState add(GroupingState gs);
+	public abstract GroupingState add(GroupingState state);
 
 	/**
 	 * Returns the GroupingState that represents the behavior when this
@@ -273,13 +284,13 @@ public enum GroupingState
 	 * GroupingState is ALLOWS_INTERSECTION, then this will return INVALID,
 	 * since this GroupingState can only be combined under a union.
 	 * 
-	 * @param groupingState
+	 * @param state
 	 *            The GroupingState under which this GroupingState was combined.
 	 * 
 	 * @return the GroupingState represented when this GroupingState is placed
 	 *         into a combination represented by the given GroupingState
 	 */
-	public abstract GroupingState compound(GroupingState groupingState);
+	public abstract GroupingState compound(GroupingState state);
 
 	/**
 	 * Returns true if this GroupingState is valid for use.

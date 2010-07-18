@@ -49,7 +49,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	 * The underlying PrimitiveChoiceSet from which items will be returned, if
 	 * the PlayerCharacter is qualified for the item.
 	 */
-	private final PrimitiveChoiceSet<T> set;
+	private final PrimitiveChoiceSet<T> underlyingPCS;
 
 	/**
 	 * Constructs a new QualifiedDecorator which decorates the given
@@ -61,7 +61,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	 */
 	public QualifiedDecorator(PrimitiveChoiceSet<T> underlyingSet)
 	{
-		set = underlyingSet;
+		underlyingPCS = underlyingSet;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	 */
 	public Class<? super T> getChoiceClass()
 	{
-		return set.getChoiceClass();
+		return underlyingPCS.getChoiceClass();
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return set.getLSTformat(useAny);
+		return underlyingPCS.getLSTformat(useAny);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
-		for (T item : set.getSet(pc))
+		for (T item : underlyingPCS.getSet(pc))
 		{
 			if (item.qualifies(pc, item))
 			{
@@ -133,7 +133,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof QualifiedDecorator)
-				&& ((QualifiedDecorator<?>) obj).set.equals(set);
+				&& ((QualifiedDecorator<?>) obj).underlyingPCS.equals(underlyingPCS);
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class QualifiedDecorator<T extends PObject> implements
 	@Override
 	public int hashCode()
 	{
-		return 1 - set.hashCode();
+		return 1 - underlyingPCS.hashCode();
 	}
 
 	/**
@@ -156,6 +156,6 @@ public class QualifiedDecorator<T extends PObject> implements
 	 */
 	public GroupingState getGroupingState()
 	{
-		return set.getGroupingState();
+		return underlyingPCS.getGroupingState();
 	}
 }

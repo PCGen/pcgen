@@ -75,12 +75,12 @@ public final class MapKey<K, V>
 	/**
 	 * Cast an object into the MapKey's value type
 	 * 
-	 * @param o the object to cast
+	 * @param obj the object to cast
 	 * 
 	 * @return the object as the MapKey's value type
 	 */
-	public V cast(Object o)
+	public V cast(Object obj)
 	{
-		return (V) o;
+		return (V) obj;
 	}
 }

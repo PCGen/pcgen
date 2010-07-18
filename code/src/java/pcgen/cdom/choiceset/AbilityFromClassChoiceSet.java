@@ -49,7 +49,7 @@ public class AbilityFromClassChoiceSet implements
 	 * The underlying class from which this AbilityFromClassChoiceSet can draw
 	 * Abilities
 	 */
-	private final CDOMSingleRef<PCClass> cl;
+	private final CDOMSingleRef<PCClass> classRef;
 
 	/**
 	 * Constructs a new AbilityFromClassChoiceSet which refers to the PCClass
@@ -61,7 +61,7 @@ public class AbilityFromClassChoiceSet implements
 	 */
 	public AbilityFromClassChoiceSet(CDOMSingleRef<PCClass> pcc)
 	{
-		cl = pcc;
+		classRef = pcc;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class AbilityFromClassChoiceSet implements
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return "CLASS." + cl.getLSTformat();
+		return "CLASS." + classRef.getLSTformat();
 	}
 
 	/**
@@ -88,12 +88,12 @@ public class AbilityFromClassChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof AbilityFromClassChoiceSet)
+		if (obj instanceof AbilityFromClassChoiceSet)
 		{
-			AbilityFromClassChoiceSet other = (AbilityFromClassChoiceSet) o;
-			return cl.equals(other.cl);
+			AbilityFromClassChoiceSet other = (AbilityFromClassChoiceSet) obj;
+			return classRef.equals(other.classRef);
 		}
 		return false;
 	}
@@ -107,7 +107,7 @@ public class AbilityFromClassChoiceSet implements
 	@Override
 	public int hashCode()
 	{
-		return cl.hashCode();
+		return classRef.hashCode();
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class AbilityFromClassChoiceSet implements
 	 */
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		PCClass aClass = pc.getClassKeyed(cl.resolvesTo().getKeyName());
+		PCClass aClass = pc.getClassKeyed(classRef.resolvesTo().getKeyName());
 		Set<AbilitySelection> set = new HashSet<AbilitySelection>();
 		if (aClass != null)
 		{
@@ -149,7 +149,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : (List<Ability>) element.getObjects())
 					{
-						set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
+						set.add(new AbilitySelection(aFeat, pc
+								.getAbilityNature(aFeat)));
 					}
 				}
 			}
@@ -159,7 +160,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
+					set.add(new AbilitySelection(aFeat, pc
+							.getAbilityNature(aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -171,7 +173,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
+						set.add(new AbilitySelection(aFeat, pc
+								.getAbilityNature(aFeat)));
 					}
 				}
 			}

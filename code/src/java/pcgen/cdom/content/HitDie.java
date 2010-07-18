@@ -45,19 +45,19 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	/**
 	 * Constructs a new HitDie with the given int value.
 	 * 
-	 * @param i
+	 * @param dieSize
 	 *            The die size for this HitDie
 	 * @throws IllegalArgumentException
 	 *             if the given die size is negative
 	 */
-	public HitDie(int i)
+	public HitDie(int dieSize)
 	{
-		if (i < 0)
+		if (dieSize < 0)
 		{
 			throw new IllegalArgumentException(
 					"HitDie can not have a negative die size");
 		}
-		die = i;
+		die = dieSize;
 	}
 
 	/**
@@ -161,9 +161,9 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof HitDie && ((HitDie) o).die == die;
+		return obj instanceof HitDie && ((HitDie) obj).die == die;
 	}
 
 	/**

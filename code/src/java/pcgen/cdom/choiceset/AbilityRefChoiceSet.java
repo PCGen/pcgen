@@ -59,7 +59,7 @@ public class AbilityRefChoiceSet implements
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * AbilityRefChoiceSet
 	 */
-	private final Set<AbilityRef> set;
+	private final Set<AbilityRef> abilityRefSet;
 
 	/**
 	 * The underlying Ability Category for this AbilityRefChoiceSet.
@@ -70,7 +70,7 @@ public class AbilityRefChoiceSet implements
 	 * The underlying Ability Nature for this AbilityRefChoiceSet.
 	 */
 	private final Nature nature;
-	
+
 	/**
 	 * Constructs a new AbilityRefChoiceSet which contains the Set of objects
 	 * contained within the given CDOMReferences. The CDOMReferences do not need
@@ -87,35 +87,35 @@ public class AbilityRefChoiceSet implements
 	 * @param cat
 	 *            The Ability Category of Ability objects that this
 	 *            AbilityRefChoiceSet refers to.
-	 * @param col
+	 * @param arCollection
 	 *            A Collection of AbilityRefs which define the Set of objects
 	 *            contained within the AbilityRefChoiceSet
-	 * @param n
+	 * @param nat
 	 *            The Ability Nature of the Ability objects as they should be
 	 *            applied to a PlayerCharacter
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
 	public AbilityRefChoiceSet(Category<Ability> cat,
-			Collection<? extends AbilityRef> col, Nature n)
+			Collection<? extends AbilityRef> arCollection, Nature nat)
 	{
 		super();
-		if (col == null)
+		if (arCollection == null)
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be null");
 		}
-		if (col.isEmpty())
+		if (arCollection.isEmpty())
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<AbilityRef>(col);
-		if (n == null)
+		abilityRefSet = new HashSet<AbilityRef>(arCollection);
+		if (nat == null)
 		{
 			throw new IllegalArgumentException("Choice Nature cannot be null");
 		}
-		nature = n;
+		nature = nat;
 		if (cat == null)
 		{
 			throw new IllegalArgumentException("Choice Category cannot be null");
@@ -137,7 +137,7 @@ public class AbilityRefChoiceSet implements
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		for (AbilityRef ar : set)
+		for (AbilityRef ar : abilityRefSet)
 		{
 			sortedSet.add(ar.getRef());
 		}
@@ -182,7 +182,7 @@ public class AbilityRefChoiceSet implements
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
-		for (AbilityRef ref : set)
+		for (AbilityRef ref : abilityRefSet)
 		{
 			for (Ability a : ref.getRef().getContainedObjects())
 			{
@@ -201,16 +201,16 @@ public class AbilityRefChoiceSet implements
 	}
 
 	private Collection<AbilitySelection> addMultiplySelectableAbility(
-			final PlayerCharacter aPC, Ability ab, String subName)
+			final PlayerCharacter aPC, Ability ability, String subName)
 	{
 		// If already have taken the feat, use it so we can remove
 		// any choices already selected
-		final Ability pcFeat = aPC.getFeatNamed(ab.getKeyName());
+		final Ability pcFeat = aPC.getFeatNamed(ability.getKeyName());
 
-		Ability a = ab;
+		Ability pcability = ability;
 		if (pcFeat != null)
 		{
-			a = pcFeat;
+			pcability = pcFeat;
 		}
 
 		boolean isPattern = false;
@@ -233,8 +233,8 @@ public class AbilityRefChoiceSet implements
 		final List<String> availableList = new ArrayList<String>();
 		final List<?> tempAvailList = new ArrayList<Object>();
 		final List<?> tempSelList = new ArrayList<Object>();
-		ChooserUtilities.modChoices(a, tempAvailList, tempSelList, false, aPC,
-				true, AbilityCategory.FEAT);
+		ChooserUtilities.modChoices(pcability, tempAvailList, tempSelList,
+				false, aPC, true, AbilityCategory.FEAT);
 		// Mod choices may have sent us back weaponprofs, abilities or
 		// strings,
 		// so we have to do a conversion here
@@ -282,7 +282,7 @@ public class AbilityRefChoiceSet implements
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new AbilitySelection(a, nature, s));
+			returnList.add(new AbilitySelection(pcability, nature, s));
 		}
 		return returnList;
 	}
@@ -295,7 +295,7 @@ public class AbilityRefChoiceSet implements
 	@Override
 	public int hashCode()
 	{
-		return set.size();
+		return abilityRefSet.size();
 	}
 
 	/**
@@ -306,16 +306,16 @@ public class AbilityRefChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof AbilityRefChoiceSet)
+		if (obj instanceof AbilityRefChoiceSet)
 		{
-			AbilityRefChoiceSet other = (AbilityRefChoiceSet) o;
-			return set.equals(other.set);
+			AbilityRefChoiceSet other = (AbilityRefChoiceSet) obj;
+			return abilityRefSet.equals(other.abilityRefSet);
 		}
 		return false;
 	}
@@ -349,11 +349,11 @@ public class AbilityRefChoiceSet implements
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (AbilityRef ref : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (AbilityRef ref : abilityRefSet)
 		{
-			gs = gs.add(ref.getGroupingState());
+			state = state.add(ref.getGroupingState());
 		}
-		return gs;
+		return state;
 	}
 }

@@ -36,7 +36,7 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -57,7 +57,7 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -78,9 +78,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
-			return c.getSafe(StringKey.PUB_NAME_LONG);
+			return campaign.getSafe(StringKey.PUB_NAME_LONG);
 		}
 
 		@Override
@@ -100,7 +100,7 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -121,7 +121,7 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -142,9 +142,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public String getPublisher(Campaign c)
+		public String getPublisher(Campaign campaign)
 		{
-			return c.getSafe(StringKey.PUB_NAME_WEB);
+			return campaign.getSafe(StringKey.PUB_NAME_WEB);
 		}
 
 		@Override
@@ -154,7 +154,7 @@ public enum SourceFormat
 		}
 	};
 
-	public abstract String getPublisher(Campaign c);
+	public abstract String getPublisher(Campaign campaign);
 	
 	public abstract String getField(CDOMObject cdo);
 

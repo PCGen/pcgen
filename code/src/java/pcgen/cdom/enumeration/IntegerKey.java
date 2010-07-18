@@ -34,8 +34,7 @@ import pcgen.core.Globals;
  * @author Tom Parker <thpr@users.sourceforge.net>
  * 
  * This is a Typesafe enumeration of legal Integer Characteristics of an object.
- * It is designed to act as an index to a specific integers within a
- * CDOMObject.
+ * It is designed to act as an index to a specific integers within a CDOMObject.
  * 
  * An optional "default value" can be provided (the default is provided when
  * getSafe(IntegerKey) is called in CDOMObject). The default "default value" is
@@ -222,19 +221,19 @@ public class IntegerKey
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static IntegerKey getConstant(String s)
+	public static IntegerKey getConstant(String name)
 	{
-		IntegerKey o = typeMap.get(s);
-		if (o == null)
+		IntegerKey key = typeMap.get(name);
+		if (key == null)
 		{
-			o = new IntegerKey(s, 0);
-			typeMap.put(s, o);
+			key = new IntegerKey(name, 0);
+			typeMap.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	/**
@@ -242,22 +241,22 @@ public class IntegerKey
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
-	 * @param i
+	 * @param defaultValue
 	 *            The value to be used as the default value if the IntegerKey is
 	 *            not set
 	 * @return The Constant for the given name
 	 */
-	public static IntegerKey getConstant(String s, int i)
+	public static IntegerKey getConstant(String name, int defaultValue)
 	{
-		IntegerKey o = typeMap.get(s);
-		if (o == null)
+		IntegerKey key = typeMap.get(name);
+		if (key == null)
 		{
-			o = new IntegerKey(s, i);
-			typeMap.put(s, o);
+			key = new IntegerKey(name, defaultValue);
+			typeMap.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	/**
@@ -265,21 +264,21 @@ public class IntegerKey
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined IntegerKey
 	 */
-	public static IntegerKey valueOf(String s)
+	public static IntegerKey valueOf(String name)
 	{
-		IntegerKey o = typeMap.get(s);
-		if (o == null)
+		IntegerKey key = typeMap.get(name);
+		if (key == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined IntegerKey");
 		}
-		return o;
+		return key;
 	}
 
 	/**

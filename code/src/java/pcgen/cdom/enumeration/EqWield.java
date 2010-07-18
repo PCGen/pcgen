@@ -25,7 +25,7 @@ public enum EqWield
 	Unarmed
 	{
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment eq)
+		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
 		{
 			//TODO What is appropriate here?
 			return false;
@@ -34,9 +34,9 @@ public enum EqWield
 	Light
 	{
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment eq)
+		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
 		{
-			return eq.isWeaponLightForPC(pc);
+			return equipment.isWeaponLightForPC(pc);
 		}
 	},
 	OneHanded
@@ -48,9 +48,9 @@ public enum EqWield
 		}
 
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment eq)
+		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
 		{
-			return eq.isWeaponOneHanded(pc);
+			return equipment.isWeaponOneHanded(pc);
 		}
 	},
 	TwoHanded
@@ -62,11 +62,11 @@ public enum EqWield
 		}
 
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment eq)
+		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
 		{
-			return eq.isWeaponTwoHanded(pc);
+			return equipment.isWeaponTwoHanded(pc);
 		}
 	};
 
-	public abstract boolean checkWield(PlayerCharacter pc, Equipment eq);
+	public abstract boolean checkWield(PlayerCharacter pc, Equipment equipment);
 }

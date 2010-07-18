@@ -88,20 +88,20 @@ public final class Pantheon implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static Pantheon getConstant(String s)
+	public static Pantheon getConstant(String name)
 	{
 		initializeTypeMap();
-		Pantheon o = typeMap.get(s);
-		if (o == null)
+		Pantheon pantheon = typeMap.get(name);
+		if (pantheon == null)
 		{
-			o = new Pantheon(s);
-			typeMap.put(s, o);
+			pantheon = new Pantheon(name);
+			typeMap.put(name, pantheon);
 		}
-		return o;
+		return pantheon;
 	}
 
 	/**
@@ -120,22 +120,22 @@ public final class Pantheon implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined Pantheon
 	 */
-	public static Pantheon valueOf(String s)
+	public static Pantheon valueOf(String name)
 	{
 		initializeTypeMap();
-		Pantheon o = typeMap.get(s);
-		if (o == null)
+		Pantheon pantheon = typeMap.get(name);
+		if (pantheon == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined Pantheon");
 		}
-		return o;
+		return pantheon;
 	}
 
 	/**

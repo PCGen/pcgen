@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
@@ -106,12 +107,13 @@ public final class AssociationKey<T>
 		// Only allow instantation here
 	}
 
-	public T cast(Object o)
+	public T cast(Object obj)
 	{
-		return (T) o;
+		return (T) obj;
 	}
 
-	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> c, String s)
+	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> assocClass,
+			String assocName)
 	{
 		if (map == null)
 		{
@@ -126,13 +128,13 @@ public final class AssociationKey<T>
 		 * Class and validate that with a an error message if a different class
 		 * is requested.
 		 */
-		AssociationKey<OT> o = (AssociationKey<OT>) map.get(s);
-		if (o == null)
+		AssociationKey<OT> key = (AssociationKey<OT>) map.get(assocName);
+		if (key == null)
 		{
-			o = new AssociationKey<OT>();
-			map.put(s, o);
+			key = new AssociationKey<OT>();
+			map.put(assocName, key);
 		}
-		return o;
+		return key;
 	}
 
 	private static void buildMap()
@@ -148,19 +150,19 @@ public final class AssociationKey<T>
 			{
 				try
 				{
-					Object o = fields[i].get(null);
-					if (o instanceof AssociationKey)
+					Object obj = fields[i].get(null);
+					if (obj instanceof AssociationKey)
 					{
-						map.put(fields[i].getName(), (AssociationKey<?>) o);
+						map.put(fields[i].getName(), (AssociationKey<?>) obj);
 					}
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

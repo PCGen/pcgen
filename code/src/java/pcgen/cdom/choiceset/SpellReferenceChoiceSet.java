@@ -74,26 +74,27 @@ public class SpellReferenceChoiceSet implements
 	 * this SpellReferenceChoiceSet will maintain hard references to the
 	 * CDOMReference objects contained within the given Collection.
 	 * 
-	 * @param col
+	 * @param listRefCollection
 	 *            A Collection of CDOMReferences which define the Set of
 	 *            CDOMListObjects contained within the SpellReferenceChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
 	public SpellReferenceChoiceSet(
-			Collection<CDOMReference<? extends CDOMListObject<Spell>>> col)
+			Collection<CDOMReference<? extends CDOMListObject<Spell>>> listRefCollection)
 	{
-		if (col == null)
+		if (listRefCollection == null)
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be null");
 		}
-		if (col.isEmpty())
+		if (listRefCollection.isEmpty())
 		{
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<CDOMReference<? extends CDOMListObject<Spell>>>(col);
+		set = new HashSet<CDOMReference<? extends CDOMListObject<Spell>>>(
+				listRefCollection);
 	}
 
 	/**
@@ -205,15 +206,15 @@ public class SpellReferenceChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof SpellReferenceChoiceSet)
+		if (obj instanceof SpellReferenceChoiceSet)
 		{
-			SpellReferenceChoiceSet other = (SpellReferenceChoiceSet) o;
+			SpellReferenceChoiceSet other = (SpellReferenceChoiceSet) obj;
 			return set.equals(other.set);
 		}
 		return false;
@@ -228,12 +229,12 @@ public class SpellReferenceChoiceSet implements
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (CDOMReference<? extends CDOMListObject<Spell>> listref : set)
 		{
-			gs = gs.add(ref.getGroupingState());
+			state = state.add(listref.getGroupingState());
 		}
-		return gs;
+		return state;
 	}
 
 }

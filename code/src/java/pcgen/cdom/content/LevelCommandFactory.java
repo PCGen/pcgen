@@ -47,7 +47,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * Constructs a new LevelCommandFactory for the given PCClass and number of
 	 * levels
 	 * 
-	 * @param cl
+	 * @param classRef
 	 *            A Reference to the PCClass to be applied to the
 	 *            PlayerCharacter when this LevelCommandFactory is executed.
 	 *            This reference must be resolved before the LevelCommandFactory
@@ -58,9 +58,9 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * @throws IllegalArgumentException
 	 *             if the given Reference or Formula is null
 	 */
-	public LevelCommandFactory(CDOMSingleRef<PCClass> cl, Formula lvls)
+	public LevelCommandFactory(CDOMSingleRef<PCClass> classRef, Formula lvls)
 	{
-		if (cl == null)
+		if (classRef == null)
 		{
 			throw new IllegalArgumentException(
 					"Class Reference for LevelCommandFactory cannot be null");
@@ -70,7 +70,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 			throw new IllegalArgumentException(
 					"Level Formula for LevelCommandFactory cannot be null");
 		}
-		pcClass = cl;
+		pcClass = classRef;
 		levels = lvls;
 	}
 
@@ -129,17 +129,17 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (this == o)
+		if (this == obj)
 		{
 			return true;
 		}
-		if (!(o instanceof LevelCommandFactory))
+		if (!(obj instanceof LevelCommandFactory))
 		{
 			return false;
 		}
-		LevelCommandFactory lcf = (LevelCommandFactory) o;
+		LevelCommandFactory lcf = (LevelCommandFactory) obj;
 		return levels.equals(lcf.levels) && pcClass.equals(lcf.pcClass);
 	}
 
@@ -159,9 +159,9 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public int compareTo(LevelCommandFactory other)
 	{
-		int i = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass,
-				other.pcClass);
-		if (i == 0)
+		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(
+				pcClass, other.pcClass);
+		if (compareResult == 0)
 		{
 			if (levels.equals(other.levels))
 			{
@@ -173,6 +173,6 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 			}
 			return levels.toString().compareTo(other.levels.toString());
 		}
-		return i;
+		return compareResult;
 	}
 }

@@ -88,20 +88,20 @@ public final class SubRegion implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static SubRegion getConstant(String s)
+	public static SubRegion getConstant(String name)
 	{
 		initializeTypeMap();
-		SubRegion o = typeMap.get(s);
-		if (o == null)
+		SubRegion subRegion = typeMap.get(name);
+		if (subRegion == null)
 		{
-			o = new SubRegion(s);
-			typeMap.put(s, o);
+			subRegion = new SubRegion(name);
+			typeMap.put(name, subRegion);
 		}
-		return o;
+		return subRegion;
 	}
 
 	/**
@@ -120,22 +120,22 @@ public final class SubRegion implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined SubRegion
 	 */
-	public static SubRegion valueOf(String s)
+	public static SubRegion valueOf(String name)
 	{
 		initializeTypeMap();
-		SubRegion o = typeMap.get(s);
-		if (o == null)
+		SubRegion subRegion = typeMap.get(name);
+		if (subRegion == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined SubRegion");
 		}
-		return o;
+		return subRegion;
 	}
 
 	/**

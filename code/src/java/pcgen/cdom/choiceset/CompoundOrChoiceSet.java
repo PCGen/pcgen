@@ -49,7 +49,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundOrChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> set = new TreeSet<PrimitiveChoiceSet<T>>(
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<PrimitiveChoiceSet<T>>(
 			ChoiceSetUtilities.WRITEABLE_SORTER);
 
 	private final String separator;
@@ -66,24 +66,25 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * references are maintained to the PrimitiveChoiceSet objects contained
 	 * within the given Collection.
 	 * 
-	 * @param col
+	 * @param pcsCollection
 	 *            A Collection of PrimitiveChoiceSets which define the Set of
 	 *            objects contained within the CompoundOrChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> col)
+	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> pcsCollection)
 	{
-		this(col, Constants.PIPE);
+		this(pcsCollection, Constants.PIPE);
 	}
 
-	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> col, String sep)
+	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> pcsCollection,
+			String sep)
 	{
-		if (col == null)
+		if (pcsCollection == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		set.addAll(col);
+		pcsSet.addAll(pcsCollection);
 		separator = sep;
 	}
 
@@ -108,7 +109,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
-		for (PrimitiveChoiceSet<T> cs : set)
+		for (PrimitiveChoiceSet<T> cs : pcsSet)
 		{
 			returnSet.addAll(cs.getSet(pc));
 		}
@@ -127,7 +128,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities.joinLstFormat(set, separator, useAny);
+		return ChoiceSetUtilities.joinLstFormat(pcsSet, separator, useAny);
 	}
 
 	/**
@@ -137,7 +138,8 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public Class<? super T> getChoiceClass()
 	{
-		return set == null ? null : set.iterator().next().getChoiceClass();
+		return pcsSet == null ? null : pcsSet.iterator().next()
+				.getChoiceClass();
 	}
 
 	/**
@@ -148,7 +150,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public int hashCode()
 	{
-		return set.hashCode();
+		return pcsSet.hashCode();
 	}
 
 	/**
@@ -159,10 +161,10 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return (o instanceof CompoundOrChoiceSet)
-				&& ((CompoundOrChoiceSet<?>) o).set.equals(set);
+		return (obj instanceof CompoundOrChoiceSet)
+				&& ((CompoundOrChoiceSet<?>) obj).pcsSet.equals(pcsSet);
 	}
 
 	/**
@@ -174,11 +176,11 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (PrimitiveChoiceSet<T> cs : set)
+		GroupingState state = GroupingState.EMPTY;
+		for (PrimitiveChoiceSet<T> pcs : pcsSet)
 		{
-			gs = cs.getGroupingState().add(gs);
+			state = pcs.getGroupingState().add(state);
 		}
-		return gs.compound(GroupingState.ALLOWS_UNION);
+		return state.compound(GroupingState.ALLOWS_UNION);
 	}
 }

@@ -88,20 +88,20 @@ public final class SubRace implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static SubRace getConstant(String s)
+	public static SubRace getConstant(String name)
 	{
 		initializeTypeMap();
-		SubRace o = typeMap.get(s);
-		if (o == null)
+		SubRace subRace = typeMap.get(name);
+		if (subRace == null)
 		{
-			o = new SubRace(s);
-			typeMap.put(s, o);
+			subRace = new SubRace(name);
+			typeMap.put(name, subRace);
 		}
-		return o;
+		return subRace;
 	}
 
 	/**
@@ -120,22 +120,22 @@ public final class SubRace implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined SubRace
 	 */
-	public static SubRace valueOf(String s)
+	public static SubRace valueOf(String name)
 	{
 		initializeTypeMap();
-		SubRace o = typeMap.get(s);
-		if (o == null)
+		SubRace subRace = typeMap.get(name);
+		if (subRace == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined SubRace");
 		}
-		return o;
+		return subRace;
 	}
 
 	/**

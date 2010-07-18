@@ -64,16 +64,16 @@ public class CampaignURL implements Comparable<CampaignURL>
 	 *            the kind of url
 	 * @param name
 	 *            the name of the url (only for ecommerce sites)
-	 * @param u
+	 * @param uri
 	 *            The URI itself.
 	 * @param description
 	 *            the displayed description of the url
 	 */
-	public CampaignURL(URLKind kind, String name, URI u, String description)
+	public CampaignURL(URLKind kind, String name, URI uri, String description)
 	{
 		this.urlKind = kind;
 		this.urlName = name;
-		this.uri = u;
+		this.uri = uri;
 		this.urlDesc = description;
 	}
 
@@ -146,15 +146,15 @@ public class CampaignURL implements Comparable<CampaignURL>
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (this == o)
+		if (this == obj)
 		{
 			return true;
 		}
-		if (o instanceof CampaignURL)
+		if (obj instanceof CampaignURL)
 		{
-			CampaignURL that = (CampaignURL) o;
+			CampaignURL that = (CampaignURL) obj;
 			return that.getUrlKind().equals(urlKind)
 					&& that.getUrlName().equals(urlName)
 					&& that.getUri().equals(uri)

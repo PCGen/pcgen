@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
@@ -270,12 +271,12 @@ public final class ListKey<T> {
 		//Only allow instantation here
 	}
 
-	public T cast(Object o)
+	public T cast(Object obj)
 	{
-		return (T) o;
+		return (T) obj;
 	}
 
-	public static <OT> ListKey<OT> getKeyFor(Class<OT> c, String s)
+	public static <OT> ListKey<OT> getKeyFor(Class<OT> keyClass, String name)
 	{
 		/*
 		 * CONSIDER This is actually not type safe, there is a case of asking
@@ -286,13 +287,13 @@ public final class ListKey<T> {
 		 * Class and validate that with a an error message if a different class
 		 * is requested.
 		 */
-		ListKey<OT> o = (ListKey<OT>) map.get(s);
-		if (o == null)
+		ListKey<OT> key = (ListKey<OT>) map.get(name);
+		if (key == null)
 		{
-			o = new ListKey<OT>();
-			map.put(s, o);
+			key = new ListKey<OT>();
+			map.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	private static void buildMap()
@@ -309,19 +310,19 @@ public final class ListKey<T> {
 			{
 				try
 				{
-					Object o = fields[i].get(null);
-					if (o instanceof ListKey)
+					Object obj = fields[i].get(null);
+					if (obj instanceof ListKey)
 					{
-						map.put(fields[i].getName(), (ListKey<?>) o);
+						map.put(fields[i].getName(), (ListKey<?>) obj);
 					}
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

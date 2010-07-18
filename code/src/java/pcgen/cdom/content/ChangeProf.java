@@ -113,17 +113,17 @@ public class ChangeProf extends ConcretePrereqObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof ChangeProf))
+		if (!(obj instanceof ChangeProf))
 		{
 			return false;
 		}
-		ChangeProf other = (ChangeProf) o;
+		ChangeProf other = (ChangeProf) obj;
 		return source.equals(other.source) && result.equals(other.result);
 	}
 }

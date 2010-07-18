@@ -33,9 +33,9 @@ public enum Destination
 
 	private final String text;
 	
-	Destination(String s)
+	Destination(String destination)
 	{
-		text = s;
+		text = destination;
 	}
 
 	@Override

@@ -97,7 +97,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	private final List<String> spelltypes;
 
 	/**
-	 * The underlying Set of CDOMReferences that contain the objects in this
+	 * The underlying PrimitiveChoiceSet that contains the objects in this
 	 * SpellCasterChoiceSet. This includes Group-based references to PCClasses.
 	 * 
 	 * It is necessary to keep this separate from the individual references due
@@ -108,10 +108,10 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * 
 	 * CONSIDER is this separation good behavior or a bug?
 	 */
-	private final PrimitiveChoiceSet<PCClass> pcset;
+	private final PrimitiveChoiceSet<PCClass> types;
 
 	/**
-	 * The underlying Set of CDOMReferences that contain the objects in this
+	 * The underlying PrimitiveChoiceSet that contains the objects in this
 	 * SpellCasterChoiceSet. This includes individual references to (primitive)
 	 * PCClasses.
 	 */
@@ -133,22 +133,22 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * @param spelltype
 	 *            A List of spell types that this SpellCasterChoiceSet will
 	 *            allow to be used to select a PCClass
-	 * @param col
-	 *            A Collection of CDOMReferences which define the Set of objects
-	 *            contained within the SpellCasterChoiceSet which were
-	 *            referenced by group (e.g. TYPE=)
-	 * @param prim
-	 *            A Collection of CDOMReferences which define the Set of
-	 *            primitive objects contained within the SpellCasterChoiceSet
-	 *            which were referenced by key
+	 * @param typePCS
+	 *            A PrimitiveChoiceSet which defines the Set of objects
+	 *            contained within the SpellCasterChoiceSet that were referenced
+	 *            by group (e.g. TYPE=)
+	 * @param primPCS
+	 *            A PrimitiveChoiceSet which defines the Set of primitive
+	 *            objects contained within the SpellCasterChoiceSet that were
+	 *            referenced by key
 	 */
 	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
-			List<String> spelltype, PrimitiveChoiceSet<PCClass> col,
-			PrimitiveChoiceSet<PCClass> prim)
+			List<String> spelltype, PrimitiveChoiceSet<PCClass> typePCS,
+			PrimitiveChoiceSet<PCClass> primPCS)
 	{
-		super("SPELLCASTER", col == null ? EMPTY_CHOICE_SET : col);
-		pcset = col;
-		primitives = prim;
+		super("SPELLCASTER", typePCS == null ? EMPTY_CHOICE_SET : typePCS);
+		types = typePCS;
+		primitives = primPCS;
 		spelltypes = new ArrayList<String>(spelltype);
 		allClasses = allRef;
 	}
@@ -183,9 +183,9 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		{
 			list.add(primitives.getLSTformat(useAny));
 		}
-		if (pcset != null)
+		if (types != null)
 		{
-			list.add(pcset.getLSTformat(useAny));
+			list.add(types.getLSTformat(useAny));
 		}
 		if (!spelltypes.isEmpty())
 		{
@@ -236,9 +236,9 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		Set<PCClass> returnSet = new HashSet<PCClass>();
-		if (pcset != null)
+		if (types != null)
 		{
-			for (PCClass pcc : pcset.getSet(pc))
+			for (PCClass pcc : types.getSet(pc))
 			{
 				if ((pcc.get(StringKey.SPELLTYPE) != null)
 						&& (pc.getClassKeyed(pcc.getKeyName()) != null))
@@ -277,7 +277,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public int hashCode()
 	{
-		return (pcset == null ? 0 : pcset.hashCode() * 29)
+		return (types == null ? 0 : types.hashCode() * 29)
 				+ (primitives == null ? 0 : primitives.hashCode());
 	}
 
@@ -289,25 +289,25 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof SpellCasterChoiceSet)
+		if (obj instanceof SpellCasterChoiceSet)
 		{
-			SpellCasterChoiceSet other = (SpellCasterChoiceSet) o;
-			if (pcset == null)
+			SpellCasterChoiceSet other = (SpellCasterChoiceSet) obj;
+			if (types == null)
 			{
-				if (other.pcset != null)
+				if (other.types != null)
 				{
 					return false;
 				}
 			}
 			else
 			{
-				if (!pcset.equals(other.pcset))
+				if (!types.equals(other.types))
 				{
 					return false;
 				}
@@ -331,19 +331,19 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
+		GroupingState state = GroupingState.EMPTY;
 		if (primitives != null)
 		{
-			gs = primitives.getGroupingState().add(gs);
+			state = primitives.getGroupingState().add(state);
 		}
-		if (pcset != null)
+		if (types != null)
 		{
-			gs = pcset.getGroupingState().add(gs);
+			state = types.getGroupingState().add(state);
 		}
 		if (!spelltypes.isEmpty())
 		{
-			gs = GroupingState.ANY.add(gs);
+			state = GroupingState.ANY.add(state);
 		}
-		return gs;
+		return state;
 	}
 }

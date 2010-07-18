@@ -55,9 +55,9 @@ public enum SkillArmorCheck
 	YES, NONPROF
 	{
 		@Override
-		protected boolean useEquipment(PlayerCharacter pc, Equipment eq)
+		protected boolean useEquipment(PlayerCharacter pc, Equipment equipment)
 		{
-			return !pc.isProficientWith(eq);
+			return !pc.isProficientWith(equipment);
 		}
 
 		@Override

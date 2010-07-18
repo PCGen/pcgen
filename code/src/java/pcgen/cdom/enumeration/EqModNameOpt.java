@@ -169,16 +169,16 @@ public enum EqModNameOpt
 
 	public abstract String returnName(Equipment parent, EquipmentModifier mod);
 
-	public static EqModNameOpt valueOfIgnoreCase(String s)
+	public static EqModNameOpt valueOfIgnoreCase(String optName)
 	{
 		if (typeMap == null)
 		{
 			buildMap();
 		}
-		EqModNameOpt eqmno = typeMap.get(s);
+		EqModNameOpt eqmno = typeMap.get(optName);
 		if (eqmno == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(optName
 					+ " is not a valid EqModNameOpt");
 		}
 		return eqmno;
@@ -194,8 +194,8 @@ public enum EqModNameOpt
 	private static void buildMap()
 	{
 		typeMap = new CaseInsensitiveMap<EqModNameOpt>();
-		Class<EqModNameOpt> cl = EqModNameOpt.class;
-		for (Field f : cl.getDeclaredFields())
+		Class<EqModNameOpt> thisClass = EqModNameOpt.class;
+		for (Field f : thisClass.getDeclaredFields())
 		{
 			int mod = f.getModifiers();
 			String name = f.getName();
@@ -205,10 +205,10 @@ public enum EqModNameOpt
 			{
 				try
 				{
-					Object o = f.get(null);
-					if (cl.isAssignableFrom(o.getClass()))
+					Object obj = f.get(null);
+					if (thisClass.isAssignableFrom(obj.getClass()))
 					{
-						EqModNameOpt tObj = cl.cast(o);
+						EqModNameOpt tObj = thisClass.cast(obj);
 						if (typeMap.containsKey(name))
 						{
 							throw new UnreachableError(
@@ -221,11 +221,11 @@ public enum EqModNameOpt
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

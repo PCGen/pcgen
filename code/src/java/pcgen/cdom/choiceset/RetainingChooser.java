@@ -71,16 +71,16 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 	 * which has the given CDOMGroupRef as the base set of objects (that the
 	 * RetainingChooser will filter with the contained PrimitiveChoiceFilters)
 	 * 
-	 * @param cl
+	 * @param baseClass
 	 *            The class of objects that this RetainingChooser contains.
 	 * @param allRef
 	 *            The base set of objects from which this RetainingChooser
 	 *            starts before it applies any PrimitiveChoiceFilters
 	 */
-	public RetainingChooser(Class<T> cl, ObjectContainer<T> allRef)
+	public RetainingChooser(Class<T> baseClass, ObjectContainer<T> allRef)
 	{
 		super();
-		if (cl == null)
+		if (baseClass == null)
 		{
 			throw new IllegalArgumentException(
 					"Class for RetainingChooser cannot be null");
@@ -96,17 +96,17 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 	/**
 	 * Adds the given PrimitiveChoiceFilter to this RetainingChooser
 	 * 
-	 * @param cs
+	 * @param pcf
 	 *            The PrimitiveChoiceFilter to be added to this RetainingChooser
 	 */
-	public void addRetainingChoiceFilter(PrimitiveChoiceFilter<? super T> cs)
+	public void addRetainingChoiceFilter(PrimitiveChoiceFilter<? super T> pcf)
 	{
-		if (cs == null)
+		if (pcf == null)
 		{
 			throw new IllegalArgumentException(
 					"PrimitiveChoiceFilter to be added cannot be null");
 		}
-		Class<?> refClass = cs.getReferenceClass();
+		Class<?> refClass = pcf.getReferenceClass();
 		if (!baseSet.getReferenceClass().isAssignableFrom(refClass))
 		{
 			throw new IllegalArgumentException(
@@ -114,7 +114,7 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 							+ " is a different class type than "
 							+ baseSet.getReferenceClass().getSimpleName());
 		}
-		retainingSet.add(cs);
+		retainingSet.add(pcf);
 	}
 
 	/**
@@ -132,14 +132,14 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 	 *            The PrimitiveChoiceFilter to be added to this RetainingChooser
 	 */
 	public void addAllRetainingChoiceFilters(
-			Collection<PrimitiveChoiceFilter<T>> coll)
+			Collection<PrimitiveChoiceFilter<T>> pcfCollection)
 	{
-		if (coll == null)
+		if (pcfCollection == null)
 		{
 			throw new IllegalArgumentException(
 					"Collection of PrimitiveChoiceFilters to be added cannot be null");
 		}
-		for (PrimitiveChoiceFilter<T> pcf : coll)
+		for (PrimitiveChoiceFilter<T> pcf : pcfCollection)
 		{
 			addRetainingChoiceFilter(pcf);
 		}
@@ -232,11 +232,11 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof RetainingChooser)
+		if (obj instanceof RetainingChooser)
 		{
-			RetainingChooser<?> other = (RetainingChooser<?>) o;
+			RetainingChooser<?> other = (RetainingChooser<?>) obj;
 			return baseSet.equals(other.baseSet)
 					&& retainingSet.equals(other.retainingSet);
 		}
@@ -252,12 +252,12 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 	 */
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = GroupingState.EMPTY;
-		for (PrimitiveChoiceFilter<? super T> cs : retainingSet)
+		GroupingState state = GroupingState.EMPTY;
+		for (PrimitiveChoiceFilter<? super T> pcf : retainingSet)
 		{
-			gs = cs.getGroupingState().add(gs);
+			state = pcf.getGroupingState().add(state);
 		}
-		return (retainingSet.size() == 1) ? gs : gs
+		return (retainingSet.size() == 1) ? state : state
 				.compound(GroupingState.ALLOWS_UNION);
 	}
 }

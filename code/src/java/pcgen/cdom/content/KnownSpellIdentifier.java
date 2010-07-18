@@ -57,7 +57,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * limited by the given levelLimit, or null can be used to indicate no level
 	 * limit on the spells in the reference.
 	 * 
-	 * @param sr
+	 * @param spellRef
 	 *            The CDOMReference containing the spells to be part of this
 	 *            KnownSpellIdentifier. May be null if this KnownSpellIdentifier
 	 *            is not limited by Spell key.
@@ -67,9 +67,10 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * @throws IllegalArgumentException
 	 *             if the given CDOMReference is null
 	 */
-	public KnownSpellIdentifier(CDOMReference<Spell> sr, Integer levelLimit)
+	public KnownSpellIdentifier(CDOMReference<Spell> spellRef,
+			Integer levelLimit)
 	{
-		if (sr == null)
+		if (spellRef == null)
 		{
 			throw new IllegalArgumentException(
 					"Known Spell Identifier cannot have null spell reference");
@@ -79,7 +80,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 			throw new IllegalArgumentException(
 					"Known Spell Identifier level limit cannot be negative");
 		}
-		ref = sr;
+		ref = spellRef;
 		spellLevel = levelLimit;
 	}
 
@@ -92,16 +93,16 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * and either the levelLimit provided at construction is null or the given
 	 * testSpellLevel matches the levelLimit provided at construction.
 	 * 
-	 * @param s
+	 * @param spell
 	 *            The spell to be tested to determine if it is contained in the
 	 *            KnownSpellIdentifier
 	 * @param testSpellLevel
 	 *            The level of the spell for purposes of the test
 	 * @return true if the given Spell is contained in this KnownSpellIdentifier
 	 */
-	public boolean matchesFilter(Spell s, int testSpellLevel)
+	public boolean matchesFilter(Spell spell, int testSpellLevel)
 	{
-		return (ref == null || ref.contains(s))
+		return (ref == null || ref.contains(spell))
 				&& (spellLevel == null || testSpellLevel == spellLevel);
 	}
 
@@ -131,19 +132,22 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	/**
 	 * Returns a Collection of Spells contained by this KnownSpellIdentifier
 	 * within the given lists.
-	 * @param pc TODO
-	 * @param list
+	 * 
+	 * @param pc
+	 *            TODO
+	 * @param classSpellLists
 	 *            The Spell Lists that should be used to resolve what Spells are
 	 *            identified as known by this KnownSpellIdentifier.
 	 * 
 	 * @return A Collection of Spells contained by this KnownSpellIdentifier
 	 *         within the given lists.
 	 */
-	public Collection<Spell> getContainedSpells(PlayerCharacter pc, List<ClassSpellList> list)
+	public Collection<Spell> getContainedSpells(PlayerCharacter pc,
+			List<ClassSpellList> classSpellLists)
 	{
 		if (ref == null)
 		{
-			return Globals.getSpellsIn(spellLevel, list, pc);
+			return Globals.getSpellsIn(spellLevel, classSpellLists, pc);
 		}
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())
@@ -152,7 +156,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 					.getMasterLevelInfo(null, sp);
 			for (CDOMList<Spell> cdomList : hml.getKeySet())
 			{
-				if (list.contains(cdomList))
+				if (classSpellLists.contains(cdomList))
 				{
 					if (spellLevel == null
 							|| hml.getListFor(cdomList).contains(spellLevel))
@@ -185,17 +189,17 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof KnownSpellIdentifier))
+		if (!(obj instanceof KnownSpellIdentifier))
 		{
 			return false;
 		}
-		KnownSpellIdentifier other = (KnownSpellIdentifier) o;
+		KnownSpellIdentifier other = (KnownSpellIdentifier) obj;
 		if (spellLevel == null)
 		{
 			return other.spellLevel == null && ref.equals(other.ref);

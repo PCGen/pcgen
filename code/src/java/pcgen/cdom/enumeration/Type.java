@@ -149,19 +149,19 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static Type getConstant(String s)
+	public static Type getConstant(String name)
 	{
-		Type o = typeMap.get(s);
-		if (o == null)
+		Type type = typeMap.get(name);
+		if (type == null)
 		{
-			o = new Type(s);
-			typeMap.put(s, o);
+			type = new Type(name);
+			typeMap.put(name, type);
 		}
-		return o;
+		return type;
 	}
 
 	/**
@@ -169,21 +169,21 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined Pantheon
 	 */
-	public static Type valueOf(String s)
+	public static Type valueOf(String name)
 	{
-		Type o = typeMap.get(s);
-		if (o == null)
+		Type type = typeMap.get(name);
+		if (type == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined Type");
 		}
-		return o;
+		return type;
 	}
 
 	/**
@@ -220,7 +220,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	public int compareTo(Type o)
+	public int compareTo(Type type)
 	{
 		/*
 		 * Note: Some tools will report a problem here because Type implements
@@ -229,6 +229,6 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		 * has a private constructor, it is unnecessary to implement a custom
 		 * hashCode or equals.
 		 */
-		return fieldName.compareTo(o.fieldName);
+		return fieldName.compareTo(type.fieldName);
 	}
 }

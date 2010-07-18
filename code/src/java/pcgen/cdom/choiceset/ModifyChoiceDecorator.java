@@ -41,7 +41,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * PrimitiveChoiceSet that identifies the Ability objects (Feats, really)
 	 * that were listed in the LST file.
 	 */
-	private final PrimitiveChoiceSet<Ability> set;
+	private final PrimitiveChoiceSet<Ability> pcs;
 
 	/**
 	 * Constructs a new ModifyChoiceDecorator with the given underlying
@@ -53,7 +53,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public ModifyChoiceDecorator(PrimitiveChoiceSet<Ability> underlyingSet)
 	{
-		set = underlyingSet;
+		pcs = underlyingSet;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public Class<? super Ability> getChoiceClass()
 	{
-		return set.getChoiceClass();
+		return pcs.getChoiceClass();
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return set.getLSTformat(useAny);
+		return pcs.getLSTformat(useAny);
 	}
 
 	/**
@@ -100,12 +100,12 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public Set<Ability> getSet(PlayerCharacter pc)
 	{
-		Collection<Ability> ab = set.getSet(pc);
+		Collection<Ability> collection = pcs.getSet(pc);
 		List<Ability> pcfeats = pc.aggregateFeatList();
 		Set<Ability> returnSet = new HashSet<Ability>();
 		for (Ability a : pcfeats)
 		{
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ab.contains(a))
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && collection.contains(a))
 			{
 				returnSet.add(a);
 			}
@@ -124,7 +124,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof ModifyChoiceDecorator)
-				&& ((ModifyChoiceDecorator) obj).set.equals(set);
+				&& ((ModifyChoiceDecorator) obj).pcs.equals(pcs);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	@Override
 	public int hashCode()
 	{
-		return set.hashCode();
+		return pcs.hashCode();
 	}
 
 	/**
@@ -148,6 +148,6 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public GroupingState getGroupingState()
 	{
-		return set.getGroupingState();
+		return pcs.getGroupingState();
 	}
 }

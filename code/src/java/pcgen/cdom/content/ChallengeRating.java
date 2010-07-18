@@ -44,20 +44,21 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * Constructs a new ChallengeRating with the given String. The String must
 	 * either be a positive integer or "1/x" where x is a positive Integer.
 	 * 
-	 * @param string
+	 * @param crFormula
 	 *            The formula for this ChallengeRating
 	 * @throws NullPointerException
 	 *             if the given String is null
 	 * @throws IllegalArgumentException
 	 *             if the given String is not of the appropriate syntax
 	 */
-	public ChallengeRating(String string)
+	public ChallengeRating(String crFormula)
 	{
 		try
 		{
-			int i = Integer.parseInt(string.startsWith("1/") ? string
-					.substring(2) : string);
-			if (i < 0)
+			int intRating = Integer
+					.parseInt(crFormula.startsWith("1/") ? crFormula
+							.substring(2) : crFormula);
+			if (intRating < 0)
 			{
 				throw new IllegalArgumentException(
 						"Challenge Rating cannot be negative");
@@ -68,7 +69,7 @@ public class ChallengeRating extends ConcretePrereqObject
 			throw new IllegalArgumentException(
 					"Challenge Rating must be a positive integer i or 1/i", e);
 		}
-		rating = FormulaFactory.getFormulaFor(string);
+		rating = FormulaFactory.getFormulaFor(crFormula);
 	}
 
 	/**
@@ -117,15 +118,15 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof ChallengeRating)
+		if (obj instanceof ChallengeRating)
 		{
-			ChallengeRating other = (ChallengeRating) o;
+			ChallengeRating other = (ChallengeRating) obj;
 			return rating.equals(other.rating) && equalsPrereqObject(other);
 		}
 		return false;

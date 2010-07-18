@@ -87,20 +87,20 @@ public final class VariableKey implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, a new Constant
 	 * is created with the given String as the name of the Constant.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static VariableKey getConstant(String s)
+	public static VariableKey getConstant(String name)
 	{
 		initializeTypeMap();
-		VariableKey o = typeMap.get(s);
-		if (o == null)
+		VariableKey key = typeMap.get(name);
+		if (key == null)
 		{
-			o = new VariableKey(s);
-			typeMap.put(s, o);
+			key = new VariableKey(name);
+			typeMap.put(name, key);
 		}
-		return o;
+		return key;
 	}
 
 	/**
@@ -119,22 +119,22 @@ public final class VariableKey implements TypeSafeConstant
 	 * case insensitive). If the constant does not already exist, an
 	 * IllegalArgumentException is thrown.
 	 * 
-	 * @param s
+	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a previously defined VariableKey
 	 */
-	public static VariableKey valueOf(String s)
+	public static VariableKey valueOf(String name)
 	{
 		initializeTypeMap();
-		VariableKey o = typeMap.get(s);
-		if (o == null)
+		VariableKey key = typeMap.get(name);
+		if (key == null)
 		{
-			throw new IllegalArgumentException(s
+			throw new IllegalArgumentException(name
 					+ " is not a previously defined VariableKey");
 		}
-		return o;
+		return key;
 	}
 
 	/**

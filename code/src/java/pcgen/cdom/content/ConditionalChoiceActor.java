@@ -45,18 +45,18 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * the Prerequisites of this ConditionalChoiceActor are met by the
 	 * PlayerCharacter.
 	 * 
-	 * @param ca
+	 * @param cra
 	 *            The ChooseResultActor to be applied to a PlayerCharacter if
 	 *            the Prerequisites of this ConditionalChoiceActor are met by
 	 *            the PlayerCharacter.
 	 */
-	public ConditionalChoiceActor(ChooseResultActor ca)
+	public ConditionalChoiceActor(ChooseResultActor cra)
 	{
-		if (ca == null)
+		if (cra == null)
 		{
 			throw new IllegalArgumentException("Cannot have null ChoiceActor");
 		}
-		actor = ca;
+		actor = cra;
 	}
 
 	/**
@@ -67,17 +67,17 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param pc
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
-	 * @param obj
+	 * @param cdo
 	 *            The CDOMObject to which the choice was applied (the CDOMObject
 	 *            on which the CHOOSE token was present)
 	 * @param choice
 	 *            The choice being applied to the given PlayerCharacter
 	 */
-	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void apply(PlayerCharacter pc, CDOMObject cdo, String choice)
 	{
-		if (qualifies(pc, obj))
+		if (qualifies(pc, cdo))
 		{
-			actor.apply(pc, obj, choice);
+			actor.apply(pc, cdo, choice);
 		}
 	}
 
@@ -91,15 +91,15 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param pc
 	 *            The PlayerCharacter from which the given choice should be
 	 *            removed.
-	 * @param obj
+	 * @param cdo
 	 *            The CDOMObject to which the choice was applied (the CDOMObject
 	 *            on which the CHOOSE token was present)
 	 * @param choice
 	 *            The choice being removed from the given PlayerCharacter
 	 */
-	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void remove(PlayerCharacter pc, CDOMObject cdo, String choice)
 	{
-		actor.remove(pc, obj, choice);
+		actor.remove(pc, cdo, choice);
 	}
 
 	/**
