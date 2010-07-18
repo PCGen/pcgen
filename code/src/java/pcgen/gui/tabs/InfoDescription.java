@@ -72,7 +72,9 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.AgeSet;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
@@ -678,15 +680,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		List<String> cats = new ArrayList<String>();
 
-		for (String aString : Globals.getBioSet().getAgeMap().values())
+		for (String aString : Globals.getBioSet().getAgeCategories())
 		{
-			final int idx = aString.indexOf('\t');
-
-			if (idx >= 0)
-			{
-				aString = aString.substring(0, idx);
-			}
-
 			if (!cats.contains(aString))
 			{
 				cats.add(aString);
@@ -2026,25 +2021,17 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
 		{
 			int idx = Globals.getBioSet().getPCAgeSet(pc);
-			String aString =
-					Globals.getBioSet().getAgeMapIndex(pc.getRegion(), idx);
+			AgeSet ageSet = Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegion()), idx);
 
-			if ((idx >= 0) && (aString != null))
+			if ((idx >= 0) && (ageSet != null))
 			{
-				idx = aString.indexOf('\t');
-
-				if (idx > 0)
-				{
-					aString = aString.substring(0, idx);
-				}
-
 				//
 				// setSelectedItem doesn't change selection if  entry is
 				// not found in list, so do this the hard way...
 				//
 				for (int i = 0; i < ageComboBox.getModel().getSize(); ++i)
 				{
-					if (aString.equals(ageComboBox.getModel().getElementAt(i)))
+					if (ageSet.getName().equals(ageComboBox.getModel().getElementAt(i)))
 					{
 						selIdx = i;
 

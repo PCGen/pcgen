@@ -25,14 +25,24 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.bonus.Bonus;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
-
-import java.util.*;
 
 /**
  * <code>BioSet</code>.
@@ -42,50 +52,33 @@ import java.util.*;
  */
 public final class BioSet extends PObject
 {
-	/** key = region.age, value = bonus adjustments. */
-	private Map<String, String> ageMap = new HashMap<String, String>();
+	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<Region, Integer, AgeSet>();
 
-	/** key = Dwarf.BASEAGE or Dwarf%.BASEAGE, value = tagged value. */
-	private Map<String, List<String>> raceMap = new HashMap<String, List<String>>();
+	private CaseInsensitiveMap<Integer> ageNames = new CaseInsensitiveMap<Integer>();
 
-	/** for user overrides/additions, check this before raceMap. */
-	private Map<String, List<String>> userMap = new HashMap<String, List<String>>();
+	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<Region, String, String, String>();
 
-	/**
-	 * Get the age Map
-	 * @return ageMap
-	 */
-	public Map<String, String> getAgeMap()
+	public AgeSet getAgeMapIndex(Region region, int index)
 	{
-		return ageMap;
-	}
+		AgeSet ageSet = ageMap.get(region, index);
 
-	/**
-	 * @param region
-	 * @param index
-	 * @return String
-	 */
-	public String getAgeMapIndex(final String region, final int index)
-	{
-		String retVal = ageMap.get(region + "." + String.valueOf(index));
-
-		if ((retVal == null) || (retVal.indexOf("BONUS:") < 0))
+		if ((ageSet == null) || !ageSet.hasBonuses())
 		{
-			retVal = ageMap.get("None." + String.valueOf(index));
+			ageSet = ageMap.get(Region.getConstant("None"), index);
 		}
 
-		return retVal;
+		return ageSet;
 	}
 
 	/**
-	 * Get the Age Set line
+	 * Get the Age Set 
 	 * @param pc
-	 * @return age set line
+	 * @return age set 
 	 */
-	public String getAgeSetLine(final PlayerCharacter pc)
+	public AgeSet getAgeSetLine(final PlayerCharacter pc)
 	{
-		final int ageSet = getPCAgeSet(pc);
-		return getAgeMapIndex(pc.getRegion(), ageSet);
+		return getAgeMapIndex(Region.getConstant(pc.getRegion()),
+				getPCAgeSet(pc));
 	}
 
 	/**
@@ -95,27 +88,8 @@ public final class BioSet extends PObject
 	 */
 	public int getAgeSetNamed(final String ageCategory)
 	{
-		String aString;
-		String ageCategory_lower = ageCategory.toLowerCase();
-
-		for (Map.Entry<String, String> entry : ageMap.entrySet())
-		{
-			aString = entry.getValue().toLowerCase();
-
-			if (aString.equals(ageCategory_lower) || aString.startsWith(ageCategory_lower + "\t"))
-			{
-				aString = entry.getKey();
-
-				final int idx = aString.indexOf('.');
-
-				if (idx >= 0)
-				{
-					return Integer.parseInt(aString.substring(idx + 1));
-				}
-			}
-		}
-
-		return -1;
+		Integer cat = ageNames.get(ageCategory);
+		return (cat == null) ? -1 : cat;
 	}
 
 	/**
@@ -125,7 +99,7 @@ public final class BioSet extends PObject
 	 */
 	public int getPCAgeSet(final PlayerCharacter pc)
 	{
-		final List<String> values = getValueInMaps(pc.getRegion() + ".", pc.getRace().getKeyName().trim(), ".BASEAGE");
+		final List<String> values = getValueInMaps(pc.getRegion(), pc.getRace().getKeyName().trim(), "BASEAGE");
 
 		if (values == null)
 		{
@@ -172,9 +146,10 @@ public final class BioSet extends PObject
 		final StringBuffer sb = new StringBuffer(1000);
 		sb.append("REGION:").append(region).append("\n\n");
 
-		final SortedMap<Integer, SortedMap<String, String>> ageSets = getRaceTagsByAge(region, race, false);
+		Region r = Region.getConstant(region);
+		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = getRaceTagsByAge(r, race);
 
-		return appendAgesetInfo(ageSets, sb);
+		return appendAgesetInfo(r, ageSets, sb);
 	}
 
 	/**
@@ -186,35 +161,7 @@ public final class BioSet extends PObject
 	 */
 	public List<String> getTagForRace(final String region, final String race, final String tag)
 	{
-		return getValueInMaps(region, race, "." + tag);
-	}
-
-	/**
-	 * Add the supplied line to the age map. The age map is split by age
-	 * brackets (Adulthood, Middle Age etc) and all data loaded must go
-	 * into one of these age brackets. When an age line is encountered,
-	 * the current age set will be updated and returned.
-	 *
-	 * @param region = region (e.g. None)
-	 * @param line = 0|Adult\tBONUS:STAT|MUS|-1
-	 * @param currentAgeSetIndex The age set index to add any data.
-	 * @return The new age set index, to be used for later calls to this method.
-	 */
-	public int addToAgeMap(final String region, final String line, int currentAgeSetIndex)
-	{
-		final int x = line.indexOf('|');
-
-		if (x >= 0)
-		{
-			currentAgeSetIndex = Integer.parseInt(line.substring(0, x));
-			ageMap.put(region + "." + currentAgeSetIndex, line.substring(x + 1));
-		}
-		else
-		{
-			ageMap.put(region + "." + line, null);
-		}
-
-		return currentAgeSetIndex;
+		return getValueInMaps(region, race, tag);
 	}
 
 	/**
@@ -227,33 +174,25 @@ public final class BioSet extends PObject
 	 * @param tag The tag to be entered. Must be in the form key:value
 	 * @param ageSetIndex The age set to be updated.
 	 */
-	public void addToUserMap(final String region, final String race, final String tag, final int ageSetIndex)
+	public void addToUserMap(String regionString, final String race, final String tag, final int ageSetIndex)
 	{
 		final int x = tag.indexOf(':');
 
 		if (x < 0)
 		{
-			Logging.errorPrint("Invalid value sent to map: " + tag + " (for " + race + ")");
+			Logging.errorPrint("Invalid value sent to map: " + tag + " (for Race " + race + ")");
 
 			return; // invalid tag
 		}
 
-		final String key = region + "." + race + "." + tag.substring(0, x);
-		final String value = tag.substring(x + 1);
-		List<String> r = userMap.get(key);
-
-		if (r == null)
+		Region region = Region.getConstant(regionString);
+		String key = tag.substring(0, x);
+		List<String> r = userMap.getListFor(region, race, key);
+		for (int i = (r == null) ? 0 : r.size(); i < ageSetIndex; i++)
 		{
-			r = new ArrayList<String>();
+			userMap.addToListFor(region, race, key, "0");
 		}
-
-		while (r.size() < (ageSetIndex + 1))
-		{
-			r.add("0");
-		}
-
-		r.set(ageSetIndex, value);
-		userMap.put(key, r);
+		userMap.addToListFor(region, race, key, tag.substring(x + 1));
 	}
 
 	/**
@@ -274,32 +213,25 @@ public final class BioSet extends PObject
 	 */
 	public void copyRaceTags(final String origRegion, final String origRace, final String copyRegion, final String copyRace)
 	{
-		// Retreive the original race's info
-		final SortedMap ageSets = getRaceTagsByAge(origRegion, origRace, true);
-
-		// Iterate through ages, adding the info for the new race
-		for (Iterator it = ageSets.keySet().iterator(); it.hasNext();)
+		Region oldr = Region.getConstant(origRegion);
+		Region newr = Region.getConstant(copyRegion);
+		for (String key : userMap.getTertiaryKeySet(oldr, origRace))
 		{
-			final Integer key = (Integer) it.next();
-			final SortedMap races = (SortedMap) ageSets.get(key);
-
-			for (Iterator raceIt = races.keySet().iterator(); raceIt.hasNext();)
-			{
-				final String aRaceName = (String) raceIt.next();
-				final int currentAgeSetIndex = key.intValue();
-
-				if (!"AGESET".equals(aRaceName))
-				{
-					final SortedMap tags = (SortedMap) races.get(aRaceName);
-
-					for (Iterator tagIt = tags.keySet().iterator(); tagIt.hasNext();)
-					{
-						final String tagName = (String) tagIt.next();
-						final String value = (String) tags.get(tagName);
-						addToUserMap(copyRegion, copyRace, tagName + ":" + value, currentAgeSetIndex);
-					}
-				}
-			}
+			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, origRace, key));
+		}
+		final int idx = origRace.indexOf('(');
+		String otherRace;
+		if (idx >= 0)
+		{
+			otherRace = origRace.substring(0, idx).trim() + '%';
+		}
+		else
+		{
+			otherRace = origRace + '%';
+		}
+		for (String key : userMap.getTertiaryKeySet(oldr, otherRace))
+		{
+			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, otherRace, key));
 		}
 	}
 
@@ -316,31 +248,15 @@ public final class BioSet extends PObject
 			return;
 		}
 
-		final String ageSetLine = getAgeMapIndex(pc.getRegion(), ageSet);
+		AgeSet ageSetObj = getAgeMapIndex(Region.getConstant(pc.getRegion()), ageSet);
 
-		if (ageSetLine == null)
+		if (ageSetObj == null)
 		{
 			return;
 		}
 
-		final StringTokenizer tok = new StringTokenizer(ageSetLine, "\t", false);
-		tok.nextToken(); // name of ageSet e.g. Middle Aged
-
-		final PObject temporaryPObject = new PObject();
-
-		while (tok.hasMoreTokens())
-		{
-			final String aString = tok.nextToken();
-
-			if (aString.startsWith("KIT:"))
-			{
-				Globals.getContext().unconditionallyProcess(temporaryPObject,
-						"KIT", aString.substring(4));
-			}
-		}
-
 		pc.setDirty(true);
-		for (TransitionChoice<Kit> kit : temporaryPObject.getSafeListFor(ListKey.KIT_CHOICE))
+		for (TransitionChoice<Kit> kit : ageSetObj.getKits())
 		{
 			kit.act(kit.driveChoice(pc), this, pc);
 		}
@@ -389,17 +305,17 @@ public final class BioSet extends PObject
 
 		if (ranList.contains("EYES"))
 		{
-			pc.setEyeColor(generateBioValue(".EYES", pc));
+			pc.setEyeColor(generateBioValue("EYES", pc));
 		}
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setHairColor(generateBioValue(".HAIR", pc));
+			pc.setHairColor(generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setSkinColor(generateBioValue(".SKINTONE", pc));
+			pc.setSkinColor(generateBioValue("SKINTONE", pc));
 		}
 	}
 
@@ -416,14 +332,14 @@ public final class BioSet extends PObject
 
 		if (x < 0)
 		{
-			key = region + "." + race + "." + tag;
+			key = tag;
 		}
 		else
 		{
-			key = region + "." + race + "." + tag.substring(0, x);
+			key = tag.substring(0, x);
 		}
 
-		userMap.remove(key);
+		userMap.removeListFor(Region.getConstant(region), race, key);
 	}
 
 	@Override
@@ -431,7 +347,6 @@ public final class BioSet extends PObject
 	{
 		final StringBuffer sb = new StringBuffer(100);
 		sb.append("AgeMap: ").append(ageMap.toString()).append("\n");
-		sb.append("RaceMap: ").append(raceMap.toString()).append("\n");
 		sb.append("UserMap: ").append(userMap.toString()).append("\n");
 
 		return sb.toString();
@@ -463,45 +378,14 @@ public final class BioSet extends PObject
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
 	 */
-	private SortedMap<Integer, SortedMap<String, String>> getRaceTagsByAge(final String region, final String race, final boolean includeGenericMatches)
+	private SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> getRaceTagsByAge(Region region, String race)
 	{
-		String otherRace = "";
-
-		if (includeGenericMatches)
-		{
-			final int idx = race.indexOf('(');
-
-			if (idx >= 0)
-			{
-				otherRace = race.substring(0, idx).trim() + '%';
-			}
-			else
-			{
-				otherRace = race + '%';
-			}
-		}
-
-		// Read in ages, setup a mapped structure for them
-		final SortedMap<Integer, SortedMap<String, String>> ageSets = setupAgeSet(region);
-
-		// Read in the base race settings, split where necessary and add to the appropriate age bracket
-		for (String key : raceMap.keySet())
-		{
-			if (key.startsWith(region + "." + race + ".") || key.startsWith(region + "." + otherRace + "."))
-			{
-				final Object value = raceMap.get(key);
-				addTagToAgeSet(ageSets, key, value);
-			}
-		}
-
+		// setup a mapped structure
+		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<Integer, SortedMap<String, SortedMap<String, String>>>();
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
-		for (String key : userMap.keySet())
+		for (String key : userMap.getTertiaryKeySet(region, race))
 		{
-			if (key.startsWith(region + "." + race + ".") || key.startsWith(region + "." + otherRace + "."))
-			{
-				final Object value = userMap.get(key);
-				addTagToAgeSet(ageSets, key, value);
-			}
+			addTagToAgeSet(ageSets, race, key, userMap.getListFor(region, race, key));
 		}
 
 		return ageSets;
@@ -536,109 +420,84 @@ public final class BioSet extends PObject
 		{
 			anotherRaceName = argRaceName + '%';
 		}
-
-		final List<String> r = mapFind(userMap, argRegionName, argRaceName, addKey, anotherRaceName);
-
-		if (r != null)
-		{
-			return r;
-		}
-
-		return mapFind(raceMap, argRegionName, argRaceName, addKey, anotherRaceName);
+		return mapFind(userMap, argRegionName, argRaceName, addKey, anotherRaceName);
 	}
 
 	/**
 	 * Adds the tag (key & value) to the supplied ageSets collection. It is
 	 * assumed that the ageSet already has an entry for each age bracket and
 	 * that this entry will be a SortedMap of races. Each race will contain a
-	 * SortedMap of tags and their values.<br/>
-	 * The key is assumed to be of the form region.race.tag
-	 * eg "Custom.Human%.MAXAGE"
-	 * The value is assumed to be either a list of values or a
-	 * single value, depending on the tag. eg "[34,52,69,110]" or "Blond|Brown"
-	 * If a single value, it will be added to the first age set. Multiple values
-	 * are split amongst the age sets in order, with any values not matching an
-	 * age set being ignored.
-	 *
-	 * TODO: Change to always be a List<whatever type, String I suppose> (it is possible said list only has one member, but that's ok.)
-	 *
-	 * @param ageSets The collection of age brackets.
-	 * @param key The region.race.tag specifier.
-	 * @param value The value of the tag.
+	 * SortedMap of tags and their values.<br/> The key is assumed to be of the
+	 * form region.race.tag eg "Custom.Human%.MAXAGE" The value is assumed to be
+	 * either a list of values or a single value, depending on the tag. eg
+	 * "[34,52,69,110]" or "Blond|Brown" If a single value, it will be added to
+	 * the first age set. Multiple values are split amongst the age sets in
+	 * order, with any values not matching an age set being ignored.
+	 * 
+	 * @param ageSets
+	 *            The collection of age brackets.
+	 * @param key
+	 *            The region.race.tag specifier.
+	 * @param value
+	 *            The value of the tag.
 	 */
-	private void addTagToAgeSet(final SortedMap ageSets, final String key, final Object value)
+	private void addTagToAgeSet(
+			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
+			String race, String key, final List<String> value)
 	{
-		final StringTokenizer tok = new StringTokenizer(key, ".");
-
-		if (tok.countTokens() >= 3)
+		final Iterator<String> iter = value.iterator();
+		for (int ageBracket : ageNames.values())
 		{
-			tok.nextToken(); // ignore region name
-
-			final String aRaceName = tok.nextToken();
-			final String tagName = tok.nextToken();
-
-			if (value instanceof List)
+			if (!iter.hasNext())
 			{
-				// Need to split these amoungst the agesets
-				// NB: There may be more values than age sets. It seems that there are
-				// normally double currently. These extras are not used by this class,
-				// so they will not be output, just ignored by this code.
-				final List valueList = (List) value;
-				final Iterator iter = valueList.iterator();
-
-				for (int ageBracket = 0; (ageBracket < ageSets.size()) && iter.hasNext(); ageBracket++)
-				{
-					final String tagValue = (String) iter.next();
-					final SortedMap races = (SortedMap) ageSets.get(Integer.valueOf(ageBracket));
-					SortedMap tags = (SortedMap) races.get(aRaceName);
-
-					if (tags == null)
-					{
-						tags = new TreeMap();
-						races.put(aRaceName, tags);
-					}
-
-					tags.put(tagName, tagValue);
-				}
+				break;
 			}
-			else
+			final String tagValue = iter.next();
+			SortedMap<String, SortedMap<String, String>> races = ageSets
+					.get(Integer.valueOf(ageBracket));
+			if (races == null)
 			{
-				final SortedMap races = (SortedMap) ageSets.get(Integer.valueOf(0));
-				SortedMap tags = (SortedMap) races.get(aRaceName);
-
-				if (tags == null)
-				{
-					tags = new TreeMap();
-					races.put(aRaceName, tags);
-				}
-
-				tags.put(tagName, value);
+				races = new TreeMap<String, SortedMap<String, String>>();
+				ageSets.put(ageBracket, races);
 			}
+			SortedMap<String, String> tags = races.get(race);
+
+			if (tags == null)
+			{
+				tags = new TreeMap<String, String>();
+				races.put(race, tags);
+			}
+
+			tags.put(key, tagValue);
 		}
 	}
 
-	private String appendAgesetInfo(final SortedMap ageSets, final StringBuffer sb)
+	private String appendAgesetInfo(Region region,
+			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
+			final StringBuffer sb)
 	{
+		Set<Integer> ageIndices = new TreeSet<Integer>();
+		ageIndices.addAll(ageSets.keySet());
+		ageIndices.addAll(ageNames.values());
 		// Iterate through ages, outputing the info
-		for (Iterator it = ageSets.keySet().iterator(); it.hasNext();)
+		for (Integer key : ageIndices)
 		{
-			final Integer key = (Integer) it.next();
-			final SortedMap races = (SortedMap) ageSets.get(key);
+			final SortedMap<String, SortedMap<String, String>> races = ageSets.get(key);
 
 			sb.append("AGESET:").append(key).append("|");
-			sb.append(races.get("AGESET")).append("\n");
+			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (Iterator raceIt = races.keySet().iterator(); raceIt.hasNext();)
+			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
 			{
-				final String aRaceName = (String) raceIt.next();
+				final String aRaceName = raceIt.next();
 
 				if (!"AGESET".equals(aRaceName))
 				{
-					final SortedMap tags = (SortedMap) races.get(aRaceName);
+					final SortedMap<String, String> tags = races.get(aRaceName);
 
-					for (Iterator tagIt = tags.keySet().iterator(); tagIt.hasNext();)
+					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
 					{
-						final String tagName = (String) tagIt.next();
+						final String tagName = tagIt.next();
 						sb.append("RACENAME:").append(aRaceName).append("\t\t");
 						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
 					}
@@ -655,7 +514,7 @@ public final class BioSet extends PObject
 	{
 		// Can't find a base age for the category,
 		// then there's nothing to do
-		final String age = getTokenNumberInMaps(".BASEAGE", ageCategory, pc
+		final String age = getTokenNumberInMaps("BASEAGE", ageCategory, pc
 			.getRegion(), pc.getRace().getKeyName().trim());
 
 		if (age == null)
@@ -667,7 +526,7 @@ public final class BioSet extends PObject
 		final int baseAge = Integer.parseInt(age);
 		int ageAdd = -1;
 
-		String aClass = getTokenNumberInMaps(".CLASS", ageCategory, pc
+		String aClass = getTokenNumberInMaps("CLASS", ageCategory, pc
 			.getRegion(), pc.getRace().getKeyName().trim());
 
 		if (aClass != null && !aClass.equals("0"))
@@ -715,7 +574,7 @@ public final class BioSet extends PObject
 		// then generate a number based on the .LST
 		if ((ageAdd < 0) && !useClassOnly)
 		{
-			aClass = getTokenNumberInMaps(".AGEDIEROLL", ageCategory, pc
+			aClass = getTokenNumberInMaps("AGEDIEROLL", ageCategory, pc
 				.getRegion(), pc.getRace().getKeyName().trim());
 
 			if (aClass != null)
@@ -726,7 +585,7 @@ public final class BioSet extends PObject
 
 		if ((ageAdd >= 0) && (baseAge > 0))
 		{
-			final String maxage = getTokenNumberInMaps(".MAXAGE", ageCategory, pc
+			final String maxage = getTokenNumberInMaps("MAXAGE", ageCategory, pc
 				.getRegion(), pc.getRace().getKeyName().trim());
 			if (maxage != null)
 			{
@@ -774,7 +633,7 @@ public final class BioSet extends PObject
 		int htAdd = 0;
 		int wtAdd = 0;
 		String totalWeight = null;
-		final String htwt = getTokenNumberInMaps(".SEX", 0, pc.getRegion(), pc
+		final String htwt = getTokenNumberInMaps("SEX", 0, pc.getRegion(), pc
 			.getRace().getKeyName().trim());
 
 		if (htwt == null)
@@ -836,23 +695,18 @@ public final class BioSet extends PObject
 		}
 	}
 
-	private List<String> mapFind(final Map<String, List<String>> argMap, final String argRegionName, final String argRaceName, final String addKey,
-		final String altRaceName)
+	private List<String> mapFind(
+			final TripleKeyMapToList<Region, String, String, String> argMap,
+			final String argRegionName, final String argRaceName,
+			final String addKey, final String altRaceName)
 	{
 		// First check for region.racename.key
-		String regionName = argRegionName;
-		if (!regionName.endsWith("."))
-		{
-			regionName += ".";
-		}
-
-		List<String> r = argMap.get(regionName + argRaceName + addKey);
-
-		if (r != null)
+		Region region = Region.getConstant(argRegionName);
+		List<String> r = argMap.getListFor(region, argRaceName, addKey);
+		if (r != null && !r.isEmpty())
 		{
 			return r;
 		}
-
 		//
 		// If not found, try the race name without any parenthesis
 		//
@@ -860,59 +714,33 @@ public final class BioSet extends PObject
 
 		if (altRaceLength != 0)
 		{
-			r = argMap.get(regionName + altRaceName + addKey);
-
+			r = argMap.getListFor(region, altRaceName, addKey);
+			
 			if (r != null)
 			{
 				return r;
 			}
 		}
-
 		//
 		// If still not found, try the same two searches again without a region
 		//
 		if (!argRegionName.equals(Constants.s_NONE))
 		{
-			r = argMap.get(Constants.s_NONE + "." + argRaceName + addKey);
+			region = Region.getConstant("None");
+			r = argMap.getListFor(region, argRaceName, addKey);
 
 			if (r != null)
 			{
 				return r;
 			}
-
 			if (altRaceLength != 0)
 			{
-				r = argMap.get(Constants.s_NONE + "." + altRaceName + addKey);
+				r = argMap.getListFor(region, altRaceName, addKey);
 			}
 		}
-
 		return r;
 	}
 
-	/**
-	 * Read in ages, setup a mapped structure for them.
-	 * @param region
-	 * @return SortedMap
-	 */
-	private SortedMap<Integer, SortedMap<String, String>> setupAgeSet(final String region)
-	{
-		final SortedMap<Integer, SortedMap<String, String>> ageSets = new TreeMap<Integer, SortedMap<String, String>>();
-
-		for (String key : ageMap.keySet())
-		{
-			if (key.startsWith(region + "."))
-			{
-				final Integer setNum = Integer.valueOf(key.substring(region.length() + 1));
-				final String value = ageMap.get(key);
-				final SortedMap<String, String> races = new TreeMap<String, String>();
-				races.put("AGESET", value);
-				ageSets.put(setNum, races);
-			}
-		}
-
-		return ageSets;
-	}
-	
 	/**
 	 * This overrides the PObject method since the bonuses are not stored in
 	 * the normal fashion.
@@ -927,32 +755,43 @@ public final class BioSet extends PObject
 		
 		ret.addAll(super.getActiveBonuses(aPC));
 		
-		final String ageSetLine = Globals.getBioSet().getAgeSetLine(aPC);
-		if (ageSetLine == null)
+		AgeSet ageSet = Globals.getBioSet().getAgeSetLine(aPC);
+		if (ageSet == null)
 		{
 			return ret;
 		}
-
-		final StringTokenizer aTok = new StringTokenizer(ageSetLine, "\t");
-		aTok.nextToken(); // name of ageSet, e.g.: Middle Aged
-
-		while (aTok.hasMoreTokens())
+		List<BonusObj> bonuses = ageSet.getBonuses();
+		for (BonusObj bo : bonuses)
 		{
-			final String b = aTok.nextToken();
-
-			// TODO - Could these bonuses have a PRE?
-			if (b.startsWith("BONUS:")) //$NON-NLS-1$
-			{
-				final BonusObj aBonus = Bonus.newBonus(b.substring(6));
-
-				if (aBonus != null)
-				{
-					aPC.setApplied(aBonus, true);
-					ret.add(aBonus);
-				}
-			}
+			aPC.setApplied(bo, true);
+			ret.add(bo);
 		}
-
 		return ret;
+	}
+
+	public AgeSet addToAgeMap(String regionName, AgeSet ageSet)
+	{
+		return ageMap.put(Region.getConstant(regionName), ageSet.getIndex(),
+				ageSet);
+	}
+
+	public Integer addToNameMap(AgeSet ageSet)
+	{
+		return ageNames.put(ageSet.getName(), ageSet.getIndex());
+	}
+
+	public Set<String> getAgeCategories()
+	{
+		Set<String> set = new TreeSet<String>();
+		for (Object o : ageNames.keySet())
+		{
+			set.add(o.toString());
+		}
+		return set;
+	}
+
+	public Map<Integer, AgeSet> getAgeSets(String regionName)
+	{
+		return new TreeMap<Integer, AgeSet>(ageMap.getMapFor(Region.getConstant(regionName)));
 	}
 }

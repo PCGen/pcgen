@@ -23,6 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.AgeSet;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -268,26 +269,15 @@ final class AgePanel extends JPanel implements PObjectUpdater
 			// Build the list of ages
 			data = new ArrayList();
 
-			Map ageMap = Globals.getBioSet().getAgeMap();
-			SortedSet sortedAges = new TreeSet(ageMap.keySet());
-
-			for (Iterator e = sortedAges.iterator(); e.hasNext();)
+			for (AgeSet as : Globals.getBioSet().getAgeSets(region).values())
 			{
-				keyValue = (String) e.next();
-
-				if (keyValue.startsWith(region))
-				{
-					dataValue = (String) ageMap.get(keyValue);
-
-					StringTokenizer tok = new StringTokenizer(dataValue, "\t");
-					ageSet = new Object[5];
-					ageSet[0] = tok.nextToken();
-					ageSet[1] = "";
-					ageSet[2] = "";
-					ageSet[3] = "";
-					ageSet[4] = keyValue;
-					data.add(ageSet);
-				}
+				ageSet = new Object[5];
+				ageSet[0] = as.getName();
+				ageSet[1] = "";
+				ageSet[2] = "";
+				ageSet[3] = "";
+				ageSet[4] = region + "." + as.getIndex();
+				data.add(ageSet);
 			}
 
 			if (raceName != null)

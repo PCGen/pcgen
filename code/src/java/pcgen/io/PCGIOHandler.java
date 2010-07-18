@@ -246,7 +246,6 @@ public final class PCGIOHandler extends IOHandler
 		}
 
 		final String[] pcgLines = lines.toArray(new String[lines.size()]);
-
 		if (isPCGVersion2)
 		{
 			final PCGParser parser = new PCGVer2Parser(pcToBeRead);

@@ -30,10 +30,12 @@ package pcgen.core;
 
 import java.util.Iterator;
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
@@ -135,14 +137,14 @@ public class BioSetTest extends AbstractCharacterTestCase
 			newRaceTag =
 					currBioSet.getTagForRace(Constants.s_NONE, NEW_RACE_NAME,
 						testArg);
-			//			System.out.println(
-			//				"Got '"
-			//					+ testArg
-			//					+ "' base of "
-			//					+ baseRaceTag
-			//					+ " and new of "
-			//					+ newRaceTag
-			//					+ ".");
+			// System.out.println(
+			// "Got '"
+			// + testArg
+			// + "' base of "
+			// + baseRaceTag
+			// + " and new of "
+			// + newRaceTag
+			// + ".");
 			for (Iterator<String> newIter = newRaceTag.iterator(), baseIter =
 					baseRaceTag.iterator(); newIter.hasNext()
 				&& baseIter.hasNext();)
@@ -208,7 +210,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-
 		pc.setAge(12);
 		int idx = Globals.getBioSet().getPCAgeSet(pc);
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
@@ -229,7 +230,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		idx = Globals.getBioSet().getPCAgeSet(pc);
 		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
 
-		Globals.getBioSet().getAgeMapIndex(pc.getRegion(), idx);
+		Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegion()), idx);
 
 	}
 }
