@@ -41,10 +41,12 @@ import pcgen.core.WeaponProf;
  * This is typically used for an AUTO:WEAPONPROF token to store the granted
  * proficiencies.
  */
-public class WeaponProfProvider extends ConcretePrereqObject implements QualifyingObject
+public class WeaponProfProvider extends ConcretePrereqObject implements
+		QualifyingObject
 {
 
-	private static ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
+	private static ChangeProfFacet changeProfFacet = FacetLibrary
+			.getFacet(ChangeProfFacet.class);
 
 	/**
 	 * Contains the list of primitive WeaponProf objects that this
@@ -128,11 +130,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 	public Collection<WeaponProf> getContainedProficiencies(CharID id)
 	{
 		List<WeaponProf> list = new ArrayList<WeaponProf>();
-		if (all != null)
-		{
-			list.addAll(all.getContainedObjects());
-		}
-		else
+		if (all == null)
 		{
 			if (direct != null)
 			{
@@ -148,6 +146,10 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 					list.addAll(getWeaponProfsInTarget(id, ref));
 				}
 			}
+		}
+		else
+		{
+			list.addAll(all.getContainedObjects());
 		}
 		return list;
 	}
@@ -263,7 +265,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 		return all == null && (direct == null || direct.isEmpty())
 				&& (type == null || type.isEmpty());
 	}
-	
+
 	public boolean isValid()
 	{
 		boolean hasDirect = (direct != null) && !direct.isEmpty();
@@ -282,6 +284,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 			throw new IllegalArgumentException("Cannot get targets for: "
 					+ masterType);
 		}
-		return changeProfFacet.getWeaponProfsInTarget(masterType.substring(5), id, master);
+		return changeProfFacet.getWeaponProfsInTarget(masterType.substring(5),
+				id, master);
 	}
 }

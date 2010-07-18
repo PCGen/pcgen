@@ -388,17 +388,17 @@ public class Aspect
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (!(o instanceof Aspect))
+		if (!(obj instanceof Aspect))
 		{
 			return false;
 		}
-		Aspect other = (Aspect) o;
+		Aspect other = (Aspect) obj;
 		if (theVariables == null && other.theVariables != null)
 		{
 			return false;

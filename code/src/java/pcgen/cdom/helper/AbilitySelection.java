@@ -57,21 +57,21 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * Creates a new AbilitySelection for the given Ability. The given Ability
 	 * must be a MULT:NO Ability or this constructor will throw an exception.
 	 * 
-	 * @param a
+	 * @param abil
 	 *            The Ability which this AbilitySelection will contain
-	 * @param n
+	 * @param nat
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter
 	 */
-	public AbilitySelection(Ability a, Nature n)
+	public AbilitySelection(Ability abil, Nature nat)
 	{
-		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		if (abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
 					"AbilitySelection with MULT:YES Ability must have choices");
 		}
-		ability = a;
-		nature = n;
+		ability = abil;
+		nature = nat;
 		selection = null;
 	}
 
@@ -80,30 +80,30 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * must be a MULT:YES Ability if the given selection is not null or this
 	 * constructor will throw an exception.
 	 * 
-	 * @param a
+	 * @param abil
 	 *            The Ability which this AbilitySelection will contain
-	 * @param n
+	 * @param nat
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter
-	 * @param s
+	 * @param choice
 	 *            The choice (association) made for the given Ability in this
 	 *            AbilitySelection
 	 */
-	public AbilitySelection(Ability a, Nature n, String s)
+	public AbilitySelection(Ability abil, Nature nat, String choice)
 	{
-		if (s != null && !a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		if (choice != null && !abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
 					"AbilitySelection with MULT:NO Ability must not have choices");
 		}
-		if (s == null && a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		if (choice == null && abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
 					"AbilitySelection with MULT:YES Ability must have choices");
 		}
-		ability = a;
-		nature = n;
-		selection = s;
+		ability = abil;
+		nature = nat;
+		selection = choice;
 	}
 
 	/**
@@ -155,15 +155,15 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * String. The null value is used to represent that this AbilitySelection
 	 * has no choice (the underlying Ability is MULT:NO)
 	 * 
-	 * @param a
+	 * @param assoc
 	 *            The String to be checked to determine if it matches the choice
 	 *            for this AbilitySelection.
 	 * @return true if the choice for this AbilitySelection matches the given
 	 *         String; false otherwise
 	 */
-	public boolean containsAssociation(String a)
+	public boolean containsAssociation(String assoc)
 	{
-		return a == null ? selection == null : a.equals(selection);
+		return assoc == null ? selection == null : assoc.equals(selection);
 	}
 
 	/**
@@ -240,22 +240,24 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * human readable, simply that the encoding is uniquely identifing such that
 	 * this method is capable of decoding the String into an AbilitySelection.
 	 * 
-	 * @param s
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide an
 	 *            AbilitySelection.
 	 * 
 	 * @return An AbilitySelection that was encoded in the given String.
 	 */
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
-			String s)
+			String persistentFormat)
 	{
-		StringTokenizer st = new StringTokenizer(s, Constants.PIPE);
+		StringTokenizer st = new StringTokenizer(persistentFormat,
+				Constants.PIPE);
 		String catString = st.nextToken();
 		if (!catString.startsWith("CATEGORY="))
 		{
 			throw new IllegalArgumentException(
 					"String in getAbilitySelectionFromPersistentFormat "
-							+ "must start with CATEGORY=, found: " + s);
+							+ "must start with CATEGORY=, found: "
+							+ persistentFormat);
 		}
 		String cat = catString.substring(9);
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
@@ -270,7 +272,8 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 		{
 			throw new IllegalArgumentException(
 					"Second argument in String in getAbilitySelectionFromPersistentFormat "
-							+ "must start with NATURE=, found: " + s);
+							+ "must start with NATURE=, found: "
+							+ persistentFormat);
 		}
 		String natString = natureString.substring(7);
 		Nature nat = Nature.valueOf(natString);
@@ -281,7 +284,8 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 		{
 			throw new IllegalArgumentException(
 					"Third argument in String in getAbilitySelectionFromPersistentFormat "
-							+ "must be an Ability, but it was not found: " + s);
+							+ "must be an Ability, but it was not found: "
+							+ persistentFormat);
 		}
 		String sel = null;
 		if (st.hasMoreTokens())
@@ -297,7 +301,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 			throw new IllegalArgumentException(
 					"String in getAbilitySelectionFromPersistentFormat "
 							+ "must have 3 or 4 arguments, but found more: "
-							+ s);
+							+ persistentFormat);
 		}
 		return new AbilitySelection(a, nat, sel);
 
@@ -325,18 +329,31 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 		return ability;
 	}
 
-	public int compareTo(AbilitySelection o)
+	public int compareTo(AbilitySelection other)
 	{
-		int base = ability.compareTo(o.ability);
+		int base = ability.compareTo(other.ability);
 		if (base != 0)
 		{
 			return base;
 		}
 		if (selection == null)
 		{
-			return o.selection == null ? 0 : -1;
+			return other.selection == null ? 0 : -1;
 		}
-		return o.selection == null ? 1 : selection
-				.compareToIgnoreCase(o.selection);
+		return other.selection == null ? 1 : selection
+				.compareToIgnoreCase(other.selection);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (obj instanceof AbilitySelection)
+				&& compareTo((AbilitySelection) obj) == 0;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return ability.hashCode();
 	}
 }

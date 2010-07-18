@@ -33,7 +33,7 @@ public class AbilityRef
 	/**
 	 * A reference to the Ability which this AbilityRef contains
 	 */
-	private final CDOMReference<Ability> abilities;
+	private final CDOMReference<Ability> abilReferences;
 
 	/**
 	 * The specific choice (association) for the Ability this AbilityRef
@@ -45,25 +45,25 @@ public class AbilityRef
 	/**
 	 * Constructs a new AbilityRef for the Ability in the given reference.
 	 * 
-	 * @param ab
+	 * @param abRef
 	 *            A reference to the Ability which this AbilityRef contains
 	 */
-	public AbilityRef(CDOMReference<Ability> ab)
+	public AbilityRef(CDOMReference<Ability> abRef)
 	{
-		abilities = ab;
+		abilReferences = abRef;
 	}
 
 	/**
 	 * Sets the specific choice (association) for the Ability this AbilityRef
 	 * contains.
 	 * 
-	 * @param s
+	 * @param assoc
 	 *            The specific choice (association) for the Ability this
 	 *            AbilityRef contains.
 	 */
-	public void setChoice(String s)
+	public void setChoice(String assoc)
 	{
-		choice = s;
+		choice = assoc;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class AbilityRef
 	 */
 	public CDOMReference<Ability> getRef()
 	{
-		return abilities;
+		return abilReferences;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class AbilityRef
 		if (obj instanceof AbilityRef)
 		{
 			AbilityRef other = (AbilityRef) obj;
-			if (other.abilities.equals(abilities))
+			if (other.abilReferences.equals(abilReferences))
 			{
 				if (choice == null)
 				{
@@ -123,7 +123,7 @@ public class AbilityRef
 	@Override
 	public int hashCode()
 	{
-		return 3 - abilities.hashCode();
+		return 3 - abilReferences.hashCode();
 	}
 
 	/**
@@ -134,17 +134,18 @@ public class AbilityRef
 	 */
 	public GroupingState getGroupingState()
 	{
-		return abilities.getGroupingState();
+		return abilReferences.getGroupingState();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
 	{
-		return "AbilityRef " + choice + " for " + abilities;
+		return "AbilityRef " + choice + " for " + abilReferences;
 	}
-	
-	
+
 }

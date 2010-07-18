@@ -52,30 +52,30 @@ public class EqModRef
 	 * Constructs a new EqModRef for the EquipmentModifier in the given
 	 * reference.
 	 * 
-	 * @param ab
+	 * @param modRef
 	 *            A reference to the EquipmentModifier which this EqModRef
 	 *            contains
 	 */
-	public EqModRef(CDOMSingleRef<EquipmentModifier> ab)
+	public EqModRef(CDOMSingleRef<EquipmentModifier> modRef)
 	{
-		eqMod = ab;
+		eqMod = modRef;
 	}
 
 	/**
 	 * Adds the specific choice (association) for the EquipmentModifier this
 	 * EqModRef contains.
 	 * 
-	 * @param s
+	 * @param choice
 	 *            The specific choice (association) that should be added for the
 	 *            EquipmentModifier this EqModRef contains.
 	 */
-	public void addChoice(String s)
+	public void addChoice(String choice)
 	{
 		if (choices == null)
 		{
 			choices = new LinkedList<String>();
 		}
-		choices.add(s);
+		choices.add(choice);
 	}
 
 	/**

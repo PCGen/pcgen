@@ -56,16 +56,16 @@ public class Capacity
 	 * Constructs a new Capacity for the given type with the given upper limit
 	 * on capacity.
 	 * 
-	 * @param typ
+	 * @param capacityType
 	 *            The type of objects that this Capacity represents
-	 * @param cap
+	 * @param capacityLimit
 	 *            The value indicating the upper limit of the number of objects
 	 *            (of the given type) that this Capacity allows
 	 */
-	public Capacity(String typ, BigDecimal cap)
+	public Capacity(String capacityType, BigDecimal capacityLimit)
 	{
-		type = typ;
-		limit = cap;
+		type = capacityType;
+		limit = capacityLimit;
 	}
 
 	/**
@@ -95,15 +95,15 @@ public class Capacity
 	 * Provides a convenience method for producing a "Total" capacity object for
 	 * a container.
 	 * 
-	 * @param d
+	 * @param capacity
 	 *            The total capacity limit used to construct the returned
 	 *            Capacity.
 	 * @return A new Capacity object for a container with the given total
 	 *         capacity limit.
 	 */
-	public static Capacity getTotalCapacity(BigDecimal d)
+	public static Capacity getTotalCapacity(BigDecimal capacity)
 	{
-		return new Capacity(null, d);
+		return new Capacity(null, capacity);
 	}
 
 	/**
@@ -141,11 +141,11 @@ public class Capacity
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof Capacity)
+		if (obj instanceof Capacity)
 		{
-			Capacity other = (Capacity) o;
+			Capacity other = (Capacity) obj;
 			if (type == null)
 			{
 				if (other.type != null)

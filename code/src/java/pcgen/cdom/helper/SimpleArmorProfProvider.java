@@ -44,15 +44,15 @@ public class SimpleArmorProfProvider extends
 	 * Returns true if this SimpleArmorProfProvider provides proficiency for the
 	 * given Equipment; false otherwise.
 	 * 
-	 * @param eq
+	 * @param equipment
 	 *            The Equipment to be tested to see if this
 	 *            SimpleArmorProfProvider provides proficiency for the Equipment
 	 * @return true if this SimpleArmorProfProvider provides proficiency for the
 	 *         given Equipment; false otherwise.
 	 */
-	public boolean providesProficiencyFor(Equipment eq)
+	public boolean providesProficiencyFor(Equipment equipment)
 	{
-		return providesProficiency(eq.getArmorProf());
+		return providesProficiency(equipment.getArmorProf());
 	}
 
 }

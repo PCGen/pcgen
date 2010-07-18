@@ -60,22 +60,22 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 	 * Returns true if this ShieldProfProvider provides proficiency for the
 	 * given Equipment; false otherwise.
 	 * 
-	 * @param eq
+	 * @param equipment
 	 *            The Equipment to be tested to see if this ShieldProfProvider
 	 *            provides proficiency for the Equipment
 	 * @return true if this ShieldProfProvider provides proficiency for the
 	 *         given Equipment; false otherwise.
 	 */
 	@Override
-	public boolean providesProficiencyFor(Equipment eq)
+	public boolean providesProficiencyFor(Equipment equipment)
 	{
 		/*
 		 * CONSIDER using providesEquipmentType might be optimized if references
 		 * can contain late-created objects, dependent upon full resolution of
 		 * Tracker 2001287 - thpr Oct 15, 2008
 		 */
-		return providesProficiency(eq.getShieldProf())
-				|| providesEquipmentType(eq.getType());
+		return providesProficiency(equipment.getShieldProf())
+				|| providesEquipmentType(equipment.getType());
 	}
 
 	/**

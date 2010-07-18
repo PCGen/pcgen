@@ -37,22 +37,22 @@ public class FollowerLimit
 	 * The Formula that represents the upper bound on the number of Companions a
 	 * PlayerCharacter may have for the CompanionList.
 	 */
-	private final Formula f;
+	private final Formula formula;
 
 	/**
 	 * Creates a new FollowerLimit for the given CompanionList (provided by
 	 * reference), which is limited by the given Formula.
 	 * 
-	 * @param cl
+	 * @param clRef
 	 *            A reference to the CompanionList to which this FollowerLimit
 	 *            applies
 	 * @param limit
 	 *            The Formula that represents the upper bound on the number of
 	 *            Companions a PlayerCharacter may have for the CompanionList.
 	 */
-	public FollowerLimit(CDOMSingleRef<CompanionList> cl, Formula limit)
+	public FollowerLimit(CDOMSingleRef<CompanionList> clRef, Formula limit)
 	{
-		if (cl == null)
+		if (clRef == null)
 		{
 			throw new IllegalArgumentException(
 					"Reference for FollowerLimit cannot be null");
@@ -62,8 +62,8 @@ public class FollowerLimit
 			throw new IllegalArgumentException(
 					"Formula for FollowerLimit cannot be null");
 		}
-		ref = cl;
-		f = limit;
+		ref = clRef;
+		formula = limit;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class FollowerLimit
 	 */
 	public Formula getValue()
 	{
-		return f;
+		return formula;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class FollowerLimit
 	@Override
 	public int hashCode()
 	{
-		return ref.hashCode() * 31 + f.hashCode();
+		return ref.hashCode() * 31 + formula.hashCode();
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class FollowerLimit
 		if (o instanceof FollowerLimit)
 		{
 			FollowerLimit other = (FollowerLimit) o;
-			return ref.equals(other.ref) && f.equals(other.f);
+			return ref.equals(other.ref) && formula.equals(other.formula);
 		}
 		return false;
 	}

@@ -60,22 +60,22 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 	 * Returns true if this ArmorProfProvider provides proficiency for the given
 	 * Equipment; false otherwise.
 	 * 
-	 * @param eq
+	 * @param equipment
 	 *            The Equipment to be tested to see if this ArmorProfProvider
 	 *            provides proficiency for the Equipment
 	 * @return true if this ArmorProfProvider provides proficiency for the given
 	 *         Equipment; false otherwise.
 	 */
 	@Override
-	public boolean providesProficiencyFor(Equipment eq)
+	public boolean providesProficiencyFor(Equipment equipment)
 	{
 		/*
 		 * CONSIDER using providesEquipmentType might be optimized if references
 		 * can contain late-created objects, dependent upon full resolution of
 		 * Tracker 2001287 - thpr Oct 15, 2008
 		 */
-		return providesProficiency(eq.getArmorProf())
-				|| providesEquipmentType(eq.getType());
+		return providesProficiency(equipment.getArmorProf())
+				|| providesEquipmentType(equipment.getType());
 	}
 
 	/**

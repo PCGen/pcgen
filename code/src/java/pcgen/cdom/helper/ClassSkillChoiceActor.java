@@ -126,15 +126,15 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * readable, simply that the encoding is uniquely identifing such that this
 	 * method is capable of decoding the String into the Skill.
 	 * 
-	 * @param s
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide a Skill.
 	 * 
 	 * @return A Skill that was encoded in the given String.
 	 */
-	public Skill decodeChoice(String s)
+	public Skill decodeChoice(String persistentFormat)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Skill.class, s);
+				Skill.class, persistentFormat);
 	}
 
 	/**

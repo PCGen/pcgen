@@ -85,30 +85,30 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 * Returns true if this AbstractProfProvider provides proficiency for the
 	 * given Equipment; false otherwise.
 	 * 
-	 * @param eq
+	 * @param equipment
 	 *            The Equipment to be tested to see if this AbstractProfProvider
 	 *            provides proficiency for the Equipment
 	 * @return true if this AbstractProfProvider provides proficiency for the
 	 *         given Equipment; false otherwise.
 	 */
-	public abstract boolean providesProficiencyFor(Equipment eq);
+	public abstract boolean providesProficiencyFor(Equipment equipment);
 
 	/**
 	 * Returns true if this AbstractProfProvider provides the given proficiency.
 	 * This only tests against the direct proficiency list provided during
 	 * construction of the AbstractProfProvider.
 	 * 
-	 * @param sp
+	 * @param proficiency
 	 *            The proficiency to be tested to see if this
 	 *            AbstractProfProvider provides the given proficiency
 	 * @return true if this AbstractProfProvider provides the given proficiency;
 	 *         false otherwise.
 	 */
-	public boolean providesProficiency(T sp)
+	public boolean providesProficiency(T proficiency)
 	{
 		for (CDOMReference<T> ref : direct)
 		{
-			if (ref.contains(sp))
+			if (ref.contains(proficiency))
 			{
 				return true;
 			}

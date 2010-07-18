@@ -66,17 +66,17 @@ public class OptionBound
 	 * @param pc
 	 *            The PlayerCharacter to be used when resolving the bounding
 	 *            Formulas for this OptionBound.
-	 * @param val
+	 * @param value
 	 *            The value to be checked to determine if it falls within the
 	 *            range provided by this OptionBound.
 	 * @return true if the given value is within the bounds of this OptionBound
 	 *         (inclusive) when the bounds are resolved within the context of
 	 *         the given PlayerCharacter; false otherwise.
 	 */
-	public boolean isOption(PlayerCharacter pc, int val)
+	public boolean isOption(PlayerCharacter pc, int value)
 	{
-		return (minOption == null || minOption.resolve(pc, "").intValue() <= val)
-				&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= val);
+		return (minOption == null || minOption.resolve(pc, "").intValue() <= value)
+				&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= value);
 	}
 
 	/**

@@ -33,10 +33,10 @@ public class SpellLevelInfo
 	private final int minimumLevel;
 	private final Formula maximumLevel;
 
-	public SpellLevelInfo(PrimitiveChoiceFilter<PCClass> pcf, int minLevel,
-		Formula maxLevel)
+	public SpellLevelInfo(PrimitiveChoiceFilter<PCClass> classFilter,
+			int minLevel, Formula maxLevel)
 	{
-		filter = pcf;
+		filter = classFilter;
 		minimumLevel = minLevel;
 		maximumLevel = maxLevel;
 	}
@@ -55,15 +55,13 @@ public class SpellLevelInfo
 
 	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
 	{
-		List<PCClass> classList = pc.getClassList();
 		List<SpellLevel> list = new ArrayList<SpellLevel>();
-		for (PCClass cl : classList)
+		for (PCClass cl : pc.getClassList())
 		{
 			if (filter.allow(pc, cl))
 			{
-				int max =
-						maximumLevel.resolve(pc, cl.getQualifiedKey())
-							.intValue();
+				int max = maximumLevel.resolve(pc, cl.getQualifiedKey())
+						.intValue();
 				for (int i = minimumLevel; i <= max; ++i)
 				{
 					list.add(new SpellLevel(cl, i));

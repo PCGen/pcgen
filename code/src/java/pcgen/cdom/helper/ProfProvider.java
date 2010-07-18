@@ -36,13 +36,13 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * Returns true if this ProfProvider provides proficiency for the given
 	 * Equipment; false otherwise.
 	 * 
-	 * @param eq
+	 * @param equipment
 	 *            The Equipment to be tested to see if this ProfProvider
 	 *            provides proficiency for the Equipment
 	 * @return true if this ProfProvider provides proficiency for the given
 	 *         Equipment; false otherwise.
 	 */
-	public boolean providesProficiencyFor(Equipment eq);
+	public boolean providesProficiencyFor(Equipment equipment);
 
 	/**
 	 * Returns true if this ProfProvider provides the given proficiency.
@@ -51,13 +51,13 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * testing only primitive proficiency objects. For a full query to test
 	 * proficiency, one should use the providesProficiencyFor method.
 	 * 
-	 * @param sp
+	 * @param prof
 	 *            The proficiency to be tested to see if this ProfProvider
 	 *            provides the given proficiency
 	 * @return true if this ProfProvider provides the given proficiency; false
 	 *         otherwise.
 	 */
-	public boolean providesProficiency(T sp);
+	public boolean providesProficiency(T prof);
 
 	/**
 	 * Tests if the specified PlayerCharacter passes all the prerequisites.

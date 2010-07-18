@@ -22,12 +22,12 @@ import pcgen.core.PCClass;
 public class SpellLevel implements Comparable<SpellLevel>
 {
 
-	public final PCClass pcc;
+	public final PCClass pcclass;
 	public final int level;
 
-	public SpellLevel(PCClass cl, int lvl)
+	public SpellLevel(PCClass pcc, int lvl)
 	{
-		pcc = cl;
+		pcclass = pcc;
 		level = lvl;
 	}
 
@@ -36,15 +36,15 @@ public class SpellLevel implements Comparable<SpellLevel>
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("CLASS.");
-		sb.append(pcc.getKeyName());
+		sb.append(pcclass.getKeyName());
 		sb.append(";LEVEL.");
 		sb.append(level);
 		return sb.toString();
 	}
 
-	public static SpellLevel decodeChoice(String s)
+	public static SpellLevel decodeChoice(String persistentFormat)
 	{
-		int loc = s.indexOf(";LEVEL.");
+		int loc = persistentFormat.indexOf(";LEVEL.");
 		String classString;
 		String levelString;
 		if (loc == -1)
@@ -52,27 +52,27 @@ public class SpellLevel implements Comparable<SpellLevel>
 			/*
 			 * Handle old persistence
 			 */
-			int spaceLoc = s.indexOf(' ');
-			classString = s.substring(0, spaceLoc);
-			levelString = s.substring(spaceLoc + 1);
+			int spaceLoc = persistentFormat.indexOf(' ');
+			classString = persistentFormat.substring(0, spaceLoc);
+			levelString = persistentFormat.substring(spaceLoc + 1);
 		}
 		else
 		{
-			String classText = s.substring(0, 6);
-			if (!classText.equals("CLASS."))
+			String classText = persistentFormat.substring(0, 6);
+			if (!"CLASS.".equals(classText))
 			{
 				return null;
 			}
-			classString = s.substring(6, loc);
-			levelString = s.substring(loc + 7);
+			classString = persistentFormat.substring(6, loc);
+			levelString = persistentFormat.substring(loc + 7);
 		}
-		PCClass cl =
+		PCClass pcc =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					PCClass.class, classString);
 		try
 		{
 			int level = Integer.parseInt(levelString);
-			return new SpellLevel(cl, level);
+			return new SpellLevel(pcc, level);
 		}
 		catch (NumberFormatException e)
 		{
@@ -83,34 +83,34 @@ public class SpellLevel implements Comparable<SpellLevel>
 	@Override
 	public int hashCode()
 	{
-		return level ^ pcc.hashCode();
+		return level ^ pcclass.hashCode();
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof SpellLevel)
+		if (obj instanceof SpellLevel)
 		{
-			SpellLevel other = (SpellLevel) o;
-			return level == other.level && pcc.equals(other.pcc);
+			SpellLevel other = (SpellLevel) obj;
+			return level == other.level && pcclass.equals(other.pcclass);
 		}
 		return false;
 	}
 
-	public int compareTo(SpellLevel sl)
+	public int compareTo(SpellLevel other)
 	{
-		int cc = pcc.compareTo(sl.pcc);
-		if (cc == 0)
+		int compareResult = pcclass.compareTo(other.pcclass);
+		if (compareResult == 0)
 		{
-			if (level < sl.level)
+			if (level < other.level)
 			{
 				return -1;
 			}
-			else if (level > sl.level)
+			else if (level > other.level)
 			{
 				return 1;
 			}
 		}
-		return cc;
+		return compareResult;
 	}
 }

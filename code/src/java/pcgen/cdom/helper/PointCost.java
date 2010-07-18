@@ -96,11 +96,11 @@ public class PointCost
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof PointCost)
+		if (obj instanceof PointCost)
 		{
-			PointCost other = (PointCost) o;
+			PointCost other = (PointCost) obj;
 			return type.equals(other.type) && cost == other.cost;
 		}
 		return false;

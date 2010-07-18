@@ -58,15 +58,15 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * Returns true if this AbstractSimpleProfProvider provides the given
 	 * proficiency.
 	 * 
-	 * @param sp
+	 * @param proficiency
 	 *            The proficiency to be tested to see if this
 	 *            AbstractSimpleProfProvider provides the given proficiency
 	 * @return true if this AbstractSimpleProfProvider provides the given
 	 *         proficiency; false otherwise.
 	 */
-	public boolean providesProficiency(T sp)
+	public boolean providesProficiency(T proficiency)
 	{
-		return prof.equals(sp);
+		return prof.equals(proficiency);
 	}
 
 	/**
@@ -88,14 +88,14 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * single proficiency object)
 	 * 
 	 * 
-	 * @param typeString
+	 * @param type
 	 *            The TYPE of Equipment to be tested to see if this
 	 *            AbstractSimpleProfProvider provides proficiency with the given
 	 *            Equipment TYPE (ignored)
 	 * @return false, as AbstractSimpleProfProvider never grants proficiency
 	 *         based on Equipment TYPE
 	 */
-	public boolean providesEquipmentType(String typeString)
+	public boolean providesEquipmentType(String type)
 	{
 		return false;
 	}

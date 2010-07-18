@@ -44,24 +44,24 @@ public class StatLock
 	 * @param stat
 	 *            The PCStat to be locked
 	 * 
-	 * @param f
+	 * @param formula
 	 *            The Formula indicating the value to which the PCStat should be
 	 *            locked
 	 */
-	public StatLock(PCStat stat, Formula f)
+	public StatLock(PCStat stat, Formula formula)
 	{
 		if (stat == null)
 		{
 			throw new IllegalArgumentException(
 					"PCStat for LockStat may not be null");
 		}
-		if (f == null)
+		if (formula == null)
 		{
 			throw new IllegalArgumentException(
 					"Formula for LockStat may not be null");
 		}
 		lockedStat = stat;
-		lockValue = f;
+		lockValue = formula;
 	}
 
 	/**
@@ -104,11 +104,11 @@ public class StatLock
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof StatLock)
+		if (obj instanceof StatLock)
 		{
-			StatLock other = (StatLock) o;
+			StatLock other = (StatLock) obj;
 			return lockValue.equals(other.lockValue)
 					&& lockedStat.equals(other.lockedStat);
 		}
