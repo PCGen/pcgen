@@ -17,53 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
-
-import pcgen.cdom.enumeration.CharID;
-import pcgen.core.BioSet;
-
 public class AgeFacet extends AbstractItemFacet<Integer>
 {
-	private final RegionFacet regionFacet = FacetLibrary
-			.getFacet(RegionFacet.class);
-	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private final BioSetFacet bioSetFacet = FacetLibrary
-			.getFacet(BioSetFacet.class);
-
-	public int getAgeSet(CharID id)
-	{
-		BioSet bioSet = bioSetFacet.get(id);
-		List<String> values = bioSet.getValueInMaps(regionFacet.getRegion(id),
-				raceFacet.get(id).getKeyName().trim(), "BASEAGE");
-		if (values == null)
-		{
-			return 0;
-		}
-
-		Integer age = get(id);
-		int pcAge = (age == null) ? 0 : age;
-		int ageSet = -1;
-
-		for (String s : values)
-		{
-			int setBaseAge = Integer.parseInt(s);
-
-			if (pcAge < setBaseAge)
-			{
-				break;
-			}
-
-			++ageSet;
-		}
-
-		//
-		// Check to see if character is younger than earliest age group
-		//
-		if (ageSet < 0)
-		{
-			ageSet = 0;
-		}
-
-		return ageSet;
-	}
 }

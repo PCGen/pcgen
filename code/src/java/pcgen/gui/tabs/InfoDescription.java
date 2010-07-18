@@ -72,7 +72,6 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AgeSet;
 import pcgen.core.GameMode;
@@ -2020,7 +2019,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
 		{
-			AgeSet ageSet = Globals.getBioSet().getAgeSetLine(pc);
+			AgeSet ageSet = pc.getAgeSet();
 
 			if (ageSet != null)
 			{

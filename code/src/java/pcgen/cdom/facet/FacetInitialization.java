@@ -158,6 +158,15 @@ public class FacetInitialization
 		AppliedBonusFacet appliedBonusFacet = FacetLibrary
 				.getFacet(AppliedBonusFacet.class);
 
+		AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
+		RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+		AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
+		
+		raceFacet.addDataFacetChangeListener(ageSetFacet);
+		regionFacet.addDataFacetChangeListener(ageSetFacet);
+		ageFacet.addDataFacetChangeListener(ageSetFacet);
+		bioSetFacet.addDataFacetChangeListener(ageSetFacet);
+
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
@@ -188,7 +197,7 @@ public class FacetInitialization
 		classFacet.addDataFacetChangeListener(localSkillCostFacet);
 		domainFacet.addDataFacetChangeListener(localSkillCostFacet);
 		classLevelFacet.addDataFacetChangeListener(localSkillCostFacet);
-		
+
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);

@@ -57,7 +57,7 @@ public final class BioSet extends PObject
 
 	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<Region, String, String, String>();
 
-	public AgeSet getAgeMapIndex(Region region, int index)
+	public AgeSet getAgeSet(Region region, int index)
 	{
 		AgeSet ageSet = ageMap.get(region, index);
 
@@ -67,17 +67,6 @@ public final class BioSet extends PObject
 		}
 
 		return ageSet;
-	}
-
-	/**
-	 * Get the Age Set 
-	 * @param pc
-	 * @return age set 
-	 */
-	public AgeSet getAgeSetLine(final PlayerCharacter pc)
-	{
-		return getAgeMapIndex(Region.getConstant(pc.getRegionString()),
-				pc.getAgeSet());
 	}
 
 	/**
@@ -199,14 +188,14 @@ public final class BioSet extends PObject
 	 */
 	public void makeKitSelectionFor(final PlayerCharacter pc)
 	{
-		final int ageSet = pc.getAgeSet();
+		final int ageSet = pc.getAgeSetIndex();
 
 		if (pc.hasMadeKitSelectionForAgeSet(ageSet))
 		{
 			return;
 		}
 
-		AgeSet ageSetObj = getAgeSetLine(pc);
+		AgeSet ageSetObj = pc.getAgeSet();
 
 		if (ageSetObj == null)
 		{

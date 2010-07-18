@@ -205,26 +205,26 @@ public class BioSetTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 		pc.setAge(12);
-		int idx = pc.getAgeSet();
+		int idx = pc.getAgeSetIndex();
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
 
 		pc.setAge(17);
-		idx = pc.getAgeSet();
+		idx = pc.getAgeSetIndex();
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
 
 		pc.setAge(36);
-		idx = pc.getAgeSet();
+		idx = pc.getAgeSetIndex();
 		assertEquals("Ageset for " + pc.getAge() + ".", 1, idx);
 
 		pc.setAge(54);
-		idx = pc.getAgeSet();
+		idx = pc.getAgeSetIndex();
 		assertEquals("Ageset for " + pc.getAge() + ".", 2, idx);
 
 		pc.setAge(72);
-		idx = pc.getAgeSet();
+		idx = pc.getAgeSetIndex();
 		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
 
-		Globals.getBioSet().getAgeMapIndex(Region.getConstant(pc.getRegionString()), idx);
+		Globals.getBioSet().getAgeSet(Region.getConstant(pc.getRegionString()), idx);
 
 	}
 }

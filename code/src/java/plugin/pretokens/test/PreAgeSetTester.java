@@ -47,7 +47,7 @@ PrerequisiteTest
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
-		final int ageset = character.getAgeSet();
+		final int ageset = character.getAgeSetIndex();
 
 		int runningTotal=-1;
 		int anInt;

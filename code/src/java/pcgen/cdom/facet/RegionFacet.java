@@ -29,7 +29,8 @@ import pcgen.core.PCTemplate;
  * Character. The Region and SubRegion can be set explicitly or inferred from
  * the PCTemplate objects possessed by the PlayerCharacter.
  */
-public class RegionFacet
+public class RegionFacet extends AbstractDataFacet<String> implements
+		DataFacetChangeListener<PCTemplate>
 {
 
 	/*
@@ -101,6 +102,7 @@ public class RegionFacet
 	public void setRegion(CharID id, Region region)
 	{
 		getConstructingInfo(id).region = region;
+		updateRegion(id);
 	}
 
 	/**
@@ -347,6 +349,8 @@ public class RegionFacet
 	 */
 	private static class RegionCacheInfo
 	{
+		public String cachedRegion;
+
 		public Region region;
 
 		public SubRegion subregion;
@@ -383,6 +387,34 @@ public class RegionFacet
 			destRCI.region = sourceRCI.region;
 			destRCI.subregion = sourceRCI.subregion;
 		}
+	}
+
+	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		updateRegion(dfce.getCharID());
+	}
+
+	private void updateRegion(CharID id)
+	{
+		RegionCacheInfo rci = getInfo(id);
+		String current = rci.cachedRegion;
+		String newRegion = getRegion(id);
+		if (current == null || !current.equals(newRegion))
+		{
+			if (current != null)
+			{
+				fireDataFacetChangeEvent(id, current,
+						DataFacetChangeEvent.DATA_REMOVED);
+			}
+			rci.cachedRegion = newRegion;
+			fireDataFacetChangeEvent(id, newRegion,
+					DataFacetChangeEvent.DATA_ADDED);
+		}
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		updateRegion(dfce.getCharID());
 	}
 
 }
