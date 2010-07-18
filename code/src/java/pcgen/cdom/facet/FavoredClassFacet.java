@@ -18,9 +18,11 @@
 package pcgen.cdom.facet;
 
 import java.util.List;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 
@@ -31,6 +33,10 @@ import pcgen.core.PCClass;
 public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		implements DataFacetChangeListener<CDOMObject>
 {
+
+	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
+			.getFacet(HasAnyFavoredClassFacet.class);
+	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
@@ -71,5 +77,30 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public int getFavoredClassLevel(CharID id)
+	{
+		Set<PCClass> aList = getSet(id);
+		int level = 0;
+		int max = 0;
+
+		boolean isAny = hasAnyFavoredFacet.contains(id, Boolean.TRUE);
+		for (PCClass cl : aList)
+		{
+			for (PCClass pcClass : classFacet.getClassSet(id))
+			{
+				if (isAny)
+				{
+					max = Math.max(max, classFacet.getLevel(id, pcClass));
+				}
+				if (cl.getKeyName().equals(pcClass.getKeyName()))
+				{
+					level += classFacet.getLevel(id, pcClass);
+					break;
+				}
+			}
+		}
+		return Math.max(level, max);
 	}
 }

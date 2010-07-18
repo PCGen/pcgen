@@ -4428,27 +4428,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getFavoredClassLevel()
 	{
-		final SortedSet<PCClass> aList = getFavoredClasses();
-		int level = 0;
-		int max = 0;
-		boolean isAny = getRace().getSafe(ObjectKey.ANY_FAVORED_CLASS);
-
-		for (PCClass cl : aList)
-		{
-			for (PCClass pcClass : getClassSet())
-			{
-				if (isAny)
-				{
-					max = Math.max(max, getLevel(pcClass));
-				}
-				if (cl.getKeyName().equals(pcClass.getKeyName()))
-				{
-					level += getLevel(pcClass);
-					break;
-				}
-			}
-		}
-		return Math.max(level, max);
+		return favClassFacet.getFavoredClassLevel(id);
 	}
 
 	/**
