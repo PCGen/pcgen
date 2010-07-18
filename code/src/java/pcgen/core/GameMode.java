@@ -37,10 +37,12 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.content.ACControl;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -81,8 +83,8 @@ public final class GameMode implements Comparable<Object>
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
 	private List<WieldCategory> wieldCategoryList = new ArrayList<WieldCategory>();
-	private Map<String, List<String>> ACTypeAddMap = new HashMap<String, List<String>>();
-	private Map<String, List<String>> ACTypeRemoveMap = new HashMap<String, List<String>>();
+	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
+	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<String, ACControl>();
 	private Map<String, String> damageDownMap = new HashMap<String, String>();
 	private Map<String, String> damageUpMap = new HashMap<String, String>();
 	private Map<String, String> plusCalcs;
@@ -235,14 +237,9 @@ public final class GameMode implements Comparable<Object>
 	 * @param ACType
 	 * @return List of AC Types
 	 */
-	public List<String> getACTypeAddString(final String ACType)
+	public List<ACControl> getACTypeAddString(final String ACType)
 	{
-		if (ACTypeAddMap == null)
-		{
-			return new ArrayList<String>();
-		}
-
-		return ACTypeAddMap.get(ACType);
+		return ACTypeAddMap.getListFor(ACType);
 	}
 
 	/**
@@ -250,14 +247,9 @@ public final class GameMode implements Comparable<Object>
 	 * @param ACType
 	 * @return List of AC Types
 	 */
-	public List<String> getACTypeRemoveString(final String ACType)
+	public List<ACControl> getACTypeRemoveString(final String ACType)
 	{
-		if (ACTypeRemoveMap == null)
-		{
-			return new ArrayList<String>();
-		}
-
-		return ACTypeRemoveMap.get(ACType);
+		return ACTypeRemoveMap.getListFor(ACType);
 	}
 
 	/**
@@ -1103,79 +1095,24 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public boolean isValidACType(final String ACType)
 	{
-		if (ACTypeAddMap.containsKey(ACType))
-		{
-			return true;
-		}
-		if (ACTypeRemoveMap.containsKey(ACType))
-		{
-			return true;
-		}
-		return false;
+		return ACTypeAddMap.containsListFor(ACType)
+				|| ACTypeRemoveMap.containsListFor(ACType);
 	}
 
-	/**
-	 * Add AC Type
-	 * @param ACTypeLine
-	 */
-	public void addACType(final String ACTypeLine)
+	public void addACRemoves(final String ACType,
+			Collection<ACControl> controls)
 	{
-		final StringTokenizer aTok = new StringTokenizer(ACTypeLine, "\t");
+		ACTypeRemoveMap.addAllToListFor(ACType, controls);
+	}
 
-		if (!aTok.hasMoreTokens())
-		{
-			Logging.errorPrint("Empty tag in miscinfo.ACTYPE");
-
-			return;
-		}
-
-		final String ACType = aTok.nextToken();
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
-
-			if (aString.startsWith("ADD:"))
-			{
-				final List<String> aList;
-
-				if (ACTypeAddMap.containsKey(ACType))
-				{
-					aList = ACTypeAddMap.get(ACType);
-				}
-				else
-				{
-					aList = new ArrayList<String>();
-				}
-
-				aList.add(aString.substring(4));
-				ACTypeAddMap.put(ACType, aList);
-			}
-			else if (aString.startsWith("REMOVE:"))
-			{
-				final List<String> aList;
-
-				if (ACTypeRemoveMap.containsKey(ACType))
-				{
-					aList = ACTypeRemoveMap.get(ACType);
-				}
-				else
-				{
-					aList = new ArrayList<String>();
-				}
-
-				aList.add(aString.substring(7));
-				ACTypeRemoveMap.put(ACType, aList);
-			}
-			else
-			{
-				Logging.errorPrint("Incorrect tag in miscinfo.ACTYPE: " + aString);
-			}
-		}
+	public void addACAdds(final String ACType, Collection<ACControl> controls)
+	{
+		ACTypeAddMap.addAllToListFor(ACType, controls);
 	}
 
 	/**
 	 * Add Class Type
+	 * 
 	 * @param aString
 	 */
 	public void addClassType(final String aString)

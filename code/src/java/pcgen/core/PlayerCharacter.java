@@ -66,6 +66,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -135,9 +136,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -6382,9 +6381,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int calcACOfType(final String ACType)
 	{
-		final List<String> addList =
+		final List<ACControl> addList =
 				SettingsHandler.getGame().getACTypeAddString(ACType);
-		final List<String> removeList =
+		final List<ACControl> removeList =
 				SettingsHandler.getGame().getACTypeRemoveString(ACType);
 
 		if ((addList == null) && (removeList == null))
@@ -6397,32 +6396,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (addList != null)
 		{
-			for (String aString : addList)
+			for (ACControl acc : addList)
 			{
-				final PObject aPObj = new PObject();
-				getPreReqFromACType(aString, aPObj);
-
-				if (aPObj.qualifies(this, aPObj))
+				if (acc.qualifies(this, null))
 				{
-					final StringTokenizer aTok =
-							new StringTokenizer(aString, "|");
-					AC += subCalcACOfType(aTok);
+					AC += Integer.parseInt(BonusToken.getBonusToken(
+							"BONUS.COMBAT.AC." + acc.getType(), this));
 				}
 			}
 		}
 
 		if (removeList != null)
 		{
-			for (String rString : removeList)
+			for (ACControl acc : removeList)
 			{
-				final PObject aPObj = new PObject();
-				getPreReqFromACType(rString, aPObj);
-
-				if (aPObj.qualifies(this, aPObj))
+				if (acc.qualifies(this, null))
 				{
-					final StringTokenizer aTok =
-							new StringTokenizer(rString, "|");
-					AC -= subCalcACOfType(aTok);
+					AC -= Integer.parseInt(BonusToken.getBonusToken(
+							"BONUS.COMBAT.AC." + acc.getType(), this));
 				}
 			}
 		}
@@ -8557,38 +8548,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return results;
 	}
 
-	private void getPreReqFromACType(String aString, final PObject aPObj)
-	{
-		final StringTokenizer aTok =
-				new StringTokenizer(aString, Constants.PIPE);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			if (PreParserFactory.isPreReqString(bString))
-			{
-				try
-				{
-					Logging
-						.debugPrint("Why is this prerequisite '"
-							+ bString
-							+ "' parsed in '"
-							+ getClass().getName()
-							+ ".getPreReqFromACType()' rather than the persistence layer?");
-					final PreParserFactory factory =
-							PreParserFactory.getInstance();
-					final Prerequisite prereq = factory.parse(bString);
-					aPObj.addPrerequisite(prereq);
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple);
-				}
-			}
-		}
-	}
-
 	/**
 	 * @param level
 	 */
@@ -9455,21 +9414,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return sortedList;
-	}
-
-	private int subCalcACOfType(final StringTokenizer aTok)
-	{
-		int total = 0;
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
-			total +=
-					Integer.parseInt(BonusToken.getBonusToken(
-						"BONUS.COMBAT.AC." + aString, this));
-		}
-
-		return total;
 	}
 
 	/**

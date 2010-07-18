@@ -23,9 +23,12 @@
  */
 package plugin.exporttokens;
 
+import java.util.Collections;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.content.ACControl;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -142,9 +145,9 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		final GameMode gamemode = SettingsHandler.getGame();
 		if (!gamemode.isValidACType("Total"))
 		{
-			gamemode.addACType("Total	ADD:TOTAL");
-			gamemode.addACType("Armor	ADD:Armor");
-			gamemode.addACType("Ability	ADD:Ability");
+			gamemode.addACAdds("Total", Collections.singletonList(new ACControl("TOTAL")));
+			gamemode.addACAdds("Armor", Collections.singletonList(new ACControl("Armor")));
+			gamemode.addACAdds("Ability", Collections.singletonList(new ACControl("Ability")));
 		}
 
 	}
