@@ -169,6 +169,7 @@ import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.SpellSupportFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.StatLockFacet;
@@ -356,6 +357,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
+	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 
@@ -12625,11 +12627,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public SpellSupportForPCClass getSpellSupport(PCClass cl)
 	{
-		SpellSupportForPCClass ss = getAssoc(cl, AssociationKey.SPELL_SUPPORT);
+		SpellSupportForPCClass ss = spellSupportFacet.getSource(id, cl);
 		if (ss == null)
 		{
 			ss = new SpellSupportForPCClass(cl);
-			setAssoc(cl, AssociationKey.SPELL_SUPPORT, ss);
+			spellSupportFacet.add(id, cl, ss);
 		}
 		return ss;
 	}

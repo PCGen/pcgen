@@ -100,8 +100,6 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Integer> HIT_POINTS = new AssociationKey<Integer>();
 
-	public static final AssociationKey<SpellSupportForPCClass> SPELL_SUPPORT = new AssociationKey<SpellSupportForPCClass>();
-
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()
