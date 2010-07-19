@@ -33,14 +33,14 @@ public class LocalAddedSkillCostFacet
 	private final Class<?> thisClass = getClass();
 
 	/**
-	 * Returns the type-safe CacheInfo for this LocalSkillCostFacet and the
+	 * Returns the type-safe CacheInfo for this LocalAddedSkillCostFacet and the
 	 * given CharID. Will return a new, empty CacheInfo if no Skill information
 	 * has been set for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by LocalSkillCostFacet, and since it can be modified, a reference to
+	 * by LocalAddedSkillCostFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * LocalSkillCostFacet.
+	 * LocalAddedSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -59,14 +59,14 @@ public class LocalAddedSkillCostFacet
 	}
 
 	/**
-	 * Returns the type-safe CacheInfo for this LocalSkillCostFacet and the
+	 * Returns the type-safe CacheInfo for this LocalAddedSkillCostFacet and the
 	 * given CharID. May return null if no Skill information has been set for
 	 * the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by LocalSkillCostFacet, and since it can be modified, a reference to
+	 * by LocalAddedSkillCostFacet, and since it can be modified, a reference to
 	 * that object should not be exposed to any object other than
-	 * LocalSkillCostFacet.
+	 * LocalAddedSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -80,8 +80,8 @@ public class LocalAddedSkillCostFacet
 	}
 
 	/**
-	 * CacheInfo is the data structure used by LocalSkillCostFacet to store a
-	 * Player Character's Skill Costs
+	 * CacheInfo is the data structure used by LocalAddedSkillCostFacet to store
+	 * a Player Character's Skill Costs
 	 */
 	private static class CacheInfo
 	{

@@ -35,7 +35,7 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
 /**
- * SkillCostFacet is a Facet to track Skill costs
+ * LocalSkillCostFacet is a Facet to track Skill costs
  */
 public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -45,8 +45,8 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 			.getFacet(DomainFacet.class);
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
+	 * Triggered when one of the Facets to which LocalSkillCostFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -93,8 +93,8 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Triggered when one of the Facets to which LocalSkillCostFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce

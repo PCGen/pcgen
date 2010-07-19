@@ -32,16 +32,17 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Skill;
 
 /**
- * SkillCostFacet is a Facet to track Skill costs
+ * GlobalSkillCostFacet is a Facet to track Skill costs
  */
-public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
+public class GlobalSkillCostFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was added to a Player
-	 * Character.
+	 * Triggered when one of the Facets to which GlobalSkillCostFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -70,9 +71,9 @@ public class GlobalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
-	 * Character.
+	 * Triggered when one of the Facets to which GlobalSkillCostFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the

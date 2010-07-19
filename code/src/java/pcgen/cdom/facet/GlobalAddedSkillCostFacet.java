@@ -33,14 +33,14 @@ public class GlobalAddedSkillCostFacet
 	private final Class<?> thisClass = getClass();
 
 	/**
-	 * Returns the type-safe CacheInfo for this GlobalSkillCostFacet and the
-	 * given CharID. Will return a new, empty CacheInfo if no Skill information
-	 * has been set for the given CharID. Will not return null.
+	 * Returns the type-safe CacheInfo for this GlobalAddedSkillCostFacet and
+	 * the given CharID. Will return a new, empty CacheInfo if no Skill
+	 * information has been set for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by GlobalSkillCostFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * GlobalSkillCostFacet.
+	 * by GlobalAddedSkillCostFacet, and since it can be modified, a reference
+	 * to that object should not be exposed to any object other than
+	 * GlobalAddedSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -59,14 +59,14 @@ public class GlobalAddedSkillCostFacet
 	}
 
 	/**
-	 * Returns the type-safe CacheInfo for this GlobalSkillCostFacet and the
-	 * given CharID. May return null if no Skill information has been set for
-	 * the given CharID.
+	 * Returns the type-safe CacheInfo for this GlobalAddedSkillCostFacet and
+	 * the given CharID. May return null if no Skill information has been set
+	 * for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by GlobalSkillCostFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * GlobalSkillCostFacet.
+	 * by GlobalAddedSkillCostFacet, and since it can be modified, a reference
+	 * to that object should not be exposed to any object other than
+	 * GlobalAddedSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -80,8 +80,8 @@ public class GlobalAddedSkillCostFacet
 	}
 
 	/**
-	 * CacheInfo is the data structure used by GlobalSkillCostFacet to store a
-	 * Player Character's Skill Costs
+	 * CacheInfo is the data structure used by GlobalAddedSkillCostFacet to
+	 * store a Player Character's Skill Costs
 	 */
 	private static class CacheInfo
 	{
