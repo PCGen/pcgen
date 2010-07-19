@@ -57,7 +57,7 @@ public interface Formula
 	 *            True if the primary head of the given Equipment should be used
 	 *            for resolution, false if the secondary head should be used for
 	 *            resolution.
-	 * @param apc
+	 * @param pc
 	 *            The PlayerCharacter relative to which the Formula should be
 	 *            resolved.
 	 * @param source
@@ -66,7 +66,7 @@ public interface Formula
 	 *         the given context.
 	 */
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String source);
+			PlayerCharacter pc, String source);
 
 	/**
 	 * Returns true if the underlying Formula is known to be static.

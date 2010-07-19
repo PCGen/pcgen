@@ -76,14 +76,14 @@ public class UnreachableError extends Error
 	/**
 	 * Create a new UnreachableError with the given message and cause
 	 * 
-	 * @param arg0
+	 * @param message
 	 *            The message indicating the cause of UnreachableError
-	 * @param arg1
+	 * @param throwable
 	 *            The cause of the UnreachableError
 	 */
-	public UnreachableError(String arg0, Throwable arg1)
+	public UnreachableError(String message, Throwable throwable)
 	{
-		super(arg0, arg1);
+		super(message, throwable);
 	}
 
 }
