@@ -133,9 +133,9 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	public int size()
 	{
 		int total = 0;
-		for (WeightedItem<E> wi : theData)
+		for (WeightedItem<E> item : theData)
 		{
-			total += wi.getWeight();
+			total += item.getWeight();
 		}
 		return total;
 	}
@@ -463,7 +463,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * maintained by the WeightedCollection, and the WeightedCollection may
 	 * return references to those objects contained in the Collection.
 	 * 
-	 * @param aWeight
+	 * @param weight
 	 *            The weight value to use for each element added.
 	 * @param collection
 	 *            The elements to add to the WeightedCollection
@@ -474,12 +474,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
-	public final boolean addAll(Collection<? extends E> collection, int aWeight)
+	public final boolean addAll(Collection<? extends E> collection, int weight)
 	{
 		boolean modified = false;
 		for (E element : collection)
 		{
-			modified |= add(element, aWeight);
+			modified |= add(element, weight);
 		}
 		return modified;
 	}
@@ -536,12 +536,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Adds the specified amount of weight to the item.
 		 * 
-		 * @param aWeight
+		 * @param weight
 		 *            an amount of weight to add.
 		 */
-		public void addWeight(int aWeight)
+		public void addWeight(int weight)
 		{
-			theWeight += aWeight;
+			theWeight += weight;
 		}
 
 		@Override
@@ -710,9 +710,9 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
-		public int compare(WeightedItem<WICT> arg0, WeightedItem<WICT> arg1)
+		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)
 		{
-			return delegate.compare(arg0.getElement(), arg1.getElement());
+			return delegate.compare(item1.getElement(), item2.getElement());
 		}
 
 	}
