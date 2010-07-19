@@ -356,6 +356,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		{
 			String key = pcc.getKeyName();
 			ClassSkillList skl = constructCDOMObject(CLASSSKILLLIST_CLASS, key);
+			boolean isMonster = pcc.containsInList(ListKey.TYPE, Type.MONSTER);
+			if (isMonster)
+			{
+				skl.addToListFor(ListKey.TYPE, Type.MONSTER);
+			}
 			pcc.put(ObjectKey.CLASS_SKILLLIST, skl);
 			// TODO Need to limit which are built to only spellcasters...
 			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
@@ -382,6 +387,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 						needSelf = false;
 					}
 					skl = constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
+					if (isMonster)
+					{
+						skl.addToListFor(ListKey.TYPE, Type.MONSTER);
+					}
 					subcl.put(ObjectKey.CLASS_SKILLLIST, skl);
 					// TODO Need to limit which are built to only
 					// spellcasters...

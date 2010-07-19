@@ -29,9 +29,10 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.rules.context.AssociatedChanges;
@@ -64,14 +65,15 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race race, String value)
+			Race race, String value)
 	{
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-
+		CDOMGroupRef<ClassSkillList> monsterList = context.ref
+				.getCDOMTypeReference(ClassSkillList.class, "Monster");
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
@@ -84,7 +86,7 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 							+ ": When used, .CLEAR must be the first argument");
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
-						race, PCClass.MONSTER_SKILL_LIST);
+						race, monsterList);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -100,11 +102,12 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				}
 				if (skill == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName());
+					return new ParseResult.Fail(
+							"  Error was encountered while parsing "
+									+ getTokenName());
 				}
 				context.getListContext().removeFromList(getTokenName(), race,
-						PCClass.MONSTER_SKILL_LIST, skill);
+						monsterList, skill);
 			}
 			else
 			{
@@ -129,12 +132,12 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				}
 				if (skill == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName());
+					return new ParseResult.Fail(
+							"  Error was encountered while parsing "
+									+ getTokenName());
 				}
 				AssociatedPrereqObject apo = context.getListContext()
-						.addToList(getTokenName(), race,
-								PCClass.MONSTER_SKILL_LIST, skill);
+						.addToList(getTokenName(), race, monsterList, skill);
 				apo.setAssociation(AssociationKey.SKILL_COST,
 						SkillCost.CROSS_CLASS);
 			}
@@ -165,9 +168,11 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 
 	public String[] unparse(LoadContext context, Race race)
 	{
+		CDOMGroupRef<ClassSkillList> monsterList = context.ref
+				.getCDOMTypeReference(ClassSkillList.class, "Monster");
 		AssociatedChanges<CDOMReference<Skill>> changes = context
 				.getListContext().getChangesInList(getTokenName(), race,
-						PCClass.MONSTER_SKILL_LIST);
+						monsterList);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())

@@ -21,18 +21,13 @@
  */
 package pcgen.core.analysis;
 
-import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 
 public final class SkillCostCalc
@@ -46,37 +41,15 @@ public final class SkillCostCalc
 			return false;
 		}
 
-		if (aPC.hasGlobalCost(sk, SkillCost.CLASS))
-		{
-			return true;
-		}
-
-		if (aPC.hasLocalCost(aClass, sk, SkillCost.CLASS))
-		{
-			return true;
-		}
-
-		// test for SKILLLIST skill
-		if (aClass.hasClassSkill(aPC, sk))
-		{
-			return true;
-		}
-
-		if (aClass.isMonster())
-		{
-			if (hasMonsterClassSkill(aPC, aPC.getRace(), sk))
-			{
-				return true;
-			}
-		}
-
-		List<ClassSkillList> skillLists = ClassSkillApplication
+		List<ClassSkillList> classSkillList = ClassSkillApplication
 				.getClassSkillList(aPC, aClass);
-		if (aPC.hasMasterSkill(skillLists, sk))
-		{
-			return true;
-		}
-		return false;
+		return aPC.hasGlobalCost(sk, SkillCost.CLASS)
+				|| aPC.hasLocalCost(aClass, sk, SkillCost.CLASS)
+				|| aPC.hasLocalCost(classSkillList, sk, SkillCost.CLASS)
+				||
+				// test for SKILLLIST skill
+				aClass.hasClassSkill(aPC, sk)
+				|| aPC.hasMasterSkill(classSkillList, sk);
 	}
 
 	public static SkillCost skillCostForPCClass(Skill sk, PCClass aClass,
@@ -100,88 +73,16 @@ public final class SkillCostCalc
 	private static boolean isCrossClassSkill(Skill sk, PCClass aClass,
 			PlayerCharacter aPC)
 	{
-		if (isClassSkill(sk, aClass, aPC))
+		if ((aClass == null) || isClassSkill(sk, aClass, aPC))
 		{
 			return false;
 		}
+		List<ClassSkillList> classSkillList = ClassSkillApplication
+				.getClassSkillList(aPC, aClass);
 
-		if (aClass == null)
-		{
-			return false;
-		}
-
-		if (aPC.hasGlobalCost(sk, SkillCost.CROSS_CLASS))
-		{
-			return true;
-		}
-
-		if (aPC.hasLocalCost(aClass, sk, SkillCost.CROSS_CLASS))
-		{
-			return true;
-		}
-
-		if (aClass.isMonster())
-		{
-			if (hasMonsterCCSkill(aPC.getRace(), sk))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return aPC.hasGlobalCost(sk, SkillCost.CROSS_CLASS)
+				|| aPC.hasLocalCost(aClass, sk, SkillCost.CROSS_CLASS)
+				|| aPC.hasLocalCost(classSkillList, sk, SkillCost.CROSS_CLASS);
 	}
 
-	private static boolean hasMonsterCCSkill(Race r, Skill s)
-	{
-		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
-		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
-		if (mods == null)
-		{
-			return false;
-		}
-		for (CDOMReference<Skill> ref : mods)
-		{
-			for (AssociatedPrereqObject apo : r.getListAssociations(mList, ref))
-			{
-				if (SkillCost.CROSS_CLASS.equals(apo
-						.getAssociation(AssociationKey.SKILL_COST)))
-				{
-					if (ref.contains(s))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	private static boolean hasMonsterClassSkill(PlayerCharacter pc, Race r, Skill s)
-	{
-		if (pc.getMonCSkills().contains(s))
-		{
-			return true;
-		}
-		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
-		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
-		if (mods == null)
-		{
-			return false;
-		}
-		for (CDOMReference<Skill> ref : mods)
-		{
-			for (AssociatedPrereqObject apo : r.getListAssociations(mList, ref))
-			{
-				if (SkillCost.CLASS.equals(apo
-						.getAssociation(AssociationKey.SKILL_COST)))
-				{
-					if (ref.contains(s))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
 }

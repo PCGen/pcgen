@@ -134,6 +134,8 @@ public class FacetInitialization
 				.getFacet(GlobalSkillCostFacet.class);
 		LocalSkillCostFacet localSkillCostFacet = FacetLibrary
 				.getFacet(LocalSkillCostFacet.class);
+		ListSkillCostFacet listSkillCostFacet = FacetLibrary
+				.getFacet(ListSkillCostFacet.class);
 		ChooseDriverFacet chooseDriverFacet = FacetLibrary
 				.getFacet(ChooseDriverFacet.class);
 
@@ -161,7 +163,7 @@ public class FacetInitialization
 		AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 		RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 		AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
-		
+
 		raceFacet.addDataFacetChangeListener(ageSetFacet);
 		regionFacet.addDataFacetChangeListener(ageSetFacet);
 		ageFacet.addDataFacetChangeListener(ageSetFacet);
@@ -206,6 +208,8 @@ public class FacetInitialization
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
+
+		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 
 		raceFacet.addDataFacetChangeListener(startingLangFacet);
 		templateFacet.addDataFacetChangeListener(startingLangFacet);

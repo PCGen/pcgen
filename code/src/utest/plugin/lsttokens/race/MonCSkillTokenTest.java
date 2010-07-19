@@ -25,7 +25,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.core.PCClass;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -147,6 +147,6 @@ public class MonCSkillTokenTest extends
 	@Override
 	protected CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference()
 	{
-		return PCClass.MONSTER_SKILL_LIST;
+		return primaryContext.ref.getCDOMTypeReference(ClassSkillList.class, "Monster");
 	}
 }

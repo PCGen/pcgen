@@ -17,7 +17,11 @@
  */
 package pcgen.cdom.list;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Skill;
 
 /**
@@ -46,7 +50,23 @@ public class ClassSkillList extends CDOMListObject<Skill>
 	@Override
 	public boolean isType(String type)
 	{
-		return false;
+		if (type.length() == 0)
+		{
+			return false;
+		}
+
+		//
+		// Must match all listed types in order to qualify
+		//
+		StringTokenizer tok = new StringTokenizer(type, ".");
+		while (tok.hasMoreTokens())
+		{
+			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	// No additional Functionality :)

@@ -260,6 +260,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
+	private ListSkillCostFacet listSkillCostFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
@@ -13048,6 +13049,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return localSkillCostFacet.contains(id, cl, sc, skill)
 				|| localAddedSkillCostFacet.contains(id, cl, skill, sc);
+	}
+
+	public boolean hasLocalCost(Collection<ClassSkillList> coll, Skill skill,
+			SkillCost sc)
+	{
+		for (ClassSkillList csl : coll)
+		{
+			if (listSkillCostFacet.contains(id, csl, sc, skill))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean hasMasterSkill(List<ClassSkillList> skillLists, Skill sk)
