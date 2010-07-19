@@ -126,47 +126,4 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 		return context.ref.silentlyGetConstructedCDOMObject(Language.class, aKey);
 	}
 
-	@Override
-	protected void storeObject(LoadContext context, Language pObj)
-	{
-		final Language matching = getMatchingObject(context, pObj);
-
-		if (matching == null || !pObj.getType().equals(matching.getType()))
-		{
-			addGlobalObject(pObj);
-		}
-		else
-		{
-			//Yes, this is instance equality, NOT .equals!!!!!
-			if (matching != pObj)
-			{
-				if (SettingsHandler.isAllowOverride())
-				{
-					// If the new object is more recent than the current
-					// one, use the new object
-					final Date pObjDate = pObj.get(ObjectKey.SOURCE_DATE);
-					final Date currentObjDate = matching
-							.get(ObjectKey.SOURCE_DATE);
-					if ((pObjDate != null)
-						&& ((currentObjDate == null) || ((pObjDate
-							.compareTo(currentObjDate) > 0))))
-					{
-						performForget(context, matching);
-						context.ref.forget(matching);
-						addGlobalObject(pObj);
-					}
-				}
-				else
-				{
-					// Duplicate loading error
-					Logging.errorPrintLocalised(
-						"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
-						pObj.getKeyName(), matching.getSourceURI(), pObj
-							.getSourceURI());
-				}
-			}
-		}
-	}
-	
-	
 }
