@@ -105,7 +105,7 @@ public class ActypeToken implements GameModeLstToken
 		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
 		List<ACControl> acTypes = new ArrayList<ACControl>();
 		String token;
-		do
+		while (true)
 		{
 			token = st.nextToken();
 			if (PreParserFactory.isPreReqString(token))
@@ -113,7 +113,11 @@ public class ActypeToken implements GameModeLstToken
 				break;
 			}
 			acTypes.add(new ACControl(token));
-		} while (st.hasMoreTokens());
+			if (!st.hasMoreTokens())
+			{
+				return acTypes;
+			}
+		}
 		if (acTypes.isEmpty())
 		{
 			Logging.errorPrint("No types found in actype control: " + str);
