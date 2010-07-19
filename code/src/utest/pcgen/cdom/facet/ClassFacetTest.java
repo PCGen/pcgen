@@ -663,7 +663,7 @@ public class ClassFacetTest extends TestCase
 			assertFalse(facet.setClassLevel(id, null, pcl));
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException e)
 		{
 			// Yep!
 		}
@@ -684,7 +684,7 @@ public class ClassFacetTest extends TestCase
 			assertFalse(facet.setClassLevel(id, t1, null));
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException e)
 		{
 			// Yep!
 		}
@@ -769,7 +769,7 @@ public class ClassFacetTest extends TestCase
 			facet.getClassLevel(id, null, 1);
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException e)
 		{
 			//Yep!
 		}
