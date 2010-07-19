@@ -45,22 +45,22 @@ public class ConcretePersistentTransitionChoice<T> extends
 	private PersistentChoiceActor<T> choiceActor;
 
 	/**
-	 * Constructs a new PersistentChoiceActor with the given ChoiceSet (of
+	 * Constructs a new PersistentChoiceActor with the given SelectableSet (of
 	 * possible choices) and Formula (indicating the number of choices that may
 	 * be taken)
 	 * 
-	 * @param cs
-	 *            The ChoiceSet indicating the choices available in this
+	 * @param set
+	 *            The SelectableSet indicating the choices available in this
 	 *            PersistentChoiceActor.
 	 * @param count
 	 *            The Formula indicating the number of choices that may be
 	 *            selected when selections are made in this
 	 *            PersistentChoiceActor.
 	 */
-	public ConcretePersistentTransitionChoice(SelectableSet<? extends T> cs,
-		Formula count)
+	public ConcretePersistentTransitionChoice(SelectableSet<? extends T> set,
+			Formula count)
 	{
-		super(cs, count);
+		super(set, count);
 	}
 
 	/**
@@ -69,16 +69,16 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 * called. If the ChoiceActor is not set, then the set method may not be
 	 * used without triggering an exception.
 	 * 
-	 * @param ca
+	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
 	@Override
-	public void setChoiceActor(ChoiceActor<T> ca)
+	public void setChoiceActor(ChoiceActor<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) ca;
-		super.setChoiceActor(ca);
+		choiceActor = (PersistentChoiceActor<T>) actor;
+		super.setChoiceActor(actor);
 	}
 
 	/**
@@ -91,15 +91,15 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice which should be encoded into a String sufficient to
 	 *            identify the choice.
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T choice)
+	public String encodeChoice(T item)
 	{
-		return choiceActor.encodeChoice(choice);
+		return choiceActor.encodeChoice(item);
 	}
 
 	/**
@@ -110,16 +110,16 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 * identifing such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
-	 * @param persistenceFormat
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
 	 * 
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String persistenceFormat)
+	public T decodeChoice(String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistenceFormat);
+		return choiceActor.decodeChoice(persistentFormat);
 	}
 
 	/**
@@ -132,12 +132,12 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 *            The PlayerCharacter to which the choice should be restored.
 	 * @param owner
 	 *            The owning object of the choice being restored.
-	 * @param choice
+	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
 	{
-		choiceActor.restoreChoice(pc, owner, choice);
+		choiceActor.restoreChoice(pc, owner, item);
 	}
 
 	/**
@@ -146,17 +146,17 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 * 
 	 * @param owner
 	 *            The owning object of the choice being removed.
-	 * @param apc
+	 * @param pc
 	 *            The PlayerCharacter from which the choice should be removed.
 	 */
-	public void remove(CDOMObject owner, PlayerCharacter apc)
+	public void remove(CDOMObject owner, PlayerCharacter pc)
 	{
-		List<Object> ch = apc.removeAllAssocs(this, AssociationListKey.ADD);
+		List<Object> ch = pc.removeAllAssocs(this, AssociationListKey.ADD);
 		if (ch != null)
 		{
 			for (Object o : ch)
 			{
-				choiceActor.removeChoice(apc, owner, castChoice(o));
+				choiceActor.removeChoice(pc, owner, castChoice(o));
 			}
 		}
 	}

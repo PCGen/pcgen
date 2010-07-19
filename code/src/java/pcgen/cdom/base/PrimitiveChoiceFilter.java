@@ -45,13 +45,13 @@ public interface PrimitiveChoiceFilter<T>
 	 * @param pc
 	 *            The PlayerCharacter to be tested to determine if the given
 	 *            object is allowed to be selected by this PlayerCharacter
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to determine if the given
 	 *            PlayerCharacter is allowed to select this object
 	 * @return true if the given PlayerCharacter is allowed to select the given
 	 *         object; false otherwise
 	 */
-	public boolean allow(PlayerCharacter pc, T obj);
+	public boolean allow(PlayerCharacter pc, T item);
 
 	/**
 	 * Returns the Class object representing the Class that this

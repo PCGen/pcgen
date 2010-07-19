@@ -29,20 +29,20 @@ import pcgen.cdom.enumeration.CharID;
 public class FacetCache
 {
 
-	private static final DoubleKeyMap<CharID, Class<?>, Object> cache = new DoubleKeyMap<CharID, Class<?>, Object>();
+	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE = new DoubleKeyMap<CharID, Class<?>, Object>();
 
 	public static Object get(CharID id, Class<?> cl)
 	{
-		return cache.get(id, cl);
+		return CACHE.get(id, cl);
 	}
 
 	public static Object set(CharID id, Class<?> cl, Object o)
 	{
-		return cache.put(id, cl, o);
+		return CACHE.put(id, cl, o);
 	}
 
 	public static Object remove(CharID id, Class<?> cl)
 	{
-		return cache.remove(id, cl);
+		return CACHE.remove(id, cl);
 	}
 }

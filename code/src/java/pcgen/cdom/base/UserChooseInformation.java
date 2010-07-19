@@ -94,24 +94,24 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
 	}
 
-	public void applyChoice(CDOMObject owner, String st, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
-		restoreChoice(pc, owner, st);
+		restoreChoice(pc, owner, choice);
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			for (ChooseSelectionActor csa : actors)
 			{
-				applyChoice(owner, pc, st, ca);
+				applyChoice(owner, pc, choice, csa);
 			}
 		}
 	}
 
-	private void applyChoice(CDOMObject owner, PlayerCharacter pc, String st,
-		ChooseSelectionActor<String> ca)
+	private void applyChoice(CDOMObject owner, PlayerCharacter pc, String choice,
+		ChooseSelectionActor<String> csa)
 	{
-		ca.applyChoice(owner, st, pc);
+		csa.applyChoice(owner, choice, pc);
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
@@ -122,9 +122,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			for (ChooseSelectionActor csa : actors)
 			{
-				ca.removeChoice(owner, choice, pc);
+				csa.removeChoice(owner, choice, pc);
 			}
 		}
 	}
@@ -134,7 +134,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		return this;
 	}
 
-	public void setChoiceActor(ChoiceActor<String> ca)
+	public void setChoiceActor(ChoiceActor<String> actor)
 	{
 		// ignore
 	}
@@ -154,9 +154,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		return choice;
 	}
 
-	public void setTitle(String s)
+	public void setTitle(String chooseTitle)
 	{
-		title = s;
+		title = chooseTitle;
 	}
 
 }

@@ -65,7 +65,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 */
 	private PersistentChoiceActor<T> choiceActor;
 
-	private Class<T> underlyingClass;
+	private final Class<T> underlyingClass;
 
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
@@ -80,7 +80,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
 	public CategorizedChooseInformation(String name, Category<Ability> cat,
-		PrimitiveChoiceSet<T> choice, Class<T> cl)
+			PrimitiveChoiceSet<T> choice, Class<T> objClass)
 	{
 		if (name == null)
 		{
@@ -93,12 +93,12 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 		if (choice == null)
 		{
 			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
+					"PrimitiveChoiceSet cannot be null");
 		}
 		setName = name;
 		category = cat;
 		pcs = choice;
-		underlyingClass = cl;
+		underlyingClass = objClass;
 	}
 
 	/**
@@ -107,14 +107,14 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * called. If the ChoiceActor is not set, then the set method may not be
 	 * used without triggering an exception.
 	 * 
-	 * @param ca
+	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<T> ca)
+	public void setChoiceActor(ChoiceActor<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) ca;
+		choiceActor = (PersistentChoiceActor<T>) actor;
 	}
 
 	/**
@@ -127,15 +127,15 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice which should be encoded into a String sufficient to
 	 *            identify the choice.
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T choice)
+	public String encodeChoice(T item)
 	{
-		return choiceActor.encodeChoice(choice);
+		return choiceActor.encodeChoice(item);
 	}
 
 	/**
@@ -146,16 +146,16 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * identifing such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
-	 * @param persistenceFormat
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
 	 * 
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String persistenceFormat)
+	public T decodeChoice(String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistenceFormat);
+		return choiceActor.decodeChoice(persistentFormat);
 	}
 
 	public PersistentChoiceActor<T> getChoiceActor()
@@ -174,8 +174,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	{
 		if (obj instanceof CategorizedChooseInformation)
 		{
-			CategorizedChooseInformation other =
-					(CategorizedChooseInformation) obj;
+			CategorizedChooseInformation other = (CategorizedChooseInformation) obj;
 			if (title == null)
 			{
 				if (other.title != null)
@@ -188,7 +187,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 				return false;
 			}
 			return setName.equals(other.setName)
-				&& category.equals(other.category) && pcs.equals(other.pcs);
+					&& category.equals(other.category) && pcs.equals(other.pcs);
 		}
 		return false;
 	}
@@ -289,9 +288,9 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 		return category;
 	}
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
 	{
-		choiceActor.restoreChoice(pc, owner, choice);
+		choiceActor.restoreChoice(pc, owner, item);
 	}
 
 	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)

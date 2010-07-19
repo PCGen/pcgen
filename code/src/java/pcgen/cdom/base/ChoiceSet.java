@@ -219,15 +219,15 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof ChoiceSet)
+		if (obj instanceof ChoiceSet)
 		{
-			ChoiceSet<?> other = (ChoiceSet<?>) o;
+			ChoiceSet<?> other = (ChoiceSet<?>) obj;
 			return setName.equals(other.setName) && pcs.equals(other.pcs);
 		}
 		return false;

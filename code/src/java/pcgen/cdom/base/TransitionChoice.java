@@ -34,13 +34,13 @@ import pcgen.core.PlayerCharacter;
 public interface TransitionChoice<T> extends BasicChoice<T>
 {
 
-	void allowStack(boolean b);
+	void allowStack(boolean allowStack);
 
 	public boolean allowsStacking();
 
 	Collection<? extends T> driveChoice(PlayerCharacter apc);
 
-	void setStackLimit(int i);
+	void setStackLimit(int limit);
 
 	int getStackLimit();
 
@@ -48,7 +48,7 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	void act(Collection<? extends T> name, CDOMObject owner, PlayerCharacter pc);
 
-	void setRequired(boolean b);
+	void setRequired(boolean required);
 
 	public SelectableSet<? extends T> getChoices();
 

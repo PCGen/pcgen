@@ -67,7 +67,7 @@ public final class ChoiceFilterUtilities
 	 * Ownership of the Collection provided to this method is not transferred
 	 * and this constructor will not modify the given Collection.
 	 * 
-	 * @param c
+	 * @param pcfCollection
 	 *            An Collection of PrimitiveChoiceFilter<?> objects
 	 * @param separator
 	 *            The separating string
@@ -75,25 +75,27 @@ public final class ChoiceFilterUtilities
 	 *         given Collection of PrimitiveChoiceFilter<?> objects
 	 */
 	public static String joinLstFormat(
-			Collection<? extends PrimitiveChoiceFilter<?>> c, String separator)
+			Collection<? extends PrimitiveChoiceFilter<?>> pcfCollection,
+			String separator)
 	{
-		if (c == null)
+		if (pcfCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(c.size() * 10);
+		final StringBuilder result = new StringBuilder(
+				pcfCollection.size() * 10);
 
 		boolean needjoin = false;
 
-		for (PrimitiveChoiceFilter<?> obj : c)
+		for (PrimitiveChoiceFilter<?> pcf : pcfCollection)
 		{
 			if (needjoin)
 			{
 				result.append(separator);
 			}
 			needjoin = true;
-			result.append(obj.getLSTformat());
+			result.append(pcf.getLSTformat());
 		}
 
 		return result.toString();

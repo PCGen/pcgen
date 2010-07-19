@@ -38,9 +38,9 @@ public final class CDOMObjectUtilities
 	public static final Comparator<CDOMObject> CDOM_SORTER = new Comparator<CDOMObject>()
 	{
 
-		public int compare(CDOMObject arg0, CDOMObject arg1)
+		public int compare(CDOMObject cdo1, CDOMObject cdo2)
 		{
-			return compareKeys(arg0, arg1);
+			return compareKeys(cdo1, cdo2);
 		}
 	};
 
@@ -62,26 +62,26 @@ public final class CDOMObjectUtilities
 	 * This method is value-semantic. CDOMObjetUtilities will not maintain a
 	 * reference to or modify the given Collection.
 	 * 
-	 * @param c
+	 * @param cdoCollection
 	 *            An Collection of CDOMObjects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String containing the Key Name of the
 	 *         given Collection of CDOMObject objects
 	 */
-	public static String joinKeyName(Collection<? extends CDOMObject> c,
+	public static String joinKeyName(Collection<? extends CDOMObject> cdoCollection,
 			String separator)
 	{
-		if (c == null)
+		if (cdoCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(c.size() * 10);
+		final StringBuilder result = new StringBuilder(cdoCollection.size() * 10);
 
 		boolean needjoin = false;
 
-		for (CDOMObject obj : c)
+		for (CDOMObject obj : cdoCollection)
 		{
 			if (needjoin)
 			{
@@ -101,21 +101,21 @@ public final class CDOMObjectUtilities
 	 * call to getKeyName(), this is error protected). This comparison is case
 	 * sensitive.
 	 * 
-	 * @param arg0
+	 * @param cdo1
 	 *            The first CDOMObject, for which the key will be compared
-	 * @param arg1
+	 * @param cdo2
 	 *            The second CDOMObject, for which the key will be compared
 	 * @return a negative integer if the key for the first object sorts before
 	 *         the key for the second object; a positive integer if the key for
 	 *         the first object sorts after the key for the second object, or 0
 	 *         if the keys are equal
 	 */
-	public static int compareKeys(CDOMObject arg0, CDOMObject arg1)
+	public static int compareKeys(CDOMObject cdo1, CDOMObject cdo2)
 	{
-		String base = arg0.getKeyName();
+		String base = cdo1.getKeyName();
 		if (base == null)
 		{
-			if (arg1.getKeyName() == null)
+			if (cdo2.getKeyName() == null)
 			{
 				return 0;
 			}
@@ -126,13 +126,13 @@ public final class CDOMObjectUtilities
 		}
 		else
 		{
-			if (arg1.getKeyName() == null)
+			if (cdo2.getKeyName() == null)
 			{
 				return 1;
 			}
 			else
 			{
-				return base.compareTo(arg1.getKeyName());
+				return base.compareTo(cdo2.getKeyName());
 			}
 		}
 	}
@@ -190,8 +190,8 @@ public final class CDOMObjectUtilities
 	}
 
 	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-			final PlayerCharacter aPC)
+			final PlayerCharacter pc)
 	{
-		tc.act(tc.driveChoice(aPC), cdo, aPC);
+		tc.act(tc.driveChoice(pc), cdo, pc);
 	}
 }

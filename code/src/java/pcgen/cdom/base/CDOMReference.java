@@ -35,8 +35,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T> implements
-		PrimitiveChoiceFilter<T>
+public abstract class CDOMReference<T> implements PrimitiveChoiceFilter<T>
 {
 
 	/**
@@ -55,27 +54,27 @@ public abstract class CDOMReference<T> implements
 	 * Constructs a new CDOMReference to the given Class of object, with the
 	 * given name.
 	 * 
-	 * @param cl
+	 * @param objClass
 	 *            The class of object this CDOMReference refers to.
-	 * @param nm
+	 * @param refName
 	 *            The name of this CDOMReference.
 	 * @throws IllegalArgumentException
 	 *             if the given Class or name is null
 	 */
-	public CDOMReference(Class<T> cl, String nm)
+	public CDOMReference(Class<T> objClass, String refName)
 	{
-		if (cl == null)
+		if (objClass == null)
 		{
 			throw new IllegalArgumentException(
 					"Class for CDOMReference cannot be null");
 		}
-		if (nm == null)
+		if (refName == null)
 		{
 			throw new IllegalArgumentException(
 					"Name for CDOMReference cannot be null");
 		}
-		clazz = cl;
-		name = nm;
+		clazz = objClass;
+		name = refName;
 	}
 
 	/**
@@ -110,11 +109,11 @@ public abstract class CDOMReference<T> implements
 	 * limit is exceeded. Note: The limit defined may be any value, including
 	 * zero (or "this is an optional method")
 	 * 
-	 * @param obj
+	 * @param item
 	 *            an object to be included in the Collection of objects to which
 	 *            this CDOMReference refers.
 	 */
-	public abstract void addResolution(T obj);
+	public abstract void addResolution(T item);
 
 	/**
 	 * Returns true if the given Object is included in the Collection of Objects
@@ -123,13 +122,13 @@ public abstract class CDOMReference<T> implements
 	 * Note that the behavior of this class is undefined if the CDOMReference
 	 * has not yet been resolved.
 	 * 
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMReference.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMReference refers; false otherwise.
 	 */
-	public abstract boolean contains(T obj);
+	public abstract boolean contains(T item);
 
 	/**
 	 * Returns a representation of this CDOMReference, suitable for storing in
@@ -195,13 +194,13 @@ public abstract class CDOMReference<T> implements
 	 * 
 	 * @param pc
 	 *            The PlayerCharacter to be tested (ignored)
-	 * @param obj
+	 * @param item
 	 *            The object to be tested to determine if this CDOMReference
 	 *            contains the given object.
 	 * @return if this CDOMReference contains the given object; false otherwise
 	 */
-	public boolean allow(PlayerCharacter pc, T obj)
+	public boolean allow(PlayerCharacter pc, T item)
 	{
-		return contains(obj);
+		return contains(item);
 	}
 }

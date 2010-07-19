@@ -399,12 +399,12 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 			if (pcc == null)
 			{
-				throw new NullPointerException(
+				throw new IllegalArgumentException(
 					"Class cannot be null in setClassLevel");
 			}
 			if (pcl == null)
 			{
-				throw new NullPointerException(
+				throw new IllegalArgumentException(
 					"Class Level cannot be null in setClassLevel");
 			}
 			Map<Integer, PCClassLevel> localMap = map.get(pcc);
@@ -421,7 +421,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 			if (pcc == null)
 			{
-				throw new NullPointerException(
+				throw new IllegalArgumentException(
 					"Class in getClassLevel cannot be null");
 			}
 			if (level < 0)

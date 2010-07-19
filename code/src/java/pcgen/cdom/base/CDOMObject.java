@@ -95,30 +95,30 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(HashMap.class, LinkedHashMap.class);
 
-	public final boolean containsKey(IntegerKey arg0)
+	public final boolean containsKey(IntegerKey key)
 	{
-		return integerChar.containsKey(arg0);
+		return integerChar.containsKey(key);
 	}
 
-	public final Integer get(IntegerKey arg0)
+	public final Integer get(IntegerKey key)
 	{
-		return integerChar.get(arg0);
+		return integerChar.get(key);
 	}
 
-	public final int getSafe(IntegerKey arg0)
+	public final int getSafe(IntegerKey key)
 	{
-		Integer ic = integerChar.get(arg0);
-		return ic == null ? arg0.getDefault() : ic;
+		Integer intValue = integerChar.get(key);
+		return intValue == null ? key.getDefault() : intValue;
 	}
 
-	public final Integer put(IntegerKey arg0, Integer arg1)
+	public final Integer put(IntegerKey key, Integer intValue)
 	{
-		return integerChar.put(arg0, arg1);
+		return integerChar.put(key, intValue);
 	}
 
-	public final Integer remove(IntegerKey arg0)
+	public final Integer remove(IntegerKey key)
 	{
-		return integerChar.remove(arg0);
+		return integerChar.remove(key);
 	}
 
 	public final Set<IntegerKey> getIntegerKeys()
@@ -126,30 +126,30 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return new HashSet<IntegerKey>(integerChar.keySet());
 	}
 
-	public final boolean containsKey(StringKey arg0)
+	public final boolean containsKey(StringKey key)
 	{
-		return stringChar.containsKey(arg0);
+		return stringChar.containsKey(key);
 	}
 
-	public final String get(StringKey arg0)
+	public final String get(StringKey key)
 	{
-		return stringChar.get(arg0);
+		return stringChar.get(key);
 	}
 
-	public final String getSafe(StringKey arg0)
+	public final String getSafe(StringKey key)
 	{
-		String str = stringChar.get(arg0);
+		String str = stringChar.get(key);
 		return str == null ? "" : str;
 	}
 
-	public final String put(StringKey arg0, String arg1)
+	public final String put(StringKey key, String value)
 	{
-		return stringChar.put(arg0, arg1);
+		return stringChar.put(key, value);
 	}
 
-	public final String remove(StringKey arg0)
+	public final String remove(StringKey key)
 	{
-		return stringChar.remove(arg0);
+		return stringChar.remove(key);
 	}
 
 	public final Set<StringKey> getStringKeys()
@@ -157,30 +157,30 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return new HashSet<StringKey>(stringChar.keySet());
 	}
 
-	public final boolean containsKey(FormulaKey arg0)
+	public final boolean containsKey(FormulaKey key)
 	{
-		return formulaChar.containsKey(arg0);
+		return formulaChar.containsKey(key);
 	}
 
-	public final Formula get(FormulaKey arg0)
+	public final Formula get(FormulaKey key)
 	{
-		return formulaChar.get(arg0);
+		return formulaChar.get(key);
 	}
 
-	public final Formula getSafe(FormulaKey fk)
+	public final Formula getSafe(FormulaKey key)
 	{
-		Formula f = get(fk);
-		return f == null ? fk.getDefault() : f;
+		Formula formula = get(key);
+		return formula == null ? key.getDefault() : formula;
 	}
 
-	public final Formula put(FormulaKey arg0, Formula arg1)
+	public final Formula put(FormulaKey key, Formula value)
 	{
-		return formulaChar.put(arg0, arg1);
+		return formulaChar.put(key, value);
 	}
 
-	public final Formula remove(FormulaKey arg0)
+	public final Formula remove(FormulaKey key)
 	{
-		return formulaChar.remove(arg0);
+		return formulaChar.remove(key);
 	}
 
 	public final Set<FormulaKey> getFormulaKeys()
@@ -188,14 +188,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return new HashSet<FormulaKey>(formulaChar.keySet());
 	}
 
-	public final boolean containsKey(VariableKey arg0)
+	public final boolean containsKey(VariableKey key)
 	{
-		return variableChar.containsKey(arg0);
+		return variableChar.containsKey(key);
 	}
 
-	public final Formula get(VariableKey arg0)
+	public final Formula get(VariableKey key)
 	{
-		return variableChar.get(arg0);
+		return variableChar.get(key);
 	}
 
 	public final Set<VariableKey> getVariableKeys()
@@ -203,14 +203,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return new HashSet<VariableKey>(variableChar.keySet());
 	}
 
-	public final Formula put(VariableKey arg0, Formula arg1)
+	public final Formula put(VariableKey key, Formula value)
 	{
-		return variableChar.put(arg0, arg1);
+		return variableChar.put(key, value);
 	}
 
-	public final Formula remove(VariableKey arg0)
+	public final Formula remove(VariableKey key)
 	{
-		return variableChar.remove(arg0);
+		return variableChar.remove(key);
 	}
 
 	public final void removeAllVariables()
@@ -218,30 +218,30 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		variableChar.clear();
 	}
 
-	public final boolean containsKey(ObjectKey<?> arg0)
+	public final boolean containsKey(ObjectKey<?> key)
 	{
-		return objectChar.containsKey(arg0);
+		return objectChar.containsKey(key);
 	}
 
-	public final <OT> OT get(ObjectKey<OT> arg0)
+	public final <OT> OT get(ObjectKey<OT> key)
 	{
-		return arg0.cast(objectChar.get(arg0));
+		return key.cast(objectChar.get(key));
 	}
 
-	public final <OT> OT getSafe(ObjectKey<OT> arg0)
+	public final <OT> OT getSafe(ObjectKey<OT> key)
 	{
-		OT obj = arg0.cast(objectChar.get(arg0));
-		return obj == null ? arg0.getDefault() : obj;
+		OT obj = key.cast(objectChar.get(key));
+		return obj == null ? key.getDefault() : obj;
 	}
 
-	public final <OT> OT put(ObjectKey<OT> arg0, OT arg1)
+	public final <OT> OT put(ObjectKey<OT> key, OT value)
 	{
-		return arg0.cast(objectChar.put(arg0, arg1));
+		return key.cast(objectChar.put(key, value));
 	}
 
-	public final <OT> OT remove(ObjectKey<OT> arg0)
+	public final <OT> OT remove(ObjectKey<OT> key)
 	{
-		return arg0.cast(objectChar.remove(arg0));
+		return key.cast(objectChar.remove(key));
 	}
 
 	public final Set<ObjectKey<?>> getObjectKeys()
@@ -254,14 +254,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return listChar.containsListFor(key);
 	}
 
-	public final <T> void addToListFor(ListKey<T> key, T value)
+	public final <T> void addToListFor(ListKey<T> key, T element)
 	{
-		listChar.addToListFor(key, value);
+		listChar.addToListFor(key, element);
 	}
 
-	public final <T> void addAllToListFor(ListKey<T> key, Collection<T> value)
+	public final <T> void addAllToListFor(ListKey<T> key, Collection<T> elementCollection)
 	{
-		listChar.addAllToListFor(key, value);
+		listChar.addAllToListFor(key, elementCollection);
 	}
 
 	public final <T> List<T> getListFor(ListKey<T> key)
@@ -290,19 +290,19 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return listChar.containsListFor(key) ? listChar.sizeOfListFor(key) : 0;
 	}
 
-	public final <T> boolean containsInList(ListKey<T> key, T value)
+	public final <T> boolean containsInList(ListKey<T> key, T element)
 	{
-		return listChar.containsInList(key, value);
+		return listChar.containsInList(key, element);
 	}
 
-	public final <T> boolean containsAnyInList(ListKey<T> key, Collection<T> values)
+	public final <T> boolean containsAnyInList(ListKey<T> key, Collection<T> elementCollection)
 	{
-		return listChar.containsAnyInList(key, values);
+		return listChar.containsAnyInList(key, elementCollection);
 	}
 
-	public final <T> T getElementInList(ListKey<T> key, int i)
+	public final <T> T getElementInList(ListKey<T> key, int index)
 	{
-		return listChar.getElementInList(key, i);
+		return listChar.getElementInList(key, index);
 	}
 
 	public final <T> List<T> removeListFor(ListKey<T> key)
@@ -310,9 +310,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return listChar.removeListFor(key);
 	}
 
-	public final <T> boolean removeFromListFor(ListKey<T> key, T obj)
+	public final <T> boolean removeFromListFor(ListKey<T> key, T element)
 	{
-		return listChar.removeFromListFor(key, obj);
+		return listChar.removeFromListFor(key, element);
 	}
 
 	public final Set<ListKey<?>> getListKeys()
@@ -325,45 +325,45 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/**
 	 * Add a value to the map of maps.
 	 * 
-	 * @param mk The MapKey we are adding an entry to
+	 * @param mapKey The MapKey we are adding an entry to
 	 * @param key The key to assign against
 	 * @param value The value to be stored.
 	 */
-	public final <K, V> V addToMapFor(MapKey<K, V> mk, K key, V value)
+	public final <K, V> V addToMapFor(MapKey<K, V> mapKey, K key, V value)
 	{
-		return mapChar.addToMapFor(mk, key, value);
+		return mapChar.addToMapFor(mapKey, key, value);
 	}
 
 	/**
 	 * Remove a value from the map of maps.
 	 * 
-	 * @param mk The MapKey we are removing an entry from
+	 * @param mapKey The MapKey we are removing an entry from
 	 * @param key The key to eject
 	 */
-	public final <K, V> void removeFromMapFor(MapKey<K, V> mk, K key)
+	public final <K, V> void removeFromMapFor(MapKey<K, V> mapKey, K key)
 	{
-		mapChar.removeFromMapFor(mk, key);
+		mapChar.removeFromMapFor(mapKey, key);
 	}
 
 	/**
 	 * Remove a map from the map of maps.
 	 * 
-	 * @param mk The MapKey we are removing
+	 * @param mapKey The MapKey we are removing
 	 */
-	public final <K, V> void removeMapFor(MapKey<K, V> mk)
+	public final <K, V> void removeMapFor(MapKey<K, V> mapKey)
 	{
-		mapChar.removeMapFor(mk);
+		mapChar.removeMapFor(mapKey);
 	}
 
 	/**
 	 * Retrieve the map of keys and values for the MapKey.
 	 * 
-	 * @param mk The MapKey we are retrieving
+	 * @param mapKey The MapKey we are retrieving
 	 * @return The map of keys and values.
 	 */
-	public final <K, V> Map<K, V> getMapFor(MapKey<K, V> mk)
+	public final <K, V> Map<K, V> getMapFor(MapKey<K, V> mapKey)
 	{
-		return mapChar.getMapFor(mk);
+		return mapChar.getMapFor(mapKey);
 	}
 
 	/**
@@ -372,9 +372,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @param mk The MapKey we are retrieving
 	 * @return The set of keys.
 	 */
-	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mk)
+	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mapKey)
 	{
-		return mapChar.getKeysFor(mk);
+		return mapChar.getKeysFor(mapKey);
 	}
 
 	/**
@@ -387,9 +387,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 *            The secondary key for retrieving the given value
 	 * @return Object The value stored for the given keys
 	 */
-	public final <K, V> V get(MapKey<K, V> mk, K key2)
+	public final <K, V> V get(MapKey<K, V> mapKey, K key2)
 	{
-		return mapChar.get(mk, key2);
+		return mapChar.get(mapKey, key2);
 	}
 
 	/**
@@ -401,9 +401,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @return true if the key and its associated value were successfully removed 
 	 *         from the map; false otherwise
 	 */
-	public final <K, V> boolean removeFromMap(MapKey<K, V> mk, K key2)
+	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
 	{
-		return mapChar.removeFromMapFor(mk, key2);
+		return mapChar.removeFromMapFor(mapKey, key2);
 	}
 
 	/**
@@ -429,9 +429,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return returnKey;
 	}
 
-	public final int getSafeSizeOfMapFor(MapKey<?, ?> key)
+	public final int getSafeSizeOfMapFor(MapKey<?, ?> mapKey)
 	{
-		return mapChar.containsMapFor(key) ? mapChar.getKeysFor(key).size() : 0;
+		return mapChar.containsMapFor(mapKey) ? mapChar.getKeysFor(mapKey).size() : 0;
 	}
 
 	public void setName(String name)
@@ -510,30 +510,30 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final <T extends PrereqObject> void putToList(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<T> granted, AssociatedPrereqObject associations)
 	{
-		cdomListMods.addToListFor(list, granted, associations);
+		cdomListMods.addToListFor(listRef, granted, associations);
 	}
 
 	public final <T extends PrereqObject> void removeFromList(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<T> granted)
 	{
-		cdomListMods.removeListFor(list, granted);
+		cdomListMods.removeListFor(listRef, granted);
 	}
 
 	public final boolean hasListMods(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> list)
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef)
 	{
-		return cdomListMods.containsListFor(list);
+		return cdomListMods.containsListFor(listRef);
 	}
 
 	// TODO Is there a way to get type safety here?
 	public final <BT extends PrereqObject> Collection<CDOMReference<BT>> getListMods(
-			CDOMReference<? extends CDOMList<BT>> list)
+			CDOMReference<? extends CDOMList<BT>> listRef)
 	{
-		Set set = cdomListMods.getSecondaryKeySet(list);
+		Set set = cdomListMods.getSecondaryKeySet(listRef);
 		if (set == null || set.isEmpty())
 		{
 			return null;
@@ -542,9 +542,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final <BT extends CDOMObject> Collection<CDOMReference<BT>> getSafeListMods(
-			CDOMReference<? extends CDOMList<BT>> list)
+			CDOMReference<? extends CDOMList<BT>> listRef)
 	{
-		Collection<CDOMReference<BT>> set = getListMods(list);
+		Collection<CDOMReference<BT>> set = getListMods(listRef);
 		if (set == null)
 		{
 			return Collections.emptySet();
@@ -553,10 +553,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final Collection<AssociatedPrereqObject> getListAssociations(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<?> key)
 	{
-		return cdomListMods.getListFor(list, key);
+		return cdomListMods.getListFor(listRef, key);
 	}
 
 	/**
@@ -608,17 +608,17 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return clone;
 	}
 
-	public void removeAllFromList(CDOMReference<? extends CDOMList<?>> swl)
+	public void removeAllFromList(CDOMReference<? extends CDOMList<?>> listRef)
 	{
-		cdomListMods.removeListsFor(swl);
+		cdomListMods.removeListsFor(listRef);
 	}
 
-	public abstract boolean isType(String str);
+	public abstract boolean isType(String type);
 
 	public <T extends CDOMObject> boolean hasObjectOnList(
-			CDOMReference<? extends CDOMList<T>> list, T obj)
+			CDOMReference<? extends CDOMList<T>> list, T element)
 	{
-		if (obj == null)
+		if (element == null)
 		{
 			return false;
 		}
@@ -629,7 +629,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		for (CDOMReference<T> ref : references)
 		{
-			if (ref.contains(obj))
+			if (ref.contains(element))
 			{
 				return true;
 			}
@@ -693,16 +693,16 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	/**
 	 * returns all BonusObj's that are "active"
-	 * @param aPC A PlayerCharacter object.
+	 * @param pc A PlayerCharacter object.
 	 * @return active bonuses
 	 */
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getRawBonusList(aPC) )
+		for ( BonusObj bonus : getRawBonusList(pc) )
 		{
-			if (aPC.isApplied(bonus))
+			if (pc.isApplied(bonus))
 			{
 				aList.add(bonus);
 			}
@@ -711,11 +711,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return aList;
 	}
 
-	public List<BonusObj> getBonusList(AssociationStore as)
+	public List<BonusObj> getBonusList(AssociationStore assocStore)
 	{
-		if (as instanceof PlayerCharacter)
+		if (assocStore instanceof PlayerCharacter)
 		{
-			return getRawBonusList((PlayerCharacter) as);
+			return getRawBonusList((PlayerCharacter) assocStore);
 		}
 		else
 		{
@@ -752,11 +752,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	/**
 	 * Sets all the BonusObj's to "active"
-	 * @param aPC
+	 * @param pc
 	 */
-	public void activateBonuses(final PlayerCharacter aPC)
+	public void activateBonuses(final PlayerCharacter pc)
 	{
-		BonusActivation.activateBonuses(this, aPC);
+		BonusActivation.activateBonuses(this, pc);
 	}
 	
 	public boolean isInternal()

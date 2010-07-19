@@ -137,15 +137,15 @@ public class AssociationSupport implements AssociatedObject
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (o instanceof AssociationSupport)
+		if (obj instanceof AssociationSupport)
 		{
-			AssociationSupport other = (AssociationSupport) o;
+			AssociationSupport other = (AssociationSupport) obj;
 			if (associationMap == null || associationMap.isEmpty())
 			{
 				return other.associationMap == null

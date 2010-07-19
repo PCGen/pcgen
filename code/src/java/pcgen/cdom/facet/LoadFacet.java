@@ -29,13 +29,12 @@ public class LoadFacet
 {
 	private static final Formula LOADSCORE_FORMULA = FormulaFactory
 			.getFormulaFor("LOADSCORE");
-	private static final FormulaResolvingFacet resolveFacet = FacetLibrary
+	private final FormulaResolvingFacet resolveFacet = FacetLibrary
 			.getFacet(FormulaResolvingFacet.class);
-	private static final TotalWeightFacet totalWeightFacet = FacetLibrary
+	private final TotalWeightFacet totalWeightFacet = FacetLibrary
 			.getFacet(TotalWeightFacet.class);
-	private static final SizeFacet sizeFacet = FacetLibrary
-			.getFacet(SizeFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
+	private final SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
+	private final BonusCheckingFacet bonusFacet = FacetLibrary
 			.getFacet(BonusCheckingFacet.class);
 
 	public Load getLoadType(CharID id)

@@ -46,7 +46,7 @@ public interface SelectableSet<T>
 
 	String getTitle();
 
-	void setTitle(String string);
+	void setTitle(String title);
 
 	Collection<? extends T> getSet(PlayerCharacter pc);
 

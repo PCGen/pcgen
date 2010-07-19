@@ -41,13 +41,13 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * identifing such that the decodeChoice method of the PersistentChoiceActor
 	 * is capable of decoding the String into the choice object.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice which should be encoded into a String sufficient to
 	 *            identify the choice.
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T choice);
+	public String encodeChoice(T item);
 
 	/**
 	 * Decodes a given String into a choice of the appropriate type. The String
@@ -57,14 +57,14 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * identifing such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
-	 * @param s
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
 	 * 
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String s);
+	public T decodeChoice(String persistentFormat);
 
 	/**
 	 * Restores a choice to a PlayerCharacter. This method re-applies a choice
@@ -76,10 +76,10 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 *            The PlayerCharacter to which the choice should be restored.
 	 * @param owner
 	 *            The owning object of the choice being restored.
-	 * @param choice
+	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
 
 	/**
 	 * Removes a choice from a PlayerCharacter.
@@ -88,8 +88,8 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 *            The PlayerCharacter from which the choice should be removed.
 	 * @param owner
 	 *            The owning object of the choice being removed.
-	 * @param choice
+	 * @param item
 	 *            The choice being removed from the given PlayerCharacter.
 	 */
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item);
 }

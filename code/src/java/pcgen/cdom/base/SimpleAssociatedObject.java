@@ -129,11 +129,11 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (o instanceof SimpleAssociatedObject)
+		if (obj instanceof SimpleAssociatedObject)
 		{
-			SimpleAssociatedObject other = (SimpleAssociatedObject) o;
+			SimpleAssociatedObject other = (SimpleAssociatedObject) obj;
 			return assoc.equals(other.assoc) && equalsPrereqObject(other);
 		}
 		return false;

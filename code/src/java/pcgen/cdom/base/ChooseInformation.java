@@ -49,7 +49,7 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 
 	Collection<? extends T> getSet(PlayerCharacter pc);
 	
-	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
 
 	ChoiceManagerList getChoiceManager(CDOMObject owner, int cost);
 

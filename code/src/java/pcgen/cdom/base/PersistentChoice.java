@@ -33,8 +33,8 @@ public interface PersistentChoice<T> extends BasicChoice<T>
 
 	public PersistentChoiceActor<T> getChoiceActor();
 
-	public T decodeChoice(String choice);
+	public T decodeChoice(String persistentFormat);
 
-	public String encodeChoice(T choice);
+	public String encodeChoice(T item);
 
 }

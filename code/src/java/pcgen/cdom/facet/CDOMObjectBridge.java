@@ -24,7 +24,7 @@ import pcgen.cdom.base.CDOMObject;
  * PlayerCharacter while a transition is made to a sytem where abilities are
  * added in a forward manner, rather than a loop.
  */
-public class CDOMObjectBridge extends AbstractSourcedListFacet<CDOMObject>
+public final class CDOMObjectBridge extends AbstractSourcedListFacet<CDOMObject>
 {
 	private CDOMObjectBridge()
 	{

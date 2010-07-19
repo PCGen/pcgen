@@ -34,13 +34,13 @@ public interface ChooseSelectionActor<T>
 	 * @param obj
 	 *            The CDOMObject to which the choice was applied (the CDOMObject
 	 *            on which the CHOOSE token was present)
-	 * @param choice
+	 * @param item
 	 *            The choice being applied to the given PlayerCharacter
 	 * @param pc
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	void applyChoice(CDOMObject obj, T choice, PlayerCharacter pc);
+	void applyChoice(CDOMObject obj, T item, PlayerCharacter pc);
 
 	/**
 	 * Removes the given choice from the given PlayerCharacter.
@@ -48,13 +48,13 @@ public interface ChooseSelectionActor<T>
 	 * @param obj
 	 *            The CDOMObject to which the choice was applied (the CDOMObject
 	 *            on which the CHOOSE token was present)
-	 * @param choice
+	 * @param item
 	 *            The choice being removed from the given PlayerCharacter
 	 * @param pc
 	 *            The PlayerCharacter from which the given choice should be
 	 *            removed.
 	 */
-	void removeChoice(CDOMObject obj, T choice, PlayerCharacter pc);
+	void removeChoice(CDOMObject obj, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns the source of this ChooseSelectionActor. Provided primarily to

@@ -38,19 +38,19 @@ public interface ChoiceActor<T>
 	 * 
 	 * @param owner
 	 *            The owning object for this choice.
-	 * @param choice
+	 * @param item
 	 *            The choice being applied to the given PlayerCharacter
 	 * @param pc
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(CDOMObject owner, T choice, PlayerCharacter pc);
+	public void applyChoice(CDOMObject owner, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
 	 * PlayerCharacter under the provided stacking conditions.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice being tested to see if it should be allowed for the
 	 *            given PlayerCharacter
 	 * @param pc
@@ -63,7 +63,7 @@ public interface ChoiceActor<T>
 	 * @return true if the given choice should be allowed for the
 	 *         PlayerCharacter under the provided stacking conditions.
 	 */
-	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack);
+	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
 	
 	/**
 	 * Returns a list of the items *for this ChoiceActor* that have been

@@ -36,12 +36,12 @@ public class JEPFormula implements Formula
 	/**
 	 * Creates a new JEPFormula from the given String.
 	 * 
-	 * @param s
+	 * @param formulaString
 	 *            The String value of this JEPFormula.
 	 */
-	public JEPFormula(String s)
+	public JEPFormula(String formulaString)
 	{
-		formula = s;
+		formula = formulaString;
 	}
 
 	/**
@@ -71,10 +71,10 @@ public class JEPFormula implements Formula
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		return o instanceof JEPFormula
-				&& ((JEPFormula) o).formula.equals(formula);
+		return obj instanceof JEPFormula
+				&& ((JEPFormula) obj).formula.equals(formula);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class JEPFormula implements Formula
 	 *            True if the primary head of the given Equipment should be used
 	 *            for resolution, false if the secondary head should be used for
 	 *            resolution.
-	 * @param apc
+	 * @param pc
 	 *            The PlayerCharacter relative to which the JEPFormula should be
 	 *            resolved.
 	 * @param source
@@ -130,8 +130,8 @@ public class JEPFormula implements Formula
 	 *         Equipment, PlayerCharacter, and Source identifier.
 	 */
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String source)
+			PlayerCharacter pc, String source)
 	{
-		return equipment.getVariableValue(formula, source, primary, apc);
+		return equipment.getVariableValue(formula, source, primary, pc);
 	}
 }

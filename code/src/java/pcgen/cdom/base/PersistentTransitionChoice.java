@@ -35,10 +35,10 @@ public interface PersistentTransitionChoice<T> extends TransitionChoice<T>,
 {
 
 	// Not sure where to put?
-	T castChoice(Object target);
+	T castChoice(Object item);
 
 	void remove(CDOMObject owner, PlayerCharacter pc);
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
 
 }

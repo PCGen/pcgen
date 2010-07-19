@@ -36,22 +36,20 @@ import pcgen.util.enumeration.Load;
 
 public class MovementResultFacet
 {
-	private static final MovementFacet moveFacet = FacetLibrary
+	private final MovementFacet moveFacet = FacetLibrary
 			.getFacet(MovementFacet.class);
-	private static final RaceFacet raceFacet = FacetLibrary
-			.getFacet(RaceFacet.class);
-	private static final EquipmentFacet equipmentFacet = FacetLibrary
+	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private final EquipmentFacet equipmentFacet = FacetLibrary
 			.getFacet(EquipmentFacet.class);
-	private static final BonusCheckingFacet bonusFacet = FacetLibrary
+	private final BonusCheckingFacet bonusFacet = FacetLibrary
 			.getFacet(BonusCheckingFacet.class);
-	private static final UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary
+	private final UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary
 			.getFacet(UnencumberedArmorFacet.class);
-	private static final UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary
+	private final UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary
 			.getFacet(UnencumberedLoadFacet.class);
-	private static final FormulaResolvingFacet resolveFacet = FacetLibrary
+	private final FormulaResolvingFacet resolveFacet = FacetLibrary
 			.getFacet(FormulaResolvingFacet.class);
-	private static final LoadFacet loadFacet = FacetLibrary
-			.getFacet(LoadFacet.class);
+	private final LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 
 	private final Class<?> thisClass = getClass();
 
@@ -110,7 +108,7 @@ public class MovementResultFacet
 		return (MovementCacheInfo) FacetCache.get(id, thisClass);
 	}
 
-	public static class MovementCacheInfo
+	public class MovementCacheInfo
 	{
 		private final CharID id;
 
@@ -538,7 +536,7 @@ public class MovementResultFacet
 		 * @param aPC
 		 * @return encumbered move as an integer
 		 */
-		public static double calcEncumberedMove(Load load,
+		public double calcEncumberedMove(Load load,
 				double unencumberedMove, CharID id)
 		{
 			double encumberedMove;

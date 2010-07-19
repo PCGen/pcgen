@@ -103,14 +103,14 @@ public class SpellLevelChooseInformation implements
 	 * called. If the ChoiceActor is not set, then the set method may not be
 	 * used without triggering an exception.
 	 * 
-	 * @param ca
+	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<SpellLevel> ca)
+	public void setChoiceActor(ChoiceActor<SpellLevel> actor)
 	{
-		choiceActor = (PersistentChoiceActor<SpellLevel>) ca;
+		choiceActor = (PersistentChoiceActor<SpellLevel>) actor;
 	}
 
 	/**

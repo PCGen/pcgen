@@ -40,8 +40,8 @@ public class DamageReductionFacet extends
 		DataFacetChangeListener<CDOMObject>
 {
 
-	private static Pattern OR_PATTERN = Pattern.compile(" [oO][rR] ");
-	private static Pattern AND_PATTERN = Pattern.compile(" [aA][nN][dD] ");
+	private static final Pattern OR_PATTERN = Pattern.compile(" [oO][rR] ");
+	private static final Pattern AND_PATTERN = Pattern.compile(" [aA][nN][dD] ");
 
 	private PrerequisiteFacet prereqFacet = FacetLibrary
 			.getFacet(PrerequisiteFacet.class);

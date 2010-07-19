@@ -50,33 +50,33 @@ public final class FormulaFactory
 	/**
 	 * Returns a Formula for the given String.
 	 * 
-	 * @param s
+	 * @param formulaString
 	 *            The String to be converted to a Formula
 	 * @return A Formula for the given String.
 	 * @throws IllegalArgumentException
 	 *             if the given String is null or empty
 	 */
-	public static Formula getFormulaFor(String s)
+	public static Formula getFormulaFor(String formulaString)
 	{
-		if (s == null || s.length() == 0)
+		if (formulaString == null || formulaString.length() == 0)
 		{
 			throw new IllegalArgumentException("Formula cannot be empty");
 		}
 		try
 		{
-			return getFormulaFor(Integer.valueOf(s));
+			return getFormulaFor(Integer.valueOf(formulaString));
 		}
 		catch (NumberFormatException e)
 		{
 			// Okay, just not an integer
 			try
 			{
-				return getFormulaFor(Double.valueOf(s));
+				return getFormulaFor(Double.valueOf(formulaString));
 			}
 			catch (NumberFormatException e2)
 			{
 				// Okay, just not a double
-				return new JEPFormula(s);
+				return new JEPFormula(formulaString);
 			}
 		}
 	}
@@ -84,15 +84,15 @@ public final class FormulaFactory
 	/**
 	 * Returns a Formula for the given Integer.
 	 * 
-	 * @param i
+	 * @param integer
 	 *            The int to be converted to a Formula
 	 * @return A Formula for the given Integer.
 	 * @throws IllegalArgumentException
 	 *             if the given Integer is null
 	 */
-	public static Formula getFormulaFor(Integer i)
+	public static Formula getFormulaFor(Integer integer)
 	{
-		return new IntegerFormula(i);
+		return new IntegerFormula(integer);
 	}
 
 	/**
@@ -104,9 +104,9 @@ public final class FormulaFactory
 	 * @throws IllegalArgumentException
 	 *             if the given Double is null
 	 */
-	public static Formula getFormulaFor(Double d)
+	public static Formula getFormulaFor(Double dbl)
 	{
-		return new DoubleFormula(d);
+		return new DoubleFormula(dbl);
 	}
 
 	/**
@@ -118,24 +118,24 @@ public final class FormulaFactory
 		/**
 		 * The integer value of this IntegerFormula
 		 */
-		private final Integer i;
+		private final Integer integer;
 
 		/**
 		 * Creates a new IntegerFormula from the given Integer.
 		 * 
-		 * @param in
+		 * @param intValue
 		 *            The Integer value of this IntegerFormula.
 		 * @throws IllegalArgumentException
 		 *             if the given Integer is null
 		 */
-		public IntegerFormula(Integer in)
+		public IntegerFormula(Integer intValue)
 		{
-			if (in == null)
+			if (intValue == null)
 			{
 				throw new IllegalArgumentException(
 						"Cannot create an IntegerFormula with a null Integer");
 			}
-			i = in;
+			integer = intValue;
 		}
 
 		/**
@@ -146,7 +146,7 @@ public final class FormulaFactory
 		 */
 		public Integer resolve(PlayerCharacter pc, String source)
 		{
-			return i;
+			return integer;
 		}
 
 		/**
@@ -156,9 +156,9 @@ public final class FormulaFactory
 		 * @return the Integer in this IntegerFormula.
 		 */
 		public Integer resolve(Equipment equipment, boolean primary,
-				PlayerCharacter apc, String source)
+				PlayerCharacter pc, String source)
 		{
-			return i;
+			return integer;
 		}
 
 		/**
@@ -167,7 +167,7 @@ public final class FormulaFactory
 		@Override
 		public String toString()
 		{
-			return i.toString();
+			return integer.toString();
 		}
 
 		/**
@@ -178,7 +178,7 @@ public final class FormulaFactory
 		@Override
 		public int hashCode()
 		{
-			return i;
+			return integer;
 		}
 
 		/**
@@ -189,10 +189,10 @@ public final class FormulaFactory
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
-		public boolean equals(Object o)
+		public boolean equals(Object obj)
 		{
-			return (o instanceof IntegerFormula)
-					&& ((IntegerFormula) o).i.equals(i);
+			return (obj instanceof IntegerFormula)
+					&& ((IntegerFormula) obj).integer.equals(integer);
 		}
 
 		/**
@@ -214,24 +214,24 @@ public final class FormulaFactory
 		/**
 		 * The Double value of this DoubleFormula
 		 */
-		private final Double i;
+		private final Double dbl;
 
 		/**
 		 * Creates a new DoubleFormula from the given Double.
 		 * 
-		 * @param in
+		 * @param dblValue
 		 *            The Double value of this DoubleFormula.
 		 * @throws IllegalArgumentException
 		 *             if the given Double is null
 		 */
-		public DoubleFormula(Double in)
+		public DoubleFormula(Double dblValue)
 		{
-			if (in == null)
+			if (dblValue == null)
 			{
 				throw new IllegalArgumentException(
 						"Cannot create an DoubleFormula with a null Double");
 			}
-			i = in;
+			dbl = dblValue;
 		}
 
 		/**
@@ -242,7 +242,7 @@ public final class FormulaFactory
 		 */
 		public Double resolve(PlayerCharacter pc, String source)
 		{
-			return i;
+			return dbl;
 		}
 
 		/**
@@ -252,9 +252,9 @@ public final class FormulaFactory
 		 * @return the Double in this DoubleFormula.
 		 */
 		public Double resolve(Equipment equipment, boolean primary,
-				PlayerCharacter apc, String string)
+				PlayerCharacter pc, String string)
 		{
-			return i;
+			return dbl;
 		}
 
 		/**
@@ -263,7 +263,7 @@ public final class FormulaFactory
 		@Override
 		public String toString()
 		{
-			return i.toString();
+			return dbl.toString();
 		}
 
 		/**
@@ -274,7 +274,7 @@ public final class FormulaFactory
 		@Override
 		public int hashCode()
 		{
-			return i.intValue();
+			return dbl.intValue();
 		}
 
 		/**
@@ -285,10 +285,10 @@ public final class FormulaFactory
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
-		public boolean equals(Object o)
+		public boolean equals(Object obj)
 		{
-			return (o instanceof DoubleFormula)
-					&& ((DoubleFormula) o).i.equals(i);
+			return (obj instanceof DoubleFormula)
+					&& ((DoubleFormula) obj).dbl.equals(dbl);
 		}
 
 		/**

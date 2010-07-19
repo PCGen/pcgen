@@ -32,7 +32,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 {
 
 	/**
-	 * The underlying ChoiceSet used to determine the choices available when
+	 * The underlying SelectableSet used to determine the choices available when
 	 * selections are to be made in this TransitionChoice.
 	 */
 	private final SelectableSet<? extends T> choices;
@@ -44,30 +44,31 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	private PersistentChoiceActor<T> choiceActor;
 
 	/**
-	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
-	 * choices) and Formula (indicating the number of choices that may be taken)
+	 * Constructs a new TransitionChoice with the given SelectableSet (of
+	 * possible choices) and Formula (indicating the number of choices that may
+	 * be taken)
 	 * 
-	 * @param cs
-	 *            The ChoiceSet indicating the choices available in this
+	 * @param set
+	 *            The SelectableSet indicating the choices available in this
 	 *            TransitionChoice.
 	 * @param count
 	 *            The Formula indicating the number of choices that may be
 	 *            selected when selections are made in this TransitionChoice.
 	 */
-	public ConcreteChoice(SelectableSet<? extends T> cs)
+	public ConcreteChoice(SelectableSet<? extends T> set)
 	{
-		choices = cs;
+		choices = set;
 	}
 
 	/**
-	 * Returns the ChoiceSet for this TransitionChoice.
+	 * Returns the SelectableSet for this TransitionChoice.
 	 * 
 	 * TODO Should determine if this should be exposed. It seems this is
 	 * primarily used to get access to getLSTformat and getChoiceClass, so
 	 * perhaps the TransitionChoice should delegate those instead in order to
-	 * protect the ChoiceSet?
+	 * protect the SelectableSet?
 	 * 
-	 * @return The ChoiceSet for this TransitionChoice.
+	 * @return The SelectableSet for this TransitionChoice.
 	 */
 	public SelectableSet<? extends T> getChoices()
 	{
@@ -80,14 +81,14 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * called. If the ChoiceActor is not set, then the set method may not be
 	 * used without triggering an exception.
 	 * 
-	 * @param ca
+	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<T> ca)
+	public void setChoiceActor(ChoiceActor<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) ca;
+		choiceActor = (PersistentChoiceActor<T>) actor;
 	}
 
 	/**
@@ -100,15 +101,15 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice which should be encoded into a String sufficient to
 	 *            identify the choice.
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T choice)
+	public String encodeChoice(T item)
 	{
-		return choiceActor.encodeChoice(choice);
+		return choiceActor.encodeChoice(item);
 	}
 
 	/**
@@ -119,16 +120,16 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * identifing such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
-	 * @param persistenceFormat
+	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
 	 * 
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String persistenceFormat)
+	public T decodeChoice(String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistenceFormat);
+		return choiceActor.decodeChoice(persistentFormat);
 	}
 
 	public PersistentChoiceActor<T> getChoiceActor()
@@ -147,8 +148,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	{
 		if (obj instanceof ConcreteChoice)
 		{
-			ConcreteChoice<?> other =
-					(ConcreteChoice<?>) obj;
+			ConcreteChoice<?> other = (ConcreteChoice<?>) obj;
 			return choices.equals(other.choices);
 		}
 		return false;

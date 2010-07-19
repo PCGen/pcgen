@@ -94,14 +94,14 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * called. If the ChoiceActor is not set, then the set method may not be
 	 * used without triggering an exception.
 	 * 
-	 * @param ca
+	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
-	public void setChoiceActor(ChoiceActor<T> ca)
+	public void setChoiceActor(ChoiceActor<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) ca;
+		choiceActor = (PersistentChoiceActor<T>) actor;
 	}
 
 	/**
@@ -114,15 +114,15 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
-	 * @param choice
+	 * @param item
 	 *            The choice which should be encoded into a String sufficient to
 	 *            identify the choice.
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T choice)
+	public String encodeChoice(T item)
 	{
-		return choiceActor.encodeChoice(choice);
+		return choiceActor.encodeChoice(item);
 	}
 
 	/**
@@ -269,9 +269,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 		return pcs.getGroupingState();
 	}
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
 	{
-		choiceActor.restoreChoice(pc, owner, choice);
+		choiceActor.restoreChoice(pc, owner, item);
 	}
 
 	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
