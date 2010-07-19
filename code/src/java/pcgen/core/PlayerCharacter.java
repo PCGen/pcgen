@@ -267,6 +267,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
+	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -3473,7 +3474,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getACTotal()
 	{
-		return calcACOfType("Total");
+		return armorClassFacet.calcACOfType(id, "Total");
 	}
 
 	public void setAlignment(PCAlignment align)
@@ -5675,7 +5676,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int abilityAC()
 	{
-		return calcACOfType("Ability");
+		return armorClassFacet.calcACOfType(id, "Ability");
 	}
 
 	/**
@@ -6294,7 +6295,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int baseAC()
 	{
-		return calcACOfType("Base");
+		return armorClassFacet.calcACOfType(id, "Base");
 	}
 
 	/**
@@ -6381,44 +6382,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int calcACOfType(final String ACType)
 	{
-		final List<ACControl> addList =
-				SettingsHandler.getGame().getACTypeAddString(ACType);
-		final List<ACControl> removeList =
-				SettingsHandler.getGame().getACTypeRemoveString(ACType);
-
-		if ((addList == null) && (removeList == null))
-		{
-			Logging.errorPrint("Invalid ACType: " + ACType);
-			return 0;
-		}
-
-		int AC = 0;
-
-		if (addList != null)
-		{
-			for (ACControl acc : addList)
-			{
-				if (acc.qualifies(this, null))
-				{
-					AC += Integer.parseInt(BonusToken.getBonusToken(
-							"BONUS.COMBAT.AC." + acc.getType(), this));
-				}
-			}
-		}
-
-		if (removeList != null)
-		{
-			for (ACControl acc : removeList)
-			{
-				if (acc.qualifies(this, null))
-				{
-					AC -= Integer.parseInt(BonusToken.getBonusToken(
-							"BONUS.COMBAT.AC." + acc.getType(), this));
-				}
-			}
-		}
-
-		return AC;
+		return armorClassFacet.calcACOfType(id, ACType);
 	}
 
 	/**
@@ -6637,7 +6601,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int classAC()
 	{
-		return calcACOfType("ClassDefense");
+		return armorClassFacet.calcACOfType(id, "ClassDefense");
 	}
 
 	/**
@@ -6950,17 +6914,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int dodgeAC()
 	{
-		return calcACOfType("Dodge");
+		return armorClassFacet.calcACOfType(id, "Dodge");
 	}
 
 	public int equipmentAC()
 	{
-		return calcACOfType("Equipment") + calcACOfType("Armor");
+		return armorClassFacet.calcACOfType(id, "Equipment")
+				+ armorClassFacet.calcACOfType(id, "Armor");
 	}
 
 	public int flatfootedAC()
 	{
-		return calcACOfType("Flatfooted");
+		return armorClassFacet.calcACOfType(id, "Flatfooted");
 	}
 
 	/**
@@ -7374,7 +7339,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int miscAC()
 	{
-		return calcACOfType("Misc");
+		return armorClassFacet.calcACOfType(id, "Misc");
 	}
 
 	/**
@@ -7579,7 +7544,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int naturalAC()
 	{
-		return calcACOfType("NaturalArmor");
+		return armorClassFacet.calcACOfType(id, "NaturalArmor");
 	}
 
 	/**
@@ -7829,7 +7794,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int sizeAC()
 	{
-		return calcACOfType("Size");
+		return armorClassFacet.calcACOfType(id, "Size");
 	}
 
 	public int sizeInt()
@@ -7868,7 +7833,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int touchAC()
 	{
-		return calcACOfType("Touch");
+		return armorClassFacet.calcACOfType(id, "Touch");
 	}
 
 	/**

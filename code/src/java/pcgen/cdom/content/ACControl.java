@@ -18,8 +18,9 @@
 package pcgen.cdom.content;
 
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.QualifyingObject;
 
-public class ACControl extends ConcretePrereqObject
+public class ACControl extends ConcretePrereqObject implements QualifyingObject
 {
 	private final String type;
 
