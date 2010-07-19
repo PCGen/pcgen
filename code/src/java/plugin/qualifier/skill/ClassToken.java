@@ -29,7 +29,6 @@ import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -96,7 +95,7 @@ public class ClassToken implements QualifierToken<Skill>
 		{
 			CLASS: for (PCClass cl : classlist)
 			{
-				if (negated ^ SkillCostCalc.isClassSkill(sk, cl, pc))
+				if (negated ^ pc.isClassSkill(cl, sk))
 				{
 					skillSet.add(sk);
 					break CLASS;

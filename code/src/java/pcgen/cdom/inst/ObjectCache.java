@@ -23,7 +23,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 
 /**
  * An ObjectCache is a CDOMObject designed to serve as a cahce of information
@@ -67,7 +66,7 @@ public class ObjectCache extends CDOMObject
 		SkillCost cost = skillCostMap.get(skill, pcc);
 		if (cost == null)
 		{
-			cost = SkillCostCalc.skillCostForPCClass(skill, pcc, pc);
+			cost = pc.skillCostForPCClass(skill, pcc);
 			skillCostMap.put(skill, pcc, cost);
 		}
 		return cost;

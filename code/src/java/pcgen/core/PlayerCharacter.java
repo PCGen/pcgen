@@ -108,6 +108,7 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.analysis.ClassSkillApplication;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
@@ -13113,5 +13114,58 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public AgeSet getAgeSet()
 	{
 		return ageSetFacet.get(id);
+	}
+
+	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
+	{
+		if (this.isClassSkill(aClass, sk))
+		{
+			return SkillCost.CLASS;
+		}
+		else if (sk.getSafe(ObjectKey.EXCLUSIVE)
+				&& !this.isCrossClassSkill(aClass, sk))
+		{
+			return SkillCost.EXCLUSIVE;
+		}
+		else
+		{
+			return SkillCost.CROSS_CLASS;
+		}
+	}
+
+	public boolean isCrossClassSkill(PCClass aClass, Skill sk)
+	{
+		if ((aClass == null) || this.isClassSkill(aClass, sk))
+		{
+			return false;
+		}
+		List<ClassSkillList> classSkillList = ClassSkillApplication
+				.getClassSkillList(this, aClass);
+	
+		return hasGlobalCost(sk, SkillCost.CROSS_CLASS)
+				|| hasLocalCost(aClass, sk, SkillCost.CROSS_CLASS)
+				|| hasLocalCost(classSkillList, sk, SkillCost.CROSS_CLASS);
+	}
+
+	public boolean isClassSkill(PCClass aClass, Skill sk)
+	{
+		if (aClass == null)
+		{
+			return false;
+		}
+		
+		// test for SKILLLIST skill
+		// TODO Can this be eliminated?
+		if (aClass.hasClassSkill(this, sk))
+		{
+			return true;
+		}
+	
+		List<ClassSkillList> classSkillList = ClassSkillApplication
+				.getClassSkillList(this, aClass);
+		return hasGlobalCost(sk, SkillCost.CLASS)
+				|| hasLocalCost(aClass, sk, SkillCost.CLASS)
+				|| hasLocalCost(classSkillList, sk, SkillCost.CLASS)
+				|| hasMasterSkill(classSkillList, sk);
 	}
 }
