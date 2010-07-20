@@ -147,7 +147,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            A Collection containing the items to be added to the List for
 	 *            the given key.
 	 */
-	public void addAllToListFor(K key, Collection<V> values)
+	public void addAllToListFor(K key, Collection<? extends V> values)
 	{
 		if (values == null || values.isEmpty())
 		{

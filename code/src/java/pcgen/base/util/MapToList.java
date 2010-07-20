@@ -68,7 +68,7 @@ public interface MapToList<K, V>
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAllToListFor(K key, Collection<V> valueCollection);
+	public void addAllToListFor(K key, Collection<? extends V> valueCollection);
 
 	/**
 	 * Adds all of the Lists in the given MapToList to this MapToList.
