@@ -39,7 +39,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
@@ -180,34 +179,6 @@ public final class BioSet extends PObject
 		{
 			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, otherRace, key));
 		}
-	}
-
-	/**
-	 * Make the kit selection for a pc
-	 * @param pc
-	 */
-	public void makeKitSelectionFor(final PlayerCharacter pc)
-	{
-		final int ageSet = pc.getAgeSetIndex();
-
-		if (pc.hasMadeKitSelectionForAgeSet(ageSet))
-		{
-			return;
-		}
-
-		AgeSet ageSetObj = pc.getAgeSet();
-
-		if (ageSetObj == null)
-		{
-			return;
-		}
-
-		pc.setDirty(true);
-		for (TransitionChoice<Kit> kit : ageSetObj.getKits())
-		{
-			kit.act(kit.driveChoice(pc), this, pc);
-		}
-		pc.setHasMadeKitSelectionForAgeSet(ageSet, true);
 	}
 
 	/**

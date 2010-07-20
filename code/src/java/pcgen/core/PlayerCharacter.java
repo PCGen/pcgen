@@ -424,11 +424,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		ageFacet.set(id, i);
 		setDirty(true);
 		calcActiveBonuses();
-
-		if (!isImporting())
-		{
-			Globals.getBioSet().makeKitSelectionFor(this);
-		}
 	}
 
 	/**
