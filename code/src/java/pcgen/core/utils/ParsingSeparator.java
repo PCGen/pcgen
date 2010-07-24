@@ -27,6 +27,7 @@ import pcgen.cdom.base.Constants;
 public class ParsingSeparator implements Iterator<String>
 {
 
+	private final String startingString;
 	private final StringTokenizer base;
 	private final String sep;
 	private boolean hasABlank = false;
@@ -39,6 +40,7 @@ public class ParsingSeparator implements Iterator<String>
 					"Choose Separator cannot take null initialization String");
 		}
 		sep = Character.toString(separator);
+		startingString = baseString;
 		base = new StringTokenizer(baseString, "[]()" + sep, true);
 	}
 
@@ -83,13 +85,13 @@ public class ParsingSeparator implements Iterator<String>
 				{
 					if (expected.isEmpty())
 					{
-						throw new GroupingMismatchException(base
+						throw new GroupingMismatchException(startingString
 								+ " did not have an open parenthesis "
 								+ "before close: " + temp.toString());
 					}
 					else if (!")".equals(expected.pop()))
 					{
-						throw new GroupingMismatchException(base
+						throw new GroupingMismatchException(startingString
 								+ " did not have matching parenthesis "
 								+ "inside of brackets: " + temp.toString());
 					}
@@ -98,13 +100,13 @@ public class ParsingSeparator implements Iterator<String>
 				{
 					if (expected.isEmpty())
 					{
-						throw new GroupingMismatchException(base
+						throw new GroupingMismatchException(startingString
 								+ " did not have an open bracket "
 								+ "before close: " + temp.toString());
 					}
 					else if (!"]".equals(expected.pop()))
 					{
-						throw new GroupingMismatchException(base
+						throw new GroupingMismatchException(startingString
 								+ " did not have matching brackets "
 								+ "inside of parenthesis: " + temp.toString());
 					}
@@ -115,7 +117,7 @@ public class ParsingSeparator implements Iterator<String>
 		{
 			return temp.toString();
 		}
-		throw new GroupingMismatchException(base
+		throw new GroupingMismatchException(startingString
 				+ " reached end of String while attempting to match: "
 				+ expected.pop());
 	}
