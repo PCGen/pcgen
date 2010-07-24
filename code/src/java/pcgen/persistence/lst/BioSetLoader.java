@@ -117,9 +117,9 @@ final class BioSetLoader extends LstLineFileLoader
 				}
 
 				AgeSet old = bioSet.addToAgeMap(regionName, ageSet);
-				if (old != null)
+				if (!old.equals(ageSet))
 				{
-					Logging.errorPrint("Found second AGESET "
+					Logging.errorPrint("Found second (non-identical) AGESET "
 							+ "in Bio Settings for Region: " + regionName
 							+ " Index: " + currentAgeSetIndex);
 				}

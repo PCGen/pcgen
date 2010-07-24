@@ -144,4 +144,53 @@ public class AgeSet implements BonusContainer
 		return aList;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return name.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == this)
+		{
+			return true;
+		}
+		if (o instanceof AgeSet)
+		{
+			AgeSet other = (AgeSet) o;
+			if (bonuses == null)
+			{
+				if (other.bonuses != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!bonuses.equals(other.bonuses))
+				{
+					return false;
+				}
+			}
+			if (kits == null)
+			{
+				if (other.kits != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!kits.equals(other.kits))
+				{
+					return false;
+				}
+			}
+			return (index == other.index) 
+			&& name.equals(other.name);
+		}
+		return false;
+	}
 }
