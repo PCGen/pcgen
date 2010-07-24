@@ -581,11 +581,11 @@ public class SourcedEquipmentFacetTest extends TestCase
 		assertEventCount(3, 0);
 		facet.removeAll(id, source1);
 		assertEventCount(3, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
 		Set<Equipment> setofone = facet.getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
+		assertEquals(1, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
 		assertTrue(setofone.contains(t3));
 	}
 
