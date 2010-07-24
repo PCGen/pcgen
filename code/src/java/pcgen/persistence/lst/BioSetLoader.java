@@ -99,8 +99,8 @@ final class BioSetLoader extends LstLineFileLoader
 			int pipeLoc = line.indexOf('|');
 			if (pipeLoc == -1)
 			{
-				Logging.errorPrint("Found invalid AGESET "
-						+ "in Bio Settings, was expecting a |: " + lstLine);
+				Logging.errorPrint("Found invalid AGESET " + "in Bio Settings "
+						+ sourceURI + ", was expecting a |: " + lstLine);
 				return;
 			}
 			String ageIndexString = line.substring(0, pipeLoc);
@@ -120,23 +120,24 @@ final class BioSetLoader extends LstLineFileLoader
 				if (old != null && !old.equals(ageSet))
 				{
 					Logging.errorPrint("Found second (non-identical) AGESET "
-							+ "in Bio Settings for Region: " + regionName
-							+ " Index: " + currentAgeSetIndex);
+							+ "in Bio Settings " + sourceURI + " for Region: "
+							+ regionName + " Index: " + currentAgeSetIndex);
 				}
 				Integer oldIndex = bioSet.addToNameMap(ageSet);
 				if (oldIndex != null && oldIndex != currentAgeSetIndex)
 				{
 					Logging.errorPrint("Incompatible Index for AGESET "
-							+ "in Bio Settings: " + oldIndex + " and "
-							+ currentAgeSetIndex + " for " + ageSet.getName());
+							+ "in Bio Settings " + sourceURI + ": " + oldIndex
+							+ " and " + currentAgeSetIndex + " for "
+							+ ageSet.getName());
 				}
 
 			}
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Illegal Index for AGESET "
-						+ "in Bio Settings: " + ageIndexString
-						+ " was not an integer");
+						+ "in Bio Settings " + sourceURI + ": "
+						+ ageIndexString + " was not an integer");
 			}
 		}
 		else
