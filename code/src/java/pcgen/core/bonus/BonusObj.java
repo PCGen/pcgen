@@ -41,6 +41,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>BonusObj</code>
@@ -480,7 +481,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		return theStackingFlag;
 	}
 	
-	protected abstract boolean parseToken(final String token);
+	protected abstract boolean parseToken(LoadContext context, final String token);
 
 	protected abstract String unparseToken(final Object obj);
 

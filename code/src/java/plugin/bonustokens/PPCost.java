@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PPCost</code>
@@ -35,7 +36,7 @@ import pcgen.core.bonus.BonusObj;
 public final class PPCost extends BonusObj
 {
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		if (token.startsWith("TYPE="))
 		{

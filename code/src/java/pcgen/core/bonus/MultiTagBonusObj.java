@@ -25,6 +25,8 @@
  */
 package pcgen.core.bonus;
 
+import pcgen.rules.context.LoadContext;
+
 
 
 /**
@@ -36,7 +38,7 @@ package pcgen.core.bonus;
 public abstract class MultiTagBonusObj extends BonusObj
 {
 
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < getBonusTagLength(); ++i)
 		{

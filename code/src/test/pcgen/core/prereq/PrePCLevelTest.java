@@ -34,6 +34,7 @@ import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PREPCLEVELTest</code> tests that the PREPCLEVEL tag is
@@ -182,6 +183,8 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	public void testPCLevel() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+
 		character.incrementClassLevel(2, myClass, true);
 
 		myClass = character.getClassKeyed("MY_CLASS");
@@ -194,7 +197,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PREPCLEVEL:MIN=6");
 
-		final BonusObj levelBonus = Bonus.newBonus("PCLEVEL|MY_CLASS|2");
+		final BonusObj levelBonus = Bonus.newBonus(context, "PCLEVEL|MY_CLASS|2");
 		myClass.addToListFor(ListKey.BONUS, levelBonus);
 		character.calcActiveBonuses();
 

@@ -35,6 +35,7 @@ import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
@@ -128,13 +129,14 @@ public class Bonus
 
 	/**
 	 * Create a new Bonus
+	 * @param context TODO
 	 * @param bonusString
 	 * @return BonusObj
 	 * 
 	 * TODO - This is doing all manner of string parsing.  It really belongs in
 	 * the persistence layer.
 	 */
-	public static BonusObj newBonus(final String bonusString)
+	public static BonusObj newBonus(LoadContext context, final String bonusString)
 	{
 		ParsingSeparator sep = new ParsingSeparator(bonusString, '|');
 
@@ -273,7 +275,7 @@ public class Bonus
 		while (aTok.hasMoreTokens())
 		{
 			final String token = aTok.nextToken();
-			final boolean result = aBonus.parseToken(token);
+			final boolean result = aBonus.parseToken(context, token);
 
 			if (!result)
 			{

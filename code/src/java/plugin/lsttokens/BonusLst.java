@@ -61,7 +61,7 @@ public class BonusLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPri
 	{
 		final String v = value.replaceAll(Pattern.quote("<this>"), obj
 				.getKeyName());
-		BonusObj bon = Bonus.newBonus(v);
+		BonusObj bon = Bonus.newBonus(context, v);
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()

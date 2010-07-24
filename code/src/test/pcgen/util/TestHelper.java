@@ -68,6 +68,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 
 /**
@@ -347,7 +348,8 @@ public class TestHelper
 
 		try
 		{
-			final BonusObj bon = Bonus.newBonus("FEAT|POOL|1");
+			LoadContext context = Globals.getContext();
+			final BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|1");
 			final PreParserFactory factory = PreParserFactory.getInstance();
 			final Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
 			bon.addPrerequisite(prereq);

@@ -51,7 +51,7 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
 		String value)
 	{
-		BonusObj bon = Bonus.newBonus("MONSKILLPTS|NUMBER|" + value);
+		BonusObj bon = Bonus.newBonus(context, "MONSKILLPTS|NUMBER|" + value);
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()

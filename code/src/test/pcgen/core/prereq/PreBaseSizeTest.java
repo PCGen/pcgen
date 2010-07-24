@@ -35,6 +35,7 @@ import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PreBaseSizeTest</code> tests that the PREBASESIZE tag is
@@ -169,8 +170,10 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	public void testBaseSizePlusMod() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+
 		character.setRace(race);
-		final BonusObj sizeBonus = Bonus.newBonus("SIZEMOD|NUMBER|1");
+		final BonusObj sizeBonus = Bonus.newBonus(context, "SIZEMOD|NUMBER|1");
 		race.addToListFor(ListKey.BONUS, sizeBonus);
 
 		character.calcActiveBonuses();

@@ -35,6 +35,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PreCheckTest</code> tests that the PRECHECK tag is
@@ -98,8 +99,9 @@ public class PreCheckTest extends AbstractCharacterTestCase
 	public void testBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
-		final BonusObj fortBonus = Bonus.newBonus("CHECKS|Fortitude|1");
+		final BonusObj fortBonus = Bonus.newBonus(context, "CHECKS|Fortitude|1");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortBonus);
 
 		character.incrementClassLevel(1, myClass, true);
@@ -130,6 +132,7 @@ public class PreCheckTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		PCCheck obj = new PCCheck();
 		obj.setName("Fortitude");
@@ -146,9 +149,9 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj fortRefBonus =
-				Bonus.newBonus("CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
+				Bonus.newBonus(context, "CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortRefBonus);
-		final BonusObj willBonus = Bonus.newBonus("CHECKS|BASE.Will|CL/2+2");
+		final BonusObj willBonus = Bonus.newBonus(context, "CHECKS|BASE.Will|CL/2+2");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, willBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}

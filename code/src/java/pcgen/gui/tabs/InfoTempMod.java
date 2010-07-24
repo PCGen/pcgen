@@ -1070,7 +1070,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						repeatValue = bi.getRepeatValue();
 					}
 				}
-				BonusObj newB = Bonus.newBonus(newValue);
+				BonusObj newB = Bonus.newBonus(Globals.getContext(), newValue);
 				if (newB != null)
 				{
 					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus

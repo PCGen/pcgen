@@ -214,7 +214,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject> im
 		try
 		{
 			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-			final BonusObj aBonus = Bonus.newBonus("WEAPON|ATTACKS|"
+			final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|"
 					+ bonusAttacks);
 
 			if (aBonus == null)

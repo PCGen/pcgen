@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>DC</code>
@@ -48,7 +49,7 @@ public final class DC extends BonusObj
 	 *    SPELL.<SpellName>
 	 */
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{

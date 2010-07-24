@@ -110,6 +110,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testDR() throws Exception
 	{
 		Race race = new Race();
+		LoadContext context = Globals.getContext();
+
 		race.setName("Race");
 		PCTemplate template = new PCTemplate();
 		race.setName("Template");
@@ -126,7 +128,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		//		template.setDR("0/-");
 		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(0), "-"));
-		final BonusObj aBonus = Bonus.newBonus("DR|-|1");
+		final BonusObj aBonus = Bonus.newBonus(context, "DR|-|1");
 		
 		if (aBonus != null)
 		{

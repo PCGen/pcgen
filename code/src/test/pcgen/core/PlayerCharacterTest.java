@@ -121,19 +121,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-	
+		LoadContext context = Globals.getContext();
+
 		// Giant Class
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
 		giantClass.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
-		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL*3/4");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL*3/4");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		LoadContext context = Globals.getContext();
 		context.ref.importObject(giantClass);
 	
 		// Human
 		human = new Race();
-		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
+		final BonusObj humanRaceFeatBonus = Bonus.newBonus(context, "FEAT|POOL|2");
 		human.addToListFor(ListKey.BONUS, humanRaceFeatBonus);
 		human.ownBonuses(human);
 
@@ -145,7 +145,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 						.getFormulaFor(4)));
 		giantRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, 100);
 
-		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
+		final BonusObj giantRaceFeatBonus = Bonus.newBonus(context, "FEAT|POOL|1");
 	
 		giantRace.addToListFor(ListKey.BONUS, giantRaceFeatBonus);
 		giantRace.ownBonuses(giantRace);
@@ -191,7 +191,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
 		context.unconditionallyProcess(toughness, "CHOOSE", "NOCHOICE");
 		toughness.setCDOMCategory(AbilityCategory.FEAT);
-		final BonusObj aBonus = Bonus.newBonus("HP|CURRENTMAX|3");
+		final BonusObj aBonus = Bonus.newBonus(context, "HP|CURRENTMAX|3");
 		
 		if (aBonus != null)
 		{
@@ -366,16 +366,18 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableValue1() throws Exception
 	{
 		readyToRun();
+		LoadContext context = Globals.getContext();
+
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.put(VariableKey.getConstant("GiantVar1"), FormulaFactory.ZERO);
-		final BonusObj raceBonus = Bonus.newBonus("VAR|GiantVar1|7+HD");
+		final BonusObj raceBonus = Bonus.newBonus(context, "VAR|GiantVar1|7+HD");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, raceBonus);
 
 		giantClass.getOriginalClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
 				FormulaFactory.ZERO);
 		final BonusObj babClassBonus =
-				Bonus.newBonus("VAR|GiantClass1|CL=Giant");
+				Bonus.newBonus(context, "VAR|GiantClass1|CL=Giant");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 
 		final PlayerCharacter character = new PlayerCharacter();
@@ -540,6 +542,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
+		LoadContext context = Globals.getContext();
+
 		setPCStat(pc, str, 8);
 		setPCStat(pc, dex, 14);
 		pc.setUseTempMods(true);
@@ -562,7 +566,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Base stat.", "14", statTok.getToken(
 			"STAT.1.NOEQUIP.NOTEMP", pc, null));
 
-		final BonusObj raceBonus = Bonus.newBonus("STAT|DEX|-2");
+		final BonusObj raceBonus = Bonus.newBonus(context, "STAT|DEX|-2");
 		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 		pc.setRace(giantRace);
 		pc.incrementClassLevel(4, giantClass, true);
@@ -579,7 +583,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
-		final BonusObj aBonus = Bonus.newBonus("STAT|DEX|-2");
+		final BonusObj aBonus = Bonus.newBonus(context, "STAT|DEX|-2");
 		
 		if (aBonus != null)
 		{
@@ -951,12 +955,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
+		LoadContext context = Globals.getContext();
+
 		setPCStat(pc, str, 14);
 
 		Ability strBonusAbility =
 				TestHelper.makeAbility("Strength power up", AbilityCategory.FEAT,
 					"General.Fighter");
-		final BonusObj strBonus = Bonus.newBonus("STAT|STR|2");
+		final BonusObj strBonus = Bonus.newBonus(context, "STAT|STR|2");
 		strBonusAbility.addToListFor(ListKey.BONUS, strBonus);
 
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));

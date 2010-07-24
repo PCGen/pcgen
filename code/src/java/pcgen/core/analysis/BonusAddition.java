@@ -20,6 +20,7 @@
 package pcgen.core.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -44,7 +45,7 @@ public final class BonusAddition
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
 
-		final BonusObj aBonus = Bonus.newBonus(bonusString);
+		final BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
 		if (aBonus != null)
 		{
 			aPC.addBonus(aBonus, target);
@@ -63,7 +64,7 @@ public final class BonusAddition
 			CDOMObject target)
 	{
 		BonusObj toRemove = null;
-		BonusObj aBonus = Bonus.newBonus(bonusString);
+		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
 		String bonusStrRep = String.valueOf(aBonus);
 
 		for (BonusObj listBonus : aPC.getAddedBonusList(target))

@@ -1,6 +1,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 public class Followers extends BonusObj
 {
@@ -11,7 +12,7 @@ public class Followers extends BonusObj
 	}
 
 	@Override
-	protected boolean parseToken(final String argToken)
+	protected boolean parseToken(LoadContext context, final String argToken)
 	{
 		//		Collection<String> followerTypes = Globals.getFollowerTypes();
 		//		if ( followerTypes.contains( argToken ) )

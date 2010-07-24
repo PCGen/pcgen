@@ -41,6 +41,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -75,17 +76,18 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 		PlayerCharacter character = getCharacter();
 		setPCStat(character, dex, 14);
 		dex.removeListFor(ListKey.BONUS);
-		BonusObj aBonus = Bonus.newBonus("COMBAT|AC|10|TYPE=Base");
+		BonusObj aBonus = Bonus.newBonus(context, "COMBAT|AC|10|TYPE=Base");
 		
 		if (aBonus != null)
 		{
 			dex.addToListFor(ListKey.BONUS, aBonus);
 		}
 		// Ignoring max dex
-		aBonus = Bonus.newBonus("COMBAT|AC|DEX|TYPE=Ability");
+		aBonus = Bonus.newBonus(context, "COMBAT|AC|DEX|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
@@ -104,7 +106,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		chainShirt.put(StringKey.KEY_NAME, "KEY_Chain_Shirt");
 		TestHelper.addType(chainShirt, "Armor.Light.Suit.Standard");
 		chainShirt.put(IntegerKey.AC_CHECK, -2);
-		aBonus = Bonus.newBonus("COMBAT|AC|4|TYPE=Armor.REPLACE");
+		aBonus = Bonus.newBonus(context, "COMBAT|AC|4|TYPE=Armor.REPLACE");
 		
 		if (aBonus != null)
 		{
@@ -117,13 +119,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.put(StringKey.KEY_NAME, "MWORKA");
 		TestHelper.addType(masterwork, "Armor.Shield");
 		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
-		aBonus = Bonus.newBonus("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "EQMARMOR|ACCHECK|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
 			masterwork.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(masterwork);
+		context.ref.importObject(masterwork);
 
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
@@ -133,7 +135,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Plus1");
-		aBonus = Bonus.newBonus("COMBAT|AC|1|TYPE=Armor.REPLACE");
+		aBonus = Bonus.newBonus(context, "COMBAT|AC|1|TYPE=Armor.REPLACE");
 		
 		if (aBonus != null)
 		{

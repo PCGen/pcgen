@@ -836,7 +836,7 @@ public final class EditorMainForm extends JDialog
 						sb.append('|').append(aTok.nextToken());
 						sb.append("|PRESKILL:1,").append(skillName).append('=').append(skillRank);
 						sb.append("|TYPE=Synergy.STACK");
-						final BonusObj aBonus = Bonus.newBonus(sb.toString());
+						final BonusObj aBonus = Bonus.newBonus(context, sb.toString());
 						
 						if (aBonus != null)
 						{

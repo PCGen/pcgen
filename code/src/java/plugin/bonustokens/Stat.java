@@ -25,11 +25,11 @@
  */
 package plugin.bonustokens;
 
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.MissingObject;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Stat</code>
@@ -42,7 +42,7 @@ public final class Stat extends BonusObj
 			{"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
 
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{
@@ -56,7 +56,7 @@ public final class Stat extends BonusObj
 
 		if (token.startsWith("CAST=") || token.startsWith("CAST."))
 		{
-			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(
+			PCStat stat = context.ref.getAbbreviatedObject(
 					PCStat.class, token.substring(5));
 
 			if (stat != null)
@@ -68,7 +68,7 @@ public final class Stat extends BonusObj
 		}
 		else
 		{
-			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(
+			PCStat stat = context.ref.getAbbreviatedObject(
 					PCStat.class, token);
 
 			if (stat != null)
@@ -77,7 +77,8 @@ public final class Stat extends BonusObj
 			}
 			else
 			{
-				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, token);
+				final PCClass aClass = context.ref
+						.silentlyGetConstructedCDOMObject(PCClass.class, token);
 
 				if (aClass != null)
 				{

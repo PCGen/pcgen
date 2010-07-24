@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Feat</code>
@@ -36,7 +37,7 @@ import pcgen.core.bonus.BonusObj;
 public final class Feat extends BonusObj
 {
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		if ("POOL".equals(token) || "MONSTERPOOL".equals(token)
 			|| "PCPOOL".equals(token))

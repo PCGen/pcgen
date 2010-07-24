@@ -28,6 +28,7 @@ package plugin.lsttokens.deprecated;
 import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.DeprecatedToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Damage</code>
@@ -37,7 +38,7 @@ import pcgen.persistence.lst.DeprecatedToken;
 public final class Damage extends BonusObj implements DeprecatedToken
 {
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		if (token.startsWith("TYPE="))
 		{

@@ -28,6 +28,7 @@ package plugin.lsttokens.deprecated;
 import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.DeprecatedToken;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -45,7 +46,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
 	 */
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{

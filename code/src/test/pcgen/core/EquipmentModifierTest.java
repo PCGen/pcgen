@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Equipment Modifer Test 
@@ -113,9 +114,11 @@ public class EquipmentModifierTest extends PCGenTestCase
 	 */
 	public void test885958A()
 	{
+		LoadContext context = Globals.getContext();
+
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
-				Bonus.newBonus("WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
+				Bonus.newBonus(context, "WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
 		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
 		final Equipment e = new Equipment();
@@ -133,9 +136,11 @@ public class EquipmentModifierTest extends PCGenTestCase
 	 */
 	public void test885958B()
 	{
+		LoadContext context = Globals.getContext();
+
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
-				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
 		final Equipment e = new Equipment();
 		
@@ -162,9 +167,11 @@ public class EquipmentModifierTest extends PCGenTestCase
 	 */
 	public void testChoice()
 	{
+		LoadContext context = Globals.getContext();
+
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
-				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
 		final Equipment e = new Equipment();
 

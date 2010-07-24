@@ -38,6 +38,7 @@ import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -67,6 +68,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		if (firstTime)
 		{
@@ -81,7 +83,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 
 			skillFocus =
 					TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
-			BonusObj aBonus = Bonus.newBonus("SKILL|LIST|3");
+			BonusObj aBonus = Bonus.newBonus(context, "SKILL|LIST|3");
 			
 			if (aBonus != null)
 			{
@@ -92,7 +94,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 
 			persuasive =
 					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT, "General");
-			aBonus = Bonus.newBonus("SKILL|KEY_Bluff,KEY_Listen|2");
+			aBonus = Bonus.newBonus(context, "SKILL|KEY_Bluff,KEY_Listen|2");
 			
 			if (aBonus != null)
 			{

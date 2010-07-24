@@ -26,9 +26,11 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 public class PCClassKeyChange
 {
@@ -90,7 +92,8 @@ public class PCClassKeyChange
 					{
 						break;
 					}
-					final BonusObj aBonus = Bonus.newBonus(bonus.substring(0,
+					LoadContext context = Globals.getContext();
+					final BonusObj aBonus = Bonus.newBonus(context, bonus.substring(0,
 							offs + 1)
 							+ newClass
 							+ bonus.substring(offs + oldClass.length() + 1));

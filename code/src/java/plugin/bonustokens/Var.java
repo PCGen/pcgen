@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Var</code> deals with bonuses to data defined variables.
@@ -35,10 +36,10 @@ import pcgen.core.bonus.BonusObj;
 public final class Var extends BonusObj
 {
 	/**
-	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		addBonusInfo(token);
 

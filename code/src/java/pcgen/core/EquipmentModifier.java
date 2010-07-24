@@ -111,7 +111,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				// Add an entry for each of the associated list entries
 				for (String assoc : as.getAssociationList(this))
 				{
-					final BonusObj newBonus = Bonus.newBonus(aString
+					final BonusObj newBonus = Bonus.newBonus(Globals.getContext(), aString
 							.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
 
 					if (aBonus.hasPrerequisites())

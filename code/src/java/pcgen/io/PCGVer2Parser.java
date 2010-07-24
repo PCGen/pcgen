@@ -119,6 +119,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -2601,7 +2602,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
 					final BonusObj aBonus =
-							Bonus.newBonus(saveKey.substring(6));
+							Bonus.newBonus(Globals.getContext(), saveKey.substring(6));
 
 					if (aBonus != null)
 					{
@@ -2876,7 +2877,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
 					final BonusObj aBonus =
-							Bonus.newBonus(saveKey.substring(6));
+							Bonus.newBonus(Globals.getContext(), saveKey.substring(6));
 
 					if (aBonus != null)
 					{
@@ -5271,7 +5272,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			BonusObj newB = null;
 			Object creator = null;
-
+			LoadContext context = Globals.getContext();
 			// Check the Creator type so we know what
 			// type of object to set as the creator
 			if (cType.equals(TAG_FEAT))
@@ -5285,7 +5286,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aFeat != null)
 				{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					creator = aFeat;
 				}
 			}
@@ -5296,14 +5297,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aEquip == null)
 				{
 					aEquip =
-							Globals.getContext().ref
+						context.ref
 								.silentlyGetConstructedCDOMObject(
 									Equipment.class, cKey);
 				}
 
 				if (aEquip != null)
 				{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					creator = aEquip;
 				}
 			}
@@ -5317,29 +5318,29 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 
 				int idx = bonus.indexOf('|');
-				newB = Bonus.newBonus(bonus.substring(idx + 1));
+				newB = Bonus.newBonus(context, bonus.substring(idx + 1));
 				creator = aClass;
 			}
 			else if (cType.equals(TAG_TEMPLATE))
 			{
-				PCTemplate aTemplate = Globals.getContext().ref
+				PCTemplate aTemplate = context.ref
 						.silentlyGetConstructedCDOMObject(PCTemplate.class,
 								cKey);
 
 				if (aTemplate != null)
 				{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					creator = aTemplate;
 				}
 			}
 			else if (cType.equals(TAG_SKILL))
 			{
-				Skill aSkill = Globals.getContext().ref
+				Skill aSkill = context.ref
 						.silentlyGetConstructedCDOMObject(Skill.class, cKey);
 
 				if (aSkill != null)
 				{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					creator = aSkill;
 				}
 			}
@@ -5349,13 +5350,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aSpell != null)
 				{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					creator = aSpell;
 				}
 			}
 			else if (cType.equals(TAG_NAME))
 			{
-					newB = Bonus.newBonus(bonus);
+					newB = Bonus.newBonus(context, bonus);
 					//newB.setCreatorObject(thePC);
 			}
 

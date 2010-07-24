@@ -228,7 +228,7 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 
 	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
 	{
-		BonusObj bon = Bonus.newBonus("MONNONSKILLHD|NUMBER|" + bonusValue);
+		BonusObj bon = Bonus.newBonus(primaryContext, "MONNONSKILLHD|NUMBER|" + bonusValue);
 		assertNotNull(bon);
 		bon.setTokenSource(token.getTokenName());
 		return bon;

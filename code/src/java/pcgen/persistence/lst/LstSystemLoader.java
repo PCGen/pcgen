@@ -1251,8 +1251,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					+ File.separator + "traits.lst");
 				loadGameModeLstFile(context, locationLoader, gmName, gameFile, "bio"
 					+ File.separator + "locations.lst");
-				loadGameModeLstFile(context, bioLoader, gmName, gameFile, "bio"
-					+ File.separator + "biosettings.lst");
 
 				// Load load.lst and check for completeness
 				loadGameModeLstFile(context, loadInfoLoader, gmName, gameFile, "load.lst");
@@ -1261,9 +1259,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				loadGameModeLstFile(context, unitSetLoader, gmName, gameFile, "unitset.lst",
 					false);
 
-				// Load pointbuymethods.lst
-				loadPointBuyFile(context, gameFile, gmName);
-
 				// Load sizeAdjustment.lst
 				loadGameModeLstFile(context, sizeLoader, gmName, gameFile,
 					"sizeAdjustment.lst");
@@ -1271,6 +1266,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				// Load statsandchecks.lst
 				loadGameModeLstFile(context, statCheckLoader, gmName, gameFile,
 					"statsandchecks.lst");
+
+				// Load pointbuymethods.lst
+				loadPointBuyFile(context, gameFile, gmName);
+
+				loadGameModeLstFile(context, bioLoader, gmName, gameFile, "bio"
+						+ File.separator + "biosettings.lst");
 			}
 		}
 

@@ -237,6 +237,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testBypassClassPrereqs() throws Exception
 	{
+		LoadContext context = Globals.getContext();
+
 		// Setup class with prereqs and var based abilities with prereqs.
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
@@ -250,7 +252,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{
@@ -315,6 +317,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testBypassClassPrereqsDeprecated() throws Exception
 	{
+		LoadContext context = Globals.getContext();
+
 		// Setup class with prereqs and var based abilities with prereqs.
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
@@ -328,7 +332,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{
@@ -878,7 +882,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
 		prClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
-		final BonusObj aBonus = Bonus.newBonus("MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
 		{

@@ -28,6 +28,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -35,6 +36,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
@@ -73,10 +75,11 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		boots = new Equipment();
 		boots.setName("Boots of Dex");
-		BonusObj aBonus = Bonus.newBonus("STAT|DEX|2|TYPE=Enhancement");
+		BonusObj aBonus = Bonus.newBonus(context, "STAT|DEX|2|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
@@ -85,7 +88,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		spell = new Spell();
 		spell.setName("Weasel's Slipperiness");
-		aBonus = Bonus.newBonus("STAT|DEX|4|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "STAT|DEX|4|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
@@ -94,7 +97,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		template1 = new PCTemplate();
 		template1.setName("Munchkiny Goodness I");
-		aBonus = Bonus.newBonus("STAT|STR,CON,DEX|1|TYPE=Luck");
+		aBonus = Bonus.newBonus(context, "STAT|STR,CON,DEX|1|TYPE=Luck");
 		
 		if (aBonus != null)
 		{
@@ -103,7 +106,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		template2 = new PCTemplate();
 		template2.setName("Munchkiny Goodness II");
-		aBonus = Bonus.newBonus("STAT|STR,CON,DEX|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "STAT|STR,CON,DEX|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{

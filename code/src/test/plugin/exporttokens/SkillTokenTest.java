@@ -101,7 +101,9 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		
+		LoadContext context = Globals.getContext();
+		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
 		{
@@ -118,8 +120,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		character.incrementClassLevel(5, myClass, true);
-
-		LoadContext context = Globals.getContext();
 
 		//Skills
 		knowledge = new Skill[2];
@@ -155,7 +155,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dex);
-		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)
 		{

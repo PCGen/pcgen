@@ -104,43 +104,44 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
 		//Stats
 		setPCStat(character, str, 15);
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+		BonusObj aBonus = Bonus.newBonus(context, "COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		aBonus = Bonus.newBonus("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
+		aBonus = Bonus.newBonus(context, "DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
 		
 		if (aBonus != null)
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
+		aBonus = Bonus.newBonus(context, "COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:1|1");
+		aBonus = Bonus.newBonus(context, "COMBAT|DAMAGEMULT:1|1");
 		
 		if (aBonus != null)
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
+		aBonus = Bonus.newBonus(context, "COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
 		{
@@ -159,9 +160,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(StringKey.KEY_NAME, "KEY_MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+15");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+15");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		LoadContext context = Globals.getContext();
 		context.ref.importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
@@ -281,7 +281,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		bite.put(ObjectKey.SIZE, medium);
 		bite.put(ObjectKey.BASESIZE, medium);
-		aBonus = Bonus.newBonus("WEAPON|ATTACKS|" + 7);
+		aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|" + 7);
 		
 		if (aBonus != null)
 		{
@@ -318,7 +318,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus1");
-		aBonus = Bonus.newBonus("WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
@@ -333,7 +333,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus2");
-		aBonus = Bonus.newBonus("WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
@@ -345,7 +345,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.put(StringKey.KEY_NAME, "MWORKW");
 		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
-		aBonus = Bonus.newBonus("WEAPON|TOHIT|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus(context, "WEAPON|TOHIT|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
 		{
@@ -573,6 +573,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
@@ -581,7 +582,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
-		BonusObj aBonus = Bonus.newBonus("WEAPONPROF=KEY_LONGSWORD|PCSIZE|1");
+		BonusObj aBonus = Bonus.newBonus(context, "WEAPONPROF=KEY_LONGSWORD|PCSIZE|1");
 		
 		if (aBonus != null)
 		{
@@ -608,7 +609,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		PCTemplate martialTemplate = new PCTemplate();
 		martialTemplate.setName("Martial Bonus");
-		aBonus = Bonus.newBonus("WEAPONPROF=TYPE.Martial|PCSIZE|1");
+		aBonus = Bonus.newBonus(context, "WEAPONPROF=TYPE.Martial|PCSIZE|1");
 		
 		if (aBonus != null)
 		{
@@ -657,6 +658,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
 				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+		LoadContext context = Globals.getContext();
 
 		character.addEquipment(fineSword);
 		EquipSet es =
@@ -676,7 +678,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wpnFinesse.put(StringKey.KEY_NAME, "Weapon Finesse");
 		final BonusObj wfBonus =
 				Bonus
-					.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
+					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
 		character.addFeat(wpnFinesse, null);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
@@ -686,7 +688,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setUseTempMods(true);
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
-		final BonusObj aBonus = Bonus.newBonus("STAT|DEX|-4");
+		final BonusObj aBonus = Bonus.newBonus(context, "STAT|DEX|-4");
 		
 		if (aBonus != null)
 		{

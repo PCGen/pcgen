@@ -27,9 +27,9 @@ package plugin.bonustokens;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Checks</code>
@@ -39,7 +39,7 @@ import pcgen.core.bonus.BonusObj;
 public final class Checks extends BonusObj
 {
 	@Override
-	protected boolean parseToken(final String argToken)
+	protected boolean parseToken(LoadContext context, final String argToken)
 	{
 		boolean isBase = false;
 		final String token;
@@ -67,7 +67,7 @@ public final class Checks extends BonusObj
 			 * CHECKS are established need to test both CHECKS|Blah and
 			 * CHECKS|ALL
 			 */
-			for (PCCheck check : Globals.getContext().ref
+			for (PCCheck check : context.ref
 					.getConstructedCDOMObjects(PCCheck.class))
 			{
 				addBonusInfo(new CheckInfo(CDOMDirectSingleRef.getRef(check),
@@ -76,7 +76,7 @@ public final class Checks extends BonusObj
 		}
 		else
 		{
-			CDOMReference<PCCheck> aCheck = Globals.getContext().ref
+			CDOMReference<PCCheck> aCheck = context.ref
 					.getCDOMReference(PCCheck.class, token);
 			//Invalid name is caught by Unconstructed Reference system
 			addBonusInfo(new CheckInfo(aCheck, isBase));

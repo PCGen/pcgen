@@ -45,7 +45,7 @@ public class BonusToken extends ErrorParsingWrapper<EquipmentModifier> implement
 	public ParseResult parseToken(LoadContext context, EquipmentModifier mod,
 		String value)
 	{
-		BonusObj bon = Bonus.newBonus(value);
+		BonusObj bon = Bonus.newBonus(context, value);
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: "

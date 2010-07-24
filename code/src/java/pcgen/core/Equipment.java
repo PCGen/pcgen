@@ -4006,7 +4006,7 @@ public final class Equipment extends PObject implements Serializable,
 						 * another quick solution to this problem
 						 * - thpr 10/9/08
 						 */
-						BonusObj b = Bonus.newBonus(aString);
+						BonusObj b = Bonus.newBonus(Globals.getContext(), aString);
 						if (b != null)
 						{
 							addToListFor(ListKey.BONUS, b);

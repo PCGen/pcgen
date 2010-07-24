@@ -67,7 +67,7 @@ public class StartfeatsToken extends AbstractToken implements
 					+ " was expecting value to be an integer, found: " + value);
 		}
 
-		BonusObj bon = Bonus.newBonus("FEAT|POOL|" + bonusValue);
+		BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|" + bonusValue);
 		if (bon == null)
 		{
 			return new ParseResult.Fail("Internal Error: " + getTokenName()

@@ -43,6 +43,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
 import plugin.bonustokens.Var;
 
 /**
@@ -82,6 +83,8 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testSkillPrereq() throws Exception
 	{
+		LoadContext context = Globals.getContext();
+
 		final Skill rideSkill = new Skill();
 		rideSkill.setName("Ride");
 		rideSkill.put(StringKey.KEY_NAME, "Ride");
@@ -91,7 +94,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		skillFocus.put(StringKey.KEY_NAME, "Skill Focus");
 
 		final BonusObj saddleBonus =
-				Bonus.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
+				Bonus.newBonus(context, "SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
 		rideSkill.addToListFor(ListKey.BONUS, saddleBonus);
 
 		final Equipment saddle = new Equipment();
@@ -119,6 +122,8 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testVarBonus()
 	{
+		LoadContext context = Globals.getContext();
+
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		final PlayerCharacter pc = getCharacter();
@@ -129,7 +134,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
-		BonusObj aBonus = Bonus.newBonus("VAR|NegLevels|7");
+		BonusObj aBonus = Bonus.newBonus(context, "VAR|NegLevels|7");
 		
 		if (aBonus != null)
 		{
@@ -138,7 +143,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		Equipment equip = new Equipment();
 		equip.setName("DummyEquip");
-		aBonus = Bonus.newBonus("VAR|NegLevels|2");
+		aBonus = Bonus.newBonus(context, "VAR|NegLevels|2");
 		
 		if (aBonus != null)
 		{
@@ -194,6 +199,8 @@ public class BonusTest extends AbstractCharacterTestCase
 	}
 	public void testSpellPointCost()
 	{
+		LoadContext context = Globals.getContext();
+
 		Spell sp = new Spell();
 		sp.setName("Test");
 		SpellSchool ss = Globals.getContext().ref.constructNowIfNecessary(SpellSchool.class, "INFUSE");
@@ -205,7 +212,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		
 		final PlayerCharacter character = getCharacter();
 		final BonusObj spCost =
-				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
+				Bonus.newBonus(context, "SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
 		sp.addToListFor(ListKey.BONUS, spCost);
 		BonusActivation.activateBonuses(sp, character);
 		
@@ -220,10 +227,11 @@ public class BonusTest extends AbstractCharacterTestCase
 	public void testBonuswithLISTValue()
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
 		final BonusObj bonus =
-				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
+				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
@@ -240,11 +248,12 @@ public class BonusTest extends AbstractCharacterTestCase
 	public void testBonuswithLISTValueTwoAssoc()
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
 		final BonusObj bonus =
-				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
+				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
@@ -268,10 +277,11 @@ public class BonusTest extends AbstractCharacterTestCase
 	public void testBonuswithLISTValueTwoAssocInfoList()
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
-		final BonusObj bonus = Bonus.newBonus("STAT|%LIST|%LIST+1");
+		final BonusObj bonus = Bonus.newBonus(context, "STAT|%LIST|%LIST+1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();

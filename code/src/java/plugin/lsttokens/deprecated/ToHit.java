@@ -28,6 +28,7 @@ package plugin.lsttokens.deprecated;
 import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.DeprecatedToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>ToHit</code>
@@ -39,7 +40,7 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 	private static final String[] bonusTags = {"TOHIT"};
 
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{

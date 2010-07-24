@@ -666,9 +666,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
+		LoadContext context = Globals.getContext();
+
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		BonusObj aBonus = Bonus.newBonus("CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
 		{
@@ -678,7 +680,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
-		aBonus = Bonus.newBonus("CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)
 		{
@@ -700,9 +702,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypeLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
+		LoadContext context = Globals.getContext();
+
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		BonusObj aBonus = Bonus.newBonus("CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
 		{
@@ -712,7 +716,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
-		aBonus = Bonus.newBonus("CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)
 		{

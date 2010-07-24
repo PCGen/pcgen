@@ -349,7 +349,7 @@ public class RaceBasePanel extends BasePanel
 
 		StringBuffer sb = new StringBuffer();
 		sb.append("FEAT|POOL|").append(getBonusFeats());
-		final BonusObj bon = Bonus.newBonus(sb.toString());
+		final BonusObj bon = Bonus.newBonus(Globals.getContext(), sb.toString());
 		thisRace.addToListFor(ListKey.BONUS, bon);
 
 		if (getBonusSkillPoints() > 0)

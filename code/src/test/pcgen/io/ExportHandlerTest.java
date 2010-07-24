@@ -106,6 +106,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
 
 		final LevelInfo levelInfo = new LevelInfo();
 		levelInfo.setLevelString("LEVEL");
@@ -117,7 +118,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
 		{
@@ -134,8 +135,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		character.incrementClassLevel(5, myClass, true);
-
-		LoadContext context = Globals.getContext();
 
 		// Skills
 		knowledge = new Skill[2];
@@ -175,7 +174,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dex);
 		character.setAssoc(balance, AssociationKey.OUTPUT_INDEX, 1);
-		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)
 		{
@@ -392,6 +391,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	
 	public void testExpressionOutput() throws IOException
 	{
+		LoadContext context = Globals.getContext();
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
@@ -405,7 +405,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
 		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
-		final BonusObj aBonus = Bonus.newBonus("VAR|NegLevels|7");
+		final BonusObj aBonus = Bonus.newBonus(context, "VAR|NegLevels|7");
 		
 		if (aBonus != null)
 		{

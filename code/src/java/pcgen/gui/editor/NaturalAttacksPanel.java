@@ -56,6 +56,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
@@ -151,7 +152,7 @@ final class NaturalAttacksPanel extends JPanel
 			if (anInt > 1)
 			{
 				String bonusString = "WEAPON|ATTACKS|" + (anInt - 1);
-				final BonusObj aBonus = Bonus.newBonus(bonusString);
+				final BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
 				
 				if (aBonus != null)
 				{

@@ -36,6 +36,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.io.exporttoken.AttackToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>ACTokenTest</code> tests the function of the AC token and 
@@ -69,7 +70,8 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 		setPCStat(character, str, 14);
 		str.removeListFor(ListKey.BONUS);
-		final BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+		LoadContext context = Globals.getContext();
+		final BonusObj aBonus = Bonus.newBonus(context, "COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
@@ -86,7 +88,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+5");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+5");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 

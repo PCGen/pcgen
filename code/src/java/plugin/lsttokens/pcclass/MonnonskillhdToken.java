@@ -48,7 +48,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass> implement
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
 		String value)
 	{
-		BonusObj bon = Bonus.newBonus("MONNONSKILLHD|NUMBER|" + value);
+		BonusObj bon = Bonus.newBonus(context, "MONNONSKILLHD|NUMBER|" + value);
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()

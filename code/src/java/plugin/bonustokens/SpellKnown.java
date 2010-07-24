@@ -27,6 +27,7 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellCastInfo;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>SpellKnown</code>
@@ -42,7 +43,7 @@ public final class SpellKnown extends BonusObj
 	 * @return TRUE or FALSE
 	 */
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		int idx = token.indexOf(";LEVEL=");
 

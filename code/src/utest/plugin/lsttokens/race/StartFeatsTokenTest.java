@@ -199,7 +199,7 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 
 	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
 	{
-		BonusObj bon = Bonus.newBonus("FEAT|POOL|" + bonusValue);
+		BonusObj bon = Bonus.newBonus(primaryContext, "FEAT|POOL|" + bonusValue);
 		assertNotNull(bon);
 		PreParserFactory prereqParser = PreParserFactory.getInstance();
 		Prerequisite prereq = prereqParser

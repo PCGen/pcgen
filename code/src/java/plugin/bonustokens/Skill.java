@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>Skill</code>
@@ -37,7 +38,7 @@ public final class Skill extends BonusObj
 	private static final String[] bonusTags = {"LIST", "ALL"};
 
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{

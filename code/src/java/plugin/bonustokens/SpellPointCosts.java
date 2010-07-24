@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellPointCostInfo;
 import pcgen.core.bonus.util.SpellPointCostInfo.SpellPointFilterType;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -17,7 +18,7 @@ import pcgen.util.Logging;
 public class SpellPointCosts extends BonusObj
 {
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		SpellPointCostInfo spi = null;
 		SpellPointFilterType type =null;

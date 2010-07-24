@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -40,7 +41,7 @@ public final class MoveAdd extends BonusObj
 				Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
 	@Override
-	protected boolean parseToken(final String token)
+	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
 		{

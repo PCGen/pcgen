@@ -34,6 +34,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PreAttTest</code> tests that the PREATT tag is
@@ -69,6 +70,8 @@ public class PreAttTest extends AbstractCharacterTestCase
 	public void testAtt() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+
 		character.incrementClassLevel(1, myClass, true);
 
 		character.calcActiveBonuses();
@@ -86,7 +89,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 		assertFalse("Character's BAB should be less than 7", PrereqHandler
 			.passes(prereq, character, null));
 
-		final BonusObj toHitBonus = Bonus.newBonus("COMBAT|TOHIT|1");
+		final BonusObj toHitBonus = Bonus.newBonus(context, "COMBAT|TOHIT|1");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
 		character.calcActiveBonuses();
 
@@ -97,10 +100,11 @@ public class PreAttTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus("COMBAT|BAB|CL+5");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+5");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}
