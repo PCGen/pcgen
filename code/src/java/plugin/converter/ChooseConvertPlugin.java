@@ -27,9 +27,10 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.gui.converter.event.TokenProcessorPlugin;
 
-public class ChooseFeatConvertPlugin implements TokenProcessorPlugin
+public class ChooseConvertPlugin implements TokenProcessorPlugin
 {
-	public static Map<String, String> answered = new HashMap<String, String>();
+	public static Map<String, String> featAnswered = new HashMap<String, String>();
+	public static Map<String, String> spelllistAnswered = new HashMap<String, String>();
 	public static List<String> CHOICES = Arrays.asList(new String[] {
 			"ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
 			"FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS", "SHIELDPROFICIENCY",
@@ -38,19 +39,28 @@ public class ChooseFeatConvertPlugin implements TokenProcessorPlugin
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
-		if (!value.startsWith("FEAT="))
+		if (value.startsWith("FEAT="))
 		{
-			// Don't consume
-			return null;
+			processFeatEquals(tpe);
 		}
+		else if (value.startsWith("SPELLLIST|"))
+		{
+			processSpellList(tpe);
+		}
+		return null;
+	}
+
+	private void processFeatEquals(TokenProcessEvent tpe)
+	{
+		String value = tpe.getValue();
 		String feat = value.substring(5);
-		String decision = answered.get(feat);
+		String decision = featAnswered.get(feat);
 		if (decision == null)
 		{
 			decision = tpe.getDecider().getConversionDecision(
 					"Need help with underlying type for " + getProcessedToken()
 							+ ":" + value, buildDescriptions(feat), CHOICES);
-			answered.put(feat, decision);
+			featAnswered.put(feat, decision);
 		}
 		tpe.append(tpe.getKey());
 		tpe.append(':');
@@ -58,7 +68,6 @@ public class ChooseFeatConvertPlugin implements TokenProcessorPlugin
 		tpe.append('|');
 		tpe.append(value);
 		tpe.consume();
-		return null;
 	}
 
 	private List<String> buildDescriptions(String feat)
@@ -81,6 +90,30 @@ public class ChooseFeatConvertPlugin implements TokenProcessorPlugin
 		list.add("Underlying Feat " + feat + " is CHOOSE:TEMPLATE");
 		list.add("Underlying Feat " + feat + " is CHOOSE:WEAPONPROFICIENCY");
 		return list;
+	}
+
+	private void processSpellList(TokenProcessEvent tpe)
+	{
+		String decision = tpe.getDecider().getConversionInput(
+				"Please provide class spell list which " + tpe.getObjectName()
+						+ " modifies").trim();
+		String stat = spelllistAnswered.get(decision);
+		if (stat == null)
+		{
+			stat = tpe.getDecider().getConversionInput(
+					"Please provide SPELLSTAT (abbreviation) for Class "
+							+ decision).trim().toUpperCase();
+			spelllistAnswered.put(decision, stat);
+		}
+		tpe.append(tpe.getKey());
+		tpe.append(":SPELLS|CLASSLIST=");
+		tpe.append(decision);
+		tpe.append("[KNOWN=YES]\tSELECT:");
+		tpe.append(stat);
+		tpe.append("\tPRECLASS:1,");
+		tpe.append(decision);
+		tpe.append("=1");
+		tpe.consume();
 	}
 
 	public Class<? extends CDOMObject> getProcessedClass()
