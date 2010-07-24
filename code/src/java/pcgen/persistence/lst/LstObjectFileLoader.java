@@ -474,8 +474,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					Logging.errorPrint(message);
 					setChanged();
 					Logging.errorPrint(PropertyFactory
-						.getString("Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
-						t);
+						.getString("Errors.LstFileLoader.Ignoring: " + t.getMessage()));
+					if  (Logging.isDebugMode())
+					{
+						Logging.errorPrint(PropertyFactory
+								.getString("Errors.LstFileLoader.Ignoring"), t);
+					}
 				}
 			}
 		}
