@@ -51,6 +51,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -90,34 +91,36 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.NORMAL;
 
-		int pipeLoc = value.indexOf(Constants.PIPE);
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String activeValue = sep.next();
 		Formula count;
-		String items;
-		if (pipeLoc == -1)
+		if (!sep.hasNext())
 		{
 			count = FormulaFactory.ONE;
-			items = value;
 		}
 		else
 		{
-			String countString = value.substring(0, pipeLoc);
-			count = FormulaFactory.getFormulaFor(countString);
+			count = FormulaFactory.getFormulaFor(activeValue);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
 			}
-			items = value.substring(pipeLoc + 1);
+			activeValue = sep.next();
 		}
-
-		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		if (sep.hasNext())
+		{
+			return new ParseResult.Fail(getFullName()
+					+ " had too many pipe separated items: " + value);
+		}
+		if (isEmpty(activeValue) || hasIllegalSeparator(',', activeValue))
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
 
 		List<AbilityRef> refs = new ArrayList<AbilityRef>();
 		List<PrimitiveChoiceSet<AbilitySelection>> pcs = new ArrayList<PrimitiveChoiceSet<AbilitySelection>>();
-		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
+		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 
 		boolean foundAny = false;
 		boolean foundOther = false;

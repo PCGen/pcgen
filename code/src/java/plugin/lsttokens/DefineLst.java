@@ -28,6 +28,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -36,9 +37,10 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
+public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements
+		CDOMPrimaryParserToken<CDOMObject>
 {
 
 	public static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -49,48 +51,53 @@ public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPr
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+			String value)
 	{
-		int barLoc = value.indexOf('|');
-		if (barLoc != value.lastIndexOf('|'))
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-							+ " must be of Format: varName|varFormula or LOCK.<stat>|value or UNLOCK.<stat>");
+			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
-		if (barLoc == -1)
+		String firstItem = sep.next();
+
+		if (firstItem.startsWith("UNLOCK."))
 		{
-			if (value.startsWith("UNLOCK."))
+			if (sep.hasNext())
 			{
-				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS,
-						value.substring(7));
-				context.obj.addToList(obj, ListKey.UNLOCKED_STATS, stat);
-				return ParseResult.SUCCESS;
+				return new ParseResult.Fail(
+						getTokenName()
+								+ " found UNLOCK. with additional pipe separated item.  "
+								+ "Must be of Format: varName|varFormula or "
+								+ "LOCK.<stat>|value or UNLOCK.<stat>");
 			}
-			else
-			{
-				return new ParseResult.Fail(getTokenName() + " varName|varFormula"
-						+ "or LOCK.<stat>|value syntax requires an argument");
-			}
+			PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value
+					.substring(7));
+			context.obj.addToList(obj, ListKey.UNLOCKED_STATS, stat);
+			return ParseResult.SUCCESS;
 		}
-		if (value.startsWith("UNLOCK."))
+		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " UNLOCK.<stat> does not allow an argument");
+			return new ParseResult.Fail(getTokenName() + " varName|varFormula"
+					+ "or LOCK.<stat>|value syntax requires an argument");
 		}
-		String var = value.substring(0, barLoc);
+		String var = firstItem;
 		if (var.length() == 0)
 		{
-			return new ParseResult.Fail("Empty Variable Name found in " + getTokenName()
-					+ ": " + value);
+			return new ParseResult.Fail("Empty Variable Name found in "
+					+ getTokenName() + ": " + value);
 		}
 		try
 		{
-			Formula f = FormulaFactory.getFormulaFor(value
-					.substring(barLoc + 1));
+			Formula f = FormulaFactory.getFormulaFor(sep.next());
+			if (sep.hasNext())
+			{
+				return new ParseResult.Fail(getTokenName() + " " + firstItem
+						+ " syntax requires only one argument: " + value);
+			}
 			if (value.startsWith("LOCK."))
 			{
 				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS,
-						value.substring(5, barLoc));
+						firstItem.substring(5));
 				context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS,
 						new StatLock(stat, f));
 			}
@@ -103,8 +110,9 @@ public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPr
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail("Illegal Formula found in " + getTokenName()
-					+ ": " + value + " " + e.getLocalizedMessage());
+			return new ParseResult.Fail("Illegal Formula found in "
+					+ getTokenName() + ": " + value + " "
+					+ e.getLocalizedMessage());
 		}
 	}
 

@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -50,23 +51,23 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
 		String value)
 	{
-		int colonLoc = value.indexOf(Constants.COLON);
-		if (colonLoc == -1)
+		ParsingSeparator sep = new ParsingSeparator(value, ':');
+		String classString = sep.next();
+		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " must have only a colon: "
+			return new ParseResult.Fail(getTokenName() + " must have a colon: "
 					+ value);
 		}
-		if (colonLoc != value.lastIndexOf(Constants.COLON))
+		String numLevels = sep.next();
+		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " must have only one colon: "
 					+ value);
 		}
-		String classString = value.substring(0, colonLoc);
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCCLASS_CLASS,
 				classString);
 		try
 		{
-			String numLevels = value.substring(colonLoc + 1);
 			int lvls = Integer.parseInt(numLevels);
 			if (lvls <= 0)
 			{

@@ -28,7 +28,6 @@ package plugin.lsttokens.kit.basekit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
@@ -36,12 +35,13 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.helper.OptionBound;
 import pcgen.core.kit.BaseKit;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class OptionToken extends AbstractTokenWithSeparator<BaseKit> implements
+public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		CDOMSecondaryToken<BaseKit>
 {
 	/**
@@ -66,40 +66,37 @@ public class OptionToken extends AbstractTokenWithSeparator<BaseKit> implements
 	}
 
 	@Override
-	protected char separator()
+	protected ParseResult parseNonEmptyToken(LoadContext context, BaseKit kit,
+			String value)
 	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		BaseKit kit, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, "|");
-		while (tok.hasMoreTokens())
+		ParsingSeparator pipeSep = new ParsingSeparator(value, '|');
+		while (pipeSep.hasNext())
 		{
-			String subTok = tok.nextToken();
+			String subTok = pipeSep.next();
+			if (subTok.length() == 0)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " arguments has invalid pipe separator: " + value);
+			}
 			ParseResult pr = checkForIllegalSeparator(',', subTok);
 			if (!pr.passed())
 			{
 				return pr;
 			}
-			int commaLoc = subTok.indexOf(',');
-			String minString;
+			ParsingSeparator commaSep = new ParsingSeparator(subTok, ',');
+			String minString = commaSep.next();
 			String maxString;
-			if (commaLoc == -1)
+			if (commaSep.hasNext())
 			{
-				minString = subTok;
-				maxString = subTok;
-			}
-			else if (commaLoc != subTok.lastIndexOf(','))
-			{
-				return new ParseResult.Fail("Token cannot have more than one separator ','");
+				maxString = commaSep.next();
 			}
 			else
 			{
-				minString = subTok.substring(0, commaLoc);
-				maxString = subTok.substring(commaLoc + 1);
+				maxString = subTok;
+			}
+			if (commaSep.hasNext())
+			{
+				return new ParseResult.Fail("Token cannot have more than one separator ','");
 			}
 			Formula min = FormulaFactory.getFormulaFor(minString);
 			Formula max = FormulaFactory.getFormulaFor(maxString);

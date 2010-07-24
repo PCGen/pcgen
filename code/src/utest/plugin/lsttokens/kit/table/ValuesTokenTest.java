@@ -177,6 +177,20 @@ public class ValuesTokenTest extends AbstractSubTokenTestCase<KitTable>
 				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]|100");
 	}
 
+	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
+	{
+System.err.println("!");
+		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		runRoundRobin("EQMOD:EQMOD2|1,if(var(\"SIZE==3||SIZE==4\"),5,10)|"
+				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"
+				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]" +
+						"|1+if(var(\"SIZE==3||SIZE==4\"),5,10),100");
+	}
+
+
 	// public void testRoundRobinComplexAssociation()
 	// throws PersistenceLayerException
 	// {

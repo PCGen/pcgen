@@ -24,7 +24,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
@@ -40,9 +39,10 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -50,7 +50,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author djones4
  *
  */
-public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
+public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryParserToken<CDOMObject>
 {
 
@@ -58,12 +58,6 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	public String getTokenName()
 	{
 		return "SPELLS";
-	}
-
-	@Override
-	protected char separator()
-	{
-		return '|';
 	}
 
 	/**
@@ -79,22 +73,32 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	 * @return spells list
 	 */
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
+	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String sourceLine)
 	{
-		StringTokenizer tok = new StringTokenizer(sourceLine, Constants.PIPE);
-		String spellBook = tok.nextToken();
+		if ((sourceLine == null) || (sourceLine.length() == 0))
+		{
+			return new ParseResult.Fail("Argument in " + getTokenName()
+					+ " cannot be empty");
+		}
+		ParsingSeparator sep = new ParsingSeparator(sourceLine, '|');
+		String spellBook = sep.next();
+		if (spellBook.length() == 0)
+		{
+			return new ParseResult.Fail("SpellBook in " + getTokenName()
+					+ " cannot be empty");
+		}
 		// Formula casterLevel = null;
 		String casterLevel = null;
 		String times = null;
 		String timeunit = null;
 
-		if (!tok.hasMoreTokens())
+		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ ": minimally requires a Spell Name");
 		}
-		String token = tok.nextToken();
+		String token = sep.next();
 
 		while (true)
 		{
@@ -113,13 +117,13 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							"Error in Times in " + getTokenName()
 									+ ": argument was empty");
 				}
-				if (!tok.hasMoreTokens())
+				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
 							+ "a Spell Name (after TIMES=)");
 				}
-				token = tok.nextToken();
+				token = sep.next();
 			}
 			else if (token.startsWith("TIMEUNIT="))
 			{
@@ -136,13 +140,13 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							"Error in TimeUnit in " + getTokenName()
 									+ ": argument was empty");
 				}
-				if (!tok.hasMoreTokens())
+				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
 							+ "a Spell Name (after TIMEUNIT=)");
 				}
-				token = tok.nextToken();
+				token = sep.next();
 			}
 			else if (token.startsWith("CASTERLEVEL="))
 			{
@@ -160,13 +164,13 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							"Error in Caster Level in " + getTokenName()
 									+ ": argument was empty");
 				}
-				if (!tok.hasMoreTokens())
+				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires a "
 							+ "Spell Name (after CASTERLEVEL=)");
 				}
-				token = tok.nextToken();
+				token = sep.next();
 			}
 			else
 			{
@@ -178,6 +182,11 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			times = "1";
 		}
 
+		if (token.length() == 0)
+		{
+			return new ParseResult.Fail("Spell arguments may not be empty in "
+					+ getTokenName() + ": " + sourceLine);
+		}
 		if (token.charAt(0) == ',')
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -204,6 +213,11 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm = new DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object>(LinkedHashMap.class, HashMap.class);
 		while (true)
 		{
+			if (token.length() == 0)
+			{
+				return new ParseResult.Fail("Spell arguments may not end with comma or pipe in "
+						+ getTokenName() + ": " + sourceLine);
+			}
 			int commaLoc = token.indexOf(',');
 			String name = commaLoc == -1 ? token : token.substring(0, commaLoc);
 			CDOMReference<Spell> spell = context.ref.getCDOMReference(
@@ -221,13 +235,13 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				dkm.put(spell, AssociationKey.DC_FORMULA, token
 						.substring(commaLoc + 1));
 			}
-			if (!tok.hasMoreTokens())
+			if (!sep.hasNext())
 			{
 				// No prereqs, so we're done
 				finish(context, obj, dkm, null);
 				return ParseResult.SUCCESS;
 			}
-			token = tok.nextToken();
+			token = sep.next();
 			if (token.startsWith("PRE") || token.startsWith("!PRE"))
 			{
 				break;
@@ -246,11 +260,11 @@ public class SpellsLst extends AbstractTokenWithSeparator<CDOMObject> implements
 								+ "PRExxx tags in SPELLS:?)");
 			}
 			prereqs.add(prereq);
-			if (!tok.hasMoreTokens())
+			if (!sep.hasNext())
 			{
 				break;
 			}
-			token = tok.nextToken();
+			token = sep.next();
 		}
 
 		finish(context, obj, dkm, prereqs);

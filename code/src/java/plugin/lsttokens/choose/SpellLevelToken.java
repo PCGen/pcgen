@@ -19,13 +19,11 @@ package plugin.lsttokens.choose;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
@@ -37,6 +35,7 @@ import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.helper.SpellLevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -107,27 +106,27 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		StringTokenizer st = new StringTokenizer(activeValue, Constants.PIPE);
-		if (!st.hasMoreTokens())
+		ParsingSeparator sep = new ParsingSeparator(activeValue, '|');
+		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Found no arguments in "
 				+ getFullName() + ": " + value);
 		}
 		List<SpellLevelInfo> sliList = new ArrayList<SpellLevelInfo>();
-		while (st.hasMoreTokens())
+		while (sep.hasNext())
 		{
-			String token = st.nextToken();
+			String token = sep.next();
 			PrimitiveChoiceFilter<PCClass> pcf;
 			pcf =
 					context.getPrimitiveChoiceFilter(context.ref
 						.getManufacturer(PCClass.class), token);
-			if (!st.hasMoreTokens())
+			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
 					"Expected minimum level argument after " + token + " in "
 						+ getFullName() + ": " + value);
 			}
-			String minLevelString = st.nextToken();
+			String minLevelString = sep.next();
 			int minLevel;
 			try
 			{
@@ -139,13 +138,13 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 					+ minLevelString + " in " + getFullName() + " value: "
 					+ value);
 			}
-			if (!st.hasMoreTokens())
+			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
 					"Expected maximum level argument after " + minLevelString
 						+ " in " + getFullName() + ": " + value);
 			}
-			String maxLevelString = st.nextToken();
+			String maxLevelString = sep.next();
 			Formula maxLevel = FormulaFactory.getFormulaFor(maxLevelString);
 			SpellLevelInfo sli = new SpellLevelInfo(pcf, minLevel, maxLevel);
 			sliList.add(sli);

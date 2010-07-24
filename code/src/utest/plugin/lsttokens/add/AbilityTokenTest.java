@@ -221,6 +221,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	public void testInvalidInputUnconstructed()
 			throws PersistenceLayerException
 	{
+		System.err.println("!");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestType"));
 		assertFalse(primaryContext.ref.validate(null));

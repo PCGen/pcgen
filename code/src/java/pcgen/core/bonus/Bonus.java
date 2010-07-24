@@ -25,18 +25,18 @@
  */
 package pcgen.core.bonus;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>Bonus</code>
@@ -136,7 +136,7 @@ public class Bonus
 	 */
 	public static BonusObj newBonus(final String bonusString)
 	{
-		StringTokenizer aTok = new StringTokenizer(bonusString, Constants.PIPE);
+		ParsingSeparator sep = new ParsingSeparator(bonusString, '|');
 
 		if ((bonusString.indexOf(Constants.PIPE) == bonusString
 				.lastIndexOf(Constants.PIPE))
@@ -147,13 +147,13 @@ public class Bonus
 			return null;
 		}
 
-		String bonusName = aTok.nextToken();
+		String bonusName = sep.next();
 
 		try
 		{
 			//Throw away old level value if present
 			Integer.parseInt(bonusName);
-			bonusName = aTok.nextToken().toUpperCase();
+			bonusName = sep.next().toUpperCase();
 		}
 		catch (NumberFormatException exc)
 		{
@@ -179,12 +179,12 @@ public class Bonus
 			}
 		}
 
-		final String bonusInfo = aTok.nextToken().toUpperCase();
+		final String bonusInfo = sep.next().toUpperCase();
 		String bValue = "0";
 
-		if (aTok.hasMoreTokens())
+		if (sep.hasNext())
 		{
-			bValue = aTok.nextToken();
+			bValue = sep.next();
 		}
 		
 		if (bValue.startsWith("PRE") || bValue.startsWith("!PRE"))
@@ -206,14 +206,14 @@ public class Bonus
 			return null;
 		}
 
-			aBonus.putOriginalString(bonusString);
+		aBonus.putOriginalString(bonusString);
 		aBonus.setBonusName(bonusName);
 		aBonus.setTypeOfBonus(typeOfBonus);
 		aBonus.setValue(bValue);
 
-		while (aTok.hasMoreTokens())
+		while (sep.hasNext())
 		{
-			final String aString = aTok.nextToken().toUpperCase();
+			final String aString = sep.next().toUpperCase();
 
 			if (PreParserFactory.isPreReqString(aString))
 			{
@@ -267,7 +267,7 @@ public class Bonus
 			aBonus.setVariable(bonusName.substring(equalOffset + 1));
 		}
 
-		aTok = new StringTokenizer(bonusInfo, ",");
+		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");
 
 		LstUtils.deprecationCheck(aBonus, bonusName, bonusString);
 		while (aTok.hasMoreTokens())

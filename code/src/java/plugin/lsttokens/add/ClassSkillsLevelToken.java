@@ -40,6 +40,7 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.ObjectMatchingReference;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -72,34 +73,36 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		PCClassLevel obj, String value)
 	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String activeValue = sep.next();
 		Formula count;
-		String items;
-		if (pipeLoc == -1)
+		if (!sep.hasNext())
 		{
 			count = FormulaFactory.ONE;
-			items = value;
 		}
 		else
 		{
-			String countString = value.substring(0, pipeLoc);
-			count = FormulaFactory.getFormulaFor(countString);
+			count = FormulaFactory.getFormulaFor(activeValue);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0");
 			}
-			items = value.substring(pipeLoc + 1);
+			activeValue = sep.next();
 		}
-
-		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		if (sep.hasNext())
+		{
+			return new ParseResult.Fail(getFullName()
+					+ " had too many pipe separated items: " + value);
+		}
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
 		{
 			return pr;
 		}
 
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
-		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
+		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		CDOMGroupRef<Skill> allRef = context.ref
 				.getCDOMAllReference(SKILL_CLASS);
 		Integer autoRank = null;

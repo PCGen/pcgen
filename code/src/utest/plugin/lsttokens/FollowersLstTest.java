@@ -137,6 +137,15 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinComplexFormula() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
+		secondaryContext.ref.constructCDOMObject(CompanionList.class,
+				"Follower");
+		runRoundRobin("Follower|if(var(\"SIZE==3||SIZE==4\"),5,10)");
+	}
+
+	@Test
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");

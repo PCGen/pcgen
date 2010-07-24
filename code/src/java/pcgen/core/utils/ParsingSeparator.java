@@ -22,11 +22,14 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+
 public class ParsingSeparator implements Iterator<String>
 {
 
 	private final StringTokenizer base;
 	private final String sep;
+	private boolean hasABlank = false;
 
 	public ParsingSeparator(String baseString, char separator)
 	{
@@ -41,7 +44,7 @@ public class ParsingSeparator implements Iterator<String>
 
 	public boolean hasNext()
 	{
-		return base.hasMoreTokens();
+		return hasABlank || base.hasMoreTokens();
 	}
 
 	public String next()
@@ -50,6 +53,11 @@ public class ParsingSeparator implements Iterator<String>
 		{
 			throw new NoSuchElementException();
 		}
+		if (hasABlank)
+		{
+			hasABlank = false;
+			return Constants.EMPTY_STRING;
+		}
 		StringBuilder temp = new StringBuilder();
 		Stack<String> expected = new Stack<String>();
 		while (base.hasMoreTokens())
@@ -57,6 +65,7 @@ public class ParsingSeparator implements Iterator<String>
 			String working = base.nextToken();
 			if (sep.equals(working) && expected.isEmpty())
 			{
+				hasABlank = !base.hasMoreTokens();
 				return temp.toString();
 			}
 			else

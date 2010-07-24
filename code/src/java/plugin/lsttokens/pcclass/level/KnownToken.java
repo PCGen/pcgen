@@ -17,14 +17,13 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import java.util.StringTokenizer;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -55,11 +54,11 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 	{
 		context.obj.removeList(level, ListKey.KNOWN);
 
-		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
+		ParsingSeparator sep = new ParsingSeparator(value, ',');
 
-		while (st.hasMoreTokens())
+		while (sep.hasNext())
 		{
-			String tok = st.nextToken();
+			String tok = sep.next();
 			try
 			{
 				if (Integer.parseInt(tok) < 0)

@@ -29,10 +29,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedFormula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -73,18 +73,18 @@ public class LookupToken extends AbstractToken implements
 
 	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
 	{
-		int commaLoc = value.indexOf(',');
-		if (commaLoc == -1)
+		ParsingSeparator sep = new ParsingSeparator(value, ',');
+		String first = sep.next();
+		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Token must contain separator ','");
 		}
-		if (commaLoc != value.lastIndexOf(','))
+		String second = sep.next();
+		if (sep.hasNext())
 		{
 			return new ParseResult.Fail("Token cannot have more than one separator ','");
 		}
-		String tableEntry = value.substring(0, commaLoc);
-		Formula f = FormulaFactory.getFormulaFor(value.substring(commaLoc + 1));
-		kitGear.loadLookup(tableEntry, f);
+		kitGear.loadLookup(first, FormulaFactory.getFormulaFor(second));
 		return ParseResult.SUCCESS;
 	}
 

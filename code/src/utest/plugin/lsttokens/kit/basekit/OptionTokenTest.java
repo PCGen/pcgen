@@ -82,6 +82,12 @@ public class OptionTokenTest extends AbstractSubTokenTestCase<BaseKit>
 	}
 
 	@Test
+	public void testRoundRobinComplexFormula() throws PersistenceLayerException
+	{
+		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)");
+	}
+
+	@Test
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("1,4" + getJoinCharacter() + "56,Formula");

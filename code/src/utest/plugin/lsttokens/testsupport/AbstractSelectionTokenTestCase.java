@@ -483,6 +483,18 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
+	public void testRoundRobinHardFormulaCount() throws PersistenceLayerException
+	{
+		if (allowsFormula())
+		{
+			construct(primaryContext, "TestWP1 (Test)");
+			construct(secondaryContext, "TestWP1 (Test)");
+			runRoundRobin(getSubTokenName() + '|'
+					+ "if(var(\"SIZE==3||SIZE==4\"),5,0)|TestWP1 (Test)");
+		}
+	}
+
+	@Test
 	public void testRoundRobinParenSub() throws PersistenceLayerException
 	{
 		if (allowsParenAsSub())

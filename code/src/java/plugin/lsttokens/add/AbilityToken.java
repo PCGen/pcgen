@@ -54,10 +54,11 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
@@ -89,7 +90,7 @@ import pcgen.util.enumeration.Visibility;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> implements
+public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
@@ -113,54 +114,65 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 	}
 
 	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
+	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
-		Formula count;
-		int tokenCount = pipeTok.countTokens();
-		if (tokenCount == 4)
+		if (isEmpty(value))
 		{
-			String countString = pipeTok.nextToken();
-			count = FormulaFactory.getFormulaFor(countString);
+			return new ParseResult.Fail("Value in " + getFullName()
+					+ " may not be empty");
+		}
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String first = sep.next();
+		if (!sep.hasNext())
+		{
+			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
+					+ " requires 3 to 4 |: " + value);
+		}
+		String second = sep.next();
+		if (!sep.hasNext())
+		{
+			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
+					+ " requires a minimum of three | : " + value);
+		}
+		String third = sep.next();
+		Formula count;
+		if (sep.hasNext())
+		{
+			count = FormulaFactory.getFormulaFor(first);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+						+ " must be > 0");
 			}
-		}
-		else if (tokenCount == 3)
-		{
-			count = FormulaFactory.ONE;
+			first = second;
+			second = third;
+			third = sep.next();
 		}
 		else
 		{
+			count = FormulaFactory.ONE;
+		}
+		if (sep.hasNext())
+		{
 			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-							+ " requires three | when a count is not present: "
-							+ value);
+					+ " has max of four | when a count is not present: "
+					+ value);
 		}
 
-		String categoryKey = pipeTok.nextToken();
 		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS,
-				categoryKey);
+				first);
 		if (category == null)
 		{
 			return new ParseResult.Fail(getFullName() + ": Invalid ability category: "
-					+ categoryKey);
+					+ first);
 		}
 
-		String natureKey = pipeTok.nextToken();
-		Nature nature = Nature.valueOf(natureKey);
+		Nature nature = Nature.valueOf(second);
 		if (nature == null)
 		{
 			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: "
-					+ natureKey);
+					+ second);
 		}
 		if (Nature.ANY.equals(nature))
 		{
@@ -175,15 +187,14 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 					+ getTokenName() + ": " + value);
 		}
 
-		String items = pipeTok.nextToken();
-		ParseResult pr = checkSeparatorsAndNonEmpty(',', items);
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', third);
 		if (!pr.passed())
 		{
 			return pr;
 		}
 
 		List<AbilityRef> refs = new ArrayList<AbilityRef>();
-		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
+		StringTokenizer tok = new StringTokenizer(third, Constants.COMMA);
 		boolean allowStack = false;
 		int dupChoices = 0;
 

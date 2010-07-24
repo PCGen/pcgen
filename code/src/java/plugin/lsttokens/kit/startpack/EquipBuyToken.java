@@ -27,7 +27,6 @@ package plugin.lsttokens.kit.startpack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -36,15 +35,16 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * EQUIPBUY Token for KitStartpack
  */
-public class EquipBuyToken extends AbstractTokenWithSeparator<Kit> implements
+public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 		CDOMPrimaryParserToken<Kit>
 {
 	/**
@@ -64,32 +64,23 @@ public class EquipBuyToken extends AbstractTokenWithSeparator<Kit> implements
 	}
 
 	@Override
-	protected char separator()
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
+			String value)
 	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Kit kit,
-		String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-
-		String token = tok.nextToken();
-
-		if (token.startsWith("PRE") || token.startsWith("!PRE"))
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String activeValue = sep.next();
+		if (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-				+ getTokenName());
+					+ getTokenName());
 		}
-
-		Formula f = FormulaFactory.getFormulaFor(token);
+		Formula f = FormulaFactory.getFormulaFor(activeValue);
 		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
 
-		while (tok.hasMoreTokens())
+		while (sep.hasNext())
 		{
-			token = tok.nextToken();
-			Prerequisite prereq = getPrerequisite(token);
+			activeValue = sep.next();
+			Prerequisite prereq = getPrerequisite(activeValue);
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "

@@ -70,6 +70,12 @@ public class LookupTokenTest extends AbstractSubTokenTestCase<BaseKit>
 	}
 
 	@Test
+	public void testInvalidInputFormulaComplex() throws PersistenceLayerException
+	{
+		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)");
+	}
+
+	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("MinFormula,34");

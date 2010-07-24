@@ -204,6 +204,48 @@ public class ParsingSeparatorTest extends TestCase
 	}
 
 	@Test
+	public void testEndsWith()
+	{
+		ParsingSeparator cs = new ParsingSeparator("Foo[Bar],Test[Goo,Free],",
+				',');
+		assertTrue(cs.hasNext());
+		assertEquals("Foo[Bar]", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("Test[Goo,Free]", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("", cs.next());
+		assertFalse(cs.hasNext());
+	}
+
+	@Test
+	public void testStartsWith()
+	{
+		ParsingSeparator cs = new ParsingSeparator(",Foo[Bar],Test[Goo,Free]",
+				',');
+		assertTrue(cs.hasNext());
+		assertEquals("", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("Foo[Bar]", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("Test[Goo,Free]", cs.next());
+		assertFalse(cs.hasNext());
+	}
+
+	@Test
+	public void testDoubleComma()
+	{
+		ParsingSeparator cs = new ParsingSeparator("Foo[Bar],,Test[Goo,Free]",
+				',');
+		assertTrue(cs.hasNext());
+		assertEquals("Foo[Bar]", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("", cs.next());
+		assertTrue(cs.hasNext());
+		assertEquals("Test[Goo,Free]", cs.next());
+		assertFalse(cs.hasNext());
+	}
+
+	@Test
 	public void testComplexMismatchParenOne()
 	{
 		ParsingSeparator cs = new ParsingSeparator(

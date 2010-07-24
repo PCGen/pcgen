@@ -26,7 +26,6 @@
 package plugin.lsttokens.kit.table;
 
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -34,15 +33,16 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * VALUES token for KitTable
  */
-public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
+public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		CDOMSecondaryToken<KitTable>
 {
 	/**
@@ -67,19 +67,18 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 	}
 
 	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
+	protected ParseResult parseNonEmptyToken(LoadContext context,
 		KitTable kitTable, String value)
 	{
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		while (sep.hasNext())
 		{
-			String thing = st.nextToken();
+			String thing = sep.next();
+			if (thing.length() == 0)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " arguments has invalid pipe separator: " + value);
+			}
 			KitGear optionInfo = new KitGear();
 			for (String s : thing.split("[\\[\\]]"))
 			{
@@ -102,11 +101,11 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 					return pr;
 				}
 			}
-			if (!st.hasMoreTokens())
+			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail("Odd token count in Value: " + value);
 			}
-			String range = st.nextToken();
+			String range = sep.next();
 			if (!processRange(kitTable, optionInfo, range))
 			{
 				return new ParseResult.Fail("Invalid Range in Value: " + range
@@ -120,26 +119,24 @@ public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
 	private boolean processRange(KitTable kitTable, KitGear optionInfo,
 			String range)
 	{
-		if (hasIllegalSeparator(',', range))
+		if (isEmpty(range) || hasIllegalSeparator(',', range))
 		{
 			return false;
 		}
-		int commaLoc = range.indexOf(',');
-		String minString;
+		ParsingSeparator sep = new ParsingSeparator(range, ',');
+		String minString = sep.next();
 		String maxString;
-		if (commaLoc == -1)
+		if (sep.hasNext())
 		{
-			minString = range;
-			maxString = range;
-		}
-		else if (commaLoc != range.lastIndexOf(','))
-		{
-			return false;
+			maxString = sep.next();
 		}
 		else
 		{
-			minString = range.substring(0, commaLoc);
-			maxString = range.substring(commaLoc + 1);
+			maxString = range;
+		}
+		if (sep.hasNext())
+		{
+			return false;
 		}
 		Formula min = FormulaFactory.getFormulaFor(minString);
 		Formula max = FormulaFactory.getFormulaFor(maxString);

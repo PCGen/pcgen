@@ -346,6 +346,13 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinComplexFormulaTimes() throws PersistenceLayerException
+	{
+		System.err.println("!");
+		runRoundRobin("SpellBook|TIMES=if(var(\"SIZE==3||SIZE==4\"),5,10)|TIMEUNIT=Hour|Fireball");
+	}
+	
+	@Test
 	public void testRoundRobinCasterLevel() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=15|Fireball");

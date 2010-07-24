@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -52,24 +53,8 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		PCTemplate template, String value)
 	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("No | found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
-			return cpr;
-		}
-		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Two | found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
-			return cpr;
-		}
-		String classString = value.substring(0, pipeLoc);
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String classString = sep.next();
 		if (classString.length() == 0)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
@@ -78,9 +63,15 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 					+ " requires at format: Class|LevelCount");
 			return cpr;
 		}
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(
-				PCClass.class, classString);
-		String numLevels = value.substring(pipeLoc + 1);
+		if (!sep.hasNext())
+		{
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("No | found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
+					+ " requires at format: Class|LevelCount");
+			return cpr;
+		}
+		String numLevels = sep.next();
 		if (numLevels.length() == 0)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
@@ -89,6 +80,16 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 					+ " requires at format: Class|LevelCount");
 			return cpr;
 		}
+		if (sep.hasNext())
+		{
+			ComplexParseResult cpr = new ComplexParseResult();
+			cpr.addErrorMessage("Two | found in " + getTokenName());
+			cpr.addErrorMessage("  " + getTokenName()
+					+ " requires at format: Class|LevelCount");
+			return cpr;
+		}
+		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(
+				PCClass.class, classString);
 		Formula f;
 		try
 		{

@@ -133,7 +133,13 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("VariableName|CL(\"Fighter\")");
 	}
-	
+
+	@Test
+	public void testRoundRobinJEPPipe() throws PersistenceLayerException
+	{
+		runRoundRobin("VariableName|if(var(\"SIZE==3||SIZE==4\"),5,0)");
+	}
+
 	@Test
 	public void testRoundRobinLock() throws PersistenceLayerException
 	{

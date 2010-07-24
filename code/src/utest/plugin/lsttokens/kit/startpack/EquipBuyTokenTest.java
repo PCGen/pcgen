@@ -136,7 +136,13 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	{
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1");
 	}
-
+	
+	@Test
+	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
+	{
+		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)|PRECLASS:1,Fighter=1");
+	}
+	
 	@Test
 	public void testRoundRobinTwoPre() throws PersistenceLayerException
 	{

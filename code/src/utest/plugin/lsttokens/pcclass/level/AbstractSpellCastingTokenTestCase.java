@@ -141,6 +141,12 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		runRoundRobin("Form,Form2+Form3,1");
 	}
 
+	@Test
+	public void testRoundRobinHardFormula() throws PersistenceLayerException
+	{
+		runRoundRobin("Form,Form2+Form3,if(var(\"SIZE==3||SIZE==4\"),5,0),1");
+	}
+
 	@Override
 	protected String getAlternateLegalValue()
 	{

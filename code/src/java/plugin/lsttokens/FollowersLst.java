@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
@@ -82,26 +83,30 @@ public class FollowersLst extends ErrorParsingWrapper<CDOMObject> implements CDO
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
+		if ((value == null) || (value.length() == 0))
 		{
-			return new ParseResult.Fail(getTokenName()
-							+ " has no PIPE character: Must be of the form <follower type>|<formula>");
+			return new ParseResult.Fail("Argument in " + getTokenName()
+					+ " cannot be empty");
 		}
-		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
-		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has too many PIPE characters: "
-					+ "Must be of the form <follower type>|<formula");
-		}
-
-		String followerType = value.substring(0, pipeLoc);
+		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		String followerType = sep.next();
 		if (followerType.length() == 0)
 		{
 			return new ParseResult.Fail("Follower Type in " + getTokenName()
 					+ " cannot be empty");
 		}
-		String followerNumber = value.substring(pipeLoc + 1);
+		if (!sep.hasNext())
+		{
+			return new ParseResult.Fail(getTokenName()
+					+ " has no PIPE character: Must be of the form <follower type>|<formula>");
+		}
+		String followerNumber = sep.next();
+		if (sep.hasNext())
+		{
+			return new ParseResult.Fail(getTokenName()
+					+ " has too many PIPE characters: "
+					+ "Must be of the form <follower type>|<formula");
+		}
 		if (followerNumber.length() == 0)
 		{
 			return new ParseResult.Fail("Follower Count in " + getTokenName()

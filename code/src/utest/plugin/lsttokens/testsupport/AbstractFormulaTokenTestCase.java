@@ -36,8 +36,10 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 		assertEquals("Variable1", getFormula().toString());
 		assertTrue(parse("3"));
 		assertEquals("3", getFormula().toString());
-		assertTrue(parse("3+CL(\"Fighter\""));
-		assertEquals("3+CL(\"Fighter\"", getFormula().toString());
+		assertTrue(parse("3+CL(\"Fighter\")"));
+		assertEquals("3+CL(\"Fighter\")", getFormula().toString());
+		assertTrue(parse("if(var(\"SIZE==3||SIZE==4\"),5,0)"));
+		assertEquals("if(var(\"SIZE==3||SIZE==4\"),5,0)", getFormula().toString());
 	}
 
 	protected Formula getFormula()
@@ -76,13 +78,13 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testRoundRobinFormula() throws PersistenceLayerException
 	{
-		runRoundRobin("3+CL(\"Fighter\"");
+		runRoundRobin("3+CL(\"Fighter\")");
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "3+CL(\"Fighter\"";
+		return "3+CL(\"Fighter\")";
 	}
 
 	@Override
