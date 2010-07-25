@@ -1044,10 +1044,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
 	{
-		Spell aSpell = new Spell();
-		int DC = pc.getDC(aSpell, null, aClass, level);
-
-		return DC;
+		return pc.getDC(new Spell(), aClass, level, 0, aClass);
 	}
 
 	private static final String getNumCast(PCClass aClass, int level,

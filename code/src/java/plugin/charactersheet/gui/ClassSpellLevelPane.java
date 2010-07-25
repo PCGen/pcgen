@@ -506,7 +506,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		String SaveInfo = spell.getListAsString(ListKey.SAVE_INFO);
 		if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
 		{
-			dc.setText(Integer.toString(pc.getDC(spell, si)));
+			dc.setText(Integer.toString(pc.getDC(spell, cs, si)));
 		}
 		dcPanel.add(dc);
 		gridBagConstraints = new java.awt.GridBagConstraints();

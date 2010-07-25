@@ -270,7 +270,7 @@ public class SpellMemToken extends Token
 							String SaveInfo = aSpell.getListAsString(ListKey.SAVE_INFO);
 							if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
 							{
-								int dc = aPC.getDC(aSpell, si);
+								int dc = aPC.getDC(aSpell, selectedCSpell, si);
 								retValue.append(String.valueOf(dc));
 							}
 						}

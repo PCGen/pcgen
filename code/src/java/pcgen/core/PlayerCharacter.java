@@ -12073,77 +12073,54 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Returns DC for a spell and SpellInfo.
 	 * @param sp the spell
+	 * @param cs TODO
 	 * @param si the spell info
 	 * @return DC for a spell and SpellInfo
 	 */
-	public int getDC(final Spell sp, final SpellInfo si)
+	public int getDC(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		return getDC(sp, si, null, 0);
+		PObject ow = null;
+		int spellLevel = 0;
+		int metaDC = 0;
+		
+		spellLevel = si.getActualLevel();
+		ow = cs.getOwner();
+
+		String fixedDC = si.getFixedDC();
+		// TODO Temp fix for 1223858, better fix would be to move fixedDC to
+		// spellInfo
+		/*
+		 * TODO Need to evaluate how duplicative this logic is and what is
+		 * really necessary
+		 */
+		if (fixedDC != null && "INNATE".equalsIgnoreCase(si.getBook()))
+		{
+			return getVariableValue(fixedDC, "").intValue();
+		}
+
+		// Check for a non class based fixed DC
+		if (fixedDC != null && ow != null && !(ow instanceof PCClass))
+		{
+			return getVariableValue(fixedDC, "").intValue();
+		}
+		
+		if (si.getFeatList() != null)
+		{
+			for (Ability metaFeat : si.getFeatList())
+			{
+				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+				metaDC += BonusCalc.bonusTo(metaFeat, "DC", "FEATBONUS", this,
+						this);
+			}
+		}
+		
+		return getDC(sp, null, spellLevel, metaDC, ow);
 	}
 
-	/**
-	 * returns DC for a spell and either SpellInfo or PCClass
-	 * SPELLLEVEL variable is set to inLevel
-	 * @param sp
-	 * @param si
-	 * @param aClass
-	 * @param inLevel
-	 * @return DC
-	 */
-	public int getDC(final Spell sp, final SpellInfo si, PCClass aClass,
-		final int inLevel)
+	public int getDC(final Spell sp, PCClass aClass, int spellLevel,
+			int metaDC, PObject ow)
 	{
-		CharacterSpell cs;
-		PObject ow = null;
-		int spellLevel = inLevel;
 		String bonDomain = "";
-		String bonClass = "";
-		String spellType = "";
-		String classKey = "";
-		int metaDC = 0;
-
-		if (si != null)
-		{
-			cs = si.getOwner();
-
-			if (cs != null)
-			{
-				spellLevel = si.getActualLevel();
-				ow = cs.getOwner();
-
-				String fixedDC = si.getFixedDC();
-				// TODO Temp fix for 1223858, better fix would be to move fixedDC to spellInfo
-				/*
-				 * TODO Need to evaluate how duplicative this logic is and what
-				 * is really necessary
-				 */
-				if (fixedDC != null && "INNATE".equalsIgnoreCase(si.getBook()))
-				{
-					return getVariableValue(fixedDC, "").intValue();
-				}
-
-				// Check for a non class based fixed DC
-				if (fixedDC != null && ow != null && !(ow instanceof PCClass))
-				{
-					return getVariableValue(fixedDC, "").intValue();
-				}
-
-			}
-
-			if (si.getFeatList() != null)
-			{
-				for (Ability metaFeat : si.getFeatList())
-				{
-					spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-					metaDC += BonusCalc.bonusTo(metaFeat, "DC", "FEATBONUS", this, this);
-				}
-			}
-		}
-		else
-		{
-			ow = aClass;
-		}
-
 		if (ow instanceof Domain)
 		{
 			bonDomain = "DOMAIN." + ow.getKeyName();
@@ -12156,6 +12133,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		boolean useStatFromSpell = false;
+		String bonClass = "";
+		String spellType = "";
+		String classKey = "";
 
 		if ((aClass != null) || (ow instanceof PCClass))
 		{
