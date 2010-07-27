@@ -26,9 +26,11 @@ URL:WEBSITE|http://www.alderac.com/|Visit Alderac Entertainment Group
 URL:RPG Now|http://www.rpgnow.com/product_info.php?manufacturers_id=22&products_id=3530&it=1&filters=0_0_0&manufacturers_id=22?affiliate_id=200170|Buy this pdf from RPGNow.com!
 URL:Amazon.com|http://www.amazon.com/gp/product/1887953272?ie=UTF8&tag=httppcgensfne-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1887953272|Buy this book from Amazon.com!
 
+
 CLASS:dungeonsclasses_35e.lst
 FEAT:dungeonsfeats_35e.lst
 
+ABILITY:../dungeons_abilities_class.lst
 CLASS:../dungeonsclasses.lst
 FEAT:../dungeonsclassfeats.lst
 EQUIPMENT:../dungeonsequip.lst
