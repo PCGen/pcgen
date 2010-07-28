@@ -96,6 +96,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 			return "";
 		}
 
+		String source = qOwner.getQualifiedKey();
 		String retString = "";
 		if(qualifies(pc, qOwner))
 		{
@@ -115,7 +116,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					{
 						final String varToken = varTok.nextToken();
 //						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
-						final int value = varOwner.getVariableValue(varToken, "", pc).intValue();
+						final int value = varOwner.getVariableValue(varToken, source, pc).intValue();
 						if (value != 0)
 						{
 							atLeastOneNonZero = true;
