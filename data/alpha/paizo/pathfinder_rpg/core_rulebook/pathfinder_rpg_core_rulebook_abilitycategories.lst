@@ -14,6 +14,16 @@ ABILITYCATEGORY:Favored Class Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ObsessiveBonus	PLURAL:Obsessive Bonuses		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
+###Block: Racial Traits Categories
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Dwarf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait		PLURAL:Dwarf Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait		PLURAL:Elf Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait		PLURAL:Gnome Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half Elf Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait		PLURAL:Half Elf Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half Orc Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait		PLURAL:Half Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	PLURAL:Halfling Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Human Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait		PLURAL:Human Racial Traits		DISPLAYLOCATION:Racial Abilities
+
 ###Block: Class Bonus Feat Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list						Plural description for UI		Display Location
 ABILITYCATEGORY:Fighter Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat															PLURAL:Fighter Bonus Feats		DISPLAYLOCATION:Feats

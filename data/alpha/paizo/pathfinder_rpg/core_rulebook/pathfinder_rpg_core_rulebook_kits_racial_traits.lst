@@ -1,0 +1,26 @@
+SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+#Original Entry: Andrew Maitland
+
+###Block: These Set the Default Racial Traits
+STARTPACK:Dwarf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Dwarf Racial Trait|Default Dwarf Racial Package
+
+STARTPACK:Elf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Elf Racial Trait|Default Elf Racial Package
+
+STARTPACK:Gnome Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Gnome Racial Trait|Default Gnome Racial Package
+
+STARTPACK:Half Elf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Half Elf Racial Trait|Default Half Elf Racial Package
+
+STARTPACK:Half Orc Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Half Orc Racial Trait|Default Half Orc Racial Package
+
+STARTPACK:Halfling Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Halfling Racial Trait|Default Halfling Racial Package
+
+STARTPACK:Human Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Human Racial Trait|Default Human Racial Package
+
+
