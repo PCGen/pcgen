@@ -168,6 +168,7 @@ public abstract class LoadContext
 		{
 			processRes(token);
 		}
+		commit();
 	}
 
 	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
