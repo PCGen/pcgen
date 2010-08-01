@@ -11704,18 +11704,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
-		return containsAssociated(obj, new FixedStringList(o));
-	}
-
-	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
-	{
 		List<FixedStringList> list =
 				assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
 		if (list != null)
 		{
 			for (FixedStringList fsl : list)
 			{
-				if (FixedStringList.CASE_INSENSITIVE_ORDER.compare(fsl, o) == 0)
+				if (FixedStringList.CASE_INSENSITIVE_ORDER.compare(fsl, new FixedStringList(o)) == 0)
 				{
 					return true;
 				}
@@ -11781,11 +11776,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES,
 			new FixedStringList(o));
-	}
-
-	public void removeAssociation(CDOMObject obj, FixedStringList o)
-	{
-		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public int getDetailedAssociationCount(CDOMObject obj)

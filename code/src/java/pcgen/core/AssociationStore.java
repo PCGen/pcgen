@@ -30,8 +30,6 @@ public interface AssociationStore
 
 	public void addAssociation(CDOMObject obj, FixedStringList o);
 
-	public void removeAssociation(CDOMObject obj, FixedStringList o);
-
 	public List<String> removeAllAssociations(CDOMObject obj);
 
 	public boolean hasAssociations(CDOMObject obj);
@@ -39,8 +37,6 @@ public interface AssociationStore
 	public List<String> getAssociationList(CDOMObject obj);
 
 	public boolean containsAssociated(CDOMObject obj, String o);
-
-	public boolean containsAssociated(CDOMObject obj, FixedStringList o);
 
 	public int getSelectCorrectedAssociationCount(CDOMObject obj);
 
