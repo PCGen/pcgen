@@ -37,7 +37,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;

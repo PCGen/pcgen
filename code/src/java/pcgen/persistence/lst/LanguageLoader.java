@@ -22,12 +22,10 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Date;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Language;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
