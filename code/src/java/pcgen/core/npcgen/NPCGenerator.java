@@ -615,6 +615,7 @@ public class NPCGenerator
 							break;
 						}
 						// TODO Remove a failed class from the list.
+						Logging.errorPrint("Counld not add a level of " + aClass);
 						aClass = null;
 						break;
 					}

@@ -179,8 +179,6 @@ public class InitiativePlugin extends GMBPlugin
 
 			for (int i = 0; i < pcFiles.length; i++)
 			{
-				SettingsHandler.setPcgPath(pcFiles[i].getParentFile());
-
 				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
 				{
 					GMBus.send(new OpenPCGRequestMessage(this, pcFiles[i],

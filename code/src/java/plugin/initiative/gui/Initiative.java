@@ -1926,13 +1926,13 @@ public class Initiative extends javax.swing.JPanel
 
 					if (choice == JOptionPane.YES_OPTION)
 					{
-						SettingsHandler.setPcgPath(xml.getParentFile());
+						SettingsHandler.ensurePathExists(xml.getParentFile());
 						saveToDocument(xml);
 					}
 				}
 				else
 				{
-					SettingsHandler.setPcgPath(xml.getParentFile());
+					SettingsHandler.ensurePathExists(xml.getParentFile());
 					saveToDocument(xml);
 				}
 			}

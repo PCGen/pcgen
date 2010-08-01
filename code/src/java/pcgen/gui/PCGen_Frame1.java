@@ -1101,8 +1101,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		try
 		{
 			(new PCGIOHandler()).write(aPC, file.getAbsolutePath());
-
-			SettingsHandler.setPcgPath(file.getParentFile());
 		}
 		catch (Exception ex)
 		{
@@ -1234,7 +1232,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			if (filter.accept(pcFiles[i]))
 			{
-				SettingsHandler.setPcgPath(pcFiles[i].getParentFile());
 				loadPCFromFile(pcFiles[i]);
 			}
 		}
@@ -1592,7 +1589,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		if (returnVal == JFileChooser.APPROVE_OPTION)
 		{
 			File file = fc.getSelectedFile();
-			SettingsHandler.setPcgPath(file.getParentFile());
 			loadPartyFromFile(file);
 		}
 

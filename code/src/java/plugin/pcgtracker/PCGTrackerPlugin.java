@@ -268,8 +268,6 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		{
 			for (File selectedFile : chooser.getSelectedFiles())
 			{
-				SettingsHandler.setPcgPath(selectedFile.getParentFile());
-
 				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 				{
 					GMBus.send(new OpenPCGRequestMessage(this, selectedFile,
@@ -409,8 +407,6 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		try
 		{
 			(new PCGIOHandler()).write(aPC, file.getAbsolutePath());
-
-			SettingsHandler.setPcgPath(file.getParentFile());
 		}
 		catch (Exception ex)
 		{

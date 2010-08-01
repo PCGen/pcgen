@@ -224,7 +224,6 @@ public class Party
 
 		writer.newLine(); // don't write files without terminators.
 		writer.close();
-		SettingsHandler.setPcgPath(partyFile.getParentFile()); //still set this, we want .pcp and .pcg files in the same place
 	}
 
 	private File buildCharacterFile(final String fileName)
