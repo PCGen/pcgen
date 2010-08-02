@@ -1515,6 +1515,15 @@ public class PCClass extends PObject
 			}
 
 			aPC.validateCharacterDomains();
+
+			if (!aPC.isImporting())
+			{
+				final int maxxp = aPC.minXPForNextECL();
+				if (aPC.getXP() >= maxxp)
+				{
+					aPC.setXP(maxxp-1);
+				}
+			}
 		}
 		else
 		{
