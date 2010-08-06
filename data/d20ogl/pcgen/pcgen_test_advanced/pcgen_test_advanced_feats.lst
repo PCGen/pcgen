@@ -11,12 +11,35 @@ Add Feat CompanionMod		TYPE:Test
 Add Feat Master Bonus Race	TYPE:Test
 Add Feat Class Line		TYPE:Test
 Add Feat Class Level		TYPE:Test
+
+
+Add Feat Equipmod			TYPE:Test
+Add Feat Equip			TYPE:Test
+Add Feat PCC			TYPE:Test
 #
 #Class - part of the ADD:CLASSSKILLS test
 #Class Level - Part of the 
 
-CompanionMod
-PCTemplate
+Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]
+# Fails - leaks over.
+#
+Bonus PCLEVEL Wizard 10				TYPE:OutsiderTest	BONUS:PCLEVEL|Wizard|10
+Choose Wizard				TYPE:OutsiderTest	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL	SELECT:1	MULT:YES
+
+Bonus PCLEVEL Base 10				TYPE:OutsiderTest	BONUS:PCLEVEL|TYPE=Base|10
+Choose Base					TYPE:OutsiderTest	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL	SELECT:1	MULT:YES
+
+Bonus PCLEVEL Arcane 10				TYPE:OutsiderTest	BONUS:PCLEVEL|TYPE=Arcane|10
+Choose Arcane		TYPE:OutsiderTest	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL	SELECT:1	MULT:YES
+
+Choose Arcane w lock		TYPE:OutsiderTest	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL	SELECT:1	MULT:YES
+
+#Then try this with <blah> being TYPE=y where Y is a type defined in the TYPE: token of the Class (must not be Arcane, Divine or the same as the SPELLTYPE: token in the Class)
+
+#Lastly, try this with <blah> being TYPE=z where Z is a type defined in the SPELLTYPE token of the Class.
+
+#I'm not sure at all that the behavior is (a) consistent [don't think so] (b) correct when TYPE is used in the BONUS (seems to refer to SPELLTYPE not TYPE - though this seems to at least be how it is documented)
+
 
 
 a Choose Armor Prof Test	TYPE:Test	CHOOSE:ARMORPROFICIENCY|ALL		MULT:YES	AUTO:ARMORPROF|%LIST

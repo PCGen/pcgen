@@ -25,5 +25,5 @@ Light Shield		PROFICIENCY:SHIELD|Light				TYPE:Shield.Light			BONUS:COMBAT|AC|2|
 Buckler Shield		PROFICIENCY:SHIELD|Light				TYPE:Shield.Light			BONUS:COMBAT|AC|2|TYPE=Shield
 Heavy Shield		PROFICIENCY:SHIELD|Heavy				TYPE:Shield.Heavy			BONUS:COMBAT|AC|2|TYPE=Shield
 
-
+Test Equip Feat		TYPE:FeatTestEquip.Any.Misc		ADD:FEAT|Add Feat Equip
 

@@ -3,3 +3,14 @@
 STARTPACK:Test 5 - Assign Class from Kit ignores PREREQ	APPLY:INSTANT	EQUIPBUY:0	VISIBLE:YES
 CLASS:PreReq Class	LEVEL:2
 CLASS:PreReq Class Two	LEVEL:2
+
+
+
+STARTPACK:Companion Test	TYPE:Companion.Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Companion (Not (Working))]
+RACE:Companion (Not (Working))	PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+#STR 20, DEX 14, CON 15, INT 10, WIS 12 CHA 08
+SKILL:Athletics		RANK:9
+SKILL:Persuasion		RANK:9
+SKILL:Perception		RANK:9
+SKILL:Survival		RANK:9

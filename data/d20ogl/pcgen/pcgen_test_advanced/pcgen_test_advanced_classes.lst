@@ -98,3 +98,10 @@ CLASS:Test Spell DC	HD:4
 
 #CLASS:Cleric.MOD	SPELLLIST:1|Druid
 
+# Class Name	Hit Dice	Type
+CLASS:Companion	HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Companion	STARTSKILLPTS:0
+1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
+1:REPEATLEVEL:1												DONOTADD:SKILLPOINTS
+

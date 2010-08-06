@@ -16,6 +16,8 @@ SOURCESHORT:PTSB
 SOURCEWEB:http://pcgen.sourceforge.net
 ISOGL:YES
 
+# Causes EPIC Fail
+#ADD:FEAT|Add Feat PCC
 
 ABILITY:pcgen_test_advanced_broken_abilities.lst
 

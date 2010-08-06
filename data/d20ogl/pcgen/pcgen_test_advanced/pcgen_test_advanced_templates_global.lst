@@ -126,4 +126,6 @@ Template A		ABILITY:FEAT|AUTOMATIC|Ability E
 
 
 
+Dragon HD					HITDIE:12		VISIBLE:DISPLAY
+Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 

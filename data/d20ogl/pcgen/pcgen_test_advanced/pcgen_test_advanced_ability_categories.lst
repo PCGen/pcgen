@@ -26,4 +26,5 @@ ABILITYCATEGORY:Force Secrets			CATEGORY:Force Secrets												VISIBLE:QUALIF
 
 ABILITYCATEGORY:Test Choosers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Chooser		PLURAL:Choosers		DISPLAYLOCATION:Class Abilities
 
-
+# EClipse Stuff
+ABILITYCATEGORY:Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact												PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
