@@ -12,6 +12,11 @@ import pcgen.util.CaseInsensitiveString;
 public final class VisionType extends AbstractConstant
 {
 
+	private VisionType()
+	{
+		//Private Constructor
+	}
+
 	private static Map<CaseInsensitiveString, VisionType> typeMap;
 
 	public static VisionType getVisionType(String s)
