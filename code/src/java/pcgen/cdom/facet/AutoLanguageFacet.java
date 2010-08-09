@@ -82,7 +82,7 @@ public class AutoLanguageFacet extends AbstractSourcedListFacet<Language>
 	 */
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getSource());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
 }
