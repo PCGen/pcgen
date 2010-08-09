@@ -89,4 +89,37 @@ public class StringUtilTest extends TestCase
 			//Expected
 		}
 	}
+
+	public void testReplaceAll()
+	{
+		assertEquals("ABC", StringUtil.replaceAll("ABD", "D", "C"));
+		assertEquals("ABCC", StringUtil.replaceAll("ABDD", "D", "C"));
+		assertEquals("ACBC", StringUtil.replaceAll("ADBD", "D", "C"));
+		assertEquals("ACC", StringUtil.replaceAll("ACD", "D", "C"));
+		assertEquals("ACaCa", StringUtil.replaceAll("ADD", "D", "Ca"));
+		assertEquals("ADD", StringUtil.replaceAll("ADD", "F", "Ca"));
+		assertEquals("AdCa", StringUtil.replaceAll("AdD", "D", "Ca"));
+		assertEquals("ABCEFG", StringUtil.replaceAll("ABDEFG", "D", "C"));
+		assertEquals("ABCCDbEFG", StringUtil.replaceAll("ABDaDaDbEFG", "Da", "C"));
+	}
+
+	public void testHasBalancedParens()
+	{
+		assertTrue(StringUtil.hasBalancedParens("No Parens!"));
+		assertTrue(StringUtil.hasBalancedParens("I Ignore ["));
+		assertTrue(StringUtil.hasBalancedParens("I ignore ] too"));
+		assertTrue(StringUtil.hasBalancedParens("Oh look, I ignore {"));
+		assertTrue(StringUtil.hasBalancedParens("Am I supposed to pay attention to }?  Nope!"));
+		assertTrue(StringUtil.hasBalancedParens("I'm Balanced (Honest!)"));
+		assertTrue(StringUtil.hasBalancedParens("I'm balanced (also can use an embedded ())"));
+		assertTrue(StringUtil.hasBalancedParens("I'm Balanced (Go!)(Team!)(Go!)"));
+		assertFalse(StringUtil.hasBalancedParens("(Uh oh"));
+		assertFalse(StringUtil.hasBalancedParens("Uh oh)"));
+		assertFalse(StringUtil.hasBalancedParens("Nope (not good))"));
+		assertFalse(StringUtil.hasBalancedParens("This won't work ((either)"));
+		assertFalse(StringUtil.hasBalancedParens("(Nice (Try)"));
+		assertFalse(StringUtil.hasBalancedParens(") will cause a problem alone "));
+		assertFalse(StringUtil.hasBalancedParens(") will also cause a problem without a ( before it"));
+		assertFalse(StringUtil.hasBalancedParens("(and getting fancy) doesn't help)"));
+	}
 }
