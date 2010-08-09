@@ -197,9 +197,4 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		return PCClass.class;
 	}
-
-	public String getSource()
-	{
-		return getTokenName();
-	}
 }
