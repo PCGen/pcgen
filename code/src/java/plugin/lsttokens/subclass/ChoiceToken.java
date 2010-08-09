@@ -32,7 +32,6 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
@@ -95,11 +94,6 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		{
 			SpellProhibitor spellProb = typeSafeParse(context, sc, type, value
 					.substring(pipeLoc + 1));
-			if (spellProb == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-				//return new ParseResult.Fail("  entire token value was: " + value);
-			}
 			context.getObjectContext().put(sc, ObjectKey.CHOICE, spellProb);
 			return ParseResult.SUCCESS;
 		}
@@ -113,12 +107,6 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);
-		if (args.length() == 0)
-		{
-			Logging.errorPrint(getTokenName() + " " + type
-					+ " has no arguments");
-			return null;
-		}
 		spellProb.addValue(args);
 		return spellProb;
 	}
