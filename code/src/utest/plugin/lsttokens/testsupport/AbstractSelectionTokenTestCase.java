@@ -143,6 +143,22 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	// }
 	// }
 
+	 @Test
+	public void testInvalidTooManyPipe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		boolean parse = parse(getSubTokenName() + "|Formula|TestWP1|TestWP2");
+		if (parse)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
+	}
+
 	@Test
 	public void testInvalidInputJoinedDot() throws PersistenceLayerException
 	{
