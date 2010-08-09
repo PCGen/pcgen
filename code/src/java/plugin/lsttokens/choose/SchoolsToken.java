@@ -52,7 +52,7 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 	@Override
 	public SpellSchool decodeChoice(String s)
 	{
-		return Globals.getContext().ref.getAbbreviatedObject(SPELLSCHOOL_CLASS, s);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS, s);
 	}
 
 	@Override
