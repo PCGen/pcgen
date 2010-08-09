@@ -227,4 +227,10 @@ public class VisionFacet extends
 		// Slow method for now...
 		return getActiveVision(id).size();
 	}
+
+	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
+	{
+		return new HashMap<QualifiedObject<Vision>, Set<Object>>();
+	}
+
 }

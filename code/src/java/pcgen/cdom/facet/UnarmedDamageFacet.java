@@ -17,7 +17,10 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -96,5 +99,10 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 			return Globals.adjustDamage("1d3", defAdj, sizAdj);
 		}
 		return "1d3";
+	}
+
+	protected Map<List<String>, Set<Object>> getComponentMap()
+	{
+		return new HashMap<List<String>, Set<Object>>();
 	}
 }
