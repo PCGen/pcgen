@@ -105,7 +105,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * the given class meets the restrictions imposed by TripleKeyMapToList
 		 * (public, zero-argument constructor)
 		 */
-		GenericMapToList.getMapToList(thirdClass);
+		createLocalMap();
 	}
 
 	/**
