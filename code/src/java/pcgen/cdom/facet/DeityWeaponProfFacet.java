@@ -60,7 +60,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 					 */
 					if (!wp.isType("Natural"))
 					{
-						add(dfce.getCharID(), wp, dfce.getSource());
+						add(dfce.getCharID(), wp, dfce.getCDOMObject());
 					}
 				}
 			}
@@ -80,8 +80,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 */
 	public void dataRemoved(DataFacetChangeEvent<Deity> dfce)
 	{
-		//Assume only 1 Deity
-		removeAll(dfce.getCharID());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
 }
