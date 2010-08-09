@@ -280,7 +280,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
-					"Third argument in String in getAbilitySelectionFromPersistentFormat "
+					"Second argument in String in getAbilitySelectionFromPersistentFormat "
 							+ "must be an Ability, but it was not found: " + s);
 		}
 		return a;
