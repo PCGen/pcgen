@@ -83,9 +83,6 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			/*
-			 * TODO obj Null?
-			 */
 			set = new WrappedMapSet<Object>(IdentityHashMap.class);
 			map.put(obj, set);
 		}
@@ -436,9 +433,10 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
 			T obj, Object source)
 	{
-		/*
-		 * TODO obj Null?
-		 */
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Object to remove may not be null");
+		}
 		Set<Object> set = componentMap.get(obj);
 		if (set != null)
 		{
