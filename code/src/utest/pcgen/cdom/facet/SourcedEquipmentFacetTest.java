@@ -621,7 +621,7 @@ public class SourcedEquipmentFacetTest extends TestCase
 		facet.add(id, t1, source1);
 		facet.add(id, t2, source1);
 		pct.add(t1);
-		pct.add(null);
+		//pct.add(null);
 		assertEventCount(2, 0);
 		facet.removeAll(id, pct, source1);
 		assertEventCount(2, 1);
