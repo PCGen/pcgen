@@ -248,7 +248,13 @@ public class DamageReductionFacet extends
 
 	public Integer getDR(CharID id, String key)
 	{
-		return getDRMap(id, getCachedMap(id)).get(key)
+		return getNonBonusDR(id, key)
 				+ (int) bonusFacet.getBonus(id, "DR", key);
+	}
+
+	private int getNonBonusDR(CharID id, String key)
+	{
+		Integer drValue = getDRMap(id, getCachedMap(id)).get(key);
+		return (drValue == null)? 0 : drValue;
 	}
 }
