@@ -80,8 +80,7 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> map = getConstructingCachedMap(id);
 		Map<Formula, Set<CDOMObject>> subMap = map.get(vk);
-		boolean fireNew = (subMap == null);
-		if (fireNew)
+		if (subMap == null)
 		{
 			subMap = new HashMap<Formula, Set<CDOMObject>>();
 			map.put(vk, subMap);
