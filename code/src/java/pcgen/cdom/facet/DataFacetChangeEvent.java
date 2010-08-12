@@ -81,9 +81,13 @@ public class DataFacetChangeEvent<T> extends EventObject
 	 *            An integer identifying whether the given CDOMObject was added
 	 *            or removed from the PlayerCharacter
 	 */
-	public DataFacetChangeEvent(CharID id, T cdo, int type)
+	public DataFacetChangeEvent(CharID id, T cdo, Object source, int type)
 	{
-		super(id);
+		super(source);
+		if (source == null)
+		{
+			throw new IllegalArgumentException("Source Object cannot be null");
+		}
 		if (id == null)
 		{
 			throw new IllegalArgumentException("CharID cannot be null");

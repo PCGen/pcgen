@@ -144,7 +144,7 @@ public abstract class AbstractDataFacet<T>
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent = new DataFacetChangeEvent<T>(id, node, type);
+					ccEvent = new DataFacetChangeEvent<T>(id, node, this, type);
 				}
 				DataFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())
