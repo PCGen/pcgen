@@ -16,7 +16,7 @@ Elven Chain				PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Light.Suit.Specific			COST
 Mithral Full Plate of Speed	PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:MITHRAL_ARMR_HVY.PLUS1A.MAGIC_COST|15000	MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE																	SPROP:use Haste for 10 rounds/day
 Mithral Shirt			PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Light.Suit.Specific			COST:100	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT					MAXDEX:4		SOURCEPAGE:p.466	SPELLFAILURE:20																			BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
 Plate Armor of the Deep		PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL.PLUS1A.MAGIC_COST|22000			MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE																	SPROP:swim as unarmored, breathe underwater, comunicate with waterbreathing creatures
-Rhino Hide				PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-3		EQMOD:PLUS2A.MAGIC_COST|1000				MAXDEX:4		SOURCEPAGE:p.466	SPELLFAILURE:20																			BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE																	SPROP:deal 2d6 additional damage on charge
+Rhino Hide				PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-1		EQMOD:PLUS2A.MAGIC_COST|1000				MAXDEX:4		SOURCEPAGE:p.466	SPELLFAILURE:20																			BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE																	SPROP:deal 2d6 additional damage on charge
 
 ###Block: Specific Shields
 # Equipment Name	Required Shield Proficiency		Type								Cost		Weight	Modifier					Source Page		Innate Spells						Combat bonus					Special Property
