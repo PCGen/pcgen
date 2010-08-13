@@ -46,6 +46,16 @@ public final class NamedFormula
 	 */
 	public NamedFormula(String formulaName, Formula value)
 	{
+		if (formulaName == null)
+		{
+			throw new IllegalArgumentException(
+				"Name for NamedFormula cannot be null");
+		}
+		if (value == null)
+		{
+			throw new IllegalArgumentException(
+				"Formula for NamedFormula cannot be null");
+		}
 		name = formulaName;
 		formula = value;
 	}

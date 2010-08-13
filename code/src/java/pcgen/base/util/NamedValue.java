@@ -47,6 +47,10 @@ public final class NamedValue
 	 */
 	public NamedValue(String nvName)
 	{
+		if (nvName == null)
+		{
+			throw new IllegalArgumentException("NamedValue name cannot be null");
+		}
 		name = nvName;
 	}
 
