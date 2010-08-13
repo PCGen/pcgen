@@ -465,4 +465,26 @@ public class WeightedCollectionTest extends TestCase {
 		assertNull(o);
 	}
 
+	@Test
+	public void testGetWeight() {
+		assertTrue(wc.isEmpty());
+		assertTrue(wc.add(I1));
+		assertEquals(1, wc.getWeight(I1));
+		assertTrue(wc.add(new Integer(1))); // value semantic
+		assertEquals(2, wc.getWeight(I1));
+		assertTrue(wc.add(I2));
+		assertEquals(1, wc.getWeight(I2));
+		assertTrue(wc.addAll(Arrays.asList(3, 4, null, 8), 2));
+		assertEquals(2, wc.getWeight(3));
+		assertTrue(wc.remove(I1));
+		assertEquals(0, wc.getWeight(I1));
+		assertFalse(wc.remove(I1));
+		assertEquals(0, wc.getWeight(I1));
+		assertEquals(0, wc.getWeight(875));
+		assertEquals(2, wc.getWeight(null));
+		wc.clear();
+		assertEquals(0, wc.getWeight(I2));
+	}
+
+
 }

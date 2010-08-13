@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,19 +19,22 @@ package pcgen.base.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class IdentityListTest extends TestCase
+import pcgen.testsupport.NoPublicZeroArgConstructorMap;
+import pcgen.testsupport.NoZeroArgConstructorMap;
+import pcgen.testsupport.StrangeMap;
+
+public class WrappedMapSetTest extends TestCase
 {
 
-	IdentityList<Integer> ls;
+	WrappedMapSet<Integer> ls;
 	Integer a1 = new Integer(1);
 	Integer a2 = new Integer(2);
 	Integer b1 = new Integer(1);
@@ -41,7 +44,7 @@ public class IdentityListTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		ls = new IdentityList<Integer>();
+		ls = new WrappedMapSet<Integer>(IdentityHashMap.class);
 	}
 
 	@Test
@@ -59,7 +62,7 @@ public class IdentityListTest extends TestCase
 		ls.add(a1);
 		assertTrue(ls.contains(a1));
 		assertFalse(ls.contains(b1));
-		assertEquals(2, ls.size());
+		assertEquals(1, ls.size());
 		assertFalse(ls.isEmpty());
 		ls.clear();
 		assertFalse(ls.contains(a1));
@@ -108,6 +111,7 @@ public class IdentityListTest extends TestCase
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
 		ls.add(a1);
+		ls.remove(b1);
 		assertFalse(ls.isEmpty());
 		assertEquals(1, ls.size());
 		ls.add(b1);
@@ -116,91 +120,7 @@ public class IdentityListTest extends TestCase
 		ls.remove(b1);
 		assertEquals(1, ls.size());
 		assertFalse(ls.isEmpty());
-		assertTrue(a1 == ls.get(0));
-	}
-
-	@Test
-	public void testIterator()
-	{
-		Iterator<Integer> it = ls.iterator();
-		assertNotNull(it);
-		assertFalse(it.hasNext());
-		try
-		{
-			it.next();
-			fail();
-		}
-		catch (NoSuchElementException ise)
-		{
-			// Yes!
-		}
-		ls.add(a1);
-		ls.add(a2);
-		ls.add(b1);
-		ls.add(b2);
-		ls.remove(b1);
-		ls.remove(a2);
-		Iterator<Integer> iter = ls.iterator();
-		assertNotNull(iter);
-		assertTrue(iter.hasNext());
-		Object o1 = iter.next();
-		assertTrue(o1 == a1);
-		assertTrue(iter.hasNext());
-		Object o2 = iter.next();
-		assertTrue(o2 == b2);
-		assertFalse(iter.hasNext());
-		try
-		{
-			iter.next();
-			fail();
-		}
-		catch (NoSuchElementException ise)
-		{
-			// Yes!
-		}
-	}
-
-	@Test
-	public void testIteratorRemove()
-	{
-		Iterator<Integer> it = ls.iterator();
-		assertNotNull(it);
-		assertFalse(it.hasNext());
-		try
-		{
-			it.next();
-			fail();
-		}
-		catch (NoSuchElementException ise)
-		{
-			// Yes!
-		}
-		ls.add(a1);
-		ls.add(b1);
-		ls.add(b2);
-		Iterator<Integer> iter = ls.iterator();
-		assertNotNull(iter);
-		assertTrue(iter.hasNext());
-		Object o1 = iter.next();
-		assertTrue(o1 == a1);
-		assertTrue(iter.hasNext());
-		Object o2 = iter.next();
-		assertTrue(o2 == b1);
-		iter.remove();
-		assertFalse(ls.contains(o2));
-		assertTrue(ls.contains(a1));
-		Object o3 = iter.next();
-		assertTrue(o3 == b2);
-		assertFalse(iter.hasNext());
-		try
-		{
-			iter.next();
-			fail();
-		}
-		catch (NoSuchElementException ise)
-		{
-			// Yes!
-		}
+		assertTrue(a1 == ls.iterator().next());
 	}
 
 	@Test
@@ -208,27 +128,27 @@ public class IdentityListTest extends TestCase
 	{
 		try
 		{
-			ls = new IdentityList<Integer>(null);
+			ls = new WrappedMapSet<Integer>(null);
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException e)
 		{
 			//:)
 		}
-		ls = new IdentityList<Integer>(Arrays.asList(new Integer[]{}));
+		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{}));
 		assertFalse(ls.contains(a1));
 		assertFalse(ls.contains(b1));
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
-		ls = new IdentityList<Integer>(Arrays.asList(new Integer[]{a1}));
+		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{a1}));
 		assertTrue(ls.contains(a1));
 		assertFalse(ls.contains(b1));
 		assertFalse(ls.isEmpty());
 		assertEquals(1, ls.size());
-		ls = new IdentityList<Integer>(Arrays.asList(new Integer[]{a1, a1}));
+		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{a1, a1}));
 		assertTrue(ls.contains(a1));
 		assertFalse(ls.contains(b1));
-		assertEquals(2, ls.size());
+		assertEquals(1, ls.size());
 		assertFalse(ls.isEmpty());
 		ls.clear();
 		assertFalse(ls.contains(a1));
@@ -238,7 +158,7 @@ public class IdentityListTest extends TestCase
 		List<Integer> list = new ArrayList<Integer>();
 		list.add(a1);
 		list.add(b1);
-		ls = new IdentityList<Integer>(list);
+		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, list);
 		assertTrue(ls.contains(a1));
 		assertTrue(ls.contains(b1));
 		assertEquals(2, ls.size());
@@ -254,5 +174,59 @@ public class IdentityListTest extends TestCase
 		assertEquals(1, list.size());
 	}
 
-	
+	@Test
+	public void testBadClass()
+	{
+		try
+		{
+			Class cl = getClass();
+			ls = new WrappedMapSet<Integer>(cl);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//:)
+		}
+	}
+
+	@Test
+	public void testConstructorNoZeroArg()
+	{
+		try
+		{
+			new WrappedMapSet(NoZeroArgConstructorMap.class);
+			fail("Expected IllegalArgumentException");
+		}
+		catch (IllegalArgumentException e)
+		{
+			// OK
+		}
+	}
+
+	@Test
+	public void testConstructorPrivate()
+	{
+		try
+		{
+			new WrappedMapSet(NoPublicZeroArgConstructorMap.class);
+			fail("Expected IllegalArgumentException");
+		}
+		catch (IllegalArgumentException e)
+		{
+			// OK
+		}
+	}
+
+	public void testBadClassInConstructor()
+	{
+		try
+		{
+			new WrappedMapSet(StrangeMap.class);
+			fail("Expected IllegalArgumentException");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
 }

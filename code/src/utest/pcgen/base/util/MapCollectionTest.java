@@ -112,6 +112,26 @@ public class MapCollectionTest extends TestCase {
 	}
 
 	@Test
+	public void testRemoveAll() {
+		try {
+			mc.removeAll(Collections.emptyList());
+			fail();
+		} catch (UnsupportedOperationException uoe) {
+			// OK
+		}
+	}
+
+	@Test
+	public void testRetainAll() {
+		try {
+			mc.retainAll(Collections.emptyList());
+			fail();
+		} catch (UnsupportedOperationException uoe) {
+			// OK
+		}
+	}
+
+	@Test
 	public void testAddAll() {
 		try {
 			mc.addAll(Arrays.asList(Integer.valueOf(1)));

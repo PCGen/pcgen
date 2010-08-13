@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +27,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.testsupport.NoPublicZeroArgConstructorMap;
+import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 
 public class DoubleKeyMapToListTest extends TestCase
@@ -69,7 +72,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//OK, expected
+			// OK, expected
 		}
 		try
 		{
@@ -78,10 +81,10 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//OK, expected
+			// OK, expected
 		}
 	}
-	
+
 	public void testBadClassInConstructor()
 	{
 		try
@@ -104,12 +107,59 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 	}
 
+
+	public void testBadClassInConstructor2()
+	{
+		try
+		{
+			new DoubleKeyMapToList(NoPublicZeroArgConstructorMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMapToList(HashMap.class, NoPublicZeroArgConstructorMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
+
+	public void testBadClassInConstructor3()
+	{
+		try
+		{
+			new DoubleKeyMapToList(NoZeroArgConstructorMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMapToList(HashMap.class, NoZeroArgConstructorMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
 	@Test
 	public void testPutGet()
 	{
 		assertNull(dkm.getListFor(Integer.valueOf(1), Double.valueOf(0)));
 		populate();
-		List<Character> l = dkm.getListFor(Integer.valueOf(1), Double.valueOf(1));
+		List<Character> l =
+				dkm.getListFor(Integer.valueOf(1), Double.valueOf(1));
 		assertEquals(2, l.size());
 		assertTrue(l.contains(CONST_A));
 		assertTrue(l.contains(CONST_B));
@@ -129,7 +179,8 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertTrue(l.contains(CONST_E));
 		assertTrue(l.contains(null));
 		l.remove(Character.valueOf(CONST_E));
-		List<Character> l2 = dkm.getListFor(Integer.valueOf(2), Double.valueOf(2));
+		List<Character> l2 =
+				dkm.getListFor(Integer.valueOf(2), Double.valueOf(2));
 		assertEquals(2, l2.size());
 		assertTrue(l2.contains(CONST_E));
 		assertTrue(l2.contains(null));
@@ -176,7 +227,8 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertNull(dkm.removeListFor(Integer.valueOf(1), Double.valueOf(1)));
 		populate();
 		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		List<Character> l = dkm.removeListFor(Integer.valueOf(1), Double.valueOf(1));
+		List<Character> l =
+				dkm.removeListFor(Integer.valueOf(1), Double.valueOf(1));
 		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		assertEquals(2, l.size());
 		assertTrue(l.contains(CONST_A));
@@ -209,7 +261,8 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertNull(dkm.removeListsFor(Integer.valueOf(1)));
 		populate();
 		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		MapToList<Double, Character> mtl = dkm.removeListsFor(Integer.valueOf(1));
+		MapToList<Double, Character> mtl =
+				dkm.removeListsFor(Integer.valueOf(1));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(1)));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(2)));
@@ -440,5 +493,63 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertTrue(dkm.removeFromListFor(i2, d1, ca));
 		// There were two
 		assertFalse(dkm.containsInList(i2, d1, ca));
+	}
+
+	@Test
+	public void testAddAllToListFor()
+	{
+		Integer i1 = Integer.valueOf(1);
+		Double d1 = Double.valueOf(1);
+		List<Character> l = new ArrayList<Character>();
+		l.add(CONST_A);
+		l.add(null);
+		l.add(CONST_A);
+		l.add(CONST_B);
+		dkm.addAllToListFor(i1, d1, l);
+		assertTrue(dkm.containsListFor(i1));
+		assertTrue(dkm.containsListFor(i1, d1));
+		assertEquals(4, dkm.sizeOfListFor(i1, d1));
+		dkm.addToListFor(i1, d1, CONST_D);
+		assertEquals(4, l.size());
+		// Check reference semantics!
+		l.add(CONST_C);
+		l.add(CONST_E);
+		assertTrue(dkm.containsListFor(i1, d1));
+		assertEquals(5, dkm.sizeOfListFor(i1, d1));
+		l.clear();
+		assertTrue(dkm.containsListFor(i1, d1));
+		assertEquals(5, dkm.sizeOfListFor(i1, d1));
+	}
+
+	@Test
+	public void testAddAll()
+	{
+		DoubleKeyMapToList<Integer, Double, Character> copy =
+			new DoubleKeyMapToList<Integer, Double, Character>();
+		try
+		{
+			copy.addAll(null);
+		}
+		catch (NullPointerException e)
+		{
+			// OK
+		}
+		populate();
+		copy.addAll(dkm);
+		Integer i1 = Integer.valueOf(1);
+		Double d1 = Double.valueOf(1);
+		// test independence
+		dkm.addToListFor(i1, d1, CONST_D);
+		assertEquals(2, copy.sizeOfListFor(i1, d1));
+		List<Character> l = copy.getListFor(i1, d1);
+		assertEquals(2, l.size());
+		assertTrue(l.contains(CONST_A));
+		assertTrue(l.contains(CONST_B));
+		copy.addToListFor(i1, d1, CONST_E);
+		l = dkm.getListFor(i1, d1);
+		assertEquals(3, l.size());
+		assertTrue(l.contains(CONST_A));
+		assertTrue(l.contains(CONST_B));
+		assertTrue(l.contains(CONST_D));
 	}
 }

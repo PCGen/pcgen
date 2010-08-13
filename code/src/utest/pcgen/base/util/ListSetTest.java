@@ -18,6 +18,8 @@
 package pcgen.base.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -368,4 +370,57 @@ public class ListSetTest extends TestCase
 		assertTrue(total.isEmpty());
 		assertFalse(iter.hasNext());
 	}
+
+	@Test
+	public void testIdentityAddConstructor()
+	{
+		try
+		{
+			Collection<Integer> nc = null;
+			ls = new ListSet<Integer>(nc);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//:)
+		}
+		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{}));
+		assertFalse(ls.contains(Integer.valueOf(1)));
+		assertFalse(ls.contains(Integer.valueOf(2)));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{Integer.valueOf(1)}));
+		assertTrue(ls.contains(Integer.valueOf(1)));
+		assertFalse(ls.contains(Integer.valueOf(2)));
+		assertFalse(ls.isEmpty());
+		assertEquals(1, ls.size());
+		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{Integer.valueOf(1), Integer.valueOf(1)}));
+		assertTrue(ls.contains(Integer.valueOf(1)));
+		assertFalse(ls.contains(Integer.valueOf(2)));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		ls.clear();
+		assertFalse(ls.contains(Integer.valueOf(1)));
+		assertFalse(ls.contains(Integer.valueOf(2)));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(Integer.valueOf(1));
+		list.add(Integer.valueOf(2));
+		ls = new ListSet<Integer>(list);
+		assertTrue(ls.contains(Integer.valueOf(1)));
+		assertTrue(ls.contains(Integer.valueOf(2)));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		//prove isolaation
+		list.remove(Integer.valueOf(1));
+		assertTrue(ls.contains(Integer.valueOf(1)));
+		assertTrue(ls.contains(Integer.valueOf(2)));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		assertEquals(1, list.size());
+		ls.add(Integer.valueOf(3));
+		assertEquals(1, list.size());
+	}
+
 }

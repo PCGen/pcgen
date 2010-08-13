@@ -18,6 +18,8 @@
 package pcgen.base.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -248,6 +250,41 @@ public abstract class AbstractMapToListTest extends TestCase
 
 		assertFalse(dkm.containsInList(null, CONST_A));
 		assertTrue(dkm.containsInList(null, CONST_F));
+	}
+
+
+	@Test
+	public void testContainsAnyInList()
+	{
+		AbstractMapToList<Integer, Character> dkm = getMapToList();
+		assertFalse(dkm.containsAnyInList(Integer.valueOf(1), Collections.singletonList(CONST_D)));
+		populate(dkm);
+		assertTrue(dkm.containsAnyInList(Integer.valueOf(1), Collections.singletonList(CONST_A)));
+		// Keys are .equals items, not instance
+		assertTrue(dkm.containsAnyInList(new Integer(1), Arrays.asList(new Character[] {CONST_A, CONST_D})));
+		assertTrue(dkm.containsAnyInList(Integer.valueOf(1), Arrays.asList(new Character[] {CONST_D, CONST_B})));
+		assertTrue(dkm.containsAnyInList(Integer.valueOf(1), Arrays.asList(new Character[] {CONST_C, CONST_B})));
+		assertFalse(dkm.containsAnyInList(Integer.valueOf(1), Arrays.asList(new Character[] {CONST_D, CONST_E, CONST_F})));
+
+		// add a second :)
+		dkm.addToListFor(Integer.valueOf(1), CONST_C);
+		assertTrue(dkm.containsAnyInList(Integer.valueOf(1), Arrays.asList(new Character[] {CONST_C, CONST_F})));
+
+		// Test null stuff :)
+		assertTrue(dkm.containsAnyInList(Integer.valueOf(2), Arrays.asList(new Character[] {CONST_F, null})));
+		try
+		{
+			assertFalse(dkm.containsAnyInList(Integer.valueOf(2), null));
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//Yep!
+		}
+		assertFalse(dkm.containsAnyInList(Integer.valueOf(2), Collections.EMPTY_LIST));
+
+		assertTrue(dkm.containsAnyInList(null, Arrays.asList(new Character[] {CONST_A, CONST_F})));
+		assertFalse(dkm.containsAnyInList(null, Arrays.asList(new Character[] {CONST_A, CONST_D})));
 	}
 
 	@Test

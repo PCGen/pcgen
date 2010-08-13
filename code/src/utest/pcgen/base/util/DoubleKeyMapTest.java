@@ -26,6 +26,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.testsupport.NoPublicZeroArgConstructorMap;
+import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 
 public class DoubleKeyMapTest extends TestCase
@@ -93,6 +95,52 @@ public class DoubleKeyMapTest extends TestCase
 		try
 		{
 			new DoubleKeyMap(HashMap.class, StrangeMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
+
+	public void testBadClassInConstructor2()
+	{
+		try
+		{
+			new DoubleKeyMap(NoPublicZeroArgConstructorMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMap(HashMap.class, NoPublicZeroArgConstructorMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
+
+	public void testBadClassInConstructor3()
+	{
+		try
+		{
+			new DoubleKeyMap(NoZeroArgConstructorMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMap(HashMap.class, NoZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
