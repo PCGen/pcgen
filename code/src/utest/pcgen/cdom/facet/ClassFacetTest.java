@@ -41,7 +41,7 @@ public class ClassFacetTest extends TestCase
 
 	private ClassListener classListener = new ClassListener();
 
-	private class ClassListener implements DataFacetChangeListener<PCClass>,
+	private static class ClassListener implements DataFacetChangeListener<PCClass>,
 			ClassLevelChangeListener
 	{
 

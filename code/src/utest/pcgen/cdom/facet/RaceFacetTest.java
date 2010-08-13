@@ -17,137 +17,34 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.Race;
 
-public class RaceFacetTest extends TestCase
+public class RaceFacetTest extends AbstractItemFacetTest<Race>
 {
-	private CharID id;
-	private CharID altid;
-	private RaceFacet facet = new RaceFacet();
 
-	private Listener listener = new Listener();
-
-	private class Listener implements DataFacetChangeListener<Race>
-	{
-
-		public int addEventCount;
-		public int removeEventCount;
-
-		public void dataAdded(DataFacetChangeEvent<Race> dfce)
-		{
-			addEventCount++;
-		}
-
-		public void dataRemoved(DataFacetChangeEvent<Race> dfce)
-		{
-			removeEventCount++;
-		}
-
-	}
+	private final RaceFacet facet = new RaceFacet();
 
 	@Override
-	public void setUp() throws Exception
+	protected AbstractItemFacet<Race> getFacet()
 	{
-		super.setUp();
-		id = new CharID();
-		altid = new CharID();
-		facet.addDataFacetChangeListener(listener);
+		return facet;
 	}
 
-	private void assertEventCount(int a, int r)
+	private int n = 0;
+
+	@Override
+	protected Race getItem()
 	{
-		assertEquals(a, listener.addEventCount);
-		assertEquals(r, listener.removeEventCount);
+		Race r = new Race();
+		r.setName("Race" + n);
+		return r;
 	}
 
-	@Test
-	public void testRaceUnsetEmpty()
+	public void testEmptyRemoval()
 	{
-		assertNull(facet.get(id));
-		assertTrue(facet.matches(id, null));
-	}
-
-	@Test
-	public void testRaceSetNull()
-	{
-		try
-		{
-			facet.set(id, null);
-			/*
-			 * For now, this won't fail. This is a simplification to allow easy
-			 * cloning in PlayerCharacter (making this fail results in an issue
-			 * with get having to detect null and take no action). Ideal
-			 * long-term solution is probably to have AbstractItemFact implement
-			 * copyContents as other Facets
-			 */
-			//fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
-		testRaceUnsetEmpty();
-		assertEventCount(0, 0);
-	}
-
-	@Test
-	public void testRaceSetGet()
-	{
-		Race t1 = new Race();
-		facet.set(id, t1);
-		assertEquals(t1, facet.get(id));
-		assertEventCount(1, 0);
-		// No cross-pollution
-		assertNull(facet.get(altid));
-	}
-
-	@Test
-	public void testRaceSetTwiceGet()
-	{
-		Race t1 = new Race();
-		facet.set(id, t1);
-		assertEquals(t1, facet.get(id));
-		assertEventCount(1, 0);
-		// Set same, still only set (and only one event)
-		facet.set(id, t1);
-		assertEquals(t1, facet.get(id));
-		assertEventCount(1, 0);
-	}
-
-	@Test
-	public void testRaceSetMultGetRemove()
-	{
-		Race t1 = new Race();
-		facet.set(id, t1);
-		assertEquals(t1, facet.get(id));
-		assertEventCount(1, 0);
-		Race t2 = new Race();
-		facet.set(id, t2);
-		assertEquals(t2, facet.get(id));
-		assertEventCount(2, 1);
-		// Remove
-		facet.remove(id);
-		assertNull(facet.get(id));
-		assertEventCount(2, 2);
-		// But only one remove event
-		facet.remove(id);
-		assertNull(facet.get(id));
-		assertEventCount(2, 2);
-	}
-
-	@Test
-	public void testRaceMatches()
-	{
-		Race t1 = new Race();
-		assertFalse(facet.matches(id, t1));
-		facet.set(id, t1);
-		assertTrue(facet.matches(id, t1));
-		facet.remove(id);
-		assertFalse(facet.matches(id, t1));
+		Listener newL = new Listener();
+		// Useless Removal
+		new RaceFacet().removeDataFacetChangeListener(newL);
 	}
 }
