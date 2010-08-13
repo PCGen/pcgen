@@ -40,7 +40,7 @@ public class GrantedAbilityFacetTest extends TestCase
 	private Listener listener = new Listener();
 	Object oneSource = new Object();
 
-	private class Listener implements DataFacetChangeListener<Ability>
+	private static class Listener implements DataFacetChangeListener<Ability>
 	{
 
 		public int addEventCount;
