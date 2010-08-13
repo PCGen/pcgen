@@ -20,12 +20,9 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.character.EquipSet;
 
 /**
  * NaturalWeaponFacet is a Facet that tracks the NaturalWeapons that have been
@@ -34,8 +31,6 @@ import pcgen.core.character.EquipSet;
 public class NaturalWeaponFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<CDOMObject>
 {
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which NaturalWeaponFacet listens
@@ -58,20 +53,6 @@ public class NaturalWeaponFacet extends AbstractSourcedListFacet<Equipment>
 			for (Equipment e : weapons)
 			{
 				add(id, e, cdo);
-			}
-			PlayerCharacter pc = trackingFacet.getPC(id);
-			EquipSet eSet = pc.getEquipSetByIdPath("0.1");
-			if (eSet != null)
-			{
-				for (Equipment eq : weapons)
-				{
-					EquipSet es = pc.addEquipToTarget(eSet, null, "", eq, null);
-					if (es == null)
-					{
-						pc.addEquipToTarget(eSet, null, Constants.S_CARRIED,
-								eq, null);
-					}
-				}
 			}
 		}
 	}
