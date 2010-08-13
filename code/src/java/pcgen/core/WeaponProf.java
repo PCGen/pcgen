@@ -20,11 +20,9 @@
  */
 package pcgen.core;
 
-import java.util.List;
-
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.helper.WeaponBonusListActor;
 import pcgen.cdom.list.WeaponProfList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 
@@ -38,7 +36,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 {
 	public static final CDOMReference<WeaponProfList> STARTING_LIST;
 
-	public static final PersistentChoiceActor<WeaponProf> STARTING_ACTOR = new StartingListActor();
+	public static final PersistentChoiceActor<WeaponProf> STARTING_ACTOR = new WeaponBonusListActor();
 
 	static
 	{
@@ -84,51 +82,5 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
-	}
-
-	private static class StartingListActor implements
-			PersistentChoiceActor<WeaponProf>
-	{
-
-		public boolean allow(WeaponProf choice, PlayerCharacter pc,
-				boolean allowStack)
-		{
-			return true;
-		}
-
-		public void applyChoice(CDOMObject owner, WeaponProf choice,
-				PlayerCharacter pc)
-		{
-			pc.addWeaponBonus(owner, choice);
-		}
-
-		public List<WeaponProf> getCurrentlySelected(CDOMObject owner,
-				PlayerCharacter pc)
-		{
-			return pc.getBonusWeaponProfs(owner);
-		}
-
-		public WeaponProf decodeChoice(String s)
-		{
-			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					WeaponProf.class, s);
-		}
-
-		public String encodeChoice(WeaponProf choice)
-		{
-			return choice.getKeyName();
-		}
-
-		public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-				WeaponProf choice)
-		{
-			pc.removeWeaponBonus(owner, choice);
-		}
-
-		public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-				WeaponProf choice)
-		{
-			pc.addWeaponBonus(owner, choice);
-		}
 	}
 }
