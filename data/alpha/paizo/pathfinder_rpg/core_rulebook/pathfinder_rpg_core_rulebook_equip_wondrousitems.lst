@@ -6,11 +6,11 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 ###Block:A
 # Equipment Name						Type								Cost		Weight	Modifier	Requires Modification?	Source Page		Combat bonus						Special Property
 Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
-Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet				COST:32000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet				COST:50000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet				COST:32000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet				COST:50000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
 Amulet of the Planes					TYPE:Magic.Wondrous.Amulet				COST:120000	WT:.02							SOURCEPAGE:p.500									SPROP:This amulet allows its wearer to utilize Plane Shift.
 Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet				COST:35000	WT:.02							SOURCEPAGE:p.500									SPROP:Protects the wearer from scrying and magical location as Nondetection.
 Apparatus of the Crab					TYPE:Magic.Wondrous					COST:90000	WT:500							SOURCEPAGE:p.500
