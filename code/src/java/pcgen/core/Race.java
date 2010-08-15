@@ -58,7 +58,7 @@ public final class Race extends PObject
 		return getKeyName().hashCode();
 	}
 
-	int maxHitDiceAdvancement()
+	public int maxHitDiceAdvancement()
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null ? 0 : hda.get(hda.size() - 1);
