@@ -255,7 +255,7 @@ public class SizeFacetTest extends TestCase
 		assertEquals(1, facet.sizeInt(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(1, facet.sizeInt(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		facet.update(id);
 		assertEquals(2, facet.sizeInt(id));
@@ -390,7 +390,7 @@ public class SizeFacetTest extends TestCase
 		assertEquals(s, facet.getSizeAdjustment(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		facet.update(id);
-		assertEquals(m, facet.getSizeAdjustment(id));
+		assertEquals(s, facet.getSizeAdjustment(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		facet.update(id);
 		assertEquals(m, facet.getSizeAdjustment(id));
@@ -431,7 +431,7 @@ public class SizeFacetTest extends TestCase
 		assertEquals("S", facet.getSizeAbb(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		facet.update(id);
-		assertEquals("M", facet.getSizeAbb(id));
+		assertEquals("S", facet.getSizeAbb(id));
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		facet.update(id);
 		assertEquals("M", facet.getSizeAbb(id));
@@ -499,6 +499,32 @@ public class SizeFacetTest extends TestCase
 		facet.update(id);
 		assertEquals(1, facet.sizeInt(id));
 		assertEquals(1, facet.racialSizeInt(id));
+	}
+	
+	/**
+	 * Verify the function of the sizesAdvanced method.
+	 */
+	public void testSizesAdvanced()
+	{
+		Race race = new Race();
+		race.setName("Test Race");
+		
+		// Validate that there are no size changes if no advancement is specified
+		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 1));
+		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 2));
+		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 3));
+		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 4));
+		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 5));
+
+		// Validate that size changes occur when needed and no extra happen if advancement is specified
+		race.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
+		race.addToListFor(ListKey.HITDICE_ADVANCEMENT, 4);
+		assertEquals("Size increase pre first change wrong", 0, facet.sizesToAdvance(race, 1));
+		assertEquals("Size increase pre first change wrong", 0, facet.sizesToAdvance(race, 2));
+		assertEquals("Size increase pre last change wrong", 1, facet.sizesToAdvance(race, 3));
+		assertEquals("Size increase pre last change wrong", 1, facet.sizesToAdvance(race, 4));
+		assertEquals("Size increase post last change wrong", 1, facet.sizesToAdvance(race, 5));
+		assertEquals("Size increase post last change wrong", 1, facet.sizesToAdvance(race, 6));
 	}
 
 	public SizeFacet getMockFacet() throws SecurityException,
