@@ -134,7 +134,12 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		}
 	}
 
-	private int sizesToAdvance(CharID id, Race race)
+	int sizesToAdvance(CharID id, Race race)
+	{
+		return sizesToAdvance(race, levelFacet.getMonsterLevelCount(id));
+	}
+	
+	int sizesToAdvance(Race race, int monsterLevelCount)
 	{
 		List<Integer> hda = race.getListFor(ListKey.HITDICE_ADVANCEMENT);
 		int steps = 0;
@@ -143,7 +148,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 			int limit = race.maxHitDiceAdvancement();
 			for (Integer hitDie : hda)
 			{
-				if (levelFacet.getMonsterLevelCount(id) <= hitDie)
+				if (monsterLevelCount <= hitDie)
 				{
 					break;
 				}
