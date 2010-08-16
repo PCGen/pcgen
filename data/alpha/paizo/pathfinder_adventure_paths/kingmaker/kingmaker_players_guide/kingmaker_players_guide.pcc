@@ -40,7 +40,6 @@ ABILITYCATEGORY:kingmaker_players_guide_abilitycategory.lst
 KIT:kingmaker_players_guide_kits.lst
 RACE:kingmaker_players_guide_races_companions.lst
 SKILL:kingmaker_players_guide_skills_conditional.lst
-TEMPLATE:kingmaker_players_guide_templates.lst
 
 #
 # End

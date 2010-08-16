@@ -1,0 +1,17 @@
+# CVS $Revision: 12800 $ $Author: amaitland $ -- Sat Aug 14 18:48:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Modify player character races to be equipped with not starting traits as default
+# Race Name		Apply Kit
+Dwarf.MOD		KIT:1|Character Traits
+Elf.MOD		KIT:1|Character Traits
+Gnome.MOD		KIT:1|Character Traits
+Half-Elf.MOD	KIT:1|Character Traits
+Half-Orc.MOD	KIT:1|Character Traits
+Halfling.MOD	KIT:1|Character Traits
+Human.MOD		KIT:1|Character Traits
+
+#
+# End
+#

@@ -1,6 +1,12 @@
 # CVS $Revision$ $Author$ -- Sun Aug 16 11:26:32 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
 
-###Block: Campaign PC Template
-# Template Name		Visible		Bonus to Ability Pool
-Player Character Traits	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Traits|2
+###Block: Inttial Traits template
+# Template Name				Visible	Bonus to Ability Pool
+Standard Character Traits		VISIBLE:NO	BONUS:ABILITYPOOL|Traits|2
+Adventure Path Character Traits	VISIBLE:NO	BONUS:ABILITYPOOL|Traits|1	BONUS:ABILITYPOOL|Campaign Traits|1
+
+#
+# End
+#

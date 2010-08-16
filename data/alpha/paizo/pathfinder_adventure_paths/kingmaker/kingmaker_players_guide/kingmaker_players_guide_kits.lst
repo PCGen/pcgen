@@ -2,6 +2,11 @@
 SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
+STARTPACK:Character Traits	TYPE:Internal	VISIBLE:NO
+TEMPLATE:Adventure Path Character Traits
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Campaign Traits|No Campaign Trait ~ Trait
+
 STARTPACK:Companion ~ Elk	TYPE:Companion	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
