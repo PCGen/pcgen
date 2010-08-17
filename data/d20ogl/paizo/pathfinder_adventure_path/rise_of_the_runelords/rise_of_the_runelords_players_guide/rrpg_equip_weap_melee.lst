@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 ####Block: Martial Weapons
@@ -17,3 +17,7 @@ Ogre Hook							PROFICIENCY:WEAPON|Ogre Hook		TYPE:Weapon.Melee.Martial.Standard
 ####Block: Exotic Weapons
 #-----two handed -------
 Scarf (Bladed)	OUTPUTNAME:Scarf, Bladed	PROFICIENCY:WEAPON|Scarf (Bladed)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Slashing.Scarf		COST:12	WT:2		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:STEEL	WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.11
+
+#
+# End
+#

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/burnt_offering.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/burnt_offering.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,13 +39,12 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 1: Burnt 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_abilities_racial.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_equip_wondrousitems.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_races.lst|(EXCLUDE:Goblin Dog)
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_templates.lst
-WEAPONPROF:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_1_burnt_offering/pf1_weaponprofs.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_abilities_racial.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_equip.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_feats.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_races.lst|(EXCLUDE:Goblin Dog)
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_templates.lst
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_1_burnt_offering/pf1_weaponprofs.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf1_abilities_pfrpg.lst

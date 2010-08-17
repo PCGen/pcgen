@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 07:47:17 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 # Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Deity Weapon						Alignment	Pantheon					Source Page
@@ -23,3 +23,7 @@ Shelyn		NAMEISPI:YES	DOMAINS:Air,Charm,Good,Luck,Protection|PREALIGN:LG,NG,CG			
 Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,LN,NG			DESC:God of the forge, protection, strategy		DEITYWEAP:Warhammer					ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Urgathoa		NAMEISPI:YES	DOMAINS:Death,Evil,Magic,Strength,War|PREALIGN:LE,NE,CE				DESC:Goddess of gluttony, disease, undeath		DEITYWEAP:Scythe						ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Zon-Kuthon		NAMEISPI:YES	DOMAINS:Darkness,Death,Destruction,Evil,Law|PREALIGN:LN,LE,NE			DESC:God of envy, pain, darkness, loss			DEITYWEAP:Chain (Spiked)				ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
+
+#
+# End
+#

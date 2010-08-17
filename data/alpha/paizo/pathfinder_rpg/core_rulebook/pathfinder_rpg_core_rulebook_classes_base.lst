@@ -217,7 +217,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
 15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																	ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Tongue of the Sun and Moon|Timeless Body							TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Empty Body
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																ABILITY:Special Ability|AUTOMATIC|Perfect Self

@@ -5,3 +5,7 @@ SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http:
 ###Block: Companion support
 # Feat Name			Allowed Companions
 Animal Companion.MOD	COMPANIONLIST:Animal Companion|Cindersnake,Donkey Rat,Storm Roc	COMPANIONLIST:Animal Companion|Auroch,Fire Pelt|FOLLOWERADJUSTMENT:-3
+
+#
+# End
+#

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 AGESET:0|Adulthood
@@ -57,3 +57,7 @@ RACENAME:Gnome%		BASEAGE:200	MAXAGE:500	AGEDIEROLL:3d100
 RACENAME:Half-Elf%	BASEAGE:125	MAXAGE:185	AGEDIEROLL:6d10
 RACENAME:Half-Orc%	BASEAGE:60	MAXAGE:80	AGEDIEROLL:5d4
 RACENAME:Halfling%	BASEAGE:100	MAXAGE:200	AGEDIEROLL:5d20
+
+#
+# End
+#

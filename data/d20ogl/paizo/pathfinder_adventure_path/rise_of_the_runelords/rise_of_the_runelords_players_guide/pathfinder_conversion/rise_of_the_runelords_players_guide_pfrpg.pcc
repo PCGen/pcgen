@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rise_of_the_runelords_players_guide.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rise_of_the_runelords_players_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,18 +36,21 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords Player's Guide" Co
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ARMORPROF:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_armor.lst
-COMPANIONMOD:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_companionmods.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip_armorshields.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip_weap_melee.lst|(EXCLUDE:Starknife)
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_feats.lst
-LANGUAGE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst|(EXCLUDE:Boggard)
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races_animals.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races.lst
-SHIELDPROF:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_shield.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_templates.lst
-WEAPONPROF:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_weapon.lst|(EXCLUDE:Starknife)
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_abilitycategories.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_abilities_background.lst
+ARMORPROF:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_armor.lst
+COMPANIONMOD:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_companionmods.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip_weap_melee.lst|(EXCLUDE:Starknife)
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_feats.lst
+LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst|(EXCLUDE:Boggard)
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races_animals.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races.lst
+SHIELDPROF:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_shield.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_templates_background.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_templates.lst
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_weapon.lst|(EXCLUDE:Starknife)
 
 # Customized Pathfinder RPG data files
 ABILITY:rrpg_abilities_class_pfrpg.lst

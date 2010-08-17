@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 STARTPACK:Auroch Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Auroch]
@@ -84,3 +84,7 @@ ALIGN:TN
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+#
+# End
+#

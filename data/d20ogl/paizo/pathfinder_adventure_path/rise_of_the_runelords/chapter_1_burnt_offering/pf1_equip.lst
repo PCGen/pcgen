@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Mon Jul 19 16:27:59 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+####Block: Melee Weapons
+# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page		Save checks bonus
+Horsechopper		PROFICIENCY:WEAPON|Horsechopper	TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:TwoHanded	SIZE:S	SOURCEPAGE:p.13
+
+####Block: Wondrous Items
+# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page		Save checks bonus
+Sihedron Medallion							TYPE:Magic.Wondrous.Amulet							COST:3500	WT:0																			SOURCEPAGE:p.55	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance

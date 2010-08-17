@@ -96,6 +96,9 @@ WEAPONPROF:pathfinder_rpg_core_rulebook_weaponprofs.lst
 # Load Essential Bestiary Data with Core
 PCC:pathfinder_bestiary_core/pathfinder_rpg_bestiary_core.pcc
 
+# Load the Intelligent Item Model automatically
+PCC:@alpha/paizo/pathfinder_rpg/paizo_intelligent_item_model/int_item.pcc
+
 #Hide internal feat types
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
@@ -106,3 +109,7 @@ BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
 
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
+
+#
+# End
+#

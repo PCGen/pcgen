@@ -1,26 +1,60 @@
+# CVS $Revision$ $Author$ -- Fri Aug 13 13:35:43 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 #Original Entry: Andrew Maitland
 
 ###Block: These Set the Default Racial Traits
+#Block: Dwarf Racial
 STARTPACK:Dwarf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Dwarf Racial Trait|Default Dwarf Racial Package
+ABILITY:CATEGORY=Dwarf Racial Trait|Defensive Training ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Greed ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Hardy ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Hatred ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Stability ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Stonecunning ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Steady ~ Dwarf
+ABILITY:CATEGORY=Dwarf Racial Trait|Weapon Familiarity ~ Dwarf
 
+#Block: Elf Racial
 STARTPACK:Elf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Elf Racial Trait|Default Elf Racial Package
+ABILITY:CATEGORY=Elf Racial Trait|Elven Immunities ~ Elf
+ABILITY:CATEGORY=Elf Racial Trait|Elven Magic ~ Elf
+ABILITY:CATEGORY=Elf Racial Trait|Weapon Familiarity ~ Elf
+ABILITY:CATEGORY=Elf Racial Trait|Keen Senses ~ Elf
 
+#Block: Gnome Racial
 STARTPACK:Gnome Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Gnome Racial Trait|Default Gnome Racial Package
+ABILITY:CATEGORY=Gnome Racial Trait|Defensive Training ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Gnome Magic ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Hatred ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Illusion Resistance ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Obsessive ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Keen Senses ~ Gnome
+ABILITY:CATEGORY=Gnome Racial Trait|Weapon Familiarity ~ Gnome
 
+#Block: Half-Elf Racial
 STARTPACK:Half Elf Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Half Elf Racial Trait|Default Half Elf Racial Package
+ABILITY:CATEGORY=Half Elf Racial Trait|Adaptability ~ Half-Elf
+ABILITY:CATEGORY=Half Elf Racial Trait|Multitalented ~ Half-Elf
+ABILITY:CATEGORY=Half Elf Racial Trait|Elven Immunities ~ Half-Elf
+ABILITY:CATEGORY=Half Elf Racial Trait|Keen Senses ~ Half-Elf
 
+#Block: Half-Orc Racial
 STARTPACK:Half Orc Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Half Orc Racial Trait|Default Half Orc Racial Package
+ABILITY:CATEGORY=Half Orc Racial Trait|Intimidating ~ Half-Orc
+ABILITY:CATEGORY=Half Orc Racial Trait|Orc Ferocity ~ Half-Orc
+ABILITY:CATEGORY=Half Orc Racial Trait|Weapon Familiarity ~ Orc
 
+#Block: Halfling Racial
 STARTPACK:Halfling Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Halfling Racial Trait|Default Halfling Racial Package
+ABILITY:CATEGORY=Halfling Racial Trait|Fearless ~ Halfling
+ABILITY:CATEGORY=Halfling Racial Trait|Halfling Luck ~ Halfling
+ABILITY:CATEGORY=Halfling Racial Trait|Keen Senses ~ Halfling
+ABILITY:CATEGORY=Halfling Racial Trait|Sure-Footed ~ Halfling
+ABILITY:CATEGORY=Halfling Racial Trait|Weapon Familiarity ~ Halfling
 
+#Block: Human Racial
 STARTPACK:Human Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Human Racial Trait|Default Human Racial Package
+ABILITY:CATEGORY=Human Racial Trait|Bonus Feat ~ Human
+ABILITY:CATEGORY=Human Racial Trait|Skilled ~ Human
 
-
+#EOF

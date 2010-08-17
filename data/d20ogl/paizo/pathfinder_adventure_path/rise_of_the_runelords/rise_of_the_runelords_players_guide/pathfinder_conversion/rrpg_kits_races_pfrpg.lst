@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 STARTPACK:Goblin Default (Rise of the Runelords)	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
@@ -17,3 +17,7 @@ GEAR:Dogslicer			SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+
+#
+# End
+#

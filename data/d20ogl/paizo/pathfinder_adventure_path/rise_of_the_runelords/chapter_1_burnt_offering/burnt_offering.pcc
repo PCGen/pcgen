@@ -37,8 +37,7 @@ DESC:The Rise of the Runelords Adventure Path begins in the small coastal town o
 
 # Data files
 ABILITY:pf1_abilities_racial.lst
-EQUIPMENT:pf1_equip_weap_melee.lst
-EQUIPMENT:pf1_equip_wondrousitems.lst
+EQUIPMENT:pf1_equip.lst
 FEAT:pf1_feats.lst
 KIT:pf1_kits_npcs.lst
 KIT:pf1_kits_races.lst

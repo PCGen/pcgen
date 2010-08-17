@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Armor
@@ -12,3 +12,7 @@ Hide Shirt		PROFICIENCY:ARMOR|Hide Shirt	TYPE:Armor.Light.Suit.Standard.Nonmetal
 # Equipment Name	Required Weapon Proficiency	Required Shield Proficiency	Type						Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page		% of Spell Failure	Combat bonus					Automatically Added to Inventory
 Klar								PROFICIENCY:SHIELD|Klar		TYPE:Shield.Light.Standard		COST:12	WT:6		ACCHECK:-1												EQMOD:STEEL				SIZE:M	SOURCEPAGE:p.10	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	AUTO:EQUIP|Klar Blade
 Klar Blade		PROFICIENCY:WEAPON|Klar							TYPE:Weapon.Melee.Slashing.Standard	COST:12	WT:6					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:p.10
+
+#
+# End
+#

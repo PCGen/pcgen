@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 07:46:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 # Feat Name						Output Name						Type								Required Feat					Prohibited Feat					Multiple Requirements																		Required Region	Required Template					Special ABility					Innate Spells										Description																																						Caster level					Save checks bonus			Combat bonus			Add to base move			Bonus to skill			Modify VAR											Source Page
@@ -23,3 +23,7 @@ Varisian Tattoo (Ragario/Evocation)		OUTPUTNAME:Varisian Tattoo (Ragario)	TYPE:G
 Varisian Tattoo (Vangloris/Illusion)	OUTPUTNAME:Varisian Tattoo (Vangloris)	TYPE:General.Regional.Varisia.VarisianTattoo	PREFEAT:1,Spell Focus (Illusion)									PREMULT:1,[PREFEAT:1,Varisian Tattoo (Vangloris/Illusion)],[PREVARLT:COUNT[FEATTYPE=VarisianTattoo],1]																					SPELLS:Innate|TIMES=max(1,CON)|CASTERLEVEL=TL|Ghost Sound,10+CHA		DESC:You bear intricate tattoos which inspire and empower your natrual magical ability. These tattoos mark you as a worker of the ancient traditions of Varisian magic.												BONUS:CASTERLEVEL|SCHOOL.Illusion|1																																		SOURCEPAGE:p.14
 Varisian Tattoo (Voratalo/Necromancy)	OUTPUTNAME:Varisian Tattoo (Voratalo)	TYPE:General.Regional.Varisia.VarisianTattoo	PREFEAT:1,Spell Focus (Necromancy)									PREMULT:1,[PREFEAT:1,Varisian Tattoo (Voratalo/Necromancy)],[PREVARLT:COUNT[FEATTYPE=VarisianTattoo],1]																					SPELLS:Innate|TIMES=max(1,CON)|CASTERLEVEL=TL|Touch of Fatigue,10+CHA	DESC:You bear intricate tattoos which inspire and empower your natrual magical ability. These tattoos mark you as a worker of the ancient traditions of Varisian magic.												BONUS:CASTERLEVEL|SCHOOL.Necromancy|1																																	SOURCEPAGE:p.14
 Varisian Tattoo (Avaria/Transmutation)	OUTPUTNAME:Varisian Tattoo (Avaria)		TYPE:General.Regional.Varisia.VarisianTattoo	PREFEAT:1,Spell Focus (Transmutation)								PREMULT:1,[PREFEAT:1,Varisian Tattoo (Avaria/Transmutation)],[PREVARLT:COUNT[FEATTYPE=VarisianTattoo],1]																					SPELLS:Innate|TIMES=max(1,CON)|CASTERLEVEL=TL|Mage Hand,10+CHA		DESC:You bear intricate tattoos which inspire and empower your natrual magical ability. These tattoos mark you as a worker of the ancient traditions of Varisian magic.												BONUS:CASTERLEVEL|SCHOOL.Transmutation|1																																	SOURCEPAGE:p.14
+
+#
+# End
+#

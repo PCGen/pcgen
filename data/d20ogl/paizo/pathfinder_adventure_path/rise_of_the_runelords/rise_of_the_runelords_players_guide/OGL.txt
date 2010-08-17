@@ -31,7 +31,11 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 14 Reformation: If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable.
 
 15 COPYRIGHT NOTICE
+
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+
 System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-Rise of the Runelords Player’s Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
-PCGen dataset conversion for "Rise of the Runelords Player's Guide" Copyright 2007-2008, PCGen Data Team (including, but not limited to Stefan Radermacher and Eric C. Smith)
+
+Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
+
+PCGen dataset conversion for "Rise of the Runelords Player's Guide" Copyright 2007-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith).
