@@ -96,6 +96,8 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 								ability);
 				assoc.setAssociation(AssociationKey.NATURE,
 						Nature.AUTOMATIC);
+				assoc.setAssociation(AssociationKey.CATEGORY,
+						AbilityCategory.FEAT);
 				if (token.indexOf('(') != -1)
 				{
 					List<String> choices = new ArrayList<String>();

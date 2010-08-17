@@ -155,6 +155,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements CDOMP
 					getTokenName(), obj, Ability.FEATLIST, ability);
 			assoc.setAssociation(AssociationKey.NATURE,
 					Nature.AUTOMATIC);
+			assoc.setAssociation(AssociationKey.CATEGORY, AbilityCategory.FEAT);
 			String token = ability.getLSTformat();
 			if (token.indexOf('(') != -1)
 			{
