@@ -450,14 +450,29 @@ STARTPACK:Unfamiliar	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:
 RACE:Unfamiliar	PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-#Skills: Balance +16, Climb +18, Escape Artist +11, Heal +14, Hide +18, Intimidate +4, Intuit Direction +10, Jump +19, Knowledge (arcana) +14, Knowledge (nature) +12, Listen +17, Move Silently +16, Pick Pockets +11, Spellcraft +12, Spot +18, Swim +11, Use Magic Device +9, Wilderness Lore +14*.
+#Skills: Balance +16, Climb +18, Escape Artist +11, Heal +14, Hide +18, Intimidate +4, 
+#Intuit Direction +10, Jump +19, Knowledge (arcana) +14, Knowledge (nature) +12, Listen +17, 
+#Move Silently +16, Pick Pockets +11, Spellcraft +12, Spot +18, Swim +11, Use Magic Device +9, Wilderness Lore +14*.
 #Skills: *Unfamiliars benefit from a +4 racial bonus to Wilderness Lore skill checks while tracking by scent.
 #STR=14|DEX=20|CON=18|INT=17|WIS=18|CHA=15
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
+SKILL:Balance			RANK:11
+SKILL:Climb				RANK:16	
+SKILL:Escape Artist		RANK:6
+SKILL:Heal				RANK:10
+SKILL:Hide				RANK:13
+SKILL:Intimidate			RANK:2
+SKILL:Intuit Direction		RANK:6
+SKILL:Jump				RANK:?
+SKILL:Knowledge (Arcana)	RANK:11
+SKILL:Knowledge (Nature)	RANK:9
+SKILL:Listen			RANK:13
+SKILL:Move Silently		RANK:11
+SKILL:Pick Pockets		RANK:6
+SKILL:Spellcraft			RANK:9
+SKILL:Spot				RANK:14
+SKILL:Swim				RANK:9
+SKILL:Use Magic Device		RANK:6
+SKILL:Wilderness Lore		RANK:10
 FEAT:Dodge
 FEAT:Mobility
 FEAT:Multiattack
@@ -469,11 +484,11 @@ RACE:Uragh Dhu	PRERACE:1,%
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 #Skills: Knowledge (Undead) +11, Listen +12, Move Silently +12, Hide + 6*, Spot + 8
 #STR=25|DEX=13|CON=—|INT=12|WIS=12|CHA=14
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
-#SKILL:	RANK:
+SKILL:Knowledge (Undead)	RANK:10
+SKILL:Listen			RANK:11
+SKILL:Move Silently		RANK:11
+SKILL:Hide				RANK:5
+SKILL:Spot				RANK:7
 FEAT:Expertise
 FEAT:Improved Trip
 FEAT:Power Attack
@@ -485,17 +500,16 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 #Skills: Bluff +5, Concentration +4, Hide +8, Intimidate +7, Knowledge (nature) +10, Listen +5, Profession (farmer) +9
 #, Search +6, Spot +6, Wilderness Lore +8
 #STR=16|DEX=15|CON=—|INT=12|WIS=16|CHA=15
-#SKILL:Bluff			RANK:2
-#SKILL:Concentration		RANK:4
-#SKILL:Hide				RANK:6
-#SKILL:Intimidate			RANK:5
-#SKILL:Knowledge (Nature)	RANK:9
-#SKILL:Listen			RANK:2
-#SKILL:Profession (Farmer)	RANK:6
-#SKILL:Search			RANK:3
-#SKILL:Spot				RANK:3
-#SKILL:Wilderness Lore		RANK:5
-
+SKILL:Bluff			RANK:2
+SKILL:Concentration		RANK:4
+SKILL:Hide				RANK:6
+SKILL:Intimidate			RANK:5
+SKILL:Knowledge (Nature)	RANK:9
+SKILL:Listen			RANK:2
+SKILL:Profession (Farmer)	RANK:6
+SKILL:Search			RANK:3
+SKILL:Spot				RANK:3
+SKILL:Wilderness Lore		RANK:5
 FEAT:Combat Reflexes
 FEAT:Power Attack
 FEAT:Toughness

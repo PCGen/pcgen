@@ -24,6 +24,10 @@ CLASS:gaslight_animals_classes.lst
 COMPANIONMOD:gaslight_animals_companionmods.lst
 RACE:gaslight_animals_race.lst
 
+
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+
 ### Copyright Section 15
 
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
@@ -110,6 +114,7 @@ COPYRIGHT:Modern Dispatch #9 2004, RPGObjects; Author Charles Rice
 COPYRIGHT:Blood and Guts 2: Military Training Manual: 2005, RPGObjects; Author Charles Rice
 COPYRIGHT:Gaslight Victorian Fantasy Role Playing Game Copyright 2009, Jonathan M. Thompson d/b/a Battlefield Press, Inc.; Authors Marc Gacy, Stephen J. Miller and Jonathan M. Thompson
 COPYRIGHT:PCGen dataset conversion for Gaslight - Players Guide Copyright 2010, PCGen Data Team (including, but not limited to: Eddy Anthony (MoSaT), Andrew Maitland (LegacyKing))
+
 
 #
 # End

@@ -55,7 +55,7 @@ Knowledge (Physical Sciences).MOD		SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Physic
 Knowledge (Popular Culture).MOD		SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Popular Culture)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Popular Culture))
 Knowledge (Streetwise).MOD			SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Streetwise)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Streetwise))
 Knowledge (Technology).MOD			SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Technology)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Technology))
-Knowledge (Theology and Philosophy).MOD	SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Theology and Philosophy|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Theology and Philosophy))
+Knowledge (Theology and Philosophy).MOD	SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Theology and Philosophy)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Theology and Philosophy))
 Listen.MOD									BONUS:SKILL|Listen|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Listen)
 Move Silently.MOD								BONUS:SKILL|Move Silently|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Move Silently)
 Navigate.MOD								BONUS:SKILL|Navigate|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Navigate)

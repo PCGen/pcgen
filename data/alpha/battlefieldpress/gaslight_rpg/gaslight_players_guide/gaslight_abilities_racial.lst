@@ -1,7 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Apr 18 19:31:36 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Aug 17 20:35:47 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
+#TODO: Magical Potency - No Method to Increase the Max Ranks for Selected Skill without changing All Skills currently
 
 ###Block: Human Ability Bonus --------------------------------------------------
 # Ability Name		Category of Ability		Type			Visible		Stat bonus
@@ -13,23 +14,26 @@ Stat Boost +2 (Wis)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONU
 Stat Boost +2 (Cha)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|CHA|2
 
 ###Block: Racial Abilities -----------------------------------------------------
-# Ability Name		Category of Ability		Type				Description																																																																													Template				Ability						Bonus to skill				Stat bonus																			Source Page		Natural Attacks
-Scent				CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
+# Ability Name		Unique Key				Category of Ability		Type				Description																																																																													Template				Ability						Bonus to skill				Stat bonus																			Source Page		Natural Attacks
+Scent									CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
 
 # Beastman
-Bear Racial Traits	CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Bear Racial Traits														BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-4|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6r
-Cat Racial Traits		CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|CHA|4|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
-Dog Racial Traits		CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent							BONUS:STAT|CON|4|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	SOURCEPAGE:p.48
+Bear Racial Traits						CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Bear Racial Traits														BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-4|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
+Cat Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|CHA|4|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
+Dog Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent							BONUS:STAT|CON|4|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	SOURCEPAGE:p.48
 
 # Vampire
-Limited Immortality	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																																											SOURCEPAGE:p.51
-Blood Requirement		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Every morning, a vampire suffers 2 points of damage per character level as he uses up the blood within his system to remain alive.																																																																																														SOURCEPAGE:p.51
-Blood Drain			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If the vampire pins his foe, he drains blood, dealing 1 point of Constitution drain each round the grapple is maintained.																																																																															SOURCEPAGE:p.51
-Daylight Vulnerability	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When the sun rises and until it sets, the vampire loses its powers, including all racial ability and skill modifiers, and becomes a normal human being.																																																																																										SOURCEPAGE:p.51
+Limited Immortality						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																																											SOURCEPAGE:p.51
+Blood Requirement							CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Every morning, a vampire suffers 2 points of damage per character level as he uses up the blood within his system to remain alive.																																																																																														SOURCEPAGE:p.51
+Blood Drain								CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If the vampire pins his foe, he drains blood, dealing 1 point of Constitution drain each round the grapple is maintained.																																																																															SOURCEPAGE:p.51
+Daylight Vulnerability						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When the sun rises and until it sets, the vampire loses its powers, including all racial ability and skill modifiers, and becomes a normal human being.																																																																																										SOURCEPAGE:p.51
 
 #Werewolf
-Alternate Form		CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.52
-Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.53
+Alternate Form							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.52
+Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.53
+
+#Wildling
+Natural Enemy		KEY:Natural Enemy ~ Wildling	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Ratlings and Wildlings have been at war for time immemorial. When facing a Ratling the Wildling gains the following additional bonuses: +2 bonus on Deception, Sense Motive, and Survival checks when using these skills against the Ratling. Likewise, he gets a +2 bonus on weapon damage rolls against such creatures.																																																															SOURCEPAGE:p.55
 
 
 
@@ -148,16 +152,19 @@ Organisation Ties	CATEGORY:Talent		TYPE:MultiRacial	PREPCLEVEL:MAX=1			SOURCEPAG
 Significant Other	CATEGORY:Talent		TYPE:MultiRacial						SOURCEPAGE:p.62
 
 ###Block: Supernatural Talent tree
-# Ability Name		Category of Ability	Type								Required Non-Monster Lvl	Required Stat				Source Page
-Animal Magnetism		CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13				SOURCEPAGE:p.62
-Magical Potency		CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	SOURCEPAGE:p.62
-Pact with Darkness	CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1									SOURCEPAGE:p.62
+# Ability Name		Category of Ability	Type								Required Non-Monster Lvl	Required Stat				Description																																																						Multiple?	Choose														Selections	Class Skill		Source Page
+Animal Magnetism		CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																																																																																	SOURCEPAGE:p.62
+Magical Potency		CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11																																																																														SOURCEPAGE:p.62
+Pact with Darkness	CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1																																																																																						SOURCEPAGE:p.62
+Magical Potency		CATEGORY:Talent		TYPE:HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (occult science) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft (Mechanical)|Knowledge (Occult Science)|Research	SELECT:1	CSKILL:%LIST	SOURCEPAGE:p.63
+#TODO: No Method to Increase the Max Ranks for Selected Skill without changing All Skills currently
 
 
 ###Block: Alternate Form Tree
 # Ability Name	Category of Ability	Type								Required Ability					Source Page
 Sludgerunner	CATEGORY:Talent		TYPE:WildlingTalent.Talent.AlternateFormTalent								SOURCEPAGE:p.63
 Tunnelrunner	CATEGORY:Talent		TYPE:WildlingTalent.Talent.AlternateFormTalent	PREABILITY:1,CATEGORY=Talent,Sludgerunner	SOURCEPAGE:p.63
+
 
 #
 # End

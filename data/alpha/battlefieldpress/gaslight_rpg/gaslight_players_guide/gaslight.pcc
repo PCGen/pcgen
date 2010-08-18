@@ -41,6 +41,9 @@ EQUIPMENT:gaslight_equipment.lst
 EQUIPMOD:gaslight_equipmods.lst
 
 FEAT:gaslight_feats.lst
+FEAT:gaslight_feats_mods.lst
+FEAT:gaslight_feats_special.lst
+
 
 KIT:gaslight_kits.lst
 LANGUAGE:gaslight_languages.lst

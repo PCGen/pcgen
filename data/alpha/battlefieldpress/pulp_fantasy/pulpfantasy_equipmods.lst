@@ -7,7 +7,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 #The Miniaturize Invention gadget feat then needs the ability to reduce the number of occupied slots by one.
 
 # Modifier Name					Unique Key		Output Name		Naming Option	Type		Visible		Type granted		Source Page		Required Type	Var. Min. Value			Var. Max. Value						Stat bonus			Modify VAR													Special Property													Choose									Nb of Charges	Define
-SCP_STD.MOD									OUTPUTNAME:Scope													SOURCEPAGE:p.76
+SCP_STD.MOD									NAMEOPT:TEXT=Scope													SOURCEPAGE:p.76
 
 #Weird Gadget Base Invention Level
 Base Invention Level				KEY:GDGT_INV_LVL				NAMEOPT:NOTHING	TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Weird			SOURCEPAGE:p.88																					BONUS:VAR|BaseInventionLevel|%CHOICE								SPROP:Invention Level % higher than allowed!|min(0,InventionLevel-BaseInventionLevel)	CHOOSE:NUMBER|MIN=1|MAX=22|TITLE=Intended Gadget Level

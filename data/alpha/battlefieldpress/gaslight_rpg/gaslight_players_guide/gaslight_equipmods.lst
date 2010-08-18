@@ -50,7 +50,7 @@ Wood			KEY:WOOD		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shi
 
 
 Scope (Standard)	KEY:SCP_STD		NAMEOPT:TEXT=Standard Scope	TYPE:Firearm												COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdequipmentgeneral.rtf										BONUS:EQM|WEIGHTADD|.5		SPROP:Standard Scope Purchase DC 11
-#Scope (Standard)		OUTPUTNAME:[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
+#Scope (Standard)		NAMEOPT:TEXT=[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 
 
 #

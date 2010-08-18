@@ -49,6 +49,7 @@ EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
 RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War)|Camel|Camel (Bactrian)|Elephant|Elephant (Indian))
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
+SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst|(INCLUDE:Speak with Burrowing Mammals)
 WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
 ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
 SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst

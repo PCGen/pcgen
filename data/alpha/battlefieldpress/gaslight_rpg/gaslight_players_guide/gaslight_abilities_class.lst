@@ -237,10 +237,11 @@ Man of a Thousand Faces					CATEGORY:Talent		TYPE:InvestigatorTalent
 ###Block:   Martial Artist class abilities   ===================================
 
 # Ability Name	Category of Ability		Type				Define					Add to base move											Weapon prof. bonus									Source Page
-Evade Fire		CATEGORY:Special Ability	TYPE:SpecialQuality																																SOURCEPAGE:p.
-Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FastMovementProgression|0	BONUS:MOVEADD|TYPE.Walk|FastMovementProgression*10|PREVAREQ:ENCUMBERANCE,0													SOURCEPAGE:p.
-Flurry of Blows	CATEGORY:Special Ability	TYPE:SpecialAttack																																SOURCEPAGE:p.
-Living Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:LivingWeaponProgression|0														BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|LivingWeaponProgression	SOURCEPAGE:p.
+Evade Fire		CATEGORY:Special Ability	TYPE:SpecialQuality																																SOURCEPAGE:p.98
+Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FastMovementProgression|0	BONUS:MOVEADD|TYPE.Walk|FastMovementProgression*10|PREVAREQ:ENCUMBERANCE,0													SOURCEPAGE:p.98
+#Flurry of Blows	CATEGORY:Special Ability	TYPE:SpecialAttack																																SOURCEPAGE:p.98
+Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack																																SOURCEPAGE:p.98
+Living Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:LivingWeaponProgression|0														BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|LivingWeaponProgression	SOURCEPAGE:p.98
 
 ###Block: Martial Artist Talent Trees
 # Defensive Talent Tree

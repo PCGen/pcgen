@@ -186,7 +186,7 @@ CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|A
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Martial Artist Talent|(CL+1)/2	BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Living Weapon
 2										BONUS:VAR|FastMovementProgression|(CL+2)/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement
-4																		ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+4																		ABILITY:Special Ability|AUTOMATIC|Stunning Fist
 8										BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Evade Fire
 
 

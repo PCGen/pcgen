@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  1 10:54:26 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Aug 17 20:35:47 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 ###Original Entry: Andrew Maitland
 
@@ -83,7 +83,7 @@ Instant Fame										CLASSES:Acolyte=4				SCHOOL:Illusion																				CO
 Instant Identify										CLASSES:Apprentice=1|Acolyte=1	SCHOOL:Divination																				COMPS:V, S, M/DF		CASTTIME:Full-round action	RANGE:Touch			TARGETAREA:One touched object																							DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No
 Itchy Trigger Finger									CLASSES:Apprentice=3			SCHOOL:Transmutation																			COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:Until surprise-round attack is made or 5 minutes/level (see text)		SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
 Jargon											CLASSES:Acolyte=1|Apprentice=0	SCHOOL:Divination																				COMPS:V, S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:5 minutes/level										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
-Jump												CLASSES:Apprentice=1			SCHOOL:Transmutation															TYPE:Arcane			COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes				DESC:Subject gets bonus on Jump checks.																																														BONUS:SKILL|Jump|10*(min(3,(%CHOICE+1)/2																										CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Choose caster level	SOURCEPAGE:p.	TEMPDESC:Grants Jump bonus
+Jump												CLASSES:Apprentice=1			SCHOOL:Transmutation															TYPE:Arcane			COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes				DESC:Subject gets bonus on Jump checks.																																														BONUS:SKILL|Jump|10*(min(3,(%CHOICE+1)))/2																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Choose caster level	SOURCEPAGE:p.	TEMPDESC:Grants Jump bonus
 #BONUS:WEAPON doesn't support CRITRANGEDOUBLE at this time
 #Keen Edge will have to wait.  Otherwise it would get:
 #BONUS:WEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit|PREAPPLY:Weapon
