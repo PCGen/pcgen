@@ -86,3 +86,20 @@ FEAT:Improved Critical (Bite)
 FEAT:Armor Proficiency (Barding)	FREE:YES
 GEAR:Barding (Chain Shirt)	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS2A
 STAT:STR=16|DEX=14|CON=14|INT=8|WIS=12|CHA=10
+
+# Giants:
+
+STARTPACK:Default Giant Rock (Huge)		TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
+GEAR:Giant Rock (Huge)				SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Giant Rock (Large)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
+GEAR:Giant Rock (Large)				SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Giant Rock (Fire)		TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
+GEAR:Giant Rock (Fire Giant)			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Giant Rock (Stone)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
+GEAR:Giant Rock (Stone Giant)			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Giant Rock (Cloud)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
+GEAR:Giant Rock (Cloud Giant)			SIZE:PC	LOCATION:Carried

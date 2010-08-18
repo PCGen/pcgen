@@ -8,8 +8,8 @@ SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCE
 
 ###Block: Mod
 #Modifier Name					Output Name		Naming Option	Unique Key		Type		Visible		Type granted		Source Page		Required Type	Var. Min. Value			Var. Max. Value						Stat bonus			Modify VAR													Special Property																																																																																																					Choose						Nb of Charges	Define
-# Modifier Name	Unique Key		Naming Option		Source Page		Special Property
-SCP_STD.MOD					NAMEOPT:TEXT=Scope	SOURCEPAGE:p.76
+# Modifier Name	Unique Key		Output Name		Naming Option	Source Page		Special Property
+SCP_STD.MOD					NAMEOPT:TEXT=Scope				SOURCEPAGE:p.76
 
 Vehicle		KEY:AAVEHICLE	NAMEOPT:NOTHING					SPROP:Crew: %|vcrew	SPROP:Pass: %|vpass	SPROP:Pass: 0|PREVAREQ:vpass,0	SPROP:Cargo: % lbs.|vcargo	SPROP:Cargo: none|PREVAREQ:vcargo,0	SPROP:Init: %|vinit	SPROP:Init:+0|PREVAREQ:vinit,0	SPROP:Maneuver: %|vmaneuver	SPROP:Maneuver:+0|PREVAREQ:vmaneuver,0	SPROP:Top Speed: %(%)|max(v_max_speed,vt_speed)|max(v_max_speed/10,vt_speed/10)	SPROP:Defense: %|vdefense	SPROP:Hardness: %|vhard	SPROP:hp %|vhpee	SPROP:Size:S|PREVAREQ:vsize,3	SPROP:Size:M|PREVAREQ:vsize,4	SPROP:Size:L|PREVAREQ:vsize,5	SPROP:Size:H|PREVAREQ:vsize,6	SPROP:Size:G|PREVAREQ:vsize,7	SPROP:Size:C|PREVAREQ:vsize,8
 

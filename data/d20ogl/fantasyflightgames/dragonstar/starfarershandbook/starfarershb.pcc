@@ -31,18 +31,11 @@ COPYRIGHT:PCGen dataset conversion for Dragonstar: Starfarer's Handbook Copyrigh
 #ABILITYCATEGORY:starfarershb_ability_category.lst
 BIOSET:starfarershb_biosettings.lst
 
-DEITY:starfarershb_deities.lst
 CLASS:starfarershb_classes_mods.lst
 CLASS:starfarershb_classes_base.lst
 CLASS:starfarershb_classes_prestige.lst
 CLASS:starfarershb_classes_npc.lst
-FEAT:starfarershb_feats.lst
-FEAT:starfarershb_feats_hidden.lst
-LANGUAGE:starfarershb_languages.lst
-RACE:starfarershb_races.lst
-SKILL:starfarershb_skills.lst
-SPELL:starfarershb_spells.lst
-TEMPLATE:starfarershb_templates.lst
+DEITY:starfarershb_deities.lst
 
 EQUIPMENT:starfarershb_equip.lst
 EQUIPMENT:starfarershb_equip_armorshields.lst
@@ -50,8 +43,22 @@ EQUIPMENT:starfarershb_equip_weap_melee.lst
 EQUIPMENT:starfarershb_equip_weap_ranged.lst
 EQUIPMENT:starfarershb_equip_weap_ammo.lst
 EQUIPMENT:starfarershb_equip_mech.lst
-WEAPONPROF:starfarershb_weapprofs.lst
+
+
+FEAT:starfarershb_feats.lst
+FEAT:starfarershb_feats_hidden.lst
+
+LANGUAGE:starfarershb_languages.lst
 ARMORPROF:starfarershb_profs_armor.lst
+
+
+RACE:starfarershb_races.lst
+SKILL:starfarershb_skills.lst
+
+SPELL:starfarershb_spells.lst
+TEMPLATE:starfarershb_templates.lst
+
+WEAPONPROF:starfarershb_weapprofs.lst
 EQUIPMOD:starfarershb_equipmods.lst
 
 

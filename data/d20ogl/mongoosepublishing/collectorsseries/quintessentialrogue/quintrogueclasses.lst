@@ -12,7 +12,7 @@ CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Mo
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Court Protocol)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Tumble
 1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
-1	AUTO:WEAPONPROF|Mace[PRESIZEGTEQ:S]
+1	AUTO:WEAPONPROF|Mace (Light)[PRESIZEGTEQ:S]
 ###Block: Normal Level Progression
 1	SAB:Agent of the Crown	SAB:Smooth Talker		BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence
 2	SAB:Friends in Low Places

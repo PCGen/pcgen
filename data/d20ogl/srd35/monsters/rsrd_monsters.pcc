@@ -30,6 +30,9 @@ CLASS:rsrd_classes_monsters_specific.lst
 
 COMPANIONMOD:rsrd_companionmods_monsters.lst
 
+EQUIPMENT:rsrd_equipment_racial.lst
+WEAPONPROF:rsrd_profs_racial.lst
+
 FEAT:rsrd_feats_mods.lst
 
 KIT:rsrd_kits_races__companions.lst

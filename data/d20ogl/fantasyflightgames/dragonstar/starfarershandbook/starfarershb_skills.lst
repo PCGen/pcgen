@@ -26,11 +26,11 @@ Craft (Metallurgy)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technica
 Craft (Pharmaceuticals)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.71
 Craft (Printing)				KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.71
 Craft (Robotics)				KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.71	BONUS:SKILL|Craft (Robotics)|-2|!PREITEM:1,Toolkit (Specialized-Robotics),Toolkit (MasterworkSpecialized-Robotics)
-Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
-Knowledge (Biology)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
-Knowledge (Chemistry)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
-Knowledge (Mathematics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
-Knowledge (Physics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
+Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Science.Intelligence.Knowledge							SOURCEPAGE:p.75
+#Knowledge (Biology)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
+#Knowledge (Chemistry)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
+#Knowledge (Mathematics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
+#Knowledge (Physics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science							SOURCEPAGE:p.75
 Profession (Accountant)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Attorney)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Banker)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77

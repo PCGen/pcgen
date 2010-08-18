@@ -7,6 +7,8 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #				dlm1065
 #
 #
+Fly.MOD				BONUS:MOVEADD|TYPE.Fly|60|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Fly|-20|PREVARGTEQ:ENCUMBRANCE,1,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|PREAPPLY:ANYPC
+
 
 #Righteous Might Temp. Bonus: Can't change Face and Reach, as they are Race only tags; DAMAGESIZE will increase on all weapons,
 # but thrown weapons when leaving the hand should only deal normal damage. I don't see a workaround for this. -- Frank
