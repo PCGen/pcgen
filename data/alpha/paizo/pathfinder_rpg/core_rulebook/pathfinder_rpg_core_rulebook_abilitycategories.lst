@@ -89,4 +89,14 @@ ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ###Block: Prestige Classes --------------------------
 
 
+# Master Category
+ABILITYCATEGORY:Intelligent Item											CATEGORY:Intelligent Item						VISIBLE:NO
+
+# Child Categories
+ABILITYCATEGORY:Intelligent Item Alignment		PLURAL:Intelligent Item Alignment		CATEGORY:Intelligent Item	TYPE:IntelligentAlignment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Languages		PLURAL:Intelligent Item Languages		CATEGORY:Intelligent Item	TYPE:IntItemLang			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Power			PLURAL:Intelligent Item Power			CATEGORY:Intelligent Item	TYPE:ItemStandardPower		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose			PLURAL:Intelligent Item Purpose		CATEGORY:Intelligent Item	TYPE:ItemPurpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose Power		PLURAL:Intelligent Item Purpose Power	CATEGORY:Intelligent Item	TYPE:ItemPurposePower		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+
 
