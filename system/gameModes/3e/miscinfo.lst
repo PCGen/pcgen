@@ -165,19 +165,19 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 #ACTYPE:Shield		ADD:EQTYPE.Shield
 ACTYPE:Total				ADD:TOTAL
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
-ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|ArmorShield|ArmorShieldEnhancement|NaturalArmorEnhancement
 ACTYPE:Base					ADD:Base
-ACTYPE:Armor				ADD:Armor|ArmorEnhancement|ArmorShield|ShieldEnhancement
+ACTYPE:Armor				ADD:Armor|ArmorEnhancement|ArmorShield|ArmorShieldEnhancement
 ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
-ACTYPE:ArmorShield			ADD:ArmorShield|ShieldEnhancement
-ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+ACTYPE:ArmorShield			ADD:ArmorShield|ArmorShieldEnhancement
+ACTYPE:ArmorShieldEnhancement		ADD:ArmorShieldEnhancement
 ACTYPE:Ability				ADD:Ability
 ACTYPE:Size					ADD:Size
 ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Dodge				ADD:Dodge
 ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorShield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ArmorShieldEnhancement|ArmorEnhancement
 ACTYPE:Circumstance			ADD:Circumstance
 ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
