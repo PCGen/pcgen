@@ -1796,6 +1796,41 @@
 
 <!-- New Stuff -->
 |%|
+<!-- START Intelligent Item Table -->
+|IIF(count("ABILITIES";"CATEGORY=Intelligent Item";"TYPE=IntelligentItemOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+	<table width="100%" cellspacing="0" cellpadding="2" summary="Intelligent Item Table">
+	<tr>
+		<th bgcolor="black" align="center" class="ab" colspan="2"><b>Intelligent Item Statistics and Powers</b></th>
+		</tr>
+|FOR,%intelligentItem,0,count("ABILITIES","CATEGORY=Intelligent Item","TYPE=IntelligentItemOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%intelligentItem,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+	<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+<td valign="top" width="30%" class="font8" align="right">[|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%intelligentItem,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.DESC|</td>
+	</tr>
+|ENDFOR|
+	</table>
+|ENDIF|
+<!-- STOP Intelligent Item Table -->
+
+
+
+
 <!-- START 4e At-Will Powers Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="AtWill Table">
