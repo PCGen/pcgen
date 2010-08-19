@@ -354,7 +354,7 @@
 						<xsl:apply-templates select="traits"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
-
+						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
 						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
 						<xsl:apply-templates select="charcreations"/>
@@ -385,12 +385,6 @@
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
 						<xsl:apply-templates select="powers_utilities"/>	
-
-
-
-
-
-
 						<!-- End 4th Edition Style -->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
@@ -4841,6 +4835,23 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+			<!--
+====================================
+====================================
+	TEMPLATE - Intelligent Magic Item
+====================================
+====================================-->
+	<xsl:template match="intelligent_items">
+		<xsl:if test="count(intelligent_item) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'intelligent_items'"/>
+				<xsl:with-param name="title" select="'Intelligent Item'"/>
+				<xsl:with-param name="list" select="intelligent_item"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	
 <!--> ECLIPSE Addons -->
 	<!--
@@ -4860,6 +4871,7 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
 	<!--
 ====================================
 ====================================
