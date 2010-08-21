@@ -34,7 +34,7 @@ Bracers of Arrow Deflection												TYPE:Magic.Wondrous.Bracer	COST:14000	SLO
 Bracers of Arrow Deflection (Greater)	OUTPUTNAME:Bracers of Arrow Deflection, Greater		TYPE:Magic.Wondrous.Bracer	COST:54400	SLOTS:2				SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|Deflect Arrows	SPELLS:Bracers of Arrow Deflection (Greater)|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=9|Wind Wall
 Bracers of Obfuscation													TYPE:Magic.Wondrous.Bracer	COST:44950	SLOTS:2	EQMOD:SHDW		SOURCEPAGE:p.68							SPELLS:Bracers of Obfuscation|TIMES=4|TIMEUNIT=Day|CASTERLEVEL=5|Obscuring Mist			BONUS:COMBAT|AC|2|TYPE=Armor
 Bracers of Reverberation												TYPE:Magic.Wondrous.Bracer	COST:20160	SLOTS:2				SOURCEPAGE:p.68							SPELLS:Bracers of Reverberation|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=7|Shout,16
-Bracers of Shattering Silence												TYPE:Magic.Wondrous.Bracer	COST:30160	SLOTS:2	EQMOD:SLNT_MV	SOURCEPAGE:p.68							SPELLS:Bracers of Shattering Silence|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=10|Sound Burst		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Armor|PREABILITY:1,CATEGORY=FEAT,Sneak Attack,Death Attack	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE|PREMULT:2,[PREDEITY:1,Cadic],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack,Death Attack]
+Bracers of Shattering Silence												TYPE:Magic.Wondrous.Bracer	COST:30160	SLOTS:2	EQMOD:SLNT_MV	SOURCEPAGE:p.68							SPELLS:Bracers of Shattering Silence|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=10|Sound Burst		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Armor|PREABILITY:1,CATEGORY=FEAT,Sneak Attack,Death Attack	BONUS:COMBAT|AC|2|TYPE=Armor|PREMULT:2,[PREDEITY:1,Cadic],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack,Death Attack]
 Bracers of Shattering Silence (Greater)	OUTPUTNAME:Bracers of Shattering Silence, Greater	TYPE:Magic.Wondrous.Bracer	COST:123550	SLOTS:2	EQMOD:SLNT_MV_GRT	SOURCEPAGE:p.68							SPELLS:Bracers of Shattering Silence|TIMES=ATWILL|CASTERLEVEL=15|Sound Burst				BONUS:COMBAT|AC|5|TYPE=Armor
 #Comment: Unable to apply different eqmod if venerating a diety - Improved Silent Moves if worshipper of Cadic
 Bracers of Spell Deflection												TYPE:Magic.Wondrous.Bracer	COST:75000	SLOTS:2				SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|Deflect Arrows
@@ -72,7 +72,7 @@ Cup of the Mendicant										TYPE:Magic.Wondrous		COST:2700	SOURCEPAGE:p.74
 ###Block: D --------------------------------------------------------------------------------------------
 # Equipment Name				Product Identity?	Type					Cost		Source Page		Spell Res.	Innate Spells												Combat bonus						Special ABility
 Decanter of Copious Libations					TYPE:Magic.Wondrous		COST:20000	SOURCEPAGE:p.74
-Demon-Hide Cloak							TYPE:Magic.Wondrous.Cape	COST:176000	SOURCEPAGE:p.75	SR:21		SPELLS:Demon-Hide Cloak|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Fear				BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	SAB:Acid, Cold, Fire Resistance 10
+Demon-Hide Cloak							TYPE:Magic.Wondrous.Cape	COST:176000	SOURCEPAGE:p.75	SR:21		SPELLS:Demon-Hide Cloak|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Fear				BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement	SPROP:Acid, Cold, Fire Resistance 10
 Devilskin Knot							TYPE:Magic.Wondrous		COST:72000	SOURCEPAGE:p.75
 #COMMENT: Duplicated Psionic items found 'forgedmagic_equip_psionic.lst'
 #Diadem of the Mental Clarity +1				TYPE:Magic.Wondrous.Headgear	COST:667	SOURCEPAGE:p.75	BONUS:CHECKS|Will|1|TYPE=Insight

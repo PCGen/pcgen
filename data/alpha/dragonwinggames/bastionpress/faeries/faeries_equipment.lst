@@ -63,7 +63,7 @@ Dust (LVL 4 - Pal Rng)			COST:28000
 
 ###Block: Traditional Magical Items
 # Equipment Name						Product Identity?	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier						Maximum DEX Bonus	Source Page				% of Spell Failure	Innate Spells									Combat bonus
-Ironwood Plate Armor of Fire Protection					PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard.MediumItem	COST:78000	WT:50		ACCHECK:-6		EQMOD:IRONWOOD					MAXDEX:1		SOURCEPAGE:Equipment.rtf	SPELLFAILURE:35													BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Ironwood Plate Armor of Fire Protection					PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard.MediumItem	COST:78000	WT:50		ACCHECK:-6		EQMOD:IRONWOOD					MAXDEX:1		SOURCEPAGE:Equipment.rtf	SPELLFAILURE:35													BONUS:COMBAT|AC|8|TYPE=Armor
 
 
 Leather.COPY=Leather Armor of the Sprite
@@ -71,7 +71,7 @@ Leather.COPY=Pine Needle Armor of Anadahrl
 Leather.COPY=Scurry's Dampending Mushroom Armor
 Leather Armor of the Sprite.MOD											TYPE:MediumItem					COST:16160						EQMOD:PLUS2A																	SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=6|Fly
 Pine Needle Armor of Anadahrl.MOD											TYPE:MinorItem					COST:40800																									SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=11|Wall of Thorns
-Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES						TYPE:MinorItem					COST:35000						EQMOD:FAERIES_PLNT_LEAF.FAERIES_DAMPEN																								BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES						TYPE:MinorItem					COST:35000						EQMOD:FAERIES_PLNT_LEAF.FAERIES_DAMPEN																								BONUS:COMBAT|AC|2|TYPE=Armor
 
 ###Block: Misc
 # Equipment Name				Output Name				Type					Cost		Modifier				Save checks bonus				Combat bonus			Special Property

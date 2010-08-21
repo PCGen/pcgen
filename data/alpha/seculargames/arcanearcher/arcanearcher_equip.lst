@@ -13,7 +13,7 @@ Metamorphic Stick	TYPE:Ammuntion.Magic.Bolt.Arrow.Bullet	COST:350	SOURCEPAGE:p.3
 
 ###BLOCK: Armor
 # Equipment Name	Type						Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Innate Spells													Combat bonus
-Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT	MAXDEX:4		SOURCEPAGE:p.3	SPELLFAILURE:20		SPELLS:Magic Item|TIMES=1|Heroism|Protection from Evil|Shield|PRERACE:1,Elf%,Half-Elf	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:COMBAT|AC|2|PRERACE:1,Elf%,Half-Elf
+Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT	MAXDEX:4		SOURCEPAGE:p.3	SPELLFAILURE:20		SPELLS:Magic Item|TIMES=1|Heroism|Protection from Evil|Shield|PRERACE:1,Elf%,Half-Elf	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|2|PRERACE:1,Elf%,Half-Elf
 
 ###BLOCK: Ring
 # Equipment Name			Type			Cost		Source Page		Virtual Feat
@@ -25,7 +25,7 @@ Rod (Hunter Might)	OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Longbow	TYPE:Magi
 
 ###BLOCK: Shield
 # Equipment Name		Required Shield Proficiency		Type					Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Size		Source Page		% of Spell Failure	Innate Spells								Combat bonus
-The Silver Guardian	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:18770	WT:15		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:ANMATD.MITHRAL_SHLD.PLUS2S.STEEL	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3x	SPELLFAILURE:15		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Lightning Bolt,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+The Silver Guardian	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:18770	WT:15		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:ANMATD.MITHRAL_SHLD.PLUS2S.STEEL	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3x	SPELLFAILURE:15		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Lightning Bolt,14	BONUS:COMBAT|AC|2|TYPE=Shield
 
 ###BLOCK: Wondrous
 # Equipment Name			Type					Contains								Cost		Modifier				Source Page		Weapon prof. bonus

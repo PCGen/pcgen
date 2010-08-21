@@ -67,17 +67,17 @@ Thistle Arrow	TYPE:Ammunition.Standard.Arrow.Individual		COST:1	WT:0.15	BASEQTY:
 ###Block: Armor
 #Light Armor
 # Equipment Name	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier					Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Armored Kilt	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard		COST:20	WT:10		ACCHECK:0		EQMOD:STEEL					MAXDEX:6		SOURCEPAGE:p.211					BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
-Rosewood		PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:50	WT:15		ACCHECK:0		EQMOD:LEATHER				MAXDEX:6		SOURCEPAGE:p.211	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
-Leaf			PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:500	WT:0		ACCHECK:0		EQMOD:LEATHER	EQMOD:MWORKA	MAXDEX:8		SOURCEPAGE:p.211	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Armored Kilt	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard		COST:20	WT:10		ACCHECK:0		EQMOD:STEEL					MAXDEX:6		SOURCEPAGE:p.211					BONUS:COMBAT|AC|1|TYPE=Armor
+Rosewood		PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:50	WT:15		ACCHECK:0		EQMOD:LEATHER				MAXDEX:6		SOURCEPAGE:p.211	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor
+Leaf			PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:500	WT:0		ACCHECK:0		EQMOD:LEATHER	EQMOD:MWORKA	MAXDEX:8		SOURCEPAGE:p.211	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor
 
 #Heavy Armor
-Field Plate		PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard		COST:1200	WT:50		ACCHECK:-6								MAXDEX:2		SOURCEPAGE:p.211	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
-Stoneplate		PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard		COST:1800	WT:75		ACCHECK:-8								MAXDEX:0		SOURCEPAGE:p.211	SPELLFAILURE:40		BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE
+Field Plate		PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard		COST:1200	WT:50		ACCHECK:-6								MAXDEX:2		SOURCEPAGE:p.211	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Stoneplate		PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard		COST:1800	WT:75		ACCHECK:-8								MAXDEX:0		SOURCEPAGE:p.211	SPELLFAILURE:40		BONUS:COMBAT|AC|9|TYPE=Armor
 
 ###Block: Shields
 # Equipment Name	Required Shield Proficiency		Type					Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
-Klar (as Shield)	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard	COST:12	WT:6		ACCHECK:-1		SOURCEPAGE:p.211	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Klar (as Shield)	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard	COST:12	WT:6		ACCHECK:-1		SOURCEPAGE:p.211	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 
 ###Block: Gear
 # Equipment Name			Output Name				Type				Contains			Cost		Weight	Source Page

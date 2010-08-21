@@ -3,7 +3,7 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 
 ###Block: Dark Folk Equipment
 # Equipment Name			Output Name			Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus								Special Property
-Rag Armor (Dark Creeper)	OUTPUTNAME:Rag Armor	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		MODS:NO			SIZE:S	SOURCEPAGE:p.53	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE|PRERACE:1,Dark Creeper
+Rag Armor (Dark Creeper)	OUTPUTNAME:Rag Armor	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		MODS:NO			SIZE:S	SOURCEPAGE:p.53	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor|PRERACE:1,Dark Creeper
 Poison (Black Smear)		OUTPUTNAME:[NAME]							TYPE:Goods.Poison.Consumable					WT:0																	SOURCEPAGE:p.54															SPROP:Injury; save Fort DC 15; frequency 1/round for 6 rounds; effect 1d2 Str; cure 1 save
 
 ###Block: Derro Equipment
@@ -24,7 +24,7 @@ Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	W
 #Broken Scimitar										PROFICIENCY:WEAPON|Scimitar			TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy.Broken													COST:0	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL											WIELD:OneHanded								SIZE:M	SOURCEPAGE:p.250		BONUS:WEAPON|TOHIT|-min(0,STR)|TYPE=Enhancement
 
 # Equipment Name									Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-#Broken Chain Shirt									PROFICIENCY:ARMOR|Chain Shirt		TYPE:Armor.Light.Suit.Standard.Broken		COST:0	WT:25		ACCHECK:-2		EQMOD:STEEL			MAXDEX:4		SOURCEPAGE:p.250	SPELLFAILURE:20		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+#Broken Chain Shirt									PROFICIENCY:ARMOR|Chain Shirt		TYPE:Armor.Light.Suit.Standard.Broken		COST:0	WT:25		ACCHECK:-2		EQMOD:STEEL			MAXDEX:4		SOURCEPAGE:p.250	SPELLFAILURE:20		BONUS:COMBAT|AC|2|TYPE=Armor
 
 
 #

@@ -816,7 +816,7 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 ###Block: Normal progression
 1														ABILITY:Special Ability|VIRTUAL|Damage Reduction Ability|Natural Armor Ability
 2														ABILITY:Special Ability|VIRTUAL|Hands of Stone
-2:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+2:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 3:REPEATLEVEL:2									BONUS:DR|-|1
 4														ABILITY:Special Ability|VIRTUAL|Absorb Blow
 5														ABILITY:Special Ability|VIRTUAL|Iron Skin Ability

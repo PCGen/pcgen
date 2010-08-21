@@ -4,11 +4,11 @@ SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http
 ###BLOCK: Armor
 # Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Required Type	Combat bonus					Special Property
 Ceramics		KEY:CERAMIC_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Armor								SPROP:Fire resistance 5
-Durasteel		KEY:DURASTEEL_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Armor	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Durasteel		KEY:DURASTEEL_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Armor	BONUS:COMBAT|AC|2|TYPE=Armor
 
 ###BLOCK: Shield
 # Modifier Name	Unique Key			Type		Cost		Visible		Source Page		Required Type	Combat bonus
-Durasteel		KEY:DURASTEEL_SHIELD	TYPE:Shield	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Shield	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Durasteel		KEY:DURASTEEL_SHIELD	TYPE:Shield	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Shield	BONUS:COMBAT|AC|2|TYPE=Shield
 
 ###BLOCK: Weapon
 # Modifier Name			Unique Key			Type		Cost		Visible		Type granted	Source Page		Required Type							Bonus Weapon Modifiers		Weapon prop. bonus			Special Property

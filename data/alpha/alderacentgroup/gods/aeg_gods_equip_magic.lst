@@ -3,8 +3,8 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Armor and Shields
 # Equipment Name	Required Shield Proficiency	Type						Cost		Weight	Slot Needed	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
-Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:PLUS3S.WOOD				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
-Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25				ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
+Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:PLUS3S.WOOD				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25				ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor
 
 ###Block: Weapons
 # Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
