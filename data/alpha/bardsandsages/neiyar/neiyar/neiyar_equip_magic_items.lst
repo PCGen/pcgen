@@ -21,8 +21,8 @@ Potion (Bodily Efficiency)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.P
 Potion (Complex Thought)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:800	WT:0																																			SOURCEPAGE:pg.78
 
 ### Armor & Shields:
-Demonbane Shield																					TYPE:Enhancement.Shield.Heavy.Specific					COST:25000	WT:15																					EQMOD:MWORKA.PLUS1S.STEEL										SOURCEPAGE:pg.79																				BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
-Ghost Armor																						TYPE:Armor.Light.Suit.Specific.Nonmetal					COST:36000	WT:15				ACCHECK:0																EQMOD:GHOST_A.PLUS1A						MAXDEX:6				SOURCEPAGE:pg.79	SPELLFAILURE:5																	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Demonbane Shield																					TYPE:Enhancement.Shield.Heavy.Specific					COST:25000	WT:15																					EQMOD:MWORKA.PLUS1S.STEEL										SOURCEPAGE:pg.79																				BONUS:COMBAT|AC|2|TYPE=Shield
+Ghost Armor																						TYPE:Armor.Light.Suit.Specific.Nonmetal					COST:36000	WT:15				ACCHECK:0																EQMOD:GHOST_A.PLUS1A						MAXDEX:6				SOURCEPAGE:pg.79	SPELLFAILURE:5																	BONUS:COMBAT|AC|2|TYPE=Armor
 
 #Charm Arrows									TYPE:Enhancement.Ammunition.SpecificArrow.Individual							COST:250	WT:0																				EQMOD:STEEL.WOOD																				SOURCEPAGE:pg.80
 Charm Arrow (Sleep)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
@@ -78,17 +78,17 @@ Capalaquen					NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword													TYPE:Magic
 The Skeleton Key				NAMEISPI:YES																		TYPE:Magic.Artifact																																								SOURCEPAGE:pg.85
 
 ###Krakodonian Artifacts:
-The Shield of Madruk'thayunkon	NAMEISPI:YES												PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Artifact.Enhancement.Shield.Heavy.Specific					WT:15															EQMOD:MWORKA.PLUS4S.SPELL_RES_17.STEEL									SOURCEPAGE:pg.85												BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+The Shield of Madruk'thayunkon	NAMEISPI:YES												PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Artifact.Enhancement.Shield.Heavy.Specific					WT:15															EQMOD:MWORKA.PLUS4S.SPELL_RES_17.STEEL									SOURCEPAGE:pg.85												BONUS:COMBAT|AC|2|TYPE=Shield
 ###COMMENT: +4 War Shield SR:17
 The Sword of Krofgrog'Nigtrok		NAMEISPI:YES	PROFICIENCY:WEAPON|Scimitar													TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8	EQMOD:KEEN.PLUS3W.STEEL.WOUND			WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
 ###COMMENT: +3 keen wounding scimitar
-Voklod'hapthuk's Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Leather							TYPE:Magic.Artifact.Armor.Light.Suit.Specific.Nonmetal				WT:15		ACCHECK:0												EQMOD:PLUS4A								MAXDEX:6				SOURCEPAGE:pg.85	SPELLFAILURE:5									BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Voklod'hapthuk's Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Leather							TYPE:Magic.Artifact.Armor.Light.Suit.Specific.Nonmetal				WT:15		ACCHECK:0												EQMOD:PLUS4A								MAXDEX:6				SOURCEPAGE:pg.85	SPELLFAILURE:5									BONUS:COMBAT|AC|2|TYPE=Armor
 ###COMMENT: +4 Leather DR:10 vs. Electricity, Fire, Cold, Immune Mind-Affecting		-SPROP? Don't want to get to descriptive do we? -AM
 
 ###Amphikin Artifacts
 Obar's Scepter				NAMEISPI:YES	PROFICIENCY:WEAPON|Mace (Light)												TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BANE_M.PLUS4W.STEEL			WIELD:Light					SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 ###COMMENT: +4 bane light mace
-Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE|PRERACE:1,Amphikin
+Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor|PRERACE:1,Amphikin
 ###CLARIFY:+10 more to Armor for total of +14 or total of +10? -- Andrew
 
 ###Block: Appendix Items pg 139 - 143:
@@ -99,7 +99,7 @@ Auronne Flute			NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Flute								TYPE:
 Auronne Tambourine		NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Tambourine							TYPE:Goods.Tools.Instrument.Percussion.Resizable.Weapon.Melee.Exotic.Slashing												COST:150								CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL	WIELD:Light								SOURCEPAGE:pg.140
 Bicycle																										TYPE:Goods																							COST:10	WT:20																																									SOURCEPAGE:pg.140
 Blue Kelp																										TYPE:Goods																							COST:0.5																																										SOURCEPAGE:pg.140
-Buckler (Clockwork Beetle)																	PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard																				COST:350	WT:5		SLOTS:0	ACCHECK:0																									EQMOD:STEEL										SOURCEPAGE:pg.140	SPELLFAILURE:3		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Buckler (Clockwork Beetle)																	PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard																				COST:350	WT:5		SLOTS:0	ACCHECK:0																									EQMOD:STEEL										SOURCEPAGE:pg.140	SPELLFAILURE:3		BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Celetrine Moss																									TYPE:Goods																							COST:0.01																																										SOURCEPAGE:pg.140
 Chicle (Chewing Gum)																								TYPE:Goods.Food																						COST:0.03																																										SOURCEPAGE:pg.140
 Choke Wire																										TYPE:Goods.Weapon.Melee																					COST:1																									DAMAGE:1d4					EQMOD:STEEL	WIELD:Light								SOURCEPAGE:pg.140
@@ -110,7 +110,7 @@ Gespurn Moss																									TYPE:Goods																							COST:10			
 Groa Rose Oil			NAMEISPI:YES																				TYPE:Goods																							COST:10																																										SOURCEPAGE:pg.141
 Insect Repellent																									TYPE:Goods																							COST:0.10																																										SOURCEPAGE:pg.141
 Scimitar (Krakodon)		NAMEISPI:YES	OUTPUTNAME:Krakodonian Scimitar	PROFICIENCY:WEAPON|Scimitar (Krakodon)							TYPE:Weapon.Exotic.Melee.Standard.Slashing.Sword																COST:1000	WT:4							CRITMULT:x2			CRITRANGE:3												DAMAGE:2d6					EQMOD:STEEL	WIELD:OneHanded					SIZE:L	SOURCEPAGE:pg.141
-Krakodonian War Shield		NAMEISPI:YES														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard																				COST:100	WT:0				ACCHECK:-2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL	WIELD:OneHanded					SIZE:M	SOURCEPAGE:pg.141	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Krakodonian War Shield		NAMEISPI:YES														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard																				COST:100	WT:0				ACCHECK:-2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL	WIELD:OneHanded					SIZE:M	SOURCEPAGE:pg.141	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
 Masterwork Field Doctor's Kit																							TYPE:Goods.Tools.SurgeryTools																				COST:500	WT:0																																									SOURCEPAGE:pg.142
 Mahaulta Bone Whip		NAMEISPI:YES							PROFICIENCY:WEAPON|Whip										TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Subdual.Slashing															COST:3	WT:0							CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:BONE	WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:pg.141
 Mahaulta Monster Lure		NAMEISPI:YES																				TYPE:Goods																							COST:200	WT:0																																									SOURCEPAGE:pg.142
