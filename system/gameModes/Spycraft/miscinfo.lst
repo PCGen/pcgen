@@ -160,18 +160,30 @@ CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total		ADD:TOTAL
-ACTYPE:Flatfooted		ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
-ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor
-ACTYPE:Base			ADD:Base
-ACTYPE:Armor		ADD:Armor		REMOVE:EQTYPE.Shield
-ACTYPE:Shield		ADD:EQTYPE.Shield
-ACTYPE:Ability		ADD:Ability
-ACTYPE:Size			ADD:Size
-ACTYPE:NaturalArmor	ADD:NaturalArmor
-ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor
-ACTYPE:ClassDefense	ADD:ClassDefense
-ACTYPE:Dodge		ADD:Dodge
+ACTYPE:Total				ADD:TOTAL
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Base					ADD:Base
+ACTYPE:Armor				ADD:Armor|ArmorEnhancement
+ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
+ACTYPE:Shield				ADD:Shield|ShieldEnhancement
+ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+ACTYPE:Ability				ADD:Ability
+ACTYPE:Size					ADD:Size
+ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection				ADD:Deflection
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
+ACTYPE:Circumstance			ADD:Circumstance
+ACTYPE:Insight				ADD:Insight
+ACTYPE:Morale				ADD:Morale
+ACTYPE:Profane				ADD:Profane
+ACTYPE:Sacred				ADD:Sacred
+ACTYPE:ClassDefense			ADD:ClassDefense
+
+
+
 
 # Damage die changes on size
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,2d8,4d6,4d8	DOWN:1,0
