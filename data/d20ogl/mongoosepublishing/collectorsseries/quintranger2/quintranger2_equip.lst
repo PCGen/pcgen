@@ -32,10 +32,10 @@ Whistle (Silent Dog)		OUTPUTNAME:Whistle, [NAME]		TYPE:Goods.General		COST:10	WT
 
 ###Block: Specific Armour and Shields
 # Equipment Name	Required Armor Proficiency	Required Shield Proficiency		Type							Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier								Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Innate Spells							Combat bonus
-Razor Shield						PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard			COST:26432	WT:5		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS1S.QRII_RETURN_SHLD.QRII_THROW_SHLD.WOOD	WIELD:Light					SIZE:M	SOURCEPAGE:p.91	SPELLFAILURE:5											BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Razor Shield						PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard			COST:26432	WT:5		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS1S.QRII_RETURN_SHLD.QRII_THROW_SHLD.WOOD	WIELD:Light					SIZE:M	SOURCEPAGE:p.91	SPELLFAILURE:5											BONUS:COMBAT|AC|1|TYPE=Shield
 #Comment: Shield Type not specified - using Light Wood for now
-Salmon Scale	PROFICIENCY:ARMOR|Scale Mail							TYPE:Armor.Medium.Suit.Standard		COST:54860	WT:30		ACCHECK:-4												EQMOD:PLUS2A.QRII_BUOYANT_GRT_ARMR.STEEL						MAXDEX:3				SOURCEPAGE:p.91	SPELLFAILURE:25											BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
-Sylvan Armour	PROFICIENCY:ARMOR|Leather							TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:19560	WT:15		ACCHECK:0												EQMOD:LEATHER.PLUS1A									MAXDEX:6				SOURCEPAGE:p.91	SPELLFAILURE:10		SPELLS:Sylvan Armour|TIMES=1|CASTERLEVEL=15|Barkskin	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Salmon Scale	PROFICIENCY:ARMOR|Scale Mail							TYPE:Armor.Medium.Suit.Standard		COST:54860	WT:30		ACCHECK:-4												EQMOD:PLUS2A.QRII_BUOYANT_GRT_ARMR.STEEL						MAXDEX:3				SOURCEPAGE:p.91	SPELLFAILURE:25											BONUS:COMBAT|AC|4|TYPE=Armor
+Sylvan Armour	PROFICIENCY:ARMOR|Leather							TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:19560	WT:15		ACCHECK:0												EQMOD:LEATHER.PLUS1A									MAXDEX:6				SOURCEPAGE:p.91	SPELLFAILURE:10		SPELLS:Sylvan Armour|TIMES=1|CASTERLEVEL=15|Barkskin	BONUS:COMBAT|AC|2|TYPE=Armor
 
 ###Block: Magic Weapons ---------------------------------------------------------------------------
 # Equipment Name			Required Weapon Proficiency		Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Range		Size		Source Page		Weapon prop. bonus			Special Property

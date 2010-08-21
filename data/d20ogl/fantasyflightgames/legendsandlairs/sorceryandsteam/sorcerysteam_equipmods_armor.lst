@@ -31,7 +31,7 @@ Servomotor Articulation (4)			KEY:SAS_SERVO_ARTICULATION_4	TYPE:Steamcraft	COST:
 Servomotor Articulation (6)			KEY:SAS_SERVO_ARTICULATION_6	TYPE:Steamcraft	COST:1500																																								BONUS:EQMARMOR|ACCHECK|6|TYPE=Enhancement.REPLACE
 Servomotor Articulation (8)			KEY:SAS_SERVO_ARTICULATION_8	TYPE:Steamcraft	COST:2000																																								BONUS:EQMARMOR|ACCHECK|8|TYPE=Enhancement.REPLACE
 Servomotor Articulation (10)			KEY:SAS_SERVO_ARTICULATION_10	TYPE:Steamcraft	COST:2500																																								BONUS:EQMARMOR|ACCHECK|10|TYPE=Enhancement.REPLACE
-Snap Shield						KEY:SAS_SNAP_SHIELD		TYPE:Steamcraft	COST:1000									BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE																				BONUS:EQM|WEIGHTADD|15		BONUS:EQMARMOR|ACCHECK|-2					SPROP:Spell Failure reduced by 15, Armor Check and AC reduced by 2 when Snap Shield is retracted
+Snap Shield						KEY:SAS_SNAP_SHIELD		TYPE:Steamcraft	COST:1000									BONUS:COMBAT|AC|2|TYPE=Armor																				BONUS:EQM|WEIGHTADD|15		BONUS:EQMARMOR|ACCHECK|-2					SPROP:Spell Failure reduced by 15, Armor Check and AC reduced by 2 when Snap Shield is retracted
 Sound Gatherers					KEY:SAS_SOUND_GATHERERS		TYPE:Steamcraft	COST:1000																					BONUS:SKILL|Listen|4
 Speed Enhancers (+5 ft.)			KEY:SAS_SPEED_ENHANCERS_5	TYPE:Steamcraft	COST:1000																BONUS:MOVEADD|TYPE=Walk|5
 Speed Enhancers (+10 ft.)			KEY:SAS_SPEED_ENHANCERS_10	TYPE:Steamcraft	COST:4000																BONUS:MOVEADD|TYPE=Walk|10

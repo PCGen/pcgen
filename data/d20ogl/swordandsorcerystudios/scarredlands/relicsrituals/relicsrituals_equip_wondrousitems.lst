@@ -6,7 +6,7 @@ Alluna's Lenses of Discovery 50%	NAMEISPI:YES												TYPE:Magic.Wondrous				
 Alluna's Lenses of Discovery 85%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:34500	WT:1															SOURCEPAGE:p.174
 Alluna's Lenses of Discovery 90%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:50000	WT:1															SOURCEPAGE:p.174
 Helm (Amalthean)				NAMEISPI:YES	OUTPUTNAME:[NAME] Helm								TYPE:Magic.Wondrous							COST:50000	WT:5															SOURCEPAGE:p.174-175
-Amulet (Ghost Armor)			NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:80000	WT:1															SOURCEPAGE:p.175						BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Amulet (Ghost Armor)			NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:80000	WT:1															SOURCEPAGE:p.175						BONUS:COMBAT|AC|7|TYPE=Armor
 Amulet (Love)				NAMEISPI:YES	OUTPUTNAME:Amulets of [NAME]							TYPE:Magic.Wondrous							COST:100000	WT:1															SOURCEPAGE:p.175
 Amulet (Peaceful Repose)		NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:2000	WT:0															SOURCEPAGE:p.175-176
 Artemesia's Garrote			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:12500	WT:0															SOURCEPAGE:p.176

@@ -29,7 +29,7 @@ CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
 1			SAB:Bloodletting
 2			SAB:Ignore Pain										AUTO:FEAT|Combat Casting
 3	DR:1/-	SAB:Damage Reduction 1
-4			SAB:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+4			SAB:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 5			SAB:Bloodcarving
 
 # Class Name	Hit Dice	Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR

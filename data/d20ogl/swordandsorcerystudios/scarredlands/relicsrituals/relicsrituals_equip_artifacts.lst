@@ -7,11 +7,11 @@ Amulet of Ebon Dreams	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Amulet	COST:0	WT:0	
 
 ###Block: Armor of flesh grants neg levels to any non evil characters
 # Equipment Name			Product Identity?	Type											Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			% of Spell Failure	Combat bonus					Stat bonus
-Armor of Flesh (Dwarven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2
-Armor of Flesh (Elven)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2
-Armor of Flesh (Halfling)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2
-Armor of Flesh (Half-Elven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
-Armor of Flesh (Half-Orc)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2
+Armor of Flesh (Dwarven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2
+Armor of Flesh (Elven)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2
+Armor of Flesh (Halfling)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2
+Armor of Flesh (Half-Elven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor
+Armor of Flesh (Half-Orc)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2
 
 #Armor of Graces is full plate but can be of other materials and they stack, so not mucking with it.
 Armor of Grace			NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:0	WT:0								SOURCEPAGE:p.202-203

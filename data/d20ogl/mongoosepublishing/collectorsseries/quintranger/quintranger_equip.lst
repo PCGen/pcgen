@@ -33,9 +33,9 @@ Bowstring Silencer							TYPE:Goods									COST:25																		SOURCEPAGE:
 
 ###Block: Armor --------------------------------------------------------------------------------
 # Equipment Name	Output Name				Required Armor Proficiency		Required Shield Proficiency	Type					Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Supple Leather						PROFICIENCY:ARMOR|Supple Leather						TYPE:Armor.Suit.Light.Leather	COST:20	WT:5		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.76	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
-Buff Coat							PROFICIENCY:ARMOR|Buff Coat							TYPE:Armor.Suit.Light		COST:50	WT:15		ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.75	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
-Plackart							PROFICIENCY:ARMOR|Plackart							TYPE:Armor.Suit.Light		COST:150	WT:20		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.76	SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Supple Leather						PROFICIENCY:ARMOR|Supple Leather						TYPE:Armor.Suit.Light.Leather	COST:20	WT:5		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.76	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor
+Buff Coat							PROFICIENCY:ARMOR|Buff Coat							TYPE:Armor.Suit.Light		COST:50	WT:15		ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.75	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor
+Plackart							PROFICIENCY:ARMOR|Plackart							TYPE:Armor.Suit.Light		COST:150	WT:20		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.76	SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor
 
 Buckler (Fist)	OUTPUTNAME:Buckler, Fist							PROFICIENCY:SHIELD|Buckler	TYPE:Shield.Light.Buckler			WT:3								SOURCEPAGE:p.75	SPELLFAILURE:5		BONUS:COMBAT|AC|1
 

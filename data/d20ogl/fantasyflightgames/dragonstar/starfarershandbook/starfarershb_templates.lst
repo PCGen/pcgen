@@ -27,8 +27,8 @@ Half-Dragon (Silver).MOD						SOURCEPAGE:p.28	SAB:.CLEAR			SAB:Immune to Cold	SA
 
 # Star and Space dragon are new subspecies.
 
-Half-Dragon (Space)		VISIBLE:NO				SOURCEPAGE:p.28					SAB:Immune to Cold	SAB:30 foot Cone of Space 1/day (6d10/DC 19)						PREALIGN:LN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
-Half-Dragon (Star)		VISIBLE:NO				SOURCEPAGE:p.28					SAB:Immune to Fire	SAB:30 foot Line of Radiation 1/day (6d10/dc 20)					PREALIGN:CN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+Half-Dragon (Space)		VISIBLE:NO				SOURCEPAGE:p.28					SAB:Immune to Cold	SAB:30 foot Cone of Space 1/day (6d10/DC 19)						PREALIGN:LN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+Half-Dragon (Star)		VISIBLE:NO				SOURCEPAGE:p.28					SAB:Immune to Fire	SAB:30 foot Line of Radiation 1/day (6d10/dc 20)					PREALIGN:CN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
 #Mod version of SRD male/female templates
 
 Drow Male.MOD								SOURCEPAGE:p.27																																							BONUS:STAT|CHA|2	FAVOREDCLASS:Sorcerer

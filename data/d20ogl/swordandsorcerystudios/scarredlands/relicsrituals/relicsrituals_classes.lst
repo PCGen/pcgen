@@ -40,9 +40,9 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowled
 2															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Appearance
 3									BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Resistance
 4															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Familiar
-5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|ANY
+5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							ADD:SPELLCASTER|ANY
 6															ADD:SPELLCASTER|ANY	AUTO:FEAT|Raise the Dead
-7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|ANY
+7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							ADD:SPELLCASTER|ANY
 8															ADD:SPELLCASTER|ANY	AUTO:FEAT|Create Undead
 9															ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Immunity
 10															ADD:SPELLCASTER|ANY	AUTO:FEAT|Lichdom
@@ -181,7 +181,7 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 6	CAST:0,1,1,0															AUTO:FEAT|Lightning Reflexes
 7	CAST:0,1,1,1															AUTO:FEAT|Toughness
 8	CAST:0,1,1,1,0															AUTO:FEAT|Resist Massive Damage
-9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
 10	CAST:0,2,2,1,1															AUTO:FEAT|Natural Healing
 
 ###Block: SRD CLASS .MOD SECTION
