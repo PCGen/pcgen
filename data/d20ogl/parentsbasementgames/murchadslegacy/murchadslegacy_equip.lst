@@ -14,7 +14,7 @@ Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any		COST:35	WT:400
 ###Block: Special Armor
 
 # Equipment Name	Type						Cost		Weight	AC Penalty Check	Modifier	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Special Property
-Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD:STEEL	MAXDEX:0		SOURCEPAGE:p.22	SPELLFAILURE:50		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	SPROP:This armor is designed to take a lance hit from a mounted charge. All such attacks do not do double damage as is standard, but do normal damage instead.
+Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD:STEEL	MAXDEX:0		SOURCEPAGE:p.22	SPELLFAILURE:50		BONUS:COMBAT|AC|8|TYPE=Armor	SPROP:This armor is designed to take a lance hit from a mounted charge. All such attacks do not do double damage as is standard, but do normal damage instead.
 
 ###Block: Special Weapons
 

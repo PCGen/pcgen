@@ -16,7 +16,7 @@ Phrenic (Animal)	VISIBLE:NO														SOURCEPAGE:PsionicMonsters.rtf	PRERACE:
 
 ###Block: Dromite Chitin
 # Template Name			Visible	Template																Combat bonus						Modify VAR						Ability
-Dromite Chitin			VISIBLE:NO	TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
+Dromite Chitin			VISIBLE:NO	TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK
 Cold Resist Chitin		VISIBLE:NO																										BONUS:VAR|ColdResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
 Fire Resist Chitin		VISIBLE:NO																										BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
 Electricity Resist Chitin	VISIBLE:NO																										BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity

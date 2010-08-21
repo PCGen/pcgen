@@ -9,7 +9,7 @@ CLASS:The Watcher	HD:6		TYPE:Advanced.PC	MAXLEVEL:3	SOURCEPAGE:p.4	BONUS:CHECKS|
 CLASS:The Watcher	PREFEAT:1,Occupation (Celestial)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:The Watcher	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot|Treat Injury
-1	BONUS:COMBAT|AC|(CL/2)+1|TYPE=NaturalArmor.REPLACE	BONUS:VAR|WatcherLevel|CL	DEFINE:WatcherLevel|0
+1	BONUS:COMBAT|AC|(CL/2)+1|TYPE=NaturalArmor.STACK	BONUS:VAR|WatcherLevel|CL	DEFINE:WatcherLevel|0
 2																			ADD:FEAT|TYPE=Watcher	ADD:FEAT|TYPE=WatcherResistance
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus																Combat bonus		Modify VAR

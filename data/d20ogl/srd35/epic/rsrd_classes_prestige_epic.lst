@@ -27,7 +27,7 @@ CLASS:Blackguard.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name			Max Level
 CLASS:Dragon Disciple.MOD	MAXLEVEL:NOLIMIT
-13											BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								DEFINE:EpicDDNA|0
+13											BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.STACK	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								DEFINE:EpicDDNA|0
 13																				BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)	DEFINE:EpicDDBW|0
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Dragon Disciple Feat|1
 

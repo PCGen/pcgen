@@ -162,16 +162,16 @@ SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 SUBCLASS:Silver Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
-1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
+1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
 2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|STR|2																												TEMPLATE:Dragon Disciple Attacks
 3																																BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
-4										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
+4										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|2
 5	VISION:Blindsense (30')						BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1
 6										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|CON|2
-7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDice|2
+7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDice|2
 8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
 9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
-10	VISION:Blindsense (60')|Darkvision (60')|Low-light									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
+10	VISION:Blindsense (60')|Darkvision (60')|Low-light									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus

@@ -11,7 +11,8 @@ SOURCELONG:D1: Crown of the Kobold King	SOURCESHORT:GMMD1	SOURCEWEB:http://paizo
 ## Wonderous Items
 ##
 # Equipment Name			Required Weapon Proficiency	Type															Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Caster level			Combat bonus						Stat bonus					Special Property	Special ABility
-Crown of the Kobold King						TYPE:Magic.Wondrous.Headgear											COST:15000	WT:1																									SOURCEPAGE:pg.24	BONUS:CASTERLEVEL|Sorcerer|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.Replace	BONUS:STAT|CHA|2|TYPE=Enhancement				SAB:Immune to the Frightful Presence of Dragons
+Crown of the Kobold King						TYPE:Magic.Wondrous.Headgear											COST:15000	WT:1																									SOURCEPAGE:pg.24	BONUS:CASTERLEVEL|Sorcerer|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement	BONUS:STAT|CHA|2|TYPE=Enhancement				SAB:Immune to the Frightful Presence of Dragons
+#Verify this is Ehancement Bonus to Natural Armor
 Grasp of Droskar								TYPE:Magic.Wondrous.Glove.Cursed										COST:12302	WT:1																									SOURCEPAGE:pg.12														BONUS:STAT|STR|2|TYPE=Enhancement
 
 ##

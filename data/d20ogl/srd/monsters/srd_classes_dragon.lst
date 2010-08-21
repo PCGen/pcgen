@@ -15,7 +15,7 @@ CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 1	BONUS:VAR|BreathWeaponDC|14	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 ###Block: Normal Progression
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 7																							BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|2
 10																							BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|3
 13																							BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|4						ABILITY:Special Ability|AUTOMATIC|Darkness
@@ -52,7 +52,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 1	BONUS:VAR|BreathWeaponDC|14	BONUS:VAR|BreathWeaponDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 ###Block: Normal Progression
 1																																					ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 9																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
 12																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3
 15															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Sound Imitation
@@ -84,7 +84,7 @@ CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Gas
 ###Block: Normal Progression
-2		BONUS:COMBAT|AC|CL=Green Dragon|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL=Green Dragon|TYPE=NaturalArmor.STACK
 8																									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|2
 11																									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3
 14																	BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer
@@ -119,7 +119,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|D
 1	BONUS:VAR|BreathWeaponDC|15	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 10																							BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|2
 13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
 15										BONUS:PCLEVEL|Sorcerer|1
@@ -150,7 +150,7 @@ CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 1	BONUS:VAR|BreathWeaponDC|12	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 ###Block: Normal Progression
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 6																							BONUS:VAR|BreathWeaponDC|2						DEFINE:DragonAge|2
 9																							BONUS:VAR|BreathWeaponDC|2						DEFINE:DragonAge|3
 12																							BONUS:VAR|BreathWeaponDC|2						DEFINE:DragonAge|4						ABILITY:Special Ability|AUTOMATIC|Fog Cloud
@@ -189,7 +189,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
 ###Block: Normal Progression
 1																																														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 7																							BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|2
 10															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
 12										BONUS:PCLEVEL|Sorcerer|1
@@ -222,7 +222,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Repulsion Gas
 ###Block: Normal Progression
 1																																																SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
-2		BONUS:COMBAT|AC|CL=Bronze Dragon|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL=Bronze Dragon|TYPE=NaturalArmor.STACK
 9																									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
 12																	BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Polymorph Self
 14												BONUS:PCLEVEL|Sorcerer|1
@@ -254,7 +254,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Slow
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 ###Block: Normal Progression
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 8																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
 11															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
 13										BONUS:PCLEVEL|Sorcerer|1
@@ -287,7 +287,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial																	ABILITY:Special Ability|AUTOMATIC|Polymorph Self
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 11																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
 14															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
 16										BONUS:PCLEVEL|Sorcerer|1
@@ -320,7 +320,7 @@ CLASS:Silver Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 1												ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial																	ABILITY:Special Ability|AUTOMATIC|Cloudwalking|Polymorph Self
-2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 10																							BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|2
 13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
 15										BONUS:PCLEVEL|Sorcerer|1

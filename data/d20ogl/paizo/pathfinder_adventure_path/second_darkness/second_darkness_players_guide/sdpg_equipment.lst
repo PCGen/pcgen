@@ -18,7 +18,7 @@ Portable Stalactite																		TYPE:Magic.Wondrous											COST:800	WT:1
 Ring of the Stone Sibling																	TYPE:Magic.Ring												COST:7400	WT:0																																		SOURCEPAGE:p. 28
 Salt Lamp																				TYPE:Magic.Wondrous											COST:350	WT:2																																		SOURCEPAGE:p. 29
 Sporeblade									PROFICIENCY:WEAPON|Sword (Short)						TYPE:Weapon.Melee.Finesseable.Martial.Piercing.Sword						COST:9515	WT:2							CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:KEEN.PLUS2W.STEEL		WIELD:Light					MODS:NO			SIZE:M	SOURCEPAGE:p. 29																					SPROP:On a critical hit victim must make a DC 20 Fortitude save or take 1d4 CON and become fatigued for 1 hour
-Spelunker's Mail														PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Light.Suit											COST:5100	WT:25				ACCHECK:-2												EQMOD:PLUS1A.SLK.STEEL					MAXDEX:4								SOURCEPAGE:p. 29	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE										SPROP:Reduce your size by size category 10/day for 1 min.
+Spelunker's Mail														PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Light.Suit											COST:5100	WT:25				ACCHECK:-2												EQMOD:PLUS1A.SLK.STEEL					MAXDEX:4								SOURCEPAGE:p. 29	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor										SPROP:Reduce your size by size category 10/day for 1 min.
 Boots (Trackless)			OUTPUTNAME:Trackless Boots												TYPE:Magic.Wondrous.Boot										COST:3500	WT:2		SLOTS:2																															SOURCEPAGE:p. 29												BONUS:SKILL|Move Silently|5|TYPE=Competence
 
 #
