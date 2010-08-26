@@ -37,5 +37,5 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 #EXTRAFILE:OGL.txt
 
 PCC:@/alpha/paizo/pathfinder_rpg/pathfinder_rpg_core_rulebook/pathfinder_rpg_core_rulebook.pcc
-PCC:@/alpha/paizo/pathfinder_rpg/pathfinder_rpg_bestiary/pathfinder_rpg_bestiary.pcc
-PCC:@/alpha/paizo/pathfinder_rpg/pathfinder_rpg_bonus_bestiary/pathfinder_rpg_bonus_bestiary.pcc
+PCC:@/alpha/paizo/pathfinder_rpg/bestiary/pathfinder_rpg_bestiary.pcc
+PCC:@/alpha/paizo/pathfinder_rpg/bonus_bestiary/pathfinder_rpg_bonus_bestiary.pcc
