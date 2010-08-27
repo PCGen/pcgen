@@ -719,6 +719,8 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_FEAT:
+				Ability thisAbility = (Ability) thisPObject;
+				thisAbility.setCDOMCategory(AbilityCategory.FEAT);
 				break;
 
 			case EditorConstants.EDIT_LANGUAGE:
