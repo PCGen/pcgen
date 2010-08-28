@@ -3381,12 +3381,34 @@ public final class ExportHandler
 				new StringTokenizer(aString.substring(5), ".", false);
 		final String varName = aTok.nextToken();
 		String bString = "EQ";
+		boolean intVal = false;
+		boolean maxVal = true;
 
 		if (aTok.hasMoreTokens())
 		{
 			bString = aTok.nextToken();
 		}
-
+		while ("INTVAL".equals(bString) || "MINVAL".equals(bString))
+		{
+			if ("INTVAL".equals(bString))
+			{
+				intVal = true;
+			}
+			else if ("MINVAL".equals(bString))
+			{
+				maxVal = false;
+			}
+			if (aTok.hasMoreTokens())
+			{
+				bString = aTok.nextToken();
+			}
+			else
+			{
+				Logging.errorPrint("Missing comparison type in VAR filter " + aString + " assuming NEQ");
+				bString = "NEQ";
+			}
+		}
+		
 		String value = "0";
 
 		if (aTok.hasMoreTokens())
@@ -3394,7 +3416,11 @@ public final class ExportHandler
 			value = aTok.nextToken();
 		}
 
-		final Float varval = aPC.getVariable(varName, true);
+		Float varval = aPC.getVariable(varName, maxVal);
+		if (intVal)
+		{
+			varval = (float) Math.floor(varval);
+		}
 		final Float valval = aPC.getVariableValue(value, "");
 
 		if ("GTEQ".equals(bString))
@@ -3422,7 +3448,7 @@ public final class ExportHandler
 		else
 		{
 			Logging.errorPrint("Unknown comparison type: " + bString
-					+ " assuming NEQ");
+					+ " in VAR filter " + aString + " assuming NEQ");
 			canWrite =
 					!CoreUtility.doublesEqual(varval.doubleValue(), valval
 						.doubleValue());
