@@ -285,7 +285,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL		ABILITY:Special Ability|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack	ABILITY:Special Ability|AUTOMATIC||Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
+1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL		ABILITY:Special Ability|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
 2				BONUS:VAR|CombatStyleLVL|CL						ABILITY:Special Ability|AUTOMATIC|Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
 3																							AUTO:FEAT|Endurance
 4	CAST:0,0		BONUS:VAR|HuntersBondLVL|CL	BONUS:VAR|CompLevel|CL-3	ABILITY:Special Ability|AUTOMATIC|Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
