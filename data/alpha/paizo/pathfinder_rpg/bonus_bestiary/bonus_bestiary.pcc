@@ -16,7 +16,7 @@ SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4
 SOURCEDATE:2009-06
 ISOGL:YES
 
-COVER:pathfinder_rpg_bonus_bestiary.jpg
+COVER:bonus_bestiary.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,10 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bonus Bestia
 #EXTRAFILE:OGL.txt
 
 # Data Files
-ABILITY:pathfinder_rpg_bonus_bestiary_abilities_monsters.lst
-CLASS:pathfinder_rpg_bonus_bestiary_classes_monster_specific.lst
-KIT:pathfinder_rpg_bonus_bestiary_kits_races.lst
-RACE:pathfinder_rpg_bonus_bestiary_races.lst
+ABILITY:pfbb_abilities_monsters.lst
+CLASS:pfbb_classes_monster_specific.lst
+KIT:pfbb_kits_races.lst
+RACE:pfbb_races.lst
 
 #
 # End
