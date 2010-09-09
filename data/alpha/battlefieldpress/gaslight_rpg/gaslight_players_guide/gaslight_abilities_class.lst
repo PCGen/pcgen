@@ -5,7 +5,7 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 
 ###Block: Automatic Proficiencies for all classes
 # Ability Name			Category of Ability		Visible	Automatically Gained Weapon Prof.
-All Automatic Proficiencies	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike
+All Automatic Proficiencies	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike	TEMPLATE:World Law ~ Skills
 
 ###Block: Swap a Feat for a Racial Talent
 # Ability Name						Category of Ability	Type																					Visible		Required Race		Stackable?	Multiple?	Choose		Bonus to Ability Pool
