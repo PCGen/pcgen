@@ -106,7 +106,7 @@ CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGAUTO:Dr
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:NG,LN,TN,CN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Druid		STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Fly|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE.Profession|Ride|Spellcraft|Survival|Swim
+CLASS:Druid		STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:Proficiencies
@@ -133,26 +133,27 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Wild Shape
 1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape|Druid Wild Shape Times|Druid Wild Shape Progression
 ###Block: Level progression
-1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Nature Sense|Orisons ~ Druid|Spontaneous Casting ~ Druid|Wild Empathy
-2	CAST:4,2									ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-3	CAST:4,2,1									ABILITY:Special Ability|AUTOMATIC|Trackless Step
-4	CAST:4,3,2									ABILITY:Special Ability|AUTOMATIC|Wild Shape|Resist Nature's Lure
+1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid|Spontaneous Casting ~ Druid	ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
+2	CAST:4,2									ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
+3	CAST:4,2,1									ABILITY:Special Ability|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
+4	CAST:4,3,2									ABILITY:Special Ability|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
-9	CAST:4,4,4,3,2,1								ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+9	CAST:4,4,4,3,2,1								ABILITY:Special Ability|AUTOMATIC|Venom Immunity|!PREABILITY:1,CATEGORY=Archetype,TYPE.
 10	CAST:4,4,4,3,3,2
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
-13	CAST:4,4,4,4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
+13	CAST:4,4,4,4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Timeless Body
+15	CAST:4,4,4,4,4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
 20	CAST:4,4,4,4,4,4,4,4,4,4
+
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

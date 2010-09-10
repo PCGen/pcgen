@@ -210,6 +210,8 @@ Lightning Lord		KEY:Lightning Lord ~ Weather Domain			CATEGORY:Special Ability	T
 
 ###Block: Druid Abilities
 # Ability Name		Unique Key					Category of Ability		Type								Description																																						Bonus to skill					Source Page		Aspects
+Druid Core Class Skills	KEY:Class Skills ~ Druid		CATEGORY:Internal																																																																																				CSKILL:Climb|TYPE.Craft|Fly|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE.Profession|Ride|Spellcraft|Survival|Swim
+
 Spontaneous Casting	KEY:Spontaneous Casting ~ Druid	CATEGORY:Special Ability	TYPE:SpecialAttack					DESC:You can channel stored spell energy into summoning spells that you haven't prepares ahead of time. You can "lose" any prepared spell in order to cast any Summon Nature's Ally spell of the same spell level or lower										SOURCEPAGE:p.49
 Orisons			KEY:Orisons ~ Druid			CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.																			SOURCEPAGE:p.49
 Nature Sense								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:You gain a +2 bonus on Knowledge (Nature) and Survival skill checks.																											BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:p.50
