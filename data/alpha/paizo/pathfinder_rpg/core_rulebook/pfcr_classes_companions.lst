@@ -9,5 +9,13 @@ CLASS:Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimi
 ###Block: Level Advancement
 1	BONUS:SKILLPOINTS|NUMBER|-3|PRELEVELMAX:1	AUTO:FEAT|CMB Output
 
+#COMMENT: Used for the Shadow Companion - Removes HD pop up
+# Class Name	Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus					Template
+CLASS:Shadow Companion	HD:8	VISIBLE:NO	TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead
+# Class Name	Reg. Race Type
+CLASS:Shadow Companion	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Shadow Companion	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth
+2:REPEATLEVEL:1	DONOTADD:HITDIE
 
 #EOF
