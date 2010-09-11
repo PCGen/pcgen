@@ -52,7 +52,7 @@ Familiar (Weasel)	OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:T	MOVE:Walk,20,Climb,20		F
 
 ###Block: Shadowdancer Companion
 # Race Name			Output Name		Starting Feats	Size		Move		Stat bonus											Modify VAR				Ability																							Natural Attacks										Define				Monster Class Name and Starting Level	Main Race Type	Template				Challenge Rating	Source Page		Apply Kit
-Companion (Shadow)	OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:M	MOVE:Fly,40	BONUS:STAT|DEX|4	BONUS:STAT|INT|-4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|ChannelResistance|2	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Strength Damage|Shadow Companion Saves|Shadow Companion Resistance|Flight Maneuverability	NATURALATTACKS:Incorporeal Touch,Melee.Natural.Weapon.Touch,*1,1d6	DEFINE:Maneuverability|4	MONSTERCLASS:Undead:1				RACETYPE:Undead	TEMPLATE:Incorporeal|Undead	CR:3			SOURCEPAGE:p.245	KIT:1|Companion (Shadow)
+Companion (Shadow)	OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:M	MOVE:Fly,40	BONUS:STAT|DEX|4	BONUS:STAT|INT|-4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|ChannelResistance|2	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Strength Damage|Shadow Companion Saves|Shadow Companion Resistance|Flight Maneuverability	NATURALATTACKS:Incorporeal Touch,Melee.Natural.Weapon.Touch,*1,1d6	DEFINE:Maneuverability|4	MONSTERCLASS:Undead:3				RACETYPE:Undead	TEMPLATE:Incorporeal|Undead	CR:3			SOURCEPAGE:p.245	KIT:1|Companion (Shadow)
 #COMMENT: Actual HD is 3, however, as a Companion it is supposed to only have half the Master HP. Reduced to 1 to prevent a confusing pop up as per DATA-26
 #
 # End
