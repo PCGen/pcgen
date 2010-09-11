@@ -16,7 +16,7 @@ Pipes			KEY:Pipes ~ Satyr	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatur
 
 ###Block: Scorpion Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Define			Description																			Modify VAR														Source Page		Aspects
-Poison		KEY:Poison ~ Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:10+(HD/2)+CON|0	DESC:Sting-injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Strength damage; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|2|TYPE=Racial	SOURCEPAGE:p.242	ASPECT:Ability Benefit|(DC %1)|PoisonDC
+Poison		KEY:Poison ~ Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Sting-injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Strength damage; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|2|TYPE=Racial	SOURCEPAGE:p.242	ASPECT:Ability Benefit|(DC %1)|PoisonDC
 
 ###Block: Sea Hag Abilities
 # Ability Name		Unique Key					Category of Ability		Type							Define							Description																																																																								Modify VAR										Source Page		Aspects					Description of the Benefits
