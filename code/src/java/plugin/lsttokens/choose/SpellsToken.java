@@ -116,6 +116,13 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 					+ "has been changed to CLASSLIST=");
 				tok = "CLASSLIST=" + profKey;
 			}
+			if ("ANY".regionMatches(true, 0, tok, 0, 3))
+			{
+				final String remainder = tok.length()>3?tok.substring(3) :"";
+				Logging.deprecationPrint("CHOOSE:SPELLS|ANY is deprecated, "
+					+ "has been changed to ALL");
+				tok = "ALL" + remainder;
+			}
 			sb.append(tok);
 		}
 		return sb.toString();
