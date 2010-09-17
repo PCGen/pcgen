@@ -34,16 +34,16 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1																AUTO:FEAT|Armor Proficiency (Light)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Bardic Performance|Armored Casting|Cantrips ~ Bard
-2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Special Ability|AUTOMATIC|Versatile Performance|Well-Versed
+1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	ABILITY:Special Ability|AUTOMATIC|Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
+2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Special Ability|AUTOMATIC|Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	ABILITY:Special Ability|AUTOMATIC|Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
 3	CAST:0,3			KNOWN:6,4
 4	CAST:0,3,1			KNOWN:6,4,2
-5	CAST:0,4,2			KNOWN:6,4,3			BONUS:VAR|LoreMasterLVL|CL					ABILITY:Special Ability|AUTOMATIC|Lore Master
+5	CAST:0,4,2			KNOWN:6,4,3			BONUS:VAR|LoreMasterLVL|CL					ABILITY:Special Ability|AUTOMATIC|Lore Master|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster
 6	CAST:0,4,3			KNOWN:6,4,4
 7	CAST:0,4,3,1		KNOWN:6,5,4,2
 8	CAST:0,4,4,2		KNOWN:6,5,4,3
 9	CAST:0,5,4,3		KNOWN:6,5,4,4
-10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		BONUS:VAR|JackOfAllTradesLVL|CL				ABILITY:Special Ability|AUTOMATIC|Jack of All Trades
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		BONUS:VAR|JackOfAllTradesLVL|CL				ABILITY:Special Ability|AUTOMATIC|Jack of All Trades|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades
 11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
 12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
 13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
@@ -193,7 +193,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block: Flurry of Blows
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	DEFINE:MonkLVL|0	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	DEFINE:MonkLVL|0	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	
+#KIT:1|Monk Flurry of Blows
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites,
 #	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
@@ -202,26 +203,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 1	BONUS:ABILITYPOOL|Monk Bonus Feat|1+max((MonkBonusFeatLVL+2)/4,0)	BONUS:VAR|MonkBonusFeatLVL|CL	DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
 #           F   D   T   S   M   L   H   G   C
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:VAR|MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|CL			ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk|Stunning Fist	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	ABILITY:Special Ability|AUTOMATIC|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	BONUS:VAR|ManeuverTrainingBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Monk|Maneuver Training|Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL								ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL									ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:VAR|MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|CL			ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkACBonus	ABILITY:Special Ability|AUTOMATIC|Stunning Fist|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStunningFist	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	BONUS:VAR|ManeuverTrainingBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFastMovement	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkManeuverTraining	ABILITY:Special Ability|AUTOMATIC|Still Mind|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStillMind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL								ABILITY:Special Ability|AUTOMATIC|Ki Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkKiPool	ABILITY:Special Ability|AUTOMATIC|Slow Fall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkSlowFall
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL									ABILITY:Special Ability|AUTOMATIC|High Jump|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkHighJump	ABILITY:Special Ability|AUTOMATIC|Purity of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPurityOfBody
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessOfBodyLVL|CL								ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessOfBodyLVL|CL								ABILITY:Special Ability|AUTOMATIC|Wholeness of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWholenessOfBody
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkImprovedEvasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Diamond Body
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|AbundantStepLVL|CL									ABILITY:Special Ability|AUTOMATIC|Abundant Step
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|DiamondSoulLVL|CL									ABILITY:Special Ability|AUTOMATIC|Diamond Soul
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Diamond Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondBody
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|AbundantStepLVL|CL									ABILITY:Special Ability|AUTOMATIC|Abundant Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAbundantStep
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|DiamondSoulLVL|CL									ABILITY:Special Ability|AUTOMATIC|Diamond Soul|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondSoul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																	ABILITY:Special Ability|AUTOMATIC|Quivering Palm
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																	ABILITY:Special Ability|AUTOMATIC|Quivering Palm|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkQuiveringPalm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Tongue of the Sun and Moon|Timeless Body							TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Tongue of the Sun and Moon|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTongueOfTheSunAndMoon	ABILITY:Special Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTimelessBody							TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Empty Body
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																ABILITY:Special Ability|AUTOMATIC|Perfect Self
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Empty Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEmptyBody
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																ABILITY:Special Ability|AUTOMATIC|Perfect Self|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPerfectSelf
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Visible	Save checks bonus											Combat bonus
