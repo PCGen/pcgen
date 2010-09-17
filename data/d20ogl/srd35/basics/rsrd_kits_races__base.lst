@@ -92,3 +92,10 @@ ALIGN:NE
 
 STARTPACK:CE	VISIBLE:NO	APPLY:INSTANT
 ALIGN:CE
+
+# Misc. Stuff
+
+# Monk Flurry of Blows Issue
+STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Flurry of Blows	LOCATION:Unarmed
+
