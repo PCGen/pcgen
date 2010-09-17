@@ -201,6 +201,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
 ###Block: Monk Bonus Feats
 1	BONUS:ABILITYPOOL|Monk Bonus Feat|1+max((MonkBonusFeatLVL+2)/4,0)	BONUS:VAR|MonkBonusFeatLVL|CL	DEFINE:MonkBonusFeatLVL|0
+1	KIT:1|Monk Flurry of Blows
 ###Block: Level progression
 #           F   D   T   S   M   L   H   G   C
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:VAR|MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|CL			ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkACBonus	ABILITY:Special Ability|AUTOMATIC|Stunning Fist|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStunningFist	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike

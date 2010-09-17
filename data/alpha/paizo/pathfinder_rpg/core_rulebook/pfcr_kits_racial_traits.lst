@@ -57,4 +57,11 @@ STARTPACK:Human Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
 ABILITY:CATEGORY=Human Racial Trait|Bonus Feat ~ Human
 ABILITY:CATEGORY=Human Racial Trait|Skilled ~ Human
 
+#Block: Class Auto's
+
+# Monk Flurry of Blows Issue
+STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT
+GEAR:Flurry of Blows	LOCATION:Unarmed
+
+
 #EOF
