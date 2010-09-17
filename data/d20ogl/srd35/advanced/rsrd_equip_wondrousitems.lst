@@ -346,7 +346,7 @@ Vest of Escape										TYPE:Magic.Wondrous.Shirt		COST:5200	WT:0										SOURC
 Vestments (Druid)					OUTPUTNAME:Vestments, [NAME]	TYPE:Magic.Wondrous.Clothing		COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf																															BONUS:VAR|WildShapeTimes|1
 Well of Many Worlds									TYPE:Magic.Wondrous			COST:82000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Wind Fan											TYPE:Magic.Wondrous			COST:5500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOURCEPAGE:MagicItemsV.rtf
+Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOURCEPAGE:MagicItemsV.rtf		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=17|Fly,13
 
 ###Block: Magic items detailed in Monster entries
 # Equipment Name					Output Name			Type					Cost		Weight	Source Page				Save checks bonus
