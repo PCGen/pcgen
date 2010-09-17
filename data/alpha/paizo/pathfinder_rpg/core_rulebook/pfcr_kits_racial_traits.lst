@@ -60,7 +60,7 @@ ABILITY:CATEGORY=Human Racial Trait|Skilled ~ Human
 #Block: Class Auto's
 
 # Monk Flurry of Blows Issue
-STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT
+STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Flurry of Blows	LOCATION:Unarmed
 
 
