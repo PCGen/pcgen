@@ -69,18 +69,9 @@ public class VariableProcessorPC extends VariableProcessor
 			String valString,
 			final String src)
 	{
-		TermEvaluator t1 = EvaluatorFactory.PC.getTermEvaluator(valString, src);
+        TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
 
-		Float fResult;
-		if (t1 != null)
-		{
-			fResult = t1.resolve(pc, aSpell);
-		}
-		else
-		{
-			fResult = 0f;
-		}
-
-		return (t1 == null) ? null : fResult;
+        return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
 	}
+
 }

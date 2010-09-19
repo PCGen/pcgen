@@ -85,32 +85,20 @@ public class VariableProcessorEq extends VariableProcessor
 			String valString,
 			final String src)
 	{
-		TermEvaluator t1 = getTermEvaluator(valString, src);
+		TermEvaluator evaluator = getTermEvaluator(valString, src);
 
-		Float fResult;
-		if (t1 != null)
-		{
-			fResult = t1.resolve(eq, primaryHead, pc);
-		}
-		else
-		{
-			fResult = 0f;
-		}
-
-		return t1 == null ? null : fResult;
+		return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
 	}
 	
 	TermEvaluator getTermEvaluator(String valString, String src)
 	{
-		TermEvaluator t1 = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
+		TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
 
-		if (t1 == null)
+		if (evaluator == null)
 		{
 			return EvaluatorFactory.PC.getTermEvaluator(valString, src);
 		}
-		else
-		{
-			return t1;
-		}
-	}
+
+        return evaluator;
+    }
 }
