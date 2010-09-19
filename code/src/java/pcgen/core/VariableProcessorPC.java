@@ -28,7 +28,7 @@ import pcgen.core.term.TermEvaluator;
  * <code>VariableProcessorPC</code> is a processor for variables
  * associated with a character. This class converts formulas or
  * variables into values and is used extensively both in
- * defintions of objects and for output to output sheets.
+ * definitions of objects and for output to output sheets.
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
