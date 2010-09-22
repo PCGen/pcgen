@@ -1,0 +1,19 @@
+# CVS $Revision: 12845 $ $Author: zaister $ -- Tue Sep 21 16:41:45 2010 -- reformated by prettylst.pl v1.38 (build 6875)
+SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+STARTPACK:Character Traits	VISIBLE:NO	KEY:APCT	TYPE:Internal
+TEMPLATE:Adventure Path Character Traits
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Campaign Traits|No Campaign Trait ~ Trait
+
+STARTPACK:Boarded in Cheliax	VISIBLE:NO	EQUIPBUY:0	TYPE:StartingKit
+FUNDS:gp	QTY:200
+GEAR:Map (Mwangi Expanse)	LOCATION:Equipped
+
+STARTPACK:Get the Cargo Through	VISIBLE:NO	EQUIPBUY:0	TYPE:StartingKit
+FUNDS:gp	QTY:300
+
+#
+# End
+#
