@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb  5 20:15:04 2010 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Wed Sep 22 10:22:10 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Sahuagin Abilities
 # Ability Name	Unique Key					Category of Ability		Type								Description																	Combat bonus				Stat bonus					Source Page		Description of the Benefits
@@ -15,7 +15,7 @@ Heat			KEY:Heat ~ Salamander	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraor
 Pipes			KEY:Pipes ~ Satyr	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:PipesSaveDC|10+(HD/2)+CHA	DESC:A satyr can focus and empower his magic by playing haunting melodies on his panpipes.	BONUS:VAR|PipesSaveDC|2|PREFEAT:1,Ability Focus (Pipes)	SOURCEPAGE:p.241	ASPECT:Ability Benefit|(DC %1)|PipesSaveDC	BENEFIT:A satyr can focus and empower his magic by playing haunting melodies on his panpipes. When he plays, all creatures within a 60-foot radius must make a DC %1 Will save or be affected by charm person, fear, sleep, or suggestion, depending on what tune the satyr chooses. A creature that successfully saves against any of the pipes' effects cannot be affected by the same set of pipes for 24 hours, but can still be affected by the satyr's other spell-like abilities as normal. The satyr's use of his pipes does not count toward his uses per day of his spelllike abilities, and if separated from them he may continue to use his standard abilities. The pipes themselves are masterwork, and a satyr can craft a replacement with 1 week of labor.|PipesSaveDC
 
 ###Block: Scorpion Abilities
-# Ability Name	Unique Key			Category of Ability		Type						Define			Description																			Modify VAR														Source Page		Aspects
+# Ability Name	Unique Key			Category of Ability		Type						Define				Description																			Modify VAR														Source Page		Aspects
 Poison		KEY:Poison ~ Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Sting-injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Strength damage; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|2|TYPE=Racial	SOURCEPAGE:p.242	ASPECT:Ability Benefit|(DC %1)|PoisonDC
 
 ###Block: Sea Hag Abilities
