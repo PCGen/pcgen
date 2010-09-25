@@ -86,7 +86,7 @@ public class ClassQualifierTokenTest extends
 	@Override
 	protected boolean allowsNotQualifier()
 	{
-		return false;
+		return true;
 	}
 
 }
