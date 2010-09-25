@@ -43,7 +43,7 @@ public class ClassQualifierTokenTest extends
 
 	public ClassQualifierTokenTest()
 	{
-		super("CLASS", true);
+		super("CLASS", null, true);
 	}
 
 	@Override
