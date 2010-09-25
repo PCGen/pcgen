@@ -17,16 +17,15 @@
  */
 package plugin.qualifier.weaponprof;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
@@ -36,6 +35,8 @@ import pcgen.util.Logging;
 public class SpellCasterToken implements QualifierToken<WeaponProf>
 {
 	private PrimitiveChoiceFilter<WeaponProf> pcs = null;
+	
+	private CDOMReference<WeaponProf> allRef = null;
 
 	public String getTokenName()
 	{
@@ -52,9 +53,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>
 		Set<WeaponProf> profs = new HashSet<WeaponProf>();
 		if (pc.isSpellCaster(1))
 		{
-			Collection<WeaponProf> objects = Globals.getContext().ref
-					.getConstructedCDOMObjects(WeaponProf.class);
-			for (WeaponProf wp : objects)
+			for (WeaponProf wp : allRef.getContainedObjects())
 			{
 				boolean allow = pcs == null || pcs.allow(pc, wp);
 				if (allow)
@@ -101,6 +100,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>
 		ReferenceManufacturer<WeaponProf> erm = context.ref
 				.getManufacturer(WeaponProf.class);
 		pcs = context.getPrimitiveChoiceFilter(erm, value);
+		allRef = erm.getAllReference();
 		return pcs != null;
 	}
 
@@ -127,6 +127,6 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>
 
 	public GroupingState getGroupingState()
 	{
-		return pcs.getGroupingState();
+		return pcs.getGroupingState().reduce();
 	}
 }
