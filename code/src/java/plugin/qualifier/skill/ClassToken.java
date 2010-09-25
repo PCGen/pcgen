@@ -108,7 +108,7 @@ public class ClassToken implements QualifierToken<Skill>
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState();
+				.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 

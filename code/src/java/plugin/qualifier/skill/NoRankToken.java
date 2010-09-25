@@ -100,7 +100,7 @@ public class NoRankToken implements QualifierToken<Skill>
 
 	public GroupingState getGroupingState()
 	{
-		return pcs == null ? GroupingState.ANY : pcs.getGroupingState();
+		return pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
 	}
 
 	@Override
