@@ -21,7 +21,6 @@
 package pcgen.base.util;
 
 import java.util.AbstractCollection;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -63,7 +62,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection()
 	{
-		theData = new ArrayList<WeightedItem<E>>();
+		theData = new ListSet<WeightedItem<E>>();
 	}
 
 	/**
@@ -77,7 +76,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection(int initialSize)
 	{
-		theData = new ArrayList<WeightedItem<E>>(initialSize);
+		theData = new ListSet<WeightedItem<E>>(initialSize);
 	}
 
 	/**
@@ -114,7 +113,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		if (comp == null)
 		{
-			theData = new ArrayList<WeightedItem<E>>();
+			theData = new ListSet<WeightedItem<E>>();
 		}
 		else
 		{
@@ -560,21 +559,14 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public boolean equals(Object obj)
 		{
-			if (obj == null)
-			{
-				return false;
-			}
-			else if (obj == this)
-			{
-				return true;
-			}
-			else if (obj instanceof WeightedItem)
+			if (obj instanceof WeightedItem)
 			{
 				WeightedItem<?> item = (WeightedItem<?>) obj;
 				return theWeight == item.theWeight
 						&& (theElement == null && item.theElement == null || theElement != null
 								&& theElement.equals(item.theElement));
 			}
+			//Arguably unreachable code
 			return false;
 		}
 
