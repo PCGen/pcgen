@@ -64,7 +64,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	public GroupingState getGroupingState()
 	{
 		return hasRestriction() ? GroupingState.ANY
-				: GroupingState.ALLOWS_INTERSECTION;
+				: GroupingState.ALLOWS_NONE;
 	}
 
 	@Override
