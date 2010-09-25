@@ -125,6 +125,11 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		if (obj instanceof FeatToken)
 		{
 			FeatToken<?> other = (FeatToken<?>) obj;
+			if (ref == null)
+			{
+				return (other.ref == null) && (refClass == null)
+					&& (other.refClass == null);
+			}
 			return refClass.equals(other.refClass) && ref.equals(other.ref);
 		}
 		return false;
