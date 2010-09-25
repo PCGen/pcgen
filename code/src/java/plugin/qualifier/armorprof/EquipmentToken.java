@@ -42,8 +42,6 @@ public class EquipmentToken implements QualifierToken<ArmorProf>
 
 	private PrimitiveChoiceFilter<Equipment> pcs = null;
 
-	private boolean negated = false;
-
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
@@ -61,8 +59,7 @@ public class EquipmentToken implements QualifierToken<ArmorProf>
 		{
 			if (e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))
 			{
-				boolean allow = pcs == null || pcs.allow(pc, e);
-				if (allow ^ negated)
+				if ((pcs == null) || pcs.allow(pc, e))
 				{
 					CDOMSingleRef<ArmorProf> prof = e.get(ObjectKey.ARMOR_PROF);
 					if (prof != null)
@@ -137,8 +134,7 @@ public class EquipmentToken implements QualifierToken<ArmorProf>
 
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState();
-		return negated ? gs.negate() : gs;
+		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
+			.reduce();
 	}
 }
