@@ -43,7 +43,7 @@ public class NoRankQualifierTokenTest extends
 
 	public NoRankQualifierTokenTest()
 	{
-		super("NORANK", false);
+		super("NORANK", null, false);
 	}
 
 	@Override

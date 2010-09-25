@@ -43,7 +43,7 @@ public class RanksQualifierTokenTest extends
 
 	public RanksQualifierTokenTest()
 	{
-		super("RANKS=4", true);
+		super("RANKS", "4", true);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class RanksQualifierTokenTest extends
 	@Override
 	protected boolean allowsNotQualifier()
 	{
-		return false;
+		return true;
 	}
 
 }

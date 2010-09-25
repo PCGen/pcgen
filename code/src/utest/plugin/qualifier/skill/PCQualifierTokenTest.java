@@ -18,39 +18,28 @@ package plugin.qualifier.skill;
 
 import java.net.URISyntaxException;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
-public class CrossClassQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Skill>
+public class PCQualifierTokenTest extends
+		AbstractPCQualifierTokenTestCase<Skill>
 {
 
-	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
 
-	private static final CrossClassToken CROSSCLASS_TOKEN = new CrossClassToken();
-
-	public CrossClassQualifierTokenTest()
-	{
-		super("CROSSCLASS", null, true);
-	}
+	private static final plugin.qualifier.skill.PCToken PC_TOKEN =
+			new plugin.qualifier.skill.PCToken();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(CROSSCLASS_TOKEN);
+		TokenRegistration.register(PC_TOKEN);
 	}
 
 	@Override
@@ -66,27 +55,14 @@ public class CrossClassQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<Skill> getCDOMClass()
-	{
-		return Skill.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
-
-	@Override
 	protected boolean allowsNotQualifier()
 	{
 		return true;
 	}
 
+	@Override
+	protected void addToPCSet(TransparentPlayerCharacter pc, Skill item)
+	{
+		pc.getSkillSet().add(item);
+	}
 }

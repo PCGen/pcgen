@@ -43,7 +43,7 @@ public class ExclusiveQualifierTokenTest extends
 
 	public ExclusiveQualifierTokenTest()
 	{
-		super("EXCLUSIVE", true);
+		super("EXCLUSIVE", null, true);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class ExclusiveQualifierTokenTest extends
 	@Override
 	protected boolean allowsNotQualifier()
 	{
-		return false;
+		return true;
 	}
 
 }
