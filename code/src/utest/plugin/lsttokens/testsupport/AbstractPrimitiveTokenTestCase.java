@@ -145,6 +145,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveAll1() throws PersistenceLayerException
 	{
+System.err.println("!!");
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[ALL|" + good
 				+ "]"));
 		assertNoSideEffects();
@@ -245,12 +246,22 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveGood() throws PersistenceLayerException
 	{
+		if (target != null)
+		{
+			construct(primaryContext, target);
+			construct(secondaryContext, target);
+		}
 		runRoundRobin(getSubTokenName() + '|' + good);
 	}
 
 	@Test
 	public void testQualifiedPrimitiveGood() throws PersistenceLayerException
 	{
+		if (target != null)
+		{
+			construct(primaryContext, target);
+			construct(secondaryContext, target);
+		}
 		runRoundRobin(getSubTokenName() + '|' + "QUALIFIED[" + good + "]");
 	}
 
