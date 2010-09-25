@@ -150,7 +150,7 @@ import pcgen.util.enumeration.VisionType;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PlayerCharacter extends Observable implements Cloneable,
+public class PlayerCharacter extends Observable implements Cloneable,
 		VariableContainer, AssociationStore
 {
 	// Constants for use in getBonus
