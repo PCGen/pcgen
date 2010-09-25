@@ -107,6 +107,10 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
+		if (negated)
+		{
+			sb.append('!');
+		}
 		sb.append(getTokenName());
 		if (pcs != null)
 		{
@@ -162,7 +166,9 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState();
+		GroupingState gs =
+				(pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
+					.reduce();
 		return negated ? gs.negate() : gs;
 	}
 }
