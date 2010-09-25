@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
 
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
@@ -33,6 +34,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 /**
  * A SpellReferenceChoiceSet contains references to CDOMListObjects. This is a
@@ -95,6 +97,11 @@ public class SpellReferenceChoiceSet implements
 		}
 		set = new HashSet<CDOMReference<? extends CDOMListObject<Spell>>>(
 				listRefCollection);
+		if (set.size() != listRefCollection.size())
+		{
+			Logging.log(Level.WARNING, "Found duplicate item in " + listRefCollection);
+			//TODO need to trigger a bad GroupingState...
+		}
 	}
 
 	/**
@@ -234,6 +241,7 @@ public class SpellReferenceChoiceSet implements
 		{
 			state = state.add(listref.getGroupingState());
 		}
+		//TODO I think this needs state.compound(GroupingState.ALLOWS_UNION)??
 		return state;
 	}
 

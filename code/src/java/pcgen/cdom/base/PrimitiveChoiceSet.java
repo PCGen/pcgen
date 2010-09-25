@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
@@ -36,6 +37,28 @@ import pcgen.core.PlayerCharacter;
  */
 public interface PrimitiveChoiceSet<T>
 {
+	PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet(){
+
+		public Class getChoiceClass()
+		{
+			return Object.class;
+		}
+
+		public GroupingState getGroupingState()
+		{
+			return GroupingState.INVALID;
+		}
+
+		public String getLSTformat(boolean useAny)
+		{
+			return "ERROR";
+		}
+
+		public Collection getSet(PlayerCharacter pc)
+		{
+			return Collections.emptyList();
+		}};
+
 	/**
 	 * Returns a Set containing the Objects which this PrimitiveChoiceSet
 	 * contains.

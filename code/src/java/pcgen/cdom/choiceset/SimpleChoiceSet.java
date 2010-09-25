@@ -168,6 +168,11 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 					"Choice Collection cannot be empty");
 		}
 		set = new LinkedHashSet<T>(col);
+		if (set.size() != col.size())
+		{
+			throw new IllegalArgumentException(
+				"Choice Collection cannot possess a duplicate item");
+		}
 		comparator = comp;
 		separator = (sep == null) ? Constants.COMMA : sep;
 	}

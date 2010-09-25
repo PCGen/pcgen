@@ -38,6 +38,28 @@ import pcgen.core.PlayerCharacter;
 public interface PrimitiveChoiceFilter<T>
 {
 
+	PrimitiveChoiceFilter INVALID = new PrimitiveChoiceFilter(){
+
+		public boolean allow(PlayerCharacter pc, Object item)
+		{
+			return false;
+		}
+
+		public GroupingState getGroupingState()
+		{
+			return GroupingState.INVALID;
+		}
+
+		public String getLSTformat()
+		{
+			return "ERROR";
+		}
+
+		public Class getReferenceClass()
+		{
+			return Object.class;
+		}};
+
 	/**
 	 * Return true if the given PlayerCharacter is allowed to select the given
 	 * object

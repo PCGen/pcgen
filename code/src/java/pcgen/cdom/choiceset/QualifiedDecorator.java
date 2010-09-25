@@ -156,6 +156,6 @@ public class QualifiedDecorator<T extends PObject> implements
 	 */
 	public GroupingState getGroupingState()
 	{
-		return underlyingPCS.getGroupingState();
+		return underlyingPCS.getGroupingState().reduce();
 	}
 }

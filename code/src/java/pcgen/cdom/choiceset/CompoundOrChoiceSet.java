@@ -26,11 +26,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * A CompoundOrChoiceSet is a PrimitiveChoiceSet which is intended to contain
@@ -85,6 +87,11 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 			throw new IllegalArgumentException();
 		}
 		pcsSet.addAll(pcsCollection);
+		if (pcsSet.size() != pcsCollection.size())
+		{
+			Logging.log(Level.WARNING, "Found duplicate item in " + pcsCollection);
+			pcsSet.add(PrimitiveChoiceSet.INVALID);
+		}
 		separator = sep;
 	}
 

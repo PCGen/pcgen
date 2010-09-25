@@ -115,6 +115,7 @@ public class RetainingChooser<T> implements PrimitiveChoiceSet<T>
 							+ baseSet.getReferenceClass().getSimpleName());
 		}
 		retainingSet.add(pcf);
+		//TODO check for duplicate?
 	}
 
 	/**

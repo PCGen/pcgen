@@ -344,6 +344,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		{
 			state = GroupingState.ANY.add(state);
 		}
+		//TODO I think this needs state.compound(GroupingState.ALLOWS_UNION)??
 		return state;
 	}
 }

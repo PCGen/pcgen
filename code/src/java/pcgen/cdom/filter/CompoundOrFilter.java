@@ -20,12 +20,14 @@ package pcgen.cdom.filter;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
 
 import pcgen.cdom.base.ChoiceFilterUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * A CompoundOrFilter is a PrimitiveChoiceFilter which is intended to contain
@@ -81,6 +83,11 @@ public class CompoundOrFilter<T> implements PrimitiveChoiceFilter<T>
 		}
 		Class<? super T> pcfClass = null;
 		pcfSet.addAll(pcfCollection);
+		if (pcfSet.size() != pcfCollection.size())
+		{
+			Logging.log(Level.WARNING, "Found duplicate item in " + pcfCollection);
+			pcfSet.add(PrimitiveChoiceFilter.INVALID);
+		}
 		for (PrimitiveChoiceFilter<T> pcf : pcfSet)
 		{
 			Class<? super T> refClass = pcf.getReferenceClass();
