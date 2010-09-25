@@ -20,6 +20,7 @@ package pcgen.base.lang;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
 import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
@@ -121,5 +122,37 @@ public class StringUtilTest extends TestCase
 		assertFalse(StringUtil.hasBalancedParens(") will cause a problem alone "));
 		assertFalse(StringUtil.hasBalancedParens(") will also cause a problem without a ( before it"));
 		assertFalse(StringUtil.hasBalancedParens("(and getting fancy) doesn't help)"));
+	}
+	
+	public void testCaseSensitiveOrder()
+	{
+		Comparator<String> cso = StringUtil.CASE_SENSITIVE_ORDER;
+		assertTrue(cso.compare("1", "2") < 0);
+		assertTrue(cso.compare("1", "a") < 0);
+		assertTrue(cso.compare("1", "A") < 0);
+		assertTrue(cso.compare("aa", "Aa") > 0);
+		assertTrue(cso.compare("Aa", "aa") < 0);
+		assertTrue(cso.compare("cb", "Ca") > 0);
+		assertTrue(cso.compare("Ca", "cb") < 0);
+		assertTrue(cso.compare("bb", "Bc") > 0);
+		assertTrue(cso.compare("Bc", "bb") < 0);
+		try
+		{
+			assertTrue(cso.compare(null, "Bc") > 0);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//OK
+		}
+		try
+		{
+			assertTrue(cso.compare("Bc", null) > 0);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//OK
+		}
 	}
 }

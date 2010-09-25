@@ -45,6 +45,8 @@ public class GroupingStateTest extends TestCase
 			assertEquals(invalid.add(gs2), invalid);
 			assertEquals(gs2.add(invalid), invalid);
 		}
+		assertEquals(invalid, invalid.negate());
+		assertEquals(invalid, invalid.reduce());
 	}
 
 	@Test

@@ -20,13 +20,17 @@ package pcgen.base.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.TreeSet;
 
 import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import pcgen.base.lang.StringUtil;
 
 public class WeightedCollectionTest extends TestCase {
 
@@ -484,6 +488,179 @@ public class WeightedCollectionTest extends TestCase {
 		assertEquals(2, wc.getWeight(null));
 		wc.clear();
 		assertEquals(0, wc.getWeight(I2));
+	}
+
+	@Test
+	public void testNullComparatorConstructor() {
+		WeightedCollection<String> swc = new WeightedCollection<String>((Comparator<String>) null);
+		String s1 = "asting";
+		String s2 = "aString1";
+		String s3 = "Bobcat";
+		assertTrue(swc.isEmpty());
+		assertFalse(swc.contains(s1));
+		assertTrue(swc.add(s1));
+		assertFalse(swc.isEmpty());
+		assertTrue(swc.contains(s1));
+		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertFalse(swc.contains(s2));
+		assertEquals(1, swc.size());
+		assertTrue(swc.add(s1));
+		assertTrue(swc.contains(s1));
+		assertEquals(2, swc.size());
+		assertFalse(swc.contains(s2));
+		assertTrue(swc.add(s2));
+		assertTrue(swc.contains(s2));
+		assertEquals(3, swc.size());
+		assertTrue(swc.add(s3));
+		assertEquals(4, swc.size());
+		assertFalse(swc.contains(null));
+		assertTrue(swc.add(null));
+		assertTrue(swc.contains(null));
+		assertEquals(5, swc.size());
+		assertTrue(swc.add(null));
+		assertEquals(6, swc.size());
+		assertFalse(swc.contains("Cat"));
+		assertFalse(swc.contains("dog"));
+		assertFalse(swc.contains("Eagle"));
+		assertFalse(swc.contains("Purple"));
+		assertTrue(swc.addAll(Arrays.asList("Cat", null, "dog", "Eagle")));
+		assertEquals(10, swc.size());
+		assertTrue(swc.contains("Cat"));
+		assertTrue(swc.contains("dog"));
+		assertTrue(swc.contains("Eagle"));
+		assertFalse(swc.contains("Purple"));
+		assertTrue(swc.add("Purple", 3));
+		assertEquals(13, swc.size());
+		assertTrue(swc.contains("Cat"));
+		assertTrue(swc.contains("dog"));
+		assertTrue(swc.contains("Eagle"));
+		assertTrue(swc.contains("Purple"));
+		assertFalse(swc.contains("Snake"));
+		assertTrue(swc.add("Purple", 3));
+		assertEquals(16, swc.size());
+		assertFalse(swc.contains("Snake"));
+		assertTrue(swc.addAll(Arrays.asList("Cat", "dog", null, "Snake"), 2));
+		assertTrue(swc.contains("Snake"));
+		assertEquals(24, swc.size());
+		assertTrue(swc.contains("Purple"));
+		assertTrue(swc.remove("Purple"));
+		assertFalse(swc.contains("Purple"));
+		assertEquals(18, swc.size());
+		assertFalse(swc.remove("Purple"));
+		assertEquals(18, swc.size());
+		assertTrue(swc.add(null, 5));
+		assertEquals(23, swc.size());
+		assertFalse(swc.isEmpty());
+		assertTrue(swc.equals(swc));
+		assertFalse(swc.equals(wc));
+		swc.clear();
+		assertEquals(0, swc.size());
+		assertTrue(swc.isEmpty());
+		assertTrue(swc.equals(swc));
+		assertTrue(swc.equals(wc));
+	}
+
+	@Test
+	public void testInsensitiveComparatorConstructor() {
+		WeightedCollection<String> swc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
+		String s1 = "asting";
+		String s2 = "aString1";
+		String s3 = "Bobcat";
+		assertTrue(swc.isEmpty());
+		assertFalse(swc.contains(s1));
+		assertTrue(swc.add(s1));
+		assertFalse(swc.isEmpty());
+		assertTrue(swc.contains(s1));
+		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertFalse(swc.contains(s2));
+		assertEquals(1, swc.size());
+		assertTrue(swc.add(s1));
+		assertTrue(swc.contains(s1));
+		assertEquals(2, swc.size());
+		assertFalse(swc.contains(s2));
+		assertTrue(swc.add(s2));
+		assertTrue(swc.contains(s2));
+		assertEquals(3, swc.size());
+		assertTrue(swc.add(s3));
+		assertEquals(4, swc.size());
+		assertFalse(swc.contains(null));
+		try
+		{
+			assertTrue(swc.add(null));
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
+		assertFalse(swc.contains("Cat"));
+		assertFalse(swc.contains("dog"));
+		assertFalse(swc.contains("Eagle"));
+		assertFalse(swc.contains("Purple"));
+		assertTrue(swc.addAll(Arrays.asList("Cat", "dog", "Eagle")));
+		assertEquals(7, swc.size());
+		assertTrue(swc.contains("Cat"));
+		assertTrue(swc.contains("dog"));
+		assertTrue(swc.contains("Eagle"));
+		assertFalse(swc.contains("Purple"));
+		assertTrue(swc.add("Purple", 3));
+		assertEquals(10, swc.size());
+		assertTrue(swc.contains("Cat"));
+		assertTrue(swc.contains("dog"));
+		assertTrue(swc.contains("Eagle"));
+		assertTrue(swc.contains("Purple"));
+		assertFalse(swc.contains("Snake"));
+		assertTrue(swc.add("Purple", 3));
+		assertEquals(13, swc.size());
+		assertFalse(swc.contains("Snake"));
+		assertTrue(swc.addAll(Arrays.asList("Cat", "dog", "Snake"), 2));
+		assertTrue(swc.contains("Snake"));
+		assertEquals(19, swc.size());
+		assertTrue(swc.contains("Purple"));
+		assertTrue(swc.remove("Purple"));
+		assertFalse(swc.contains("Purple"));
+		assertEquals(13, swc.size());
+		assertFalse(swc.remove("Purple"));
+		assertEquals(13, swc.size());
+		assertFalse(swc.isEmpty());
+		assertTrue(swc.equals(swc));
+		assertFalse(swc.equals(wc));
+		swc.clear();
+		assertEquals(0, swc.size());
+	}
+
+	public void testComparatorEquals()
+	{
+		WeightedCollection<String> iwc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
+		WeightedCollection<String> swc = new WeightedCollection<String>();
+		assertTrue(iwc.isEmpty());
+		assertTrue(iwc.equals(iwc));
+		assertTrue(swc.equals(swc));
+		//See testArchitectureProof() on why this should be True
+		assertTrue(iwc.equals(swc));
+		assertTrue(swc.equals(iwc));
+		//See testArchitectureProof() on why this should be True
+		assertTrue(iwc.equals(wc));
+		iwc.add("asting");
+		swc.add("asting");
+		iwc.add("aString");
+		swc.add("aString");
+		assertTrue(iwc.equals(swc));
+		assertTrue(swc.equals(iwc));
+	}
+
+	public void testArchitectureProof()
+	{
+		TreeSet<String> ciSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		TreeSet<String> csSet = new TreeSet<String>(StringUtil.CASE_SENSITIVE_ORDER);
+		//To prove existing behavior
+		assertTrue(ciSet.equals(csSet));
+		ciSet.add("asting");
+		csSet.add("asting");
+		ciSet.add("aString");
+		csSet.add("aString");
+		assertTrue(ciSet.equals(csSet));
+		assertFalse(ciSet.toString().equals(csSet.toString()));
 	}
 
 
