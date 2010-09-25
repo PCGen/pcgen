@@ -47,6 +47,12 @@ public enum GroupingState
 		}
 
 		@Override
+		public GroupingState reduce()
+		{
+			return INVALID;
+		}
+
+		@Override
 		public GroupingState compound(GroupingState state)
 		{
 			return INVALID;
@@ -87,6 +93,12 @@ public enum GroupingState
 		}
 
 		@Override
+		public GroupingState reduce()
+		{
+			return ANY;
+		}
+
+		@Override
 		public GroupingState compound(GroupingState state)
 		{
 			return ALLOWS_NONE;
@@ -122,6 +134,13 @@ public enum GroupingState
 		@Override
 		public GroupingState negate()
 		{
+			return ANY;
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+			//TODO Need to check this logical behavior :)
 			return ANY;
 		}
 
@@ -168,6 +187,12 @@ public enum GroupingState
 		}
 
 		@Override
+		public GroupingState reduce()
+		{
+			return this;
+		}
+
+		@Override
 		public GroupingState compound(GroupingState state)
 		{
 			return state == ALLOWS_INTERSECTION ? INVALID : ANY;
@@ -202,13 +227,19 @@ public enum GroupingState
 		@Override
 		public GroupingState negate()
 		{
-			return ANY;
+			return this;
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+			return this;
 		}
 
 		@Override
 		public GroupingState compound(GroupingState state)
 		{
-			return ANY;
+			return this;
 		}
 
 		@Override
@@ -235,6 +266,12 @@ public enum GroupingState
 		public GroupingState negate()
 		{
 			return ALLOWS_NONE;
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+			return this;
 		}
 
 		@Override
@@ -298,4 +335,11 @@ public enum GroupingState
 	 * @return true if this GroupingState is valid for use; false otherwise.
 	 */
 	public abstract boolean isValid();
+
+	/**
+	 * Returns the GroupingState used when this GroupingState is reduced
+	 * 
+	 * @return the GroupingState used when this GroupingState is reduced
+	 */
+	public abstract GroupingState reduce();
 }
