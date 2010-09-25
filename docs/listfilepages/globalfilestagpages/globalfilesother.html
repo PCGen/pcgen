@@ -1178,12 +1178,16 @@
 <hr>
 
 	<p class="indent0"><strong><a name="VISION">Tag Name:</a></strong> VISION:x (y)|x (y)</p>
-	<p class="indent1"><strong> Variables Used:</strong>Text, | delimited</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag is &quot;|&quot; pipe delimited. This grants the specified vision to the
-		character and formulas can be used to determine the distance.</p>
-	<p class="indent2">Think of VISION tag like the DEFINE tag - the highest value from a VISION tag wins,
-		and then BONUS tags are added to that.</p>
+	<p class="indent1"><strong> Variables Used (x):</strong>Text (Vision type)</p>
+	<p class="indent1"><strong> Variables Used (x):</strong>.SET.Text (Vision type)</p>
+	<p class="indent1"><strong> Variables Used (x):</strong>.CLEAR.Text (Vision type)</p>
+	<p class="indent1"><strong> Variables Used (y):</strong>Number or Formula (Distance)</p>
+	<p class="indent0"><strong>What it does:</strong></p>
+	<ul class="indent1">
+		<li>This tag grants the specified pipe-delimited (|) list of vision types to the character</li>
+		<li>.CLEAR. will clear the vision listed after it from the character.</li>
+		<li>.SET. will change the characters vision to the new vision.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>VISION:Low-light</code></p>
 	<p class="indent3">This gives the &quot;Low-Light&quot; vision mode to the PC.</p>
@@ -1194,12 +1198,6 @@
 	<p class="indent2"><code>VISION:Darkvision (120')|Low-light</code></p>
 	<p class="indent3">This gives the &quot;Dark&quot; vision mode of 120 foot and the &quot;Low-Light&quot;
 		vision mode to the PC.</p>
-	<p class="indent0"></p>
-	<p class="indent0"><strong> Variables Used:</strong> .SET, or .CLEAR</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">.CLEAR. will clear the vision listed after it from the character. The .SET. will
-		change the characters vision to the new vision.</p>
-	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISION:.CLEAR.Low-light</code></p>
 	<p class="indent3">Removes the Low-light vision from the character</p>
 	<p class="indent2"><code>VISION:Darkvision (0')&lt;tab&gt;BONUS:VISION|Darkvision|30</code></p>
