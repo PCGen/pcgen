@@ -159,7 +159,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState();
+				.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 }
