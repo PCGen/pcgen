@@ -271,12 +271,12 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>18</total>
-		<listing>ABILITY +1, BASE +10, ARMOR +7</listing>
+		<listing>ABILITY +1, ARMOR +6, ARMORSHIELD +1, BASE +10</listing>
 		<flat>17</flat>
 		<touch>11</touch>
 		<base>10</base>
-		<armor_bonus>6</armor_bonus>
-		<shield_bonus>1</shield_bonus>
+		<armor_bonus>7</armor_bonus>
+		<shield_bonus>0</shield_bonus>
 		<stat_mod>1</stat_mod>
 		<size_mod>0</size_mod>
 		<natural>0</natural>

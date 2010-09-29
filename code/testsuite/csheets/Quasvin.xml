@@ -290,7 +290,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>15</total>
-		<listing>ABILITY +2, BASE +10, ARMOR +2, SHIELD +1</listing>
+		<listing>ABILITY +2, ARMOR +2, BASE +10, SHIELD +1</listing>
 		<flat>13</flat>
 		<touch>12</touch>
 		<base>10</base>

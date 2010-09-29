@@ -383,7 +383,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>28</total>
-		<listing>ABILITY +4, BASE +10, SIZE -2, NATURALARMOR +16</listing>
+		<listing>ABILITY +4, BASE +10, NATURALARMOR +12, NATURALARMOR.STACK +4, SIZE -2</listing>
 		<flat>24</flat>
 		<touch>12</touch>
 		<base>10</base>
@@ -1589,7 +1589,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells(Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
+	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Giant Rock, Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells(Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Giant</languages>
 
 	<templates>

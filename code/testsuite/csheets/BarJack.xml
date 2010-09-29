@@ -283,7 +283,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>19</total>
-		<listing>ABILITY +3, BASE +10, SIZE +1, ARMOR +5</listing>
+		<listing>ABILITY +3, ARMOR +5, BASE +10, SIZE +1</listing>
 		<flat>19</flat>
 		<touch>14</touch>
 		<base>10</base>
