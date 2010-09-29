@@ -111,10 +111,10 @@ Cloak of Resistance +5												TYPE:Magic.Wondrous.Cloak		COST:25000	WT:1				
 Crown of Blasting (Minor)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Headgear		COST:6480	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (3d8 damage) 1/day.
 Crown of Blasting (Major)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Crown		COST:23760	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (40 damage) 1/day.
 Crystal Ball													TYPE:Magic.Wondrous			COST:42000	WT:7								SOURCEPAGE:p.507
-Crystal Ball with See Invisibility										TYPE:Magic.Wondrous			COST:50000	WT:7								SOURCEPAGE:p.507
-Crystal Ball with Detect Thoughts										TYPE:Magic.Wondrous			COST:51000	WT:7								SOURCEPAGE:p.507
-Crystal Ball with Telepathy											TYPE:Magic.Wondrous			COST:70000	WT:7								SOURCEPAGE:p.507
-Crystal Ball with True Seeing											TYPE:Magic.Wondrous			COST:80000	WT:7								SOURCEPAGE:p.507
+Crystal Ball (See Invisibility)										TYPE:Magic.Wondrous			COST:50000	WT:7								SOURCEPAGE:p.507
+Crystal Ball (Detect Thoughts)										TYPE:Magic.Wondrous			COST:51000	WT:7								SOURCEPAGE:p.507
+Crystal Ball (Telepathy)											TYPE:Magic.Wondrous			COST:70000	WT:7								SOURCEPAGE:p.507
+Crystal Ball (True Seeing)											TYPE:Magic.Wondrous			COST:80000	WT:7								SOURCEPAGE:p.507
 Cube of Force													TYPE:Magic.Wondrous			COST:62000	WT:.5		EQMOD:CHARGED_ITEM_36|CHARGES[36]	SOURCEPAGE:p.508
 Cube of Frost Resistance											TYPE:Magic.Wondrous			COST:27000	WT:2								SOURCEPAGE:p.508																																		SPROP:Absorbes all cold-based attacks in area when activated.
 Cubic Gate														TYPE:Magic.Wondrous			COST:164000	WT:2								SOURCEPAGE:p.508
