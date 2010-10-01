@@ -14,6 +14,14 @@ ABILITYCATEGORY:Favored Class Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ObsessiveBonus	PLURAL:Obsessive Bonuses		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
+###Block: Character Traits
+# Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display Location
+ABILITYCATEGORY:Traits			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BasicTrait.RaceTrait.ReligionTrait.RegionTrait	PLURAL:Traits			DISPLAYLOCATION:Traits
+
+# Archetypes
+ABILITYCATEGORY:Archetype		VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype
+ABILITYCATEGORY:Class Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:Archetype							PLURAL:Archetypes			DISPLAYLOCATION:Archetype
+
 ###Block: Racial Traits Categories
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Dwarf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait		PLURAL:Dwarf Racial Traits		DISPLAYLOCATION:Racial Abilities
