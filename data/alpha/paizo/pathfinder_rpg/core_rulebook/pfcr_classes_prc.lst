@@ -57,8 +57,6 @@ CLASS:Assassin	HD:8		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:p.378	BONU
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:2,Disguise=2,Stealth=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
 1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
