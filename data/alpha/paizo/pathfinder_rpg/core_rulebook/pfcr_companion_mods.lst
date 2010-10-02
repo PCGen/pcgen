@@ -99,11 +99,12 @@ FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Familiar
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar										BONUS:SKILL|Fly|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar										BONUS:SKILL|Stealth|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar										BONUS:SKILL|Perception|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar										BONUS:SKILL|Acrobatics|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar										BONUS:SKILL|Perception|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
