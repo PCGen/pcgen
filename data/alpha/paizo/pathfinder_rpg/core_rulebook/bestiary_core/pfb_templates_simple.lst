@@ -3,8 +3,11 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 
 ###Block: Simple Templates
 # Template Name		Visible	Damage Reduction		Source Page		Define																																	Damage reduction			Misc bonus				Modify VAR																	Ability																					Spell Res.	Subrace		Vision
+Advanced Creature	CR:1			VISIBLE:YES	SOURCEPAGE:p.294	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK										BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4
 Celestial Creature	VISIBLE:YES	DR:5/Evil|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|5	DEFINE:AcidResistanceBonus|CelestialResistanceBonus	DEFINE:ColdResistanceBonus|CelestialResistanceBonus	DEFINE:ElectricityResistanceBonus|CelestialResistanceBonus	BONUS:DR|Evil|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	SUBRACE:Celestial	VISION:Darkvision (60')
 Fiendish Creature		VISIBLE:YES	DR:5/Good|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|5	DEFINE:ColdResistanceBonus|FiendishResistanceBonus	DEFINE:FireResistanceBonus|FiendishResistanceBonus											BONUS:DR|Good|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=11		ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	SUBRACE:Fiendish	VISION:Darkvision (60')
+Giant Creature	CR:1			VISIBLE:YES	SOURCEPAGE:p.295	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:COMBAT|DAMAGESIZE|1	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|4|TYPE=Size	BONUS:STAT|DEX|-2
+Young Creature	CR:-1			VISIBLE:YES	SOURCEPAGE:p.295	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:COMBAT|DAMAGESIZE|-1	BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|-2|TYPE=Size	BONUS:STAT|STR,CON|-4
 
 ###Block: Builder Templates
 # Template Name			Visible		Bonus to Ability Pool																								Adjust PC Size
