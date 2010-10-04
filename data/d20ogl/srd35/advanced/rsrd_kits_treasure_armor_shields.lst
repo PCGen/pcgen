@@ -151,7 +151,7 @@ STARTPACK:+1 Shield Minor Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -164,7 +164,7 @@ STARTPACK:+2 Shield Minor Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -178,7 +178,7 @@ STARTPACK:+1 Shield Medium Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTAN
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS1S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -191,7 +191,7 @@ STARTPACK:+2 Shield Medium Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTAN
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS2S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -204,7 +204,7 @@ STARTPACK:+3 Shield Medium Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTAN
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -217,7 +217,7 @@ STARTPACK:+4 Shield Medium Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTAN
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -230,7 +230,7 @@ STARTPACK:+3 Shield Major Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS3S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -243,7 +243,7 @@ STARTPACK:+4 Shield Major Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS4S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
@@ -256,7 +256,7 @@ STARTPACK:+5 Shield Major Special Ability	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (B),roll("1d100")	OPTION:1,10
 GEAR:Shield (Light/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:11,15
-GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Specail Ability (L),roll("1d100")	OPTION:16,20
+GEAR:Shield (Light/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (L),roll("1d100")	OPTION:16,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:21,30
 GEAR:Shield (Heavy/Metal)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (H),roll("1d100")	OPTION:31,95
 GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS5S	LOOKUP:Special Ability (T),roll("1d100")	OPTION:96,100
