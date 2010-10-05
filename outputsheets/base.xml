@@ -1372,13 +1372,13 @@ Immune
 |ENDIF|
 |FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Archetype")-1,1,0|
 		<archetype>
-			<name>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality|</name>
-			<description>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality.DESC|</description>
-			<type>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality.TYPE|</type>
-			<associated>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
+			<name>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|</name>
+			<description>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.DESC|</description>
+			<type>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.TYPE|</type>
+			<associated>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.ASSOCIATEDCOUNT|</count>
 			<category>Archetype</category>
-			<source>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=SpecialQuality.SOURCE|</source>
+			<source>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.SOURCE|</source>
 		</archetype>
 |ENDFOR|
 	</archetypes>
