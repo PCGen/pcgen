@@ -4825,7 +4825,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="archetypes">
-		<xsl:if test="count(animal_trick) &gt; 0">
+		<xsl:if test="count(archetype) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'archetypes'" />
 				<xsl:with-param name="title" select="'Archetypes'" />
