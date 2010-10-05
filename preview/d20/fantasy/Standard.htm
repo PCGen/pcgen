@@ -2253,7 +2253,7 @@ Immune
    </table>
 |ENDIF|
 <!-- STOP Path of the Dragon Abilities Table -->
-<!-- START Domnion and Advanced Dominion Abilities Table -->
+<!-- START Dominion and Advanced Dominion Abilities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Dominion";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
@@ -2274,7 +2274,7 @@ Immune
 |ENDFOR|
    </table>
 |ENDIF|
-<!-- STOP Domnion and Advanced Dominion Abilities Table -->
+<!-- STOP Dominion and Advanced Dominion Abilities Table -->
 <!-- START Channeling Abilities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ChannelingOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
@@ -2627,6 +2627,26 @@ Immune
 	</table>
 |ENDIF|
 <!-- STOP Force Techniques Table -->
+
+<!-- START Archetypes Table -->
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+	<table width="100%" cellspacing="0" cellpadding="2" summary="Arcehtype Table">
+		<tr>
+			<td bgcolor="black" align="center" class="ab" colspan="2"><b>Archetypes</b></td>
+		</tr>
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%archetype,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+	<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|</b></td>
+	<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.SOURCE|]</td>
+	<tr>
+|OIF(EVEN:%archetype,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.DESC|</td>
+</tr>
+|ENDFOR|
+	</table>
+|ENDIF|
+<!-- STOP Archetypes Table -->
+
 <!-- START Special Attacks Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">

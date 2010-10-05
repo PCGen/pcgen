@@ -179,6 +179,12 @@
 		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
 		<special_qualities.darkline><subattrib medium=""/></special_qualities.darkline>
 
+		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
+		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
+		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
+		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
+
+
 		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
 		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>
 		<animal_tricks.lightline><subattrib light=""/></animal_tricks.lightline>

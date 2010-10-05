@@ -349,6 +349,7 @@
 						<xsl:call-template name="money"/>
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="misc/companions"/>
+						<xsl:apply-templates select="archetypes"/>	
 						<xsl:apply-templates select="animal_tricks"/>	
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="traits"/>
@@ -4852,7 +4853,7 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-	
+
 <!--> ECLIPSE Addons -->
 	<!--
 ====================================
@@ -4871,7 +4872,6 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
 	<!--
 ====================================
 ====================================
