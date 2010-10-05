@@ -4818,7 +4818,23 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
+	<!--	
+====================================
+====================================
+	TEMPLATE - ARCHETYPES
+====================================
+====================================-->
+	<xsl:template match="archetypes">
+		<xsl:if test="count(animal_trick) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'archetypes'" />
+				<xsl:with-param name="title" select="'Archetypes'" />
+				<xsl:with-param name="list" select="archetype"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	<!--	
 ====================================
 ====================================
