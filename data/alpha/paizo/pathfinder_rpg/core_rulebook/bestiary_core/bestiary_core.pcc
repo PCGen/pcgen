@@ -48,6 +48,7 @@ ABILITY:pfb_abilities_constant_spelllike.lst
 ABILITY:pfb_abilities_monsters_general.lst
 ABILITYCATEGORY:pfb_abilitycategories.lst
 CLASS:pfb_classes_monster.lst
+EQUIPMENT:pfb_equip.lst
 FEAT:pfb_feats_monster.lst
 LANGUAGE:pfb_languages.lst
 SKILL:pfb_skills_conditional.lst
