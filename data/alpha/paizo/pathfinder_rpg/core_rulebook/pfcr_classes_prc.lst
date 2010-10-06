@@ -177,7 +177,7 @@ CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profess
 CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
 1												ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Deep Pockets|Master Scribe
 2												ABILITY:Special Ability|AUTOMATIC|Live to Tell the Tale|Pathfinding
-3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|Bardic Music ~ PFC|Improved Aid
+3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|Bardic Performance ~ PFC|Improved Aid
 4												ABILITY:Special Ability|AUTOMATIC|Epic Tales
 5												ABILITY:Special Ability|AUTOMATIC|Whispering Campaign
 6												ABILITY:Special Ability|AUTOMATIC|Inspire Action ~ PFC

@@ -172,7 +172,7 @@ ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
 ACTYPE:Profane				ADD:Profane
 ACTYPE:Sacred				ADD:Sacred
-ACTYPE:CMD					ADD:Circumstance|Deflection|Dodge|Insight|Morale|Profane|Sacred
+ACTYPE:CMD					ADD:Circumstance|Deflection|Dodge|Insight|Luck|Morale|Profane|Sacred
 ACTYPE:ClassDefense			ADD:ClassDefense
 
 # Damage die changes on size

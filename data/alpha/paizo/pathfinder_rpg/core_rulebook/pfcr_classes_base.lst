@@ -3,7 +3,7 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -22,6 +22,20 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Handle Animal
 17																								ABILITY:Special Ability|AUTOMATIC|Tireless Rage
 20																								ABILITY:Special Ability|AUTOMATIC|Mighty Rage
 #TODO: See about implementing a better method for the Uncanny Dodge; Barbarian Loses one or both with some Archetypes.
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Restricted AL
+CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim	DEFINE:BarbarianLVL|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
+###Block: Level Progression
+1																								ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge,TYPE.BarbarianImprovedUncannyDodge
+3	BONUS:VAR|BarbarianTrapSenseLVL|CL																		ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
+7	BONUS:VAR|BarbarianDRLVL|CL																			ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
+14																								ABILITY:Special Ability|AUTOMATIC|Indomitable Will
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Bard		HD:8		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -193,7 +207,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block: Flurry of Blows
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	DEFINE:MonkLVL|0	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	DEFINE:MonkLVL|0	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
 #KIT:1|Monk Flurry of Blows
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites,
@@ -277,7 +291,7 @@ CLASS:Ex-Paladin	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ranger	STARTSKILLPTS:6	ABILITY:Internal|AUTOMATIC|Ranger Base Skills|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills	
+CLASS:Ranger	STARTSKILLPTS:6	ABILITY:Internal|AUTOMATIC|Ranger Base Skills|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|CL-3|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
