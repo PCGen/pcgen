@@ -46,14 +46,6 @@
 		<name>|NAME|</name>
 		<followerof>|FOLLOWEROF|</followerof>
 		<playername>|PLAYERNAME|</playername>
-		<action_points>|VAR.ACTION.INTVAL|</action_points>
-		<remaining_action_points>|VAR.ACTIONREMAIN.INTVAL|</remaining_action_points>
-				<actionpoints>
-					<maximum>|VAR.ACTION.INTVAL|</maximum>
-					<used>|VAR.ACTIONUSED.INTVAL|</used>
-					<dicecount>|VAR.ACTIONDICECOUNT.INTVAL|</dicecount>
-					<dicesize>|VAR.ACTIONDICESIZE.INTVAL|</dicesize>
-				</actionpoints>
 		<age>|AGE|</age>
 		<alignment>
 			<long>|ALIGNMENT|</long>
@@ -105,11 +97,6 @@
 		<eyes>
 			<color>|COLOR.EYE|</color>
 		</eyes>
-		<faith_points>|VAR.FAITHPOINTS.INTVAL|</faith_points>
-		<hero_points>|VAR.HEROPOINTS.INTVAL|</hero_points>
-		<inspiration_points>|VAR.INSPIRATIONPOINTS.INTVAL|</inspiration_points>
-		<spin_points>|VAR.SPINPOINTS.INTVAL|</spin_points>
-
 		<hair>
 			<color>|COLOR.HAIR|</color>
 			<length>|LENGTH.HAIR|</length>
