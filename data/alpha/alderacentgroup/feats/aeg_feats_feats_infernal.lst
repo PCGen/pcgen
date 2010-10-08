@@ -1,4 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Feb  3 00:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+
+# Commented out feats are duplicates of feats presented in other sections of the book
+
 ### INFERNAL PACTS ###
 # Original Entry: Andrew Maitland
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
@@ -27,7 +30,7 @@ Shapechange			TYPE:Infernal										PREFEAT:3,Immunity,Infernal Pact,Infernal S
 Undetectable Lie		TYPE:Infernal										PREFEAT:1,Infernal Pact																																																												DESC:You can lie without fault, negating all effects to penetrate your words.																																																																																																																																														SOURCEPAGE:pg.95
 Unholy Blessing		TYPE:Infernal										PREFEAT:2,Infernal Pact,Immunity											PRELEVEL:MIN=12														PRETEXT:500 XP cost.																												DESC:Having been blessed by a demon, you radiate powerful evil and are rewarded with an unholy aura.																																																																																																																																										SOURCEPAGE:pg.95
 Unholy Strength		TYPE:Infernal										PREFEAT:1,Infernal Pact																																								DEFINE:UnholyStrength|0	DEFINE:UnholyStrengthDEX|0												DESC:You have higher Strength than normal.											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																						BONUS:STAT|STR|UnholyStrength|TYPE=Profane	BONUS:STAT|DEX|-UnholyStrengthDEX	BONUS:VAR|UnholyStrength|2	BONUS:VAR|UnholyStrengthDEX|1/2																				SOURCEPAGE:pg.96
-Wealth			TYPE:Infernal										PREFEAT:1,Infernal Pact																																																												DESC:You are given a great deal of money and/or valuables.											MULT:YES	CHOOSE:NOCHOICE																																																																																																																																		SOURCEPAGE:pg.96
+Wealth ~ Infernal Pact	OUTPUTNAME:Wealth		TYPE:Infernal										PREFEAT:1,Infernal Pact																																																												DESC:You are given a great deal of money and/or valuables.											MULT:YES	CHOOSE:NOCHOICE																																																																																																																																		SOURCEPAGE:pg.96
 Wish				TYPE:Infernal																													PREMULT:2,[PREFEAT:1,Infernal Pact],[PREFEAT:2,TYPE.Infernal[Infernal Pact]]	PRETEXT:1,000 XP cost																												DESC:You earn a one time-wish from your bargainer.												MULT:YES	CHOOSE:NOCHOICE																																																																																																																																		SOURCEPAGE:pg.96
 
 ###Block: EXTRAS:

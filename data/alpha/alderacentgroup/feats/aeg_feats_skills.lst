@@ -11,8 +11,6 @@ Knowledge (Necromancy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Knowledge (Seamanship)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Profession (Military Commander)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
-Profession (Apothecary)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
-Profession (Siege Engineer)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
 
 #
 ##EOF
