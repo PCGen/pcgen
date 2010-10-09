@@ -120,6 +120,10 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				String clearText = token.substring(7);
 				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, clearText);
+				if (ref == null)
+				{
+					return ParseResult.INTERNAL_ERROR;
+				}
 				context.getListContext().removeFromList(getFullName(), obj,
 						abilList, ref);
 			}
