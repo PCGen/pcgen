@@ -54,6 +54,12 @@ public final class TokenUtilities
 		{
 			return getTypeReference(rm, s.substring(5));
 		}
+		else if (s.startsWith(Constants.LST_NOT_TYPE_OLD)
+				|| s.startsWith(Constants.LST_NOT_TYPE))
+		{
+			Logging.errorPrint("!TYPE not supported in token, found: " + s);
+			return null;
+		}
 		else
 		{
 			return rm.getReference(s);
