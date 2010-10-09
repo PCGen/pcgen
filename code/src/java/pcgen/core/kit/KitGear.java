@@ -375,12 +375,21 @@ public final class KitGear extends BaseKit
 			{
 				eSet = aPC.getEquipSetByIdPath("0.1");
 			}
-			EquipSet eqSet = aPC.addEquipToTarget(eSet, theTarget, theLocation,
-					testApplyEquipment, new Float(-1.0f));
-			if (eqSet == null)
+			if (eSet == null)
 			{
-				warnings.add("GEAR: Could not equip " + testApplyEquipment.getName()
-					+ " to " + theLocation);
+				warnings.add("GEAR: Could not find location " + theLocation
+					+ " for gear " + testApplyEquipment.getName() + ".");
+				return false;
+			}
+			else
+			{
+				EquipSet eqSet = aPC.addEquipToTarget(eSet, theTarget, theLocation,
+						testApplyEquipment, new Float(-1.0f));
+				if (eqSet == null)
+				{
+					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName()
+						+ " to " + theLocation);
+				}
 			}
 		}
 		return true;
