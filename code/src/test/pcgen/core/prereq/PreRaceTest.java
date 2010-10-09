@@ -301,4 +301,41 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
+
+	/**
+	 * Test to make sure that PRERACE with wildcarded names functions 
+	 * correctly with SERVESAS
+	 */
+	public void testPassServesAsNameWildcard()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		Globals.getContext().ref.importObject(race);
+
+		final Race fake = new Race();
+		fake.setName("NotHuman");
+		Globals.getContext().ref.importObject(fake);
+
+		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef
+			.getRef(fake));
+		character.setRace(fake);
+
+		// Check the servesas condition
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("human%");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue("PRERACE:1,human% should have been passed", passes);
+
+		prereq.setKey("NotHuman%");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue("PRERACE:1,NotHuman% should have been passed", passes);
+
+		prereq.setKey("Elf%");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse("PRERACE:1,Elf% should not have been passed", passes);
+	}
 }
