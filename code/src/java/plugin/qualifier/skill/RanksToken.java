@@ -102,7 +102,7 @@ public class RanksToken implements QualifierToken<Skill>
 		Set<Skill> skillSet = new HashSet<Skill>();
 		for (Skill sk : pc.getSkillSet())
 		{
-			boolean allow = ranks >= SkillRankControl.getRank(pc, sk);
+			boolean allow = ranks <= SkillRankControl.getRank(pc, sk);
 			if (negated ^ allow)
 			{
 				skillSet.add(sk);
