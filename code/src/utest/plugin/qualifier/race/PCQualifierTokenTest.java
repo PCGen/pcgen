@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -70,5 +71,11 @@ public class PCQualifierTokenTest extends
 	protected void addToPCSet(TransparentPlayerCharacter pc, Race item)
 	{
 		pc.race = item;
+	}
+
+	@Override
+	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	{
+		return plugin.qualifier.race.PCToken.class;
 	}
 }

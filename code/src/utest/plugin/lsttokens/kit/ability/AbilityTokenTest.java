@@ -117,4 +117,5 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 				+ "TestWP1"));
 	}
 
+	//TODO Doesn't test TYPE=
 }

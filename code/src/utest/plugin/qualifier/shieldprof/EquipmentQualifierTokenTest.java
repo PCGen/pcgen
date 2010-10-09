@@ -32,6 +32,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.ShieldProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -190,5 +191,11 @@ public class EquipmentQualifierTokenTest extends
 		primaryContext.ref.importObject(eq4);
 		primaryContext.unconditionallyProcess(eq4, "TYPE", "SHIELD.Masterful");
 		primaryContext.unconditionallyProcess(eq4, "PROFICIENCY", "SHIELD|Wp2");
+	}
+	
+	@Override
+	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	{
+		return plugin.qualifier.shieldprof.EquipmentToken.class;
 	}
 }

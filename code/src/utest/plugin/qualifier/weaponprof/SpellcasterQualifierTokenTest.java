@@ -29,6 +29,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -170,5 +171,11 @@ public class SpellcasterQualifierTokenTest extends
 		wp3.setName("Wp3");
 		primaryContext.ref.importObject(wp3);
 		primaryContext.unconditionallyProcess(wp3, "TYPE", "WEAPON.Masterful");
+	}
+
+	@Override
+	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	{
+		return plugin.qualifier.weaponprof.SpellCasterToken.class;
 	}
 }

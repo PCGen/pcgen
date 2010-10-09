@@ -1841,4 +1841,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		align.put(StringKey.ABB, shortName);
 		return align;
 	}
+
+	public void testEmptyIdentity() throws InstantiationException,
+			IllegalAccessException
+	{
+		QualifierToken<?> one = getQualifierClass().newInstance();
+		QualifierToken<?> two = getQualifierClass().newInstance();
+		assertTrue(one.equals(two));
+	}
+
+	protected abstract Class<? extends QualifierToken> getQualifierClass();
 }

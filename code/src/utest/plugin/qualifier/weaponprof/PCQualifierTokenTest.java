@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -57,5 +58,11 @@ public class PCQualifierTokenTest extends
 	protected void addToPCSet(TransparentPlayerCharacter pc, WeaponProf item)
 	{
 		pc.weaponProfSet.add(item);
+	}
+
+	@Override
+	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	{
+		return plugin.qualifier.weaponprof.PCToken.class;
 	}
 }

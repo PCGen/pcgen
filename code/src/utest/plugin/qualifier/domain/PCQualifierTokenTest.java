@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.core.Domain;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.DomainToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -66,4 +67,9 @@ public class PCQualifierTokenTest extends
 		pc.domainSet.add(item);
 	}
 
+	@Override
+	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	{
+		return plugin.qualifier.domain.PCToken.class;
+	}
 }

@@ -17,18 +17,25 @@
 package plugin.qualifier.pobject;
 
 import java.net.URISyntaxException;
+import java.util.Collection;
+
+import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
 public class QualifiedQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Race>
@@ -38,6 +45,7 @@ public class QualifiedQualifierTokenTest extends
 	static RaceToken subtoken = new RaceToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
+	private Race s1, s2, s3;
 
 	private static final plugin.qualifier.pobject.QualifiedToken QUALIFIED_TOKEN = new plugin.qualifier.pobject.QualifiedToken();
 
@@ -89,4 +97,68 @@ public class QualifiedQualifierTokenTest extends
 		return true;
 	}
 
+	@Override
+	protected Class<? extends QualifierToken> getQualifierClass()
+	{
+		return plugin.qualifier.pobject.QualifiedToken.class;
+	}
+
+	@Test
+	public void testGetSet() throws PersistenceLayerException
+	{
+		setUpPC();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		initializeObjects();
+		assertTrue(parse(getSubTokenName() + "|QUALIFIED[ALL]"));
+
+		finishLoad();
+
+		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+		Collection<?> set = info.getSet(pc);
+		assertTrue(set.isEmpty());
+		pc.qualifiedSet.add(s1);
+		pc.qualifiedSet.add(s2);
+		set = info.getSet(pc);
+		assertEquals(2, set.size());
+		assertTrue(set.contains(s1));
+		assertTrue(set.contains(s2));
+	}
+
+	@Test
+	public void testGetSetFiltered() throws PersistenceLayerException
+	{
+		setUpPC();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		initializeObjects();
+		assertTrue(parse(getSubTokenName() + "|QUALIFIED[TYPE=Masterful]"));
+
+		finishLoad();
+
+		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+		Collection<?> set = info.getSet(pc);
+		assertTrue(set.isEmpty());
+		pc.qualifiedSet.add(s1);
+		pc.qualifiedSet.add(s2);
+		set = info.getSet(pc);
+		assertFalse(set.isEmpty());
+		assertEquals(1, set.size());
+		assertTrue(set.contains(s2));
+	}
+
+	private void initializeObjects()
+	{
+		s1 = new Race();
+		s1.setName("s1");
+		primaryContext.ref.importObject(s1);
+
+		s2 = new Race();
+		s2.setName("s2");
+		primaryContext.ref.importObject(s2);
+		primaryContext.unconditionallyProcess(s2, "TYPE", "Masterful");
+
+		s3 = new Race();
+		s3.setName("s3");
+		primaryContext.ref.importObject(s3);
+		primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
+	}
 }

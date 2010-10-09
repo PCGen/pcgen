@@ -1,8 +1,11 @@
 package plugin.lsttokens.testsupport;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -20,7 +23,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public Set<Equipment> equipmentSet = new ListSet<Equipment>();
 	public Set<WeaponProf> weaponProfSet = new ListSet<WeaponProf>();
 	public Set<PCTemplate> templateSet = new ListSet<PCTemplate>();
-	public Set<Skill> skillSet = new ListSet<Skill>();
+	public Map<Skill, Integer> skillSet = new HashMap<Skill, Integer>();
 	public Deity deity = null;
 	public Set<Domain> domainSet = new ListSet<Domain>();
 	public Set<Language> languageSet = new ListSet<Language>();
@@ -29,7 +32,8 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public int spellcastinglevel = -1;
 	public Set<Skill> classSkillSet = new ListSet<Skill>();
 	public Set<Skill> crossClassSkillSet = new ListSet<Skill>();
-	
+	public Set<Race> qualifiedSet = new ListSet<Race>();
+
 	@Override
 	public Set<Equipment> getEquipmentSet()
 	{
@@ -51,7 +55,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Set<Skill> getSkillSet()
 	{
-		return (skillSet == null) ? new ListSet<Skill>() : skillSet;
+		return (skillSet == null) ? new ListSet<Skill>() : skillSet.keySet();
 	}
 
 	@Override
@@ -100,5 +104,18 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public boolean isSpellCaster(int level)
 	{
 		return (level <= spellcastinglevel);
+	}
+
+	@Override
+	public float getSkillRank(Skill sk)
+	{
+		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
+				: skillSet.get(sk).floatValue();
+	}
+
+	@Override
+	public boolean isQualified(CDOMObject po)
+	{
+		return qualifiedSet.contains(po);
 	}
 }
