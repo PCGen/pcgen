@@ -55,8 +55,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>
 		{
 			for (WeaponProf wp : allRef.getContainedObjects())
 			{
-				boolean allow = pcs == null || pcs.allow(pc, wp);
-				if (allow)
+				if ((pcs == null) || pcs.allow(pc, wp))
 				{
 					profs.add(wp);
 				}

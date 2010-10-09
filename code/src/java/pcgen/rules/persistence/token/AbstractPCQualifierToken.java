@@ -81,7 +81,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		{
 			for (T po : objects)
 			{
-				boolean allow = pcs == null || pcs.allow(pc, po);
+				boolean allow = (pcs == null) || pcs.allow(pc, po);
 				if (allow && (!negated || !possessed.contains(po)))
 				{
 					returnSet.add(po);

@@ -145,7 +145,6 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveAll1() throws PersistenceLayerException
 	{
-System.err.println("!!");
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[ALL|" + good
 				+ "]"));
 		assertNoSideEffects();

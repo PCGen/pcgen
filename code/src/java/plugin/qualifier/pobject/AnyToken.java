@@ -93,7 +93,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 		{
 			for (T po : objects)
 			{
-				boolean allow = pcs == null || pcs.allow(pc, po);
+				boolean allow = (pcs == null) || pcs.allow(pc, po);
 				if (allow ^ negated)
 				{
 					returnSet.add(po);
