@@ -26,15 +26,4 @@ import pcgen.cdom.base.CDOMObject;
  */
 public final class CDOMObjectBridge extends AbstractSourcedListFacet<CDOMObject>
 {
-	private CDOMObjectBridge()
-	{
-		super();
-	}
-
-	private static CDOMObjectBridge instance = new CDOMObjectBridge();
-
-	public static CDOMObjectBridge getInstance()
-	{
-		return instance;
-	}
 }

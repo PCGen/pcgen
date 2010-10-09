@@ -69,6 +69,8 @@ public class StatIntegrationTest extends TestCase
 		rfacet = new RaceFacet();
 		tfacet = new TemplateFacet();
 		cdomFacet = new CDOMObjectConsolidationFacet();
+		CDOMObjectBridge bridge = new CDOMObjectBridge();
+		cdomFacet.setBridgeFacet(bridge);
 		rfacet.addDataFacetChangeListener(cdomFacet);
 		tfacet.addDataFacetChangeListener(cdomFacet);
 		cdomFacet.addDataFacetChangeListener(lockFacet);

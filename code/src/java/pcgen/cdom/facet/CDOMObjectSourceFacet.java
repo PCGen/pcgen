@@ -30,17 +30,22 @@ import pcgen.cdom.enumeration.CharID;
 public class CDOMObjectSourceFacet
 {
 
-	private final CDOMObjectBridge bridge = CDOMObjectBridge.getInstance();
+	private CDOMObjectBridge bridgeFacet;
+
+	public void setBridgeFacet(CDOMObjectBridge bridge)
+	{
+		bridgeFacet = bridge;
+	}
 
 	public Set<CDOMObject> getSet(CharID id)
 	{
-		return bridge.getSet(id);
+		return bridgeFacet.getSet(id);
 	}
 
 	public void addDataFacetChangeListener(
 			DataFacetChangeListener<? super CDOMObject> listener)
 	{
-		bridge.addDataFacetChangeListener(listener);
+		bridgeFacet.addDataFacetChangeListener(listener);
 	}
 
 }

@@ -28,23 +28,26 @@ import pcgen.cdom.enumeration.CharID;
 public class CDOMObjectConsolidationFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
+	private CDOMObjectBridge bridgeFacet;
 
-	private final CDOMObjectBridge bridge = CDOMObjectBridge.getInstance();
-
+	public void setBridgeFacet(CDOMObjectBridge bridge)
+	{
+		bridgeFacet = bridge;
+	}
 	public void add(CharID id, CDOMObject obj, Object source)
 	{
-		bridge.add(id, obj, source);
+		bridgeFacet.add(id, obj, source);
 	}
 
 	public void remove(CharID id, CDOMObject obj, Object source)
 	{
-		bridge.remove(id, obj, source);
+		bridgeFacet.remove(id, obj, source);
 	}
 
 	public void addDataFacetChangeListener(
 			DataFacetChangeListener<? super CDOMObject> listener)
 	{
-		bridge.addDataFacetChangeListener(listener);
+		bridgeFacet.addDataFacetChangeListener(listener);
 	}
 
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
