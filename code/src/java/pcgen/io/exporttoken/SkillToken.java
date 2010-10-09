@@ -27,7 +27,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -74,6 +76,7 @@ public class SkillToken extends Token
 	private static final int SKILL_TRAINED_TOTAL = 12;
 	private static final int SKILL_EXPLANATION = 13;
 	private static final int SKILL_TYPE = 14;
+	private static final int SKILL_COST = 15;
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -242,6 +245,10 @@ public class SkillToken extends Token
 		{
 			propId= SKILL_MISC;
 		}
+		else if ("COST".equalsIgnoreCase(property))
+		{
+			propId= SKILL_COST;
+		}
 		else if ("UNTRAINED".equalsIgnoreCase(property))
 		{
 			propId= SKILL_UNTRAINED;
@@ -367,6 +374,31 @@ public class SkillToken extends Token
 
 				case SKILL_ACP:
 					retValue.append(getAcpOutput(aSkill, propertyText));
+					break;
+
+				case SKILL_COST:
+					SkillCost cost = null;
+					for (PCClass pcc : pc.getClassSet())
+					{
+						if (cost == null)
+						{
+							cost = pc.getSkillCostForClass(aSkill, pcc);
+						}
+						else
+						{
+							SkillCost newCost = pc.getSkillCostForClass(aSkill, pcc);
+							if (SkillCost.CLASS.equals(newCost)
+								|| SkillCost.EXCLUSIVE.equals(cost))
+							{
+								cost = newCost;
+							}
+						}
+						if (SkillCost.CLASS.equals(cost))
+						{
+							break;
+						}
+					}
+					retValue.append(cost.toString());
 					break;
 
 				case SKILL_EXCLUSIVE_TOTAL:

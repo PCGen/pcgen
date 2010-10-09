@@ -29,6 +29,7 @@ import javax.swing.event.EventListenerList;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
@@ -389,6 +390,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			map.put(pcc, levelMap);
 			for (PCClassLevel pcl : pcc.getOriginalClassLevelCollection())
 			{
+				pcl.put(ObjectKey.PARENT, pcc);
 				levelMap.put(pcl.get(IntegerKey.LEVEL), pcl);
 			}
 			return true;
@@ -413,6 +415,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				return false;
 			}
 			pcl.ownBonuses(pcc);
+			pcl.put(ObjectKey.PARENT, pcc);
 			localMap.put(pcl.get(IntegerKey.LEVEL), pcl);
 			return true;
 		}
@@ -437,7 +440,13 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			PCClassLevel classLevel = localMap.get(level);
 			if (classLevel == null)
 			{
+				/*
+				 * TODO Seems to me this is unreachable code, due to
+				 * initialization of the localMap in addClass? 
+				 * Tom Parker Oct 9, 2010
+				 */
 				classLevel = pcc.getOriginalClassLevel(level);
+				classLevel.put(ObjectKey.PARENT, pcc);
 				localMap.put(level, classLevel);
 			}
 			return classLevel;
