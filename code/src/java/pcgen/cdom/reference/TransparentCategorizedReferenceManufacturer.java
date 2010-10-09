@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 
 /**
  * A TransparentCategorizedReferenceManufacturer is a ReferenceManufacturer
@@ -33,13 +34,15 @@ import pcgen.cdom.base.CategorizedCDOMObject;
  */
 public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
 		extends TransparentReferenceManufacturer<T> implements
-		ReferenceManufacturer<T>
+		CategorizedManufacturer<T>
 {
 	/**
 	 * Stores the Category of the CategorizedCDOMObjects that this
 	 * TransparentCategorizedReferenceManufacturer constructs and references.
 	 */
 	private final String category;
+	
+	private Category<T> finalCategory;
 
 	/**
 	 * Constructs a new TransparentCategorizedReferenceManufacturer for the
@@ -146,7 +149,25 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 		if (rm == null)
 		{
 			throw new IllegalArgumentException(
-					"Reference Manufacturer for resolveUsing cannot be null");
+					"ReferenceManufacturer for resolveUsing cannot be null");
+		}
+		if (rm instanceof CategorizedManufacturer)
+		{
+			Category<T> rmCategory = ((CategorizedManufacturer<T>)rm).getCategory();
+			if (finalCategory == null)
+			{
+				finalCategory = rmCategory;
+			}
+			else if (!finalCategory.equals(rmCategory))
+			{
+				throw new IllegalArgumentException(
+						"ReferenceManufacturer for resolveUsing uses inconsistent Catefory with previous resolution");
+			}
+		}
+		else
+		{
+			throw new IllegalArgumentException(
+					"ReferenceManufacturer for resolveUsing must be a CategorizedManufacturer");
 		}
 		CDOMTransparentAllRef<T> all = getAllRef();
 		if (all != null)
@@ -212,5 +233,10 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	public String getCDOMCategory()
 	{
 		return category;
+	}
+
+	public Category<T> getCategory()
+	{
+		return finalCategory;
 	}
 }

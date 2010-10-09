@@ -23,7 +23,7 @@ import java.util.Set;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.reference.CategorizedReferenceManufacturer;
+import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -39,7 +39,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 			SelectionCreator<Ability> sc, String condition, String value,
 			boolean negate)
 	{
-		CategorizedReferenceManufacturer<Ability> rm = (CategorizedReferenceManufacturer<Ability>) sc;
+		CategorizedManufacturer<Ability> rm = (CategorizedManufacturer<Ability>) sc;
 		category = rm.getCategory();
 		return super.initialize(context, sc, condition, value, negate);
 	}
