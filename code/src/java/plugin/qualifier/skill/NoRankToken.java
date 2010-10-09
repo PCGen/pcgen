@@ -27,7 +27,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -90,7 +89,8 @@ public class NoRankToken implements QualifierToken<Skill>
 		Set<Skill> skillSet = new HashSet<Skill>();
 		for (Skill sk : allRef.getContainedObjects())
 		{
-			if (SkillRankControl.getRank(pc, sk) == 0)
+			boolean allow = (pcs == null) || pcs.allow(pc, sk);
+			if (allow && (pc.getSkillRank(sk) == 0))
 			{
 				skillSet.add(sk);
 			}

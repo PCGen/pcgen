@@ -96,8 +96,10 @@ public class CrossClassToken implements QualifierToken<Skill>
 		{
 			CLASS: for (PCClass cl : classlist)
 			{
-				if (negated
-						^ SkillCost.CROSS_CLASS.equals(pc.skillCostForPCClass(sk, cl)))
+				boolean allow = (pcs == null) || pcs.allow(pc, sk);
+				if (allow
+						&& (negated ^ SkillCost.CROSS_CLASS.equals(pc
+								.skillCostForPCClass(sk, cl))))
 				{
 					skillSet.add(sk);
 					break CLASS;

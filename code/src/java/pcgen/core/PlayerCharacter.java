@@ -13096,4 +13096,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				|| hasLocalCost(classSkillList, sk, SkillCost.CLASS)
 				|| hasMasterSkill(classSkillList, sk);
 	}
+
+	public float getSkillRank(Skill sk)
+	{
+		return SkillRankControl.getRank(this, sk);
+	}
+
+	public boolean isQualified(CDOMObject po)
+	{
+		return po.qualifies(this, po);
+	}
 }

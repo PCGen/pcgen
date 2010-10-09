@@ -95,7 +95,8 @@ public class ClassToken implements QualifierToken<Skill>
 		{
 			CLASS: for (PCClass cl : classlist)
 			{
-				if (negated ^ pc.isClassSkill(cl, sk))
+				boolean allow = (pcs == null) || pcs.allow(pc, sk);
+				if (allow && (negated ^ pc.isClassSkill(cl, sk)))
 				{
 					skillSet.add(sk);
 					break CLASS;

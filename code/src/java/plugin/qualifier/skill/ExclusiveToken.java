@@ -96,8 +96,10 @@ public class ExclusiveToken implements QualifierToken<Skill>
 		{
 			CLASS: for (PCClass cl : classlist)
 			{
-				if (negated
-						^ SkillCost.EXCLUSIVE.equals(pc.skillCostForPCClass(sk, cl)))
+				boolean allow = (pcs == null) || pcs.allow(pc, sk);
+				if (allow
+						&& (negated ^ SkillCost.EXCLUSIVE.equals(pc
+								.skillCostForPCClass(sk, cl))))
 				{
 					skillSet.add(sk);
 					break CLASS;
