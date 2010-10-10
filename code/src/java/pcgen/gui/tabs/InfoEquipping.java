@@ -2196,11 +2196,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	 * returns true if you can put Equipment into a location in EquipSet
 	 * @param eSet
 	 * @param locName
-	 * @param eqI
+	 * @param eqToBeAdded
 	 * @param eqTarget
 	 * @return true if equipment can be added
 	 **/
-	private boolean canAddEquip(EquipSet eSet, String locName, Equipment eqI,
+	private boolean canAddEquip(EquipSet eSet, String locName, Equipment eqToBeAdded,
 		Equipment eqTarget)
 	{
 		final String idPath = eSet.getIdPath();
@@ -2221,7 +2221,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 
 		// allow as many unarmed items as you'd like
-		if (eqI.isUnarmed())
+		if (eqToBeAdded.isUnarmed())
 		{
 			return true;
 		}
@@ -2233,14 +2233,14 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (eqI.isWeapon() && eqI.isWeaponOutsizedForPC(pc) && !eqI.isNatural())
+		if (eqToBeAdded.isWeapon() && eqToBeAdded.isWeaponOutsizedForPC(pc) && !eqToBeAdded.isNatural())
 		{
 			return false;
 		}
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		Map<String, String> slotMap = new HashMap<String, String>();
+		Map<String, Integer> slotMap = new HashMap<String, Integer>();
 
 		for (EquipSet es : pc.getEquipSet())
 		{
@@ -2257,12 +2257,12 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (es.getName().equals(locName))
 			{
 				final Equipment eItem = es.getItem();
-				final String nString = slotMap.get(locName);
+				final Integer numSlots = slotMap.get(locName);
 				int existNum = 0;
 
-				if (nString != null)
+				if (numSlots != null)
 				{
-					existNum = Integer.parseInt(nString);
+					existNum = numSlots;
 				}
 
 				if (eItem != null)
@@ -2270,7 +2270,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 					existNum += eItem.getSlots(pc);
 				}
 
-				slotMap.put(locName, String.valueOf(existNum));
+				slotMap.put(locName, existNum);
 			}
 		}
 
@@ -2286,7 +2286,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			// if it's a weapon we have to do some
 			// checks for hands already in use
-			if (eqI.isWeapon())
+			if (eqToBeAdded.isWeapon())
 			{
 				// weapons can never occupy the same slot
 				if (es.getName().equals(locName))
@@ -2315,42 +2315,31 @@ public class InfoEquipping extends FilterAdapterPanel implements
 					return false;
 				}
 			}
+		}
 
-			// If we already have an item in that location
-			// check to see how many are allowed in that slot
-			if (es.getName().equals(locName))
+		// Check to see how many items are allowed in the slot
+		final Integer numSlots = slotMap.get(locName);
+		int existNum = numSlots == null ? 0 : numSlots;
+
+		existNum += eqToBeAdded.getSlots(pc);
+
+		EquipSlot eSlot = Globals.getEquipSlotByName(locName);
+
+		if (eSlot == null)
+		{
+			return true;
+		}
+
+		for (String slotType : eSlot.getContainType())
+		{
+			if (eqToBeAdded.isType(slotType))
 			{
-				final String nString = slotMap.get(locName);
-				int existNum = 0;
-
-				if (nString != null)
+				// if the item takes more slots, return false
+				if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo(
+					"SLOTS", slotType)))
 				{
-					existNum = Integer.parseInt(nString);
+					return false;
 				}
-
-				existNum += eqI.getSlots(pc);
-
-				EquipSlot eSlot = Globals.getEquipSlotByName(locName);
-
-				if (eSlot == null)
-				{
-					return true;
-				}
-
-				for (String slotType : eSlot.getContainType())
-				{
-					if (eqI.isType(slotType))
-					{
-						// if the item takes more slots, return false
-						if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo(
-							"SLOTS", slotType)))
-						{
-							return false;
-						}
-					}
-				}
-
-				return true;
 			}
 		}
 
