@@ -1451,7 +1451,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					if (aCampaign != null)
 					{
 						boolean match = false;
-						for (String mode : aCampaign.getListFor(ListKey.GAME_MODE))
+						for (String mode : aCampaign.getSafeListFor(ListKey.GAME_MODE))
 						{
 							match = modeNames.contains(mode);
 							if (match)
