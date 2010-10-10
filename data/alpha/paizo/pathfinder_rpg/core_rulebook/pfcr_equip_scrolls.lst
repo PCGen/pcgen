@@ -285,7 +285,7 @@ Scroll (Hold Person (Mass))									TYPE:Magic.Scroll.Arcane.Consumable	COST:227
 Scroll (Insanity)											TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Invisibility (Mass))									TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Limited Wish)										TYPE:Magic.Scroll.Arcane.Consumable	COST:3775	WT:.01	SOURCEPAGE:p.490
-Scroll (Mage's Magnificent Mansion)								TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.
+Scroll (Mage's Magnificent Mansion)								TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Phase Door)										TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Plane Shift/Arcane)		OUTPUTNAME:Scroll (Plane Shift)		TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Plant Shape III)									TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
@@ -294,7 +294,7 @@ Scroll (Power Word Blind)									TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	
 Scroll (Prismatic Spray)									TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Project Image)										TYPE:Magic.Scroll.Arcane.Consumable	COST:2280	WT:.01	SOURCEPAGE:p.490
 Scroll (Reverse Gravity)									TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
-Scroll (Sequester)										TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.
+Scroll (Sequester)										TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Scrying (Greater)/Arcane)	OUTPUTNAME:Scroll (Scrying (Greater))	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Spell Turning)										TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
 Scroll (Summon Monster VII/Arcane)	OUTPUTNAME:Scroll (Summon Monster VII)	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:.01	SOURCEPAGE:p.490
