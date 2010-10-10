@@ -1075,9 +1075,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("quickFlySlowSwim", AbilityCategory.FEAT
 					.getAbilityCategory(), "Foo");
 		PCTemplate template = TestHelper.makeTemplate("slowFlyQuickSwim");
-		//template.addm
+		PCTemplate template2 = TestHelper.makeTemplate("dig");
 		LoadContext context = Globals.getContext();
+		final BonusObj digBonus = Bonus.newBonus(context, "MOVEADD|TYPE.Dig|60");
+		assertNotNull("Failed to create bonus", digBonus);
+		template2.addToListFor(ListKey.BONUS, digBonus);
+
+		//template.addm
 		context.ref.importObject(quickFlySlowSwim);
+		context.ref.importObject(template2);
 		context.unconditionallyProcess(human, "MOVE", "Walk,30");
 		context.unconditionallyProcess(quickFlySlowSwim, "MOVE",
 			"Swim,10,Fly,30");
@@ -1108,5 +1114,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.adjustMoveRates();
 		assertEquals(30.0, pc.movementOfType("Swim"), 0.1);
 		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
+
+		pc.addTemplate(template2);
+		pc.adjustMoveRates();
+		assertEquals(30.0, pc.movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
+		assertEquals(60.0, pc.movementOfType("Dig"), 0.1);
 	}
 }

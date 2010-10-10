@@ -202,7 +202,7 @@ public class MovementResultFacet
 
 				if (!found)
 				{
-					setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 1);
+					setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
 				}
 			}
 		}
