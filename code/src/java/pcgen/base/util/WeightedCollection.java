@@ -241,7 +241,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			}
 		}
 		/*
-		 * CONSIDER Is this really unreachable error?
+		 * This can occur if the list is empty.
 		 */
 		throw new IndexOutOfBoundsException(index + " >= " + total);
 	}

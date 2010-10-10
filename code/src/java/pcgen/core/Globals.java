@@ -60,6 +60,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
@@ -2660,14 +2661,14 @@ public final class Globals
 	 * @return List of gender strings
 	 * TODO - Genders need to become objects.
 	 */
-	public static List<String> getAllGenders()
+	public static List<Gender> getAllGenders()
 	{
-		ArrayList<String> ret = new ArrayList<String>();
-		ret.add(PropertyFactory.getString("in_genderMale")); //$NON-NLS-1$
-		ret.add(PropertyFactory.getString("in_genderFemale")); //$NON-NLS-1$
-		ret.add(PropertyFactory.getString("in_genderNeuter")); //$NON-NLS-1$
-		ret.add(PropertyFactory.getString("in_comboNone")); //$NON-NLS-1$
-		ret.add(PropertyFactory.getString("in_comboOther")); //$NON-NLS-1$
+		ArrayList<Gender> ret = new ArrayList<Gender>();
+		ret.add(Gender.Male); 
+		ret.add(Gender.Female); 
+		ret.add(Gender.Neuter);
+//		ret.add(PropertyFactory.getString("in_comboNone")); //$NON-NLS-1$
+//		ret.add(PropertyFactory.getString("in_comboOther")); //$NON-NLS-1$
 
 		return ret;
 	}

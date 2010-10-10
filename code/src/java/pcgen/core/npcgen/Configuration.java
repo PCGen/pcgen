@@ -31,6 +31,7 @@ import java.util.Map;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -209,11 +210,11 @@ public class Configuration
 				ret.add((GenderGeneratorOption)opt);
 			}
 		}
-		for ( final String gender : Globals.getAllGenders() )
+		for ( final Gender gender : Globals.getAllGenders() )
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
-			opt.setName(gender);
-			opt.addChoice(1, gender);
+			opt.setName(gender.toString());
+			opt.addChoice(1, gender.toString());
 			ret.add(opt);
 		}
 		return ret;

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import pcgen.util.PropertyFactory;
+
 /**
  * Represents the Genders available in PCGen.
  * 
@@ -26,7 +28,29 @@ package pcgen.cdom.enumeration;
  */
 public enum Gender
 {
-	Male, Female, Neuter;
+	Male {
+		@Override
+		public String toString()
+		{
+			return PropertyFactory.getString("in_genderMale");
+		}
+	},
+
+	Female {
+		@Override
+		public String toString()
+		{
+			return PropertyFactory.getString("in_genderFemale");
+		}
+	},
+
+	Neuter {
+		@Override
+		public String toString()
+		{
+			return PropertyFactory.getString("in_genderNeuter");
+		}
+	};
 
 	public static Gender getDefaultValue()
 	{

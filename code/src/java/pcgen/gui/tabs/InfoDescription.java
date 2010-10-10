@@ -592,9 +592,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		northPanel.add(genderComboBox);
 
 		genderComboBox.setAllItems(Globals.getAllGenders().toArray());
-		//		genderComboBox.addItem(PropertyFactory.getString("in_genderMale"));
-		//		genderComboBox.addItem(PropertyFactory.getString("in_genderFemale"));
-		//		genderComboBox.addItem(PropertyFactory.getString("in_genderNeuter"));
+		// TODO: Indentiofy if the following undeclared genders need to be supported
 		//		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
 		//		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
 

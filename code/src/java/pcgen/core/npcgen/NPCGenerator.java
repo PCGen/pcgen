@@ -285,7 +285,7 @@ public class NPCGenerator
 		return option.getList().getRandomValue();
 	}
 
-	private String getGender(final GenderGeneratorOption option)
+	private Gender getGender(final GenderGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
@@ -580,9 +580,9 @@ public class NPCGenerator
 				return;
 			}
 			
-			final String gender = getGender( aGender );
+			final Gender gender = getGender( aGender );
 			Logging.debugPrint( "NPCGenerator: Selecting " + gender + " for gender " + aGender ); //$NON-NLS-1$ //$NON-NLS-2$
-			aPC.setGender(Gender.valueOf(gender));
+			aPC.setGender(gender);
 
 			boolean doneRacialClasses = false;
 			for (int i = 0; i < classList.size(); i++)
