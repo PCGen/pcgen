@@ -68,8 +68,8 @@ GEAR:Coin (Platinum)	QTY:roll("2d12")*10	OPTION:86,100
 STARTPACK:Treasure Table Coins CR10	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("2d10")*1000	OPTION:11,24
-GEAR:Coin (Gold)		QTY:roll("6d4")*100	OPTION:35,79
-GEAR:Coin (Platinum)	QTY:roll("5d6")*10	OPTION:86,100
+GEAR:Coin (Gold)		QTY:roll("6d4")*100	OPTION:25,79
+GEAR:Coin (Platinum)	QTY:roll("5d6")*10	OPTION:80,100
 
 STARTPACK:Treasure Table Coins CR11	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -96,7 +96,7 @@ GEAR:Coin (Platinum)	QTY:roll("1d12")*100	OPTION:76,100
 STARTPACK:Treasure Table Coins CR15	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Gold)		QTY:roll("1d8")*1000	OPTION:4,74
-GEAR:Coin (Platinum)	QTY:roll("3d4")*100	OPTION:75,91
+GEAR:Coin (Platinum)	QTY:roll("3d4")*100	OPTION:75,100
 
 STARTPACK:Treasure Table Coins CR16	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -189,8 +189,8 @@ GEAR:Coin (Platinum)	QTY:roll("2d12")*5	OPTION:86,100
 STARTPACK:Treasure Table 1/2 Coins CR10	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("2d10")*500	OPTION:11,24
-GEAR:Coin (Gold)		QTY:roll("6d4")*50	OPTION:35,79
-GEAR:Coin (Platinum)	QTY:roll("5d6")*5		OPTION:86,100
+GEAR:Coin (Gold)		QTY:roll("6d4")*50	OPTION:25,79
+GEAR:Coin (Platinum)	QTY:roll("5d6")*5		OPTION:80,100
 
 STARTPACK:Treasure Table 1/2 Coins CR11	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -310,8 +310,8 @@ GEAR:Coin (Platinum)	QTY:roll("2d12")		OPTION:86,100
 STARTPACK:Treasure Table 1/10 Coins CR10	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("2d10")*100	OPTION:11,24
-GEAR:Coin (Gold)		QTY:roll("6d4")*10	OPTION:35,79
-GEAR:Coin (Platinum)	QTY:roll("5d6")		OPTION:86,100
+GEAR:Coin (Gold)		QTY:roll("6d4")*10	OPTION:25,79
+GEAR:Coin (Platinum)	QTY:roll("5d6")		OPTION:80,100
 
 STARTPACK:Treasure Table 1/10 Coins CR11	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
