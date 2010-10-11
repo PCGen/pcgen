@@ -93,6 +93,7 @@ FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Raven	TYPE:Companion	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+
 STARTPACK:Raven Familiar Language	TYPE:Companion	VISIBLE:NO
 TEMPLATE:Raven Familiar Language
 SKILL:Perception	RANK:1

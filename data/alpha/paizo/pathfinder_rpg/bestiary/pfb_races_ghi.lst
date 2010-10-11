@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep 22 10:22:10 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Thu Jun  3 23:25:08 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
 ###Block: G
 # Race Name				Output Name				Starting Feats	Size		Move						Face/Space	Reach		Vision				Automatic Languages				Bonus Languages								Bonus to Ability Pool						Combat bonus					Bonus to skill													Stat bonus																	Modify VAR															Weapon prof. bonus			Racial HD Class Skills							Automatically Gained Armor Prof.	Automatically Gained Feat	Automatically Gained Shield Prof.	Automatically Gained Weapon Prof.	Ability																																																					Nb Legs	Nb Hands	Natural Attacks																																					Define									Spell Res.	Damage Reduction				Monster Class Name and Starting Level	Main Race Type			Template				Challenge Rating	Source Page		Innate Spells																																																																																				Add 										Apply Kit

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Fri Feb  5 20:14:55 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
-# Original Entry by: Stefan Radermacher
+# Original Entry by: Stefan Radermacher & Andrew Maitland
 
 ###Block: Animal Companion Abilities
 # Ability Name		Category of Ability		Type						Define			Description																						Bonus to Ability Pool						Source Page		Aspects						Description of the Benefits
@@ -25,17 +25,8 @@ Spell Resistance				KEY:Spell Resistance ~ Familiar	CATEGORY:Special Ability	TYP
 
 ###Block:
 # Ability Name			Category of Ability		Type				Define									Class Skill
-Fourth Level Advancement	CATEGORY:Special Ability	TYPE:Special
-Seventh Level Advancement	CATEGORY:Special Ability	TYPE:Special
-#
-#Companion Bonus Choice									CATEGORY:Special Ability	TYPE:Special																																							BONUS:ABILITYPOOL|Companion Level Increase Choice|1
-#Stat Increase				KEY:Companion Choice ~ Stat		CATEGORY:Special Ability	TYPE:CompChoice
-#Regular Progression			KEY:Companion Choice ~ Regular	CATEGORY:Special Ability	TYPE:CompChoice
-
 Companion Skills			CATEGORY:Special Ability	TYPE:Special												CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
 War Trained				CATEGORY:Special Ability	TYPE:SpecialQuality
-
-CompanionIncrease			CATEGORY:Special Ability					DEFINE:CompAdvancementLvlA|0	DEFINE:CompAdvancementLvlB|0
 
 ###Block: Companion Specials
 # Ability Name	Unique Key				Category of Ability		Type						Define				Description																			Modify VAR								Source Page		Natural Attacks
@@ -56,7 +47,7 @@ Disease		KEY:Disease ~ Dire Rat	CATEGORY:Special Ability	TYPE:SpecialAttack.Extr
 ###Block: Companion Advancement abilities
 # Ability Name						Category of Ability		Type			Visible		Required Race												Ability													Combat bonus						Adjust PC Size		Stat bonus
 +2 to Dexterity and Constitution			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY																																									BONUS:STAT|DEX,CON|2|TYPE=Racial
-Companion Advancement (Ape)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Ape)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Badger (Wolverine))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Badger (Wolverine))																														BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Bear)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bear)																																BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Bird)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl))																											BONUS:STAT|STR,CON|2|TYPE=Racial
@@ -65,19 +56,19 @@ Companion Advancement (Camel)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBL
 Companion Advancement (Cat (Small (Cheetah)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Cheetah)))							ABILITY:Special Ability|AUTOMATIC|Sprint																BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Cat (Small (Leopard)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Leopard)))							ABILITY:Special Ability|AUTOMATIC|Sprint																BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Crocodile (Alligator))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Crocodile (Alligator))							ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Crocodile|Death Roll|Grab|Sprint									BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dog)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dog)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dog)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dog)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Horse)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Horse)										ABILITY:Special Ability|AUTOMATIC|War Trained
 Companion Advancement (Pony)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Pony)										ABILITY:Special Ability|AUTOMATIC|War Trained
 Companion Advancement (Shark)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Shark)										ABILITY:Special Ability|AUTOMATIC|Blindsense															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Snake (Constrictor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Constrictor))								ABILITY:Special Ability|AUTOMATIC|Constrict							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Snake (Constrictor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Constrictor))								ABILITY:Special Ability|AUTOMATIC|Constrict							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Snake (Viper))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Viper))																															BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Dire Rat)			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dire Rat)									ABILITY:Special Ability|AUTOMATIC|Disease ~ Dire Rat																		BONUS:STAT|STR,CON|2|TYPE=Racial
 
 # Advances at level 7
-Companion Advancement (Cat (Big (Lion)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Lion)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Cat (Big (Tiger)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Tiger)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Cat (Big (Lion)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Lion)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Cat (Big (Tiger)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Tiger)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Wolf)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Wolf)																																BONUS:SIZEMOD|NUMBER|1
 
 
@@ -122,12 +113,3 @@ CompStat 3 Constitution	KEY:Companion Stat ~ CON	OUTPUTNAME:Constitution	CATEGOR
 CompStat 4 Intelligence	KEY:Companion Stat ~ INT	OUTPUTNAME:Intelligence	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1
 CompStat 5 Wisdom		KEY:Companion Stat ~ WIS	OUTPUTNAME:Wisdom		CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|1
 CompStat 6 Charisma	KEY:Companion Stat ~ CHA	OUTPUTNAME:Charisma	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1
-
-# Abilities form the Bestiary files copied here
-Ink Cloud		KEY:Ink Cloud ~ Octopus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive		DESC:An octopus can emit a 10ft radius sphere of ink once per minute as a free action. The ink provides total concealment in water, and persists for 1 minute.											SOURCEPAGE:p.219
-Jet			KEY:Jet ~ Octopus			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 ft. It must move in a straight line while jetting, and does not provoke attacks of opportunity when it does so.	MOVE:Jet,200	SOURCEPAGE:p.219
-Poison		KEY:Poison ~ Octopus		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Bite-injury; save Fort DC 13; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.																						SOURCEPAGE:p.219
-Poison		KEY:Poison ~ Giant Centipede	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d3 Dex damage; Cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.43
-Water Dependency	KEY:Water Dependency ~ Crab	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Giant crabs can survive out of the water for 1 hour per point of Constitution. Beyond this limit, a giant crab runs the risk of suffocation, as if it were drowning.	SOURCEPAGE:p.50
-Poison		KEY:Poison ~ Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Sting-injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Strength damage; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	BONUS:VAR|PoisonDC|2|TYPE=Racial	SOURCEPAGE:p.242	ASPECT:Ability Benefit|(DC %1)|PoisonDC
-Poison		KEY:Poison ~ Giant Spider	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonSaveDC|10+(HD/2)+CON	DESC:Bite-injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Str damage; cure 1 save.|PoisonSaveDC															BONUS:VAR|PoisonSaveDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.258	ASPECT:Ability Benefit|(Fort DC %1;1/round for 4 rounds;1d2 Str;1 save)|PoisonSaveDC
