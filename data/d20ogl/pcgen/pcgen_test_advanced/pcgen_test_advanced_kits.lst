@@ -14,3 +14,19 @@ SKILL:Athletics		RANK:9
 SKILL:Persuasion		RANK:9
 SKILL:Perception		RANK:9
 SKILL:Survival		RANK:9
+
+
+
+STARTPACK:Companion ~ Dire Wolf	TYPE:Companion.Default	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Str 25, Dex 15, Con 17, Int 2, Wis 12, Cha 10
+#Skills: Hide +0, Listen +7, Move Silently +4, Spot +7, Survival +2*
+# Skill Points - 4, +5 = 9 total, Max 9 
+#A dire wolf has a +2 racial bonus on Hide, Listen, Move Silently, and Spot checks. 
+SKILL:Stealth	RANK:2
+SKILL:Perception	RANK:6
+SKILL:Survival	RANK:1
+FEAT:Alertness
+FEAT:Run
+FEAT:Weapon Focus(Bite)
+#GEAR:Bite		LOCATION:Natural-Primary

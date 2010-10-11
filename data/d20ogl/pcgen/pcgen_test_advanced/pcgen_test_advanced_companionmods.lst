@@ -6,3 +6,12 @@ FOLLOWER:CompanionLVL=1	TYPE:Companion Mod		SAB:This Companion Mod Works	ADD:FEA
 MASTERBONUSRACE:Companion		TYPE:Companion Mod	SR:10+TL	ADD:FEAT|Add Feat Master Bonus Race
 
 
+###Block: Special Mount Progression
+# Class of the Master		Type				Hit Dice	Get Master's Saves					Ability										Define						Combat bonus													Stat bonus							Modify VAR				Main Race Type
+FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			COPYMASTERCHECK:MASTER		ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Improved Evasion|Share Saving Throws|Share Spells ~ Companion Creature|Communicate with Master ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	BONUS:VAR|IntelligenceLockNumber|8	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
+FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																				BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																												BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1																				BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount																																												BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1																				BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount																																												BONUS:VAR|CompanionCPLvl|3

@@ -373,3 +373,12 @@ Lock Int ~ 30	CATEGORY:Internal		DEFINE:LOCK.INT|30
 #
 Scent									CATEGORY:Special Ability
 Immunity to Magic Sleep effects and Paralysis		CATEGORY:Special Ability
+
+
+# Kit test ---------
+Special Mount			KEY:Companion ~ Special Mount				SORTKEY:Companion_4_Special Mount		CATEGORY:Special Ability	TYPE:CompanionChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Master ~ Special Mount	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																				SOURCEPAGE:p.27
+Special Mount			KEY:Master ~ Special Mount				SORTKEY:Companion_2_d				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpecialMountLvl|0	DESC:You have a Special Mount companion																																																	BONUS:VAR|SpecialMountLvl|var("EclipseClassLvl")|TYPE=Companion	SOURCEPAGE:p.27
+Communicate with Master		KEY:Communicate with Master ~ Companion Creature							CATEGORY:Special Ability	TYPE:SpecialQuality
+Evasion				KEY:Improved Fortune ~ Evasion										CATEGORY:Special Ability	TYPE:SpecialQuality
+Share Spells			KEY:Share Spells ~ Companion Creature									CATEGORY:Special Ability	TYPE:SpecialQuality
+

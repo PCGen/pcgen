@@ -25,7 +25,7 @@ Perception			KEYSTAT:WIS	TYPE:Wisdom.Perception.TestSkills
 Persuasion			KEYSTAT:CHA	TYPE:Charisma.TestSkills
 
 Survival			KEYSTAT:WIS	USEUNTRAINED:NO
-
+Stealth			KEYSTAT:DEX	TYPE:Dexterity.TestSkills
 
 Climb			KEYSTAT:STR	USEUNTRAINED:NO
 Intimidate		KEYSTAT:WIS	USEUNTRAINED:NO
