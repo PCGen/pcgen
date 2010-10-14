@@ -207,7 +207,7 @@
     <dependency>
       <groupId>cobra</groupId>
       <artifactId>cobra</artifactId>
-      <version>0.97.2</version>
+      <version>0.98.4</version>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
