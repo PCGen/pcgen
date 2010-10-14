@@ -10,6 +10,7 @@ Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Simple
 Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
+Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
 Dagger (Punching)			TYPE:Simple.Light.Melee.Dagger.Piercing.MeleePiercing
