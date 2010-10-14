@@ -92,7 +92,11 @@ Automatic Still Spell.MOD			TYPE:EpicDruid
 Colossal Wild Shape.MOD				TYPE:EpicDruid
 Diminutive Wild Shape.MOD			TYPE:EpicDruid
 Dragon Wild Shape.MOD				TYPE:EpicDruid
-Energy Resistance.MOD				TYPE:EpicDruid
+Energy Resistance ~ Acid.MOD			TYPE:EpicDruid
+Energy Resistance ~ Cold.MOD			TYPE:EpicDruid
+Energy Resistance ~ Electricity.MOD		TYPE:EpicDruid
+Energy Resistance ~ Fire.MOD			TYPE:EpicDruid
+Energy Resistance ~ Sonic.MOD			TYPE:EpicDruid
 Enhance Spell.MOD					TYPE:EpicDruid
 Epic Spell Focus.MOD				TYPE:EpicDruid
 Epic Spell Penetration.MOD			TYPE:EpicDruid
@@ -126,7 +130,11 @@ Damage Reduction.MOD				TYPE:EpicFighter
 Devastating Critical.MOD			TYPE:EpicFighter
 Dire Charge.MOD					TYPE:EpicFighter
 Distant Shot.MOD					TYPE:EpicFighter
-Energy Resistance.MOD				TYPE:EpicFighter
+Energy Resistance ~ Acid.MOD			TYPE:EpicFighter
+Energy Resistance ~ Cold.MOD			TYPE:EpicFighter
+Energy Resistance ~ Electricity.MOD		TYPE:EpicFighter
+Energy Resistance ~ Fire.MOD			TYPE:EpicFighter
+Energy Resistance ~ Sonic.MOD			TYPE:EpicFighter
 Epic Endurance.MOD				TYPE:EpicFighter
 Epic Leadership.MOD				TYPE:EpicFighter
 Epic Prowess.MOD					TYPE:EpicFighter
@@ -158,7 +166,11 @@ Uncanny Accuracy.MOD				TYPE:EpicFighter
 Armor Skin.MOD					TYPE:EpicMonk
 Blinding Speed.MOD				TYPE:EpicMonk
 Damage Reduction.MOD				TYPE:EpicMonk
-Energy Resistance.MOD				TYPE:EpicMonk
+Energy Resistance ~ Acid.MOD			TYPE:EpicMonk
+Energy Resistance ~ Cold.MOD			TYPE:EpicMonk
+Energy Resistance ~ Electricity.MOD		TYPE:EpicMonk
+Energy Resistance ~ Fire.MOD			TYPE:EpicMonk
+Energy Resistance ~ Sonic.MOD			TYPE:EpicMonk
 Epic Prowess.MOD					TYPE:EpicMonk
 Epic Speed.MOD					TYPE:EpicMonk
 Epic Toughness.MOD				TYPE:EpicMonk
@@ -255,7 +267,11 @@ Augmented Alchemy.MOD				TYPE:EpicSorcerer
 Automatic Quicken Spell.MOD			TYPE:EpicSorcerer
 Automatic Silent Spell.MOD			TYPE:EpicSorcerer
 Automatic Still Spell.MOD			TYPE:EpicSorcerer
-Energy Resistance.MOD				TYPE:EpicSorcerer
+Energy Resistance ~ Acid.MOD			TYPE:EpicSorcerer
+Energy Resistance ~ Cold.MOD			TYPE:EpicSorcerer
+Energy Resistance ~ Electricity.MOD		TYPE:EpicSorcerer
+Energy Resistance ~ Fire.MOD			TYPE:EpicSorcerer
+Energy Resistance ~ Sonic.MOD			TYPE:EpicSorcerer
 Enhance Spell.MOD					TYPE:EpicSorcerer
 Epic Spell Focus.MOD				TYPE:EpicSorcerer
 Epic Spell Penetration.MOD			TYPE:EpicSorcerer
@@ -425,7 +441,11 @@ Armor Skin.MOD					TYPE:EpicDwarvenDefender
 Bulwark of Defense.MOD				TYPE:EpicDwarvenDefender
 Damage Reduction.MOD				TYPE:EpicDwarvenDefender
 Devastating Critical.MOD			TYPE:EpicDwarvenDefender
-Energy Resistance.MOD				TYPE:EpicDwarvenDefender
+Energy Resistance ~ Acid.MOD			TYPE:EpicDwarvenDefender
+Energy Resistance ~ Cold.MOD			TYPE:EpicDwarvenDefender
+Energy Resistance ~ Electricity.MOD		TYPE:EpicDwarvenDefender
+Energy Resistance ~ Fire.MOD			TYPE:EpicDwarvenDefender
+Energy Resistance ~ Sonic.MOD			TYPE:EpicDwarvenDefender
 Epic Endurance.MOD				TYPE:EpicDwarvenDefender
 Epic Prowess.MOD					TYPE:EpicDwarvenDefender
 Epic Toughness.MOD				TYPE:EpicDwarvenDefender
@@ -481,7 +501,11 @@ Uncanny Accuracy.MOD				TYPE:EpicEldritchKnight
 #Horizon Walker
 Armor Skin.MOD					TYPE:EpicHorizonWalker
 Blinding Speed.MOD				TYPE:EpicHorizonWalker
-Energy Resistance.MOD				TYPE:EpicHorizonWalker
+Energy Resistance ~ Acid.MOD			TYPE:EpicHorizonWalker
+Energy Resistance ~ Cold.MOD			TYPE:EpicHorizonWalker
+Energy Resistance ~ Electricity.MOD		TYPE:EpicHorizonWalker
+Energy Resistance ~ Fire.MOD			TYPE:EpicHorizonWalker
+Energy Resistance ~ Sonic.MOD			TYPE:EpicHorizonWalker
 Epic Endurance.MOD				TYPE:EpicHorizonWalker
 Epic Prowess.MOD					TYPE:EpicHorizonWalker
 Epic Reputation.MOD				TYPE:EpicHorizonWalker
