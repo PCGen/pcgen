@@ -446,8 +446,8 @@ Immunity To Transmutation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 Oozelike Immunities				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES
 Spell Immunities					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES
 # Divine Additions
-Immunity to Ability Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	
-Immunity to Ability Damage			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	
+Immunity to Ability Damage			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You are never subject to Ability Damage		ASPECT:Immunity|Ability Damage
+Immunity to Ability Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You are never subject to Ability Drain		ASPECT:Immunity|Ability Drain
 
 
 ###Block: Resistances
