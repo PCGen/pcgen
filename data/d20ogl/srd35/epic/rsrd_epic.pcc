@@ -35,6 +35,7 @@ CLASS:rsrd_classes_prestige_epic.lst
 COMPANIONMOD:rsrd_companionmod_epic.lst
 
 FEAT:rsrd_feats_epic.lst
+FEAT:rsrd_feats_epic_mods.lst
 FEAT:rsrd_feats_monster_epic.lst
 RACE:rsrd_races_epic.lst
 RACE:rsrd_races_dragons_epic.lst
