@@ -666,7 +666,7 @@ Immune
 									<tr>
 										<td>
 <!-- START Weapon Table -->
-|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|FOR,%weap,0,2,1,0|
 |%WEAPON.%weap.NAME|
 											<table class="noborder" cellpadding="0" width="100%" cellspacing="0" summary="Weapon Table">
 												<tr>
@@ -686,7 +686,7 @@ Immune
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
 <!-- IIF(WEAPON.%weap.CONTENTS:0) |WEAPON.%weap.CONTENTS| -->
 |IIF(WEAPON.%weap.CONTENTS:0)|
-|ELSE| 
+|ELSE|
 <!-- ELSE: Has Contents -->
 												<tr>
 													<td class="left border2 color_header bor_col_dark">Ammunition</td>
@@ -714,7 +714,7 @@ Immune
 												</tr>
 |ENDIF|
 <!-- ENDIF: Contents? -->
-|ENDIF| 
+|ENDIF|
 <!-- ENDIF: Is Ranged -->
 											</table>
 										</td>
@@ -748,7 +748,7 @@ Immune
 |ENDFOR|
 <!-- ENDFOR -->
 												</tr>
-|ELSE| 
+|ELSE|
 <!-- ELSE: Not Ranged -->
 												<tr>
 													<td height="15" class="center border2 color_header bor_col_dark" width="14%"></td>
@@ -824,7 +824,7 @@ Immune
 <!-- ENDIF: Is N/A -->
 													<td height="15" class="center border2 color_hilite bor_col_dark">|WEAPON.%weap.OHDAMAGE|</td>
 												</tr>
-|ENDIF| 
+|ENDIF|
 <!-- ENDIF: Is Ranged? -->
 <!-- IIF(TEXT.LENGTH.WEAPON.%weap.SPROP:0) -->
 |IIF(TEXT.LENGTH.WEAPON.%weap.SPROP:0)|
@@ -1019,7 +1019,7 @@ Immune
 |ENDIF|
 |ENDIF|
 |ENDIF|
-|ENDFOR| 
+|ENDFOR|
 <!-- EQUIPMENT.Not.Coin.NOT.Gem -->
 								</table>
 							</td>
@@ -1265,7 +1265,7 @@ Immune
 									</tr>
 								</table>
 <!-- STOP Language Table -->
-								
+
 							</td>
 						</tr>
 |%|
@@ -1308,9 +1308,9 @@ Immune
 <!-- ENDFOR: spelltimes -->
 							</td>
 						</tr>
-|ENDFOR| 
+|ENDFOR|
 <!-- ENDFOR: SPELLSINBOOK -->
-|ENDFOR| 
+|ENDFOR|
 <!-- ENDFOR: level -->
 					</table>
 |ENDIF|
@@ -1319,9 +1319,9 @@ Immune
 <!-- ENDFOR: SPELLBOOKS -->
 |ENDIF|
 <!-- ENDIF: SPELLLISTMEMORIZE -->
-|%| 
+|%|
 <!-- ENDFILTER: SPELLLISTCLASS -->
-|ENDFOR| 
+|ENDFOR|
 <!-- ENDFOR: classes -->
 				</td>
 				<td width="50%" valign="top">
@@ -1329,5 +1329,47 @@ Immune
 				</td>
 			</tr>
 		</table>
+|%BIO|
+<br />
+<a name="Bio"></a>
+<!-- START Bio Table -->
+<table width="100%" cellspacing="0" cellpadding="2">
+ <tr>
+  <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
+ </tr>
+ <tr>
+  <td class="border" height="400" width="1%"><img src="|NAME|_Full.jpg" height="400" alt="|NAME|'s portrait" /></td>
+  <td valign="top" width="99%">
+<table width="100%" cellspacing="0" cellpadding="2">
+<tr><td class="biodata">|RACE|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>RACE</b></font></td></tr>
+<tr><td class="biodata">|AGE|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>AGE</b></font></td></tr>
+<tr><td class="biodata">|HEIGHT|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>HEIGHT</b></font></td></tr>
+<tr><td class="biodata">|WEIGHT|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>WEIGHT</b></font></td></tr>
+<tr><td class="biodata">|COLOR.EYE|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>EYE COLOR</b></font></td></tr>
+<tr><td class="biodata">|COLOR.SKIN|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>SKIN COLOR</b></font></td></tr>
+<tr><td class="biodata">|COLOR.HAIR|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>HAIR COLOR</b></font></td></tr>
+<tr><td class="biodata">|LENGTH.HAIR|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>HAIR LENGTH</b></font></td></tr>
+<tr><td class="biodata">|PHOBIAS|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>PHOBIAS</b></font></td></tr>
+<tr><td class="biodata">|PERSONALITY1| / |PERSONALITY2|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>PERSONALITY TRAITS</b></font></td></tr>
+<tr><td class="biodata">|INTERESTS|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>INTERESTS</b></font></td></tr>
+<tr><td class="biodata">|SPEECHTENDENCY|, |CATCHPHRASE|<br/></td></tr>
+<tr><td class="topline"><font style="font-size: 6pt"><b>SPOKEN STYLE</b></font></td></tr>
+</table>
+<!-- STOP BIO Table -->
+  </td>
+ </tr>
+</table>
+|%|
 	</body>
 </html>
