@@ -103,11 +103,11 @@ CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKI
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE.Perform|Sense Motive
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense|Precise Strike
+1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense|Precise Strike	BONUS:VAR|PreciseStrike|CL
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction|Parry
 3									ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
 4									ABILITY:Special Ability|AUTOMATIC|Combat Reflexes ~ Duelist|Grace
-5	BONUS:VAR|PreciseStrike|CL/5				ABILITY:Special Ability|AUTOMATIC|Riposte
+5									ABILITY:Special Ability|AUTOMATIC|Riposte
 6									ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
 7	BONUS:VAR|ElaborateParryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Elaborate Defense
 9									ABILITY:Special Ability|AUTOMATIC|No Retreat|Deflect Arrows ~ Duelist	VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
