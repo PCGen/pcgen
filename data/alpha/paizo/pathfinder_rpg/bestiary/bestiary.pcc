@@ -66,6 +66,7 @@ ABILITY:pfb_abilities_monsters_stu.lst
 ABILITY:pfb_abilities_monsters_templates.lst
 ABILITY:pfb_abilities_monsters_vw.lst
 ABILITY:pfb_abilities_monsters_xyz.lst
+ABILITY:pfb_abilities_afflictions.lst
 CLASS:pfb_classes_monster_specific.lst
 EQUIPMENT:pfb_equip_monsters.lst
 KIT:pfb_kits_races_abc.lst

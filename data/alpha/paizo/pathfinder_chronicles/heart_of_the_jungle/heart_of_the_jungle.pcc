@@ -44,6 +44,7 @@ COPYRIGHT:PCGen dataset conversion for "Heart of the Jungle" Copyright 2010, PCG
 # Data Files
 ABILITY:hotj_abilities_racial.lst
 ABILITY:hotj_abilities_companions.lst
+ABILITY:hotj_abilities_afflictions.lst
 ABILITYCATEGORY:hotj_abilitycategories.lst
 EQUIPMENT:hotj_equipment_monsters.lst
 EQUIPMENT:hotj_equipment_poisons.lst

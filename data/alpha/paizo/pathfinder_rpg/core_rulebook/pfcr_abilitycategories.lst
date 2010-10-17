@@ -107,4 +107,8 @@ ABILITYCATEGORY:Intelligent Item Power			PLURAL:Intelligent Item Power			CATEGOR
 ABILITYCATEGORY:Intelligent Item Purpose			PLURAL:Intelligent Item Purpose		CATEGORY:Intelligent Item	TYPE:ItemPurpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
 ABILITYCATEGORY:Intelligent Item Purpose Power		PLURAL:Intelligent Item Purpose Power	CATEGORY:Intelligent Item	TYPE:ItemPurposePower		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
 
+# Master Category
+ABILITYCATEGORY:Afflictions	CATEGORY:Afflictions	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO
 
+# Child Categorie
+ABILITYCATEGORY:Affliction	CATEGORY:Afflictions	TYPE:Afflictions	VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	DISPLAYLOCATION:Afflictions
