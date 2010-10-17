@@ -217,7 +217,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 #	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
 ###Block: Monk Bonus Feats
-1	ABILITY:Special Ability|AUTOMATIC|Monk Bonus Feat|!PRETYPE:1,CATEGORY=Archetype,TYPE.MonkBonusFeats	DEFINE:MonkBonusFeatLVL|0	BONUS:VAR|MonkBonusFeatLVL|CL	
+1	ABILITY:Special Ability|AUTOMATIC|Monk Bonus Feat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats	DEFINE:MonkBonusFeatLVL|0	BONUS:VAR|MonkBonusFeatLVL|CL	
 1	KIT:1|Monk Flurry of Blows
 ###Block: Level progression
 #           F   D   T   S   M   L   H   G   C
