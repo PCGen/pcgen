@@ -26,7 +26,6 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
