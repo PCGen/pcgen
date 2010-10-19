@@ -2,8 +2,8 @@
 Torch		TYPE:Goods
 Lantern	TYPE:Goods.Lightsource.Latern
 
-
-
+Item Test 42	TYPE:Goods		ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 2	TYPE:Goods		ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
 # Weapons
 Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
 Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light

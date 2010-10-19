@@ -132,3 +132,12 @@ Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 # Inclusion to test a Kit issue
 
 Kit CODE_244	ABILITY:Special Ability|AUTOMATIC|Companion ~ Special Mount			BONUS:VAR|SpecialMountLvl|4
+
+#
+Test-43-A		FEAT:Test Weapon Proficiency(Longsword)
+Test-43-B		LEVEL:2:FEAT:Test Weapon Proficiency(Dagger)
+Test-43-C		HD:2:FEAT:Test Weapon Proficiency(Spear)
+
+
+
+

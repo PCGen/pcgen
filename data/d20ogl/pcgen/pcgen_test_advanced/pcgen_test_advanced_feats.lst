@@ -1,5 +1,16 @@
 
 
+Test Weapon Proficiency		TYPE:TEST	AUTO:WEAPONPROF|%LIST	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL
+
+Application Test-43-A	TYPE:Test43	TEMPLATE:Test-43-A
+
+Application Test-43-B	TYPE:Test43	TEMPLATE:Test-43-B
+
+Application Test-43-C		TYPE:Test43	TEMPLATE:Test-43-C
+
+Test-43-Master		TYPE:Test43	ABILITY:FEAT|VIRTUAL|Application Test-43-A|PRELEVEL:MAX=2	ABILITY:FEAT|VIRTUAL|Application Test-43-B|PRELEVEL:MAX=3	ABILITY:FEAT|VIRTUAL|Application Test-43-C|PRELEVEL:MAX=4
+
+
 ###Add Stuff
 Add Feat Ability			TYPE:Test
 Add Feat Race			TYPE:Test

@@ -105,3 +105,4 @@ CLASS:Companion	STARTSKILLPTS:0
 1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
 1:REPEATLEVEL:1												DONOTADD:SKILLPOINTS
 
+CLASS:Test Nothing	HD:4	TYPE:PC.Base

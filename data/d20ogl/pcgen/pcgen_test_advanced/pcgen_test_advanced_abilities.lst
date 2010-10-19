@@ -382,3 +382,11 @@ Communicate with Master		KEY:Communicate with Master ~ Companion Creature							
 Evasion				KEY:Improved Fortune ~ Evasion										CATEGORY:Special Ability	TYPE:SpecialQuality
 Share Spells			KEY:Share Spells ~ Companion Creature									CATEGORY:Special Ability	TYPE:SpecialQuality
 
+#     *    Project Test Requests    * TEST-42	Test Conditional Selected Ability Application
+#Test #1, please apply the following to an item possessed by the PC (prior to level 4 [meaning <=3]):
+
+
+#Test #2, please apply the following to an item possessed by the PC (prior to level 4 [meaning <=3)):
+
+
+
