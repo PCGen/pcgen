@@ -5034,10 +5034,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (si != null)
 			{
 				metaFeats = si.getFeatList();
-				rangeInFeet =
-						getVariableValue(aSpell, aString, aSpellClass)
-							.intValue();
 			}
+			rangeInFeet =
+				getVariableValue(aSpell, aString, aSpellClass)
+					.intValue();
 			if ((metaFeats != null) && !metaFeats.isEmpty())
 			{
 				for (Ability feat : metaFeats)
