@@ -16,6 +16,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -53,12 +54,14 @@ public class PlayerCharacterOutput
 
 	public String getAlignmentLong()
 	{
-		return pc.getPCAlignment().getDisplayName();
+		PCAlignment pcAlignment = pc.getPCAlignment();
+		return pcAlignment == null ? "" : pcAlignment.getDisplayName();
 	}
 
 	public String getAlignmentShort()
 	{
-		return pc.getPCAlignment().getAbb();
+		PCAlignment pcAlignment = pc.getPCAlignment();
+		return pcAlignment == null ? "" : pcAlignment.getAbb();
 	}
 
 	public String getBAB()
