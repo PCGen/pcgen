@@ -479,13 +479,13 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getInitTotal()); //|INITIATIVEMOD|
 			statBuf.append("</font> (");
 			statBuf.append(pcOut.getInitStatMod()); //|STAT.1.MOD|
-			statBuf.append("Dex, ");
+			statBuf.append(" Dex, ");
 			statBuf.append(pcOut.getInitMiscMod()); //|INITIATIVEMISC|
-			statBuf.append("Misc); ");
+			statBuf.append(" Misc); ");
 
 			statBuf.append("<font class='type'>Spd</font> ");
 			statBuf.append(pcOut.getSpeed()); //|MOVEMENT|
-			statBuf.append("; ");
+			statBuf.append(";<br>");
 
 			statBuf
 				.append("<font class='type'>AC</font> <font class='highlight'>");
@@ -494,7 +494,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getACFlatFooted()); //|AC.Flatfooted|
 			statBuf.append("</font>, touch <font class='highlight'>");
 			statBuf.append(pcOut.getACTouch()); //|AC.Touch|
-			statBuf.append("</font>); ");
+			statBuf.append("</font>);<br>");
 
 			statBuf
 				.append("<font class='type'>Melee:</font> <a href='attack:Melee\\");
@@ -603,7 +603,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getExportToken("WEAPONH.CRIT")); //|WEAPONH.CRIT|
 			statBuf.append("/x");
 			statBuf.append(pcOut.getExportToken("WEAPONH.MULT")); //|WEAPONH.MULT|
-			statBuf.append(")</a>; ");
+			statBuf.append(")</a>;<br>");
 			//End Grapple
 
 			statBuf.append("<font class='type'>SA:</font> ");
@@ -697,7 +697,7 @@ public class PcgCombatant extends Combatant
 				statBuf.append(pc.calculateSaveBonus(chk, "TOTAL")); //|CHECK.FORTITUDE.TOTAL|
 				statBuf.append("</a></font>");
 			}
-			statBuf.append("; ");
+			statBuf.append(";<br>");
 
 			for (PCStat stat : pcOut.getUnmodifiableStatList())
 			{
@@ -1109,6 +1109,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getGender()); //|GENDER|
 			statBuf.append(" ");
 			statBuf.append(pcOut.getRaceName()); //|RACE|
+			statBuf.append(" ");
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 
