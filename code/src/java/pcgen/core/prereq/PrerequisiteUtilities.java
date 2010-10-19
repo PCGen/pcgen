@@ -251,7 +251,14 @@ public final class PrerequisiteUtilities
 						runningTotal++;
 						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 						{
-							runningTotal += (character.getSelectCorrectedAssociationCount(ability) - 1);
+							// SERVESAS occurrences might mean this is less than zero, in which case ignore it 
+							// This still leaves the instance where more than one of an item is desired 
+							// and one instance is a SERVESAS, but that is a high cost corner case.
+							int numOccurs = character.getSelectCorrectedAssociationCount(ability) - 1;
+							if (numOccurs > 0)
+							{
+								runningTotal += numOccurs;
+							}
 						}
 					}
 				}
