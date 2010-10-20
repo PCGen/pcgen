@@ -751,7 +751,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 	public PlayerCharacter loadPCFromFile(File file)
 	{
-		return loadPCFromFile(file, false);
+		return loadPCFromFile(file, false, false);
 	}
 
 	/**
@@ -811,23 +811,27 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	 * @param file The PCG file containing the PC
 	 * @param blockLoadedMessage Whether we block the message that the PC is loaded 
 	 * to the GMGen plugin system
+	 * @param allowDuplicates Should we allow the user to load the same character multiple times?
 	 * @return the PC
 	 */
-	public PlayerCharacter loadPCFromFile(File file, boolean blockLoadedMessage)
+	public PlayerCharacter loadPCFromFile(File file, boolean blockLoadedMessage, boolean allowDuplicates)
 	{
 		PlayerCharacter aPC;
 
 		// Fix for bug 1082786 - loading duplicate pcg files
-		for (PlayerCharacter possibleDuplicate : Globals.getPCList())
+		if (!allowDuplicates)
 		{
-			if (file.getAbsolutePath().equals(possibleDuplicate.getFileName()))
+			for (PlayerCharacter possibleDuplicate : Globals.getPCList())
 			{
-				// TODO Internationalise
-				ShowMessageDelegate.showMessageDialog(
-					"This character has already been loaded from: "
-						+ file.getAbsolutePath(), "Error", MessageType.ERROR);
-				Logging.errorPrint("The character was already loaded");
-				return null;
+				if (file.getAbsolutePath().equals(possibleDuplicate.getFileName()))
+				{
+					// TODO Internationalise
+					ShowMessageDelegate.showMessageDialog(
+						"This character has already been loaded from: "
+							+ file.getAbsolutePath(), "Error", MessageType.ERROR);
+					Logging.errorPrint("The character was already loaded");
+					return null;
+				}
 			}
 		}
 
@@ -2192,7 +2196,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
 			message.setPlayerCharacter(loadPCFromFile(pcFile, message
-				.blockLoadedMessage()));
+				.blockLoadedMessage(), false));
 		}
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{

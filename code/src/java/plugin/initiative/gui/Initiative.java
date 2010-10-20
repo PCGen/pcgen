@@ -1456,19 +1456,9 @@ public class Initiative extends javax.swing.JPanel
 		if (toPaste instanceof PcgCombatant)
 		{
 			PcgCombatant cb = (PcgCombatant) toPaste;
-			if (PCGen_Frame1.getInst().loadPCFromFile(
-				new File(cb.getPC().getFileName())) != null)
-			{
-				//
-			}
-			/*PcgCombatant newCbt;
-
-			 PcgCombatant cb = (PcgCombatant) toPaste;
-			 SystemInitiative init = cb.getInitiative();
-			 SystemHP hitPoints = cb.getHP();
-			 String name = initList.getUniqueName(cb.getName());
-			 newCbt = new PcgCombatant(cb.getPC());
-			 initList.add(newCbt);*/
+			PCGen_Frame1.getInst().loadPCFromFile(
+				new File(cb.getPC().getFileName()), false, true);
+			// As character exists in pcgen it is automatically added in to the init list
 		}
 
 		refreshTable();
