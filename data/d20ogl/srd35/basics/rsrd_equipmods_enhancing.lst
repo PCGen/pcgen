@@ -593,6 +593,14 @@ Int. Item - Language Choice 2	KEY:INT_ITEM_LANG_2	NAMEOPT:NOTHING	TYPE:Int14.Int
 Int. Item - Language Choice 3	KEY:INT_ITEM_LANG_3	NAMEOPT:NOTHING	TYPE:Int16.Int17.Int18.Int19			VISIBLE:QUALIFY	ITYPE:Lang3		PRETYPE:1,Lang2	!PRETYPE:1,Lang3	SPROP:%CHOICE		CHOOSE:STRING|Common|Dwarven|Elven|Gnome|Halfling|Giant|Gnoll|Goblin|Orc|Terran|Undercommon|Abyssal|Celestial|Draconic|Infernal|Sylvan|Druidic|Aboleth|Aquan|Auran|Blink Dog|Ettin Pidgin|Formian|Grimlock|Ignan|Sahuagin|Sphinx|Treant|Worg|TITLE=Language
 Int. Item - Language Choice 4	KEY:INT_ITEM_LANG_4	NAMEOPT:NOTHING	TYPE:Int18.Int19					VISIBLE:QUALIFY	ITYPE:Lang4		PRETYPE:1,Lang3	!PRETYPE:1,Lang4	SPROP:%CHOICE		CHOOSE:STRING|Common|Dwarven|Elven|Gnome|Halfling|Giant|Gnoll|Goblin|Orc|Terran|Undercommon|Abyssal|Celestial|Draconic|Infernal|Sylvan|Druidic|Aboleth|Aquan|Auran|Blink Dog|Ettin Pidgin|Formian|Grimlock|Ignan|Sahuagin|Sphinx|Treant|Worg|TITLE=Language
 
+###Block: Greater Size Items
+Wield One Step Greater				KEY:PLUS1STEP					TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-1
+Wield Two Step Greater				KEY:PLUS2STEP					TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-2
+Wield Three Step Greater			KEY:PLUS3STEP					TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-3
+Wield One Step Greater No Penalty		KEY:PLUS1STEP_NO_PENALTY			TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-1	BONUS:WEAPON|TOHIT|2
+Wield Two Step Greater No Penalty		KEY:PLUS2STEP_NO_PENALTY			TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-2	BONUS:WEAPON|TOHIT|4
+Wield Three Step Greater No Penalty		KEY:PLUS3STEP_NO_PENALTY			TYPE:Weapon.Melee					VISIBLE:QUALIFY														BONUS:WEAPON|WIELDCATEGORY|-3	BONUS:WEAPON|TOHIT|6
+
 ###Block: Obsoleted EQMODs
 # included here so as not to break existing characters but will not show up to be chosen in the customizer
 
