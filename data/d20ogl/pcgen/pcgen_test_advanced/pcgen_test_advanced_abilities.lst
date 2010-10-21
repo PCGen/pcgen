@@ -2,6 +2,11 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+# TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
+
+# COMMENT: Alice, Bob and Charlie are all Test Set Only; changes made to this set MAY affect those test characters.
+
+
 #GLOBAL ~ Alice Feat Chooser Tests
 ALICE ~ Language			CATEGORY:FEAT	TYPE:AliceTests	AUTO:LANG|%LIST				CHOOSE:LANG|ALL				MULT:YES
 ALICE ~ Weapon Prof		CATEGORY:FEAT	TYPE:AliceTests	AUTO:WEAPONPROF|%LIST			CHOOSE:WEAPONPROFICIENCY|ALL		MULT:YES
@@ -111,15 +116,18 @@ Chooser ~ Choose NOCHOICE		CHOOSE:NOCHOICE					MULT:YES	CATEGORY:Special Ability
 
 #Block: Bob's Abilities for Testing new Choosers w/ interactions. ----------------------------------------------------
 
-Bob's Ability with PreFeat Weapon Focus Longsword is working	DESC:Using PreFeat with Longsword weapon Focus	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by Weapon Focus Sword wildcard		DESC:Using PreFeat with Sword Wildcard		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by Preskill is working				DESC:Using new Chooser with SKILL			CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by PreAlign LG					DESC:Using Chooser with Align LG chosen		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by PreClass Basic Fighter			DESC:Using Chooser with Basic Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality.TesterType
-Bob's Ability triggered by PreDeity						DESC:Using Chooser with Deity selected		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by Size M						DESC:Using Chooser with Size M Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
-Bob's Ability triggered by Check						DESC:Using Chooser with Check Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
-This Ability is Only Activated is TYPE=TestingType is in a Special Ability	KEY:TypeTester						CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob Explanation of What should be appearing				KEY:Bob Master	CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:1_Bob_Master	DESC:Bob's Ability with PreFeat Weapon Focus Longsword is working	DESC:You should be seeing the following and in this order; 'Using PreFeat with Longsword weapon Focus', 'Bob's Ability triggered by Weapon Focus Sword wildcard', 'Bob's Ability triggered by Preskill is working', 'Bob's Ability triggered by PreAlign LG', 'Bob's Ability triggered by PreClass Basic Fighter', 'Bob's Ability triggered by PreDeity', 'Bob's Ability triggered by Size M', 'Bob's Ability triggered by Check', 'This Ability is Only Activated is TYPE=TestingType is in a Special Ability'
+
+#
+Bob's Ability with PreFeat Weapon Focus Longsword is working			SORTKEY:2_Bob_a1	DESC:Using PreFeat with Longsword weapon Focus	CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Weapon Focus Sword wildcard				SORTKEY:2_Bob_a2	DESC:Using PreFeat with Sword Wildcard		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Preskill is working						SORTKEY:2_Bob_a3	DESC:Using new Chooser with SKILL			CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreAlign LG							SORTKEY:2_Bob_a4	DESC:Using Chooser with Align LG chosen		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by PreClass Basic Fighter					SORTKEY:2_Bob_a5	DESC:Using Chooser with Basic Fighter Class chosen	CATEGORY:Special Ability	TYPE:SpecialQuality.TesterType
+Bob's Ability triggered by PreDeity								SORTKEY:2_Bob_a6	DESC:Using Chooser with Deity selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Size M								SORTKEY:2_Bob_a7	DESC:Using Chooser with Size M Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bob's Ability triggered by Check								SORTKEY:2_Bob_a8	DESC:Using Chooser with Check Selected		CATEGORY:Special Ability	TYPE:SpecialQuality
+This Ability is Only Activated is TYPE=TestingType is in a Special Ability	SORTKEY:2_Bob_a9	KEY:TypeTester						CATEGORY:Special Ability	TYPE:SpecialQuality
 #
 
 Bob Test ~ Chooser ~ Ability								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
@@ -143,7 +151,7 @@ Bob Test ~ Chooser ~ String								CATEGORY:Special Ability	TYPE:BobTest.Test.Sp
 Bob Test ~ Chooser ~ Template								CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
 Bob Test ~ Chooser ~ Weaponproficiency						CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
 
-
+Bob Test ~ TypeTester									CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality.TypeTester
 #Bob Test ~ Chooser ~ NoChoice							CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality	
 #Bob Test ~ Chooser ~ Userinput				CATEGORY:Special Ability	TYPE:BobTest.Test.SpecialQuality
 
@@ -220,8 +228,8 @@ Extraordinary Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuali
 Supernatural Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
 Spell Like Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
 Psi Ability				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
-Salient Divine Ability		CATEGORY:Salient Divine Ability	TYPE:SalientDivineAbility
-Mutation				CATEGORY:Mutation				TYPE:Mutation
+Salient Divine Ability		CATEGORY:Salient Divine Ability	TYPE:SalientDivineAbility					DESC:Testing
+Mutation				CATEGORY:Mutation				TYPE:Mutation							DESC:Testing
 
 # MSRD Support
 MSRD Talent Support		CATEGORY:Special Ability													ABILITY:Talent|AUTOMATIC|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability

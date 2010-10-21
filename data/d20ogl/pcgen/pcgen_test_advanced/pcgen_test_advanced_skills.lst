@@ -1,3 +1,6 @@
+
+# COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
+
 ###Skill
 Test Crafting			KEYSTAT:DEX
 Craft (One)				KEYSTAT:DEX	TYPE:Craft
