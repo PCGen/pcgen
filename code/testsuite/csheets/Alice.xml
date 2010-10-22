@@ -644,6 +644,23 @@ BIO
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
+			<name>Stealth</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Stealth</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
 			<name>Test Coding Script</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->

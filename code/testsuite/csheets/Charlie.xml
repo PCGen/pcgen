@@ -112,10 +112,10 @@ BIO
 			</move>
 			<move>
 				<name>Crawl</name>
-				<rate>35 ft.</rate>
-				<squares>7</squares>
+				<rate>5 ft.</rate>
+				<squares>1</squares>
 			</move>
-			<all>Walk 30 ft., Trot 35 ft., Crawl 35 ft.</all>
+			<all>Walk 30 ft., Trot 35 ft., Crawl 5 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>
@@ -578,6 +578,23 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>5</trained_total>
 			<exclusive_total>5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Stealth</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Stealth</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Test Coding Script</name>
