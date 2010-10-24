@@ -1,5 +1,9 @@
 ###Templates
 
+
+CODE-362		ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
+
+
 ###Block: Charlies Test 1.0 - PCGEN v. 5.17.4 Cycle Testing
 Charlie ~ Template	FAVOREDCLASS:%LIST	CHOOSE:CLASS|ALL
 
