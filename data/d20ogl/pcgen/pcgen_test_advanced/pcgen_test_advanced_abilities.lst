@@ -6,13 +6,13 @@
 
 # COMMENT: Alice, Bob and Charlie are all Test Set Only; changes made to this set MAY affect those test characters.
 
-Display Code 362 Test 1		KEY:Test_Display_One	SORTKEY:A	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 2		KEY:Test_Display_Two	SORTKEY:AB	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 3		KEY:Test_Display_Three	SORTKEY:AC	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 4		KEY:Test_Display_Four	SORTKEY:AD	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 5		KEY:Test_Display_Five	SORTKEY:AE	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 6		KEY:Test_Display_Six	SORTKEY:AF	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 7								TYPE:CodeThreeSixTwo.SpecialQuality
+Display Code 362 Test 1		CATEGORY:Special Ability	KEY:Test_Display_One	SORTKEY:A	TYPE:CodeThreeSixTwo.SpecialQuality
+Display Code 362 Test 2		CATEGORY:Special Ability	KEY:Test_Display_Two	SORTKEY:AB	TYPE:SpecialQuality.CodeThreeSixTwo
+Display Code 362 Test 3		CATEGORY:Special Ability	KEY:Test_Display_Three	SORTKEY:AC	TYPE:CodeThreeSixTwo.SpecialQuality
+Display Code 362 Test 4		CATEGORY:Special Ability	KEY:Test_Display_Four	SORTKEY:AD	TYPE:CodeThreeSixTwo.SpecialQuality
+Display Code 362 Test 5a		CATEGORY:Special Ability	KEY:Test_Display_Five	SORTKEY:AE	TYPE:Code_Three_Six_Two.SpecialQuality
+Display Code 362 Test 6a		CATEGORY:Special Ability	KEY:Test_Display_Six	SORTKEY:AF	TYPE:Code_Three_Six_Two.SpecialQuality
+Display Code 362 Test 7a		CATEGORY:Special Ability							TYPE:Code_Three_Six_Two.SpecialQuality
 
 #GLOBAL ~ Alice Feat Chooser Tests
 ALICE ~ Language			CATEGORY:FEAT	TYPE:AliceTests	AUTO:LANG|%LIST				CHOOSE:LANG|ALL				MULT:YES
