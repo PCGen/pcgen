@@ -54,6 +54,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -1650,35 +1652,30 @@ public class InfoResources extends FilterAdapterPanel implements
 				formComponentShown();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			@Override
-			public void componentResized(@SuppressWarnings("unused")
-			ComponentEvent e)
+		topSplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				int i = topSplit.getDividerLocation();
-
-				if (i > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoResources.topSplit", i); //$NON-NLS-1$
+					saveDividerLocations();
 				}
-
-				i = botSplit.getDividerLocation();
-
-				if (i > 0)
+			});
+		botSplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoResources.botSplit", i); //$NON-NLS-1$
+					saveDividerLocations();
 				}
-
-				i = centerSplit.getDividerLocation();
-
-				if (i > 0)
+			});
+		centerSplit.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption(
-						"InfoResources.centerSplit", i); //$NON-NLS-1$
+					saveDividerLocations();
 				}
-			}
-		});
+			});
 		addButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(@SuppressWarnings("unused")
@@ -1772,6 +1769,32 @@ public class InfoResources extends FilterAdapterPanel implements
 				clearQFilter();
 			}
 		});
+	}
+
+	private void saveDividerLocations()
+	{
+		if (!hasBeenSized)
+		{
+			return;
+		}
+
+		int s = topSplit.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoResources.topSplit", s); //$NON-NLS-1$
+		}
+
+		s = botSplit.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoResources.botSplit", s); //$NON-NLS-1$
+		}
+
+		s = centerSplit.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoResources.centerSplit", s); //$NON-NLS-1$
+		}
 	}
 
 	/**

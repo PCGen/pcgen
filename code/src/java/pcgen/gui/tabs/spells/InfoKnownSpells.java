@@ -35,6 +35,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -317,32 +319,54 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				formComponentShown();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
 			{
-				int s = splitPane.getDividerLocation();
-
-				if (s > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoKnownSpells.splitPane", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = splitPane.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption(
+								"InfoKnownSpells.splitPane", s);
+						}
+					}
 				}
-
-				s = asplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoKnownSpells.asplit", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = bsplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoKnownSpells.bsplit",
+								s);
+						}
+					}
 				}
-
-				s = bsplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoKnownSpells.bsplit", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = asplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoKnownSpells.asplit",
+								s);
+						}
+					}
 				}
-			}
-		});
+			});
 		shouldAutoSpells.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)

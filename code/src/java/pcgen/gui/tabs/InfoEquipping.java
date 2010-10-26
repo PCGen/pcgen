@@ -43,6 +43,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -3248,33 +3250,30 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				formComponentShown();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				int s = splitPane.getDividerLocation();
-
-				if (s > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler
-						.setPCGenOption("InfoEquipping.splitPane", s);
+					saveDividerLocations();
 				}
-
-				s = asplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoEquipping.asplit", s);
+					saveDividerLocations();
 				}
-
-				s = bsplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoEquipping.bsplit", s);
+					saveDividerLocations();
 				}
-			}
-		});
+			});
 		viewEqSetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -3369,6 +3368,35 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				clearQFilter();
 			}
 		});
+	}
+
+	private void saveDividerLocations()
+	{
+		if (!hasBeenSized)
+		{
+			return;
+		}
+
+		int s = splitPane.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoEquipping.splitPane", s); //$NON-NLS-1$
+		}
+
+		s = asplit.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoEquipping.asplit", s); //$NON-NLS-1$
+		}
+
+		s = bsplit.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoEquipping.bsplit", s); //$NON-NLS-1$
+		}
 	}
 
 	/**

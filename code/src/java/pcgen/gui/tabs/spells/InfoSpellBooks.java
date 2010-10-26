@@ -1,5 +1,5 @@
 /*
- * InfoKnownSpells.java
+ * InfoSpellBooks.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -34,6 +34,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -278,33 +280,54 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 				formComponentShown();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
 			{
-				int s = splitPane.getDividerLocation();
-
-				if (s > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption(
-						"InfoSpellBooks.splitPane", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = splitPane.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption(
+								"InfoSpellBooks.splitPane", s);
+						}
+					}
 				}
-
-				s = asplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoSpellBooks.asplit", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = bsplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoSpellBooks.bsplit",
+								s);
+						}
+					}
 				}
-
-				s = bsplit.getDividerLocation();
-
-				if (s > 0)
+			});
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoSpellBooks.bsplit", s); //$NON-NLS-1$
+					if (hasBeenSized)
+					{
+						int s = asplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoSpellBooks.asplit",
+								s);
+						}
+					}
 				}
-			}
-		});
+			});
 		addSpellButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)

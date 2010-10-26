@@ -41,6 +41,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -893,6 +895,31 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
 			selectedTable, new SelectedClickHandler(), false));
 
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
+		
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
 		{
 			public void changedUpdate(DocumentEvent evt)
@@ -1138,6 +1165,35 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		removeButton.setEnabled(false);
 		rightBottomPanel.add(removeButton);
 		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
+	}
+
+	private void saveDividerLocations()
+	{
+		if (!hasBeenSized)
+		{
+			return;
+		}
+
+		int s = splitPane.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoClasses.splitPane", s); //$NON-NLS-1$
+		}
+
+		s = asplit.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoClasses.asplit", s); //$NON-NLS-1$
+		}
+
+		s = bsplit.getDividerLocation();
+
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoClasses.bsplit", s); //$NON-NLS-1$
+		}
 	}
 
 	private boolean maybeSetExperience(int xp)

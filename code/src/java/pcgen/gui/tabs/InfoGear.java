@@ -44,6 +44,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -1883,33 +1885,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				formComponentShown();
 			}
-
-			public void componentResized(ComponentEvent e)
-			{
-				saveDividerLocs();
-			}
 		});
-		asplit.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				saveDividerLocs();
-			}
-		});
-		bsplit.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocs();
+				}
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				saveDividerLocs();
-			}
-		});
-		splitPane.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocs();
+				}
+			});
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
 			{
-				saveDividerLocs();
-			}
-		});
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocs();
+				}
+			});
 		
 		removeButton.addActionListener(sellOneListener);
 		addButton.addActionListener(buyOneListener);
@@ -2030,6 +2030,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 	 */
 	public void saveDividerLocs()
 	{
+		if (!hasBeenSized)
+		{
+			return;
+		}
+
 		int s = splitPane.getDividerLocation();
 		if (s > 0)
 		{

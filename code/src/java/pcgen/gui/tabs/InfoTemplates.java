@@ -39,6 +39,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -202,30 +204,31 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				refresh();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentShown(ComponentEvent evt)
+		split.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				formComponentShown();
-			}
-
-			public void componentResized(ComponentEvent e)
-			{
-				int s = split.getDividerLocation();
-
-				if (s > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoTemplates.asplit", s);
-				}
+					if (hasBeenSized)
+					{
+						int s = split.getDividerLocation();
 
-				s = bsplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption(
+								"InfoTemplates.asplit", s);
+						}
 
-				if (s > 0)
-				{
-					SettingsHandler.setPCGenOption("InfoTemplates.bsplit", s);
+						s = bsplit.getDividerLocation();
+
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption(
+								"InfoTemplates.bsplit", s);
+						}
+					}
 				}
-			}
-		});
+			});
 		removeButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
@@ -758,6 +761,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
 					availableTable, "Template", i));
 			}
+			hasBeenSized = true;
 		}
 
 		if (t > 0)

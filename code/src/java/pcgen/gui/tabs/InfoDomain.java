@@ -50,6 +50,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -1099,6 +1101,55 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 		});
 
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					if (hasBeenSized)
+					{
+						int s = splitPane.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption(
+								"InfoDomain.splitPane", s);
+						}
+					}
+				}
+			});
+		bSplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					if (hasBeenSized)
+					{
+						int s = bSplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoDomain.bSplit",
+								s);
+						}
+					}
+				}
+			});
+		aSplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					if (hasBeenSized)
+					{
+						int s = aSplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler.setPCGenOption("InfoDomain.aSplit",
+								s);
+						}
+					}
+				}
+			});
+		
 	}
 
 	private void viewComboBoxActionPerformed()

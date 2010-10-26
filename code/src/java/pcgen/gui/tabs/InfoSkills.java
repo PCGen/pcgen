@@ -53,6 +53,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EventObject;
@@ -1269,6 +1271,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			splitPane.setDividerLocation(s);
 			SettingsHandler.setPCGenOption("InfoSkills.splitPane", s); //$NON-NLS-1$
+			Logging.errorPrint("Saved splitpane loc of " + s);
 		}
 
 		if (t > 0)
@@ -1309,34 +1312,30 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		asplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				saveDividerLocations();
-			}
-		});
-		asplit.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				saveDividerLocations();
-			}
-		});
-		bsplit.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
+		splitPane.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
 			{
-				saveDividerLocations();
-			}
-		});
-		splitPane.addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
-			{
-				saveDividerLocations();
-			}
-		});
+				public void propertyChange(PropertyChangeEvent evt)
+				{
+					saveDividerLocations();
+				}
+			});
 		removeButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
@@ -2084,6 +2083,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	private void saveDividerLocations()
 	{
+		if (!hasBeenSized)
+		{
+			return;
+		}
+
 		int s = splitPane.getDividerLocation();
 
 		if (s > 0)

@@ -41,6 +41,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -520,6 +522,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
 					raceTable, "Race", i));
 			}
+			hasBeenSized = true;
 		}
 
 		if (t > 0)
@@ -544,18 +547,23 @@ public class InfoRaces extends BaseCharacterInfoTab
 				formComponentShown();
 			}
 		});
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
+		bsplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
 			{
-				int s = bsplit.getDividerLocation();
-
-				if (s > 0)
+				public void propertyChange(PropertyChangeEvent evt)
 				{
-					SettingsHandler.setPCGenOption("InfoRace.bsplit", s);
+					if (hasBeenSized)
+					{
+						int s = bsplit.getDividerLocation();
+						if (s > 0)
+						{
+							SettingsHandler
+								.setPCGenOption("InfoRace.bsplit", s);
+						}
+					}
 				}
-			}
-		});
+			});
+		
 		selButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
