@@ -8,6 +8,11 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Notes - Soulknife needs Mind Blade enhancements done as EQMODS
 #         Need to do PsiCrystals as Familiars
 
+# COMMENT: There is no KNOWN list for Psionic Classes, the PSION and ilk may choose any power from first level to the Highest Level available.
+#		This KNOWN progression was made on the assumption that psions and co. would choose to take the highest level powers
+#		available to them. The User May simply select the Use Higher Level Slot to take a power of any level lower than the max available.
+
+
 # Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl
@@ -65,7 +70,9 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Conce
 18	KNOWN:0,5,4,4,4,4,3,3,3,3
 19	KNOWN:0,5,4,4,4,4,3,3,3,4
 20	KNOWN:0,5,4,4,4,4,3,3,3,6
-
+# COMMENT: There is no KNOWN list, the PSION and ilk may choose any power from first level to the Highest Level available.
+#		This KNOWN progression was made on the assumption that psions and co. would choose to take the highest level powers
+#		available to them. The User May simply select the Use Higher Level Slot to take a power of any level lower than the max available.
 
 # Class Name		Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
