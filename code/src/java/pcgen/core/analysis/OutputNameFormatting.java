@@ -151,9 +151,9 @@ public class OutputNameFormatting
 		}
 	
 		//we just take from the first ( to the first ), typically there should only be one of each
-		final String subName = displayName.substring(displayName.indexOf('(') + 1, displayName.indexOf(')')); //the stuff inside the ()
+		final String subName = displayName.substring(displayName.indexOf('(') + 1, displayName.lastIndexOf(')')); //the stuff inside the ()
 		final StringTokenizer tok = new StringTokenizer(subName, "/");
-		final StringBuffer newNameBuff = new StringBuffer();
+		final StringBuilder newNameBuff = new StringBuilder(subName.length());
 	
 		while (tok.hasMoreTokens())
 		{
