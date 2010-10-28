@@ -181,28 +181,31 @@ public class MovementResultFacet
 
 			// Need to create movement entries if there is a BONUS:MOVEADD
 			// associated with that type of movement
-			for (String moveType : bonusFacet.getBonusInfo(id, "MOVEADD"))
+			for (String moveType : bonusFacet.getExpandedBonusInfo(id, "MOVEADD"))
 			{
 				if (moveType.startsWith("TYPE"))
 				{
 					moveType = moveType.substring(5);
 				}
 
-				moveType = CoreUtility.capitalizeFirstLetter(moveType);
-
-				boolean found = false;
-
-				for (int i = 0; i < movements.length; i++)
+				if (!moveType.equalsIgnoreCase("ALL"))
 				{
-					if (moveType.equals(movementTypes[i]))
+					moveType = CoreUtility.capitalizeFirstLetter(moveType);
+	
+					boolean found = false;
+	
+					for (int i = 0; i < movements.length; i++)
 					{
-						found = true;
+						if (moveType.equals(movementTypes[i]))
+						{
+							found = true;
+						}
 					}
-				}
-
-				if (!found)
-				{
-					setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
+	
+					if (!found)
+					{
+						setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
+					}
 				}
 			}
 		}

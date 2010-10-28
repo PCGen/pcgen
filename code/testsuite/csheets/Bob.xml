@@ -113,12 +113,7 @@ BIO
 				<rate>445 ft.</rate>
 				<squares>89</squares>
 			</move>
-			<move>
-				<name>All</name>
-				<rate>650 ft.</rate>
-				<squares>130</squares>
-			</move>
-			<all>Walk 565 ft., Fly 445 ft., All 650 ft.</all>
+			<all>Walk 565 ft., Fly 445 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>

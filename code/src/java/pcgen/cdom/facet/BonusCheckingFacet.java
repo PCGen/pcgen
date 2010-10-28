@@ -26,6 +26,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusPair;
+import pcgen.util.Logging;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -90,6 +92,46 @@ public class BonusCheckingFacet
 			if (bonus.getTypeOfBonus().equals(bonusName))
 			{
 				list.add(bonus.getBonusInfo());
+			}
+		}
+		return list;
+	}
+
+	/**
+     * Get back a list of bonus info with %LIST entries replaced with the choices made.
+	 * @param id The id of the character
+	 * @param bonusName The name of the bonus to be retrieved.
+	 * @return The list of bonus info keys
+	 */
+	public Collection<String> getExpandedBonusInfo(CharID id, String bonusName)
+	{
+		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		List<String> list = new ArrayList<String>();
+		for (BonusObj bonus : pc.getActiveBonusList())
+		{
+			if (bonus.getTypeOfBonus().equals(bonusName))
+			{
+				String bonusInfo = bonus.getBonusInfo();
+				if (bonusInfo.indexOf("%LIST") >= 0)
+				{
+					// We have a %LIST that needs to be expanded
+					List<BonusPair> bpList = pc.getStringListFromBonus(bonus);
+					for (BonusPair bonusPair : bpList)
+					{
+						String key = bonusPair.bonusKey;
+						// Strip off the bonus name and the trailing . 
+						if (key.startsWith(bonusName))
+						{
+							key = key.substring(bonusName.length()+1);
+						}
+						list.add(key);
+					}
+
+				}
+				else
+				{
+					list.add(bonus.getBonusInfo());
+				}
 			}
 		}
 		return list;
