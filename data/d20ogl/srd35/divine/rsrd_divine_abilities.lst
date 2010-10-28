@@ -18,6 +18,173 @@ Remote Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBL
 Spontaneous Casting					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Travel							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement	VISIBLE:YES
 
+# Divine Speed 
+Divine Speed						CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyMovement	
+# Divine Speed Workings - Separated to keep a clean look and debug easier for now.
+# Fine
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Biped - Walk)|PRESIZEEQ:F|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Biped - Climb)|PRESIZEEQ:F|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Biped - Fly)|PRESIZEEQ:F|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (All - Burrow)|PRESIZEEQ:F|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (All - Swim)|PRESIZEEQ:F|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Quad - Walk)|PRESIZEEQ:F|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Quad - Climb)|PRESIZEEQ:F|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Fine Speed (Quad - Fly)|PRESIZEEQ:F|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Diminutive
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Biped - Walk)|PRESIZEEQ:D|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Biped - Climb)|PRESIZEEQ:D|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Biped - Fly)|PRESIZEEQ:D|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (All - Burrow)|PRESIZEEQ:D|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (All - Swim)|PRESIZEEQ:D|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Quad - Walk)|PRESIZEEQ:D|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Quad - Climb)|PRESIZEEQ:D|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Diminutive Speed (Quad - Fly)|PRESIZEEQ:D|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Tiny
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Biped - Walk)|PRESIZEEQ:T|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Biped - Climb)|PRESIZEEQ:T|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Biped - Fly)|PRESIZEEQ:T|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (All - Burrow)|PRESIZEEQ:T|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (All - Swim)|PRESIZEEQ:T|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Quad - Walk)|PRESIZEEQ:T|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Quad - Climb)|PRESIZEEQ:T|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Tiny Speed (Quad - Fly)|PRESIZEEQ:T|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Small
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Biped - Walk)|PRESIZEEQ:S|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Biped - Climb)|PRESIZEEQ:S|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Biped - Fly)|PRESIZEEQ:S|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (All - Burrow)|PRESIZEEQ:S|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (All - Swim)|PRESIZEEQ:S|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Quad - Walk)|PRESIZEEQ:S|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Quad - Climb)|PRESIZEEQ:S|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Small Speed (Quad - Fly)|PRESIZEEQ:S|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Medium
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Biped - Walk)|PRESIZEEQ:M|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Biped - Climb)|PRESIZEEQ:M|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Biped - Fly)|PRESIZEEQ:M|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (All - Burrow)|PRESIZEEQ:M|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (All - Swim)|PRESIZEEQ:M|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Quad - Walk)|PRESIZEEQ:M|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Quad - Climb)|PRESIZEEQ:M|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Medium Speed (Quad - Fly)|PRESIZEEQ:M|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Large
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Biped - Walk)|PRESIZEEQ:L|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Biped - Climb)|PRESIZEEQ:L|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Biped - Fly)|PRESIZEEQ:L|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (All - Burrow)|PRESIZEEQ:L|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (All - Swim)|PRESIZEEQ:L|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Quad - Walk)|PRESIZEEQ:L|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Quad - Climb)|PRESIZEEQ:L|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Large Speed (Quad - Fly)|PRESIZEEQ:L|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Huge
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Biped - Walk)|PRESIZEEQ:H|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Biped - Climb)|PRESIZEEQ:H|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Biped - Fly)|PRESIZEEQ:H|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (All - Burrow)|PRESIZEEQ:H|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (All - Swim)|PRESIZEEQ:H|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Quad - Walk)|PRESIZEEQ:H|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Quad - Climb)|PRESIZEEQ:H|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Huge Speed (Quad - Fly)|PRESIZEEQ:H|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Gargantuan
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Biped - Walk)|PRESIZEEQ:G|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Biped - Climb)|PRESIZEEQ:G|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Biped - Fly)|PRESIZEEQ:G|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (All - Burrow)|PRESIZEEQ:G|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (All - Swim)|PRESIZEEQ:G|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Quad - Walk)|PRESIZEEQ:G|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Quad - Climb)|PRESIZEEQ:G|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Gargantuan Speed (Quad - Fly)|PRESIZEEQ:G|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+# Colossal
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Biped - Walk)|PRESIZEEQ:C|PREMOVE:1,Walk=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Biped - Climb)|PRESIZEEQ:C|PREMOVE:1,Climb=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Biped - Fly)|PRESIZEEQ:C|PREMOVE:1,Fly=1|PRELEGSLTEQ:3
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (All - Burrow)|PRESIZEEQ:C|PREMOVE:1,Burrow=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (All - Swim)|PRESIZEEQ:C|PREMOVE:1,Swim=1
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Quad - Walk)|PRESIZEEQ:C|PREMOVE:1,Walk=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Quad - Climb)|PRESIZEEQ:C|PREMOVE:1,Climb=1|PRELEGSGTEQ:4
+CATEGORY=Special Ability|Divine Speed.MOD	ABILITY:Internal|AUTOMATIC|Colossal Speed (Quad - Fly)|PRESIZEEQ:C|PREMOVE:1,Fly=1|PRELEGSGTEQ:4
+
+#Block: Divine Speed Abilities -
+# Fine
+Fine Speed (Biped - Walk)	MOVE:Walk,20	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3			
+Fine Speed (Biped - Climb)	MOVE:Climb,10	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Fine Speed (Biped - Fly)	MOVE:Fly,20		PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Fine Speed (All - Burrow)	MOVE:Burrow,20	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Fine Speed (All - Swim)		MOVE:Swim,20	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Fine Speed (Quad - Walk)	MOVE:Walk,60	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Fine Speed (Quad - Climb)	MOVE:Climb,60	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Fine Speed (Quad - Fly)		MOVE:Fly,120	PRESIZEEQ:F	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Diminutive
+Diminutive Speed (Biped - Walk)	MOVE:Walk,30	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Diminutive Speed (Biped - Climb)	MOVE:Climb,15	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Diminutive Speed (Biped - Fly)	MOVE:Fly,30		CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Diminutive Speed (All - Burrow)	MOVE:Burrow,30	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Diminutive Speed (All - Swim)		MOVE:Swim,30	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Diminutive Speed (Quad - Walk)	MOVE:Walk,70	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Diminutive Speed (Quad - Climb)	MOVE:Climb,70	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Diminutive Speed (Quad - Fly)		MOVE:Fly,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Tiny
+Tiny Speed (Biped - Walk)	MOVE:Walk,40	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Tiny Speed (Biped - Climb)	MOVE:Climb,20	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Tiny Speed (Biped - Fly)	MOVE:Fly,40		CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Tiny Speed (All - Burrow)	MOVE:Burrow,40	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Tiny Speed (All - Swim)		MOVE:Swim,40	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Tiny Speed (Quad - Walk)	MOVE:Walk,80	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Tiny Speed (Quad - Climb)	MOVE:Climb,80	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Tiny Speed (Quad - Fly)		MOVE:Fly,160	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Small
+Small Speed (Biped - Walk)	MOVE:Walk,50	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Small Speed (Biped - Climb)	MOVE:Climb,25	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Small Speed (Biped - Fly)	MOVE:Fly,50		CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Small Speed (All - Burrow)	MOVE:Burrow,50	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Small Speed (All - Swim)	MOVE:Swim,50	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Small Speed (Quad - Walk)	MOVE:Walk,90	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Small Speed (Quad - Climb)	MOVE:Climb,90	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Small Speed (Quad - Fly)	MOVE:Fly,180	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Medium
+Medium Speed (Biped - Walk)	MOVE:Walk,60	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Medium Speed (Biped - Climb)	MOVE:Climb,30	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Medium Speed (Biped - Fly)	MOVE:Fly,60		CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Medium Speed (All - Burrow)	MOVE:Burrow,60	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Medium Speed (All - Swim)	MOVE:Swim,60	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Medium Speed (Quad - Walk)	MOVE:Walk,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Medium Speed (Quad - Climb)	MOVE:Climb,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Medium Speed (Quad - Fly)	MOVE:Fly,200	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Large
+Large Speed (Biped - Walk)	MOVE:Walk,80	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Large Speed (Biped - Climb)	MOVE:Climb,40	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Large Speed (Biped - Fly)	MOVE:Fly,80		CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Large Speed (All - Burrow)	MOVE:Burrow,80	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Large Speed (All - Swim)	MOVE:Swim,80	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Large Speed (Quad - Walk)	MOVE:Walk,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Large Speed (Quad - Climb)	MOVE:Climb,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Large Speed (Quad - Fly)	MOVE:Fly,240	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Huge
+Huge Speed (Biped - Walk)	MOVE:Walk,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Huge Speed (Biped - Climb)	MOVE:Climb,50	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Huge Speed (Biped - Fly)	MOVE:Fly,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Huge Speed (All - Burrow)	MOVE:Burrow,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Huge Speed (All - Swim)		MOVE:Swim,100	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Huge Speed (Quad - Walk)	MOVE:Walk,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Huge Speed (Quad - Climb)	MOVE:Climb,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Huge Speed (Quad - Fly)		MOVE:Fly,280	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Gargantuan
+Gargantuan Speed (Biped - Walk)	MOVE:Walk,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Gargantuan Speed (Biped - Climb)	MOVE:Climb,60	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Gargantuan Speed (Biped - Fly)	MOVE:Fly,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Gargantuan Speed (All - Burrow)	MOVE:Burrow,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Gargantuan Speed (All - Swim)		MOVE:Swim,120	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Gargantuan Speed (Quad - Walk)	MOVE:Walk,160	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Gargantuan Speed (Quad - Climb)	MOVE:Climb,160	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Gargantuan Speed (Quad - Fly)		MOVE:Fly,320	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
+# Colossal
+Colossal Speed (Biped - Walk)		MOVE:Walk,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSLTEQ:3
+Colossal Speed (Biped - Climb)	MOVE:Climb,70	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSLTEQ:3
+Colossal Speed (Biped - Fly)		MOVE:Fly,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSLTEQ:3
+Colossal Speed (All - Burrow)		MOVE:Burrow,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Burrow=1
+Colossal Speed (All - Swim)		MOVE:Swim,140	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Swim=1
+Colossal Speed (Quad - Walk)		MOVE:Walk,180	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Walk=1	PRELEGSGTEQ:4
+Colossal Speed (Quad - Climb)		MOVE:Climb,180	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Climb=1	PRELEGSGTEQ:4
+Colossal Speed (Quad - Fly)		MOVE:Fly,360	CATEGORY:Internal	TYPE:Movement	PREMOVE:1,Fly=1	PRELEGSGTEQ:4
 #
 # End
 #
