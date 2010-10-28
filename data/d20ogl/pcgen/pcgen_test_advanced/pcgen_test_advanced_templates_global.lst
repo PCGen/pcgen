@@ -3,6 +3,7 @@
 
 CODE-362		ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
 CODE-362_B		ABILITY:Special Ability|AUTOMATIC|TYPE=Code_Three_Six_Two
+CODE-362_C		ABILITY:Special Ability Sub|AUTOMATIC|TYPE=CodeThreeSixTwo
 
 
 ###Block: Charlies Test 1.0 - PCGEN v. 5.17.4 Cycle Testing
