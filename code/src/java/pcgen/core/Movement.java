@@ -81,7 +81,7 @@ public class Movement
 	 * CONSIDER I don't know why this variable exists?? - it seems to me it's
 	 * duplicate of movements[0]
 	 */
-	private Double movement;
+	private int movement;
 
 	/*
 	 * REFACTOR Once PlayerCharacter is capable of using a CompositeMovement to
@@ -110,6 +110,11 @@ public class Movement
 		movements = new Double[i];
 		movementMult = new Double[i];
 		movementMultOp = new String[i];
+
+		// default the basic movement to the first movement type, if the creature has a
+		// walk speed in some entry other than 0 this will be changed by the assign
+		// movement operation.
+		movement = 0;
 	}
 
 	/**
@@ -137,18 +142,20 @@ public class Movement
 	}
 
 	/**
-	 * TODO REFACTOR Some of these methods might need to be rebuilt - should this be
-	 * dependent upon an index, or keyed off of a String name of a movementType?
+	 * Return the creature's basic movement, this will be set to the walk
+	 * speed (if the creature has one) by the assign movement operation.
+	 * If no walk speed is assigned to the creature then the first movement
+	 * defined is returned.
 	 * @return movement as a Double
 	 */
 	public Double getDoubleMovement()
 	{
-		return movement;
+		return movements[movement];
 	}
 
 	/**
 	 * Get a movement multiplier
-	 * @param index
+	 * @param index of the specified movement multiplier
 	 * @return a movement multiplier
 	 */
 	public Double getMovementMult(int index)
@@ -158,7 +165,7 @@ public class Movement
 
 	/**
 	 * a movement multiplier operator
-	 * @param index
+	 * @param index of the specified movement
 	 * @return a movement multiplier operator
 	 */
 	public String getMovementMultOp(int index)
@@ -444,7 +451,7 @@ public class Movement
 
 			if ("Walk".equals(movementTypes[x]))
 			{
-				movement = movements[x];
+				movement = x;
 			}
 		}
 	}
