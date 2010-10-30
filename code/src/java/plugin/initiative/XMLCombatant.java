@@ -291,7 +291,7 @@ public class XMLCombatant extends Combatant
 
 	/**
 	 * <p>
-	 * Gets the requested attribute value
+	 * Sets an attribute value
 	 * </p>
 	 *
 	 * @param name Name of the attribute
@@ -409,7 +409,7 @@ public class XMLCombatant extends Combatant
 	@Override
 	public void setName(String name)
 	{
-		combatant.getAttribute("player").setValue(name);
+		combatant.getAttribute("name").setValue(name);
 	}
 
 	/**

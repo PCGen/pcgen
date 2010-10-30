@@ -1732,6 +1732,22 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Remove the named tab
+	 * @param name The name of the tab to remove
+	 */
+	public void removeTab(String name)
+	{
+		try
+		{
+			tpaneInfo.removeTabAt(tpaneInfo.indexOfTab(name));
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			// Ignore - means the name was not recognised
+		}
+	}
+
 	/**  Re-rolls the selected combatant's initiatives */
 	public void rerollCombatant()
 	{
@@ -2490,9 +2506,15 @@ public class Initiative extends javax.swing.JPanel
 		// Look up the active row (-1 as arrays are indexed starting at 0)
 		//InitHolder iH = initList.get(activeRow - 1);
 		InitHolder iH = initList.get(row);
+		String oldName = iH.getName();
 		Object data = combatantTable.getValueAt(row, column);
 		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
+		if (!iH.getName().equals(oldName) && iH instanceof Combatant)
+		{
+			removeTab(oldName);
+			addTab((Combatant) iH);
+		}
 		initHolderUpdated(iH);
 		initList.sort();
 		if (atTop)
