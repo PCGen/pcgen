@@ -18,9 +18,9 @@ Stat Boost +2 (Cha)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONU
 Scent									CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
 
 # Beastman
-Bear Racial Traits						CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Bear Racial Traits														BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-4|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
-Cat Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|CHA|4|TYPE=Racial	SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
-Dog Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent							BONUS:STAT|CON|4|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	SOURCEPAGE:p.48
+Bear Racial Traits						CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Bear Racial Traits															SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
+Cat Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial		SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
+Dog Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent								SOURCEPAGE:p.48
 
 # Vampire
 Limited Immortality						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																																											SOURCEPAGE:p.51
@@ -30,7 +30,7 @@ Daylight Vulnerability						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Wh
 
 #Werewolf
 Alternate Form							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.52
-Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.53
+Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:The werewolf gains damage reduction, werewolf has damage reduction %1/silver in werewolf form.|WerewolfDR	DEFINE:WerewolfDR|0	BONUS:VAR|WerewolfDR|5																																																																																										SOURCEPAGE:p.53
 
 #Wildling
 Natural Enemy		KEY:Natural Enemy ~ Wildling	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Ratlings and Wildlings have been at war for time immemorial. When facing a Ratling the Wildling gains the following additional bonuses: +2 bonus on Deception, Sense Motive, and Survival checks when using these skills against the Ratling. Likewise, he gets a +2 bonus on weapon damage rolls against such creatures.																																																															SOURCEPAGE:p.55
@@ -78,9 +78,9 @@ Savage Bite				CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent					
 
 ###Block: Hybrid Damage Reduction Talent Tree
 # Ability Name			Category of Ability	Type							Required Ability																		Source Page
-Damage Reduction 5/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation								SOURCEPAGE:p.58
-Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58
-Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58
+#Damage Reduction 5/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation								SOURCEPAGE:p.58
+Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58	BONUS:VAR|WerewolfDR|5
+Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58	BONUS:VAR|WerewolfDR|5
 
 
 ###Block: Instinctive Response Talent Tree

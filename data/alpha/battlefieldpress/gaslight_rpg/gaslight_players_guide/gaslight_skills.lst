@@ -70,6 +70,7 @@ Survival					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.152
 Treat Injury				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.153
 Use Device					KEYSTAT:CHA	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Charisma.LevelMod				SOURCEPAGE:p.154
 
+Notice.MOD		BONUS:SKILLRANK|Notice (Locate Traps)|skillinfo("RANK","Notice")|PRECLASS:1,Rogue=1	BONUS:SKILL|Notice (Locate Traps)|skillinfo("MODIFIER","Notice")
 
 ###Block: Psychic Skills:
 # Skill Name			Key Stat	Untrained?		Exclusive?		Type											Multiple Requirements																											Source Page
@@ -108,7 +109,8 @@ Psychic (Telekinetic Grip)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intell
 Psychic (Telekinetic Shield)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Shield))]										SOURCEPAGE:p.353
 
 
-
+# Sub Skills
+Notice (Locate Traps)			VISIBLE:EXPORT	USEUNTRAINED:NO
 
 #
 # End

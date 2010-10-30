@@ -11,7 +11,7 @@ ABILITYCATEGORY:Wealth			VISIBLE:NO	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO
 ###Block: Background Abilities
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
 ABILITYCATEGORY:Wealth Roll	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Wealth			TYPE:Wealth		PLURAL:Wealth Roll		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Occupation	PLURAL:Occupations		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Occupation	PLURAL:Occupations		DISPLAYLOCATION:Background	POOL:1
 
 ###Block: Racial Abilities
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
