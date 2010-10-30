@@ -53,7 +53,7 @@ public class PCCastTimesAtWillTermEvaluator
 
 	@Override
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
-		return resolve(pc);
+		return -1f;
 	}
 
 	public boolean isSourceDependant()

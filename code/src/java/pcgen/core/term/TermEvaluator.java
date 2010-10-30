@@ -41,12 +41,6 @@ public interface TermEvaluator
 
 	Float resolve(Equipment eq, boolean primary, PlayerCharacter pc);
 
-	Float getDefault ();
-
-	String getOriginal ();
-
-	int getLength ();
-
 	boolean isSourceDependant();
 
 	//boolean isStatic();

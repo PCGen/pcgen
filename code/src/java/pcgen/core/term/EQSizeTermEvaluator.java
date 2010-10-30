@@ -42,17 +42,7 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
-	}
-
-	@Override
-	public String evaluate(PlayerCharacter pc) {
-		return String.valueOf("0");
-	}
-
-	@Override
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
-		return String.valueOf("0");
+		return (float) eq.sizeInt();
 	}
 
 	public String evaluate(

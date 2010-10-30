@@ -78,19 +78,5 @@ public abstract class BaseEQTermEvaluator
 		return retVal;
 	}
 
-	public Float getDefault ()
-	{
-		return 1f;
-	}
-
-	public String getOriginal ()
-	{
-		return originalText;
-	}
-
-	public int getLength ()
-	{
-		return originalText.length();
-	}
 }
 

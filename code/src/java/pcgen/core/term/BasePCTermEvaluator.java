@@ -89,19 +89,5 @@ public abstract class BasePCTermEvaluator
 
 		return retVal;
 	}
-	
-	public Float getDefault ()
-	{
-		return 1.0f;
-	}
 
-	public String getOriginal ()
-	{
-		return originalText;
-	}
-
-	public int getLength ()
-	{
-		return originalText.length();
-	}
 }
