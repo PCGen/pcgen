@@ -151,8 +151,8 @@ Poison		KEY:Poison ~ Homunculus			CATEGORY:Special Ability	TYPE:SpecialAttack.Ex
 Telepathic Link	KEY:Telepathic Link ~ Homunculus	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate								DESC:A homunculus cannot speak, but the process of creating one links it telepathically with its creator.																SOURCEPAGE:p.176										BENEFIT:A homunculus cannot speak, but the process of creating one links it telepathically with its creator. A homunculus knows what its master knows and can convey to him or her everything it sees and hears, out to a distance of 1,500 feet.
 
 ###Block: Horse abilities
-# Ability Name	Unique Key			Category of Ability		Type						Visible	Description															Source Page
-Docile		KEY:Docile ~ Horse	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Unless specifically trained for combat, a horse's hooves are treated as secondary attacks.	SOURCEPAGE:p.177
+# Ability Name		Unique Key			Category of Ability		Type						Visible	Description															Source Page
+Docile			KEY:Docile ~ Horse	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Unless specifically trained for combat, a horse's hooves are treated as secondary attacks.	SOURCEPAGE:p.177	BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-ceil(STR/2)	
 
 ###Block: Hydra Abilities
 # Ability Name	Unique Key				Category of Ability		Type								Define				Description																												Choose												Modify VAR						Source Page		Aspects							Description of the Benefits																																																																																																													Temporary effect description

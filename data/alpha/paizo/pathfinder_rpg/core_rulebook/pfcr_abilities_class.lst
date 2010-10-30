@@ -246,18 +246,18 @@ Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:Wil
 # Ability Name					Description
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Small or Medium animal.|PREVAREQ:WildShapeProgression,1
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Tiny, Small, Medium or Large animal, or a Small elemental.|PREVAREQ:WildShapeProgression,2
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental, or a Small or Medium plant creature.|PREVAREQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental, or a Small, Medium or Large plant creature.|PREVAREQ:WildShapeProgression,4
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVARGTEQ:WildShapeProgression,5
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental, or a Small or Medium plant creature.|PREVAREQ:WildShapeProgression,3|PREVAREQ:NoPlantShape,0		DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental.|PREVAREQ:WildShapeProgression,3|PREVAREQ:NoPlantShape,1
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental, or a Small, Medium or Large plant creature.|PREVAREQ:WildShapeProgression,4|PREVAREQ:NoPlantShape,0				DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental.|PREVAREQ:WildShapeProgression,4|PREVAREQ:NoPlantShape,1
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVARGTEQ:WildShapeProgression,5|PREVAREQ:NoPlantShape,0	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVARGTEQ:WildShapeProgression,5|PREVAREQ:NoPlantShape,1
 
 ###Block: Wild Shape "Works Like" Descriptions
 # Ability Name					Description
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape I|PREVAREQ:WildShapeProgression,1
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape II|PREVAREQ:WildShapeProgression,2
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape III|PREVARGTEQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape I|PREVAREQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape II|PREVAREQ:WildShapeProgression,4
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape III|PREVARGTEQ:WildShapeProgression,5
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape I|PREVAREQ:WildShapeProgression,3|PREVAREQ:NoPlantShape,0
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape II|PREVAREQ:WildShapeProgression,4|PREVAREQ:NoPlantShape,0
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape III|PREVARGTEQ:WildShapeProgression,5|PREVAREQ:NoPlantShape,0
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body I|PREVAREQ:WildShapeProgression,2
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body II|PREVAREQ:WildShapeProgression,3
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body III|PREVAREQ:WildShapeProgression,4
@@ -265,9 +265,14 @@ CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, th
 
 ###Block: Druid Wild Shape
 # Ability Name			Category of Ability		Type			Visible	Define			Modify VAR
+# Wild Shape Progression | 1 = L4, 2 = L6, 3 = L8, 4 = L10, 5 = L12, 6 = L14, 7 = L16, 8 = L18, 9 = L20
 Druid Wild Shape			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DruidWildShape|0	BONUS:VAR|WildShapeDuration|DruidWildShape
 Druid Wild Shape Times		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeTimes|WildShapeProgression
 Druid Wild Shape Progression	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,4	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
+
+
+
+
 
 ###Block: Fighter Internal Abilities
 # Ability Name					Category of Ability		Type			Visible	Define													Modify VAR
@@ -499,7 +504,7 @@ Animal Companion		KEY:Companion ~ Hunter's Bond	CATEGORY:Special Ability	TYPE:Sp
 # Ability Name		Category of Ability		Type			Visible	Define					Bonus to Ability Pool																					Source Page
 Combat Style		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:CombatStyleLVL|0			BONUS:ABILITYPOOL|Combat Style|1	BONUS:ABILITYPOOL|Ranger Bonus Feat|(CombatStyleLVL+2)/4									SOURCEPAGE:p.65	DEFINE:RangerDefaultCombatStyle|0	BONUS:VAR|RangerDefaultCombatStyle|1
 Ranger Favored Enemy	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0	BONUS:ABILITYPOOL|Favored Enemy|RangerFavoredEnemyLVL/5+1	BONUS:ABILITYPOOL|Favored Enemy Bonus|RangerFavoredEnemyLVL/5
-Ranger Favored Terrain	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredTerrainLVL|0	BONUS:ABILITYPOOL|Favored Terrain|(RangerFavoredEnemyLVL+2)/5	BONUS:ABILITYPOOL|Favored Terrain Bonus|max(0,(RangerFavoredTerrainLVL-3)/5)
+Ranger Favored Terrain	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Common Favored Terrain	DEFINE:RangerFavoredTerrainLVL|0	BONUS:VAR|FavoredTerrainPool|(RangerFavoredTerrainLVL+2)/5
 
 ###Block: Ranger Combat Styles
 # Ability Name	Category of Ability		Type				Visible		Source Page

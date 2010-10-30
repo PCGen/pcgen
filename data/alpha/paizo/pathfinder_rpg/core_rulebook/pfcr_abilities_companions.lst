@@ -28,21 +28,9 @@ Spell Resistance				KEY:Spell Resistance ~ Familiar	CATEGORY:Special Ability	TYP
 Companion Skills			CATEGORY:Special Ability	TYPE:Special												CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
 War Trained				CATEGORY:Special Ability	TYPE:SpecialQuality
 
-###Block: Companion Specials
-# Ability Name	Unique Key				Category of Ability		Type						Define				Description																			Modify VAR								Source Page		Natural Attacks
+# Unique to Companions
 Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																																									NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Blindsense							CATEGORY:Special Ability	TYPE:SpecialQuality
-Death Roll							CATEGORY:Special Ability	TYPE:SpecialAttack
-Poison							CATEGORY:Special Ability	TYPE:SpecialAttack
-Poison		KEY:Poison ~ Viper		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Injury; Save Fort DC %1; Frequency 1/round for 6 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonDC			BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.133
-Spit			KEY:Spit ~ Camel			CATEGORY:Special Ability	TYPE:SpecialAttack
-Sprint							CATEGORY:Special Ability	TYPE:SpecialQuality
-Attach							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:When you hit with a bite attack, you automatically grapple your foe, inflicting automatic bite damage each round.										SOURCEPAGE:p.133
-Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration						BONUS:VAR|HoldBreathDuration|CONSCORE*6			SOURCEPAGE:p.88
 
-###Block: Dire Rat abilities
-# Ability Name	Unique Key			Category of Ability		Type						Visible	Define					Description																										Source Page
-Disease		KEY:Disease ~ Dire Rat	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:DiseaseDC|10+(HD/2)+CON	DESC:Filth Fever: Bite injury; Save Fort DC %1; Onset 1d3 days; Frequency 1/day; Effect 1d3 Dex damage and 1d3 Con damage; Cure 2 consecutive saves.|DiseaseDC	SOURCEPAGE:p.232
 
 ###Block: Companion Advancement abilities
 # Ability Name						Category of Ability		Type			Visible		Required Race												Ability													Combat bonus						Adjust PC Size		Stat bonus
@@ -80,19 +68,19 @@ Strength Damage																		CATEGORY:Special Ability	TYPE:SpecialAttack.Sup
 
 ###Block: Animal Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key				Category of Ability		Type						Required Ability								Description																																			Description of the Benefits
-Attack		KEY:Animal Trick ~ Attack	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal attacks apparent enemies.	DESC:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II													BENEFIT:The animal attacks apparent enemies. You may point to a particular creature that you wish the animal to attack, and it will comply if able. Normally, an animal will attack only humanoids, monstrous humanoids, giants, or other animals. Teaching an animal to attack all creatures (including such unnatural creatures as undead and aberrations) counts as two tricks.	BENEFIT:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II
+Attack		KEY:Animal Trick ~ Attack	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal attacks apparent enemies.	DESC:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II													BENEFIT:The animal attacks apparent enemies. You may point to a particular creature that you wish the animal to attack, and it will comply if able. Normally, an animal will attack only humanoids, monstrous humanoids, giants, or other animals. Teaching an animal to attack all creatures (including such unnatural creatures as undead and aberrations) counts as two tricks.	BENEFIT:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II
 Attack II		KEY:Animal Trick ~ Attack II	CATEGORY:Special Ability	TYPE:AnimalTrick				PREABILITY:1,CATEGORY=Special Ability,Animal Trick ~ Attack
-Come			KEY:Animal Trick ~ Come		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal comes to you, even if it normally would not do so.
-Defend		KEY:Animal Trick ~ Defend	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal defends you (or is ready to defend you if no threat is present), even without any command being given. Alternatively, you can command the animal to defend another specific character.
-Down			KEY:Animal Trick ~ Down		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal breaks off from combat or otherwise backs down. An animal that doesn't know this trick continues to fight until it must flee (due to injury, a fear effect, or the like) or its opponent is defeated.
-Fetch			KEY:Animal Trick ~ Fetch	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal goes and gets something. If you do not point out a specific item, the animal fetches a random object.
-Guard			KEY:Animal Trick ~ Guard	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal stays in place and prevents others from approaching.
-Heel			KEY:Animal Trick ~ Heel		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal follows you closely, even to places where it normally wouldn't go.
-Perform		KEY:Animal Trick ~ Perform	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal performs a variety of simple tricks, such as sitting up, rolling over, roaring or barking, and so on.
-Seek			KEY:Animal Trick ~ Seek		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal moves into an area and looks around for anything that is obviously alive or animate.
-Stay			KEY:Animal Trick ~ Stay		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal stays in place, waiting for you to return. It does not challenge other creatures that come by, though it still defends itself if it needs to.
-Track			KEY:Animal Trick ~ Track	CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal tracks the scent presented to it. (This requires the animal to have the scent ability.)
-Work			KEY:Animal Trick ~ Work		CATEGORY:Special Ability	TYPE:AnimalTrick.SpecialQuality											DESC:The animal pulls or pushes a medium or heavy load.
+Come			KEY:Animal Trick ~ Come		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal comes to you, even if it normally would not do so.
+Defend		KEY:Animal Trick ~ Defend	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal defends you (or is ready to defend you if no threat is present), even without any command being given. Alternatively, you can command the animal to defend another specific character.
+Down			KEY:Animal Trick ~ Down		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal breaks off from combat or otherwise backs down. An animal that doesn't know this trick continues to fight until it must flee (due to injury, a fear effect, or the like) or its opponent is defeated.
+Fetch			KEY:Animal Trick ~ Fetch	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal goes and gets something. If you do not point out a specific item, the animal fetches a random object.
+Guard			KEY:Animal Trick ~ Guard	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal stays in place and prevents others from approaching.
+Heel			KEY:Animal Trick ~ Heel		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal follows you closely, even to places where it normally wouldn't go.
+Perform		KEY:Animal Trick ~ Perform	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal performs a variety of simple tricks, such as sitting up, rolling over, roaring or barking, and so on.
+Seek			KEY:Animal Trick ~ Seek		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal moves into an area and looks around for anything that is obviously alive or animate.
+Stay			KEY:Animal Trick ~ Stay		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal stays in place, waiting for you to return. It does not challenge other creatures that come by, though it still defends itself if it needs to.
+Track			KEY:Animal Trick ~ Track	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal tracks the scent presented to it. (This requires the animal to have the scent ability.)
+Work			KEY:Animal Trick ~ Work		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal pulls or pushes a medium or heavy load.
 
 ###Block: Animal Training ----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name				Unique Key					Output Name						Category of Ability		Type										Restricted Ability							Required Stat	Description																							Ability																									Cost		Description of the Benefits

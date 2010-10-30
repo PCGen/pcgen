@@ -28,8 +28,8 @@ Quarterstaff			TYPE:Simple.TwoHanded.Melee.Quarterstaff.TwoHanded.DoubleWeapon.B
 Spear					TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 # -- Ranged
 Blowgun				TYPE:Simple.Ranged.Piercing.RangedPiercing.Blowgun
-Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
-Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
+Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
 Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
 Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing
 Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
@@ -71,8 +71,8 @@ Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePier
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
 Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Dwarven
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery											HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery											HANDS:2
 
 # EXOTIC
 # -- light
@@ -92,9 +92,9 @@ Sword (Two-Bladed)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.Two
 Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.TwoHanded.DoubleWeapon.Dwarven
 # -- ranged
 Bolas					TYPE:Exotic.Thrown.Bludgeoning
-Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow
-Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
+Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
 Net					TYPE:Exotic.Thrown.Net
 Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
 Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halfling

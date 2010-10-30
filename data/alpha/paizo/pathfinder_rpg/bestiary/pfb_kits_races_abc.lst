@@ -248,12 +248,14 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 STARTPACK:Ant (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Giant)]	SOURCEPAGE:p.16
 RACE:Ant (Giant)	!PRERACE:1,%
 NAME:Giant Ant
+GENDER:Neuter
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
 STARTPACK:Ant (Worker) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Worker)]	SOURCEPAGE:p.16
 RACE:Ant (Worker)	!PRERACE:1,%
+GENDER:Neuter
 NAME:Worker Ant
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -262,6 +264,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 STARTPACK:Ant (Drone) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Drone)]	SOURCEPAGE:p.16
 RACE:Ant (Drone)	!PRERACE:1,%
 NAME:Drone Ant
+GENDER:Male
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
@@ -269,6 +272,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 STARTPACK:Ant (Queen) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Queen)]	SOURCEPAGE:p.16
 RACE:Ant (Queen)	!PRERACE:1,%
 NAME:Queen Ant
+GENDER:Female
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
@@ -932,28 +936,28 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Charm Monster
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Freedom of Movement
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Gaseous Form
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Magic Circle against Evil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Summon Monster III
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Eagle's Splendor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Scorching Ray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Silence
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Endure Elements
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Protection from Chaos
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Daze
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Resistance
-SPELLS:SPELLBOOK=Known Spells|CLASS=Couatl Outsider|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Freedom of Movement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Gaseous Form
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Circle against Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Summon Monster III
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Eagle's Splendor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silence
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Endure Elements
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Protection from Chaos
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
 
 
 STARTPACK:Crab (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.50

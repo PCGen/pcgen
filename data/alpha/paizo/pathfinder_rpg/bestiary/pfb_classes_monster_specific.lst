@@ -9,10 +9,12 @@ CLASS:Couatl Outsider	PRERACE:1,Couatl	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Couatl Outsider|9	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Sorcerer|Cleric
 ###Block:Proficiencies
 1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
+#9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2	
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|8
 
 # Class Name			Output Name			Hit Dice	Type			Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
 CLASS:Outsider (Mindless)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Mindless
