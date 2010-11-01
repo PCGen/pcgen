@@ -353,6 +353,7 @@
 						<xsl:apply-templates select="animal_tricks"/>	
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="traits"/>
+						<xsl:apply-templates select="afflictions"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="intelligent_items"/>
@@ -4835,6 +4836,25 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
+	<!--	
+====================================
+====================================
+	TEMPLATE - AFFLICTIONS
+====================================
+====================================-->
+	<xsl:template match="afflictions">
+		<xsl:if test="count(affliction) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'afflictions'" />
+				<xsl:with-param name="title" select="'Afflictions'" />
+				<xsl:with-param name="list" select="affliction"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 	<!--	
 ====================================
 ====================================
