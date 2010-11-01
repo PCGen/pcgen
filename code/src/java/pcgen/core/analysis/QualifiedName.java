@@ -63,8 +63,7 @@ public class QualifiedName
 				{
 					// number of items only (ie stacking), e.g. " (1x)"
 					aStrBuf.append(" (");
-					aStrBuf.append((int) (pc.getDetailedAssociationCount(a) * a
-							.getSafe(ObjectKey.SELECTION_COST).doubleValue()));
+					aStrBuf.append(pc.getDetailedAssociationCount(a));
 					aStrBuf.append("x)");
 				}
 			}
