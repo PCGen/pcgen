@@ -1,7 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Sep 22 13:52:50 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 CAMPAIGN:Battlefield Press - Gaslight - A Victorian Era Fantasy Role Playing Game
 GAMEMODE:Gaslight
-TYPE:Battlefield Press.Gaslight
+TYPE:Alpha Dataset
+#TYPE:Battlefield Press.Gaslight
 RANK:1
 GENRE:Modern
 BOOKTYPE:Core Rulebook

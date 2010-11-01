@@ -5,7 +5,8 @@ RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-TYPE:Rite Publishing.Supplement
+TYPE:Alpha Datasets
+#TYPE:Rite Publishing.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Rite Publishing
 PUBNAMESHORT:Rite

@@ -6,7 +6,7 @@ GAMEMODE:Pathfinder_RPG
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder Chronicles
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game.Campaign
+TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Pathfinder RPG for Game Masters (includes Monsters)]
 PUBNAMELONG:Paizo Publishing LLC

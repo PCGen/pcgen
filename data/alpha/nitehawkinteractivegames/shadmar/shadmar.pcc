@@ -6,7 +6,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:RSRD
-TYPE:Alpha.Nitehawk Interactive Games.Supplement
+TYPE:Alpha Datasets
+#TYPE:Alpha.Nitehawk Interactive Games.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
 PUBNAMELONG:Nitehawk Interactive Games
 PUBNAMESHORT:NIG
