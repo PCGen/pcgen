@@ -184,6 +184,12 @@
 		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
 		<special_qualities.darkline><subattrib medium=""/></special_qualities.darkline>
 
+		<afflictions.title><subattrib centre="" inverse=""/></afflictions.title>
+		<afflictions.border padding="0.5pt"><subattrib border="" inverse=""/></afflictions.border>
+		<afflictions.lightline><subattrib light=""/></afflictions.lightline>
+		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
+
+
 		<intelligent_items.title><subattrib centre="" inverse=""/></intelligent_items.title>
 		<intelligent_items.border padding="0.5pt"><subattrib border="" inverse=""/></intelligent_items.border>
 		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
