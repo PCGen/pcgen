@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri May 14 12:40:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sun Oct 31 23:13:55 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
 # Arboreal Nemesis
-# Ability Name					Unique Key							Category of Ability		Type								Innate Spells																																																													Description							Ability								Bonus to Ability Pool			Modify VAR
+# Ability Name					Unique Key							Category of Ability		Type								Innate Spells																																																													Description							Ability								Bonus to Ability Pool			Modify VAR					Source Page
 Favored Enemy					KEY:Arboreal Nemesis ~ Favored Enemy		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Despise Beauty					KEY:Arboreal Nemesis ~ Despise Beauty		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Rotting Grasp					KEY:Arboreal Nemesis ~ Rotting Grasp		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
@@ -73,7 +73,7 @@ Spell-Like Abilities				KEY:Verdant Guardian ~ Spell-Like Abilities	CATEGORY:Spe
 #. These Abilities Are As The Spells Cast By A 10thlevel Druid (Save Dc 14 + Spell Level).
 Whip							KEY:Verdant Guardian ~ Whip				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Forest Tongue					KEY:Verdant Guardian ~ Forest Tongue		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Improved Grapple					KEY:Verdant Guardian ~ Improved Grapple		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																																			SOURCEPAGE:p.37	
+Improved Grapple					KEY:Verdant Guardian ~ Improved Grapple		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																																															SOURCEPAGE:p.37
 
 
 # Arborgeist
