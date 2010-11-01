@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Core Ruleboo
 
 # Data Files
 ABILITYCATEGORY:pfcr_abilitycategories.lst
+ABILITY:pfcr_abilities_afflictions.lst
 ABILITY:pfcr_abilities_class_common.lst
 ABILITY:pfcr_abilities_class.lst
 ABILITY:pfcr_abilities_class_prestige.lst
