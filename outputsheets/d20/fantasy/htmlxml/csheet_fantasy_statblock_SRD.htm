@@ -312,6 +312,12 @@ melee
 |ENDIF|
 |ENDFOR|
 |ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Animal Tricks:</b></td>
+    <td width="75%">|ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|</td>
+  </tr>
+|ENDIF|
 |FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
 |IIF(%DRtest:0)|
 |ELSE|

@@ -1788,6 +1788,22 @@ Immune
    </table>
 |ENDIF|
 <!-- STOP Special Attacks Table -->
+<!-- Start Animal Tricks -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AnimalTrick")==0)|
+|ELSE|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Animal Tricks Table">
+    <tr>
+     <td bgcolor="black" align="center"><font color="white" style="font-size: 9pt"><b>ANIMAL TRICKS</b></font></td>
+    </tr>
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b>
+    |ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- Stop Animal Tricks -->
 <!-- START Special Qualities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">

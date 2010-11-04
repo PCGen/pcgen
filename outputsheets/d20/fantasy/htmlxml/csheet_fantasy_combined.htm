@@ -3566,6 +3566,16 @@ function RemoveStat (attribute) {
 		</tr>
 		</table>
 |ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick")==0)|
+|ELSE|
+   <table width="100%" cellspacing="0" cellpadding="2">
+    <tr>
+     <td class="c9wB">ANIMAL TRICKS</td>
+    </tr>
+     <td class="lt8s" width="100%">|ABILITYLIST.Special Ability.TYPE=AnimalTrick|</td>
+    </tr>
+   </table>
+|ENDIF|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
 		<table width="100%" cellspacing="0" cellpadding="2">
 		<tr>
@@ -3587,6 +3597,8 @@ function RemoveStat (attribute) {
 		</table>
 |%|
 <!-- END Special Abilities Table -->
+
+
 <!-- TEMPLATE table -->
 |%TEMPLATE.0|
 		<table width="100%" cellspacing="0" cellpadding="3">

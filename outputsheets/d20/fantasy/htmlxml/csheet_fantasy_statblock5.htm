@@ -845,6 +845,14 @@ at will)
 |ENDMANUALWHITESPACE|
 <!-- End SpecialQuality TYPE Abilities -->
 
+<!-- Animal Tricks TYPE Abilities -->
+|MANUALWHITESPACE|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Animal&nbsp;Tricks</b>|SPACE||ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|<br>
+|ENDIF|
+|ENDMANUALWHITESPACE|
+<!-- End Animal Tricks TYPE Abilities -->
+
 |%COUNT[SA]|
 <b>Special Abilities </b> |SPECIALLIST|<br>
 |%|
@@ -947,6 +955,10 @@ at will)
  (Ps)
 |ENDIF|
 </b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
+|ENDFOR|
+
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+<p><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b> |ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</p>
 |ENDFOR|
 
 </body>

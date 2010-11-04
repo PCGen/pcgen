@@ -409,9 +409,20 @@ $Date$
 			</table>
 |ENDIF|
 <!-- STOP Special Attacks Table -->
+<!-- START Animal Tricks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick")>0)|
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Animal Tricks Table">
+        <tr>
+            <td colspan="1" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>ANIMAL TRICKS</b></font></td>
+        </tr>
+			<td align="left" width="100%" class="border7">|ABILITYALLLIST.Special Ability.TYPE=AnimalTrick|</td>
+        </tr>
+    </table>
+|ENDIF|
+<!-- STOP Animal Tricks Table -->
 <!-- START Special Quality Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Feats Table">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Special Qualities Table">
 				<tr>
 					<td colspan="1" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>SPECIAL QUALITIES</b></font></td>
 				</tr>

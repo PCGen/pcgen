@@ -117,6 +117,12 @@ $Date$
     <td width="75%">|ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|</td>
   </tr>
 |ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Animal Tricks:</b></td>
+    <td width="75%">|ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|</td>
+  </tr>
+|ENDIF|
  <tr valign="top">
     <td width="25%"><b>Special Qualities:</b></td>
     <td width="75%">
