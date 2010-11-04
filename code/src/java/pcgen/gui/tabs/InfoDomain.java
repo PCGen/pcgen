@@ -1421,6 +1421,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			selectedDomainList.remove(addedDomain);
 			pc.removeDomain(addedDomain);
+
+			pc.calcActiveBonuses();
 		}
 
 		// Check selected domains vs Max number allowed
