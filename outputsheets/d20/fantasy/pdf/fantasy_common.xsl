@@ -87,6 +87,7 @@
 <xsl:template match="*">
 	<xsl:call-template name="process.attack.string">
 		<xsl:with-param name="bab" select="'+7'" />
+        <xsl:with-param name="maxrepeat" select="4" />
 	</xsl:call-template>
 </xsl:template>
 
@@ -104,6 +105,7 @@
 -->
 	<xsl:template name="process.attack.string">
 		<xsl:param name="bab"/>
+        <xsl:param name="maxrepeat"/>
 		<xsl:param name="attack" select="$bab"/>
 		<xsl:param name="string" select="''"/>
 		
@@ -112,15 +114,17 @@
 				<xsl:call-template name="process.attack.string">
 					<xsl:with-param name="attack" select="substring($attack, 2)"/>
 					<xsl:with-param name="bab" select="substring($bab, 2)"/>
+                    <xsl:with-param name="maxrepeat" select="$maxrepeat - 1"/>
 					<xsl:with-param name="string" select="$string"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:choose>
-					<xsl:when test="$bab &gt; 5">
+					<xsl:when test="($bab &gt; 5) and ($maxrepeat &gt; 0)">
 						<xsl:call-template name="process.attack.string">
 							<xsl:with-param name="attack" select="$attack - 5"/>
 							<xsl:with-param name="bab" select="$bab - 5"/>
+                            <xsl:with-param name="maxrepeat" select="$maxrepeat - 1"/>
 							<xsl:with-param name="string">
 								<xsl:value-of select="$string"/>+<xsl:value-of select="$attack"/>/</xsl:with-param>
 						</xsl:call-template>

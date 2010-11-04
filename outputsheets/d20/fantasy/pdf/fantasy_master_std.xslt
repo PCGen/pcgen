@@ -1777,6 +1777,7 @@
 						<fo:block space-before.optimum="2pt" font-size="10pt">
 							<xsl:call-template name="process.attack.string">
 								<xsl:with-param name="bab" select="."/>
+                                <xsl:with-param name="maxrepeat" select="4"/>
 							</xsl:call-template>
 <!-- What is this?-->							<!--xsl:value-of select="../../attack/melee/base_attack_bonus"/-->
 						</fo:block>
@@ -2257,6 +2258,7 @@
 						<xsl:with-param name="value" select="total"/>
 						<xsl:with-param name="bab" select="bab"/>
 						<xsl:with-param name="separator" select="'='"/>
+                        <xsl:with-param name="fontsize" select="8"/>
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2284,23 +2286,23 @@
 	<xsl:template match="cmb" mode="moves">
 		<!-- BEGIN CMB table -->
 		<fo:table table-layout="fixed" >
-			<fo:table-column column-width="18mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="13mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="13mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="13mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="13mm"/>
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="12mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
 <!--			<fo:table-column column-width="13mm"/> -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 84) * 0.5" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 96) * 0.5" />mm</xsl:attribute>
 			</fo:table-column>
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="1mm"/>
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 84 ) * 0.5" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 96) * 0.5" />mm</xsl:attribute>
 			</fo:table-column>
 
 			<fo:table-body>
@@ -2325,11 +2327,7 @@
 				</fo:table-row>
 			
 				<fo:table-row height="2.5pt">
-					<fo:table-cell display-align="center">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'tohit.title'" />
-						</xsl:call-template>
-					</fo:table-cell>
+					<fo:table-cell/>
 				</fo:table-row>
 <!-- Defense entries -->
 				<fo:table-row>		
@@ -2356,12 +2354,7 @@
 
 	<xsl:template name="cmb.moves_header">
 		<fo:table-row>
-			<fo:table-cell display-align="center">
-				<xsl:call-template name="attrib">
-					<xsl:with-param name="attribute" select="'tohit.title'" />
-				</xsl:call-template>
-			</fo:table-cell>
-
+			<fo:table-cell/>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'GRAPPLE'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'TRIP'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'DISARM'"/></xsl:call-template>
@@ -2396,14 +2389,17 @@
 		<xsl:param name="value" />
 		<xsl:param name="bab" />
 		<xsl:param name="separator" select="'+'"/>
+        <xsl:param name="fontsize" select="'6pt'"/>
 		<fo:table-cell>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'tohit'"/>
 			</xsl:call-template>
-			<fo:block space-before.optimum="3pt" font-size="8pt">
+			<fo:block space-before.optimum="3pt" font-size="6pt">
+                <xsl:attribute name="font-size"><xsl:value-of select="$fontsize"/></xsl:attribute>
 				<xsl:call-template name="process.attack.string">
 					<xsl:with-param name="attack" select="$value"/>
-					<xsl:with-param name="bab" select="$bab"/> 
+					<xsl:with-param name="bab" select="$bab"/>
+                    <xsl:with-param name="maxrepeat" select="4"/> 
 				</xsl:call-template>
 			</fo:block>
 		</fo:table-cell>
