@@ -182,13 +182,17 @@ public class SpellLevel
 		for (CDOMReference<? extends CDOMList> ref : masterLists
 				.getActiveLists())
 		{
+			Collection<AssociatedPrereqObject> assoc = null;
 			for (CDOMList list : ref.getContainedObjects())
 			{
 				if (list instanceof ClassSpellList
 						|| list instanceof DomainSpellList)
 				{
-					Collection<AssociatedPrereqObject> assoc = masterLists
-							.getAssociations(list, sp);
+					if (assoc == null)
+					{
+						CDOMReference r = ref;
+						assoc = masterLists.getAssociations(r, sp);
+					}
 					for (AssociatedPrereqObject apo : assoc)
 					{
 						// TODO This null for source is incorrect!
