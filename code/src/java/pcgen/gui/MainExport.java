@@ -229,8 +229,18 @@ final class MainExport extends JPanel
 		for (int loop = 0; loop < pcExports.length; loop++)
 		{
 			final String pcName = partyMode ? "Entire Party" : (String) pcList.getModel().getElementAt(pcExports[loop]);
-			fcExport.setSelectedFile(new File(SettingsHandler.getPcgPath().toString() + File.separator + pcName + "."
-					+ extension));
+			String path =
+					Globals.getPCList().get(pcExports[loop]).getFileName();
+			if (path != null && path.length() > 0)
+			{
+				path = new File(path).getParent().toString();
+			}
+			else
+			{
+				path = SettingsHandler.getLastUsedPcgPath().toString();
+			}
+			fcExport.setSelectedFile(new File(path + File.separator + pcName
+				+ "." + extension));
 			fcExport.setDialogTitle("Export " + pcName);
 
 			if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)

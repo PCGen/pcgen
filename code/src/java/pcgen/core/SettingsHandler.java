@@ -156,6 +156,7 @@ public final class SettingsHandler
 	private static File pcgenFilesDir = new File(System.getProperty("user.dir")); //$NON-NLS-1$
 	private static File pccFilesLocation = null;
 	private static File pcgPath = new File(Globals.getDefaultPath());
+	private static File lastUsedPcgPath = null; // NB: This is not saved to preferences 
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
@@ -1806,6 +1807,32 @@ public final class SettingsHandler
 		return pcgPath;
 	}
 
+	/**
+	 * Sets the path that was last used in a character or output file chooser.
+	 *
+	 * @param  path  the <code>File</code> representing the path
+	 */
+	public static void setLastUsedPcgPath(final File path)
+	{
+		if (path != null && !path.exists())
+		{
+			path.mkdirs();
+		}
+		lastUsedPcgPath = path;
+	}
+
+	/**
+	 * @return The path that was last used in a character or output file chooser.
+	 */
+	public static File getLastUsedPcgPath()
+	{
+		if (lastUsedPcgPath == null)
+		{
+			return pcgPath;
+		}
+		return lastUsedPcgPath;
+	}
+	
 	public static void setPcgenCustomDir(final File aFile)
 	{
 		if (aFile != null && !aFile.exists())
