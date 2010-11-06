@@ -121,7 +121,7 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	@Override
 	public int hashCode()
 	{
-		return getReferenceClass().hashCode();
+		return referencedObject.hashCode();
 	}
 
 	/**
