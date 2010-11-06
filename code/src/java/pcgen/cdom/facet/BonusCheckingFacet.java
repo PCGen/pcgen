@@ -27,7 +27,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
-import pcgen.util.Logging;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
