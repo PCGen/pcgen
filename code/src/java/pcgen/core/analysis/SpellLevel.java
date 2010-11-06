@@ -179,7 +179,7 @@ public class SpellLevel
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo = new HashMapToList<CDOMList<Spell>, Integer>();
 
 		MasterListInterface masterLists = Globals.getMasterLists();
-		for (CDOMReference<? extends CDOMList> ref : masterLists
+		LISTS: for (CDOMReference<? extends CDOMList> ref : masterLists
 				.getActiveLists())
 		{
 			Collection<AssociatedPrereqObject> assoc = null;
@@ -192,6 +192,10 @@ public class SpellLevel
 					{
 						CDOMReference r = ref;
 						assoc = masterLists.getAssociations(r, sp);
+						if (assoc == null)
+						{
+							continue LISTS;
+						}
 					}
 					for (AssociatedPrereqObject apo : assoc)
 					{
