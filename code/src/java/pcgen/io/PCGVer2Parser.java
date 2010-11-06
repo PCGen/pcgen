@@ -1778,8 +1778,29 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						int pipeLoc = bonusString.indexOf('|');
 						if (pipeLoc != -1)
 						{
+							CDOMObject target = aPCClass;
+							String potentialInt = bonusString.substring(0, pipeLoc);
+							try
+							{
+								int bonusLevel = Integer.parseInt(potentialInt);
+								if (bonusLevel > 0)
+								{
+									target = thePC.getActiveClassLevel(
+											aPCClass, bonusLevel);
+								}
+								bonusString = bonusString.substring(pipeLoc + 1);
+							}
+							catch (NumberFormatException e)
+							{
+								//OK (no level embedded in file)
+								if (level > 0)
+								{
+									target = thePC.getActiveClassLevel(
+											aPCClass, level);
+								}
+							}
 							BonusAddition.applyBonus(bonusString, "", thePC,
-									aPCClass);
+								target);
 						}
 					}
 				}

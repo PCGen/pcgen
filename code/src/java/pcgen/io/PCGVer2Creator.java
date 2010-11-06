@@ -775,6 +775,7 @@ final class PCGVer2Creator implements IOConstants
 			}
 			for (int i = 1; i <= thePC.getLevel(pcClass); i++)
 			{
+				key = pcClass.getKeyName() + TAG_SAVE + (i - 1);
 				PCClassLevel pcl = thePC.getActiveClassLevel(pcClass, i);
 				for (BonusObj save : thePC.getAddedBonusList(pcl))
 				{
