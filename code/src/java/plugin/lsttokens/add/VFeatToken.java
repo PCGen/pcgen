@@ -96,6 +96,11 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		else
 		{
 			count = FormulaFactory.getFormulaFor(activeValue);
+			if (!count.isValid())
+			{
+				return new ParseResult.Fail("Count in " + getTokenName()
+						+ " was not valid: " + count.toString());
+			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedFormula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
@@ -84,7 +85,13 @@ public class LookupToken extends AbstractToken implements
 		{
 			return new ParseResult.Fail("Token cannot have more than one separator ','");
 		}
-		kitGear.loadLookup(first, FormulaFactory.getFormulaFor(second));
+		Formula formula = FormulaFactory.getFormulaFor(second);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitGear.loadLookup(first, formula);
 		return ParseResult.SUCCESS;
 	}
 

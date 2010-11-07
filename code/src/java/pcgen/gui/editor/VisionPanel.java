@@ -22,20 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.Vision;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.IconUtilitities;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
-import pcgen.util.enumeration.VisionType;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -44,7 +30,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.core.Vision;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>VisionPanel</code>
@@ -118,7 +129,12 @@ final class VisionPanel extends JPanel
 			final int idx = visionString.indexOf(",");
 			VisionType visionType = VisionType.getVisionType(visionString
 					.substring(0, idx));
-			vision.add(new Vision(visionType, visionString.substring(idx + 1)));
+			Formula formula = FormulaFactory.getFormulaFor(visionString
+					.substring(idx + 1));
+			if (formula.isValid())
+			{
+				vision.add(new Vision(visionType, formula));
+			}
 		}
 
 		return vision;

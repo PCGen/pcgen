@@ -75,7 +75,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements
 			}
 			else
 			{
-				int visionRange = Integer.parseInt(v.getDistance());
+				int visionRange = Integer.parseInt(v.getDistance().toString());
 				runningTotal += prereq.getOperator().compare(visionRange,
 						requiredRange);
 			}

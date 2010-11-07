@@ -86,6 +86,11 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 					"NUMCHOICES in CHOOSE must be a formula: " + value);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
+			if (!f.isValid())
+			{
+				return new ParseResult.Fail("Number of Choices in "
+						+ getTokenName() + " was not valid: " + f.toString());
+			}
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);
 			if (pipeLoc == -1)

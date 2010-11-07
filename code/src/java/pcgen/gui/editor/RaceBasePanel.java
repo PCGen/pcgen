@@ -136,29 +136,6 @@ public class RaceBasePanel extends BasePanel
 		}
 	}
 
-	public ChallengeRating getCR()
-	{
-		String txtCR = null;
-
-		try
-		{
-			txtCR = cmbCR.getSelectedItem().toString();
-
-			if (txtCR == null)
-			{
-				return null;
-			}
-			return new ChallengeRating(txtCR);
-		}
-		catch (NumberFormatException e)
-		{
-			Logging.errorPrint("Couldn't figure out what CR " + txtCR
-				+ " means, returning CR of 0.");
-		}
-
-		return null;
-	}
-
 	public void setDisplayName(final String dislayName)
 	{
 		txtDisplayName.setText(dislayName);
@@ -360,13 +337,14 @@ public class RaceBasePanel extends BasePanel
 		{
 			thisRace.remove(IntegerKey.SKILL_POINTS_PER_LEVEL);
 		}
-		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(thisRace, "CR", cmbCR.getSelectedItem()
+				.toString());
 		if (getDisplayName() != null && getDisplayName().trim().length() > 0)
 		{
 			thisRace.setName(getDisplayName());
 		}
 		thisRace.put(IntegerKey.CREATURE_HANDS, getHands());
-		LoadContext context = Globals.getContext();
 		if (txtHitDiceAdvancement.getText().trim().length() > 0)
 		{
 			context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());

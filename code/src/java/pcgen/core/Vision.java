@@ -22,8 +22,10 @@
  */
 package pcgen.core;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.list.VisionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.enumeration.VisionType;
@@ -42,21 +44,29 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 
 	private final VisionType visionType;
 
-	private final String distance;
+	private final Formula distance;
 
-	public Vision(VisionType type, String dist) {
-		if (type == null) {
+	public Vision(VisionType type, Formula dist)
+	{
+		if (type == null)
+		{
 			throw new IllegalArgumentException("Vision Type cannot be null");
 		}
 		visionType = type;
+		if (!dist.isValid())
+		{
+			throw new IllegalArgumentException("Vision Type distance must be valid");
+		}
 		distance = dist;
 	}
 
-	public String getDistance() {
+	public Formula getDistance()
+	{
 		return distance;
 	}
 
-	public VisionType getType() {
+	public VisionType getType()
+	{
 		return visionType;
 	}
 
@@ -64,7 +74,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 	public String toString() {
 		try
 		{
-			return toString(Integer.parseInt(distance));
+			return toString(Integer.parseInt(distance.toString()));
 		}
 		catch (NumberFormatException e)
 		{
@@ -72,33 +82,41 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		}
 	}
 
-	private String toString(int dist) {
+	private String toString(int dist)
+	{
 		String vision = visionType + " (" + dist + "')";
-		if(dist <= 0) {
+		if (dist <= 0)
+		{
 			vision = visionType.toString();
 		}
 		return vision;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof Vision) {
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof Vision)
+		{
 			Vision v = (Vision) obj;
-			return distance.equals(v.distance) && visionType.equals(v.visionType);
+			return distance.equals(v.distance)
+					&& visionType.equals(v.visionType);
 		}
 		return false;
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		return distance.hashCode() ^ visionType.hashCode();
 	}
 
-	public String toString(PlayerCharacter aPC) {
-		return toString(aPC.getVariableValue(distance, "").intValue());
+	public String toString(PlayerCharacter aPC)
+	{
+		return toString(distance.resolve(aPC, "").intValue());
 	}
 
-	public int compareTo(Vision v) {
+	public int compareTo(Vision v)
+	{
 		//CONSIDER This is potentially a slow method, but definitely works - thpr 10/26/06
 		return toString().compareTo(v.toString());
 	}
@@ -114,7 +132,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		}
 		int quoteLoc = visionType.indexOf('\'');
 		int openParenLoc = visionType.indexOf('(');
-		String distance;
+		Formula distance;
 		String type;
 		if (openParenLoc == -1)
 		{
@@ -129,7 +147,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 					+ visionType + ". Had quote parens");
 			}
 			type = visionType;
-			distance = "0";
+			distance = FormulaFactory.ZERO;
 		}
 		else
 		{
@@ -155,8 +173,8 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 				}
 			}
 			type = visionType.substring(0, openParenLoc).trim();
-			distance = visionType.substring(openParenLoc + 1, endDistance);
-			if (distance.length() == 0)
+			String dist = visionType.substring(openParenLoc + 1, endDistance);
+			if (dist.length() == 0)
 			{
 				throw new IllegalArgumentException("Invalid Vision: "
 					+ visionType + ". No Distance provided");
@@ -165,7 +183,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 			{
 				try
 				{
-					Integer.parseInt(distance);
+					Integer.parseInt(dist);
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -174,6 +192,13 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 							+ visionType
 							+ ". Vision Distance with Foot character ' was not an integer");
 				}
+			}
+			distance = FormulaFactory.getFormulaFor(dist);
+			if (!distance.isValid())
+			{
+				throw new IllegalArgumentException(
+						"Invalid: Vision Distance was not valid: "
+								+ distance.toString());
 			}
 		}
 		if (type.length() == 0)

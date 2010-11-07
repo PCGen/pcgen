@@ -40,8 +40,13 @@ public class SelectLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPr
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
-		context.getObjectContext().put(cdo, FormulaKey.SELECT,
-				FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		context.getObjectContext().put(cdo, FormulaKey.SELECT, formula);
 		return ParseResult.SUCCESS;
 	}
 

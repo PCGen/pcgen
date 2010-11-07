@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -84,8 +85,13 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			cpr.addErrorMessage("  ...expected a String with one / as a separator");
 			return cpr;
 		}
-		DamageReduction dr = new DamageReduction(FormulaFactory
-				.getFormulaFor(values[0]), values[1]);
+		Formula formula = FormulaFactory.getFormulaFor(values[0]);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		DamageReduction dr = new DamageReduction(formula, values[1]);
 
 		if (tok.hasMoreTokens())
 		{

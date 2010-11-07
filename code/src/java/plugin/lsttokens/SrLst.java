@@ -20,6 +20,7 @@ package plugin.lsttokens;
 import java.util.LinkedList;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -51,8 +52,14 @@ public class SrLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimar
 		}
 		else
 		{
+			Formula formula = FormulaFactory.getFormulaFor(value);
+			if (!formula.isValid())
+			{
+				return new ParseResult.Fail("Formula in " + getTokenName()
+						+ " was not valid: " + formula.toString());
+			}
 			context.getObjectContext().put(obj, ObjectKey.SR,
-					new SpellResistance(FormulaFactory.getFormulaFor(value)));
+					new SpellResistance(formula));
 		}
 		return ParseResult.SUCCESS;
 	}

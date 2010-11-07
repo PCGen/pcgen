@@ -26,7 +26,13 @@ public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPri
 		{
 			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
-		context.getObjectContext().put(stat, FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		context.getObjectContext().put(stat, FormulaKey.STAT_MOD, formula);
 		return ParseResult.SUCCESS;
 	}
 

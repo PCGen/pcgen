@@ -52,6 +52,11 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String item = tok.nextToken();
 		Formula count = FormulaFactory.getFormulaFor(item);
+		if (!count.isValid())
+		{
+			return new ParseResult.Fail("Count in " + getTokenName()
+					+ " was not valid: " + count.toString());
+		}
 		if (count.isStatic())
 		{
 			if (!tok.hasMoreTokens())

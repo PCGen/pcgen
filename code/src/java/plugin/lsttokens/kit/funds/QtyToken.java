@@ -64,7 +64,13 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
 		String value)
 	{
-		kitFunds.setQuantity(FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitFunds.setQuantity(formula);
 		return ParseResult.SUCCESS;
 	}
 

@@ -152,7 +152,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		Race race = new Race();
 		race.setName("TestRace");
-		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating("5"));
+		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
@@ -43,8 +44,10 @@ public class VisionFacetTest extends
 		cdo1.setName("Template1");
 		CDOMObject cdo2 = new Race();
 		cdo2.setName("Race1");
-		Vision vision1 = new Vision(VisionType.getVisionType("Normal"), "30");
-		Vision vision2 = new Vision(VisionType.getVisionType("Darkvision"), "20");
+		Vision vision1 = new Vision(VisionType.getVisionType("Normal"),
+				FormulaFactory.getFormulaFor(30));
+		Vision vision2 = new Vision(VisionType.getVisionType("Darkvision"),
+				FormulaFactory.getFormulaFor(20));
 		CDOMDirectSingleRef<Vision> ref1 = new CDOMDirectSingleRef<Vision>(vision1);
 		SimpleAssociatedObject apo1 = new SimpleAssociatedObject();
 		cdo1.putToList(Vision.VISIONLIST, ref1, apo1);
@@ -69,7 +72,7 @@ public class VisionFacetTest extends
 	protected QualifiedObject<Vision> getObject()
 	{
 		return new QualifiedObject<Vision>(new Vision(VisionType
-			.getVisionType("Normal" + n++), "30"));
+			.getVisionType("Normal" + n++), FormulaFactory.getFormulaFor(30)));
 	}
 
 	@Override

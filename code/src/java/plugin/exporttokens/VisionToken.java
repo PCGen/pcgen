@@ -108,9 +108,9 @@ public class VisionToken extends Token
 				result.append(", ");
 			}
 			result.append(vision.getType());
-			String distStr = vision.getDistance();
+			String distStr = vision.getDistance().toString();
 			int dist = 0;
-			if (distStr != null&& distStr.trim().length() > 0)
+			if ((distStr != null) && (distStr.trim().length() > 0))
 			{
 				dist = Integer.parseInt(distStr);
 			}

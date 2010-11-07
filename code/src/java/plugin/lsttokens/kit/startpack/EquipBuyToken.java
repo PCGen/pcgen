@@ -75,6 +75,11 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 					+ getTokenName());
 		}
 		Formula f = FormulaFactory.getFormulaFor(activeValue);
+		if (!f.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + f.toString());
+		}
 		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
 
 		while (sep.hasNext())

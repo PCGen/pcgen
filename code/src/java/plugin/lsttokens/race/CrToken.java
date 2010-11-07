@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.race;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -48,24 +50,36 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryP
 	{
 		try
 		{
-			ChallengeRating cr = new ChallengeRating(value);
-			context.getObjectContext()
-				.put(race, ObjectKey.CHALLENGE_RATING, cr);
-			return ParseResult.SUCCESS;
+			int intRating = Integer.parseInt(value.startsWith("1/") ? value
+					.substring(2) : value);
+			if (intRating < 0)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " Challenge Rating cannot be negative");
+			}
 		}
-		catch (IllegalArgumentException e)
+		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " encountered error: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail(getTokenName()
+					+ "Challenge Rating must be a positive integer i or 1/i");
 		}
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		ChallengeRating cr = new ChallengeRating(formula);
+		context.getObjectContext().put(race, ObjectKey.CHALLENGE_RATING, cr);
+		return ParseResult.SUCCESS;
 	}
 
 	/**
 	 * Unparse the CR token
 	 * 
-	 * @param context 
-	 * @param race 
-	 * @return String array representing the CR token 
+	 * @param context
+	 * @param race
+	 * @return String array representing the CR token
 	 */
 	public String[] unparse(LoadContext context, Race race)
 	{
@@ -98,8 +112,8 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryP
 			ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
 			if ((la.floatValue() != 0) && cr == null)
 			{
-				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(la
-					.toString()));
+				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(
+						FormulaFactory.getFormulaFor(la.toString())));
 			}
 		}
 		catch (NullPointerException soWhat)

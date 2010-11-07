@@ -73,6 +73,11 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
+		if (!count.isValid())
+		{
+			return new ParseResult.Fail("Count in " + getTokenName()
+					+ " was not valid: " + count.toString());
+		}
 		if (!count.isStatic())
 		{
 			return new ParseResult.Fail("Count in "

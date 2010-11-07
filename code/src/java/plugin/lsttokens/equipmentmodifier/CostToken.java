@@ -43,8 +43,13 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier> implemen
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		EquipmentModifier mod, String value)
 	{
-		context.getObjectContext().put(mod, FormulaKey.COST,
-				FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		context.getObjectContext().put(mod, FormulaKey.COST, formula);
 		return ParseResult.SUCCESS;
 	}
 

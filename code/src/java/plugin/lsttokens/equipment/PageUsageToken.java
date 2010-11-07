@@ -58,8 +58,13 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		Equipment eq, String value)
 	{
-		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE,
-				FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
 		return ParseResult.SUCCESS;
 	}
 

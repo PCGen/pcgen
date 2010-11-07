@@ -33,7 +33,7 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * minimize memory usage and construction speed in the many cases where a
 	 * default ChallengeRating of ZERO is required.
 	 */
-	public static final ChallengeRating ZERO = new ChallengeRating("0");
+	public static final ChallengeRating ZERO = new ChallengeRating(FormulaFactory.ZERO);
 
 	/**
 	 * The Formula for this ChallengeRating
@@ -51,25 +51,13 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * @throws IllegalArgumentException
 	 *             if the given String is not of the appropriate syntax
 	 */
-	public ChallengeRating(String crFormula)
+	public ChallengeRating(Formula crFormula)
 	{
-		try
+		if (!crFormula.isValid())
 		{
-			int intRating = Integer
-					.parseInt(crFormula.startsWith("1/") ? crFormula
-							.substring(2) : crFormula);
-			if (intRating < 0)
-			{
-				throw new IllegalArgumentException(
-						"Challenge Rating cannot be negative");
-			}
+			throw new IllegalArgumentException("ChallengeRating Formula must be valid");
 		}
-		catch (NumberFormatException e)
-		{
-			throw new IllegalArgumentException(
-					"Challenge Rating must be a positive integer i or 1/i", e);
-		}
-		rating = FormulaFactory.getFormulaFor(crFormula);
+		rating = crFormula;
 	}
 
 	/**

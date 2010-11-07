@@ -146,6 +146,11 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			String maxLevelString = sep.next();
 			Formula maxLevel = FormulaFactory.getFormulaFor(maxLevelString);
+			if (!maxLevel.isValid())
+			{
+				return new ParseResult.Fail("Max Level Formula in " + getTokenName()
+						+ " was not valid: " + maxLevel.toString());
+			}
 			SpellLevelInfo sli = new SpellLevelInfo(pcf, minLevel, maxLevel);
 			sliList.add(sli);
 		}

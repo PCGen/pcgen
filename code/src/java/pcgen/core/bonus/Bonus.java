@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.core.utils.ParsingSeparator;
@@ -211,7 +212,13 @@ public class Bonus
 		aBonus.putOriginalString(bonusString);
 		aBonus.setBonusName(bonusName);
 		aBonus.setTypeOfBonus(typeOfBonus);
-		aBonus.setValue(bValue);
+		Formula val = aBonus.setValue(bValue);
+		if (!val.isValid())
+		{
+			Logging.errorPrint("Could not create bonusObj for:" + bonusString
+					+ " since Formula " + bValue + " is not valid: " + val.toString());
+			return null;
+		}
 
 		while (sep.hasNext())
 		{

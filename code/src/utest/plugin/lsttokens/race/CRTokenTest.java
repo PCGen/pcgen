@@ -19,6 +19,7 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
@@ -148,7 +149,7 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		ChallengeRating cr = new ChallengeRating("1");
+		ChallengeRating cr = new ChallengeRating(FormulaFactory.ONE);
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
 	}
@@ -156,7 +157,7 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testUnparseFraction() throws PersistenceLayerException
 	{
-		ChallengeRating cr = new ChallengeRating("1/2");
+		ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("1/2"));
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1/2");
 	}
@@ -189,7 +190,7 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 	{
 		try
 		{
-			ChallengeRating cr = new ChallengeRating("2/3");
+			ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("2/3"));
 			primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
 			assertBadUnparse();
 		}

@@ -43,8 +43,14 @@ public class StartskillptsToken extends AbstractNonEmptyToken<PCClass> implement
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
 		String value)
 	{
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
 		context.getObjectContext().put(pcc, FormulaKey.START_SKILL_POINTS,
-				FormulaFactory.getFormulaFor(value));
+				formula);
 		return ParseResult.SUCCESS;
 	}
 

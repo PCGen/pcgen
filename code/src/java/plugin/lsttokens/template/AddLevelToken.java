@@ -105,6 +105,11 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 		{
 			f = FormulaFactory.getFormulaFor(numLevels);
 		}
+		if (!f.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + f.toString());
+		}
 		LevelCommandFactory cf = new LevelCommandFactory(cl, f);
 		context.getObjectContext().addToList(template, ListKey.ADD_LEVEL, cf);
 		return ParseResult.SUCCESS;

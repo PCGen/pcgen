@@ -38,6 +38,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * VALUES token for KitTable
@@ -139,7 +140,19 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			return false;
 		}
 		Formula min = FormulaFactory.getFormulaFor(minString);
+		if (!min.isValid())
+		{
+			Logging.errorPrint("Min Formula in " + getTokenName()
+					+ " was not valid: " + min.toString());
+			return false;
+		}
 		Formula max = FormulaFactory.getFormulaFor(maxString);
+		if (!max.isValid())
+		{
+			Logging.errorPrint("Max Formula in " + getTokenName()
+					+ " was not valid: " + max.toString());
+			return false;
+		}
 		kitTable.addGear(optionInfo, min, max);
 		return true;
 	}

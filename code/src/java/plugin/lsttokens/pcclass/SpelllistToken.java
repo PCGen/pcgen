@@ -68,6 +68,11 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass> implemen
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
+		if (!count.isValid())
+		{
+			return new ParseResult.Fail("Count in " + getTokenName()
+					+ " was not valid: " + count.toString());
+		}
 		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
 			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");

@@ -140,6 +140,11 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (sep.hasNext())
 		{
 			count = FormulaFactory.getFormulaFor(first);
+			if (!count.isValid())
+			{
+				return new ParseResult.Fail("Count in " + getTokenName()
+						+ " was not valid: " + count.toString());
+			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()

@@ -80,4 +80,14 @@ public interface Formula
 	 */
 	public boolean isStatic();
 
+	/**
+	 * Returns true if the underlying Formula is valid. An invalid Formula may
+	 * return null or an Exception from either resolve method. (All other
+	 * behavior is not well defined if the formula returns false from
+	 * isValid()).
+	 * 
+	 * @return true if the underlying Formula is valid; false otherwise
+	 */
+	public boolean isValid();
+
 }

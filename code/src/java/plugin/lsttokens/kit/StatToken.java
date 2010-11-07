@@ -109,6 +109,11 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 				return new ParseResult.Fail("Unable to find STAT value: " + value);
 			}
 			Formula statValue = FormulaFactory.getFormulaFor(formula);
+			if (!statValue.isValid())
+			{
+				return new ParseResult.Fail("StatValue in " + getTokenName()
+						+ " was not valid: " + statValue.toString());
+			}
 			kitStat.addStat(stat, statValue);
 		}
 		return ParseResult.SUCCESS;

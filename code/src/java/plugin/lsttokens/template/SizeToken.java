@@ -56,6 +56,11 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			sizeFormula = new FixedSizeFormula(size);
 		}
+		if (!sizeFormula.isValid())
+		{
+			return new ParseResult.Fail("Size in " + getTokenName()
+					+ " was not valid: " + sizeFormula.toString());
+		}
 		context.getObjectContext().put(template, FormulaKey.SIZE, sizeFormula);
 		return ParseResult.SUCCESS;
 	}

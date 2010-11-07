@@ -134,4 +134,9 @@ public class JEPFormula implements Formula
 	{
 		return equipment.getVariableValue(formula, source, primary, pc);
 	}
+
+	public boolean isValid()
+	{
+		return true;
+	}
 }

@@ -99,7 +99,17 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 				return new ParseResult.Fail("Token cannot have more than one separator ','");
 			}
 			Formula min = FormulaFactory.getFormulaFor(minString);
+			if (!min.isValid())
+			{
+				return new ParseResult.Fail("Min Formula in " + getTokenName()
+						+ " was not valid: " + min.toString());
+			}
 			Formula max = FormulaFactory.getFormulaFor(maxString);
+			if (!max.isValid())
+			{
+				return new ParseResult.Fail("Max Formula in " + getTokenName()
+						+ " was not valid: " + max.toString());
+			}
 			kit.setOptionBounds(min, max);
 		}
 		return ParseResult.SUCCESS;

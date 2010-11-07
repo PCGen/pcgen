@@ -152,4 +152,9 @@ public class FixedSizeFormula implements Formula
 	{
 		return true;
 	}
+
+	public boolean isValid()
+	{
+		return true;
+	}
 }

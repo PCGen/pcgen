@@ -65,7 +65,13 @@ public class CountToken extends AbstractNonEmptyToken<KitDeity> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity,
 		String value)
 	{
-		kitDeity.setCount(FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitDeity.setCount(formula);
 		return ParseResult.SUCCESS;
 	}
 

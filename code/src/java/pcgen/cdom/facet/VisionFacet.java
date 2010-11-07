@@ -125,9 +125,7 @@ public class VisionFacet extends
 							.getQualifiedKey()
 							: "";
 					Vision v = qo.getRawObject();
-					String distanceString = v.getDistance();
-					Formula distance = FormulaFactory
-							.getFormulaFor(distanceString);
+					Formula distance = v.getDistance();
 					int a = resolveFacet.resolve(id, distance, sourceString)
 							.intValue();
 					VisionType visType = v.getType();
@@ -159,7 +157,8 @@ public class VisionFacet extends
 		TreeSet<Vision> returnSet = new TreeSet<Vision>();
 		for (Map.Entry<VisionType, Integer> me : map.entrySet())
 		{
-			returnSet.add(new Vision(me.getKey(), me.getValue().toString()));
+			returnSet.add(new Vision(me.getKey(), FormulaFactory
+					.getFormulaFor(me.getValue().intValue())));
 		}
 		return returnSet;
 	}
@@ -187,9 +186,7 @@ public class VisionFacet extends
 						String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 								.getQualifiedKey()
 								: "";
-						String distanceString = v.getDistance();
-						Formula distance = FormulaFactory
-								.getFormulaFor(distanceString);
+						Formula distance = v.getDistance();
 						int a = resolveFacet
 								.resolve(id, distance, sourceString).intValue();
 						if (i == null || i < a)
@@ -219,7 +216,7 @@ public class VisionFacet extends
 		{
 			return null;
 		}
-		return new Vision(type, i.toString());
+		return new Vision(type, FormulaFactory.getFormulaFor(i.intValue()));
 	}
 
 	public int getVisionCount(CharID id)

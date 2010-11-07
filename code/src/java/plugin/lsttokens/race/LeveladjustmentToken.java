@@ -43,8 +43,14 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
 		String value)
 	{
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
 		context.getObjectContext().put(race, FormulaKey.LEVEL_ADJUSTMENT,
-				FormulaFactory.getFormulaFor(value));
+				formula);
 		return ParseResult.SUCCESS;
 	}
 

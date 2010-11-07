@@ -223,8 +223,13 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			CDOMReference<Spell> spell = context.ref.getCDOMReference(
 					Spell.class, name);
 			dkm.put(spell, AssociationKey.CASTER_LEVEL, casterLevel);
-			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, FormulaFactory
-					.getFormulaFor(times));
+			Formula timesFormula = FormulaFactory.getFormulaFor(times);
+			if (!timesFormula.isValid())
+			{
+				return new ParseResult.Fail("Times in " + getTokenName()
+						+ " was not valid: " + timesFormula.toString());
+			}
+			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, timesFormula);
 			if (timeunit != null)
 			{
 				dkm.put(spell, AssociationKey.TIME_UNIT, timeunit);

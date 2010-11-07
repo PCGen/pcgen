@@ -71,8 +71,13 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 			{
 				// OK, it must be a formula...
 			}
-			context.obj.addToList(level, ListKey.SPECIALTYKNOWN, FormulaFactory
-					.getFormulaFor(tok));
+			Formula formula = FormulaFactory.getFormulaFor(tok);
+			if (!formula.isValid())
+			{
+				return new ParseResult.Fail("Formula in " + getTokenName()
+						+ " was not valid: " + formula.toString());
+			}
+			context.obj.addToList(level, ListKey.SPECIALTYKNOWN, formula);
 		}
 		return ParseResult.SUCCESS;
 	}

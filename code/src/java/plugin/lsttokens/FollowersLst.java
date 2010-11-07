@@ -115,6 +115,11 @@ public class FollowersLst extends ErrorParsingWrapper<CDOMObject> implements CDO
 		CDOMSingleRef<CompanionList> cl = context.ref.getCDOMReference(
 				CompanionList.class, followerType);
 		Formula num = FormulaFactory.getFormulaFor(followerNumber);
+		if (!num.isValid())
+		{
+			return new ParseResult.Fail("Number of Followers in "
+					+ getTokenName() + " was not valid: " + num.toString());
+		}
 		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
 				new FollowerLimit(cl, num));
 		return ParseResult.SUCCESS;

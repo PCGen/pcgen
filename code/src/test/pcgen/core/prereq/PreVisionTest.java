@@ -10,6 +10,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCTemplate;
@@ -51,14 +52,14 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "60")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(60))),
 				new SimpleAssociatedObject());
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
 		template2.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Low-Light"), "30")),
+						.getVisionType("Low-Light"), FormulaFactory.getFormulaFor(30))),
 				new SimpleAssociatedObject());
 		character.addTemplate(template2);
 
@@ -81,7 +82,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST, CDOMDirectSingleRef
-				.getRef(new Vision(VisionType.getVisionType("Normal"), "60")),
+				.getRef(new Vision(VisionType.getVisionType("Normal"), FormulaFactory.getFormulaFor(60))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -105,7 +106,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "60")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(60))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -139,7 +140,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "10")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(10))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -167,7 +168,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "10")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(10))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -194,7 +195,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "0")),
+						.getVisionType("Darkvision"), FormulaFactory.ZERO)),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -222,7 +223,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "0")),
+						.getVisionType("Darkvision"), FormulaFactory.ZERO)),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -250,7 +251,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "10")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(10))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -277,7 +278,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "10")),
+						.getVisionType("Darkvision"), FormulaFactory.getFormulaFor(10))),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -305,7 +306,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "0")),
+						.getVisionType("Darkvision"), FormulaFactory.ZERO)),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -332,7 +333,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Darkvision"), "0")),
+						.getVisionType("Darkvision"), FormulaFactory.ZERO)),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);

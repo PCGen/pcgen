@@ -42,8 +42,14 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<PCTemplate> impl
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
 		context.getObjectContext().put(template, FormulaKey.LEVEL_ADJUSTMENT,
-				FormulaFactory.getFormulaFor(value));
+				formula);
 		return ParseResult.SUCCESS;
 	}
 

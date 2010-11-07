@@ -89,6 +89,11 @@ public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements
 		try
 		{
 			Formula f = FormulaFactory.getFormulaFor(sep.next());
+			if (!f.isValid())
+			{
+				return new ParseResult.Fail("Formula in " + getTokenName()
+						+ " was not valid: " + f.toString());
+			}
 			if (sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName() + " " + firstItem

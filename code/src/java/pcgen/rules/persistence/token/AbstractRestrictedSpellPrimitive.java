@@ -59,10 +59,22 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			if (tok.startsWith("LEVELMAX="))
 			{
 				levelMax = FormulaFactory.getFormulaFor(tok.substring(9));
+				if (!levelMax.isValid())
+				{
+					Logging.errorPrint("LEVELMAX Formula in " + getTokenName()
+							+ " was not valid: " + levelMax.toString());
+					return null;
+				}
 			}
 			else if (tok.startsWith("LEVELMIN="))
 			{
 				levelMin = FormulaFactory.getFormulaFor(tok.substring(9));
+				if (!levelMin.isValid())
+				{
+					Logging.errorPrint("LEVELMIN Formula in " + getTokenName()
+							+ " was not valid: " + levelMin.toString());
+					return null;
+				}
 			}
 			else if ("KNOWN=YES".equals(tok))
 			{

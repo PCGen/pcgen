@@ -65,7 +65,13 @@ public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
 		String value)
 	{
-		kitClass.setLevel(FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitClass.setLevel(formula);
 		return ParseResult.SUCCESS;
 	}
 

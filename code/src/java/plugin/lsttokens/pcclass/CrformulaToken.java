@@ -43,8 +43,13 @@ public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
 		String value)
 	{
-		context.getObjectContext().put(pcc, FormulaKey.CR,
-				FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		context.getObjectContext().put(pcc, FormulaKey.CR, formula);
 		return ParseResult.SUCCESS;
 	}
 

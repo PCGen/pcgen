@@ -63,7 +63,13 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpells, String value)
 	{
-		kitSpells.setCount(FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitSpells.setCount(formula);
 		return ParseResult.SUCCESS;
 	}
 

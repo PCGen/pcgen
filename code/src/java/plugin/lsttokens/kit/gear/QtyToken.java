@@ -64,7 +64,13 @@ public class QtyToken extends AbstractNonEmptyToken<KitGear> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
 		String value)
 	{
-		kitGear.setQuantity(FormulaFactory.getFormulaFor(value));
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		kitGear.setQuantity(formula);
 		return ParseResult.SUCCESS;
 	}
 

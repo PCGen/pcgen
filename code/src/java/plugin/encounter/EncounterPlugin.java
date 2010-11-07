@@ -37,7 +37,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 import javax.swing.filechooser.FileFilter;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -883,7 +885,13 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			return;
 		}
 
-		ChallengeRating cr = new ChallengeRating(crs);
+		Formula crFormula = FormulaFactory.getFormulaFor(crs);
+		if (!crFormula.isValid())
+		{
+			Logging.errorPrint("CR Formula " + crs
+					+ " was not valid: " + crFormula.toString());
+		}
+		ChallengeRating cr = new ChallengeRating(crFormula);
 
 		// populate critters with a list of matching monsters with the right CR.
 		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))

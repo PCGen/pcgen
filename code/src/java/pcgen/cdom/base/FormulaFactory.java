@@ -82,6 +82,40 @@ public final class FormulaFactory
 	}
 
 	/**
+	 * Returns a Formula for the given String, using "old" formula system
+	 * 
+	 * @param formulaString
+	 *            The String to be converted to a Formula
+	 * @return A Formula for the given String.
+	 * @throws IllegalArgumentException
+	 *             if the given String is null or empty
+	 */
+	public static Formula getJEPFormulaFor(String formulaString)
+	{
+		if (formulaString == null || formulaString.length() == 0)
+		{
+			throw new IllegalArgumentException("Formula cannot be empty");
+		}
+		try
+		{
+			return getFormulaFor(Integer.valueOf(formulaString));
+		}
+		catch (NumberFormatException e)
+		{
+			// Okay, just not an integer
+			try
+			{
+				return getFormulaFor(Double.valueOf(formulaString));
+			}
+			catch (NumberFormatException e2)
+			{
+				// Okay, just not a double
+				return new JEPFormula(formulaString);
+			}
+		}
+	}
+
+	/**
 	 * Returns a Formula for the given Integer.
 	 * 
 	 * @param integer
@@ -203,7 +237,15 @@ public final class FormulaFactory
 		{
 			return true;
 		}
-	}
+
+		/**
+		 * Returns true as an IntegerFormula is a valid Formula.
+		 */
+		public boolean isValid()
+		{
+			return true;
+		}
+}
 
 	/**
 	 * DoubleFormula is a fixed-value formula for a specific Double.
@@ -296,6 +338,14 @@ public final class FormulaFactory
 		 * value
 		 */
 		public boolean isStatic()
+		{
+			return true;
+		}
+
+		/**
+		 * Returns true as an DoubleFormula is a valid Formula.
+		 */
+		public boolean isValid()
 		{
 			return true;
 		}
