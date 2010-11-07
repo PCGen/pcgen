@@ -1279,6 +1279,94 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Bob&#39;s Ability with PreFeat Weapon Focus Longsword is working</name>
+			<description>Using PreFeat with Longsword weapon Focus</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Weapon Focus Sword wildcard</name>
+			<description>Using PreFeat with Sword Wildcard</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Preskill is working</name>
+			<description>Using new Chooser with SKILL</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by PreAlign LG</name>
+			<description>Using Chooser with Align LG chosen</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by PreClass Basic Fighter</name>
+			<description>Using Chooser with Basic Fighter Class chosen</description>
+			<type>SPECIALQUALITY.TESTERTYPE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Size M</name>
+			<description>Using Chooser with Size M Selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bob&#39;s Ability triggered by Check</name>
+			<description>Using Chooser with Check Selected</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>This Ability is Only Activated is TYPE=TestingType is in a Special Ability</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>BOB ~ Bonus MoveAdd 25</name>
 			<description></description>
 			<type>SPECIALQUALITY.TEST31B</type>
@@ -1315,72 +1403,6 @@ BIO
 			<name>BOB ~ MoveClone Fly times 2</name>
 			<description></description>
 			<type>SPECIALQUALITY.TEST31B</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by Check</name>
-			<description>Using Chooser with Check Selected</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by PreAlign LG</name>
-			<description>Using Chooser with Align LG chosen</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by Preskill is working</name>
-			<description>Using new Chooser with SKILL</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by Size M</name>
-			<description>Using Chooser with Size M Selected</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability triggered by Weapon Focus Sword wildcard</name>
-			<description>Using PreFeat with Sword Wildcard</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bob&#39;s Ability with PreFeat Weapon Focus Longsword is working</name>
-			<description>Using PreFeat with Longsword weapon Focus</description>
-			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1697,11 +1719,11 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose CLASS (MonKee Junior)</name>
+			<name>Chooser ~ Choose CLASS (MonKee Junior, Basic Fighter)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>MonKee Junior</associated>
-			<count>1</count>
+			<associated>MonKee Junior,Basic Fighter</associated>
+			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1878,6 +1900,17 @@ BIO
 			<type>CLASS.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
