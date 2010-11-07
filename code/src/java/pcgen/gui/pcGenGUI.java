@@ -342,6 +342,8 @@ public class pcGenGUI
         else {
             party = Party.makeSingleCharacterParty(file);
         }
+        boolean oldLoadCampaignsWithPC = SettingsHandler.isLoadCampaignsWithPC();
+        SettingsHandler.setLoadCampaignsWithPC(true);
         PlayerCharacter pc = party.load(null);
         if (pc == null)
         {
@@ -349,7 +351,7 @@ public class pcGenGUI
             ShowMessageDelegate.showMessageDialog(new MessageWrapper("Problems occurred while loading the file:"
                     + file.getName(), "Error", MessageType.ERROR));
         }
-
+        SettingsHandler.setLoadCampaignsWithPC(oldLoadCampaignsWithPC);
         return pc;
     }
 
