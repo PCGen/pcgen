@@ -154,7 +154,7 @@ public class pcGenGUI
 		if (!Globals.getUseGUI())
 		{
 			runNonGui();
-			System.exit(0);
+			return;
 		}
 
 		// If we get here then we are running with a GUI
@@ -372,6 +372,7 @@ public class pcGenGUI
 		templateName = System.getProperty("pcgen.templatefile");
 		inFileName = System.getProperty("pcgen.inputfile");
 		outFileName = System.getProperty("pcgen.outputfile");
+		String dontExitOnComplete = System.getProperty("pcgen.dont.exit");
 
 		startupArgs = args;
 
@@ -494,6 +495,11 @@ public class pcGenGUI
 		SettingsHandler.initGameModes();
 
 		new pcGenGUI(d);
+		
+		if (!Globals.getUseGUI() && !"Y".equals(dontExitOnComplete))
+		{
+			System.exit(0);
+		}
 	}
 
 	public static void showHpFrame(PlayerCharacter aPC)

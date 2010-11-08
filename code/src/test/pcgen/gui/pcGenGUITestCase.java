@@ -139,6 +139,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			System.setProperty("pcgen.outputfile", "code/testsuite/output/"
 				+ character + ".xml");
 			System.setProperty("pcgen.options", "options.ini.junit");
+			System.setProperty("pcgen.dont.exit", "Y");
 
 			// Fire off PCGen, which will produce an XML file 
 			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
