@@ -283,6 +283,7 @@
 									<fo:table-cell>
 										<xsl:apply-templates select="initiative"/>
 										<xsl:apply-templates select="basics/bab" mode="bab"/>
+                                        <xsl:call-template name="encumberance"/>
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
 										<xsl:apply-templates select="skills">
@@ -1786,6 +1787,49 @@
 			</fo:table-body>
 		</fo:table>
 		<!-- END ini-base table -->
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - encumberance TABLE
+====================================
+====================================-->
+	<xsl:template name="encumberance">
+		<!-- BEGIN encumberance table -->
+        <xsl:if test="/character/equipment/total/load != 'Light'">
+		<fo:table table-layout="fixed">
+			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.50 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="2mm"/>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.50 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row height="2pt"/>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'initiative.title'"/>
+						</xsl:call-template>
+					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">ENCUMBERANCE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'initiative.total'"/>
+						</xsl:call-template>
+						<fo:block space-before.optimum="2pt" font-size="10pt">
+							<xsl:value-of select="/character/equipment/total/load"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+        </xsl:if>
+		<!-- END encumberance table -->
 	</xsl:template>
 
 	<xsl:template name="skills.empty">
