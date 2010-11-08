@@ -271,7 +271,7 @@ final class MainPrint extends JPanel
 			}
 			fcExport.setCurrentDirectory(new File(path));
 			fcExport.setSelectedFile(new File(path + File.separator + pcName
-				+ "." + extension));
+				+ extension));
 			fcExport.setDialogTitle("Export " + pcName);
 
 			try
