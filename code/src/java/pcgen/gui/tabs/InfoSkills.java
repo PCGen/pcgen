@@ -1271,7 +1271,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			splitPane.setDividerLocation(s);
 			SettingsHandler.setPCGenOption("InfoSkills.splitPane", s); //$NON-NLS-1$
-			Logging.errorPrint("Saved splitpane loc of " + s);
 		}
 
 		if (t > 0)
