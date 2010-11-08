@@ -244,7 +244,6 @@ final class MainPrint extends JPanel
 		final String extension = ".pdf";
 
 		PFileChooser fcExport = new PFileChooser();
-		fcExport.setCurrentDirectory(new File(SettingsHandler.getPcgPath().toString()));
 		fcExport.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		fcExport.addChoosableFileFilter(null, "All Files (*.*)");
 		fcExport.addChoosableFileFilter("pdf", "PDF Documents (*.pdf)");
@@ -261,8 +260,18 @@ final class MainPrint extends JPanel
 		for (int loop = 0; loop < pcExports.length; loop++)
 		{
 			final String pcName = partyMode ? "Entire Party" : (String) pcList.getModel().getElementAt(pcExports[loop]);
-			fcExport.setSelectedFile(new File(SettingsHandler.getPcgPath().toString() + File.separator + pcName
-					+ extension));
+			String path = partyMode ? null : Globals.getPCList().get(pcExports[loop]).getFileName();
+			if (path != null && path.length() > 0)
+			{
+				path = new File(path).getParent().toString();
+			}
+			else
+			{
+				path = SettingsHandler.getLastUsedPcgPath().toString();
+			}
+			fcExport.setCurrentDirectory(new File(path));
+			fcExport.setSelectedFile(new File(path + File.separator + pcName
+				+ "." + extension));
 			fcExport.setDialogTitle("Export " + pcName);
 
 			try
