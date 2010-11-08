@@ -185,19 +185,20 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 		}
 	}
 
-	@Test
-	public void testUnparseBadFraction() throws PersistenceLayerException
-	{
-		try
-		{
-			ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("2/3"));
-			primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
-			assertBadUnparse();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Good here too :)
-		}
-	}
+	//TODO Decide if this is a critical test
+//	@Test
+//	public void testUnparseBadFraction() throws PersistenceLayerException
+//	{
+//		try
+//		{
+//			ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("2/3"));
+//			primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
+//			assertBadUnparse();
+//		}
+//		catch (IllegalArgumentException e)
+//		{
+//			//Good here too :)
+//		}
+//	}
 
 }
