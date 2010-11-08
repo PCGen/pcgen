@@ -86,7 +86,15 @@ public class FacetInitialization
 				.getFacet(DamageReductionFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary
 				.getFacet(ActiveAbilityFacet.class);
+		AutoListShieldProfFacet splFacet = FacetLibrary
+				.getFacet(AutoListShieldProfFacet.class);
+		ShieldProfProviderFacet sppFacet = FacetLibrary
+				.getFacet(ShieldProfProviderFacet.class);
 		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
+		AutoListArmorProfFacet aplFacet = FacetLibrary
+				.getFacet(AutoListArmorProfFacet.class);
+		ArmorProfProviderFacet appFacet = FacetLibrary
+				.getFacet(ArmorProfProviderFacet.class);
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 		VariableFacet variableFacet = FacetLibrary
 				.getFacet(VariableFacet.class);
@@ -198,6 +206,9 @@ public class FacetInitialization
 		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		templateFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
+
+		aplFacet.addDataFacetChangeListener(appFacet);
+		splFacet.addDataFacetChangeListener(sppFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 		templateFacet.addDataFacetChangeListener(addLevelFacet);

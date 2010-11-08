@@ -134,6 +134,27 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 			}
 			return false;
 		}
+		
+		@Override
+		public int hashCode()
+		{
+			return hml.hashCode();
+		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o == this)
+			{
+				return true;
+			}
+			if (o instanceof CacheInfo)
+			{
+				CacheInfo ci = (CacheInfo) o;
+				return ci.hml.equals(hml) && ci.sourceMap.equals(sourceMap);
+			}
+			return false;
+		}
 	}
 
 	public boolean grantsQualify(CharID id, CDOMObject qualTestObject)

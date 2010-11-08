@@ -194,6 +194,29 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		public int sizeInt;
 		public int racialSizeInt;
 		public SizeAdjustment sizeAdj;
+		
+		@Override
+		public int hashCode()
+		{
+			return sizeInt ^ racialSizeInt * 29;
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o == this)
+			{
+				return true;
+			}
+			if (o instanceof SizeFacetInfo)
+			{
+				SizeFacetInfo sfi = (SizeFacetInfo) o;
+				return (sizeInt == sfi.sizeInt)
+					&& (racialSizeInt == sfi.racialSizeInt)
+					&& sizeAdj.equals(sizeAdj);
+			}
+			return false;
+		}
 	}
 
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)

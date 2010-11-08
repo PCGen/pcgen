@@ -101,6 +101,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		return "1d3";
 	}
 
+	@Override
 	protected Map<List<String>, Set<Object>> getComponentMap()
 	{
 		return new HashMap<List<String>, Set<Object>>();

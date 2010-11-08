@@ -17,8 +17,12 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Set;
+
+import pcgen.base.test.InequalityTester;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.util.Logging;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -44,5 +48,27 @@ public class FacetCache
 	public static Object remove(CharID id, Class<?> cl)
 	{
 		return CACHE.remove(id, cl);
+	}
+	
+	public static boolean areEqual(CharID id1, CharID id2, InequalityTester t)
+	{
+		Set<Class<?>> set1 = CACHE.getSecondaryKeySet(id1);
+		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
+		if (!set1.equals(set2))
+		{
+			return false;
+		}
+		for (Class<?> cl : set1)
+		{
+			Object obj1 = CACHE.get(id1, cl);
+			Object obj2 = CACHE.get(id2, cl);
+			String equal = t.testEquality(obj1, obj2);
+			if (equal != null)
+			{
+				Logging.errorPrint(equal);
+				return false;
+			}
+		}
+		return true;
 	}
 }

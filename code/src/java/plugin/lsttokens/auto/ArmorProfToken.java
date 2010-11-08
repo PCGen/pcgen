@@ -31,7 +31,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
-import pcgen.cdom.helper.SimpleArmorProfProvider;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -253,21 +252,21 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		ArmorProf wp = Globals.getContext().ref
+		ArmorProf ap = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
-		if (wp != null)
+		if (ap != null)
 		{
-			pc.addArmorProf(obj, new SimpleArmorProfProvider(wp));
+			pc.addArmorProf(obj, ap);
 		}
 	}
 
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		ArmorProf wp = Globals.getContext().ref
+		ArmorProf ap = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
-		if (wp != null)
+		if (ap != null)
 		{
-			pc.removeArmorProf(obj, new SimpleArmorProfProvider(wp));
+			pc.removeArmorProf(obj, ap);
 		}
 	}
 

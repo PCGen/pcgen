@@ -251,21 +251,21 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		ShieldProf wp = Globals.getContext().ref
+		ShieldProf sp = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, o);
-		if (wp != null)
+		if (sp != null)
 		{
-			pc.addShieldProf(obj, new SimpleShieldProfProvider(wp));
+			pc.addShieldProf(obj, sp);
 		}
 	}
 
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		ShieldProf wp = Globals.getContext().ref
+		ShieldProf sp = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, o);
-		if (wp != null)
+		if (sp != null)
 		{
-			pc.removeShieldProf(obj, new SimpleShieldProfProvider(wp));
+			pc.removeShieldProf(obj, sp);
 		}
 	}
 

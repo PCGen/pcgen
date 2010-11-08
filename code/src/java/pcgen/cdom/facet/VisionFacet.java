@@ -225,6 +225,7 @@ public class VisionFacet extends
 		return getActiveVision(id).size();
 	}
 
+	@Override
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
 	{
 		return new HashMap<QualifiedObject<Vision>, Set<Object>>();

@@ -17,6 +17,7 @@
 package pcgen.cdom.facet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -573,6 +574,29 @@ public class MovementResultFacet
 			return encumberedMove;
 		}
 
+		@Override
+		public int hashCode()
+		{
+			return (movementTypes.length == 0) ? -1 : movementTypes[0].hashCode();
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o == this)
+			{
+				return true;
+			}
+			if (o instanceof MovementCacheInfo)
+			{
+				MovementCacheInfo ci = (MovementCacheInfo) o;
+				return Arrays.deepEquals(movementMult, ci.movementMult)
+					&& Arrays.deepEquals(movementMultOp, ci.movementMultOp)
+					&& Arrays.deepEquals(movementTypes, ci.movementTypes)
+					&& Arrays.deepEquals(movements, ci.movements);
+			}
+			return false;
+		}
 	}
 
 	public int countMovementTypes(CharID id)

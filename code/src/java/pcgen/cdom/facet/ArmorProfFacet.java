@@ -20,21 +20,18 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
-import pcgen.cdom.helper.ProfProvider;
-import pcgen.core.ArmorProf;
-import pcgen.core.Equipment;
 
 /**
  * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
  * to a Player Character.
  */
-public class ArmorProfFacet extends
-		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
-		DataFacetChangeListener<CDOMObject>
+public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 {
+
+	ArmorProfProviderFacet appFacet = FacetLibrary
+			.getFacet(ArmorProfProviderFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
@@ -50,10 +47,11 @@ public class ArmorProfFacet extends
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<ArmorProfProvider> armorProfs = cdo.getListFor(ListKey.AUTO_ARMORPROF);
+		List<ArmorProfProvider> armorProfs = cdo
+				.getListFor(ListKey.AUTO_ARMORPROF);
 		if (armorProfs != null)
 		{
-			addAll(dfce.getCharID(), armorProfs, cdo);
+			appFacet.addAll(dfce.getCharID(), armorProfs, cdo);
 		}
 	}
 
@@ -70,18 +68,6 @@ public class ArmorProfFacet extends
 	 */
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getCDOMObject());
-	}
-
-	public boolean isProficientWithArmor(CharID id, Equipment eq)
-	{
-		for (ProfProvider<ArmorProf> pp : getQualifiedSet(id))
-		{
-			if (pp.providesProficiencyFor(eq))
-			{
-				return true;
-			}
-		}
-		return false;
+		appFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 }

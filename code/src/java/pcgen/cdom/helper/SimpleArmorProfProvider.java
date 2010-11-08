@@ -55,4 +55,16 @@ public class SimpleArmorProfProvider extends
 		return providesProficiency(equipment.getArmorProf());
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return getLstFormat().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		return (o == this)
+			|| ((o instanceof SimpleArmorProfProvider) && hasSameProf((SimpleArmorProfProvider) o));
+	}
 }

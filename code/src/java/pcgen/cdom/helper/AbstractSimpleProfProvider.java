@@ -111,4 +111,9 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	{
 		return prof.getKeyName();
 	}
+	
+	protected boolean hasSameProf(AbstractSimpleProfProvider<T> aspp)
+	{
+		return prof.equals(aspp.prof);
+	}
 }

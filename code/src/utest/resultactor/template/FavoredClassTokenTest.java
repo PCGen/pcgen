@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
  * 
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -15,54 +15,42 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.helper;
+package resultactor.template;
 
+import org.junit.Test;
+
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.core.PCClass;
+import plugin.lsttokens.template.FavoredclassToken;
+import resultactor.testsupport.AbstractResultActorTest;
 
-public class ClassSource
+public class FavoredClassTokenTest extends AbstractResultActorTest<PCClass>
 {
-	private final PCClass pcclass;
-	private final int level;
 
-	public ClassSource(PCClass pcc)
+	static FavoredclassToken cra = new FavoredclassToken();
+
+	@Test
+	public void testEmpty()
 	{
-		this(pcc, -1);
+		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
-	public ClassSource(PCClass pcc, int lvl)
-	{
-		pcclass = pcc;
-		level = lvl;
-	}
-
-	public int getLevel()
-	{
-		return level;
-	}
-
-	public PCClass getPcclass()
-	{
-		return pcclass;
-	}
-	
 	@Override
-	public int hashCode()
+	public ChooseResultActor getActor()
 	{
-		return pcclass.hashCode() - level;
+		return cra;
 	}
-	
+
 	@Override
-	public boolean equals(Object o)
+	public Class<PCClass> getCDOMClass()
 	{
-		if (o == this)
-		{
-			return true;
-		}
-		if (o instanceof ClassSource)
-		{
-			ClassSource other = (ClassSource) o;
-			return (level == other.level) && (pcclass.equals(other.pcclass));
-		}
+		return PCClass.class;
+	}
+
+	@Override
+	public boolean isGranted()
+	{
 		return false;
 	}
+
 }

@@ -293,4 +293,68 @@ public class SpellBook implements Cloneable
 		}
 		return aClone;
 	}
+	
+	public int hashCode()
+	{
+		return name.hashCode();
+	}
+	
+	public boolean equals(Object o)
+	{
+		if (o == this)
+		{
+			return true;
+		}
+		else if (o instanceof SpellBook)
+		{
+			SpellBook other = (SpellBook) o;
+			if (pageFormula == null)
+			{
+				if (other.pageFormula != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!pageFormula.equals(other.pageFormula))
+				{
+					return false;
+				}
+			}
+			if (description == null)
+			{
+				if (other.description != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!description.equals(other.description))
+				{
+					return false;
+				}
+			}
+			if (equip == null)
+			{
+				if (other.equip != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!equip.equals(other.equip))
+				{
+					return false;
+				}
+			}
+			return name.equals(other.name) && (type == other.type)
+				&& (numPages == other.numPages)
+				&& (numPagesUsed == other.numPagesUsed)
+				&& (numSpells == other.numSpells);
+		}
+		return false;
+	}
 }

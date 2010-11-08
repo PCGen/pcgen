@@ -391,4 +391,19 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	{
 		return map.primaryKeyCount();
 	}
+
+
+	/**
+	 * Returns true if the DoubleKeyMapToList is equal to the given Object.
+	 * Equality is defined as the given Object being a DoubleKeyMapToList with
+	 * equal keys and values as defined by the underlying Maps.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		return obj instanceof TripleKeyMapToList
+				&& map.equals(((TripleKeyMapToList<?, ?, ?, ?>) obj).map);
+	}
 }

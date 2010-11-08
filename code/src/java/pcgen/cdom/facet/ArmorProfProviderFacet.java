@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2010.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,24 +17,22 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
-
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.ShieldProfProvider;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.ProfProvider;
+import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 
 /**
- * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
+ * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
  * to a Player Character.
  */
-public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
+public class ArmorProfProviderFacet extends
+		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
+		DataFacetChangeListener<ProfProvider<ArmorProf>>
 {
 
-	ShieldProfProviderFacet appFacet = FacetLibrary
-			.getFacet(ShieldProfProviderFacet.class);
-
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
+	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
@@ -44,19 +42,13 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<ProfProvider<ArmorProf>> dfce)
 	{
-		CDOMObject cdo = dfce.getCDOMObject();
-		List<ShieldProfProvider> ShieldProfs = cdo
-				.getListFor(ListKey.AUTO_SHIELDPROF);
-		if (ShieldProfs != null)
-		{
-			appFacet.addAll(dfce.getCharID(), ShieldProfs, cdo);
-		}
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
+	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
@@ -66,8 +58,20 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<ProfProvider<ArmorProf>> dfce)
 	{
-		appFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public boolean isProficientWithArmor(CharID id, Equipment eq)
+	{
+		for (ProfProvider<ArmorProf> pp : getQualifiedSet(id))
+		{
+			if (pp.providesProficiencyFor(eq))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

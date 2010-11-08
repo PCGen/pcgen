@@ -55,4 +55,17 @@ public class SimpleShieldProfProvider extends
 	{
 		return providesProficiency(equipment.getShieldProf());
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return getLstFormat().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		return (o == this)
+			|| ((o instanceof SimpleShieldProfProvider) && hasSameProf((SimpleShieldProfProvider) o));
+	}
 }

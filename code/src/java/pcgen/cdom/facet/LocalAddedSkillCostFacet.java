@@ -47,12 +47,13 @@ public class LocalAddedSkillCostFacet
 	 * @return The CacheInfo for the Player Character represented by the given
 	 *         CharID.
 	 */
-	private CacheInfo getConstructingInfo(CharID id)
+	private Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> getConstructingInfo(
+			CharID id)
 	{
-		CacheInfo rci = getInfo(id);
+		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> rci = getInfo(id);
 		if (rci == null)
 		{
-			rci = new CacheInfo();
+			rci = new IdentityHashMap<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
 			FacetCache.set(id, thisClass, rci);
 		}
 		return rci;
@@ -74,44 +75,43 @@ public class LocalAddedSkillCostFacet
 	 *         CharID; null if no Skill information has been set for the Player
 	 *         Character.
 	 */
-	private CacheInfo getInfo(CharID id)
+	private Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> getInfo(
+			CharID id)
 	{
-		return (CacheInfo) FacetCache.get(id, thisClass);
+		return (Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>) FacetCache
+				.get(id, thisClass);
 	}
 
-	/**
-	 * CacheInfo is the data structure used by LocalAddedSkillCostFacet to store
-	 * a Player Character's Skill Costs
-	 */
-	private static class CacheInfo
+	public void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
+			CDOMObject source)
 	{
-		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = new IdentityHashMap<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
-
-		public void add(PCClass cl, Skill skill, SkillCost sc, CDOMObject source)
+		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getConstructingInfo(id);
+		Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+		if (scMap == null)
 		{
-			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
-			if (scMap == null)
-			{
-				scMap = new IdentityHashMap<SkillCost, Map<Skill, Set<CDOMObject>>>();
-				map.put(cl, scMap);
-			}
-			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
-			if (skMap == null)
-			{
-				skMap = new IdentityHashMap<Skill, Set<CDOMObject>>();
-				scMap.put(sc, skMap);
-			}
-			Set<CDOMObject> set = skMap.get(skill);
-			if (set == null)
-			{
-				set = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
-				skMap.put(skill, set);
-			}
-			set.add(source);
+			scMap = new IdentityHashMap<SkillCost, Map<Skill, Set<CDOMObject>>>();
+			map.put(cl, scMap);
 		}
+		Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
+		if (skMap == null)
+		{
+			skMap = new IdentityHashMap<Skill, Set<CDOMObject>>();
+			scMap.put(sc, skMap);
+		}
+		Set<CDOMObject> set = skMap.get(skill);
+		if (set == null)
+		{
+			set = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
+			skMap.put(skill, set);
+		}
+		set.add(source);
+	}
 
-		public void remove(PCClass cl, Skill skill, SkillCost sc,
-				CDOMObject source)
+	public void remove(CharID id, PCClass cl, Skill skill, SkillCost sc,
+			CDOMObject source)
+	{
+		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getInfo(id);
+		if (map != null)
 		{
 			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
 			if (scMap == null)
@@ -141,39 +141,22 @@ public class LocalAddedSkillCostFacet
 				}
 			}
 		}
-
-		public boolean contains(PCClass cl, SkillCost sc, Skill skill)
-		{
-			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
-			if (scMap == null)
-			{
-				return false;
-			}
-			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
-			return (skMap != null) && skMap.containsKey(skill);
-		}
-	}
-
-	public void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
-			CDOMObject source)
-	{
-		getConstructingInfo(id).add(cl, skill, sc, source);
-	}
-
-	public void remove(CharID id, PCClass cl, Skill skill, SkillCost sc,
-			CDOMObject source)
-	{
-		CacheInfo info = getInfo(id);
-		if (info != null)
-		{
-			info.remove(cl, skill, sc, source);
-		}
 	}
 
 	public boolean contains(CharID id, PCClass cl, Skill skill, SkillCost sc)
 	{
-		CacheInfo info = getInfo(id);
-		return info != null && info.contains(cl, sc, skill);
+		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return false;
+		}
+		Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+		if (scMap == null)
+		{
+			return false;
+		}
+		Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
+		return (skMap != null) && skMap.containsKey(skill);
 	}
 
 }

@@ -192,8 +192,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
-	private ArmorProfFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
-	private ShieldProfFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
+	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
+	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
+	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
+	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
@@ -12741,24 +12743,24 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return loadFacet.getLoadType(id);
 	}
 
-	public void addArmorProf(CDOMObject owner, ProfProvider<ArmorProf> choice)
+	public void addArmorProf(CDOMObject owner, ArmorProf ap)
 	{
-		armorProfFacet.add(id, choice, owner);
+		armorProfListFacet.add(id, ap, owner);
 	}
 
-	public void removeArmorProf(CDOMObject owner, ProfProvider<ArmorProf> choice)
+	public void removeArmorProf(CDOMObject owner, ArmorProf ap)
 	{
-		armorProfFacet.remove(id, choice, owner);
+		armorProfListFacet.remove(id, ap, owner);
 	}
 
-	public void addShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
+	public void addShieldProf(CDOMObject owner, ShieldProf sp)
 	{
-		shieldProfFacet.add(id, choice, owner);
+		shieldProfListFacet.add(id, sp, owner);
 	}
 
-	public void removeShieldProf(CDOMObject owner, ProfProvider<ShieldProf> choice)
+	public void removeShieldProf(CDOMObject owner, ShieldProf sp)
 	{
-		shieldProfFacet.remove(id, choice, owner);
+		shieldProfListFacet.remove(id, sp, owner);
 	}
 
 	public Double getMovementOfType(String moveType)

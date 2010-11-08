@@ -17,21 +17,19 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
-
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.ShieldProfProvider;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.ProfProvider;
+import pcgen.core.ShieldProf;
+import pcgen.core.Equipment;
 
 /**
  * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
  * to a Player Character.
  */
-public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
+public class ShieldProfProviderFacet extends
+		AbstractQualifiedListFacet<ProfProvider<ShieldProf>> implements
+		DataFacetChangeListener<ProfProvider<ShieldProf>>
 {
-
-	ShieldProfProviderFacet appFacet = FacetLibrary
-			.getFacet(ShieldProfProviderFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
@@ -44,15 +42,9 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
 	{
-		CDOMObject cdo = dfce.getCDOMObject();
-		List<ShieldProfProvider> ShieldProfs = cdo
-				.getListFor(ListKey.AUTO_SHIELDPROF);
-		if (ShieldProfs != null)
-		{
-			appFacet.addAll(dfce.getCharID(), ShieldProfs, cdo);
-		}
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
 	/**
@@ -66,8 +58,20 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
 	{
-		appFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public boolean isProficientWithShield(CharID id, Equipment eq)
+	{
+		for (ProfProvider<ShieldProf> pp : getQualifiedSet(id))
+		{
+			if (pp.providesProficiencyFor(eq))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
