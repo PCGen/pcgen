@@ -154,7 +154,7 @@ public class pcGenGUI
 		if (!Globals.getUseGUI())
 		{
 			runNonGui();
-			return;
+			System.exit(0);
 		}
 
 		// If we get here then we are running with a GUI
