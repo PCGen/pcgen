@@ -22,13 +22,15 @@ import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * Deals with the MULT token
  */
 public class MultToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>
+		CDOMPrimaryParserToken<Ability>, DeferredToken<Ability>
 {
 
 	@Override
@@ -84,5 +86,33 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
+	}
+
+	public Class<Ability> getDeferredTokenClass()
+	{
+		return Ability.class;
+	}
+
+	public boolean process(LoadContext context, Ability a)
+	{
+		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			if (a.get(ObjectKey.CHOOSE_INFO) == null)
+			{
+				Logging.errorPrint("Ability + (" + a.getCategory() + ") "
+						+ a.getKeyName() + " had MULT:YES but no CHOOSE");
+				return false;
+			}
+		}
+		else
+		{
+			if (a.get(ObjectKey.CHOOSE_INFO) != null)
+			{
+				Logging.errorPrint("Ability + (" + a.getCategory() + ") "
+						+ a.getKeyName() + " had MULT:NO but did have CHOOSE");
+				return false;
+			}
+		}
+		return false;
 	}
 }
