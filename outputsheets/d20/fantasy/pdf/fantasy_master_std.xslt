@@ -3,6 +3,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:str="http://xsltsl.org/string"
 	xmlns:Psionics="my:Psionics"
 	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs Psionics">
@@ -3390,54 +3391,56 @@
 			</fo:table-header>
 			<fo:table-body>
 				<xsl:for-each select="armor|shield|item">
-					<xsl:variable name="shade">
-						<xsl:choose>
-							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
-							<xsl:otherwise>lightline</xsl:otherwise>
-						</xsl:choose>
-					</xsl:variable>
-
-					<fo:table-row>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
-						<fo:table-cell>
-							<fo:block font-size="8pt">
-								<xsl:value-of select="name"/>
-							</fo:block>
-						</fo:table-cell>
-						<fo:table-cell text-align="center">
-							<fo:block font-size="8pt">
-								<xsl:value-of select="type"/>
-							</fo:block>
-						</fo:table-cell>
-						<fo:table-cell text-align="center">
-							<fo:block font-size="8pt">
-								<xsl:value-of select="totalac"/>
-							</fo:block>
-						</fo:table-cell>
-						<fo:table-cell text-align="center">
-							<fo:block font-size="8pt">
-								<xsl:value-of select="maxdex"/>
-							</fo:block>
-						</fo:table-cell>
-						<fo:table-cell text-align="center">
-							<fo:block font-size="8pt">
-								<xsl:value-of select="accheck"/>
-							</fo:block>
-						</fo:table-cell>
-						<fo:table-cell text-align="center">
-							<fo:block font-size="8pt">
-								<xsl:value-of select="spellfail"/>
-							</fo:block>
-						</fo:table-cell>
-					</fo:table-row>
-					<fo:table-row>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
-						<fo:table-cell number-columns-spanned="6" text-align="center">
-							<fo:block font-size="6pt">
-								<xsl:value-of select="special_properties"/>
-							</fo:block>
-						</fo:table-cell>
-					</fo:table-row>
+                    <xsl:if test="(not(contains(fulltype,'BARDING')))or(contains(location,'Equipped'))">
+    					<xsl:variable name="shade">
+    						<xsl:choose>
+    							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+    							<xsl:otherwise>lightline</xsl:otherwise>
+    						</xsl:choose>
+    					</xsl:variable>
+    
+    					<fo:table-row>
+    						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+    						<fo:table-cell>
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="name"/>
+    							</fo:block>
+    						</fo:table-cell>
+    						<fo:table-cell text-align="center">
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="type"/>
+    							</fo:block>
+    						</fo:table-cell>
+    						<fo:table-cell text-align="center">
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="totalac"/>
+    							</fo:block>
+    						</fo:table-cell>
+    						<fo:table-cell text-align="center">
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="maxdex"/>
+    							</fo:block>
+    						</fo:table-cell>
+    						<fo:table-cell text-align="center">
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="accheck"/>
+    							</fo:block>
+    						</fo:table-cell>
+    						<fo:table-cell text-align="center">
+    							<fo:block font-size="8pt">
+    								<xsl:value-of select="spellfail"/>
+    							</fo:block>
+    						</fo:table-cell>
+    					</fo:table-row>
+    					<fo:table-row>
+    						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+    						<fo:table-cell number-columns-spanned="6" text-align="center">
+    							<fo:block font-size="6pt">
+    								<xsl:value-of select="special_properties"/>
+    							</fo:block>
+    						</fo:table-cell>
+    					</fo:table-row>
+                    </xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>

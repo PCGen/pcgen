@@ -921,6 +921,8 @@ Immune
 			<totalac>|ARMOR.Armor.ALL.%armor.TOTALAC|</totalac>
 			<type>|ARMOR.Armor.ALL.%armor.TYPE|</type>
 			<wt>|ARMOR.Armor.ALL.%armor.WT|</wt>
+            <fulltype>|EQTYPE.Armor.%armor.TYPE|</fulltype>
+            <location>|EQTYPE.Armor.%armor.LOCATION|</location>
 		</armor>
 |ENDFOR|
 |FOR,%armor,0,COUNT[EQTYPE.SHIELD]-1,1,0|
