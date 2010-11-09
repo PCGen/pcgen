@@ -736,7 +736,11 @@ Immune
 													<td class="center border2 color_header bor_col_dark font8">To Hit</td>
 <!-- FOR,%range1,0,4,1,0 -->
 |FOR,%range1,0,4,1,0|
+|IIF(WEAPON.%weap.CONTENTS:0)|
 													<td class="center border2 color_hilite bor_col_dark"><a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|','|WEAPON.%weap.RANGELIST.%range1.DAMAGE|','|WEAPON.%weap.CRIT|',|WEAPON.%weap.MULT|)">|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|</a></td>
+|ELSE|
+													<td class="center border2 color_hilite bor_col_dark"><a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.%range1.CONTENTS.0.TOTALHIT|','|WEAPON.%weap.RANGELIST.%range1.CONTENTS.0.DAMAGE|','|WEAPON.%weap.CRIT|',|WEAPON.%weap.MULT|)">|WEAPON.%weap.RANGELIST.%range1.CONTENTS.0.TOTALHIT|</a></td>
+|ENDIF|
 |ENDFOR|
 <!-- ENDFOR -->
 												</tr>
@@ -744,7 +748,11 @@ Immune
 													<td class="center border2 color_header bor_col_dark font8">Dam</td>
 <!-- FOR,%range2,0,4,1,0 -->
 |FOR,%range2,0,4,1,0|
+|IIF(WEAPON.%weap.CONTENTS:0)|
 													<td class="center border2 color_hilite bor_col_dark">|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</td>
+|ELSE|
+													<td class="center border2 color_hilite bor_col_dark">|WEAPON.%weap.RANGELIST.%range2.CONTENTS.0.DAMAGE|</td>
+|ENDIF|
 |ENDFOR|
 <!-- ENDFOR -->
 												</tr>

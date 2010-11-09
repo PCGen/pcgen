@@ -754,21 +754,37 @@ img {
     <tr> 
       <td height="22"></td>
       <td></td>
+|IIF(WEAPON.%weap.CONTENTS:0)| 
       <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.0.TOTALHIT|</div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.1.TOTALHIT|</div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.2.TOTALHIT|</div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.3.TOTALHIT|</div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.4.TOTALHIT|</div></td>
+|ELSE|
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.0.CONTENTS.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.1.CONTENTS.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.2.CONTENTS.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.3.CONTENTS.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.4.CONTENTS.0.TOTALHIT|</div></td>
+|ENDIF|
       <td></td>
     </tr>
     <tr> 
       <td height="26"></td>
       <td></td>
+|IIF(WEAPON.%weap.CONTENTS:0)| 
       <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.0.DAMAGE|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.1.DAMAGE|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.2.DAMAGE|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.3.DAMAGE|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.4.DAMAGE|</div></td>
+|ELSE|
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.0.CONTENTS.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.1.CONTENTS.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.2.CONTENTS.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.3.CONTENTS.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.4.CONTENTS.0.DAMAGE|</div></td>
+|ENDIF|
       <td></td>
     </tr>
     <tr height="5" background="preview/d20/fantasy/images/gold/attacks_tile.png"> 
