@@ -1289,6 +1289,44 @@ Immune
 		<table width="100%" cellpadding="2" cellspacing="2" summary="Page 3">
 			<tr>
 				<td width="50%">
+|FOR,%spellbook,0,0,1,0|
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS.%class|
+					<table width="100%" cellpadding="2" class="border2 bor_col_dark">
+						<tr>
+							<td colspan="2" class="color_header center bold font12">|SPELLLISTCLASS.%class| |SPELLBOOK.%spellbook|</td>
+						<tr>
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spellcount:0)|
+|ELSE|
+						<tr>
+							<td colspan="2" class="color_header left bold">Level |VAR.%level.INTVAL|</td>
+						<tr>
+<!-- FOR: SPELLSINBOOK -->
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+						<tr>
+|OIF(EVEN:%spell,<td class="even">,<td class="odd">)|
+								<a href="#" onClick="displaySpellInfo('|SPELLMEM.%class.%spellbook.%level.%spell.NAME|','|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|','|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|','|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|','|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|','|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|','|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|','|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|','|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|','|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|','|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|','|SPELLMEM.%class.%spellbook.%level.%spell.SR|','|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|')">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>
+							</td>
+|ENDFOR| 
+<!-- ENDFOR: SPELLSINBOOK -->
+|ENDIF|
+<!-- ENDIF spellcount -->
+|ENDFOR|
+<!-- ENDFOR spellcount -->
+|ENDFOR| 
+<!-- ENDFOR: level -->
+						</tr>
+                    </table>
+|%| 
+<!-- ENDFILTER: SPELLLISTCLASS -->
+|ENDFOR| 
+<!-- ENDFOR: classes -->
+|ENDFOR| 
+<!-- ENDFOR: spellbooks -->
+				</td>
+				<td width="50%">
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
 |IIF(SPELLLISTMEMORIZE.%class)|
@@ -1331,9 +1369,6 @@ Immune
 <!-- ENDFILTER: SPELLLISTCLASS -->
 |ENDFOR|
 <!-- ENDFOR: classes -->
-				</td>
-				<td width="50%" valign="top">
-					<span id="spellDisplay"></span>
 				</td>
 			</tr>
 		</table>
