@@ -140,4 +140,9 @@ public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
 		}
 		return true;
 	}
+
+	public int getPriority()
+	{
+		return 0;
+	}
 }

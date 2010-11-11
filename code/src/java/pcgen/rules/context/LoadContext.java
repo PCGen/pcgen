@@ -190,18 +190,19 @@ public abstract class LoadContext
 
 	public void resolvePostDeferredTokens()
 	{
+		Collection<? extends ReferenceManufacturer> mfgs = ref
+				.getAllManufacturers();
 		for (PostDeferredToken<? extends CDOMObject> token : TokenLibrary
 				.getPostDeferredTokens())
 		{
-			processPostRes(token);
+			processPostRes(token, mfgs);
 		}
 	}
 
-	private <T extends CDOMObject> void processPostRes(PostDeferredToken<T> token)
+	private <T extends CDOMObject> void processPostRes(PostDeferredToken<T> token,
+			Collection<? extends ReferenceManufacturer> mfgs)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
-		Collection<? extends ReferenceManufacturer> mfgs = ref
-				.getAllManufacturers();
 		for (ReferenceManufacturer<? extends T> rm : mfgs)
 		{
 			if (cl.isAssignableFrom(rm.getReferenceClass()))

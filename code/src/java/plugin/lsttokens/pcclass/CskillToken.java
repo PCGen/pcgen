@@ -226,4 +226,9 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		}
 		return true;
 	}
+
+	public int getPriority()
+	{
+		return 0;
+	}
 }

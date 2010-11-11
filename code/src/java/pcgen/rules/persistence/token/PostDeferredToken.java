@@ -25,4 +25,6 @@ public interface PostDeferredToken<T extends CDOMObject>
 	public boolean process(LoadContext context, T obj);
 	
 	public Class<T> getDeferredTokenClass();
+
+	public int getPriority();
 }

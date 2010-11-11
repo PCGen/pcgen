@@ -18,6 +18,7 @@
 package pcgen.rules.persistence;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -27,6 +28,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
@@ -54,7 +56,7 @@ public final class TokenLibrary
 
 	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
 
-	private static final List<PostDeferredToken<? extends CDOMObject>> postDeferredTokens = new ArrayList<PostDeferredToken<? extends CDOMObject>>();
+	private static final TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>> postDeferredTokens = new TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>>();
 
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
 
@@ -92,10 +94,9 @@ public final class TokenLibrary
 				deferredTokens);
 	}
 
-	public static List<PostDeferredToken<? extends CDOMObject>> getPostDeferredTokens()
+	public static Collection<PostDeferredToken<? extends CDOMObject>> getPostDeferredTokens()
 	{
-		return new ArrayList<PostDeferredToken<? extends CDOMObject>>(
-				postDeferredTokens);
+		return postDeferredTokens.allValues();
 	}
 
 	public static void addToPrimitiveMap(PrimitiveToken<?> p)
@@ -138,7 +139,8 @@ public final class TokenLibrary
 		}
 		if (newToken instanceof PostDeferredToken)
 		{
-			postDeferredTokens.add((PostDeferredToken<?>) newToken);
+			PostDeferredToken<?> pdt = (PostDeferredToken<?>) newToken;
+			postDeferredTokens.addToListFor(pdt.getPriority(), pdt);
 		}
 		if (newToken instanceof CDOMPrimaryToken)
 		{

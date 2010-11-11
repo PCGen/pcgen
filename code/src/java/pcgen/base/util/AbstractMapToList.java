@@ -547,4 +547,13 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		return false;
 	}
 
+	public Collection<V> allValues()
+	{
+		List<V> list = new ArrayList<V>();
+		for (List<V> values : mapToList.values())
+		{
+			list.addAll(values);
+		}
+		return list;
+	}
 }
