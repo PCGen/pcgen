@@ -2760,6 +2760,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-STATUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/StatusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/CampaignLstToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

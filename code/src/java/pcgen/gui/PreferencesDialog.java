@@ -162,6 +162,14 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_colorAutoFeat");
 	private static String in_colorVirtFeat =
 			PropertyFactory.getString("in_Prefs_colorVirtFeat");
+
+	private static String in_colorSourceRelease =
+		PropertyFactory.getString("in_Prefs_colorStatusRelease");
+	private static String in_colorSourceAlpha =
+		PropertyFactory.getString("in_Prefs_colorStatusAlpha");
+	private static String in_colorSourceBeta =
+		PropertyFactory.getString("in_Prefs_colorStatusBeta");
+
 	private static String in_charTabPlacement =
 			PropertyFactory.getString("in_Prefs_charTabPlacement");
 	private static String in_charTabLabel =
@@ -306,6 +314,9 @@ final class PreferencesDialog extends JDialog
 	private JButton clearBrowserPathButton;
 	private JButton featAutoColor;
 	private JButton featVirtualColor;
+	private JButton sourceStatusRelease;
+	private JButton sourceStatusAlpha;
+	private JButton sourceStatusBeta;
 	private JButton outputSheetEqSetButton;
 	private JButton outputSheetHTMLDefaultButton;
 	private JButton outputSheetPDFDefaultButton;
@@ -988,6 +999,12 @@ final class PreferencesDialog extends JDialog
 			.getFeatAutoColor()));
 		featVirtualColor.setForeground(new Color(SettingsHandler
 			.getFeatVirtualColor()));
+		sourceStatusRelease.setForeground(new Color(SettingsHandler
+				.getSourceStatusReleaseColor()));
+		sourceStatusAlpha.setForeground(new Color(SettingsHandler
+				.getSourceStatusAlphaColor()));
+		sourceStatusBeta.setForeground(new Color(SettingsHandler
+				.getSourceStatusBetaColor()));
 
 		// Tab options
 		switch (SettingsHandler.getTabPlacement())
@@ -1223,22 +1240,23 @@ final class PreferencesDialog extends JDialog
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
-		int col = 0;
-
 		// NB - not alphabetized!
-		col =
-				addColorsOption(col, c, gridbag, colorsPanel,
-					prereqQualifyColor = new JButton(in_colorPrereqQualify));
-		col =
-				addColorsOption(col, c, gridbag, colorsPanel, prereqFailColor =
-						new JButton(in_colorPrereqFail));
-		col =
-				addColorsOption(col, c, gridbag, colorsPanel, featAutoColor =
-						new JButton(in_colorAutoFeat));
-		col =
-				addColorsOption(col, c, gridbag, colorsPanel, featVirtualColor =
-						new JButton(in_colorVirtFeat));
+		addColorsOption(0, 0, c, gridbag, colorsPanel,
+				prereqQualifyColor = new JButton(in_colorPrereqQualify));
+		addColorsOption(0, 1, c, gridbag, colorsPanel, 
+				prereqFailColor = new JButton(in_colorPrereqFail));
+		addColorsOption(0, 2, c, gridbag, colorsPanel, 
+				featAutoColor = new JButton(in_colorAutoFeat));
+		addColorsOption(0, 3, c, gridbag, colorsPanel, 
+				featVirtualColor = new JButton(in_colorVirtFeat));
 
+		addColorsOption(1, 0, c, gridbag, colorsPanel, 
+				sourceStatusRelease = new JButton(in_colorSourceRelease));
+		addColorsOption(1, 1, c, gridbag, colorsPanel, 
+				sourceStatusAlpha = new JButton(in_colorSourceAlpha));
+		addColorsOption(1, 2, c, gridbag, colorsPanel, 
+				sourceStatusBeta = new JButton(in_colorSourceBeta));
+		
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -1248,16 +1266,14 @@ final class PreferencesDialog extends JDialog
 		return colorsPanel;
 	}
 
-	private int addColorsOption(int col, final GridBagConstraints c,
+	private void addColorsOption(int row, int col, final GridBagConstraints c,
 		final GridBagLayout gridbag, final JPanel colorsPanel,
 		final JButton button)
 	{
-		Utility.buildConstraints(c, 0, col++, 1, 1, 0, 0);
+		Utility.buildConstraints(c, row, col, 1, 1, 0, 0);
 		gridbag.setConstraints(button, c);
 		colorsPanel.add(button);
 		button.addActionListener(prefsButtonHandler);
-
-		return col;
 	}
 
 	private JPanel buildDisplayOptionsPanel()
@@ -2751,7 +2767,8 @@ final class PreferencesDialog extends JDialog
 			}
 			else if ((source == prereqQualifyColor)
 				|| (source == prereqFailColor) || (source == featAutoColor)
-				|| (source == featVirtualColor))
+				|| (source == featVirtualColor) || (source == sourceStatusRelease)
+				|| (source == sourceStatusAlpha) || (source == sourceStatusBeta))
 			{
 				final Color newColor =
 						JColorChooser.showDialog(Globals.getRootFrame(),
@@ -2779,6 +2796,18 @@ final class PreferencesDialog extends JDialog
 					else if (source == featVirtualColor)
 					{
 						SettingsHandler.setFeatVirtualColor(newColor.getRGB());
+					}
+					else if (source == sourceStatusRelease)
+					{
+						SettingsHandler.setSourceStatusReleaseColor(newColor.getRGB());
+					}
+					else if (source == sourceStatusAlpha)
+					{
+						SettingsHandler.setSourceStatusAlphaColor(newColor.getRGB());
+					}
+					else if (source == sourceStatusBeta)
+					{
+						SettingsHandler.setSourceStatusBetaColor(newColor.getRGB());
 					}
 				}
 			}

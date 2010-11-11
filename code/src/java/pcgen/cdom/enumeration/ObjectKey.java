@@ -316,6 +316,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<ClassSkillList> CLASS_SKILLLIST = new ObjectKey<ClassSkillList>(null);
 
+	public static final ObjectKey<Status> STATUS = new ObjectKey<Status>(Status.Release);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

@@ -81,7 +81,9 @@ import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.content.CampaignURL.URLKind;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -142,7 +144,8 @@ public class MainSource extends FilterAdapterPanel
 	//column positions for tables
 	private static final int COL_NAME = 0;
 	private static final int COL_BOOKTYPE = 1;
-	private static final int COL_LOADED = 2;
+	private static final int COL_STATUS = 2;
+	private static final int COL_LOADED = 3;
 
 	//view modes for tables
 	private static final int VIEW_PRODUCT = 0;
@@ -513,6 +516,13 @@ public class MainSource extends FilterAdapterPanel
 		sb.append(aCamp.getSafe(StringKey.PUB_NAME_LONG));
 		sb.append("<br>\n");
 
+		// Add the data set release status
+		Status status = aCamp.getSafe(ObjectKey.STATUS);
+		sb.append("<b>STATUS</b>: ");
+		sb.append("<font color=\"#" + Integer.toHexString(status.getColor()) + "\">");
+		sb.append(status);
+		sb.append("</font><br>\n");
+			
 		String descr = aCamp.get(StringKey.DESCRIPTION);
 		if (descr != null)
 		{
@@ -1608,8 +1618,8 @@ public class MainSource extends FilterAdapterPanel
 		final String prefix;
 
 		private String[] names =
-				{"Source Material", "Book Type", "Loaded"};
-		private int[] widths = {250, 120, 60};
+				{"Source Material", "Book Type", "Status", "Loaded"};
+		private int[] widths = {190, 120, 60, 60};
 
 		private List<Boolean> displayList;
 		
@@ -1636,6 +1646,8 @@ public class MainSource extends FilterAdapterPanel
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Book Type
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+						+ "." + names[i++], true))); // Status
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Loaded
 			}
 			else
@@ -1643,7 +1655,9 @@ public class MainSource extends FilterAdapterPanel
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Book Type
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], true))); // Loaded
+						+ "." + names[i++], false))); // Status
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+						+ "." + names[i++], true))); // Loaded
 			}
 			resetModel(mode, available, true);
 		}
@@ -1741,6 +1755,14 @@ public class MainSource extends FilterAdapterPanel
 						if (aCamp != null)
 						{
 							return aCamp.getSafe(StringKey.BOOK_TYPE);
+						}
+						break;
+
+					case COL_STATUS: 
+
+						if (aCamp != null)
+						{
+							return aCamp.getSafe(ObjectKey.STATUS);
 						}
 						break;
 

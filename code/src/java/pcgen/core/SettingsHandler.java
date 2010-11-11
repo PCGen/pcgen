@@ -108,6 +108,9 @@ public final class SettingsHandler
 	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static int featAutoColor = 0xB2B200; // dark yellow
 	private static int featVirtualColor = 0xFF00FF; // magenta
+	private static int sourceStatusReleaseColor = 0x000000; // black
+	private static int sourceStatusAlphaColor = 0xFF0000; // red
+	private static int sourceStatusBetaColor = 0x800000; // maroon
 	private static final Properties filterSettings = new Properties();
 	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
@@ -592,6 +595,36 @@ public final class SettingsHandler
 	public static int getFeatVirtualColor()
 	{
 		return featVirtualColor;
+	}
+
+	public static void setSourceStatusReleaseColor(final int newColor)
+	{
+		sourceStatusReleaseColor = newColor & 0x00FFFFFF;
+	}
+
+	public static int getSourceStatusReleaseColor()
+	{
+		return sourceStatusReleaseColor;
+	}
+
+	public static void setSourceStatusAlphaColor(final int newColor)
+	{
+		sourceStatusAlphaColor = newColor & 0x00FFFFFF;
+	}
+
+	public static int getSourceStatusAlphaColor()
+	{
+		return sourceStatusAlphaColor;
+	}
+
+	public static void setSourceStatusBetaColor(final int newColor)
+	{
+		sourceStatusBetaColor = newColor & 0x00FFFFFF;
+	}
+
+	public static int getSourceStatusBetaColor()
+	{
+		return sourceStatusBetaColor;
 	}
 
 	public static void setFilePaths(final String aString)
@@ -1303,6 +1336,9 @@ public final class SettingsHandler
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
 		setSpellsTab_AvailableListMode(getPCGenOption("SpellsTab.availableListMode", GuiConstants.INFOSPELLS_VIEW_CLASS)); //$NON-NLS-1$
 		setSpellsTab_SelectedListMode(getPCGenOption("SpellsTab.selectedListMode", GuiConstants.INFOSPELLS_VIEW_CLASS)); //$NON-NLS-1$
+		setSourceStatusReleaseColor(getPCGenOption("sourceStatusReleaseColor", Color.black.getRGB())); //$NON-NLS-1$
+		setSourceStatusAlphaColor(getPCGenOption("sourceStatusAlphaColor", Color.red.getRGB())); //$NON-NLS-1$
+		setSourceStatusBetaColor(getPCGenOption("sourceStatusBetaColor", new Color(128, 0, 0).getRGB())); //$NON-NLS-1$
 		setSummaryTabShown(getPCGenOption("summaryTabShown", true)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setTemplateSelTab_ListMode(getPCGenOption("TemplateTab.selectedListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
@@ -1692,6 +1728,9 @@ public final class SettingsHandler
 		setPCGenOption("SkillsTab.availableListMode", getSkillsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.selectedListMode", getSkillsTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
+		setPCGenOption("sourceStatusReleaseColor", "0x" + Integer.toHexString(getSourceStatusReleaseColor())); //$NON-NLS-1$ //$NON-NLS-2$
+		setPCGenOption("sourceStatusAlphaColor", "0x" + Integer.toHexString(getSourceStatusAlphaColor())); //$NON-NLS-1$ //$NON-NLS-2$
+		setPCGenOption("sourceStatusBetaColor", "0x" + Integer.toHexString(getSourceStatusBetaColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.availableListMode", getSpellsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.selectedListMode", getSpellsTab_SelectedListMode()); //$NON-NLS-1$
