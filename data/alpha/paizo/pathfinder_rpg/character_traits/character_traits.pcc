@@ -1,8 +1,9 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
 GAMEMODE:Pathfinder
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 RANK:4
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 !PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide

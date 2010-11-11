@@ -2,11 +2,11 @@
 CAMPAIGN:101 1st Level Spells
 GAMEMODE:Pathfinder
 RANK:3
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-TYPE:Alpha Datasets
-#TYPE:Rite Publishing.Supplement
+TYPE:Rite Publishing.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Rite Publishing
 PUBNAMESHORT:Rite

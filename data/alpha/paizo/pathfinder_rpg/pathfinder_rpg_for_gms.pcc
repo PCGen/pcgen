@@ -1,12 +1,13 @@
 # CVS $Revision: 12709 $ $Author: amaitland $
 CAMPAIGN:Pathfinder RPG for Game Masters (includes Monsters)
 RANK:1
+STATUS:BETA
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder Chronicles
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Pathfinder RPG for Game Masters (includes Monsters)]
 PUBNAMELONG:Paizo Publishing LLC

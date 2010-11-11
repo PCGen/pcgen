@@ -1,8 +1,9 @@
 # CVS $Revision: 12845 $ $Author: zaister $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Paizo - Serpent's Skull Player's Guide
 GAMEMODE:Pathfinder
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Adventure Path
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Serpent's Skull
 RANK:3
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Chronicles
