@@ -881,10 +881,10 @@ public class PCClass extends PObject
 				}
 			}
 
-			levelMap = new TreeMap<Integer, PCClassLevel>();
-			for (Map.Entry<Integer, PCClassLevel> me : aClass.levelMap.entrySet())
+			aClass.levelMap = new TreeMap<Integer, PCClassLevel>();
+			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 			{
-				levelMap.put(me.getKey(), me.getValue().clone());
+				aClass.levelMap.put(me.getKey(), me.getValue().clone());
 			}
 		}
 		catch (CloneNotSupportedException exc)
