@@ -511,6 +511,19 @@ Immune
 	  ====================================
 	  ====================================-->
 	<weapons>
+|IIF(VAR.UseMartialArts:1)|
+		<martialarts>
+			<total>|WEAPONH.TOTALHIT|</total>
+|IIF(VAR.MartialArtsBonusDamage&lt;0)|
+			<damage>|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|-|VAR.MartialArtsBonusDamage.INTVAL|</damage>
+|ELSE|
+			<damage>|VAR.MartialArtsDie.INTVAL|d|VAR.MartialArtsDieSize.INTVAL|+|VAR.MartialArtsBonusDamage.INTVAL|</damage>
+|ENDIF|
+			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
+		<!-- Should be changed to a variable due to improved crit -->
+			<reach>|REACH|</reach>
+		</martialarts>
+|ELSE|
 		<unarmed>
 			<total>|WEAPONH.TOTALHIT|</total>
 			<damage>|WEAPONH.DAMAGE|</damage>
@@ -535,6 +548,34 @@ Immune
 			 -->
 		</unarmed>
 |ENDIF|
+<!-- Spirit Weapon - Melee -->
+|IIF(VAR.UseSpiritWeaponMelee:1)|
+		<spiritweaponmelee>
+			<total>|VAR.SpiritWeaponMeleeToHit.INTVAL|</total>
+|IIF(VAR.SpiritWeaponMeleeBonusDamage&lt;0)|
+			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|-|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
+|ELSE|
+			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|+|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
+|ENDIF|
+			<critical>|VAR.SpiritWeaponMeleeCrit.INTVAL|/x|VAR.SpiritWeaponMeleeMult.INTVAL|</critical>
+			<reach>|REACH|</reach>
+		</spiritweaponmelee>
+|ENDIF|
+
+<!-- Spirit Weapon - Ranged -->
+|IIF(VAR.UseSpiritWeaponRanged:1)|
+		<spiritweaponranged>
+			<total>+|VAR.SpiritWeaponRangedToHit.INTVAL|</total>
+|IIF(VAR.SpiritWeaponRangedBonusDamage&lt;0)|
+			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|-|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
+|ELSE|
+			<damage>|VAR.SpiritWeaponRangedDie.INTVAL|d|VAR.SpiritWeaponRangedDieSize.INTVAL|+|VAR.SpiritWeaponRangedBonusDamage.INTVAL|</damage>
+|ENDIF|
+			<critical>|VAR.SpiritWeaponRangedCritRange.INTVAL|/x|VAR.SpiritWeaponRangedCritMult.INTVAL|</critical>
+			<range>|VAR.SpiritWeaponRangedRange.INTVAL|</range>
+		</spiritweaponranged>
+|ENDIF|
+<!-- End Spirit Weapon - Ranged -->
 
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
