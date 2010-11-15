@@ -23,6 +23,7 @@
 package pcgen.persistence.lst;
 
 import pcgen.core.AbilityCategory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Interface for tokens that parse ABILITYCATEGORY line items.
@@ -35,12 +36,12 @@ public interface AbilityCategoryLstToken extends LstToken
 {
 	/**
 	 * Parse an ABILITYCATEGORY token.
-	 * 
+	 * @param context The LoadContext in which the AbilityCategory is loaded
 	 * @param aCat The AbilityCategory object we are building
 	 * @param aValue The token text
 	 * 
 	 * @return <tt>true</tt> if the token is valid.
 	 */
-	public abstract boolean parse(final AbilityCategory aCat,
-		final String aValue);
+	public abstract boolean parse(LoadContext context,
+		final AbilityCategory aCat, final String aValue);
 }

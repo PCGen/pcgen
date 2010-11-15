@@ -34,6 +34,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -188,24 +189,21 @@ public class ChooserUtilities
 			cat = category;
 		}
 
-		if (cat.getAbilityKeys().isEmpty())
+		if (!cat.hasDirectReferences())
 		{
 			// Do nothing if there aren't any restrictions
 			return;
 		}
 
 		Set<String> allowedSet = new HashSet<String>();
-		for (String decoratedKey : cat.getAbilityKeys())
+		for (CDOMSingleRef<Ability> ref : cat.getAbilityRefs())
 		{
-			List<String> allowedChoice = new ArrayList<String>();
-			String bareKey =
-					AbilityUtilities.getUndecoratedName(decoratedKey,
-						allowedChoice);
-			if (bareKey.equals(ability.getKeyName()))
+			if (ref.contains(ability))
 			{
-				allowedSet.addAll(allowedChoice);
+				List<String> choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(ref.getLSTformat(), choices);
+				allowedSet.addAll(choices);
 			}
-
 		}
 
 		if (allowedSet.isEmpty())

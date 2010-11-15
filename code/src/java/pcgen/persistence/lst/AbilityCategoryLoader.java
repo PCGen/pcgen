@@ -90,6 +90,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				TokenStore.inst().getTokenMap(AbilityCategoryLstToken.class);
 
 		AbilityCategory cat = null;
+		LoadContext context = aGameMode.getModeContext();
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -140,7 +141,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				// TODO - i18n
 				LstUtils.deprecationCheck(token, "Ability Category", source,
 						value);
-				if (!token.parse(cat, value))
+				if (!token.parse(context, cat, value))
 				{
 					// TODO - i18n
 					Logging.errorPrint("Error parsing ability category:"
@@ -187,7 +188,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				cat.getKeyName() + " of " + source + ".");
 		}
 
-		if (!cat.getAbilityKeys().isEmpty() && 
+		if (cat.hasDirectReferences() && 
 				cat.getAbilityCategory().equalsIgnoreCase(
 					cat.getKeyName()))
 			{

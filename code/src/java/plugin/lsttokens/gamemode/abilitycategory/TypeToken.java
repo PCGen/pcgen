@@ -26,6 +26,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -39,9 +40,9 @@ public class TypeToken implements AbilityCategoryLstToken
 {
 
 	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(pcgen.core.AbilityCategory, java.lang.String)
+	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
 	 */
-	public boolean parse(final AbilityCategory aCat, final String aValue)
+	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
 	{
 		final StringTokenizer tok = new StringTokenizer(aValue, "."); //$NON-NLS-1$
 		boolean errorFlagged = false;
@@ -58,13 +59,13 @@ public class TypeToken implements AbilityCategoryLstToken
 							+ " is redundant. Named types " + aCat.getAbilityTypes() + " will be ignored");
 					errorFlagged = true;
 				}
-				if (!aCat.getAbilityKeys().isEmpty() && !errorFlagged)
+				if (aCat.hasDirectReferences() && !errorFlagged)
 				{
 					Logging.log(Logging.LST_WARNING,
 						"Use of ABILITYLIST along with TYPE:* in category "
 							+ aCat.getDisplayName()
 							+ " is redundant. Listed Keys "
-							+ aCat.getAbilityKeys() + " will be ignored");
+							+ aCat.getAbilityRefs() + " will be ignored");
 					errorFlagged = true;
 				}
 				aCat.setAllAbilityTypes(true);

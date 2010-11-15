@@ -677,7 +677,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		for (AbilityCategory ac : gamemode.getAllAbilityCategories())
 		{
 			//Must be a universal set if no types
-			if (ac.getAbilityTypes().isEmpty() && ac.getAbilityKeys().isEmpty()
+			if (ac.getAbilityTypes().isEmpty() && !ac.hasDirectReferences()
 				&& !ac.isAllAbilityTypes())
 			{
 				if (!ac.getAbilityCategory().equalsIgnoreCase(ac.getKeyName()))

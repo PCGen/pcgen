@@ -24,6 +24,7 @@ package plugin.lsttokens.gamemode.abilitycategory;
 
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Handles the DISPLAYNAME token on an ABILITYCATEGORY line.
@@ -36,9 +37,9 @@ public class DisplayNameToken implements AbilityCategoryLstToken
 {
 
 	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(pcgen.core.AbilityCategory, java.lang.String)
+	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
 	 */
-	public boolean parse(final AbilityCategory aCat, final String aValue)
+	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
 	{
 		aCat.setName(aValue);
 		return true;

@@ -870,19 +870,9 @@ public final class Globals
 							}
 						}
 					}
-					if (!added && aCategory.getAbilityKeys().size() > 0)
+					if (!added && aCategory.containsAbilityDirectly(ability))
 					{
-						for (final String key : aCategory.getAbilityKeys())
-						{
-							if (ability.getKeyName().equals(key)
-								|| ability.getKeyName().equals(
-									AbilityUtilities.getUndecoratedName(key,
-										new ArrayList<String>())))
-							{
-								ret.add(ability);
-								break;
-							}
-						}
+						ret.add(ability);
 					}
 				}
 			}

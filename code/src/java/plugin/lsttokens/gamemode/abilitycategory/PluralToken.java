@@ -24,6 +24,7 @@ package plugin.lsttokens.gamemode.abilitycategory;
 
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Handles the PLURAL token on an ABILITYCATEGORY line.
@@ -35,9 +36,9 @@ import pcgen.persistence.lst.AbilityCategoryLstToken;
 public class PluralToken implements AbilityCategoryLstToken
 {
 	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(pcgen.core.AbilityCategory, java.lang.String)
+	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
 	 */
-	public boolean parse(final AbilityCategory aCat, final String aValue)
+	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
 	{
 		// TODO - Should allow for a string in an external file. Resource file?
 		aCat.setPluralName(aValue);

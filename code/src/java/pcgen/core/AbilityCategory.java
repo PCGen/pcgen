@@ -24,10 +24,12 @@ package pcgen.core;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -52,7 +54,7 @@ public class AbilityCategory implements Category<Ability>
 	
 	private String theAbilityCategory;
 	private Set<String> theAbilityTypes = null;
-	private Set<String> theAbilityKeys = null;
+	private Set<CDOMSingleRef<Ability>> theAbilityKeys = null;
 	private boolean allAbilityTypes = false;
 	private String thePoolFormula = "0"; //$NON-NLS-1$
 	
@@ -199,37 +201,15 @@ public class AbilityCategory implements Category<Ability>
 	}
 
 	/**
-	 * Return the list of keys for abilities that will be directly included in 
-	 * the category.
-	 * @return the theAbilityKeys
-	 */
-	public Set<String> getAbilityKeys()
-	{
-		if ( theAbilityKeys == null )
-		{
-			return Collections.emptySet();
-		}
-		return theAbilityKeys;
-	}
-
-	/**
-	 * @param theAbilityKeys the theAbilityKeys to set
-	 */
-	public void setAbilityKeys(Set<String> theAbilityKeys)
-	{
-		this.theAbilityKeys = theAbilityKeys;
-	}
-
-	/**
 	 * @param key the Ability Key to add to the set
 	 */
-	public void addAbilityKey(String key)
+	public void addAbilityKey(CDOMSingleRef<Ability> ref)
 	{
 		if ( theAbilityKeys == null )
 		{
-			theAbilityKeys = new TreeSet<String>();
+			theAbilityKeys = new HashSet<CDOMSingleRef<Ability>>();
 		}
-		theAbilityKeys.add(key);
+		theAbilityKeys.add(ref);
 	}
 
 	/**
@@ -507,5 +487,41 @@ public class AbilityCategory implements Category<Ability>
 	{
 		return SettingsHandler.getGame().silentlyGetAbilityCategory(
 				getAbilityCategory());
+	}
+
+	public boolean containsAbilityDirectly(Ability ability)
+	{
+		if ( theAbilityKeys == null )
+		{
+			return false;
+		}
+		for (CDOMSingleRef<Ability> ref : theAbilityKeys)
+		{
+			if (ref.contains(ability))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Return the collection of references for abilities that will be directly
+	 * included in the category.
+	 * 
+	 * @return the collection of references
+	 */
+	public Collection<CDOMSingleRef<Ability>> getAbilityRefs()
+	{
+		if (theAbilityKeys == null)
+		{
+			return Collections.emptySet();
+		}
+		return Collections.unmodifiableCollection(theAbilityKeys);
+	}
+
+	public boolean hasDirectReferences()
+	{
+		return (theAbilityKeys != null) && !theAbilityKeys.isEmpty();
 	}
 }

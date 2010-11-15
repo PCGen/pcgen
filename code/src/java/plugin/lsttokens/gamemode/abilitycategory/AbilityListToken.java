@@ -24,8 +24,10 @@ package plugin.lsttokens.gamemode.abilitycategory;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -48,10 +50,12 @@ import pcgen.util.Logging;
 public class AbilityListToken implements AbilityCategoryLstToken
 {
 
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(pcgen.core.AbilityCategory, java.lang.String)
 	 */
-	public boolean parse(final AbilityCategory aCat, final String aValue)
+	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
 	{
 		final StringTokenizer tok = new StringTokenizer(aValue, "|"); //$NON-NLS-1$
 		boolean errorFlagged = false;
@@ -67,7 +71,8 @@ public class AbilityListToken implements AbilityCategoryLstToken
 				errorFlagged = true;
 			}
 			
-			aCat.addAbilityKey(keyVal);
+			aCat.addAbilityKey(context.ref.getCDOMReference(ABILITY_CLASS,
+					aCat, keyVal));
 		}
 		return true;
 	}
