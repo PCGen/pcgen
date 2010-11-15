@@ -89,8 +89,7 @@ public class AvailableSpellFacet implements DataFacetChangeListener<CDOMObject>
 				for (AssociatedPrereqObject apo : cdo.getListAssociations(
 						listref, objref))
 				{
-					Collection<Spell> spells = (Collection<Spell>) objref
-							.getContainedObjects();
+					Collection<Spell> spells = objref.getContainedObjects();
 					addAll(id, (CDOMList<Spell>) list, spells, apo, cdo);
 				}
 			}
