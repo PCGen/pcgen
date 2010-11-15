@@ -229,7 +229,7 @@ final class MainExport extends JPanel
 		for (int loop = 0; loop < pcExports.length; loop++)
 		{
 			final String pcName = partyMode ? "Entire Party" : (String) pcList.getModel().getElementAt(pcExports[loop]);
-			String path =
+			String path = partyMode ? null :
 					Globals.getPCList().get(pcExports[loop]).getFileName();
 			if (path != null && path.length() > 0)
 			{
