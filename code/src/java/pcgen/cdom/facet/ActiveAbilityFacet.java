@@ -60,7 +60,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 */
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
-		boolean isNew = ensureCachedSet(id, cat, nat, obj);
+		boolean isNew = ensureCachedSet(id, cat, nat);
 		if (getCachedSet(id, cat, nat).add(obj) || isNew)
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -203,7 +203,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	private boolean ensureCachedSet(CharID id, Category<Ability> cat,
-			Nature nat, Ability obj)
+			Nature nat)
 	{
 		boolean isNew = false;
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
