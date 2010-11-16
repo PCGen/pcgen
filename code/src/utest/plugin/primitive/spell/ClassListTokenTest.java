@@ -19,6 +19,7 @@ package plugin.primitive.spell;
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -31,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class ClassListTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
+		AbstractPrimitiveTokenTestCase<CDOMObject, ClassSpellList>
 {
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
@@ -42,7 +43,7 @@ public class ClassListTokenTest extends
 
 	public ClassListTokenTest()
 	{
-		super("CLASSLIST", "SampleList");
+		super("CLASSLIST", "Foo");
 	}
 
 	@Override
@@ -59,9 +60,9 @@ public class ClassListTokenTest extends
 	}
 
 	@Override
-	public Class<Spell> getTargetClass()
+	public Class<ClassSpellList> getTargetClass()
 	{
-		return Spell.class;
+		return ClassSpellList.class;
 	}
 
 	@Override

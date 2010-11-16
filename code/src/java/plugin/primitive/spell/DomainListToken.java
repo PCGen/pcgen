@@ -22,7 +22,6 @@ import java.util.Collections;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
@@ -40,8 +39,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		{
 			return false;
 		}
-		spelllist = Globals.getContext().ref.getCDOMReference(
-				DomainSpellList.class, value);
+		spelllist = context.ref.getCDOMReference(DomainSpellList.class, value);
 		return initialize(args);
 	}
 

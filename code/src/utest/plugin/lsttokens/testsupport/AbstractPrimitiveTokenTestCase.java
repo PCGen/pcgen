@@ -86,11 +86,6 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		return ConsolidationRule.OVERWRITE;
 	}
 
-	protected ReferenceManufacturer<TC> getManufacturer()
-	{
-		return primaryContext.ref.getManufacturer(getTargetClass());
-	}
-
 	@Test
 	public void testPrimitiveEquals() throws PersistenceLayerException
 	{
