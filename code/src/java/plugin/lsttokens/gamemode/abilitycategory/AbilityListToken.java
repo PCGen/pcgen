@@ -24,6 +24,7 @@ package plugin.lsttokens.gamemode.abilitycategory;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
@@ -71,8 +72,9 @@ public class AbilityListToken implements AbilityCategoryLstToken
 				errorFlagged = true;
 			}
 			
-			aCat.addAbilityKey(context.ref.getCDOMReference(ABILITY_CLASS,
-					aCat, keyVal));
+			ReferenceManufacturer<Ability> mfg = context.ref.getManufacturer(
+					ABILITY_CLASS, aCat.getKeyName());
+			aCat.addAbilityKey(mfg.getReference(keyVal));
 		}
 		return true;
 	}
