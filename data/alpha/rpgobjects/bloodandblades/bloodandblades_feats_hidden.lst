@@ -13,11 +13,11 @@ Agoraphobia					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Agorapho
 Obsessive Disorder			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Obsessive)																																																																	SOURCEPAGE:p.30
 Compulsive Disorder			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Compulsion)																																																																	SOURCEPAGE:p.30
 Post-Traumatic Stress Disorder	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Post-Traumatic Stress)																																																															SOURCEPAGE:p.30
-Phobias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")									STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
-Manias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")									STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Phobias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Manias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
 Psychogenic Amnesia			TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Psychogenic Amnesia)																																																														SOURCEPAGE:p.31
 Dissociative Fugue			TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Dissociative Fugue)																																																														SOURCEPAGE:p.31
-Multiple Personality Disorder		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")	STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.31
+Multiple Personality Disorder		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.31
 Intermittent Explosive Disorder	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Intermittent Explosive Disorder)																																																												SOURCEPAGE:p.31
 Compulsive Gambling			TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Compulsive Gambling)																																																														SOURCEPAGE:p.31
 Kleptomania					TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Kleptomania)																																																															SOURCEPAGE:p.31
@@ -52,4 +52,4 @@ Somnambulism				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somna
 # Feat Name		Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose						Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page
 Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST|TYPE.NOT.2 handed				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
 
-Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1								STACK:NO	MULT:NO								BONUS:DR|-|-1																	DR:1/-
+Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																BONUS:DR|-|-1																	DR:1/-

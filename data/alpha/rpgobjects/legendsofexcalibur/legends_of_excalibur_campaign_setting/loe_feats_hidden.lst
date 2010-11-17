@@ -3,7 +3,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 
 
 # Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose				Bonus to skill			Stat bonus
-Aura of Knighthood	TYPE:Special	VISIBLE:NO	SAB:Aura of Knighthood (Ex)	STACK:NO	MULT:NO						BONUS:SKILL|Intimidate|NOB/2
+Aura of Knighthood	TYPE:Special	VISIBLE:NO	SAB:Aura of Knighthood (Ex)							BONUS:SKILL|Intimidate|NOB/2
 
 CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:STAT|DEX|INT|WIS|CHA						BONUS:STAT|LIST|2
 

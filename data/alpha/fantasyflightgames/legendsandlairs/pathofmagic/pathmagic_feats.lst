@@ -4,7 +4,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 
 
 # Feat Name				Type			Required Ability							Required Class				Required Feat													Required Non-Monster Lvl	Req. Special Ability		Required Skill			Req. Spellbook	Required Spell School		Req. Spell Type		Required Stat	Var. Min. Value			Description																								Stackable?	Multiple?	Bonus to skill							Bonus to skill point/L		Modify VAR							Source Page
-Additional Spell			TYPE:Special										PRECLASS:1,SPELLCASTER=1																																																				DESC:You can cast one additional spell per day.																		STACK:NO	MULT:YES																							SOURCEPAGE:p.77
+Additional Spell			TYPE:Special										PRECLASS:1,SPELLCASTER=1																																																				DESC:You can cast one additional spell per day.																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						SOURCEPAGE:p.77
 Adept Mastery			TYPE:General																PREFEAT:1,Spell Mastery																																							PRESTAT:1,INT=17						DESC:You are talented at mastering the intricacies of spells you cast.																																								SOURCEPAGE:p.77
 Arcane Artisan			TYPE:General																																									PRESKILL:1,TYPE.Craft=1														PRESTAT:1,INT=13						DESC:You are skilled at creating items for magical experimentation.																																								SOURCEPAGE:p.77
 Arcane Expertise			TYPE:Special										PRECLASS:1,Bard=3																																																						DESC:You are able to draw upon your spellcasting power to use a weapon with which you are not normally proficient.																																SOURCEPAGE:p.77
