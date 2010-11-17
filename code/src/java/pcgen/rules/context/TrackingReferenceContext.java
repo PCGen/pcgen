@@ -33,6 +33,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedEvent;
 import pcgen.cdom.reference.UnconstructedListener;
@@ -100,16 +101,16 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<ReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		ReferenceManufacturer mfg = super.getManufacturer(cl, cat);
+		CategorizedManufacturer mfg = super.getManufacturer(cl, cat);
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer(this, mfg);
+		return new CategorizedTrackingManufacturer(this, mfg);
 	}
 
 	@Override

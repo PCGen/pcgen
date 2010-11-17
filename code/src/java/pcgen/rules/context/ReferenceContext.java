@@ -28,6 +28,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 
@@ -39,7 +40,7 @@ public interface ReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String category);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat);
 
 	public Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();

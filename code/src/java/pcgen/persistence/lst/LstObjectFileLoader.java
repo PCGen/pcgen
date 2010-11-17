@@ -479,6 +479,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					{
 						Logging.errorPrint(PropertyFactory
 								.getString("Errors.LstFileLoader.Ignoring"), t);
+						t.printStackTrace();
 					}
 				}
 			}

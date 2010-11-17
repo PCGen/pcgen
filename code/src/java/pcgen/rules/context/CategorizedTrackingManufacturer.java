@@ -20,20 +20,24 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.cdom.reference.UnconstructedValidator;
 
-public class TrackingManufacturer<T> implements ReferenceManufacturer<T>
+public class CategorizedTrackingManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>> implements
+		CategorizedManufacturer<T>
 {
 
-	private final ReferenceManufacturer<T> rm;
+	private final CategorizedManufacturer<T> rm;
 	private final TrackingReferenceContext context;
 
-	public TrackingManufacturer(TrackingReferenceContext trc,
-			ReferenceManufacturer<T> mfg)
+	public CategorizedTrackingManufacturer(TrackingReferenceContext trc,
+			CategorizedManufacturer<T> mfg)
 	{
 		context = trc;
 		rm = mfg;
@@ -158,6 +162,11 @@ public class TrackingManufacturer<T> implements ReferenceManufacturer<T>
 	public boolean validate(UnconstructedValidator validator)
 	{
 		return rm.validate(validator);
+	}
+
+	public Category<T> getCategory()
+	{
+		return null;
 	}
 
 }
