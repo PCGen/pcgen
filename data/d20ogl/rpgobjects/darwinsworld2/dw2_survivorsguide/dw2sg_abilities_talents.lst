@@ -36,7 +36,7 @@ Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTa
 ###Block: Survivalist
 # Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add 								Bonus to skill						Modify VAR
 Survival Bonus (Overall)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES	DEFINE:SurvOverall|0	DESC:Way of the Land (+%1 Overall Survival/Navigation)|SurvOverall			STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:SKILL|Survival,Navigation|SurvOverall	BONUS:VAR|SurvOverall|2
-Survival Bonus (Regional)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES																			STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:ABILITY|Talent|NORMAL|TYPE=SurvivalRegion
+Survival Bonus (Regional)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:ABILITY|Talent|NORMAL|TYPE=SurvivalRegion
 Region (Big Rocks)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Rocks Region)
 Region (Baja Cliffs)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Baja Cliffs Region)
 Region (Big Hole)				CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Hole Region)

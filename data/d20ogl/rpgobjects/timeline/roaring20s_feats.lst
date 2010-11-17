@@ -3,7 +3,7 @@ SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobj
 
 # Feat Name				Type					Required Feat					Required Lvl	Required Skill			Required Stat	Required Text				Description																			Multiple?	Choose		Source Page
 Animal Companion			TYPE:General			PREFEAT:2,Sidekick,Occupation (Primitive)				PRESKILL:1,Handle Animal=5										DESC:You have a special kind of sidekick, an unusually intelligent animal that will accompany you on adventures.							SOURCEPAGE:p.9
-Enemy					TYPE:General.Tough																										DESC:You detest a particular allegiance, group, or individual.										MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.10
+Enemy					TYPE:General.Tough																										DESC:You detest a particular allegiance, group, or individual.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.10
 Henchmen				TYPE:General.Charismatic								PRELEVEL:MIN=3															DESC:You have a group of followers.																				SOURCEPAGE:p.10
 Home Turf				TYPE:General.Dedicated																										DESC:You know every nook and cranny of your home territory, gaining advantages when fighting to defend it.								SOURCEPAGE:p.11
 Information Network		TYPE:General.Charismatic	PREFEAT:1,Henchmen																					DESC:You have informants on the ground that alert you of trouble.															SOURCEPAGE:p.11
