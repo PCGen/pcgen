@@ -210,8 +210,8 @@ Improved Multiweapon Fighting	TYPE:General	PREATT:9	PREFEAT:1,Multiweapon Fighti
 
 ###Block: Epic Rogue Ability work-around: this tranfers a feat pool point to the Rogue Ability Pool
 # Feat Name							Type				Visible		Required Class			Required Text										Multiple?	Choose		Bonus to Ability Pool
-Additional Rogue Ability (Epic Rogue)		TYPE:EpicRogue		VISIBLE:DISPLAY	PRECLASS:1,Rogue=24		PRETEXT:This should be used in the Epic Rogue Feat pool only.		MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Rogue Special Ability|1
-Additional Loremaster Secret (Epic Loremaster)	TYPE:EpicLoremaster	VISIBLE:DISPLAY	PRECLASS:1,Loremaster=24	PRETEXT:This should be used in the Epic Loremaster Feat pool only.	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Loremaster Secret|1
+Additional Rogue Ability (Epic Rogue)		TYPE:EpicRogue		VISIBLE:DISPLAY	PRECLASS:1,Rogue=24		PRETEXT:This should be used in the Epic Rogue Feat pool only.		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Rogue Special Ability|1
+Additional Loremaster Secret (Epic Loremaster)	TYPE:EpicLoremaster	VISIBLE:DISPLAY	PRECLASS:1,Loremaster=24	PRETEXT:This should be used in the Epic Loremaster Feat pool only.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Loremaster Secret|1
 
 #
 # End
