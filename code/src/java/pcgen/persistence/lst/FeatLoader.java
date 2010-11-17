@@ -108,9 +108,10 @@ public final class FeatLoader extends AbilityLoader
 			String aLine =
 					Constants.s_INTERNAL_WEAPON_PROF
 						+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General"
-						+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this"
-						+ " specific weapon normally, non-proficiency incurs a -4 to"
-						+ " hit penalty.\tSOURCELONG:PCGen Internal";
+						+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tCHOOSE:NOCHOICE"
+						+ "\tDESC:You attack with this specific weapon normally,"
+						+ " non-proficiency incurs a -4 to hit penalty."
+						+ "\tSOURCELONG:PCGen Internal";
 			try
 			{
 				parseLine(context, null, aLine, firstSource);
