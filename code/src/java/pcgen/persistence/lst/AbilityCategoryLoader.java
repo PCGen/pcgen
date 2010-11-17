@@ -65,7 +65,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 	 */
 	public void parseLine(final GameMode aGameMode, final String aLine, URI source) throws PersistenceLayerException
 	{
-		parseLine(aGameMode, aLine, source, false);
+		parseLine(aGameMode, aGameMode.getModeContext(), aLine, source, false);
 	}
 	
 	/**
@@ -78,8 +78,9 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 	 * 
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(final GameMode aGameMode, final String aLine, URI source, final boolean fromLst)
-		throws PersistenceLayerException
+	public void parseLine(final GameMode aGameMode, LoadContext context,
+			final String aLine, URI source, final boolean fromLst)
+			throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(aLine, SystemLoader.TAB_DELIM);
@@ -90,7 +91,6 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				TokenStore.inst().getTokenMap(AbilityCategoryLstToken.class);
 
 		AbilityCategory cat = null;
-		LoadContext context = aGameMode.getModeContext();
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -169,7 +169,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 	public void parseLine(LoadContext context, String aLine, URI source)
 		throws PersistenceLayerException
 	{
-		parseLine(SettingsHandler.getGame(), aLine, source, true);
+		parseLine(SettingsHandler.getGame(), context, aLine, source, true);
 	}
 
 	/**
