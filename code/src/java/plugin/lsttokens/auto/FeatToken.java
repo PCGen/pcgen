@@ -41,6 +41,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -253,13 +254,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		AbilitySelection as =
-				AbilitySelection
-					.getAbilitySelectionFromPersistentFormat(choice);
-		if (as != null)
-		{
-			pc.addAppliedAbility(obj, as, Nature.AUTOMATIC);
-		}
+		pc.addAppliedAbility(obj, decodeChoice(choice), Nature.AUTOMATIC);
 	}
 
 	public String getLstFormat() throws PersistenceLayerException
@@ -274,10 +269,30 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		AbilitySelection as =
-			AbilitySelection
-				.getAbilitySelectionFromPersistentFormat(choice);
+		AbilitySelection as = decodeChoice(choice);
 		pc.removeAppliedAbility(obj, as, Nature.AUTOMATIC);
 	}
 
+	public AbilitySelection decodeChoice(String s)
+	{
+		List<String> choices = new ArrayList<String>();
+		String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
+		Ability ability = Globals.getAbilityKeyed("FEAT", s);
+		if (ability == null)
+		{
+			ability = Globals.getAbilityKeyed("FEAT", baseKey);
+			if (ability == null)
+			{
+				throw new IllegalArgumentException("String in decodeChoice "
+						+ "must be a Feat Key "
+						+ "(or Feat Key with Selection if appropriate), was: "
+						+ s);
+			}
+			return new AbilitySelection(ability, Nature.NORMAL, choices.get(0));
+		}
+		else
+		{
+			return new AbilitySelection(ability, Nature.NORMAL);
+		}
+	}
 }

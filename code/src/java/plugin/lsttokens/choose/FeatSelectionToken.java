@@ -39,6 +39,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -287,12 +288,30 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	public AbilitySelection decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		List<String> choices = new ArrayList<String>();
+		String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
+		Ability ability = Globals.getAbilityKeyed("FEAT", s);
+		if (ability == null)
+		{
+			ability = Globals.getAbilityKeyed("FEAT", baseKey);
+			if (ability == null)
+			{
+				throw new IllegalArgumentException("String in decodeChoice "
+						+ "must be a Feat Key "
+						+ "(or Feat Key with Selection if appropriate), was: "
+						+ s);
+			}
+			return new AbilitySelection(ability, Nature.NORMAL, choices.get(0));
+		}
+		else
+		{
+			return new AbilitySelection(ability, Nature.NORMAL);
+		}
 	}
 
 	public String encodeChoice(AbilitySelection choice)
 	{
-		return choice.getPersistentFormat();
+		return choice.getFullAbilityKey();
 	}
 
 }

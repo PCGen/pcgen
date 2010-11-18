@@ -25,6 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -45,8 +46,10 @@ public class FeatSelectionTokenTest extends TestCase
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		Globals.emptyLists();
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
+		
 		// new RuntimeLoadContext(new RuntimeReferenceContext(),
 		// new ConsolidatedListCommitStrategy());
 	}
@@ -56,8 +59,14 @@ public class FeatSelectionTokenTest extends TestCase
 	{
 		Ability item = construct("ItemName");
 		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
-		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
-			.encodeChoice(as));
+		assertEquals("ItemName", pca.encodeChoice(as));
+		Ability paren = construct("ParenName (test)");
+		as = new AbilitySelection(paren, Nature.NORMAL);
+		assertEquals("ParenName (test)", pca.encodeChoice(as));
+		Ability sel = construct("ChooseName");
+		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		as = new AbilitySelection(sel, Nature.NORMAL, "selection");
+		assertEquals("ChooseName(selection)", pca.encodeChoice(as));
 	}
 
 	@Test
@@ -65,7 +74,7 @@ public class FeatSelectionTokenTest extends TestCase
 	{
 		try
 		{
-			pca.decodeChoice("CATEGORY=FEAT|NATURE=NORMAL|ItemName");
+			pca.decodeChoice("ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -74,14 +83,21 @@ public class FeatSelectionTokenTest extends TestCase
 		}
 		Ability item = construct("ItemName");
 		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
-		assertEquals(as, pca
-			.decodeChoice("CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
+		assertEquals(as, pca.decodeChoice("ItemName"));
+		Ability paren = construct("ParenName (test)");
+		as = new AbilitySelection(paren, Nature.NORMAL);
+		assertEquals(as, pca.decodeChoice("ParenName (test)"));
+		Ability sel = construct("ChooseName");
+		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		as = new AbilitySelection(sel, Nature.NORMAL, "selection");
+		assertEquals(as, pca.decodeChoice("ChooseName(selection)"));
 	}
 
 	protected Ability construct(String one)
 	{
 		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
 		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Globals.addAbility(obj);
 		return obj;
 	}
 }
