@@ -5,9 +5,8 @@ GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Horror
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:RPGObjects.Blood and Blades
+STATUS:BETA
+TYPE:RPGObjects.Blood and Blades
 PRECAMPAIGN:2,MSRD - Basics,MSRD - Arcana
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO

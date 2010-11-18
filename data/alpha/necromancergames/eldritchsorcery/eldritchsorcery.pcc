@@ -5,9 +5,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Core
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Necromancer Games.Supplement
+STATUS:BETA
+TYPE:Necromancer Games.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Necromancer Games
 PUBNAMESHORT:Necromancer

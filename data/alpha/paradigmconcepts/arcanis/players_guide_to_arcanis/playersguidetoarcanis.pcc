@@ -1,9 +1,8 @@
 # CVS $Revision$ $Author$ -- Wed Apr  2 14:10:13 2008 -- reformated by prettylst.pl v1.38 (build 5580)
 CAMPAIGN:PCI - Player's Guide to Arcanis
 GAMEMODE:35e
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Paradigm Concepts
+STATUS:BETA
+TYPE:Paradigm Concepts
 RANK:1
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PCI - Player's Guide to Arcanis]

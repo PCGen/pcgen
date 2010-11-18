@@ -5,9 +5,8 @@ RANK:6
 GENRE:Science Fiction
 BOOKTYPE:Supplement
 SETTING:Space Opera
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Blue Devil Games.Dawning Star.Operation Quick Launch
+STATUS:BETA
+TYPE:Blue Devil Games.Dawning Star.Operation Quick Launch
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Blue Devil Games
 PUBNAMESHORT:BDG

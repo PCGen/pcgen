@@ -5,8 +5,8 @@ RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-#TYPE:Alderac Entertainment Group.Sourcebook
-TYPE:Alpha Datasets
+TYPE:Alderac Entertainment Group.Sourcebook
+STATUS:BETA
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Alderac Entertainment Group
 PUBNAMESHORT:AEG

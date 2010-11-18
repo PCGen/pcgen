@@ -5,9 +5,8 @@ GAMEMODE:Xcrawl
 GENRE:Modern
 BOOKTYPE:Campaign Setting
 SETTING:XCrawl
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Pandahead Productions.XCrawl
+STATUS:BETA
+TYPE:Pandahead Productions.XCrawl
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Pandahead Production
 PUBNAMESHORT:Pandahead

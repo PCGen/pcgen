@@ -3,8 +3,8 @@ CAMPAIGN:Secular Games - Lines of Legend - Winter Elves
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
-TYPE:Alpha Datasets
-#TYPE:Secular Games.Lines of Legend.Winter Elves
+STATUS:BETA
+TYPE:Secular Games.Lines of Legend.Winter Elves
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Secular Games

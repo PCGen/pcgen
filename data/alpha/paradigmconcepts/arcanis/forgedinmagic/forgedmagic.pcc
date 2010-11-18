@@ -2,8 +2,8 @@
 CAMPAIGN:PCI - Forged in Magic
 GAMEMODE:35e
 RANK:6
-TYPE:Alpha Datasets
-#TYPE:Paradigm Concepts.Arcanis
+STATUS:BETA
+TYPE:Paradigm Concepts.Arcanis
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,PCI - Player's Guide to Arcanis
 GENRE:Fantasy

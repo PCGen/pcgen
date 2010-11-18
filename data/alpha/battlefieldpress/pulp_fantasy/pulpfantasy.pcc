@@ -5,8 +5,8 @@ GAMEMODE:Modern
 GENRE:Pulp
 BOOKTYPE:Core Rules
 SETTING:Pulp Fantasy
-TYPE:Alpha Datasets
-#TYPE:Battlefield Press.Pulp Fantasy
+STATUS:BETA
+TYPE:Battlefield Press.Pulp Fantasy
 !PRECAMPAIGN:1,BOOKTYPE=MSRD.Partial,MSRD - Future,MSRD - Menaces,MSRD - Arcana,MSRD - Basics
 PUBNAMELONG:Battlefield Press
 PUBNAMESHORT:Battlefield

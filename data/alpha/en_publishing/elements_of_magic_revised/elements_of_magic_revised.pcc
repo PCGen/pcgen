@@ -5,8 +5,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-TYPE:Alpha Datasets
-#TYPE:EN Publishing.EN Spellcraft
+STATUS:BETA
+TYPE:EN Publishing.EN Spellcraft
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:E.N. Publishing
 PUBNAMESHORT:ENPub

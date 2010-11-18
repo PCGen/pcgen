@@ -2,8 +2,8 @@
 CAMPAIGN:SP - Sovereign Stone Campaign Rules
 RANK:1
 GAMEMODE:SovereignStoneD20
-TYPE:Alpha Datasets
-#TYPE:Campaign.Setting.Sovereign Stone
+STATUS:BETA
+TYPE:Campaign.Setting.Sovereign Stone
 SOURCELONG:Sovereign Press - Sovereign Stone Campaign
 SOURCESHORT:SovereignS
 SOURCEWEB:http://www.sovstone.com

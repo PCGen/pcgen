@@ -8,9 +8,8 @@ PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com/
 SETTING:Midnight
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Fantasy Flight Games.Campaign.Midnight
+STATUS:BETA
+TYPE:Fantasy Flight Games.Campaign.Midnight
 PRECAMPAIGN:2,BOOKTYPE=Core Rules,FFG - Midnight - Campaign Source Book
 SOURCELONG:Midnight - Against the Shadow
 SOURCESHORT:AtS

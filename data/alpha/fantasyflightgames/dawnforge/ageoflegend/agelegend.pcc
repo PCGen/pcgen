@@ -6,9 +6,8 @@ RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Dawnforge
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Fantasy Flight Games.Dawnforge
+STATUS:BETA
+TYPE:Fantasy Flight Games.Dawnforge
 PRECAMPAIGN:2,BOOKTYPE=Core Rules,FFG - Dawnforge - Campaign setting
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG

@@ -5,8 +5,8 @@ GAMEMODE:Deadlands
 GENRE:Western
 BOOKTYPE:Core Rules
 SETTING:Deadlands
-TYPE:Alpha Datasets
-#TYPE:Pinnacle Entertainment Group.Deadlands.Core Rules
+STATUS:BETA
+TYPE:Pinnacle Entertainment Group.Deadlands.Core Rules
 PUBNAMELONG:Pinnacle Entertainment Group
 PUBNAMESHORT:Pinnacle
 PUBNAMEWEB:http://www.peginc.com/

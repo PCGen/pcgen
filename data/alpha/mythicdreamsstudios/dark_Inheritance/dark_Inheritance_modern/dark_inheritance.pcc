@@ -3,9 +3,8 @@ CAMPAIGN:MDS - Dark Inheritance - Campaign Setting
 RANK:5
 GAMEMODE:Modern
 BOOKTYPE:Campaign Setting
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Mythic Dreams Studios.Dark Inheritance
+STATUS:BETA
+TYPE:Mythic Dreams Studios.Dark Inheritance
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting
 SOURCESHORT:Dark Inheritance

@@ -6,8 +6,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
-TYPE:Alpha Datasets
-#TYPE:Alea Publishing Group.Knight Guidebook
+STATUS:BETA
+TYPE:Alea Publishing Group.Knight Guidebook
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Alea Publishing Group
 PUBNAMESHORT:APG

@@ -6,9 +6,8 @@ GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Dragon Wing Games.Sourcebook.Faeries
+STATUS:BETA
+TYPE:Dragon Wing Games.Sourcebook.Faeries
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Dragon Wing Games
 PUBNAMESHORT:DWG
