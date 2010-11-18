@@ -4,6 +4,11 @@
 
 # TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
 
+
+CODE-371 Display Mult			CATEGORY:FEAT			COST:10	TYPE:General.SpecialQuality	DESC:This is taken a few times	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
+CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuality	DESC:Should grant 10 Feat Points	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
+
+
 # COMMENT: Alice, Bob and Charlie are all Test Set Only; changes made to this set MAY affect those test characters.
 
 Display Code 362 Test 1		CATEGORY:Special Ability	KEY:Test_Display_One	SORTKEY:A	TYPE:CodeThreeSixTwo.SpecialQuality
@@ -213,7 +218,7 @@ Monkee Jr Test			CATEGORY:Special Ability	TYPE:Class.SpecialQuality
 Alertness					CATEGORY:Special Ability	TYPE:Class.SpecialQuality.Fighter
 SubstitutionLevelTracker		CATEGORY:Special Ability	TYPE:Class.SpecialQuality.Fighter
 
-Choose No Choice		CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.SpecialQuality		MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Choose No Choice		CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.SpecialQuality		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
 Choose String Stack Yes	CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.SpecialQuality		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:YES
 Choose String Stack No	CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.SpecialQuality		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:NO
 
@@ -402,6 +407,107 @@ Share Spells			KEY:Share Spells ~ Companion Creature									CATEGORY:Special Ab
 
 
 #Test #2, please apply the following to an item possessed by the PC (prior to level 4 [meaning <=3)):
+
+
+#	TEST-49-1							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-2							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-3							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-4							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-5							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-6							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+#	TEST-49-7							TYPE:Test-49	CHOOSE:FEATSELECTION|Test-49-1a Awesome Weapon
+
+
+#	Test-49-1a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-2a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-3a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-4a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-5a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-6a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+#	Test-49-7a Awesome Weapon				CATEGORY:FEAT	TYPE:SpecialAttack	CHOOSE:WEAPONPROFS|LIST
+
+#SomeAbility(SuperDuperLaserAbility)
+
+#Test-49-1
+
+#Request 7 instances of CHOOSE:FEATSELECTION used in the test PCs (Alice, Bob, Charlie)
+
+#1) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is 
+#2) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a deferred unconditional ABILITY token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+
+
+#Example is:
+#ABILITY:FEAT|AUTOMATIC|SomeAbility(SuperDuperLaserAbility)
+
+#SuperDuperLaserAbility is the target. 
+
+
+# Test 46
+#Request 7 instances of CHOOSE:FEATSELECTION used in the test PCs (Alice, Bob, Charlie)
+
+#1) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is 
+#2) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a deferred conditional ABILITY token (e.g. PRELEVEL:2 but attached to class level 1) where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+
+
+#Example is:
+#ABILITY:FEAT|AUTOMATIC|SomeAbility(SuperDuperLaserAbility)|PRELEVEL:2
+
+#SuperDuperLaserAbility is the target.
+
+
+
+
+
+
+#1) Ability granted by a VFEAT token where the target (in parens) is MULT:NO
+#2) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+#8) Ability granted by a VFEAT token where the target naturally has parens
+#9) Ability granted by a VFEAT where the feat naturally has parens
+
+
+#Example is:
+#VFEAT:SomeAbility(SuperDuperLaserAbility) 
+
+
+# Apply to -- 1,2,3,8 then 4,5,9 then 6,7
+
+ParentThingyType1		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(NoChooseFeat)
+ParentThingyType2		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(NoStackNoChoiceFeat)
+ParentThingyType3		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(NoStackChoiceFeat(Ride))
+ParentThingyType8		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(Naturally Something (comment))
+
+ParentThingyType4		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackNoChoiceFeat)
+ParentThingyType5		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackChoiceFeat(Ride))|GivingThingy(StackChoiceFeat(Tumble))
+ParentThingyType9		CATEGORY:FEAT		TYPE:Test47		VFEAT:Naturally Something (comment)
+
+ParentThingyType6		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackNoChoiceFeat)|GivingThingy(StackNoChoiceFeat)
+ParentThingyType7		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackChoiceFeat(Ride))|GivingThingy(StackChoiceFeat(Ride))|GivingThingy(StackChoiceFeat(Tumble))
+
+GivingThingy		CATEGORY:FEAT		TYPE:Test47				CHOOSE:FEATSELECTION|TYPE=TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
+NoChooseFeat		CATEGORY:FEAT		TYPE:Test47.TestThing	
+NoStackFeat			CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES
+NoStackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES
+StackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+StackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+#The other similar test requests follow a similar pattern. all that is changing is VFEAT vs. other tokens.
+
+Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing	
 
 
 

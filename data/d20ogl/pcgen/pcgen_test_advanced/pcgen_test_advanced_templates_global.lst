@@ -1,6 +1,13 @@
 ###Templates
 
 
+CODE-8a	BONUS:SKILL|Climb|5|TYPE=ClimbingBonus
+#works
+CODE-8b	BONUS:SKILL|Climb|INT*2|TYPE=AnotherBonus
+#doesn't work
+
+
+
 CODE-362		ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
 CODE-362_B		ABILITY:Special Ability|AUTOMATIC|TYPE=Code_Three_Six_Two
 CODE-362_C		ABILITY:Special Ability Sub|AUTOMATIC|TYPE=CodeThreeSixTwo

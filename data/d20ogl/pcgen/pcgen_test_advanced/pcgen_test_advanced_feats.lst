@@ -1,6 +1,26 @@
 
 
-Test Weapon Proficiency		TYPE:TEST	AUTO:WEAPONPROF|%LIST	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL
+
+
+
+Test-xx Spell Level 2 Divine Test	PRESPELLTYPE:1,Divine=2	TYPE:Test-xx	
+Test-xx Spell Level 1 Divine Test	PRESPELLTYPE:1,Divine=1	TYPE:Test-xx	
+Test-xx Spell Level 0 Divine Test	PRESPELLTYPE:1,Divine=0	TYPE:Test-xx	
+
+Test-xx Spell Level 2 Arcane Test	PRESPELLTYPE:1,Arcane=2	TYPE:Test-xx	
+Test-xx Spell Level 1 Arcane Test	PRESPELLTYPE:1,Arcane=1	TYPE:Test-xx	
+Test-xx Spell Level 0 Arcane Test	PRESPELLTYPE:1,Arcane=0	TYPE:Test-xx	
+
+Test-xx Spell Level 2 Psionic Test	PRESPELLTYPE:1,Psionic=2	TYPE:Test-xx	
+Test-xx Spell Level 1 Psionic Test	PRESPELLTYPE:1,Psionic=1	TYPE:Test-xx	
+Test-xx Spell Level 0 Psionic Test	PRESPELLTYPE:1,Psionic=0	TYPE:Test-xx	
+
+
+
+
+Test-88 Weapon Proficiency		TYPE:TEST	AUTO:WEAPONPROF|%LIST	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL
+Test-88 Armor Proficiency		TYPE:TEST	AUTO:ARMORPROF|%LIST	MULT:YES	CHOOSE:ARMORPROFICIENCY|ALL
+
 
 Application Test-43-A	TYPE:Test43	TEMPLATE:Test-43-A
 
@@ -81,7 +101,7 @@ Not Dodge			TYPE:TestMonkey
 Test Case Extreme			TYPE:TestMonkey.Fighter
 Toughness				TYPE:TestMonkey.Fighter
 
-Choose No Choice		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Choose No Choice		TYPE:TestMonkey.Chooser		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
 Choose String Stack Yes		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:YES
 Choose String Stack No		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:NO
 

@@ -41,3 +41,47 @@ Longsword				TYPE:Martial
 
 Template Weapon Test		TYPE:Exotic
 Template Weapon Test Two	TYPE:Exotic
+
+
+# Test 45 through 49 - These are for Testing 1 through 7 iterations of the FEATSELECTION Requests
+Test-45-1				TYPE:Test.Exotic
+Test-45-2				TYPE:Test.Exotic
+Test-45-3				TYPE:Test.Exotic
+Test-45-4				TYPE:Test.Exotic
+Test-45-5				TYPE:Test.Exotic
+Test-45-6				TYPE:Test.Exotic
+Test-45-7				TYPE:Test.Exotic
+
+Test-46-1				TYPE:Test.Exotic
+Test-46-2				TYPE:Test.Exotic
+Test-46-3				TYPE:Test.Exotic
+Test-46-4				TYPE:Test.Exotic
+Test-46-5				TYPE:Test.Exotic
+Test-46-6				TYPE:Test.Exotic
+Test-46-7				TYPE:Test.Exotic
+
+Test-47-1				TYPE:Test.Exotic
+Test-47-2				TYPE:Test.Exotic
+Test-47-3				TYPE:Test.Exotic
+Test-47-4				TYPE:Test.Exotic
+Test-47-5				TYPE:Test.Exotic
+Test-47-6				TYPE:Test.Exotic
+Test-47-7				TYPE:Test.Exotic
+
+Test-48-1				TYPE:Test.Exotic
+Test-48-2				TYPE:Test.Exotic
+Test-48-3				TYPE:Test.Exotic
+Test-48-4				TYPE:Test.Exotic
+Test-48-5				TYPE:Test.Exotic
+Test-48-6				TYPE:Test.Exotic
+Test-48-7				TYPE:Test.Exotic
+
+Test-49-1				TYPE:Test.Exotic
+Test-49-2				TYPE:Test.Exotic
+Test-49-3				TYPE:Test.Exotic
+Test-49-4				TYPE:Test.Exotic
+Test-49-5				TYPE:Test.Exotic
+Test-49-6				TYPE:Test.Exotic
+Test-49-7				TYPE:Test.Exotic
+
+

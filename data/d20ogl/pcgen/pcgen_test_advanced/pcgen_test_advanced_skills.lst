@@ -1,6 +1,16 @@
 
 # COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
 
+
+Test Skill	TYPE:HiddenSkill	USEUNTRAINED:NO
+
+Climb.MOD		BONUS:SKILL|Test Skill|skillinfo("TOTAL", "Climb")|TYPE=NoStacking
+
+
+
+
+
+
 ###Skill
 Test Crafting			KEYSTAT:DEX
 Craft (One)				KEYSTAT:DEX	TYPE:Craft
@@ -70,3 +80,7 @@ Test Skill Chooser_2	KEYSTAT:WIS				TYPE:ChooserTestingSkill
 Test Skill Chooser_3	KEYSTAT:WIS				TYPE:ChooserTestingSkill
 Test Skill Chooser_4	KEYSTAT:WIS				TYPE:ChooserTestingSkill
 Test Skill Chooser_5	KEYSTAT:WIS				TYPE:ChooserTestingSkill
+
+
+Ride		USEUNTRAINED:NO
+Tumble	USEUNTRAINED:NO
