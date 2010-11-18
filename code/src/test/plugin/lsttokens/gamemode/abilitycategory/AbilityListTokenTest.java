@@ -31,6 +31,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
+import pcgen.core.SettingsHandler;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -87,6 +88,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	{
 		AbilityCategory aCat = new AbilityCategory("TestCat");
 		aCat.setAbilityCategory("FEAT");
+		SettingsHandler.getGame().addAbilityCategory(aCat);
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -107,6 +109,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	{
 		AbilityCategory aCat = new AbilityCategory("TestCat");
 		aCat.setAbilityCategory("FEAT");
+		SettingsHandler.getGame().addAbilityCategory(aCat);
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -131,6 +134,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	{
 		AbilityCategory aCat = new AbilityCategory("TestCat");
 		aCat.setAbilityCategory("FEAT");
+		SettingsHandler.getGame().addAbilityCategory(aCat);
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
