@@ -31,7 +31,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ShieldProfProvider;
-import pcgen.cdom.helper.SimpleShieldProfProvider;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
