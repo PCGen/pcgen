@@ -11268,60 +11268,20 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return Collections.unmodifiableSet(newSet);
 	}
 
-	private void processFeatListOnAdd(CDOMObject cdo)
+	private void processListsOnAdd(CDOMObject cdo)
 	{
 		for (CDOMReference<PCTemplate> tr : cdo
 				.getSafeListFor(ListKey.TEMPLATE))
 		{
 			addTemplatesIfMissing(tr.getContainedObjects());
 		}
-
-		for (CDOMReference<Ability> ref : cdo.getSafeListMods(Ability.FEATLIST))
-		{
-			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(
-					Ability.FEATLIST, ref);
-			for (Ability ab : ref.getContainedObjects())
-			{
-				for (AssociatedPrereqObject apo : assoc)
-				{
-					List<Prerequisite> prereqList = apo.getPrerequisiteList();
-					if (!PrereqHandler.passesAll(prereqList, this, cdo))
-					{
-						deniedFacet.add(id, new ConditionalAbility(ab, apo, cdo));
-						continue;
-					}
-					if (!prereqList.isEmpty())
-					{
-						conditionalFacet.add(id,
-								new ConditionalAbility(ab, apo, cdo));
-					}
-					Category<Ability> cat = AbilityCategory.FEAT;
-					Nature nature = apo.getAssociation(AssociationKey.NATURE);
-					grantedAbilityFacet.add(id, cat, nature, ab, cdo);
-
-					List<String> choices = apo
-							.getAssociation(AssociationKey.ASSOC_CHOICES);
-					if (choices != null)
-					{
-						for ( final String choice : choices )
-						{
-							for (String subchoice : AbilityUtilities
-									.getLegalAssociations(this, cdo, ab, choice))
-							{
-								addAssociation(ab, subchoice);
-							}
-						}
-					}
-				}
-			}
-		}
 		for (CDOMReference ref : cdo.getModifiedLists())
 		{
-			processModifiedListOnAdd(cdo, ref);
+			processAbilityListsOnAdd(cdo, ref);
 		}
 	}
 
-	private <A extends PrereqObject> void processModifiedListOnAdd(CDOMObject cdo,
+	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
 			CDOMReference<? extends CDOMList<A>> ref)
 	{
 		for (CDOMList<A> list : ref.getContainedObjects())
@@ -12561,7 +12521,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void processAddition(CDOMObject cdo)
 	{
-		processFeatListOnAdd(cdo);
+		processListsOnAdd(cdo);
 	}
 
 	public void processRemoval(CDOMObject cdo)
