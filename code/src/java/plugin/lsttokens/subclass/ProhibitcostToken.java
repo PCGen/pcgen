@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with PROHIBITCOST Token
  */
-public class ProhibitcostToken extends AbstractIntToken<SubClass> implements CDOMPrimaryParserToken<SubClass>
+public class ProhibitcostToken extends AbstractIntToken<SubClass> implements
+		CDOMPrimaryToken<SubClass>
 {
 
 	public String getTokenName()

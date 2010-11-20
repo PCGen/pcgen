@@ -6,13 +6,12 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATMOD Token
  */
-public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryToken<PCStat>
+public class StatmodToken implements CDOMPrimaryToken<PCStat>
 {
 
 	public String getTokenName()

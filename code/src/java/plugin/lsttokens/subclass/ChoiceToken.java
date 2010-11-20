@@ -29,7 +29,7 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.ProhibitedSpellType;
@@ -38,7 +38,7 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  * Class deals with CHOICE Token
  */
 public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
-		CDOMPrimaryParserToken<SubClass>
+		CDOMPrimaryToken<SubClass>
 {
 
 	@Override

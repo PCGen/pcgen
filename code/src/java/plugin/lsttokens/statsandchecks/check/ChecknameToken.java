@@ -3,14 +3,14 @@ package plugin.lsttokens.statsandchecks.check;
 import pcgen.core.PCCheck;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CHECKNAME Token
  */
 public class ChecknameToken extends AbstractNonEmptyToken<PCCheck> implements
-		CDOMPrimaryParserToken<PCCheck>
+		CDOMPrimaryToken<PCCheck>
 {
 
 	@Override
