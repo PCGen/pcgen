@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with USEMASTERSKILL Token
  */
-public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod> implements
-		CDOMPrimaryParserToken<CompanionMod>
+public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
+		implements CDOMPrimaryToken<CompanionMod>
 {
 
 	@Override

@@ -31,14 +31,15 @@ import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MASTERBONUSRACE Token
  */
-public class MasterbonusraceToken extends AbstractTokenWithSeparator<CompanionMod> implements
-		CDOMPrimaryParserToken<CompanionMod>
+public class MasterbonusraceToken extends
+		AbstractTokenWithSeparator<CompanionMod> implements
+		CDOMPrimaryToken<CompanionMod>
 {
 	public static final Class<Race> RACE_CLASS = Race.class;
 

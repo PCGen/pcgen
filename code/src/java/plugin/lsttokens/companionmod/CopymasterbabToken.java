@@ -21,13 +21,13 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with COPYMASTERBAB Token
  */
-public class CopymasterbabToken extends AbstractStringToken<CompanionMod> implements
-		CDOMPrimaryParserToken<CompanionMod>
+public class CopymasterbabToken extends AbstractStringToken<CompanionMod>
+		implements CDOMPrimaryToken<CompanionMod>
 {
 
 	@Override

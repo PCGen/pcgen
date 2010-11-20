@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ALIGN Token
  */
-public class AlignToken extends ErrorParsingWrapper<Deity> implements CDOMPrimaryParserToken<Deity>
+public class AlignToken implements CDOMPrimaryToken<Deity>
 {
 
 	public String getTokenName()

@@ -20,14 +20,13 @@ package plugin.lsttokens.deity;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SYMBOL Token
  */
-public class SymbolToken extends ErrorParsingWrapper<Deity> implements CDOMPrimaryParserToken<Deity>
+public class SymbolToken implements CDOMPrimaryToken<Deity>
 {
 
 	public String getTokenName()

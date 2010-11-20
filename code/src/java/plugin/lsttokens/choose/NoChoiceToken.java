@@ -35,12 +35,10 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.NoChoiceManager;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NoChoiceToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseInformation<String>,
-		PersistentChoiceActor<String>
+public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
+		ChooseInformation<String>, PersistentChoiceActor<String>
 {
 
 	public String getTokenName()

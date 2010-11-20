@@ -26,12 +26,10 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()

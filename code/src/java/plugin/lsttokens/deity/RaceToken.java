@@ -26,13 +26,14 @@ import pcgen.core.Deity;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACE Token
  */
-public class RaceToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryParserToken<Deity>
+public class RaceToken extends AbstractTokenWithSeparator<Deity> implements
+		CDOMPrimaryToken<Deity>
 {
 
 	@Override

@@ -35,14 +35,14 @@ import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FOLLOWER Token
  */
-public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod> implements
-		CDOMPrimaryParserToken<CompanionMod>
+public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
+		implements CDOMPrimaryToken<CompanionMod>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

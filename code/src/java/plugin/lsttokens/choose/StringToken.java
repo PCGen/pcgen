@@ -35,11 +35,10 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class StringToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<String>
+public class StringToken implements CDOMSecondaryToken<CDOMObject>,
+		PersistentChoiceActor<String>
 {
 
 	public String getTokenName()

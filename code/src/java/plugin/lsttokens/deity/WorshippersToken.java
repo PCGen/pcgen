@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WORSHIPPERS Token
  */
 public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
-		CDOMPrimaryParserToken<Deity>
+		CDOMPrimaryToken<Deity>
 {
 
 	/**
