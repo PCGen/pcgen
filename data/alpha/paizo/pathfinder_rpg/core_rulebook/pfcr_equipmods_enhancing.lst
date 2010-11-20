@@ -77,6 +77,7 @@ Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=
 ###Block: Magic Item abilities
 # Modifier Name			Unique Key	Naming Option	Type			Visible		Bonus to skill rank		Special Property						Choose
 |Maximize Knowledge Skill	KEY:MAX_KNW	NAMEOPT:NONAME	TYPE:Intelligence	VISIBLE:QUALIFY	BONUS:SKILLRANK|%CHOICE|99	SPROP:Grants maximum skill ranks in %CHOICE	CHOOSE:SKILL|TYPE=Knowledge|TITLE=Maximized Knowledge Skill
+|Maximize Any Skill		KEY:MAX_GNL	NAMEOPT:NONAME	TYPE:Intelligence	VISIBLE:QUALIFY	BONUS:SKILLRANK|%CHOICE|99	SPROP:Grants maximum skill ranks in %CHOICE	CHOOSE:SKILL|TYPE=Strength|TYPE=Dexterity|TYPE=Intelligence|TYPE=Wisdom|TYPE=Charisma|TITLE=Maximized Any Skill
 
 ###Block: Continuous Spell Effect Work Arounds
 # Modifier Name									Unique Key			Naming Option	Type																					Cost														Visible		Type granted		Source Page		Multiple Requirements																													Choose
