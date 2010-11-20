@@ -48,8 +48,9 @@ public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements
 		{
 			if (!value.startsWith("TITLE="))
 			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " had invalid arguments: " + value);
+				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
+						+ obj.getClass() + " " + obj.getKeyName()
+						+ " had invalid arguments: " + value);
 			}
 			String title = value.substring(6);
 			if (title.startsWith("\""))
