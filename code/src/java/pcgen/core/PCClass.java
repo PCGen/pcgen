@@ -1830,6 +1830,7 @@ public class PCClass extends PObject
 				lvl.put(StringKey.SOURCE_WEB, get(StringKey.SOURCE_WEB));
 				lvl.put(ObjectKey.SOURCE_DATE, get(ObjectKey.SOURCE_DATE));
 				lvl.put(ObjectKey.TOKEN_PARENT, this);
+				lvl.setName(getDisplayName() + "(" + lvl.get(IntegerKey.LEVEL) + ")");
 				lvl.ownBonuses(this);
 				levelMap.put(me.getKey(), lvl);
 			}
