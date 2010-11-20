@@ -76,4 +76,9 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 		return get(StringKey.QUALIFIED_KEY);
 	}
 
+	@Override
+	public String toString()
+	{
+		return getDisplayName();
+	}
 }
