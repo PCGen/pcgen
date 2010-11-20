@@ -74,7 +74,7 @@ public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements
 					+ " arguments uses double separator || : " + value);
 		}
 		String newValue = processMagicalWords(context, value);
-		Logging.deprecationPrint("CHOOSE:WEAPONPROFS" + " has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:WEAPONPROFS" + " has been deprecated, "
 				+ "please use CHOOSE:WEAPONPROFICIENCY|");
 		return context.processSubToken(obj, "CHOOSE", "WEAPONPROFICIENCY",
 				newValue);

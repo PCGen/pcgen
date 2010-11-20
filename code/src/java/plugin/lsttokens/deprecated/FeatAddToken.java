@@ -27,6 +27,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
 {
@@ -90,6 +91,8 @@ public class FeatAddToken extends ErrorParsingWrapper<CDOMObject> implements CDO
 		}
 		try
 		{
+			Logging.deprecationPrint("CHOOSE:" + getTokenName() + " has been deprecated, "
+					+ "please use CHOOSE:FEATSELECTION|x with AUTO:FEAT|%LIST");
 			boolean proc = context.processToken(obj, "CHOOSE", "FEATSELECTION|" + value + "|TITLE=Add a Feat");
 			if (!proc)
 			{

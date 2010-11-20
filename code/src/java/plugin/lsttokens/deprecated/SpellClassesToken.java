@@ -41,7 +41,7 @@ public class SpellClassesToken extends ErrorParsingWrapper<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		Logging.deprecationPrint("CHOOSE:SPELLCLASSES has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:SPELLCLASSES has been deprecated, "
 				+ "please use CHOOSE:CLASS|SPELLCASTER");
 		return context.processSubToken(obj, "CHOOSE", "CLASS", "SPELLCASTER");
 	}

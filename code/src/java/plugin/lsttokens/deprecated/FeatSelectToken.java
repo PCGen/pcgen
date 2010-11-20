@@ -41,7 +41,7 @@ public class FeatSelectToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		Logging.deprecationPrint("CHOOSE:FEATSELECT has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:FEATSELECT has been deprecated, "
 				+ "please use CHOOSE:FEAT|x");
 		return context.processSubToken(obj, "CHOOSE", "FEAT", value);
 	}

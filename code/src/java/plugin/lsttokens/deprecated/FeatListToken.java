@@ -46,7 +46,7 @@ public class FeatListToken extends ErrorParsingWrapper<CDOMObject> implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
 		}
-		Logging.deprecationPrint("CHOOSE:FEATLIST has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:FEATLIST has been deprecated, "
 				+ "please use CHOOSE:FEAT|PC[x]");
 		return context.processSubToken(obj, "CHOOSE", "FEAT", "PC["
 				+ value + "]");

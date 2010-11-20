@@ -136,7 +136,7 @@ public class ProficiencyToken extends ErrorParsingWrapper<CDOMObject> implements
 			needPipe = true;
 		}
 		Logging.deprecationPrint("CHOOSE:PROFICIENCY|" + first
-				+ " has been deprecated," + "please use CHOOSE:" + subtoken
+				+ " has been deprecated, please use CHOOSE:" + subtoken
 				+ "|...");
 		return context.processSubToken(obj, "CHOOSE", subtoken, qualifier
 				+ "[" + sb.toString() + "]");

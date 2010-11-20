@@ -48,7 +48,7 @@ public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		Logging.deprecationPrint("CHOOSE:STAT has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:STAT has been deprecated, "
 				+ "please use CHOOSE:PCSTAT");
 		if (value == null)
 		{

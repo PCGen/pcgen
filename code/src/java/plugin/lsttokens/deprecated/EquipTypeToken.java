@@ -41,7 +41,7 @@ public class EquipTypeToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		Logging.deprecationPrint("CHOOSE:EQUIPTYPE has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:EQUIPTYPE has been deprecated, "
 				+ "please use CHOOSE:EQUIPMENT|TYPE=x");
 		return context.processSubToken(obj, getParentToken(), "EQUIPMENT",
 				"TYPE=" + value);

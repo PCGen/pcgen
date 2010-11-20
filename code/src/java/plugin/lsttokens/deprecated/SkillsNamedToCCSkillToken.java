@@ -44,7 +44,7 @@ public class SkillsNamedToCCSkillToken extends ErrorParsingWrapper<Ability>
 	public ParseResult parseToken(LoadContext context, Ability obj, String value)
 	{
 		Logging.deprecationPrint("CHOOSE:SKILLSNAMEDTOCCSKILL"
-				+ " has been deprecated,"
+				+ " has been deprecated, "
 				+ "please use CHOOSE:SKILL| and CCSKILL:LIST");
 		try
 		{

@@ -41,7 +41,7 @@ public class SkillsToken extends ErrorParsingWrapper<CDOMObject> implements
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		Logging.deprecationPrint("CHOOSE:SKILLS has been deprecated,"
+		Logging.deprecationPrint("CHOOSE:SKILLS has been deprecated, "
 				+ "please use CHOOSE:SKILL|PC");
 		return context.processSubToken(obj, "CHOOSE", "SKILL", "PC");
 	}

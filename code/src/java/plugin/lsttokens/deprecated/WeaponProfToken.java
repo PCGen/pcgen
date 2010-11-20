@@ -50,7 +50,7 @@ public class WeaponProfToken extends ErrorParsingWrapper<CDOMObject> implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
 		}
-		Logging.deprecationPrint("CHOOSE:WEAPONPROF is deprecated,"
+		Logging.deprecationPrint("CHOOSE:WEAPONPROF is deprecated, "
 				+ "please use CHOOSE:WEAPONPROFICIENCY");
 		if (value.indexOf(',') != -1)
 		{

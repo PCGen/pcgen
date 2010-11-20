@@ -91,7 +91,7 @@ public class NonClassSkillListToken extends ErrorParsingWrapper<CDOMObject>
 			sb.append(tok);
 		}
 		Logging
-				.deprecationPrint("CHOOSE:NONCLASSSKILLLIST has been deprecated,"
+				.deprecationPrint("CHOOSE:NONCLASSSKILLLIST has been deprecated, "
 						+ "please use CHOOSE:SKILL");
 		String newValue = processSkillMagicalWords(sb.toString());
 		return context.processSubToken(obj, "CHOOSE", "SKILL", newValue);
