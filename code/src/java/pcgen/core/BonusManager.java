@@ -785,12 +785,13 @@ public class BonusManager
 
 	public void setTempBonusMap(Map<BonusObj, TempBonusInfo> tbl)
 	{
-		tempBonusBySource = tbl;
+		//Need to guarantee identity
+		tempBonusBySource = new IdentityHashMap<BonusObj, TempBonusInfo>(tbl);
 	}
 
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap()
 	{
-		return tempBonusBySource;
+		return new IdentityHashMap<BonusObj, TempBonusInfo>(tempBonusBySource);
 	}
 
 	public Map<String, String> getBonuses(String bonusString, String substring)
