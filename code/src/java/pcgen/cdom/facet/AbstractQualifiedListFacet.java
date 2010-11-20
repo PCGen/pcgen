@@ -403,14 +403,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		{
 			for (Map.Entry<T, Set<Object>> me : sourceMap.entrySet())
 			{
+				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
-				if (sourceSet != null)
-				{
-					T obj = me.getKey();
-					Set<Object> targetSet = getConstructingCachedSetFor(
-							destination, obj);
-					targetSet.addAll(sourceSet);
-				}
+				Set<Object> targetSet = getConstructingCachedSetFor(
+						destination, obj);
+				targetSet.addAll(sourceSet);
 			}
 		}
 	}
@@ -467,15 +464,12 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
-				if (set != null)
+				if (set.remove(source) && set.isEmpty())
 				{
-					if (set.remove(source) && set.isEmpty())
-					{
-						T obj = me.getKey();
-						it.remove();
-						fireDataFacetChangeEvent(id, obj,
-								DataFacetChangeEvent.DATA_REMOVED);
-					}
+					T obj = me.getKey();
+					it.remove();
+					fireDataFacetChangeEvent(id, obj,
+							DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -492,12 +486,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
-				if (set != null)
+				if (set.contains(owner))
 				{
-					if (set.contains(owner))
-					{
-						list.add(me.getKey());
-					}
+					list.add(me.getKey());
 				}
 			}
 		}
