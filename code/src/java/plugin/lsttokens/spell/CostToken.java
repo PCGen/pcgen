@@ -23,13 +23,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with COST Token
  */
-public class CostToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryParserToken<Spell>
+public class CostToken extends AbstractNonEmptyToken<Spell> implements
+		CDOMPrimaryToken<Spell>
 {
 
 	@Override

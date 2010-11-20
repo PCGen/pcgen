@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with XPCOST Token
  */
-public class XpcostToken extends AbstractIntToken<Spell> implements CDOMPrimaryParserToken<Spell>
+public class XpcostToken extends AbstractIntToken<Spell> implements
+		CDOMPrimaryToken<Spell>
 {
 
 	/**

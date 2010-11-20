@@ -20,14 +20,13 @@ package plugin.lsttokens.spell;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CT Token
  */
-public class CtToken extends ErrorParsingWrapper<Spell> implements CDOMPrimaryParserToken<Spell>
+public class CtToken implements CDOMPrimaryToken<Spell>
 {
 
 	public String getTokenName()

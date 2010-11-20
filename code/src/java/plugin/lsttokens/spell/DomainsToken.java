@@ -42,14 +42,14 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DOMAINS Token
  */
 public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
-		CDOMPrimaryParserToken<Spell>
+		CDOMPrimaryToken<Spell>
 {
 
 	private static final Class<DomainSpellList> SPELLLIST_CLASS = DomainSpellList.class;

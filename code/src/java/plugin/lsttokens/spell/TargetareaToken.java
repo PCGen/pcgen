@@ -22,14 +22,13 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with TARGETAREA Token
  */
-public class TargetareaToken extends ErrorParsingWrapper<Spell> implements CDOMPrimaryParserToken<Spell>
+public class TargetareaToken implements CDOMPrimaryToken<Spell>
 {
 
 	public String getTokenName()
