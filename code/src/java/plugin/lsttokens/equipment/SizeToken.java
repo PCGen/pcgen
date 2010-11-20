@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SIZE token 
  */
-public class SizeToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class SizeToken implements CDOMPrimaryToken<Equipment>
 {
 
 	public String getTokenName()

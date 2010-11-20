@@ -30,15 +30,15 @@ import pcgen.core.Equipment;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.BigDecimalHelper;
 
 /**
  * Deals with CONTAINS token
  */
-public class ContainsToken extends AbstractTokenWithSeparator<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
+		implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override

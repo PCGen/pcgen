@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with RATEOFFIRE token
  */
 public class RateoffireToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+		CDOMPrimaryToken<Equipment>
 {
 
 	@Override

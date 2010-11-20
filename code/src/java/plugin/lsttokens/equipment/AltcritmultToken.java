@@ -22,14 +22,14 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ALTCRITMULT token
  */
-public class AltcritmultToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
+		implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override

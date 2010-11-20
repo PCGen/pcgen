@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * <code>NumPagesToken</code> deals with NUMPAGES token
@@ -38,7 +38,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class NumPagesToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class NumPagesToken extends AbstractIntToken<Equipment> implements
+		CDOMPrimaryToken<Equipment>
 {
 
 	/**

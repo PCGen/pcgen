@@ -21,14 +21,15 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SPELLFAILURE token
  */
-public class SpellfailureToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class SpellfailureToken extends AbstractIntToken<Equipment> implements
+		CDOMPrimaryToken<Equipment>
 {
 	public String getTokenName()
 	{

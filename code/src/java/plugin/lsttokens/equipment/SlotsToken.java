@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with SLOTS token
  */
-public class SlotsToken extends AbstractIntToken<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class SlotsToken extends AbstractIntToken<Equipment> implements
+		CDOMPrimaryToken<Equipment>
 {
 
 	public String getTokenName()

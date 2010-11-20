@@ -26,7 +26,7 @@ import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -35,8 +35,8 @@ import pcgen.util.Logging;
 /**
  * Deals with PROFICIENCY token
  */
-public class ProficiencyToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>, DeferredToken<Equipment>
+public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
+		implements CDOMPrimaryToken<Equipment>, DeferredToken<Equipment>
 {
 
 	@Override

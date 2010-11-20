@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with CRITRANGE token
  */
-public class CritrangeToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 {
 
 	public String getTokenName()

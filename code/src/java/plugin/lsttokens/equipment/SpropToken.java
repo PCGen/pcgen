@@ -28,14 +28,14 @@ import pcgen.core.SpecialProperty;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with SPROP token
  */
 public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+		CDOMPrimaryToken<Equipment>
 {
 
 	@Override

@@ -37,7 +37,7 @@ import pcgen.rules.context.AbstractObjectContext;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -45,7 +45,7 @@ import pcgen.util.Logging;
  * Deals with EQMOD token
  */
 public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+		CDOMPrimaryToken<Equipment>
 {
 
 	private static final Class<EquipmentModifier> EQMOD_CLASS = EquipmentModifier.class;

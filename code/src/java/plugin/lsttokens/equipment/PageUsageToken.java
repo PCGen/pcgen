@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -42,7 +42,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @version $Revision$
  */
 public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+		CDOMPrimaryToken<Equipment>
 {
 
 	/**

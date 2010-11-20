@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with WIELD token
  */
-public class WieldToken extends ErrorParsingWrapper<Equipment> implements CDOMPrimaryParserToken<Equipment>
+public class WieldToken implements CDOMPrimaryToken<Equipment>
 {
 
 	/**

@@ -22,14 +22,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with MODS token
  */
 public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryParserToken<Equipment>
+		CDOMPrimaryToken<Equipment>
 {
 
 	@Override
