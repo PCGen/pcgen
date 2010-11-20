@@ -2131,35 +2131,32 @@ final class PCGVer2Creator implements IOConstants
 	private void appendTempBonuses(StringBuffer buffer)
 	{
 		final List<String> trackList = new ArrayList<String>();
-		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : thePC
-				.getTempBonusMap().entrySet())
+		for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
 		{
-			BonusObj bonus = me.getKey();
-			TempBonusInfo tbi = me.getValue();
 			Object creObj = tbi.source;
 			Object tarObj = tbi.target;
 			final String outString = tempBonusName(creObj, tarObj);
-
 			if (trackList.contains(outString))
 			{
 				continue;
 			}
 			trackList.add(outString);
-
-			// TODO Isn't this the same as outString?  Hmm, yes it is, why was it coded this way?
-			final String tarString = tempBonusName(creObj, tarObj);
-			buffer.append(tarString);
+			buffer.append(outString);
 			
-			// TODO Why do we loop through the bonuses again?  Are there sub bonuses for each bouns?
+			/*
+			 * Why do we loop through the bonuses again? It is looped through
+			 * again so that only items associated with this source (e.g.
+			 * Template and Target object) are written, but that ALL of the
+			 * items are written on one line.
+			 */
 			for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> subme : thePC
 					.getTempBonusMap().entrySet())
 			{
-				BonusObj subBonus = me.getKey();
-				TempBonusInfo subtbi = me.getValue();
+				BonusObj subBonus = subme.getKey();
+				TempBonusInfo subtbi = subme.getValue();
 				Object cObj = subtbi.source;
 				Object tObj = subtbi.target;
 				final String inString = tempBonusName(cObj, tObj);
-
 				if (inString.equals(outString))
 				{
 					buffer.append('|');
