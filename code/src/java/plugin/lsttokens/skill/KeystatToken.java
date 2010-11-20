@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCStat;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KEYSTAT Token
  */
-public class KeystatToken extends ErrorParsingWrapper<Skill> implements CDOMPrimaryParserToken<Skill>
+public class KeystatToken implements CDOMPrimaryToken<Skill>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;

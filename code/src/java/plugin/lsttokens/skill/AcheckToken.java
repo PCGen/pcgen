@@ -22,14 +22,14 @@ import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ACHECK Token
  */
 public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
-		CDOMPrimaryParserToken<Skill>
+		CDOMPrimaryToken<Skill>
 {
 
 	@Override

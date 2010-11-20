@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with USEUNTRAINED Token
  */
 public class UseuntrainedToken extends AbstractNonEmptyToken<Skill> implements
-		CDOMPrimaryParserToken<Skill>
+		CDOMPrimaryToken<Skill>
 {
 
 	@Override
