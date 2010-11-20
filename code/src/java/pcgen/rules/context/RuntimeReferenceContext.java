@@ -42,7 +42,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
 
-	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>>();
+	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>>();
 
 	@Override
 	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
@@ -78,29 +78,21 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		CategorizedReferenceManufacturer<T> mfg = (CategorizedReferenceManufacturer<T>) catmap
+		CategorizedManufacturer<T> mfg = (CategorizedManufacturer<T>) catmap
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new CategorizedReferenceManufacturer<T>(cl, cat);
-			catmap.put(cl, cat, mfg);
+			CategorizedManufacturer<T> parentMfg = null;
 			if (cat != null)
 			{
 				Category<T> parent = cat.getParentCategory();
 				if (parent != null)
 				{
-					CategorizedReferenceManufacturer<T> parentMfg = (CategorizedReferenceManufacturer<T>) catmap
-							.get(cl, parent);
-					if (parentMfg == null)
-					{
-						Category parentCat = parent;
-						parentMfg = new CategorizedReferenceManufacturer<T>(cl,
-								parentCat);
-						catmap.put(cl, cat, parentMfg);
-					}
-					mfg.setParentCRM(parentMfg);
+					parentMfg = getManufacturer(cl, parent);
 				}
 			}
+			mfg = new CategorizedReferenceManufacturer<T>(cl, cat, parentMfg);
+			catmap.put(cl, cat, mfg);
 		}
 		return mfg;
 	}

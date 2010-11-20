@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
@@ -53,7 +54,7 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * Stores the reference manager that is dealing with this category's parent
 	 * category.
 	 */
-	private CategorizedReferenceManufacturer<T> parentCrm = null;
+	private final CategorizedManufacturer<T> parentCrm;
 
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
@@ -66,7 +67,8 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 *            The Category of objects that this
 	 *            AbstractReferenceManufacturer will construct and reference.
 	 */
-	public CategorizedReferenceManufacturer(Class<T> objClass, Category<T> cat)
+	public CategorizedReferenceManufacturer(Class<T> objClass, Category<T> cat,
+			CategorizedManufacturer<T> parent)
 	{
 		super(objClass);
 		/*
@@ -75,18 +77,10 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		 * once the CATEGORY: token is struck.
 		 */
 		category = cat;
-	}
-
-	/**
-	 * Sets the reference manager that is dealing with this category's parent
-	 * category.
-	 * 
-	 * @param crm
-	 *            the reference manager for the parent category
-	 */
-	public void setParentCRM(CategorizedReferenceManufacturer<T> crm)
-	{
-		this.parentCrm = crm;
+		/*
+		 * null legal here as well (don't have to have a parent)
+		 */
+		parentCrm = parent;
 	}
 
 	/**
@@ -267,5 +261,18 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	{
 		return category;
 	}
+
+	@Override
+	protected Collection<T> getAllResolvableObjects()
+	{
+		List<T> list = new ArrayList<T>();
+		list.addAll(super.getAllResolvableObjects());
+		if (parentCrm != null)
+		{
+			list.addAll(parentCrm.getAllObjects());
+		}
+		return list;
+	}
+
 
 }

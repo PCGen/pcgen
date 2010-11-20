@@ -321,7 +321,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 	public void resolveReferences()
 	{
 		resolvePrimitiveReferences();
-		resolveAllReference();
+		resolveGroupReferences();
 		for (WeakReference<TRT> ref : typeReferences.values())
 		{
 			TRT trt = ref.get();
@@ -374,9 +374,9 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 		}
 	}
 
-	private void resolveAllReference()
+	private void resolveGroupReferences()
 	{
-		for (T obj : getAllObjects())
+		for (T obj : getAllResolvableObjects())
 		{
 			if (allRef != null)
 			{
@@ -410,6 +410,11 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 					+ " objects were loaded but were referred to in the data");
 			fireUnconstuctedEvent(allRef);
 		}
+	}
+
+	protected Collection<T> getAllResolvableObjects()
+	{
+		return getAllObjects();
 	}
 
 	/**
