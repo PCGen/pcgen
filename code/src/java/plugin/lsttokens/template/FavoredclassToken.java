@@ -41,14 +41,14 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FAVOREDCLASS Token
  */
-public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryParserToken<PCTemplate>, ChooseResultActor
+public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
+		implements CDOMPrimaryToken<PCTemplate>, ChooseResultActor
 {
 
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

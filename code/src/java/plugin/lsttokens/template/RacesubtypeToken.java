@@ -27,14 +27,14 @@ import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryParserToken<PCTemplate>
+public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
+		implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override

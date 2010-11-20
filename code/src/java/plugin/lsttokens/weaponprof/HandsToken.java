@@ -22,13 +22,14 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken extends AbstractIntToken<WeaponProf> implements CDOMPrimaryParserToken<WeaponProf>
+public class HandsToken extends AbstractIntToken<WeaponProf> implements
+		CDOMPrimaryToken<WeaponProf>
 {
 
 	public String getTokenName()

@@ -49,7 +49,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -59,7 +59,7 @@ import pcgen.util.enumeration.Visibility;
  * Class deals with FEAT Token
  */
 public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryParserToken<PCTemplate>, PersistentChoiceActor<AbilitySelection>,
+		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<AbilitySelection>,
 		DeferredToken<PCTemplate>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;

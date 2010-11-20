@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with REACH Token
  */
-public class ReachToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
+public class ReachToken extends AbstractIntToken<PCTemplate> implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
 	public String getTokenName()

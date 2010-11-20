@@ -22,14 +22,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with GENDERLOCK Token
  */
-public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryParserToken<PCTemplate>
+public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
+		implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override

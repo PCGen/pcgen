@@ -33,14 +33,15 @@ import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * New Token to support Adding Levels to say a Lycanthorpe template
  */
-public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryParserToken<PCTemplate>
+public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override

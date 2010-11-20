@@ -23,14 +23,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CR Token
  */
 public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryParserToken<PCTemplate>
+		CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
