@@ -33,7 +33,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -48,11 +47,6 @@ public class HitdieLst extends AbstractToken implements
 	public String getTokenName()
 	{
 		return "HITDIE";
-	}
-
-	public boolean parse(LoadContext context, PCClassLevel level, String value)
-	{
-		return ErrorParsingWrapper.parseToken(this, context, level, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, PCClassLevel level, String value)

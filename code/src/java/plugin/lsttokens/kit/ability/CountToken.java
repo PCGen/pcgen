@@ -29,7 +29,6 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -57,11 +56,6 @@ public class CountToken extends AbstractToken implements
 	public String getParentToken()
 	{
 		return "*KITTOKEN";
-	}
-
-	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
-	{
-		return ErrorParsingWrapper.parseToken(this, context, kitAbil, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, KitAbilities kitAbil,
