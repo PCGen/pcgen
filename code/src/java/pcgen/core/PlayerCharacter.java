@@ -7996,7 +7996,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		for (Domain d : domainFacet.getSet(id))
+		//Clone to avoid Concurrent Mod Exception, CODE-153
+		for (Domain d : new ArrayList<Domain>(domainFacet.getSet(id)))
 		{
 			if (!isDomainValid(d, this.getDomainSource(d)))
 			{
