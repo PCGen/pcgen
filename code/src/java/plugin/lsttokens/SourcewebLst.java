@@ -12,14 +12,14 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
  *
  */
 public class SourcewebLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>, InstallLstToken
+		CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
 	@Override

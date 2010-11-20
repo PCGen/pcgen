@@ -43,7 +43,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -63,7 +63,7 @@ import pcgen.util.Logging;
  * @version $Revision:  $
  */
 public class SpellknownLst extends AbstractSpellListToken implements
-		CDOMPrimaryParserToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	/* (non-Javadoc)

@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -36,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override

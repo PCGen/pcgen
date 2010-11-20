@@ -16,7 +16,7 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -25,7 +25,7 @@ import pcgen.util.Logging;
  *
  */
 public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>, InstallLstToken
+		CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
 	@Override

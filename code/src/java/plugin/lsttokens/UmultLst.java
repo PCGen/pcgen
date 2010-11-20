@@ -22,14 +22,15 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class UmultLst extends AbstractIntToken<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
+public class UmultLst extends AbstractIntToken<CDOMObject> implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	public String getTokenName()

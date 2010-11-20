@@ -35,8 +35,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -44,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class TemplateLst extends AbstractToken implements
-		CDOMPrimaryParserToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
+		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -53,11 +52,6 @@ public class TemplateLst extends AbstractToken implements
 	public String getTokenName()
 	{
 		return "TEMPLATE";
-	}
-
-	public boolean parse(LoadContext context, CDOMObject cdo, String value)
-	{
-		return ErrorParsingWrapper.parseToken(this, context, cdo, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
