@@ -21,7 +21,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
@@ -30,7 +30,7 @@ import pcgen.util.Logging;
  * Deals with the MULT token
  */
 public class MultToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>, PostDeferredToken<Ability>
+		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 
 	@Override

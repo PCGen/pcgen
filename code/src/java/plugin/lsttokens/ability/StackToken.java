@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deal with STACK token
  */
 public class StackToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>
+		CDOMPrimaryToken<Ability>
 {
 
 	@Override

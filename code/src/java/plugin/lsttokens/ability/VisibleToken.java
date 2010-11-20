@@ -21,7 +21,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
@@ -36,7 +36,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public class VisibleToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>
+		CDOMPrimaryToken<Ability>
 {
 
 	/**

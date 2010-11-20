@@ -33,7 +33,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.PatternChanges;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * This class deals with the BENEFIT Token
  */
 public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>
+		CDOMPrimaryToken<Ability>
 {
 
 	@Override

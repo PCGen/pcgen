@@ -35,7 +35,7 @@ import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -56,7 +56,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @version $Revision: $
  */
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryParserToken<Ability>
+		CDOMPrimaryToken<Ability>
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()

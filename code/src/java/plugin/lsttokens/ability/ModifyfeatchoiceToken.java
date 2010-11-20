@@ -44,7 +44,7 @@ import pcgen.core.chooser.ChooserUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
@@ -53,8 +53,8 @@ import pcgen.util.enumeration.Tab;
 /**
  * Deals with the MODIFYFEATCHOICE token
  */
-public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability> implements
-		CDOMPrimaryParserToken<Ability>, ChoiceActor<Ability>
+public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
+		implements CDOMPrimaryToken<Ability>, ChoiceActor<Ability>
 {
 
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;

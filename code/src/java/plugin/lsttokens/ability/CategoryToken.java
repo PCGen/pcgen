@@ -21,16 +21,15 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Deal with CATEGORY token
  */
-public class CategoryToken extends ErrorParsingWrapper<Ability> implements CDOMPrimaryParserToken<Ability>,
+public class CategoryToken implements CDOMPrimaryToken<Ability>,
 		DeferredToken<Ability>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;

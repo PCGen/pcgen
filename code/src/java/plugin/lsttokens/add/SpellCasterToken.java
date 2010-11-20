@@ -47,7 +47,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class SpellCasterToken extends AbstractToken implements
@@ -70,11 +69,6 @@ public class SpellCasterToken extends AbstractToken implements
 	public String getTokenName()
 	{
 		return "SPELLCASTER";
-	}
-
-	public boolean parse(LoadContext context, CDOMObject obj, String value)
-	{
-		return ErrorParsingWrapper.parseToken(this, context, obj, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
