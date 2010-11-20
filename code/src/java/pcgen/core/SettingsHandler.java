@@ -111,6 +111,7 @@ public final class SettingsHandler
 	private static int sourceStatusReleaseColor = 0x000000; // black
 	private static int sourceStatusAlphaColor = 0xFF0000; // red
 	private static int sourceStatusBetaColor = 0x800000; // maroon
+	private static int sourceStatusTestColor = 0xFF00FF; // magenta
 	private static final Properties filterSettings = new Properties();
 	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
@@ -625,6 +626,16 @@ public final class SettingsHandler
 	public static int getSourceStatusBetaColor()
 	{
 		return sourceStatusBetaColor;
+	}
+
+	public static void setSourceStatusTestColor(final int newColor)
+	{
+		sourceStatusTestColor = newColor & 0x00FFFFFF;
+	}
+
+	public static int getSourceStatusTestColor()
+	{
+		return sourceStatusTestColor;
 	}
 
 	public static void setFilePaths(final String aString)
@@ -1339,6 +1350,7 @@ public final class SettingsHandler
 		setSourceStatusReleaseColor(getPCGenOption("sourceStatusReleaseColor", Color.black.getRGB())); //$NON-NLS-1$
 		setSourceStatusAlphaColor(getPCGenOption("sourceStatusAlphaColor", Color.red.getRGB())); //$NON-NLS-1$
 		setSourceStatusBetaColor(getPCGenOption("sourceStatusBetaColor", new Color(128, 0, 0).getRGB())); //$NON-NLS-1$
+		setSourceStatusTestColor(getPCGenOption("sourceStatusTestColor", Color.magenta.getRGB())); //$NON-NLS-1$
 		setSummaryTabShown(getPCGenOption("summaryTabShown", true)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setTemplateSelTab_ListMode(getPCGenOption("TemplateTab.selectedListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
@@ -1731,6 +1743,7 @@ public final class SettingsHandler
 		setPCGenOption("sourceStatusReleaseColor", "0x" + Integer.toHexString(getSourceStatusReleaseColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("sourceStatusAlphaColor", "0x" + Integer.toHexString(getSourceStatusAlphaColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("sourceStatusBetaColor", "0x" + Integer.toHexString(getSourceStatusBetaColor())); //$NON-NLS-1$ //$NON-NLS-2$
+		setPCGenOption("sourceStatusTestColor", "0x" + Integer.toHexString(getSourceStatusTestColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.availableListMode", getSpellsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.selectedListMode", getSpellsTab_SelectedListMode()); //$NON-NLS-1$

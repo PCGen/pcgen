@@ -164,11 +164,13 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_colorVirtFeat");
 
 	private static String in_colorSourceRelease =
-		PropertyFactory.getString("in_Prefs_colorStatusRelease");
+			PropertyFactory.getString("in_Prefs_colorStatusRelease");
 	private static String in_colorSourceAlpha =
-		PropertyFactory.getString("in_Prefs_colorStatusAlpha");
+			PropertyFactory.getString("in_Prefs_colorStatusAlpha");
 	private static String in_colorSourceBeta =
-		PropertyFactory.getString("in_Prefs_colorStatusBeta");
+			PropertyFactory.getString("in_Prefs_colorStatusBeta");
+	private static String in_colorSourceTest =
+			PropertyFactory.getString("in_Prefs_colorStatusTest");
 
 	private static String in_charTabPlacement =
 			PropertyFactory.getString("in_Prefs_charTabPlacement");
@@ -317,6 +319,7 @@ final class PreferencesDialog extends JDialog
 	private JButton sourceStatusRelease;
 	private JButton sourceStatusAlpha;
 	private JButton sourceStatusBeta;
+	private JButton sourceStatusTest;
 	private JButton outputSheetEqSetButton;
 	private JButton outputSheetHTMLDefaultButton;
 	private JButton outputSheetPDFDefaultButton;
@@ -1005,6 +1008,8 @@ final class PreferencesDialog extends JDialog
 				.getSourceStatusAlphaColor()));
 		sourceStatusBeta.setForeground(new Color(SettingsHandler
 				.getSourceStatusBetaColor()));
+		sourceStatusTest.setForeground(new Color(SettingsHandler
+				.getSourceStatusTestColor()));
 
 		// Tab options
 		switch (SettingsHandler.getTabPlacement())
@@ -1256,6 +1261,8 @@ final class PreferencesDialog extends JDialog
 				sourceStatusAlpha = new JButton(in_colorSourceAlpha));
 		addColorsOption(1, 2, c, gridbag, colorsPanel, 
 				sourceStatusBeta = new JButton(in_colorSourceBeta));
+		addColorsOption(1, 3, c, gridbag, colorsPanel,
+				sourceStatusTest = new JButton(in_colorSourceTest));
 		
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -2765,10 +2772,10 @@ final class PreferencesDialog extends JDialog
 			{
 				// Do nothing
 			}
-			else if ((source == prereqQualifyColor)
-				|| (source == prereqFailColor) || (source == featAutoColor)
-				|| (source == featVirtualColor) || (source == sourceStatusRelease)
-				|| (source == sourceStatusAlpha) || (source == sourceStatusBeta))
+			else if ((source == prereqQualifyColor) || (source == prereqFailColor)
+				|| (source == featAutoColor) || (source == featVirtualColor)
+				|| (source == sourceStatusRelease) || (source == sourceStatusAlpha)
+				|| (source == sourceStatusBeta) || (source == sourceStatusTest))
 			{
 				final Color newColor =
 						JColorChooser.showDialog(Globals.getRootFrame(),
@@ -2808,6 +2815,10 @@ final class PreferencesDialog extends JDialog
 					else if (source == sourceStatusBeta)
 					{
 						SettingsHandler.setSourceStatusBetaColor(newColor.getRGB());
+					}
+					else if (source == sourceStatusTest)
+					{
+						SettingsHandler.setSourceStatusTestColor(newColor.getRGB());
 					}
 				}
 			}

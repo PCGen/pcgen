@@ -52,9 +52,13 @@ public class StatusToken extends ErrorParsingWrapper<Campaign> implements CDOMPr
 		{
 			set = Status.Beta;
 		}
+		else if (value.equalsIgnoreCase("TESTONLY"))
+		{
+			set = Status.TestOnly;
+		}
 		else
 		{
-			return new ParseResult.Fail("You should use 'RELEASE', 'ALPHA', or 'BETA' as the "
+			return new ParseResult.Fail("You should use 'RELEASE', 'ALPHA', 'BETA', or 'TESTONLY' as the "
 				+ getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(campaign, ObjectKey.STATUS, set);

@@ -65,6 +65,19 @@ public enum Status
 		{
 			return SettingsHandler.getSourceStatusBetaColor();
 		}
+	},
+
+	TestOnly {
+		@Override
+		public String toString()
+		{
+			return "Test Only";
+		}
+		@Override
+		public int getColor()
+		{
+			return SettingsHandler.getSourceStatusTestColor();
+		}
 	};
 
 	public static Status getDefaultValue()
