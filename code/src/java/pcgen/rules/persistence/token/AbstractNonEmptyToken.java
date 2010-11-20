@@ -24,14 +24,6 @@ import pcgen.rules.context.LoadContext;
  */
 public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements CDOMToken<T>
 {
-	/*
-	 * Temporary class while switching to new parsing paradigm.
-	 */
-	public boolean parse(LoadContext context, T obj, String value)
-	{
-		return ErrorParsingWrapper.parseToken(this, context, obj, value);
-	}
-
 	/**
 	 * Checks to make sure the value is non-empty before continuing parsing.
 	 */

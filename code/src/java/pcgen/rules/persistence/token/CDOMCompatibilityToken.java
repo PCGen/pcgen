@@ -17,7 +17,7 @@
  */
 package pcgen.rules.persistence.token;
 
-public interface CDOMCompatibilityToken<T> extends CDOMParserToken<T>,
+public interface CDOMCompatibilityToken<T> extends CDOMToken<T>,
 		CompatibilityToken
 {
 }

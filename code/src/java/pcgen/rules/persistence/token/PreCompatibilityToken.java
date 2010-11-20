@@ -30,8 +30,8 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 
-public class PreCompatibilityToken extends ErrorParsingWrapper<ConcretePrereqObject> implements
-		CDOMPrimaryParserToken<ConcretePrereqObject>,
+public class PreCompatibilityToken implements
+		CDOMPrimaryToken<ConcretePrereqObject>,
 		CDOMSecondaryToken<ConcretePrereqObject>
 {
 	private static PrerequisiteWriterFactory factory = PrerequisiteWriterFactory

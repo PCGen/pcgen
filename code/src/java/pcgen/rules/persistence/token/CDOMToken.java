@@ -17,16 +17,11 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 
 public interface CDOMToken<T> extends LstToken
 {
-	@Deprecated
-	public boolean parse(LoadContext context, T obj, String value)
-		throws PersistenceLayerException;
-
 	public ParseResult parseToken(LoadContext context, T obj, String value);
 
 	public Class<T> getTokenClass();

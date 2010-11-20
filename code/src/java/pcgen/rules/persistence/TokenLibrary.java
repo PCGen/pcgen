@@ -34,7 +34,6 @@ import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
@@ -154,7 +153,7 @@ public final class TokenLibrary
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
 				addToTokenMap(new ClassWrappedToken(
-						(CDOMPrimaryParserToken<PCClass>) tok));
+						(CDOMPrimaryToken<PCClass>) tok));
 			}
 		}
 		if (newToken instanceof CDOMSecondaryToken)

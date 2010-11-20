@@ -24,7 +24,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Parses a token of the form: <Token Name>:<int>
  */
-public abstract class AbstractIntToken<T extends CDOMObject> extends ErrorParsingWrapper<T>
+public abstract class AbstractIntToken<T extends CDOMObject>
 {
 	/**
 	 * Override this to set a maximum value.
@@ -75,6 +75,8 @@ public abstract class AbstractIntToken<T extends CDOMObject> extends ErrorParsin
 		return ParseResult.SUCCESS;
 	}
 	
+	protected abstract String getTokenName();
+
 	/**
 	 * This must be overridden to specify the key.
 	 * @return The key.

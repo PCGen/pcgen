@@ -23,14 +23,14 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 
-public class ClassWrappedToken extends ErrorParsingWrapper<PCClassLevel> implements CDOMCompatibilityToken<PCClassLevel>
+public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 {
 
 	private static int wrapIndex = Integer.MIN_VALUE;
 
 	private static final Integer ONE = Integer.valueOf(1);
 
-	private final CDOMParserToken<PCClass> wrappedToken;
+	private final CDOMToken<PCClass> wrappedToken;
 
 	private final int priority = wrapIndex++;
 
@@ -39,7 +39,7 @@ public class ClassWrappedToken extends ErrorParsingWrapper<PCClassLevel> impleme
 		return PCClassLevel.class;
 	}
 
-	public ClassWrappedToken(CDOMParserToken<PCClass> tok)
+	public ClassWrappedToken(CDOMToken<PCClass> tok)
 	{
 		wrappedToken = tok;
 	}
