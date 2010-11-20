@@ -20,14 +20,13 @@ package plugin.lsttokens.campaign;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BOOKTYPE Token
  */
-public class BooktypeToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>
+public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()

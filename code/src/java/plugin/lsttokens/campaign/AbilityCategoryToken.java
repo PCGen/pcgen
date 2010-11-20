@@ -30,7 +30,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -43,8 +43,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class AbilityCategoryToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+public class AbilityCategoryToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>
 {
 
 	/**

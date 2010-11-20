@@ -36,8 +36,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -50,7 +49,7 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class UrlToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>
+public class UrlToken implements CDOMPrimaryToken<Campaign>
 {
 
 	private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";

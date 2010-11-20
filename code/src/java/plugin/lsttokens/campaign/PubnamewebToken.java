@@ -24,14 +24,14 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PUBNAMEWEB Token
  */
 public class PubnamewebToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>, InstallLstToken
+		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override

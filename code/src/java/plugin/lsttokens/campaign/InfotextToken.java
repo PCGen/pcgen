@@ -28,14 +28,14 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with INFOTEXT Token
  */
-public class InfotextToken extends AbstractNonEmptyToken<Campaign>  implements 
-		CDOMPrimaryParserToken<Campaign>, InstallLstToken
+public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
+		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override

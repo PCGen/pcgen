@@ -27,14 +27,14 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LICENSE Token
  */
 public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+		CDOMPrimaryToken<Campaign>
 {
 
 	@Override

@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with RANK Token
  */
-public class RankToken extends AbstractIntToken<Campaign> implements CDOMPrimaryParserToken<Campaign>
+public class RankToken extends AbstractIntToken<Campaign> implements
+		CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()

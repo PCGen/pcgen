@@ -27,14 +27,14 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LANGUAGE Token
  */
-public class LanguageToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+public class LanguageToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override

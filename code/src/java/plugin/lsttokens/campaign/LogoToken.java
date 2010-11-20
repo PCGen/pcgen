@@ -34,7 +34,7 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -47,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @version $Revision$
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>, InstallLstToken
+		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	/* (non-Javadoc)

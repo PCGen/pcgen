@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Status;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATUS Token
  */
-public class StatusToken extends ErrorParsingWrapper<Campaign> implements CDOMPrimaryParserToken<Campaign>
+public class StatusToken implements CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()

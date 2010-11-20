@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ISD20 Token
  */
 public class Isd20Token extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+		CDOMPrimaryToken<Campaign>
 {
 
 	@Override

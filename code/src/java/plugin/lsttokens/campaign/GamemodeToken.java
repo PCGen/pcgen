@@ -27,15 +27,15 @@ import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with GAMEMODE Token
  */
-public class GamemodeToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override

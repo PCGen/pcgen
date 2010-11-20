@@ -35,13 +35,13 @@ import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
-public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryParserToken<Campaign>
+public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
