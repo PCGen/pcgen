@@ -86,7 +86,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			if (cat != null)
 			{
 				Category<T> parent = cat.getParentCategory();
-				if (parent != null)
+				if (parent != null && !parent.equals(cat))
 				{
 					parentMfg = getManufacturer(cl, parent);
 				}
