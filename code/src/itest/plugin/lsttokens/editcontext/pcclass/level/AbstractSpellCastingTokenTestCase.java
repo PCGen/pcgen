@@ -38,7 +38,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(getToken().parse(primaryContext, primaryProf2, s));
+			assertTrue(getToken().parseToken(primaryContext, primaryProf2, s).passed());
 			primaryContext.commit();
 		}
 		// Doesn't pollute other levels

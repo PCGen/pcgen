@@ -110,7 +110,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(getToken().parse(primaryContext, primaryProf2, s));
+			assertTrue(getToken().parseToken(primaryContext, primaryProf2, s).passed());
 		}
 		// Doesn't pollute other levels
 		assertNull(getToken().unparse(primaryContext, primaryProf1));
