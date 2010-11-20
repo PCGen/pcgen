@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * 
  */
 public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>, DeferredToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	@Override

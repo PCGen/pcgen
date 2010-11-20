@@ -20,15 +20,14 @@ package plugin.lsttokens;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class NameispiLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
+public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 {
 
 	public String getTokenName()

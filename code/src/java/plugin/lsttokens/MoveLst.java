@@ -29,7 +29,7 @@ import pcgen.core.Movement;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override

@@ -32,7 +32,7 @@ import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.PatternChanges;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -41,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author djones4
  */
 public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()

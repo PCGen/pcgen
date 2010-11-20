@@ -50,7 +50,7 @@ import pcgen.persistence.lst.LstUtils;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -103,8 +103,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author divaa01
  *
  */
-public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>
 {
 	private static final String COMPANIONLIST = "COMPANIONLIST"; //$NON-NLS-1$
 	private static final String FOLLOWERADJUSTMENT = "FOLLOWERADJUSTMENT"; //$NON-NLS-1$

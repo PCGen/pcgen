@@ -38,15 +38,15 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>, ChooseResultActor
+public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, ChooseResultActor
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;

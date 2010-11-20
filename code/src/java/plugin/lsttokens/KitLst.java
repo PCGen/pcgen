@@ -42,7 +42,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -50,7 +50,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>, ChoiceActor<Kit>
+		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Kit>
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;

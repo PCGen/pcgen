@@ -53,7 +53,7 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -101,8 +101,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @since 5.11.1
  *
  */
-public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;

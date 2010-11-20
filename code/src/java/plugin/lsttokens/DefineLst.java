@@ -31,16 +31,14 @@ import pcgen.core.PCStat;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  * 
  */
-public class DefineLst extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 {
 
 	public static final Class<PCStat> PCSTAT_CLASS = PCStat.class;

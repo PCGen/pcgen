@@ -26,7 +26,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -35,7 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>
 {
 	/*
 	 * Template's LevelToken adjustment done in addAddsFromAllObjForLevel() in

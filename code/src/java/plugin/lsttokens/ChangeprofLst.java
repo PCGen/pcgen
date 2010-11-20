@@ -39,7 +39,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -47,8 +47,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author djones4
  *
  */
-public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryParserToken<CDOMObject>
+public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;

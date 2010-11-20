@@ -31,16 +31,15 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  */
-public class BonusLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>,
+public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

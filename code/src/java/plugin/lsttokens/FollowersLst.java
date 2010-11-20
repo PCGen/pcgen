@@ -36,8 +36,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -69,7 +68,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author divaa01
  *
  */
-public class FollowersLst extends ErrorParsingWrapper<CDOMObject> implements CDOMPrimaryParserToken<CDOMObject>
+public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 {
 	/**
 	 *
