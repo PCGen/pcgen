@@ -26,13 +26,12 @@ import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-public class FeatEqToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
+public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
+		PostDeferredToken<CDOMObject>
 {
 
 	public String getTokenName()

@@ -21,12 +21,10 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class LanguageToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()

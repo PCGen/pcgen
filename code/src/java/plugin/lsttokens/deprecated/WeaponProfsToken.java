@@ -22,12 +22,10 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class WeaponProfsToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()

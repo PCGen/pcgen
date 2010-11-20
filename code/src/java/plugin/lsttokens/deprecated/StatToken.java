@@ -27,12 +27,10 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class StatToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class StatToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()

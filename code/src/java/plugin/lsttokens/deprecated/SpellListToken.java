@@ -20,11 +20,9 @@ package plugin.lsttokens.deprecated;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SpellListToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class SpellListToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()

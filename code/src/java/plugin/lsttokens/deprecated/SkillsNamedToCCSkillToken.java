@@ -23,12 +23,10 @@ import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class SkillsNamedToCCSkillToken extends ErrorParsingWrapper<Ability>
-		implements CDOMSecondaryToken<Ability>
+public class SkillsNamedToCCSkillToken implements CDOMSecondaryToken<Ability>
 {
 
 	public String getTokenName()

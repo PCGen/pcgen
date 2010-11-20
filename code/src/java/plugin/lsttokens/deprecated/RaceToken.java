@@ -21,11 +21,9 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class RaceToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMCompatibilityToken<CDOMObject>
+public class RaceToken implements CDOMCompatibilityToken<CDOMObject>
 {
 
 	public String getTokenName()

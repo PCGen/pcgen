@@ -19,27 +19,21 @@ package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HASSUBSTITUTIONLEVEL Token
  */
-public class HassubstitutionlevelToken implements DeprecatedToken, CDOMPrimaryParserToken<PCClass>
+public class HassubstitutionlevelToken implements DeprecatedToken,
+		CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()
 	{
 		return "HASSUBSTITUTIONLEVEL";
-	}
-
-	public boolean parse(LoadContext context, PCClass obj, String value)
-			throws PersistenceLayerException
-	{
-		return true;
 	}
 
 	public ParseResult parseToken(LoadContext context, PCClass obj, String value)

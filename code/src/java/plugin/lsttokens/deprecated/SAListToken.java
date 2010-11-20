@@ -21,11 +21,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SAListToken extends ErrorParsingWrapper<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class SAListToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
