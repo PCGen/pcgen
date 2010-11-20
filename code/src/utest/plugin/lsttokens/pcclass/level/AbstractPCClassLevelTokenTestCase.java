@@ -184,8 +184,8 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public boolean parse(String str, int level)
 			throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(primaryContext,
-				primaryProf.getOriginalClassLevel(level), str);
+		boolean b = getToken().parseToken(primaryContext,
+				primaryProf.getOriginalClassLevel(level), str).passed();
 		if (b)
 		{
 			primaryContext.commit();
@@ -202,8 +202,8 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public boolean parseSecondary(String str, int level)
 			throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(secondaryContext,
-				secondaryProf.getOriginalClassLevel(level), str);
+		boolean b = getToken().parseToken(secondaryContext,
+				secondaryProf.getOriginalClassLevel(level), str).passed();
 		if (b)
 		{
 			secondaryContext.commit();

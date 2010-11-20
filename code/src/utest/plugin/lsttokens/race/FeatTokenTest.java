@@ -127,7 +127,7 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 	@Test
 	public void testInvalidInputEmpty()
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, ""));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
 	}
 
@@ -137,8 +137,8 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 		construct(primaryContext, "TestWP1");
 		try
 		{
-			assertFalse(token.parse(primaryContext, primaryProf,
-					"PRECLASS:1,Fighter=1"));
+			assertFalse(token.parseToken(primaryContext, primaryProf,
+					"PRECLASS:1,Fighter=1").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -153,8 +153,8 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 		construct(primaryContext, "TestWP1");
 		try
 		{
-			assertFalse(token.parse(primaryContext, primaryProf,
-					"TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
+			assertFalse(token.parseToken(primaryContext, primaryProf,
+					"TestWP1|PRECLASS:1,Fighter=1|TestWP2").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -167,8 +167,8 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 	public void testInvalidInputDoublePipePre()
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(token.parse(primaryContext, primaryProf,
-				"TestWP1||PRECLASS:1,Fighter=1"));
+		assertFalse(token.parseToken(primaryContext, primaryProf,
+				"TestWP1||PRECLASS:1,Fighter=1").passed());
 		assertNoSideEffects();
 	}
 

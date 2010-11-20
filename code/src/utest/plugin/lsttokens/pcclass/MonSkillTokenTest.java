@@ -161,7 +161,7 @@ public class MonSkillTokenTest extends AbstractTokenTestCase<PCClass>
 		addBonus("MONNONSKILLHD", MonNonSkillHD.class);
 		MonnonskillhdToken othertoken = new MonnonskillhdToken();
 		TokenRegistration.register(othertoken);
-		assertTrue(othertoken.parse(primaryContext, primaryProf, "1"));
+		assertTrue(othertoken.parseToken(primaryContext, primaryProf, "1").passed());
 		primaryContext.commit();
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertNotNull(primaryContext.unparse(primaryProf));

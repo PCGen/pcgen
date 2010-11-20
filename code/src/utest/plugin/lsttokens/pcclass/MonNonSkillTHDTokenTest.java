@@ -105,7 +105,7 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 		MonskillToken monskill = new MonskillToken();
 		TokenRegistration.register(new PreLevelMaxParser());
 		TokenRegistration.register(monskill);
-		assertTrue(monskill.parse(primaryContext, primaryProf, "1"));
+		assertTrue(monskill.parseToken(primaryContext, primaryProf, "1").passed());
 		primaryContext.commit();
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertNotNull(primaryContext.unparse(primaryProf));

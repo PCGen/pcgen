@@ -130,8 +130,8 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	{
 		try
 		{
-			boolean result = getToken().parse(primaryContext, primaryProf,
-					"TYPE=TestType");
+			boolean result = getToken().parseToken(primaryContext, primaryProf,
+					"TYPE=TestType").passed();
 			if (result)
 			{
 				assertFalse(primaryContext.ref.validate(null));

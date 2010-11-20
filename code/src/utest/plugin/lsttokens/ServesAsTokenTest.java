@@ -70,8 +70,8 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidObject() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, new EquipmentModifier(),
-				"Fireball"));
+		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
+				"Fireball").passed());
 	}
 
 	@Test

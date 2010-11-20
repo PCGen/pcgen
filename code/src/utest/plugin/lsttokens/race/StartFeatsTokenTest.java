@@ -101,21 +101,21 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testInvalidEquation() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "1+2"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidString() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "String"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDecimal() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "4.0"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
 		assertNoSideEffects();
 	}
 

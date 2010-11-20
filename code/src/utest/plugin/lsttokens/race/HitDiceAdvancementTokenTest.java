@@ -56,7 +56,7 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, ""));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
 	}
 
@@ -70,63 +70,63 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testInvalidEmptyValue1() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, ",2,3,4"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, ",2,3,4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue2() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "1,,3,4"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "1,,3,4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValueLast() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "1,2,3,"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "1,2,3,").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNegativeValue() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "-1,2,3"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "-1,2,3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDecreasingValue() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "5,3,8"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "5,3,8").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmbeddedSplat() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "5,*,8"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "5,*,8").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNaN() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "5,N"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "5,N").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTooMuchSplat() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "5,8*"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "5,8*").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTooMuchAfterSplat() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "5,*8"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "5,*8").passed());
 		assertNoSideEffects();
 	}
 

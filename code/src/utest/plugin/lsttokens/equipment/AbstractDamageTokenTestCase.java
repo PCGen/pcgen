@@ -50,7 +50,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	@Test
 	public void testInvalidEmptyInput() throws PersistenceLayerException
 	{
-		assertFalse(getToken().parse(primaryContext, primaryProf, ""));
+		assertFalse(getToken().parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test

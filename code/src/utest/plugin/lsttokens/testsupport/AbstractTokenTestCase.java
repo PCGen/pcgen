@@ -212,7 +212,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(primaryContext, primaryProf, str);
+		boolean b = getToken().parseToken(primaryContext, primaryProf, str).passed();
 		if (b)
 		{
 			primaryContext.commit();
@@ -228,7 +228,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public boolean parseSecondary(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(secondaryContext, secondaryProf, str);
+		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)
 		{
 			secondaryContext.commit();
@@ -251,7 +251,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 	{
 		try
 		{
-			getToken().parse(primaryContext, primaryProf, null);
+			getToken().parseToken(primaryContext, primaryProf, null);
 		}
 		catch (Exception e)
 		{

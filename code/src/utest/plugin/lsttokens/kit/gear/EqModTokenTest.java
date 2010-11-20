@@ -274,8 +274,8 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 	{
 		try
 		{
-			boolean result = token.parse(primaryContext, primaryProf,
-					"TYPE=TestType");
+			boolean result = token.parseToken(primaryContext, primaryProf,
+					"TYPE=TestType").passed();
 			if (result)
 			{
 				assertFalse(primaryContext.ref.validate(null));

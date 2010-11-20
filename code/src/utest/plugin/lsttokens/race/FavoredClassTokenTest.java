@@ -212,8 +212,8 @@ public class FavoredClassTokenTest extends
 	{
 		try
 		{
-			boolean result = token.parse(primaryContext, primaryProf,
-					"TYPE=TestType");
+			boolean result = token.parseToken(primaryContext, primaryProf,
+					"TYPE=TestType").passed();
 			if (result)
 			{
 				assertFalse(primaryContext.ref.validate(null));

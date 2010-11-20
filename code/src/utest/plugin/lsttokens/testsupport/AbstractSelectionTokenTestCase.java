@@ -323,8 +323,8 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		{
 			try
 			{
-				boolean result = getToken().parse(primaryContext, primaryProf,
-						"TYPE=TestType");
+				boolean result = getToken().parseToken(primaryContext, primaryProf,
+						"TYPE=TestType").passed();
 				if (result)
 				{
 					assertFalse(primaryContext.ref.validate(null));

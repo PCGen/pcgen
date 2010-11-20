@@ -167,7 +167,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(primaryContext, primaryProf, str);
+		boolean b = getToken().parseToken(primaryContext, primaryProf, str).passed();
 		if (b)
 		{
 			primaryContext.commit();
@@ -183,7 +183,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parseSecondary(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parse(secondaryContext, secondaryProf, str);
+		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)
 		{
 			secondaryContext.commit();

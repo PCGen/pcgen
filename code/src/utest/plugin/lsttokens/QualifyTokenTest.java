@@ -71,8 +71,8 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidObject() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, new EquipmentModifier(),
-				"SPELL|Fireball"));
+		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
+				"SPELL|Fireball").passed());
 	}
 
 	@Test

@@ -213,8 +213,8 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf,
-				"PRECLASS:1,Fighter=1"));
+		assertFalse(token.parseToken(primaryContext, primaryProf,
+				"PRECLASS:1,Fighter=1").passed());
 		assertNoSideEffects();
 	}
 
@@ -265,8 +265,8 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmbeddedPre() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf,
-				"SPELL.Fireball,Lightning Bolt|PRECLASS:1,Fighter=1|TestWP2"));
+		assertFalse(token.parseToken(primaryContext, primaryProf,
+				"SPELL.Fireball,Lightning Bolt|PRECLASS:1,Fighter=1|TestWP2").passed());
 		assertNoSideEffects();
 	}
 
@@ -274,16 +274,16 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipePre()
 			throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf,
-				"SPELL.Fireball||PRECLASS:1,Fighter=1"));
+		assertFalse(token.parseToken(primaryContext, primaryProf,
+				"SPELL.Fireball||PRECLASS:1,Fighter=1").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputPostPrePipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parse(primaryContext, primaryProf,
-				"TestWP1|PRECLASS:1,Fighter=1|"));
+		assertFalse(token.parseToken(primaryContext, primaryProf,
+				"TestWP1|PRECLASS:1,Fighter=1|").passed());
 		assertNoSideEffects();
 	}
 

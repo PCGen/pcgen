@@ -88,7 +88,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testInvalidNotASize()
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, "W"));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "W").passed());
 		assertNoSideEffects();
 	}
 

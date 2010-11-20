@@ -129,7 +129,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testInvalidInputEmpty()
 	{
-		assertFalse(token.parse(primaryContext, primaryProf, ""));
+		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
 	}
 
