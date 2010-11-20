@@ -20,15 +20,14 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with XTRAFEATS Token
  */
-public class XtrafeatsToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 {
 
 	/**

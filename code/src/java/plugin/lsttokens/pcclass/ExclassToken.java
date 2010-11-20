@@ -22,14 +22,14 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with EXCLASS Token
  */
 public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+		CDOMPrimaryToken<PCClass>
 {
 
 	@Override

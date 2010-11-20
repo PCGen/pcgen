@@ -35,15 +35,15 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KNOWNSPELLS Token
  */
-public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;

@@ -21,14 +21,13 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HD Token
  */
-public class HdToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class HdToken implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()

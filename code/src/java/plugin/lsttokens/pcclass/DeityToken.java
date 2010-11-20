@@ -29,14 +29,14 @@ import pcgen.core.PCClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DEITY Token
  */
 public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+		CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;

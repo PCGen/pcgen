@@ -30,15 +30,15 @@ import pcgen.core.SpellProhibitor;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * Class deals with PROHIBITED Token
  */
-public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

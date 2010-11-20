@@ -34,14 +34,14 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SKILLLIST Token
  */
-public class SkilllistToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 	private static Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
 

@@ -21,7 +21,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -30,8 +30,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * Added for [ 1849571 ] New Class tag: ALLOWBASECLASS:x
  * 
  */
-public class AllowBaseClassToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class AllowBaseClassToken extends AbstractNonEmptyToken<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 	@Override
 	public String getTokenName()

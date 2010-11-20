@@ -29,14 +29,14 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WEAPONBONUS Token
  */
-public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;

@@ -28,14 +28,14 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MONNONSKILLHD Token
  */
-public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

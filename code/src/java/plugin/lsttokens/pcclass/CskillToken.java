@@ -36,7 +36,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
@@ -45,7 +45,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
  * 
  */
 public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>, PostDeferredToken<PCClass>
+		CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 

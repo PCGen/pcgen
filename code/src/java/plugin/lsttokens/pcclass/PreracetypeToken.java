@@ -23,7 +23,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -32,7 +32,7 @@ import pcgen.util.Logging;
  * Class deals with PRERACETYPE Token
  */
 public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>, DeferredToken<PCClass>
+		CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
 {
 
 	@Override

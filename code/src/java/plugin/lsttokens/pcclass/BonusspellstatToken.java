@@ -22,14 +22,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BONUSSPELLSTAT Token
  */
-public class BonusspellstatToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;

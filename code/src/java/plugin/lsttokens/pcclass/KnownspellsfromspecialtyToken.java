@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with KNOWNSPELLSFROMSPECIALTY Token
  */
-public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()

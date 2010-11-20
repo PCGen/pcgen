@@ -21,14 +21,13 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MAXLEVEL Token
  */
-public class MaxlevelToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()

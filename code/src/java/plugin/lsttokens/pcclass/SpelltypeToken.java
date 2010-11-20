@@ -21,14 +21,13 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLTYPE Token
  */
-public class SpelltypeToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
+public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()

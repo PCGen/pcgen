@@ -29,15 +29,15 @@ import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.AttackType;
 
 /**
  * Class deals with ATTACKCYCLE Token
  */
-public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

@@ -21,14 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MEMORIZE Token
  */
 public class MemorizeToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryParserToken<PCClass>
+		CDOMPrimaryToken<PCClass>
 {
 
 	@Override
