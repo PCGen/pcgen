@@ -17,14 +17,18 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserChooseInformation;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>
@@ -46,7 +50,34 @@ public class UserInputToken extends ErrorParsingWrapper<CDOMObject> implements
 		UserChooseInformation ci = new UserChooseInformation();
 		if (value != null)
 		{
-			if (!value.startsWith("TITLE="))
+			int pipeLoc = value.indexOf('|');
+			String titleString;
+			if (pipeLoc == -1)
+			{
+				titleString = value;
+			}
+			else
+			{
+				String countString = value.substring(0, pipeLoc);
+				Logging.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
+						+ "please use SELECT: to identify the quantity of selections");
+				int firstarg;
+				try
+				{
+					firstarg = Integer.parseInt(countString);
+				}
+				catch (NumberFormatException nfe)
+				{
+					return new ParseResult.Fail("If CHOOSE:" + getTokenName()
+							+ " contains a pipe, "
+							+ "first argument must be an Integer : " + value);
+				}
+				Formula count = FormulaFactory.getFormulaFor(firstarg);
+				context.obj.put(obj, FormulaKey.NUMCHOICES, count);
+				context.obj.put(obj, FormulaKey.SELECT, count);
+				titleString = value.substring(pipeLoc + 1);
+			}
+			if (!titleString.startsWith("TITLE="))
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
 						+ obj.getClass() + " " + obj.getKeyName()
