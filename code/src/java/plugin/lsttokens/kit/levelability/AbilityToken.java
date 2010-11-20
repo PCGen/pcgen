@@ -35,7 +35,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -63,12 +62,6 @@ public class AbilityToken extends AbstractToken implements
 	public String getParentToken()
 	{
 		return "*KITTOKEN";
-	}
-
-	public boolean parse(LoadContext context, KitLevelAbility kitAbility,
-		String value) throws PersistenceLayerException
-	{
-		return ErrorParsingWrapper.parseToken(this, context, kitAbility, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility,

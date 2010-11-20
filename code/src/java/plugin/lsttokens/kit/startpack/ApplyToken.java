@@ -30,13 +30,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with APPLY lst token within KitStartpack
  */
-public class ApplyToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryParserToken<Kit>
+public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.

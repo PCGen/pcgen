@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
@@ -37,7 +37,7 @@ import pcgen.util.enumeration.Visibility;
  * VISIBLE token for KitsStartpack
  */
 public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryParserToken<Kit>
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
