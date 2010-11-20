@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -156,7 +157,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	public abstract CharSequence getPrimitiveLST();
 
 	public boolean allow(PlayerCharacter pc, int level, String source,
-			Spell spell)
+			Spell spell, CDOMList<Spell> optionalList)
 	{
 		String defaultbook = Globals.getDefaultSpellBook();
 		if (restriction != null)
@@ -179,6 +180,19 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				boolean found = false;
 				for (PCClass cl : pc.getClassSet())
 				{
+					if (optionalList != null)
+					{
+						/*
+						 * This may not be a precise test of intent, but given
+						 * the weirdness we have on lists and the use of
+						 * SPELLLIST tag in data to share lists between classes,
+						 * this is probably the closest we can get
+						 */
+						if (!cl.hasSpellList(pc, optionalList))
+						{
+							continue;
+						}
+					}
 					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell,
 							defaultbook, -1);
 					if (csl != null && !csl.isEmpty())

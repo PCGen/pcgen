@@ -1904,4 +1904,9 @@ public class PCClass extends PObject
 	{
 		return "CLASS|" + this.getKeyName();
 	}
+
+	public boolean hasSpellList(PlayerCharacter pc, CDOMList<Spell> list)
+	{
+		return getSpellLists(pc).contains(list);
+	}
 }

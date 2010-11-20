@@ -55,7 +55,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		for (int level : SpellLevel.levelForKey(spell, Collections
 				.singletonList(list), pc))
 		{
-			if ((level >= 0) && allow(pc, level, source, spell))
+			if ((level >= 0) && allow(pc, level, source, spell, list))
 			{
 				return true;
 			}
