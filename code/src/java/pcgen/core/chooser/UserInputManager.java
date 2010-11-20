@@ -20,7 +20,9 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	@Override
 	protected ChooserInterface getChooserInstance()
 	{
-		return ChooserFactory.getUserInputInstance();
+		ChooserInterface chooser = ChooserFactory.getUserInputInstance();
+		chooser.setTitle(getTitle());
+		return chooser;
 	}
 
 	@Override

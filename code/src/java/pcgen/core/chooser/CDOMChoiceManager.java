@@ -174,7 +174,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		String title = info.getTitle();
 		if (title != null && title.length() > 0)
 		{
-			chooser.setTitle(title + " (" + owner.getDisplayName() + ')');
+			chooser.setTitle(getTitle());
 		}
 		return chooser;
 	}
@@ -221,4 +221,11 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 			info.restoreChoice(pc, owner, info.decodeChoice(choice));
 		}
 	}
+
+	protected String getTitle()
+	{
+		return new StringBuilder(50).append(info.getTitle()).append(" (")
+				.append(owner.getDisplayName()).append(')').toString();
+	}
+
 }
