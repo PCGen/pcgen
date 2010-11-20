@@ -30,3 +30,8 @@ ABILITYCATEGORY:Test Choosers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 
 # EClipse Stuff
 ABILITYCATEGORY:Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact												PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:CODE-362				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:CODE-362A												PLURAL:CODE-362 Test			DISPLAYLOCATION:Feats
+
+
+
