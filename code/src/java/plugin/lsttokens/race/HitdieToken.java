@@ -34,14 +34,14 @@ import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HITDIE Token
  */
 public class HitdieToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryParserToken<Race>
+		CDOMPrimaryToken<Race>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

@@ -23,14 +23,13 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
+public class SizeToken implements CDOMPrimaryToken<Race>
 {
 
 	public String getTokenName()

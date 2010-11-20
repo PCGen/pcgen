@@ -22,14 +22,14 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACETYPE Token
  */
 public class RacetypeToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryParserToken<Race>
+		CDOMPrimaryToken<Race>
 {
 
 	@Override

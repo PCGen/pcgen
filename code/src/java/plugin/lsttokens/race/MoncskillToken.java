@@ -46,14 +46,14 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MONCSKILL Token
  */
 public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryParserToken<Race>, ChooseResultActor
+		CDOMPrimaryToken<Race>, ChooseResultActor
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;

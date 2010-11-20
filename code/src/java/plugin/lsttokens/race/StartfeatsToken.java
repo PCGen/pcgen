@@ -25,31 +25,23 @@ import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STARTFEATS Token
  */
 public class StartfeatsToken extends AbstractToken implements
-		CDOMPrimaryParserToken<Race>
+		CDOMPrimaryToken<Race>
 {
 
 	@Override
 	public String getTokenName()
 	{
 		return "STARTFEATS";
-	}
-
-	public boolean parse(LoadContext context, Race race, String value)
-			throws PersistenceLayerException
-	{
-		return ErrorParsingWrapper.parseToken(this, context, race, value);
 	}
 
 	public ParseResult parseToken(LoadContext context, Race race, String value)

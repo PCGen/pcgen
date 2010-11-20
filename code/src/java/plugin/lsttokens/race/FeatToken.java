@@ -38,15 +38,15 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryParserToken<Race>,
-		DeferredToken<Race>
+public class FeatToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryToken<Race>, DeferredToken<Race>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 

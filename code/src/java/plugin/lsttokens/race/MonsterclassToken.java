@@ -27,7 +27,7 @@ import pcgen.core.Race;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -36,7 +36,7 @@ import pcgen.util.Logging;
  * Class deals with MONSTERCLASS Token
  */
 public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryParserToken<Race>, DeferredToken<Race>
+		CDOMPrimaryToken<Race>, DeferredToken<Race>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

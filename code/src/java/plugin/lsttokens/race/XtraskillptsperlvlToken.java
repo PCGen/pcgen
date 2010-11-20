@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with XTRASKILLPTSPERLVL Token
  */
-public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
+public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements
+		CDOMPrimaryToken<Race>
 {
 
 	/**

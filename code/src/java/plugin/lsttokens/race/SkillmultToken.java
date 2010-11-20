@@ -21,12 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with SKILLMULT Token
  */
-public class SkillmultToken extends AbstractIntToken<Race> implements CDOMPrimaryParserToken<Race>
+public class SkillmultToken extends AbstractIntToken<Race> implements
+		CDOMPrimaryToken<Race>
 {
 
 	public String getTokenName()
