@@ -70,7 +70,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
@@ -94,8 +94,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		throw new UnsupportedOperationException(
-				"GameReferenceContext cannot construct objects");
+		return getManufacturer(cl, cat.getKeyName());
 	}
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
