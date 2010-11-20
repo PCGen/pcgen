@@ -27,14 +27,13 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with BONUS token
  */
-public class BonusToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMPrimaryParserToken<EquipmentModifier>
+public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()

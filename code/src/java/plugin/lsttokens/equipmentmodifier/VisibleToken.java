@@ -21,7 +21,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
@@ -35,8 +35,8 @@ import pcgen.util.enumeration.Visibility;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier> implements
-		CDOMPrimaryParserToken<EquipmentModifier>
+public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**

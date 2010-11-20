@@ -23,10 +23,9 @@ import pcgen.core.Ability;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class AbilityToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryToken<EquipmentModifier>
+public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;

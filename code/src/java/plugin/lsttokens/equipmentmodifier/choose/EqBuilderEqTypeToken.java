@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -42,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class EqBuilderEqTypeToken extends ErrorParsingWrapper<EquipmentModifier> implements
+public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>
 {
 

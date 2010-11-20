@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -36,8 +36,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * modifier should be added in the name of any equipment item the eqmod is added
  * to.
  */
-public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier> implements
-		CDOMPrimaryParserToken<EquipmentModifier>
+public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**

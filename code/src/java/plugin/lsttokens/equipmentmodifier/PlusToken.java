@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with PLUS token
  */
-public class PlusToken extends AbstractIntToken<EquipmentModifier> implements CDOMPrimaryParserToken<EquipmentModifier>
+public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()

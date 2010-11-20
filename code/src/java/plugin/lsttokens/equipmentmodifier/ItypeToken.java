@@ -26,14 +26,14 @@ import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ITYPE token
  */
-public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier> implements
-		CDOMPrimaryParserToken<EquipmentModifier>
+public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override

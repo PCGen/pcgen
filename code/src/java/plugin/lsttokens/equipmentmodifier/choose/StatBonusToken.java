@@ -26,10 +26,9 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class StatBonusToken extends ErrorParsingWrapper<EquipmentModifier> implements CDOMSecondaryToken<EquipmentModifier>
+public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()

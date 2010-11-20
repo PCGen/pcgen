@@ -23,14 +23,14 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with COSTPRE token
  */
-public class CostpreToken extends AbstractNonEmptyToken<EquipmentModifier> implements
-		CDOMPrimaryParserToken<EquipmentModifier>
+public class CostpreToken extends AbstractNonEmptyToken<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override
