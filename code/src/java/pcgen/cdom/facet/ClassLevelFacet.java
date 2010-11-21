@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
@@ -81,6 +82,27 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 	{
 		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(), lce
 				.getNewLevel());
+	}
+
+	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
+	{
+		PCClassLevel old = lce.getOldLevel();
+		if (old != null)
+		{
+			/*
+			 * By defintion, if old is null, the replacement isn't meaningful
+			 * for this facet
+			 */
+			CharID id = lce.getCharID();
+			PCClass pcc = lce.getPCClass();
+			if (remove(id, old, pcc))
+			{
+				/*
+				 * Only add the new item if we had the old one "in" the PC
+				 */
+				add(id, lce.getNewLevel(), pcc);
+			}
+		}
 	}
 
 }

@@ -135,13 +135,11 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 *            The source for the given object to be removed from the list of
 	 *            sources.
 	 */
-	public void remove(CharID id, T obj, Object source)
+	public boolean remove(CharID id, T obj, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
-		if (componentMap != null)
-		{
-			processRemoval(id, componentMap, obj, source);
-		}
+		return (componentMap != null)
+				&& processRemoval(id, componentMap, obj, source);
 	}
 
 	/**
@@ -427,7 +425,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
+	private boolean processRemoval(CharID id, Map<T, Set<Object>> componentMap,
 			T obj, Object source)
 	{
 		if (obj == null)
@@ -435,16 +433,17 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 			throw new IllegalArgumentException("Object to remove may not be null");
 		}
 		Set<Object> set = componentMap.get(obj);
-		if (set != null)
+		if (set == null)
 		{
-			set.remove(source);
-			if (set.isEmpty())
-			{
-				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
-			}
+			return false;
 		}
+		boolean returnVal = set.remove(source);
+		if (set.isEmpty())
+		{
+			componentMap.remove(obj);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+		}
+		return returnVal;
 	}
 
 	public void removeAll(CharID id, Object source)

@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.core.PCTemplate;
 
 public class LevelFacet implements ClassLevelChangeListener
@@ -121,6 +122,11 @@ public class LevelFacet implements ClassLevelChangeListener
 			}
 			support.fireLevelChangeEvent(id);
 		}
+	}
+
+	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
+	{
+		//ignore
 	}
 
 	public void addLevelChangeListener(LevelChangeListener listener)

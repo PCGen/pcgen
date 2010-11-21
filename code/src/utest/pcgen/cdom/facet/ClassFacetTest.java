@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
@@ -64,6 +65,10 @@ public class ClassFacetTest extends TestCase
 		{
 			levelEventCount++;
 			lastLevelEvent = lce;
+		}
+
+		public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
+		{
 		}
 
 	}
@@ -711,12 +716,41 @@ public class ClassFacetTest extends TestCase
 	}
 
 	@Test
+	public void testSetClassLevelBadLevel()
+	{
+		PCClass cl = new PCClass();
+		facet.addClass(id, cl);
+		PCClass t1 = new PCClass();
+		PCClassLevel pcl = new PCClassLevel();
+		//INTENTIONALLY commented out to show what is "bad"
+		//pcl.put(IntegerKey.LEVEL, 4);
+		try
+		{
+			facet.setClassLevel(id, t1, pcl);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//yep!
+		}
+		catch (NullPointerException e)
+		{
+			//okay too!
+		}
+		catch (CloneNotSupportedException e)
+		{
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
 	public void testSetClassLevelOtherAdded()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
 		PCClass t1 = new PCClass();
 		PCClassLevel pcl = new PCClassLevel();
+		pcl.put(IntegerKey.LEVEL, 4);
 		try
 		{
 			assertFalse(facet.setClassLevel(id, t1, pcl));
@@ -733,6 +767,7 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
 		PCClassLevel pcl = new PCClassLevel();
+		pcl.put(IntegerKey.LEVEL, 3);
 		try
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));

@@ -13069,4 +13069,20 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return po.qualifies(this, po);
 	}
+
+	public void reInheritClassLevels(PCClass pcc)
+	{
+		try
+		{
+			for (PCClassLevel pcl : pcc.getOriginalClassLevelCollection())
+			{
+				classFacet.setClassLevel(id, pcc, pcl);
+			}
+		}
+		catch (CloneNotSupportedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

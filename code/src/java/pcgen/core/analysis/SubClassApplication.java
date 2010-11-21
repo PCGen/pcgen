@@ -267,6 +267,7 @@ public class SubClassApplication
 			if (a != null)
 			{
 				cl.inheritAttributesFrom(a);
+				pc.reInheritClassLevels(cl);
 			}
 		}
 	

@@ -89,11 +89,28 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	 * @return true if the set is successful; false otherwise.
 	 * @throws CloneNotSupportedException
 	 */
-	public boolean setClassLevel(CharID id, PCClass obj, PCClassLevel pcl)
+	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl)
 		throws CloneNotSupportedException
 	{
+		if (pcc == null)
+		{
+			throw new IllegalArgumentException(
+					"Class cannot be null in setClassLevel");
+		}
+		if (pcl == null)
+		{
+			throw new IllegalArgumentException(
+					"Class Level cannot be null in setClassLevel");
+		}
 		ClassInfo info = getClassInfo(id);
-		return info != null && info.setClassLevel(obj, pcl);
+		if (info == null)
+		{
+			return false;
+		}
+		PCClassLevel old = info.getClassLevel(pcc, pcl.get(IntegerKey.LEVEL));
+		boolean returnVal = info.setClassLevel(pcc, pcl);
+		support.fireClassLevelObjectChangeEvent(id, pcc, old, pcl);
+		return returnVal;
 	}
 
 	/**
@@ -388,27 +405,15 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			HashMap<Integer, PCClassLevel> levelMap =
 					new HashMap<Integer, PCClassLevel>();
 			map.put(pcc, levelMap);
-			for (PCClassLevel pcl : pcc.getOriginalClassLevelCollection())
-			{
-				pcl.put(ObjectKey.PARENT, pcc);
-				levelMap.put(pcl.get(IntegerKey.LEVEL), pcl);
-			}
+			/*
+			 * DO NOT initialize levelMap here - see CODE-208
+			 */
 			return true;
 		}
 
 		public boolean setClassLevel(PCClass pcc, PCClassLevel pcl)
 			throws CloneNotSupportedException
 		{
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException(
-					"Class cannot be null in setClassLevel");
-			}
-			if (pcl == null)
-			{
-				throw new IllegalArgumentException(
-					"Class Level cannot be null in setClassLevel");
-			}
 			Map<Integer, PCClassLevel> localMap = map.get(pcc);
 			if (localMap == null)
 			{
@@ -440,11 +445,6 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			PCClassLevel classLevel = localMap.get(level);
 			if (classLevel == null)
 			{
-				/*
-				 * TODO Seems to me this is unreachable code, due to
-				 * initialization of the localMap in addClass? 
-				 * Tom Parker Oct 9, 2010
-				 */
 				classLevel = pcc.getOriginalClassLevel(level);
 				classLevel.put(ObjectKey.PARENT, pcc);
 				localMap.put(level, classLevel);
@@ -507,6 +507,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	public static interface ClassLevelChangeListener extends EventListener
 	{
 		public void levelChanged(ClassLevelChangeEvent lce);
+		public void levelObjectChanged(ClassLevelObjectChangeEvent lce);
 	}
 
 	public static class ClassLevelChangeEvent extends EventObject
@@ -562,6 +563,68 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 
 		public int getNewLevel()
+		{
+			return newLvl;
+		}
+	}
+
+	public static class ClassLevelObjectChangeEvent extends EventObject
+	{
+
+		/**
+		 * The ID indicating the owning character for this ClassLevelChangeEvent
+		 */
+		private final CharID charID;
+
+		private final PCClass pcClass;
+		private final PCClassLevel oldLvl;
+		private final PCClassLevel newLvl;
+
+		public ClassLevelObjectChangeEvent(CharID source, PCClass pcc,
+				PCClassLevel oldLevel, PCClassLevel newLevel)
+		{
+			super(source);
+			if (source == null)
+			{
+				throw new IllegalArgumentException("CharID cannot be null");
+			}
+			if (pcc == null)
+			{
+				throw new IllegalArgumentException("PCClass cannot be null");
+			}
+			if (newLevel == null)
+			{
+				throw new IllegalArgumentException("New Level cannot be null");
+			}
+			charID = source;
+			pcClass = pcc;
+			oldLvl = oldLevel;
+			newLvl = newLevel;
+		}
+
+		/**
+		 * Returns an identifier indicating the PlayerCharacter on which this
+		 * event occurred.
+		 * 
+		 * @return A identifier indicating the PlayerCharacter on which this
+		 *         event occurred.
+		 */
+		public CharID getCharID()
+		{
+			return charID;
+		}
+
+		public PCClass getPCClass()
+		{
+			return pcClass;
+		}
+
+		public PCClassLevel getOldLevel()
+		{
+			return oldLvl;
+		}
+
+		public PCClassLevel getNewLevel()
 		{
 			return newLvl;
 		}
@@ -657,5 +720,36 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				listeners[i].levelChanged(ccEvent);
 			}
 		}
+		
+		public void fireClassLevelObjectChangeEvent(CharID id, PCClass pcc,
+				PCClassLevel oldLevel, PCClassLevel newLevel)
+		{
+			if (oldLevel == newLevel)
+			{
+				// Nothing to do
+				return;
+			}
+			ClassLevelChangeListener[] listeners =
+					listenerList.getListeners(ClassLevelChangeListener.class);
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events (they are in
+			 * reverse order to how they were added to the Event-owning object).
+			 */
+			ClassLevelObjectChangeEvent ccEvent = null;
+			for (int i = listeners.length - 1; i >= 0; i--)
+			{
+				// Lazily create event
+				if (ccEvent == null)
+				{
+					ccEvent =
+							new ClassLevelObjectChangeEvent(id, pcc, oldLevel,
+								newLevel);
+				}
+				listeners[i].levelObjectChanged(ccEvent);
+			}
+		}
+
 	}
 }
