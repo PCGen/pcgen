@@ -1421,33 +1421,35 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			selectedDomainList.remove(addedDomain);
 			pc.removeDomain(addedDomain);
-
-			pc.calcActiveBonuses();
 		}
-
-		// Check selected domains vs Max number allowed
-		if (pc.getDomainCount() >= pc.getMaxCharacterDomains())
+		else
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
-				Constants.s_APPNAME, MessageType.INFORMATION);
-
-			return;
-		}
-
-		// space remains for another domain, so add it
-		pc.addDomain(addedDomain);
-		DomainApplication.applyDomain(pc, addedDomain);
-
-		if (!selectedDomainList.contains(addedDomain))
-		{
-			selectedDomainList.add(addedDomain);
+			// Check selected domains vs Max number allowed
+			if (pc.getDomainCount() >= pc.getMaxCharacterDomains())
+			{
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
+						Constants.s_APPNAME, MessageType.INFORMATION);
+				
+				return;
+			}
+			
+			// space remains for another domain, so add it
+			pc.addDomain(addedDomain);
+			DomainApplication.applyDomain(pc, addedDomain);
+			
+			if (!selectedDomainList.contains(addedDomain))
+			{
+				selectedDomainList.add(addedDomain);
+			}
 		}
 
 		pc.calcActiveBonuses();
 
 		// Update the displayed domain count,
 		// using star (*) to indicate selected domains
-		domChosen.setText(Integer.toString(pc.getDomainCount()) + "*");
+		int domCount = pc.getDomainCount();
+		domChosen.setText(Integer.toString(domCount) + (domCount == 0 ? "" : "*"));
+
 		domainSorter.tableChanged(null);
 		domainModel.fireTableDataChanged();
 		forceUpdates();
