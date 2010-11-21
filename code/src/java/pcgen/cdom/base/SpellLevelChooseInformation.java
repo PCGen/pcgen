@@ -298,6 +298,6 @@ public class SpellLevelChooseInformation implements
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
-			",");
+			", ");
 	}
 }

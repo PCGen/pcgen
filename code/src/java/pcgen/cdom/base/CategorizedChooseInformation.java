@@ -301,6 +301,6 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
-				",");
+				", ");
 	}
 }

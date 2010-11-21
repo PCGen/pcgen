@@ -78,7 +78,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
-			",");
+			", ");
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

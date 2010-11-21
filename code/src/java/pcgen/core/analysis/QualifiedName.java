@@ -20,6 +20,7 @@
 package pcgen.core.analysis;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -55,25 +56,26 @@ public class QualifiedName
 		if (pc.hasAssociations(a)
 				&& !a.getKeyName().startsWith("Armor Proficiency"))
 		{
-			if (!ChooseActivation.hasChooseToken(a)
-					|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && a
-							.getSafe(ObjectKey.STACKS)))
+			ChooseInformation<?> chooseInfo =
+				a.get(ObjectKey.CHOOSE_INFO);
+
+			String choiceInfo;
+			if (chooseInfo != null)
 			{
-				if (pc.getDetailedAssociationCount(a) > 1)
-				{
-					// number of items only (ie stacking), e.g. " (1x)"
-					aStrBuf.append(" (");
-					aStrBuf.append(pc.getDetailedAssociationCount(a));
-					aStrBuf.append("x)");
-				}
+				
+				choiceInfo = chooseInfo.getDisplay(pc, a).toString();
 			}
 			else
 			{
-				// has a sub-detail
+				choiceInfo = StringUtil.joinToStringBuffer(pc
+						.getExpandedAssociations(a), ", ").toString();
+			}
+			
+			if (choiceInfo.length() > 0)
+			{
 				aStrBuf.append(" (");
-				aStrBuf.append(StringUtil.joinToStringBuffer(pc
-						.getExpandedAssociations(a), ", "));
-				aStrBuf.append(')');
+				aStrBuf.append(choiceInfo);
+				aStrBuf.append(")");
 			}
 		}
 

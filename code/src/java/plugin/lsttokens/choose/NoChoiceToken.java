@@ -197,9 +197,8 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		int count = (list == null) ? 0 : list.size();
 		if (count > 1)
 		{
-			sb.append('(');
 			sb.append(count);
-			sb.append("x)");
+			sb.append("x");
 		}
 		return sb;
 	}
