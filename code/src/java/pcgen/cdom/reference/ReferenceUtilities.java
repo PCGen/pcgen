@@ -26,7 +26,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceFilterUtilities;
+import pcgen.cdom.primitive.PrimitiveUtilities;
 
 /**
  * ReferenceUtilities is a utility class designed to provide utility methods
@@ -79,7 +79,8 @@ public final class ReferenceUtilities
 			Collection<? extends CDOMReference<?>> refCollection,
 			String separator)
 	{
-		return ChoiceFilterUtilities.joinLstFormat(refCollection, separator);
+		return PrimitiveUtilities
+				.joinLstFormat(refCollection, separator, false);
 	}
 
 	/**
@@ -209,12 +210,7 @@ public final class ReferenceUtilities
 				result.append(separator);
 			}
 			needjoin = true;
-			String out = obj.getLSTformat();
-			if (useAny && "ALL".equals(out))
-			{
-				out = "ANY";
-			}
-			result.append(out);
+			result.append(obj.getLSTformat(useAny));
 		}
 
 		return result.toString();

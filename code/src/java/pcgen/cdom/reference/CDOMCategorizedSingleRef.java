@@ -113,7 +113,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}

@@ -77,7 +77,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return "TYPE=" + StringUtil.join(types, ".");
 	}

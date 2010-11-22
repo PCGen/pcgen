@@ -142,7 +142,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 *         storing in an LST file.
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return ReferenceUtilities.joinLstFormat(references, Constants.COMMA);
 	}

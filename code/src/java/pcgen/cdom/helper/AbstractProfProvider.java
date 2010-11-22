@@ -141,7 +141,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		}
 		REF: for (CDOMReference<Equipment> ref : byEquipType)
 		{
-			StringTokenizer tok = new StringTokenizer(ref.getLSTformat()
+			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false)
 					.substring(5), ".");
 			while (tok.hasMoreTokens())
 			{
@@ -195,7 +195,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 					sb.append(Constants.PIPE);
 				}
 				needPipe = true;
-				String lstFormat = ref.getLSTformat();
+				String lstFormat = ref.getLSTformat(false);
 				if (lstFormat.startsWith("TYPE="))
 				{
 					sb.append(subType).append("TYPE=");

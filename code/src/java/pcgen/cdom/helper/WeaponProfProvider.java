@@ -278,7 +278,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
 			CDOMGroupRef<WeaponProf> master)
 	{
-		String masterType = master.getLSTformat();
+		String masterType = master.getLSTformat(false);
 		if (!masterType.startsWith("TYPE="))
 		{
 			throw new IllegalArgumentException("Cannot get targets for: "

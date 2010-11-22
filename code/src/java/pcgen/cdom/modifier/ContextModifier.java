@@ -112,7 +112,7 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 */
 	public String getLSTformat()
 	{
-		String contextString = contextItems.getLSTformat();
+		String contextString = contextItems.getLSTformat(false);
 		StringBuilder sb = new StringBuilder();
 		sb.append(modifier.getLSTformat()).append('|');
 		sb.append(StringPClassUtil.getStringFor(contextItems

@@ -109,7 +109,7 @@ public class CDOMTransparentTypeRef<T> extends CDOMGroupRef<T> implements
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}

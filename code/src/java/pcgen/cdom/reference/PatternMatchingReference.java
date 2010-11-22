@@ -178,7 +178,7 @@ public class PatternMatchingReference<T extends Identified> extends
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}

@@ -23,10 +23,10 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.cdom.base.ChoiceFilterUtilities;
 import pcgen.cdom.base.ObjectContainer;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.primitive.PrimitiveUtilities;
 
 public class FilteredReference<T> extends CDOMGroupRef<T>
 {
@@ -94,7 +94,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;
-		for (PrimitiveChoiceFilter<? super T> pcf : filterSet)
+		for (PrimitiveCollection<? super T> pcf : filterSet)
 		{
 			state = pcf.getGroupingState().add(state);
 		}
@@ -136,12 +136,12 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	}
 
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		Set<PrimitiveChoiceFilter<? super T>> sortSet = new TreeSet<PrimitiveChoiceFilter<? super T>>(
-				ChoiceFilterUtilities.FILTER_SORTER);
+		Set<PrimitiveCollection<? super T>> sortSet = new TreeSet<PrimitiveCollection<? super T>>(
+				PrimitiveUtilities.COLLECTION_SORTER);
 		sortSet.addAll(filterSet);
-		return "ALL|!" + ChoiceFilterUtilities.joinLstFormat(sortSet, "|!");
+		return "ALL|!" + PrimitiveUtilities.joinLstFormat(sortSet, "|!", useAny);
 	}
 
 	@Override

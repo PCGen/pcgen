@@ -328,7 +328,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 			if (trt != null && trt.getObjectCount() == 0)
 			{
 				Logging.errorPrint("Error: No " + getReferenceDescription()
-						+ " objects of " + trt.getLSTformat()
+						+ " objects of " + trt.getLSTformat(false)
 						+ " were loaded but were referred to in the data");
 				fireUnconstuctedEvent(trt);
 			}

@@ -65,9 +65,9 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return Constants.ALLREF_LST;
+		return useAny ? Constants.LST_ANY : Constants.ALLREF_LST;
 	}
 
 	/**

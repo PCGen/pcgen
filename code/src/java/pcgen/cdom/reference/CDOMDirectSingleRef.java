@@ -93,7 +93,7 @@ public class CDOMDirectSingleRef<T extends Identified> extends CDOMSingleRef<T>
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return referencedObject.getLSTformat();
 	}

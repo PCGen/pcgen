@@ -52,7 +52,7 @@ public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
 	 * @return A representation of this CategorizedCDOMReference, suitable for
 	 *         storing in an LST file.
 	 */
-	public String getLSTformat();
+	public String getLSTformat(boolean useAny);
 
 	/**
 	 * Returns the name of this CategorizedCDOMReference. Note that this name is

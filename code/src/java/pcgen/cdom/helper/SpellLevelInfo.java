@@ -22,18 +22,22 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.choiceset.DereferencingConverter;
+import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
-public class SpellLevelInfo
+public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 {
 
-	private final PrimitiveChoiceFilter<PCClass> filter;
+	private final PrimitiveCollection<PCClass> filter;
 	private final int minimumLevel;
 	private final Formula maximumLevel;
 
-	public SpellLevelInfo(PrimitiveChoiceFilter<PCClass> classFilter,
+	public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter,
 			int minLevel, Formula maxLevel)
 	{
 		filter = classFilter;
@@ -45,7 +49,7 @@ public class SpellLevelInfo
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(filter.getLSTformat());
+		sb.append(filter.getLSTformat(false));
 		sb.append(Constants.PIPE);
 		sb.append(minimumLevel);
 		sb.append(Constants.PIPE);
@@ -56,19 +60,22 @@ public class SpellLevelInfo
 	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
 	{
 		List<SpellLevel> list = new ArrayList<SpellLevel>();
-		for (PCClass cl : pc.getClassList())
+		Converter<PCClass, PCClass> conv = new AddFilterConverter<PCClass, PCClass>(
+				new DereferencingConverter<PCClass>(pc), this);
+		for (PCClass cl : filter.getCollection(pc, conv))
 		{
-			if (filter.allow(pc, cl))
+			int max = maximumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
+			for (int i = minimumLevel; i <= max; ++i)
 			{
-				int max = maximumLevel.resolve(pc, cl.getQualifiedKey())
-						.intValue();
-				for (int i = minimumLevel; i <= max; ++i)
-				{
-					list.add(new SpellLevel(cl, i));
-				}
+				list.add(new SpellLevel(cl, i));
 			}
 		}
 		return list;
+	}
+
+	public boolean allow(PlayerCharacter pc, PCClass cl)
+	{
+		return pc.getClassKeyed(cl.getKeyName()) != null;
 	}
 
 }

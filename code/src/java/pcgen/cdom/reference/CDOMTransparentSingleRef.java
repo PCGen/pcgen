@@ -121,7 +121,7 @@ public class CDOMTransparentSingleRef<T> extends CDOMSingleRef<T> implements
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}

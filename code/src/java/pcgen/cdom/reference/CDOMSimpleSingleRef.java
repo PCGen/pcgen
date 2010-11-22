@@ -114,7 +114,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}

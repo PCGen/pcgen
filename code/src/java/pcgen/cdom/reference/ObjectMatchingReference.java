@@ -186,7 +186,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getName();
 	}
