@@ -30,6 +30,7 @@ public class BonusskillpointsToken extends AbstractIntToken<PCTemplate>
 		implements CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "BONUSSKILLPOINTS";

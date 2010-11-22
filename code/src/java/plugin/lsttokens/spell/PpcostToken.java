@@ -30,6 +30,7 @@ public class PpcostToken extends AbstractIntToken<Spell> implements
 		CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "PPCOST";

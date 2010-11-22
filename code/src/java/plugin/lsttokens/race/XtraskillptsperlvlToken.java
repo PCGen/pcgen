@@ -35,6 +35,7 @@ public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements
 	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "XTRASKILLPTSPERLVL";

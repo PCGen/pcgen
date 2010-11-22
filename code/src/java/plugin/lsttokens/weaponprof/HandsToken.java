@@ -32,6 +32,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		CDOMPrimaryToken<WeaponProf>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "HANDS";

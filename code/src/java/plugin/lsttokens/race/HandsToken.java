@@ -30,6 +30,7 @@ public class HandsToken extends AbstractIntToken<Race> implements
 		CDOMPrimaryToken<Race>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "HANDS";

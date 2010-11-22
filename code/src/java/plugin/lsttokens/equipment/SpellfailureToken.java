@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SpellfailureToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLFAILURE";

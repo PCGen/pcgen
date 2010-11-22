@@ -30,6 +30,7 @@ public class ProhibitcostToken extends AbstractIntToken<SubClass> implements
 		CDOMPrimaryToken<SubClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "PROHIBITCOST";

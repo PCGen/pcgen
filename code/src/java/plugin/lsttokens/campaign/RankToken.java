@@ -30,6 +30,7 @@ public class RankToken extends AbstractIntToken<Campaign> implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "RANK";

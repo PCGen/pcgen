@@ -33,6 +33,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
 	private final HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
 
+	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
 	{

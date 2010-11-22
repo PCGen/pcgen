@@ -33,6 +33,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "UMULT";

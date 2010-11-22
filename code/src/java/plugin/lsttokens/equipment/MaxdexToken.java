@@ -30,6 +30,7 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "MAXDEX";

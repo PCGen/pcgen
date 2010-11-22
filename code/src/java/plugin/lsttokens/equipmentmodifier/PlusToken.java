@@ -31,6 +31,7 @@ public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
 		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "PLUS";

@@ -30,6 +30,7 @@ public class ReachToken extends AbstractIntToken<Race> implements
 		CDOMPrimaryToken<Race>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "REACH";

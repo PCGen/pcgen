@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class ReachMultToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
+	@Override
 	public String getTokenName()
 	{
 		return "REACHMULT";

@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class HdToken extends AbstractIntToken<CompanionMod> implements
 		CDOMPrimaryToken<CompanionMod>
 {
+	@Override
 	public String getTokenName()
 	{
 		return "HD";

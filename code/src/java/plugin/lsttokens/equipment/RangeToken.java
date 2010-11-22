@@ -30,6 +30,7 @@ public class RangeToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "RANGE";

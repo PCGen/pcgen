@@ -35,6 +35,7 @@ public class XpcostToken extends AbstractIntToken<Spell> implements
 	 *
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "XPCOST";

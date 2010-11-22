@@ -45,6 +45,7 @@ public class NumPagesToken extends AbstractIntToken<Equipment> implements
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "NUMPAGES";

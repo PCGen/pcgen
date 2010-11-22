@@ -30,6 +30,7 @@ public class EdrToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "EDR";

@@ -28,11 +28,6 @@ public interface PrimitiveCollection<T>
 	PrimitiveCollection INVALID = new PrimitiveCollection()
 	{
 
-		public boolean allow(PlayerCharacter pc, Object item)
-		{
-			return false;
-		}
-
 		public GroupingState getGroupingState()
 		{
 			return GroupingState.INVALID;

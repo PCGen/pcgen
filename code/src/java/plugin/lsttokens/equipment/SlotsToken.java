@@ -30,6 +30,7 @@ public class SlotsToken extends AbstractIntToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SLOTS";

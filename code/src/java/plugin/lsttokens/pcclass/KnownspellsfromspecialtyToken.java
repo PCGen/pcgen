@@ -30,6 +30,7 @@ public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass>
 		implements CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "KNOWNSPELLSFROMSPECIALTY";

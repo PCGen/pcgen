@@ -30,6 +30,7 @@ public class CostToken extends AbstractIntToken<SubClass> implements
 		CDOMPrimaryToken<SubClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COST";
