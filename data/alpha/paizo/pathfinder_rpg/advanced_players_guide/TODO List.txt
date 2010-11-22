@@ -1,0 +1,37 @@
+To Do List of Pending and remaining items for the APG.
+
+# Abilities
+
+##Class
+
+Horizon Walker - Implement Terrain Dominance bonuses
+Horizon Walker - Decide on best output method for Special Qualities
+ --- Use SpecialQuality in the TYPE.
+Horizon Walker - Implement Master of all Lands
+Horizon Walker - Add an attack option when a Domain Dominance is selected (+x bonus to attacks on all creatures native to the terrain)
+
+##Ability
+Classes - Clean up and add bonus stuff = unassigned
+
+
+##FEATS - 
+Enter Bonus Stuff = Unassigned
+
+#Equipment
+Clean up and finish up = Eric
+Adding meat to Soothsayer's Ramaint and the Ring of Revelations - Eric
+General bonus/effect review and clean-up for all equipment - Eric
+
+#Spells - 
+Change to formulas (CASTERLEVEL) entries = unassigned
+- Partially completed by AM
+
+#All File -
+Double check sourcepage numbers.
+
+# User Comments:
+ Also, Stunning Fist is not being replaced with Perfect Strike. The same thing is happening with the Weapon Master archetype.
+
+
+# Code Work Required
+# TODO: Implement the ability to add ANY Arcane Spell to Known. We need SPELLKNOWN to take a LIST [NEWTAG-220,NEWTAG-221]

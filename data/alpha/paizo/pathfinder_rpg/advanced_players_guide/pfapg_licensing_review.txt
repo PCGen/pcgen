@@ -1,0 +1,18 @@
+advanced_players_guide.pcc: Pass
+pfapg_abilities_archetypes.lst: Pass. I don't see sourcepage numbers. Not sure if they are required here.- done AM 11/4
+pfapg_abilities_class_common.lst: Pass.
+pfapg_abilities_class.lst: Pass
+pfapg_abilities_companions.lst: Pass
+pfapg_abilities_racial.lst: Pass
+pfapg_abilities_traits.lst: Pass
+pfapg_classes_base.lst: Pass
+pfapg_classes_prestige.lst: Pass
+pfapg_companion_mods.lst: Pass
+pfapg_domains.lst: Pass. Sourcepage numbers need to be reviewed and corrected. - done AM 11/4
+pfapf_equip_x.lst: Pass
+pfapg_feats.lst: Pass
+pfapf_kits_x.lst: Pass
+pfapg_profs_x.lst: Pass
+pfapg_races_companions.lst: Pass
+pfapg_spells.lst: Pass
+pfapg_templates.lst: Pass

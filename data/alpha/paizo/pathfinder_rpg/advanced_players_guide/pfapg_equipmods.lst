@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric C. Smith (Maredudd)
+
+###Block: Base Materials
+# Modifier Name	Unique Key	Naming Option	Type														Cost		Visible		Type granted	Prohibited Type							Apply to both heads
+
+
+###Block: Charged items
+# Modifier Name	Unique Key			Cost							Visible	Choose		Nb of Charges
+#This eqmod is included for testing purposes on my local machine. It can be removed immediately prior to the release of the APG data set.

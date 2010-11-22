@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Thu Nov  4 15:21:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+###Block: Inttial Traits template
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Modify VAR									Add to vision			Weapon prof. bonus																											Choose									Bonus Languages	Vision		Natural Attacks
+Standard Character Traits		VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|2
+Adventure Path Character Traits	VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|1	BONUS:ABILITYPOOL|Campaign Traits|1
+
+# Eidolon
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Modify VAR									Add to vision			Weapon prof. bonus																											Choose									Bonus Languages	Vision		Natural Attacks
+Bite									DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|1																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Claws									DEFINE:EidUsedAttacks|0	DEFINE:EidLimbsUsed|0																																BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLimbsUsed|1																																																				NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Gore									DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|1																																																									NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Wing Buffet								DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=Wing Buffet|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Wing Buffet|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Wing Buffet|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:Wing Buffet,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Pincers								DEFINE:EidUsedAttacks|0	DEFINE:EidLimbsUsed|0																																BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLimbsUsed|1						BONUS:WEAPONPROF=Pincers|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Pincers|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Pincers|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Tail Slap								DEFINE:EidUsedAttacks|0	DEFINE:EidTailsUsed|0																																BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1						BONUS:WEAPONPROF=Tail Slap|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tail Slap|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Slam									DEFINE:EidUsedAttacks|0	DEFINE:EidLimbsUsed|0																																BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidLimbsUsed|1																																																				NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Sting									DEFINE:EidUsedAttacks|0	DEFINE:EidTailsUsed|0																																BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1																																																				NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Rake									DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|2																																																									NATURALATTACKS:Rake,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+
+Tentacle1					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|1											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Tentacle2					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Tentacle3					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|3											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*3,1d4
+Tentacle4					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|4											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*4,1d4
+Tentacle5					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|5											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*5,1d4
+Tentacle6					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|6											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*6,1d4
+Tentacle7					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|7											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*7,1d4
+Tentacle8					VISIBLE:NO		DEFINE:EidUsedAttacks|0																																				BONUS:VAR|EidUsedAttacks|8											BONUS:WEAPONPROF=Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=Tentacle|DAMAGE|-ceil(STR/2)																			NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*8,1d4
+
+##
+##Block:Class Ability Templates
+##
+# Oracle Templates
+# Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
+
+Aquan Bonus Language																																																																																																				LANGBONUS:Aquan
+
+Small Claws																			PRESIZELTEQ:S																																																																																							NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
+Medium Claws															PRESIZEGTEQ:M																																																																																										NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
+
+
+Vision Normal																										!PREVISION:1,Darkvision=1 !PREVISION:1,Low-Light=ANY																																																																						VISION:Low-Light
+Vision Lowlight																					PREVISION:1,Low-Light=ANY																															BONUS:VISION|Darkvision|30
+Vision Darkvision																					PREVISION:1,Darkvision=1																															BONUS:VISION|Darkvision|30
+# TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
+
+### Block: Hero Points
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Modify VAR									Add to vision			Weapon prof. bonus																											Choose									Bonus Languages	Vision		Natural Attacks
+Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																																																													CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
+
+#
+# End
+#

@@ -1,0 +1,25 @@
+# CVS $Revision$ $Author$ -- Thu Jul 22 09:57:17 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+# NO LONGER NEEDED - Placed new version in core to make this more seemless.
+
+STARTPACK:Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+TEMPLATE:Bite
+
+STARTPACK:Eidolon (Biped)	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+TEMPLATE:Claws
+
+STARTPACK:Eidolon (Serpentine)	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+TEMPLATE:Bite|Tail Slap
+
+
+
+
+
+#
+# End
+#
