@@ -148,7 +148,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 			boolean needsPipe = sb.length() != 0;
 			for (CDOMReference<Ability> ref : added.getKeySet())
 			{
-				String lstFormat = ref.getLSTformat();
+				String lstFormat = ref.getLSTformat(false);
 				for (int i = 0; i < added.sizeOfListFor(ref); i++)
 				{
 					if (needsPipe)

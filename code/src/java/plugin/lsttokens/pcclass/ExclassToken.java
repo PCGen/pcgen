@@ -56,7 +56,7 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 		{
 			return null;
 		}
-		return new String[] { cl.getLSTformat() };
+		return new String[] { cl.getLSTformat(false) };
 	}
 
 	public Class<PCClass> getTokenClass()

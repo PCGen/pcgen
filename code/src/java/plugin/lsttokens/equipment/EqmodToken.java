@@ -148,7 +148,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 			{
 				for (EqModRef modRef : added)
 				{
-					String key = modRef.getRef().getLSTformat();
+					String key = modRef.getRef().getLSTformat(false);
 					StringBuilder sb = new StringBuilder();
 					sb.append(key);
 					for (String s : modRef.getChoices())

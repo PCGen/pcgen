@@ -28,6 +28,8 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.choiceset.CollectionToChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -95,21 +97,21 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		PrimitiveChoiceSet<Ability> pcs = context.getChoiceSet(rm, activeValue);
-		if (pcs == null)
+		PrimitiveCollection<Ability> coll = context.getChoiceSet(rm, activeValue);
+		if (coll == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
-		if (!pcs.getGroupingState().isValid())
+		if (!coll.getGroupingState().isValid())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
-				+ activeValue);
+					+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
-			cpr
-				.addErrorMessage("  Check that a key is not joined with AND (,)");
+			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
+		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<Ability>(coll);
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<Ability>(getTokenName(), category, pcs, Ability.class);
 		tc.setTitle(title);

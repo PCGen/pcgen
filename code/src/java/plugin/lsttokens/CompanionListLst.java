@@ -332,7 +332,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				for (Integer fa : m.getTertiaryKeySet(prereqs, cl))
 				{
 					sb.setLength(0);
-					sb.append(cl.getLSTformat());
+					sb.append(cl.getLSTformat(false));
 					sb.append(Constants.PIPE);
 					Set<CDOMReference<Race>> raceSet = new TreeSet<CDOMReference<Race>>(
 							ReferenceUtilities.REFERENCE_SORTER);

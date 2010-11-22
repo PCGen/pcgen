@@ -26,7 +26,7 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.base.SpellLevelChooseInformation;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -59,6 +59,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return '|';
 	}
 
+	@Override
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
@@ -116,10 +117,9 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		while (sep.hasNext())
 		{
 			String token = sep.next();
-			PrimitiveChoiceFilter<PCClass> pcf;
-			pcf =
-					context.getPrimitiveChoiceFilter(context.ref
-						.getManufacturer(PCClass.class), token);
+			PrimitiveCollection<PCClass> pcf = context
+					.getPrimitiveChoiceFilter(context.ref
+							.getManufacturer(PCClass.class), token);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(

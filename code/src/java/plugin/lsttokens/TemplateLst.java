@@ -175,7 +175,7 @@ public class TemplateLst extends AbstractToken implements
 			for (CDOMReference<PCTemplate> ref : chadded)
 			{
 				list.add(Constants.LST_CHOOSE
-						+ ref.getLSTformat().replaceAll(",", "\\|"));
+						+ ref.getLSTformat(false).replaceAll(",", "\\|"));
 			}
 		}
 
@@ -203,7 +203,7 @@ public class TemplateLst extends AbstractToken implements
 					sb.append(Constants.PIPE);
 				}
 				needPipe = true;
-				sb.append(ref.getLSTformat()).append(".REMOVE");
+				sb.append(ref.getLSTformat(false)).append(".REMOVE");
 			}
 			list.add(sb.toString());
 		}

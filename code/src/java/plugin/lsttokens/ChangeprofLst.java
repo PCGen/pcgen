@@ -193,7 +193,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(Constants.COMMA);
 				}
 				needComma = true;
-				String sourceLst = source.getLSTformat();
+				String sourceLst = source.getLSTformat(false);
 				if (sourceLst.startsWith("TYPE="))
 				{
 					sb.append("TYPE.");
@@ -204,7 +204,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(sourceLst);
 				}
 			}
-			sb.append(Constants.EQUALS).append(result.getLSTformat().substring(5));
+			sb.append(Constants.EQUALS).append(result.getLSTformat(false).substring(5));
 			returnSet.add(sb.toString());
 		}
 		return new String[]{StringUtil.join(returnSet, Constants.PIPE)};

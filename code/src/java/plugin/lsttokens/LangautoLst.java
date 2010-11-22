@@ -136,7 +136,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(Constants.COMMA);
 				}
 				needComma = true;
-				sb.append(lw.getLSTformat());
+				sb.append(lw.getLSTformat(false));
 			}
 		}
 		return new String[] { sb.toString() };

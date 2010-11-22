@@ -157,11 +157,11 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				{
 					Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
 							.getCDOMCategory();
-					set.add(parent.toString() + "." + ref.getLSTformat());
+					set.add(parent.toString() + "." + ref.getLSTformat(false));
 				}
 				else
 				{
-					set.add(ref.getLSTformat());
+					set.add(ref.getLSTformat(false));
 				}
 			}
 		}

@@ -206,7 +206,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 				{
 					StringBuilder sb = new StringBuilder();
 					boolean needComma = false;
-					String refString = ref.getLSTformat();
+					String refString = ref.getLSTformat(false);
 					if (!Constants.ALLREF_LST.equals(refString))
 					{
 						sb.append(refString);

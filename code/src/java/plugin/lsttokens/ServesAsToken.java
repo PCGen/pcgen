@@ -170,7 +170,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 					mapKey += '=' + cat.toString();
 				}
 			}
-			map.addToListFor(mapKey, ref.getLSTformat());
+			map.addToListFor(mapKey, ref.getLSTformat(false));
 		}
 		List<String> returnList = new ArrayList<String>();
 		for (String mapKey : map.getKeySet())

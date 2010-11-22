@@ -113,13 +113,13 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 				{
 					return null;
 				}
-				return new String[] { "ARMOR|" + ap.getLSTformat() };
+				return new String[] { "ARMOR|" + ap.getLSTformat(false) };
 			}
 			else
 			{
 				if (ap == null)
 				{
-					return new String[] { "SHIELD|" + sp.getLSTformat() };
+					return new String[] { "SHIELD|" + sp.getLSTformat(false) };
 				}
 				context.addWriteMessage("Equipment may not have both "
 						+ "ARMOR and SHIELD Proficiencies");
@@ -130,7 +130,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		{
 			if (ap == null)
 			{
-				return new String[] { "WEAPON|" + wp.getLSTformat() };
+				return new String[] { "WEAPON|" + wp.getLSTformat(false) };
 			}
 			context.addWriteMessage("Equipment may not have both "
 					+ "ARMOR and WEAPON Proficiencies");

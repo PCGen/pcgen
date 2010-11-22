@@ -56,7 +56,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return null;
 		}
-		return new String[]{ref.getLSTformat()};
+		return new String[]{ref.getLSTformat(false)};
 	}
 
 	public Class<Equipment> getTokenClass()

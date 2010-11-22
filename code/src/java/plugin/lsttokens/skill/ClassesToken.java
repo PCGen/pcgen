@@ -167,7 +167,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			{
 				sb.append(Constants.PIPE);
 			}
-			sb.append(ref.getLSTformat());
+			sb.append(ref.getLSTformat(false));
 			needBar = true;
 		}
 		return new String[] { sb.toString() };

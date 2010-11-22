@@ -144,7 +144,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))
 			{
-				StringBuilder sb = new StringBuilder(domain.getLSTformat());
+				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
 				Prerequisite prereq;
 				if (prereqs == null || prereqs.size() == 0)

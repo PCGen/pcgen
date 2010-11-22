@@ -87,7 +87,7 @@ public class MasterbonusraceToken extends
 
 		for (CDOMSingleRef<Race> ref : added)
 		{
-			set.add(ref.getLSTformat());
+			set.add(ref.getLSTformat(false));
 		}
 		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}

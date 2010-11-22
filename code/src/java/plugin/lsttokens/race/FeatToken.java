@@ -156,7 +156,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 			assoc.setAssociation(AssociationKey.NATURE,
 					Nature.AUTOMATIC);
 			assoc.setAssociation(AssociationKey.CATEGORY, AbilityCategory.FEAT);
-			String token = ability.getLSTformat();
+			String token = ability.getLSTformat(false);
 			if (token.indexOf('(') != -1)
 			{
 				List<String> choices = new ArrayList<String>();

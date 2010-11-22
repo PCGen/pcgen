@@ -135,7 +135,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		TreeSet<String> returnSet = new TreeSet<String>();
 		for (FollowerLimit fl : changes.getAdded())
 		{
-			String followerType = fl.getCompanionList().getLSTformat();
+			String followerType = fl.getCompanionList().getLSTformat(false);
 			Formula followerNumber = fl.getValue();
 			returnSet.add(followerType + Constants.PIPE
 					+ followerNumber.toString());

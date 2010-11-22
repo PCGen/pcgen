@@ -121,7 +121,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(le.getExchangeClass().getLSTformat()).append(Constants.PIPE);
+		sb.append(le.getExchangeClass().getLSTformat(false)).append(Constants.PIPE);
 		sb.append(le.getMinDonatingLevel()).append(Constants.PIPE);
 		sb.append(le.getMaxDonatedLevels()).append(Constants.PIPE);
 		sb.append(le.getDonatingLowerLevelBound());

@@ -126,12 +126,12 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 				Category<SubClass> parent =
 						((CategorizedCDOMReference<SubClass>) ref)
 							.getCDOMCategory();
-				set.add(parent.toString() + "." + ref.getLSTformat() + '='
+				set.add(parent.toString() + "." + ref.getLSTformat(false) + '='
 					+ me.getValue());
 			}
 			else
 			{
-				set.add(ref.getLSTformat() + '=' + me.getValue());
+				set.add(ref.getLSTformat(false) + '=' + me.getValue());
 			}
 		}
 		return new String[]{StringUtil.join(set, Constants.PIPE)};

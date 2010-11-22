@@ -369,7 +369,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				for (CDOMReference<Spell> spell : m.getTertiaryKeySet(prereqs,
 						am))
 				{
-					String spellString = spell.getLSTformat();
+					String spellString = spell.getLSTformat(false);
 					String dc = m.get(prereqs, am, spell);
 					if (dc != null)
 					{

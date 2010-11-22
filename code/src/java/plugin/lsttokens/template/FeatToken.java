@@ -253,7 +253,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			{
 				AbilityRef ar = new AbilityRef(ability);
 				refs.add(ar);
-				String token = ability.getLSTformat();
+				String token = ability.getLSTformat(false);
 				if (token.indexOf('(') != -1)
 				{
 					List<String> choices = new ArrayList<String>();

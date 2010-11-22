@@ -153,7 +153,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.append(qo.getRawObject().getLSTformat());
+				sb.append(qo.getRawObject().getLSTformat(false));
 				if (qo.hasPrerequisites())
 				{
 					List<Prerequisite> prereqs = qo.getPrerequisiteList();

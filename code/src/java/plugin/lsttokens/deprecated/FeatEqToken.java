@@ -123,7 +123,7 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 			ChooseInformation<?> info = ab.get(ObjectKey.CHOOSE_INFO);
 			if (info == null)
 			{
-				Logging.errorPrint("Feat " + ref.getLSTformat()
+				Logging.errorPrint("Feat " + ref.getLSTformat(false)
 						+ " was referred to in "
 						+ obj.getClass().getSimpleName() + " "
 						+ obj.getKeyName()
@@ -134,7 +134,7 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 			 * TODO This breaks for Abilities (no cat :( )
 			 */
 			context.unconditionallyProcess(obj, "CHOOSE", info.getName()
-					+ "|FEAT=" + ref.getLSTformat());
+					+ "|FEAT=" + ref.getLSTformat(false));
 			obj.remove(ObjectKey.FEATEQ_STRING);
 		}
 		return true;

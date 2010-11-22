@@ -152,7 +152,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 			boolean needPipe = sb.length() > 0;
 			for (CDOMReference<Language> spp : added)
 			{
-				String ab = spp.getLSTformat();
+				String ab = spp.getLSTformat(false);
 				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
 				foundAny |= isUnconditionalAll;
 				foundOther |= !isUnconditionalAll;
