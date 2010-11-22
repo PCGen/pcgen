@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T> implements PrimitiveChoiceFilter<T>
+public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 {
 
 	/**
@@ -140,7 +140,7 @@ public abstract class CDOMReference<T> implements PrimitiveChoiceFilter<T>
 	 * @return A representation of this CDOMReference, suitable for storing in
 	 *         an LST file.
 	 */
-	public abstract String getLSTformat();
+	public abstract String getLSTformat(boolean useAny);
 
 	/**
 	 * Returns the count of the number of objects included in the Collection of
@@ -202,5 +202,10 @@ public abstract class CDOMReference<T> implements PrimitiveChoiceFilter<T>
 	public boolean allow(PlayerCharacter pc, T item)
 	{
 		return contains(item);
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	{
+		return c.convert(this);
 	}
 }

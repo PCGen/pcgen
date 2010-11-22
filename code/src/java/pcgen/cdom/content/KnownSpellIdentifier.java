@@ -220,6 +220,6 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 */
 	public String getLSTformat()
 	{
-		return ref.getLSTformat();
+		return ref.getLSTformat(false);
 	}
 }

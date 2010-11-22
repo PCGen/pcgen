@@ -76,7 +76,7 @@ public class AbilityFromClassChoiceSet implements
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return "CLASS." + classRef.getLSTformat();
+		return "CLASS." + classRef.getLSTformat(useAny);
 	}
 
 	/**

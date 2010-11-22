@@ -134,7 +134,7 @@ public class SpellReferenceChoiceSet implements
 				{
 					sb.append(Constants.COMMA);
 				}
-				sb.append(ref.getLSTformat());
+				sb.append(ref.getLSTformat(false));
 				needComma = true;
 			}
 		}
@@ -145,7 +145,7 @@ public class SpellReferenceChoiceSet implements
 				sb.append(Constants.COMMA);
 			}
 			sb.append("DOMAIN.");
-			sb.append(ref.getLSTformat());
+			sb.append(ref.getLSTformat(false));
 			needComma = true;
 		}
 		return sb.toString();

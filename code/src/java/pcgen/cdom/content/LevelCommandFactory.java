@@ -107,7 +107,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public String getLSTformat()
 	{
-		return pcClass.getLSTformat();
+		return pcClass.getLSTformat(false);
 	}
 
 	/**
