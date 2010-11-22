@@ -1409,7 +1409,7 @@ public final class EditorMainForm extends JDialog
 
 				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
 				{
-					String lst = ref.getLSTformat();
+					String lst = ref.getLSTformat(false);
 					if (!selecetdFeatList.contains(lst))
 					{
 						availableFeatList.remove(lst);
@@ -1542,7 +1542,7 @@ public final class EditorMainForm extends JDialog
 				{
 					for (CDOMReference<? extends PCClass> ref : favClass)
 					{
-						String cl = ref.getLSTformat();
+						String cl = ref.getLSTformat(false);
 						availableFavouredClassList.remove(cl);
 						selectedFavouredClassList.add(cl);
 					}
@@ -1566,7 +1566,7 @@ public final class EditorMainForm extends JDialog
 				for (CDOMReference<Ability> ref : thisPObject
 					.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
 				{
-					String lst = ref.getLSTformat();
+					String lst = ref.getLSTformat(false);
 					if (!selectedRaceFeatList.contains(lst))
 					{
 						availableRaceFeatList.remove(lst);
@@ -1594,7 +1594,7 @@ public final class EditorMainForm extends JDialog
 				{
 					for (CDOMReference<Ability> ref : mods)
 					{
-						String featName = ref.getLSTformat();
+						String featName = ref.getLSTformat(false);
 						if (!selectedRaceVirtualFeatList.contains(featName))
 						{
 							availableRaceVirtualFeatList.remove(featName);
@@ -1782,7 +1782,7 @@ public final class EditorMainForm extends JDialog
 				{
 					for (CDOMReference<ClassSkillList> ref : add)
 					{
-						String className = ref.getLSTformat();
+						String className = ref.getLSTformat(false);
 						if (className.startsWith("ALL|!"))
 						{
 							for (String prev : className.substring(5).split(
@@ -1957,7 +1957,7 @@ public final class EditorMainForm extends JDialog
 				{
 					for (CDOMReference<? extends PCClass> ref : favClass)
 					{
-						String cl = ref.getLSTformat();
+						String cl = ref.getLSTformat(false);
 						availableFavouredClassesList.remove(cl);
 						selectedFavouredClassesList.add(cl);
 					}
@@ -2202,7 +2202,7 @@ public final class EditorMainForm extends JDialog
 				for (CDOMReference<WeaponProf> ref : wplist)
 				{
 					moveProfToSelectedList(availableWeaponProfList, selectedWPList2,
-							ref.getLSTformat());
+							ref.getLSTformat(false));
 				}
 
 				pnlWeapons.setSelectedList2(selectedWPList2, true);

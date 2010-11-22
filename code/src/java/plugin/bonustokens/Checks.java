@@ -99,7 +99,7 @@ public final class Checks extends BonusObj
 			token = "BASE.";
 		}
 
-		return token + ((CheckInfo) obj).pobj.getLSTformat();
+		return token + ((CheckInfo) obj).pobj.getLSTformat(false);
 	}
 
 	/**

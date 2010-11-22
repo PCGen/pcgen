@@ -118,7 +118,7 @@ public final class TokenLibrary
 	public static void addToQualifierMap(QualifierToken<?> p)
 	{
 		Class<? extends QualifierToken> newTokClass = p.getClass();
-		Class<?> cl = p.getChoiceClass();
+		Class<?> cl = p.getReferenceClass();
 		String name = p.getTokenName();
 		Class<? extends QualifierToken> prev = qualifierMap.put(cl, name,
 				newTokClass);

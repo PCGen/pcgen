@@ -17,29 +17,34 @@
  */
 package pcgen.rules.persistence.token;
 
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public abstract class AbstractRestrictedSpellPrimitive implements
-		PrimitiveToken<Spell>
+		PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private Restriction restriction;
+	private CDOMReference<Spell> allSpells;
 
-	public boolean initialize(String args)
+	public boolean initialize(LoadContext context, String args)
 	{
+		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
 		if (args != null)
 		{
 			restriction = getRestriction(args);
@@ -143,7 +148,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		return SPELL_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(getPrimitiveLST());
@@ -213,20 +218,6 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		return true;
 	}
 
-	public Set<Spell> getSet(PlayerCharacter pc)
-	{
-		HashSet<Spell> spellSet = new HashSet<Spell>();
-		for (Spell spell : Globals.getContext().ref
-				.getConstructedCDOMObjects(SPELL_CLASS))
-		{
-			if (allow(pc, spell))
-			{
-				spellSet.add(spell);
-			}
-		}
-		return spellSet;
-	}
-
 	public boolean equalsRestrictedPrimitive(
 			AbstractRestrictedSpellPrimitive other)
 	{
@@ -250,5 +241,11 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	{
 		return restriction == null ? ""
 				: ('[' + restriction.getLSTformat() + ']');
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<Spell, R> c)
+	{
+		return c.convert(allSpells, this);
 	}
 }

@@ -17,7 +17,6 @@
  */
 package pcgen.rules.persistence.token;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,13 +29,13 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
-import pcgen.cdom.choiceset.RetainingChooser;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.choiceset.CollectionToChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Globals;
@@ -101,12 +100,10 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 		}
 		CDOMGroupRef<T> allReference =
 				context.ref.getCDOMAllReference(getChooseClass());
-		PrimitiveChoiceSet<T> pcs;
+		PrimitiveCollection<T> prim;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
-			pcs =
-					new ReferenceChoiceSet<T>(Collections
-						.singletonList(allReference));
+			prim = allReference;
 		}
 		else
 		{
@@ -114,13 +111,13 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
-			Set<PrimitiveChoiceFilter<T>> set =
-					new HashSet<PrimitiveChoiceFilter<T>>();
+			Set<PrimitiveCollection<T>> set =
+					new HashSet<PrimitiveCollection<T>>();
 			StringTokenizer st = new StringTokenizer(activeValue, "|");
 			while (st.hasMoreTokens())
 			{
 				String tok = st.nextToken();
-				PrimitiveChoiceFilter<T> ref =
+				PrimitiveCollection<T> ref =
 						ChoiceSetLoadUtilities.getSimplePrimitive(context,
 							getManufacturer(context), tok);
 				if (ref == null)
@@ -139,13 +136,10 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 			{
 				return new ParseResult.Fail("No items in set.");
 			}
-			RetainingChooser<T> ret =
-					new RetainingChooser<T>(getChooseClass(), allReference);
-			ret.addAllRetainingChoiceFilters(set);
-			pcs = ret;
+			prim = new CompoundOrPrimitive<T>(set);
 		}
 
-		if (!pcs.getGroupingState().isValid())
+		if (!prim.getGroupingState().isValid())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
@@ -153,6 +147,7 @@ public abstract class AbstractSimpleChooseToken<T extends Identified> extends
 			cpr.addErrorMessage("  Check that ALL is not combined with another item");
 			return cpr;
 		}
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(prim);
 		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);

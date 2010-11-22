@@ -28,8 +28,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
-import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
@@ -217,7 +216,7 @@ public abstract class LoadContext
 
 	private final TokenSupport support = new TokenSupport();
 
-	public <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
+	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			SelectionCreator<T> sc, String value)
 	{
 		try
@@ -232,7 +231,7 @@ public abstract class LoadContext
 		}
 	}
 
-	public <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitiveChoiceFilter(
+	public <T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(
 			SelectionCreator<T> sc, String key)
 	{
 		return ChoiceSetLoadUtilities.getPrimitive(this, sc, key);

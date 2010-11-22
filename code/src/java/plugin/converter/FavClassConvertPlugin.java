@@ -126,7 +126,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 				chooseValue.append(parent.toString());
 				chooseValue.append(".");
 			}
-			chooseValue.append(ref.getLSTformat());
+			chooseValue.append(ref.getLSTformat(false));
 		}
 
 		context.unconditionallyProcess(templ, "CHOOSE", chooseValue.toString());

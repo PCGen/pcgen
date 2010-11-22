@@ -75,7 +75,7 @@ public class LoadValidator implements UnconstructedValidator
 				if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 				{
 					simpleMap.addToListFor(qcl, q.getQualifiedReference()
-							.getLSTformat());
+							.getLSTformat(false));
 				}
 			}
 		}
@@ -94,7 +94,7 @@ public class LoadValidator implements UnconstructedValidator
 					CDOMSingleRef ref = q.getQualifiedReference();
 					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
 							.getCDOMCategory();
-					categoryMap.addToListFor(qcl, cat, ref.getLSTformat());
+					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
 				}
 			}
 		}

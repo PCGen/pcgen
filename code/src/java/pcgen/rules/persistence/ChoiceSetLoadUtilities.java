@@ -7,14 +7,10 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Identified;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
-import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.choiceset.CompoundAndChoiceSet;
-import pcgen.cdom.choiceset.CompoundOrChoiceSet;
-import pcgen.cdom.choiceset.RetainingChooser;
-import pcgen.cdom.filter.CompoundAndFilter;
-import pcgen.cdom.filter.CompoundOrFilter;
-import pcgen.cdom.filter.NegatingFilter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.primitive.CompoundAndPrimitive;
+import pcgen.cdom.primitive.CompoundOrPrimitive;
+import pcgen.cdom.primitive.NegatingPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.SelectionCreator;
@@ -33,7 +29,7 @@ public final class ChoiceSetLoadUtilities
 		//Don't instantiate utility class
 	}
 
-	public static <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
+	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		/*
@@ -48,8 +44,7 @@ public final class ChoiceSetLoadUtilities
 		// */
 		// return new AnyChoiceSet<T>(poClass);
 		// }
-		List<PrimitiveChoiceSet<T>> orList = new ArrayList<PrimitiveChoiceSet<T>>();
-		List<PrimitiveChoiceFilter<T>> pcfOrList = new ArrayList<PrimitiveChoiceFilter<T>>();
+		List<PrimitiveCollection<T>> orList = new ArrayList<PrimitiveCollection<T>>();
 		for (ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|'); pipe
 				.hasNext();)
 		{
@@ -58,8 +53,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			List<PrimitiveChoiceSet<T>> andList = new ArrayList<PrimitiveChoiceSet<T>>();
-			List<PrimitiveChoiceFilter<T>> pcfAndList = new ArrayList<PrimitiveChoiceFilter<T>>();
+			List<PrimitiveCollection<T>> andList = new ArrayList<PrimitiveCollection<T>>();
 			for (ParsingSeparator comma = new ParsingSeparator(joinedAnd, ','); comma
 					.hasNext();)
 			{
@@ -74,7 +68,7 @@ public final class ChoiceSetLoadUtilities
 						primitive);
 				if (qual == null)
 				{
-					PrimitiveChoiceFilter<T> pcf = getSimplePrimitive(context,
+					PrimitiveCollection<T> pcf = getSimplePrimitive(context,
 							sc, primitive);
 					if (pcf == null)
 					{
@@ -84,7 +78,7 @@ public final class ChoiceSetLoadUtilities
 					}
 					else
 					{
-						pcfAndList.add(pcf);
+						andList.add(pcf);
 					}
 				}
 				else
@@ -92,36 +86,17 @@ public final class ChoiceSetLoadUtilities
 					andList.add(qual);
 				}
 			}
-			if (!pcfAndList.isEmpty())
+			if (!andList.isEmpty())
 			{
-				if (pcfAndList.size() == 1 && andList.isEmpty())
+				if (andList.size() == 1)
 				{
-					pcfOrList.add(pcfAndList.get(0));
+					orList.add(andList.get(0));
 				}
 				else
 				{
-					RetainingChooser<T> ret = new RetainingChooser<T>(sc
-							.getReferenceClass(), sc.getAllReference());
-					ret.addRetainingChoiceFilter(new CompoundAndFilter<T>(
-							pcfAndList));
-					andList.add(ret);
+					orList.add(new CompoundAndPrimitive<T>(andList));
 				}
 			}
-			if (andList.size() == 1)
-			{
-				orList.add(andList.get(0));
-			}
-			else if (!andList.isEmpty())
-			{
-				orList.add(new CompoundAndChoiceSet<T>(andList));
-			}
-		}
-		if (!pcfOrList.isEmpty())
-		{
-			RetainingChooser<T> ret = new RetainingChooser<T>(sc
-					.getReferenceClass(), sc.getAllReference());
-			ret.addAllRetainingChoiceFilters(pcfOrList);
-			orList.add(ret);
 		}
 		if (orList.isEmpty())
 		{
@@ -133,7 +108,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrChoiceSet<T>(orList);
+			return new CompoundOrPrimitive<T>(orList);
 		}
 	}
 
@@ -163,14 +138,14 @@ public final class ChoiceSetLoadUtilities
 		return false;
 	}
 
-	public static <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitive(
+	public static <T extends CDOMObject> PrimitiveCollection<T> getPrimitive(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		if (joinedOr.length() == 0 || hasIllegalSeparator('|', joinedOr))
 		{
 			return null;
 		}
-		List<PrimitiveChoiceFilter<T>> pcfOrList = new ArrayList<PrimitiveChoiceFilter<T>>();
+		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<PrimitiveCollection<T>>();
 		for (ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|'); pipe
 				.hasNext();)
 		{
@@ -179,7 +154,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			List<PrimitiveChoiceFilter<T>> pcfAndList = new ArrayList<PrimitiveChoiceFilter<T>>();
+			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<PrimitiveCollection<T>>();
 			for (ParsingSeparator comma = new ParsingSeparator(joinedAnd, ','); comma
 					.hasNext();)
 			{
@@ -190,7 +165,7 @@ public final class ChoiceSetLoadUtilities
 							"Choice argument was null or empty: " + primitive);
 					return null;
 				}
-				PrimitiveChoiceFilter<T> pcf = getSimplePrimitive(context,
+				PrimitiveCollection<T> pcf = getSimplePrimitive(context,
 						sc, primitive);
 				if (pcf == null)
 				{
@@ -209,7 +184,7 @@ public final class ChoiceSetLoadUtilities
 			}
 			else
 			{
-				pcfOrList.add(new CompoundAndFilter<T>(pcfAndList));
+				pcfOrList.add(new CompoundAndPrimitive<T>(pcfAndList));
 			}
 		}
 		if (pcfOrList.size() == 1)
@@ -218,7 +193,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrFilter<T>(pcfOrList);
+			return new CompoundOrPrimitive<T>(pcfOrList);
 		}
 	}
 
@@ -288,7 +263,7 @@ public final class ChoiceSetLoadUtilities
 		return pi;
 	}
 
-	public static <T extends Identified> PrimitiveChoiceFilter<T> getSimplePrimitive(
+	public static <T extends Identified> PrimitiveCollection<T> getSimplePrimitive(
 			LoadContext context, SelectionCreator<T> sc, String key)
 	{
 		PrimitiveInfo pi = getPrimitiveInfo(key);
@@ -296,7 +271,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			return null;
 		}
-		PrimitiveChoiceFilter<T> prim = getTokenPrimitive(context, sc
+		PrimitiveCollection<T> prim = getTokenPrimitive(context, sc
 				.getReferenceClass(), pi);
 		if (prim == null)
 		{
@@ -305,7 +280,7 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
-	public static <T> PrimitiveChoiceFilter<T> getTokenPrimitive(
+	public static <T> PrimitiveCollection<T> getTokenPrimitive(
 			LoadContext context, Class<T> cl, PrimitiveInfo pi)
 	{
 		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, pi.tokKey);
@@ -319,7 +294,7 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
-	public static <T extends Identified> PrimitiveChoiceFilter<T> getTraditionalPrimitive(
+	public static <T extends Identified> PrimitiveCollection<T> getTraditionalPrimitive(
 			SelectionCreator<T> sc, PrimitiveInfo pi)
 	{
 		String tokKey = pi.tokKey;
@@ -342,7 +317,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			return new NegatingFilter<T>(typeReference);
+			return new NegatingPrimitive<T>(typeReference);
 		}
 		if (tokValue != null)
 		{
@@ -361,7 +336,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (key.startsWith(Constants.LST_NOT_TYPE_OLD))
 		{
-			return new NegatingFilter<T>(TokenUtilities.getTypeReference(
+			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(
 					sc, key.substring(6)));
 		}
 		if (key.indexOf('%') != -1)

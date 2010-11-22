@@ -1034,7 +1034,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 						sb.append(", ");
 					}
 					needsComma = true;
-					sb.append(list.getLSTformat());
+					sb.append(list.getLSTformat(false));
 					sb.append(apo.getAssociation(AssociationKey.SPELL_LEVEL));
 				}
 			}

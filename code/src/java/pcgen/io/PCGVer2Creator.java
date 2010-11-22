@@ -979,7 +979,7 @@ final class PCGVer2Creator implements IOConstants
 				{
 					buffer.append(del);
 					buffer.append(TAG_WEAPON).append(':');
-					buffer.append(EntityEncoder.encode(ref.getLSTformat()));
+					buffer.append(EntityEncoder.encode(ref.getLSTformat(false)));
 					del = "|"; //$NON-NLS-1$
 				}
 			}

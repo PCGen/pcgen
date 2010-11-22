@@ -207,7 +207,7 @@ class ClassBasePanel extends BasePanel
 							((CategorizedCDOMReference<?>) ref).getCDOMCategory();
 					cl += '=' + cat.toString();
 				}
-				ol.add(cl + "|" + ref.getLSTformat());
+				ol.add(cl + "|" + ref.getLSTformat(false));
 			}
 			qualify.setText(StringUtil.join(ol, "|"));
 		}

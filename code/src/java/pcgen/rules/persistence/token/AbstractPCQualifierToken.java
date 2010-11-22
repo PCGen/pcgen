@@ -17,30 +17,31 @@
  */
 package pcgen.rules.persistence.token;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.converter.AddFilterConverter;
+import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
-		QualifierToken<T>
+		QualifierToken<T>, PrimitiveFilter<T>
 {
 
 	private Class<T> refClass;
 
-	private PrimitiveChoiceFilter<T> pcs = null;
+	private PrimitiveCollection<T> pcs = null;
+
+	private boolean wasRestricted = false;
 
 	private boolean negated = false;
-	
-	private CDOMGroupRef<T> allReference;
 	
 	public String getTokenName()
 	{
@@ -63,32 +64,16 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		}
 		refClass = sc.getReferenceClass();
 		negated = negate;
-		allReference = sc.getAllReference();
-		if (value != null)
+		if (value == null)
+		{
+			pcs = sc.getAllReference();
+		}
+		else
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			return pcs != null;
+			wasRestricted = true;
 		}
-		return true;
-	}
-
-	public Set<T> getSet(PlayerCharacter pc)
-	{
-		Collection<T> possessed = getPossessed(pc);
-		Collection<T> objects = negated ? allReference.getContainedObjects() : possessed;
-		Set<T> returnSet = new HashSet<T>();
-		if (objects != null)
-		{
-			for (T po : objects)
-			{
-				boolean allow = (pcs == null) || pcs.allow(pc, po);
-				if (allow && (!negated || !possessed.contains(po)))
-				{
-					returnSet.add(po);
-				}
-			}
-		}
-		return returnSet;
+		return pcs != null;
 	}
 
 	protected abstract Collection<T> getPossessed(PlayerCharacter pc);
@@ -101,9 +86,9 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 			sb.append('!');
 		}
 		sb.append(getTokenName());
-		if (pcs != null)
+		if (wasRestricted)
 		{
-			sb.append('[').append(pcs.getLSTformat()).append(']');
+			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
 		}
 		return sb.toString();
 	}
@@ -161,5 +146,18 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
 				.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	{
+		Converter<T, R> conv = c;
+		conv = negated ? new NegateFilterConverter<T, R>(conv) : conv;
+		conv = new AddFilterConverter<T, R>(conv, this);
+		return pcs.getCollection(pc, conv);
+	}
+
+	public boolean allow(PlayerCharacter pc, T po)
+	{
+		return getPossessed(pc).contains(po);
 	}
 }

@@ -130,7 +130,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 					.getTertiaryKeySet(prereqs, level))
 			{
 				sb.append(Constants.PIPE);
-				String lsts = list.getLSTformat();
+				String lsts = list.getLSTformat(false);
 				if (lsts.startsWith("TYPE="))
 				{
 					lsts = "SPELLCASTER." + lsts.substring(5);
@@ -148,7 +148,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 						sb.append(',');
 					}
 					first = false;
-					sb.append(lw.getLSTformat());
+					sb.append(lw.getLSTformat(false));
 				}
 			}
 		}
