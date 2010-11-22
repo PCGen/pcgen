@@ -38,7 +38,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 			return false;
 		}
 		spelltype = value;
-		return initialize(args);
+		return initialize(context, args);
 	}
 
 	public String getTokenName()

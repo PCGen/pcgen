@@ -17,22 +17,24 @@
  */
 package plugin.primitive.race;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class RaceTypeToken implements PrimitiveToken<Race>
+public class RaceTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
 	private RaceType racetype;
+	private CDOMReference<Race> allRaces;
 
 	public boolean initialize(LoadContext context, Class<Race> cl,
 			String value, String args)
@@ -42,6 +44,7 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 			return false;
 		}
 		racetype = RaceType.getConstant(value);
+		allRaces = context.ref.getCDOMAllReference(RACE_CLASS);
 		return true;
 	}
 
@@ -55,7 +58,7 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 		return RACE_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + racetype.toString();
 	}
@@ -63,20 +66,6 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 	public boolean allow(PlayerCharacter pc, Race race)
 	{
 		return racetype.equals(race.get(ObjectKey.RACETYPE));
-	}
-
-	public Set<Race> getSet(PlayerCharacter pc)
-	{
-		HashSet<Race> RaceSet = new HashSet<Race>();
-		for (Race race : Globals.getContext().ref
-				.getConstructedCDOMObjects(RACE_CLASS))
-		{
-			if (racetype.equals(race.get(ObjectKey.RACETYPE)))
-			{
-				RaceSet.add(race);
-			}
-		}
-		return RaceSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -105,4 +94,8 @@ public class RaceTypeToken implements PrimitiveToken<Race>
 		return racetype == null ? -7 : racetype.hashCode();
 	}
 
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
+	{
+		return c.convert(allRaces, this);
+	}
 }

@@ -35,7 +35,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 		{
 			return false;
 		}
-		return initialize(args);
+		return initialize(context, args);
 	}
 
 	public String getTokenName()

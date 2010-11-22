@@ -17,23 +17,25 @@
  */
 package plugin.primitive.spell;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class SchoolToken implements PrimitiveToken<Spell>
+public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private CDOMSingleRef<SpellSchool> school;
+	private CDOMReference<Spell> allSpells;
 
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
@@ -43,6 +45,7 @@ public class SchoolToken implements PrimitiveToken<Spell>
 			return false;
 		}
 		school = context.ref.getCDOMReference(SpellSchool.class, value);
+		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 
@@ -56,28 +59,14 @@ public class SchoolToken implements PrimitiveToken<Spell>
 		return SPELL_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + school.getLSTformat();
+		return getTokenName() + "=" + school.getLSTformat(false);
 	}
 
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		return spell.containsInList(ListKey.SPELL_SCHOOL, school.resolvesTo());
-	}
-
-	public Set<Spell> getSet(PlayerCharacter pc)
-	{
-		HashSet<Spell> spellSet = new HashSet<Spell>();
-		for (Spell spell : Globals.getContext().ref
-			.getConstructedCDOMObjects(SPELL_CLASS))
-		{
-			if (allow(pc, spell))
-			{
-				spellSet.add(spell);
-			}
-		}
-		return spellSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -106,4 +95,9 @@ public class SchoolToken implements PrimitiveToken<Spell>
 		return school == null ? -7 : school.hashCode();
 	}
 
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<Spell, R> c)
+	{
+		return c.convert(allSpells, this);
+	}
 }

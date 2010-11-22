@@ -40,7 +40,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 			return false;
 		}
 		spelllist = context.ref.getCDOMReference(DomainSpellList.class, value);
-		return initialize(args);
+		return initialize(context, args);
 	}
 
 	public String getTokenName()
@@ -94,7 +94,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	public CharSequence getPrimitiveLST()
 	{
 		return new StringBuilder().append(getTokenName()).append('=').append(
-				spelllist.getLSTformat()).append(getRestrictionLST());
+				spelllist.getLSTformat(false)).append(getRestrictionLST());
 	}
 
 }

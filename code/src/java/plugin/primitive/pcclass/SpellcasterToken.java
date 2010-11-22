@@ -17,30 +17,29 @@
  */
 package plugin.primitive.pcclass;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class SpellcasterToken implements PrimitiveToken<PCClass>
+public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private CDOMReference<PCClass> allClasses;
 
 	public boolean initialize(LoadContext context, Class<PCClass> cl,
 			String value, String args)
 	{
-		if (value != null || args != null)
-		{
-			return false;
-		}
-		return true;
+		allClasses = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+		return (value == null) && (args == null);
 	}
 
 	public String getTokenName()
@@ -53,7 +52,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 		return PCCLASS_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return "SPELLCASTER";
 	}
@@ -68,20 +67,6 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 		return pcc.getSafe(ObjectKey.USE_SPELL_SPELL_STAT)
 				|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT)
 				|| (pcc.get(ObjectKey.SPELL_STAT) != null);
-	}
-
-	public Set<PCClass> getSet(PlayerCharacter pc)
-	{
-		HashSet<PCClass> classSet = new HashSet<PCClass>();
-		for (PCClass pcc : Globals.getContext().ref
-				.getConstructedCDOMObjects(PCCLASS_CLASS))
-		{
-			if (isSpellCaster(pcc))
-			{
-				classSet.add(pcc);
-			}
-		}
-		return classSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -99,5 +84,11 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>
 	public int hashCode()
 	{
 		return 123023;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<PCClass, R> c)
+	{
+		return c.convert(allClasses, this);
 	}
 }

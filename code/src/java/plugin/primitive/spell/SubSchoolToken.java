@@ -17,21 +17,23 @@
  */
 package plugin.primitive.spell;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class SubSchoolToken implements PrimitiveToken<Spell>
+public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private String subschool;
+	private CDOMReference<Spell> allSpells;
 
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
@@ -41,6 +43,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>
 			return false;
 		}
 		subschool = value;
+		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 
@@ -54,7 +57,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>
 		return SPELL_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + subschool;
 	}
@@ -62,20 +65,6 @@ public class SubSchoolToken implements PrimitiveToken<Spell>
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		return spell.containsInList(ListKey.SPELL_SUBSCHOOL, subschool);
-	}
-
-	public Set<Spell> getSet(PlayerCharacter pc)
-	{
-		HashSet<Spell> spellSet = new HashSet<Spell>();
-		for (Spell spell : Globals.getContext().ref
-			.getConstructedCDOMObjects(SPELL_CLASS))
-		{
-			if (allow(pc, spell))
-			{
-				spellSet.add(spell);
-			}
-		}
-		return spellSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -102,6 +91,12 @@ public class SubSchoolToken implements PrimitiveToken<Spell>
 	public int hashCode()
 	{
 		return subschool == null ? -7 : subschool.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<Spell, R> c)
+	{
+		return c.convert(allSpells, this);
 	}
 
 }

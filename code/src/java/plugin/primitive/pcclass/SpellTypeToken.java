@@ -17,22 +17,23 @@
  */
 package plugin.primitive.pcclass;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class SpellTypeToken implements PrimitiveToken<PCClass>
+public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCClass>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private String spelltype;
+	private CDOMReference<PCClass> allClasses;
 
 	public boolean initialize(LoadContext context, Class<PCClass> cl,
 		String value, String args)
@@ -42,6 +43,7 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>
 			return false;
 		}
 		spelltype = value;
+		allClasses = context.ref.getCDOMAllReference(PCCLASS_CLASS);
 		return true;
 	}
 
@@ -55,28 +57,14 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>
 		return PCCLASS_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + spelltype.toString();
+		return getTokenName() + "=" + spelltype;
 	}
 
 	public boolean allow(PlayerCharacter pc, PCClass cl)
 	{
 		return spelltype.equals(cl.get(StringKey.SPELLTYPE));
-	}
-
-	public Set<PCClass> getSet(PlayerCharacter pc)
-	{
-		HashSet<PCClass> clSet = new HashSet<PCClass>();
-		for (PCClass cl : Globals.getContext().ref
-			.getConstructedCDOMObjects(PCCLASS_CLASS))
-		{
-			if (spelltype.equals(cl.get(ObjectKey.RACETYPE)))
-			{
-				clSet.add(cl);
-			}
-		}
-		return clSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -105,4 +93,9 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>
 		return spelltype == null ? -7 : spelltype.hashCode();
 	}
 
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<PCClass, R> c)
+	{
+		return c.convert(allClasses, this);
+	}
 }

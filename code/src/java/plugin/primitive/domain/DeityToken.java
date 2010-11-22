@@ -19,10 +19,10 @@ package plugin.primitive.domain;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainList;
 import pcgen.core.Deity;
@@ -40,11 +40,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	public boolean initialize(LoadContext context, Class<Domain> cl,
 			String value, String args)
 	{
-		if (value != null || args != null)
-		{
-			return false;
-		}
-		return true;
+		return (value == null) && (args == null);
 	}
 
 	public String getTokenName()
@@ -57,7 +53,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 		return DOMAIN_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName();
 	}
@@ -91,33 +87,6 @@ public class DeityToken implements PrimitiveToken<Domain>
 		return false;
 	}
 
-	public Set<Domain> getSet(PlayerCharacter pc)
-	{
-		HashSet<Domain> deitySet = new HashSet<Domain>();
-		Deity deity = pc.getDeity();
-		if (deity == null)
-		{
-			return deitySet;
-		}
-		CDOMReference<DomainList> list = Deity.DOMAINLIST;
-		Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
-		for (CDOMReference<Domain> ref : mods)
-		{
-			Collection<AssociatedPrereqObject> assoc = deity
-					.getListAssociations(list, ref);
-			for (AssociatedPrereqObject apo : assoc)
-			{
-				// TODO Null is a bug here!
-				if (PrereqHandler
-						.passesAll(apo.getPrerequisiteList(), pc, null))
-				{
-					deitySet.addAll(ref.getContainedObjects());
-				}
-			}
-		}
-		return deitySet;
-	}
-
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -133,5 +102,32 @@ public class DeityToken implements PrimitiveToken<Domain>
 	public int hashCode()
 	{
 		return 8635;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
+	{
+		HashSet<R> returnSet = new HashSet<R>();
+		Deity deity = pc.getDeity();
+		if (deity == null)
+		{
+			return returnSet;
+		}
+		CDOMReference<DomainList> list = Deity.DOMAINLIST;
+		Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
+		for (CDOMReference<Domain> ref : mods)
+		{
+			Collection<AssociatedPrereqObject> assoc = deity
+					.getListAssociations(list, ref);
+			for (AssociatedPrereqObject apo : assoc)
+			{
+				if (PrereqHandler
+						.passesAll(apo.getPrerequisiteList(), pc, deity))
+				{
+					returnSet.addAll(c.convert(ref));
+					break;
+				}
+			}
+		}
+		return returnSet;
 	}
 }

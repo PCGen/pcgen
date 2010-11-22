@@ -17,12 +17,13 @@
  */
 package plugin.primitive.weaponprof;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Deity;
@@ -39,11 +40,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
 			String value, String args)
 	{
-		if (value != null || args != null)
-		{
-			return false;
-		}
-		return true;
+		return (value == null) && (args == null);
 	}
 
 	public String getTokenName()
@@ -56,7 +53,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		return WEAPONPROF_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return "DEITYWEAPON";
 	}
@@ -80,23 +77,6 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		return false;
 	}
 
-	public Set<WeaponProf> getSet(PlayerCharacter pc)
-	{
-		Deity deity = pc.getDeity();
-		if (deity == null)
-		{
-			return Collections.emptySet();
-		}
-		HashSet<WeaponProf> set = new HashSet<WeaponProf>();
-		List<CDOMReference<WeaponProf>> dwp = deity
-				.getSafeListFor(ListKey.DEITYWEAPON);
-		for (CDOMReference<WeaponProf> ref : dwp)
-		{
-			set.addAll(ref.getContainedObjects());
-		}
-		return set;
-	}
-
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -112,5 +92,22 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 	public int hashCode()
 	{
 		return 5783;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+	{
+		Deity deity = pc.getDeity();
+		if (deity == null)
+		{
+			return Collections.emptySet();
+		}
+		HashSet<R> set = new HashSet<R>();
+		List<CDOMReference<WeaponProf>> dwp = deity
+				.getSafeListFor(ListKey.DEITYWEAPON);
+		for (CDOMReference<WeaponProf> ref : dwp)
+		{
+			set.addAll(c.convert(ref));
+		}
+		return set;
 	}
 }

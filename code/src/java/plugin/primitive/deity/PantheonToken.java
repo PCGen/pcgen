@@ -17,24 +17,26 @@
  */
 package plugin.primitive.deity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.core.Deity;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class PantheonToken implements PrimitiveToken<Deity>
+public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
 
 	private Pantheon pantheon;
+	private CDOMReference<Deity> allDeities;
 
 	public boolean initialize(LoadContext context, Class<Deity> cl,
 			String value, String args)
@@ -44,6 +46,7 @@ public class PantheonToken implements PrimitiveToken<Deity>
 			return false;
 		}
 		pantheon = Pantheon.getConstant(value);
+		allDeities = context.ref.getCDOMAllReference(DEITY_CLASS);
 		return true;
 	}
 
@@ -57,7 +60,7 @@ public class PantheonToken implements PrimitiveToken<Deity>
 		return DEITY_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + pantheon.toString();
 	}
@@ -65,20 +68,6 @@ public class PantheonToken implements PrimitiveToken<Deity>
 	public boolean allow(PlayerCharacter pc, Deity deity)
 	{
 		return deity.containsInList(ListKey.PANTHEON, pantheon);
-	}
-
-	public Set<Deity> getSet(PlayerCharacter pc)
-	{
-		HashSet<Deity> deitySet = new HashSet<Deity>();
-		for (Deity deity : Globals.getContext().ref
-				.getConstructedCDOMObjects(DEITY_CLASS))
-		{
-			if (deity.containsInList(ListKey.PANTHEON, pantheon))
-			{
-				deitySet.add(deity);
-			}
-		}
-		return deitySet;
 	}
 
 	public GroupingState getGroupingState()
@@ -105,5 +94,10 @@ public class PantheonToken implements PrimitiveToken<Deity>
 	public int hashCode()
 	{
 		return pantheon == null ? -3 : pantheon.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+	{
+		return c.convert(allDeities, this);
 	}
 }

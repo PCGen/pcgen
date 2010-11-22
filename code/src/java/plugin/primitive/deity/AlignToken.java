@@ -17,24 +17,26 @@
  */
 package plugin.primitive.deity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
-import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class AlignToken implements PrimitiveToken<Deity>
+public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 {
 
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	private PCAlignment ref;
+	private PCAlignment alignment;
+	private CDOMReference<Deity> allDeities;
 
 	public boolean initialize(LoadContext context, Class<Deity> cl,
 			String value, String args)
@@ -43,8 +45,9 @@ public class AlignToken implements PrimitiveToken<Deity>
 		{
 			return false;
 		}
-		ref = context.ref.getAbbreviatedObject(ALIGNMENT_CLASS, value);
-		return ref != null;
+		alignment = context.ref.getAbbreviatedObject(ALIGNMENT_CLASS, value);
+		allDeities = context.ref.getCDOMAllReference(DEITY_CLASS);
+		return alignment != null;
 	}
 
 	public String getTokenName()
@@ -57,28 +60,14 @@ public class AlignToken implements PrimitiveToken<Deity>
 		return DEITY_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + ref.getLSTformat();
+		return getTokenName() + "=" + alignment.getLSTformat();
 	}
 
 	public boolean allow(PlayerCharacter pc, Deity deity)
 	{
-		return ref.equals(deity.get(ObjectKey.ALIGNMENT));
-	}
-
-	public Set<Deity> getSet(PlayerCharacter pc)
-	{
-		HashSet<Deity> deitySet = new HashSet<Deity>();
-		for (Deity deity : Globals.getContext().ref
-				.getConstructedCDOMObjects(DEITY_CLASS))
-		{
-			if (ref.equals(deity.get(ObjectKey.ALIGNMENT)))
-			{
-				deitySet.add(deity);
-			}
-		}
-		return deitySet;
+		return alignment.equals(deity.get(ObjectKey.ALIGNMENT));
 	}
 
 	public GroupingState getGroupingState()
@@ -96,7 +85,7 @@ public class AlignToken implements PrimitiveToken<Deity>
 		if (obj instanceof AlignToken)
 		{
 			AlignToken other = (AlignToken) obj;
-			return ref.equals(other.ref);
+			return alignment.equals(other.alignment);
 		}
 		return false;
 	}
@@ -104,7 +93,12 @@ public class AlignToken implements PrimitiveToken<Deity>
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -5 : ref.hashCode();
+		return alignment == null ? -5 : alignment.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+	{
+		return c.convert(allDeities, this);
 	}
 
 }

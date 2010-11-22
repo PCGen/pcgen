@@ -17,23 +17,25 @@
  */
 package plugin.primitive.race;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class RaceSubTypeToken implements PrimitiveToken<Race>
+public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race>
 {
 
 	private static final Class<Race> RACE_CLASS = Race.class;
 	private RaceSubType racetype;
+	private CDOMReference<Race> allRaces;
 
 	public boolean initialize(LoadContext context, Class<Race> cl,
 			String value, String args)
@@ -43,6 +45,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 			return false;
 		}
 		racetype = RaceSubType.getConstant(value);
+		allRaces = context.ref.getCDOMAllReference(RACE_CLASS);
 		return true;
 	}
 
@@ -56,7 +59,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 		return RACE_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + racetype.toString();
 	}
@@ -64,20 +67,6 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 	public boolean allow(PlayerCharacter pc, Race race)
 	{
 		return race.containsInList(ListKey.RACESUBTYPE, racetype);
-	}
-
-	public Set<Race> getSet(PlayerCharacter pc)
-	{
-		HashSet<Race> RaceSet = new HashSet<Race>();
-		for (Race race : Globals.getContext().ref
-				.getConstructedCDOMObjects(RACE_CLASS))
-		{
-			if (race.containsInList(ListKey.RACESUBTYPE, racetype))
-			{
-				RaceSet.add(race);
-			}
-		}
-		return RaceSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -104,5 +93,10 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>
 	public int hashCode()
 	{
 		return racetype == null ? -11 : racetype.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
+	{
+		return c.convert(allRaces, this);
 	}
 }

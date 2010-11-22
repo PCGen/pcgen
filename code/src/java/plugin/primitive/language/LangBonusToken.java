@@ -17,27 +17,28 @@
  */
 package plugin.primitive.language;
 
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
-public class LangBonusToken implements PrimitiveToken<Language>
+public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter<Language>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+	private CDOMReference<Language> allLanguages;
 
 	public boolean initialize(LoadContext context, Class<Language> cl,
 			String value, String args)
 	{
-		if (value != null || args != null)
-		{
-			return false;
-		}
-		return true;
+		allLanguages = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
+		return (value == null) && (args == null);
 	}
 
 	public String getTokenName()
@@ -50,7 +51,7 @@ public class LangBonusToken implements PrimitiveToken<Language>
 		return LANGUAGE_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName();
 	}
@@ -58,11 +59,6 @@ public class LangBonusToken implements PrimitiveToken<Language>
 	public boolean allow(PlayerCharacter pc, Language l)
 	{
 		return pc.getLanguageBonusSelectionList().contains(l);
-	}
-
-	public Set<Language> getSet(PlayerCharacter pc)
-	{
-		return pc.getLanguageBonusSelectionList();
 	}
 
 	public GroupingState getGroupingState()
@@ -80,5 +76,10 @@ public class LangBonusToken implements PrimitiveToken<Language>
 	public int hashCode()
 	{
 		return 3568;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
+	{
+		return c.convert(allLanguages, this);
 	}
 }

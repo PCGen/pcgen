@@ -17,22 +17,24 @@
  */
 package plugin.primitive.equipment;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.EqWield;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
-public class WieldCategoryToken implements PrimitiveToken<Equipment>
+public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveFilter<Equipment>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 	private EqWield category;
+	private CDOMReference<Equipment> allEquipment;
 
 	public boolean initialize(LoadContext context, Class<Equipment> cl,
 			String value, String args)
@@ -58,6 +60,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>
 			Logging.errorPrint("Unable to understand Wield Category: " + value);
 			return false;
 		}
+		allEquipment = context.ref.getCDOMAllReference(EQUIPMENT_CLASS);
 		return true;
 	}
 
@@ -71,7 +74,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>
 		return EQUIPMENT_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return "WIELD=" + category;
 	}
@@ -79,20 +82,6 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>
 	public boolean allow(PlayerCharacter pc, Equipment eq)
 	{
 		return category.checkWield(pc, eq);
-	}
-
-	public Set<Equipment> getSet(PlayerCharacter pc)
-	{
-		HashSet<Equipment> set = new HashSet<Equipment>();
-		for (Equipment eq : Globals.getContext().ref
-				.getConstructedCDOMObjects(EQUIPMENT_CLASS))
-		{
-			if (allow(pc, eq))
-			{
-				set.add(eq);
-			}
-		}
-		return set;
 	}
 
 	public GroupingState getGroupingState()
@@ -119,5 +108,11 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>
 	public int hashCode()
 	{
 		return category == null ? -13 : category.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<Equipment, R> c)
+	{
+		return c.convert(allEquipment, this);
 	}
 }

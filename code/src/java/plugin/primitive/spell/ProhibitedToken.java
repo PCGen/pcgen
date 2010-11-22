@@ -17,11 +17,12 @@
  */
 package plugin.primitive.spell;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SpellCountCalc;
@@ -30,10 +31,11 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
-public class ProhibitedToken implements PrimitiveToken<Spell>
+public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private boolean prohibited;
+	private CDOMReference<Spell> allSpells;
 
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
@@ -55,6 +57,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>
 			Logging.errorPrint("Did not understand Prohibited value: " + value);
 			return false;
 		}
+		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 
@@ -68,7 +71,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>
 		return SPELL_CLASS;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + (prohibited ? "YES" : "NO");
 	}
@@ -83,20 +86,6 @@ public class ProhibitedToken implements PrimitiveToken<Spell>
 			}
 		}
 		return true;
-	}
-
-	public Set<Spell> getSet(PlayerCharacter pc)
-	{
-		HashSet<Spell> spellSet = new HashSet<Spell>();
-		for (Spell spell : Globals.getContext().ref
-			.getConstructedCDOMObjects(SPELL_CLASS))
-		{
-			if (allow(pc, spell))
-			{
-				spellSet.add(spell);
-			}
-		}
-		return spellSet;
 	}
 
 	public GroupingState getGroupingState()
@@ -125,4 +114,9 @@ public class ProhibitedToken implements PrimitiveToken<Spell>
 		return prohibited ? 1345 : 999234;
 	}
 
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<Spell, R> c)
+	{
+		return c.convert(allSpells, this);
+	}
 }

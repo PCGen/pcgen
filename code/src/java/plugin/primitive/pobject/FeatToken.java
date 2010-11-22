@@ -18,12 +18,13 @@
 package plugin.primitive.pobject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -70,40 +71,28 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		}
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + ref.getLSTformat();
+		return getTokenName() + "=" + ref.getLSTformat(useAny);
 	}
 
 	public boolean allow(PlayerCharacter pc, T obj)
 	{
 		Ability a = ref.resolvesTo();
 		ChooseInformation info = a.get(ObjectKey.CHOOSE_INFO);
-		List<T> currentItems = getList(pc, a, info);
+		List<?> currentItems = getList(pc, a, info);
 		return (currentItems != null) && currentItems.contains(obj);
 	}
 
-	public Set<T> getSet(PlayerCharacter pc)
-	{
-		Ability a = ref.resolvesTo();
-		ChooseInformation info = a.get(ObjectKey.CHOOSE_INFO);
-		List<T> currentItems = getList(pc, a, info);
-		if (currentItems == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<T>(getList(pc, a, info));
-	}
-
-	private List<T> getList(PlayerCharacter pc, Ability a,
-			ChooseInformation<T> info)
+	private <R> List<R> getList(PlayerCharacter pc, Ability a,
+			ChooseInformation<R> info)
 	{
 		// workaround for cloning issue
-		List<T> availableList = new ArrayList<T>();
+		List<R> availableList = new ArrayList<R>();
 		List<Ability> theFeats = pc.getFeatNamedAnyCat(a.getKeyName());
 		for (Ability ability : theFeats)
 		{
-			List<T> list = info.getChoiceActor().getCurrentlySelected(ability,
+			List<R> list = info.getChoiceActor().getCurrentlySelected(ability,
 					pc);
 			availableList.addAll(list);
 		}
@@ -139,6 +128,22 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	public int hashCode()
 	{
 		return ref == null ? -57 : ref.hashCode();
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	{
+		/*
+		 * In theory the converter can be ignored here, since an equivalent
+		 * would exist within the ChooseInformation below
+		 */
+		Ability a = ref.resolvesTo();
+		ChooseInformation info = a.get(ObjectKey.CHOOSE_INFO);
+		List<R> currentItems = getList(pc, a, info);
+		if (currentItems == null)
+		{
+			return Collections.emptySet();
+		}
+		return new HashSet<R>(currentItems);
 	}
 
 }
