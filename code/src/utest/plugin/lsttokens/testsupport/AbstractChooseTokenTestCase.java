@@ -25,6 +25,7 @@ import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.choiceset.CollectionToChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
@@ -1335,8 +1336,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 
 	private void parseForUnparse(String value, boolean valid)
 	{
-		PrimitiveChoiceSet<TC> pcs = primaryContext.getChoiceSet(
-				getManufacturer(), value);
+		PrimitiveChoiceSet<TC> pcs = new CollectionToChoiceSet<TC>(
+				primaryContext.getChoiceSet(getManufacturer(), value));
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
 		BasicChooseInformation<TC> cs = new BasicChooseInformation<TC>(getSubToken().getTokenName(), pcs);

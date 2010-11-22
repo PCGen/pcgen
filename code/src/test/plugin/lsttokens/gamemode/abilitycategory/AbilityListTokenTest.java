@@ -75,7 +75,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		boolean found = false;
 		for (CDOMSingleRef<Ability> ref : refs)
 		{
-			found |= ref.getLSTformat().equals(key);
+			found |= ref.getLSTformat(false).equals(key);
 		}
 		assertEquals(key + " in the list (" + expected + ") incorrect",
 				expected, found);

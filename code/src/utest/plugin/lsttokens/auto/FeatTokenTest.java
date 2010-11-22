@@ -303,7 +303,7 @@ public class FeatTokenTest extends
 			CDOMGroupRef<Ability> tr = getTypeReference();
 			addToList(tr);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			expectSingle(unparsed, tr.getLSTformat());
+			expectSingle(unparsed, tr.getLSTformat(false));
 		}
 	}
 

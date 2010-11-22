@@ -213,7 +213,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	{
 		CDOMSingleRef<TC> o = primaryContext.ref.getCDOMReference(getTargetClass(), getLegalValue());
 		primaryProf.put(getObjectKey(), o);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), o.getLSTformat());
+		expectSingle(getToken().unparse(primaryContext, primaryProf), o.getLSTformat(false));
 	}
 
 	@Test

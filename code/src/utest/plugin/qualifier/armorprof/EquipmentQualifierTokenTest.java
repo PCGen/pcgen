@@ -114,17 +114,6 @@ public class EquipmentQualifierTokenTest extends
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
-		pc.equipmentSet.add(eq1);
-		pc.equipmentSet.add(eq2);
-		pc.equipmentSet.add(eq3);
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertEquals(ap1, set.iterator().next());
-		pc.equipmentSet.add(eq4);
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
 		assertEquals(2, set.size());
 		assertTrue(set.contains(ap1));
 		assertTrue(set.contains(ap2));
@@ -142,12 +131,6 @@ public class EquipmentQualifierTokenTest extends
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
-		pc.equipmentSet.add(eq1);
-		pc.equipmentSet.add(eq2);
-		pc.equipmentSet.add(eq3);
-		pc.equipmentSet.add(eq4);
-		set = info.getSet(pc);
 		assertFalse(set.isEmpty());
 		assertEquals(1, set.size());
 		assertEquals(ap2, set.iterator().next());

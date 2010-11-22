@@ -107,7 +107,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 			CDOMGroupRef<TC> tr = getTypeReference();
 			addToList(tr);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			expectSingle(unparsed, tr.getLSTformat());
+			expectSingle(unparsed, tr.getLSTformat(false));
 		}
 	}
 
