@@ -18,13 +18,14 @@
 package plugin.qualifier.skill;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.converter.AddFilterConverter;
+import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -33,12 +34,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class ClassToken implements QualifierToken<Skill>
+public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 {
 
-	private PrimitiveChoiceFilter<Skill> pcs = null;
+	private PrimitiveCollection<Skill> pcs = null;
 
-	private CDOMGroupRef<Skill> allRef;
+	private boolean wasRestricted = false;
 
 	private boolean negated = false;
 
@@ -47,7 +48,7 @@ public class ClassToken implements QualifierToken<Skill>
 		return "CLASS";
 	}
 
-	public Class<Skill> getChoiceClass()
+	public Class<Skill> getReferenceClass()
 	{
 		return Skill.class;
 	}
@@ -60,9 +61,9 @@ public class ClassToken implements QualifierToken<Skill>
 			sb.append('!');
 		}
 		sb.append(getTokenName());
-		if (pcs != null)
+		if (wasRestricted)
 		{
-			sb.append('[').append(pcs.getLSTformat()).append(']');
+			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
 		}
 		return sb.toString();
 	}
@@ -78,32 +79,16 @@ public class ClassToken implements QualifierToken<Skill>
 			return false;
 		}
 		negated = negate;
-		allRef = sc.getAllReference();
-		if (value != null)
+		if (value == null)
+		{
+			pcs = sc.getAllReference();
+		}
+		else
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			return pcs != null;
+			wasRestricted = true;
 		}
-		return true;
-	}
-
-	public Set<Skill> getSet(PlayerCharacter pc)
-	{
-		Set<Skill> skillSet = new HashSet<Skill>();
-		Collection<PCClass> classlist = pc.getClassSet();
-		for (Skill sk : allRef.getContainedObjects())
-		{
-			CLASS: for (PCClass cl : classlist)
-			{
-				boolean allow = (pcs == null) || pcs.allow(pc, sk);
-				if (allow && (negated ^ pc.isClassSkill(cl, sk)))
-				{
-					skillSet.add(sk);
-					break CLASS;
-				}
-			}
-		}
-		return skillSet;
+		return pcs != null;
 	}
 
 	public GroupingState getGroupingState()
@@ -137,4 +122,23 @@ public class ClassToken implements QualifierToken<Skill>
 		return false;
 	}
 
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
+	{
+		Converter<Skill, R> conv = new AddFilterConverter<Skill, R>(c, this);
+		conv = negated ? new NegateFilterConverter<Skill, R>(conv) : conv;
+		return pcs.getCollection(pc, conv);
+	}
+
+	public boolean allow(PlayerCharacter pc, Skill sk)
+	{
+		Collection<PCClass> classlist = pc.getClassSet();
+		for (PCClass cl : classlist)
+		{
+			if (pc.isClassSkill(cl, sk))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -18,28 +18,30 @@
 package plugin.qualifier.pobject;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.converter.AddFilterConverter;
+import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
+public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
+		PrimitiveFilter<T>
 {
 
 	private Class<T> refClass;
 
-	private PrimitiveChoiceFilter<T> pcs = null;
+	private PrimitiveCollection<T> pcs = null;
 
-	private CDOMGroupRef<T> allRef;
+	private boolean wasRestricted = false;
 
 	private boolean negated;
 
@@ -63,17 +65,20 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 			throw new IllegalArgumentException();
 		}
 		refClass = sc.getReferenceClass();
-		allRef = sc.getAllReference();
 		negated = negate;
-		if (value != null)
+		if (value == null)
+		{
+			pcs = sc.getAllReference();
+		}
+		else
 		{
 			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			return pcs != null;
+			wasRestricted = true;
 		}
-		return true;
+		return pcs != null;
 	}
 
-	public Class<? super T> getChoiceClass()
+	public Class<? super T> getReferenceClass()
 	{
 		if (refClass == null)
 		{
@@ -85,24 +90,6 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 		}
 	}
 
-	public Set<T> getSet(PlayerCharacter pc)
-	{
-		Collection<T> objects = allRef.getContainedObjects();
-		Set<T> returnSet = new HashSet<T>();
-		if (objects != null)
-		{
-			for (T po : objects)
-			{
-				boolean allow = (pcs == null) || pcs.allow(pc, po);
-				if (allow && (pc.isQualified(po) ^ negated))
-				{
-					returnSet.add(po);
-				}
-			}
-		}
-		return returnSet;
-	}
-
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -111,9 +98,9 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 			sb.append('!');
 		}
 		sb.append(getTokenName());
-		if (pcs != null)
+		if (wasRestricted)
 		{
-			sb.append('[').append(pcs.getLSTformat()).append(']');
+			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
 		}
 		return sb.toString();
 	}
@@ -169,5 +156,17 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 				(pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
 					.reduce();
 		return negated ? gs.negate() : gs;
+	}
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	{
+		Converter<T, R> conv = new AddFilterConverter<T, R>(c, this);
+		conv = negated ? new NegateFilterConverter<T, R>(conv) : conv;
+		return pcs.getCollection(pc, conv);
+	}
+
+	public boolean allow(PlayerCharacter pc, T po)
+	{
+		return pc.isQualified(po);
 	}
 }

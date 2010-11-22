@@ -57,7 +57,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 		return hs;
 	}
 
-	public Class<? super Ability> getChoiceClass()
+	public Class<? super Ability> getReferenceClass()
 	{
 		return Ability.class;
 	}

@@ -17,11 +17,15 @@
  */
 package plugin.qualifier.weaponprof;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,50 +40,32 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class EquipmentToken implements QualifierToken<WeaponProf>
+public class EquipmentToken implements QualifierToken<WeaponProf>,
+		Converter<Equipment, CDOMReference<WeaponProf>>
 {
 	private static Type WEAPON_TYPE = Type.getConstant("WEAPON");
 
-	private PrimitiveChoiceFilter<Equipment> pcs = null;
+	private PrimitiveCollection<Equipment> pcs = null;
+
+	private boolean wasRestricted = false;
 
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
 	}
 
-	public Class<WeaponProf> getChoiceClass()
+	public Class<WeaponProf> getReferenceClass()
 	{
 		return WeaponProf.class;
 	}
 
-	public Set<WeaponProf> getSet(PlayerCharacter pc)
-	{
-		Set<WeaponProf> profs = new HashSet<WeaponProf>();
-		for (Equipment e : pc.getEquipmentSet())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
-			{
-				if ((pcs == null) || pcs.allow(pc, e))
-				{
-					CDOMSingleRef<WeaponProf> prof = e
-							.get(ObjectKey.WEAPON_PROF);
-					if (prof != null)
-					{
-						profs.add(prof.resolvesTo());
-					}
-				}
-			}
-		}
-		return profs;
-	}
-
-	public String getLSTformat(boolean b)
+	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName());
-		if (pcs != null)
+		if (wasRestricted)
 		{
-			sb.append('[').append(pcs.getLSTformat()).append(']');
+			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
 		}
 		return sb.toString();
 	}
@@ -102,14 +88,18 @@ public class EquipmentToken implements QualifierToken<WeaponProf>
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		if (value != null)
+		ReferenceManufacturer<Equipment> erm = context.ref
+				.getManufacturer(Equipment.class);
+		if (value == null)
 		{
-			ReferenceManufacturer<Equipment> erm = context.ref
-					.getManufacturer(Equipment.class);
-			pcs = context.getPrimitiveChoiceFilter(erm, value);
-			return pcs != null;
+			pcs = erm.getAllReference();
 		}
-		return true;
+		else
+		{
+			pcs = context.getPrimitiveChoiceFilter(erm, value);
+			wasRestricted = true;
+		}
+		return pcs != null;
 	}
 
 	@Override
@@ -137,5 +127,43 @@ public class EquipmentToken implements QualifierToken<WeaponProf>
 	{
 		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
 			.reduce();
+	}
+
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<WeaponProf, R> c)
+	{
+		Set<R> returnSet = new HashSet<R>();
+		Collection<CDOMReference<WeaponProf>> intermediate = pcs.getCollection(pc, this);
+		for (CDOMReference<WeaponProf> ref : intermediate)
+		{
+			returnSet.addAll(c.convert(ref));
+		}
+		return returnSet;
+	}
+
+	public Collection<CDOMReference<WeaponProf>> convert(
+			CDOMReference<Equipment> orig)
+	{
+		Set<CDOMReference<WeaponProf>> refSet = new HashSet<CDOMReference<WeaponProf>>();
+		for (Equipment e : orig.getContainedObjects())
+		{
+			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
+			{
+				CDOMSingleRef<WeaponProf> prof = e.get(ObjectKey.WEAPON_PROF);
+				if (prof != null)
+				{
+					refSet.add(prof);
+				}
+			}
+		}
+		return refSet;
+	}
+
+	public Collection<CDOMReference<WeaponProf>> convert(
+			CDOMReference<Equipment> orig, PrimitiveFilter<Equipment> lim)
+	{
+		throw new UnsupportedOperationException(
+				"Only EquipmentToken should call itself as a Converter");
 	}
 }

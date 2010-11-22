@@ -17,11 +17,15 @@
  */
 package plugin.qualifier.shieldprof;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
-import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,50 +40,32 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class EquipmentToken implements QualifierToken<ShieldProf>
+public class EquipmentToken implements QualifierToken<ShieldProf>,
+		Converter<Equipment, CDOMReference<ShieldProf>>
 {
 	private static Type SHIELD_TYPE = Type.getConstant("SHIELD");
 
-	private PrimitiveChoiceFilter<Equipment> pcs = null;
+	private PrimitiveCollection<Equipment> pcs = null;
+
+	private boolean wasRestricted = false;
 
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
 	}
 
-	public Class<ShieldProf> getChoiceClass()
+	public Class<ShieldProf> getReferenceClass()
 	{
 		return ShieldProf.class;
 	}
 
-	public Set<ShieldProf> getSet(PlayerCharacter pc)
-	{
-		Set<ShieldProf> profs = new HashSet<ShieldProf>();
-		for (Equipment e : pc.getEquipmentSet())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(SHIELD_TYPE))
-			{
-				if ((pcs == null) || pcs.allow(pc, e))
-				{
-					CDOMSingleRef<ShieldProf> prof = e
-							.get(ObjectKey.SHIELD_PROF);
-					if (prof != null)
-					{
-						profs.add(prof.resolvesTo());
-					}
-				}
-			}
-		}
-		return profs;
-	}
-
-	public String getLSTformat(boolean b)
+	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName());
-		if (pcs != null)
+		if (wasRestricted)
 		{
-			sb.append('[').append(pcs.getLSTformat()).append(']');
+			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
 		}
 		return sb.toString();
 	}
@@ -102,14 +88,18 @@ public class EquipmentToken implements QualifierToken<ShieldProf>
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		if (value != null)
+		ReferenceManufacturer<Equipment> erm = context.ref
+				.getManufacturer(Equipment.class);
+		if (value == null)
 		{
-			ReferenceManufacturer<Equipment> erm = context.ref
-					.getManufacturer(Equipment.class);
-			pcs = context.getPrimitiveChoiceFilter(erm, value);
-			return pcs != null;
+			pcs = erm.getAllReference();
 		}
-		return true;
+		else
+		{
+			pcs = context.getPrimitiveChoiceFilter(erm, value);
+			wasRestricted = true;
+		}
+		return pcs != null;
 	}
 
 	@Override
@@ -137,5 +127,43 @@ public class EquipmentToken implements QualifierToken<ShieldProf>
 	{
 		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
 			.reduce();
+	}
+
+
+	public <R> Collection<R> getCollection(PlayerCharacter pc,
+			Converter<ShieldProf, R> c)
+	{
+		Set<R> returnSet = new HashSet<R>();
+		Collection<CDOMReference<ShieldProf>> intermediate = pcs.getCollection(pc, this);
+		for (CDOMReference<ShieldProf> ref : intermediate)
+		{
+			returnSet.addAll(c.convert(ref));
+		}
+		return returnSet;
+	}
+
+	public Collection<CDOMReference<ShieldProf>> convert(
+			CDOMReference<Equipment> orig)
+	{
+		Set<CDOMReference<ShieldProf>> refSet = new HashSet<CDOMReference<ShieldProf>>();
+		for (Equipment e : orig.getContainedObjects())
+		{
+			if (e.getListFor(ListKey.TYPE).contains(SHIELD_TYPE))
+			{
+				CDOMSingleRef<ShieldProf> prof = e.get(ObjectKey.SHIELD_PROF);
+				if (prof != null)
+				{
+					refSet.add(prof);
+				}
+			}
+		}
+		return refSet;
+	}
+
+	public Collection<CDOMReference<ShieldProf>> convert(
+			CDOMReference<Equipment> orig, PrimitiveFilter<Equipment> lim)
+	{
+		throw new UnsupportedOperationException(
+				"Only EquipmentToken should call itself as a Converter");
 	}
 }

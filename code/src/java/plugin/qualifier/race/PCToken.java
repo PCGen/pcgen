@@ -41,7 +41,7 @@ public class PCToken extends AbstractPCQualifierToken<Race>
 		}
 	}
 
-	public Class<? super Race> getChoiceClass()
+	public Class<? super Race> getReferenceClass()
 	{
 		return Race.class;
 	}

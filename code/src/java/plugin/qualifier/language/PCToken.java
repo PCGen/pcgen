@@ -32,7 +32,7 @@ public class PCToken extends AbstractPCQualifierToken<Language>
 		return pc.getLanguageSet();
 	}
 
-	public Class<? super Language> getChoiceClass()
+	public Class<? super Language> getReferenceClass()
 	{
 		return Language.class;
 	}
