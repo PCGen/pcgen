@@ -23,6 +23,7 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
@@ -31,7 +32,6 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -187,9 +187,16 @@ public class FeatTokenTest extends
 	@Test
 	public void testInvalidInputMultTarget() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1(Foo,Bar)"
-				+ getJoinCharacter() + "TestWP2"));
-		assertNoSideEffects();
+		boolean ret = parse(getSubTokenName() + '|' + "TestWP1(Foo,Bar)"
+				+ getJoinCharacter() + "TestWP2");
+		if (ret)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -201,11 +208,11 @@ public class FeatTokenTest extends
 
 	private AbilityRefChoiceSet build(String... names)
 	{
-		List<AbilityRef> list = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> list = new ArrayList<CDOMReference<Ability>>();
 		for (String name : names)
 		{
 			Ability ab = construct(primaryContext, name);
-			AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(ab));
+			CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(ab);
 			if (name.indexOf('(') != -1)
 			{
 				List<String> choices = new ArrayList<String>();
@@ -299,9 +306,9 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseNullInList() throws PersistenceLayerException
 	{
-		List<AbilityRef> list = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> list = new ArrayList<CDOMReference<Ability>>();
 		Ability ab = construct(primaryContext, "TestWP1");
-		AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(ab));
+		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(ab);
 		list.add(ar);
 		list.add(null);
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,

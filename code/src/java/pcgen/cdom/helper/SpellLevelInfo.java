@@ -25,8 +25,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.base.PrimitiveFilter;
-import pcgen.cdom.choiceset.DereferencingConverter;
 import pcgen.cdom.converter.AddFilterConverter;
+import pcgen.cdom.converter.DereferencingConverter;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 

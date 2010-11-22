@@ -253,4 +253,10 @@ public class PatternMatchingReference<T extends Identified> extends
 	{
 		return GroupingState.ANY;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }

@@ -149,4 +149,10 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	{
 		return baseSet.getContainedObjects().size() - filterSet.size();
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }

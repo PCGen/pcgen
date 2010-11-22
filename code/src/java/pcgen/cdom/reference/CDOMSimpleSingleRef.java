@@ -39,6 +39,13 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 */
 	private T referencedObject = null;
 
+ 	/**
+	 * The specific choice (association) for the Ability this
+	 * CDOMSimpleSingleRef contains. May remain null if the given Ability does
+	 * not have a specific choice (or does not require a specific choice)
+	 */
+	private String choice = null;
+
 	/**
 	 * Constructs a new CDOMSimpleSingleRef for the given Class and name.
 	 * 
@@ -223,5 +230,17 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;
+	}
+
+	@Override
+	public void setChoice(String c)
+	{
+		choice = c;
+	}
+
+	@Override
+	public String getChoice()
+	{
+		return choice;
 	}
 }

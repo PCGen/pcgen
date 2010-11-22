@@ -349,9 +349,16 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|'
-					+ "TestWP1 (Test,TestTwo)"));
-			assertNoSideEffects();
+			boolean ret = parse(getSubTokenName() + '|'
+					+ "TestWP1 (Test,TestTwo)");
+			if (ret)
+			{
+				assertFalse(primaryContext.ref.validate(null));
+			}
+			else
+			{
+				assertNoSideEffects();
+			}
 		}
 	}
 

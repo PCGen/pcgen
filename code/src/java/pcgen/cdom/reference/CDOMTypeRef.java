@@ -227,4 +227,10 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	{
 		return GroupingState.ANY;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }

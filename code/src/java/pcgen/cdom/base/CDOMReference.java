@@ -208,4 +208,13 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	{
 		return c.convert(this);
 	}
+
+	/**
+	 * Returns the specific choice (association) for the Ability this
+	 * CDOMReference contains.
+	 * 
+	 * @return The specific choice (association) for the Ability this
+	 *         CDOMReference contains.
+	 */
+	public abstract String getChoice();
 }

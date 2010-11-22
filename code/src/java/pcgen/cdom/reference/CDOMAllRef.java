@@ -205,4 +205,10 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	{
 		return GroupingState.ALLOWS_NONE;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }

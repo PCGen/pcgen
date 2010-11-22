@@ -19,21 +19,19 @@ package plugin.lsttokens.choose;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedChooseInformation;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
-import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -42,7 +40,6 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -98,61 +95,21 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
-		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
-
-		while (tok.hasMoreTokens())
+		PrimitiveCollection<Ability> prim = context.getChoiceSet(rm, activeValue);
+		if (prim == null)
 		{
-			CDOMReference<Ability> ab;
-			String token = tok.nextToken();
-			if (Constants.LST_ALL.equals(token))
-			{
-				ab = rm.getAllReference();
-			}
-			else
-			{
-				ab = TokenUtilities.getTypeOrPrimitive(rm, token);
-			}
-			if (ab == null)
-			{
-				return new ParseResult.Fail(
-					"  Error was encountered while parsing " + getTokenName()
-						+ ": " + value + " had an invalid reference: " + token);
-			}
-			AbilityRef ar = new AbilityRef(ab);
-			refs.add(ar);
-			if (token.indexOf('(') != -1)
-			{
-				List<String> choices = new ArrayList<String>();
-				AbilityUtilities.getUndecoratedName(token, choices);
-				if (choices.size() != 1)
-				{
-					return new ParseResult.Fail(
-						"Invalid use of multiple items "
-							+ "in parenthesis (comma prohibited) in "
-							+ getFullName() + ": " + token);
-				}
-				ar.setChoice(choices.get(0));
-			}
+			return ParseResult.INTERNAL_ERROR;
 		}
-
-		if (refs.isEmpty())
-		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains no ability reference: " + value);
-		}
-
-		AbilityRefChoiceSet rcs =
-				new AbilityRefChoiceSet(AbilityCategory.FEAT, refs,
-					Nature.NORMAL);
-		if (!rcs.getGroupingState().isValid())
+		if (!prim.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 				+ ": Contains ANY and a specific reference: " + value);
 		}
+		PrimitiveChoiceSet<AbilitySelection> pcs = new CollectionToAbilitySelection(
+				prim);
 		CategorizedChooseInformation<AbilitySelection> tc =
 				new CategorizedChooseInformation<AbilitySelection>(
-					getTokenName(), AbilityCategory.FEAT, rcs,
+					getTokenName(), AbilityCategory.FEAT, pcs,
 					AbilitySelection.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);

@@ -36,7 +36,6 @@ import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -59,7 +58,7 @@ public class AbilityRefChoiceSet implements
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * AbilityRefChoiceSet
 	 */
-	private final Set<AbilityRef> abilityRefSet;
+	private final Set<CDOMReference<Ability>> abilityRefSet;
 
 	/**
 	 * The underlying Ability Category for this AbilityRefChoiceSet.
@@ -97,7 +96,7 @@ public class AbilityRefChoiceSet implements
 	 *             if the given Collection is null or empty.
 	 */
 	public AbilityRefChoiceSet(Category<Ability> cat,
-			Collection<? extends AbilityRef> arCollection, Nature nat)
+			Collection<? extends CDOMReference<Ability>> arCollection, Nature nat)
 	{
 		super();
 		if (arCollection == null)
@@ -110,7 +109,7 @@ public class AbilityRefChoiceSet implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		abilityRefSet = new HashSet<AbilityRef>(arCollection);
+		abilityRefSet = new HashSet<CDOMReference<Ability>>(arCollection);
 		if (nat == null)
 		{
 			throw new IllegalArgumentException("Choice Nature cannot be null");
@@ -137,9 +136,9 @@ public class AbilityRefChoiceSet implements
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		for (AbilityRef ar : abilityRefSet)
+		for (CDOMReference<Ability> ar : abilityRefSet)
 		{
-			sortedSet.add(ar.getRef());
+			sortedSet.add(ar);
 		}
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
@@ -182,9 +181,9 @@ public class AbilityRefChoiceSet implements
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
-		for (AbilityRef ref : abilityRefSet)
+		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
-			for (Ability a : ref.getRef().getContainedObjects())
+			for (Ability a : ref.getContainedObjects())
 			{
 				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
@@ -350,7 +349,7 @@ public class AbilityRefChoiceSet implements
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;
-		for (AbilityRef ref : abilityRefSet)
+		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
 			state = state.add(ref.getGroupingState());
 		}

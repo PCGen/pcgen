@@ -233,4 +233,10 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		}
 		return state.compound(GroupingState.ALLOWS_UNION);
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }

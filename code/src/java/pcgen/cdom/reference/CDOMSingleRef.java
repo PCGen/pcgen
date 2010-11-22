@@ -64,4 +64,6 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T>
 	 * @return the given Object this CDOMSingleRef contains.
 	 */
 	public abstract T resolvesTo();
+
+	public abstract void setChoice(String c);
 }

@@ -338,7 +338,7 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 
 	private void resolvePrimitiveReferences()
 	{
-		List<String> throwaway = new ArrayList<String>();
+		List<String> choices = new ArrayList<String>();
 		for (Entry<String, WeakReference<SRT>> me1 : referenced.entrySet())
 		{
 			SRT value = me1.getValue().get();
@@ -347,8 +347,9 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 				T activeObj = active.get(me1.getKey());
 				if (activeObj == null)
 				{
+					choices.clear();
 					String reduced = AbilityUtilities.getUndecoratedName(me1
-							.getKey(), throwaway);
+							.getKey(), choices);
 					activeObj = active.get(reduced);
 					if (activeObj == null
 							&& (unconstructed.contains(me1.getKey()) || unconstructed
@@ -364,6 +365,16 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 					else
 					{
 						value.addResolution(activeObj);
+					}
+					if (choices.size() == 1)
+					{
+						value.setChoice(choices.get(0));
+					}
+					else if (choices.size() > 1)
+					{
+						Logging.errorPrint("Invalid use of multiple items "
+								+ "in parenthesis (comma prohibited) in "
+								+ activeObj + " " + choices.toString());
 					}
 				}
 				else

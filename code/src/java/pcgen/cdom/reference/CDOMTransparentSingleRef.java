@@ -245,4 +245,17 @@ public class CDOMTransparentSingleRef<T> extends CDOMSingleRef<T> implements
 	{
 		return GroupingState.ALLOWS_UNION;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return subReference == null ? null : subReference.getChoice();
+	}
+
+	@Override
+	public void setChoice(String c)
+	{
+		throw new IllegalStateException(
+				"Cannot set Choice on a Transparent Reference");
+	}
 }

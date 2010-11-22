@@ -42,7 +42,6 @@ import pcgen.cdom.choiceset.CompoundOrChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -128,7 +127,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return ParseResult.INTERNAL_ERROR;
 		}
 
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 		List<PrimitiveChoiceSet<AbilitySelection>> pcs = new ArrayList<PrimitiveChoiceSet<AbilitySelection>>();
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 
@@ -175,20 +174,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			if (ab != null)
 			{
-				AbilityRef ar = new AbilityRef(ab);
-				refs.add(ar);
-				if (token.indexOf('(') != -1)
-				{
-					List<String> choices = new ArrayList<String>();
-					AbilityUtilities.getUndecoratedName(token, choices);
-					if (choices.size() != 1)
-					{
-						return new ParseResult.Fail("Invalid use of multiple items "
-								+ "in parenthesis (comma prohibited) in "
-								+ getFullName() + ": " + token);
-					}
-					ar.setChoice(choices.get(0));
-				}
+				refs.add(ab);
 			}
 		}
 

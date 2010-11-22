@@ -40,7 +40,6 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -119,7 +118,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return pr;
 		}
 
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		boolean allowStack = false;
 		int dupChoices = 0;
@@ -181,20 +180,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 						+ getTokenName() + ": " + value
 						+ " had an invalid reference: " + token);
 			}
-			AbilityRef ar = new AbilityRef(ab);
-			refs.add(ar);
-			if (token.indexOf('(') != -1)
-			{
-				List<String> choices = new ArrayList<String>();
-				AbilityUtilities.getUndecoratedName(token, choices);
-				if (choices.size() != 1)
-				{
-					return new ParseResult.Fail("Invalid use of multiple items "
-							+ "in parenthesis (comma prohibited) in "
-							+ getFullName() + ": " + token);
-				}
-				ar.setChoice(choices.get(0));
-			}
+			refs.add(ab);
 		}
 
 		if (refs.isEmpty())

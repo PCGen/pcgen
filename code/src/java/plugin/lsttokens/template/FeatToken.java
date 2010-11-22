@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -36,7 +35,6 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -52,7 +50,6 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -246,43 +243,17 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	{
 		List<CDOMReference<Ability>> list = pct
 				.getListFor(ListKey.FEAT_TOKEN_LIST);
-		if (list != null)
+		if (list != null && !list.isEmpty())
 		{
-			List<AbilityRef> refs = new ArrayList<AbilityRef>();
-			for (CDOMReference<Ability> ability : list)
-			{
-				AbilityRef ar = new AbilityRef(ability);
-				refs.add(ar);
-				String token = ability.getLSTformat(false);
-				if (token.indexOf('(') != -1)
-				{
-					List<String> choices = new ArrayList<String>();
-					AbilityUtilities.getUndecoratedName(token, choices);
-					if (choices.size() != 1)
-					{
-						Logging.log(Logging.LST_ERROR,
-								"Invalid use of multiple items "
-										+ "in parenthesis"
-										+ " (comma prohibited) in "
-										+ getTokenName() + ": " + token);
-						return false;
-					}
-					ar.setChoice(choices.get(0));
-				}
-			}
-			if (!refs.isEmpty())
-			{
-				AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
-						AbilityCategory.FEAT, refs, Nature.AUTOMATIC);
-				ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
-						getTokenName(), rcs);
-				cs.setTitle("Feat Choice");
-				PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
-						cs, FormulaFactory.ONE);
-				context.getObjectContext()
-						.put(pct, ObjectKey.TEMPLATE_FEAT, tc);
-				tc.setChoiceActor(this);
-			}
+			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
+					AbilityCategory.FEAT, list, Nature.AUTOMATIC);
+			ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+					getTokenName(), rcs);
+			cs.setTitle("Feat Choice");
+			PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+					cs, FormulaFactory.ONE);
+			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);
+			tc.setChoiceActor(this);
 		}
 		return true;
 	}

@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
@@ -31,7 +32,6 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -216,10 +216,17 @@ public class FeatTokenTest extends
 	@Test
 	public void testInvalidInputMultTarget() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'
+		boolean ret = parse(getSubTokenName() + '|'
 				+ "TestWP1(Foo,Bar)" + getJoinCharacter()
-				+ "TestWP2"));
-		assertNoSideEffects();
+				+ "TestWP2");
+		if (ret)
+		{
+			assertFalse(primaryContext.ref.validate(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -236,19 +243,19 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		createTC(refs, FormulaFactory.ONE);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "TestWP1");
 	}
 
-	private List<AbilityRef> createSingle(String name)
+	private List<CDOMReference<Ability>> createSingle(String name)
 	{
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 		Ability obj = primaryContext.ref.constructCDOMObject(Ability.class,
 				name);
 		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
-		AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(obj));
+		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(obj);
 		refs.add(ar);
 		if (name.indexOf('(') != -1)
 		{
@@ -263,18 +270,17 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseType() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 		CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMTypeReference(
 				Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
-		AbilityRef ar = new AbilityRef(ref);
-		refs.add(ar);
+		refs.add(ref);
 
 		createTC(refs, FormulaFactory.ONE);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "TYPE=Bar.Foo");
 	}
 
-	private void createTC(List<AbilityRef> refs, Formula count)
+	private void createTC(List<CDOMReference<Ability>> refs, Formula count)
 	{
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				refs, NATURE);
@@ -297,7 +303,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseSingleThree() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		createTC(refs, FormulaFactory.getFormulaFor(3));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "3|TestWP1");
@@ -306,7 +312,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseSingleNegative() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		createTC(refs, FormulaFactory.getFormulaFor(-2));
 		assertBadUnparse();
 	}
@@ -314,7 +320,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseSingleZero() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		createTC(refs, FormulaFactory.getFormulaFor(0));
 		assertBadUnparse();
 	}
@@ -322,7 +328,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseSingleVariable() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		createTC(refs, FormulaFactory.getFormulaFor("Formula"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "Formula|TestWP1");
@@ -333,11 +339,10 @@ public class FeatTokenTest extends
 	{
 		if (isAllLegal())
 		{
-			List<AbilityRef> refs = createSingle("TestWP1");
+			List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
-			AbilityRef ar = new AbilityRef(ref);
-			refs.add(ar);
+			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();
 		}
@@ -348,11 +353,10 @@ public class FeatTokenTest extends
 	{
 		if (isAllLegal())
 		{
-			List<AbilityRef> refs = new ArrayList<AbilityRef>();
+			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
-			AbilityRef ar = new AbilityRef(ref);
-			refs.add(ar);
+			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 			expectSingle(unparsed, getSubTokenName() + '|' + "ALL");
@@ -364,15 +368,13 @@ public class FeatTokenTest extends
 	{
 		if (isAllLegal())
 		{
-			List<AbilityRef> refs = new ArrayList<AbilityRef>();
+			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMTypeReference(
 					Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
-			AbilityRef ar = new AbilityRef(ref);
-			refs.add(ar);
+			refs.add(ref);
 			ref = primaryContext.ref.getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
-			ar = new AbilityRef(ref);
-			refs.add(ar);
+			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();
 		}
@@ -381,7 +383,7 @@ public class FeatTokenTest extends
 	@Test
 	public void testUnparseComplex() throws PersistenceLayerException
 	{
-		List<AbilityRef> refs = createSingle("TestWP1");
+		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				refs, NATURE);
 		assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());

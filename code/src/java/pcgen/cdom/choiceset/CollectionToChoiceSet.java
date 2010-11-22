@@ -21,6 +21,7 @@ import java.util.Collection;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.converter.DereferencingConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 

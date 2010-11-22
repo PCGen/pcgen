@@ -249,4 +249,10 @@ public class CDOMTransparentTypeRef<T> extends CDOMGroupRef<T> implements
 	{
 		return GroupingState.ANY;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return subReference == null ? null : subReference.getChoice();
+	}
 }

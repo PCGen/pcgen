@@ -48,6 +48,13 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 */
 	private final Category<T> category;
 
+ 	/**
+	 * The specific choice (association) for the Ability this
+	 * CDOMCategorizedSingleRef contains. May remain null if the given Ability
+	 * does not have a specific choice (or does not require a specific choice)
+	 */
+	private String choice = null;
+
 	/**
 	 * Constructs a new CDOMCategorizedSingleRef for the given Class and name.
 	 * 
@@ -70,7 +77,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 		if (cat == null)
 		{
 			throw new IllegalArgumentException(
-					"Cannot built CDOMCategorizedSingleRef with null category");
+					"Cannot build CDOMCategorizedSingleRef with null category");
 		}
 		category = cat;
 	}
@@ -268,5 +275,17 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;
+	}
+
+	@Override
+	public void setChoice(String c)
+	{
+		choice = c;
+	}
+
+	@Override
+	public String getChoice()
+	{
+		return choice;
 	}
 }

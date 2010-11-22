@@ -276,4 +276,10 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	{
 		return GroupingState.ANY;
 	}
+
+	@Override
+	public String getChoice()
+	{
+		return null;
+	}
 }
