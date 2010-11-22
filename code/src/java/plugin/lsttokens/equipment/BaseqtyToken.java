@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,27 +39,11 @@ public class BaseqtyToken extends AbstractIntToken<Equipment> implements
 	{
 		return IntegerKey.BASE_QUANTITY;
 	}
-	
+
 	@Override
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer quantity = context.getObjectContext().getInteger(eq,
-				IntegerKey.BASE_QUANTITY);
-		if (quantity == null)
-		{
-			return null;
-		}
-		if (quantity.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { quantity.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

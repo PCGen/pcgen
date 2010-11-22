@@ -19,7 +19,6 @@ package plugin.lsttokens.subclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.SubClass;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,22 +45,6 @@ public class CostToken extends AbstractIntToken<SubClass> implements
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, SubClass sc)
-	{
-		Integer cost = context.getObjectContext().getInteger(sc,
-				IntegerKey.COST);
-		if (cost == null)
-		{
-			return null;
-		}
-		if (cost.intValue() < 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { cost.toString() };
 	}
 
 	public Class<SubClass> getTokenClass()

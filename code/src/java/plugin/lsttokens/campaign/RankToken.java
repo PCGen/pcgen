@@ -19,7 +19,6 @@ package plugin.lsttokens.campaign;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,18 +39,6 @@ public class RankToken extends AbstractIntToken<Campaign> implements
 	protected IntegerKey integerKey()
 	{
 		return IntegerKey.CAMPAIGN_RANK;
-	}
-
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Integer rank =
-				context.getObjectContext().getInteger(campaign,
-					IntegerKey.CAMPAIGN_RANK);
-		if (rank == null)
-		{
-			return null;
-		}
-		return new String[]{rank.toString()};
 	}
 
 	public Class<Campaign> getTokenClass()

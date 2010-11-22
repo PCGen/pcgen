@@ -42,8 +42,14 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		Equipment eq, String value)
 	{
-		context.getObjectContext().put(eq, StringKey.FUMBLE_RANGE,
-				Constants.LST_DOT_CLEAR.equals(value) ? null : value);
+		if (Constants.LST_DOT_CLEAR.equals(value))
+		{
+			context.getObjectContext().remove(eq, StringKey.FUMBLE_RANGE);
+		}
+		else
+		{
+			context.getObjectContext().put(eq, StringKey.FUMBLE_RANGE, value);
+		}
 		return ParseResult.SUCCESS;
 	}
 
@@ -51,11 +57,22 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	{
 		String range = context.getObjectContext().getString(eq,
 				StringKey.FUMBLE_RANGE);
-		if (range == null)
+		boolean removed = context.getObjectContext().wasRemoved(eq,
+				StringKey.FUMBLE_RANGE);
+		String returnVal;
+		if (removed)
+		{
+			returnVal = Constants.LST_DOT_CLEAR;
+		}
+		else if (range == null)
 		{
 			return null;
 		}
-		return new String[] { range };
+		else
+		{
+			returnVal = range;
+		}
+		return new String[] { returnVal };
 	}
 
 	public Class<Equipment> getTokenClass()

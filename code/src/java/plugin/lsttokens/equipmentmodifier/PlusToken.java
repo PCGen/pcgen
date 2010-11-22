@@ -19,7 +19,6 @@ package plugin.lsttokens.equipmentmodifier;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -52,23 +51,6 @@ public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
 					+ " must be an integer not equal to 0");
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Integer plus = context.getObjectContext().getInteger(mod,
-				IntegerKey.PLUS);
-		if (plus == null)
-		{
-			return null;
-		}
-		if (plus.intValue() == 0)
-		{
-			context.addWriteMessage(getTokenName()
-					+ " must be an integer not equal to 0");
-			return null;
-		}
-		return new String[] { plus.toString() };
 	}
 
 	public Class<EquipmentModifier> getTokenClass()

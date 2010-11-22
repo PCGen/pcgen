@@ -246,6 +246,8 @@ public final class ListKey<T> {
 	
 	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
 	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
+	public static final ListKey<StringKey> REMOVED_STRINGKEY = new ListKey<StringKey>();
+	public static final ListKey<IntegerKey> REMOVED_INTEGERKEY = new ListKey<IntegerKey>();
 	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();

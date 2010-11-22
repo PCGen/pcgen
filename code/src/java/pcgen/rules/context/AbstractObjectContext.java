@@ -20,7 +20,6 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
-import java.util.List;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -96,6 +95,11 @@ public abstract class AbstractObjectContext
 		edits.put(cdo, ik, i);
 	}
 
+	public void remove(CDOMObject cdo, IntegerKey ik)
+	{
+		edits.remove(cdo, ik);
+	}
+
 	public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s)
 	{
 		edits.put(cdo, sk, s);
@@ -109,6 +113,11 @@ public abstract class AbstractObjectContext
 	public void put(CDOMObject cdo, StringKey sk, String s)
 	{
 		edits.put(cdo, sk, s);
+	}
+
+	public void remove(CDOMObject cdo, StringKey sk)
+	{
+		edits.remove(cdo, sk);
 	}
 
 	public void put(CDOMObject cdo, VariableKey vk, Formula f)
@@ -160,14 +169,17 @@ public abstract class AbstractObjectContext
 				{
 					CDOMObject cdo = (CDOMObject) cpo;
 					CDOMObject neg = edits.negativeMap.get(uri, cdo);
-					for (StringKey key : neg.getStringKeys())
-					{
-						commit.put(cdo, key, null);
-					}
-					List<ObjectKey<?>> ro = neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY);
-					for (ObjectKey<?> ok : ro)
+					for (ObjectKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY))
 					{
 						commit.remove(cdo, ok);
+					}
+					for (StringKey sk : neg.getSafeListFor(ListKey.REMOVED_STRINGKEY))
+					{
+						commit.remove(cdo, sk);
+					}
+					for (IntegerKey ik : neg.getSafeListFor(ListKey.REMOVED_INTEGERKEY))
+					{
+						commit.remove(cdo, ik);
 					}
 					for (ListKey<?> key : neg.getListKeys())
 					{
@@ -427,19 +439,17 @@ public abstract class AbstractObjectContext
 
 		public void put(CDOMObject cdo, StringKey sk, String s)
 		{
-			if (s == null)
-			{
-				getNegative(sourceURI, cdo).put(sk, Constants.LST_DOT_CLEAR);
-				cdo.remove(sk);
-			}
-			else if (s.startsWith(Constants.LST_DOT_CLEAR))
+			if (s != null && s.startsWith(Constants.LST_DOT_CLEAR))
 			{
 				throw new IllegalArgumentException("Cannot set a value to " + s);
 			}
-			else
-			{
-				getPositive(sourceURI, cdo).put(sk, s);
-			}
+			getPositive(sourceURI, cdo).put(sk, s);
+		}
+
+		public void remove(CDOMObject cdo, StringKey sk)
+		{
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_STRINGKEY,
+					sk);
 		}
 
 		public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s)
@@ -456,6 +466,12 @@ public abstract class AbstractObjectContext
 		public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 		{
 			getPositive(sourceURI, cdo).put(ik, i);
+		}
+
+		public void remove(CDOMObject cdo, IntegerKey ik)
+		{
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_INTEGERKEY,
+					ik);
 		}
 
 		public void put(CDOMObject cdo, FormulaKey fk, Formula f)
@@ -511,34 +527,7 @@ public abstract class AbstractObjectContext
 
 		public String getString(CDOMObject cdo, StringKey sk)
 		{
-			String added = getPositive(extractURI, cdo).get(sk);
-			boolean hasClear = Constants.LST_DOT_CLEAR.equals(getNegative(
-					extractURI, cdo).get(sk));
-			if (hasClear)
-			{
-				if (added == null)
-				{
-					return Constants.LST_DOT_CLEAR;
-				}
-				else
-				{
-					/*
-					 * TODO is this correct (order of ops?)?
-					 */
-					return null;
-				}
-			}
-			else
-			{
-				if (added == null)
-				{
-					return null;
-				}
-				else
-				{
-					return added;
-				}
-			}
+			return getPositive(extractURI, cdo).get(sk);
 		}
 
 		public Integer getInteger(CDOMObject cdo, IntegerKey ik)
@@ -658,6 +647,18 @@ public abstract class AbstractObjectContext
 					ListKey.REMOVED_OBJECTKEY, ok);
 		}
 
+		public boolean wasRemoved(CDOMObject cdo, StringKey sk)
+		{
+			return getNegative(extractURI, cdo).containsInList(
+					ListKey.REMOVED_STRINGKEY, sk);
+		}
+
+		public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
+		{
+			return getNegative(extractURI, cdo).containsInList(
+					ListKey.REMOVED_INTEGERKEY, ik);
+		}
+
 		public void purge(CDOMObject cdo)
 		{
 			positiveMap.remove(sourceURI, cdo);
@@ -773,6 +774,16 @@ public abstract class AbstractObjectContext
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
 	{
 		return getCommitStrategy().wasRemoved(cdo, ok);
+	}
+
+	public boolean wasRemoved(CDOMObject cdo, StringKey sk)
+	{
+		return getCommitStrategy().wasRemoved(cdo, sk);
+	}
+
+	public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
+	{
+		return getCommitStrategy().wasRemoved(cdo, ik);
 	}
 
 	protected abstract ObjectCommitStrategy getCommitStrategy();

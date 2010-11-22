@@ -19,7 +19,6 @@ package plugin.lsttokens.companionmod;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.character.CompanionMod;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,18 +39,6 @@ public class CopymasterhdToken extends AbstractStringToken<CompanionMod>
 	protected StringKey stringKey()
 	{
 		return StringKey.MASTER_HP_FORMULA;
-	}
-
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		String masterHP =
-				context.getObjectContext().getString(cMod,
-					StringKey.MASTER_HP_FORMULA);
-		if (masterHP == null)
-		{
-			return null;
-		}
-		return new String[]{masterHP};
 	}
 
 	public Class<CompanionMod> getTokenClass()

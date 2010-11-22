@@ -78,7 +78,6 @@ public class UmultIntegrationTest extends
 	@Override
 	protected boolean isClearAllowed()
 	{
-		//TODO Need to lie here for Hudson - technically this is broken
-		return false;
+		return true;
 	}
 }

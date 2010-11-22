@@ -19,7 +19,6 @@ package plugin.lsttokens.companionmod;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.character.CompanionMod;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,17 +39,6 @@ public class CopymasterbabToken extends AbstractStringToken<CompanionMod>
 	protected StringKey stringKey()
 	{
 		return StringKey.MASTER_BAB_FORMULA;
-	}
-
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		String masterBAB =
-				context.getObjectContext().getString(cMod, StringKey.MASTER_BAB_FORMULA);
-		if (masterBAB == null)
-		{
-			return null;
-		}
-		return new String[]{masterBAB};
 	}
 
 	public Class<CompanionMod> getTokenClass()

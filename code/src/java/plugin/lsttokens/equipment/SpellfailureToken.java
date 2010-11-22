@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
@@ -61,26 +60,10 @@ public class SpellfailureToken extends AbstractIntToken<Equipment> implements
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addWarningMessage(getTokenName()
-				+ " should not be used if zero (default is zero)");
+					+ " should not be used if zero (default is zero)");
 			return cpr;
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer sf = context.getObjectContext().getInteger(eq,
-				IntegerKey.SPELL_FAILURE);
-		if (sf == null)
-		{
-			return null;
-		}
-		if (sf.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { sf.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

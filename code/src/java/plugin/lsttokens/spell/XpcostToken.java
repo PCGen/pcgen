@@ -19,7 +19,6 @@ package plugin.lsttokens.spell;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -51,23 +50,6 @@ public class XpcostToken extends AbstractIntToken<Spell> implements
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		Integer i = context.getObjectContext().getInteger(spell,
-				IntegerKey.XP_COST);
-		if (i == null)
-		{
-			return null;
-		}
-		if (i.intValue() < 0)
-		{
-			context.addWriteMessage(getTokenName()
-					+ " requires a positive Integer");
-			return null;
-		}
-		return new String[] { i.toString() };
 	}
 
 	public Class<Spell> getTokenClass()

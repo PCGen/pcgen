@@ -23,18 +23,13 @@ public abstract class AbstractStringToken<T extends CDOMObject> extends Abstract
 		return ParseResult.SUCCESS;
 	}
 
-	/*
-	 * This is the next step but won't be done until everythings converted or the round robin tests wont
-	 * detect refactoring problems!
 	public String[] unparse(LoadContext context, T obj)
 	{
-		String title =
-				context.getObjectContext().getString(obj, stringKey());
-		if (title == null)
+		String value = context.getObjectContext().getString(obj, stringKey());
+		if (value == null)
 		{
 			return null;
 		}
-		return new String[]{title};
+		return new String[] { value };
 	}
-	*/
 }

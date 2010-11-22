@@ -19,7 +19,6 @@ package plugin.lsttokens.template;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,23 +45,6 @@ public class HandsToken extends AbstractIntToken<PCTemplate> implements
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, PCTemplate pct)
-	{
-		Integer hands =
-				context.getObjectContext().getInteger(pct, IntegerKey.CREATURE_HANDS);
-		if (hands == null)
-		{
-			return null;
-		}
-		if (hands.intValue() < 0)
-		{
-			context
-				.addWriteMessage(getTokenName() + " must be an integer >= 0");
-			return null;
-		}
-		return new String[]{hands.toString()};
 	}
 
 	public Class<PCTemplate> getTokenClass()

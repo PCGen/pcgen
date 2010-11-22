@@ -19,7 +19,6 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -41,27 +40,11 @@ public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass>
 	{
 		return IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY;
 	}
-	
+
 	@Override
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, PCClass pcc)
-	{
-		Integer ksfs = context.getObjectContext().getInteger(pcc,
-				IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-		if (ksfs == null)
-		{
-			return null;
-		}
-		if (ksfs.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { ksfs.toString() };
 	}
 
 	public Class<PCClass> getTokenClass()

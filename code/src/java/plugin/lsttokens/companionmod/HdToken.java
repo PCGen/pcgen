@@ -19,7 +19,6 @@ package plugin.lsttokens.companionmod;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.character.CompanionMod;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -45,22 +44,6 @@ public class HdToken extends AbstractIntToken<CompanionMod> implements
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		Integer hands =
-				context.getObjectContext().getInteger(cMod, IntegerKey.HIT_DIE);
-		if (hands == null)
-		{
-			return null;
-		}
-		if (hands.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[]{hands.toString()};
 	}
 
 	public Class<CompanionMod> getTokenClass()

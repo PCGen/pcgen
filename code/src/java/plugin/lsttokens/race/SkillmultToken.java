@@ -19,7 +19,6 @@ package plugin.lsttokens.race;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,24 +45,6 @@ public class SkillmultToken extends AbstractIntToken<Race> implements
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, Race race)
-	{
-		Integer sp = context.getObjectContext().getInteger(race,
-				IntegerKey.INITIAL_SKILL_MULT);
-		if (sp == null)
-		{
-			return null;
-		}
-		if (sp.intValue() < 0)
-		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer >= 0");
-			return null;
-		}
-		return new String[] { sp.toString() };
 	}
 
 	public Class<Race> getTokenClass()

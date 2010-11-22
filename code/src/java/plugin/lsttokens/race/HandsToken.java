@@ -19,7 +19,6 @@ package plugin.lsttokens.race;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -41,29 +40,11 @@ public class HandsToken extends AbstractIntToken<Race> implements
 	{
 		return IntegerKey.CREATURE_HANDS;
 	}
-	
+
 	@Override
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, Race race)
-	{
-		Integer hands = context.getObjectContext().getInteger(race,
-				IntegerKey.CREATURE_HANDS);
-		if (hands == null)
-		{
-			return null;
-		}
-		if (hands.intValue() < 0)
-		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer >= 0");
-			return null;
-		}
-		return new String[] { hands.toString() };
 	}
 
 	public Class<Race> getTokenClass()

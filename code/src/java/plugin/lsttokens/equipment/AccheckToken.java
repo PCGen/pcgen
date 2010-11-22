@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,29 +39,11 @@ public class AccheckToken extends AbstractIntToken<Equipment> implements
 	{
 		return IntegerKey.AC_CHECK;
 	}
-	
+
 	@Override
 	protected int maxValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer check = context.getObjectContext().getInteger(eq,
-				IntegerKey.AC_CHECK);
-		if (check == null)
-		{
-			return null;
-		}
-		if (check.intValue() > 0)
-		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer <= 0");
-			return null;
-		}
-		return new String[] { check.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

@@ -63,6 +63,10 @@ public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		}
 		else
 		{
+			/*
+			 * This is not attempting to get a .CLEAR, but to do a reset, so
+			 * this is OK
+			 */
 			context.getObjectContext().put(campaign, StringKey.DATA_FORMAT,
 					null);
 		}
@@ -74,6 +78,10 @@ public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		}
 		else
 		{
+			/*
+			 * This is not attempting to get a .CLEAR, but to do a reset, so
+			 * this is OK
+			 */
 			context.getObjectContext().put(campaign,
 					StringKey.CAMPAIGN_SETTING, null);
 		}

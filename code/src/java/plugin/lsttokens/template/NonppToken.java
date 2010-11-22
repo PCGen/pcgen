@@ -19,7 +19,6 @@ package plugin.lsttokens.template;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,23 +45,6 @@ public class NonppToken extends AbstractIntToken<PCTemplate> implements
 	protected int maxValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, PCTemplate pct)
-	{
-		Integer nonpp = context.getObjectContext().getInteger(pct,
-				IntegerKey.NONPP);
-		if (nonpp == null)
-		{
-			return null;
-		}
-		if (nonpp.intValue() > 0)
-		{
-			context.addWriteMessage("Non-Proficiency Penalty must be "
-					+ "less than or equal to zero: " + nonpp);
-			return null;
-		}
-		return new String[] { nonpp.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()

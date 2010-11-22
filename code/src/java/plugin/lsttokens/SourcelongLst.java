@@ -10,7 +10,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -32,17 +31,6 @@ public class SourcelongLst extends AbstractStringToken<CDOMObject> implements
 	protected StringKey stringKey()
 	{
 		return StringKey.SOURCE_LONG;
-	}
-
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String title = context.getObjectContext().getString(obj,
-				StringKey.SOURCE_LONG);
-		if (title == null)
-		{
-			return null;
-		}
-		return new String[] { title };
 	}
 
 	public Class<CDOMObject> getTokenClass()

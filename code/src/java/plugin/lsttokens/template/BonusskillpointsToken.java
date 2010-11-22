@@ -19,7 +19,6 @@ package plugin.lsttokens.template;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,22 +45,6 @@ public class BonusskillpointsToken extends AbstractIntToken<PCTemplate>
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, PCTemplate pct)
-	{
-		Integer points = context.getObjectContext().getInteger(pct,
-				IntegerKey.BONUS_CLASS_SKILL_POINTS);
-		if (points == null)
-		{
-			return null;
-		}
-		if (points.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { points.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()

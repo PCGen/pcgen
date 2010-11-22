@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,22 +45,6 @@ public class ReachToken extends AbstractIntToken<Equipment> implements
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer reach = context.getObjectContext().getInteger(eq,
-				IntegerKey.REACH);
-		if (reach == null)
-		{
-			return null;
-		}
-		if (reach.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { reach.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

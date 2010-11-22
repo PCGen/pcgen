@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -98,18 +97,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 
 	public void put(CDOMObject cdo, StringKey sk, String s)
 	{
-		if (s == null)
-		{
-			cdo.remove(sk);
-		}
-		else if (s.startsWith(Constants.LST_DOT_CLEAR))
-		{
-			throw new IllegalArgumentException("Cannot set a value to " + s);
-		}
-		else
-		{
-			cdo.put(sk, s);
-		}
+		cdo.put(sk, s);
 	}
 
 	public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s)
@@ -217,4 +205,25 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	{
 		return false;
 	}
+
+	public void remove(CDOMObject cdo, StringKey sk)
+	{
+		cdo.remove(sk);
+	}
+	
+	public boolean wasRemoved(CDOMObject cdo, StringKey sk)
+	{
+		return false;
+	}
+
+	public void remove(CDOMObject cdo, IntegerKey ik)
+	{
+		cdo.remove(ik);
+	}
+
+	public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
+	{
+		return false;
+	}
+
 }

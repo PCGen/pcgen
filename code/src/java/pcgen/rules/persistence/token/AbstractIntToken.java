@@ -104,16 +104,20 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 		}
 	}
 
-/*
- * This is the next step but won't be done until everythings converted or the round robin tests wont 
- * detect refactoring problems!
- * 	public String[] unparse(LoadContext context, T obj)
+ 	public String[] unparse(LoadContext context, T obj)
 	{
-		Integer value = context.getObjectContext().getInteger(obj, integerKey());
-		if (value == null || !checkValue(value).passed())
+		Integer value = context.getObjectContext()
+				.getInteger(obj, integerKey());
+		if (value == null)
 		{
+			return null;
+		}
+		ParseResult checkValue = checkValue(value);
+		if (!checkValue.passed())
+		{
+			context.addWriteMessage(checkValue.toString());
 			return null;
 		}
 		return new String[] { value.toString() };
 	}
-*/}
+}

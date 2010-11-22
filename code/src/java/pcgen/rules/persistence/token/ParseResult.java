@@ -125,5 +125,11 @@ public interface ParseResult
 		{
 			Logging.log(error.level, error.message, error.stackTrace);
 		}
+		
+		@Override
+		public String toString()
+		{
+			return error.message;
+		}
 	}
 }

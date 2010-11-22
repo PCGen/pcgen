@@ -99,7 +99,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			if (a.get(ObjectKey.CHOOSE_INFO) == null)
 			{
-				Logging.errorPrint("Ability + (" + a.getCategory() + ") "
+				Logging.errorPrint("Ability (" + a.getCategory() + ") "
 						+ a.getKeyName() + " had MULT:YES but no CHOOSE");
 				return false;
 			}
@@ -108,7 +108,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			if (a.get(ObjectKey.CHOOSE_INFO) != null)
 			{
-				Logging.errorPrint("Ability + (" + a.getCategory() + ") "
+				Logging.errorPrint("Ability (" + a.getCategory() + ") "
 						+ a.getKeyName() + " had MULT:NO but did have CHOOSE");
 				return false;
 			}

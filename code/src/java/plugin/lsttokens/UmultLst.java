@@ -56,7 +56,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.getObjectContext().put(obj, IntegerKey.UMULT, null);
+			context.getObjectContext().remove(obj, IntegerKey.UMULT);
 			return ParseResult.SUCCESS;
 		}
 		else
@@ -65,20 +65,35 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Integer mult = context.getObjectContext().getInteger(obj,
 				IntegerKey.UMULT);
-		if (mult == null)
+		boolean b = context.getObjectContext()
+				.wasRemoved(obj, IntegerKey.UMULT);
+		String returnVal;
+		if (b)
 		{
-			return null;
+			returnVal = Constants.LST_DOT_CLEAR;
 		}
-		if (mult.intValue() <= 0)
+		else
 		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
+			if (mult == null)
+			{
+				return null;
+			}
+			else
+			{
+				if (mult.intValue() <= 0)
+				{
+					context.addWriteMessage(getTokenName() + " must be an integer > 0");
+					return null;
+				}
+				returnVal = mult.toString();
+			}
 		}
-		return new String[] { mult.toString() };
+		return new String[] { returnVal };
 	}
 
 	public Class<CDOMObject> getTokenClass()

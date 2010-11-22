@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -40,17 +39,6 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 	protected IntegerKey integerKey()
 	{
 		return IntegerKey.MAX_DEX;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer maxDexBonus = context.getObjectContext().getInteger(eq,
-				IntegerKey.MAX_DEX);
-		if (maxDexBonus == null)
-		{
-			return null;
-		}
-		return new String[] { maxDexBonus.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

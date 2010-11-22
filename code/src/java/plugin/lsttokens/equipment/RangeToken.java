@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -46,24 +45,6 @@ public class RangeToken extends AbstractIntToken<Equipment> implements
 	protected int minValue()
 	{
 		return 0;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer range = context.getObjectContext().getInteger(eq,
-				IntegerKey.RANGE);
-		if (range == null)
-		{
-			return null;
-		}
-		if (range.intValue() < 0)
-		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer >= 0");
-			return null;
-		}
-		return new String[] { range.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

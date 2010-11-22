@@ -25,7 +25,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -61,22 +60,6 @@ public class NumPagesToken extends AbstractIntToken<Equipment> implements
 	protected int minValue()
 	{
 		return 1;
-	}
-
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Integer pages = context.getObjectContext().getInteger(eq,
-				IntegerKey.NUM_PAGES);
-		if (pages == null)
-		{
-			return null;
-		}
-		if (pages.intValue() <= 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { pages.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()

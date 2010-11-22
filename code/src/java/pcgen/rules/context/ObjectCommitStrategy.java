@@ -37,11 +37,15 @@ public interface ObjectCommitStrategy
 
 	public void put(CDOMObject cdo, StringKey sk, String s);
 
+	public void remove(CDOMObject cdo, StringKey sk);
+
 	public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s);
 
 	public void remove(CDOMObject cdo, ObjectKey<?> sk);
 
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i);
+
+	public void remove(CDOMObject cdo, IntegerKey ik);
 
 	public void put(CDOMObject cdo, FormulaKey fk, Formula f);
 
@@ -92,4 +96,8 @@ public interface ObjectCommitStrategy
 			ListKey<T> lk);
 
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok);
+
+	public boolean wasRemoved(CDOMObject cdo, IntegerKey ik);
+
+	public boolean wasRemoved(CDOMObject cdo, StringKey sk);
 }
