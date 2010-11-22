@@ -201,7 +201,7 @@ public class ChooserUtilities
 			if (ref.contains(ability))
 			{
 				List<String> choices = new ArrayList<String>();
-				AbilityUtilities.getUndecoratedName(ref.getLSTformat(), choices);
+				AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
 				allowedSet.addAll(choices);
 			}
 		}

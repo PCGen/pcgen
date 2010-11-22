@@ -90,7 +90,7 @@ public final class KitSpells extends BaseKit
 		StringBuilder sb = new StringBuilder();
 		if (castingClass != null)
 		{
-			sb.append(castingClass.getLSTformat());
+			sb.append(castingClass.getLSTformat(false));
 		}
 		sb.append(' ').append(spellBook).append(": ");
 		boolean needComma = false;

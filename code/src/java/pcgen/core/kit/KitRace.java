@@ -81,7 +81,7 @@ public class KitRace extends BaseKit
 	@Override
 	public String toString()
 	{
-		return theRace.getLSTformat();
+		return theRace.getLSTformat(false);
 	}
 
 	public void setRace(CDOMSingleRef<Race> ref)

@@ -142,7 +142,7 @@ public class KitTemplate extends BaseKit
 				sb.append(Constants.PIPE);
 			}
 			needsPipe = true;
-			sb.append(ref.getLSTformat());
+			sb.append(ref.getLSTformat(false));
 			List<CDOMSingleRef<PCTemplate>> subList =
 					templateList.getListFor(ref);
 			if (subList != null)
@@ -150,7 +150,7 @@ public class KitTemplate extends BaseKit
 				for (CDOMSingleRef<PCTemplate> subref : subList)
 				{
 					sb.append("[TEMPLATE:");
-					sb.append(subref.getLSTformat());
+					sb.append(subref.getLSTformat(false));
 					sb.append(']');
 				}
 			}

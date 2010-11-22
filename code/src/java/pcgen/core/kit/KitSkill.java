@@ -113,7 +113,7 @@ public final class KitSkill extends BaseKit
 		}
 		else
 		{
-			info.append(skillList.get(0).getLSTformat());
+			info.append(skillList.get(0).getLSTformat(false));
 		}
 		info.append(" (").append(rank);
 

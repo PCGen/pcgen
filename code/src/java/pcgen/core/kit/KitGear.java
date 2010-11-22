@@ -101,7 +101,7 @@ public final class KitGear extends BaseKit
 			info.append(quantity).append('x');
 		}
 
-		info.append(equip == null ? "null" : equip.getLSTformat());
+		info.append(equip == null ? "null" : equip.getLSTformat(false));
 
 		if (mods != null)
 		{
@@ -114,7 +114,7 @@ public final class KitGear extends BaseKit
 					info.append('/');
 				}
 				needsSlash = true;
-				info.append(modRef.getRef().getLSTformat());
+				info.append(modRef.getRef().getLSTformat(false));
 				for (String s : modRef.getChoices())
 				{
 					info.append(Constants.PIPE).append(s);

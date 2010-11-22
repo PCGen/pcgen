@@ -85,7 +85,7 @@ public class KitDeity extends BaseKit
 	{
 		StringBuffer buf = new StringBuffer();
 
-		buf.append(theDeityRef.getLSTformat());
+		buf.append(theDeityRef.getLSTformat(false));
 
 		if (theDomains != null && theDomains.size() > 0)
 		{

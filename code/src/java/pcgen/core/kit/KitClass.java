@@ -59,7 +59,7 @@ public class KitClass extends BaseKit
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);
-		ret.append(pcClass.getLSTformat()).append(levelFormula);
+		ret.append(pcClass.getLSTformat(false)).append(levelFormula);
 		return ret.toString();
 	}
 
@@ -73,7 +73,7 @@ public class KitClass extends BaseKit
 		if (subClass != null)
 		{
 			// try and set a subclass too.
-			SubClassApplication.setSubClassKey(aPC, theClass, getSubClass().getLSTformat());
+			SubClassApplication.setSubClassKey(aPC, theClass, getSubClass().getLSTformat(false));
 		}
 
 		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
