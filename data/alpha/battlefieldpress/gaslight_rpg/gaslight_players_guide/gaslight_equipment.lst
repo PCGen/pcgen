@@ -92,7 +92,6 @@ Metal Baton									PROFICIENCY:WEAPON|Metal Baton									TYPE:Weapon.Simple.Me
 Pistol Whip									PROFICIENCY:WEAPON|Pistol Whip									TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal																		COST:0	WT:0					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																	SIZE:S	SOURCEPAGE:p.214
 Rifle Butt									PROFICIENCY:WEAPON|Rifle Butt										TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal																		COST:0	WT:0					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6																	SIZE:L	SOURCEPAGE:p.214
 Sap										PROFICIENCY:WEAPON|Sap											TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Wooden																		COST:2	WT:3					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6																	SIZE:S	SOURCEPAGE:p.214
-Stun gun									PROFICIENCY:WEAPON|Stun Gun										TYPE:Weapon.Simple.Melee.Electricity																				COST:5	WT:1					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																	SIZE:T	SOURCEPAGE:p.214
 Tonfa										PROFICIENCY:WEAPON|Tonfa										TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal																		COST:6	WT:2					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																	SIZE:M	SOURCEPAGE:p.214
 
 
