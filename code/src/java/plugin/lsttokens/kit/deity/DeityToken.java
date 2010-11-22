@@ -80,6 +80,6 @@ public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
 		{
 			return null;
 		}
-		return new String[]{deity.getLSTformat()};
+		return new String[]{deity.getLSTformat(false)};
 	}
 }

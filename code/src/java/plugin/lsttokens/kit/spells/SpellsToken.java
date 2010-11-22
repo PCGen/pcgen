@@ -199,7 +199,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 			{
 				sb.append(Constants.PIPE);
 			}
-			sb.append("CLASS=").append(castingClass.getLSTformat());
+			sb.append("CLASS=").append(castingClass.getLSTformat(false));
 		}
 		Collection<KnownSpellIdentifier> spells = kitSpell.getSpells();
 		if (spells != null)

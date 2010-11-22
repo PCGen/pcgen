@@ -72,7 +72,7 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		 */
 		CDOMReference<SubClass> sc =
 				context.ref.getCDOMReference(SubClass.class, SubClassCategory
-					.getConstant(kitClass.getPcclass().getLSTformat()), value);
+					.getConstant(kitClass.getPcclass().getLSTformat(false)), value);
 		kitClass.setSubClass(sc);
 		return ParseResult.SUCCESS;
 	}
@@ -84,6 +84,6 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		{
 			return null;
 		}
-		return new String[]{ref.getLSTformat()};
+		return new String[]{ref.getLSTformat(false)};
 	}
 }

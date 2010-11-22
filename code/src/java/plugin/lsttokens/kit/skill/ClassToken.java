@@ -80,6 +80,6 @@ public class ClassToken extends AbstractNonEmptyToken<KitSkill> implements
 		{
 			return null;
 		}
-		return new String[]{ref.getLSTformat()};
+		return new String[]{ref.getLSTformat(false)};
 	}
 }

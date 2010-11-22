@@ -159,7 +159,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		for (CDOMReference<Ability> ref : references)
 		{
 			result.append(Constants.PIPE);
-			result.append(ref.getLSTformat());
+			result.append(ref.getLSTformat(false));
 		}
 		return new String[]{result.toString()};
 	}

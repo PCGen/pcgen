@@ -98,7 +98,7 @@ public class GearToken extends AbstractNonEmptyToken<KitGear> implements
 		{
 			return null;
 		}
-		return new String[]{ref.getLSTformat()};
+		return new String[]{ref.getLSTformat(false)};
 	}
 
 }

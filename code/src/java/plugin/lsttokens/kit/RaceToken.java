@@ -88,7 +88,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 		{
 			return null;
 		}
-		return new String[]{race.getLSTformat()};
+		return new String[]{race.getLSTformat(false)};
 	}
 
 }

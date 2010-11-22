@@ -115,7 +115,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility> im
 			return null;
 		}
 		Integer lvl = kitLA.getLevel();
-		return new String[] { cl.getLSTformat() + '=' + lvl };
+		return new String[] { cl.getLSTformat(false) + '=' + lvl };
 	}
 
 	public Class<Kit> getDeferredTokenClass()
