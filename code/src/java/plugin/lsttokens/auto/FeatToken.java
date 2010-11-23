@@ -34,6 +34,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -275,11 +276,11 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public AbilitySelection decodeChoice(String s)
 	{
-		List<String> choices = new ArrayList<String>();
-		String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 		Ability ability = Globals.getAbilityKeyed("FEAT", s);
 		if (ability == null)
 		{
+			List<String> choices = new ArrayList<String>();
+			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability = Globals.getAbilityKeyed("FEAT", baseKey);
 			if (ability == null)
 			{
@@ -292,7 +293,20 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 		else
 		{
-			return new AbilitySelection(ability, Nature.NORMAL);
+			if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				/*
+				 * MULT:YES, CHOOSE:NOCHOICE can land here
+				 * 
+				 * TODO There needs to be better validation at some point that
+				 * this is proper (meaning it is actually CHOOSE:NOCHOICE!)
+				 */
+				return new AbilitySelection(ability, Nature.NORMAL, "");
+			}
+			else
+			{
+				return new AbilitySelection(ability, Nature.NORMAL);
+			}
 		}
 	}
 }

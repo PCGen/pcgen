@@ -245,11 +245,11 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	public AbilitySelection decodeChoice(String s)
 	{
-		List<String> choices = new ArrayList<String>();
-		String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 		Ability ability = Globals.getAbilityKeyed("FEAT", s);
 		if (ability == null)
 		{
+			List<String> choices = new ArrayList<String>();
+			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability = Globals.getAbilityKeyed("FEAT", baseKey);
 			if (ability == null)
 			{
@@ -262,7 +262,20 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		else
 		{
-			return new AbilitySelection(ability, Nature.NORMAL);
+			if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				/*
+				 * MULT:YES, CHOOSE:NOCHOICE can land here
+				 * 
+				 * TODO There needs to be better validation at some point that
+				 * this is proper (meaning it is actually CHOOSE:NOCHOICE!)
+				 */
+				return new AbilitySelection(ability, Nature.NORMAL, "");
+			}
+			else
+			{
+				return new AbilitySelection(ability, Nature.NORMAL);
+			}
 		}
 	}
 
