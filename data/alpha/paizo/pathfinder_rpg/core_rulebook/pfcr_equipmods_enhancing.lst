@@ -87,6 +87,12 @@ Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=
 |Spell Effect (Continuous/Spell duration 10 minutes/level)		KEY:SPL_CON_HOURS		NAMEOPT:SPELL	TYPE:Armor.Shield.Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Headband.Instrument.Ring.Robe.Shirt.Eyegear.Boot.Staff.Rod	COST:(1.5*(2000*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL))+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.550	PREMULT:1,[PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield,Weapon]],[PRETYPE:1,Amulet,Belt,Bracer,Cape,Glove,Headgear.Headband,Instrument,Ring,Robe,Shirt,Eyegear,Boot,Staff,Rod]	CHOOSE:EQBUILDER.SPELL
 |Spell Effect (Continuous/Spell duration 24-hours or more)		KEY:SPL_CON_DAYS		NAMEOPT:SPELL	TYPE:Armor.Shield.Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Headband.Instrument.Ring.Robe.Shirt.Eyegear.Boot.Staff.Rod	COST:(.5*(2000*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL))+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.550	PREMULT:1,[PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield,Weapon]],[PRETYPE:1,Amulet,Belt,Bracer,Cape,Glove,Headgear.Headband,Instrument,Ring,Robe,Shirt,Eyegear,Boot,Staff,Rod]	CHOOSE:EQBUILDER.SPELL
 
+#BLOCK: EquipMod for assigning Primary, Secondary and Lesser Powers to Staves
+# using 1 to 5 charges each, calculating the correct item cost in Gold
+|Spell Effect (Staff/Primary Power)		KEY:SPL_SPP	NAMEOPT:SPELL	TYPE:Staff	COST:((750*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Secondary Power)	KEY:SPL_SSP	NAMEOPT:SPELL	TYPE:Staff	COST:((750/4*3*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Lesser Powers)		KEY:SPL_SLP	NAMEOPT:SPELL	TYPE:Staff	COST:((750/2*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+
 ###Block: Scrolls
 # Modifier Name					Unique Key		Naming Option	Type					Cost													Visible		Type granted				Source Page				Required Type				Prohibited Type			Choose
 Divine						KEY:SCROLL_DIVINE				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Divine															!PRETYPE:1,Divine,Arcane

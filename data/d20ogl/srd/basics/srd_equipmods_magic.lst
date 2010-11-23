@@ -165,6 +165,12 @@ Major							KEY:SCROLL_MAJOR				TYPE:Scroll																	VISIBLE:QUALIFY	ITYP
 |Spell Effect (Single Use/Completion)	KEY:D_1USEME	NAMEOPT:SPELL	TYPE:Scroll.Divine.Medium	COST:(25*max((%SPELLLEVEL),(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:srdmagicitemscreatingmagicitems.rtf	PRETYPE:3,Scroll,Divine,Medium						CHOOSE:EQBUILDER.SPELL|Divine|2|5
 |Spell Effect (Single Use/Completion)	KEY:D_1USEMI	NAMEOPT:SPELL	TYPE:Scroll.Divine.Minor	COST:(25*max((%SPELLLEVEL),(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:srdmagicitemscreatingmagicitems.rtf	PRETYPE:3,Scroll,Divine,Minor							CHOOSE:EQBUILDER.SPELL|Divine|0|3
 
+#BLOCK: EquipMod for assigning Primary, Secondary and Lesser Powers to Staves
+# using 1 to 5 charges each, calculating the correct item cost in Gold
+|Spell Effect (Staff/Primary Power)		KEY:SPL_SPP	NAMEOPT:SPELL	TYPE:Staff	COST:((750*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Secondary Power)	KEY:SPL_SSP	NAMEOPT:SPELL	TYPE:Staff	COST:((750/4*3*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Lesser Powers)		KEY:SPL_SLP	NAMEOPT:SPELL	TYPE:Staff	COST:((750/2*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+
 ###Block:EXCLUDEEQ: Any item with the properties listed will not be allowed to be edited
 # Modifier Name	Visible	Type granted
 EXCLUDEEQ_MAGIC	VISIBLE:NO	ITYPE:Enhancement
