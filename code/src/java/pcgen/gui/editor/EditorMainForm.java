@@ -78,7 +78,6 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Categorisable;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -1401,9 +1400,9 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFeatList = new ArrayList<String>();
 				List<String> selecetdFeatList = new ArrayList<String>();
 
-				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 				{
-					final Ability anAbility = (Ability) e.next();
 					availableFeatList.add(anAbility.getKeyName());
 				}
 
@@ -1557,9 +1556,9 @@ public final class EditorMainForm extends JDialog
 				List<String> availableRaceFeatList = new ArrayList<String>();
 				List<String> selectedRaceFeatList = new ArrayList<String>();
 
-				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 				{
-					final Ability anAbility = (Ability) e.next();
 					availableRaceFeatList.add(anAbility.getKeyName());
 				}
 
@@ -1583,9 +1582,9 @@ public final class EditorMainForm extends JDialog
 				List<String> availableRaceVirtualFeatList = new ArrayList<String>();
 				List<String> selectedRaceVirtualFeatList = new ArrayList<String>();
 
-				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 				{
-					final Ability anAbility = (Ability) e.next();
 					availableRaceVirtualFeatList.add(anAbility.getKeyName());
 				}
 
@@ -1971,9 +1970,9 @@ public final class EditorMainForm extends JDialog
 				List<String> availableTemplateFeatsList = new ArrayList<String>();
 				List<String> selectedTemplateFeatsList = new ArrayList<String>();
 
-				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 				{
-					final Ability anAbility = (Ability) e.next();
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
@@ -2225,8 +2224,7 @@ public final class EditorMainForm extends JDialog
 				//
 				List<String> availableVariableList = new ArrayList<String>();
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class));
-				List unmodifiableAbilityList = Globals.getUnmodifiableAbilityList("FEAT");
-				addVariables(availableVariableList, unmodifiableAbilityList);
+				addVariables(availableVariableList, Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT).getAllObjects());
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Skill.class));
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class));

@@ -28,7 +28,6 @@ package pcgen.persistence.lst;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -97,7 +96,9 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
-		if (Globals.getAbilityKeyed("FEAT", Constants.s_INTERNAL_WEAPON_PROF) == null)
+		Ability wpFeat = context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+				AbilityCategory.FEAT, Constants.s_INTERNAL_WEAPON_PROF);
+		if (wpFeat == null)
 		{
 
 			/* Add catch-all feat for weapon proficiencies that cannot be granted as part
@@ -132,7 +133,8 @@ public final class FeatLoader extends AbilityLoader
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{
-		return Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aKey);
+		return context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+				AbilityCategory.FEAT, aKey);
 	}
 	
 	@Override

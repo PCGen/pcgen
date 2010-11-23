@@ -27,7 +27,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -42,7 +41,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.Categorisable;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -265,7 +264,6 @@ public class FeatBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		Iterator<Categorisable> e;
 		Ability thisFeat = (Ability) thisPObject;
 
 		final StringBuffer buf = new StringBuffer();
@@ -286,10 +284,9 @@ public class FeatBasePanel extends BasePanel
 		List<Type> availableList = new ArrayList<Type>();
 		List<Type> selectedList = new ArrayList<Type>();
 
-		for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+		for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 		{
-			final Ability anAbility = (Ability) e.next();
-
 			for (Type type : anAbility.getTrueTypeList(false))
 			{
 				if (!type.equals(Type.CUSTOM))

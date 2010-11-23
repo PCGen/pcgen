@@ -127,8 +127,6 @@ public final class Globals
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
 
-	private static CategorisableStore abilityStore = new CategorisableStore();
-
 	/** we need maps for efficient lookups */
 	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
 
@@ -745,182 +743,6 @@ public final class Globals
 			return Integer.parseInt(aNum);
 		}
 		return 0;
-	}
-
-	/**
-	 * Add an ability to the system
-	 * @param anAbility the abiilty to add
-	 * @return true or false
-	 */
-	public static boolean addAbility (final Ability anAbility)
-	{
-		return abilityStore.addCategorisable(anAbility);
-	}
-
-	/**
-	 * Remove the Ability object whose Key matches the String passed in.
-	 * 
-	 * @param aCategory
-	 * @param aKey The key of the Ability to remove
-	 * @return true or false
-	 */
-	// TODO - Remove this version
-	public static boolean removeAbilityKeyed( final String aCategory, final String aKey )
-	{
-		return abilityStore.removeKeyed(aCategory, aKey);
-	}
-	
-	/**
-	 * Get the Ability whose Key matches the String passed in.
-	 * 
-	 * @param aCategory The category of the Ability to return.
-	 * @param aKey The KEY of the Ability to return
-	 * @return Ability
-	 */
-	public static Ability getAbilityKeyed( final AbilityCategory aCategory, final String aKey )
-	{
-		return (Ability)abilityStore.getKeyed(aCategory.getAbilityCategory(), aKey);
-	}
-
-	// TODO - Remove this version
-	public static Ability getAbilityKeyed( final String aCategory, final String aKey )
-	{
-		return (Ability)abilityStore.getKeyed(aCategory, aKey);
-	}
-
-	/**
-	 * Get an iterator for the Abilities in the chosen category.  If
-	 * passed the string "ALL", will construct an iterator for all abilites
-	 * in the system.  The abilites will be sorted in Key order.
-	 * @param aCategory the Category of the Abilities to return an iterator for
-	 * @return An Iterator
-	 */
-	public static Iterator<Categorisable> getAbilityKeyIterator (String aCategory)
-	{
-		String catKey = aCategory;
-		if (!aCategory.equals(Constants.ALL_CATEGORIES))
-		{
-			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
-			if (cat != null)
-			{
-				catKey = cat.getAbilityCategory();
-			}
-		}
-		return abilityStore.getKeyIterator(catKey);
-	}
-
-	/**
-	 * Get an iterator for the Abilities in the chosen category.  If
-	 * passed the string "ALL", will construct an iterator for all abilites
-	 * in the system.  The abilites will be sorted in Name order.
-	 * @param aCategory the Category of the Abilities to return an iterator for
-	 * @return An Iterator
-	 */
-	public static Iterator<? extends Categorisable> getAbilityNameIterator (String aCategory)
-	{
-		String catKey = aCategory;
-		if (!aCategory.equals(Constants.ALL_CATEGORIES))
-		{
-			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
-			if (cat != null)
-			{
-				catKey = cat.getAbilityCategory();
-			}
-		}
-		return abilityStore.getNameIterator(catKey);
-	}
-
-	/**
-	 * Returns a list of abilities of the specified category.
-	 * 
-	 * @param aCategory The category of Ability to return
-	 * 
-	 * @return An <b>unmodifiable</b> list of the Ability objects currently 
-	 * loaded
-	 */
-	public static List<Ability> getAbilityList( final AbilityCategory aCategory )
-	{
-		final List<? extends Categorisable> abilities = abilityStore.getUnmodifiableList( aCategory.getAbilityCategory() );
-		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
-		final boolean includeAllAbiltiies =
-				aCategory.getAbilityCategory().equalsIgnoreCase(
-					aCategory.getKeyName())
-					|| aCategory.isAllAbilityTypes();
-		for ( final Categorisable ab : abilities )
-		{
-			if ( ab instanceof Ability )
-			{
-				final Ability ability = (Ability)ab;
-				if (includeAllAbiltiies)
-				{
-					ret.add( ability );
-				}
-				else
-				{
-					boolean added = false;
-					if (aCategory.getAbilityTypes().size() > 0)
-					{
-						for (final String type : aCategory.getAbilityTypes())
-						{
-							if (ability.isType(type))
-							{
-								ret.add(ability);
-								added = true;
-								break;
-							}
-						}
-					}
-					if (!added && aCategory.containsAbilityDirectly(ability))
-					{
-						ret.add(ability);
-					}
-				}
-			}
-		}
-		return Collections.unmodifiableList(ret);
-	}
-	
-	/**
-	 * For the rare method that does actually need a list of Ability
-	 * objects rather than an iterator.
-	 * @param aCategory the category of object to return
-	 * @return an unmodifiable list of the Ability objects currently loaded
-	 */
-	public static List<? extends Categorisable> getUnmodifiableAbilityList(String aCategory)
-	{
-		String catKey = aCategory;
-		if (!aCategory.equals(Constants.ALL_CATEGORIES))
-		{
-			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
-			if (cat != null)
-			{
-				catKey = cat.getAbilityCategory();
-			}
-		}
-		return abilityStore.getUnmodifiableList(catKey);
-	}
-
-	/**
-	 * Returns a list of Abilities of a specified category and type
-	 * @param aCategory The Category of Ability e.g. "FEAT"
-	 * @param aType a TYPE String
-	 * @return List of Abilities
-	 */
-	public static List<Ability> getAbilitiesByType(final String aCategory, final String aType)
-	{
-		List<Ability> abilityList = new ArrayList<Ability>();
-		for ( Categorisable c : getUnmodifiableAbilityList(aCategory) )
-		{
-			if ( c instanceof Ability )
-			{
-				abilityList.add( (Ability)c );
-			}
-			else if ( c instanceof AbilityInfo )
-			{
-				abilityList.add( ((AbilityInfo)c).getAbility() );
-			}
-		}
-		return getPObjectsOfType(abilityList, aType);
 	}
 
 	/**
@@ -1811,7 +1633,8 @@ public final class Globals
 		Logging.log(logLevel, "Classes=" + getContext().ref.getConstructedCDOMObjects(PCClass.class).size());
 		Logging.log(logLevel, "Skills=" + Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size());
 		Logging.log(logLevel, "Feats="
-			+ getUnmodifiableAbilityList("FEAT").size());
+				+ Globals.getContext().ref.getManufacturer(Ability.class,
+						AbilityCategory.FEAT).getConstructedObjectCount());
 		Logging.log(logLevel, "Equipment=" + Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size());
 		Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ArmorProf.class).size());
 		Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ShieldProf.class).size());
@@ -1832,7 +1655,8 @@ public final class Globals
 		boolean listsHappy = !((Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size() == 0)
 				|| (getContext().ref.getConstructedCDOMObjects(PCClass.class).size() == 0)
 				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
-				|| (getUnmodifiableAbilityList("FEAT").size() == 0)
+				|| (Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
 				|| (Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size() == 0)
 				|| (Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size() == 0));
 		return listsHappy;
@@ -1870,7 +1694,6 @@ public final class Globals
 		//traitList.clear();
 		//unitSet.clear();
 		//////////////////////////////////////
-		abilityStore = new CategorisableStore();
 		companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
 		saSet = new TreeSet<SpecialAbility>();
 

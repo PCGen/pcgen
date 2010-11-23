@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Categorisable;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
@@ -337,11 +336,10 @@ public class NPCGenerator
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
-			Iterator<? extends Categorisable> i = Globals.getAbilityKeyIterator(Constants.FEAT_CATEGORY);
-			while (i.hasNext())
+			for (Ability ability : Globals.getContext().ref.getManufacturer(
+					Ability.class, AbilityCategory.FEAT).getAllObjects())
 			{
 				int weight = 1;
-				Ability ability = (Ability)i.next();
 				if (ability.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT)
 				{
 					continue;

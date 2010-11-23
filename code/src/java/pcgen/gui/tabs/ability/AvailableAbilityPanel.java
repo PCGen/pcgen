@@ -27,8 +27,8 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.swing.JMenuItem;
@@ -40,7 +40,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.gui.tabs.components.AddItemPanel;
 import pcgen.gui.tabs.components.FilterPanel;
@@ -351,10 +351,11 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getAbilityList()
 	 */
 	@Override
-	protected Map<AbilityCategory,List<Ability>> getAbilityList()
+	protected Map<AbilityCategory, Collection<Ability>> getAbilityList()
 	{
-		Map<AbilityCategory,List<Ability>> abilities = new HashMap<AbilityCategory,List<Ability>>();
-		abilities.put(getCategory(), Globals.getAbilityList(getCategory()));
+		Map<AbilityCategory, Collection<Ability>> abilities = new HashMap<AbilityCategory, Collection<Ability>>();
+		Collection<Ability> list = AbilityUtilities.getAllAbilities(getCategory());
+		abilities.put(getCategory(), list);
 		return abilities;
 	}
 

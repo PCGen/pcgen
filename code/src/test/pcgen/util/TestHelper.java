@@ -256,7 +256,7 @@ public class TestHelper
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(useCat);
 		addType(anAbility, type);
-		Globals.addAbility(anAbility);
+		Globals.getContext().ref.importObject(anAbility);
 		return anAbility;
 	}
 
@@ -274,7 +274,6 @@ public class TestHelper
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(cat);
 		addType(anAbility, type);
-		Globals.addAbility(anAbility);
 		Globals.getContext().ref.importObject(anAbility);
 		return anAbility;
 	}

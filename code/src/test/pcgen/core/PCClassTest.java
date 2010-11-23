@@ -545,7 +545,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				casterFeat,
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
 		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
-		Globals.addAbility(casterFeat);
+		context.ref.importObject(casterFeat);
 
 		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
 		cast =
@@ -627,17 +627,18 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testAddAbility() throws PersistenceLayerException
 	{
+		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		AbilityCategory cat = new AbilityCategory("TestCat");
 		SettingsHandler.getGame().addAbilityCategory(cat);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab2);
 
 		// Link them to a template
 		CampaignSourceEntry source;
@@ -655,7 +656,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
 					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
-		LoadContext context = Globals.getContext();
 		ab1.setCDOMCategory(cat);
 		ab2.setCDOMCategory(cat);
 		context.ref.importObject(ab1);

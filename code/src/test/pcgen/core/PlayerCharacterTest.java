@@ -197,7 +197,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			toughness.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.addAbility(toughness);
+		context.ref.importObject(toughness);
 	
 		Ability exoticWpnProf =
 				TestHelper.makeAbility("Exotic Weapon Proficiency", AbilityCategory.FEAT,

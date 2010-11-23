@@ -289,7 +289,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			return ABILITY_DUPLICATE;
 		}
 
-		ability = Globals.getAbilityKeyed(theCategory, aKey);
+		ability = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class, theCategory, aKey);
 		if (ability != null && !ability.qualifies(pc, ability)
 				&& !Globals.checkRule(RuleConstants.FEATPRE))
 		{

@@ -276,12 +276,17 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	public AbilitySelection decodeChoice(String s)
 	{
-		Ability ability = Globals.getAbilityKeyed("FEAT", s);
+		Ability ability = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class,
+						AbilityCategory.FEAT, s);
+
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<String>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability = Globals.getAbilityKeyed("FEAT", baseKey);
+			ability = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "
@@ -291,22 +296,19 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			return new AbilitySelection(ability, Nature.NORMAL, choices.get(0));
 		}
+		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			/*
+			 * MULT:YES, CHOOSE:NOCHOICE can land here
+			 * 
+			 * TODO There needs to be better validation at some point that this
+			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
+			 */
+			return new AbilitySelection(ability, Nature.NORMAL, "");
+		}
 		else
 		{
-			if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				/*
-				 * MULT:YES, CHOOSE:NOCHOICE can land here
-				 * 
-				 * TODO There needs to be better validation at some point that
-				 * this is proper (meaning it is actually CHOOSE:NOCHOICE!)
-				 */
-				return new AbilitySelection(ability, Nature.NORMAL, "");
-			}
-			else
-			{
-				return new AbilitySelection(ability, Nature.NORMAL);
-			}
+			return new AbilitySelection(ability, Nature.NORMAL);
 		}
 	}
 }

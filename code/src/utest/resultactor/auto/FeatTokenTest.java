@@ -69,7 +69,6 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 		ReferenceContext refContext = Globals.getContext().ref;
 		Ability obj = refContext.constructCDOMObject(getCDOMClass(), name);
 		refContext.reassociateCategory(AbilityCategory.FEAT, obj);
-		Globals.addAbility(obj);
 		return obj;
 	}
 

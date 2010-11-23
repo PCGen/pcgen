@@ -22,19 +22,30 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.gui.utils.IconUtilitities;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>AvailableSelectedPanel</code>
@@ -83,14 +94,14 @@ class AvailableSelectedPanel extends JPanel
 		addFilter = eaf;
 	}
 
-	void setAvailableList(List argAvailable, boolean argSort)
+	void setAvailableList(Collection<?> argAvailable, boolean argSort)
 	{
 		final JListModel lmd = (JListModel) lstAvailable.getModel();
 		lmd.setSort(argSort);
 
-		for (int i = 0, x = argAvailable.size(); i < x; ++i)
+		for (Object o : argAvailable)
 		{
-			lmd.addElement(argAvailable.get(i));
+			lmd.addElement(o);
 		}
 	}
 

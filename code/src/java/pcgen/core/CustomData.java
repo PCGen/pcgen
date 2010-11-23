@@ -548,13 +548,12 @@ public final class CustomData
 
 	private static void writeCustomAbilities()
 	{
-		List<PObject> pObjects = new ArrayList<PObject>();
-		Iterator<? extends Categorisable> c = Globals.getAbilityKeyIterator("ALL");
-		while ( c.hasNext() )
+		for (AbilityCategory ac : SettingsHandler.getGame().getAllAbilityCategories())
 		{
-			pObjects.add( (Ability)c.next() );
+			writeCustomPObjects(customAbilityFilePath(true), Globals
+					.getContext().ref.getManufacturer(Ability.class, ac)
+					.getAllObjects().iterator());
 		}
-		writeCustomPObjects(customAbilityFilePath(true), pObjects.iterator());
 	}
 
 	private static void writeCustomFeats()

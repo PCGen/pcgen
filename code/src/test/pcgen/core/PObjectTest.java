@@ -249,7 +249,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
-		Ability pObj = Globals.getAbilityKeyed("FEAT", "Toughness");
+		Ability pObj = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class,
+						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "");
@@ -287,7 +289,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 				Globals.getContext(),
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
-		Ability pObj = Globals.getAbilityKeyed("FEAT", "Toughness");
+		Ability pObj = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class,
+						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "+3 HP");
@@ -351,8 +355,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
 
 		// Link them to a template
 		Race race = new Race();

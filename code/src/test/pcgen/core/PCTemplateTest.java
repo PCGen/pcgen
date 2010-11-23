@@ -108,17 +108,18 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
 	{
+		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		AbilityCategory cat = new AbilityCategory("TestCat");
 		SettingsHandler.getGame().addAbilityCategory(cat);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(cat);
+		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(cat);
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab2);
 
 		CampaignSourceEntry source;
 		try
@@ -130,7 +131,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
 				context,
@@ -171,15 +171,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
+		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(AbilityCategory.FEAT);
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab2);
 
 		CampaignSourceEntry source;
 		try
@@ -191,7 +192,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
 					context,
@@ -232,17 +232,18 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
+		LoadContext context = Globals.getContext();
 		AbilityCategory cat = new AbilityCategory("TestCat");
 		SettingsHandler.getGame().addAbilityCategory(cat);
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(cat);
+		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(cat);
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab2);
 
 		CampaignSourceEntry source;
 		try
@@ -254,7 +255,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
 					context,
@@ -319,14 +319,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	public void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		// Create some abilities to be added
+		LoadContext context = Globals.getContext();
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(AbilityCategory.FEAT);
-		Globals.addAbility(ab1);
-		Globals.addAbility(ab2);
+		context.ref.importObject(ab2);
 
 		CampaignSourceEntry source;
 		try
@@ -338,7 +339,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
 					context,

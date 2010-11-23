@@ -31,8 +31,9 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.Globals;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -150,39 +151,17 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			Logging.log(Logging.LST_ERROR, message);
 			return null;
 		}
-		return Globals.getAbilityKeyed(abilityCatName, abilityKey);
+		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(
+				abilityCatName);
+		return context.ref.silentlyGetConstructedCDOMObject(Ability.class, ac,
+				abilityKey);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(LoadContext context, Ability objToForget)
-	{
-		super.performForget(context, objToForget);
-		String aCat = objToForget.getCategory();
-		String aKey = objToForget.getKeyName();
-		Globals.removeAbilityKeyed(aCat, aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
-	 * 
-	 * @since 5.11
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		Globals.addAbility((Ability) pObj);
-	}
-	
 	@Override
 	protected Ability getMatchingObject(LoadContext context, PObject aKey)
 	{
-		return Globals.getAbilityKeyed(((Ability) aKey).getCategory(), aKey
-			.getKeyName());
+		return context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+				((Ability) aKey).getCDOMCategory(), aKey.getKeyName());
 	}
 
 	/**

@@ -258,8 +258,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 		 		for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
 				{
-		 			Object abilSourceObj = null;
-					abilSourceObj = Globals.getAbilityKeyed(cat, sourceStr);
+					Ability abilSourceObj = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Ability.class,
+									cat, sourceStr);
 		 			if (abilSourceObj != null)
 		 			{
 		 				oSource = abilSourceObj;
@@ -2529,11 +2530,26 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		// The next element will be the ability's innate category
+		AbilityCategory innateCategory = null;
 		if (it.hasNext())
 		{
 			final PCGElement element = it.next();
 
 			abilityCat = EntityEncoder.decode(element.getText());
+			innateCategory = SettingsHandler.getGame()
+					.getAbilityCategory(abilityCat);
+			if (innateCategory == null)
+			{
+				// emit a warning that the category doesn't exists.
+				final String msg = PropertyFactory.getFormattedString(
+						"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
+						abilityCat);
+				warnings.add(msg);
+
+				// Create one.
+				innateCategory = new AbilityCategory(abilityCat);
+				SettingsHandler.getGame().addAbilityCategory(category);
+			}
 		}
 
 		// The next element will be the ability key
@@ -2542,7 +2558,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			abilityKey = EntityEncoder.decode(element.getText());
-			ability = Globals.getAbilityKeyed(abilityCat, abilityKey);
+			ability = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							innateCategory, abilityKey);
 			if (ability == null)
 			{
 				warnings.add("Unable to Find Ability: " + abilityKey);
@@ -2721,9 +2739,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else
 			{
 				// PC does not have the feat
-				anAbility =
-						Globals.getAbilityKeyed(Constants.FEAT_CATEGORY,
-							abilityKey);
+				anAbility = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								AbilityCategory.FEAT, abilityKey);
 
 				if (anAbility != null)
 				{
@@ -4040,9 +4058,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					final String featKey =
 							EntityEncoder.decode(child.getText());
-					final Ability anAbility =
-							Globals.getAbilityKeyed(Constants.FEAT_CATEGORY,
-								featKey);
+					final Ability anAbility = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Ability.class,
+									AbilityCategory.FEAT, featKey);
 
 					if (anAbility != null)
 					{
@@ -4518,9 +4536,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
-			anAbility =
-					Globals
-						.getAbilityKeyed(Constants.FEAT_CATEGORY, abilityKey);
+			anAbility = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, abilityKey);
 
 			if (anAbility == null)
 			{
@@ -4530,10 +4548,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			anAbility =
-					AbilityUtilities.addVirtualAbility(Constants.FEAT_CATEGORY,
-						abilityKey, AbilityCategory.FEAT,
-						thePC, null);
+			anAbility = AbilityUtilities.addVirtualAbility(abilityKey,
+					AbilityCategory.FEAT, thePC, null);
 			thePC.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 			thePC.setDirty(true);
 		}
@@ -5297,11 +5313,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// type of object to set as the creator
 			if (cType.equals(TAG_FEAT))
 			{
-				Ability aFeat =
-						Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, cKey);
+				Ability aFeat = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								AbilityCategory.FEAT, cKey);
 				if (aFeat == null)
 				{
-					aFeat = Globals.getAbilityKeyed("Special Ability", cKey);
+					AbilityCategory saCat = SettingsHandler.getGame()
+							.getAbilityCategory("Special Ability");
+
+					aFeat = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Ability.class,
+									saCat, cKey);
 				}
 
 				if (aFeat != null)

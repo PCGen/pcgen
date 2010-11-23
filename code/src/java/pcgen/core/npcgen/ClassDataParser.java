@@ -26,7 +26,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -37,10 +36,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Categorisable;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -353,9 +353,15 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
-							final List<Ability> subFeats = Globals.getAbilitiesByType(theCurrentCategory.getAbilityCategory(), key.substring(5));
-							for ( final Ability ability : subFeats )
+							Type type = Type.getConstant(key.substring(5));
+							for (final Ability ability : Globals.getContext().ref
+									.getManufacturer(Ability.class,
+											theCurrentCategory).getAllObjects())
 							{
+								if (!ability.containsInList(ListKey.TYPE, type))
+								{
+									continue;
+								}
 								if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 								{
 									if (weight > 0)
@@ -376,7 +382,8 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else
 						{
-							final Ability ability = Globals.getAbilityKeyed(theCurrentCategory.getAbilityCategory(), key);
+							final Ability ability = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+									Ability.class, theCurrentCategory, key);
 							if (ability == null)
 							{
 								Logging.debugPrint("Ability (" + key + ") not found"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -499,9 +506,10 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all abilities at this weight.
-				for (Iterator<? extends Categorisable> i = Globals.getAbilityNameIterator(theCurrentCategory.getAbilityCategory()); i.hasNext(); )
+				for (Ability ability : Globals.getContext().ref
+						.getManufacturer(Ability.class, theCurrentCategory)
+						.getAllObjects())
 				{
-					final Ability ability = (Ability)i.next();
 					if ( ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					{
 						theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight);
@@ -511,7 +519,9 @@ class ClassDataHandler extends DefaultHandler
 			}
 			for ( final String remove : removeList )
 			{
-				final Ability ability = Globals.getAbilityKeyed(theCurrentCategory, remove);
+				Ability ability = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								theCurrentCategory, remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);
 			}
 			removeList = new ArrayList<String>();

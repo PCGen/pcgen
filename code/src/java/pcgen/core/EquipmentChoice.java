@@ -339,10 +339,9 @@ public final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		for (Iterator<? extends Categorisable> e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
+		for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+				Ability.class, aCategory).getAllObjects())
 		{
-			final Ability anAbility = (Ability)e.next();
-
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||
 					anAbility.isType(typeString)

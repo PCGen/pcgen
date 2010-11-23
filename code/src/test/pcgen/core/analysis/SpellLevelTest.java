@@ -91,8 +91,9 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 				"Spell bonanza	CATEGORY:FEAT	SPELLKNOWN:CLASS|Sorcerer=3|KEY_Bless";
 		AbilityLoader abilityLoader = new AbilityLoader();
 		abilityLoader.parseLine(context, null, abilityLine, source);
-		Ability ab1 =
-				Globals.getAbilityKeyed(AbilityCategory.FEAT, "Spell bonanza");
+		Ability ab1 = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class,
+						AbilityCategory.FEAT, "Spell bonanza");
 
 		// Do the post parsing cleanup
 		context.resolveDeferredTokens();

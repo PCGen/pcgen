@@ -10902,11 +10902,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if ((anAbility == null) && addIt)
 		{
 			// Adding feat for first time
-			anAbility = Globals.getAbilityKeyed(aCategory, baseKey);
+			anAbility = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class, aCategory,
+							baseKey);
 
 			if (anAbility == null)
 			{
-				anAbility = Globals.getAbilityKeyed(aCategory, undoctoredKey);
+				anAbility = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								aCategory, undoctoredKey);
 
 				if (anAbility != null)
 				{

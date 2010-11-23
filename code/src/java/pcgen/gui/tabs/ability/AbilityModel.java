@@ -23,6 +23,7 @@
 package pcgen.gui.tabs.ability;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.DescriptionFormatting;
@@ -80,7 +81,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			AbilitySelectionPanel.ViewMode.TYPENAME;
 
 	private PlayerCharacter thePC = null;
-	private Map<AbilityCategory,List<Ability>> theAbilityList;
+	private Map<AbilityCategory,Collection<Ability>> theAbilityList;
 	//private AbilityCategory theCategory;
 	private List<AbilityCategory> theCategoryList;
 	private AbilityCategory currAbilityCat;
@@ -103,13 +104,13 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * @param viewMode
 	 * @param anOptionRoot The key to store options under.
 	 */
-	public AbilityModel(final PlayerCharacter aPC, final List<Ability> aList,
+	public AbilityModel(final PlayerCharacter aPC, final Collection<Ability> aList,
 		final AbilityCategory aCategory,
 		final AbilitySelectionPanel.ViewMode viewMode, final String anOptionRoot)
 	{
 		super(null);
 		thePC = aPC;
-		theAbilityList = new HashMap<AbilityCategory,List<Ability>>();
+		theAbilityList = new HashMap<AbilityCategory,Collection<Ability>>();
 		theAbilityList.put(aCategory, aList);
 
 		theOptionsRoot = anOptionRoot;
@@ -140,7 +141,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * @param anOptionRoot The key to store options under.
 	 * @param splitByCategory Should the list be split by category
 	 */
-	public AbilityModel(final PlayerCharacter aPC, final Map<AbilityCategory,List<Ability>> aMap,
+	public AbilityModel(final PlayerCharacter aPC, final Map<AbilityCategory,Collection<Ability>> aMap,
 		final List<AbilityCategory> aCategoryList,
 		final AbilitySelectionPanel.ViewMode viewMode, final String anOptionRoot,
 		final boolean splitByCategory)
@@ -191,8 +192,9 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		sourceRoot = new PObjectNode();
 
 		// We will use the global lists for this
-		addTypeNodes(typeRoot, Globals.getAbilityList(currAbilityCat));
-		addSourceNodes(sourceRoot, Globals.getAbilityList(currAbilityCat));
+		Collection<Ability> coll = AbilityUtilities.getAllAbilities(currAbilityCat);
+		addTypeNodes(typeRoot, coll);
+		addSourceNodes(sourceRoot, coll);
 	}
 
 	/**
@@ -203,7 +205,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * @param abilityList The list of abilities to obtain types from.
 	 */
 	private void addTypeNodes(final PObjectNode root,
-		final List<Ability> abilityList)
+		final Collection<Ability> abilityList)
 	{
 		final SortedSet<String> typeSet = new TreeSet<String>();
 		for (final Ability ability : abilityList)
@@ -239,7 +241,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * @param abilityList The list of abilities to obtain sources from.
 	 */
 	private void addSourceNodes(final PObjectNode root,
-		final List<Ability> abilityList)
+		final Collection<Ability> abilityList)
 	{
 		final SortedSet<String> sourceSet = new TreeSet<String>();
 		// We will use the global lists for this
@@ -468,7 +470,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	}
 
 	private void buildSubTreeNameOnly(final boolean showAll,
-		final PObjectNode root, List<Ability> abilityList)
+		final PObjectNode root, Collection<Ability> abilityList)
 	{
 		String qFilter = this.getQFilter();
 
@@ -525,7 +527,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	}
 
 	private void buildSubTreePrereqTree(final boolean showAll,
-		final PObjectNode rootAsPObjectNode, final List<Ability> abilityList)
+		final PObjectNode rootAsPObjectNode, final Collection<Ability> abilityList)
 	{
 		// This list initially contains all abilities that pass the filter.
 		final List<Ability> fList = new ArrayList<Ability>();
@@ -748,7 +750,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	}
 
 	private void buildSubTreeTypeName(final boolean showAll,
-		final PObjectNode rootAsPObjectNode, final List<Ability> abilityList)
+		final PObjectNode rootAsPObjectNode, final Collection<Ability> abilityList)
 	{
 		for (final Ability ability : abilityList)
 		{
@@ -822,7 +824,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	}
 
 	private void buildSubTreeSourceName(final boolean showAll,
-		final PObjectNode rootAsPObjectNode, final List<Ability> abilityList)
+		final PObjectNode rootAsPObjectNode, final Collection<Ability> abilityList)
 	{
 		for (final Ability ability : abilityList)
 		{
@@ -933,7 +935,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * 
 	 * @param aList A list of Abilities to manage.
 	 */
-	public void setAbilityList(final Map<AbilityCategory,List<Ability>> aList, PlayerCharacter aPc)
+	public void setAbilityList(final Map<AbilityCategory,Collection<Ability>> aList, PlayerCharacter aPc)
 	{
 		theAbilityList = aList;
 		resetModel(aPc, theViewMode, false);
@@ -1019,7 +1021,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		for (final PObjectNode catNode : rootAsPObjectNode.getChildren())
 		{
 			PCAbilityCategory pcCat = (PCAbilityCategory) catNode.getItem();
-			List<Ability> abilities = theAbilityList.get(pcCat.getCategory());
+			Collection<Ability> abilities = theAbilityList.get(pcCat.getCategory());
 			if (abilities == null)
 			{
 				abilities = new ArrayList<Ability>();

@@ -81,8 +81,8 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
-import pcgen.core.Categorisable;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -2461,11 +2461,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// next do all Feats to get PREAPPLY:ANYPC
-				for (Iterator<? extends Categorisable> fI =
-						Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();) //$NON-NLS-1$
+				for (Ability aFeat : Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects())
 				{
-					Ability aFeat = (Ability) fI.next();
-
 					for (BonusObj aBonus : aFeat.getRawBonusList(pc))
 					{
 						if (aBonus.isTempBonus()

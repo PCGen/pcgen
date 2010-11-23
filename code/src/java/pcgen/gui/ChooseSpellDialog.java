@@ -39,7 +39,6 @@ import java.awt.event.WindowEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -66,7 +65,7 @@ import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
-import pcgen.core.Categorisable;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -1254,10 +1253,9 @@ final class ChooseSpellDialog extends JDialog
 			//
 			List<Ability> metamagicFeats = new ArrayList<Ability>();
 
-			for (Iterator<? extends Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+			for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+					Ability.class, AbilityCategory.FEAT).getAllObjects())
 			{
-				final Ability anAbility = (Ability) e.next();
-
 				if (anAbility.isType("Metamagic"))
 				{
 					metamagicFeats.add(anAbility);

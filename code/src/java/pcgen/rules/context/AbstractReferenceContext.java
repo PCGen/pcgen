@@ -190,14 +190,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return getManufacturer(c, cat).getActiveObject(val);
 	}
 
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T>
-	// getCDOMReference(
-	// Class<T> c, Category<T> cat, String val)
-	// {
-	// return categorized.getCDOMReference(c, cat, val);
-	// }
-	//
-	
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
 			Category<T> cat, T obj)
 	{
@@ -218,21 +210,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		obj.setCDOMCategory(cat);
 		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
 	}
-
-	// public <T extends CDOMObject> T cloneConstructedCDOMObject(T orig,
-	// String newKey)
-	// {
-	// Class cl = (Class) orig.getClass();
-	// if (CategorizedCDOMObject.class.isAssignableFrom(cl))
-	// {
-	// return (T) cloneCategorized(cl, ((CategorizedCDOMObject) orig)
-	// .getCDOMCategory(), orig, newKey);
-	// }
-	// else
-	// {
-	// return (T) simple.cloneConstructedCDOMObject(cl, orig, newKey);
-	// }
-	// }
 
 	public <T extends CDOMObject> void importObject(T orig)
 	{
@@ -284,21 +261,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return false;
 	}
 
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> T
-	// cloneCategorized(
-	// Class<T> cl, Category<T> cat, Object o, String newKey)
-	// {
-	// return categorized.cloneConstructedCDOMObject(cl, cat, (T) o, newKey);
-	// }
-
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>>
-	// ReferenceManufacturer<T, CDOMCategorizedSingleRef<T>>
-	// getReferenceManufacturer(
-	// Class<T> c, Category<T> cat)
-	// {
-	// return categorized.getManufacturer(c, cat);
-	// }
-
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
 			Class<T> c)
 	{
@@ -316,13 +278,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	{
 		return getManufacturer(c).getOrderSortedObjects();
 	}
-
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> Collection<T>
-	// getConstructedCDOMObjects(
-	// Class<T> c, Category<T> cat)
-	// {
-	// return categorized.getConstructedCDOMObjects(c, cat);
-	// }
 
 	public Set<Object> getAllConstructedObjects()
 	{
@@ -495,19 +450,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	{
 		return getManufacturer(cl).constructNowIfNecessary(name);
 	}
-
-	// public <T extends CDOMObject> CDOMAddressedSingleRef<T>
-	// getAddressedReference(
-	// CDOMObject obj, Class<T> name, String addressName)
-	// {
-	// CDOMAddressedSingleRef<T> addr = addressed.get(obj, name);
-	// if (addr == null)
-	// {
-	// addr = new CDOMAddressedSingleRef<T>(obj, name, addressName);
-	// addressed.put(obj, name, addr);
-	// }
-	// return addr;
-	// }
 
 	public <T extends CDOMObject> int getConstructedObjectCount(Class<T> c)
 	{

@@ -281,9 +281,8 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			PlayerCharacter pc)
 	{
 		String featName = choice.getFullAbilityKey();
-		final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
-				featName, AbilityCategory.FEAT,
-				pc, null);
+		final Ability aFeat = AbilityUtilities.addVirtualAbility(featName,
+				AbilityCategory.FEAT, pc, null);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
 		// TODO: Why is this here? Normally this is only used in the UI layer.
 		pc.setDirty(true);

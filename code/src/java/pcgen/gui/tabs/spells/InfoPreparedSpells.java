@@ -1114,7 +1114,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			List<Ability> metamagicFeats = new ArrayList<Ability>();
 			for (String s : characterMetaMagicFeats)
 			{
-				final Ability anAbility = Globals.getAbilityKeyed("FEAT", s); //$NON-NLS-1$
+				final Ability anAbility = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								AbilityCategory.FEAT, s);
 				if (anAbility == null)
 				{
 					continue;

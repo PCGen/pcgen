@@ -26,6 +26,8 @@ package pcgen.core;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -33,11 +35,14 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -174,14 +179,16 @@ public class AbilityUtilities
 	 * @return  the Ability added
 	 */
 	public static Ability addVirtualAbility(
-		final String          category,
 		final String          aFeatKey,
 		final AbilityCategory   cat,
 		PlayerCharacter pc, final PCLevelInfo     levelInfo)
 	{
 		final List<String> choices = new ArrayList<String>();
 		final String    abilityKey      = getUndecoratedName(aFeatKey, choices);
-		final Ability   anAbility       = Globals.getAbilityKeyed(category, abilityKey);
+		//TODO I think this is a bug, what if the ability naturally has parens??
+		final Ability anAbility = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class, cat,
+						abilityKey);
 
 		return addVirtualAbility(anAbility, choices, cat, pc, levelInfo);
 	}
@@ -575,11 +582,15 @@ public class AbilityUtilities
 		if ((anAbility == null) && addIt)
 		{
 			// Adding feat for first time
-			anAbility = Globals.getAbilityKeyed("FEAT", baseKey);
+			anAbility = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, baseKey);
 
 			if (anAbility == null)
 			{
-				anAbility = Globals.getAbilityKeyed("FEAT", aFeatKey);
+				anAbility = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								AbilityCategory.FEAT, aFeatKey);
 
 				if (anAbility != null)
 				{
@@ -641,7 +652,9 @@ public class AbilityUtilities
 			}
 
 			// Get ability from global storage by Name
-			anAbility = Globals.getAbilityKeyed("FEAT", aString);
+			anAbility = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, aString);
 
 			if (anAbility == null)
 			{
@@ -692,7 +705,9 @@ public class AbilityUtilities
 					return;
 				}
 
-				anAbility = Globals.getAbilityKeyed("FEAT", aString);
+				anAbility = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Ability.class,
+								AbilityCategory.FEAT, aString);
 
 				if (anAbility == null)
 				{
@@ -782,7 +797,8 @@ public class AbilityUtilities
 		final String token)
 	{
 		AbilityCategory aCat = AbilityUtilities.getAbilityCategory(cat);
-		Ability ability = Globals.getAbilityKeyed(aCat, token);
+		Ability ability = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class, aCat, token);
 
 		if (ability != null)
 		{
@@ -790,7 +806,8 @@ public class AbilityUtilities
 		}
 
 		final String stripped = removeChoicesFromName(token);
-		ability = Globals.getAbilityKeyed(aCat, stripped);
+		ability = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Ability.class, aCat, stripped);
 
 		if (ability != null)
 		{
@@ -966,6 +983,46 @@ public class AbilityUtilities
 			modAbility(aPC, pcLevelInfo, ab, choice, true,
 					abilityCat);
 		}
+	}
+
+	public static Collection<Ability> getAllAbilities(AbilityCategory category)
+	{
+		Category<Ability> parent = category.getParentCategory();
+		final ReferenceManufacturer<Ability> mfg;
+		final boolean includeAllAbilities;
+		if (parent == null)
+		{
+			mfg = Globals.getContext().ref.getManufacturer(Ability.class,
+					category);
+			includeAllAbilities = category.isAllAbilityTypes();
+		}
+		else
+		{
+			mfg = Globals.getContext().ref.getManufacturer(Ability.class,
+					parent);
+			includeAllAbilities = true;
+		}
+		Collection<Ability> allObjects = mfg.getAllObjects();
+		if (includeAllAbilities)
+		{
+			return allObjects;
+		}
+		final List<Ability> ret = new ArrayList<Ability>(allObjects.size());
+		Set<String> typeStrings = category.getAbilityTypes();
+		Set<Type> types = new HashSet<Type>();
+		for (String string : typeStrings)
+		{
+			types.add(Type.getConstant(string));
+		}
+		for (final Ability ability : allObjects)
+		{
+			if (ability.containsAnyInList(ListKey.TYPE, types)
+					|| category.containsAbilityDirectly(ability))
+			{
+				ret.add(ability);
+			}
+		}
+		return Collections.unmodifiableList(ret);
 	}
 
 }

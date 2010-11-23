@@ -30,6 +30,7 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -168,7 +169,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getAbilityList()
 	 */
 	@Override
-	protected Map<AbilityCategory,List<Ability>> getAbilityList()
+	protected Map<AbilityCategory,Collection<Ability>> getAbilityList()
 	{
 		return buildPCAbilityList();
 	}
@@ -226,21 +227,17 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * 
 	 * @return A list of the current PCs abilities.
 	 */
-	private Map<AbilityCategory,List<Ability>> buildPCAbilityList()
+	private Map<AbilityCategory,Collection<Ability>> buildPCAbilityList()
 	{
 		final List<AbilityCategory> catList = getCategoryList();
-		final Map<AbilityCategory, List<Ability>> abilityList =
-				new HashMap<AbilityCategory, List<Ability>>();
+		final Map<AbilityCategory, Collection<Ability>> abilityList =
+				new HashMap<AbilityCategory, Collection<Ability>>();
 		for (AbilityCategory abilityCategory : catList)
 		{
-			abilityList.put(abilityCategory, getPC().getAggregateAbilityListNoDuplicates(
-				abilityCategory));
-		}
-
-		// Need to sort each list.
-		for (AbilityCategory abilityCategory : catList)
-		{
-			Globals.sortPObjectListByName(abilityList.get(abilityCategory));
+			List<Ability> list = getPC().getAggregateAbilityListNoDuplicates(
+					abilityCategory);
+			Globals.sortPObjectListByName(list);
+			abilityList.put(abilityCategory, list);
 		}
 
 		return abilityList;

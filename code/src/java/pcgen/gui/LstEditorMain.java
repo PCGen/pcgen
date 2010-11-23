@@ -56,6 +56,7 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Deity;
@@ -154,14 +155,10 @@ public final class LstEditorMain extends JFrame
 			case EditorConstants.EDIT_TEMPLATE:
 			case EditorConstants.EDIT_RACE:
 			case EditorConstants.EDIT_LANGUAGE:
+			case EditorConstants.EDIT_FEAT:
 				//Fall through intentional
 			case EditorConstants.EDIT_DOMAIN:
 				Globals.getContext().ref.importObject(editObject);
-
-				break;
-
-			case EditorConstants.EDIT_FEAT:
-				Globals.addAbility((Ability) editObject);
 
 				break;
 
@@ -378,7 +375,8 @@ public final class LstEditorMain extends JFrame
 				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, aName);
 
 			case EditorConstants.EDIT_FEAT:
-				return Globals.getAbilityKeyed("FEAT", aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, aName);
 
 			case EditorConstants.EDIT_LANGUAGE:
 				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aName);
@@ -727,7 +725,8 @@ public final class LstEditorMain extends JFrame
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_FEAT))
 			{
-				possibleSelections = Globals.getUnmodifiableAbilityList("FEAT");
+				possibleSelections = Globals.getContext().ref.getManufacturer(
+						Ability.class, AbilityCategory.FEAT).getAllObjects();
 				editType = EditorConstants.EDIT_FEAT;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_LANGUAGE))
@@ -844,14 +843,10 @@ public final class LstEditorMain extends JFrame
 				case EditorConstants.EDIT_TEMPLATE:
 				case EditorConstants.EDIT_RACE:
 				case EditorConstants.EDIT_LANGUAGE:
+				case EditorConstants.EDIT_FEAT:
 					//Fall through intentional
 				case EditorConstants.EDIT_DOMAIN:
 					removed = Globals.getContext().ref.forget(editObject);
-
-					break;
-
-				case EditorConstants.EDIT_FEAT:
-					removed = Globals.removeAbilityKeyed("FEAT", editObject.getKeyName());
 
 					break;
 

@@ -59,6 +59,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Description;
@@ -456,9 +458,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					}
 					else if (tag.equals("FEAT") || tag.equals("VFEAT") || tag.equals("FEATAUTO"))
 					{
-						ListFrame lf = new ListFrame(
-								"Choices for " + tag,
-								Globals.getUnmodifiableAbilityList("FEAT"));
+						ListFrame lf = new ListFrame("Choices for " + tag, Globals
+							.getContext().ref.getManufacturer(Ability.class,
+							AbilityCategory.FEAT).getAllObjects());
 						String v = lf.getSelectedList();
 
 						if (!v.equals(""))
@@ -549,7 +551,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		 * @param title
 		 * @param aList
 		 */
-		public ListFrame(String title, List aList)
+		public ListFrame(String title, Collection<?> aList)
 		{
 			super(Globals.getRootFrame(), title, true);
 			initComponents();

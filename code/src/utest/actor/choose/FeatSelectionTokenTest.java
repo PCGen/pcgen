@@ -97,7 +97,6 @@ public class FeatSelectionTokenTest extends TestCase
 	{
 		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
 		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
-		Globals.addAbility(obj);
 		return obj;
 	}
 }
