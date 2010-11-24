@@ -38,7 +38,9 @@ Bob Racial Weapon Two		TYPE:Racial
 
 
 Longsword				TYPE:Martial
+Dagger				TYPE:Simple
 
+Spear					TYPE:Simple
 Template Weapon Test		TYPE:Exotic
 Template Weapon Test Two	TYPE:Exotic
 

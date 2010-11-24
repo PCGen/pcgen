@@ -51,7 +51,7 @@ Add Feat PCC			TYPE:Test
 #Class - part of the ADD:CLASSSKILLS test
 #Class Level - Part of the 
 
-Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]
+Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]	MULT:YES
 # Fails - leaks over.
 #
 Bonus PCLEVEL Wizard 10				TYPE:OutsiderTest	BONUS:PCLEVEL|Wizard|10

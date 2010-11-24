@@ -53,7 +53,7 @@ GLOBAL ~ Same Spells Test		CATEGORY:FEAT	TYPE:GlobalTests		SPELLS:YourTest|TIMES
 Feat For Test 24				CATEGORY:FEAT	TYPE:TestResult
 
 GLOBAL ~ CSKILL				CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:Ability Skill 1
-GLOBAL ~ CHOOSE CSKILL			CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:LIST				CHOOSE:SKILL|Ability Skill 2|Ability Skill 3|Ability Skill 4|TITLE=Skill
+GLOBAL ~ CHOOSE CSKILL			CATEGORY:FEAT	TYPE:GlobalTests	CSKILL:LIST				CHOOSE:SKILL|Ability Skill 2|Ability Skill 3|Ability Skill 4|TITLE=Skill	MULT:YES
 
 
 
@@ -505,6 +505,9 @@ NoStackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:
 StackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 StackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
+
+NoStackNoChoiceFeat	CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+
 #The other similar test requests follow a similar pattern. all that is changing is VFEAT vs. other tokens.
 
 Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing	
@@ -516,10 +519,10 @@ Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing
 
 CODE-358 Spell Test			CATEGORY:FEAT		TYPE:CODE-358		CHOOSE:SPELLS|ALL[LEVELMAX=1]		MULT:YES
 
-CODE-362 A					CATEGORY:FEAT		TYPE:CODE-362.CODE-326A	
-CODE-362 B					CATEGORY:FEAT		TYPE:CODE-362.CODE-326A	
-CODE-362 C					CATEGORY:FEAT		TYPE:CODE-362.CODE-326A	
-CODE-362 D					CATEGORY:FEAT		TYPE:CODE-362.CODE-326A	
+CODE-362 A					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
+CODE-362 B					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
+CODE-362 C					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
+CODE-362 D					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
 CODE-362 E Single				CATEGORY:FEAT		TYPE:CODE-362
 
 
@@ -529,3 +532,19 @@ CODE-362 Assign ALL Feats TYPE Period		CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE
 
 
 
+#
+
+Improved Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality
+Share Saving Throws		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+Alertness	CATEGORY:FEAT	TYPE:General
+Run		CATEGORY:FEAT	TYPE:General
+Track		CATEGORY:FEAT	TYPE:General
+
+Test Weapon Proficiency	CATEGORY:FEAT	TYPE:General	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Simple|TYPE=Martial|TYPE=Exotic	MULT:YES
+
+
+#Test Weapon Proficiency(Dagger)
+#Test Weapon Proficiency(Longsword)
+#Test Weapon Proficiency(Spear)
