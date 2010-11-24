@@ -48,6 +48,12 @@ Vision Darkvision																					PREVISION:1,Darkvision=1																		
 # Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Modify VAR									Add to vision			Weapon prof. bonus																											Choose									Bonus Languages	Vision		Natural Attacks
 Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																																																													CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
 
+Inquisitor Spell Level 0	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|1
+Inquisitor Spell Level 1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|1
+Inquisitor Spell Level 2	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|1
+Inquisitor Spell Level 3	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|1
+Inquisitor Spell Level 4	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|1
+Inquisitor Spell Level 5	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|1
 #
 # End
 #
