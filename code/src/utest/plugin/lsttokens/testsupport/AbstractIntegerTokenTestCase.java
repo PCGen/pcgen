@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
