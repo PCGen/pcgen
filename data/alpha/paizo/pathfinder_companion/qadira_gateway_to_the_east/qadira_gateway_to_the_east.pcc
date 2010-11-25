@@ -9,8 +9,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder Chronicles
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 # This needs to be removed when we fully implement the APG, as the APG replaces that.
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
-
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
