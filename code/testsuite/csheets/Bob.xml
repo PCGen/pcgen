@@ -1950,7 +1950,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Auto Weapon Standard, Bob Long Blade, Bob Short Blade, Bob Two Hand Blade, Deity Weapon Puni, Deity Weapon Second Puni, Extra Blade, Fine Wine Blade, Jim Long Blade, Jim Short Blade, Jim Two Handed Blade, Longsword, Suns Weapon Of Choice, Template Weapon Test, Uber Sword, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Auto Weapon Standard, Bob Long Blade, Bob Short Blade, Bob Two Hand Blade, Dagger, Deity Weapon Puni, Deity Weapon Second Puni, Extra Blade, Fine Wine Blade, Jim Long Blade, Jim Short Blade, Jim Two Handed Blade, Longsword, Spear, Suns Weapon Of Choice, Template Weapon Test, Uber Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Choose Lang Persistence Race, Common, Evilhaasness, Terestial Alpha</languages>
 
 	<templates>

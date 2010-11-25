@@ -1405,11 +1405,11 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GLOBAL ~ CHOOSE CSKILL</name>
+			<name>GLOBAL ~ CHOOSE CSKILL (PLEASE MAKE APPROPRIATE SELECTION)</name>
 			<description></description>
 			<type>GLOBALTESTS</type>
-			<associated></associated>
-			<count>0</count>
+			<associated>PLEASE MAKE APPROPRIATE SELECTION</associated>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1613,7 +1613,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Bob Racial Weapon, Extra Blade, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bob Racial Weapon, Dagger, Extra Blade, Spear, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, MonKee Language</languages>
 
 
