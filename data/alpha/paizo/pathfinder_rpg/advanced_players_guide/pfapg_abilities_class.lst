@@ -549,8 +549,8 @@ Paralyzed		KEY:Paralyzed ~ Cruelty		CATEGORY:Special Ability	TYPE:SpecialAttack.
 Stunned		KEY:Stunned ~ Cruelty		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Cruelty.LayOnHands											PREVARGTEQ:AntipaladinLVL,12	DESC:Whenever you use Touch of Corruption to deal damage to one target, the target is also stunned for %1 rounds.|CrueltyLVL/4							SOURCEPAGE:p.121
 
 ###Block: Favored Classes
-# Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus to Ability Pool
-Antipaladin		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Antipaladin")
+# Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
+Antipaladin		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Antipaladin")
 
 ##
 ## Block: Base Core Class Modifications

@@ -196,8 +196,8 @@ Still Spell		TYPE:Metamagic	DESC:You can cast spells without moving.								ADDS
 Widen Spell		TYPE:Metamagic	DESC:You can cast your spells so that they occupy a larger space.				ADDSPELLLEVEL:3					SOURCEPAGE:p.137	BENEFIT:You can alter a burst, emanation, line, or spread-shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%%. A widened spell uses up a spell slot three levels higher than the spell's actual level. Spells that do not have an area of one of these four sorts are not affected by this feat.
 
 ###Block: Leadership helper feat
-# Feat Name		Type				Visible	Multiple?	Choose										Modify VAR							Temporary effect description
-Leadership Score	TYPE:Special.Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+# Feat Name		Type				Visible		Choose										Modify VAR							Temporary effect description
+Leadership Score	TYPE:Special.Internal	VISIBLE:NO		CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block: Power Attack helper feats for temporary bonuses
 # Feat Name				Visible	Weapon prop. bonus
