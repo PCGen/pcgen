@@ -67,12 +67,14 @@ Revisions: Mike Elliott 12/30/09 Added Show Sources to Feats, Special Attacks an
                                  2917186 TIMEUNIT processing, .MAGIC~ to bold now, removed repeats of Special Attacks
                                  in the Special Qualities section, 2923219 seperated out AC.Dodge into it's own box.
 
-Revisions: Mike Elliott 02/16/10 Sort weapons as primary/secondary/both/unequipped as presented.  More condensing of
-                                 the compact abilities section.  Tweaked ranged weapons with ammo contained in weapon.
-                                 FIX: To really show multiple ammo types, currently the .LST entry for a bow or 
-                                      crossbow needs to have the container quantity set higher than one.
-                                 Fixed stats block with respect to item bonuses and animal companion level bonuses.
-                                 Greyed out base stats and moved column in order to make current values more visible.
+Revisions: Mike Elliott 11/24/10 Added Temporary Bonuses Applied, Animal Tricks, Afflictions and Archetypes.
+                                 Changed Pathfinder Barbarian to match new variables.  Feats now show seperate DESC and
+				 BENEFIT views.  Deity/Domains now show DomainPowers abilities in its section.  Armor
+				 block only shows barding for probably mount racetypes, animals and companions.  
+				 Ranged weapons have associated ammo automatically bunched and added to damage roll.  
+				 Extra energy damage on weapons is shown but not automatically rolled (yet). 
+				 Comprehensive skills shows breakdown.
+
 
 $Revision$
 $Author$
@@ -212,6 +214,7 @@ $Date$
 	.ct8sB{ font-size:8pt; text-align:center; vertical-align:top; border:1px solid black; font-weight:bold; }
 	.ct8swB{ font-size:8pt; text-align:center; vertical-align:top; border:1px solid black; color:white; background:black; font-weight:bold; }
 	.l8   { font-size:8pt; text-align:left; }
+	.l8g  { font-size:8pt; text-align:left; background:#F0E0B9; }
 	.l8mB { font-size:8pt; text-align:left; font-weight:bold; }
 	.l8s  { font-size:8pt; text-align:left; vertical-align:top; border:1px solid black; }
 	.l8sB { font-size:8pt; text-align:left; vertical-align:top; border:1px solid black; font-weight:bold; }
@@ -234,11 +237,11 @@ $Date$
 
 	.c9   { font-size:9pt; text-align:center; }
 	.c9g  { font-size:9pt; text-align:center; background:#DDDDDD; }
-	.c10sgB{ font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; color:#A0A0A0; }
 	.c9w  { font-size:9pt; text-align:center; color:white; background:black; }
+	.c9B  { font-size:9pt; text-align:center; font-weight:bold; }
 	.c9s  { font-size:9pt; text-align:center; border:1px solid black; }
 	.c9sB { font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
- 	.c9sBx{ font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; }
+	.c9sBx{ font-size:9pt; text-align:center; border:1px solid black; font-weight:bold; }
 	.c9swB{ font-size:9pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
 	.c9wB { font-size:9pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c9pB { font-size:9pt; text-align:center; color:#88DDFF; background:black; font-weight:bold; }
@@ -260,8 +263,8 @@ $Date$
 	.lt9b { font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; }
 	.lt9bw{ font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; color:white; background:black; }
 	.lt9mB{ font-size:9pt; text-align:left; vertical-align:top; font-weight:bold; }
- 	.lt9s { font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; }
- 	.lt9sB{ font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; font-weight:bold; }
+	.lt9s { font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; }
+	.lt9sB{ font-size:9pt; text-align:left; vertical-align:top; border:1px solid black; font-weight:bold; }
 	.r9   { font-size:9pt; text-align:right; }
 	.r9w  { font-size:9pt; text-align:center; color:white; background:black; }
 	.r9wB { font-size:9pt; text-align:right; color:white; background:black; font-weight:bold; }
@@ -271,8 +274,9 @@ $Date$
 	.c10glB{ font-size:10pt; text-align:center; border:5px solid #DDDDDD; background:#CCCCFF; font-weight:bold; }
 	.c10mB { font-size:10pt; text-align:center; color:white; background:black; font-weight:bold; }
 	.c10s  { font-size:10pt; text-align:center; border:1px solid black; }
-	.c10sB { font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
 	.c10sBx{ font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; }
+	.c10sB { font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; background:#F0E0B9; }
+	.c10sgB{ font-size:10pt; text-align:center; border:1px solid black; font-weight:bold; color:#A0A0A0; }
 	.c10sl { font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; }
 	.c10slB{ font-size:10pt; text-align:center; border:1px solid black; background:#CCCCFF; font-weight:bold; }
 	.c10swB{ font-size:10pt; text-align:center; border:1px solid black; color:white; background:black; font-weight:bold; }
@@ -280,6 +284,8 @@ $Date$
 	.c10B  { font-size:10pt; text-align:center; font-weight:bold; }
 	.c10yB { font-size:10pt; text-align:center; color:#FFFF20; background:black; font-weight:bold; }
 	.c10yB A:hover { font-size:10pt; text-align:center; color:#20FFFF; background:black; font-weight:bold; }
+	.c10oB { font-size:10pt; text-align:center; color:#FFCC20; background:black; font-weight:bold; }
+	.c10oB A:hover { font-size:10pt; text-align:center; color:#20CCFF; background:black; font-weight:bold; }
 	.l10   { font-size:10pt; text-align:left; }
 	.l10wB { font-size:10pt; text-align:left; color:white; background:black; font-weight:bold; }
 	.l10wB A:hover { font-size:10pt; text-align:center; color:#20FFFF; background:black; font-weight:bold; }
@@ -360,8 +366,10 @@ var PotentialSkillMasteryList = new Array();
 var StateArr = new Array();
 // List of all weapons
 var WeapArr = new Array();
-// Hardcoded Global Debug variable for now: Show Aspect information
-var ShowAspects = 0;
+// Hardcoded Global Debug variable for now: 
+// Show Aspect information will show Aspect values if Sources are also shown
+var ShowAspects = 1;
+// Now a user toggle
 var ShowSources = 0;
 // List of checks
 var FORTindex = 0;
@@ -440,6 +448,47 @@ function MemSpellCast()
 		this.error = 1;
 	}
 }
+function ParseEnergy(fooA, fooB)
+{
+	fooF = "";
+	fooC = fooA + ", " + fooB; 
+	var fooEnergy = new Array();
+	fooEnergy = fooC.split(",");
+	for (x=0; x<fooEnergy.length; x++) {
+		if(fooEnergy[x] != "") {
+			fooC = fooEnergy[x];
+			if(fooC.indexOf("critical") != -1)  fooC = "";
+			if(fooC.indexOf("\+") == -1)  fooC = "";
+			// TODO: Weak attempt at stripping Bane, will fail if the Bane string is modifed
+			if(fooC.indexOf("enhancement bonus and does +2d6 bonus") != -1)  fooC = "";
+			if(fooC.indexOf(" damage") == -1) {
+				fooC = "";
+			} else {
+				fooD = fooC.replace(/.*\+/, '+');
+				fooG = fooD.replace(/damage against evil targets/, "holy damage");
+				fooD = fooG.replace(/damage against good targets/, "unholy damage");
+				fooG = fooD.replace(/damage against chaotic targets/, "axiomatic damage");
+				fooD = fooG.replace(/damage against lawful targets/, "anarchic damage");
+				fooC = fooD.replace(/damage.*/, "damage");
+			}
+			if(fooC != "") {
+				if(fooF != "") fooF = fooF + ", ";
+					fooF = fooF + fooC;
+			}
+		}
+	}
+	return(fooF);
+}
+function ParseEnchantment(haystack)
+{
+	retval = "0";
+	searchstr = "PLUS";
+	there = haystack.indexOf(searchstr);
+	if(there != -1) {
+		retval = String(parseInt(haystack.substr(there+4,2))); 
+	}
+	return(retval);
+}
 
 // Set up Skill Mastery List
 // TODO When count("NAME.Name(sub name)) can be utilised then we can use that as the simple check
@@ -459,6 +508,10 @@ var RangedStuff;
 // Deal with Unarmed
 WeapArr[0] = new Weapon( -1, "UNARMED", "Melee", "|WEAPONH.TOTALHIT|", "|WEAPONH.DAMAGE|", "T", "0&#39;", "|WEAPONH.CRIT|", "|WEAPONH.MULT|", "B", "T", "" );
 WeapArr[0].setOutputFormat(2);
+|IIF(EQ.MERGEALL.IS.AmuletOfMightyFists.0.EQUIPPED:Y)| 
+	WeapArr[0].energy = ParseEnergy("", "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"); 
+	WeapArr[0].sprop = "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"; 
+|ENDIF|
 WeapPos = 1;
 // Loop through the weapons list three times.  First adding primary, then equipped weapons, then non-equipped.
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
@@ -466,8 +519,10 @@ WeapPos = 1;
 		WeapArr[WeapPos] = new Weapon((WeapPos-1),"|WEAPON.EQUIPPED.%weap.NAME| (equipped)","|WEAPON.EQUIPPED.%weap.CATEGORY|","|WEAPON.EQUIPPED.%weap.TOTALHIT|","|WEAPON.EQUIPPED.%weap.DAMAGE|", FirstChar("|WEAPON.EQUIPPED.%weap.HAND|"), "|WEAPON.EQUIPPED.%weap.RANGE|", "|WEAPON.EQUIPPED.%weap.CRIT|", "|WEAPON.EQUIPPED.%weap.MULT|", "|WEAPON.EQUIPPED.%weap.TYPE|", "|WEAPON.EQUIPPED.%weap.SIZE|", "|WEAPON.EQUIPPED.%weap.SPROP|" );
 |IIF(WEAPON.EQUIPPED.%weap.CATEGORY:Ranged)|
 			WeapArr[WeapPos].setOutputFormat(1);
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Bow:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Crossbow:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Blowgun:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Sling:FALSE)|
 |IIF(WEAPON.EQUIPPED.%weap.CONTENTS:0)|
-				RangedStuff = new WeaponRangedAmmoData( "", "" );
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
 |FOR,%range,0,4,1,0|
 					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
 |ENDFOR|
@@ -476,33 +531,134 @@ WeapPos = 1;
 |FOR,%ammo,0,WEAPON.EQUIPPED.%weap.CONTENTS,1,0|
 					fooA = "|WEAPON.EQUIPPED.%weap.CONTENTS.%ammo|";
 					fooB = "|WEAPON.EQUIPPED.%weap.CONTENTS.%ammo.SPROP|";
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
 					if( fooA == "") fooA = "normal";
-					RangedStuff = new WeaponRangedAmmoData( fooA, fooB );
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
 |FOR,%range,0,4,1,0|
 						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|" );
 |ENDFOR|
 					WeapArr[WeapPos].addRangedData( RangedStuff );
 |ENDFOR|
 |ENDIF|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Bow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Arrow)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Crossbow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Bolt)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Blowgun:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Dart)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Sling:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:SlingStone)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
 |ELSE|
 |IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Double.OR.WEAPON.EQUIPPED.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.EQUIPPED.%weap.CATEGORY:NATURAL)|
 				WeapArr[WeapPos].setOutputFormat(2);
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+|IIF(WEAPON.EQUIPPED.%weap.CATEGORY:NATURAL)|
+|IIF(EQ.MERGEALL.IS.AmuletOfMightyFists.0.EQUIPPED:Y)| 
+				WeapArr[WeapPos].energy = ParseEnergy("", "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"); 
+				WeapArr[WeapPos].sprop = "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"; 
+|ENDIF|
+|ENDIF|
 |ELSE|
 				WeapArr[WeapPos].setOutputFormat(3);
 				WeapArr[WeapPos].addMeleeVector("|WEAPON.EQUIPPED.%weap.BASEHIT|", "|WEAPON.EQUIPPED.%weap.OHHIT|", "|WEAPON.EQUIPPED.%weap.THHIT|", "|WEAPON.EQUIPPED.%weap.TWPHITH|", "|WEAPON.EQUIPPED.%weap.TWPHITL|", "|WEAPON.EQUIPPED.%weap.TWOHIT|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.OHDAMAGE|", "|WEAPON.EQUIPPED.%weap.THDAMAGE|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.OHDAMAGE|" );
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
 |ENDIF|
 |ENDIF|
 	WeapPos = WeapPos + 1;
 	}
 |ENDFOR|
+
 // Second loop through the weapons.  Now effectively adding hand = off, or hand = both.
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
 	if(('|WEAPON.EQUIPPED.%weap.NAME|x' != 'x') && ('x|WEAPON.EQUIPPED.%weap.HAND|' != 'xPrimary')) {
 		WeapArr[WeapPos] = new Weapon((WeapPos-1),"|WEAPON.EQUIPPED.%weap.NAME| (equipped)","|WEAPON.EQUIPPED.%weap.CATEGORY|","|WEAPON.EQUIPPED.%weap.TOTALHIT|","|WEAPON.EQUIPPED.%weap.DAMAGE|", FirstChar("|WEAPON.EQUIPPED.%weap.HAND|"), "|WEAPON.EQUIPPED.%weap.RANGE|", "|WEAPON.EQUIPPED.%weap.CRIT|", "|WEAPON.EQUIPPED.%weap.MULT|", "|WEAPON.EQUIPPED.%weap.TYPE|", "|WEAPON.EQUIPPED.%weap.SIZE|", "|WEAPON.EQUIPPED.%weap.SPROP|" );
 |IIF(WEAPON.EQUIPPED.%weap.CATEGORY:Ranged)|
 			WeapArr[WeapPos].setOutputFormat(1);
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Bow:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Crossbow:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Blowgun:FALSE.AND.WEAPON.EQUIPPED.%weap.ISTYPE.Sling:FALSE)|
 |IIF(WEAPON.EQUIPPED.%weap.CONTENTS:0)|
-				RangedStuff = new WeaponRangedAmmoData( "", "" );
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
 |FOR,%range,0,4,1,0|
 					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
 |ENDFOR|
@@ -511,33 +667,134 @@ WeapPos = 1;
 |FOR,%ammo,0,WEAPON.EQUIPPED.%weap.CONTENTS,1,0|
 					fooA = "|WEAPON.EQUIPPED.%weap.CONTENTS.%ammo|";
 					fooB = "|WEAPON.EQUIPPED.%weap.CONTENTS.%ammo.SPROP|";
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
 					if( fooA == "") fooA = "normal";
-					RangedStuff = new WeaponRangedAmmoData( fooA, fooB );
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
 |FOR,%range,0,4,1,0|
 						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|" );
 |ENDFOR|
 					WeapArr[WeapPos].addRangedData( RangedStuff );
 |ENDFOR|
 |ENDIF|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Bow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Arrow)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Crossbow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Bolt)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Blowgun:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Dart)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Sling:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:SlingStone)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
 |ELSE|
 |IIF(WEAPON.EQUIPPED.%weap.ISTYPE.Double.OR.WEAPON.EQUIPPED.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.EQUIPPED.%weap.CATEGORY:NATURAL)|
 				WeapArr[WeapPos].setOutputFormat(2);
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
+|IIF(WEAPON.EQUIPPED.%weap.CATEGORY:NATURAL)|
+|IIF(EQ.MERGEALL.IS.AmuletOfMightyFists.0.EQUIPPED:Y)| 
+				WeapArr[WeapPos].energy = ParseEnergy("", "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"); 
+				WeapArr[WeapPos].sprop = "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"; 
+|ENDIF|
+|ENDIF|
 |ELSE|
 				WeapArr[WeapPos].setOutputFormat(3);
 				WeapArr[WeapPos].addMeleeVector("|WEAPON.EQUIPPED.%weap.BASEHIT|", "|WEAPON.EQUIPPED.%weap.OHHIT|", "|WEAPON.EQUIPPED.%weap.THHIT|", "|WEAPON.EQUIPPED.%weap.TWPHITH|", "|WEAPON.EQUIPPED.%weap.TWPHITL|", "|WEAPON.EQUIPPED.%weap.TWOHIT|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.OHDAMAGE|", "|WEAPON.EQUIPPED.%weap.THDAMAGE|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.EQUIPPED.%weap.OHDAMAGE|" );
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.EQUIPPED.%weap.SPROP|"); 
 |ENDIF|
 |ENDIF|
 	WeapPos = WeapPos + 1;
 	}
 |ENDFOR|
+
 // And finally go through the non-equipped weapons in alphabetical order
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
 	if('|WEAPON.NOT_EQUIPPED.%weap.NAME|x' != 'x') {
-		WeapArr[WeapPos] = new Weapon((WeapPos-1),"|WEAPON.NOT_EQUIPPED.%weap.NAME|","|WEAPON.NOT_EQUIPPED.%weap.CATEGORY|","|WEAPON.NOT_EQUIPPED.%weap.TOTALHIT|","|WEAPON.NOT_EQUIPPED.%weap.DAMAGE|", FirstChar("|WEAPON.NOT_EQUIPPED.%weap.HAND|"), "|WEAPON.NOT_EQUIPPED.%weap.RANGE|", "|WEAPON.NOT_EQUIPPED.%weap.CRIT|", "|WEAPON.NOT_EQUIPPED.%weap.MULT|", "|WEAPON.NOT_EQUIPPED.%weap.TYPE|", "|WEAPON.NOT_EQUIPPED.%weap.SIZE|", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|" );
+			WeapArr[WeapPos] = new Weapon((WeapPos-1),"|WEAPON.NOT_EQUIPPED.%weap.NAME|","|WEAPON.NOT_EQUIPPED.%weap.CATEGORY|","|WEAPON.NOT_EQUIPPED.%weap.TOTALHIT|","|WEAPON.NOT_EQUIPPED.%weap.DAMAGE|", FirstChar("|WEAPON.NOT_EQUIPPED.%weap.HAND|"), "|WEAPON.NOT_EQUIPPED.%weap.RANGE|", "|WEAPON.NOT_EQUIPPED.%weap.CRIT|", "|WEAPON.NOT_EQUIPPED.%weap.MULT|", "|WEAPON.NOT_EQUIPPED.%weap.TYPE|", "|WEAPON.NOT_EQUIPPED.%weap.SIZE|", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|" );
 |IIF(WEAPON.NOT_EQUIPPED.%weap.CATEGORY:Ranged)|
-			WeapArr[WeapPos].setOutputFormat(1);
+				WeapArr[WeapPos].setOutputFormat(1);
+|IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Bow:FALSE.AND.WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Crossbow:FALSE.AND.WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Blowgun:FALSE.AND.WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Sling:FALSE)|
 |IIF(WEAPON.NOT_EQUIPPED.%weap.CONTENTS:0)|
-				RangedStuff = new WeaponRangedAmmoData( "", "" );
+				fooF = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
 |FOR,%range,0,4,1,0|
 					RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
 |ENDFOR|
@@ -546,23 +803,121 @@ WeapPos = 1;
 |FOR,%ammo,0,WEAPON.NOT_EQUIPPED.%weap.CONTENTS,1,0|
 					fooA = "|WEAPON.NOT_EQUIPPED.%weap.CONTENTS.%ammo|";
 					fooB = "|WEAPON.NOT_EQUIPPED.%weap.CONTENTS.%ammo.SPROP|";
+					fooF = ParseEnergy(fooB, "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
 					if( fooA == "") fooA = "normal";
-					RangedStuff = new WeaponRangedAmmoData( fooA, fooB );
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
 |FOR,%range,0,4,1,0|
 						RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|" );
 |ENDFOR|
 					WeapArr[WeapPos].addRangedData( RangedStuff );
 |ENDFOR|
 |ENDIF|
+|ENDIF|
+|IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Bow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Arrow)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Crossbow:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Bolt)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Blowgun:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:Dart)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Sling:TRUE)|
+				fooF = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+				RangedStuff = new WeaponRangedAmmoData( "", "", fooF );
+|FOR,%range,0,4,1,0|
+					RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|" );
+|ENDFOR|
+				WeapArr[WeapPos].addRangedData( RangedStuff );
+|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGENONE]-1),1,0|
+|IIF(EQ.MERGEALL.%equip1.TYPE:SlingStone)|
+					fooA = "|EQ.MERGEALL.%equip1.NAME|"; 
+					fooB = "|EQ.MERGEALL.%equip1.SPROP|"; 
+					fooF = ParseEnergy(fooB, "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+					enchantment = ParseEnchantment("|EQ.MERGEALL.%equip1.TYPE|");
+					if( fooA == "") fooA = "normal";
+					RangedStuff = new WeaponRangedAmmoData( fooA, fooB, fooF );
+|FOR,%range,0,4,1,0|
+						RangedStuff.addRangeIncrement( "|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range|'", modAttackBonusString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.TOTALHIT|", enchantment), modDamageString("|WEAPON.NOT_EQUIPPED.%weap.RANGELIST.%range.DAMAGE|", enchantment, "N"));
+|ENDFOR|
+					WeapArr[WeapPos].addRangedData( RangedStuff );
+|ENDIF|
+|ENDFOR|
+|ENDIF|
 |ELSE|
 |IIF(WEAPON.NOT_EQUIPPED.%weap.ISTYPE.Double.OR.WEAPON.NOT_EQUIPPED.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.NOT_EQUIPPED.%weap.CATEGORY:NATURAL)|
 				WeapArr[WeapPos].setOutputFormat(2);
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
+|IIF(WEAPON.NOT_EQUIPPED.%weap.CATEGORY:NATURAL)|
+|IIF(EQ.MERGEALL.IS.AmuletOfMightyFists.0.EQUIPPED:Y)| 
+				WeapArr[WeapPos].energy = ParseEnergy("", "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"); 
+				WeapArr[WeapPos].sprop = "|EQ.MERGEALL.IS.AmuletOfMightyFists.0.SPROP|"; 
+|ENDIF|
+|ENDIF|
 |ELSE|
 				WeapArr[WeapPos].setOutputFormat(3);
 				WeapArr[WeapPos].addMeleeVector("|WEAPON.NOT_EQUIPPED.%weap.BASEHIT|", "|WEAPON.NOT_EQUIPPED.%weap.OHHIT|", "|WEAPON.NOT_EQUIPPED.%weap.THHIT|", "|WEAPON.NOT_EQUIPPED.%weap.TWPHITH|", "|WEAPON.NOT_EQUIPPED.%weap.TWPHITL|", "|WEAPON.NOT_EQUIPPED.%weap.TWOHIT|", "|WEAPON.NOT_EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.NOT_EQUIPPED.%weap.OHDAMAGE|", "|WEAPON.NOT_EQUIPPED.%weap.THDAMAGE|", "|WEAPON.NOT_EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.NOT_EQUIPPED.%weap.BASICDAMAGE|", "|WEAPON.NOT_EQUIPPED.%weap.OHDAMAGE|" );
+				WeapArr[WeapPos].energy = ParseEnergy("", "|WEAPON.NOT_EQUIPPED.%weap.SPROP|"); 
 |ENDIF|
 |ENDIF|
-	WeapPos = WeapPos + 1;
+		WeapPos = WeapPos + 1;
 	}
 |ENDFOR|
 
@@ -583,7 +938,7 @@ ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRind
 |ENDIF|
 // Now, set up the list of skills
 |FOR,%skill,0,COUNT[SKILLS]-1,1,1|
-SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|SKILL.%skill.RANK|,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|");
+SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|SKILL.%skill.RANK|,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|","|SKILL.%skill.EXPLAIN|");
 |ENDFOR|
 // A variable of type Ability supports the following
 // Only those marked with * should be modified after creation
@@ -791,7 +1146,7 @@ function rollIntoDIV(numDice, dieSize, bonus, caption, theDIV, justResult) {
 			}
 		}
 	}
- 	// We need to write the results to two divs occasionally.  The second has "_SND" appended to the name.
+	// We need to write the results to two divs occasionally.  The second has "_SND" appended to the name.
 	outerTD = theDIV + "_TD_SND";
 	SndDIV = theDIV + "_SND";
 	if (document.getElementById(SndDIV) != null) {
@@ -815,9 +1170,9 @@ function RollAttack(numDice, dieSize, bonus, DAMnumDice, DAMdieSize, DAMbonus, c
 	var AttackResult = 0;
 	var DamageResult = 0;
 	var swings = new Array();
-	if(bonus.search(/#/) == -1) {  // +14/+8/+2 comes to us as +14#+8#+2 so the function call doesn't
-		swings[0] = bonus;     // do math on the incoming value before handing it to us.  Split
-	} else {                       // the swings up if there are multiples, and process.
+	if(bonus.search(/#/) == -1) { // +14/+8/+2 comes to us as +14#+8#+2 so the function call doesn't
+		swings[0] = bonus;     		// do math on the incoming value before handing it to us.  Split
+	} else {								// the swings up if there are multiples, and process.
 		swings = bonus.split("#");
 	}
 	for (x=0; x<swings.length; x++) {
@@ -856,7 +1211,6 @@ function RollAttack(numDice, dieSize, bonus, DAMnumDice, DAMdieSize, DAMbonus, c
 	RecordDiceRoll(msg);
 	}
 }
-
 function processBonus(damage)
 {
 	if (damage >= 0)
@@ -975,20 +1329,20 @@ function ToggleLayer( whichTable, whichLayer, whichText ) {
 		then = SpecialAttacksListCurrent;
 		SpecialAttacksListCurrent = whichText;
 		now = "<B>" + SpecialAttacksList[whichText].Name  + "</B> ~ " + SpecialAttacksList[whichText].Description;
-		if((ShowAspects == 1) && (SpecialAttacksList[whichText].showAspect == 1)) {
+		if((ShowSources == 1) && (ShowAspects == 1) && (SpecialAttacksList[whichText].showAspect == 1)) {
 			now = now + "<br />" + SpecialAttacksList[whichText].Aspect ;
 		}
 		if(ShowSources == 1)
-			now = now + "<br />" + SpecialAttacksList[whichText].Source ;
+				  now = now + "<br />" + SpecialAttacksList[whichText].Source ;
 	} else if(whichTable == 'SPECIAL_QUALITIES_Table') {
 		then = SpecialQualitiesListCurrent;
 		SpecialQualitiesListCurrent = whichText;
 		now = "<B>" + SpecialQualitiesList[whichText].Name  + "</B> ~ " + SpecialQualitiesList[whichText].Description;
-		if((ShowAspects == 1) && (SpecialQualitiesList[whichText].showAspect == 1)) {
+		if((ShowSources == 1) && (ShowAspects == 1) && (SpecialQualitiesList[whichText].showAspect == 1)) {
 			now = now + "<br />" + SpecialQualitiesList[whichText].Aspect ;
 		}
 		if(ShowSources == 1)
-			now = now + "<br />" + SpecialQualitiesList[whichText].Source ;
+				  now = now + "<br />" + SpecialQualitiesList[whichText].Source ;
 	}
 	if(then != whichText) {
 		Tvis.display = 'block';
@@ -1026,6 +1380,7 @@ function ToggleSources() {
 		document.getElementById('ShowSources').innerHTML = "Show Sources: <a class=\"c10yB\" name=\"#\" onclick=\"ToggleSources();\">Off</a>";
 	}
 	BuildFeatsCompTable();
+	BuildFeatsBenefitTable();
 	BuildEqCompTable();
 	ToggleLayer('SPECIAL_ATTACKS_Table','SPECIAL_ATTACKS_Details','-1');
 	ToggleLayer('SPECIAL_QUALITIES_Table','SPECIAL_QUALITIES_Details','-1');
@@ -1034,21 +1389,43 @@ function BuildFeatsCompTable() {
 	newHTML = "";
 	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="2">\n';
 	newHTML = newHTML + '<tr><td class="c10yB" colspan="2"><a name="#" onClick="CycleFeats();">FEATS</a></td></tr>\n';
-	newHTML = newHTML + '<tr><td class="lt8sB" width="40%">NAME</td><td class="lt8sB" width="60%">DESCRIPTION</td></tr>\n';
+	newHTML = newHTML + '<tr><td class="lt8sB" width="20%">NAME</td><td class="lt8sB" width="80%">SHORT DESCRIPTION</td></tr>\n';
 |FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,newHTML = newHTML + '<tr bgcolor="#DDDDDD">';,newHTML = newHTML + '<tr bgcolor="white">';)|
 	newHTML = newHTML + '<td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>\n';
 	newHTML = newHTML + '<td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.DESC|\n';
+	if ((ShowSources == 1) && (ShowAspects == 1))
+		if(|FEATALL.VISIBLE.%feat.ASPECTCOUNT| > 0)
+			newHTML = newHTML + '<br />|FEATALL.VISIBLE.%feat.ASPECT|\n';
 	if (ShowSources == 1)
-		newHTML = newHTML + '<br>|FEATALL.VISIBLE.%feat.SOURCE|\n';
+		newHTML = newHTML + '<br />|FEATALL.VISIBLE.%feat.SOURCE|\n';
 	newHTML = newHTML + '</td></tr>\n';
 |ENDFOR|
 	newHTML = newHTML + '</table>\n';
 	document.getElementById('FeatsComprehensive').innerHTML = newHTML;
 }
+function BuildFeatsBenefitTable() {
+	newHTML = "";
+	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="2">\n';
+	newHTML = newHTML + '<tr><td class="c10yB" colspan="2"><a name="#" onClick="CycleFeats();">FEATS</a></td></tr>\n';
+	newHTML = newHTML + '<tr><td class="lt8sB" width="20%">NAME</td><td class="lt8sB" width="80%">LONGER BENEFIT DESCRIPTION</td></tr>\n';
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,newHTML = newHTML + '<tr bgcolor="#DDDDDD">';,newHTML = newHTML + '<tr bgcolor="white">';)|
+	newHTML = newHTML + '<td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>\n';
+	newHTML = newHTML + '<td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.BENEFIT|\n';
+	if ((ShowSources == 1) && (ShowAspects == 1))
+		if(|FEATALL.VISIBLE.%feat.ASPECTCOUNT| > 0)
+			newHTML = newHTML + '<br />|FEATALL.VISIBLE.%feat.ASPECT|\n';
+	if (ShowSources == 1)
+		newHTML = newHTML + '<br />|FEATALL.VISIBLE.%feat.SOURCE|\n';
+	newHTML = newHTML + '</td></tr>\n';
+|ENDFOR|
+	newHTML = newHTML + '</table>\n';
+	document.getElementById('FeatsBenefitDiv').innerHTML = newHTML;
+}
 function BuildEqCompTable() {
 	newHTML = "";
-	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="0" border="0">\n<tr>\n';
+	newHTML = newHTML + '<table width="100%" cellspacing="0" cellpadding="0" border="0">\n<tr>\n'; 
 	newHTML = newHTML + '<td class="c10yB"><a name="#" onclick="CycleEquipment()">EQUIPMENT</a>&nbsp;&nbsp;&nbsp;(';
 	newHTML = newHTML + StripZero("|TOTAL.WEIGHT|") + ' - ' + StripZero("|WEIGHT.LIGHT|") + '/' + StripZero("|WEIGHT.MEDIUM|") + '/' + StripZero("|WEIGHT.HEAVY|") + '&nbsp;&nbsp;&nbsp;&nbsp;\n';
 |IIF(TOTAL.LOAD:Light)|
@@ -1105,7 +1482,7 @@ function BuildEqCompTable() {
 |ENDIF|
 |ENDIF|
 |ENDIF|
-	if(ShowSources == 1)
+	if(ShowSources == 1) 
 		newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
 	newHTML = newHTML + '</td>\n';
 	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>\n';
@@ -1200,8 +1577,8 @@ function BuildEqCompTable() {
 |ENDIF|
 |ENDIF|
 |ENDIF|
-	if(ShowSources == 1)
-		newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
+	if(ShowSources == 1) 
+			  newHTML = newHTML + '<br /><span class="lt7">|EQ.MERGENONE.%equip1.SOURCE|</span>\n';
 	newHTML = newHTML + '</td>\n';
 	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.LOCATION|<br /></td>\n';
 	newHTML = newHTML + '<td class="ct8s">|EQ.MERGENONE.%equip1.QTY|<br /></td>\n';
@@ -1221,6 +1598,7 @@ function BuildEqCompTable() {
 	newHTML = newHTML + '</table>\n';
 	document.getElementById('EquipmentComprehensive').innerHTML = newHTML;
 }
+
 // A variable of type ATK ("attack") supports the following
 // Only those marked with * should be modified after creation
 //  name           string  RW  "Melee" or "Ranged"
@@ -1278,6 +1656,7 @@ function ATKFlag()
 // Only those marked with * should be modified after creation
 //  name           string  RW  Spot
 //  ability        string  RW  Base stat for skill
+//  explain        string  RW  Explanation of the MISC build
 //  statNr         int     RO  stat number based on .ability
 //  total          int     RO  Current skill modifier based on everything
 //  statmodifier   int     RO  Modifier due to current base stat modifier (as taken from AbArr global array)
@@ -1286,9 +1665,20 @@ function ATKFlag()
 //  bUseUntrained  bool    RW  true if this skill can be used untrained
 //  baseStatModified bool  RO  true if base stat is currently modified by something else
 //  notInRageMode  bool    RO  true if skill disallowed in Barb Rage
-function Skill(nName,nAbility,nTotal,nStatMod,nRank,nMiscMod,nUseUntrained){
+function Skill(nName,nAbility,nTotal,nStatMod,nRank,nMiscMod,nUseUntrained,nExplain){
 	this.name = nName;
 	this.ability = nAbility;
+	this.explain = nExplain;
+	// Shorten name-name class skill check to just class skill...
+	var capt = this.name.toUpperCase() + '|PIPE|' + this.name.toUpperCase();
+	var shorten = this.explain.replace(capt,"class skill");
+	this.explain = shorten;
+	shorten = this.name.toUpperCase();
+	capt = this.name.toUpperCase() + '|PIPE|' + shorten.replace(/ /g,"");
+	shorten = this.explain.replace(capt,"class skill");
+	// Insert Ranks too...
+	capt = "[Stat] +" + nRank + "[Ranks]";
+	this.explain = shorten.replace("[STAT]", capt);
 	this.statNr = SkillStatModNr;
 	this.total = SkillValue;
 	this.statmodifier = SkillStatModifier;
@@ -1461,7 +1851,7 @@ function ACObjFlatModified()
 }
 function ACObjTouch()
 {
-	return this.touchBase-this.deflectionBase+this.deflection()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
+   return this.touchBase-this.deflectionBase+this.deflection()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
 }
 function ACObjTouchModified()
 {
@@ -1501,10 +1891,10 @@ function ACObjDodge()
 }
 function ACObjDodgeModified()
 {
-	if ( this.dodgeBase == this.dodge() )
-		return FALSE;
-	else
-		return TRUE;
+   if ( this.dodgeBase == this.dodge() )
+      return FALSE;
+   else
+      return TRUE;
 }
 function ACObjDeflection()
 {
@@ -1532,7 +1922,7 @@ function ACObjArmorModified()
 }
 function ACObjTotal()
 {
-	return this.totalBase-this.armorBase+this.armor()-this.shieldBase+this.shield()-this.deflectionBase+this.deflection()-this.naturalarmorBase+this.naturalarmor()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
+   return this.totalBase-this.armorBase+this.armor()-this.shieldBase+this.shield()-this.deflectionBase+this.deflection()-this.naturalarmorBase+this.naturalarmor()-this.dodgeBase+this.dodge()-this.abilityBase+this.ability()-this.miscBase+this.misc();
 }
 function ACObjTotalModified()
 {
@@ -1801,7 +2191,6 @@ function CombatDamageMinus( which )
 	ATKPrint();
 	WeaponPrint();
 }
-
 function setSpellNatBonus()
 {
 	foo = 12; // out of range marker, selections are 0-10.
@@ -1813,7 +2202,7 @@ function setSpellNatBonus()
 function setSpellDodgeBonus()
 {
 	foo = 12; // out of range marker, selections are 0-10.
-	if (document.getElementById('spell_dodge_bonus') != null)
+	if (document.getElementById('spell_dodge_bonus') != null) 
 		foo = document.getElementById("spell_dodge_bonus").value;
 	if ((foo > -1) && (foo < 11))
 		spell_Dodge_bonus = foo;
@@ -1842,7 +2231,6 @@ function setSpellShieldBonus()
 	if ((foo > -1) && (foo < 11))
 		spell_Shield_bonus = foo;
 }
-
 function ABPrint()
 {
 	tempHTML ='<table border="0" cellpadding="1" cellspacing="1" width="320px"><tr>';
@@ -1876,20 +2264,19 @@ function ABPrint()
 	}
 	tempHTML = tempHTML+'<\/table>';
 	document.getElementById('AbilityDiv').innerHTML = tempHTML;
-
 	// Create a compact version of the Ability Scores and saves as well.
 	tempHTML = '';
 	// Reorder the printout to physical and mental stats
 	var CompArr = new Array('0','3','1','4','2','5');
-	// Grab unconventional stats and add them at the end of the list.
-	if(AbArr.length > 6)
+   // Grab unconventional stats and add them at the end of the list.
+	if(AbArr.length > 6) 
 		for(i=6;i<AbArr.length;i++)
 			CompArr[i] = i;
 	tempHTML ='<table border="0" cellpadding="1px" cellspacing="1px" width="300px">';
 	for (i=0; i<AbArr.length;i++){
 		if(AbArr[CompArr[i]].visible == TRUE) {
 			tempHTML = tempHTML+'<tr><td width="50%"><table border=0 cellpadding="1px" cellspacing="1px" width="100%"><tr>\n';
-			tempHTML = tempHTML+'<td width="1px" align="right" id=removej'+CompArr[i]+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+CompArr[i]+');"><br>';
+			tempHTML = tempHTML+'<td width="1px" align="right" id=removej'+CompArr[i]+'><input class="statmodbutton" type=button value="+" name=AddStatButton onclick="AddStat('+CompArr[i]+');"><br />';
 			tempHTML = tempHTML+'<input class="statmodbutton" type=button value="-" name=RemoveStatButton onclick="RemoveStat('+CompArr[i]+');"><\/td>';
 			tempHTML = tempHTML+'<td width="49%" class="c10wB">'+AbArr[CompArr[i]].name+'<span class="c4w"><br />'+AbArr[CompArr[i]].longname+'<\/span><\/td>';
 			if (AbArr[CompArr[i]].hasTempMod()) {
@@ -1922,16 +2309,16 @@ function ABPrint()
 	tempHTML = tempHTML+'<td ';
 	if ( AC.totalModified() )
 		tempHTML = tempHTML+styleTag;
-	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.total()+'<br><span class="c6">TOTAL</span><\/td>';
+	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.total()+'<br /><span class="c6">TOTAL</span><\/td>';
 	tempHTML = tempHTML+'<td class="c7mB">:</td><td ';
 	if ( AC.flatModified() )
 		tempHTML = tempHTML+styleTag;
-	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.flat()+'<br><span class="c6">FLAT</span><\/td>';
+	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.flat()+'<br /><span class="c6">FLAT</span><\/td>';
 	tempHTML = tempHTML+'<td class="c7mB">:</td><td ';
 	if ( AC.touchModified() )
 		tempHTML = tempHTML+styleTag;
-	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.touch()+'<br><span class="c6">TOUCH</span><\/td>';
- 	tempHTML = tempHTML+'<td width="30%">&nbsp;</td></tr></table></td>';
+	tempHTML = tempHTML+'class="c10sB" width="30px">'+AC.touch()+'<br /><span class="c6">TOUCH</span><\/td>';
+	tempHTML = tempHTML+'<td width="30%">&nbsp;</td></tr></table></td>';
 	tempHTML = tempHTML+'</tr></table></td>';
 	tempHTML = tempHTML+'<tr><td colspan="2"><table border="0" cellspacing="1px" cellpadding="1px"><tr>';
 	for (i=0;i<ATKArr.length;i++){
@@ -2162,11 +2549,11 @@ function ComprehensiveSkillPrint()
 		if ( SkillArr[i].bSkillMastery == TRUE )
 			tempHTML = tempHTML + '*';
 		tempHTML = tempHTML + '<\/td>';
-		tempHTML = tempHTML + '<td class="l8">'+SkillArr[i].name+'<\/td><td class="c8">'+SkillArr[i].ability+'<\/td><td class="cb8b">'+SkillArr[i].total()+'<\/td><td class="cb8mB">=<\/td><td class="cb8bB">'+SkillArr[i].statmodifier()+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].rank+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].miscmodifier+'<br /><\/td><\/tr>';
+		tempHTML = tempHTML + '<td class="l8">'+SkillArr[i].name+'<br />&nbsp;&nbsp;<span class="l7">'+SkillArr[i].explain+'</span><\/td><td class="c8">'+SkillArr[i].ability+'<\/td><td class="cb8b">'+SkillArr[i].total()+'<\/td><td class="cb8mB">=<\/td><td class="cb8bB">'+SkillArr[i].statmodifier()+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].rank+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].miscmodifier+'<br /><\/td><\/tr>';
 	}
 	tempHTML = tempHTML + '<\/table>';
 	tempHTML = tempHTML + '<span class="l8">&nbsp;&nbsp;&#9670; = Useable Untrained<\/span>,&nbsp;&nbsp;';
-	tempHTML = tempHTML + '<span class="l8">* = Skill Mastery<\/span>';
+	tempHTML = tempHTML + '<span class="l8">* = Skill Mastery<br />&nbsp;&nbsp;ARMOR = Armor or Encumberance,&nbsp;&nbsp;OTHER = unexplained conditionals<\/span>';
 	document.getElementById('SkillsComprehensive').innerHTML = tempHTML;
 	return;
 }
@@ -2276,8 +2663,8 @@ function ACPrint()
 	tempHTML = tempHTML+'<td width="25" class="c4">DEFLECTION<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">STAT<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">SIZE<br />BONUS<\/td><td><\/td>';
-	tempHTML = tempHTML+'<td width="25" class="c4">DODGE<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">NATURAL<br />ARMOR<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25" class="c4">DODGE<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISC<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISS<br />CHANCE<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">ARCANE<br />FAILURE<\/td><td><\/td>';
@@ -2300,17 +2687,17 @@ function InitPrint()
 	tempHTML = tempHTML+'<td ';
 	if ( AbArr[DEXindex].hasTempMod() )
 		tempHTML = tempHTML+styleTag;
-	tempHTML = tempHTML+'class="c10sB" width="25">'+Init.initTotal()+'<br><span class="cb5">TOTAL</span><\/td>';
+	tempHTML = tempHTML+'class="c10sB" width="25">'+Init.initTotal()+'<br /><span class="cb5">TOTAL</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB">=<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AbArr[DEXindex].hasTempMod() )
 		tempHTML = tempHTML+styleTag;
-	tempHTML = tempHTML+'class="c10sB" width="25">'+AbArr[DEXindex].tempmodifier+'<br><span class="cb5">DEX</span><\/td>';
+	tempHTML = tempHTML+'class="c10sB" width="25">'+AbArr[DEXindex].tempmodifier+'<br /><span class="cb5">DEX</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB">+<\/td>';
-	tempHTML = tempHTML+'<td class="c10sB" width="25">'+Init.initBonus+'<br><span class="cb5">MISC</span><\/td>';
+	tempHTML = tempHTML+'<td class="c10sB" width="25">'+Init.initBonus+'<br /><span class="cb5">MISC</span><\/td>';
 	tempHTML = tempHTML+'<td class="cm7mB"><\/td>';
 	tempHTML = tempHTML+'<td class="c8" width="25"><a name="#" onClick="rollIntoDIV(1,20,'+Init.initTotal()+',\'Initiative Roll\',\'InitRoll\',1);"><img src="die.png" Alt="Roll" width="24px" height="26px" border="0"></a><\/td>';
-	tempHTML = tempHTML+'<td id="InitRoll_TD" class="c10sBx" width="25"><div id="InitRoll" class="c10B" style="background-color:transparent;display:inline;">'+wascurrent+'</div><br><span class="cb5">CURRENT</span><\/td>';
+	tempHTML = tempHTML+'<td id="InitRoll_TD" class="c10sBx" width="25"><div id="InitRoll" class="c10B" style="background-color:transparent;display:inline;">'+wascurrent+'</div><br /><span class="cb5">CURRENT</span><\/td>';
 	tempHTML = tempHTML+'<\/tr><\/table>';
 	document.getElementById("Initdiv").innerHTML = tempHTML;
 }
@@ -2372,8 +2759,8 @@ function RagePrint()
 {
 |%VAR.BarbRageTimesLVL.INTVAL|;
 |IIF(GAMEMODE:Pathfinder)|
-	var strMod = |VAR.RageStatBonus|;
-	var conMod = |VAR.RageStatBonus|;
+	var strMod = |VAR.RageStrBonus|;
+	var conMod = |VAR.RageConBonus|;
 	var willMod = |VAR.RageSaveBonus|;
 |ELSE|
 	var strMod = |VAR.RageStrBonus|;
@@ -2401,8 +2788,8 @@ function RagePrint()
 
 // Global NumWeaponsFirstPage sets the max number of weapons to print in compact form, but is now
 // ineffective in Comprehensive mode now that we have moved away from page printing.
-// This was 3 like the original combined.htm page, but that led to confusion for some. 
-// So, bumping to 100 to effectivly disable.
+// This was 3 like the original combined.htm page, but that led to confusion for some.  
+// So, bumping to 100 to effectively disable the limit.
 var NumWeaponsFirstPage = 100;
 function WeaponPrint()
 {
@@ -2421,7 +2808,17 @@ function WeaponPrint()
 	else
 		tempHTML = tempHTML+'white';
 	tempHTML = tempHTML + '">' + WeapArr[0].modifyDamage() + '<br /><\/td>';
-	tempHTML = tempHTML + '<td class="c8sB">20/x2<br /><\/td><\/tr>';
+	tempHTML = tempHTML + '<td class="c8sB">20/x2<br /><\/td>';
+	if ( WeapArr[i].energy != "" )
+	{
+		tempHTML = tempHTML + '<tr>';
+		tempHTML = tempHTML + '<td class="l8wB">&nbsp;</td>';
+		tempHTML = tempHTML + '<td class="r8wB">Energy&nbsp;</td>';
+		tempHTML = tempHTML + '<td colspan="3" style="background:white" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].energy;
+		tempHTML = tempHTML + '<\/td>';
+		tempHTML = tempHTML + '<\/tr>';
+	}
+	tempHTML = tempHTML + '<\/tr>';
 	tempHTML = tempHTML + '</table>';
 	document.getElementById('UnarmedDiv').innerHTML = tempHTML;
 	// OK, now compact weapons
@@ -2467,7 +2864,7 @@ function WeaponPrint()
 			{
 				tempHTML = tempHTML + '<br class="l2" /><table cellpadding="0" width="100%" cellspacing="0" border="0">';
 				tempHTML = tempHTML + '<tr>';
-				tempHTML = tempHTML + '<td id="WEAPON_'+i+'_TD" class="c10B" bgcolor="black" rowspan="2" width="100px" nobreak><div id="WEAPON_'+i+'" class="c10B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
+				tempHTML = tempHTML + '<td id="WEAPON_'+i+'_TD" class="c9B" bgcolor="black" rowspan="2" width="120px" nobreak><div id="WEAPON_'+i+'" class="c9B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
 				tempHTML = tempHTML + '<td class="l10wB" rowspan="2">&nbsp;&nbsp;'+WeapArr[i].name+'<\/td>';
 				tempHTML = tempHTML + '<td class="c6wB" width="10%" height="15">HAND<\/td>';
 				tempHTML = tempHTML + '<td class="c6wB" width="10%" height="15">TYPE<\/td>';
@@ -2561,25 +2958,30 @@ function WeaponPrint()
 						tempHTML = tempHTML + '<td style="background:'+tempColor+'" class="c9sB">'+WeapArr[i].modifyRangedDamage(j,k)+'<\/td>';
 					}
 					tempHTML = tempHTML + '<\/tr>';
+					if ( WeapArr[i].rangedData[j].ammoEnergy != "" )
+					{
+						tempHTML = tempHTML + '<tr>';
+						tempHTML = tempHTML + '<td class="l8wB">&nbsp;Energy</td>';
+						tempHTML = tempHTML + '<td colspan="5" style="background:white;" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].rangedData[j].ammoEnergy;
+						tempHTML = tempHTML + '<\/td>';
+						tempHTML = tempHTML + '<\/tr>';
+					}
 					if ( WeapArr[i].rangedData[j].ammoSprop != "" )
 					{
 						tempHTML = tempHTML + '<tr>';
 						tempHTML = tempHTML + '<td class="l8wB">&nbsp;Ammo</td>';
-						tempHTML = tempHTML + '<td colspan="5" style="background:'+tempColor+'" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].rangedData[j].ammoSprop;
+						tempHTML = tempHTML + '<td colspan="5" style="background:white;" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].rangedData[j].ammoSprop;
 						tempHTML = tempHTML + '<\/td>';
 						tempHTML = tempHTML + '<\/tr>';
 					}
-//					tempHTML = tempHTML + '<tr>';
-//					tempHTML = tempHTML + '<td class="l8swB" colspan="2">&nbsp;Ammunition Used<br /><\/td>';
-//					tempHTML = tempHTML + '<td class="cb9s" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;<\/td>';
 				}
 				tempHTML = tempHTML + '<\/tr>';
 				tempHTML = tempHTML + '<tr>';
-				tempHTML = tempHTML + '<td class="l8swB" colspan="2">&nbsp;Special Properties<br /><\/td>';
+				tempHTML = tempHTML + '<td class="l8swB" colspan="2">&nbsp;Weapon Special Properties<br /><\/td>';
 				if (WeapArr[i].sprop == "")
 					tempHTML = tempHTML + '<td class="l8swB" colspan="5">&nbsp;<br /><\/td>';
 				else
-					tempHTML = tempHTML + '<td class="l8sB" style="background:'+tempColor+'" colspan="5">&nbsp;'+WeapArr[i].sprop+'<br /><\/td>';
+					tempHTML = tempHTML + '<td class="l8sB" style="background:white;" colspan="5">&nbsp;'+WeapArr[i].sprop+'<br /><\/td>';
 				tempHTML = tempHTML + '<\/tr>';
 				tempHTML = tempHTML + '<\/table>';
 				tempHTML = tempHTML + '<span class="l2"><br /><\/span>';
@@ -2588,7 +2990,7 @@ function WeaponPrint()
 			{
 				tempHTML = tempHTML + '<br class="l2" /><table cellpadding="0" width="100%" cellspacing="0" border="0">';
 				tempHTML = tempHTML + '  <tr>';
-				tempHTML = tempHTML + '   <td id="WEAPON_'+i+'_TD" class="c10B" bgcolor="black" rowspan="2" width="80px" nobreak><div id="WEAPON_'+i+'" class="c10B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
+				tempHTML = tempHTML + '   <td id="WEAPON_'+i+'_TD" class="c9B" bgcolor="black" rowspan="2" width="120px" nobreak><div id="WEAPON_'+i+'" class="c9B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
 				tempHTML = tempHTML + '   <td class="l10wB" height="15px" rowspan="2">&nbsp;&nbsp;'+WeapArr[i].name+'<\/td>';
 				tempHTML = tempHTML + '   <td class="c6wB" width="15%" height="15">TOTAL ATTACK BONUS<\/td>';
 				tempHTML = tempHTML + '   <td class="c6wB" width="15%" height="15">DAMAGE<\/td>';
@@ -2662,6 +3064,14 @@ function WeaponPrint()
 				tempHTML = tempHTML + '   <td class="c8sB">'+WeapArr[i].size+'<br /><\/td>';
 				tempHTML = tempHTML + '   <td class="c8sB">&nbsp;'+WeapArr[i].sprop+'<br /><\/td>';
 				tempHTML = tempHTML + '  <\/tr>';
+				if ( WeapArr[i].energy != "" )
+				{
+					tempHTML = tempHTML + '<tr>';
+					tempHTML = tempHTML + '<td class="l8wB">&nbsp;Energy</td>';
+					tempHTML = tempHTML + '<td colspan="5" style="background:white;" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].energy;
+					tempHTML = tempHTML + '<\/td>';
+					tempHTML = tempHTML + '<\/tr>';
+				}
 				tempHTML = tempHTML + ' <\/table>';
 				tempHTML = tempHTML + ' <span class="l2"><br /><\/span>';
 			}
@@ -2669,7 +3079,7 @@ function WeaponPrint()
 			{
 				tempHTML = tempHTML + '<br class="l2" /><table cellpadding="0" width="100%" cellspacing="0" border="0">';
 				tempHTML = tempHTML + '    <tr>';
-				tempHTML = tempHTML + '     <td id="WEAPON_'+i+'_TD" class="c10B" bgcolor="black" rowspan="2" width="80px" nobreak><div id="WEAPON_'+i+'" class="c10B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
+				tempHTML = tempHTML + '     <td id="WEAPON_'+i+'_TD" class="c9B" bgcolor="black" rowspan="2" width="120px" nobreak><div id="WEAPON_'+i+'" class="c9B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
 				tempHTML = tempHTML + '     <td class="l10wB" height="15px" rowspan="2">&nbsp;&nbsp;'+WeapArr[i].name+'<\/td>';
 				tempHTML = tempHTML + '     <td class="c6wB" width="10%" height="15">HAND<\/td>';
 				tempHTML = tempHTML + '     <td class="c6wB" width="10%" height="15">TYPE<\/td>';
@@ -2744,7 +3154,6 @@ function WeaponPrint()
 					else
 						tempHTML = tempHTML + '<td style="background:'+tempColor+'" class="c9sB"><a name="#" onClick="RollAttack(1,20,\''+sendbonus+'\','+dice+','+die+','+bonus+','+critmin+',\''+WeapArr[i].name+'\',\'WEAPON_'+i+'\',1);"><img src="die_small.png" Alt="Roll" width="15px" height="16px" border="0"></a> '+WeapArr[i].modify2WAttackBonus(0,k)+'<br /><\/td>';
 				}
-
 				tempHTML = tempHTML + '    <\/tr>';
 				tempHTML = tempHTML + '    <tr>';
 				tempHTML = tempHTML + '     <td class="l8swB">&nbsp;Dam<\/td>';
@@ -2753,22 +3162,33 @@ function WeaponPrint()
 						tempColor = 'LIGHTBLUE';
 					else
 						tempColor = 'white';
-					tempHTML = tempHTML + '     <td style="background:'+tempColor+'" class="c8sB">'+WeapArr[i].modify2WDamage(0,z)+'<br /><\/td>';
+					if (WeapArr[i].modify2WDamage(0,z) == "N/A")
+						tempHTML = tempHTML + '     <td class="c9sB">'+WeapArr[i].modify2WDamage(0,z)+'<br /><\/td>';
+					else
+						tempHTML = tempHTML + '     <td style="background:'+tempColor+'" class="c8sB">'+WeapArr[i].modify2WDamage(0,z)+'<br /><\/td>';
 				}
 				tempHTML = tempHTML + '    <\/tr>';
+				if ( WeapArr[i].energy != "" )
+				{
+					tempHTML = tempHTML + '    <tr>';
+					tempHTML = tempHTML + '    <td class="l8wB">&nbsp;Energy</td>';
+					tempHTML = tempHTML + '    <td colspan="6" style="background:white;" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].energy;
+					tempHTML = tempHTML + '    <\/td>';
+					tempHTML = tempHTML + '    <\/tr>';
+				}
     				tempHTML = tempHTML + '		<tr>';
-				tempHTML = tempHTML + '     <td class="l8swB" colspan="2">&nbsp;Special Properties<\/td>';
+				tempHTML = tempHTML + '     <td class="l8swB" colspan="2">&nbsp;Weapon Special Properties<\/td>';
 				if (WeapArr[i].sprop == "")
 					tempHTML = tempHTML + '     <td class="l8swB" colspan="5">&nbsp;<br /><\/td>';
 				else
-					tempHTML = tempHTML + '     <td class="l8sB" style="background:'+tempColor+'" colspan="5">&nbsp;'+WeapArr[i].sprop+'<br /><\/td>';
+					tempHTML = tempHTML + '     <td class="l8sB" style="background:white" colspan="5">&nbsp;'+WeapArr[i].sprop+'<br /><\/td>';
 				tempHTML = tempHTML + '    <\/tr>';
 				tempHTML = tempHTML + '   <\/table>';
 			}
 			else
 			{
 				tempHTML = tempHTML + '<br class="l2" /><table cellpadding="0" width="100%" cellspacing="0" border="0"><tr>';
-				tempHTML = tempHTML + '<td id="WEAPON_'+i+'_TD" class="c10B" bgcolor="black" rowspan="2" width="75px" nobreak><div id="WEAPON_'+i+'" class="c10B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
+				tempHTML = tempHTML + '<td id="WEAPON_'+i+'_TD" class="c9B" bgcolor="black" rowspan="2" width="120px" nobreak><div id="WEAPON_'+i+'" class="c9B" style="background-color:transparent;display:inline;">&nbsp;</div><\/td>';
 				tempHTML = tempHTML + '<td class="c10wB" height="25" rowspan="2" width="125">' + WeapArr[i].name + '<br /><\/td>';
 				// Misc table text
 				tempHTML = tempHTML + '<td class="c6wB" width="110" height="15">TOTAL ATTACK BONUS<\/td>';
@@ -2826,7 +3246,10 @@ function WeaponPrint()
 					tempHTML = tempHTML+'LIGHTBLUE';
 				else
 					tempHTML = tempHTML+'white';
-				tempHTML = tempHTML+'" class="c8sB">' + WeapArr[i].modifyDamage() + '<br /><\/td>';
+				if (WeapArr[i].modifyDamage() == "N/A")
+					tempHTML = tempHTML+'" class="c9sB">' + WeapArr[i].modifyDamage() + '<br /><\/td>';
+				else
+					tempHTML = tempHTML+'" class="c8sB">' + WeapArr[i].modifyDamage() + '<br /><\/td>';
 				// crit info
 				tempHTML = tempHTML + '<td class="c8sB">' + WeapArr[i].crit + '/x' + WeapArr[i].mult + '<br /><\/td><\/tr><\/table>';
 				// More text
@@ -2846,6 +3269,14 @@ function WeaponPrint()
 				tempHTML = tempHTML + '<td class="c8sB">' + WeapArr[i].size + '<br /><\/td>';
 				// SProp
 				tempHTML = tempHTML + '<td class="c8sB">' + WeapArr[i].sprop + '<br /><\/td><\/tr>';
+				if ( WeapArr[i].energy != "" )
+				{
+					tempHTML = tempHTML + '    <tr>';
+					tempHTML = tempHTML + '    <td class="l8wB">&nbsp;Energy</td>';
+					tempHTML = tempHTML + '    <td colspan="4" style="background:white" class="l8sB">&nbsp;&nbsp;' + WeapArr[i].energy;
+					tempHTML = tempHTML + '    <\/td>';
+					tempHTML = tempHTML + '    <\/tr>';
+				}
 				tempHTML = tempHTML + '<\/table>';
 			}
 		}
@@ -2858,7 +3289,6 @@ function WeaponPrint()
 	}
 	// Moved to the end of the total weapon list, as we are not splitting weapons across individual pages anymore.
 	tempHTML = tempHTML + '<span class="l6"><b>1H-P:<\/b> One handed, primary hand.&nbsp;<b>1H-O:<\/b> One handed, off hand.&nbsp;<b>2H:<\/b> Two handed.&nbsp;<b>2W-P-(OH):<\/b> 2 weapons, primary hand (off hand weapon is heavy).&nbsp;<b>2W-P-(OL):<\/b> 2 weapons, primary hand (off hand weapon is light).&nbsp;<b>2W-OH:<\/b>2 weapons, off hand.<\/span>';
-
 	// Done with the first x weapons (which is all we can fit in the first part)?
 	if ( i <= NumWeaponsFirstPage )
 		document.getElementById('WeaponsComprehensive').innerHTML = tempHTML;
@@ -3081,12 +3511,12 @@ function Compact()
 function writeMiscNotes()
 {
 //FIXME: The html fomatting is being converted to non-html and causing code to appear
-//	on the page.  Requires adjustment in the core program.  This attempt to undo
-//	such non-html cannot handle multiline strings.
-//	before = ' bar   NOTE.ALL.<b>.</b>.<br> bar  ';
+//       on the page.  Requires adjustment in the core program.  This attempt to undo
+//       such non-html cannot handle multiline strings.
+//	before = '    NOTE.ALL.<b>.</b>.<br />    '; // Causing multi-line unterminated strings
 //	temp1 = before.replace(/&lt;b&gt;/g, "<b>");
 //	temp2 = temp1.replace(/&lt;\/b&gt;/g, "</b>");
-//	after = temp2.replace(/&lt;br\/&gt;/g, "<br>");
+//	after = temp2.replace(/&lt;br\/&gt;/g, "<br />");
 //	if (document.getElementById('MagicNotes') != null) 
 //		document.getElementById('MagicNotes').innerHTML = after;
 }
@@ -3102,7 +3532,7 @@ function RecordDiceRoll( foobar )
 		seconds = "0" + seconds;
 	if (document.getElementById('evidence') != null) 
 		MyEvidence = document.getElementById('evidence').innerHTML;
-	MyEvidence = MyEvidence + '<br>\n'+hours+':'+minutes+':'+seconds+' ' + foobar;
+	MyEvidence = MyEvidence + '<br />\n'+hours+':'+minutes+':'+seconds+' ' + foobar;
 	document.getElementById('evidence').innerHTML = MyEvidence;
 }
 
@@ -3157,18 +3587,27 @@ function CycleFeats()
 	if(document.getElementById('FeatsHeaderOnly').style.display == 'inline') {
 		document.getElementById('FeatsHeaderOnly').style.display = 'none';
 		document.getElementById('FeatsCompactDiv').style.display = 'none';
+		document.getElementById('FeatsBenefitDiv').style.display = 'none';
 		document.getElementById('FeatsComprehensive').style.display = 'inline';
 	} else if(document.getElementById('FeatsCompactDiv').style.display == 'inline') {
 		document.getElementById('FeatsHeaderOnly').style.display = 'inline';
 		document.getElementById('FeatsCompactDiv').style.display = 'none';
+		document.getElementById('FeatsBenefitDiv').style.display = 'none';
 		document.getElementById('FeatsComprehensive').style.display = 'none';
 	} else if(document.getElementById('FeatsComprehensive').style.display == 'inline') {
 		document.getElementById('FeatsHeaderOnly').style.display = 'none';
+		document.getElementById('FeatsCompactDiv').style.display = 'none';
+		document.getElementById('FeatsBenefitDiv').style.display = 'inline';
+		document.getElementById('FeatsComprehensive').style.display = 'none';
+	} else if(document.getElementById('FeatsBenefitDiv').style.display == 'inline') {
+		document.getElementById('FeatsHeaderOnly').style.display = 'none';
 		document.getElementById('FeatsCompactDiv').style.display = 'inline';
+		document.getElementById('FeatsBenefitDiv').style.display = 'none';
 		document.getElementById('FeatsComprehensive').style.display = 'none';
 	} else {
 		document.getElementById('FeatsHeaderOnly').style.display = 'inline';
 		document.getElementById('FeatsCompactDiv').style.display = 'none';
+		document.getElementById('FeatsBenefitDiv').style.display = 'none';
 		document.getElementById('FeatsComprehensive').style.display = 'none';
 	}
 };
@@ -3311,7 +3750,6 @@ function CreateMainSpellCompact()
 	spellhdrHTML = spellhdrHTML + '		<td width="6%" class="c8">' + "|SPELLLISTDC.%class.%level|" + '<br /></td>';
 |ENDFOR|
 	spellhdrHTML = spellhdrHTML + '	</tr>';
-
 |IIF(SPELLLISTTYPE.%class:Psionic)|
 	spellhdrHTML = spellhdrHTML + '	<tr>';
 	spellhdrHTML = spellhdrHTML + '		<td class="r8wB" width="10%">Known&nbsp;</td>';
@@ -3398,7 +3836,6 @@ function CreateMainSpellCompact()
 	spellHTML = '';
 	spellHTML = spellHTML + '<table cellpadding="0" cellspacing="0" border="2" bordercolor="black" width="100%">';
 	spellHTML = spellHTML + '<tr><td width="100%">';
-
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |%SPELLLISTBOOK.%class.%level.%sbook|
 <!-- by-level detail -->
@@ -3610,14 +4047,16 @@ function Weapon2Vector( th1hp, th1ho, th2h, th2wpoh, th2wpol, th2woh, d1hp, d1ho
 // ********************************************
 // ammoName			string	Name of ammo.  "" means no ammo was loaded in the weapon and this is the default weapons stats
 // ammoSprop		string	Ammo special properties.  Only valid if ammoName is not  ""
+// ammoEnergy		string	Ammo energy damage, +NdN type, +NdN type.  Only valid if ammoName is not  ""
 // ammoRange		array of strings	Range (e.g. 30') increments
 // ammoAttackBonus		array of strings	AttackBonus numbers at each range increment
 // ammoDamage		array of strings	Damage numbers at each range increment
 // addRangeIncrement ( rangestring, AttackBonusstring, damagestring )
-function WeaponRangedAmmoData( aName, aSProp )
+function WeaponRangedAmmoData( aName, aSProp, aEnergy )
 {
 	this.ammoName = aName;
 	this.ammoSprop = aSProp;
+	this.ammoEnergy = aEnergy;
 	this.ammoRange = new Array();
 	this.ammoAttackBonus = new Array();
 	this.ammoDamage = new Array();
@@ -3684,23 +4123,21 @@ function Weapon( wNum, wName, wCategory, wAttackBonus, wDam, wHands, wRange, wCr
 	this.type = wType;
 	this.size = wSize;
 	this.sprop = wSprop;
+	this.energy = ""; // Fill in later
 	this.setOutputFormat = WeaponSetOutputFormat;
 	this.outputFormat = 0;
 	this.addMeleeVector = WeaponAddMeleeVector;
 	this.meleeVectors = new Array();
 	this.addRangedData = WeaponAddRangedData;
 	this.rangedData = new Array();
-
-    	// Try to figure out if this is a melee or ranged weapon
+  	// Try to figure out if this is a melee or ranged weapon
 	if ( wCategory.search("Melee") != -1 )
 	   this.category = "M";
 	else
 		this.category = "R";
-
 	// Most weapons aren't mighty, so set that as a default.
 	this.maxMighty = 0;
 	this.isMighty = WeaponIsMighty;
-
 	// Now, based on weapon type, choose the default ability affecting the "Attack Bonus"
 	// If it's melee then the default is strength
 	if ( this.category == "M" )
@@ -3725,18 +4162,15 @@ function Weapon( wNum, wName, wCategory, wAttackBonus, wDam, wHands, wRange, wCr
 			}
 		}
 	}
-
 	// is this a thrown weapon?
 	if ( this.name.search("(Thrown)") != -1 )
 		this.isThrown = TRUE;
 	else
 		this.isThrown = FALSE;
-
 	this.hands = FirstChar( wHands );
 	this.range = wRange;
 	this.miscTHMod = 0;
 	this.miscDamMod = 0;
-	
 	// Call a series of functions to determine the modifications to hit, damage etc
 	this.hasModifiedTH = WeaponTHIsModified;
 	this.hasModifiedDam = WeaponDamageIsModified;
@@ -3814,15 +4248,16 @@ function modAttackBonusString( astr, amod )
 	if(astr == "N/A")
 		return astr;
 	var attacks=astr.split("/");
-	var retval = "";
+	var retstr = "";
 	var i;
 	for (i=0; i < attacks.length; i++) {
 		if ( i>0 )
-			retval = retval+'/';
+			retstr = retstr+'/';
 		var attNum = new Number(attacks[i]);
-		retval = retval+modPlusMinus( amod+attNum );
+		var retnum = parseInt(amod, 10) + parseInt(attNum, 10);
+		retstr = retstr+modPlusMinus( String(retnum) );
 	}
-	return retval;
+	return retstr;
 };
 // ********************************************
 // Take a damage string in the form "X[(+-)mod]"
@@ -3849,26 +4284,21 @@ function modDamageString( astr, amod, addBns )
 		modRoundingAdjuster = 0.002;
 	if ( addBns == "T" )
 		modRoundingAdjuster = 0.002;
-
 	if ( addBns == "Y" )
 		amod = amod + Math.round((amod-modRoundingAdjuster)/2);
 	else if ( addBns == "T" )
 		amod = Math.round((amod-modRoundingAdjuster)/2);
-
 	var modLoc=astr.search("[\+-]");  // Look for either a + or a -
-
 	// If there is no modification then exit
 	if ( modLoc == -1 )
 		return astr+modPlusMinus(amod);
-
 	// OK, we found a +/- at modLoc, so grab the old modifier
 	var oldMod = new Number( astr.substr(modLoc,astr.length-1) );
-	
 	// Modifiers cancel?
-	if ( oldMod+amod == 0 )
+	if ( (parseInt(oldMod, 10) + parseInt(amod, 10)) == 0 )
 		return astr.substr(0,modLoc);
 	else
-		return astr.substr(0,modLoc) + modPlusMinus(oldMod+amod);
+		return astr.substr(0,modLoc) + String(modPlusMinus(parseInt(oldMod, 10) + parseInt(amod, 10)));
 };
 // ********************************************
 // Take an attack string in the form "X[;X]...
@@ -3943,7 +4373,6 @@ function WeaponMod2WAttackBonus( whichVec, whichOne )
 	var i;
 	// Figure out if anything has changed?
 	var aMod = this.miscTHMod + AbArr[this.abilityNum].curModifierDiff() + ATKArr[this.abilityNum].miscTHMod;
-
 	var AttackBonusArr = this.damageBaseArr;  // default value
 	if ( whichOne == 0 )
 		AttackBonusArr = this.meleeVectors[whichVec].AttackBonus1hp.split(";");
@@ -4283,19 +4712,18 @@ function BarbMods( newRageState )
 	if ( this.internalState == "Raging" )  // Raging
 	{
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = -|VAR.RageStatBonus.INTVAL|;
-		conMod = -|VAR.RageStatBonus.INTVAL|;
-		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		// FIX: It is bad to hardcode, but there is no variable available!
-		acMod = +2;
+		strMod = -|VAR.RageStrBonus.INTVAL|;
+		conMod = -|VAR.RageConBonus.INTVAL|;
+		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
+		acMod = |VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -|VAR.RageStrBonus|;
 		conMod = -|VAR.RageConBonus|;
 		strModMod = -(|VAR.RageStrBonus|/2);
 		conModMod = -(|VAR.RageConBonus|/2);
-		acMod = +|VAR.RageACPenalty|;
+		acMod = |VAR.RageACPenalty|;
 		willMod = -|VAR.RageMorale|;
 |ENDIF|
 	} 
@@ -4312,36 +4740,36 @@ function BarbMods( newRageState )
 	else if ( this.internalState == "Greater Raging")  // Greater
 	{
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = -|VAR.RageStatBonus.INTVAL|;
-		conMod = -|VAR.RageStatBonus.INTVAL|;
-		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		acMod = +2;
+		strMod = -|VAR.RageStrBonus.INTVAL|;
+		conMod = -|VAR.RageConBonus.INTVAL|;
+		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
+		acMod = |VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -(|VAR.RageStrBonus| + 2);
 		conMod = -(|VAR.RageConBonus| + 2);
 		strModMod = -((|VAR.RageStrBonus|+2)/2);
 		conModMod = -((|VAR.RageConBonus|+2)/2);
-		acMod = +|VAR.RageACPenalty|;
+		acMod = |VAR.RageACPenalty|;
 		willMod = -(|VAR.RageMorale|+1);
 |ENDIF|
 	}
 	else if ( this.internalState == "Mighty Raging")  // Mighty
 	{
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = -|VAR.RageStatBonus.INTVAL|;
-		conMod = -|VAR.RageStatBonus.INTVAL|;
-		strModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = -(|VAR.RageStatBonus.INTVAL|/2);
-		acMod = +2;
+		strMod = -|VAR.RageStrBonus.INTVAL|;
+		conMod = -|VAR.RageConBonus.INTVAL|;
+		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
+		acMod = |VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -(|VAR.RageStrBonus| + 4);
 		conMod = -(|VAR.RageConBonus| + 4);
 		strModMod = -((|VAR.RageStrBonus|+4)/2);
 		conModMod = -((|VAR.RageConBonus|+4)/2);
-		acMod = +|VAR.RageACPenalty|;
+		acMod = |VAR.RageACPenalty|;
 		willMod = -(|VAR.RageMorale|+2);
 |ENDIF|
 	}
@@ -4353,18 +4781,18 @@ function BarbMods( newRageState )
 		this.internalState = nRageStatus;
 // 		StatusBgColor = "LIGHTPINK";
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
-		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
-		strModMod = strModMod+(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = conModMod+(|VAR.RageStatBonus.INTVAL|/2);
-		acMod = acMod-2;
+		strMod = strMod+|VAR.RageStrBonus.INTVAL|;
+		conMod = conMod+|VAR.RageConBonus.INTVAL|;
+		strModMod = strModMod+(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = conModMod+(|VAR.RageConBonus.INTVAL|/2);
+		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|;
 		conMod = conMod+|VAR.RageConBonus|;
 		strModMod = strModMod+(|VAR.RageStrBonus|/2);
 		conModMod = conModMod+(|VAR.RageConBonus|/2);
-		acMod = acMod-|VAR.RageACPenalty|;
+		acMod = acMod-(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|;
 |ENDIF|
 	}
@@ -4389,18 +4817,18 @@ function BarbMods( newRageState )
 		this.internalState = nRageStatus;
 //		StatusBgColor = "LIGHTPINK";
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
-		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
-		strModMod = strModMod(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = conModMod(|VAR.RageStatBonus.INTVAL|/2);
-		acMod = acMod-2;
+		strMod = strMod+|VAR.RageStrBonus.INTVAL|;
+		conMod = conMod+|VAR.RageConBonus.INTVAL|;
+		strModMod = strModMod(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = conModMod(|VAR.RageConBonus.INTVAL|/2);
+		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|+2;
 		conMod = conMod+|VAR.RageConBonus|+2;
 		strModMod = strModMod+((|VAR.RageStrBonus|+2)/2);
 		conModMod = conModMod+((|VAR.RageConBonus|+2)/2);
-		acMod = acMod-|VAR.RageACPenalty|;
+		acMod = acMod-(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|+1;
 |ENDIF|
 	}
@@ -4411,18 +4839,18 @@ function BarbMods( newRageState )
 		this.internalState = nRageStatus;
 //		StatusBgColor = "LIGHTPINK";
 |IIF(GAMEMODE:Pathfinder)|
-		strMod = strMod+|VAR.RageStatBonus.INTVAL|;
-		conMod = conMod+|VAR.RageStatBonus.INTVAL|;
-		strModMod = strModMod(|VAR.RageStatBonus.INTVAL|/2);
-		conModMod = conModMod(|VAR.RageStatBonus.INTVAL|/2);
-		acMod = acMod-2;
+		strMod = strMod+|VAR.RageStrBonus.INTVAL|;
+		conMod = conMod+|VAR.RageConBonus.INTVAL|;
+		strModMod = strModMod(|VAR.RageStrBonus.INTVAL|/2);
+		conModMod = conModMod(|VAR.RageConBonus.INTVAL|/2);
+		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|+4;
 		conMod = conMod+|VAR.RageConBonus|+4;
 		strModMod = strModMod+((|VAR.RageStrBonus|+4)/2);
 		conModMod = conModMod+((|VAR.RageConBonus|+4)/2);
-		acMod = acMod-|VAR.RageACPenalty|;
+		acMod = acMod-(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|+2;
 |ENDIF|
 	}
@@ -4570,7 +4998,6 @@ function printFileNameJPG(full)
 		document.write( '</a></td>\n');
 		}
 }
-
 function CheckForMonk()
 {
 	MonkLvl = 0;
@@ -4761,25 +5188,25 @@ function SpellArmorButtons()
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Temp bonus AC due to spells</span><br></div></div>');
+	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Temp bonus AC due to spells</span><br /></div></div>');
 	document.write( '<div style="display:inline;"><input id="SpellArmorButton3" type=button style="width:100px;" value="Deflection" name="SpellArmorButton3" onclick="SetArmorSpell(2);">&nbsp;');
 	document.write( '<div id="cfgB" style="display:none;"><select id="spell_deflection_bonus" autocomplete="off" onchange="setSpellDeflBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Select as the total type bonus</span><br></div></div>');
+	document.write( '<option value="9">9</option><option value="10">10</option></select> <span class="l8">Select as the total type bonus</span><br /></div></div>');
 	document.write( '<div style="display:inline;"><input id="SpellArmorButton4" type=button style="width:100px;" value="Natural Armor" name="SpellArmorButton4" onclick="SetArmorSpell(3);">&nbsp;');
 	document.write( '<div id="cfgC" style="display:none;"><select id="spell_natural_bonus" autocomplete="off" onchange="setSpellNatBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
+	document.write( '<option value="9">9</option><option value="10">10</option></select><br /></div></div>');
 	document.write( '<div style="display:inline;"><input id="SpellArmorButton5" type=button style="width:100px;" value="Shield" name="SpellArmorButton5" onclick="SetArmorSpell(4);">&nbsp;');
 	document.write( '<div id="cfgD" style="display:none;"><select id="spell_shield_bonus" autocomplete="off" onchange="setSpellShieldBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
 	document.write( '<option value="3">3</option><option value="4">4</option><option value="5">5</option>');
 	document.write( '<option value="6">6</option><option value="7">7</option><option value="8">8</option>');
-	document.write( '<option value="9">9</option><option value="10">10</option></select><br></div></div>');
+	document.write( '<option value="9">9</option><option value="10">10</option></select><br /></div></div>');
 	document.write( '<div style="display:inline;"><input id="SpellArmorButton6" type=button style="width:100px;" value="Dodge" name="SpellArmorButton6" onclick="SetArmorSpell(5);">&nbsp;');
 	document.write( '<div id="cfgE" style="display:none;"><select id="spell_dodge_bonus" autocomplete="off" onchange="setSpellDodgeBonus();">');
 	document.write( '<option value="0" selected>0</option><option value="1">1</option><option value="2">2</option>');
@@ -4816,7 +5243,7 @@ function SetdefFighting( defFightLvl )
 // Activate/Clear spell Armor Class bonuses and turn the button purple.
 function SetArmorSpell( level )
 {
-	if(level  == 0) { 
+	if(level == 0) { 
 		document.getElementById('SpellArmorButton1').className = '';
 		document.getElementById('SpellArmorButton2').className = '';
 		document.getElementById('SpellArmorButton3').className = '';
@@ -4838,7 +5265,7 @@ function SetArmorSpell( level )
 		}
 	} else {
 		// In this version, we can have multiple active, so we do not shut off except on 0.
-		if(level  == 1) { 
+		if(level == 1) { 
 			if( document.getElementById('SpellArmorButton2').className == '') {
 				document.getElementById('SpellArmorButton2').className = 'activeButton';
 				AC.spellACMod = spell_AC_bonus;
@@ -4849,7 +5276,7 @@ function SetArmorSpell( level )
 				AC.spellACMod = 0;
 			}
 		} 
-		if(level  == 2) { 
+		if(level == 2) { 
 			if( document.getElementById('SpellArmorButton3').className == '') {
 				document.getElementById('SpellArmorButton3').className = 'activeButton';
 				AC.spellDeflMod = spell_Defl_bonus;
@@ -4860,7 +5287,7 @@ function SetArmorSpell( level )
 				AC.spellDeflMod = 0;
 			}
 		} 
-		if(level  == 3) { 
+		if(level == 3) { 
 			if(document.getElementById('SpellArmorButton4').className == '') {
 				document.getElementById('SpellArmorButton4').className = 'activeButton';
 				AC.spellNatMod = spell_Nat_bonus;
@@ -4871,7 +5298,7 @@ function SetArmorSpell( level )
 				AC.spellNatMod = 0;
 			}
 		} 
-		if(level  == 4) { 
+		if(level == 4) { 
 			if(document.getElementById('SpellArmorButton5').className == '') {
 				document.getElementById('SpellArmorButton5').className = 'activeButton';
 				AC.spellShieldMod = spell_Shield_bonus;
@@ -4882,7 +5309,7 @@ function SetArmorSpell( level )
 				AC.spellShieldMod = 0;
 			}
 		} 
-		if(level  == 5) {
+		if(level == 5) { 
 			if(document.getElementById('SpellArmorButton6').className == '') {
 				document.getElementById('SpellArmorButton6').className = 'activeButton';
 				AC.spellDodgeMod = spell_Dodge_bonus;
@@ -4892,7 +5319,7 @@ function SetArmorSpell( level )
 				document.getElementById('SpellArmorButton6').className = '';
 				AC.spellDodgeMod = 0;
 			}
-		}
+		} 
 		// Now that we have set the variables, go execute the changes.
 		for ( i=0; i<StateArr.length; ++i )
 			if ( StateArr[i].name == "SpellArmor" + level )
@@ -4972,7 +5399,11 @@ function RemoveStat (attribute) {
 <div id="FullWideHeader" style="display:none">
 	<table id="FullHeader" cellpadding="0" cellspacing="4" border="0" width="100%">
 	<tr>
-		<td id="charName" colspan="3" class="lb12mB">|NAME|</td>
+		<td id="charName" colspan="4" class="lb12mB">|NAME|
+|%FOLLOWEROF|
+~&bull;~ |FOLLOWEROF|
+|%|
+		</td>
 		<td colspan="2" class="lb8">|PLAYERNAME|</td>
 		<td class="lb8">|ALIGNMENT|</td>
 		<td class="lb8">|DEITY|</td>
@@ -4986,7 +5417,7 @@ function RemoveStat (attribute) {
 		       |PERSONALITY2|</td>
 	</tr>
 	<tr>
-		<td colspan="3" class="t6tg">CHARACTER NAME</td>
+		<td colspan="4" class="t6tg">CHARACTER NAME</td>
 		<td colspan="2" class="t6tg">PLAYER</td>
 		<td class="t6tg">ALIGNMENT</td>
 		<td class="t6tg">DEITY</td>
@@ -4994,7 +5425,7 @@ function RemoveStat (attribute) {
 		<td class="t6tg">PERSONALITY TRAITS</td>
 	</tr>
 	<tr>
-		<td colspan="2" class="lb8">|CLASSLIST|</td>
+		<td colspan="3" class="lb8">|CLASSLIST|</td>
 		<td class="lb8">|EXP.CURRENT|</td>
 		<td class="lb8">|RACE|
 |IIF(RACETYPE:Humanoid)|
@@ -5009,7 +5440,7 @@ function RemoveStat (attribute) {
 		<td class="lb8">|PHOBIAS|&nbsp;</td>
 	</tr>
 	<tr>
-		<td colspan="2" class="t6tg">CLASS</td>
+		<td colspan="3" class="t6tg">CLASS</td>
 		<td class="t6tg">EXPERIENCE</td>
 		<td class="t6tg">RACE</td>
 		<td class="t6tg">SIZE / FACE</td>
@@ -5020,6 +5451,7 @@ function RemoveStat (attribute) {
 	</tr>
 	<tr>
 		<td class="lb8">|TOTALLEVELS|</td>
+		<td class="lb8">|CR|</td>
 		<td class="lb8" width="100px"><input id="button3" type="button" value="Collapse Bio Header" name="button3" onclick="ToggleDIV('FullWideHeader');ToggleDIV('NarrowLeftHeader');" /></td>
 		<td class="lb8">|EXP.NEXT|</td>
 		<td class="lb8">|AGE|</td>
@@ -5027,29 +5459,37 @@ function RemoveStat (attribute) {
 		<td class="lb8">|COLOR.EYE|</td>
 		<td class="lb8">|COLOR.HAIR||%COLOR.HAIR||%LENGTH.HAIR|, |%||%||LENGTH.HAIR|</td>
 		<td class="lb8">|COLOR.SKIN|</td>
-		<td class="lb8">|TOTAL.LOAD|
-|IIF(TOTAL.LOAD:Overload)|
-|ELSE|
-	Load
+|IIF(TOTAL.LOAD:Light)|
+		<td class="lb8" style="color:green">|TOTAL.LOAD| Load</td>
 |ENDIF|
-		</td>
+|IIF(TOTAL.LOAD:Medium)|
+		<td class="lb9" style="color:orange; font-weight:bold;">|TOTAL.LOAD| Load</td>
+|ENDIF|
+|IIF(TOTAL.LOAD:Heavy)|
+		<td class="lb9" style="color:#FF5500; font-weight:bold;">|TOTAL.LOAD| Load</td>
+|ENDIF|
+|IIF(TOTAL.LOAD:Overload)|
+		<td class="lb9" style="color:red; font-weight:bold;">|TOTAL.LOAD|</td>
+|ENDIF|
 	</tr>
 	<tr>
-		<td colspan="2" class="t6tg">LEVEL</td>
+		<td class="t6tg">LEVEL</td>
+		<td class="t6tg">CR</td>
+		<td class="t6tg">&nbsp;</td>
 		<td class="t6tg">NEXT LEVEL</td>
 		<td class="t6tg">AGE</td>
 		<td class="t6tg">GENDER</td>
 		<td class="t6tg">EYES</td>
 		<td class="t6tg">HAIR</td>
 		<td class="t6tg">SKIN COLOR</td>
-		<td class="t6tg">ENCUMBERANCE</td>
+		<td class="t6tg">STATIC ENCUMBERANCE</td>
 	</tr>
 	<tr>
-		<td class="lb8" colspan="5">|INTERESTS|&nbsp;</td>
+		<td class="lb8" colspan="6">|INTERESTS|&nbsp;</td>
 		<td class="lb8" colspan="4">|SPEECHTENDENCY||%CATCHPHRASE|, "|CATCHPHRASE|"|%|&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="t6tg" colspan="5">INTERESTS</td>
+		<td class="t6tg" colspan="6">INTERESTS</td>
 		<td class="t6tg" colspan="4">SPOKEN STYLE</td>
 	</tr>
 	</table>  <!-- FullHeader table -->
@@ -5073,7 +5513,7 @@ function RemoveStat (attribute) {
 			<tr>
 				<td class="r12b" width="10%" colspan="2">Biography:</td>
 				<td class="l9" width="2%">&nbsp;</td>
-				<td class="l9">|BIO|<br></td>
+				<td class="l9">|BIO|<br /></td>
 				<td class="l9" width="10%">&nbsp;</td>
 			<tr>
 |%MISC.COMPANIONS|
@@ -5088,14 +5528,18 @@ function RemoveStat (attribute) {
 		</td>
 	</table>
 </div>
-
+<!-- Another Narrow sheet change point -->
 	<div id="NarrowLeftHeader" width="100%" style="display:block">
 	<table border="0" width="100%">
 	<tr valign="top">
 		<td width="50%">
 			<table cellpadding="0" cellspacing="4" border="0" width="100%">
 			<tr valign="top">
-				<td id="charName" colspan="3" class="lb12mB">|NAME|</td>
+				<td id="charName" colspan="3" class="lb12mB">|NAME|
+|%FOLLOWEROF|
+~&bull;~ |FOLLOWEROF|
+|%|
+				</td>
 				<td colspan="2" class="lb8">|PLAYERNAME|</td>
 	   			<script language="javascript" type="text/javascript">printFileNameJPG(FALSE);</script>
 			</tr>
@@ -5124,10 +5568,17 @@ function RemoveStat (attribute) {
 				<td class="lb8">&nbsp;&nbsp;|TOTALLEVELS|</td>
 				<td class="lb8">|ALIGNMENT|</td>
 				<td class="lb8">|EXP.NEXT|</td>
-				<td class="lb8">|TOTAL.LOAD|
+|IIF(TOTAL.LOAD:Light)|
+                                <td class="lb8" style="color:green">|TOTAL.LOAD| Load</td>
+|ENDIF|
+|IIF(TOTAL.LOAD:Medium)|
+				<td class="lb9" style="color:orange; font-weight:bold;">|TOTAL.LOAD| Load</td>
+|ENDIF|
+|IIF(TOTAL.LOAD:Heavy)|
+				<td class="lb9" style="color:#FF5500; font-weight:bold;">|TOTAL.LOAD| Load</td>
+|ENDIF|
 |IIF(TOTAL.LOAD:Overload)|
-|ELSE|
-	Load
+				<td class="lb9" style="color:red; font-weight:bold;">|TOTAL.LOAD|</td>
 |ENDIF|
 				</td>
 				<td class="lb8">|DEITY|</td>
@@ -5144,9 +5595,6 @@ function RemoveStat (attribute) {
 	</tr>
 	</table>
 	</div>
-
-
-
 	<table width="100%" cellspacing="0" cellpadding="0">
 	<tr valign="top">
 		<td width="100%">
@@ -5169,16 +5617,16 @@ function RemoveStat (attribute) {
 			<script language="javascript" type="text/javascript">DefFightingButtons();</script>
 			<script language="javascript" type="text/javascript">SpellArmorButtons();</script>
 			</table>
-
+<!-- end of - Another Narrow sheet change point -->
 <div id="ColorKey" style="display:none;">
 	<table border=0 width="75%" cellpadding="4px" cellspacing="4px">
 	<tr valign="top">
 		<td class="l9"><b>Description:</b></td>
-		<td class="l8">This output sheet is designed for people who game with their laptops open.
+		<td class="l8">This output sheet is designed for people who game with their laptops open.  
 			<b>csheet_fantasy_laptop.htm</b> is for small laptops and netbooks with a 600 to 800 pixel
 			wide display.  <b>csheet_fantasy_laptop_ws.htm</b> is for wide screen laptops, as it uses
-			two columns for the layout.<br>
-			<br>
+			two columns for the layout.<br />
+			<br />
 			Most optional sections that takes up more than a couple of lines have a way to collapse the output, 
 			so as to fit something else on the screen.  A person does not need to see the whole spell list 
 			or inventory all the time, so they have been stuffed into collapsable sections.  
@@ -5191,8 +5639,8 @@ function RemoveStat (attribute) {
 			clicking on the [cfg] button, and then activated by clicking on the AC bonus type.  
 			An example is Mage Armor would be configured as Spell Armor, 4.  If clicking an AC type gives you a 
 			grey button, it has not been configured yet.
-			<br>
-			<br>
+			<br />
+			<br />
 			The spell blocks display statistics as if they were cast at your current base level with only 
 			"all the time" variables from feats/traits/special abilities accounted for like "+1 Caster Level 
 			for fire spells".  There is no current mechanism to apply metamagic feats or recalculate stats 
@@ -5200,21 +5648,21 @@ function RemoveStat (attribute) {
 		</td>
 	</tr>
 	<tr valign="top">
- 		<td class="l9"><b>Setup:</b></td>
+		<td class="l9"><b>Setup:</b></td>
 		<td class="l8">If you place a <b>|NAME|.jpg</b> small portrait, and a <b>|NAME|_Full.jpg</b> picture of 
 			your charcter in the same directory as the .htm file, the portrait will show on the main page, and the _Full
 			picture will show on when the Full Header button is clicked to display the charcter's bio and background.<br />
 			Large Die Icon: <img src="die.png" onerror="ToggleDIV('large_die_available');">
-			<div id="large_die_available" style="display:none; color:red;" class="l8">The large die image is missing.
-				Copy ...\pcgen\preview\d20\fantasy\images\gold\die.png to your character directory,
-				usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
-			</div>
-			Small Die Icon: <img src="die_small.png" onerror="ToggleDIV('small_die_available');">
-			<div id="small_die_available" style="display:none; color:red;" class="l8">The small die image is missing.
-				Copy ...\pcgen\preview\d20\fantasy\images\gold\die_small.png to your character directory,
-				usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
+			<div id="large_die_available" style="display:none; color:red;" class="l8">The large die image is missing.  
+					  Copy ...\pcgen\preview\d20\fantasy\images\gold\die.png to your character directory, 
+					  usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
 			</div>
 			<br />
+			Small Die Icon: <img src="die_small.png" onerror="ToggleDIV('small_die_available');">
+			<div id="small_die_available" style="display:none; color:red;" class="l8">The small die image is missing.  
+					  Copy ...\pcgen\preview\d20\fantasy\images\gold\die_small.png to your character directory, 
+					  usually |DIR.PCG|, where this page is, to activate a dice rolling icon in the Saves and Initiative sections.
+			</div>
 			<br />
 		</td>
 	</tr>
@@ -5231,17 +5679,18 @@ function RemoveStat (attribute) {
 	<tr valign="top">
 		<td class="l9"><b>Color Keys:</b></td>
 		<td class="l8">
-			<span class="l8"><input class="statmodbutton" type=button value="+" name="DummyPlusButton">
-			<input class="statmodbutton" type=button value="-" name="DummyMinusButton"> are buttons to add to or subtract from
-			the value in their neighboring box and recompute many of the stats.  Temporary changes to stats or short term 
-			bonuses to saves can be tracked and recomputed this way.<br />
+			<span class="l8"><input class="statmodbutton" type=button value="+" name="DummyPlusButton"> 
+				<input class="statmodbutton" type=button value="-" name="DummyMinusButton"> are buttons to add to or subtract from
+				the value in their neighboring box and recompute many of the stats.  Temporary changes to stats or short term 
+				bonuses to saves can be tracked and recomputed this way.<br />
 			<span class="l8" style="background:#FFCCCC;">Red</span> in the Current HP box is damaged, 
-			<span class="l10" style="background:#FFFF88">Yellow</span> is for manual tracking of temporary HP bonuses like Aid.
+			<span class="l8" style="background:#FFFF88">Yellow</span> is for manual tracking of temporary HP bonuses like Aid.
 			<br /><span class="l8" style="background:LIGHTBLUE">LightBlue</span> tracks values that have changed due to temporary ability changes including Barbarian Rages.
 			<br /><span class="l8" style="background:#CCCCFF">Purple</span> Ability values and modifiers that have changed due to temporary changes.
 			<br /><span class="l10" style="color:#FFFF20; background:black">Yellow</span>/<span class="l10" style="color:#20FFFF; background:black">Cyan</span>
 		        hovers are section markers that expand/collapse sections when clicked.
-			<br /><span class="lh9"><a href="#" onclick="return(false);" class="lh9">Green</a></span> links are spells/feats/special abilities that expand with a larger description block.
+			<br /><span class="lh9"><a href="#" onclick="return(false);" class="lh9">Green</a></span> links are spells/feats/special abilities 
+				that expand with a larger description block.
 			<br /><span class="l8" >Clicking on an expanded spell box's "Spell Name" will close the expanded box.
 			<br />
 			<br /><span class="extlink"><a href="#">External HTML</a></span> links are decorated a little more than ususal so they stand out as leaving the page.  The only current usage is for linking to the output sheet for a Familiar/Mount/Follower.
@@ -5250,20 +5699,21 @@ function RemoveStat (attribute) {
 	</tr>
 	<tr valign="top">
 		<td class="l9"><b>Credits:</b></td>
-		<td class="l8"><b>csheet_fantasy_combined.htm</b> Richard O'Doherty-Gregg, arcady, Barak, Roger Host, Thomas Jannes, Chuck Pint, Eddy Anthony, Tir-Gwaith, karianna and more I am sure.  A long and glorious list of contributors.<br>
+		<td class="l8"><b>csheet_fantasy_combined.htm</b> Richard O'Doherty-Gregg, arcady, Barak, Roger Host, Thomas Jannes, Chuck Pint, Eddy Anthony, Tir-Gwaith, karianna and more I am sure.  A long and glorious list of contributors.<br />
 			<b>csheet_fantasy_laptop_ws.htm</b> Forked from the 5.16.0 version of csheet_fantasy_combined.htm by Mike Elliott, aka SatinKnights.
 		</td>
 	</tr>
 	</table>
-	<br>
+	<br />
 	<div id="evidence" class="l8" style="display:inline;"><b>Recorded Dice Rolls:</b></div>
 	<hr>
 </div>
 <!-- Main sheet layout -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr valign="top">
+<!-- more Narrow sheet changes -->
 <td width="100%">
-
+<!-- end of more Narrow sheet changes -->
 <!-- Left sheet layout -->
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr valign="top">
@@ -5353,7 +5803,7 @@ function RemoveStat (attribute) {
 <!--  START Base Attack Table (second row of main table) -->
 			<table width="100%">
 			<tr>
-				<td width="85" class="c9wB">BASE ATTACK<span class="c5w"><br />Bonus</span></td>
+				<td width="85px" class="c9wB">BASE ATTACK<span class="c5w"><br />Bonus</span></td>
 				<td class="c10sB">|ATTACK.MELEE|<br /></td>
 				<td width="85px" class="c9wB">Spell<BR>Resistance</span></td>
 				<td class="c10sB">|SR|</td>
@@ -5443,7 +5893,40 @@ function RemoveStat (attribute) {
 					<td class="c4wB">CHECK<br /></td>
 					<td class="c4wB">SPELL FAILURE<br /></td>
 				</tr>
-|FOR.0,100,1,<tr><td class="l8mB">\ARMOR.SUIT.ALL.%.NAME\<br /></td><td class="c8mB">\ARMOR.SUIT.ALL.%.TYPE\<br /></td><td class="c8mB">\ARMOR.SUIT.ALL.%.TOTALAC\<br /></td><td class="c8mB">\ARMOR.SUIT.ALL.%.MAXDEX\<br /></td><td class="c8mB">\ARMOR.SUIT.ALL.%.ACCHECK\<br /></td><td class="c8mB">\ARMOR.SUIT.ALL.%.SPELLFAIL\<br /></td></tr><tr><td colspan="6" class="c8">\ARMOR.SUIT.ALL.%.SPROP\</td></tr>, , ,1|
+|IIF(RACETYPE:Animal.OR.RACETYPE:Companion.OR.RACETYPE:Beast.OR.RACETYPE:Construct.OR.RACETYPE:Dragon.OR.RACETYPE:Magical Beast.OR.RACETYPE:Outsider.OR.RACETYPE:Shapechanger)|
+|FOR,%cnt,0,20,1,1|
+				<!-- |ARMOR.BARDING.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<tr><td class="l8mB">|ARMOR.BARDING.ALL.%cnt.NAME|<br /></td>
+						  <td class="c8mB">|ARMOR.BARDING.ALL.%cnt.TYPE|<br /></td>
+						  <td class="c8mB">|ARMOR.BARDING.ALL.%cnt.TOTALAC|<br /></td>
+						  <td class="c8mB">|ARMOR.BARDING.ALL.%cnt.MAXDEX|<br /></td>
+						  <td class="c8mB">|ARMOR.BARDING.ALL.%cnt.ACCHECK|<br /></td>
+						  <td class="c8mB">|ARMOR.BARDING.ALL.%cnt.SPELLFAIL|<br /></td></tr>
+				<tr><td colspan="6" class="c8">|ARMOR.BARDING.ALL.%cnt.SPROP|</td></tr>
+|ENDFOR|
+|ELSE|
+|FOR,%cnt,0,20,1,1|
+				<!-- |ARMOR.SUIT.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<tr><td class="l8mB">|ARMOR.SUIT.ALL.%cnt.NAME|<br /></td>
+						  <td class="c8mB">|ARMOR.SUIT.ALL.%cnt.TYPE|<br /></td>
+						  <td class="c8mB">|ARMOR.SUIT.ALL.%cnt.TOTALAC|<br /></td>
+						  <td class="c8mB">|ARMOR.SUIT.ALL.%cnt.MAXDEX|<br /></td>
+						  <td class="c8mB">|ARMOR.SUIT.ALL.%cnt.ACCHECK|<br /></td>
+						  <td class="c8mB">|ARMOR.SUIT.ALL.%cnt.SPELLFAIL|<br /></td></tr>
+				<tr><td colspan="6" class="c8">|ARMOR.SUIT.ALL.%cnt.SPROP|</td></tr>
+|ENDFOR|
+|FOR,%cnt,0,20,1,1|
+				<!-- |ARMOR.SUIT.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<tr><td class="l8mB">|ARMOR.SHIRT.ALL.%cnt.NAME|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIRT.ALL.%cnt.TYPE|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIRT.ALL.%cnt.TOTALAC|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIRT.ALL.%cnt.MAXDEX|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIRT.ALL.%cnt.ACCHECK|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIRT.ALL.%cnt.SPELLFAIL|<br /></td></tr>
+				<tr><td colspan="6" class="c8">|ARMOR.SHIRT.ALL.%cnt.SPROP|</td></tr>
+|ENDFOR|
+|ENDIF|
+				<tr><td colspan="6" height="2px"></td></tr>
 				<tr>
 					<td class="l7wB">SHIELD<br /></td>
 					<td class="c4wB">TYPE<br /></td>
@@ -5452,7 +5935,16 @@ function RemoveStat (attribute) {
 					<td class="c4wB">CHECK<br /></td>
 					<td class="c4wB">SPELL FAILURE<br /></td>
 				</tr>
-|FOR.0,100,1,<tr><td class="l8mB">\ARMOR.SHIELD.ALL.%.NAME\<br /></td><td class="c8mB">\ARMOR.SHIELD.ALL.%.TYPE\<br /></td><td class="c8mB">\ARMOR.SHIELD.ALL.%.TOTALAC\<br /></td><td class="c8mB"><br /></td><td class="c8mB">\ARMOR.SHIELD.ALL.%.ACCHECK\<br /></td><td class="c8mB">\ARMOR.SHIELD.ALL.%.SPELLFAIL\<br /></td></tr><tr><td colspan="6" class="c8">\ARMOR.SHIELD.ALL.%.SPROP\</td></tr>, , ,1|
+|FOR,%cnt,0,20,1,1|
+				<!-- |ARMOR.SHIELD.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<tr><td class="l8mB">|ARMOR.SHIELD.ALL.%cnt.NAME|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIELD.ALL.%cnt.TYPE|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIELD.ALL.%cnt.TOTALAC|<br /></td>
+						  <td class="c8mB"><br /></td><td class="c8mB">|ARMOR.SHIELD.ALL.%cnt.ACCHECK|<br /></td>
+						  <td class="c8mB">|ARMOR.SHIELD.ALL.%cnt.SPELLFAIL|<br /></td></tr>
+				<tr><td colspan="6" class="c8">|ARMOR.SHIELD.ALL.%cnt.SPROP|</td></tr>
+|ENDFOR|
+				<tr><td colspan="6" height="2px"></td></tr>
 				<tr>
 					<td class="l7wB">ITEMS<br /></td>
 					<td class="c4wB"><br /></td>
@@ -5461,7 +5953,14 @@ function RemoveStat (attribute) {
 					<td class="c4wB"><br /></td>
 					<td class="c4wB"><br /></td>
 				</tr>
-|FOR.0,100,1,<tr><td class="l8mB">\ARMOR.ITEM.ALL.%.NAME\<br /></td><td class="c8mB"><br /></td><td class="c8mB">\ARMOR.ITEM.ALL.%.ACBONUS\<br /></td><td class="c8mB"><br /></td><td class="c8mB"><br /></td><td class="c8mB"><br /></td></tr><tr><td colspan="6" class="c8">\ARMOR.ITEM.ALL.%.SPROP\</td></tr>, , ,1|
+|FOR,%cnt,0,20,1,1|
+				<!-- |ARMOR.ITEM.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<tr><td class="l8mB">|ARMOR.ITEM.ALL.%cnt.NAME|<br /></td>
+						  <td class="c8mB"><br /></td><td class="c8mB">|ARMOR.ITEM.ALL.%cnt.ACBONUS|<br /></td>
+						  <td class="c8mB"><br /></td><td class="c8mB"><br /></td><td class="c8mB"><br /></td>
+				</tr><tr><td colspan="6" class="c8">|ARMOR.ITEM.ALL.%cnt.SPROP|</td></tr>
+|ENDFOR|
+				<tr><td colspan="6" height="2px"></td></tr>
 				</table>
 			</div>
 <!-- END Compact Armor stats (main table row 3) -->
@@ -5469,19 +5968,21 @@ function RemoveStat (attribute) {
 <!-- START Comprehensive Armor stats (main table row 3)  -->
 			<div id="ArmourComprehensive" style="display:none;">
 				<br />
-|FOR,%cnt,0,100,1,1|
-				<!-- |ARMOR.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+// Barding displays for Animals or other probable mount types
+|IIF(RACETYPE:Animal.OR.RACETYPE:Companion.OR.RACETYPE:Beast.OR.RACETYPE:Construct.OR.RACETYPE:Dragon.OR.RACETYPE:Magical Beast.OR.RACETYPE:Outsider.OR.RACETYPE:Shapechanger)|
+|FOR,%cnt,0,10,1,1|
+				<!-- |ARMOR.BARDING.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
 				<table cellpadding="0" cellspacing="0" width="100%" border="0">
 				<tr>
-					<td class="c10wB" height="20" rowspan="2" width="125">|ARMOR.%cnt.NAME|<br /></td>
+					<td class="c10wB" height="20" rowspan="2" width="125">|ARMOR.BARDING.ALL.%cnt.NAME|<br /></td>
 					<td class="c7wB" width="60" height="15">TYPE</td>
 					<td class="c7wB" width="85" height="15">ARMOR BONUS</td>
 					<td class="c7wB" width="85" height="15">MAX DEX BONUS</td>
 				</tr>
 				<tr>
-					<td class="c8sB">|ARMOR.%cnt.TYPE|<br /></td>
-					<td class="c8sB">|ARMOR.%cnt.TOTALAC|<br /></td>
-					<td class="c8sB">|ARMOR.%cnt.MAXDEX|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.TYPE|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.TOTALAC|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.MAXDEX|<br /></td>
 				</tr>
 				</table>
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -5491,13 +5992,70 @@ function RemoveStat (attribute) {
 					<td class="c7wB" width="237" height="15">SPECIAL PROPERTIES</td>
 				</tr>
 				<tr>
-					<td class="c8sB">|ARMOR.%cnt.ACCHECK|<br /></td>
-					<td class="c8sB">|ARMOR.%cnt.SPELLFAIL|<br /></td>
-					<td class="c8sB">|ARMOR.%cnt.SPROP|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.ACCHECK|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.SPELLFAIL|<br /></td>
+					<td class="c8sB">|ARMOR.BARDING.ALL.%cnt.SPROP|<br /></td>
 				</tr>
 				</table>
-				<br />
 |ENDFOR|
+|ENDIF|
+|FOR,%cnt,0,10,1,1|
+				<!-- |ARMOR.SUIT.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+					<td class="c10wB" height="20" rowspan="2" width="125">|ARMOR.SUIT.ALL.%cnt.NAME|<br /></td>
+					<td class="c7wB" width="60" height="15">TYPE</td>
+					<td class="c7wB" width="85" height="15">ARMOR BONUS</td>
+					<td class="c7wB" width="85" height="15">MAX DEX BONUS</td>
+				</tr>
+				<tr>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.TYPE|<br /></td>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.TOTALAC|<br /></td>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.MAXDEX|<br /></td>
+				</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td class="c6wB" height="15" width="60">CHECK PENALTY</td>
+					<td class="c6wB" width="60" height="15">SPELL FAILURE</td>
+					<td class="c7wB" width="237" height="15">SPECIAL PROPERTIES</td>
+				</tr>
+				<tr>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.ACCHECK|<br /></td>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.SPELLFAIL|<br /></td>
+					<td class="c8sB">|ARMOR.SUIT.ALL.%cnt.SPROP|<br /></td>
+				</tr>
+				</table>
+|ENDFOR|
+|FOR,%cnt,0,10,1,1|
+				<!-- |ARMOR.SHIRT.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
+				<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+					<td class="c10wB" height="20" rowspan="2" width="125">|ARMOR.SHIRT.ALL.%cnt.NAME|<br /></td>
+					<td class="c7wB" width="60" height="15">TYPE</td>
+					<td class="c7wB" width="85" height="15">ARMOR BONUS</td>
+					<td class="c7wB" width="85" height="15">MAX DEX BONUS</td>
+				</tr>
+				<tr>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.TYPE|<br /></td>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.TOTALAC|<br /></td>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.MAXDEX|<br /></td>
+				</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td class="c6wB" height="15" width="60">CHECK PENALTY</td>
+					<td class="c6wB" width="60" height="15">SPELL FAILURE</td>
+					<td class="c7wB" width="237" height="15">SPECIAL PROPERTIES</td>
+				</tr>
+				<tr>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.ACCHECK|<br /></td>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.SPELLFAIL|<br /></td>
+					<td class="c8sB">|ARMOR.SHIRT.ALL.%cnt.SPROP|<br /></td>
+				</tr>
+				</table>
+|ENDFOR|
+				<table cellpadding="0" cellspacing="0" width="100%" border="0"><tr><td height="2px"></td></tr></table>
 |FOR,%cnt,0,100,1,1|
 				<!-- |ARMOR.SHIELD.ALL.%cnt.NAME| ~~ forces stop of FOR LOOP when it is empty -->
 				<table cellpadding="0" cellspacing="0" width="100%" border="0">
@@ -5525,8 +6083,8 @@ function RemoveStat (attribute) {
 					<td class="c8sB">|ARMOR.SHIELD.ALL.%cnt.SPROP|<br /></td>
 				</tr>
 				</table>
-				<br />
 |ENDFOR|
+				<table cellpadding="0" cellspacing="0" width="100%" border="0"><tr><td height="2px"></td></tr></table>
 |%ARMOR.ITEM.1|
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
 				<tr>
@@ -5668,6 +6226,58 @@ function RemoveStat (attribute) {
 			</tr>
 			</table>
 <!-- End of languages table (still inside the SkillsCompact Table) -->
+<!-- Start of Archetypes table  == TODO: Benefit if longer than the Description. -->
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+			<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="c10yB"><a name="#" onClick="ToggleDIV('archetypes');">ARCHETYPES</a></td>
+			</tr>
+			<tr>
+				<td width="100%" class="t7s">
+					<div id="archetypes" class="l8" style="display:none;">
+						<table width="100%" cellspacing="0" cellpadding="5">
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%archetype,<tr><td class="l8">,<tr><td class="l8g">)|
+									&nbsp;<b>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|&nbsp;&bull;&nbsp;</b>
+|IIF(TEXT.LENGTH.ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.BENEFIT.GT.TEXT.LENGTH.ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.DESC)|
+|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.BENEFIT|<BR>
+|ELSE|
+|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.DESC|<BR>
+|ENDIF|
+								</td>
+						</tr>
+|ENDFOR|
+						</table>
+					</div>
+				</td>
+			</tr>
+			</table>
+|ENDIF|
+<!-- STOP Archetypes Table -->
+<!-- START Afflictions Table -->
+|IIF(count("ABILITIES";"CATEGORY=Afflictions";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+			<table width="100%" cellspacing="0" cellpadding="0" summary="Affliction Table">
+			<tr>
+				<td class="c10oB"><a name="#" onClick="ToggleDIV('afflictions');">AFFLICTIONS</a></td>
+			</tr>
+			<tr>
+				<td width="100%" class="t7s">
+					<div id="afflictions" class="l8" style="display:inline;">
+						<table width="100%" cellspacing="0" cellpadding="5">
+|FOR,%affliction,0,count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%affliction,<tr><td class="l8">,<tr><td class="l8g">)|
+									&nbsp;<b>|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction|&nbsp;&bull;&nbsp;</b>
+|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction.DESC|</td>
+								</td>
+						</tr>
+|ENDFOR|
+						</table>
+					</div>
+				</td>
+			</tr>
+			</table>
+|ENDIF|
+<!-- STOP Afflictions Table -->
 <!-- START Domains stats (main table row 3) -->
 			<div id="DomainsHeaderOnly" style="display:inline;">
 |%DOMAIN.1|
@@ -5691,11 +6301,33 @@ function RemoveStat (attribute) {
 						</tr></table>
 					</td></tr>
 				<tr>
-					<td class="lt8sB">Domain<br /></td>
+					<td class="ct8sB">Domain<br /></td>
 					<td class="lt8sB">Granted Power<br /></td>
 				</tr>
 <!--Bjorn Ehlert: The use of COUNT[DOMAINS]+1 doesn't result in empty tds at the end of the table-->
 |FOR.1,COUNT[DOMAINS]+1,1,<tr><td class="ct8s">\DOMAIN.%\<br /></td><td class="lt8s">\DOMAIN.%.POWER\<br /></td></tr>, , ,1|
+|%|
+|%DEITY.SA|
+				<tr>
+					<td class="ct8s">Special Abilities<br /></td>
+					<td class="lt8s">|DEITY.SA|<br /></td>
+				</tr>
+|%|
+|%DOMAIN.1|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=DomainPower")>0)|
+|FOR,%domainPower,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=DomainPower")-1,1,0|
+				<tr>
+					<td class="ct8s">|ABILITYALL.Special Ability.%domainPower.TYPE=DomainPower|<br /></td>
+					<td class="lt8s">
+|IIF(TEXT.LENGTH.ABILITYALL.Special Ability.%domainPower.TYPE=DomainPower.BENEFIT:0)|
+|ABILITYALL.Special Ability.%domainPower.TYPE=DomainPower.DESC|
+|ELSE|
+|ABILITYALL.Special Ability.%domainPower.TYPE=DomainPower.BENEFIT|
+|ENDIF|
+						<br /></td>
+					</tr>
+|ENDFOR|
+|ENDIF|
 				</table>
 |%|
 			</div>
@@ -5932,7 +6564,6 @@ function RemoveStat (attribute) {
 <!-- END MISC Companions table -->
 <!-- MISC magic table -->
 |%MISC.MAGIC|
-
 			<table width="100%" cellspacing="0" cellpadding="0">
 			<tr>
 				<td class="c10yB"><a name="#" onClick="ToggleDIV('misc.magic');">MAGIC</a></td>
@@ -5941,7 +6572,7 @@ function RemoveStat (attribute) {
 				<td class="l8">
 					<div id="misc.magic" style="display:none;">
 						<span class="notes">|MISC.MAGIC|</span>
-						<div id="MagicNotes" class="l8" style="display:inline;">|NOTE.ALL.<b>.</b>.<br>|</div>
+						<div id="MagicNotes" class="l8" style="display:inline;">|NOTE.ALL.<b>.</b>.<br />|</div>
 					</div>
 				</td>
 			</tr>
@@ -6123,6 +6754,8 @@ function RemoveStat (attribute) {
 				</table>
 			</div>
 <!-- END Ammunition stats (main table row 3) -->
+<!-- Start of Narrow sheet moved credits -->
+<!-- End of Narrow sheet moved credits -->
 			</td>
 		</tr>
 <!-- END MAIN table -->
@@ -6130,9 +6763,14 @@ function RemoveStat (attribute) {
 	</tr>
 	</table>
 </td> <!-- Main Table Left finished -->
-</tr><tr> <!-- The Difference between SatinKnights-1024 and SatinKnights-800.  We stay with one column here instead. -->
+</tr><tr> <!-- The Narrow sheet vs WS sheet.  We stay with one column here instead. -->
 <td width="100%"> <!-- Main Table Right Start -->
 	<table width="100%" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+		<td width="100%">
+			<!-- Narrow sheet block move of "created by and buttons block" -->
+		</td>
+	</tr>
 	<tr valign="top">
 		<td width="100%">
 <!-- The table being started here called SkillsCompactNot is really a table containing all sorts of stuff as the right 1/2 of the screen -->
@@ -6167,8 +6805,28 @@ function RemoveStat (attribute) {
 		</td></tr>
 <!-- END TEMPLATE table -->
 |%|
+<!-- Start of Temporary Bonuses table -->
+|%COUNT[TEMPBONUSNAMES]|
+		<tr><td>
+			<table width="100%" cellspacing="0" cellpadding="2">
+			<tr>
+				<td class="c9wB">Temporary Bonuses Applied</td>
+			</tr>
+			<tr>
+				<td width="100%" class="l8"> 
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
+|IIF(%temp:0)|
+|ELSE|
+	&bull;&nbsp;
+|ENDIF|
+|TEMPBONUS.%temp|
+|ENDFOR|
+				</td>
+			</tr>
+			</table>
+		</td></tr>
+|%|
 <!-- Start of special abilities table (still inside the SkillsCompact Table) -->
-
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
 		<tr><td>
 			<table width="100%" cellspacing="0" cellpadding="2">
@@ -6196,6 +6854,26 @@ function RemoveStat (attribute) {
 			</div>
 		</td></tr>
 |ENDIF|
+<!-- START Animal Tricks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick")>0)|
+		<tr>
+			<td class="lt9mB" width="100%">
+				<table width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td class="c10yB"><a name="#" onclick="ToggleDIV('AnimalTricks');">ANIMAL TRICKS</a></td>
+				</tr>
+				<tr>
+					<td width="100%" class="l8">
+						<div id="AnimalTricks" style="display:inline;" class="l8">
+								  |ABILITYALLLIST.Special Ability.TYPE=AnimalTrick|
+						</div>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+|ENDIF|
+<!-- STOP Animal Tricks Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
 		<tr><td>
 			<table width="100%" cellspacing="0" cellpadding="2">
@@ -6260,20 +6938,36 @@ function RemoveStat (attribute) {
 				</tr>
 				</table>
 			</div>
-
 			<div id="FeatsComprehensive" style="display:none;">
 				<table width="100%" cellspacing="0" cellpadding="2">
     				<tr>
 	    				<td class="c10yB" colspan="2"><a name="#" onClick="CycleFeats();">FEATS</a></td>
     				</tr>
     				<tr>
-     					<td class="lt8sB" width="40%">NAME</td>
-     					<td class="lt8sB" width="60%">DESCRIPTION</td>
+     					<td class="lt8sB" width="20%">NAME</td>
+     					<td class="lt8sB" width="80%">SHORT DESCRIPTION</td>
     				</tr>
 |FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
      					<td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>
      					<td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.DESC|</td>
+    				</tr>
+|ENDFOR|
+				</table>
+			</div>
+			<div id="FeatsBenefitDiv" style="display:none;">
+				<table width="100%" cellspacing="0" cellpadding="2">
+    				<tr>
+	    				<td class="c10yB" colspan="2"><a name="#" onClick="CycleFeats();">FEATS</a></td>
+    				</tr>
+    				<tr>
+     					<td class="lt8sB" width="20%">NAME</td>
+     					<td class="lt8sB" width="80%">LONGER BENEFIT DESCRIPTION</td>
+    				</tr>
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     					<td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>
+     					<td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.BENEFIT|</td>
     				</tr>
 |ENDFOR|
 				</table>
@@ -6357,7 +7051,7 @@ function RemoveStat (attribute) {
 		<tr>
 			<td colspan="4" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
 			<td colspan="2" class="ct8"><i>Range:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
-			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT| |SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
+			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
 		</tr>
 		<tr>
 			<td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
@@ -6408,7 +7102,7 @@ function RemoveStat (attribute) {
 		<tr>
 			<td colspan="4" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
 			<td colspan="2" class="ct8"><i>Range:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
-			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT| |SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
+			<td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</td>
 		</tr>
 		<tr>
 			<td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
@@ -6458,7 +7152,7 @@ function RemoveStat (attribute) {
 	<div id="Class.Regular.|%class|.|%spellbook|.|%spell|.|%level|" style="display:none;" width="100%">
 		<table width="100%" cellspacing="0" cellpadding="2" border=3 bordercolor="#8888CC">
 		<tr>
-			<td class="lt9mB" width="25%">|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|
+			<td class="lt9mB" width="25%">|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL| 
 				<a name="#" onclick="ToggleDIV('Class.Regular.|%class|.|%spellbook|.|%spell|.|%level|');">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a></td>
   			<td class="ct8" width="5%"><i>Lvl:</i><br />|%level|</td>
 			<td class="ct8" width="5%"><i>DC:</i><br/>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
@@ -6517,8 +7211,9 @@ function RemoveStat (attribute) {
 <!-- End Known Spells -->
 		</td></tr>
 	</table>  <!-- End of Right half of page skills table (finally!) -->
-				<br /><span class="header"> PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.<br />
-		       		For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</span>
+	<!-- Narrow Sheet credits moved here. -->
+	<br /><span class="header"> PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.<br />
+		For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</span>
 	</td>
 </tr>
 </table>  <!-- End the whole table (finally!) -->
