@@ -49,6 +49,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -222,6 +223,22 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 					+ ReferenceUtilities.joinLstFormat(removedItems,
 							"|.CLEAR.", true));
 		}
+
+		Changes<ChooseResultActor> listChanges =
+				context.getObjectContext().getListChanges(obj,
+					ListKey.CHOOSE_ACTOR);
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			for (ChooseResultActor csa : listAdded)
+			{
+				if (csa.getSource().equals(getTokenName()))
+				{
+					returnList.add(Constants.LST_PRECENTLIST);
+				}
+			}
+		}
+
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();
 		if (mtl != null)
