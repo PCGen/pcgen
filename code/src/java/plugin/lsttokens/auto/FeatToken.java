@@ -31,6 +31,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -95,7 +97,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							+ ": " + value);
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
 
 		CDOMReference<AbilityList> abilList = AbilityList
 				.getAbilityListReference(category, nature);
@@ -131,8 +133,9 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			else if ("%LIST".equals(token))
 			{
-				ChooseResultActor cra = this;
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+				ConditionalChoiceActor cca = new ConditionalChoiceActor(this);
+				edgeList.add(cca);
+				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cca);
 			}
 			else
 			{
@@ -174,7 +177,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				return new ParseResult.Fail("   (Did you put feats after the " + "PRExxx tags in "
 								+ getFullName() + ":?)");
 			}
-			for (AssociatedPrereqObject edge : edgeList)
+			for (PrereqObject edge : edgeList)
 			{
 				edge.addPrerequisite(prereq);
 			}
