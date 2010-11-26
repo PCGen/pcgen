@@ -20,7 +20,7 @@ Masterwork		KEY:MWORKT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Too
 
 ###Block: Arcane Bonded Objects
 # Modifier Name	Unique Key		Naming Format	Naming Option		Type						Cost		Visible		Type granted	Source Page		Required Type										Special Property
-Bonded Object	KEY:BONDED_OBJECT	FORMATCAT:PARENS	NAMEOPT:TEXT=Bonded	TYPE:Amulet.Ring.Staff.Wand.Weapon	COST:200	VISIBLE:QUALIFY	ITYPE:Bonded	SOURCEPAGE:p.78	PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood,Amulet,Wand,Staff	SPROP:Can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared.
+Bonded Object	KEY:BONDED_OBJECT	FORMATCAT:PARENS	NAMEOPT:TEXT=Bonded	TYPE:Amulet.Ring.Staff.Wand.Weapon	COST:200	VISIBLE:QUALIFY	ITYPE:Bonded	SOURCEPAGE:p.78	PREMULT:2,[PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood],[PRETYPE:1,Amulet,Ring,Staff,Wand,Weapon]	SPROP:Can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared.
 
 ###Block: Thrown Ammunition workaround
 # Modifier Name	Unique Key		Cost		Visible	Modify the item cost
