@@ -994,13 +994,17 @@ public class AbilityUtilities
 		{
 			mfg = Globals.getContext().ref.getManufacturer(Ability.class,
 					category);
-			includeAllAbilities = category.isAllAbilityTypes();
+			includeAllAbilities = category.getAbilityCategory().equalsIgnoreCase(
+				category.getKeyName());
 		}
 		else
 		{
 			mfg = Globals.getContext().ref.getManufacturer(Ability.class,
 					parent);
-			includeAllAbilities = true;
+			includeAllAbilities =
+					category.isAllAbilityTypes()
+						|| category.getAbilityCategory().equalsIgnoreCase(
+							category.getKeyName());
 		}
 		Collection<Ability> allObjects = mfg.getAllObjects();
 		if (includeAllAbilities)
