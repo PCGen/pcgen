@@ -97,6 +97,9 @@ ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 
 ###Block: Prestige Classes --------------------------
 
+# Loremaster
+ABILITYCATEGORY:Loremaster Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret	PLURAL:Loremaster Secrets	DISPLAYLOCATION:Class Abilities
+
 
 # Master Category
 ABILITYCATEGORY:Intelligent Item											CATEGORY:Intelligent Item						VISIBLE:NO
