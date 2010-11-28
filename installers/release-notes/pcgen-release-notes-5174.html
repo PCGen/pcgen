@@ -1,0 +1,722 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.17.4</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.17.4</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.17.4</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.17.4</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.17.4</a></h2>
+
+
+<p>PCGen v5.17.4 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work.  
+Please give it a shot and let us know how it works for you.
+Some notable changes in this release are listed below. 
+</p><p>
+We are also working away on the    
+<a href="http://wiki.pcgen.org/index.php?title=Release_6.0.x">next big version</a> 
+although much of that work is currently behind the scenes. We welcome your input,
+just comment on the wiki pages or post to the <a href="http://games.groups.yahoo.com/group/pcgen/"></a>PCGen mailing list</a> 
+.</p>
+<ul>
+<li>Large speed improvements.</li>
+</ul>
+
+<h3>New Sources</h3>
+
+<p>The following new sources were added in 5.17.4</p>
+
+<ul>
+<li>[Paizo] Advanced Player's Guide</li>
+<li>[Paizo] Pathfinder Chronicles: Heart of the Jungle</li>
+<li>[Paizo] Pathfinder Companion: Qadira, Gateway to the East</li> 
+<li>[Paizo] Pathfinder Companion: Sargava, the Lost Colony</li>
+<li>[Paizo] Pathfinder: Serpent's Skull Player's Guide</li>
+<li>[Rite] 101 1st level spells</li>
+</ul>
+
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 29 November, 2010.</p>
+
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.17.4 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_full.zip?download">pcgen5174_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_partial.zip?download">pcgen5174_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_win_install.exe?download">pcgen5174_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_mac_install.dmg?download">pcgen5174_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5174_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h3><a name="ChangeLog">Change Log for 5.17.4</a></h3>
+<h4>        New Data Source Development
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-2'>NEWSOURCE-2</a>] -         [DragonWing Games] BP - Into the Green
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-4'>NEWSOURCE-4</a>] -         [Distant Horizons Games] The Practical Enchanter
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-5'>NEWSOURCE-5</a>] -         [Paizo] Pathfinder Chronicles: Campaign Setting
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-6'>NEWSOURCE-6</a>] -         [Paizo] Pathfinder Chronicles: Guide to the River Kingdoms
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-7'>NEWSOURCE-7</a>] -         [Paizo] Pathfinder Companion: Cheliax, Empire of Devils
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-8'>NEWSOURCE-8</a>] -         [Paizo] Pathfinder conversion sets for Rise of the Runelords
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-9'>NEWSOURCE-9</a>] -         [Paizo] conversion sets for Curse of the Crimson Throne
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-10'>NEWSOURCE-10</a>] -         [Paizo] Pathfinder conversion sets for Second Darkness
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-12'>NEWSOURCE-12</a>] -         [Distant Horizons Games] Distinctions &amp; Demerits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-15'>NEWSOURCE-15</a>] -         [Paizo] Pathfinder: Council of Thieves Player's Guide
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-16'>NEWSOURCE-16</a>] -         [Paizo] Pathfinder Adventure Path: Kingmaker Player's Guide
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-21'>NEWSOURCE-21</a>] -         [Paizo] Pathfinder Chronicles: Heart of the Jungle
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-22'>NEWSOURCE-22</a>] -         [Paizo] Pathfinder Companion: Sargava, the Lost Colony
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-23'>NEWSOURCE-23</a>] -         [Rite] 101 1st level spells
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-27'>NEWSOURCE-27</a>] -         Pathfinder Companion: Qadira, Gateway to the East
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-29'>NEWSOURCE-29</a>] -         [Paizo] Pathfinder: Serpent's Skull Player's Guide 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-32'>NEWSOURCE-32</a>] -         [Paizo] Advanced Player's Guide
+</li>
+</ul>
+
+<h4>      Code Bug
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-19'>CODE-19</a>] -         Output Display isn't doing the Choice Selection On Output (Choice) properly with CHOOSE:ABILITY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-28'>CODE-28</a>] -         Gender selection is not being properly saved in 5.17.1
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-41'>CODE-41</a>] -         BONUS:DOMAIN|NUMBER not working on Class Level Lines
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-42'>CODE-42</a>] -         Unable to remove a selected domain once it's assigned
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-43'>CODE-43</a>] -         NPE 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-53'>CODE-53</a>] -         Spell list for sorcerers missing from GMGen Initiative panel
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-57'>CODE-57</a>] -         Data Converter does not mirror directory of converted data on output
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-64'>CODE-64</a>] -         PCG relative file path to companion
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-65'>CODE-65</a>] -         5.16 CHOOSE:SPELLS uses ANY with restriction, needs automatic conversion to ALL
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-66'>CODE-66</a>] -         unconstructed reference tracking is not working when getManufacturer is used
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-69'>CODE-69</a>] -         Gender Selection not 'Applying'
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-70'>CODE-70</a>] -         CHOOSE:SHIELDPROF (and others) not converting correctly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-75'>CODE-75</a>] -         TYPE (Global) and ALTTYPE (Equipment) do not unparse .REMOVE.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-76'>CODE-76</a>] -         CHOOSE: with TITLE= would fail to parse correctly if more than one PIPE is present
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-77'>CODE-77</a>] -         Domain LST FEAT token does not unparse .CLEAR
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-78'>CODE-78</a>] -         Equipment and EquipmentModifier SPROP tokens do not unparse .CLEAR
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-79'>CODE-79</a>] -         Template HD and LEVEL do not unparse .CLEAR
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-81'>CODE-81</a>] -         UMULT (Global) does not unparse .CLEAR
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-82'>CODE-82</a>] -         AUTO:EQUIP Adds '0' of item
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-84'>CODE-84</a>] -         CSKILL does not get processed on Class Level Lines
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-85'>CODE-85</a>] -         FAVCLASS may not work with LEVEL: token in Template LST
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-86'>CODE-86</a>] -         Ability PC Qualifier makes bad casting assumption
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-87'>CODE-87</a>] -         SPELLLEVEL has Prereq Sensitivity
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-88'>CODE-88</a>] -         AUTO:ARMORPROF|%LIST and AUTO:SHIELDPROF|%LIST doesn't work
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-89'>CODE-89</a>] -         Ability with MOVECLONE is not visible
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-90'>CODE-90</a>] -         SPELLLEVEL will only add to a Class'es default list
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-91'>CODE-91</a>] -         MOVECLONE throws NumberFormatException with formula number i.e. 2.5 and 1/2
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-92'>CODE-92</a>] -         Automatic Spells not added when 'non-default' SPELLLIST is used
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-93'>CODE-93</a>] -         SPELLS tag not working on CLASS LINE or CLASS LEVEL LINE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-100'>CODE-100</a>] -         CHOOSE:SKILL| QUALIFIER - CROSSCLASS and EXCLUSIVE not working
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-101'>CODE-101</a>] -         AUTO:ARMORPROF|%LIST not apply CHOOSE Selection
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-118'>CODE-118</a>] -         Spell Editor: CLASSES entries do not get saved
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-119'>CODE-119</a>] -         Experience preference is not accessible if GMGen open
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-120'>CODE-120</a>] -         SPELLLEVEL fails to add a spell to a PC
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-121'>CODE-121</a>] -         FAVCLASS output is limited to &quot;legacy&quot; Favored Class
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-122'>CODE-122</a>] -         Converter problem: SEVERE Unable to unparse: CHOOSE:FEAT=Weapon Focus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-127'>CODE-127</a>] -         Initiative Tool - Duplicate PC function fails with &quot; character has already been loaded&quot; error
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-133'>CODE-133</a>] -         STAT MOD Formula cannot use &quot;SCORE&quot; for any variable except the SCORE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-134'>CODE-134</a>] -         NPE when loading up Alice
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-135'>CODE-135</a>] -         Load Screen - CUSTOM creates a PCC with a NULL SOURCEWEB.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-136'>CODE-136</a>] -         Removing a level does not reduce current xp
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-137'>CODE-137</a>] -         Spell Editor: Spell copy loses classes and domains
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-138'>CODE-138</a>] -         Class Editor: ADD:ABILITY does not show on advanced page
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-139'>CODE-139</a>] -         Class Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-140'>CODE-140</a>] -         Domain Editor: Spells lost on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-141'>CODE-141</a>] -         Feat Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-142'>CODE-142</a>] -         Race Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-143'>CODE-143</a>] -         Skill Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-144'>CODE-144</a>] -         Spell Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-145'>CODE-145</a>] -         Template Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-146'>CODE-146</a>] -         Source Editor: Errors in console on save
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-147'>CODE-147</a>] -         Source Editor - Cannot add PCC file
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-151'>CODE-151</a>] -         NPE - Loading 5.16.1 pcg in Trunk (5.17.4-dev) Issue #2
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-153'>CODE-153</a>] -         Modifying Alice - I tried to remove 3 Level of Alice to get the Add to work- ConcurrentModError
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-154'>CODE-154</a>] -         From TEST-40 NPE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-155'>CODE-155</a>] -         CHOOSE:SPELLS [KNOWN] doesn't leaking context - 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-156'>CODE-156</a>] -         LST Converter can get stuck at Game Mode
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-157'>CODE-157</a>] -         LST Converter leaks memory
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-162'>CODE-162</a>] -         ADD:CLASSSKILL on CLASS LINE does not Save to the PCG file
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-164'>CODE-164</a>] -         ADD:FEAT in Campaign File causes program to crash at startup
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-166'>CODE-166</a>] -         CSKILL on Class Level line is ignored
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-167'>CODE-167</a>] -         Classes Editor - Removed level entries are persisted
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-168'>CODE-168</a>] -         Deity Editor - ITEM and PANTHEON save problems
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-169'>CODE-169</a>] -         LST Editor: New Custom type gets added each edit cycle
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-172'>CODE-172</a>] -         Domain Editor: Weapon prof not saved
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-173'>CODE-173</a>] -         LST Editors: Vision tag is duplicated
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-174'>CODE-174</a>] -         Language Editor: TYPE does not get selected
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-176'>CODE-176</a>] -         Load Sources with PC loads incompatible and duplicate sources
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-178'>CODE-178</a>] -         When using SAB on a CLASS line, CL always evaluates to 0
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-181'>CODE-181</a>] -         Race file - FEAT not adding the FEAT
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-182'>CODE-182</a>] -         Parsing Bug in Formula
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-183'>CODE-183</a>] -         Export rejecting INTVAL in VAR filters
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-184'>CODE-184</a>] -         Bio Setting Bug
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-185'>CODE-185</a>] -         TokenConverter Bug
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-187'>CODE-187</a>] -         Improved Error Reporting - CHOOSE:USERINPUT
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-189'>CODE-189</a>] -         Severe Errors in Trunk with 'KIT:1|x'
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-206'>CODE-206</a>] -         Error when trying to create a new feat with List Editors
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-207'>CODE-207</a>] -         CHOOSE:USERINPUT not accepting NUMCHOICES or |1|
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-208'>CODE-208</a>] -         SubClassLevels that exist in base class are not properly added to PC
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-209'>CODE-209</a>] -         Title from CHOOSE:USERINPUT is not being displayed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-214'>CODE-214</a>] -         MOVEADD building off of base speed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-216'>CODE-216</a>] -         CHOOSE:SPELLS not backwards compatible with 5.16.  ANY vs. ALL for CHOOSE:SPELLS|x
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-219'>CODE-219</a>] -         Autoload of a missing source fails with an NPE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-230'>CODE-230</a>] -         CHOOSE:SKILL|TYPE=Craft,RANKS=3 gives 3 or Less not 3 or more for 5.17
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-233'>CODE-233</a>] -         Tests fail when run in single VM
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-239'>CODE-239</a>] -         BONUS:SLOTS|ROBE|-1 -&gt; Character can always equip first item
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-242'>CODE-242</a>] -         Raven Familiar is getting the Language Selection Pop up box twice.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-243'>CODE-243</a>] -         NPE when invalid location given to kit GEAR tag
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-245'>CODE-245</a>] -         Some Qualifiers ignore bracketed context content
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-246'>CODE-246</a>] -         Innate Spell LONG Range displaying incorrectly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-247'>CODE-247</a>] -         Bonus levels for prestige classes saved with error
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-249'>CODE-249</a>] -         Character TAB Preview Display - Portrait is distorted
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-250'>CODE-250</a>] -         Blank character in GMGen causing NPE's
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-280'>CODE-280</a>] -         Crash on Launching GMGen
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-283'>CODE-283</a>] -         Duplicate button not working
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-346'>CODE-346</a>] -         SERVESAS doesn't working in a multipart prexxx
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-348'>CODE-348</a>] -         GMGen:Initiative - Cannot change the name of those created with the &quot;duplicate&quot; function
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-351'>CODE-351</a>] -         GMGen:Initiative - Formatting of combatant details on RHS is not clear
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-354'>CODE-354</a>] -         PCGen no longer saves gui options correctly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-360'>CODE-360</a>] -         BONUS:MOVEADD|TYPE.%LIST|10  w/ CHOICE adds %LIST
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-362'>CODE-362</a>] -         Groups (e.g. TYPE=x) don't properly resolve for child categories
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-363'>CODE-363</a>] -         File Picker for Characters no longer remembers directories
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-364'>CODE-364</a>] -         OUTPUTNAME:[NAME] strips all trailing parentheses
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-367'>CODE-367</a>] -         Use of Racial KIT breaks ADD:SPELLCASTER bonus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-369'>CODE-369</a>] -         NPE - Applying HASTE via Temp Bonus to a Kit Shadow causes break down.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-370'>CODE-370</a>] -         PCGen takes approximate 3 minutes to load a character
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-371'>CODE-371</a>] -         UI vs. OS Sheets - if a FEAT / ABILITY has a COST other than (1) then the (x#) is COST * TAKEN instead of just TAKEN
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-372'>CODE-372</a>] -         Vars attached to Domains aren't being removed from the PC when the Domain is removed.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-373'>CODE-373</a>] -         TEMPBONUS not saved correctly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-376'>CODE-376</a>] -         Batch processing of PCs failing
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-377'>CODE-377</a>] -         Code Capture with Performance hit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-378'>CODE-378</a>] -         SEVERE AWT-EventQueue-1 InfoSkills:1273 Saved splitpane loc of 621
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-379'>CODE-379</a>] -         PDF export does not default to character's folder
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-381'>CODE-381</a>] -         Export to PDF is appending '..pdf'  note DOUBLE Periods.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-384'>CODE-384</a>] -         False Errors for new MULT w/ CHOOSE detector
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-385'>CODE-385</a>] -         Output Sheet vs. UI - CHOOSE w/ STACK:YES is not displaying the Choices, instead show x2, x3, etc.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-389'>CODE-389</a>] -         CHOOSE:FEATSELECTION does not use primitives or qualifiers
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-390'>CODE-390</a>] -         Can't load my homebrews -  can I get a coder to interpret this?
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-391'>CODE-391</a>] -         TEST-47 Bug Report
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-393'>CODE-393</a>] -         Multiple belt pouches not showing up on output sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-394'>CODE-394</a>] -         Error in weights showing up on output sheets
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-395'>CODE-395</a>] -         ParentThing1 is doubling up the VFEAT
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-396'>CODE-396</a>] -         Concurrent Mod Exception when Temp Bonus removed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-400'>CODE-400</a>] -         TEST-47 Bug Report #4 Error with ParentTypeThing2
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-401'>CODE-401</a>] -         AUTO:FEAT does not unparse %LIST
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-402'>CODE-402</a>] -         AUTO:FEAT fails to apply prerequisites to %LIST
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-403'>CODE-403</a>] -         Autobuild has extra plugin jars
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-404'>CODE-404</a>] -         Inquisitor Favored Class Bonus does not &quot;take/stick&quot;
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-405'>CODE-405</a>] -         Ability lists not respecting TYPE in sub-categories
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-407'>CODE-407</a>] -         UI - HIDETYPE no longer working // ABILITYCATEGORY is leaking to children pools
+</li>
+</ul>
+                    
+<h4>      Code New Feature
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-80'>CODE-80</a>] -         CHOOSE:SCHOOLS should catch problems at load (e.g. misspellings)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-132'>CODE-132</a>] -         Languages &quot;SKILL&quot; Button assumes only 1 skill assigns lang
+</li>
+</ul>      
+
+<h4>        Data Bug
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-18'>DATA-18</a>] -         [Pathfinder] Paladin can't access select feats - missing SERVEAS
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-21'>DATA-21</a>] -         PCTemplate with KEY: PP &gt;= 1 which contains an equals sign (prohibited character in a key)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-24'>DATA-24</a>] -         Ability Focus for the bodak's death gaze missing
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-26'>DATA-26</a>] -         Shadow Companion should only have 1 HD to avoid confusing HP popup
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-31'>DATA-31</a>] -         Familiars get best of Dex or Str for Natural Attacks
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-35'>DATA-35</a>] -         Loremaster secrets have Prerequisites but do not tell you what they are.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-40'>DATA-40</a>] -         Barbarian Fast Move needs COUNT surrounded by var(&quot; &quot;)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-41'>DATA-41</a>] -         Shorten overly long directory paths
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-43'>DATA-43</a>] -         Arcane Strike feat error (only valid for Wizard class, not all Arcane classes)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-44'>DATA-44</a>] -         SOURCEPAGES incorrect for Equipment
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-60'>DATA-60</a>] -         Burst ~ Xeph move bonus is wrong (doesn't round TL/4 in 10*(TL/4)+10)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-62'>DATA-62</a>] -         [PATHFINDER] Half-Dragon template problems
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-64'>DATA-64</a>] -         Fix for BROKEN Armor Eqmod issue
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-67'>DATA-67</a>] -         RSRD Data has Formulas with mismatched parenthesis
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-71'>DATA-71</a>] -         Animal Tricks have issues
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-72'>DATA-72</a>] -         [Pathfinder] Barkskin spell has misplaced parenthesis
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-80'>DATA-80</a>] -         Rhino Hide armor check penalty is wrong
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-86'>DATA-86</a>] -         [AEG] Gods Prestige Class - Line 167 - CLASS:The Returned has missing Formula for the BONUS:COMBAT|xxx
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-89'>DATA-89</a>] -         Definitions of Sahuagins have wrong hit dice advancement, possibly wrong # of hands + missing race
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-90'>DATA-90</a>] -         [RSRD] Incorrect AC for robe of archmagi - ID: 1340196
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-91'>DATA-91</a>] -         Rise of the Runelords Player's Guide stays Red with new &quot;Pathfinder RPG for Game Masters&quot; source selected
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-95'>DATA-95</a>] -         Monsters' Energy Drain showing 0 levels
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-97'>DATA-97</a>] -         [RSRD] Treasure KITS have incorrect percentages
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-98'>DATA-98</a>] -         Missing 2 7th level scrolls
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-99'>DATA-99</a>] -         Energy Resistance (EPIC FEAT) works wrong
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-100'>DATA-100</a>] -         Review Skills assigned by Kits (Into the Black, DWG/BP)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-102'>DATA-102</a>] -         Calculate Staff costs automatically
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-104'>DATA-104</a>] -         AEG - Feats Source Book - Review &amp; Clean up 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-108'>DATA-108</a>] -         [RSRD] KEY:BIND instead of KEY:BLIND
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-115'>DATA-115</a>] -         [SRD/RSRD] Dragon natural attacks: Tail Slap damage bonus wrong  -- Summary: All Damages are having an issue, must investigate this.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-119'>DATA-119</a>] -         Divine Rank 0 being granted abilities it shouldn't have
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-122'>DATA-122</a>] -         Shadowdancer does not receive Shadow Illusion ability at 3rd level
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-123'>DATA-123</a>] -         Missing Spelllike abilities for Devils
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-124'>DATA-124</a>] -         Cannot select Weapon Focus (Grapple)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-127'>DATA-127</a>] -         Precise Strike is incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-151'>DATA-151</a>] -         [Pathfinder] Headband of Vast Intelligence - skill rank bonus only allows knowledge skills
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-152'>DATA-152</a>] -         Fix CHOOSE / MULT issues
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-153'>DATA-153</a>] -         PF Qadira and all PF Players Guides needs to allow APG as a precursor
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-154'>DATA-154</a>] -         Ring TYPE missing from Bonded Object eqmod PRETYPE tag
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-155'>DATA-155</a>] -         Simple Template, Young Creature, is incorrect 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-156'>DATA-156</a>] -         [Gaslight] Talents not showing up on Character Sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-158'>DATA-158</a>] -         Inquisitor Doesn't get BONUS spells.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-159'>DATA-159</a>] -         Loremaster missing class abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-161'>DATA-161</a>] -         Unique keys for Sorcerer Fey bloodline reference wrong bloodline
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-162'>DATA-162</a>] -         Animal Tricks not granted at proper level.
+</li>
+</ul>
+                    
+<h4>        Data New Feature
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-9'>DATA-9</a>] -         [SRD/RSRD] Alignment Kits to replace PREALIGN in Races
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-29'>DATA-29</a>] -         [Paizo] Pathfinder RPG Core Rulebook Errata
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-30'>DATA-30</a>] -         [Paizo] Pathfinder RPG Bestiary Errata
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-42'>DATA-42</a>] -         PCGen Enhancement Re-namer utility dataset
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-46'>DATA-46</a>] -         Finish Kit Work - Skills in 'Into the Green&quot;
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-68'>DATA-68</a>] -         5.16 &amp; Trunk Review with Improved Error Catching
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-74'>DATA-74</a>] -         Add &quot;Pathfinder RPG for Gamemasters (includes monsters)&quot; to quick sources window
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-83'>DATA-83</a>] -         Standardize Armor Types and Usage.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-107'>DATA-107</a>] -         Please change the barbarian rage AC penalty to a variable
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-118'>DATA-118</a>] -         [PF] Abilities for diseases and infections
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-120'>DATA-120</a>] -         [Pathfinder] Bestiary: Spider attack bonus with web off
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-121'>DATA-121</a>] -         Divine Ranks do not implement the speed table
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-126'>DATA-126</a>] -         Fix Magic Vestment so Armor or Shield is the choice, but leave the main spell alone
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-129'>DATA-129</a>] -         Allow Larger Weapon Wielding
+</li>
+</ul>  
+
+<h4>        Modify Token
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-6'>NEWTAG-6</a>] -         Ability-Addition Tokens to support %LIST association target
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-7'>NEWTAG-7</a>] -         CHOOSE:SCHOOLS change for PCGen 6.0
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-8'>NEWTAG-8</a>] -         CHOOSE:CHECK
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-10'>NEWTAG-10</a>] -         CHOOSE:ALIGNMENT
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-13'>NEWTAG-13</a>] -         CHOOSE:TEMPLATE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-14'>NEWTAG-14</a>] -         CHOOSE:LANG
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-16'>NEWTAG-16</a>] -         CHOOSE:EQUIPMENT
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-17'>NEWTAG-17</a>] -         CHOOSE:FEAT|
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-18'>NEWTAG-18</a>] -         CHOOSE:ABILITY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-19'>NEWTAG-19</a>] -         CHOOSE:ARMORPROFICIENCY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-20'>NEWTAG-20</a>] -         CHOOSE:SHIELDPROFICIENCY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-21'>NEWTAG-21</a>] -         CHOOSE:DOMAIN
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-22'>NEWTAG-22</a>] -         CHOOSE:DEITY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-23'>NEWTAG-23</a>] -         CHOOSE:CLASS
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-24'>NEWTAG-24</a>] -         CHOOSE:RACE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-25'>NEWTAG-25</a>] -         CHOOSE:SKILL
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-26'>NEWTAG-26</a>] -         CHOOSE:WEAPONPROFICIENCY
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-28'>NEWTAG-28</a>] -         Eliminate CHOOSE:SALIST
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-29'>NEWTAG-29</a>] -         Deprecate CHOOSE:HP in favor of CHOOSE:STRING
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-182'>NEWTAG-182</a>] -         Change behavior of PCC file tag INFOTEXT
+</li>
+</ul>
+            
+<h4>        New Token
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-5'>NEWTAG-5</a>] -         Add SORTKEY to control output sorting (global)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-225'>NEWTAG-225</a>] -         Implement new PCC file STATUS tag proposal
+</li>
+</ul> 
+
+<h4>        Output Sheet Bugs
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-1'>OS-1</a>] -         Output of two ranged weapons wielded in two hands is incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-2'>OS-2</a>] -         XSL references in DTDs are incorrect in some sheets
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-10'>OS-10</a>] -         HTML OS not showing Portraits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-13'>OS-13</a>] -         OS Display Errors
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-16'>OS-16</a>] -         preview.html has 3 weapon block limit but no overflow blocks
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-18'>OS-18</a>] -         OS PDF doesn't cap at 4 iterations
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-22'>OS-22</a>] -         Deflection and Dodge bonus - Displayed incorrectly on several Preview panel sheets.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-30'>OS-30</a>] -         Portrait not displaying in Character Sheet tab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-34'>OS-34</a>] -         When Skills and/or Ability Stats exceed a certain number, it pushes anything beyond the beginning items to a second page.
+</li>
+</ul>
+                        
+<h4>    Output Sheet New Features
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-3'>OS-3</a>] -         Expand weapons block to display bonuses from loaded ammo
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-4'>OS-4</a>] -         [preview.htm] Spell output
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-17'>OS-17</a>] -         Add BIO section to preview.html
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-19'>OS-19</a>] -         Filter out Barding from the armour box
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-20'>OS-20</a>] -         Add better indicator that a Character is encumbered.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-21'>OS-21</a>] -         Obsidian Portal text output sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-28'>OS-28</a>] -         [PF] &quot;Afflictions&quot; block to cover madness, diseases, infections, etc.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-29'>OS-29</a>] -         Display Archetypes on OS
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-33'>OS-33</a>] -         Add Animal Tricks OS Block to selected html/text sheets
+</li>
+</ul> 
+
+<h4>     Documentation Bugs
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-2'>DOCS-2</a>] -         KIT - Need to mention RACE in a kit requires !PRERACE:1,%
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-8'>DOCS-8</a>] -         Incorrect example for ARMORPROF:x for exclude
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-13'>DOCS-13</a>] -         INDEX view shows BONUS:STAT|BASESPELLSTAT &amp; BONUS:STAT|BASESPELLKNOWNSTAT shows incorrect Semicolon
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-16'>DOCS-16</a>] -         CHOOSE:SKILL|x|x|y example is incorrect
+</li>
+</ul>
+                        
+<h4>    Documentation New Features
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-10'>DOCS-10</a>] -         SPELLMEM add DESC to the List.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-23'>DOCS-23</a>] -         [Publisher] Add Rite Publishing to Publisher Permissions Page
+</li>
+</ul>
+             
+	</body>
+</html>
