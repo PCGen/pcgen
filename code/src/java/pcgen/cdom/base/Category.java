@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Set;
+
 /**
  * Category identifies an object and is used for establishing unique identity of
  * an object. A Category serves as a Category for a particular type of
@@ -55,4 +57,5 @@ public interface Category<T extends CategorizedCDOMObject<T>>
 	 */
 	String getDisplayName();
 
+	Set<String> getTypes();
 }

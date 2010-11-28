@@ -40,7 +40,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.gui.tabs.components.AddItemPanel;
 import pcgen.gui.tabs.components.FilterPanel;
@@ -354,7 +354,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	protected Map<AbilityCategory, Collection<Ability>> getAbilityList()
 	{
 		Map<AbilityCategory, Collection<Ability>> abilities = new HashMap<AbilityCategory, Collection<Ability>>();
-		Collection<Ability> list = AbilityUtilities.getAllAbilities(getCategory());
+		Collection<Ability> list = Globals.getContext().ref.getManufacturer(Ability.class, getCategory()).getAllObjects();
 		abilities.put(getCategory(), list);
 		return abilities;
 	}

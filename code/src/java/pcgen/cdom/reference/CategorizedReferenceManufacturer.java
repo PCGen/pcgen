@@ -19,11 +19,17 @@ package pcgen.cdom.reference;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Set;
 
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityUtilities;
 import pcgen.util.Logging;
 
@@ -103,15 +109,45 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	{
 		if (parentCrm != null)
 		{
+			Collection<T> allObjects = parentCrm.getAllObjects();
+			Set<Type> types = new HashSet<Type>();
+			for (String string : category.getTypes())
+			{
+				types.add(Type.getConstant(string));
+			}
+			boolean hasAll = types.isEmpty();
+			//Don't add things twice or we'll get dupe messages :)
+			Set<T> added = new WrappedMapSet<T>(IdentityHashMap.class);
+			/*
+			 * Pull in all the base objects... note this skips containsDirectly
+			 * because items haven't been resolved
+			 */
+			for (final T ability : allObjects)
+			{
+				if (hasAll || ability.containsAnyInList(ListKey.TYPE, types))
+				{
+					added.add(ability);
+					addObject(ability, ability.getKeyName());
+				}
+			}
+			/*
+			 * This now checks for what was referenced, which will implicitly
+			 * check containsDirectly of AbilityCategory
+			 */
 			Collection<CDOMCategorizedSingleRef<T>> childRefs = getReferenced();
 			for (CDOMCategorizedSingleRef<T> ref : childRefs)
 			{
 				String name = ref.getName();
 				if (parentCrm.containsObject(name) && !containsObject(name))
 				{
-					Logging.debugPrint("Found match in parent for " + category
-							+ " - " + name);
-					addObject(parentCrm.getObject(name), name);
+					T obj = parentCrm.getObject(name);
+					if (!added.contains(obj))
+					{
+						Logging.debugPrint("Found match in parent for " + category
+								+ " - " + name);
+						added.add(obj);
+						addObject(obj, name);
+					}
 				}
 				else
 				{
@@ -121,10 +157,15 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 					if (parentCrm.containsObject(undecName)
 							&& !containsObject(undecName))
 					{
-						Logging.debugPrint("Found match in parent for "
-								+ category + " - " + undecName + " - "
-								+ specifics);
-						addObject(parentCrm.getObject(undecName), undecName);
+						T obj = parentCrm.getObject(undecName);
+						if (!added.contains(obj))
+						{
+							Logging.debugPrint("Found match in parent for "
+									+ category + " - " + undecName + " - "
+									+ specifics);
+							added.add(obj);
+							addObject(obj, undecName);
+						}
 					}
 				}
 			}

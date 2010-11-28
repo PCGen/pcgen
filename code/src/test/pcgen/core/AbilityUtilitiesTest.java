@@ -29,6 +29,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.rules.context.LoadValidator;
 import pcgen.util.TestHelper;
 
 /**
@@ -90,13 +91,16 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		
 		Ability fencing = TestHelper.makeAbility("fencing", parent, "sport");
 		Ability reading = TestHelper.makeAbility("reading", parent, "interest");
-		
-		Collection<Ability> allAbilities = AbilityUtilities.getAllAbilities(parent);
+		//Throwaway is required to create it...
+		Globals.getContext().ref.getManufacturer(Ability.class, typeChild);
+		Globals.getContext().ref.validate(null);
+
+		Collection<Ability> allAbilities = Globals.getContext().ref.getManufacturer(Ability.class, parent).getAllObjects();
 		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
 		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
 		
-		allAbilities = AbilityUtilities.getAllAbilities(typeChild);
+		allAbilities = Globals.getContext().ref.getManufacturer(Ability.class, typeChild).getAllObjects();
 		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
 		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());

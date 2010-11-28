@@ -180,7 +180,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 	 */
 	private void validateCategory(AbilityCategory cat, URI source)
 	{
-		if (!cat.getAbilityTypes().isEmpty() && 
+		if (!cat.getTypes().isEmpty() && 
 			cat.getAbilityCategory().equalsIgnoreCase(
 				cat.getKeyName()))
 		{

@@ -41,7 +41,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.DescriptionFormatting;
@@ -192,7 +192,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		sourceRoot = new PObjectNode();
 
 		// We will use the global lists for this
-		Collection<Ability> coll = AbilityUtilities.getAllAbilities(currAbilityCat);
+		Collection<Ability> coll = Globals.getContext().ref.getManufacturer(Ability.class, currAbilityCat).getAllObjects();
 		addTypeNodes(typeRoot, coll);
 		addSourceNodes(sourceRoot, coll);
 	}

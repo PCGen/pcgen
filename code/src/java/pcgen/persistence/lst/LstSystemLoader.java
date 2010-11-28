@@ -602,6 +602,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		createLangBonusObject(context);
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
+		referenceAllCategories(context);
 		context.resolveDeferredTokens();
 		context.ref.validate(new LoadValidator(aSelectedCampaignsList));
 		context.resolveReferences();
@@ -625,6 +626,19 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 							+ SettingsHandler.getGame().getName());
 		}
 		context.buildTypeLists();
+	}
+
+	private void referenceAllCategories(LoadContext context)
+	{
+		GameMode gamemode = SettingsHandler.getGame();
+		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
+		{
+			/*
+			 * Yes, these are thrown away... just need to make sure the
+			 * manufacturer was built.
+			 */
+			context.ref.getManufacturer(Ability.class, cat);
+		}
 	}
 
 	public static void createLangBonusObject(LoadContext context)
@@ -676,7 +690,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		for (AbilityCategory ac : gamemode.getAllAbilityCategories())
 		{
 			//Must be a universal set if no types
-			if (ac.getAbilityTypes().isEmpty() && !ac.hasDirectReferences()
+			if (ac.getTypes().isEmpty() && !ac.hasDirectReferences()
 				&& !ac.isAllAbilityTypes())
 			{
 				if (!ac.getAbilityCategory().equalsIgnoreCase(ac.getKeyName()))

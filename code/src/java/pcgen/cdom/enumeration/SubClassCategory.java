@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -197,6 +198,11 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	public String getDisplayName()
 	{
 		return fieldName;
+	}
+
+	public Set<String> getTypes()
+	{
+		return Collections.emptySet();
 	}
 
 }

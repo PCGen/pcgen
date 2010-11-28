@@ -51,12 +51,12 @@ public class TypeToken implements AbilityCategoryLstToken
 			String typeVal = tok.nextToken();
 			if ("*".equals(typeVal))
 			{
-				if (!aCat.getAbilityTypes().isEmpty() && !errorFlagged)
+				if (!aCat.getTypes().isEmpty() && !errorFlagged)
 				{
 					Logging.log(Logging.LST_WARNING,
 						"Use of named types along with TYPE:* in category "
 							+ aCat.getDisplayName()
-							+ " is redundant. Named types " + aCat.getAbilityTypes() + " will be ignored");
+							+ " is redundant. Named types " + aCat.getTypes() + " will be ignored");
 					errorFlagged = true;
 				}
 				if (aCat.hasDirectReferences() && !errorFlagged)
@@ -78,7 +78,7 @@ public class TypeToken implements AbilityCategoryLstToken
 					Logging.log(Logging.LST_WARNING,
 						"Use of named types along with TYPE:* in category "
 							+ aCat.getDisplayName()
-							+ " is redundant. Named types " + aCat.getAbilityTypes() + "will be ignored");
+							+ " is redundant. Named types " + aCat.getTypes() + "will be ignored");
 					errorFlagged = true;
 				}
 			}

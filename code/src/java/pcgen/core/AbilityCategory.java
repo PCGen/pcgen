@@ -171,7 +171,7 @@ public class AbilityCategory implements Category<Ability>
 	 * 
 	 * @return An unmodifiable <tt>Set</tt> of type strings.
 	 */
-	public Set<String> getAbilityTypes()
+	public Set<String> getTypes()
 	{
 		if ( theAbilityTypes == null )
 		{
@@ -489,7 +489,7 @@ public class AbilityCategory implements Category<Ability>
 				getAbilityCategory());
 	}
 
-	public boolean containsAbilityDirectly(Ability ability)
+	public boolean containsDirectly(Ability ability)
 	{
 		if ( theAbilityKeys == null )
 		{
