@@ -25,9 +25,11 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.util.TestHelper;
 
 /**
  * @author andrew
@@ -70,5 +72,34 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 			"First extracted decoration is correct");
 		is(specifics.get(1), strEq("baz"),
 			"Second extracted decoration is correct");
+	}
+	
+	/**
+	 * Verify that getAllAbilities is working correctly
+	 */
+	public void testGetAllAbilities()
+	{		
+		AbilityCategory parent = new AbilityCategory("parent");
+		SettingsHandler.getGame().addAbilityCategory(parent);
+		AbilityCategory typeChild = new AbilityCategory("typeChild");
+		SettingsHandler.getGame().addAbilityCategory(typeChild);
+		typeChild.setAbilityCategory(parent.getAbilityCategory());
+		List<String> types = new ArrayList<String>();
+		types.add("sport");
+		typeChild.setAbilityTypes(types);
+		
+		Ability fencing = TestHelper.makeAbility("fencing", parent, "sport");
+		Ability reading = TestHelper.makeAbility("reading", parent, "interest");
+		
+		Collection<Ability> allAbilities = AbilityUtilities.getAllAbilities(parent);
+		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
+		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
+		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
+		
+		allAbilities = AbilityUtilities.getAllAbilities(typeChild);
+		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
+		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
+		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());
+		
 	}
 }
