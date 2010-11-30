@@ -6052,13 +6052,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-ALIGNMENTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/alignment/AlignmentnameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-VALIDFORDEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6096,13 +6089,6 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 		<!-- StatsAndChecks: Check tokens-->
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-CheckLstToken-CHECKNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/check/ChecknameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<!-- StatsAndChecks: Stat tokens-->
 		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
@@ -6129,13 +6115,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/statsandchecks/stat/StatmodToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-STATNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/stat/StatnameToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
