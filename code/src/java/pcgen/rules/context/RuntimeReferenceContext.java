@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
@@ -75,7 +76,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		CategorizedManufacturer<T> mfg = (CategorizedManufacturer<T>) catmap
@@ -97,7 +98,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return mfg;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String category)
 	{
 		Category<T> cat = getCategoryFor(cl, category);
@@ -111,7 +112,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return manufacturer;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
 	{
 		if (cl.equals(Ability.class))

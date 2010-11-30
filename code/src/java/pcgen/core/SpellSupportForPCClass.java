@@ -26,11 +26,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -261,19 +261,17 @@ public class SpellSupportForPCClass
 						* knownList.get(spellLevel).resolve(aPC, "").intValue();
 
 				// add Stat based bonus
-				final String bonusSpell = Globals.getBonusSpellMap().get(
-						String.valueOf(spellLevel));
+				BonusSpellInfo bsi = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(BonusSpellInfo.class,
+								String.valueOf(spellLevel));
 
 				if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
-						&& (bonusSpell != null) && !bonusSpell.equals("0|0"))
+						&& (bsi != null) && bsi.isValid())
 				{
-					final StringTokenizer s = new StringTokenizer(bonusSpell,
-							"|");
-					final int base = Integer.parseInt(s.nextToken());
-					final int range = Integer.parseInt(s.nextToken());
-
+					int base = bsi.getStatScore();
 					if (stat >= base)
 					{
+						int range = bsi.getStatRange();
 						total += Math.max(0, (stat - base + range) / range);
 					}
 				}
@@ -673,21 +671,15 @@ public class SpellSupportForPCClass
 
 		total += ((t * mult) + adj);
 
-		// TODO - God I hate all these strings. Return an array or list.
-		final String bonusSpell = Globals.getBonusSpellMap().get(
-				String.valueOf(spellLevel));
-
-		// TODO - Yuck. Figure out how to get rid of hardcoded "0|0"
-
-		if ((bonusSpell != null) && !bonusSpell.equals("0|0")) //$NON-NLS-1$
+		BonusSpellInfo bsi = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(BonusSpellInfo.class, String
+						.valueOf(spellLevel));
+		if ((bsi != null) && bsi.isValid())
 		{
-			final StringTokenizer s = new StringTokenizer(bonusSpell,
-					Constants.PIPE);
-			final int base = Integer.parseInt(s.nextToken());
-			final int range = Integer.parseInt(s.nextToken());
-
+			int base = bsi.getStatScore();
 			if (stat >= base)
 			{
+				int range = bsi.getStatRange();
 				total += Math.max(0, (stat - base + range) / range);
 			}
 		}

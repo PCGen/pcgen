@@ -73,7 +73,6 @@ public final class GameMode implements Comparable<Object>
 	private static PObject eqSizePenalty = new PObject();
 	private List<String> allowedModes;
 	private List<String> bonusFeatLevels = new ArrayList<String>();
-	private Map<String, String> bonusSpellMap = new HashMap<String, String>();		// key is level of bonus spell, value is "basestatscore|statrange"
 	private List<String> bonusStackList = new ArrayList<String>();
 	private List<String> bonusStatLevels = new ArrayList<String>();
 	private List<ClassType> classTypeList = new ArrayList<ClassType>();
@@ -1669,15 +1668,6 @@ public final class GameMode implements Comparable<Object>
 	public String getAddWithMetamagicMessage()
 	{
 		return addWithMetamagic;
-	}
-
-	/**
-	 * Get the bonus spell map
-	 * @return the bonus spell map
-	 */
-	public Map<String, String> getBonusSpellMap()
-	{
-		return bonusSpellMap;
 	}
 
 	/**

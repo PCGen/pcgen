@@ -102,7 +102,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<ReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		CategorizedManufacturer mfg = super.getManufacturer(cl, cat);

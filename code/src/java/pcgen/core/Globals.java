@@ -282,15 +282,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get the bonus spell map
-	 * @return bonus spell map
-	 */
-	public static Map<String, String> getBonusSpellMap()
-	{
-		return SettingsHandler.getGame().getBonusSpellMap();
-	}
-
-	/**
 	 * Get the campaign by file name
 	 * @param aName
 	 * @return Campaign

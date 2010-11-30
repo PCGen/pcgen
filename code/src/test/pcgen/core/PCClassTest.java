@@ -42,6 +42,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -600,8 +601,15 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bonusKnownRule.setDefault("Y");
 		GameMode gameMode = SettingsHandler.getGame();
 		gameMode.addRule(bonusKnownRule);
-		Globals.getBonusSpellMap().put("1", "12|8");
-		Globals.getBonusSpellMap().put("5", "20|8");
+		BonusSpellInfo bsi = new BonusSpellInfo();
+		bsi.setName("1");
+		bsi.setStatScore(12);
+		bsi.setStatRange(8);
+		context.ref.importObject(bsi);
+		bsi = new BonusSpellInfo();
+		bsi.setName("5");
+		bsi.setStatScore(20);
+		bsi.setStatRange(8);
 		assertEquals("Known 1st level where stat gives bonus and active", 3,
 			character.getSpellSupport(charClass).getKnownForLevel(1, "null", character));
 
@@ -614,7 +622,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, "null", character));
 
 		// Add spell bonus for level above known max
-		Globals.getBonusSpellMap().put("7", "12|8");
+		bsi = new BonusSpellInfo();
+		bsi.setName("7");
+		bsi.setStatScore(12);
+		bsi.setStatRange(8);
 		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, "null", character));
 
 		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, "null", character));

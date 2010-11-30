@@ -19,17 +19,14 @@ package pcgen.cdom.reference;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityUtilities;
 import pcgen.util.Logging;
 
@@ -44,7 +41,7 @@ import pcgen.util.Logging;
  *            The Class of object this CategorizedReferenceManufacturer can
  *            manufacture
  */
-public class CategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
+public class CategorizedReferenceManufacturer<T extends Loadable & CategorizedCDOMObject<T>>
 		extends
 		AbstractReferenceManufacturer<T, CDOMCategorizedSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
 		implements CategorizedManufacturer<T>
@@ -110,11 +107,7 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		if (parentCrm != null)
 		{
 			Collection<T> allObjects = parentCrm.getAllObjects();
-			Set<Type> types = new HashSet<Type>();
-			for (String string : category.getTypes())
-			{
-				types.add(Type.getConstant(string));
-			}
+			Set<String> types = category.getTypes();
 			boolean hasAll = types.isEmpty();
 			//Don't add things twice or we'll get dupe messages :)
 			Set<T> added = new WrappedMapSet<T>(IdentityHashMap.class);
@@ -124,7 +117,19 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 			 */
 			for (final T ability : allObjects)
 			{
-				if (hasAll || ability.containsAnyInList(ListKey.TYPE, types))
+				boolean use = hasAll;
+				if (!use)
+				{
+					for (String type : types)
+					{
+						if (ability.isType(type))
+						{
+							use = true;
+							break;
+						}
+					}
+				}
+				if (use)
 				{
 					added.add(ability);
 					addObject(ability, ability.getKeyName());

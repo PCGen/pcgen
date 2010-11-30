@@ -245,7 +245,7 @@ public abstract class LoadContext
 		return support.processSubToken(this, cdo, tokenName, key, value);
 	}
 
-	public <T extends CDOMObject> boolean processToken(T derivative,
+	public <T extends Loadable> boolean processToken(T derivative,
 			String typeStr, String argument) throws PersistenceLayerException
 	{
 		return support.processToken(this, derivative, typeStr, argument);

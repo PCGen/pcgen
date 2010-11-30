@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
@@ -37,7 +38,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, TransparentReferenceManufacturer<?>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<?>>();
 
-	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
+	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>>();
 
 	@Override
 	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
@@ -70,7 +71,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
@@ -91,13 +92,13 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return true;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		return getManufacturer(cl, cat.getKeyName());
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String string)
 	{
 		throw new UnsupportedOperationException(

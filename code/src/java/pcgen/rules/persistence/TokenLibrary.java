@@ -30,6 +30,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
@@ -322,7 +323,7 @@ public final class TokenLibrary
 		}
 	}
 
-	static class TokenIterator<C extends CDOMObject, T extends CDOMToken<? super C>>
+	static class TokenIterator<C extends Loadable, T extends CDOMToken<? super C>>
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 

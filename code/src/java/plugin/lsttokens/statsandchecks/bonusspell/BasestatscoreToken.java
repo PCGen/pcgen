@@ -1,14 +1,14 @@
 package plugin.lsttokens.statsandchecks.bonusspell;
 
-import java.util.Map;
-
-import pcgen.persistence.lst.BonusSpellLoader;
-import pcgen.persistence.lst.BonusSpellLstToken;
+import pcgen.cdom.content.BonusSpellInfo;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BASESTATSCORE Token
  */
-public class BasestatscoreToken implements BonusSpellLstToken
+public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 {
 
 	public String getTokenName()
@@ -16,9 +16,41 @@ public class BasestatscoreToken implements BonusSpellLstToken
 		return "BASESTATSCORE";
 	}
 
-	public boolean parse(Map<String, String> bonus, String value)
+	public Class<BonusSpellInfo> getTokenClass()
 	{
-		bonus.put(BonusSpellLoader.BASE_STAT_SCORE, value);
-		return true;
+		return BonusSpellInfo.class;
 	}
+
+	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi,
+			String value)
+	{
+		try
+		{
+			int intValue = Integer.valueOf(value).intValue();
+			if (intValue < 1)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " must be an integer >= " + 1);
+			}
+			bsi.setStatScore(intValue);
+			return ParseResult.SUCCESS;
+		}
+		catch (NumberFormatException nfe)
+		{
+			return new ParseResult.Fail(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
+		}
+	}
+
+	public String[] unparse(LoadContext context, BonusSpellInfo bsi)
+	{
+		int range = bsi.getStatScore();
+		if (range == 0)
+		{
+			return null;
+		}
+		return new String[] { String.valueOf(range) };
+	}
+
 }

@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A TransparentCategorizedReferenceManufacturer is a ReferenceManufacturer
@@ -32,7 +32,7 @@ import pcgen.cdom.base.Category;
  *            The Class of object this
  *            TransparentCategorizedReferenceManufacturer can reference
  */
-public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
+public class TransparentCategorizedReferenceManufacturer<T extends Loadable & CategorizedCDOMObject<T>>
 		extends TransparentReferenceManufacturer<T> implements
 		CategorizedManufacturer<T>
 {

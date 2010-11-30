@@ -38,10 +38,10 @@ public interface ReferenceContext
 	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String category);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat);
 
 	public Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
@@ -57,7 +57,7 @@ public interface ReferenceContext
 	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
 			String value);
 
-	public <T extends CDOMObject> void importObject(T orig);
+	public <T extends Loadable> void importObject(T orig);
 
 	public <T extends Identified> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val);
@@ -120,7 +120,7 @@ public interface ReferenceContext
 
 	public boolean validate(UnconstructedValidator validator);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(Class<T> cl, String string);
+	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(Class<T> cl, String string);
 
 	public <T extends CDOMObject> T performCopy(T obj, String copyName);
 

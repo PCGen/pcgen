@@ -22,7 +22,6 @@ import java.util.List;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
@@ -101,7 +100,7 @@ public class LoadValidator implements UnconstructedValidator
 		}
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> boolean allow(
+	public <T extends Loadable & CategorizedCDOMObject<T>> boolean allow(
 			Class<T> cl, Category<T> cat, String s)
 	{
 		if (categoryMap == null)

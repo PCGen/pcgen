@@ -23,6 +23,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 
@@ -34,7 +35,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 	private final HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
 
 	@Override
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
 	{
 		if (cl.equals(Ability.class))

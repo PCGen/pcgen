@@ -212,7 +212,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
 	}
 
-	public <T extends CDOMObject> void importObject(T orig)
+	public <T extends Loadable> void importObject(T orig)
 	{
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(orig.getClass()))
 		{
@@ -226,8 +226,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> void importCategorized(
-			CDOMObject orig, Class<T> cl)
+	private <T extends Loadable & CategorizedCDOMObject<T>> void importCategorized(
+			Loadable orig, Class<T> cl)
 	{
 		T obj = (T) orig;
 		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,

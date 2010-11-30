@@ -1,6 +1,5 @@
 /*
- * BonusSpellLevelLoader.java
- * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,89 +21,70 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.core.Globals;
+import java.net.URI;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.content.BonusSpellInfo;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-/**
- *
- * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
- */
 public final class BonusSpellLoader extends LstLineFileLoader
 {
-	/** Constant representing the base stat score */
-	public static final String BASE_STAT_SCORE = "baseStatScore";
-	/** Constant representing the stat range */
-	public static final String STAT_RANGE = "statRange";
-	/** Constant representing the level */
-	public static final String LEVEL = "level";
-
-	/** Creates a new instance of PCStatLoader */
-	public BonusSpellLoader()
-	{
-		// Empty Constructor
-	}
-
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);
-		Map<String, String> bonus = new HashMap<String, String>();
-		bonus.put(BASE_STAT_SCORE, "0");
-		bonus.put(STAT_RANGE, "0");
-		bonus.put(LEVEL, "0");
+		BonusSpellInfo bsi = new BonusSpellInfo();
+		if (colToken.hasMoreTokens())
+		{
+			bsi.setName(colToken.nextToken());
+		}
+		bsi.setSourceURI(sourceURI);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(BonusSpellLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
+				Logging
+						.errorPrint("Invalid Token - does not contain a colon: '"
+								+ token
+								+ "' in "
+								+ bsi.getClass().getSimpleName()
+								+ " "
+								+ bsi.getDisplayName() + " of " + sourceURI);
+				continue;
 			}
-			catch (Exception e)
+			else if (colonLoc == 0)
 			{
-				// TODO Handle Exception
+				Logging.errorPrint("Invalid Token - starts with a colon: '"
+						+ token + "' in " + bsi.getClass().getSimpleName() + " "
+						+ bsi.getDisplayName() + " of " + sourceURI);
+				continue;
 			}
-			BonusSpellLstToken token = (BonusSpellLstToken) tokenMap.get(key);
 
-			if (token != null)
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(bsi, key, value))
 			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Bonus Spell", sourceURI, value);
-				if (!token.parse(bonus, value))
-				{
-					Logging.errorPrint("Error parsing bonus spell :"
-						+ sourceURI.toString() + ':' + colString + "\"");
-				}
+				context.commit();
 			}
 			else
 			{
-				Logging.errorPrint("Illegal bonus spell info '" + lstLine
-					+ "' in " + sourceURI.toString());
+				context.rollback();
+				Logging.replayParsedMessages();
 			}
+			Logging.clearParseMessages();
 		}
-
-		/*
-		 * CONSIDER This is VERY deceptive to use a GET to actually perform a
-		 * SET. This should be refactored to allow a set of some sort and to
-		 * have GETs actually performing only GET operations. - thpr 11/10/06
-		 */
-		Globals.getBonusSpellMap().put(bonus.get(LEVEL),
-			bonus.get(BASE_STAT_SCORE) + "|" + bonus.get(STAT_RANGE));
+		context.ref.importObject(bsi);
 	}
 }

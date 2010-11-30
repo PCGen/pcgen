@@ -51,7 +51,6 @@ public class TokenStore
 
 		//statsandchecks.lst
 		tokenTypeList.add(StatsAndChecksLstToken.class);
-		tokenTypeList.add(BonusSpellLstToken.class);
 
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);

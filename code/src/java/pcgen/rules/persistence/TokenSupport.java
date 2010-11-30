@@ -27,7 +27,7 @@ import java.util.TreeSet;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary.SubTokenIterator;
@@ -51,7 +51,7 @@ public class TokenSupport
 	public TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
 		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>();
 
-	public <T extends CDOMObject> boolean processToken(LoadContext context,
+	public <T extends Loadable> boolean processToken(LoadContext context,
 		T derivative, String typeStr, String argument)
 		throws PersistenceLayerException
 	{
@@ -78,7 +78,7 @@ public class TokenSupport
 		return false;
 	}
 
-	public <T extends CDOMObject> List<? extends CDOMToken<T>> getTokens(Class<T> cl, String name)
+	public <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl, String name)
 	{
 		List list = tokenCache.getListFor(cl, name);
 		if (list == null)

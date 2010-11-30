@@ -17,13 +17,13 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 
 public interface UnconstructedValidator
 {
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> boolean allow(
+	public <T extends Loadable & CategorizedCDOMObject<T>> boolean allow(
 			Class<T> objClass, Category<T> cat, String key);
 
 	public boolean allowDuplicates(Class<?> objClass);

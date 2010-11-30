@@ -32,6 +32,7 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Class deals with CHECKNAME Token
@@ -57,6 +58,7 @@ public class ChecknameToken implements StatsAndChecksLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 	}
