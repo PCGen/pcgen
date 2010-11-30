@@ -75,7 +75,7 @@ public class BonusSpellInfo implements Loadable
 
 	public String getLSTformat()
 	{
-		return getKeyName() + " ";
+		return getKeyName();
 	}
 
 	public boolean isInternal()
