@@ -17,10 +17,11 @@
  */
 package pcgen.cdom.list;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMListObject;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.spell.Spell;
 
@@ -33,6 +34,7 @@ import pcgen.core.spell.Spell;
  */
 public class ClassSpellList extends CDOMListObject<Spell>
 {
+	private Set<Type> types;
 
 	/**
 	 * Returns the Spell Class object (Spell.class)
@@ -44,10 +46,12 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		return Spell.class;
 	}
 
-	@Override
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	public boolean isType(String type)
 	{
-		if (type.length() == 0)
+		if ((type.length() == 0) || (types == null))
 		{
 			return false;
 		}
@@ -58,7 +62,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		StringTokenizer tok = new StringTokenizer(type, ".");
 		while (tok.hasMoreTokens())
 		{
-			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
+			if (!types.contains(Type.getConstant(tok.nextToken())))
 			{
 				return false;
 			}
@@ -66,7 +70,13 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		return true;
 	}
 
-
-	// No additional Functionality :)
+	public void addType(Type type)
+	{
+		if (types == null)
+		{
+			types = new HashSet<Type>();
+		}
+		types.add(type);
+	}
 
 }

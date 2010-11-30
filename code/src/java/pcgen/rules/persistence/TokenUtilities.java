@@ -20,6 +20,7 @@ package pcgen.rules.persistence;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -34,7 +35,7 @@ public final class TokenUtilities
 		// Can't instantiate utility classes
 	}
 
-	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
+	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
 			LoadContext context, Class<T> cl, String s)
 	{
 		return 	getTypeOrPrimitive(context.ref.getManufacturer(cl), s);
@@ -46,7 +47,7 @@ public final class TokenUtilities
 		return getTypeReference(context.ref.getManufacturer(cl), subStr);
 	}
 
-	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
+	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
 			ReferenceManufacturer<T> rm, String s)
 	{
 		if (s.startsWith(Constants.LST_TYPE_OLD)

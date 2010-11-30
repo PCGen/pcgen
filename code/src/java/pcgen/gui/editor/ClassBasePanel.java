@@ -34,10 +34,10 @@ import javax.swing.JTextField;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -200,7 +200,7 @@ class ClassBasePanel extends BasePanel
 			for (Qualifier qual : qualList)
 			{
 				String cl = StringPClassUtil.getStringFor(qual.getQualifiedClass());
-				CDOMReference<? extends CDOMObject> ref = qual.getQualifiedReference();
+				CDOMReference<? extends Loadable> ref = qual.getQualifiedReference();
 				if (ref instanceof CategorizedCDOMReference)
 				{
 					Category<?> cat =

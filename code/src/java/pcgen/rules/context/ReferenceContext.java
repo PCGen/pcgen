@@ -26,6 +26,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedManufacturer;
@@ -45,7 +46,7 @@ public interface ReferenceContext
 
 	public Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
 
-	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val);
+	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val);
 
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
 			Class<T> c, String s);
@@ -53,7 +54,7 @@ public interface ReferenceContext
 	public <T extends Identified> T constructNowIfNecessary(Class<T> cl,
 			String name);
 
-	public <T extends CDOMObject> void constructIfNecessary(Class<T> cl,
+	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
 			String value);
 
 	public <T extends CDOMObject> void importObject(T orig);
@@ -64,7 +65,7 @@ public interface ReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val);
 
-	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
+	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val);
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
@@ -88,7 +89,7 @@ public interface ReferenceContext
 
 	public <T extends CDOMObject> boolean forget(T obj);
 
-	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
+	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(
 			Class<T> c);
 
 	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c);

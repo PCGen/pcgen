@@ -23,8 +23,8 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTransparentCategorizedSingleRef;
@@ -77,7 +77,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			return cpr;
 		}
 		String firstToken = value.substring(0, pipeLoc);
-		ReferenceManufacturer<? extends CDOMObject> rm = context
+		ReferenceManufacturer<? extends Loadable> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{
@@ -94,7 +94,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<? extends CDOMObject> ref = rm.getReference(st
+			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
 			context.obj.addToList(obj, ListKey.FORWARDREF, new Qualifier(rm
 					.getReferenceClass(), ref));
@@ -115,7 +115,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<String, CDOMSingleRef<?>>();
 		for (Qualifier qual : quals)
 		{
-			Class<? extends CDOMObject> cl = qual.getQualifiedClass();
+			Class<? extends Loadable> cl = qual.getQualifiedClass();
 			String s = StringPClassUtil.getStringFor(cl);
 			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = s;

@@ -41,7 +41,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -292,8 +291,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				CDOMDirectSingleRef<AbilityList> dr = (CDOMDirectSingleRef<AbilityList>) ref;
 				AbilityList al = dr.resolvesTo();
 				StringBuilder sb = new StringBuilder();
-				sb.append(al.get(ObjectKey.ABILITY_CAT)).append(Constants.PIPE);
-				sb.append(al.get(ObjectKey.ABILITY_NATURE)).append(Constants.PIPE);
+				sb.append(al.getCategory()).append(Constants.PIPE);
+				sb.append(al.getNature()).append(Constants.PIPE);
 				sb.append(Constants.LST_DOT_CLEAR);
 				returnSet.add(sb.toString());
 			}

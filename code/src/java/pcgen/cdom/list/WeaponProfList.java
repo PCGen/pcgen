@@ -40,7 +40,6 @@ public class WeaponProfList extends CDOMListObject<WeaponProf>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
-	@Override
 	public boolean isType(String type)
 	{
 		return false;

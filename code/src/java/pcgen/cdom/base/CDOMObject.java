@@ -47,7 +47,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, Identified, BonusContainer
+		Cloneable, Identified, BonusContainer, Loadable
 {
 
 	private URI sourceURI = null;
@@ -427,6 +427,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			//returnKey = this.get(StringKey.NAME);
 		}
 		return returnKey;
+	}
+
+	public void setKeyName(String key)
+	{
+		put(StringKey.KEY_NAME, key);
 	}
 
 	public final int getSafeSizeOfMapFor(MapKey<?, ?> mapKey)

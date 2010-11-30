@@ -35,10 +35,10 @@ public final class CDOMObjectUtilities
 	 * Provides a Comparator that is capable of sorting CDOMObjects. This
 	 * sorting is performed based on the Key name of the CDOMObjects.
 	 */
-	public static final Comparator<CDOMObject> CDOM_SORTER = new Comparator<CDOMObject>()
+	public static final Comparator<Loadable> CDOM_SORTER = new Comparator<Loadable>()
 	{
 
-		public int compare(CDOMObject cdo1, CDOMObject cdo2)
+		public int compare(Loadable cdo1, Loadable cdo2)
 		{
 			return compareKeys(cdo1, cdo2);
 		}
@@ -110,7 +110,7 @@ public final class CDOMObjectUtilities
 	 *         the first object sorts after the key for the second object, or 0
 	 *         if the keys are equal
 	 */
-	public static int compareKeys(CDOMObject cdo1, CDOMObject cdo2)
+	public static int compareKeys(Loadable cdo1, Loadable cdo2)
 	{
 		String base = cdo1.getKeyName();
 		if (base == null)

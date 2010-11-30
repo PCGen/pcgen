@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import java.net.URI;
+
 /**
  * This is an abstract object intended to be used as a basis for "concrete"
  * CDOMList objects.
@@ -28,9 +30,52 @@ package pcgen.cdom.base;
  * @param <T>
  *            The type of object contained in the CDOMList
  */
-public abstract class CDOMListObject<T extends PrereqObject> extends CDOMObject
-		implements CDOMList<T>
+public abstract class CDOMListObject<T extends PrereqObject> extends
+		ConcretePrereqObject implements CDOMList<T>, Loadable
 {
+	private String name = null;
+	private String keyName = null;
+	private URI sourceURI = null;
+
+	public String getKeyName()
+	{
+		return (keyName == null) ? name : keyName;
+	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public void setKeyName(String key)
+	{
+		keyName = key;
+	}
+
+	public String getDisplayName()
+	{
+		return name;
+	}
+
+	public String getLSTformat()
+	{
+		return getKeyName();
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
 
 	/**
 	 * Returns a String representation of this CDOMListObject

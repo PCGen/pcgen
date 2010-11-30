@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A Qualifier is used to identify a specific instance of a certain type of
@@ -31,13 +31,13 @@ public class Qualifier
 	/**
 	 * The Class of object this Qualifier contains
 	 */
-	private final Class<? extends CDOMObject> qualClass;
+	private final Class<? extends Loadable> qualClass;
 
 	/**
 	 * A reference to the specific instance of the class of object this
 	 * Qualifier contains.
 	 */
-	private final CDOMSingleRef<? extends CDOMObject> qualRef;
+	private final CDOMSingleRef<? extends Loadable> qualRef;
 
 	/**
 	 * Constructs a new Qualifier for the given Class of CDOMObject and the
@@ -50,8 +50,8 @@ public class Qualifier
 	 *            The reference to the specific instance of CDOMObject this
 	 *            Qualifier contains.
 	 */
-	public Qualifier(Class<? extends CDOMObject> objClass,
-			CDOMSingleRef<? extends CDOMObject> ref)
+	public Qualifier(Class<? extends Loadable> objClass,
+			CDOMSingleRef<? extends Loadable> ref)
 	{
 		if (objClass == null)
 		{
@@ -70,7 +70,7 @@ public class Qualifier
 	 * 
 	 * @return The given Class of CDOMObject this Qualifier contains.
 	 */
-	public Class<? extends CDOMObject> getQualifiedClass()
+	public Class<? extends Loadable> getQualifiedClass()
 	{
 		return qualClass;
 	}
@@ -82,7 +82,7 @@ public class Qualifier
 	 * @return The reference to the specific instance of CDOMObject this
 	 *         Qualifier contains.
 	 */
-	public CDOMSingleRef<? extends CDOMObject> getQualifiedReference()
+	public CDOMSingleRef<? extends Loadable> getQualifiedReference()
 	{
 		return qualRef;
 	}

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -29,13 +29,13 @@ import pcgen.core.spell.Spell;
 public class StringPClassUtil
 {
 
-	private static Map<String, Class<? extends CDOMObject>> classMap;
-	private static Map<Class<? extends CDOMObject>, String> stringMap;
+	private static Map<String, Class<? extends Loadable>> classMap;
+	private static Map<Class<? extends Loadable>, String> stringMap;
 
 	static
 	{
-		classMap = new HashMap<String, Class<? extends CDOMObject>>();
-		stringMap = new HashMap<Class<? extends CDOMObject>, String>();
+		classMap = new HashMap<String, Class<? extends Loadable>>();
+		stringMap = new HashMap<Class<? extends Loadable>, String>();
 
 		classMap.put("ABILITY", Ability.class);
 		classMap.put("DEITY", Deity.class);
@@ -80,7 +80,7 @@ public class StringPClassUtil
 		stringMap.put(SubstitutionClass.class, "CLASS");
 	}
 
-	public static Class<? extends CDOMObject> getClassFor(String key)
+	public static Class<? extends Loadable> getClassFor(String key)
 	{
 		return classMap.get(key);
 	}

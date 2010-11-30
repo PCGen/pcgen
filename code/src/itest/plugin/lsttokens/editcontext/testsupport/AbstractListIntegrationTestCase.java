@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -31,7 +32,7 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC extends CDOMObject>
+public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractIntegrationTestCase<T>
 {
 

@@ -32,6 +32,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
@@ -100,7 +101,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends CDOMObject> rm = context
+		ReferenceManufacturer<? extends Loadable> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{

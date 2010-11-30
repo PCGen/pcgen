@@ -51,11 +51,10 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		DomainSpellList list = spelllist.resolvesTo();
-		String source = list.getQualifiedKey();
 		for (int level : SpellLevel.levelForKey(spell, Collections
 				.singletonList(list), pc))
 		{
-			if ((level >= 0) && allow(pc, level, source, spell, list))
+			if ((level >= 0) && allow(pc, level, "", spell, list))
 			{
 				return true;
 			}

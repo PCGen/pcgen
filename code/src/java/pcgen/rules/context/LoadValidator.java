@@ -25,6 +25,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTransparentCategorizedSingleRef;
@@ -71,7 +72,7 @@ public class LoadValidator implements UnconstructedValidator
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
 			{
-				Class<? extends CDOMObject> qcl = q.getQualifiedClass();
+				Class<? extends Loadable> qcl = q.getQualifiedClass();
 				if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 				{
 					simpleMap.addToListFor(qcl, q.getQualifiedReference()
@@ -88,7 +89,7 @@ public class LoadValidator implements UnconstructedValidator
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
 			{
-				Class<? extends CDOMObject> qcl = q.getQualifiedClass();
+				Class<? extends Loadable> qcl = q.getQualifiedClass();
 				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 				{
 					CDOMSingleRef ref = q.getQualifiedReference();

@@ -31,7 +31,6 @@ import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
@@ -332,7 +331,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 		 * TODO This isn't good enough - you can .MOD in the
 		 * original file, and that needs to be remembered
 		 */
-		if (cse.getURI().equals(obj.get(ObjectKey.SOURCE_URI)))
+		if (cse.getURI().equals(obj.getSourceURI()))
 		{
 			return obj.getDisplayName() + '\t' + unparse;
 		}

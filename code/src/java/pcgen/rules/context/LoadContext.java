@@ -28,6 +28,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -470,7 +471,7 @@ public abstract class LoadContext
 
 	public abstract boolean consolidate();
 
-	public ReferenceManufacturer<? extends CDOMObject> getManufacturer(String firstToken)
+	public ReferenceManufacturer<? extends Loadable> getManufacturer(String firstToken)
 	{
 		int equalLoc = firstToken.indexOf('=');
 		String className;
@@ -502,14 +503,14 @@ public abstract class LoadContext
 			className = firstToken.substring(0, equalLoc);
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
-		Class<? extends CDOMObject> c = StringPClassUtil.getClassFor(className);
+		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
 		if (c == null)
 		{
 			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
 					+ className);
 			return null;
 		}
-		ReferenceManufacturer<? extends CDOMObject> rm;
+		ReferenceManufacturer<? extends Loadable> rm;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
 			if (categoryName == null)

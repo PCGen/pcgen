@@ -26,7 +26,6 @@ package pcgen.cdom.enumeration;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -102,8 +101,6 @@ public class ObjectKey<T>
 	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>(Boolean.TRUE);
 
 	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>(Boolean.FALSE);
-
-	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>(null);
 
 	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>(null);
 

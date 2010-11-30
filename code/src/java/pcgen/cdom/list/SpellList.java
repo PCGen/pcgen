@@ -39,7 +39,6 @@ public class SpellList extends CDOMListObject<Spell>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
-	@Override
 	public boolean isType(String type)
 	{
 		return false;

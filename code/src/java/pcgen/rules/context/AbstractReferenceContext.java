@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -102,7 +103,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return getManufacturer(c, cat).getAllReference();
 	}
 
-	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
+	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val)
 	{
 		return getManufacturer(c).getTypeReference(val);
@@ -114,7 +115,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return getManufacturer(c, cat).getTypeReference(val);
 	}
 
-	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val)
+	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(c))
@@ -126,11 +127,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		{
 			obj = getManufacturer(c).constructObject(val);
 		}
-		obj.put(ObjectKey.SOURCE_URI, sourceURI);
+		obj.setSourceURI(sourceURI);
 		return obj;
 	}
 
-	public <T extends CDOMObject> void constructIfNecessary(Class<T> cl,
+	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
 			String value)
 	{
 		getManufacturer(cl).constructIfNecessary(value);
@@ -261,7 +262,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return false;
 	}
 
-	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
+	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(
 			Class<T> c)
 	{
 		// if (CategorizedCDOMObject.class.isAssignableFrom(c))
@@ -303,7 +304,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		for (Domain d : domains)
 		{
 			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
-			dsl.addToListFor(ListKey.TYPE, Type.DIVINE);
+			dsl.addType(Type.DIVINE);
 			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);
 		}
 		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);
@@ -314,7 +315,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			boolean isMonster = pcc.containsInList(ListKey.TYPE, Type.MONSTER);
 			if (isMonster)
 			{
-				skl.addToListFor(ListKey.TYPE, Type.MONSTER);
+				skl.addType(Type.MONSTER);
 			}
 			pcc.put(ObjectKey.CLASS_SKILLLIST, skl);
 			// TODO Need to limit which are built to only spellcasters...
@@ -322,7 +323,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			String spelltype = pcc.get(StringKey.SPELLTYPE);
 			if (spelltype != null)
 			{
-				csl.addToListFor(ListKey.TYPE, Type.getConstant(spelltype));
+				csl.addType(Type.getConstant(spelltype));
 			}
 			pcc.put(ObjectKey.CLASS_SPELLLIST, csl);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
@@ -344,7 +345,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					skl = constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
 					if (isMonster)
 					{
-						skl.addToListFor(ListKey.TYPE, Type.MONSTER);
+						skl.addType(Type.MONSTER);
 					}
 					subcl.put(ObjectKey.CLASS_SKILLLIST, skl);
 					// TODO Need to limit which are built to only
@@ -352,7 +353,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					csl = constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
 					if (spelltype != null)
 					{
-						csl.addToListFor(ListKey.TYPE, Type.getConstant(spelltype));
+						csl.addType(Type.getConstant(spelltype));
 					}
 					subcl.put(ObjectKey.CLASS_SPELLLIST, csl);
 					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);

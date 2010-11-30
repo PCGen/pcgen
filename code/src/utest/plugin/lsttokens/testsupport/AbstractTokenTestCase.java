@@ -28,7 +28,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -132,7 +131,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		parse(str);
-		primaryProf.put(ObjectKey.SOURCE_URI, testCampaign.getURI());
+		primaryProf.setSourceURI(testCampaign.getURI());
 		String[] unparsed = validateUnparsed(primaryContext, primaryProf, str);
 		parseSecondary(unparsed);
 		// Ensure the objects are the same
@@ -163,7 +162,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 			throws PersistenceLayerException
 	{
 		// Do round Robin
-		secondaryProf.put(ObjectKey.SOURCE_URI, testCampaign.getURI());
+		secondaryProf.setSourceURI(testCampaign.getURI());
 		StringBuilder unparsedBuilt = new StringBuilder();
 		for (String s : unparsed)
 		{

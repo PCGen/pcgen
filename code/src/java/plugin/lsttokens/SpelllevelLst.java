@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -128,7 +129,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		return ParseResult.SUCCESS;
 	}
 
-	private <CL extends CDOMObject & CDOMList<Spell>> boolean subParse(
+	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
 			LoadContext context, CDOMObject obj, Class<CL> tagType,
 			String tokString, String spellString, List<Prerequisite> prereqs)
 	{

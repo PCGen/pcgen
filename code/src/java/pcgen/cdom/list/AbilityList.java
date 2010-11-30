@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 
@@ -36,6 +35,9 @@ import pcgen.core.Ability;
  */
 public class AbilityList extends CDOMListObject<Ability>
 {
+
+	private Category<Ability> category;
+	private Nature nature;
 
 	/**
 	 * Stores references to the "master" set of lists that are unique for a
@@ -56,7 +58,6 @@ public class AbilityList extends CDOMListObject<Ability>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
-	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -84,8 +85,8 @@ public class AbilityList extends CDOMListObject<Ability>
 		{
 			AbilityList list = new AbilityList();
 			list.setName("*" + category.toString() + ":" + nature.toString());
-			list.put(ObjectKey.ABILITY_CAT, category);
-			list.put(ObjectKey.ABILITY_NATURE, nature);
+			list.category = category;
+			list.nature = nature;
 			ref = CDOMDirectSingleRef.getRef(list);
 			MASTER_MAP.put(category, nature, ref);
 		}
@@ -117,6 +118,16 @@ public class AbilityList extends CDOMListObject<Ability>
 			list.addAll(MASTER_MAP.values(cat));
 		}
 		return list;
+	}
+
+	public Category<Ability> getCategory()
+	{
+		return category;
+	}
+
+	public Nature getNature()
+	{
+		return nature;
 	}
 
 }

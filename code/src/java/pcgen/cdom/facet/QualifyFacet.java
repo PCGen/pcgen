@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.Qualifier;
@@ -96,7 +97,7 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 
 	private static class CacheInfo
 	{
-		HashMapToList<Class<? extends CDOMObject>, Qualifier> hml = new HashMapToList<Class<? extends CDOMObject>, Qualifier>();
+		HashMapToList<Class<? extends Loadable>, Qualifier> hml = new HashMapToList<Class<? extends Loadable>, Qualifier>();
 		HashMapToList<CDOMObject, Qualifier> sourceMap = new HashMapToList<CDOMObject, Qualifier>();
 
 		public void add(Qualifier q, CDOMObject source)
@@ -117,9 +118,9 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 			}
 		}
 
-		public boolean isQualified(CDOMObject qualTestObject)
+		public boolean isQualified(Loadable qualTestObject)
 		{
-			Class<? extends CDOMObject> cl = qualTestObject.getClass();
+			Class<? extends Loadable> cl = qualTestObject.getClass();
 			List<Qualifier> list = hml.getListFor(cl);
 			if (list != null)
 			{

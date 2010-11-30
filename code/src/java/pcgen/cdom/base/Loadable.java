@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,36 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.list;
+package pcgen.cdom.base;
 
-import pcgen.cdom.base.CDOMListObject;
-import pcgen.core.Race;
+import java.net.URI;
 
-/**
- * CompanionList is a CDOMListObject designed to reference a List of Race
- * objects available as companions to a PlayerCharacter objects.
- */
-public class CompanionList extends CDOMListObject<Race>
+public interface Loadable extends Identified
 {
+	public URI getSourceURI();
 
-	/**
-	 * Returns the Race Class object (Race.class)
-	 * 
-	 * @return the Race Class object (Race.class)
-	 */
-	public Class<Race> getListClass()
-	{
-		return Race.class;
-	}
+	public void setSourceURI(URI source);
 
-	/**
-	 * Lists never have a Type, so this returns false
-	 */
-	public boolean isType(String type)
-	{
-		return false;
-	}
-
-	// No additional Functionality :)
+	public void setKeyName(String key);
 
 }

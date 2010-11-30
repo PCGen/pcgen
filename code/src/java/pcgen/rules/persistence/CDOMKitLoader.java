@@ -13,7 +13,6 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
 import pcgen.persistence.PersistenceLayerException;
@@ -137,7 +136,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 				TreeSet<String> set = new TreeSet<String>();
 				for (Kit k : lc.ref.getConstructedCDOMObjects(Kit.class))
 				{
-					if (cse.getURI().equals(k.get(ObjectKey.SOURCE_URI)))
+					if (cse.getURI().equals(k.getSourceURI()))
 					{
 						StringBuilder sb = new StringBuilder();
 						String[] unparse = lc.unparseSubtoken(k, "*KITTOKEN");
