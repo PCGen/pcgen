@@ -2,7 +2,9 @@
 CAMPAIGN:Battlefield Press - Gaslight - A Victorian Era Fantasy Role Playing Game
 GAMEMODE:Gaslight
 TYPE:Alpha Dataset
+
 #TYPE:Battlefield Press.Gaslight
+#STATUS:BETA
 RANK:1
 GENRE:Modern
 BOOKTYPE:Core Rulebook
