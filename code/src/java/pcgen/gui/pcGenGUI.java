@@ -37,8 +37,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Observer;
 
 import javax.swing.ButtonGroup;
@@ -58,6 +58,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -82,7 +83,6 @@ import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
-import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -642,7 +642,9 @@ public class pcGenGUI
 
 	public static void showSponsors()
 	{
-		if (Globals.getSponsors().size() <= 1)
+		int sponsorCount = Globals.getGlobalContext().ref
+				.getConstructedObjectCount(Sponsor.class);
+		if (sponsorCount <= 1)
 		{
 			return;
 		}
@@ -672,30 +674,33 @@ public class pcGenGUI
 			});
 		IconUtilitities.maybeSetIcon(aFrame, IconUtilitities.RESOURCE_APP_ICON);
 
+		Sponsor pcgen = Globals.getGlobalContext().ref
+				.silentlyGetConstructedCDOMObject(Sponsor.class, "PCGEN");
 		StringBuffer sb = new StringBuffer();
-		sb.append("<html>");
-		sb.append("<img src='")
-			.append(SponsorLoader.getConvertedSponsorPath(Globals.getSponsor("PCGEN").get("IMAGEBANNER")))
-			.append("'><br>");
+		sb.append("<html>").append("<img src='").append(pcgen.getBannerImage())
+				.append("'><br>");
 
 		String s = "";
-		if(Globals.getSponsors().size() > 2) {
+		if (sponsorCount > 2)
+		{
 			s = "s";
 		}
 		sb.append("<H2><CENTER>Would like to thank our official sponsor")
 			.append(s)
 			.append(":</CENTER></h2>");
-		List<Map<String, String>> sponsors = Globals.getSponsors();
+		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref
+				.getConstructedCDOMObjects(Sponsor.class);
 		int size = 172;
-		for(int i = 0; i < sponsors.size(); i++) {
-			Map<String, String> sponsor = sponsors.get(i);
-			if(sponsor.get("SPONSOR").equals("PCGEN")) {
+		for (Sponsor sponsor : sponsors)
+		{
+			if ("PCGEN".equals(sponsor.getKeyName()))
+			{
 				continue;
 			}
 			
 			size += 70;
 			sb.append("<img src='")
-				.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGEBANNER")))
+				.append(sponsor.getBannerImage())
 				.append("'><br>");
 		}
 		sb.append("</html>");

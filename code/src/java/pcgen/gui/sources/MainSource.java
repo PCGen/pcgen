@@ -78,6 +78,7 @@ import javax.swing.tree.TreePath;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.content.Sponsor;
 import pcgen.cdom.content.CampaignURL.URLKind;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -115,7 +116,6 @@ import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.SwingWorker;
@@ -465,11 +465,13 @@ public class MainSource extends FilterAdapterPanel
 
 				// enclose the node-path name with the <p> tag so that we can parse for it later
 				sb.append("<html><b>").append(path).append("</b><br>");
-				if(Globals.getSponsor(path) != null) {
-					Map<String, String> sponsor = Globals.getSponsor(path);
+				Sponsor sponsor = Globals.getGlobalContext().ref
+						.silentlyGetConstructedCDOMObject(Sponsor.class, path);
+				if (sponsor != null)
+				{
 					sb.append("<img src='")
-						.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGELARGE")))
-						.append("'><br>");
+					.append(sponsor.getLargeImage())
+					.append("'><br>");
 				}
 				sb.append("</html>");
 				infoLabel.setText(sb.toString());

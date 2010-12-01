@@ -72,9 +72,6 @@ public class TokenStore
 		//paperinfo.lst
 		tokenTypeList.add(PaperInfoLstToken.class);
 
-		//sponsors.lst
-		tokenTypeList.add(SponsorLstToken.class);
-		
 		//install.lst
 		tokenTypeList.add(InstallLstToken.class);
 	}

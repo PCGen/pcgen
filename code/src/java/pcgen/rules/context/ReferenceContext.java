@@ -126,7 +126,7 @@ public interface ReferenceContext
 
 	public <T extends CDOMObject> T performMod(T obj);
 
-	public <T extends CDOMObject> int getConstructedObjectCount(Class<T> class1);
+	public <T extends Loadable> int getConstructedObjectCount(Class<T> class1);
 
 	public void copyAbbreviationsFrom(AbstractReferenceContext rc);
 

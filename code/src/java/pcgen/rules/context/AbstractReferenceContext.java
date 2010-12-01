@@ -452,7 +452,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return getManufacturer(cl).constructNowIfNecessary(name);
 	}
 
-	public <T extends CDOMObject> int getConstructedObjectCount(Class<T> c)
+	public <T extends Loadable> int getConstructedObjectCount(Class<T> c)
 	{
 		return getManufacturer(c).getConstructedObjectCount();
 	}

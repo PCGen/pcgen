@@ -1,13 +1,17 @@
 package plugin.lsttokens.sponsor;
 
-import java.util.Map;
+import java.net.MalformedURLException;
 
-import pcgen.persistence.lst.SponsorLstToken;
+import pcgen.cdom.content.Sponsor;
+import pcgen.core.utils.CoreUtility;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with IMAGESMALL Token
  */
-public class ImagesmallToken implements SponsorLstToken
+public class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
 {
 
 	public String getTokenName()
@@ -15,9 +19,29 @@ public class ImagesmallToken implements SponsorLstToken
 		return "IMAGESMALL";
 	}
 
-	public boolean parse(Map<String, String> sponsor, String value)
+	public Class<Sponsor> getTokenClass()
 	{
-		sponsor.put("IMAGESMALL", value);
-		return true;
+		return Sponsor.class;
 	}
+
+	public ParseResult parseToken(LoadContext context, Sponsor s, String value)
+	{
+		try
+		{
+			s.setSmallImage(CoreUtility.processFileToURL(value));
+			return ParseResult.SUCCESS;
+		}
+		catch (MalformedURLException e)
+		{
+			return new ParseResult.Fail("Error in " + getTokenName() + ": "
+					+ e.getMessage());
+		}
+	}
+
+	public String[] unparse(LoadContext context, Sponsor s)
+	{
+		// TODO Need to unparse
+		return null;
+	}
+
 }

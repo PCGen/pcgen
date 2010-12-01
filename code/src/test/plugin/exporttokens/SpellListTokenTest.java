@@ -30,6 +30,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -41,7 +42,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.lst.BonusSpellLoader;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -88,13 +89,14 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
-		BonusSpellLoader bonusSpellLoader = new BonusSpellLoader();
+		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<BonusSpellInfo>(
+				BonusSpellInfo.class);
 		try
 		{
 			URI testURI = new URI("file:/" + getClass().getName() + ".java");
-			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8", testURI);
-			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:2	BASESTATSCORE:14	STATRANGE:8", testURI);
-			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:3	BASESTATSCORE:16	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "1	BASESTATSCORE:12	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "2	BASESTATSCORE:14	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "3	BASESTATSCORE:16	STATRANGE:8", testURI);
 		}
 		catch (URISyntaxException e)
 		{

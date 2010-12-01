@@ -529,9 +529,9 @@ public class PluginBuildTest extends PCGenTestCase
 		sourceFolder = new File("code/src/java/plugin/lsttokens/statsandchecks/bonusspell");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
 
-		jarPrefix = "StatsAndChecks-CheckLstToken-";
-		sourceFolder = new File("code/src/java/plugin/lsttokens/statsandchecks/check");
-		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+//		jarPrefix = "StatsAndChecks-CheckLstToken-";
+//		sourceFolder = new File("code/src/java/plugin/lsttokens/statsandchecks/check");
+//		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
 
 		jarPrefix = "StatsAndChecks-StatLstToken-";
 		sourceFolder = new File("code/src/java/plugin/lsttokens/statsandchecks/stat");

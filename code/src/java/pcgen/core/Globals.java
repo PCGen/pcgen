@@ -69,6 +69,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -77,7 +78,11 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -140,9 +145,6 @@ public final class Globals
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
 
 	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
-
-	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
-	private static List<Map<String, String>> sponsorList = new ArrayList<Map<String, String>>();
 
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
@@ -2434,32 +2436,6 @@ public final class Globals
 	}
 
 	/**
-	 * Add a sponsor, e.g. Silven Publishing
-	 * @param sponsor
-	 */
-	public static void addSponsor(Map<String, String> sponsor) {
-		sponsors.put(sponsor.get("SPONSOR"), sponsor);
-		sponsorList.add(sponsor);
-	}
-
-	/**
-	 * Get a list of sponsors of PCGen
-	 * @return list of sponsors of PCGen
-	 */
-	public static List<Map<String, String>> getSponsors() {
-		return sponsorList;
-	}
-
-	/**
-	 * Get a sponsor
-	 * @param name
-	 * @return sponsor
-	 */
-	public static Map<String, String> getSponsor(String name) {
-		return sponsors.get(name);
-	}
-
-	/**
 	 * Returns a list of default genders used by the system.
 	 * @return List of gender strings
 	 * TODO - Genders need to become objects.
@@ -2488,6 +2464,14 @@ public final class Globals
 	public static LoadContext getContext()
 	{
 		return SettingsHandler.getGame().getContext();
+	}
+
+	private static LoadContext globalContext = new RuntimeLoadContext(
+			new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+
+	public static LoadContext getGlobalContext()
+	{
+		return globalContext;
 	}
 
 	/**

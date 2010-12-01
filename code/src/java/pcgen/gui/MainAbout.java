@@ -25,31 +25,43 @@
  */
 package pcgen.gui;
 
-import pcgen.core.Globals;
-import pcgen.gui.utils.BrowserLauncher;
-import pcgen.gui.utils.IconUtilitities;
-import pcgen.gui.utils.JLabelPane;
-import pcgen.persistence.lst.SponsorLoader;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-
 import gmgen.gui.GridBoxLayout;
 
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
+import java.util.Collection;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+
+import pcgen.cdom.content.Sponsor;
+import pcgen.core.Globals;
+import pcgen.gui.utils.BrowserLauncher;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * Create a simple panel to identify the program and those who contributed
@@ -402,17 +414,19 @@ final class MainAbout extends JPanel
 		sponsorLabel.setBackground(panel.getBackground());
 		panel.add(sp, BorderLayout.CENTER);
 		
-		List<Map<String, String>> sponsors = Globals.getSponsors();
+		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref
+				.getConstructedCDOMObjects(Sponsor.class);
 		StringBuffer sb = new StringBuffer();
 		sb.append("<html><b>Our Sponsors</b><br>");
-		for(int i = 0; i < sponsors.size(); i++) {
-			Map<String, String> sponsor = sponsors.get(i);
-			if(sponsor.get("SPONSOR").equals("PCGEN")) {
+		for (Sponsor sponsor : sponsors)
+		{
+			if ("PCGEN".equals(sponsor.getKeyName()))
+			{
 				continue;
 			}
 			
 			sb.append("<img src='")
-				.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGEBANNER")))
+				.append(sponsor.getBannerImage())
 				.append("'><br>");
 		}
 		sb.append("</html>");

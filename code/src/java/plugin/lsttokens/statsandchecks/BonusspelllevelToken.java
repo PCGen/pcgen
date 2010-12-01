@@ -27,7 +27,8 @@ package plugin.lsttokens.statsandchecks;
 
 import java.net.URI;
 
-import pcgen.persistence.lst.BonusSpellLoader;
+import pcgen.cdom.content.BonusSpellInfo;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -37,6 +38,8 @@ import pcgen.util.Logging;
  */
 public class BonusspelllevelToken implements StatsAndChecksLstToken
 {
+	private static final Class<BonusSpellInfo> BONUS_SPELL_INFO_CLASS = BonusSpellInfo.class;
+
 	public String getTokenName()
 	{
 		return "BONUSSPELLLEVEL";
@@ -46,7 +49,8 @@ public class BonusspelllevelToken implements StatsAndChecksLstToken
 	{
 		try
 		{
-			BonusSpellLoader bonusSpellLoader = new BonusSpellLoader();
+			SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<BonusSpellInfo>(
+					BONUS_SPELL_INFO_CLASS);
 			bonusSpellLoader.parseLine(context, lstLine.substring(16), sourceURI);
 			return true;
 		}

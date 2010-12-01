@@ -1,115 +1,60 @@
+/*
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 package pcgen.persistence.lst;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.rules.context.LoadContext;
+import pcgen.cdom.content.Sponsor;
 import pcgen.util.Logging;
 
-/**
- * This class loads in and parses the BASEDICE tag
- */
-public class SponsorLoader extends LstLineFileLoader
+public class SponsorLoader extends SimpleLoader<Sponsor>
 {
-
-	/** Constructor */
 	public SponsorLoader()
 	{
-		// Empty Constructor
+		super(Sponsor.class);
 	}
 
-	/**
-	 * Parses a line 
-	 * @param lstLine
-	 * @param sourceURL
-	 * @throws PersistenceLayerException
-	 */
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	protected void processFirstToken(String token, Sponsor loadable)
 	{
-		StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		Map<String, String> sponsor = new HashMap<String, String>();
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(SponsorLstToken.class);
-		while (colToken.hasMoreTokens())
+		final int colonLoc = token.indexOf(':');
+		if (colonLoc == -1)
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Deal with this exception
-			}
-
-			SponsorLstToken token = (SponsorLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "sponsors.lst", sourceURI, value);
-				if (!token.parse(sponsor, value))
-				{
-					Logging
-						.errorPrint("Error parsing sponsor: from sponsors.lst ");
-				}
-			}
-			else
-			{
-				Logging.errorPrint("Invalid sub tag " + key
-					+ " on SPONSOR line");
-				throw new PersistenceLayerException("Invalid sub tag " + key
-					+ " on SPONSOR line");
-			}
+			Logging.errorPrint("Invalid Token - does not contain a colon: '"
+					+ token + "'");
 		}
-		Globals.addSponsor(sponsor);
-	}
-
-	/**
-	 * Get the converted file path
-	 * @param file
-	 * @return the converted file path
-	 */
-	public static String getConvertedSponsorPath(String file)
-	{
-		String convertedPath =
-				SettingsHandler.getPcgenSponsorDir().getAbsolutePath()
-					+ File.separator + file;
-		// Not a URL; make sure to fix the path syntax
-		convertedPath = CoreUtility.fixFilenamePath(convertedPath);
-
-		// Make sure the path starts with a separator
-		if (!convertedPath.startsWith(File.separator))
+		else if (colonLoc == 0)
 		{
-			convertedPath = File.separator + convertedPath;
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
+					+ "'");
 		}
-
-		// Return the final result
-		try
+		else if (colonLoc == token.length() - 1)
 		{
-			return new URL("file:" + convertedPath).toString();
+			Logging.errorPrint("Invalid Token - no value: '" + token + "'");
 		}
-		catch (MalformedURLException e)
+		else if (!"SPONSOR".equals(token.substring(0, colonLoc)))
 		{
-			// TODO Deal with Exception
+			Logging.errorPrint("Invalid Entry "
+					+ "- Sponsor item must be SPONSOR, found: '" + token);
 		}
-		return "";
+		else
+		{
+			String value = token.substring(colonLoc + 1);
+			super.processFirstToken(value, loadable);
+		}
 	}
 
 }

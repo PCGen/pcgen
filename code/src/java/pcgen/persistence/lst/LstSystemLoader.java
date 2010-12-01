@@ -48,6 +48,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.Sponsor;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -243,7 +244,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private KitLoader kitLoader = new KitLoader();
 	private PaperInfoLoader paperLoader = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
-	private SponsorLoader sponsorLoader = new SponsorLoader();
+	private SimpleLoader<Sponsor> sponsorLoader = new SponsorLoader();
 	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 	private final Set<String> sourcesSet = new TreeSet<String>();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
@@ -415,7 +416,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		try
 		{
-			sponsorLoader.loadLstFile(null, sponsorFile.toURI(), null);
+			sponsorLoader.loadLstFile(Globals.getGlobalContext(), sponsorFile.toURI(), null);
 		}
 		catch (PersistenceLayerException ple)
 		{
