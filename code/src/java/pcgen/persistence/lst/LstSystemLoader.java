@@ -69,6 +69,7 @@ import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -186,7 +187,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	};
 
-	private LanguageLoader languageLoader = new LanguageLoader();
+	private GenericLoader<Language> languageLoader = new GenericLoader<Language>(Language.class);
 	private LoadInfoLoader loadInfoLoader = new LoadInfoLoader();
 	private UnitSetLoader unitSetLoader = new UnitSetLoader();
 	private EquipSlotLoader eqSlotLoader = new EquipSlotLoader();
