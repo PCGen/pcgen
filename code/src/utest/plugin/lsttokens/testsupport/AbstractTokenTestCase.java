@@ -40,6 +40,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
@@ -211,34 +212,38 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parseToken(primaryContext, primaryProf, str).passed();
-		if (b)
+		ParseResult pr = getToken()
+				.parseToken(primaryContext, primaryProf, str);
+		if (pr.passed())
 		{
 			primaryContext.commit();
 		}
 		else
 		{
+			pr.addMessagesToLog();
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
-		return b;
+		return pr.passed();
 	}
 
 	public boolean parseSecondary(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
-		if (b)
+		ParseResult pr = getToken()
+				.parseToken(secondaryContext, secondaryProf, str);
+		if (pr.passed())
 		{
 			secondaryContext.commit();
 		}
 		else
 		{
+			pr.addMessagesToLog();
 			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
-		return b;
+		return pr.passed();
 	}
 
 	public abstract CDOMLoader<T> getLoader();
