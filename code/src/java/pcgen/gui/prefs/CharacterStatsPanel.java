@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -40,10 +41,11 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.GameMode;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
-import pcgen.core.system.GameModeRollMethod;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.utils.JComboBoxEx;
@@ -167,8 +169,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(abilityScoreCombo, c);
 		this.add(abilityScoreCombo);
 
-		GameModeRollMethod rm = gameMode.getRollingMethod(0);
-		if (rm != null)
+		ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().ref
+				.getManufacturer(RollMethod.class);
+		List<RollMethod> rollMethods = mfg.getOrderSortedObjects();
+		if (!rollMethods.isEmpty())
 		{
 			Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
 			abilitiesRolledButton = new JRadioButton("Rolled:");
@@ -179,11 +183,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 			abilityRolledModeCombo = new JComboBoxEx();
 
-			int gmi = 0;
-			while (rm != null)
+			for (RollMethod rm : rollMethods)
 			{
-				abilityRolledModeCombo.addItem(rm.getMethodName());
-				rm = gameMode.getRollingMethod(++gmi);
+				abilityRolledModeCombo.addItem(rm.getDisplayName());
 			}
 
 			gridbag.setConstraints(abilityRolledModeCombo, c);

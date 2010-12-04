@@ -69,6 +69,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
@@ -129,7 +130,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -9266,7 +9266,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	public void rollStats(final int method, final Collection<PCStat> aStatList,
-		final GameModeRollMethod rollMethod, boolean aSortedFlag)
+		final RollMethod rollMethod, boolean aSortedFlag)
 	{
 		int[] rolls = new int[aStatList.size()];
 

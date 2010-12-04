@@ -43,6 +43,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
+import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -50,7 +51,6 @@ import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.system.GameModeRollMethod;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -149,9 +149,7 @@ public final class GameMode implements Comparable<Object>
 	private int shortRangeDistance;
 	private int rangePenalty;
 
-
-	private List<GameModeRollMethod> rollingMethods = null;
-	private int rollingMethodIndex = -1;
+	private RollMethod activeRollMethod = null;
 
 	private SortedMap<Integer, PointBuyCost> pointBuyStatCosts = null;
 	private int[] abilityScoreCost = null;
@@ -2020,17 +2018,15 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public void setRollMethodExpressionByName(final String aString)
 	{
-		if (aString.length() != 0)
+		activeRollMethod = getModeContext().ref
+				.silentlyGetConstructedCDOMObject(RollMethod.class, aString);
+		if (activeRollMethod == null)
 		{
-			rollingMethodIndex = findRollingMethodByName(aString);
-			if (rollingMethodIndex >= 0)
-			{
-				setRollMethod(Constants.CHARACTERSTATMETHOD_ROLLED);
-			}
-			else
-			{
-				setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
-			}
+			setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+		}
+		else
+		{
+			setRollMethod(Constants.CHARACTERSTATMETHOD_ROLLED);
 		}
 	}
 
@@ -2040,10 +2036,9 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public String getRollMethodExpression()
 	{
-		final GameModeRollMethod rm = getRollingMethod(rollingMethodIndex);
-		if (rm != null)
+		if (activeRollMethod != null)
 		{
-			return rm.getMethodRoll();
+			return activeRollMethod.getMethodRoll();
 		}
 		return "";
 	}
@@ -2054,10 +2049,9 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public String getRollMethodExpressionName()
 	{
-		final GameModeRollMethod rm = getRollingMethod(rollingMethodIndex);
-		if (rm != null)
+		if (activeRollMethod != null)
 		{
-			return rm.getMethodName();
+			return activeRollMethod.getDisplayName();
 		}
 		return "";
 	}
@@ -2095,90 +2089,13 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Character generation random rolling techniques
-	 * @param methodName The name of the method that will be visible to the user
-	 * @param methodRoll A RollingMethods dice expression
-	 * @return true if OK
-	 */
-	public boolean addRollingMethod(final String methodName, final String methodRoll)
-	{
-		boolean retStatus = false;
-		//
-		// Remove all roll methods?
-		//
-		if (".CLEAR".equals(methodName))
-		{
-			rollingMethods = null;
-			retStatus = true;
-		}
-		//
-		// Remove a specific roll method?
-		//
-		else if (methodName.endsWith(".CLEAR"))
-		{
-			/** @todo don't we need to chop off the .CLEAR portion? */
-			final int idx = findRollingMethodByName(methodName);
-			if (idx >= 0)
-			{
-				rollingMethods.remove(idx);
-				retStatus = true;
-			}
-		}
-		else
-		{
-			if (rollingMethods == null)
-			{
-				rollingMethods = new ArrayList<GameModeRollMethod>();
-			}
-			final int idx = findRollingMethodByName(methodName);
-			if (idx < 0)
-			{
-				GameModeRollMethod rm = new GameModeRollMethod(methodName, methodRoll);
-				rollingMethods.add(rm);
-				retStatus = true;
-			}
-		}
-		return retStatus;
-	}
-
-	private int findRollingMethodByName(final String methodName)
-	{
-		for(int i = 0;; ++i)
-		{
-			final GameModeRollMethod rm = getRollingMethod(i);
-			if (rm == null)
-			{
-				return -1;
-			}
-			else if (methodName.equals(rm.getMethodName()))
-			{
-				return i;
-			}
-		}
-	}
-
-	/**
-	 * Get the rolling method
-	 * @param idx
-	 * @return the rolling method
-	 */
-	public GameModeRollMethod getRollingMethod(final int idx)
-	{
-		if ((rollingMethods != null) && (idx >= 0) && (idx < rollingMethods.size()))
-		{
-			return rollingMethods.get(idx);
-		}
-		return null;
-	}
-
-	/**
 	 * Returns the currently set rolling method for character stats.
 	 *
-	 * @return GameModeRollMethod the current rolling method
+	 * @return RollMethod the current rolling method
 	 */
-	public GameModeRollMethod getCurrentRollingMethod()
+	public RollMethod getCurrentRollingMethod()
 	{
-		return getRollingMethod(rollingMethodIndex);
+		return activeRollMethod;
 	}
 
 	/**

@@ -45,6 +45,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.GameMode;
 import pcgen.core.Names;
 import pcgen.core.SettingsHandler;
@@ -55,7 +57,6 @@ import pcgen.core.npcgen.GeneratorOption;
 import pcgen.core.npcgen.LevelGeneratorOption;
 import pcgen.core.npcgen.NPCGenerator;
 import pcgen.core.npcgen.RaceGeneratorOption;
-import pcgen.core.system.GameModeRollMethod;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -98,7 +99,7 @@ public class NPCGeneratorDlg extends JDialog
     private GenderGeneratorOption theGender = null;
     private List<ClassGeneratorOption> theClassList = new ArrayList<ClassGeneratorOption>();
     private List<LevelGeneratorOption> theLevelList = new ArrayList<LevelGeneratorOption>();
-    private GameModeRollMethod theRollMethod = null;
+    private RollMethod theRollMethod = null;
     private static final int MAX_CLASSES = 3;
     private JComboBox[] classCombos = new JComboBox[MAX_CLASSES];
     private JComboBox[] lvlCombos = new JComboBox[MAX_CLASSES];
@@ -164,7 +165,7 @@ public class NPCGeneratorDlg extends JDialog
 	return theLevelList;
     }
 
-    public GameModeRollMethod getRollMethod()
+    public RollMethod getRollMethod()
     {
 	return theRollMethod;
     }
@@ -197,7 +198,7 @@ public class NPCGeneratorDlg extends JDialog
 		theLevelList.add((LevelGeneratorOption) lvlCombos[i].getSelectedItem());
 	    }
 
-	    theRollMethod = (GameModeRollMethod) statsCombo.getSelectedItem();
+	    theRollMethod = (RollMethod) statsCombo.getSelectedItem();
 
 	    dispose();
 	}
@@ -443,12 +444,11 @@ public class NPCGeneratorDlg extends JDialog
 	}
 
 	GameMode gameMode = SettingsHandler.getGame();
-	GameModeRollMethod rm = gameMode.getRollingMethod(0);
-	int gmi = 0;
-	while (rm != null)
+	ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().ref
+				.getManufacturer(RollMethod.class);
+	for (RollMethod rm : mfg.getOrderSortedObjects())
 	{
 	    statsCombo.addItem(rm);
-	    rm = gameMode.getRollingMethod(++gmi);
 	}
 
 	List<NameElement> allNamesFiles = Names.findAllNamesFiles();

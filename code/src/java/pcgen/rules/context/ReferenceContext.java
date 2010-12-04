@@ -130,5 +130,5 @@ public interface ReferenceContext
 
 	public void copyAbbreviationsFrom(AbstractReferenceContext rc);
 
-	public <T extends CDOMObject> T getItemInOrder(Class<T> cl, int item);
+	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item);
 }

@@ -27,9 +27,10 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.cdom.content.RollMethod;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
-import pcgen.persistence.lst.RollMethodLoader;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
 
 /**
@@ -49,8 +50,8 @@ public class RollmethodToken implements GameModeLstToken
 	{
 		try
 		{
-			RollMethodLoader methodLoader = new RollMethodLoader();
-			methodLoader.parseLine(gameMode, "ROLLMETHOD:" + value, source);
+			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<RollMethod>(RollMethod.class);
+			methodLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}
 		catch (Exception e)

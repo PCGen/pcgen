@@ -78,6 +78,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -2769,7 +2770,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				rollStatsButton.setEnabled(false);
 			}
 		}
-		else if (SettingsHandler.getGame().getRollingMethod(0) != null)
+		else if (!SettingsHandler.getGame().getModeContext().ref
+				.getConstructedCDOMObjects(RollMethod.class).isEmpty())
 		{
 			rollStatsButton =
 					new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$

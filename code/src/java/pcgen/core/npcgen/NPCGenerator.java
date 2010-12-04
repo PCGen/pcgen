@@ -29,6 +29,7 @@ import java.util.List;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
@@ -57,7 +58,6 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
-import pcgen.core.system.GameModeRollMethod;
 import pcgen.gui.NameElement;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -315,7 +315,7 @@ public class NPCGenerator
 		return ret;
 	}
 
-	private void generateStats(final PlayerCharacter aPC, final PCClass aClass, final GameModeRollMethod aRollMethod)
+	private void generateStats(final PlayerCharacter aPC, final PCClass aClass, final RollMethod aRollMethod)
 	{
 		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
@@ -530,7 +530,7 @@ public class NPCGenerator
 							final GenderGeneratorOption aGender,
 							final List<ClassGeneratorOption> classList, 
 							final List<LevelGeneratorOption> levels,
-							final GameModeRollMethod aRollMethod,
+							final RollMethod aRollMethod,
 							final NameElement aNameChoice)
 	{
 		// Force a more quiet process
