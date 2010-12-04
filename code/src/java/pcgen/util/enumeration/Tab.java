@@ -1,8 +1,9 @@
 package pcgen.util.enumeration;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+
+import pcgen.base.util.CaseInsensitiveMap;
 
 public enum Tab
 {
@@ -31,11 +32,11 @@ public enum Tab
 	CHARACTERSHEET("Character Sheet", "in_character_sheet"),
 	INFO("SourceInfo", "in_source_info");
 
-	private static final Map<String, Tab> byText;
+	private static final Map<Object, Tab> byText;
 
 	static
 	{
-		HashMap<String, Tab> map = new HashMap<String, Tab>();
+		CaseInsensitiveMap<Tab> map = new CaseInsensitiveMap<Tab>();
 		for (Tab t : values())
 		{
 			Tab previous = map.put(t.toString(), t);
