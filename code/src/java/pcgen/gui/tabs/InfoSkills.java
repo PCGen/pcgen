@@ -101,6 +101,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -3519,11 +3520,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public boolean isMColumnDisplayed(int col)
 		{
-			if (SettingsHandler.getGame().getSkillTabColumnVisible(col))
-			{
-				return (displayList.get(col)).booleanValue();
-			}
-			return false;
+			TabInfo ti = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(TabInfo.class, tab
+							.toString());
+			return ti.isColumnVisible(col)
+					&& (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDefaultWidth(int col, int width)

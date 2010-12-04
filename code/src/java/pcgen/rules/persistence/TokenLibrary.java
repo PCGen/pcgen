@@ -54,7 +54,7 @@ public final class TokenLibrary
 
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 
-	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
+	private static final List<DeferredToken<? extends Loadable>> deferredTokens = new ArrayList<DeferredToken<? extends Loadable>>();
 
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>> postDeferredTokens = new TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>>();
 
@@ -88,9 +88,9 @@ public final class TokenLibrary
 		return null;
 	}
 
-	public static List<DeferredToken<? extends CDOMObject>> getDeferredTokens()
+	public static List<DeferredToken<? extends Loadable>> getDeferredTokens()
 	{
-		return new ArrayList<DeferredToken<? extends CDOMObject>>(
+		return new ArrayList<DeferredToken<? extends Loadable>>(
 				deferredTokens);
 	}
 

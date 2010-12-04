@@ -49,6 +49,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.Sponsor;
+import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -89,6 +90,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * ???
@@ -1147,7 +1149,24 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				+ "Using the system default DIESIZES.");
 		}
 		addDefaultUnitSet(gameMode);
+		addDefaultTabInfo(gameMode);
 		return gameMode;
+	}
+
+	public static void addDefaultTabInfo(GameMode gameMode)
+	{
+		LoadContext context = gameMode.getModeContext();
+		for (Tab aTab : Tab.values())
+		{
+			TabInfo ti = context.ref.silentlyGetConstructedCDOMObject(
+					TabInfo.class, aTab.toString());
+			if (ti == null)
+			{
+				ti = context.ref.constructCDOMObject(TabInfo.class, aTab
+						.toString());
+				ti.setKeyName(aTab.label());
+			}
+		}
 	}
 
 	public static void addDefaultUnitSet(GameMode gameMode)

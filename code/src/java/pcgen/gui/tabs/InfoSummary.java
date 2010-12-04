@@ -78,6 +78,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -1615,9 +1616,10 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		TableColumn col = statTable.getColumnModel().getColumn(columnIndex);
 		int width = Globals.getCustColumnWidth("AbilitiesS", columnIndex); //$NON-NLS-1$
 
-		boolean tabVisible =
-				SettingsHandler.getGame().getSummaryTabStatColumnVisible(
-					columnIndex);
+		TabInfo ti = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				TabInfo.class, tab.toString());
+		boolean tabVisible = ti.isColumnVisible(columnIndex);
+		
 		if (!tabVisible)
 		{
 			col.setMinWidth(0);

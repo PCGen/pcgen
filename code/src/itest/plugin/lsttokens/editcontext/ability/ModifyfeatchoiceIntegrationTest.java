@@ -17,10 +17,14 @@
  */
 package plugin.lsttokens.editcontext.ability;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
+import pcgen.cdom.content.TabInfo;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -34,6 +38,16 @@ public class ModifyfeatchoiceIntegrationTest extends
 
 	static ModifyfeatchoiceToken token = new ModifyfeatchoiceToken();
 	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(Ability.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TabInfo ti = primaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti.setKeyName("Feats");
+		ti = secondaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti.setKeyName("Feats");
+	}
 
 	@Override
 	public Class<Ability> getCDOMClass()

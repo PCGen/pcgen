@@ -27,9 +27,10 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.cdom.content.TabInfo;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
-import pcgen.persistence.lst.TabLoader;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
 
 /**
@@ -49,8 +50,8 @@ public class TabToken implements GameModeLstToken
 	{
 		try
 		{
-			TabLoader tabLoader = new TabLoader();
-			tabLoader.parseLine(gameMode, "TAB:" + value, source);
+			SimpleLoader<TabInfo> tabLoader = new SimpleLoader<TabInfo>(TabInfo.class);
+			tabLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}
 		catch (Exception e)

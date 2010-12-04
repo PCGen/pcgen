@@ -67,6 +67,7 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
@@ -95,6 +96,7 @@ public class TestHelper
 		{
 			gamemode = new GameMode("3.5");
 			SystemCollections.addToGameModeList(gamemode);
+			LstSystemLoader.addDefaultTabInfo(gamemode);
 		}
 		SettingsHandler.setGame("3.5");
 		while (aTok.hasMoreTokens())

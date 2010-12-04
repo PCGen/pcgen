@@ -1,9 +1,12 @@
 package pcgen.util.enumeration;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Tab
 {
 
-	INVALID(null, null),
 	SABILITIES("Abilities", "in_specialabilities"),
 	SOURCES("Campaigns", "Source Materials"),
 	CLASSES("Class", "in_class" ),
@@ -28,6 +31,23 @@ public enum Tab
 	CHARACTERSHEET("Character Sheet", "in_character_sheet"),
 	INFO("SourceInfo", "in_source_info");
 
+	private static final Map<String, Tab> byText;
+
+	static
+	{
+		HashMap<String, Tab> map = new HashMap<String, Tab>();
+		for (Tab t : values())
+		{
+			Tab previous = map.put(t.toString(), t);
+			if (previous != null)
+			{
+				throw new InternalError(
+						"Two Tab objects must not have same 'text' field: "
+								+ t.toString());
+			}
+		}
+		byText = Collections.unmodifiableMap(map);
+	}
 	private final String text;
 	private final String label;
 	private final int index;
@@ -76,5 +96,15 @@ public enum Tab
 	public int index()
 	{
 		return index;
+	}
+	
+	public static boolean exists(String id)
+	{
+		return byText.containsKey(id);
+	}
+
+	public static Tab getTab(String name)
+	{
+		return byText.get(name);
 	}
 }

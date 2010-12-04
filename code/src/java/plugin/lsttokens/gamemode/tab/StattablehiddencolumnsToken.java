@@ -1,51 +1,94 @@
+/*
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
 package plugin.lsttokens.gamemode.tab;
 
-import java.util.Map;
+import java.util.Collection;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
-import pcgen.core.GameMode;
-import pcgen.persistence.lst.TabLoader;
-import pcgen.persistence.lst.TabLstToken;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TabInfo;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Tab;
 
-/**
- * Class deals with STATTABLEHIDDENCOLUMNS Token
- */
-public class StattablehiddencolumnsToken implements TabLstToken
+public class StattablehiddencolumnsToken extends
+		AbstractTokenWithSeparator<TabInfo> implements
+		CDOMPrimaryToken<TabInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STATTABLEHIDDENCOLUMNS";
 	}
 
-	public boolean parse(GameMode gameMode, Map<String, String> tab,
-		String value)
+	@Override
+	public ParseResult parseTokenWithSeparator(LoadContext context, TabInfo ti,
+			String value)
 	{
-		final Tab aTab = GameMode.getTab(tab.get(TabLoader.TAB));
-		if (aTab != Tab.SUMMARY)
+		if (!Tab.SUMMARY.equals(ti.getTab()))
 		{
-			return false;
+			return new ParseResult.Fail(getTokenName()
+					+ " may only be used on the " + Tab.SUMMARY + " Tab");
 		}
+		ti.clearHiddenColumns();
 
-		for (int i = 0; i < 7; ++i)
+		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
+		while (st.hasMoreTokens())
 		{
-			gameMode.setSummaryTabStatColumnVisible(i, true);
-		}
-		final StringTokenizer commaTok = new StringTokenizer(value, ",");
-		while (commaTok.hasMoreTokens())
-		{
-			String commaToken = commaTok.nextToken();
+			String token = st.nextToken();
 			try
 			{
-				gameMode.setSummaryTabStatColumnVisible(Integer
-					.parseInt(commaToken), false);
+				ti.hideColumn(Integer.valueOf(token));
 			}
 			catch (NumberFormatException nfe)
 			{
-				return false;
+				return new ParseResult.Fail(getTokenName()
+						+ " misunderstood Integer: " + token + " in " + value);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, TabInfo ti)
+	{
+		if (!Tab.SUMMARY.equals(ti.getTab()))
+		{
+			return null;
+		}
+		Collection<Integer> columns = ti.getHiddenColumns();
+		TreeSet<Integer> set = new TreeSet<Integer>();
+		set.addAll(columns);
+		return new String[] { StringUtil.join(set, Constants.COMMA) };
+	}
+
+	public Class<TabInfo> getTokenClass()
+	{
+		return TabInfo.class;
+	}
+
+	@Override
+	protected char separator()
+	{
+		return ',';
 	}
 }

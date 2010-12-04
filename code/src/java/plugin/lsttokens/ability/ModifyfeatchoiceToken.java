@@ -33,6 +33,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -96,9 +97,15 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getTokenName(), gfd);
-		cs.setTitle("Select a "
-				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
-				+ " to modify");
+		
+		TabInfo ti = context.ref.silentlyGetConstructedCDOMObject(
+				TabInfo.class, Tab.ABILITIES.toString());
+		String singularName = ti.getResolvedName();
+		if (singularName.endsWith("s"))
+		{
+			singularName = singularName.substring(0, singularName.length() - 1);
+		}
+		cs.setTitle("Select a " + singularName + " to modify");
 		TransitionChoice<Ability> tc = new ConcreteTransitionChoice<Ability>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);

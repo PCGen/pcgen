@@ -43,6 +43,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -474,6 +475,7 @@ public class PrerequisiteWriterTest extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");
 		SystemCollections.addToGameModeList(gamemode);
+		LstSystemLoader.addDefaultTabInfo(gamemode);
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();
 	}

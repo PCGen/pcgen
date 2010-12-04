@@ -30,11 +30,11 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -74,6 +74,10 @@ public class ModifyfeatchoiceTokenTest extends
 		TokenRegistration.register(preclasswriter);
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
+		TabInfo ti = primaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti.setKeyName("Feats");
+		ti = secondaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti.setKeyName("Feats");
 	}
 
 	@Override
@@ -177,9 +181,14 @@ public class ModifyfeatchoiceTokenTest extends
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getToken()
 				.getTokenName(), gfd);
-		cs.setTitle("Select a "
-				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
-				+ " to modify");
+		TabInfo ti = primaryContext.ref.silentlyGetConstructedCDOMObject(
+				TabInfo.class, Tab.ABILITIES.toString());
+		String singularName = ti.getResolvedName();
+		if (singularName.endsWith("s"))
+		{
+			singularName = singularName.substring(0, singularName.length() - 1);
+		}
+		cs.setTitle("Select a " + singularName + " to modify");
 		TransitionChoice<Ability> tc = new ConcreteTransitionChoice<Ability>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);

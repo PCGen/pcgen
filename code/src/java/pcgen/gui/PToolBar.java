@@ -49,8 +49,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
+import pcgen.cdom.content.TabInfo;
+import pcgen.core.Globals;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterDialogFactory;
 import pcgen.gui.filter.Filterable;
@@ -122,7 +122,7 @@ public class PToolBar extends JToolBar
 			panelName = curPanel.getName();
 		}
 
-		Tab aTab = Tab.INVALID;
+		TabInfo ti = null;
 		
 		if ((panelName != null) && (panelName.length() > 0))
 		{
@@ -133,31 +133,22 @@ public class PToolBar extends JToolBar
 				panelName = subPanel.getName();
 			}
 
-			aTab = pcgen.core.GameMode.getTab(panelName);
+			ti = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					TabInfo.class, panelName);
+		}
+
+		if (ti == null)
+		{
+			return;
+		}
+		File helpFile = ti.getHelpContext();
+		if (helpFile == null)
+		{
+			return;
 		}
 
 		try
 		{
-			File helpFile;
-			String helpPath = SettingsHandler.getGame().getContextPath(aTab);
-
-			if (helpPath.equals(""))
-			{
-				return;
-			}
-
-			helpPath = CoreUtility.fixFilenamePath(SettingsHandler.getPcgenDocsDir() + File.separator + helpPath);
-			helpFile = new File(helpPath);
-
-			if (!helpFile.exists())
-			{
-				throw new MissingDocumentationException(helpFile.getAbsolutePath());
-
-//				Globals.errorPrint("Could not find "
-//								   + helpFile.getAbsolutePath());
-//				return;
-			}
-
 ////////////
 			//BufferedReader helpReader = new BufferedReader(new FileReader(helpFile));
 			//
@@ -299,7 +290,8 @@ public class PToolBar extends JToolBar
 						replacement = " ";
 					}
 
-					aString = aString.substring(0, i) + replacement + aString.substring(i + k + 1);
+					aString = aString.substring(0, i) + replacement
+							+ aString.substring(i + k + 1);
 					i = aString.indexOf(search);
 					wholeFile = false;
 				}
@@ -318,11 +310,6 @@ public class PToolBar extends JToolBar
 		catch (IOException e)
 		{
 			Logging.errorPrint("Something went wrong printing ", e);
-		}
-		catch (MissingDocumentationException mde)
-		{
-			Logging.errorPrint("Could not find " + mde.getMessage());
-			helpPane.setText("<html>" + PropertyFactory.getString("in_noHelpAvailable") + "</html>");
 		}
 
 		if (helpFrame.isVisible() || forceDisplay)
@@ -622,14 +609,6 @@ public class PToolBar extends JToolBar
 		public String getToolTipText(MouseEvent event)
 		{
 			return FilterDialogFactory.getSelectedFiltersToolTipText();
-		}
-	}
-
-	private static class MissingDocumentationException extends Exception
-	{
-		MissingDocumentationException(String docpath)
-		{
-			super(docpath);
 		}
 	}
 }

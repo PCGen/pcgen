@@ -163,7 +163,7 @@ public abstract class LoadContext
 
 	public void resolveDeferredTokens()
 	{
-		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
+		for (DeferredToken<? extends Loadable> token : TokenLibrary
 				.getDeferredTokens())
 		{
 			processRes(token);
@@ -171,7 +171,7 @@ public abstract class LoadContext
 		commit();
 	}
 
-	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
+	private <T extends Loadable> void processRes(DeferredToken<T> token)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer> mfgs = ref
@@ -556,7 +556,7 @@ public abstract class LoadContext
 
 	public void performDeferredProcessing(CDOMObject cdo)
 	{
-		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
+		for (DeferredToken<? extends Loadable> token : TokenLibrary
 				.getDeferredTokens())
 		{
 			if (token.getDeferredTokenClass().isAssignableFrom(cdo.getClass()))
@@ -566,7 +566,7 @@ public abstract class LoadContext
 		}
 	}
 
-	private <T extends CDOMObject> void processDeferred(CDOMObject cdo,
+	private <T extends Loadable> void processDeferred(CDOMObject cdo,
 			DeferredToken<T> token)
 	{
 		token.process(this, ((T) cdo));
