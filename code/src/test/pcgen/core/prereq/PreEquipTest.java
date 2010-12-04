@@ -163,6 +163,8 @@ public class PreEquipTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		// Test 3.5 style
+		longsword.put(ObjectKey.SIZE, medium);
+		longsword.put(ObjectKey.BASESIZE, medium);
 		longsword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
 
 		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,

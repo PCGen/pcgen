@@ -227,7 +227,6 @@ public final class WieldCategory
 			}
 			final String aType = aKey.substring(3, aKey.indexOf(":"));
 			final String preVar = aKey.substring(aKey.indexOf(":") + 1);
-
 			try
 			{
 				final Prerequisite prereq = parser.parse(aType, preVar,
@@ -235,8 +234,7 @@ public final class WieldCategory
 				if (PrereqHandler.passes(prereq, eq, aPC))
 				{
 					final String mappedCat = switchMap.get(aKey);
-					WieldCategory wCat = SettingsHandler.getGame().
-						getWieldCategory(mappedCat);
+					WieldCategory wCat = findByName(mappedCat);
 					if (wCat != null)
 					{
 						pcWCat = wCat;
