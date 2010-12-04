@@ -37,7 +37,7 @@ public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 	public ParseResult parseNonEmptyToken(LoadContext context, TabInfo ti,
 			String value)
 	{
-		ti.setKeyName(value);
+		ti.setTabName(value);
 		return ParseResult.SUCCESS;
 	}
 

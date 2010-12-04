@@ -71,10 +71,20 @@ public class TabInfo implements Loadable
 
 	public void setKeyName(String key)
 	{
-		tabName = key;
+		setName(key);
 	}
 
 	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public void setTabName(String name)
+	{
+		tabName = name;
+	}
+
+	public String getTabName()
 	{
 		return tabName;
 	}
