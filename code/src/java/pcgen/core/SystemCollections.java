@@ -33,7 +33,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.system.LoadInfo;
 
@@ -84,7 +83,6 @@ public class SystemCollections
 	private static final Map<String, Set<String>> traitMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>();
 	private static final Map<String, LoadInfo> loadInfoMap = new HashMap<String, LoadInfo>();
-	private static final Map<String, Map<String, UnitSet>> unitSetMap = new HashMap<String, Map<String, UnitSet>>();
 
 	/**
 	 * Make sure it doesn't get instantiated.
@@ -432,96 +430,7 @@ public class SystemCollections
 		return loadInfoMap.get(SettingsHandler.getGame().getName());
 	}
 
-	/**
-	 * Get the Unit information for the game mode
-	 * @param gameMode
-	 * @return the Unit information for the game mode
-	 */
-	public static Map<String, UnitSet> getUnitSetList(final String gameMode)
-	{
-		Map<String, UnitSet> gameUnitSetMap = unitSetMap.get(gameMode);
-		if (gameUnitSetMap == null)
-		{
-			gameUnitSetMap = new HashMap<String, UnitSet>();
-			unitSetMap.put(gameMode, gameUnitSetMap);
-		}
-		return gameUnitSetMap;
-	}
-
-	/**
-	 * Set the Unit info for the game mode to null
-	 * @param gameMode
-	 */
-	public static void setEmptyUnitSetList(final String gameMode)
-	{
-		unitSetMap.put(gameMode, null);
-	}
-
-	/**
-	 * Get the unit info for the current game mode
-	 * @return the unit info for the current game mode
-	 */
-	public static Map<String, UnitSet> getUnitSetList()
-	{
-		return getUnitSetList(SettingsHandler.getGame().getName());
-	}
-
-	/**
-	 * Get the Unit set info for the game mode
-	 * @param unitSetName
-	 * @param gameMode
-	 * @return the Unit set info for the game mode
-	 */
-	public static UnitSet getUnitSet(final String unitSetName, String gameMode)
-	{
-		Map<String, UnitSet> gameUnitSetList = unitSetMap.get(gameMode);
-		if (gameUnitSetList == null)
-		{
-			gameUnitSetList = new HashMap<String, UnitSet>();
-
-			// create default Unit Set in case none is specified in the game mode
-			UnitSet defaultUnitSet = new UnitSet();
-			defaultUnitSet.setName(Constants.s_STANDARD_UNITSET_NAME);
-			defaultUnitSet.setHeightUnit(Constants.s_STANDARD_UNITSET_HEIGHTUNIT);
-			defaultUnitSet.setHeightFactor(Constants.s_STANDARD_UNITSET_HEIGHTFACTOR);
-			defaultUnitSet.setHeightDisplayPattern(Constants.s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN);
-			defaultUnitSet.setDistanceUnit(Constants.s_STANDARD_UNITSET_DISTANCEUNIT);
-			defaultUnitSet.setDistanceFactor(Constants.s_STANDARD_UNITSET_DISTANCEFACTOR);
-			defaultUnitSet.setDistanceDisplayPattern(Constants.s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN);
-			defaultUnitSet.setWeightUnit(Constants.s_STANDARD_UNITSET_WEIGHTUNIT);
-			defaultUnitSet.setWeightFactor(Constants.s_STANDARD_UNITSET_WEIGHTFACTOR);
-			defaultUnitSet.setWeightDisplayPattern(Constants.s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN);
-
-			gameUnitSetList.put(Constants.s_STANDARD_UNITSET_NAME, defaultUnitSet);
-			unitSetMap.put(gameMode, gameUnitSetList);
-		}
-
-		UnitSet unitSet = gameUnitSetList.get(unitSetName);
-		if (unitSet == null)
-		{
-			unitSet = new UnitSet();
-			gameUnitSetList.put(unitSetName, unitSet);
-		}
-		return unitSet;
-	}
-
-	/**
-	 * Get the Unit set info for the game mode by name
-	 * @param unitSetName
-	 * @param gameMode
-	 * @return the Unit set info for the game mode
-	 */
-	public static UnitSet getUnitSetNamed(final String unitSetName, String gameMode)
-	{
-		Map<String, UnitSet> gameUnitSetList = unitSetMap.get(gameMode);
-		if (gameUnitSetList == null)
-		{
-			return null;
-		}
-
-		return gameUnitSetList.get(unitSetName);
-	}
-		//GAMEMODELIST
+	//GAMEMODELIST
 
 	/**
 	 * Add the game mode to the list.

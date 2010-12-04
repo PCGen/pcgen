@@ -173,6 +173,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			ref.registerAbbreviation(al, al.getAbb());
 		}
 		LstSystemLoader.createLangBonusObject(Globals.getContext());
+		LstSystemLoader.addDefaultUnitSet(SettingsHandler.getGame());
+		SettingsHandler.getGame().selectDefaultUnitSet();
 		additionalSetUp();
 
 		character = new PlayerCharacter();

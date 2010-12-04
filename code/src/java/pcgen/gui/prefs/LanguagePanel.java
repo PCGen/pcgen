@@ -25,8 +25,8 @@ package pcgen.gui.prefs;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.Collection;
 import java.util.Comparator;
-import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -40,7 +40,6 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SystemCollections;
 import pcgen.core.UnitSet;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
@@ -145,14 +144,14 @@ public class LanguagePanel extends PCGenPrefsPanel
 		this.add(label);
 
 		Utility.buildConstraints(c, 1, line++, 2, 1, 0, 0);
-		Map<String, UnitSet> unitSetList = SystemCollections.getUnitSetList();
-		unitSetNames = new String[unitSetList.size()];
+		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().ref.getConstructedCDOMObjects(UnitSet.class);
+		unitSetNames = new String[unitSets.size()];
 		int i = 0;
-		for (UnitSet unitSet : unitSetList.values())
+		for (UnitSet unitSet : unitSets)
 		{
 			if (unitSet != null)
 			{
-				unitSetNames[i++] = unitSet.getName();
+				unitSetNames[i++] = unitSet.getDisplayName();
 			}
 		}
 
@@ -229,10 +228,13 @@ public class LanguagePanel extends PCGenPrefsPanel
 		}
 
 		unitSetType.setSelectedIndex(0);
-		for (int i = 0; i < SystemCollections.getUnitSetList().size(); ++i)
+		Collection<UnitSet> unitSets = SettingsHandler.getGame()
+				.getModeContext().ref.getConstructedCDOMObjects(UnitSet.class);
+
+		for (int i = 0; i < unitSets.size(); ++i)
 		{
-			if (unitSetNames[i].equals(SettingsHandler.getGameModeUnitSet()
-				.getName()))
+			if (unitSetNames[i].equals(SettingsHandler.getGame().getUnitSet()
+					.getDisplayName()))
 			{
 				unitSetType.setSelectedIndex(i);
 			}

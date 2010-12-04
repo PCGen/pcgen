@@ -46,7 +46,6 @@ public class TokenStore
 		tokenTypeList.add(EqSizePenaltyLstToken.class);
 		tokenTypeList.add(RollMethodLstToken.class);
 		tokenTypeList.add(TabLstToken.class);
-		tokenTypeList.add(UnitSetLstToken.class);
 		tokenTypeList.add(WieldCategoryLstToken.class);
 
 		//statsandchecks.lst

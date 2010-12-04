@@ -30,6 +30,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.TabLoader;
+import pcgen.util.Logging;
 
 /**
  * <code>TabToken</code>
@@ -54,6 +55,7 @@ public class TabToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 	}

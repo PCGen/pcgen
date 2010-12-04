@@ -1,5 +1,6 @@
 /*
  * UnitSet.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,7 +23,11 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
+import java.net.URI;
 import java.text.DecimalFormat;
+
+import pcgen.cdom.base.Loadable;
 
 
 /**
@@ -31,37 +36,29 @@ import java.text.DecimalFormat;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class UnitSet
+public final class UnitSet implements Loadable
 {
-	private String distanceDisplayPattern;
+	private DecimalFormat distanceDisplayPattern;
 	private String distanceUnit;
-	private String heightDisplayPattern;
+	private DecimalFormat heightDisplayPattern;
 	private String heightUnit;
 	private String name;
-	private String weightDisplayPattern;
+	private DecimalFormat weightDisplayPattern;
 	private String weightUnit;
-	private double distanceFactor;
-	private double heightFactor;
-	private double weightFactor;
+	private BigDecimal distanceFactor;
+	private BigDecimal heightFactor;
+	private BigDecimal weightFactor;
+	private boolean isInternal = false;
+	private URI sourceURI;
 
 	/**
 	 * Set the distance display pattern.
 	 * 
 	 * @param dd distance display pattern.
 	 */
-	public void setDistanceDisplayPattern(final String dd)
+	public void setDistanceDisplayPattern(final DecimalFormat dd)
 	{
 		distanceDisplayPattern = dd;
-	}
-
-	/**
-	 * Get the distance display pattern.
-	 * 
-	 * @return String distance display pattern.
-	 */
-	public String getDistanceDisplayPattern()
-	{
-		return distanceDisplayPattern;
 	}
 
 	/**
@@ -69,19 +66,9 @@ public final class UnitSet
 	 * 
 	 * @param df distance factor.
 	 */
-	public void setDistanceFactor(final double df)
+	public void setDistanceFactor(final BigDecimal df)
 	{
 		distanceFactor = df;
-	}
-
-	/**
-	 * Get the distance factor.
-	 * 
-	 * @return double distance factor.
-	 */
-	public double getDistanceFactor()
-	{
-		return distanceFactor;
 	}
 
 	/**
@@ -109,19 +96,9 @@ public final class UnitSet
 	 * 
 	 * @param hd height display pattern.
 	 */
-	public void setHeightDisplayPattern(final String hd)
+	public void setHeightDisplayPattern(final DecimalFormat hd)
 	{
 		heightDisplayPattern = hd;
-	}
-
-	/**
-	 * Get the height display pattern.
-	 * 
-	 * @return String height display pattern.
-	 */
-	public String getHeightDisplayPattern()
-	{
-		return heightDisplayPattern;
 	}
 
 	/**
@@ -129,19 +106,9 @@ public final class UnitSet
 	 * 
 	 * @param hf height factor.
 	 */
-	public void setHeightFactor(final double hf)
+	public void setHeightFactor(final BigDecimal hf)
 	{
 		heightFactor = hf;
-	}
-
-	/**
-	 * Get the height factor.
-	 * 
-	 * @return double height factor.
-	 */
-	public double getHeightFactor()
-	{
-		return heightFactor;
 	}
 
 	/**
@@ -179,7 +146,7 @@ public final class UnitSet
 	 * 
 	 * @return String name.
 	 */
-	public String getName()
+	public String getDisplayName()
 	{
 		return name;
 	}
@@ -189,19 +156,9 @@ public final class UnitSet
 	 * 
 	 * @param wd weight display pattern.
 	 */
-	public void setWeightDisplayPattern(final String wd)
+	public void setWeightDisplayPattern(final DecimalFormat wd)
 	{
 		weightDisplayPattern = wd;
-	}
-
-	/**
-	 * Get the weight display pattern.
-	 * 
-	 * @return String weight display pattern.
-	 */
-	public String getWeightDisplayPattern()
-	{
-		return weightDisplayPattern;
 	}
 
 	/**
@@ -209,19 +166,9 @@ public final class UnitSet
 	 * 
 	 * @param wf weight factor.
 	 */
-	public void setWeightFactor(final double wf)
+	public void setWeightFactor(final BigDecimal wf)
 	{
 		weightFactor = wf;
-	}
-
-	/**
-	 * Get the weight factor.
-	 * 
-	 * @return double weight factor
-	 */
-	public double getWeightFactor()
-	{
-		return weightFactor;
 	}
 
 	/**
@@ -268,9 +215,7 @@ public final class UnitSet
 	 */
 	public double convertDistanceToUnitSet(final double distanceInFeet)
 	{
-		final double distance = distanceInFeet * getDistanceFactor();
-
-		return distance;
+		return distanceInFeet * distanceFactor.doubleValue();
 	}
 
 	/**
@@ -281,7 +226,7 @@ public final class UnitSet
 	 */
 	public int convertHeightFromUnitSet(final double height)
 	{
-		final double heightInInches = height / getHeightFactor();
+		final double heightInInches = height / heightFactor.doubleValue();
 
 		return (int) heightInInches;
 	}
@@ -294,9 +239,7 @@ public final class UnitSet
 	 */
 	public double convertHeightToUnitSet(final int heightInInches)
 	{
-		final double height = heightInInches * getHeightFactor();
-
-		return height;
+		return heightInInches * heightFactor.doubleValue();
 	}
 
 	/**
@@ -307,7 +250,7 @@ public final class UnitSet
 	 */
 	public double convertWeightFromUnitSet(final double weight)
 	{
-		final double weightInPounds = weight / getWeightFactor();
+		final double weightInPounds = weight / weightFactor.doubleValue();
 
 		return weightInPounds;
 	}
@@ -320,9 +263,7 @@ public final class UnitSet
 	 */
 	public double convertWeightToUnitSet(final double weightInPounds)
 	{
-		final double weight = weightInPounds * getWeightFactor();
-
-		return weight;
+		return weightInPounds * weightFactor.doubleValue();
 	}
 
 	/**
@@ -333,7 +274,7 @@ public final class UnitSet
 	 */
 	public int convertWeightToUnitSet(final int weightInPounds)
 	{
-		final double weight = weightInPounds * getWeightFactor();
+		final double weight = weightInPounds * weightFactor.doubleValue();
 
 		return (int) weight;
 	}
@@ -346,9 +287,7 @@ public final class UnitSet
 	 */
 	public String displayDistanceInUnitSet(final double distanceInFeet)
 	{
-		final String output = new DecimalFormat(getDistanceDisplayPattern()).format(convertDistanceToUnitSet(distanceInFeet));
-
-		return output;
+		return distanceDisplayPattern.format(convertDistanceToUnitSet(distanceInFeet));
 	}
 
 	/**
@@ -359,9 +298,7 @@ public final class UnitSet
 	 */
 	public String displayHeightInUnitSet(final int heightInInches)
 	{
-		final String output = new DecimalFormat(getHeightDisplayPattern()).format(convertHeightToUnitSet(heightInInches));
-
-		return output;
+		return heightDisplayPattern.format(convertHeightToUnitSet(heightInInches));
 	}
 
 	/**
@@ -372,9 +309,92 @@ public final class UnitSet
 	 */
 	public String displayWeightInUnitSet(final double weightInPounds)
 	{
-		final String output = new DecimalFormat(getWeightDisplayPattern()).format(convertWeightToUnitSet(weightInPounds));
+		return weightDisplayPattern.format(convertWeightToUnitSet(weightInPounds));
+	}
 
-		return output;
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setKeyName(String key)
+	{
+		setName(key);
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public String getLSTformat()
+	{
+		return getDisplayName();
+	}
+
+	public boolean isInternal()
+	{
+		return isInternal;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
+	public void setInternal(boolean internal)
+	{
+		isInternal = internal;
+	}
+
+	public String getRawWeightUnit()
+	{
+		return weightUnit;
+	}
+
+	public String getRawHeightUnit()
+	{
+		return heightUnit;
+	}
+
+	public String getRawDistanceUnit()
+	{
+		return distanceUnit;
+	}
+
+	public DecimalFormat getWeightDisplayPattern()
+	{
+		return weightDisplayPattern;
+	}
+
+	public DecimalFormat getHeightDisplayPattern()
+	{
+		return heightDisplayPattern;
+	}
+
+	public DecimalFormat getDistanceDisplayPattern()
+	{
+		return distanceDisplayPattern;
+	}
+
+	public BigDecimal getDistanceFactor()
+	{
+		return distanceFactor;
+	}
+
+	public BigDecimal getHeightFactor()
+	{
+		return heightFactor;
+	}
+
+	public BigDecimal getWeightFactor()
+	{
+		return weightFactor;
 	}
 
 

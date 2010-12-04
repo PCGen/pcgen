@@ -68,7 +68,7 @@ public class UnitSetToken extends Token
 
 		if ("UNITSET".equals(tokenSource))
 		{
-			retString = Globals.getGameModeUnitSet().getName();
+			retString = Globals.getGameModeUnitSet().getDisplayName();
 		}
 		else if ("UNITSET.HEIGHTUNIT".equals(tokenSource))
 		{

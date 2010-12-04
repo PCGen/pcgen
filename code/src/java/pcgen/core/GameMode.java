@@ -1704,7 +1704,8 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public boolean selectUnitSet(final String unitSetName)
 	{
-		final UnitSet ui = SystemCollections.getUnitSet(unitSetName, name);
+		final UnitSet ui = getModeContext().ref
+				.silentlyGetConstructedCDOMObject(UnitSet.class, unitSetName);
 		if (ui == null)
 		{
 			return false;
@@ -1719,7 +1720,8 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public boolean selectDefaultUnitSet()
 	{
-		final UnitSet ui = SystemCollections.getUnitSetNamed(defaultUnitSet, name);
+		final UnitSet ui = getModeContext().ref
+				.silentlyGetConstructedCDOMObject(UnitSet.class, defaultUnitSet);
 		if (ui == null)
 		{
 			return false;

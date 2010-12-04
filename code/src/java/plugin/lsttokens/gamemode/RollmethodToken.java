@@ -30,6 +30,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.RollMethodLoader;
+import pcgen.util.Logging;
 
 /**
  * <code>RollmethodToken</code>
@@ -54,6 +55,7 @@ public class RollmethodToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 	}

@@ -190,7 +190,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 				gmTo.setPurchaseMethodName(gmFrom.getPurchaseModeMethodName());
 			}
 			gmTo.setRollMethod(gmFrom.getRollMethod());
-			gmTo.selectUnitSet(gmFrom.getUnitSet().getName());
+			gmTo.selectUnitSet(gmFrom.getUnitSet().getDisplayName());
 			if (gmTo.getAvailXpTableNames().contains(gmFrom.getXpTableName()))
 			{
 				gmTo.setXpTableName(gmFrom.getXpTableName());

@@ -5,6 +5,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.BaseDiceLoader;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with BASEDICE Token
@@ -28,6 +29,7 @@ public class BasediceToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 	}

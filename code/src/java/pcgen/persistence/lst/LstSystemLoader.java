@@ -77,6 +77,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.UnitSet;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
 import pcgen.core.analysis.SizeUtilities;
@@ -134,6 +135,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 			};
 
+	private static UnitSet DEFAULT_UNIT_SET;
+
 	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
 	private AbilityCategoryLoader abilityCategoryLoader = new AbilityCategoryLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
@@ -189,7 +192,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	private GenericLoader<Language> languageLoader = new GenericLoader<Language>(Language.class);
 	private LoadInfoLoader loadInfoLoader = new LoadInfoLoader();
-	private UnitSetLoader unitSetLoader = new UnitSetLoader();
 	private EquipSlotLoader eqSlotLoader = new EquipSlotLoader();
 	private final List<CampaignSourceEntry> bioSetFileList =
 			new ArrayList<CampaignSourceEntry>();
@@ -1144,9 +1146,35 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			Logging.log(Logging.LST_ERROR, "GameMode (" + gameMode.getName() + ") : MiscInfo.lst did not contain any valid DIESIZES. " 
 				+ "Using the system default DIESIZES.");
 		}
+		addDefaultUnitSet(gameMode);
 		return gameMode;
 	}
 
+	public static void addDefaultUnitSet(GameMode gameMode)
+	{
+		gameMode.getModeContext().ref.importObject(getDefaultUnitSet());
+	}
+
+	private static synchronized UnitSet getDefaultUnitSet()
+	{
+		if (DEFAULT_UNIT_SET == null)
+		{
+			// create default Unit Set in case none is specified in the game mode
+			DEFAULT_UNIT_SET = new UnitSet();
+			DEFAULT_UNIT_SET.setName(Constants.s_STANDARD_UNITSET_NAME);
+			DEFAULT_UNIT_SET.setInternal(true);
+			DEFAULT_UNIT_SET.setHeightUnit(Constants.s_STANDARD_UNITSET_HEIGHTUNIT);
+			DEFAULT_UNIT_SET.setHeightFactor(Constants.s_STANDARD_UNITSET_HEIGHTFACTOR);
+			DEFAULT_UNIT_SET.setHeightDisplayPattern(Constants.s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN);
+			DEFAULT_UNIT_SET.setDistanceUnit(Constants.s_STANDARD_UNITSET_DISTANCEUNIT);
+			DEFAULT_UNIT_SET.setDistanceFactor(Constants.s_STANDARD_UNITSET_DISTANCEFACTOR);
+			DEFAULT_UNIT_SET.setDistanceDisplayPattern(Constants.s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN);
+			DEFAULT_UNIT_SET.setWeightUnit(Constants.s_STANDARD_UNITSET_WEIGHTUNIT);
+			DEFAULT_UNIT_SET.setWeightFactor(Constants.s_STANDARD_UNITSET_WEIGHTFACTOR);
+			DEFAULT_UNIT_SET.setWeightDisplayPattern(Constants.s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN);
+		}
+		return DEFAULT_UNIT_SET;
+	}
 	public void loadPCCFilesInDirectory(String aDirectory)
 	{
 		new File(aDirectory).list(pccFileFilter);
@@ -1239,7 +1267,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		for (String gameFile : gameFiles)
 		{
-			SystemCollections.setEmptyUnitSetList(gameFile);
 			File specGameModeDir = new File(gameModeDir, gameFile);
 			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
 			final GameMode gm =
@@ -1269,10 +1296,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 				// Load load.lst and check for completeness
 				loadGameModeLstFile(context, loadInfoLoader, gmName, gameFile, "load.lst");
-
-				// Load unitset.lst
-				loadGameModeLstFile(context, unitSetLoader, gmName, gameFile, "unitset.lst",
-					false);
 
 				// Load sizeAdjustment.lst
 				loadGameModeLstFile(context, sizeLoader, gmName, gameFile,

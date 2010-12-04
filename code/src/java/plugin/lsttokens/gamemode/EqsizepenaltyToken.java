@@ -5,6 +5,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.EqSizePenaltyLoader;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with EQSIZEPENALTY Token
@@ -27,6 +28,7 @@ public class EqsizepenaltyToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 	}

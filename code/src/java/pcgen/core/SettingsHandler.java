@@ -1635,9 +1635,9 @@ public final class SettingsHandler
 		{
 			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
 			String gameModeKey = gameMode.getName();
-			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getName() != null)
+			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getDisplayName() != null)
 			{
-				setPCGenOption("gameMode." + gameModeKey + ".unitSetName", gameMode.getUnitSet().getName());
+				setPCGenOption("gameMode." + gameModeKey + ".unitSetName", gameMode.getUnitSet().getDisplayName());
 			}
 			setPCGenOption("gameMode." + gameModeKey + ".purchaseMethodName", gameMode.getPurchaseModeMethodName()); //$NON-NLS-1$
 			setPCGenOption("gameMode." + gameModeKey + ".rollMethod", gameMode.getRollMethod()); //$NON-NLS-1$
@@ -2567,11 +2567,6 @@ public final class SettingsHandler
 	public static int getTabPlacement()
 	{
 		return tabPlacement;
-	}
-
-	public static UnitSet getGameModeUnitSet()
-	{
-		return game.getUnitSet();
 	}
 
 	/**

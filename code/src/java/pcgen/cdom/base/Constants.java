@@ -20,6 +20,9 @@
  */
 package pcgen.cdom.base;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 /**
  * This interface holds all global constants.
  *
@@ -132,24 +135,24 @@ public interface Constants
 	/** ftin is harcoded to translate to x'y */
 	String s_STANDARD_UNITSET_HEIGHTUNIT = "ftin"; //$NON-NLS-1$
 	/** 1.0 */
-	double s_STANDARD_UNITSET_HEIGHTFACTOR = 1.0;
+	BigDecimal s_STANDARD_UNITSET_HEIGHTFACTOR = BigDecimal.ONE;
 	/** The height display pattern */
-	String s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN = "#.#"; //$NON-NLS-1$
+	DecimalFormat s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN = new DecimalFormat("#.#"); //$NON-NLS-1$
 	/**
 	 * Use of "~" as first character means the unit
 	 * name is appended without a leading space
 	 */
 	String s_STANDARD_UNITSET_DISTANCEUNIT = "~'"; //$NON-NLS-1$
 	/** 1.0 */
-	double s_STANDARD_UNITSET_DISTANCEFACTOR = 1.0;
+	BigDecimal s_STANDARD_UNITSET_DISTANCEFACTOR = BigDecimal.ONE;
 	/** # */
-	String s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN = "#"; //$NON-NLS-1$
+	DecimalFormat s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN = new DecimalFormat("#"); //$NON-NLS-1$
 	/** lbs. */
 	String s_STANDARD_UNITSET_WEIGHTUNIT = "lbs."; //$NON-NLS-1$
 	/** 1.0 */
-	double s_STANDARD_UNITSET_WEIGHTFACTOR = 1.0;
+	BigDecimal s_STANDARD_UNITSET_WEIGHTFACTOR = BigDecimal.ONE;
 	/** The unit set weight display pattern */
-	String s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN = "#.###"; //$NON-NLS-1$
+	DecimalFormat s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN = new DecimalFormat("#.###"); //$NON-NLS-1$
 
 	// Systems for plug-ins
 	/** PCGen */

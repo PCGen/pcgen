@@ -5,6 +5,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.WieldCategoryLoader;
+import pcgen.util.Logging;
 
 /**
  * Class deals with WIELDCATEGORY Token
@@ -37,6 +38,7 @@ public class WieldcategoryToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
+			Logging.errorPrint(e.getMessage());
 			return false;
 		}
 

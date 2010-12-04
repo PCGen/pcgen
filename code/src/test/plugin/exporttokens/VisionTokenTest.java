@@ -23,8 +23,10 @@
  */
 package plugin.exporttokens;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -37,11 +39,11 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SystemCollections;
 import pcgen.core.UnitSet;
 import pcgen.core.Vision;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -110,12 +112,12 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 		context.resolveReferences();
 		
-		metricUS = SystemCollections.getUnitSet("Metric", SettingsHandler.getGame().getName());
+		metricUS = new UnitSet();
 		metricUS.setName("Metric");
 		metricUS.setDistanceUnit("m");
-		metricUS.setDistanceFactor(0.3);
-		metricUS.setDistanceDisplayPattern("#.##");
-		
+		metricUS.setDistanceFactor(new BigDecimal(0.3));
+		metricUS.setDistanceDisplayPattern(new DecimalFormat("#.##"));
+		SettingsHandler.getGame().getModeContext().ref.importObject(metricUS);
 	}
 
 	private void addVision(PObject obj, String visionString)
@@ -200,7 +202,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
-		SettingsHandler.getGame().selectUnitSet(metricUS.getName());
+		assertTrue(SettingsHandler.getGame().selectUnitSet(metricUS.getDisplayName()));
 
 		assertEquals("Metric range of one vision method", "Darkvision (18 m)", new VisionToken().getToken(
 			"VISION", pc, null));
