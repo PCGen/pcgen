@@ -32,7 +32,7 @@ public class TabInfo implements Loadable
 {
 
 	private URI sourceURI;
-	private String tabName;
+	private String tabName = "";
 	private Tab tabID;
 	private boolean isVisible = true;
 	private File helpFile;
