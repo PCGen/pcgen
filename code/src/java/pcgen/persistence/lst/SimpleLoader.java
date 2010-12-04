@@ -104,6 +104,9 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 			else
 			{
 				context.rollback();
+				Logging.errorPrint("Error found loading " + loadable.getClass()
+						+ " " + loadable.getDisplayName() + " from "
+						+ loadable.getSourceURI());
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();
