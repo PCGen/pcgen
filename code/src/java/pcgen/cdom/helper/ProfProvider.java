@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -65,11 +66,11 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * @param playerCharacter
 	 *            The PlayerCharacter to test.
 	 * @param owner
-	 *            The CDOMObject that owns the ProficiencyProvider (used for
+	 *            The Loadable that owns the ProficiencyProvider (used for
 	 *            PRExxx resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter, CDOMObject owner);
+	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner);
 
 	/**
 	 * Returns true if this ProfProvider provides proficiency with the given

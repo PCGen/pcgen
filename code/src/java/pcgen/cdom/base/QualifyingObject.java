@@ -38,10 +38,10 @@ public interface QualifyingObject
 	 * @param playerCharacter
 	 *            The PlayerCharacter to test.
 	 * @param owner
-	 *            The CDOMObject that owns the QualifyingObject (used for PRExxx
+	 *            The Loadable that owns the QualifyingObject (used for PRExxx
 	 *            resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter, CDOMObject owner);
+	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner);
 
 }

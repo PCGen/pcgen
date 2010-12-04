@@ -258,7 +258,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * 
 	 * @return <tt>true</tt> if the PC passes all the prerequisites.
 	 */
-	public boolean qualifies(final PlayerCharacter aPC, CDOMObject owner)
+	public boolean qualifies(final PlayerCharacter aPC, Loadable owner)
 	{
 		return !hasPrerequisites()
 				|| PrereqHandler.passesAll(getPrerequisiteList(), aPC, owner);
