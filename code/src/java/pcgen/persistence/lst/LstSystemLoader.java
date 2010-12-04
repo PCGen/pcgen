@@ -1164,7 +1164,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				ti = context.ref.constructCDOMObject(TabInfo.class, aTab
 						.toString());
-				ti.setKeyName(aTab.label());
+				ti.setTabName(aTab.label());
 			}
 		}
 	}
