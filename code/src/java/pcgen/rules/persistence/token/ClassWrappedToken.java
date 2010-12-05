@@ -21,6 +21,8 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
+import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
 import pcgen.rules.context.LoadContext;
 
 public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
@@ -50,6 +52,14 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
 			PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
+			if (parent instanceof SubClass
+					|| parent instanceof SubstitutionClass)
+			{
+				return new ParseResult.Fail("Data used token: " + value
+						+ " which is a Class token, "
+						+ "but it was used in a class level for a "
+						+ parent.getClass().getSimpleName());
+			}
 			return wrappedToken.parseToken(context, parent, value);
 		}
 		return new ParseResult.Fail("Data used token: " + value
