@@ -200,7 +200,7 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		return fieldName;
 	}
 
-	public Set<String> getTypes()
+	public Set<Type> getTypes()
 	{
 		return Collections.emptySet();
 	}

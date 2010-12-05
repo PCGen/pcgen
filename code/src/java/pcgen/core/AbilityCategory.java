@@ -30,8 +30,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.View;
@@ -60,13 +63,14 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	private String pluralName;
 	
 	private String theAbilityCategory;
-	private Set<String> theAbilityTypes = null;
 	private Set<CDOMSingleRef<Ability>> theAbilityKeys = null;
 	private boolean allAbilityTypes = false;
-	private String thePoolFormula = "0"; //$NON-NLS-1$
 	
 	private String theDisplayLocation;
 	
+	private Set<Type> types = null;
+	private Formula poolFormula;
+
 	private Visibility visibility = Visibility.DEFAULT;
 	private boolean isEditable = true;
 	private boolean isPoolModifiable = true;
@@ -83,7 +87,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 		FEAT.pluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 		FEAT.setInternal(true);
-		LANGBONUS.setPoolFormula("BONUSLANG");
+		LANGBONUS.setPoolFormula(FormulaFactory.getFormulaFor("BONUSLANG"));
 		LANGBONUS.setInternal(true);
 		WEAPONBONUS.setInternal(true);
 	}
@@ -140,33 +144,19 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	{
 		return theAbilityCategory;
 	}
-	
-	/**
-	 * Sets the list of ability types to include in this category.
-	 * 
-	 * @param aTypeList A collection of type strings.
-	 */
-	public void setAbilityTypes(final Collection<String> aTypeList)
-	{
-		if ( theAbilityTypes == null )
-		{
-			theAbilityTypes = new TreeSet<String>();
-		}
-		theAbilityTypes.addAll(aTypeList);
-	}
-	
+
 	/**
 	 * Adds a new type to the list of types included in this category.
 	 * 
 	 * @param aType A type string.
 	 */
-	public void addAbilityType(final String aType)
+	public void addAbilityType(final Type type)
 	{
-		if ( theAbilityTypes == null )
+		if (types == null)
 		{
-			theAbilityTypes = new TreeSet<String>();
+			types = new TreeSet<Type>();
 		}
-		theAbilityTypes.add(aType);
+		types.add(type);
 	}
 	
 	/**
@@ -175,13 +165,13 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * 
 	 * @return An unmodifiable <tt>Set</tt> of type strings.
 	 */
-	public Set<String> getTypes()
+	public Set<Type> getTypes()
 	{
-		if ( theAbilityTypes == null )
+		if (types == null)
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableSet(theAbilityTypes);
+		return Collections.unmodifiableSet(types);
 	}
 	
 	/**
@@ -222,9 +212,9 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * 
 	 * @return A formula
 	 */
-	public String getPoolFormula()
+	public Formula getPoolFormula()
 	{
-		return thePoolFormula;
+		return poolFormula;
 	}
 	
 	/**
@@ -233,9 +223,9 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * 
 	 * @param aFormula A valid formula or variable.
 	 */
-	public void setPoolFormula( final String aFormula )
+	public void setPoolFormula(Formula formula)
 	{
-		thePoolFormula = aFormula;
+		poolFormula = formula;
 	}
 	
 	/**

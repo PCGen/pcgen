@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.rules.context.LoadValidator;
+import pcgen.cdom.enumeration.Type;
 import pcgen.util.TestHelper;
 
 /**
@@ -85,9 +85,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		AbilityCategory typeChild = new AbilityCategory("typeChild");
 		SettingsHandler.getGame().addAbilityCategory(typeChild);
 		typeChild.setAbilityCategory(parent.getAbilityCategory());
-		List<String> types = new ArrayList<String>();
-		types.add("sport");
-		typeChild.setAbilityTypes(types);
+		typeChild.addAbilityType(Type.getConstant("Sport"));
 		
 		Ability fencing = TestHelper.makeAbility("fencing", parent, "sport");
 		Ability reading = TestHelper.makeAbility("reading", parent, "interest");

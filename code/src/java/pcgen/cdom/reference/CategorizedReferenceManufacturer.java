@@ -27,6 +27,7 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityUtilities;
 import pcgen.util.Logging;
 
@@ -107,7 +108,7 @@ public class CategorizedReferenceManufacturer<T extends Loadable & CategorizedCD
 		if (parentCrm != null)
 		{
 			Collection<T> allObjects = parentCrm.getAllObjects();
-			Set<String> types = category.getTypes();
+			Set<Type> types = category.getTypes();
 			boolean hasAll = types.isEmpty();
 			//Don't add things twice or we'll get dupe messages :)
 			Set<T> added = new WrappedMapSet<T>(IdentityHashMap.class);
@@ -120,9 +121,9 @@ public class CategorizedReferenceManufacturer<T extends Loadable & CategorizedCD
 				boolean use = hasAll;
 				if (!use)
 				{
-					for (String type : types)
+					for (Type type : types)
 					{
-						if (ability.isType(type))
+						if (ability.isType(type.toString()))
 						{
 							use = true;
 							break;

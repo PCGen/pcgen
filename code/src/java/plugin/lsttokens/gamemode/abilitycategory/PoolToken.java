@@ -1,57 +1,66 @@
 /*
- * PoolToken.java
- * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.lst.AbilityCategoryLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * Handles the POOL token on an ABILITYCATEGORY line.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
- */
-public class PoolToken implements AbilityCategoryLstToken
+public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
+		CDOMPrimaryToken<AbilityCategory>
 {
-
-	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
-	{
-		// TODO - Add a validate() method to VariableProcessor
-		aCat.setPoolFormula(aValue);
-		return true;
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
+	@Override
 	public String getTokenName()
 	{
-		return "POOL"; //$NON-NLS-1$
+		return "POOL";
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			AbilityCategory ac, String value)
+	{
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString());
+		}
+		ac.setPoolFormula(formula);
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, AbilityCategory ac)
+	{
+		Formula formula = ac.getPoolFormula();
+		if (formula == null)
+		{
+			return null;
+		}
+		return new String[] { formula.toString() };
+	}
+
+	public Class<AbilityCategory> getTokenClass()
+	{
+		return AbilityCategory.class;
 	}
 
 }

@@ -1,96 +1,124 @@
 /*
- * TypeToken.java
- * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
+import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.lst.AbilityCategoryLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * Handles the TYPE token on an ABILITYCATEGORY line.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
- */
-public class TypeToken implements AbilityCategoryLstToken
+public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
+		CDOMPrimaryToken<AbilityCategory>, DeferredToken<AbilityCategory>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
+	@Override
+	public String getTokenName()
 	{
-		final StringTokenizer tok = new StringTokenizer(aValue, "."); //$NON-NLS-1$
-		boolean errorFlagged = false;
-		while (tok.hasMoreTokens())
+		return "TYPE";
+	}
+
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context,
+			AbilityCategory ac, String value)
+	{
+		if ("*".equals(value))
 		{
-			String typeVal = tok.nextToken();
-			if ("*".equals(typeVal))
+			ac.setAllAbilityTypes(true);
+			return ParseResult.SUCCESS;
+		}
+
+		ParseResult pr = checkForIllegalSeparator('.', value);
+		if (!pr.passed())
+		{
+			return pr;
+		}
+
+		StringTokenizer st = new StringTokenizer(value, Constants.DOT);
+		while (st.hasMoreTokens())
+		{
+			String typeString = st.nextToken();
+			if ("*".equals(typeString))
 			{
-				if (!aCat.getTypes().isEmpty() && !errorFlagged)
-				{
-					Logging.log(Logging.LST_WARNING,
+				return new ParseResult.Fail(
 						"Use of named types along with TYPE:* in category "
-							+ aCat.getDisplayName()
-							+ " is redundant. Named types " + aCat.getTypes() + " will be ignored");
-					errorFlagged = true;
-				}
-				if (aCat.hasDirectReferences() && !errorFlagged)
-				{
-					Logging.log(Logging.LST_WARNING,
-						"Use of ABILITYLIST along with TYPE:* in category "
-							+ aCat.getDisplayName()
-							+ " is redundant. Listed Keys "
-							+ aCat.getAbilityRefs() + " will be ignored");
-					errorFlagged = true;
-				}
-				aCat.setAllAbilityTypes(true);
+								+ ac.getDisplayName() + " is invalid.  Found: "
+								+ value);
 			}
 			else
 			{
-				aCat.addAbilityType(typeVal);
-				if (aCat.isAllAbilityTypes() && !errorFlagged)
-				{
-					Logging.log(Logging.LST_WARNING,
+				ac.addAbilityType(Type.getConstant(typeString));
+			}
+		}
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, AbilityCategory ac)
+	{
+		if (ac.isAllAbilityTypes())
+		{
+			return new String[] { "*" };
+		}
+		Set<Type> types = ac.getTypes();
+		if (types.isEmpty())
+		{
+			return null;
+		}
+		return new String[] { StringUtil.join(types, Constants.DOT) };
+	}
+
+	public Class<AbilityCategory> getTokenClass()
+	{
+		return AbilityCategory.class;
+	}
+
+	public Class<AbilityCategory> getDeferredTokenClass()
+	{
+		return AbilityCategory.class;
+	}
+
+	public boolean process(LoadContext context, AbilityCategory ac)
+	{
+		if (ac.isAllAbilityTypes())
+		{
+			if (!ac.getTypes().isEmpty())
+			{
+				Logging.log(Logging.LST_ERROR,
 						"Use of named types along with TYPE:* in category "
-							+ aCat.getDisplayName()
-							+ " is redundant. Named types " + aCat.getTypes() + "will be ignored");
-					errorFlagged = true;
-				}
+								+ ac.getDisplayName() + " is invalid.");
+				return false;
+			}
+			if (ac.hasDirectReferences())
+			{
+				Logging.log(Logging.LST_ERROR,
+						"Use of ABILITYLIST along with TYPE:* in category "
+								+ ac.getDisplayName() + " is invalid.");
+				return false;
 			}
 		}
 		return true;
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-	public String getTokenName()
-	{
-		return "TYPE"; //$NON-NLS-1$
 	}
 }

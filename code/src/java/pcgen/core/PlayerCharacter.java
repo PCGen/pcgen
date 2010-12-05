@@ -10596,9 +10596,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			BigDecimal spent = getAbilityPoolSpent(aCategory);
 			return spent.add(new BigDecimal(getRemainingFeatPoolPoints()));
 		}
-		Float basePool =
-				this.getVariableValue(aCategory.getPoolFormula(), getClass()
-					.toString());
+		Number basePool = aCategory.getPoolFormula().resolve(this,
+				getClass().toString());
+
 		if (!aCategory.allowFractionalPool())
 		{
 			basePool = new Float(basePool.intValue());
@@ -10611,7 +10611,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		// User bonuses already handle the fractional pool flag.
 		final double userBonus = getUserPoolBonus(aCategory);
-		return BigDecimal.valueOf(basePool + bonus + userBonus);
+		return BigDecimal.valueOf(basePool.floatValue() + bonus + userBonus);
 	}
 
 	private Set<Ability> getSelectedAbilities(final AbilityCategory aCategory)
