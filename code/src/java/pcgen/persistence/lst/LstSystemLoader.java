@@ -1171,7 +1171,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	public static void addDefaultUnitSet(GameMode gameMode)
 	{
-		gameMode.getModeContext().ref.importObject(getDefaultUnitSet());
+		LoadContext context = gameMode.getModeContext();
+		UnitSet us = context.ref.silentlyGetConstructedCDOMObject(
+				UnitSet.class, Constants.s_STANDARD_UNITSET_NAME);
+		if (us == null)
+		{
+			gameMode.getModeContext().ref.importObject(getDefaultUnitSet());
+		}
 	}
 
 	private static synchronized UnitSet getDefaultUnitSet()
