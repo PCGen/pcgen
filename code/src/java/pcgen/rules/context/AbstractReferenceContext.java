@@ -29,7 +29,6 @@ import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -62,7 +61,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	private final HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
-	public abstract <T extends Identified> ReferenceManufacturer<T> getManufacturer(
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
 	public abstract <T extends CDOMObject> boolean hasManufacturer(Class<T> cl);
@@ -92,7 +91,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return returnGood;
 	}
 
-	public <T extends Identified> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
+	public <T extends Loadable> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		return getManufacturer(c).getAllReference();
 	}
@@ -137,7 +136,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl).constructIfNecessary(value);
 	}
 
-	public <T extends Identified> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
 		/*
@@ -179,7 +178,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	public <T extends Identified> T silentlyGetConstructedCDOMObject(
+	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
@@ -447,7 +446,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	public <T extends Identified> T constructNowIfNecessary(Class<T> cl, String name)
+	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl, String name)
 	{
 		return getManufacturer(cl).constructNowIfNecessary(name);
 	}

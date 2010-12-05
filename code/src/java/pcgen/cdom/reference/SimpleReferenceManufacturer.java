@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A SimpleReferenceManufacturer is a ReferenceManufacturer that will construct
@@ -29,7 +29,7 @@ import pcgen.cdom.base.Identified;
  *            The Class of object this SimpleReferenceManufacturer can
  *            manufacture
  */
-public class SimpleReferenceManufacturer<T extends Identified>
+public class SimpleReferenceManufacturer<T extends Loadable>
 		extends
 		AbstractReferenceManufacturer<T, CDOMSimpleSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
 		implements ReferenceManufacturer<T>

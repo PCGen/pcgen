@@ -20,6 +20,7 @@ package plugin.lsttokens.equipmentmodifier.choose;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -27,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 
 public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 {
-
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	public String getTokenName()
 	{
@@ -75,7 +75,8 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 					+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
-		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
+		Category<Ability> category = context.ref
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()

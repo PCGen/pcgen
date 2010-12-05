@@ -23,7 +23,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The class of object underlying this PatternMatchingReference.
  */
-public class PatternMatchingReference<T extends Identified> extends
+public class PatternMatchingReference<T extends Loadable> extends
 		CDOMReference<T>
 {
 

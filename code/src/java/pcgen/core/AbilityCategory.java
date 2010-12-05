@@ -36,6 +36,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.View;
@@ -59,12 +60,11 @@ public class AbilityCategory implements Category<Ability>, Loadable
 {
 	private URI sourceURI;
 
-	private String theKeyName;
+	private String keyName;
 	private String displayName;
 	private String pluralName;
-	
-	private String theAbilityCategory;
-	
+
+	private CDOMSingleRef<AbilityCategory> parentCategory;
 	private Set<CDOMSingleRef<Ability>> containedAbilities = null;
 	private DisplayLocation displayLocation;
 	private boolean isAllAbilityTypes = false;
@@ -100,14 +100,12 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * 
 	 * @param aKeyName The name to use to reference this category.
 	 */
-	public AbilityCategory(final String key)
+	public AbilityCategory()
 	{
-		theKeyName = key;
-		displayName = key;
-		pluralName = key;
-		
-		theAbilityCategory = key;
-		displayLocation = DisplayLocation.getConstant(key);
+		//For fooling other things
+		keyName = "";
+		//Self until proven otherwise
+		parentCategory = CDOMDirectSingleRef.getRef(this);
 	}
 	
 	/**
@@ -118,32 +116,42 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public AbilityCategory(final String aKeyName, final String aDisplayName)
 	{
-		theKeyName = aKeyName;
+		keyName = aKeyName;
 		setName(aDisplayName);
 		setPluralName(aDisplayName);
 
-		theAbilityCategory = aKeyName;
-		//TODO DisplayLocation??
+		parentCategory = CDOMDirectSingleRef.getRef(this);
+		displayLocation = DisplayLocation.getConstant(aDisplayName);
 	}
 
 	/**
-	 * Sets the low-level AbilityCategory this category refers to.
+	 * Constructor takes a name for the category.
 	 * 
-	 * @param aCategory An AbilityCategory key string.
+	 * @param aKeyName The name to use to reference this category.
 	 */
-	public void setAbilityCategory(final String aCategory)
+	public AbilityCategory(String aKeyName)
 	{
-		theAbilityCategory = aCategory;
+		this(aKeyName, aKeyName);
+	}
+
+	/**
+	 * Sets the parent AbilityCategory this category is part of.
+	 * 
+	 * @param category A Reference to an AbilityCategory.
+	 */
+	public void setAbilityCategory(CDOMSingleRef<AbilityCategory> category)
+	{
+		parentCategory = category;
 	}
 	
 	/**
-	 * Gets the low-level AbilityCategory this category refers to.
+	 * Gets the parent AbilityCategory this category is part of.
 	 * 
-	 * @return An AbilityCategory key string.
+	 * @return A reference to the AbilityCategory.
 	 */
-	public String getAbilityCategory()
+	public CDOMSingleRef<AbilityCategory> getAbilityCatRef()
 	{
-		return theAbilityCategory;
+		return parentCategory;
 	}
 
 	/**
@@ -408,7 +416,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public String getKeyName()
 	{
-		return theKeyName;
+		return keyName;
 	}
 
 	/**
@@ -416,7 +424,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setKeyName(final String aKey)
 	{
-		theKeyName = aKey;
+		keyName = aKey;
 	}
 
 	/**
@@ -424,6 +432,10 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setName(final String aName)
 	{
+		if ("".equals(keyName))
+		{
+			setKeyName(aName);
+		}
 		displayName = aName;
 	}
 
@@ -448,7 +460,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	{
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + ((theKeyName == null) ? 0 : theKeyName.hashCode());
+		result = PRIME * result + ((keyName == null) ? 0 : keyName.hashCode());
 		return result;
 	}
 
@@ -465,20 +477,19 @@ public class AbilityCategory implements Category<Ability>, Loadable
 		if (getClass() != obj.getClass())
 			return false;
 		final AbilityCategory other = (AbilityCategory) obj;
-		if (theKeyName == null)
+		if (keyName == null)
 		{
-			if (other.theKeyName != null)
+			if (other.keyName != null)
 				return false;
 		}
-		else if (!theKeyName.equals(other.theKeyName))
+		else if (!keyName.equals(other.keyName))
 			return false;
 		return true;
 	}
 
 	public Category<Ability> getParentCategory()
 	{
-		return SettingsHandler.getGame().silentlyGetAbilityCategory(
-				getAbilityCategory());
+		return parentCategory.resolvesTo();
 	}
 
 	public boolean containsDirectly(Ability ability)
@@ -552,4 +563,8 @@ public class AbilityCategory implements Category<Ability>, Loadable
 		return false;
 	}
 
+	public String getParentCategoryName()
+	{
+		return parentCategory.getLSTformat(false);
+	}
 }

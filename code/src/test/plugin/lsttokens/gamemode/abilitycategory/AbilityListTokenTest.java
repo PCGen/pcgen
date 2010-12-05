@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.PCGenTestCase;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -59,6 +59,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		super.setUp();
 		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
+		context.ref.importObject(AbilityCategory.FEAT);
 	}
 
 	private Ability buildFeat(RuntimeLoadContext context, String abName)
@@ -86,9 +87,9 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testSingleEntry()
 	{
-		AbilityCategory aCat = new AbilityCategory("TestCat");
-		aCat.setAbilityCategory("FEAT");
-		SettingsHandler.getGame().addAbilityCategory(aCat);
+		AbilityCategory aCat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -107,9 +108,9 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testMultipleEntries()
 	{
-		AbilityCategory aCat = new AbilityCategory("TestCat");
-		aCat.setAbilityCategory("FEAT");
-		SettingsHandler.getGame().addAbilityCategory(aCat);
+		AbilityCategory aCat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -132,9 +133,9 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testEntriesWithAssoc()
 	{
-		AbilityCategory aCat = new AbilityCategory("TestCat");
-		aCat.setAbilityCategory("FEAT");
-		SettingsHandler.getGame().addAbilityCategory(aCat);
+		AbilityCategory aCat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",

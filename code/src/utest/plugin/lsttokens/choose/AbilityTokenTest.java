@@ -26,7 +26,6 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -50,8 +49,11 @@ public class AbilityTokenTest extends
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		SettingsHandler.getGame().addAbilityCategory(new AbilityCategory("Special Ability"));
 		super.setUp();
+		primaryContext.ref.constructCDOMObject(AbilityCategory.class,
+				"Special Ability");
+		secondaryContext.ref.constructCDOMObject(AbilityCategory.class,
+				"Special Ability");
 	}
 
 	@Override
@@ -112,16 +114,18 @@ public class AbilityTokenTest extends
 	protected void construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		Category<Ability> cat = loadContext.ref.getCategoryFor(Ability.class,
-				"Special Ability");
+		Category<Ability> cat = loadContext.ref
+				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
+						"Special Ability");
 		loadContext.ref.reassociateCategory(cat, obj);
 	}
 
 	@Override
 	protected ReferenceManufacturer<Ability> getManufacturer()
 	{
-		Category<Ability> cat = primaryContext.ref.getCategoryFor(
-				Ability.class, "Special Ability");
+		Category<Ability> cat = primaryContext.ref
+				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
+						"Special Ability");
 		return primaryContext.ref.getManufacturer(getTargetClass(), cat);
 	}
 

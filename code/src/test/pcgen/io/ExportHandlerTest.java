@@ -412,10 +412,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		
-		AbilityCategory cat = new AbilityCategory("Maneuver");
-		SettingsHandler.getGame().addAbilityCategory(cat);
-		AbilityCategory cat2 = new AbilityCategory("Maneuver(Special)");
-		SettingsHandler.getGame().addAbilityCategory(cat2);
+		AbilityCategory cat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "Maneuver");
+		AbilityCategory cat2 = context.ref.constructCDOMObject(
+				AbilityCategory.class, "Maneuver(Special)");
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("DummyFeat3");
 		dummyFeat3.setCDOMCategory(cat);

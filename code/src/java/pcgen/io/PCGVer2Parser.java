@@ -2515,8 +2515,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(msg);
 
 				// Create one.
-				category = new AbilityCategory(categoryKey);
-				SettingsHandler.getGame().addAbilityCategory(category);
+				category = Globals.getContext().ref.constructNowIfNecessary(
+						AbilityCategory.class, categoryKey);
 			}
 		}
 
@@ -2547,8 +2547,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(msg);
 
 				// Create one.
-				innateCategory = new AbilityCategory(abilityCat);
-				SettingsHandler.getGame().addAbilityCategory(category);
+				innateCategory = Globals.getContext().ref
+						.constructNowIfNecessary(AbilityCategory.class,
+								abilityCat);
 			}
 		}
 

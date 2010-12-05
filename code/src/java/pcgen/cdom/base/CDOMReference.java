@@ -185,7 +185,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	public String toString()
 	{
 		return getClass().getSimpleName() + " " + clazz.getSimpleName() + " "
-				+ name;
+				+ getName();
 	}
 
 	/**

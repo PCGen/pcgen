@@ -25,7 +25,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -241,18 +240,20 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		construct(primaryContext, "Abil2");
 		construct(secondaryContext, "Abil2");
-		AbilityCategory ac = new AbilityCategory("NEWCAT");
-		SettingsHandler.getGame().addAbilityCategory(ac);
+		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
+		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
 		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(ac, ab);
+		primaryContext.ref.reassociateCategory(pac, ab);
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
 				"Abil3");
-		secondaryContext.ref.reassociateCategory(ac, ab);
+		secondaryContext.ref.reassociateCategory(sac, ab);
 		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil4");
-		primaryContext.ref.reassociateCategory(ac, ab);
+		primaryContext.ref.reassociateCategory(pac, ab);
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
 				"Abil4");
-		secondaryContext.ref.reassociateCategory(ac, ab);
+		secondaryContext.ref.reassociateCategory(sac, ab);
 		runRoundRobin("Feat|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 

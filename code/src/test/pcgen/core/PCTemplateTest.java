@@ -110,8 +110,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		AbilityCategory cat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(cat);
@@ -233,8 +233,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		
+		AbilityCategory cat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");

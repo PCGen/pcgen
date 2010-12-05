@@ -6,7 +6,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.primitive.CompoundAndPrimitive;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
@@ -263,7 +263,7 @@ public final class ChoiceSetLoadUtilities
 		return pi;
 	}
 
-	public static <T extends Identified> PrimitiveCollection<T> getSimplePrimitive(
+	public static <T extends Loadable> PrimitiveCollection<T> getSimplePrimitive(
 			LoadContext context, SelectionCreator<T> sc, String key)
 	{
 		PrimitiveInfo pi = getPrimitiveInfo(key);
@@ -294,7 +294,7 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
-	public static <T extends Identified> PrimitiveCollection<T> getTraditionalPrimitive(
+	public static <T extends Loadable> PrimitiveCollection<T> getTraditionalPrimitive(
 			SelectionCreator<T> sc, PrimitiveInfo pi)
 	{
 		String tokKey = pi.tokKey;

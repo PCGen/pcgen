@@ -38,7 +38,8 @@ import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
@@ -66,7 +67,7 @@ import pcgen.util.Logging;
  *            The Class of All Reference that this AbstractReferenceManufacturer
  *            will produce
  */
-public abstract class AbstractReferenceManufacturer<T extends Identified, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
+public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
 		implements ReferenceManufacturer<T>
 {
 
@@ -1078,6 +1079,15 @@ public abstract class AbstractReferenceManufacturer<T extends Identified, SRT ex
 			{
 				Logging.errorPrint("More than one " + refClass.getSimpleName()
 						+ " with key/name " + second + " was built");
+				List<T> dupes = duplicates.getListFor(second);
+				StringBuilder sb = new StringBuilder(1000);
+				sb.append("Sources: ");
+				sb.append(good.isInternal() ? "<internal>" : good.getSourceURI());
+				for (T dupe : dupes)
+				{
+					sb.append(", ").append(dupe.isInternal() ? "<internal>" : dupe.getSourceURI());
+				}
+				Logging.errorPrint(sb.toString());
 				returnGood = false;
 			}
 		}

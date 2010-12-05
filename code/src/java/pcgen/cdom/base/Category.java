@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.Type;
  * @param <T>
  *            The Class of object being identified by this Category
  */
-public interface Category<T extends CategorizedCDOMObject<T>>
+public interface Category<T extends CategorizedCDOMObject<T>> extends Loadable
 {
 
 	/**
@@ -60,4 +60,6 @@ public interface Category<T extends CategorizedCDOMObject<T>>
 	String getDisplayName();
 
 	Set<Type> getTypes();
+
+	String getParentCategoryName();
 }

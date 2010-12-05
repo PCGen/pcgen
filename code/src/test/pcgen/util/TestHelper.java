@@ -246,13 +246,8 @@ public class TestHelper
 	 */
 	public static Ability makeAbility(final String name, final String cat, final String type)
 	{
-		AbilityCategory useCat = SettingsHandler.getGame()
-				.silentlyGetAbilityCategory(cat);
-		if (useCat == null)
-		{
-			useCat = new AbilityCategory(cat);
-			SettingsHandler.getGame().addAbilityCategory(useCat);
-		}
+		AbilityCategory useCat = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, cat);
 		final Ability anAbility = new Ability();
 		anAbility.setName(name);
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
@@ -421,14 +416,7 @@ public class TestHelper
 	 */
 	public static AbilityCategory getAbilityCategory(final Ability ability)
 	{
-		AbilityCategory aCategory =
-				SettingsHandler.getGame().getAbilityCategory(ability.getCategory());
-		if (aCategory == null)
-		{
-			aCategory = new AbilityCategory(ability.getCategory());
-			SettingsHandler.getGame().addAbilityCategory(aCategory);
-		}
-		return aCategory;
+		return (AbilityCategory) ability.getCDOMCategory();
 	}
 
 	public static void addType(CDOMObject cdo, String string)

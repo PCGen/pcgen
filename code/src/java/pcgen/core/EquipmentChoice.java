@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.ChooseActivation;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -339,8 +340,10 @@ public final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		for (Ability anAbility : Globals.getContext().ref.getManufacturer(
-				Ability.class, aCategory).getAllObjects())
+		ReferenceContext ref = Globals.getContext().ref;
+		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
+		for (Ability anAbility : ref.getManufacturer(
+				Ability.class, cat).getAllObjects())
 		{
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||

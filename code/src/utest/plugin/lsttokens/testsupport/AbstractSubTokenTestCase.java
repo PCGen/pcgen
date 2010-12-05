@@ -27,6 +27,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -39,6 +40,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public abstract class AbstractSubTokenTestCase<T> extends TestCase
@@ -79,6 +81,8 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 		primaryContext.getObjectContext().setExtractURI(testURI);
 		secondaryContext.getObjectContext().setSourceURI(testURI);
 		secondaryContext.getObjectContext().setExtractURI(testURI);
+		primaryContext.ref.importObject(AbilityCategory.FEAT);
+		secondaryContext.ref.importObject(AbilityCategory.FEAT);
 		primaryProf = getSubInstance();
 		secondaryProf = getSubInstance();
 		expectedPrimaryMessageCount = 0;
@@ -173,18 +177,20 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parseToken(primaryContext, primaryProf, str).passed();
-		if (b)
+		ParseResult pr = getToken()
+				.parseToken(primaryContext, primaryProf, str);
+		if (pr.passed())
 		{
 			primaryContext.commit();
 		}
 		else
 		{
+			pr.addMessagesToLog();
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
-		return b;
+		return pr.passed();
 	}
 
 	public boolean parseSecondary(String str) throws PersistenceLayerException

@@ -640,8 +640,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		AbilityCategory cat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));

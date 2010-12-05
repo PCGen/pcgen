@@ -28,6 +28,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -40,6 +41,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public abstract class AbstractGlobalTokenTestCase extends TestCase
@@ -75,6 +77,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 				"TestObj");
 		secondaryProf = secondaryContext.ref.constructCDOMObject(
 				getCDOMClass(), "TestObj");
+		primaryContext.ref.importObject(AbilityCategory.FEAT);
+		secondaryContext.ref.importObject(AbilityCategory.FEAT);
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();
@@ -167,18 +171,20 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		boolean b = getToken().parseToken(primaryContext, primaryProf, str).passed();
-		if (b)
+		ParseResult pr = getToken()
+				.parseToken(primaryContext, primaryProf, str);
+		if (pr.passed())
 		{
 			primaryContext.commit();
 		}
 		else
 		{
+			pr.addMessagesToLog();
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
-		return b;
+		return pr.passed();
 	}
 
 	public boolean parseSecondary(String str) throws PersistenceLayerException

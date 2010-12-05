@@ -17,11 +17,14 @@
  */
 package pcgen.cdom.identifier;
 
-import pcgen.cdom.base.Identified;
+import java.net.URI;
 
-public class SpellSchool implements Identified, Comparable<SpellSchool>
+import pcgen.cdom.base.Loadable;
+
+public class SpellSchool implements Loadable, Comparable<SpellSchool>
 {
 
+	private URI sourceURI;
 	private String name;
 
 	public String getDisplayName()
@@ -54,6 +57,11 @@ public class SpellSchool implements Identified, Comparable<SpellSchool>
 		name = newName;
 	}
 
+	public void setKeyName(String key)
+	{
+		name = key;
+	}
+
 	@Override
 	public String toString()
 	{
@@ -76,6 +84,16 @@ public class SpellSchool implements Identified, Comparable<SpellSchool>
 	public int compareTo(SpellSchool other)
 	{
 		return name.compareTo(other.name);
+	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
 	}
 
 }

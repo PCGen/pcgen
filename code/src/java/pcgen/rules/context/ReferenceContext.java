@@ -25,7 +25,6 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -35,11 +34,11 @@ import pcgen.cdom.reference.UnconstructedValidator;
 
 public interface ReferenceContext
 {
-	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, String category);
+			Class<T> cl, Class<? extends Category<T>> catClass, String category);
 
 	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat);
@@ -51,7 +50,7 @@ public interface ReferenceContext
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
 			Class<T> c, String s);
 
-	public <T extends Identified> T constructNowIfNecessary(Class<T> cl,
+	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl,
 			String name);
 
 	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
@@ -59,7 +58,7 @@ public interface ReferenceContext
 
 	public <T extends Loadable> void importObject(T orig);
 
-	public <T extends Identified> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val);
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
@@ -71,12 +70,12 @@ public interface ReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, Category<T> cat, String... val);
 
-	public <T extends Identified> CDOMGroupRef<T> getCDOMAllReference(Class<T> c);
+	public <T extends Loadable> CDOMGroupRef<T> getCDOMAllReference(Class<T> c);
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
 			Class<T> c, Category<T> cat);
 
-	public <T extends Identified> T silentlyGetConstructedCDOMObject(
+	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val);
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> T silentlyGetConstructedCDOMObject(
@@ -119,8 +118,6 @@ public interface ReferenceContext
 	public void buildDeferredObjects();
 
 	public boolean validate(UnconstructedValidator validator);
-
-	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(Class<T> cl, String string);
 
 	public <T extends CDOMObject> T performCopy(T obj, String copyName);
 

@@ -46,6 +46,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
@@ -105,6 +106,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	@Override
 	public String getTokenName()
@@ -124,7 +126,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
+		Category<Ability> category = context.ref
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
 			return new ParseResult.Fail(getTokenName()

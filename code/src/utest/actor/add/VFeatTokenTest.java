@@ -47,6 +47,7 @@ public class VFeatTokenTest extends TestCase
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
+		context.ref.importObject(AbilityCategory.FEAT);
 		// new RuntimeLoadContext(new RuntimeReferenceContext(),
 		// new ConsolidatedListCommitStrategy());
 	}

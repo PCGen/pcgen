@@ -345,9 +345,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
 		LoadContext context = Globals.getContext();
+		AbilityCategory cat = context.ref.constructCDOMObject(
+				AbilityCategory.class, "TestCat");
 		new AbilityCategoryLoader().parseLine(context, "TestCat\tCATEGORY:TestCat", null);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");

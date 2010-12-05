@@ -227,7 +227,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		characterMetaMagicFeats.clear();
 		List<Ability> feats =
 				AbilityUtilities.getAggregateAbilitiesListForKey(
-					AbilityCategory.FEAT.getAbilityCategory(), pc);
+					AbilityCategory.FEAT.getKeyName(), pc);
 		Globals.sortPObjectListByName(feats);
 
 		for (Ability aFeat : feats)

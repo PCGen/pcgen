@@ -49,6 +49,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<Ability>
 {
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	public String getParentToken()
 	{
@@ -231,8 +232,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
-		Category<Ability> category =
-				context.ref.getCategoryFor(ABILITY_CLASS, cat);
+		Category<Ability> category = context.ref
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()

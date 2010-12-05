@@ -14,6 +14,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -175,6 +176,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		LstSystemLoader.createLangBonusObject(Globals.getContext());
 		LstSystemLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
+		ref.importObject(AbilityCategory.FEAT);
 		additionalSetUp();
 
 		character = new PlayerCharacter();

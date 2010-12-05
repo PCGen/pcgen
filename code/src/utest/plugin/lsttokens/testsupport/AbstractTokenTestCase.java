@@ -28,6 +28,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -89,6 +90,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		primaryContext.getObjectContext().setExtractURI(testURI);
 		secondaryContext.getObjectContext().setSourceURI(testURI);
 		secondaryContext.getObjectContext().setExtractURI(testURI);
+		primaryContext.ref.importObject(AbilityCategory.FEAT);
+		secondaryContext.ref.importObject(AbilityCategory.FEAT);
 		primaryProf = getPrimary("TestObj");
 		secondaryProf = getSecondary("TestObj");
 	}
@@ -259,6 +262,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			fail("Token should not throw an exception with null input");
 		}
 	}

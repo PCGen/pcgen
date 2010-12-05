@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -55,6 +56,7 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	private final transient int ordinal;
 	
 	private boolean defined = false;
+	private URI sourceURI;
 
 	private SubClassCategory(String name)
 	{
@@ -205,4 +207,45 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		return Collections.emptySet();
 	}
 
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public void setKeyName(String key)
+	{
+		throw new UnsupportedOperationException(
+				"Cannot set key in SubClassCategory");
+	}
+
+	public String getLSTformat()
+	{
+		return fieldName;
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
+	public void setName(String name)
+	{
+		throw new UnsupportedOperationException(
+				"Cannot set name in SubClassCategory");
+	}
+
+	public String getParentCategoryName()
+	{
+		return null;
+	}
 }

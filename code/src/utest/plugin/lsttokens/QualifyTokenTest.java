@@ -27,7 +27,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCTemplate;
-import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -171,13 +170,15 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
-		AbilityCategory ac = new AbilityCategory("NEWCAT");
-		SettingsHandler.getGame().addAbilityCategory(ac);
+		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
+		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
 		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(ac, ab);
+		primaryContext.ref.reassociateCategory(pac, ab);
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
 				"Abil3");
-		secondaryContext.ref.reassociateCategory(ac, ab);
+		secondaryContext.ref.reassociateCategory(sac, ab);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -197,13 +198,15 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinAbilitySpell()
 			throws PersistenceLayerException
 	{
-		AbilityCategory ac = new AbilityCategory("NEWCAT");
-		SettingsHandler.getGame().addAbilityCategory(ac);
+		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
+		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+				AbilityCategory.class, "NEWCAT");
 		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(ac, ab);
+		primaryContext.ref.reassociateCategory(pac, ab);
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
 				"Abil3");
-		secondaryContext.ref.reassociateCategory(ac, ab);
+		secondaryContext.ref.reassociateCategory(sac, ab);
 		primaryContext.ref.constructCDOMObject(Spell.class,
 				"Lightning Bolt");
 		secondaryContext.ref.constructCDOMObject(Spell.class,

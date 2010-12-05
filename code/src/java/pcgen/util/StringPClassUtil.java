@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -31,11 +33,13 @@ public class StringPClassUtil
 
 	private static Map<String, Class<? extends Loadable>> classMap;
 	private static Map<Class<? extends Loadable>, String> stringMap;
+	private static Map<String, Class<? extends Category<?>>> catClassMap;
 
 	static
 	{
 		classMap = new HashMap<String, Class<? extends Loadable>>();
 		stringMap = new HashMap<Class<? extends Loadable>, String>();
+		catClassMap = new HashMap<String, Class<? extends Category<?>>>();
 
 		classMap.put("ABILITY", Ability.class);
 		classMap.put("DEITY", Deity.class);
@@ -78,6 +82,8 @@ public class StringPClassUtil
 		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");
 		stringMap.put(SubstitutionClass.class, "CLASS");
+		
+		catClassMap.put("ABILITY", AbilityCategory.class);
 	}
 
 	public static Class<? extends Loadable> getClassFor(String key)
@@ -93,5 +99,11 @@ public class StringPClassUtil
 	public static String getStringFor(Class<?> cl)
 	{
 		return stringMap.get(cl);
+	}
+
+	public static Class<? extends Category<?>> getCategoryClassFor(
+			String className)
+	{
+		return catClassMap.get(className);
 	}
 }

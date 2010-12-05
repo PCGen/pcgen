@@ -18,9 +18,9 @@
 package plugin.lsttokens.testsupport;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 
-public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends Identified>
+public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractListInputTokenTestCase<T, TC>
 {
 

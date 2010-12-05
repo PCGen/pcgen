@@ -1,6 +1,6 @@
 /*
  * AbilityCategoryLoader.java
- * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,194 +15,59 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 
 /**
  * This class handles parsing the whole ABILITYCATEGORY line and passing each
- * token to the correct parser. These lines may be in either the miscinfo file 
- * of the game mode, or in an LST file included in a campaign via an 
+ * token to the correct parser. These lines may be in either the miscinfo file
+ * of the game mode, or in an LST file included in a campaign via an
  * ABILITYCATEGORY entry.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
  */
 public class AbilityCategoryLoader extends LstLineFileLoader
 {
-	/**
-	 * Default Constructor
-	 */
-	public AbilityCategoryLoader()
-	{
-		// Nothing to do.
-	}
+	private OverlapLoader<AbilityCategory> loader = new OverlapLoader<AbilityCategory>(
+			AbilityCategory.class);
 
-	/**
-	 * Parse the ABILITYCATEGORY line.
-	 * 
-	 * @param aGameMode The <tt>GameMode</tt> this object belongs to.
-	 * @param aLine The line to parse
-	 * @param source The URI to the file being loaded
-	 * @throws PersistenceLayerException 
-	 */
-	public void parseLine(final GameMode aGameMode, final String aLine, URI source) throws PersistenceLayerException
-	{
-		parseLine(aGameMode, aGameMode.getModeContext(), aLine, source, false);
-	}
-	
-	/**
-	 * Parse the ABILITYCATEGORY line.
-	 * 
-	 * @param aGameMode The <tt>GameMode</tt> this object belongs to.
-	 * @param aLine The line to parse
-	 * @param source The URI to the file being loaded
-	 * @param fromLst Is this line being loaded from a LST file (false for the miscinfo file).
-	 * 
-	 * @throws PersistenceLayerException
-	 */
-	public void parseLine(final GameMode aGameMode, LoadContext context,
-			final String aLine, URI source, final boolean fromLst)
+	@Override
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(aLine, SystemLoader.TAB_DELIM);
-
-		// Get all the tokens for this tag (all classes implementing the 
-		// AbilityCategoryLstToken interface.
-		final Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(AbilityCategoryLstToken.class);
-
-		AbilityCategory cat = null;
-		while (colToken.hasMoreTokens())
+		final int colonLoc = lstLine.indexOf(':');
+		if (colonLoc == -1)
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key;
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				if (cat == null && fromLst)
-				{
-					key = "ABILITYCATEGORY"; //$NON-NLS-1$
-				}
-				else
-				{
-					throw new PersistenceLayerException(PropertyFactory
-						.getFormattedString("Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
-							getClass().toString(), colString));
-				}
-			}
-
-			if (key.equals("ABILITYCATEGORY")) //$NON-NLS-1$
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				cat = aGameMode.silentlyGetAbilityCategory(value);
-
-				if (cat == null)
-				{
-					cat = new AbilityCategory(value);
-					if (fromLst)
-					{
-						aGameMode.addLstAbilityCategory(cat);
-					}
-					else
-					{
-						aGameMode.addAbilityCategory(cat);
-					}
-				}
-			}
-			else
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				if (context.processToken(cat, key, value))
-				{
-					context.commit();
-				}
-				else
-				{
-					context.rollback();
-					if (tokenMap.containsKey(key))
-					{
-						AbilityCategoryLstToken token =
-							(AbilityCategoryLstToken) tokenMap.get(key);
-						// TODO - i18n
-						LstUtils.deprecationCheck(token, "Ability Category",
-								source, value);
-						if (!token.parse(context, cat, value))
-						{
-							// TODO - i18n
-							Logging.errorPrint("Error parsing ability category:"
-									+ "miscinfo.lst from the "
-									+ aGameMode.getName() + " Game Mode" + ':'
-									+ colString + "\"");
-						}
-					}
-					else
-					{
-						Logging.replayParsedMessages();
-					}
-				}
-				Logging.clearParseMessages();
-			}
+			Logging.errorPrint("Invalid Line - does not contain a colon: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
 		}
-		
-		validateCategory(cat, source);
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
-	 */
-	@Override
-	public void parseLine(LoadContext context, String aLine, URI source)
-		throws PersistenceLayerException
-	{
-		parseLine(SettingsHandler.getGame(), context, aLine, source, true);
-	}
-
-	/**
-	 * Check the completed ability category for any interrelationship errors.
-	 * 
-	 * @param cat The AbilityCategory to be checked.
-	 * @param source The source in which the category is defined.
-	 */
-	private void validateCategory(AbilityCategory cat, URI source)
-	{
-		if (!cat.getTypes().isEmpty() && 
-			cat.getAbilityCategory().equalsIgnoreCase(
-				cat.getKeyName()))
+		else if (colonLoc == 0)
 		{
-			Logging.log(Logging.LST_ERROR, "TYPE is not valid in 'parent' category " + 
-				cat.getKeyName() + " of " + source + ".");
+			Logging.errorPrint("Invalid Line - starts with a colon: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
 		}
-
-		if (cat.hasDirectReferences() && 
-				cat.getAbilityCategory().equalsIgnoreCase(
-					cat.getKeyName()))
-			{
-				Logging.log(Logging.LST_ERROR, "ABILITYLIST is not valid in 'parent' category " + 
-					cat.getKeyName() + " of " + source + ".");
-			}
-
+		else if (colonLoc == (lstLine.length() - 1))
+		{
+			Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine
+					+ "' in " + sourceURI);
+			return;
+		}
+		String key = lstLine.substring(0, colonLoc);
+		String value = lstLine.substring(colonLoc + 1);
+		if (!"ABILITYCATEGORY".equals(key))
+		{
+			Logging.errorPrint("Invalid Line - "
+					+ "expected 'ABILITYCATEGORY' key to start the line: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
+		}
+		loader.parseLine(context, value, sourceURI);
 	}
 }

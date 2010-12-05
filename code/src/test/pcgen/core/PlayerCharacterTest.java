@@ -235,12 +235,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(3), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon C)");
 		
-		specialFeatCat = new AbilityCategory("Special Feat");
-		specialFeatCat.setAbilityCategory(AbilityCategory.FEAT.getKeyName());
-		SettingsHandler.getGame().addAbilityCategory(specialFeatCat);
-
-		specialAbilityCat = new AbilityCategory("Special Ability");
-		SettingsHandler.getGame().addAbilityCategory(specialAbilityCat);
+		specialFeatCat = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "Special Feat");
+		specialFeatCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+		specialAbilityCat = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "Special Ability");
 	}
 
 	private void readyToRun()
@@ -1036,7 +1035,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		Ability resToAcid =
 				TestHelper.makeAbility("Swelter",
-					AbilityCategory.FEAT.getAbilityCategory(), "Foo");
+					AbilityCategory.FEAT.getKeyName(), "Foo");
 		PCTemplate template = TestHelper.makeTemplate("TemplateVirt"); 
 		PCTemplate templateNorm = TestHelper.makeTemplate("TemplateNorm"); 
 		LoadContext context = Globals.getContext();
@@ -1073,7 +1072,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		Ability quickFlySlowSwim =
 				TestHelper.makeAbility("quickFlySlowSwim", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+					.getKeyName(), "Foo");
 		PCTemplate template = TestHelper.makeTemplate("slowFlyQuickSwim");
 		PCTemplate template2 = TestHelper.makeTemplate("dig");
 		LoadContext context = Globals.getContext();

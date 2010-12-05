@@ -43,6 +43,8 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 	private final String category;
 	
 	private Category<T> finalCategory;
+	
+	private Class<? extends Category<T>> categoryClass;
 
 	/**
 	 * Constructs a new TransparentCategorizedReferenceManufacturer for the
@@ -58,7 +60,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 	 *            reference.
 	 */
 	public TransparentCategorizedReferenceManufacturer(Class<T> objClass,
-			String cat)
+			Class<? extends Category<T>> catClass, String cat)
 	{
 		super(objClass);
 		if (cat == null)
@@ -66,7 +68,13 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 			throw new IllegalArgumentException(
 					"Cannot built TransparentCategorizedReferenceManufacturer with null category");
 		}
+		if (catClass == null)
+		{
+			throw new IllegalArgumentException(
+					"Cannot built TransparentCategorizedReferenceManufacturer with null category Class");
+		}
 		category = cat;
+		categoryClass = catClass;
 	}
 
 	/**
@@ -238,5 +246,10 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 	public Category<T> getCategory()
 	{
 		return finalCategory;
+	}
+
+	public Class<? extends Category<T>> getCategoryClass()
+	{
+		return categoryClass;
 	}
 }

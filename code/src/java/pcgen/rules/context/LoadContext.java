@@ -504,6 +504,7 @@ public abstract class LoadContext
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
 		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
+		Class catClass = StringPClassUtil.getCategoryClassFor(className);
 		if (c == null)
 		{
 			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
@@ -526,7 +527,7 @@ public abstract class LoadContext
 				return null;
 			}
 			
-			rm = ref.getManufacturer(((Class) c), categoryName);
+			rm = ref.getManufacturer(((Class) c), catClass, categoryName);
 			if (rm == null)
 			{
 				Logging.log(Logging.LST_ERROR, "  Error encountered: "

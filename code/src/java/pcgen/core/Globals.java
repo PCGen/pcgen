@@ -1725,7 +1725,6 @@ public final class Globals
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
-		SettingsHandler.getGame().clearLstAbilityCategories();
 		SettingsHandler.getGame().clearLoadContext();
 		
 		Pantheon.clearConstants();

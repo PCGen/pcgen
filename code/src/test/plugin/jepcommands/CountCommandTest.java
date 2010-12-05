@@ -29,8 +29,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 
@@ -64,26 +64,10 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		AbilityCategory featCategory = SettingsHandler.getGame().silentlyGetAbilityCategory("FEAT");
-		if (featCategory == null)
-		{
-			featCategory = new AbilityCategory("FEAT");
-			SettingsHandler.getGame().addAbilityCategory(featCategory);
-		}
-
-		AbilityCategory bardCategory = SettingsHandler.getGame().silentlyGetAbilityCategory("BARDIC");
-		if (bardCategory == null)
-		{
-			bardCategory = new AbilityCategory("BARDIC");
-			SettingsHandler.getGame().addAbilityCategory(bardCategory);
-		}
-
-        AbilityCategory clericalCategory = SettingsHandler.getGame().silentlyGetAbilityCategory("CLERICAL");
-        if (clericalCategory == null)
-        {
-            clericalCategory = new AbilityCategory("CLERICAL");
-            SettingsHandler.getGame().addAbilityCategory(clericalCategory);
-        }
+		AbilityCategory bardCategory = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
+		AbilityCategory clericalCategory = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
 
         final Ability[] abArray = new Ability[14];
 
@@ -124,7 +108,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         character.addAssociation(abArray[1], "two");
 
 		for (int i = 0;6 > i;i++) {
-            character.addAbility(featCategory, abArray[i], null);
+            character.addAbility(AbilityCategory.FEAT, abArray[i], null);
         }
 
         for (int i = 6;12 > i;i++) {
@@ -446,15 +430,8 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		final AbilityCategory gCat =
-				SettingsHandler.getGame().silentlyGetAbilityCategory("CLERICAL");
-		final AbilityCategory useCat =
-				(gCat == null) ? new AbilityCategory("CLERICAL") : gCat;
-
-		if (useCat != gCat)
-		{
-			SettingsHandler.getGame().addAbilityCategory(useCat);
-		}
+		AbilityCategory gCat = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
 
 		final Ability ab =
 				TestHelper.makeAbility("Eat Burger", "CLERICAL", "Clerical.General");

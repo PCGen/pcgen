@@ -51,6 +51,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		CDOMSecondaryToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -97,8 +98,13 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 				"No category found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
-		Category<Ability> ac = context.ref.getCategoryFor(ABILITY_CLASS,
-				catString.substring(9));
+		Category<Ability> ac = context.ref.silentlyGetConstructedCDOMObject(
+				ABILITY_CATEGORY_CLASS, catString.substring(9));
+		if (ac == null)
+		{
+			return new ParseResult.Fail(
+					"Ability Category " + catString.substring(9) + " not found");
+		}
 		/*
 		 * CONSIDER In the future it would be nice to not have to do this cast,
 		 * but that should be reserved for the time when the Pool nature of

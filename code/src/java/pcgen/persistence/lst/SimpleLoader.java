@@ -46,24 +46,8 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
 				SystemLoader.TAB_DELIM, false);
-		T loadable;
-		try
-		{
-			loadable = loadClass.newInstance();
-		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError(e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new UnreachableError(e);
-		}
-		if (colToken.hasMoreTokens())
-		{
-			processFirstToken(colToken.nextToken().trim(), loadable);
-		}
-		loadable.setSourceURI(sourceURI);
+		String firstToken = colToken.nextToken().trim();
+		T loadable = getLoadable(context, firstToken, sourceURI);
 
 		while (colToken.hasMoreTokens())
 		{
@@ -110,8 +94,32 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		context.ref.importObject(loadable);
 	}
 
+	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
+	{
+		try
+		{
+			T loadable = loadClass.newInstance();
+			processFirstToken(firstToken, loadable);
+			loadable.setSourceURI(sourceURI);
+			return loadable;
+		}
+		catch (InstantiationException e)
+		{
+			throw new UnreachableError(e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new UnreachableError(e);
+		}
+	}
+
 	protected void processFirstToken(String token, T loadable)
 	{
 		loadable.setName(token);
+	}
+
+	public Class<T> getLoadClass()
+	{
+		return loadClass;
 	}
 }

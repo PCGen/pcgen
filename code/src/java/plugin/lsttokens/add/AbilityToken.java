@@ -95,6 +95,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	public String getParentToken()
 	{
@@ -164,8 +165,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ value);
 		}
 
-		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS,
-				first);
+		Category<Ability> category = context.ref
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, first);
 		if (category == null)
 		{
 			return new ParseResult.Fail(getFullName() + ": Invalid ability category: "

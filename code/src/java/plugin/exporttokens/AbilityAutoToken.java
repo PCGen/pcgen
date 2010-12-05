@@ -64,7 +64,7 @@ public class AbilityAutoToken extends AbilityToken
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
-			if (aCat.getAbilityCategory().equals(aCategory.getKeyName()))
+			if (aCat.getParentCategory().equals(aCategory))
 			{
 				abilityList.addAll(pc.getAutomaticAbilityList(aCat));
 			}

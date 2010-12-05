@@ -26,15 +26,12 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
-import pcgen.core.Ability;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -46,7 +43,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>>();
 
 	@Override
-	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -86,10 +83,11 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			CategorizedManufacturer<T> parentMfg = null;
 			if (cat != null)
 			{
-				Category<T> parent = cat.getParentCategory();
-				if (parent != null && !parent.equals(cat))
+				String parent = cat.getParentCategoryName();
+				if (parent != null && !parent.equals(cat.getKeyName()))
 				{
-					parentMfg = getManufacturer(cl, parent);
+					Class<? extends Category<T>> catClass = (Class<? extends Category<T>>) cat.getClass();
+					parentMfg = getManufacturer(cl, catClass, parent);
 				}
 			}
 			mfg = new CategorizedReferenceManufacturer<T>(cl, cat, parentMfg);
@@ -98,34 +96,19 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return mfg;
 	}
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, String category)
+	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+			Class<T> cl, Class<? extends Category<T>> catClass, String category)
 	{
-		Category<T> cat = getCategoryFor(cl, category);
+		Category<T> cat = silentlyGetConstructedCDOMObject(catClass, category);
 		if (cat == null)
 		{
 			Logging.errorPrint("Cannot find " + cl.getSimpleName()
 					+ " Category " + category);
 			return null;
 		}
-		ReferenceManufacturer manufacturer = getManufacturer(cl, cat);
+		CategorizedManufacturer manufacturer = getManufacturer(cl, cat);
 		return manufacturer;
 	}
-
-	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
-			Class<T> cl, String s)
-	{
-		if (cl.equals(Ability.class))
-		{
-			return (Category) SettingsHandler.getGame()
-					.silentlyGetAbilityCategory(s);
-		}
-		else
-		{
-			return null;
-		}
-	}
-
 
 	/**
 	 * This method will perform a single .COPY operation.

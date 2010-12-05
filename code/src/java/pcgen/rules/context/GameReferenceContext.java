@@ -26,7 +26,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CategorizedManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -41,7 +40,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>>();
 
 	@Override
-	public <T extends Identified> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -72,13 +71,13 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
-			Class<T> cl, String cat)
+			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new TransparentCategorizedReferenceManufacturer<T>(cl, cat);
+			mfg = new TransparentCategorizedReferenceManufacturer<T>(cl, catClass, cat);
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;
@@ -95,14 +94,8 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		return getManufacturer(cl, cat.getKeyName());
-	}
-
-	public <T extends Loadable & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
-			Class<T> cl, String string)
-	{
-		throw new UnsupportedOperationException(
-				"GameReferenceContext cannot reference Categories");
+		Class<? extends Category<T>> catClass = (Class<? extends Category<T>>) cat.getClass();
+		return getManufacturer(cl, catClass, cat.getKeyName());
 	}
 
 	public <T extends CDOMObject> T performCopy(T obj, String copyName)

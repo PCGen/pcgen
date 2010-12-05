@@ -10430,7 +10430,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					SettingsHandler.getGame().getAllAbilityCategories();
 			for (final AbilityCategory cat : allCategories)
 			{
-				if (cat.getAbilityCategory().equals(anAbility.getCategory()))
+				if (cat.getParentCategory().equals(anAbility.getCDOMCategory()))
 				{
 					categories.add(cat);
 				}

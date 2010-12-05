@@ -30,6 +30,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
@@ -67,26 +68,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		AbilityCategory featCategory =
-				SettingsHandler.getGame().silentlyGetAbilityCategory("FEAT");
-		if (featCategory == null)
-		{
-			featCategory = new AbilityCategory("FEAT");
-			SettingsHandler.getGame().addAbilityCategory(featCategory);
-		}
-
-		AbilityCategory bardCategory =
-				SettingsHandler.getGame().silentlyGetAbilityCategory("BARDIC");
-		if (bardCategory == null)
-		{
-			bardCategory = new AbilityCategory("BARDIC");
-			SettingsHandler.getGame().addAbilityCategory(bardCategory);
-		}
+		AbilityCategory bardCategory = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
 
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		character.addAbility(featCategory, ab1, null);
+		character.addAbility(AbilityCategory.FEAT, ab1, null);
 
 		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
@@ -94,11 +82,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 
 		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT, "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(featCategory, ab3, null);
+		character.addAbility(AbilityCategory.FEAT, ab3, null);
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", AbilityCategory.FEAT, "General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(featCategory, ab4, null);
+		character.addAbility(AbilityCategory.FEAT, ab4, null);
 	}
 
 	/**

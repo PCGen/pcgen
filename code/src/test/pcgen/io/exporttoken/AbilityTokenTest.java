@@ -32,7 +32,6 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
@@ -68,14 +67,6 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		AbilityCategory featCategory =
-				SettingsHandler.getGame().silentlyGetAbilityCategory("FEAT");
-		if (featCategory == null)
-		{
-			featCategory = new AbilityCategory("FEAT");
-			SettingsHandler.getGame().addAbilityCategory(featCategory);
-		}
-
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
@@ -84,7 +75,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), new Aspect("Shape", "Icosahedron"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), new Aspect("Sides", "20"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), new Aspect("Age In Years", "2000"));
-		character.addAbility(featCategory, ab1, null);
+		character.addAbility(AbilityCategory.FEAT, ab1, null);
 	}
 
 	/**

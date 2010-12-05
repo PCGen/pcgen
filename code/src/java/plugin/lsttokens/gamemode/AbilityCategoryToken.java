@@ -48,7 +48,8 @@ public class AbilityCategoryToken implements GameModeLstToken
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try
 		{
-			loader.parseLine(gameMode, getTokenName() + ':' + value, source);
+			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':'
+					+ value, source);
 		}
 		catch (PersistenceLayerException e)
 		{

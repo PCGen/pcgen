@@ -527,7 +527,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
-		validateAbilityCategories(gamemode);
 
 		for (Campaign c : loaded)
 		{
@@ -689,24 +688,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
 				+ "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
 		eqModLoader.parseLine(context, null, aLine, source);
-	}
-
-	private void validateAbilityCategories(GameMode gamemode)
-	{
-		for (AbilityCategory ac : gamemode.getAllAbilityCategories())
-		{
-			//Must be a universal set if no types
-			if (ac.getTypes().isEmpty() && !ac.hasDirectReferences()
-				&& !ac.isAllAbilityTypes())
-			{
-				if (!ac.getAbilityCategory().equalsIgnoreCase(ac.getKeyName()))
-				{
-					Logging.log(Logging.LST_ERROR, "Ability Category "
-						+ ac.getKeyName()
-						+ " had no TYPE or ABILITYLIST, but has a different CATEGORY");
-				}
-			}
-		}
 	}
 
 	/**
@@ -1150,6 +1131,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		addDefaultUnitSet(gameMode);
 		addDefaultTabInfo(gameMode);
+		gameMode.getModeContext().ref.importObject(AbilityCategory.FEAT);
 		return gameMode;
 	}
 

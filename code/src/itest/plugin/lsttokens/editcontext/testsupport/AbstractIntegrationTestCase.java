@@ -28,6 +28,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -81,6 +82,8 @@ public abstract class AbstractIntegrationTestCase<T extends CDOMObject> extends
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
 		secondaryContext = new EditorLoadContext();
+		primaryContext.ref.importObject(AbilityCategory.FEAT);
+		secondaryContext.ref.importObject(AbilityCategory.FEAT);
 		primaryProf = primaryContext.ref.constructCDOMObject(getCDOMClass(),
 				"TestObj");
 		secondaryProf = secondaryContext.ref.constructCDOMObject(

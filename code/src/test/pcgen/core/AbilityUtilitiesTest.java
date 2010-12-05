@@ -30,6 +30,7 @@ import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Type;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -80,25 +81,26 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 	 */
 	public void testGetAllAbilities()
 	{		
-		AbilityCategory parent = new AbilityCategory("parent");
-		SettingsHandler.getGame().addAbilityCategory(parent);
-		AbilityCategory typeChild = new AbilityCategory("typeChild");
-		SettingsHandler.getGame().addAbilityCategory(typeChild);
-		typeChild.setAbilityCategory(parent.getAbilityCategory());
+		LoadContext context = Globals.getContext();
+		AbilityCategory parent = context.ref.constructCDOMObject(
+				AbilityCategory.class, "parent");
+		AbilityCategory typeChild = context.ref.constructCDOMObject(
+				AbilityCategory.class, "typeChild");
+		typeChild.setAbilityCategory(parent.getAbilityCatRef());
 		typeChild.addAbilityType(Type.getConstant("Sport"));
 		
 		Ability fencing = TestHelper.makeAbility("fencing", parent, "sport");
 		Ability reading = TestHelper.makeAbility("reading", parent, "interest");
 		//Throwaway is required to create it...
-		Globals.getContext().ref.getManufacturer(Ability.class, typeChild);
-		Globals.getContext().ref.validate(null);
+		context.ref.getManufacturer(Ability.class, typeChild);
+		context.ref.validate(null);
 
-		Collection<Ability> allAbilities = Globals.getContext().ref.getManufacturer(Ability.class, parent).getAllObjects();
+		Collection<Ability> allAbilities = context.ref.getManufacturer(Ability.class, parent).getAllObjects();
 		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
 		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
 		
-		allAbilities = Globals.getContext().ref.getManufacturer(Ability.class, typeChild).getAllObjects();
+		allAbilities = context.ref.getManufacturer(Ability.class, typeChild).getAllObjects();
 		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
 		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());

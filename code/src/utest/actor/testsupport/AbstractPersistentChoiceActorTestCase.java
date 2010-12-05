@@ -25,6 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -42,6 +43,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
+		context.ref.importObject(AbilityCategory.FEAT);
 //				new RuntimeLoadContext(new RuntimeReferenceContext(),
 //					new ConsolidatedListCommitStrategy());
 	}

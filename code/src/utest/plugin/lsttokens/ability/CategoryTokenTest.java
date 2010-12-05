@@ -17,11 +17,12 @@
  */
 package plugin.lsttokens.ability;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -35,6 +36,15 @@ public class CategoryTokenTest extends AbstractTokenTestCase<Ability>
 	static CategoryToken token = new CategoryToken();
 	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
 			Ability.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		primaryContext.ref.constructCDOMObject(AbilityCategory.class, "Mutation");
+		secondaryContext.ref.constructCDOMObject(AbilityCategory.class,
+				"Mutation");
+	}
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -70,8 +80,6 @@ public class CategoryTokenTest extends AbstractTokenTestCase<Ability>
 	@Test
 	public void testRoundRobinMutation() throws PersistenceLayerException
 	{
-		AbilityCategory ac = new AbilityCategory("Mutation");
-		SettingsHandler.getGame().addAbilityCategory(ac);
 		runRoundRobin("Mutation");
 	}
 

@@ -40,7 +40,7 @@ import java.util.TreeSet;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.RollMethod;
@@ -167,9 +167,6 @@ public final class GameMode implements Comparable<Object>
 	private TreeMap<Integer, String> statDisplayText = null;
 	private String statDisplayTextAppend = "+";
 	private TreeMap<Integer, String> skillRankDisplayText = null;
-
-	private List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
-	private List<AbilityCategory> theLstAbilityCategories = new ArrayList<AbilityCategory>();
 
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
@@ -2259,37 +2256,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
-	 *
-	 * @param aCategory The <tt>AbilityCategory</tt> to add.
-	 */
-	public void addAbilityCategory(final AbilityCategory aCategory)
-	{
-		theAbilityCategories.add(aCategory);
-	}
-
-	/**
-	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
-	 *
-	 * @param aCategory The <tt>AbilityCategory</tt> to add.
-	 */
-	public void addLstAbilityCategory(final AbilityCategory aCategory)
-	{
-		theLstAbilityCategories.add(aCategory);
-	}
-
-	/**
-	 * Clears all LST sourced <tt>AbilityCategory</tt> definitions from the
-	 * game mode. Used when unloading the data.
-	 *
-	 * @param aCategory The <tt>AbilityCategory</tt> to add.
-	 */
-	public void clearLstAbilityCategories()
-	{
-		theLstAbilityCategories.clear();
-	}
-
-	/**
 	 * Gets the <tt>AbilityCategory</tt> for the given key.
 	 *
 	 * @param aKey The key of the <tt>AbilityCategory</tt> to retreive.
@@ -2313,12 +2279,11 @@ public final class GameMode implements Comparable<Object>
 
 	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
-		for ( final AbilityCategory cat : getAllAbilityCategories() )
+		AbilityCategory cat = getContext().ref
+				.silentlyGetConstructedCDOMObject(AbilityCategory.class, aKey);
+		if (cat != null)
 		{
-			if ( cat.getKeyName().equalsIgnoreCase(aKey) )
-			{
-				return cat;
-			}
+			return cat;
 		}
 		if (AbilityCategory.LANGBONUS.getKeyName().equals(aKey))
 		{
@@ -2335,14 +2300,8 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public Collection<AbilityCategory> getAllAbilityCategories()
 	{
-		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
-		{
-			theAbilityCategories.add(0, AbilityCategory.FEAT);
-		}
-		List<AbilityCategory> allCats = new ArrayList<AbilityCategory>();
-		allCats.addAll(theAbilityCategories);
-		allCats.addAll(theLstAbilityCategories);
-		return Collections.unmodifiableCollection(allCats);
+		return getContext().ref
+				.getConstructedCDOMObjects(AbilityCategory.class);
 	}
 
 	/**
@@ -2388,7 +2347,7 @@ public final class GameMode implements Comparable<Object>
 		for (AbilityCategory cat : getAllAbilityCategories())
 		{
 			if (key.equals(cat.getKeyName())
-				|| key.equals(cat.getAbilityCategory()))
+				|| key.equals(cat.getParentCategory().getKeyName()))
 			{
 				catList.add(cat);
 			}
@@ -2582,16 +2541,17 @@ public final class GameMode implements Comparable<Object>
 		}
 	}
 
-	public static <T extends Identified> void resolveReferenceManufacturer(
+	public static <T extends Loadable> void resolveReferenceManufacturer(
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T> mfg;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
-			String category = ((TransparentCategorizedReferenceManufacturer) rm)
-					.getCDOMCategory();
-			mfg = rc.getManufacturer((Class) c, category);
+			TransparentCategorizedReferenceManufacturer tcrm = (TransparentCategorizedReferenceManufacturer) rm;
+			String category = tcrm.getCDOMCategory();
+			Class catClass = tcrm.getCategoryClass();
+			mfg = rc.getManufacturer((Class) c, catClass, category);
 		}
 		else
 		{
