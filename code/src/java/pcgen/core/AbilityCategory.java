@@ -34,6 +34,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.util.PropertyFactory;
@@ -44,10 +45,10 @@ import pcgen.util.enumeration.Visibility;
  * This class stores and manages information about Ability categories.
  * 
  * <p>This is a higher level abstraction than the category specified by the 
- * ability object itself.  The low-level ability category defaults to the same
+ * ability object itself.  The low-level AbilityCategory defaults to the same
  * as this category key but this can be changed.  For example to specify an
  * <tt>AbilityCategory</tt> &quot;Fighter Bonus Feats&quot; you could specify
- * the ability category was &quot;FEAT&quot; and set the ability type to
+ * the AbilityCategory was &quot;FEAT&quot; and set the ability type to
  * &quot;Fighter&quot;. 
  * 
  * @author boomer70 <boomer70@yahoo.com>
@@ -66,8 +67,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	private Set<CDOMSingleRef<Ability>> theAbilityKeys = null;
 	private boolean allAbilityTypes = false;
 	
-	private String theDisplayLocation;
-	
+	private DisplayLocation displayLocation;
 	private Set<Type> types = null;
 	private Formula poolFormula;
 
@@ -85,7 +85,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	static
 	{
 		FEAT.pluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
-		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
+		FEAT.displayLocation = DisplayLocation.getConstant(PropertyFactory.getString("in_feats")); //$NON-NLS-1$
 		FEAT.setInternal(true);
 		LANGBONUS.setPoolFormula(FormulaFactory.getFormulaFor("BONUSLANG"));
 		LANGBONUS.setInternal(true);
@@ -100,14 +100,14 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * 
 	 * @param aKeyName The name to use to reference this category.
 	 */
-	public AbilityCategory( final String aKeyName )
+	public AbilityCategory(final String key)
 	{
-		theKeyName = aKeyName;
-		displayName = aKeyName;
-		pluralName = aKeyName;
+		theKeyName = key;
+		displayName = key;
+		pluralName = key;
 		
-		theAbilityCategory = aKeyName;
-		theDisplayLocation = aKeyName;
+		theAbilityCategory = key;
+		displayLocation = DisplayLocation.getConstant(key);
 	}
 	
 	/**
@@ -116,19 +116,20 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 * @param aKeyName The name to use to reference this category.
 	 * @param aDisplayName The resource key to use for the display name
 	 */
-	public AbilityCategory( final String aKeyName, final String aDisplayName )
+	public AbilityCategory(final String aKeyName, final String aDisplayName)
 	{
 		theKeyName = aKeyName;
 		setName(aDisplayName);
 		setPluralName(aDisplayName);
 
 		theAbilityCategory = aKeyName;
+		//TODO DisplayLocation??
 	}
 
 	/**
-	 * Sets the low-level ability category this category refers to.
+	 * Sets the low-level AbilityCategory this category refers to.
 	 * 
-	 * @param aCategory An ability category key string.
+	 * @param aCategory An AbilityCategory key string.
 	 */
 	public void setAbilityCategory(final String aCategory)
 	{
@@ -136,9 +137,9 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	}
 	
 	/**
-	 * Gets the low-level ability category this category refers to.
+	 * Gets the low-level AbilityCategory this category refers to.
 	 * 
-	 * @return An ability category key string.
+	 * @return An AbilityCategory key string.
 	 */
 	public String getAbilityCategory()
 	{
@@ -261,33 +262,24 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	}
 
 	/**
-	 * Returns the name of the subtab on which the ability category 
-	 * should be displayed. Note: If this starts with in_ it is a 
-	 * reference to an internationalized string. 
+	 * Returns the location on which the AbilityCategory should be displayed.
 	 * 
-	 * @return The display location name.
+	 * @return The display location.
 	 */
-	public String getDisplayLocation()
+	public DisplayLocation getDisplayLocation()
 	{
-		return theDisplayLocation;
+		return displayLocation;
 	}
 
 	/**
-	 * Sets the name of the subtab on which the ability category 
-	 * should be displayed.
+	 * Sets the location where the AbilityCategory should be displayed.
 	 * 
-	 * @param displayLocation The new displayLocation
+	 * @param displayLocation
+	 *            The new displayLocation
 	 */
-	public void setDisplayLocation(String aName)
+	public void setDisplayLocation(DisplayLocation location)
 	{
-		if (aName.startsWith("in_"))
-		{
-			theDisplayLocation = PropertyFactory.getString(aName);
-		}
-		else
-		{
-			theDisplayLocation = aName;
-		}
+		displayLocation = location;
 	}
 
 	/**

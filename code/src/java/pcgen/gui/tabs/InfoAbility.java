@@ -45,6 +45,7 @@ import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -118,7 +119,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 	private String theOptionKey = "InfoAbility."; //$NON-NLS-1$
 
-	private String theDisplayLocation;
+	private DisplayLocation theDisplayLocation;
 	private List<AbilityCategory> categoryList;
 
 	/**
@@ -134,7 +135,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		theDisplayLocation = theCategory.getDisplayLocation();
 		theOptionKey += theDisplayLocation;
 
-		setName(theDisplayLocation);
+		setName(theDisplayLocation.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -615,7 +616,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	@Override
 	public String getTabName()
 	{
-		return theCategory.getDisplayLocation();
+		return theCategory.getDisplayLocation().toString();
 	}
 
 	/**

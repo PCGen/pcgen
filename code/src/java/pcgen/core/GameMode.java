@@ -45,6 +45,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
+import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
@@ -2351,7 +2352,8 @@ public final class GameMode implements Comparable<Object>
 	 * @param displayLoc The display location to filter for.
 	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
 	 */
-	public Collection<AbilityCategory> getAllAbilityCatsForDisplayLoc(String displayLoc)
+	public Collection<AbilityCategory> getAllAbilityCatsForDisplayLoc(
+			DisplayLocation displayLoc)
 	{
 		if (displayLoc == null)
 		{
