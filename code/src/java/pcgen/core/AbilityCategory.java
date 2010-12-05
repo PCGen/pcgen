@@ -69,7 +69,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	private DisplayLocation displayLocation;
 	private boolean isAllAbilityTypes = false;
 	private Set<Type> types = null;
-	private Formula poolFormula;
+	private Formula poolFormula = FormulaFactory.ZERO;
 
 	private Visibility visibility = Visibility.DEFAULT;
 	private boolean isEditable = true;
