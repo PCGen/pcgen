@@ -27,9 +27,9 @@ import pcgen.cdom.base.Constants;
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
  * 
- * This Class is a Type Safe Constant. It is designed to hold Pantheons in a
+ * This Class is a Type Safe Constant. It is designed to hold Types in a
  * type-safe fashion, so that they can be quickly compared and use less memory
- * when identical Pantheons exist in two CDOMObjects.
+ * when identical Types exist in two CDOMObjects.
  */
 public final class Type implements TypeSafeConstant, Comparable<Type>
 {
@@ -175,7 +175,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 * @throws IllegalArgumentException
-	 *             if the given String is not a previously defined Pantheon
+	 *             if the given String is not a previously defined Type
 	 */
 	public static Type valueOf(String name)
 	{
