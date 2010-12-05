@@ -55,9 +55,9 @@ public class AbilityCategory implements Category<Ability>, Loadable
 {
 	private URI sourceURI;
 
-	private String theDisplayName;
 	private String theKeyName;
-	private String thePluralName;
+	private String displayName;
+	private String pluralName;
 	
 	private String theAbilityCategory;
 	private Set<String> theAbilityTypes = null;
@@ -68,9 +68,9 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	private String theDisplayLocation;
 	
 	private Visibility visibility = Visibility.DEFAULT;
-	private boolean theEditableFlag = true;
-	private boolean theModPoolFlag = true;
-	private boolean theAllowFractionalPoolFlag = false;
+	private boolean isEditable = true;
+	private boolean isPoolModifiable = true;
+	private boolean isPoolFractional = false;
 	private boolean isInternal = false;
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
@@ -80,10 +80,11 @@ public class AbilityCategory implements Category<Ability>, Loadable
 
 	static
 	{
-		FEAT.thePluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
+		FEAT.pluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
-		LANGBONUS.setInternal(true);
+		FEAT.setInternal(true);
 		LANGBONUS.setPoolFormula("BONUSLANG");
+		LANGBONUS.setInternal(true);
 		WEAPONBONUS.setInternal(true);
 	}
 
@@ -98,8 +99,8 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	public AbilityCategory( final String aKeyName )
 	{
 		theKeyName = aKeyName;
-		theDisplayName = aKeyName;
-		thePluralName = aKeyName;
+		displayName = aKeyName;
+		pluralName = aKeyName;
 		
 		theAbilityCategory = aKeyName;
 		theDisplayLocation = aKeyName;
@@ -244,14 +245,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setPluralName(final String aName)
 	{
-		if (aName.startsWith("in_"))
-		{
-			thePluralName = PropertyFactory.getString(aName);
-		}
-		else
-		{
-			thePluralName = aName;
-		}
+		pluralName = aName;
 	}
 	
 	/**
@@ -261,9 +255,21 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public String getPluralName()
 	{
-		return thePluralName;
+		if (pluralName.startsWith("in_"))
+		{
+			return PropertyFactory.getString(pluralName);
+		}
+		else
+		{
+			return pluralName;
+		}
 	}
-	
+
+	public String getRawPluralName()
+	{
+		return pluralName;
+	}
+
 	/**
 	 * Returns the name of the subtab on which the ability category 
 	 * should be displayed. Note: If this starts with in_ it is a 
@@ -339,7 +345,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setEditable(final boolean yesNo)
 	{
-		theEditableFlag = yesNo;
+		isEditable = yesNo;
 	}
 	
 	/**
@@ -349,7 +355,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public boolean isEditable()
 	{
-		return theEditableFlag;
+		return isEditable;
 	}
 
 	/**
@@ -359,7 +365,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setModPool(final boolean yesNo)
 	{
-		theModPoolFlag = yesNo;
+		isPoolModifiable = yesNo;
 	}
 	
 	/**
@@ -369,7 +375,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public boolean allowPoolMod()
 	{
-		return theModPoolFlag;
+		return isPoolModifiable;
 	}
 	
 	/**
@@ -379,7 +385,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setAllowFractionalPool(final boolean yesNo)
 	{
-		theAllowFractionalPoolFlag = yesNo;
+		isPoolFractional = yesNo;
 	}
 	
 	/**
@@ -389,7 +395,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public boolean allowFractionalPool()
 	{
-		return theAllowFractionalPoolFlag;
+		return isPoolFractional;
 	}
 	
 	// -------------------------------------------
@@ -400,7 +406,19 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public String getDisplayName()
 	{
-		return theDisplayName;
+		if (displayName.startsWith("in_"))
+		{
+			return PropertyFactory.getString(displayName);
+		}
+		else
+		{
+			return displayName;
+		}
+	}
+
+	public String getRawDisplayName()
+	{
+		return displayName;
 	}
 
 	/**
@@ -424,14 +442,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setName(final String aName)
 	{
-		if (aName.startsWith("in_"))
-		{
-			theDisplayName = PropertyFactory.getString(aName);
-		}
-		else
-		{
-			theDisplayName = aName;
-		}
+		displayName = aName;
 	}
 
 	/**
@@ -442,7 +453,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	@Override
 	public String toString()
 	{
-		return theDisplayName;
+		return getDisplayName();
 	}
 
 	/**

@@ -1,65 +1,86 @@
 /*
- * EditableToken.java
- * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.lst.AbilityCategoryLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * Handles the EDITABLE token on an ABILITYCATEGORY line.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
- */
-public class EditableToken implements AbilityCategoryLstToken
+public class EditableToken extends AbstractNonEmptyToken<AbilityCategory>
+		implements CDOMPrimaryToken<AbilityCategory>
 {
-	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
+	@Override
+	public String getTokenName()
 	{
-		if (aValue.charAt(0) == 'Y')
+		return "EDITABLE";
+	}
+
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context,
+			final AbilityCategory ac, final String value)
+	{
+		Boolean set;
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar == 'Y')
 		{
-			aCat.setEditable(true);
-		}
-		else if (aValue.charAt(0) == 'N')
-		{
-			aCat.setEditable(false);
+			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+			{
+				return new ParseResult.Fail("You should use 'YES' as the "
+						+ getTokenName() + ": " + value);
+			}
+			set = Boolean.TRUE;
 		}
 		else
 		{
-			return false;
+			if (firstChar != 'N' && firstChar != 'n')
+			{
+				return new ParseResult.Fail(
+						"You should use 'YES' or 'NO' as the " + getTokenName()
+								+ ": " + value);
+			}
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				return new ParseResult.Fail(
+						"You should use 'YES' or 'NO' as the " + getTokenName()
+								+ ": " + value);
+			}
+			set = Boolean.FALSE;
 		}
-		return true;
+		ac.setEditable(set);
+		return ParseResult.SUCCESS;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-	public String getTokenName()
+	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
-		return "EDITABLE"; //$NON-NLS-1$
+		if (ac.isEditable())
+		{
+			return null;
+		}
+		else
+		{
+			return new String[] { "NO" };
+		}
+	}
+
+	public Class<AbilityCategory> getTokenClass()
+	{
+		return AbilityCategory.class;
 	}
 }
