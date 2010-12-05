@@ -82,6 +82,10 @@ Stay			KEY:Animal Trick ~ Stay		CATEGORY:Special Ability	TYPE:AnimalTrick							
 Track			KEY:Animal Trick ~ Track	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal tracks the scent presented to it. (This requires the animal to have the scent ability.)
 Work			KEY:Animal Trick ~ Work		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal pulls or pushes a medium or heavy load.
 
+###Block: 'Hidden' Animal Tricks
+# Ability Name	Unique Key				Category of Ability		Type			Description											Source Page
+Air Walk		KEY:Animal Trick ~ Air Walk	CATEGORY:Special Ability	TYPE:AnimalTrick	DESC:The animal is trained to move with the aid of the air walk spell.	SOURCEPAGE:p.240
+
 ###Block: Animal Training ----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name				Unique Key					Output Name						Category of Ability		Type										Restricted Ability							Required Stat	Description																							Ability																									Cost		Description of the Benefits
 1 Animal Trained for Combat Riding	KEY:Animal Training ~ Combat Riding	OUTPUTNAME:Trained for Combat Riding	CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.SpecialQuality	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	PRESTAT:1,INT=2	DESC:An animal trained to bear a rider into combat knows the tricks attack, come, defend, down, guard, and heel.						ABILITY:Animal Trick|AUTOMATIC|Animal Trick ~ Attack|Animal Trick ~ Come|Animal Trick ~ Defend|Animal Trick ~ Down|Animal Trick ~ Guard|Animal Trick ~ Heel	COST:6	BENEFIT:An animal trained to bear a rider into combat knows the tricks attack, come, defend, down, guard, and heel. Training an animal for combat riding takes 6 weeks. You may also "upgrade" an animal trained for riding to one trained for combat by spending 3 weeks and making a successful DC 20 Handle Animal check. The new general purpose and tricks completely replace the animal's previous purpose and any tricks it once knew. Many horses and riding dogs are trained in this way.
