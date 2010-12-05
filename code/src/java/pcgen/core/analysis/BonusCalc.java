@@ -1,6 +1,6 @@
 package pcgen.core.analysis;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
@@ -29,7 +29,7 @@ public class BonusCalc
 		return (int) BonusCalc.bonusTo(po, "STAT", stat.getAbb(), aPC, aPC);
 	}
 
-	public static final double bonusTo(PObject po, String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
+	public static final double bonusTo(PObject po, String aType, String aName, final Object obj, final Collection<BonusObj> aBonusList, final PlayerCharacter aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.size() == 0))
 		{

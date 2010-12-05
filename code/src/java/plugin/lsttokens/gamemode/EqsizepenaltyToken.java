@@ -2,9 +2,10 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.core.GameMode;
-import pcgen.persistence.lst.EqSizePenaltyLoader;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
 
 /**
@@ -22,8 +23,10 @@ public class EqsizepenaltyToken implements GameModeLstToken
 	{
 		try
 		{
-			EqSizePenaltyLoader penaltyDiceLoader = new EqSizePenaltyLoader();
-			penaltyDiceLoader.parseLine(gameMode, "EQSIZEPENALTY:" + value, source);
+			SimpleLoader<EqSizePenalty> penaltyDiceLoader = new SimpleLoader<EqSizePenalty>(
+					EqSizePenalty.class);
+			penaltyDiceLoader.parseLine(gameMode.getModeContext(), value,
+					source);
 			return true;
 		}
 		catch (Exception e)

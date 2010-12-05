@@ -5664,10 +5664,10 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 		<!-- GameMode: EqSizePenalty tokens-->
-		<jar jarfile="${systemlstplugins.dir}/GameMode-EqSizePenaltyToken-EQSIZEPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${systemlstplugins.dir}/GameMode-EqSizePenaltyToken-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/gamemode/eqsizepenalty/EqsizepenaltyToken.class" />
+					<include name="plugin/lsttokens/gamemode/eqsizepenalty/BonusToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

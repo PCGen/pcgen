@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Capacity;
+import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -2446,10 +2447,13 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// If using 3.5 weapon penalties, add them in also
-		if (Globals.checkRule(RuleConstants.SYS_35WP)) {
-			final List<BonusObj> aList = GameMode.getEqSizePenaltyObj()
-					.getSafeListFor(ListKey.BONUS);
-			BonusCalc.bonusTo(this, aType, aName, this, aList, aPC);
+		if (Globals.checkRule(RuleConstants.SYS_35WP))
+		{
+			for (EqSizePenalty esp : Globals.getContext().ref
+					.getConstructedCDOMObjects(EqSizePenalty.class))
+			{
+				BonusCalc.bonusTo(this, aType, aName, this, esp.getBonuses(), aPC);
+			}
 		}
 
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);

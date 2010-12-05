@@ -71,7 +71,6 @@ import pcgen.util.enumeration.Tab;
  */
 public final class GameMode implements Comparable<Object>
 {
-	private static PObject eqSizePenalty = new PObject();
 	private List<String> allowedModes;
 	private List<String> bonusFeatLevels = new ArrayList<String>();
 	private List<String> bonusStackList = new ArrayList<String>();
@@ -477,28 +476,6 @@ public final class GameMode implements Comparable<Object>
 		{
 			Logging.errorPrint("Will use default for displayOrder: " + displayOrder, exc);
 		}
-	}
-
-	/**
-	 * This is used to hold the weapon size penalty
-	 * @param anOb
-	 */
-	public void setEqSizePenaltyObj(final PObject anOb)
-	{
-		eqSizePenalty = anOb;
-	}
-
-	/* *************************
-	 * FLP WEAPONSIZEPENALTY3.5
-	 * *************************/
-
-	/**
-	 * Get the equipment size penalty object
-	 * @return PObject representing the equipment size penalty
-	 */
-	public static PObject getEqSizePenaltyObj()
-	{
-		return eqSizePenalty;
 	}
 
 	/**
