@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 12, 2002, 10:29 PM
- *
- * $Id: BonusSpellLoader.java 14014 2010-11-30 23:55:43Z thpr $
  */
 package pcgen.persistence.lst;
 
