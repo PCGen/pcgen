@@ -114,9 +114,6 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				}
 			}
 
-			final AbilityCategoryLstToken token =
-					(AbilityCategoryLstToken) tokenMap.get(key);
-
 			if (key.equals("ABILITYCATEGORY")) //$NON-NLS-1$
 			{
 				final String value = colString.substring(idxColon + 1).trim();
@@ -135,27 +132,38 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 					}
 				}
 			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				// TODO - i18n
-				LstUtils.deprecationCheck(token, "Ability Category", source,
-						value);
-				if (!token.parse(context, cat, value))
-				{
-					// TODO - i18n
-					Logging.errorPrint("Error parsing ability category:"
-						+ "miscinfo.lst from the " + aGameMode.getName()
-						+ " Game Mode" + ':' + colString + "\"");
-				}
-			}
 			else
 			{
-				// TODO - i18n
-				Logging.errorPrint("Invalid sub tag " + key
-					+ " on ABILITYCATEGORY line");
-				throw new PersistenceLayerException("Invalid sub tag " + key
-					+ " on ABILITYCATEGORY line");
+				final String value = colString.substring(idxColon + 1).trim();
+				if (context.processToken(cat, key, value))
+				{
+					context.commit();
+				}
+				else
+				{
+					context.rollback();
+					if (tokenMap.containsKey(key))
+					{
+						AbilityCategoryLstToken token =
+							(AbilityCategoryLstToken) tokenMap.get(key);
+						// TODO - i18n
+						LstUtils.deprecationCheck(token, "Ability Category",
+								source, value);
+						if (!token.parse(context, cat, value))
+						{
+							// TODO - i18n
+							Logging.errorPrint("Error parsing ability category:"
+									+ "miscinfo.lst from the "
+									+ aGameMode.getName() + " Game Mode" + ':'
+									+ colString + "\"");
+						}
+					}
+					else
+					{
+						Logging.replayParsedMessages();
+					}
+				}
+				Logging.clearParseMessages();
 			}
 		}
 		

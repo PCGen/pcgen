@@ -1,30 +1,28 @@
 /*
- * VisibleToken.java
- * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.lst.AbilityCategoryLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Handles the VISIBLE token on an ABILITYCATEGORY line.
@@ -33,38 +31,69 @@ import pcgen.rules.context.LoadContext;
  * 
  * @since 5.11.1
  */
-public class VisibleToken implements AbilityCategoryLstToken
+public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
+		implements CDOMPrimaryToken<AbilityCategory>
 {
-	/**
-	 * @see pcgen.persistence.lst.AbilityCategoryLstToken#parse(LoadContext, pcgen.core.AbilityCategory, java.lang.String)
-	 */
-	public boolean parse(LoadContext context, final AbilityCategory aCat, final String aValue)
+	@Override
+	public String getTokenName()
 	{
-		if (aValue.equals("YES"))
+		return "VISIBLE";
+	}
+
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context,
+			AbilityCategory ac, String value)
+	{
+		Visibility vis;
+		if (value.equals("YES"))
 		{
-			aCat.setVisible(AbilityCategory.VISIBLE_YES);
+			vis = Visibility.DEFAULT;
 		}
-		else if (aValue.equals("QUALIFY"))
+		else if (value.equals("QUALIFY"))
 		{
-			aCat.setVisible(AbilityCategory.VISIBLE_QUALIFIED);
+			vis = Visibility.QUALIFY;
 		}
-		else if (aValue.equals("NO"))
+		else if (value.equals("NO"))
 		{
-			aCat.setVisible(AbilityCategory.VISIBLE_NO);
+			vis = Visibility.HIDDEN;
 		}
 		else
 		{
-			return false;
+			return new ParseResult.Fail("Unable to understand "
+					+ getTokenName() + " tag: " + value);
 		}
-		return true;
+		ac.setVisible(vis);
+		return ParseResult.SUCCESS;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-	public String getTokenName()
+	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
-		return "VISIBLE"; //$NON-NLS-1$
+		Visibility vis = ac.getVisibility();
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.QUALIFY))
+		{
+			visString = "QUALIFY";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
+		{
+			context.addWriteMessage("Visibility " + vis
+					+ " is not a valid Visibility for "
+					+ ac.getClass().getSimpleName() + " " + ac.getKeyName());
+			return null;
+		}
+		return new String[] { visString };
 	}
 
+	public Class<AbilityCategory> getTokenClass()
+	{
+		return AbilityCategory.class;
+	}
 }

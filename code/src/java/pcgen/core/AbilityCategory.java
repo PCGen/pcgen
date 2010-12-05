@@ -1,5 +1,6 @@
 /*
  * AbilityCategory.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,6 +23,7 @@
  */
 package pcgen.core;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -29,8 +31,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * This class stores and manages information about Ability categories.
@@ -46,8 +51,10 @@ import pcgen.util.PropertyFactory;
  * 
  * @since 5.11.1
  */
-public class AbilityCategory implements Category<Ability>
+public class AbilityCategory implements Category<Ability>, Loadable
 {
+	private URI sourceURI;
+
 	private String theDisplayName;
 	private String theKeyName;
 	private String thePluralName;
@@ -60,28 +67,24 @@ public class AbilityCategory implements Category<Ability>
 	
 	private String theDisplayLocation;
 	
-	private int theVisibleFlag = VISIBLE_YES;
+	private Visibility visibility = Visibility.DEFAULT;
 	private boolean theEditableFlag = true;
 	private boolean theModPoolFlag = true;
 	private boolean theAllowFractionalPoolFlag = false;
+	private boolean isInternal = false;
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
 	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
 	public static final AbilityCategory LANGBONUS = new AbilityCategory("*LANGBONUS", "*LANGBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
 	public static final AbilityCategory WEAPONBONUS = new AbilityCategory("*WEAPONBONUS", "*WEAPONBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
 
-	/** Value to indicate the modifier should not be visible. */
-	public static final int VISIBLE_NO        = 0;
-	/** Value to indicate the modifier should be visible. */
-	public static final int VISIBLE_YES       = 1;
-	/** Value to indicate the modifier should not be visible unless it is qualified for. */
-	public static final int VISIBLE_QUALIFIED = 2;
-	
 	static
 	{
 		FEAT.thePluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
+		LANGBONUS.setInternal(true);
 		LANGBONUS.setPoolFormula("BONUSLANG");
+		WEAPONBONUS.setInternal(true);
 	}
 
 	/**
@@ -296,9 +299,9 @@ public class AbilityCategory implements Category<Ability>
 	 * 
 	 * @param yesNo <tt>true</tt> if these abilities should be displayed.
 	 */
-	public void setVisible(final int visible)
+	public void setVisible(Visibility visible)
 	{
-		theVisibleFlag = visible;
+		visibility = visible;
 	}
 	
 	/**
@@ -320,16 +323,12 @@ public class AbilityCategory implements Category<Ability>
 	 */
 	public boolean isVisible(PlayerCharacter pc)
 	{
-		if (theVisibleFlag == VISIBLE_NO)
-		{
-			return false;
-		}
-		if (theVisibleFlag == VISIBLE_QUALIFIED && pc != null)
+		if ((pc != null) && visibility.equals(Visibility.QUALIFY))
 		{
 			return pc.getTotalAbilityPool(this).floatValue() != 0.0
 					|| !pc.getAggregateVisibleAbilityList(this).isEmpty();
 		}
-		return true;
+		return visibility.isVisibileTo(View.VISIBLE, false);
 	}
 	
 	/**
@@ -524,4 +523,40 @@ public class AbilityCategory implements Category<Ability>
 	{
 		return (theAbilityKeys != null) && !theAbilityKeys.isEmpty();
 	}
+
+	public Visibility getVisibility()
+	{
+		return visibility;
+	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public String getLSTformat()
+	{
+		return getKeyName();
+	}
+
+	public void setInternal(boolean internal)
+	{
+		isInternal = internal;
+	}
+
+	public boolean isInternal()
+	{
+		return isInternal;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
 }
