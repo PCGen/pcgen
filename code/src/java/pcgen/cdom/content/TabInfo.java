@@ -150,7 +150,7 @@ public class TabInfo implements Loadable
 
 	public boolean isColumnVisible(int column)
 	{
-		return (hiddenColumns != null) && hiddenColumns.contains(column);
+		return (hiddenColumns == null) || !hiddenColumns.contains(column);
 	}
 
 	public Collection<Integer> getHiddenColumns()
