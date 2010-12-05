@@ -96,7 +96,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 
 		AbilityListToken token = new AbilityListToken();
 		Ability track = buildFeat(context, "Track");
-		token.parse(context, aCat, "Track");
+		token.parseToken(context, aCat, "Track");
 		assertEquals("Test category should now have 1 key", 1, aCat
 				.getAbilityRefs().size());
 		assertContains(aCat, track, true);
@@ -119,7 +119,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		Ability track = buildFeat(context, "Track");
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability pa = buildFeat(context, "Power Attack");
-		token.parse(context, aCat, "Track|Point Blank Shot");
+		token.parseToken(context, aCat, "Track|Point Blank Shot");
 		assertEquals("Test category should now have 2 keys", 2, aCat
 			.getAbilityRefs().size());
 		assertContains(aCat, track, true);
@@ -143,7 +143,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		AbilityListToken token = new AbilityListToken();
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability sf = buildFeat(context, "Skill Focus");
-		token.parse(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus (Bluff)");
+		token.parseToken(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus (Bluff)");
 		assertEquals("Test category should now have 3 keys", 3, aCat
 			.getAbilityRefs().size());
 		assertContains(aCat, pbs, true);

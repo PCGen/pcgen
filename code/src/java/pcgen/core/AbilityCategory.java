@@ -64,10 +64,10 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	private String pluralName;
 	
 	private String theAbilityCategory;
-	private Set<CDOMSingleRef<Ability>> theAbilityKeys = null;
-	private boolean allAbilityTypes = false;
 	
+	private Set<CDOMSingleRef<Ability>> containedAbilities = null;
 	private DisplayLocation displayLocation;
+	private boolean isAllAbilityTypes = false;
 	private Set<Type> types = null;
 	private Formula poolFormula;
 
@@ -182,7 +182,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public boolean isAllAbilityTypes()
 	{
-		return allAbilityTypes;
+		return isAllAbilityTypes;
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setAllAbilityTypes(boolean allAbilityTypes)
 	{
-		this.allAbilityTypes = allAbilityTypes;
+		this.isAllAbilityTypes = allAbilityTypes;
 	}
 
 	/**
@@ -200,11 +200,11 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void addAbilityKey(CDOMSingleRef<Ability> ref)
 	{
-		if ( theAbilityKeys == null )
+		if ( containedAbilities == null )
 		{
-			theAbilityKeys = new HashSet<CDOMSingleRef<Ability>>();
+			containedAbilities = new HashSet<CDOMSingleRef<Ability>>();
 		}
-		theAbilityKeys.add(ref);
+		containedAbilities.add(ref);
 	}
 
 	/**
@@ -483,11 +483,11 @@ public class AbilityCategory implements Category<Ability>, Loadable
 
 	public boolean containsDirectly(Ability ability)
 	{
-		if ( theAbilityKeys == null )
+		if ( containedAbilities == null )
 		{
 			return false;
 		}
-		for (CDOMSingleRef<Ability> ref : theAbilityKeys)
+		for (CDOMSingleRef<Ability> ref : containedAbilities)
 		{
 			if (ref.contains(ability))
 			{
@@ -505,16 +505,16 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public Collection<CDOMSingleRef<Ability>> getAbilityRefs()
 	{
-		if (theAbilityKeys == null)
+		if (containedAbilities == null)
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableCollection(theAbilityKeys);
+		return Collections.unmodifiableCollection(containedAbilities);
 	}
 
 	public boolean hasDirectReferences()
 	{
-		return (theAbilityKeys != null) && !theAbilityKeys.isEmpty();
+		return (containedAbilities != null) && !containedAbilities.isEmpty();
 	}
 
 	public Visibility getVisibility()
