@@ -37,6 +37,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -343,8 +344,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(Globals.getContext().ref
 				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
 				"size list initialised");
-		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
-		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
+		BaseDice d6 = gameMode.getModeContext().ref.constructCDOMObject(BaseDice.class, "1d6");
+		d6.addToDownList(new RollInfo("1d4"));
+		d6.addToDownList(new RollInfo("1d3"));
+		d6.addToDownList(new RollInfo("1d2"));
+		d6.addToDownList(new RollInfo("1"));
+		d6.addToUpList(new RollInfo("1d8"));
+		d6.addToUpList(new RollInfo("2d6"));
+		d6.addToUpList(new RollInfo("3d6"));
+		d6.addToUpList(new RollInfo("4d6"));
+		d6.addToUpList(new RollInfo("6d6"));
+		d6.addToUpList(new RollInfo("8d6"));
+		d6.addToUpList(new RollInfo("12d6"));
+		Globals.getContext().ref.importObject(d6);
 
 		is(custEq.getSize(), eq("M"), "starting size");
 		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");

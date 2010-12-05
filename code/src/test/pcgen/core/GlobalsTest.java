@@ -1,6 +1,7 @@
 package pcgen.core;
 
 import pcgen.PCGenTestCase;
+import pcgen.cdom.content.BaseDice;
 import pcgen.util.TestHelper;
 
 /**
@@ -438,8 +439,19 @@ public class GlobalsTest extends PCGenTestCase
 		is(Globals.getContext().ref
 				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
 				"size list initialised");
-		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
-		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
+		BaseDice d6 = gameMode.getModeContext().ref.constructCDOMObject(BaseDice.class, "1d6");
+		d6.addToDownList(new RollInfo("1d4"));
+		d6.addToDownList(new RollInfo("1d3"));
+		d6.addToDownList(new RollInfo("1d2"));
+		d6.addToDownList(new RollInfo("1"));
+		d6.addToUpList(new RollInfo("1d8"));
+		d6.addToUpList(new RollInfo("2d6"));
+		d6.addToUpList(new RollInfo("3d6"));
+		d6.addToUpList(new RollInfo("4d6"));
+		d6.addToUpList(new RollInfo("6d6"));
+		d6.addToUpList(new RollInfo("8d6"));
+		d6.addToUpList(new RollInfo("12d6"));
+		Globals.getContext().ref.importObject(d6);
 		SizeAdjustment small = Globals.getContext().ref.getAbbreviatedObject(
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().ref.getAbbreviatedObject(

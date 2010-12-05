@@ -59,6 +59,7 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
@@ -69,7 +70,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
-import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -1499,44 +1499,68 @@ public final class Globals
 	 */
 	public static String adjustDamage(final String aDamage, int baseSize, final int finalSize)
 	{
-		String result = aDamage;
-		int multiplier = 1;
-		int direction = 0;
-		String parseString = Constants.EMPTY_STRING;
-		if (baseSize < finalSize)
+		ReferenceContext ref = Globals.getContext().ref;
+		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
+				aDamage);
+		int multiplier = 0;
+		List<RollInfo> steps = null;
+		if (bd == null)
 		{
-			parseString = getDamageUpKey(aDamage);
-			direction = 1;
-		}
-		else if ( baseSize > finalSize )
-		{
-			parseString = getDamageDownKey(aDamage);
-			direction = -1;
-		}
-		
-		if ( direction != 0 && parseString != null )
-		{
-			StringTokenizer aTok = new StringTokenizer(parseString, Constants.PIPE);
-			multiplier = Integer.parseInt(aTok.nextToken());
-			parseString = aTok.nextToken();
-			aTok = new StringTokenizer(parseString, ",");
-
-			while ((baseSize != finalSize) && aTok.hasMoreTokens())
+			//Need to test for higher dice
+			final RollInfo aRollInfo = new RollInfo(aDamage);
+			final String baseDice = "1d" + Integer.toString(aRollInfo.sides);
+			bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
+					baseDice);
+			if (bd != null)
 			{
-				result = aTok.nextToken();
-				baseSize += direction;
+				multiplier = aRollInfo.times;
 			}
-			
 		}
+		else
+		{
+			multiplier = 1;
+		}
+		RollInfo bi;
+		if (bd == null)
+		{
+			bi = new RollInfo(aDamage);
+		}
+		else
+		{
+			if (baseSize < finalSize)
+			{
+				steps = bd.getUpSteps();
+			}
+			else if (baseSize > finalSize)
+			{
+				steps = bd.getDownSteps();
+			}
+			else
+			{
+				// Not a warning?
+				return aDamage;
+			}
+			int difference = Math.abs(baseSize - finalSize);
 
+			int index;
+			if (steps.size() > difference)
+			{
+				index = difference - 1;
+			}
+			else
+			{
+				index = steps.size() - 1;
+			}
+			bi = steps.get(index);
+		}
 		if (multiplier > 1)
 		{
-			final RollInfo aRollInfo = new RollInfo(result);
-			aRollInfo.times *= multiplier;
-			result = aRollInfo.toString();
+			// Ugh, have to do this for "cloning" to avoid polluting the master
+			// RollInfo
+			bi = new RollInfo(bi.toString());
+			bi.times *= multiplier;
 		}
-
-		return result;
+		return bi.toString();
 	}
 
 	/**
@@ -2279,49 +2303,6 @@ public final class Globals
 	{
 		getCustColumnWidth().clear();
 		getCustColumnWidth().addAll(l);
-	}
-
-	private static String getDamageDownKey(final String aDamage)
-	{
-		if (SettingsHandler.getGame().getDamageDownMap().containsKey(aDamage))
-		{
-			return "1|" + SettingsHandler.getGame().getDamageDownMap().get(aDamage);
-		}
-
-		final RollInfo aRollInfo = new RollInfo(aDamage);
-		final String baseDice = "1d" + Integer.toString(aRollInfo.sides);
-
-		if (SettingsHandler.getGame().getDamageDownMap().containsKey(baseDice))
-		{
-			return Integer.toString(aRollInfo.times) + "|"
-			+ SettingsHandler.getGame().getDamageDownMap().get(baseDice);
-		}
-
-		return null;
-	}
-
-	/**
-	 * How to change damage as weapon size changes is Contained in a Map
-	 * @param aDamage
-	 * @return String
-	 */
-	private static String getDamageUpKey(final String aDamage)
-	{
-		if (SettingsHandler.getGame().getDamageUpMap().containsKey(aDamage))
-		{
-			return "1|" + SettingsHandler.getGame().getDamageUpMap().get(aDamage);
-		}
-
-		final RollInfo aRollInfo = new RollInfo(aDamage);
-		final String baseDice = "1d" + Integer.toString(aRollInfo.sides);
-
-		if (SettingsHandler.getGame().getDamageUpMap().containsKey(baseDice))
-		{
-			return Integer.toString(aRollInfo.times) + "|"
-			+ SettingsHandler.getGame().getDamageUpMap().get(baseDice);
-		}
-
-		return null;
 	}
 
 	/**

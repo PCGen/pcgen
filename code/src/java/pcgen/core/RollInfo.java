@@ -299,7 +299,7 @@ public final class RollInfo
 	{
 		final StringBuffer buf = new StringBuffer();
 
-		if (times > 1)
+		if (times > 0)
 		{
 			buf.append(times);
 		}

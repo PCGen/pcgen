@@ -42,7 +42,6 @@ public class TokenStore
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);
 		tokenTypeList.add(AbilityCategoryLstToken.class);
-		tokenTypeList.add(BaseDiceLstToken.class);
 		tokenTypeList.add(WieldCategoryLstToken.class);
 
 		//statsandchecks.lst

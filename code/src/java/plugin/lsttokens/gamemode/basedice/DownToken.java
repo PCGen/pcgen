@@ -1,24 +1,78 @@
+/*
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
 package plugin.lsttokens.gamemode.basedice;
 
-import java.util.Map;
+import java.util.StringTokenizer;
 
-import pcgen.persistence.lst.BaseDiceLoader;
-import pcgen.persistence.lst.BaseDiceLstToken;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.BaseDice;
+import pcgen.core.RollInfo;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * Class deals with DOWN Token
- */
-public class DownToken implements BaseDiceLstToken
+public class DownToken extends AbstractTokenWithSeparator<BaseDice> implements
+		CDOMPrimaryToken<BaseDice>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DOWN";
 	}
 
-	public boolean parse(Map<String, String> baseDice, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			BaseDice bd, String value)
 	{
-		baseDice.put(BaseDiceLoader.DOWN, value);
-		return true;
+		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
+		while (st.hasMoreTokens())
+		{
+			String roll = st.nextToken();
+			try
+			{
+				bd.addToDownList(new RollInfo(roll));
+			}
+			catch (IllegalArgumentException e)
+			{
+				return new ParseResult.Fail("Invalid Roll provided: " + roll
+						+ " in " + value);
+			}
+		}
+		return ParseResult.SUCCESS;
+	}
+
+	@Override
+	protected char separator()
+	{
+		return ',';
+	}
+
+	public String[] unparse(LoadContext context, BaseDice bd)
+	{
+		return new String[] { StringUtil.join(bd.getDownSteps(),
+				Constants.COMMA) };
+	}
+
+	public Class<BaseDice> getTokenClass()
+	{
+		return BaseDice.class;
 	}
 }

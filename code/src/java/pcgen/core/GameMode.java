@@ -84,8 +84,6 @@ public final class GameMode implements Comparable<Object>
 	private List<WieldCategory> wieldCategoryList = new ArrayList<WieldCategory>();
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
 	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<String, ACControl>();
-	private Map<String, String> damageDownMap = new HashMap<String, String>();
-	private Map<String, String> damageUpMap = new HashMap<String, String>();
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<String, String>();
 	private String acAbbrev = "";
@@ -404,30 +402,12 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Get Damage down map
-	 * @return Map of damage downs
-	 */
-	public Map<String, String> getDamageDownMap()
-	{
-		return damageDownMap;
-	}
-
-	/**
 	 * Set DR text
 	 * @param aString
 	 */
 	public void setDamageResistanceText(final String aString)
 	{
 		damageResistance = aString;
-	}
-
-	/**
-	 * Weapon size changes damage
-	 * @return Map
-	 */
-	public Map<String, String> getDamageUpMap()
-	{
-		return damageUpMap;
 	}
 
 	/**
