@@ -352,13 +352,14 @@ Disease		KEY:Disease ~ Dire Rat	CATEGORY:Special Ability	TYPE:SpecialAttack.Extr
 Death Roll		KEY:Death Roll ~ Crocodile	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DEFINE:DeathRollDice|1	DEFINE:DeathRollDie|6	DEFINE:DeathRollDamage|STR*1.5	DESC:When grappling a foe of its size or smaller, a crocodile can perform a death roll upon making a successful grapple check.	SOURCEPAGE:p.51	ASPECT:Ability Benefit|(%1d%2+%3 Plus Trip)|DeathRollDice|DeathRollDie|DeathRollDamage	BENEFIT:When grappling a foe of its size or smaller, a crocodile can perform a death roll upon making a successful grapple check. As it clings to its foe, it tucks in its legs and rolls rapidly, twisting and wrenching its victim. The crocodile inflicts its bite damage and knocks the creature prone. If successful, the crocodile maintains its grapple.
 Hold Breath		KEY:Hold Breath ~ Crocodile	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:HoldBreathRounds|CONSCORE*4									DESC:A crocodile can hold its breath for %1 rounds before it risks drowning.|HoldBreathRounds							SOURCEPAGE:p.51	ASPECT:Ability Benefit|(%1 rounds)|HoldBreathRounds
 Sprint		KEY:Sprint ~ Crocodile		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement															DESC:Once per minute a crocodile may sprint, increasing its land speed to 40 feet for 1 round.							SOURCEPAGE:p.51
+
+# Cat (Cheetah, Leopard)
+Sprint		KEY:Sprint ~ Cat			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement															DESC:Once per hour, a Small Cat companion can move at 10 times its normal speed (500 feet) when it makes a charge.			SOURCEPAGE:p.40	SOURCESHORT:PFB
+
 # Old Abilities - Phase out with above.
-Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration						BONUS:VAR|HoldBreathDuration|CONSCORE*6			SOURCEPAGE:p.88
-Sprint							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement			DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.												SOURCEPAGE:p.40	SOURCESHORT:PFB
-Death Roll							CATEGORY:Special Ability	TYPE:SpecialAttack
-
-
-
+#Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration						BONUS:VAR|HoldBreathDuration|CONSCORE*6			SOURCEPAGE:p.88
+#Sprint							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement			DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.												SOURCEPAGE:p.40	SOURCESHORT:PFB
+#Death Roll							CATEGORY:Special Ability	TYPE:SpecialAttack
 
 #
 # End
