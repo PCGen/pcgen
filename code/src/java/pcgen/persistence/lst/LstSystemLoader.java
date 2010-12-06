@@ -72,6 +72,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
+import pcgen.core.PaperInfo;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -247,7 +248,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
 	private KitLoader kitLoader = new KitLoader();
-	private PaperInfoLoader paperLoader = new PaperInfoLoader();
+	private SimpleLoader<PaperInfo> paperLoader = new SimpleLoader<PaperInfo>(PaperInfo.class);
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SimpleLoader<Sponsor> sponsorLoader = new SponsorLoader();
 	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
@@ -1294,6 +1295,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 				// Load paperInfo.lst
 				loadGameModeLstFile(context, paperLoader, gmName, gameFile, "paperInfo.lst");
+				Globals.selectPaper(SettingsHandler.getPCGenOption("paperName", "A4"));
 
 				// Load bio files
 				loadGameModeLstFile(context, traitLoader, gmName, gameFile, "bio"

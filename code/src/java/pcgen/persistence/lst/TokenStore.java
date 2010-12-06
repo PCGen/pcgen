@@ -63,9 +63,6 @@ public class TokenStore
 		//load.lst
 		tokenTypeList.add(LoadInfoLstToken.class);
 
-		//paperinfo.lst
-		tokenTypeList.add(PaperInfoLstToken.class);
-
 		//install.lst
 		tokenTypeList.add(InstallLstToken.class);
 	}

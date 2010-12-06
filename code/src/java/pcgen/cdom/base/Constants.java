@@ -251,22 +251,6 @@ public interface Constants
 	/** 1 */
 	int MERGE_NONE = 1;
 
-	// Paper info
-	/** 4 */
-	int PAPERINFO_BOTTOMMARGIN = 4;
-	/** 1 */
-	int PAPERINFO_HEIGHT = 1;
-	/** 5 */
-	int PAPERINFO_LEFTMARGIN = 5;
-	/** 0 */
-	int PAPERINFO_NAME = 0;
-	/** 6 */
-	int PAPERINFO_RIGHTMARGIN = 6;
-	/** 3 */
-	int PAPERINFO_TOPMARGIN = 3;
-	/** 2 */
-	int PAPERINFO_WIDTH = 2;
-
 	// SOURCE Display options
 	/** 0 */
 	int SOURCELONG = 0;

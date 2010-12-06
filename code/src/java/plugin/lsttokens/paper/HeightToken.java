@@ -1,5 +1,6 @@
 /*
  * HeightToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,26 +26,48 @@
  */
 package plugin.lsttokens.paper;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PaperInfo;
-import pcgen.persistence.lst.PaperInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>HeightToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class HeightToken implements PaperInfoLstToken
+public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
+		CDOMPrimaryToken<PaperInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "HEIGHT";
 	}
 
-	public boolean parse(PaperInfo paperInfo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi,
+			String value)
 	{
-		paperInfo.setPaperInfo(Constants.PAPERINFO_HEIGHT, value);
-		return true;
+		pi.setPaperInfo(PaperInfo.HEIGHT, value);
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, PaperInfo pi)
+	{
+		String info = pi.getPaperInfo(PaperInfo.HEIGHT);
+		if (info == null)
+		{
+			// Probably an error
+			return null;
+		}
+		return new String[] { info };
+	}
+
+	public Class<PaperInfo> getTokenClass()
+	{
+		return PaperInfo.class;
 	}
 }

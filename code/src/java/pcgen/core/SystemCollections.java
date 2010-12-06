@@ -46,10 +46,8 @@ public class SystemCollections
 {
 	/** The following are loaded from system files.
 	 * <ul>
-	 * <li>alignmentList</li>
 	 * <li>birthplaceList</li>
 	 * <li>bonusStackList</li>
-	 * <li>checkList</li>
 	 * <li>cityList</li>
 	 * <li>gameModeList</li>
 	 * <li>hairStyleList</li>
@@ -59,14 +57,10 @@ public class SystemCollections
 	 * <li>paperInfoList</li>
 	 * <li>phobiaList</li>
 	 * <li>phraseList</li>
-	 * <li>schoolsList</li>
-	 * <li>sizeAdjustmentList</li>
 	 * <li>equipSlotMap</li>
 	 * <li>specialsList</li>
 	 * <li>speechList</li>
-	 * <li>statList</li>
 	 * <li>traitList</li>
-	 * <li>bonusSpellMap</li>
 	 * <li>paperInfoList</li>
 	 * </ul>
 	 */
@@ -76,7 +70,6 @@ public class SystemCollections
 	private static final Map<String, List<String>> hairStyleMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<String>> interestsMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<String>> locationMap = new HashMap<String, List<String>>();
-	private static final Map<String, List<PaperInfo>> paperInfoMap = new HashMap<String, List<PaperInfo>>();
 	private static final Map<String, List<String>> phobiaMap = new HashMap<String, List<String>>();
 	private static final Map<String, Set<String>> phraseMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<String>> speechMap = new HashMap<String, List<String>>();
@@ -91,9 +84,6 @@ public class SystemCollections
 	{
 		// Empty Constructor
 	}
-
-
-
 
 	/**
 	 * Return a game mode matching the name.
@@ -249,24 +239,6 @@ public class SystemCollections
 			locationList = Collections.emptyList();
 		}
 		return Collections.unmodifiableList(locationList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the paper info list.
-	 * @return an <b>unmodifiable</b> version of the paper info list.
-	 */
-	public static List<PaperInfo> getUnmodifiablePaperInfo()
-	{
-		List<PaperInfo> paperInfoList = paperInfoMap.get(SettingsHandler.getGame().getName());
-		if (paperInfoList == null)
-		{
-			paperInfoList = paperInfoMap.get("*");
-		}
-		if (paperInfoList == null)
-		{
-			paperInfoList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(paperInfoList);
 	}
 
 	/**
@@ -505,27 +477,6 @@ public class SystemCollections
 		}
 	}
 
-	//PAPERINFOLIST
-
-	/**
-	 * Add the paper info to the list.
-	 * @param paper
-	 * @param gameMode
-	 */
-	public static void addToPaperInfoList(final PaperInfo paper, final String gameMode)
-	{
-		List<PaperInfo> paperInfoList = paperInfoMap.get(gameMode);
-		if (paperInfoList == null)
-		{
-			paperInfoList = new ArrayList<PaperInfo>();
-			paperInfoMap.put(gameMode, paperInfoList);
-		}
-		if (!paperInfoList.contains(paper))
-		{
-			paperInfoList.add(paper);
-		}
-	}
-
 	//PHOBIALIST
 
 	/**
@@ -619,14 +570,6 @@ public class SystemCollections
 	public static void clearGameModeList()
 	{
 		gameModeList.clear();
-	}
-
-	/**
-	 * Empty the paper info list.
-	 */
-	public static void clearPaperInfoList()
-	{
-		paperInfoMap.clear();
 	}
 
 	/**

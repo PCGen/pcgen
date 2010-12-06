@@ -25,8 +25,8 @@
  */
 package plugin.exporttokens;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
+import pcgen.core.PaperInfo;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -64,15 +64,15 @@ public class PaperInfoToken extends Token
 
 		if (sourceText.startsWith("NAME"))
 		{
-			infoType = Constants.PAPERINFO_NAME;
+			infoType = PaperInfo.NAME;
 		}
 		else if (sourceText.startsWith("HEIGHT"))
 		{
-			infoType = Constants.PAPERINFO_HEIGHT;
+			infoType = PaperInfo.HEIGHT;
 		}
 		else if (sourceText.startsWith("WIDTH"))
 		{
-			infoType = Constants.PAPERINFO_WIDTH;
+			infoType = PaperInfo.WIDTH;
 		}
 		else if (sourceText.startsWith("MARGIN"))
 		{
@@ -80,19 +80,19 @@ public class PaperInfoToken extends Token
 
 			if (sourceText.startsWith("TOP"))
 			{
-				infoType = Constants.PAPERINFO_TOPMARGIN;
+				infoType = PaperInfo.TOPMARGIN;
 			}
 			else if (sourceText.startsWith("BOTTOM"))
 			{
-				infoType = Constants.PAPERINFO_BOTTOMMARGIN;
+				infoType = PaperInfo.BOTTOMMARGIN;
 			}
 			else if (sourceText.startsWith("LEFT"))
 			{
-				infoType = Constants.PAPERINFO_LEFTMARGIN;
+				infoType = PaperInfo.LEFTMARGIN;
 			}
 			else if (sourceText.startsWith("RIGHT"))
 			{
-				infoType = Constants.PAPERINFO_RIGHTMARGIN;
+				infoType = PaperInfo.RIGHTMARGIN;
 			}
 		}
 

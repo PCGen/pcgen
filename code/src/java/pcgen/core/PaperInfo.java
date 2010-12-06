@@ -1,5 +1,6 @@
 /*
  * PaperInfo.java
+ * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,7 +23,9 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.Constants;
+import java.net.URI;
+
+import pcgen.cdom.base.Loadable;
 
 /**
  * The Paper information for output sheets
@@ -30,10 +33,21 @@ import pcgen.cdom.base.Constants;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class PaperInfo
+public final class PaperInfo implements Loadable
 {
+	private URI sourceURI;
+	private String infoName;
+
 	/** Array of 6 paper information variables to keep hold of */
 	private final String[] paperInfo = new String[7];
+
+	public static final int NAME = 0;
+	public static final int HEIGHT = 1;
+	public static final int WIDTH = 2;
+	public static final int TOPMARGIN = 3;
+	public static final int BOTTOMMARGIN = 4;
+	public static final int LEFTMARGIN = 5;
+	public static final int RIGHTMARGIN = 6;
 
 	/**
 	 * Set a paper info item
@@ -53,10 +67,10 @@ public final class PaperInfo
 
 	String getName()
 	{
-		return getPaperInfo(Constants.PAPERINFO_NAME);
+		return getPaperInfo(PaperInfo.NAME);
 	}
 
-	String getPaperInfo(final int infoType)
+	public String getPaperInfo(final int infoType)
 	{
 		if (!validIndex(infoType))
 		{
@@ -70,13 +84,13 @@ public final class PaperInfo
 	{
 		switch (index)
 		{
-			case Constants.PAPERINFO_NAME:
-			case Constants.PAPERINFO_HEIGHT:
-			case Constants.PAPERINFO_WIDTH:
-			case Constants.PAPERINFO_TOPMARGIN:
-			case Constants.PAPERINFO_BOTTOMMARGIN:
-			case Constants.PAPERINFO_LEFTMARGIN:
-			case Constants.PAPERINFO_RIGHTMARGIN:
+			case PaperInfo.NAME:
+			case PaperInfo.HEIGHT:
+			case PaperInfo.WIDTH:
+			case PaperInfo.TOPMARGIN:
+			case PaperInfo.BOTTOMMARGIN:
+			case PaperInfo.LEFTMARGIN:
+			case PaperInfo.RIGHTMARGIN:
 				break;
 
 			default:
@@ -85,4 +99,51 @@ public final class PaperInfo
 
 		return true;
 	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public void setName(String name)
+	{
+		infoName = name;
+		paperInfo[0] = name;
+	}
+
+	public String getDisplayName()
+	{
+		return infoName;
+	}
+
+	public void setKeyName(String key)
+	{
+		setName(key);
+	}
+
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public String getLSTformat()
+	{
+		return getDisplayName();
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
 }

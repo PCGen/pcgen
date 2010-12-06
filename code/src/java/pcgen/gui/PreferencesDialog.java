@@ -90,6 +90,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
+import pcgen.core.PaperInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -2288,7 +2289,7 @@ final class PreferencesDialog extends JDialog
 
 		for (int i = 0; i < paperCount; ++i)
 		{
-			paperNames[i] = Globals.getPaperInfo(i, Constants.PAPERINFO_NAME);
+			paperNames[i] = Globals.getPaperInfo(i, PaperInfo.NAME);
 		}
 
 		paperType = new JComboBoxEx(paperNames);

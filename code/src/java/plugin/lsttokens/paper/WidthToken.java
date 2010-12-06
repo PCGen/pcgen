@@ -1,5 +1,6 @@
 /*
  * WidthToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,37 +26,53 @@
  */
 package plugin.lsttokens.paper;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PaperInfo;
-import pcgen.persistence.lst.PaperInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>WidthToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class WidthToken implements PaperInfoLstToken
+public class WidthToken extends AbstractNonEmptyToken<PaperInfo> implements
+		CDOMPrimaryToken<PaperInfo>
 {
 
 	/**
 	 * Get token name
+	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "WIDTH";
 	}
 
-	/**
-	 * Parse WIDTH token
-	 * 
-	 * @param paperInfo 
-	 * @param value 
-	 * @return true 
-	 */
-	public boolean parse(PaperInfo paperInfo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi,
+			String value)
 	{
-		paperInfo.setPaperInfo(Constants.PAPERINFO_WIDTH, value);
-		return true;
+		pi.setPaperInfo(PaperInfo.WIDTH, value);
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, PaperInfo pi)
+	{
+		String info = pi.getPaperInfo(PaperInfo.WIDTH);
+		if (info == null)
+		{
+			// Probably an error
+			return null;
+		}
+		return new String[] { info };
+	}
+
+	public Class<PaperInfo> getTokenClass()
+	{
+		return PaperInfo.class;
 	}
 }

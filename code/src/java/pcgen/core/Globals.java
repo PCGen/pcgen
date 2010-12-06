@@ -1048,7 +1048,8 @@ public final class Globals
 	 */
 	public static int getPaperCount()
 	{
-		return SystemCollections.getUnmodifiablePaperInfo().size();
+		return SettingsHandler.getGame().getModeContext().ref
+				.getConstructedObjectCount(PaperInfo.class);
 	}
 
 	/**
@@ -1069,12 +1070,15 @@ public final class Globals
 	 */
 	public static String getPaperInfo(final int idx, final int infoType)
 	{
-		if ((idx < 0) || (idx >= SystemCollections.getUnmodifiablePaperInfo().size()))
+		if ((idx < 0)
+				|| (idx >= SettingsHandler.getGame().getModeContext().ref
+						.getConstructedObjectCount(PaperInfo.class)))
 		{
 			return null;
 		}
 
-		final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(idx);
+		final PaperInfo pi = SettingsHandler.getGame().getModeContext().ref
+				.getItemInOrder(PaperInfo.class, idx);
 
 		return pi.getPaperInfo(infoType);
 	}
@@ -1907,9 +1911,11 @@ public final class Globals
 	 */
 	public static boolean selectPaper(final String paperName)
 	{
-		for (int i = 0; i < SystemCollections.getUnmodifiablePaperInfo().size(); ++i)
+		for (int i = 0; i < SettingsHandler.getGame().getModeContext().ref
+				.getConstructedObjectCount(PaperInfo.class); ++i)
 		{
-			final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(i);
+			final PaperInfo pi = SettingsHandler.getGame().getModeContext().ref
+					.getItemInOrder(PaperInfo.class, i);
 
 			if (pi.getName().equals(paperName))
 			{
