@@ -11329,6 +11329,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					grantedAbilityFacet.add(id, cat, nature, ab, cdo);
 					List<String> choices = apo
 							.getAssociation(AssociationKey.ASSOC_CHOICES);
+					if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+					{
+						addAssociation(ab, "");
+					}
 					if (choices != null)
 					{
 						for (final String choice : choices)
@@ -12537,9 +12541,42 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private void processAbilityRemovalOnRemove(CDOMObject cdo)
 	{
 		deniedFacet.removeAll(id, cdo);
-		conditionalFacet.removeAll(id, cdo);
-		grantedAbilityFacet.removeAll(id, cdo);
+		Set<ConditionalAbility> removed = conditionalFacet.removeAll(id, cdo);
+		for (ConditionalAbility ca : removed)
+		{
+			removeAssociations(cdo, ca.getAbility(), ca.getAPO());
+		}
+		Set<Ability> gRemoved = grantedAbilityFacet.removeAll(id, cdo);
+		for (Ability a : gRemoved)
+		{
+			for (String assoc : getAssociationList(a))
+			{
+				removeAssociation(a, assoc);
+			}
+		}
 		autoLangFacet.removeAll(id, cdo);
+	}
+
+	private void removeAssociations(CDOMObject parent, Ability ab,
+			AssociatedPrereqObject apo)
+	{
+		List<String> choices = apo
+				.getAssociation(AssociationKey.ASSOC_CHOICES);
+		if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			removeAssociation(ab, "");
+		}
+		if (choices != null)
+		{
+			for (final String choice : choices)
+			{
+				for (String subchoice : AbilityUtilities
+						.getLegalAssociations(this, parent, ab, choice))
+				{
+					removeAssociation(ab, subchoice);
+				}
+			}
+		}
 	}
 
 	private void resolveDeniedAbilities()
@@ -12560,6 +12597,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			conditionalFacet.add(id, denied);
 			List<String> choices = apo
 					.getAssociation(AssociationKey.ASSOC_CHOICES);
+			if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				addAssociation(ab, "");
+			}
 			if (choices != null)
 			{
 				for (final String choice : choices)
@@ -12589,19 +12630,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			Ability ab = denied.getAbility();
 			conditionalFacet.remove(id, denied);
 			deniedFacet.add(id, denied);
-			List<String> choices = apo
-					.getAssociation(AssociationKey.ASSOC_CHOICES);
-			if (choices != null)
-			{
-				for (final String choice : choices)
-				{
-					for (String subchoice : AbilityUtilities
-							.getLegalAssociations(this, cdo, ab, choice))
-					{
-						removeAssociation(ab, subchoice);
-					}
-				}
-			}
+			removeAssociations(cdo, ab, apo);
 			//Only remove if no assocs left
 			if (!hasAssociations(ab))
 			{

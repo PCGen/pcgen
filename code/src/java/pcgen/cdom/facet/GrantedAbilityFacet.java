@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -504,13 +505,14 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.emptySet();
 	}
 
-	public void removeAll(CharID id, Object source)
+	public Set<Ability> removeAll(CharID id, Object source)
 	{
+		Set<Ability> removed = new HashSet<Ability>();
 		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
 		DoubleKeyMapToList<Category<Ability>, Nature, Ability> removeMap = new DoubleKeyMapToList<Category<Ability>, Nature, Ability>();
 		if (catMap == null)
 		{
-			return;
+			return removed;
 		}
 		for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> me : catMap
 				.entrySet())
@@ -540,10 +542,14 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 			{
 				for (Ability ab : removeMap.getListFor(cat, nat))
 				{
-					remove(id, cat, nat, ab, source);
+					if (remove(id, cat, nat, ab, source))
+					{
+						removed.add(ab);
+					}
 				}
 			}
 		}
+		return removed;
 	}
 
 	/**

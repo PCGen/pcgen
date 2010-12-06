@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -297,19 +298,23 @@ public class ConditionalAbilityFacet
 		return componentSet;
 	}
 
-	public void removeAll(CharID id, Object source)
+	public Set<ConditionalAbility> removeAll(CharID id, Object source)
 	{
+		Set<ConditionalAbility> removed = new HashSet<ConditionalAbility>();
 		Set<ConditionalAbility> cachedSet = getCachedSet(id);
 		if (cachedSet != null)
 		{
 			for (Iterator<ConditionalAbility> it = cachedSet.iterator(); it
 					.hasNext();)
 			{
-				if (it.next().getParent().equals(source))
+				ConditionalAbility ca = it.next();
+				if (ca.getParent().equals(source))
 				{
 					it.remove();
+					removed.add(ca);
 				}
 			}
 		}
+		return removed;
 	}
 }
