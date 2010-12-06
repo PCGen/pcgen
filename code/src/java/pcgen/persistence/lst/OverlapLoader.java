@@ -34,16 +34,12 @@ public class OverlapLoader<T extends Loadable> extends SimpleLoader<T>
 	protected T getLoadable(LoadContext context, String firstToken,
 			URI sourceURI)
 	{
-		T existing = context.ref.silentlyGetConstructedCDOMObject(
-				getLoadClass(), firstToken);
-		if (existing == null)
+		String name = processFirstToken(firstToken);
+		if (name == null)
 		{
-			return super.getLoadable(context, firstToken, sourceURI);
+			return null;
 		}
-		else
-		{
-			return existing;
-		}
+		return context.ref.constructNowIfNecessary(getLoadClass(), name);
 	}
 
 }

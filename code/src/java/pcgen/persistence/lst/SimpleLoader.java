@@ -20,7 +20,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -48,6 +47,10 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 				SystemLoader.TAB_DELIM, false);
 		String firstToken = colToken.nextToken().trim();
 		T loadable = getLoadable(context, firstToken, sourceURI);
+		if (loadable == null)
+		{
+			return;
+		}
 
 		while (colToken.hasMoreTokens())
 		{
@@ -91,31 +94,21 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 			}
 			Logging.clearParseMessages();
 		}
-		context.ref.importObject(loadable);
 	}
 
 	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
-		try
+		String name = processFirstToken(firstToken);
+		if (name == null)
 		{
-			T loadable = loadClass.newInstance();
-			processFirstToken(firstToken, loadable);
-			loadable.setSourceURI(sourceURI);
-			return loadable;
+			return null;
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError(e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new UnreachableError(e);
-		}
+		return context.ref.constructCDOMObject(loadClass, name);
 	}
 
-	protected void processFirstToken(String token, T loadable)
+	protected String processFirstToken(String token)
 	{
-		loadable.setName(token);
+		return token;
 	}
 
 	public Class<T> getLoadClass()

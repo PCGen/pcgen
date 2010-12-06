@@ -248,9 +248,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
 	private KitLoader kitLoader = new KitLoader();
-	private SimpleLoader<PaperInfo> paperLoader = new SimpleLoader<PaperInfo>(PaperInfo.class);
+	private SimpleLoader<PaperInfo> paperLoader = new SimplePrefixLoader<PaperInfo>(PaperInfo.class, "NAME");
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
-	private SimpleLoader<Sponsor> sponsorLoader = new SponsorLoader();
+	private SimpleLoader<Sponsor> sponsorLoader = new SimplePrefixLoader<Sponsor>(Sponsor.class, "SPONSOR");
 	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 	private final Set<String> sourcesSet = new TreeSet<String>();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
@@ -1118,6 +1118,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				gameMode = new GameMode(aName);
 				SystemCollections.addToGameModeList(gameMode);
+				gameMode.getModeContext().ref.importObject(AbilityCategory.FEAT);
 			}
 
 			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
@@ -1132,7 +1133,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		addDefaultUnitSet(gameMode);
 		addDefaultTabInfo(gameMode);
-		gameMode.getModeContext().ref.importObject(AbilityCategory.FEAT);
 		return gameMode;
 	}
 

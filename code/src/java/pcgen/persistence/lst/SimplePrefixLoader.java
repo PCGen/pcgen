@@ -17,44 +17,59 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.cdom.content.Sponsor;
+import pcgen.cdom.base.Loadable;
 import pcgen.util.Logging;
 
-public class SponsorLoader extends SimpleLoader<Sponsor>
+public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 {
-	public SponsorLoader()
+
+	private final String prefixString;
+
+	public SimplePrefixLoader(Class<T> cl, String prefix)
 	{
-		super(Sponsor.class);
+		super(cl);
+		if (prefix == null)
+		{
+			throw new IllegalArgumentException("Prefix cannot be null");
+		}
+		if (prefix.length() == 0)
+		{
+			throw new IllegalArgumentException("Prefix cannot be empty");
+		}
+		prefixString = prefix;
 	}
 
 	@Override
-	protected void processFirstToken(String token, Sponsor loadable)
+	protected String processFirstToken(String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
 			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-					+ token + "'");
+					+ token + "' in " + getLoadClass().getSimpleName());
+			return null;
 		}
 		else if (colonLoc == 0)
 		{
 			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-					+ "'");
+					+ "' in " + getLoadClass().getSimpleName());
+			return null;
 		}
-		else if (colonLoc == token.length() - 1)
+		else if (colonLoc == (token.length() - 1))
 		{
-			Logging.errorPrint("Invalid Token - no value: '" + token + "'");
+			Logging.errorPrint("Invalid Token - "
+					+ "ends with a colon (no value): '" + token + "' in "
+					+ getLoadClass().getSimpleName());
+			return null;
 		}
-		else if (!"SPONSOR".equals(token.substring(0, colonLoc)))
+		String key = token.substring(0, colonLoc);
+		if (!prefixString.equals(key))
 		{
-			Logging.errorPrint("Invalid Entry "
-					+ "- Sponsor item must be SPONSOR, found: '" + token);
+			Logging.errorPrint("Invalid Token - expected '" + prefixString
+					+ "' to be the first key in "
+					+ getLoadClass().getSimpleName());
+			return null;
 		}
-		else
-		{
-			String value = token.substring(colonLoc + 1);
-			super.processFirstToken(value, loadable);
-		}
+		return super.processFirstToken(token.substring(colonLoc + 1));
 	}
-
 }

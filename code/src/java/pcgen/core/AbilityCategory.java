@@ -79,8 +79,8 @@ public class AbilityCategory implements Category<Ability>, Loadable
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
 	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
-	public static final AbilityCategory LANGBONUS = new AbilityCategory("*LANGBONUS", "*LANGBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
-	public static final AbilityCategory WEAPONBONUS = new AbilityCategory("*WEAPONBONUS", "*WEAPONBONUS"); //$NON-NLS-1$ //$NON-NLS-2$
+	public static final AbilityCategory LANGBONUS = new AbilityCategory("*LANGBONUS"); //$NON-NLS-1$
+	public static final AbilityCategory WEAPONBONUS = new AbilityCategory("*WEAPONBONUS"); //$NON-NLS-1$
 
 	static
 	{
@@ -141,7 +141,22 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public void setAbilityCategory(CDOMSingleRef<AbilityCategory> category)
 	{
-		parentCategory = category;
+		/*
+		 * Note: This makes an assumption that keyName will not change. We
+		 * should not enable a KEY token for AbilityCategory
+		 */
+		if (isInternal)
+		{
+			if (!category.getLSTformat(false).equals(this.getKeyName()))
+			{
+				throw new IllegalArgumentException(
+						"Cannot set CATEGORY on an internal AbilityCategory");
+			}
+		}
+		else
+		{
+			parentCategory = category;
+		}
 	}
 	
 	/**
@@ -281,6 +296,10 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public DisplayLocation getDisplayLocation()
 	{
+		if (displayLocation == null)
+		{
+			displayLocation = DisplayLocation.getConstant(getPluralName());
+		}
 		return displayLocation;
 	}
 
