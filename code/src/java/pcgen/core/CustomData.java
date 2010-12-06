@@ -330,14 +330,13 @@ public final class CustomData
 				for ( Integer statValue : pbStatCosts.keySet() )
 				{
 					final PointBuyCost pbc = pbStatCosts.get(statValue);
-					bw.write("STAT:" + statValue.toString() + "\t\tCOST:" + Integer.toString(pbc.getStatCost()));
-					final int iCount = pbc.getPreReqCount();
+					bw.write("STAT:" + statValue.toString() + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
+					final int iCount = pbc.getPrerequisiteCount();
 					if (iCount != 0)
 					{
 						final StringWriter writer = new StringWriter();
-						for (int i = 0; i < iCount; ++i)
+						for (Prerequisite prereq : pbc.getPrerequisiteList())
 						{
-							final Prerequisite prereq = pbc.getPreReq(i);
 							final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 							try
 							{

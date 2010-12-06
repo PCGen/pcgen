@@ -28,8 +28,10 @@ package plugin.lsttokens.pointbuy;
 import java.net.URI;
 
 import pcgen.core.GameMode;
-import pcgen.persistence.lst.PointBuyLoader;
+import pcgen.core.PointBuyCost;
 import pcgen.persistence.lst.PointBuyLstToken;
+import pcgen.persistence.lst.SimpleLoader;
+import pcgen.util.Logging;
 
 /**
  * <code>StatToken</code>
@@ -46,6 +48,17 @@ public class StatToken implements PointBuyLstToken
 
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		return PointBuyLoader.parseStatLine(gameMode, value, source);
+		try
+		{
+			SimpleLoader<PointBuyCost> loader = new SimpleLoader<PointBuyCost>(
+					PointBuyCost.class);
+			loader.parseLine(gameMode.getModeContext(), value, source);
+			return true;
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint(e.getMessage());
+			return false;
+		}
 	}
 }

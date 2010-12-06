@@ -74,6 +74,7 @@ import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.PaperInfo;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PointBuyCost;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
@@ -1358,6 +1359,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				loadGameModeLstFile(context, pointBuyLoader, gmName, gameFile,
 					"pointbuymethods_system.lst", false);
 			}
+		}
+		Collection<PointBuyCost> costs = context.ref
+				.getConstructedCDOMObjects(PointBuyCost.class);
+		GameMode mode = SettingsHandler.getGame();
+		for (PointBuyCost pbc : costs)
+		{
+			mode.addPointBuyStatCost(pbc);
 		}
 	}
 

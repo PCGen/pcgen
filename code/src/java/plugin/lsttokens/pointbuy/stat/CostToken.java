@@ -1,5 +1,6 @@
 /*
  * CostToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -26,31 +27,50 @@
 package plugin.lsttokens.pointbuy.stat;
 
 import pcgen.core.PointBuyCost;
-import pcgen.persistence.lst.PointBuyStatLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>CostToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class CostToken implements PointBuyStatLstToken
+public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements
+		CDOMPrimaryToken<PointBuyCost>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COST";
 	}
 
-	public boolean parse(PointBuyCost pbc, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			PointBuyCost pbc, String value)
 	{
 		try
 		{
-			pbc.setStatCost(Integer.parseInt(value));
+			pbc.setBuyCost(Integer.valueOf(value).intValue());
+			return ParseResult.SUCCESS;
 		}
-		catch (NumberFormatException exc)
+		catch (NumberFormatException nfe)
 		{
-			return false;
+			return new ParseResult.Fail(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 		}
-		return true;
+	}
+
+	public String[] unparse(LoadContext context, PointBuyCost pbc)
+	{
+		return new String[] { String.valueOf(pbc.getBuyCost()) };
+	}
+
+	public Class<PointBuyCost> getTokenClass()
+	{
+		return PointBuyCost.class;
 	}
 }

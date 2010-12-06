@@ -51,7 +51,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.character.WieldCategory;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -1567,18 +1566,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Add a stat/cost pair to purchase mode stat costs.
-	 * @param statValue
-	 * @param cost
-	 */
-	public void addPointBuyStatCost(final int statValue, final int cost)
-	{
-		PointBuyCost pbc = new PointBuyCost(statValue);
-		pbc.setStatCost(cost);
-		addPointBuyStatCost(pbc);
-	}
-
-	/**
 	 * Add a PointBuyCost object to purchase mode stat costs.
 	 * @param pbc
 	 */
@@ -1789,21 +1776,10 @@ public final class GameMode implements Comparable<Object>
 		int lastStat = -1;
 		if (pointBuyStatCosts != null)
 		{
-			boolean bPassed = false;
 			for ( Integer statValue : pointBuyStatCosts.keySet() )
 			{
 				final PointBuyCost pbc = pointBuyStatCosts.get(statValue);
-				if (!PrereqHandler.passesAll(pbc.getPreReqList(), pc, null))
-				{
-					//
-					// If have passed any prereqs already, then stop looking and use the highest passing stat
-					//
-					if (bPassed)
-					{
-						break;
-					}
-				}
-				else
+				if (pbc.qualifies(pc, null))
 				{
 					lastStat = statValue.intValue();
 				}
@@ -1844,7 +1820,7 @@ public final class GameMode implements Comparable<Object>
 			for ( int statValue : pointBuyStatCosts.keySet() )
 			{
 				final PointBuyCost pbc = pointBuyStatCosts.get(statValue);
-				if (PrereqHandler.passesAll(pbc.getPreReqList(), pc, null))
+				if (pbc.qualifies(pc, null))
 				{
 					lastStat = statValue;
 					break;
@@ -1941,7 +1917,7 @@ public final class GameMode implements Comparable<Object>
 				}
 			}
 
-			final int statCost = pointBuyStatCosts.get(statValue).getStatCost();
+			final int statCost = pointBuyStatCosts.get(statValue).getBuyCost();
 			lastStat = statValue;
 			lastCost = statCost;
 			abilityScoreCost[i++] = lastCost;

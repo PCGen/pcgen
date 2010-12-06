@@ -1,48 +1,87 @@
 /*
- * PointBuyCost.java
- * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 15, 2005, 11:40 AM
- *
- * $Id$
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package pcgen.core;
 
-import pcgen.core.prereq.Prerequisite;
+import java.net.URI;
 
-import java.util.ArrayList;
-import java.util.List;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Loadable;
 
-
-/**
- * <code>PointBuyCost</code>.
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
- */
-public final class PointBuyCost
+public final class PointBuyCost extends ConcretePrereqObject implements
+		Loadable
 {
+	private URI sourceURI;
 	private int statValue = 0;
-	private int statCost = 0;
-	private List<Prerequisite> preReqList = null;
+	private int buyCost = 0;
 
-	public PointBuyCost(final int argStatValue)
+	public URI getSourceURI()
 	{
-		statValue = argStatValue;
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public String getDisplayName()
+	{
+		return Integer.toString(statValue);
+	}
+
+	public void setName(String name)
+	{
+		try
+		{
+			Integer.parseInt(name);
+		}
+		catch (NumberFormatException e)
+		{
+			throw new IllegalArgumentException(
+					"Name for a PointBuyCost must be in integer, found: "
+							+ name, e);
+		}
+
+	}
+
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public void setKeyName(String key)
+	{
+		setName(key);
+	}
+
+	public String getLSTformat()
+	{
+		return getDisplayName();
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
 	}
 
 	public int getStatValue()
@@ -50,55 +89,14 @@ public final class PointBuyCost
 		return statValue;
 	}
 
-	public void setStatCost(final int argStatCost)
+	public void setBuyCost(int cost)
 	{
-		statCost = argStatCost;
+		buyCost = cost;
 	}
 
-	public int getStatCost()
+	public int getBuyCost()
 	{
-		return statCost;
-	}
-
-	public final void clearPreReq()
-	{
-		preReqList = null;
-	}
-
-	public final void addPreReq(final Prerequisite preReq)
-	{
-		if ("clear".equals(preReq.getKind()))
-		{
-			preReqList = null;
-		}
-		else
-		{
-			if (preReqList == null)
-			{
-				preReqList = new ArrayList<Prerequisite>();
-			}
-			preReqList.add(preReq);
-		}
-	}
-
-	public final int getPreReqCount()
-	{
-		if (preReqList == null)
-		{
-			return 0;
-		}
-
-		return preReqList.size();
-	}
-
-	public final List<Prerequisite> getPreReqList()
-	{
-		return preReqList;
-	}
-
-	public final Prerequisite getPreReq(final int i)
-	{
-		return preReqList.get(i);
+		return buyCost;
 	}
 
 }

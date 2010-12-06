@@ -1094,8 +1094,10 @@ public final class PurchaseModeFrame extends JDialog
 
 			for (int i = currentPurchaseScoreMin; i <= currentPurchaseScoreMax; ++i)
 			{
-				SettingsHandler.getGame().addPointBuyStatCost(i,
-				    ((Integer) currentValues[i - currentPurchaseScoreMin][1]).intValue());
+				PointBuyCost pbc = new PointBuyCost();
+				pbc.setName(Integer.toString(i));
+				pbc.setBuyCost(((Integer) currentValues[i - currentPurchaseScoreMin][1]).intValue());
+				SettingsHandler.getGame().addPointBuyStatCost(pbc);
 			}
 
 			SettingsHandler.getGame().clearPurchaseModeMethods();

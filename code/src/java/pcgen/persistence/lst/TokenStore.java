@@ -52,7 +52,6 @@ public class TokenStore
 		//pointbuymethod.lst
 		tokenTypeList.add(PointBuyLstToken.class);
 		tokenTypeList.add(PointBuyMethodLstToken.class);
-		tokenTypeList.add(PointBuyStatLstToken.class);
 
 		//level.lst
 		tokenTypeList.add(LevelLstToken.class);
