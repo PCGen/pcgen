@@ -57,7 +57,8 @@ TAB:CLASS			NAME:in_class			CONTEXT:tabpages\players\tabclasses.html
 TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\players\tabdescription.html
 TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\players\tabdomains.html			VISIBLE:NO
 TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\players\tabfeats.html
-TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\tabinventory.html
+#TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\tabinventory.html
+TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\inventory\inventorygear.html
 TAB:RACE			NAME:in_race			CONTEXT:tabpages\players\tabraces.html
 TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\players\tabskills.html
 TAB:CAMPAIGNS		NAME:Source Materials		CONTEXT:tabpages\source\sourcesectionheading.html
