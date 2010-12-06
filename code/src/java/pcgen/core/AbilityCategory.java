@@ -254,13 +254,18 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public String getPluralName()
 	{
-		if (pluralName.startsWith("in_"))
+		String name = pluralName;
+		if (name == null)
 		{
-			return PropertyFactory.getString(pluralName);
+			name = displayName;
+		}
+		if (name.startsWith("in_"))
+		{
+			return PropertyFactory.getString(name);
 		}
 		else
 		{
-			return pluralName;
+			return name;
 		}
 	}
 
