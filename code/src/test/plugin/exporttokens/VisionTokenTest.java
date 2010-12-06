@@ -43,7 +43,6 @@ import pcgen.core.UnitSet;
 import pcgen.core.Vision;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
