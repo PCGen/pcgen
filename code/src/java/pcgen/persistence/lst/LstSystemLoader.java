@@ -1360,10 +1360,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					"pointbuymethods_system.lst", false);
 			}
 		}
-		Collection<PointBuyCost> costs = context.ref
-				.getConstructedCDOMObjects(PointBuyCost.class);
 		GameMode mode = SettingsHandler.getGame();
-		for (PointBuyCost pbc : costs)
+		for (PointBuyCost pbc : context.ref
+				.getConstructedCDOMObjects(PointBuyCost.class))
 		{
 			mode.addPointBuyStatCost(pbc);
 		}

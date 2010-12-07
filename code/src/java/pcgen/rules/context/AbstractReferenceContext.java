@@ -64,7 +64,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
-	public abstract <T extends CDOMObject> boolean hasManufacturer(Class<T> cl);
+	public abstract <T extends Loadable> boolean hasManufacturer(Class<T> cl);
 
 	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
 			Class<T> cl, Category<T> cat);
@@ -233,7 +233,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 				obj.getKeyName());
 	}
 
-	public <T extends CDOMObject> boolean forget(T obj)
+	public <T extends Loadable> boolean forget(T obj)
 	{
 		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
 		if (map != null)

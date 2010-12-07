@@ -1,5 +1,6 @@
 /*
- * CostToken.java
+ * BonusToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,8 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 2, 2002, 8:02 AM
- *
  * Current Ver: $Revision$
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -25,57 +24,70 @@
  */
 package plugin.lsttokens.pointbuy.method;
 
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
+
 import pcgen.core.PointBuyMethod;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PointBuyMethodLstToken;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>CostToken</code>
+ * <code>BonusToken</code>
  * 
  * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class BonusToken implements PointBuyMethodLstToken
+public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
+		CDOMPrimaryToken<PointBuyMethod>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "BONUS";
 	}
 
-	public boolean parse(PointBuyMethod pbm, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			PointBuyMethod pbm, String value)
 	{
-		final PObject dummy = new PObject();
-		LoadContext context = Globals.getContext();
-		try
+		BonusObj bon = Bonus.newBonus(context, value);
+		if (bon == null)
 		{
-			if (context.processToken(dummy, "BONUS", value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				return false;
-			}
+			return new ParseResult.Fail(getTokenName()
+					+ " was given invalid bonus: " + value);
 		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Error in token parse: "
-					+ e.getLocalizedMessage());
-			return false;
-		}
+		bon.setTokenSource(getTokenName());
+		pbm.addBonus(bon);
+		return ParseResult.SUCCESS;
+	}
 
-		for (BonusObj bonus : dummy.getSafeListFor(ListKey.BONUS))
+	public String[] unparse(LoadContext context, PointBuyMethod pbm)
+	{
+		Collection<BonusObj> added = pbm.getBonuses();
+		String tokenName = getTokenName();
+		Set<String> bonusSet = new TreeSet<String>();
+		for (BonusObj bonus : added)
 		{
-			pbm.addBonusList(bonus);
+			if (tokenName.equals(bonus.getTokenSource()))
+			{
+				bonusSet.add(bonus.toString());
+			}
 		}
+		if (bonusSet.isEmpty())
+		{
+			// This is okay - just no BONUSes from this token
+			return null;
+		}
+		return bonusSet.toArray(new String[bonusSet.size()]);
+	}
 
-		return true;
+	public Class<PointBuyMethod> getTokenClass()
+	{
+		return PointBuyMethod.class;
 	}
 }

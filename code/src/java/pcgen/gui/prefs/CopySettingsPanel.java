@@ -37,6 +37,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.core.GameMode;
+import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.utils.MessageType;
@@ -184,8 +185,8 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			gmTo.setAllStatsValue(gmFrom.getAllStatsValue());
 			gmTo
 				.setRollMethodExpressionByName(gmFrom.getRollMethodExpressionName());
-			if (gmTo
-				.getPurchaseMethodByName(gmFrom.getPurchaseModeMethodName()) != null)
+			if (gmTo.getModeContext().ref.silentlyGetConstructedCDOMObject(
+					PointBuyMethod.class, gmFrom.getPurchaseModeMethodName()) != null)
 			{
 				gmTo.setPurchaseMethodName(gmFrom.getPurchaseModeMethodName());
 			}

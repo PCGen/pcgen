@@ -19,17 +19,48 @@
  */
 package pcgen.gui.prefs;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.table.AbstractTableModel;
+
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.core.CustomData;
+import pcgen.core.Globals;
+import pcgen.core.PointBuyCost;
+import pcgen.core.PointBuyMethod;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
-
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
-import java.awt.event.*;
+import pcgen.rules.context.ReferenceContext;
 
 /**
  * The Class <code>PurchaseModeFrame</code> is responsible for displaying  
@@ -114,9 +145,12 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final String methodName = npmd.getEnteredName();
 
-			if (SettingsHandler.getGame().getPurchaseMethodByName(methodName) == null)
+			if (SettingsHandler.getGame().getModeContext().ref.silentlyGetConstructedCDOMObject(
+					PointBuyMethod.class, methodName) == null)
 			{
-				PointBuyMethod pbm = new PointBuyMethod(methodName, Integer.toString(npmd.getEnteredPoints()));
+				PointBuyMethod pbm = new PointBuyMethod();
+				pbm.setName(methodName);
+				pbm.setPointFormula(Integer.toString(npmd.getEnteredPoints()));
 				currentPurchaseMethods.addItem(pbm);
 				currentPurchaseMethods.setSelectedItem(pbm);
 			}
@@ -520,20 +554,14 @@ public final class PurchaseModeFrame extends JDialog
 		//
 		// Set up the current methods combo's contents
 		//
-		final int methodCount = SettingsHandler.getGame().getPurchaseMethodCount();
-
-		if (methodCount > 0)
+		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
+				.getModeContext().ref
+				.getConstructedCDOMObjects(PointBuyMethod.class);
+		if (methods.size() > 0)
 		{
-			final PointBuyMethod[] methods = new PointBuyMethod[methodCount];
-
-			for (int i = 0; i < methodCount; ++i)
-			{
-				methods[i] = SettingsHandler.getGame().getPurchaseMethod(i);
-			}
-
-			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods));
+			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods
+					.toArray()));
 		}
-
 		currentPurchaseMethodsActionPerformed(); // Get into correct state
 	}
 
@@ -1100,12 +1128,28 @@ public final class PurchaseModeFrame extends JDialog
 				SettingsHandler.getGame().addPointBuyStatCost(pbc);
 			}
 
-			SettingsHandler.getGame().clearPurchaseModeMethods();
-
+			ReferenceContext ref = SettingsHandler.getGame().getModeContext().ref;
+			List<PointBuyMethod> methods = new ArrayList<PointBuyMethod>(ref
+					.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{
 				final PointBuyMethod pbm = (PointBuyMethod) currentPurchaseMethods.getItemAt(i);
-				SettingsHandler.getGame().addPurchaseModeMethod(pbm.getMethodName(), pbm.getPointFormula());
+				PointBuyMethod masterPBM = ref
+						.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
+								pbm.getKeyName());
+				if (masterPBM == null)
+				{
+					ref.importObject(pbm);
+				}
+				else
+				{
+					methods.remove(masterPBM);
+					masterPBM.setPointFormula(pbm.getPointFormula());
+				}
+			}
+			for (PointBuyMethod pbm : methods)
+			{
+				ref.forget(pbm);
 			}
 		}
 

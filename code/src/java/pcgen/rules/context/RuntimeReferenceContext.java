@@ -144,7 +144,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends CDOMObject> boolean hasManufacturer(Class<T> cl)
+	public <T extends Loadable> boolean hasManufacturer(Class<T> cl)
 	{
 		return map.containsKey(cl);
 	}

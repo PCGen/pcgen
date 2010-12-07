@@ -21,13 +21,14 @@ import java.net.URI;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 
 public class EditorReferenceContext extends RuntimeReferenceContext
 {
 
 	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
 	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
-	private final HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
+	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<URI, Loadable>();
 
 	@Override
 	public <T extends CDOMObject> T performCopy(T object, String copyName)
@@ -76,7 +77,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 	}
 
 	@Override
-	public <T extends CDOMObject> boolean forget(T obj)
+	public <T extends Loadable> boolean forget(T obj)
 	{
 		/*
 		 * Don't want to call super. here as that only deals with abbreviations

@@ -22,35 +22,37 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.BonusContainer;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
+import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.BonusContainer;
+import pcgen.cdom.base.Loadable;
+import pcgen.core.bonus.BonusObj;
 
 /**
  * <code>PointBuyMethod</code>.
- *
+ * 
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class PointBuyMethod implements BonusContainer
+public final class PointBuyMethod implements BonusContainer, Loadable
 {
+	private URI sourceURI;
 	private String methodName = "";
 	private String pointFormula = "0";
-	private List<BonusObj> bonusList = null;
+	private List<BonusObj> bonusList;
 
-	public PointBuyMethod(final String argMethodName, final String argPointFormula)
+	public URI getSourceURI()
 	{
-		methodName = argMethodName;
-		pointFormula = argPointFormula;
+		return sourceURI;
 	}
 
-	public String getMethodName()
+	public void setSourceURI(URI source)
 	{
-		return methodName;
+		sourceURI = source;
 	}
 
 	public String getPointFormula()
@@ -79,78 +81,89 @@ public final class PointBuyMethod implements BonusContainer
 		return desc;
 	}
 
-	public void addBonusList(final BonusObj aBonus)
+	public void addBonus(BonusObj bon)
 	{
 		if (bonusList == null)
 		{
 			bonusList = new ArrayList<BonusObj>();
 		}
-		bonusList.add(aBonus);
+		bonusList.add(bon);
 	}
 
-	public List<BonusObj> getBonusList()
+	public Collection<BonusObj> getBonuses()
 	{
-		return bonusList;
-	}
-
-	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
-	{
-		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
+		if (bonusList == null)
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList(bonusList);
 	}
 
 	/**
 	 * returns all BonusObj's that are "active"
-	 * @param pc TODO
+	 * 
+	 * @param pc
+	 *            TODO
 	 * @return active bonuses
 	 */
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		List<BonusObj> aBonusList = getBonusList();
-		if (aBonusList != null)
+		for (BonusObj bonus : getBonuses())
 		{
-			for (Iterator<BonusObj> ab = aBonusList.iterator(); ab.hasNext();)
+			if (pc.isApplied(bonus))
 			{
-				final BonusObj aBonus = ab.next();
-
-				if (pc.isApplied(aBonus))
-				{
-					aList.add(aBonus);
-				}
+				aList.add(bonus);
 			}
 		}
-
 		return aList;
 	}
 
 	/**
 	 * Sets all the BonusObj's to "active"
+	 * 
 	 * @param aPC
 	 */
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		final List<BonusObj> aBonusList = getBonusList();
-		if (aBonusList == null)
-		{
-			return;
-		}
-		for ( final BonusObj bonus : aBonusList )
+		for (BonusObj bonus : getBonuses())
 		{
 			aPC.setApplied(bonus, bonus.qualifies(aPC, null));
 		}
 	}
-/*
-	public void deactivateBonuses()
+
+	public String getDisplayName()
 	{
-		if (bonusList != null)
-		{
-			for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
-			{
-				final BonusObj aBonus = (BonusObj) ab.next();
-				aBonus.setApplied(false);
-			}
-		}
+		return methodName;
 	}
-*/
+
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public String getLSTformat()
+	{
+		return getDisplayName();
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
+	public void setKeyName(String key)
+	{
+		setName(key);
+	}
+
+	public void setName(String name)
+	{
+		methodName = name;
+	}
 }

@@ -33,6 +33,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
 
 /**
  * <code>PCLevelInfo</code>.
@@ -280,9 +282,12 @@ public final class PCLevelInfo implements Cloneable
 		final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
 		if (purchaseName != null)
 		{
-			PointBuyMethod pbm = SettingsHandler.getGame().getPurchaseMethodByName(purchaseName);
+			PointBuyMethod pbm = SettingsHandler.getGame().getContext().ref
+					.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
+							purchaseName);
 
-			returnValue += (int) aPC.calcBonusFromList(pbm.getBonusListOfType("SKILLPOOL", "NUMBER"), null);
+			List<BonusObj> bonusList = BonusUtilities.getBonusFromList(pbm.getBonuses(), "SKILLPOOL", "NUMBER");
+			returnValue += (int) aPC.calcBonusFromList(bonusList, null);
 		}
 
 

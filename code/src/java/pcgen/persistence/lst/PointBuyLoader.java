@@ -26,12 +26,9 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
-import pcgen.core.PointBuyMethod;
 import pcgen.core.SystemCollections;
-import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -91,50 +88,5 @@ public class PointBuyLoader extends LstLineFileLoader
 				+ thisGameMode.getName() + '/' + sourceURI.toString() + ':'
 				+ " \"" + lstLine + "\"");
 		}
-	}
-
-	public static boolean parseMethodLine(GameMode gameMode, String lstLine, URI source)
-	{
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		PointBuyMethod pbm = new PointBuyMethod(colToken.nextToken(), "0");
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
-		while (colToken.hasMoreTokens())
-		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Handle Exception
-			}
-			PointBuyMethodLstToken token =
-					(PointBuyMethodLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, gameMode.getName(),
-					source, value);
-				if (!token.parse(pbm, value))
-				{
-					Logging.errorPrint("Error parsing point buy method "
-						+ gameMode.getName() + ':' + colString + "\"");
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
-		gameMode.addPurchaseModeMethod(pbm);
-		return true;
 	}
 }

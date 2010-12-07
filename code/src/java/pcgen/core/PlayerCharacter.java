@@ -13023,8 +13023,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		GameMode gm = SettingsHandler.getGame();
 		if (gm.isPurchaseStatMode())
 		{
-			PointBuyMethod pbm = gm.getPurchaseMethodByName(gm
-					.getPurchaseModeMethodName());
+			PointBuyMethod pbm = gm.getContext().ref
+					.silentlyGetConstructedCDOMObject(PointBuyMethod.class, gm
+							.getPurchaseModeMethodName());
 			list.add(pbm);
 		}
 		return list;

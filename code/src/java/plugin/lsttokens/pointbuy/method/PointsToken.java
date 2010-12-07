@@ -1,5 +1,6 @@
 /*
  * CostToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -26,24 +27,41 @@
 package plugin.lsttokens.pointbuy.method;
 
 import pcgen.core.PointBuyMethod;
-import pcgen.persistence.lst.PointBuyMethodLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>CostToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class PointsToken implements PointBuyMethodLstToken
+public class PointsToken extends AbstractNonEmptyToken<PointBuyMethod>
+		implements CDOMPrimaryToken<PointBuyMethod>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "POINTS";
 	}
 
-	public boolean parse(PointBuyMethod pbm, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			PointBuyMethod pbm, String value)
 	{
 		pbm.setPointFormula(value);
-		return true;
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, PointBuyMethod pbm)
+	{
+		return new String[] { pbm.getPointFormula() };
+	}
+
+	public Class<PointBuyMethod> getTokenClass()
+	{
+		return PointBuyMethod.class;
 	}
 }

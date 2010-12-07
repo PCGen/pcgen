@@ -150,7 +150,6 @@ public final class GameMode implements Comparable<Object>
 
 	private SortedMap<Integer, PointBuyCost> pointBuyStatCosts = null;
 	private int[] abilityScoreCost = null;
-	private List<PointBuyMethod> pointBuyMethods = null;
 	private String purchaseMethodName = ""; //$NON-NLS-1$
 
 	private int rollMethod = Constants.CHARACTERSTATMETHOD_USER;
@@ -1582,34 +1581,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Add a purchase mode method.
-	 * @param methodName
-	 * @param points
-	 */
-	public void addPurchaseModeMethod(final String methodName, final String points)
-	{
-		addPurchaseModeMethod(new PointBuyMethod(methodName, points));
-	}
-
-	/**
-	 * Add a purchase mode method.
-	 * @param pbm
-	 */
-	public void addPurchaseModeMethod(final PointBuyMethod pbm)
-	{
-		if (getPurchaseMethodByName(pbm.getMethodName()) == null)
-		{
-			if (pointBuyMethods == null)
-			{
-				pointBuyMethods = new ArrayList<PointBuyMethod>();
-			}
-
-			pointBuyMethods.add(pbm);
-		}
-	}
-
-
-	/**
 	 * Clear purchase mode stat costs.
 	 */
 	public void clearPointBuyStatCosts()
@@ -1628,46 +1599,14 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Clear the purchase mode methods
-	 */
-	public void clearPurchaseModeMethods()
-	{
-		pointBuyMethods = null;
-	}
-
-	/**
 	 * Find a user-defined purchase method by name.
 	 * @param methodName
 	 * @return the purchase method or null
 	 */
 	public PointBuyMethod getPurchaseMethodByName(final String methodName)
 	{
-		if (pointBuyMethods != null)
-		{
-			for ( PointBuyMethod pbm : pointBuyMethods )
-			{
-				if (pbm.getMethodName().equalsIgnoreCase(methodName))
-				{
-					return pbm;
-				}
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get the number of user-defined purchase methods.
-	 * @return purchase method count
-	 */
-	public int getPurchaseMethodCount()
-	{
-		if (pointBuyMethods != null)
-		{
-			return pointBuyMethods.size();
-		}
-
-		return 0;
+		return getModeContext().ref.silentlyGetConstructedCDOMObject(
+				PointBuyMethod.class, methodName);
 	}
 
 	/**
@@ -1844,21 +1783,6 @@ public final class GameMode implements Comparable<Object>
 		}
 
 		return getPurchaseMethodByName(purchaseMethodName) != null;
-	}
-
-	/**
-	 * Get the purchase method
-	 * @param idx
-	 * @return the purchase method
-	 */
-	public PointBuyMethod getPurchaseMethod(final int idx)
-	{
-		if ((pointBuyMethods == null) || (idx > pointBuyMethods.size()))
-		{
-			return null;
-		}
-
-		return pointBuyMethods.get(idx);
 	}
 
 	/**
@@ -2761,5 +2685,4 @@ public final class GameMode implements Comparable<Object>
 	/*
 	 * End SHOWTAB compatibility
 	 */
-
 }

@@ -25,6 +25,7 @@
 package pcgen.core.bonus;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -48,7 +49,7 @@ public final class BonusUtilities
 	 * @param aName
 	 * @return List
 	 */
-	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String aType, final String aName)
+	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType, final String aName)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 

@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -192,7 +193,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			this.add(abilityRolledModeCombo);
 		}
 
-		final int purchaseMethodCount = gameMode.getPurchaseMethodCount();
+		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
+				.getModeContext().ref
+				.getConstructedCDOMObjects(PointBuyMethod.class);
+		final int purchaseMethodCount = methods.size();
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
 		abilitiesPurchasedButton =
 				new JRadioButton(PropertyFactory
@@ -206,11 +210,12 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		pMode = new String[purchaseMethodCount];
 		pModeMethodName = new String[purchaseMethodCount];
 
-		for (int i = 0; i < purchaseMethodCount; ++i)
+		int i = 0;
+		for (PointBuyMethod pbm : methods)
 		{
-			final PointBuyMethod pbm = gameMode.getPurchaseMethod(i);
 			pMode[i] = pbm.getDescription();
-			pModeMethodName[i] = pbm.getMethodName();
+			pModeMethodName[i] = pbm.getDisplayName();
+			i++;
 		}
 
 		abilityPurchaseModeCombo = new JComboBoxEx(pMode);
@@ -345,8 +350,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			{
 				public void windowClosed(WindowEvent e)
 				{
-					final int purchaseMethodCount =
-							SettingsHandler.getGame().getPurchaseMethodCount();
+					Collection<PointBuyMethod> methods = SettingsHandler
+							.getGame().getModeContext().ref
+							.getConstructedCDOMObjects(PointBuyMethod.class);
+					final int purchaseMethodCount = methods.size();
 					pMode = new String[purchaseMethodCount];
 					pModeMethodName = new String[purchaseMethodCount];
 
@@ -355,18 +362,18 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 								.getPurchaseModeMethodName();
 					abilityPurchaseModeCombo.removeAllItems();
 
-					for (int i = 0; i < purchaseMethodCount; ++i)
+					int i = 0;
+					for (PointBuyMethod pbm : methods)
 					{
-						final PointBuyMethod pbm =
-								SettingsHandler.getGame().getPurchaseMethod(i);
 						pMode[i] = pbm.getDescription();
-						pModeMethodName[i] = pbm.getMethodName();
+						pModeMethodName[i] = pbm.getDisplayName();
 						abilityPurchaseModeCombo.addItem(pMode[i]);
 
 						if (pModeMethodName[i].equals(methodName))
 						{
 							abilityPurchaseModeCombo.setSelectedIndex(i);
 						}
+						i++;
 					}
 
 					// free resources

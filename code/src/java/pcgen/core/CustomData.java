@@ -361,12 +361,11 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			for (int i = 0, x = SettingsHandler.getGame()
-				.getPurchaseMethodCount(); i < x; ++i)
+			for (PointBuyMethod pbm : SettingsHandler.getGame()
+					.getModeContext().ref
+					.getConstructedCDOMObjects(PointBuyMethod.class))
 			{
-				final PointBuyMethod pbm = SettingsHandler.getGame()
-					.getPurchaseMethod(i);
-				bw.write("METHOD:" + pbm.getMethodName() + "\t\tPOINTS:"
+				bw.write("METHOD:" + pbm.getDisplayName() + "\t\tPOINTS:"
 					+ pbm.getPointFormula());
 				bw.newLine();
 			}

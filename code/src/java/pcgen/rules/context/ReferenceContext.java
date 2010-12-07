@@ -86,7 +86,7 @@ public interface ReferenceContext
 
 	public <T extends CDOMObject> void reassociateKey(String key, T obj);
 
-	public <T extends CDOMObject> boolean forget(T obj);
+	public <T extends Loadable> boolean forget(T obj);
 
 	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(
 			Class<T> c);
