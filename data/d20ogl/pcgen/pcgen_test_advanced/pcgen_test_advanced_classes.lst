@@ -132,3 +132,16 @@ CLASS:Test46c
 1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|GivingThingy(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
 1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|PRECLASS:1,Test46c=2
 
+#TEST 51
+
+CLASS:Test51G
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackNoChoiceFeat
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_NoStackChoiceFeat(Ride)
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Athletics)
+
+CLASS:Test51H
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Athletics)|DirectApplication_StackChoiceFeat(Ride)
+
+CLASS:Test51I
+1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)

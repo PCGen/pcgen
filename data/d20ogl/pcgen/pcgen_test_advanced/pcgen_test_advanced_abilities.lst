@@ -585,3 +585,61 @@ AutoFeat_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE
 AutoFeat_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
 AutoFeat_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
 
+
+
+#TEST45
+Choose Feat Selection					CATEGORY:FEAT		TYPE:Test45				CHOOSE:FEATSELECTION|TYPE=ChooseSelection_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
+#
+ChooseSelection_NoChooseFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing	
+ChooseSelection_NoStackFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES
+ChooseSelection_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+ChooseSelection_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+ChooseSelection_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+ChooseSelection_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+ChooseSelection_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing	
+
+#Request 7 instances of CHOOSE:FEATSELECTION used in the test PCs (Alice, Bob, Charlie)
+
+#1) CHOOSE:FEATSELECTION where the target is MULT:NO
+#2) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) CHOOSE:FEATSELECTION where the target is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used) 
+
+
+###Block: TEST51 --------------------------
+#Please provide the following in CLASS LEVEL LINES:
+
+#Use of ABILITY token to apply the following:
+
+#(1) A CHOOSE:NOCHOICE MULT:YES STACK:YES Feat *applied once*
+#(2) A CHOOSE:NOCHOICE MULT:YES STACK:YES Feat *applied more than once from the same ABILITY token*
+#(3) A CHOOSE:<something> MULT:YES STACK:NO Feat
+#(4) A CHOOSE:<something> MULT:YES STACK:YES Feat *applied once*
+#(5) A CHOOSE:<something> MULT:YES STACK:YES Feat *applied more than once with different associations from the same ABILITY token*
+#(6) A CHOOSE:<something> MULT:YES STACK:YES Feat *applied more than once with _identical_ associations from the same ABILITY token*
+
+#These should be grouped as follows:
+#G: 1, 3, 4
+#H: 2, 5
+#I: 6 
+
+DirectApplication_NoChooseFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing	
+DirectApplication_NoStackFeat				CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES
+DirectApplication_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+DirectApplication_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+DirectApplication_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+DirectApplication_NoStackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+DirectApplication_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing	
+
+
+#TEST50
+
+Ability That Chooses Equip and AUTO Equip		CATEGORY:FEAT	TYPE:TEST50		CHOOSE:EQUIPMENT|Longsword|Cool Sword	AUTO:EQUIP|%LIST	MULT:YES
+
+
+
