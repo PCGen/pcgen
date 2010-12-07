@@ -28,6 +28,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
@@ -219,7 +220,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
-	public abstract CDOMPrimaryToken<CDOMObject> getToken();
+	public abstract <T extends ConcretePrereqObject> CDOMPrimaryToken<T> getToken();
 
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
 

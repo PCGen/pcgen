@@ -22,7 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
 
-	static CDOMPrimaryToken<CDOMObject> token = new PreLst();
+	static CDOMPrimaryToken<ConcretePrereqObject> token = new PreLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
 
@@ -58,7 +58,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<ConcretePrereqObject> getToken()
 	{
 		return token;
 	}

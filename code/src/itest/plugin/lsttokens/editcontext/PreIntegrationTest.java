@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -49,7 +50,7 @@ public class PreIntegrationTest extends
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<ConcretePrereqObject> getToken()
 	{
 		return token;
 	}

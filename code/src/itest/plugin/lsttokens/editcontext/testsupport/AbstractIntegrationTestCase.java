@@ -27,7 +27,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
@@ -42,7 +43,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractIntegrationTestCase<T extends CDOMObject> extends
+public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable> extends
 		TestCase
 {
 	protected LoadContext primaryContext;
@@ -58,7 +59,7 @@ public abstract class AbstractIntegrationTestCase<T extends CDOMObject> extends
 
 	public abstract CDOMLoader<T> getLoader();
 
-	public abstract CDOMPrimaryToken<T> getToken();
+	public abstract CDOMPrimaryToken<? super T> getToken();
 
 	@BeforeClass
 	public static final void classSetUp() throws URISyntaxException
