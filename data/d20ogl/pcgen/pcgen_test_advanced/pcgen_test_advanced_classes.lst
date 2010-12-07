@@ -118,17 +118,17 @@ CLASS:Wizard	VISIBLE:NO
 
 # TEST 46
 CLASS:Test46a
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoChooseFeatAuto)|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackNoChoiceFeatAuto)|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackChoiceFeatAuto(Ride))|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(Naturally Something Auto (comment))|PRELEVEL:2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoChooseFeatAuto)|PRECLASS:1,Test46a=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackNoChoiceFeatAuto)|PRECLASS:1,Test46a=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackChoiceFeatAuto(Ride))|PRECLASS:1,Test46a=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(Naturally Something Auto (comment))|PRECLASS:1,Test46a=2
 
 CLASS:Test46b
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingy(StackChoiceFeatAuto(Tumble))|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|Naturally Something Auto (comment)|PRELEVEL:2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46b=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingy(StackChoiceFeatAuto(Tumble))|PRECLASS:1,Test46b=2
+1				ABILITY:FEAT|AUTOMATIC|Naturally Something Auto (comment)|PRECLASS:1,Test46b=2
 
 CLASS:Test46c
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|GivingThingy(StackNoChoiceFeatAuto)|PRELEVEL:2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|PRELEVEL:2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|GivingThingy(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|PRECLASS:1,Test46c=2
 

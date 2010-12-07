@@ -562,3 +562,26 @@ StackChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:SKILL|ANY		
 NoStackNoChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
 Naturally Something Auto (comment)	CATEGORY:FEAT		TYPE:Test46.TestThing46	
 
+#Test47
+AutoFeat_ParentThingyType1			CATEGORY:FEAT		TYPE:Test48.A		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_NoChooseFeat)
+AutoFeat_ParentThingyType2			CATEGORY:FEAT		TYPE:Test48.A		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_NoStackNoChoiceFeat)
+AutoFeat_ParentThingyType3			CATEGORY:FEAT		TYPE:Test48.A		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_NoStackChoiceFeat(Ride))
+AutoFeat_ParentThingyType8			CATEGORY:FEAT		TYPE:Test48.A		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_Naturally Something (comment))
+
+AutoFeat_ParentThingyType4			CATEGORY:FEAT		TYPE:Test48.B		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_StackNoChoiceFeat)
+AutoFeat_ParentThingyType5			CATEGORY:FEAT		TYPE:Test48.B		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Ride))|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Tumble))
+AutoFeat_ParentThingyType9			CATEGORY:FEAT		TYPE:Test48.B		AUTO:FEAT|AutoFeat_Naturally Something (comment)
+
+AutoFeat_ParentThingyType6			CATEGORY:FEAT		TYPE:Test48.C		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_StackNoChoiceFeat)|AutoFeat_GivingThingy(AutoFeat_StackNoChoiceFeat)
+AutoFeat_ParentThingyType7			CATEGORY:FEAT		TYPE:Test48.C		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Ride))|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Ride))|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Tumble))
+
+AutoFeat_GivingThingy				CATEGORY:FEAT		TYPE:Test48				CHOOSE:FEATSELECTION|TYPE=AutoFeat_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
+AutoFeat_NoChooseFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
+AutoFeat_NoStackFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES
+AutoFeat_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+AutoFeat_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+AutoFeat_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+AutoFeat_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+AutoFeat_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
+
