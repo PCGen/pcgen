@@ -37,7 +37,7 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -47,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
  */
 public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
-		CDOMSecondaryToken<KitStat>, DeferredToken<Kit>
+		CDOMPrimaryToken<KitStat>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -63,11 +63,6 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 	public Class<KitStat> getTokenClass()
 	{
 		return KitStat.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

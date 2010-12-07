@@ -27,6 +27,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
@@ -39,11 +40,11 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public abstract class AbstractSubTokenTestCase<T> extends TestCase
+public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestCase
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
@@ -211,7 +212,7 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 
 	public abstract CDOMSubLineLoader<T> getLoader();
 
-	public abstract CDOMSecondaryToken<T> getToken();
+	public abstract CDOMPrimaryToken<T> getToken();
 
 	@Test
 	public void testNoStackTrace()

@@ -30,14 +30,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSpells;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * COUNT Token for KitSpells
  */
 public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMSecondaryToken<KitSpells>
+		CDOMPrimaryToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,11 +53,6 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 	public Class<KitSpells> getTokenClass()
 	{
 		return KitSpells.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

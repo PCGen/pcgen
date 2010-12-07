@@ -32,7 +32,7 @@ import pcgen.core.Language;
 import pcgen.core.kit.KitLangBonus;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -44,8 +44,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> implements
-		CDOMSecondaryToken<KitLangBonus>
+public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
+		implements CDOMPrimaryToken<KitLangBonus>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -64,11 +64,6 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> imp
 	public Class<KitLangBonus> getTokenClass()
 	{
 		return KitLangBonus.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

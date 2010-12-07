@@ -22,15 +22,15 @@ import org.junit.Test;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class LevelTokenTest extends AbstractSubTokenTestCase<KitClass>
+public class LevelTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static LevelToken token = new LevelToken();
 	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<KitClass>(
-			"*KITTOKEN", "SPELLS", KitClass.class);
+			"SPELLS", KitClass.class);
 
 	@Override
 	public Class<KitClass> getCDOMClass()
@@ -45,7 +45,7 @@ public class LevelTokenTest extends AbstractSubTokenTestCase<KitClass>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitClass> getToken()
+	public CDOMPrimaryToken<KitClass> getToken()
 	{
 		return token;
 	}

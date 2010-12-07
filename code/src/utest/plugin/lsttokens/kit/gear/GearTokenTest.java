@@ -23,15 +23,15 @@ import pcgen.core.Equipment;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class GearTokenTest extends AbstractSubTokenTestCase<KitGear>
+public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static GearToken token = new GearToken();
 	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
-			"*KITTOKEN", "SKILL", KitGear.class);
+			"SKILL", KitGear.class);
 
 	@Override
 	public Class<KitGear> getCDOMClass()
@@ -46,7 +46,7 @@ public class GearTokenTest extends AbstractSubTokenTestCase<KitGear>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitGear> getToken()
+	public CDOMPrimaryToken<KitGear> getToken()
 	{
 		return token;
 	}

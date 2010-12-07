@@ -35,7 +35,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -52,8 +52,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
  * </p>
  */
-public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> implements
-		CDOMSecondaryToken<KitTemplate>
+public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
+		implements CDOMPrimaryToken<KitTemplate>
 {
 	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
 
@@ -71,11 +71,6 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> imple
 	public Class<KitTemplate> getTokenClass()
 	{
 		return KitTemplate.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

@@ -30,14 +30,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitFunds;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * QTY Token
  */
 public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMSecondaryToken<KitFunds>
+		CDOMPrimaryToken<KitFunds>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,11 +53,6 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 	public Class<KitFunds> getTokenClass()
 	{
 		return KitFunds.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

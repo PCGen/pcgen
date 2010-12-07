@@ -23,15 +23,15 @@ import pcgen.core.Deity;
 import pcgen.core.kit.KitDeity;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class DeityTokenTest extends AbstractSubTokenTestCase<KitDeity>
+public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 {
 
 	static DeityToken token = new DeityToken();
 	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<KitDeity>(
-			"*KITTOKEN", "SKILL", KitDeity.class);
+			"SKILL", KitDeity.class);
 
 	@Override
 	public Class<KitDeity> getCDOMClass()
@@ -46,7 +46,7 @@ public class DeityTokenTest extends AbstractSubTokenTestCase<KitDeity>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitDeity> getToken()
+	public CDOMPrimaryToken<KitDeity> getToken()
 	{
 		return token;
 	}

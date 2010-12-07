@@ -41,14 +41,14 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ABILITY lst token within KitAbilities
  */
 public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
-		CDOMSecondaryToken<KitAbilities>
+		CDOMPrimaryToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
@@ -67,11 +67,6 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 	public Class<KitAbilities> getTokenClass()
 	{
 		return KitAbilities.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

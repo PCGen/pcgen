@@ -26,15 +26,15 @@ import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class AlignTokenTest extends AbstractSubTokenTestCase<KitAlignment>
+public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 {
 
 	static AlignToken token = new AlignToken();
 	static CDOMSubLineLoader<KitAlignment> loader = new CDOMSubLineLoader<KitAlignment>(
-			"*KITTOKEN", "SPELLS", KitAlignment.class);
+			"SPELLS", KitAlignment.class);
 
 	@Override
 	@Before
@@ -69,7 +69,7 @@ public class AlignTokenTest extends AbstractSubTokenTestCase<KitAlignment>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitAlignment> getToken()
+	public CDOMPrimaryToken<KitAlignment> getToken()
 	{
 		return token;
 	}

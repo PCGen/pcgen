@@ -43,8 +43,8 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM, false);
+		StringTokenizer colToken = new StringTokenizer(lstLine,
+				SystemLoader.TAB_DELIM);
 		String firstToken = colToken.nextToken().trim();
 		T loadable = getLoadable(context, firstToken, sourceURI);
 		if (loadable == null)
@@ -54,49 +54,50 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 		while (colToken.hasMoreTokens())
 		{
-			final String token = colToken.nextToken().trim();
-			final int colonLoc = token.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging
-						.errorPrint("Invalid Token - does not contain a colon: '"
-								+ token
-								+ "' in "
-								+ loadable.getClass().getSimpleName()
-								+ " "
-								+ loadable.getDisplayName()
-								+ " of "
-								+ sourceURI);
-				continue;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: '"
-						+ token + "' in " + loadable.getClass().getSimpleName()
-						+ " " + loadable.getDisplayName() + " of " + sourceURI);
-				continue;
-			}
-
-			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
-			if (context.processToken(loadable, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.errorPrint("Error found loading " + loadable.getClass()
-						+ " " + loadable.getDisplayName() + " from "
-						+ loadable.getSourceURI());
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+			String token = colToken.nextToken().trim();
+			processToken(context, loadable, token, sourceURI);
 		}
 	}
 
-	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
+	protected void processToken(LoadContext context, T loadable, String token,
+			URI sourceURI) throws PersistenceLayerException
+	{
+		int colonLoc = token.indexOf(':');
+		if (colonLoc == -1)
+		{
+			Logging.errorPrint("Invalid Token - does not contain a colon: '"
+					+ token + "' in " + loadable.getClass().getSimpleName()
+					+ " " + loadable.getDisplayName() + " of " + sourceURI);
+			return;
+		}
+		else if (colonLoc == 0)
+		{
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
+					+ "' in " + loadable.getClass().getSimpleName() + " "
+					+ loadable.getDisplayName() + " of " + sourceURI);
+			return;
+		}
+
+		String key = token.substring(0, colonLoc);
+		String value = (colonLoc == token.length() - 1) ? null : token
+				.substring(colonLoc + 1);
+		if (context.processToken(loadable, key, value))
+		{
+			context.commit();
+		}
+		else
+		{
+			context.rollback();
+			Logging.errorPrint("Error found loading " + loadable.getClass()
+					+ " " + loadable.getDisplayName() + " from "
+					+ loadable.getSourceURI());
+			Logging.replayParsedMessages();
+		}
+		Logging.clearParseMessages();
+	}
+
+	protected T getLoadable(LoadContext context, String firstToken,
+			URI sourceURI)
 	{
 		String name = processFirstToken(firstToken);
 		if (name == null)

@@ -34,15 +34,15 @@ import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
  */
-public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> implements
-		CDOMSecondaryToken<KitAlignment>
+public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
+		implements CDOMPrimaryToken<KitAlignment>
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
@@ -60,11 +60,6 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> impleme
 	public Class<KitAlignment> getTokenClass()
 	{
 		return KitAlignment.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

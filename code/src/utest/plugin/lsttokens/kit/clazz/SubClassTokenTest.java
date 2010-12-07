@@ -27,15 +27,15 @@ import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class SubClassTokenTest extends AbstractSubTokenTestCase<KitClass>
+public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static SubclassToken token = new SubclassToken();
 	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<KitClass>(
-			"*KITTOKEN", "SKILL", KitClass.class);
+			"SKILL", KitClass.class);
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -62,7 +62,7 @@ public class SubClassTokenTest extends AbstractSubTokenTestCase<KitClass>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitClass> getToken()
+	public CDOMPrimaryToken<KitClass> getToken()
 	{
 		return token;
 	}

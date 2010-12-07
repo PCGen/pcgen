@@ -34,14 +34,14 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.core.kit.KitBio;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * GENDER token for Kits
  */
 public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
-		CDOMSecondaryToken<KitBio>
+		CDOMPrimaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -57,11 +57,6 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
 	public Class<KitBio> getTokenClass()
 	{
 		return KitBio.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

@@ -23,15 +23,15 @@ import pcgen.core.Race;
 import pcgen.core.kit.KitRace;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class RaceTokenTest extends AbstractSubTokenTestCase<KitRace>
+public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 {
 
 	static RaceToken token = new RaceToken();
 	static CDOMSubLineLoader<KitRace> loader = new CDOMSubLineLoader<KitRace>(
-			"*KITTOKEN", "SKILL", KitRace.class);
+			"SKILL", KitRace.class);
 
 	@Override
 	public Class<KitRace> getCDOMClass()
@@ -46,7 +46,7 @@ public class RaceTokenTest extends AbstractSubTokenTestCase<KitRace>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitRace> getToken()
+	public CDOMPrimaryToken<KitRace> getToken()
 	{
 		return token;
 	}

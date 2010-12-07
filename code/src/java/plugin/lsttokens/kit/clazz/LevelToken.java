@@ -30,14 +30,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * LevelToken (a component of Kits)
  */
 public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMSecondaryToken<KitClass>
+		CDOMPrimaryToken<KitClass>
 {
 
 	/**
@@ -54,11 +54,6 @@ public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
 	public Class<KitClass> getTokenClass()
 	{
 		return KitClass.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

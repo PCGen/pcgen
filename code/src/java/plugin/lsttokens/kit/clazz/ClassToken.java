@@ -31,14 +31,14 @@ import pcgen.core.PCClass;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * CLASS token for KitClass
  */
 public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMSecondaryToken<KitClass>
+		CDOMPrimaryToken<KitClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -57,11 +57,6 @@ public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
 	public Class<KitClass> getTokenClass()
 	{
 		return KitClass.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

@@ -35,14 +35,14 @@ import pcgen.core.WeaponProf;
 import pcgen.core.kit.KitProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * PROF Token part of Kit Prof Lst Token
  */
 public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
-		CDOMSecondaryToken<KitProf>
+		CDOMPrimaryToken<KitProf>
 {
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
@@ -60,11 +60,6 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

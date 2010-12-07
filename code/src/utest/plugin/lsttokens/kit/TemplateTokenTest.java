@@ -23,15 +23,15 @@ import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class TemplateTokenTest extends AbstractSubTokenTestCase<KitTemplate>
+public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 {
 
 	static TemplateToken token = new TemplateToken();
 	static CDOMSubLineLoader<KitTemplate> loader = new CDOMSubLineLoader<KitTemplate>(
-			"*KITTOKEN", "PCTemplateS", KitTemplate.class);
+			"PCTemplateS", KitTemplate.class);
 
 	@Override
 	public Class<KitTemplate> getCDOMClass()
@@ -46,7 +46,7 @@ public class TemplateTokenTest extends AbstractSubTokenTestCase<KitTemplate>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitTemplate> getToken()
+	public CDOMPrimaryToken<KitTemplate> getToken()
 	{
 		return token;
 	}

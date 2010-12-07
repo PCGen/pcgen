@@ -23,6 +23,7 @@
  */
 package pcgen.core.kit;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,6 +31,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.helper.OptionBound;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -40,9 +42,10 @@ import pcgen.core.PlayerCharacter;
  * @author Jonas Karlson <jujutsunerd@sf.net>
  * @version $Revision$
  */
-public abstract class BaseKit extends ConcretePrereqObject
+public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 {
 
+	private URI sourceURI;
 	List<OptionBound> bounds;
 
 	public void setOptionBounds(Formula min, Formula max)
@@ -175,4 +178,45 @@ public abstract class BaseKit extends ConcretePrereqObject
 	{
 		return bounds == null ? null : Collections.unmodifiableList(bounds);
 	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	public String getDisplayName()
+	{
+		return null;
+	}
+
+	public void setName(String name)
+	{
+		//TODO illegal?
+	}
+
+	public String getKeyName()
+	{
+		return null;
+	}
+
+	public String getLSTformat()
+	{
+		return null;
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
 }

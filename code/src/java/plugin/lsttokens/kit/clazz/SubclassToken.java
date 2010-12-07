@@ -31,14 +31,14 @@ import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * parses SUBCLASS token for Kit Class 
+ * parses SUBCLASS token for Kit Class
  */
 public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMSecondaryToken<KitClass>
+		CDOMPrimaryToken<KitClass>
 {
 
 	/**
@@ -57,22 +57,17 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		return KitClass.class;
 	}
 
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
-	}
-
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			KitClass kitClass, String value)
 	{
 		/*
-		 * This call to kitClass.getPcclass() is safe, as the line is CLASS:
-		 * and thus the CLASS: token is always encountered first
+		 * This call to kitClass.getPcclass() is safe, as the line is CLASS: and
+		 * thus the CLASS: token is always encountered first
 		 */
-		CDOMReference<SubClass> sc =
-				context.ref.getCDOMReference(SubClass.class, SubClassCategory
-					.getConstant(kitClass.getPcclass().getLSTformat(false)), value);
+		CDOMReference<SubClass> sc = context.ref.getCDOMReference(
+				SubClass.class, SubClassCategory.getConstant(kitClass
+						.getPcclass().getLSTformat(false)), value);
 		kitClass.setSubClass(sc);
 		return ParseResult.SUCCESS;
 	}
@@ -84,6 +79,6 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		{
 			return null;
 		}
-		return new String[]{ref.getLSTformat(false)};
+		return new String[] { ref.getLSTformat(false) };
 	}
 }

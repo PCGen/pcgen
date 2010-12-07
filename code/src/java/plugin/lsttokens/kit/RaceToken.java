@@ -32,7 +32,7 @@ import pcgen.core.Race;
 import pcgen.core.kit.KitRace;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -40,7 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Handles the RACE tag as well as Common tags on the RACE line.
  */
 public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
-		CDOMSecondaryToken<KitRace>
+		CDOMPrimaryToken<KitRace>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
 
@@ -58,11 +58,6 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 	public Class<KitRace> getTokenClass()
 	{
 		return KitRace.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

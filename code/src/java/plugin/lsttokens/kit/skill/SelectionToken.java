@@ -33,7 +33,7 @@ import pcgen.core.Language;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -45,8 +45,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements
-		CDOMSecondaryToken<KitSkill>
+public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
+		implements CDOMPrimaryToken<KitSkill>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -65,11 +65,6 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> impleme
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

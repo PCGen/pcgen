@@ -23,15 +23,15 @@ import pcgen.core.WeaponProf;
 import pcgen.core.kit.KitProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class ProfTokenTest extends AbstractSubTokenTestCase<KitProf>
+public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static ProfToken token = new ProfToken();
 	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<KitProf>(
-			"*KITTOKEN", "PROF", KitProf.class);
+			"PROF", KitProf.class);
 
 	@Override
 	public Class<KitProf> getCDOMClass()
@@ -46,7 +46,7 @@ public class ProfTokenTest extends AbstractSubTokenTestCase<KitProf>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitProf> getToken()
+	public CDOMPrimaryToken<KitProf> getToken()
 	{
 		return token;
 	}

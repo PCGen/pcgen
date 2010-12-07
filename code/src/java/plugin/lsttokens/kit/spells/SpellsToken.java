@@ -45,7 +45,7 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
@@ -53,7 +53,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * SPELLS token for KitSpells
  */
 public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMSecondaryToken<KitSpells>
+		CDOMPrimaryToken<KitSpells>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -72,11 +72,6 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 	public Class<KitSpells> getTokenClass()
 	{
 		return KitSpells.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

@@ -22,15 +22,15 @@ import org.junit.Test;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class CountTokenTest extends AbstractSubTokenTestCase<KitAbilities>
+public class CountTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
 
 	static CountToken token = new CountToken();
 	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<KitAbilities>(
-			"*KITTOKEN", "SPELLS", KitAbilities.class);
+			"SPELLS", KitAbilities.class);
 
 	@Override
 	public Class<KitAbilities> getCDOMClass()
@@ -45,7 +45,7 @@ public class CountTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitAbilities> getToken()
+	public CDOMPrimaryToken<KitAbilities> getToken()
 	{
 		return token;
 	}

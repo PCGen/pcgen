@@ -38,11 +38,11 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
-		CDOMSecondaryToken<BaseKit>
+		CDOMPrimaryToken<BaseKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -58,11 +58,6 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 	public Class<BaseKit> getTokenClass()
 	{
 		return BaseKit.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

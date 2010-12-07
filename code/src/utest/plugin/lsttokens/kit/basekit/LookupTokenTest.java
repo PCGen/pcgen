@@ -23,15 +23,15 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class LookupTokenTest extends AbstractSubTokenTestCase<BaseKit>
+public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
 
 	static OptionToken token = new OptionToken();
 	static CDOMSubLineLoader<BaseKit> loader = new CDOMSubLineLoader<BaseKit>(
-			"*KITTOKEN", "SKILL", BaseKit.class);
+			"SKILL", BaseKit.class);
 
 	@Override
 	public Class<KitGear> getCDOMClass()
@@ -46,7 +46,7 @@ public class LookupTokenTest extends AbstractSubTokenTestCase<BaseKit>
 	}
 
 	@Override
-	public CDOMSecondaryToken<BaseKit> getToken()
+	public CDOMPrimaryToken<BaseKit> getToken()
 	{
 		return token;
 	}

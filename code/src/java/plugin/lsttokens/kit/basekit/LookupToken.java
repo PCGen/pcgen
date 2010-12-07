@@ -36,14 +36,14 @@ import pcgen.core.kit.KitGear;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * LOOKUP token for base kits
  */
 public class LookupToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+		CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,11 +59,6 @@ public class LookupToken extends AbstractToken implements
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)

@@ -30,14 +30,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSelect;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SELECT for Kit
  */
 public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
-		CDOMSecondaryToken<KitSelect>
+		CDOMPrimaryToken<KitSelect>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,11 +53,6 @@ public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
 	public Class<KitSelect> getTokenClass()
 	{
 		return KitSelect.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

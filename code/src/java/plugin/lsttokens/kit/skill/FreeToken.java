@@ -28,14 +28,14 @@ package plugin.lsttokens.kit.skill;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FREE Token for KitSkill
  */
 public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements
-		CDOMSecondaryToken<KitSkill>
+		CDOMPrimaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -51,11 +51,6 @@ public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

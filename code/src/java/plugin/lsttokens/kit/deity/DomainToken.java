@@ -35,14 +35,14 @@ import pcgen.core.Domain;
 import pcgen.core.kit.KitDeity;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * DOMAIN Token for KitDeity
  */
 public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
-		CDOMSecondaryToken<KitDeity>
+		CDOMPrimaryToken<KitDeity>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -58,11 +58,6 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 	public Class<KitDeity> getTokenClass()
 	{
 		return KitDeity.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

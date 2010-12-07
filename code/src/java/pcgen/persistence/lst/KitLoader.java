@@ -65,46 +65,46 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 
 	public KitLoader()
 	{
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAlignment>(
-				"*KITTOKEN", "ALIGN", KitAlignment.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitRace>("*KITTOKEN",
-				"RACE", KitRace.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSkill>("*KITTOKEN",
-				"SKILL", KitSkill.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitGear>("*KITTOKEN",
-				"GEAR", KitGear.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSpells>("*KITTOKEN",
-				"SPELLS", KitSpells.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitStat>("*KITTOKEN",
-				"STAT", KitStat.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitProf>("*KITTOKEN",
-				"PROF", KitProf.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
-				"*KITTOKEN", "FEAT", KitAbilities.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
-				"*KITTOKEN", "ABILITY", KitAbilities.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
-				"NAME", KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAlignment>("ALIGN",
+				KitAlignment.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitRace>("RACE",
+				KitRace.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSkill>("SKILL",
+				KitSkill.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitGear>("GEAR",
+				KitGear.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSpells>("SPELLS",
+				KitSpells.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitStat>("STAT",
+				KitStat.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitProf>("PROF",
+				KitProf.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>("FEAT",
+				KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>("ABILITY",
+				KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("NAME",
+				KitBio.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLevelAbility>(
-				"*KITTOKEN", "LEVELABILITY", KitLevelAbility.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitClass>("*KITTOKEN",
-				"CLASS", KitClass.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTemplate>("*KITTOKEN",
-				"TEMPLATE", KitTemplate.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitDeity>("*KITTOKEN",
-				"DEITY", KitDeity.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitKit>("*KITTOKEN",
-				"KIT", KitKit.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTable>("*KITTOKEN",
-				"TABLE", KitTable.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSelect>("*KITTOKEN",
-				"SELECT", KitSelect.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
-				"GENDER", KitBio.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<KitFunds>("*KITTOKEN",
-				"FUNDS", KitFunds.class));
+				"LEVELABILITY", KitLevelAbility.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitClass>("CLASS",
+				KitClass.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTemplate>("TEMPLATE",
+				KitTemplate.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitDeity>("DEITY",
+				KitDeity.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitKit>("KIT",
+				KitKit.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTable>("TABLE",
+				KitTable.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSelect>("SELECT",
+				KitSelect.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("GENDER",
+				KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitFunds>("FUNDS",
+				KitFunds.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLangBonus>(
-				"*KITTOKEN", "LANGBONUS", KitLangBonus.class));
+				"LANGBONUS", KitLangBonus.class));
 	}
 
 	@Override

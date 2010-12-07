@@ -34,14 +34,14 @@ import pcgen.io.Compatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ABILITY lst token within KitLevelAbility
  */
 public class AbilityToken extends AbstractToken implements
-		CDOMSecondaryToken<KitLevelAbility>
+		CDOMPrimaryToken<KitLevelAbility>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -57,11 +57,6 @@ public class AbilityToken extends AbstractToken implements
 	public Class<KitLevelAbility> getTokenClass()
 	{
 		return KitLevelAbility.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility,

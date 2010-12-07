@@ -1,26 +1,42 @@
+/*
+ * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 package pcgen.rules.persistence;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class CDOMSubLineLoader<T>
+public class CDOMSubLineLoader<T extends Loadable>
 {
 
 	private final Class<T> targetClass;
-	private final String subTokenType;
 	private final String targetPrefix;
 	private final String targetPrefixColon;
 
 	// private final int prefixLength;
 
-	public CDOMSubLineLoader(String tokenType, String prefix, Class<T> cl)
+	public CDOMSubLineLoader(String prefix, Class<T> cl)
 	{
-		subTokenType = tokenType;
 		targetPrefix = prefix;
 		targetClass = cl;
 		targetPrefixColon = prefix + ":";
@@ -58,9 +74,8 @@ public class CDOMSubLineLoader<T>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			ParseResult pr = context.processSubToken(obj, subTokenType, key, value);
-			pr.printMessages();
-			if (pr.passed())
+			boolean passed = context.processToken(obj, key, value);
+			if (passed)
 			{
 				context.commit();
 			}
@@ -104,7 +119,7 @@ public class CDOMSubLineLoader<T>
 
 	public void unloadObject(LoadContext lc, T object, StringBuilder sb)
 	{
-		String[] unparse = lc.unparseSubtoken(object, subTokenType);
+		Collection<String> unparse = lc.unparse(object);
 		StringBuilder temp = new StringBuilder();
 		if (unparse != null)
 		{

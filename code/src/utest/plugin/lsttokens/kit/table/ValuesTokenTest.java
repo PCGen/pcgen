@@ -25,20 +25,20 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitTable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.kit.basekit.LookupToken;
 import plugin.lsttokens.kit.gear.EqmodToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class ValuesTokenTest extends AbstractSubTokenTestCase<KitTable>
+public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 {
 
 	static ValuesToken token = new ValuesToken();
 	static EqmodToken eqmodToken = new EqmodToken();
 	static LookupToken lookupToken = new LookupToken();
 	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<KitTable>(
-			"*KITTOKEN", "TABLE", KitTable.class);
+			"TABLE", KitTable.class);
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -61,7 +61,7 @@ public class ValuesTokenTest extends AbstractSubTokenTestCase<KitTable>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitTable> getToken()
+	public CDOMPrimaryToken<KitTable> getToken()
 	{
 		return token;
 	}

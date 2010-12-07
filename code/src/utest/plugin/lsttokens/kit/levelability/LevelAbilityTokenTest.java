@@ -23,15 +23,15 @@ import pcgen.core.PCClass;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class LevelAbilityTokenTest extends AbstractSubTokenTestCase<KitLevelAbility>
+public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbility>
 {
 
 	static LevelAbilityToken token = new LevelAbilityToken();
 	static CDOMSubLineLoader<KitLevelAbility> loader = new CDOMSubLineLoader<KitLevelAbility>(
-			"*KITTOKEN", "PCClassS", KitLevelAbility.class);
+			"PCClassS", KitLevelAbility.class);
 
 	@Override
 	public Class<KitLevelAbility> getCDOMClass()
@@ -46,7 +46,7 @@ public class LevelAbilityTokenTest extends AbstractSubTokenTestCase<KitLevelAbil
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitLevelAbility> getToken()
+	public CDOMPrimaryToken<KitLevelAbility> getToken()
 	{
 		return token;
 	}

@@ -37,14 +37,14 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * EQMOD Token for KitGear
  */
 public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
-		CDOMSecondaryToken<KitGear>
+		CDOMPrimaryToken<KitGear>
 {
 	private static final Class<EquipmentModifier> EQUIPMENT_MODIFIER_CLASS =
 			EquipmentModifier.class;
@@ -63,11 +63,6 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

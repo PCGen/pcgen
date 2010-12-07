@@ -30,14 +30,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * QTY token for Kit GEAR
  */
 public class QtyToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMSecondaryToken<KitGear>
+		CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,11 +53,6 @@ public class QtyToken extends AbstractNonEmptyToken<KitGear> implements
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

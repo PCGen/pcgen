@@ -28,7 +28,7 @@ package plugin.lsttokens.kit;
 import pcgen.core.kit.KitBio;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -36,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * for historical reasons.
  */
 public class NameToken extends AbstractNonEmptyToken<KitBio> implements
-		CDOMSecondaryToken<KitBio>
+		CDOMPrimaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -52,11 +52,6 @@ public class NameToken extends AbstractNonEmptyToken<KitBio> implements
 	public Class<KitBio> getTokenClass()
 	{
 		return KitBio.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

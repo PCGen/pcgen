@@ -24,15 +24,15 @@ import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
+public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static EqmodToken token = new EqmodToken();
 	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
-			"*KITTOKEN", "TABLE", KitGear.class);
+			"TABLE", KitGear.class);
 
 	@Override
 	public Class<KitGear> getCDOMClass()
@@ -47,7 +47,7 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitGear> getToken()
+	public CDOMPrimaryToken<KitGear> getToken()
 	{
 		return token;
 	}

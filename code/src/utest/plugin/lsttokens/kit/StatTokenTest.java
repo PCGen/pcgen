@@ -27,15 +27,15 @@ import pcgen.core.PCStat;
 import pcgen.core.kit.KitStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class StatTokenTest extends AbstractSubTokenTestCase<KitStat>
+public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {
 
 	static StatToken token = new StatToken();
 	static CDOMSubLineLoader<KitStat> loader = new CDOMSubLineLoader<KitStat>(
-			"*KITTOKEN", "SPELLS", KitStat.class);
+			"SPELLS", KitStat.class);
 
 	@Override
 	@Before
@@ -69,7 +69,7 @@ public class StatTokenTest extends AbstractSubTokenTestCase<KitStat>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitStat> getToken()
+	public CDOMPrimaryToken<KitStat> getToken()
 	{
 		return token;
 	}

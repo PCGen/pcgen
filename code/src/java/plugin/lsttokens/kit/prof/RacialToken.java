@@ -28,11 +28,11 @@ package plugin.lsttokens.kit.prof;
 import pcgen.core.kit.KitProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
-		CDOMSecondaryToken<KitProf>
+		CDOMPrimaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -48,11 +48,6 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

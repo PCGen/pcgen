@@ -22,15 +22,15 @@ import org.junit.Test;
 import pcgen.core.kit.KitBio;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class GenderTokenTest extends AbstractSubTokenTestCase<KitBio>
+public class GenderTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static GenderToken token = new GenderToken();
 	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<KitBio>(
-			"*KITTOKEN", "TABLE", KitBio.class);
+			"TABLE", KitBio.class);
 
 	@Override
 	public Class<KitBio> getCDOMClass()
@@ -45,7 +45,7 @@ public class GenderTokenTest extends AbstractSubTokenTestCase<KitBio>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitBio> getToken()
+	public CDOMPrimaryToken<KitBio> getToken()
 	{
 		return token;
 	}

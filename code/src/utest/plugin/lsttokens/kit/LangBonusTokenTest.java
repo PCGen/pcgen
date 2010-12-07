@@ -23,15 +23,15 @@ import pcgen.core.Language;
 import pcgen.core.kit.KitLangBonus;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class LangBonusTokenTest extends AbstractSubTokenTestCase<KitLangBonus>
+public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 {
 
 	static LangBonusToken token = new LangBonusToken();
 	static CDOMSubLineLoader<KitLangBonus> loader = new CDOMSubLineLoader<KitLangBonus>(
-			"*KITTOKEN", "SKILL", KitLangBonus.class);
+			"SKILL", KitLangBonus.class);
 
 	@Override
 	public Class<KitLangBonus> getCDOMClass()
@@ -46,7 +46,7 @@ public class LangBonusTokenTest extends AbstractSubTokenTestCase<KitLangBonus>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitLangBonus> getToken()
+	public CDOMPrimaryToken<KitLangBonus> getToken()
 	{
 		return token;
 	}

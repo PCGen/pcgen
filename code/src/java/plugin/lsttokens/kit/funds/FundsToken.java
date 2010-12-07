@@ -28,14 +28,14 @@ package plugin.lsttokens.kit.funds;
 import pcgen.core.kit.KitFunds;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FUNDS Token for KitFunds
  */
 public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMSecondaryToken<KitFunds>
+		CDOMPrimaryToken<KitFunds>
 {
 
 	/**
@@ -52,11 +52,6 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 	public Class<KitFunds> getTokenClass()
 	{
 		return KitFunds.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

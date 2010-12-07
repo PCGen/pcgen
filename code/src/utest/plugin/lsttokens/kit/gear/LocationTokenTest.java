@@ -22,15 +22,15 @@ import org.junit.Test;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class LocationTokenTest extends AbstractSubTokenTestCase<KitGear>
+public class LocationTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static LocationToken token = new LocationToken();
 	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
-			"*KITTOKEN", "TABLE", KitGear.class);
+			"TABLE", KitGear.class);
 
 	@Override
 	public Class<KitGear> getCDOMClass()
@@ -45,7 +45,7 @@ public class LocationTokenTest extends AbstractSubTokenTestCase<KitGear>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitGear> getToken()
+	public CDOMPrimaryToken<KitGear> getToken()
 	{
 		return token;
 	}

@@ -41,14 +41,14 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FEAT Token for KitAbilities
  */
-public class FeatToken extends AbstractTokenWithSeparator<KitAbilities> implements
-		CDOMSecondaryToken<KitAbilities>
+public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
+		implements CDOMPrimaryToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -66,11 +66,6 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities> implemen
 	public Class<KitAbilities> getTokenClass()
 	{
 		return KitAbilities.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override

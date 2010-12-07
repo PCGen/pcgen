@@ -28,14 +28,14 @@ package plugin.lsttokens.kit.prof;
 import pcgen.core.kit.KitProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * COUNT Token for KitProf
  */
 public class CountToken extends AbstractToken implements
-		CDOMSecondaryToken<KitProf>
+		CDOMPrimaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -51,11 +51,6 @@ public class CountToken extends AbstractToken implements
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	public ParseResult parseToken(LoadContext context, KitProf kitProf, String value)

@@ -26,15 +26,15 @@ import pcgen.core.kit.KitSpells;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-public class SpellsTokenTest extends AbstractSubTokenTestCase<KitSpells>
+public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 {
 
 	static SpellsToken token = new SpellsToken();
 	static CDOMSubLineLoader<KitSpells> loader = new CDOMSubLineLoader<KitSpells>(
-			"*KITTOKEN", "SPELLS", KitSpells.class);
+			"SPELLS", KitSpells.class);
 
 	@Override
 	public Class<KitSpells> getCDOMClass()
@@ -49,7 +49,7 @@ public class SpellsTokenTest extends AbstractSubTokenTestCase<KitSpells>
 	}
 
 	@Override
-	public CDOMSecondaryToken<KitSpells> getToken()
+	public CDOMPrimaryToken<KitSpells> getToken()
 	{
 		return token;
 	}

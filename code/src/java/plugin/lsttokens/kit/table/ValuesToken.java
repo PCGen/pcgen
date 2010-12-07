@@ -25,6 +25,7 @@
 
 package plugin.lsttokens.kit.table;
 
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -34,9 +35,10 @@ import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
 import pcgen.core.utils.ParsingSeparator;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -44,7 +46,7 @@ import pcgen.util.Logging;
  * VALUES token for KitTable
  */
 public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
-		CDOMSecondaryToken<KitTable>
+		CDOMPrimaryToken<KitTable>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,11 +62,6 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 	public Class<KitTable> getTokenClass()
 	{
 		return KitTable.class;
-	}
-
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
 	}
 
 	@Override
@@ -95,11 +92,19 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				ParseResult pr = context.processSubToken(optionInfo,
-						getParentToken(), key, thingValue);
-				if (!pr.passed())
+				try
 				{
-					return pr;
+					boolean passed = context.processToken(optionInfo, key,
+							thingValue);
+					if (!passed)
+					{
+						return new ParseResult.Fail("Failure in token: " + key);
+					}
+				}
+				catch (PersistenceLayerException e)
+				{
+					return new ParseResult.Fail("Failure in token: " + key
+							+ " " + e.getMessage());
 				}
 			}
 			if (!sep.hasNext())
@@ -172,10 +177,10 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			{
 				sb.append(Constants.PIPE);
 			}
-			String[] unparse = context.unparseSubtoken(rl.gear, getParentToken());
-			if (unparse.length == 1)
+			Collection<String> unparse = context.unparse(rl.gear);
+			if (unparse.size() == 1)
 			{
-				sb.append(unparse[0]);
+				sb.append(unparse.iterator().next());
 			}
 			else
 			{
