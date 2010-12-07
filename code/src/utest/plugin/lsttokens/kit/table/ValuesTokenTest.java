@@ -179,7 +179,6 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 
 	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
-System.err.println("!");
 		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,

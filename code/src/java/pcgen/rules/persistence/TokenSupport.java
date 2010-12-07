@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
@@ -167,7 +165,8 @@ public class TokenSupport
 
 	public <T> Collection<String> unparse(LoadContext context, T cdo)
 	{
-		Set<String> set = new TreeSet<String>();
+		Collection<String> set = new WeightedCollection<String>(
+				String.CASE_INSENSITIVE_ORDER);
 		Class<T> cl = (Class<T>) cdo.getClass();
 		TokenFamilyIterator<T> it = new TokenFamilyIterator<T>(cl);
 		while (it.hasNext())
