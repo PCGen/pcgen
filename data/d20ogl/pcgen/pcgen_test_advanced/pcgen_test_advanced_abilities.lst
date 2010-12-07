@@ -505,12 +505,12 @@ NoStackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:
 StackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 StackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
-
 NoStackNoChoiceFeat	CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing	
+
 
 #The other similar test requests follow a similar pattern. all that is changing is VFEAT vs. other tokens.
 
-Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing	
 
 
 
@@ -548,3 +548,17 @@ Test Weapon Proficiency	CATEGORY:FEAT	TYPE:General	CHOOSE:PROFICIENCY|WEAPON|UNI
 #Test Weapon Proficiency(Dagger)
 #Test Weapon Proficiency(Longsword)
 #Test Weapon Proficiency(Spear)
+
+
+#TEST46
+	
+GivingThingyAuto				CATEGORY:FEAT		TYPE:Test46				CHOOSE:FEATSELECTION|TYPE=TestThing46		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
+NoChooseFeatAuto				CATEGORY:FEAT		TYPE:Test46.TestThing46	
+NoStackFeatAuto				CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES
+NoStackChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:SKILL|ANY		MULT:YES
+StackNoChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+StackChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+NoStackNoChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+Naturally Something Auto (comment)	CATEGORY:FEAT		TYPE:Test46.TestThing46	
+
