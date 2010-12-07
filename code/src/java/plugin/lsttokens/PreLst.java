@@ -4,7 +4,7 @@
  */
 package plugin.lsttokens;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
@@ -18,7 +18,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class PreLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryToken<ConcretePrereqObject>
 {
 	@Override
 	public String getTokenName()
@@ -26,7 +26,7 @@ public class PreLst extends AbstractToken implements
 		return "PRE";
 	}
 
-	public ParseResult parseToken(LoadContext context, CDOMObject pcc,
+	public ParseResult parseToken(LoadContext context, ConcretePrereqObject pcc,
 		String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
@@ -37,7 +37,7 @@ public class PreLst extends AbstractToken implements
 		return ParseResult.INTERNAL_ERROR;
 	}
 
-	public String[] unparse(LoadContext context, CDOMObject pcc)
+	public String[] unparse(LoadContext context, ConcretePrereqObject pcc)
 	{
 		Changes<Prerequisite> changes = context.obj.getPrerequisiteChanges(pcc);
 		if (changes == null || !changes.includesGlobalClear())
@@ -48,8 +48,8 @@ public class PreLst extends AbstractToken implements
 		return new String[] { Constants.LST_DOT_CLEAR };
 	}
 
-	public Class<CDOMObject> getTokenClass()
+	public Class<ConcretePrereqObject> getTokenClass()
 	{
-		return CDOMObject.class;
+		return ConcretePrereqObject.class;
 	}
 }
