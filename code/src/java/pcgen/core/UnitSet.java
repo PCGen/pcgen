@@ -317,11 +317,6 @@ public final class UnitSet implements Loadable
 		return sourceURI;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;

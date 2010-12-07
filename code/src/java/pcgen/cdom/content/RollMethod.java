@@ -48,11 +48,6 @@ public class RollMethod implements Loadable
 		return methodName;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

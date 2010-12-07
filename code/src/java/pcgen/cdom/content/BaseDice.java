@@ -55,11 +55,6 @@ public class BaseDice implements Loadable
 		return dieName;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

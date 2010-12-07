@@ -22,8 +22,6 @@ import java.net.URI;
 public interface Loadable
 {
 
-	public void setKeyName(String key);
-
 	public String getKeyName();
 
 	public String getLSTformat();

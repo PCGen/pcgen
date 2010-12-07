@@ -63,11 +63,6 @@ public class Sponsor implements Loadable
 		return sponsorName;
 	}
 
-	public void setKeyName(String key)
-	{
-		sponsorKey = key;
-	}
-
 	public String getKeyName()
 	{
 		return sponsorKey;

@@ -44,9 +44,9 @@ public class ModifyfeatchoiceIntegrationTest extends
 	{
 		super.setUp();
 		TabInfo ti = primaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
-		ti.setKeyName("Feats");
+		ti.setName("Feats");
 		ti = secondaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
-		ti.setKeyName("Feats");
+		ti.setName("Feats");
 	}
 
 	@Override

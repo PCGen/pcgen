@@ -53,11 +53,6 @@ public class EqSizePenalty implements Loadable
 		return penaltyName;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

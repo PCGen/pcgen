@@ -57,11 +57,6 @@ public class SpellSchool implements Loadable, Comparable<SpellSchool>
 		name = newName;
 	}
 
-	public void setKeyName(String key)
-	{
-		name = key;
-	}
-
 	@Override
 	public String toString()
 	{

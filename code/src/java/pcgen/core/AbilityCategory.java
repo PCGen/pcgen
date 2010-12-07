@@ -444,21 +444,13 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	}
 
 	/**
-	 * @see pcgen.core.KeyedObject#setKeyName(java.lang.String)
-	 */
-	public void setKeyName(final String aKey)
-	{
-		keyName = aKey;
-	}
-
-	/**
 	 * @see pcgen.core.KeyedObject#setName(java.lang.String)
 	 */
 	public void setName(final String aName)
 	{
 		if ("".equals(keyName))
 		{
-			setKeyName(aName);
+			keyName = aName;
 		}
 		displayName = aName;
 	}

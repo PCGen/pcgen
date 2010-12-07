@@ -63,11 +63,6 @@ public class BonusSpellInfo implements Loadable
 		return String.valueOf(spellLevel);
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

@@ -121,11 +121,6 @@ public final class PaperInfo implements Loadable
 		return infoName;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

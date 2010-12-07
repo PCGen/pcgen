@@ -217,12 +217,6 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		sourceURI = source;
 	}
 
-	public void setKeyName(String key)
-	{
-		throw new UnsupportedOperationException(
-				"Cannot set key in SubClassCategory");
-	}
-
 	public String getLSTformat()
 	{
 		return fieldName;

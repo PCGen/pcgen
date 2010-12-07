@@ -69,11 +69,6 @@ public class TabInfo implements Loadable
 		return tabID.toString();
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getKeyName()
 	{
 		return getDisplayName();

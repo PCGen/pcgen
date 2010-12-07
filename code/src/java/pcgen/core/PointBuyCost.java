@@ -64,11 +64,6 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 		return getDisplayName();
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public String getLSTformat()
 	{
 		return getDisplayName();

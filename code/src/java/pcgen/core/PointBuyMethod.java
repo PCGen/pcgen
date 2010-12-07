@@ -157,11 +157,6 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 		return false;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	public void setName(String name)
 	{
 		methodName = name;
