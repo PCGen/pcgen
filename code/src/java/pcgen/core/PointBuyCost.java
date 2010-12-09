@@ -48,7 +48,7 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 	{
 		try
 		{
-			Integer.parseInt(name);
+			statValue = Integer.parseInt(name);
 		}
 		catch (NumberFormatException e)
 		{
