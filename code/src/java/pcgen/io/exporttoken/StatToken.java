@@ -81,6 +81,12 @@ public class StatToken extends Token
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		if (aTok.countTokens() < 2)
+		{
+			Logging.errorPrint("Invalid STAT token:" + tokenSource, new Throwable());
+			return "";
+		}
+			
 		aTok.nextToken();
 		int indexOfStat;
 		indexOfStat = Integer.parseInt(aTok.nextToken());
