@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  4 15:21:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Dec  7 14:34:22 2010 -- reformated by prettylst.pl v1.39 (build )
 #SOURCELONG:Pathfinder Roleplaying Game Advanced Player's Guide Playtest	SOURCESHORT:PFAPGP1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8bcj	SOURCEDATE:2009-11
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
@@ -43,9 +43,12 @@ ABILITYCATEGORY:Witch Patron	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTION
 
 # These have been moved to the CORE.
 ###Block: Alternate Racial Traits categories
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Eidolon Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice	PLURAL:Eidolon Evolutions	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice		PLURAL:Eidolon Skills		DISPLAYLOCATION:Racial Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Skill				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
 
 ###Block: Class Bonus Feat Categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list								Plural description for UI			Display Location
@@ -118,8 +121,8 @@ ABILITYCATEGORY:Monk Weapon Choice Monk Weapons	VISIBLE:QUALIFY	EDITABLE:YES		ED
 
 # Ranger Arcehtypes
 ABILITYCATEGORY:Hunter's Trick Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersTrickChoice														PLURAL:Hunter's Trick Selections		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Community		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunity		PLURAL:Favored Community		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Community Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunityBonus	PLURAL:Favored Community Bonuses	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Community			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunity														PLURAL:Favored Community			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Community Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunityBonus													PLURAL:Favored Community Bonuses		DISPLAYLOCATION:Class Abilities
 
 # Fighter Archetypes
 ABILITYCATEGORY:Weapon Master Chosen Weapon	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponMasterChosenWeapon													PLURAL:Weapon Master Chosen Weapon		DISPLAYLOCATION:Class Abilities
