@@ -31,8 +31,8 @@ Smite Evil		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIB
 Smite Good		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIBLE:YES	DEFINE:SmiteGood|0	DESC:%1 times per day|SmiteGood				SOURCEPAGE:srdmonsterstemplates.rtf
 
 ###Block: Leadership feat support
-# Ability Name	Category of Ability		Type			Visible	Multiple?	Choose										Modify VAR							Temporary effect description
-Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+# Ability Name	Category of Ability		Type			Visible	Choose										Modify VAR							Temporary effect description
+Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block:Hidden Feat for Negative Levels
 # Ability Name	Category of Ability		Type				Visible	Define			Description																					Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill																		Aspects
