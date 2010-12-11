@@ -392,7 +392,7 @@ Transmuter Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Transm
 ###Block: Weapon proficiencies
 # Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Martial
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Martial																					SERVESAS:ABILITY|CATEGORY=FEAT|Martial Weapon Proficiency
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
 Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
@@ -400,6 +400,8 @@ Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AU
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Crossbow|TYPE=Dagger
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Crossbow|TYPE=Dagger
+#
+Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT	DESC:You understand how to use all types of martial weapons in combat.
 
 ###Block: Automatic Creature Type Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Virtual Feat				Ability											Source Page
