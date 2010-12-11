@@ -91,6 +91,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
+				ability.setRequiresTarget(true);
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, Ability.FEATLIST,
 								ability);

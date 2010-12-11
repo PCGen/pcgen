@@ -204,7 +204,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 	 *         references.
 	 */
 	@Override
-	protected String getReferenceDescription()
+	public String getReferenceDescription()
 	{
 		return getReferenceClass().getSimpleName() + " " + category;
 	}

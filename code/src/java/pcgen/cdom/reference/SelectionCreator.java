@@ -17,8 +17,10 @@
  */
 package pcgen.cdom.reference;
 
+import pcgen.cdom.base.Loadable;
 
-public interface SelectionCreator<T>
+
+public interface SelectionCreator<T extends Loadable>
 {
 	/**
 	 * Gets a reference to the Class or Class/Context provided by this

@@ -109,6 +109,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
+				ability.setRequiresTarget(true);
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, list, ability);
 				assoc.setAssociation(AssociationKey.NATURE, nature);

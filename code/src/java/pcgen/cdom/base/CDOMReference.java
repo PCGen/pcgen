@@ -49,6 +49,8 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 * The class of object this CDOMReference refers to.
 	 */
 	private final Class<T> clazz;
+	
+	private boolean requiresTarget = false;
 
 	/**
 	 * Constructs a new CDOMReference to the given Class of object, with the
@@ -217,4 +219,14 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 *         CDOMReference contains.
 	 */
 	public abstract String getChoice();
+
+	public boolean requiresTarget()
+	{
+		return requiresTarget;
+	}
+	
+	public void setRequiresTarget(boolean required)
+	{
+		requiresTarget = required;
+	}
 }

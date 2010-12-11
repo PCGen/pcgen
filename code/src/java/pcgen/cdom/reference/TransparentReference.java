@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.reference;
 
+import pcgen.cdom.base.Loadable;
+
 /**
  * A TransparentReference is a Reference that can be resolved using a
  * ReferenceManufacturer.
@@ -42,7 +44,7 @@ package pcgen.cdom.reference;
  * @param <T>
  *            The Class of object this TransparentReference references
  */
-public interface TransparentReference<T>
+public interface TransparentReference<T extends Loadable>
 {
 	/**
 	 * Resolves this TransparentReference using the given ReferenceManufacturer.

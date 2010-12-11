@@ -93,6 +93,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
+				ability.setRequiresTarget(true);
 				context.getObjectContext().addToList(race,
 						ListKey.FEAT_TOKEN_LIST, ability);
 			}

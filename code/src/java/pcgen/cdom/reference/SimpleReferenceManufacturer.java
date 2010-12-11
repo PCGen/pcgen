@@ -109,7 +109,7 @@ public class SimpleReferenceManufacturer<T extends Loadable>
 	 *         SimpleReferenceManufacturer constructs or references.
 	 */
 	@Override
-	protected String getReferenceDescription()
+	public String getReferenceDescription()
 	{
 		return getReferenceClass().getSimpleName();
 	}

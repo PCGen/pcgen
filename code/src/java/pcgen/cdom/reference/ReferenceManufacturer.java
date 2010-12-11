@@ -1,5 +1,4 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,6 +18,9 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 import java.util.List;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A ReferenceManufacturer is an object capable of creating CDOMReferences of a
@@ -51,7 +53,7 @@ import java.util.List;
  *            The Class of Single Reference that this ReferenceManufacturer will
  *            produce
  */
-public interface ReferenceManufacturer<T> extends SelectionCreator<T>
+public interface ReferenceManufacturer<T extends Loadable> extends SelectionCreator<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
@@ -202,7 +204,7 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	 * ReferenceManufacturer is not required to maintain a list of references
 	 * that have been resolved and those which have not been resolved.
 	 */
-	public void resolveReferences();
+	public void resolveReferences(ReferenceResolver<T> resolver);
 
 	/**
 	 * Instructs the ReferenceManufacturer that the object with the given
@@ -337,5 +339,13 @@ public interface ReferenceManufacturer<T> extends SelectionCreator<T>
 	public int getConstructedObjectCount();
 
 	public T getItemInOrder(int index);
+
+	public String getReferenceDescription();
+
+	public boolean containsUnconstructed(String name);
+
+	public T buildObject(String name);
+
+	public void fireUnconstuctedEvent(CDOMReference<?> reference);
 
 }

@@ -67,7 +67,7 @@ public final class TokenUtilities
 		}
 	}
 
-	public static <T> CDOMGroupRef<T> getTypeReference(
+	public static <T extends Loadable> CDOMGroupRef<T> getTypeReference(
 			SelectionCreator<T> rm, String s)
 	{
 		if (s.length() == 0)

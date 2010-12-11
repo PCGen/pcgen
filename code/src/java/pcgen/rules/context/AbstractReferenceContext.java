@@ -41,7 +41,9 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceResolver;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.ResolverMap;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
@@ -434,8 +436,15 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	{
 		for (ReferenceManufacturer<?> rs : getAllManufacturers())
 		{
-			rs.resolveReferences();
+			processResolution(rs);
 		}
+	}
+
+	private <T extends Loadable> void processResolution(ReferenceManufacturer<T> rs)
+	{
+		Class<T> cl = rs.getReferenceClass();
+		ReferenceResolver<T> resolver = ResolverMap.get(cl);
+		rs.resolveReferences(resolver);
 	}
 
 	public void buildDeferredObjects()

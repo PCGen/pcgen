@@ -318,9 +318,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * references that have been resolved and those which have not been
 	 * resolved.
 	 */
-	public void resolveReferences()
+	public void resolveReferences(ReferenceResolver<T> resolver)
 	{
-		resolvePrimitiveReferences();
+		resolvePrimitiveReferences(resolver);
 		resolveGroupReferences();
 		for (WeakReference<TRT> ref : typeReferences.values())
 		{
@@ -336,53 +336,21 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		isResolved = true;
 	}
 
-	private void resolvePrimitiveReferences()
+	private void resolvePrimitiveReferences(ReferenceResolver<T> resolver)
 	{
-		List<String> choices = new ArrayList<String>();
 		for (Entry<String, WeakReference<SRT>> me1 : referenced.entrySet())
 		{
 			SRT value = me1.getValue().get();
 			if (value != null)
 			{
-				T activeObj = active.get(me1.getKey());
-				if (activeObj == null)
-				{
-					choices.clear();
-					String reduced = AbilityUtilities.getUndecoratedName(me1
-							.getKey(), choices);
-					activeObj = active.get(reduced);
-					if (activeObj == null
-							&& (unconstructed.contains(me1.getKey()) || unconstructed
-									.contains(reduced)))
-					{
-						activeObj = buildObject(me1.getKey());
-					}
-					if (activeObj == null)
-					{
-						Logging.errorPrint("Unable to Resolve: " + refClass
-								+ " " + me1.getKey());
-					}
-					else
-					{
-						value.addResolution(activeObj);
-					}
-					if (choices.size() == 1)
-					{
-						value.setChoice(choices.get(0));
-					}
-					else if (choices.size() > 1)
-					{
-						Logging.errorPrint("Invalid use of multiple items "
-								+ "in parenthesis (comma prohibited) in "
-								+ activeObj + " " + choices.toString());
-					}
-				}
-				else
-				{
-					value.addResolution(activeObj);
-				}
+				resolver.resolve(this, me1.getKey(), value);
 			}
 		}
+	}
+
+	public boolean containsUnconstructed(String reduced)
+	{
+		return unconstructed.contains(reduced);
 	}
 
 	private void resolveGroupReferences()
@@ -562,7 +530,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
-	protected T buildObject(String key)
+	public T buildObject(String key)
 	{
 		if (key == null || key.equals(""))
 		{
@@ -1122,7 +1090,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * @return A String description of the type of Class or Class/Category that
 	 *         this AbstractReferenceManufacturer constructs or references.
 	 */
-	protected abstract String getReferenceDescription();
+	public abstract String getReferenceDescription();
 
 	/**
 	 * Instructs the AbstractReferenceManufacturer that the object with the
@@ -1197,11 +1165,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 */
 	public void buildDeferredObjects()
 	{
-		for (Object cis : deferred)
+		for (String cis : deferred)
 		{
 			if (!active.containsKey(cis))
 			{
-				constructObject(cis.toString());
+				constructObject(cis);
 			}
 		}
 	}
@@ -1411,7 +1379,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 *            The CDOMReference to which the UnconstructedEvent should
 	 *            refer.
 	 */
-	private void fireUnconstuctedEvent(CDOMReference<?> ref)
+	public void fireUnconstuctedEvent(CDOMReference<?> ref)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		/*

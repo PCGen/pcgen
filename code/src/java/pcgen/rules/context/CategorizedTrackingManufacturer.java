@@ -21,11 +21,13 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedManufacturer;
+import pcgen.cdom.reference.ReferenceResolver;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.cdom.reference.UnconstructedValidator;
 
@@ -154,9 +156,9 @@ public class CategorizedTrackingManufacturer<T extends CDOMObject & CategorizedC
 		rm.renameObject(key, o);
 	}
 
-	public void resolveReferences()
+	public void resolveReferences(ReferenceResolver<T> resolver)
 	{
-		rm.resolveReferences();
+		rm.resolveReferences(resolver);
 	}
 
 	public boolean validate(UnconstructedValidator validator)
@@ -169,4 +171,23 @@ public class CategorizedTrackingManufacturer<T extends CDOMObject & CategorizedC
 		return null;
 	}
 
+	public boolean containsUnconstructed(String name)
+	{
+		return rm.containsObject(name);
+	}
+
+	public String getReferenceDescription()
+	{
+		return rm.getReferenceDescription();
+	}
+
+	public T buildObject(String name)
+	{
+		return rm.buildObject(name);
+	}
+
+	public void fireUnconstuctedEvent(CDOMReference<?> reference)
+	{
+		rm.fireUnconstuctedEvent(reference);
+	}
 }

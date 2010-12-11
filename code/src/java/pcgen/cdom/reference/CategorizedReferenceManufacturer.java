@@ -245,7 +245,7 @@ public class CategorizedReferenceManufacturer<T extends Loadable & CategorizedCD
 	 *         CategorizedReferenceManufacturer constructs or references.
 	 */
 	@Override
-	protected String getReferenceDescription()
+	public String getReferenceDescription()
 	{
 		return getReferenceClass().getSimpleName() + " " + category;
 	}
@@ -261,7 +261,7 @@ public class CategorizedReferenceManufacturer<T extends Loadable & CategorizedCD
 	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#constructObject(java.lang.String)
 	 */
 	@Override
-	protected T buildObject(String key)
+	public T buildObject(String key)
 	{
 		T obj = super.buildObject(key);
 		obj.setCDOMCategory(category);

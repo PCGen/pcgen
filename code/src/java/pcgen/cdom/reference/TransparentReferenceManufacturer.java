@@ -150,7 +150,7 @@ public class TransparentReferenceManufacturer<T extends Loadable>
 	 *         TransparentReferenceManufacturer constructs or references.
 	 */
 	@Override
-	protected String getReferenceDescription()
+	public String getReferenceDescription()
 	{
 		return getReferenceClass().getSimpleName();
 	}

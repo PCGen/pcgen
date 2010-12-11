@@ -217,6 +217,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
+				ability.setRequiresTarget(true);
 				AssociatedPrereqObject assoc =
 						context.getListContext().addToList(getTokenName(), obj,
 							abilList, ability);

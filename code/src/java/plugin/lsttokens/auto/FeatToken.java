@@ -145,6 +145,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
+				ability.setRequiresTarget(true);
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getFullName(), obj, abilList, ability);
 				assoc.setAssociation(AssociationKey.NATURE, nature);
