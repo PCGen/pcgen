@@ -343,9 +343,10 @@ public class AbilityCategory implements Category<Ability>, Loadable
 	 */
 	public boolean isVisible(PlayerCharacter pc)
 	{
-		if ((pc != null) && visibility.equals(Visibility.QUALIFY))
+		if (visibility.equals(Visibility.QUALIFY))
 		{
-			return pc.getTotalAbilityPool(this).floatValue() != 0.0
+			return (pc == null)
+					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
 					|| !pc.getAggregateVisibleAbilityList(this).isEmpty();
 		}
 		return visibility.isVisibileTo(View.VISIBLE, false);
