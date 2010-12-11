@@ -1,6 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
+#COMMENT: Line 512 - DATA-178 // Requires a Chooser
 STARTPACK:Abomination (Anaxim) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Anaxim)]
 RACE:Abomination (Anaxim)	!PRERACE:1,%
 NAME:Abomination (Anaxim)
@@ -509,7 +510,9 @@ FEAT:Maximize Spell
 FEAT:Quicken Spell
 FEAT:Scribe Scroll
 FEAT:Spell Penetration
-FEAT:Tenacious Magic
+#	FEAT:Tenacious Magic
+#COMMENT: Need a Choice made for Assigned Feats - SEE 'DATA-178'
+BONUS:ABILITYPOOL|Tenacious Magic Choice|1
 FEAT:Toughness
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 GEAR:Bracers of Armor +8	LOCATION:Equipped
