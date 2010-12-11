@@ -1338,10 +1338,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			if (!found)
 			{
-				availDomainList.add(new SourcedQualObject<Domain>(d));
+				selectedDomainList.remove(d);
+				pc.removeDomain(d);
 			}
 
-			if (!selectedDomainList.contains(d))
+			else if (!selectedDomainList.contains(d))
 			{
 				selectedDomainList.add(d);
 			}
