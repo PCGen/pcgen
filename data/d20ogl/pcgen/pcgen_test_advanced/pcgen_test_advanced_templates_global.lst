@@ -152,5 +152,5 @@ Test-43-B		LEVEL:2:FEAT:Test Weapon Proficiency(Dagger)
 Test-43-C		HD:2:FEAT:Test Weapon Proficiency(Spear)
 
 
-
+TEST-27		SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Magic Missile,2
 

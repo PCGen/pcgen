@@ -139,3 +139,10 @@ Bob Testing Type Group B								TYPE:GroupB		DESC:B added by A
 Bob Testing Type Group C								TYPE:GroupC		DESC:Triggered by having PREFEAT TYPE=GroupB which is found in Bob Testing Type Group B which is triggered by TYPE=Sword in Weapon Focus.
 
 Bob Weapon Prof Chooser which Grants Weapon	KEY:Bob Feat	TYPE:General.Bob	AUTO:WEAPONPROF|%LIST	CHOOSE:WEAPONPROFICIENCY|ALL	MULT:YES
+
+# Test-27 Spells Identical
+Spell Test ~ 30			TYPE:Test27		SPELLS:Innate|TIMES=30|CASTERLEVEL=30|Magic Missile,30
+#DC, Times/Day, CasterLevel, Times
+
+
+Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
