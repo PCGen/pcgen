@@ -1410,8 +1410,8 @@ BIO
 		</feat>
 		<feat>
 			<name>Martial Weapon Proficiency</name>
-			<description>Choose a type of martial weapon. You understand how to use that type of martial weapon in combat.</description>
-			<type>GENERAL</type>
+			<description>You understand how to use all types of martial weapons in combat.</description>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
