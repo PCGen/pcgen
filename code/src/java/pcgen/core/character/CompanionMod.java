@@ -31,7 +31,6 @@ package pcgen.core.character;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -48,37 +47,6 @@ import pcgen.core.Race;
  */
 public final class CompanionMod extends PObject
 {
-	/**
-	 * Compares classMap, type and level
-	 * @param obj
-	 * @return true if equal
-	 */
-	@Override
-	public boolean equals(final Object obj)
-	{
-		if (obj instanceof CompanionMod)
-		{
-			final CompanionMod cmpMod = (CompanionMod) obj;
-
-			List<CDOMSingleRef<Race>> car = cmpMod.getListFor(ListKey.APPLIED_RACE);
-			List<CDOMSingleRef<Race>> ar = getListFor(ListKey.APPLIED_RACE);
-			Map<CDOMSingleRef<? extends PCClass>, Integer> cac = cmpMod.getMapFor(MapKey.APPLIED_CLASS);
-			Map<CDOMSingleRef<? extends PCClass>, Integer> ac = getMapFor(MapKey.APPLIED_CLASS);
-			Map<String, Integer> cav = cmpMod.getMapFor(MapKey.APPLIED_VARIABLE);
-			Map<String, Integer> av = getMapFor(MapKey.APPLIED_VARIABLE);
-			if (ar == null && car != null || ac == null && cac != null
-				|| av == null && cav != null)
-			{
-				return false;
-			}
-			return getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL)
-				&& (ar == null || ar.equals(car))
-					&& (ac == null || ac.equals(cac))
-					&& (av == null || av.equals(cav));
-		}
-		return false;
-	}
-
 	/**
 	 * Get Level
 	 * @param className
@@ -144,15 +112,5 @@ public final class CompanionMod extends PObject
 	public boolean getUseMasterSkill()
 	{
 		return getSafe(ObjectKey.USE_MASTER_SKILL);
-	}
-
-	/**
-	 * Hashcode of the keyname
-	 * @return hash code
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getSafe(IntegerKey.LEVEL);
 	}
 }
