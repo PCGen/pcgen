@@ -1149,8 +1149,8 @@ BIO
 		</feat>
 		<feat>
 			<name>Martial Weapon Proficiency</name>
-			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL</type>
+			<description>You understand how to use all types of martial weapons in combat.</description>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
