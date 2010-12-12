@@ -5,6 +5,7 @@ SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paiz
 ###Block: Conditional Skills for output only
 # Skill Name				Key Stat	Untrained?		Classes	Type			Visible
 Knowledge (History/Mwangi Expanse)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Knowledge (Geography/Mwangi Expanse)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Knowledge (Local/Sargava)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Knowledge (Nature/Jungle)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
 Survival (Find Food)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
@@ -12,6 +13,7 @@ Survival (Find Food)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VIS
 ###Block: Skill .MODs
 # Skill Name		Bonus to skill													Bonus to skill rank
 Knowledge (History).MOD	BONUS:SKILL|Knowledge (History/Mwangi Expanse)|var("SKILL.Knowledge (History).MISC")	BONUS:SKILLRANK|Knowledge (History/Mwangi Expanse)|skillinfo("TOTALRANK","Knowledge (History)")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:skillinfo("MODIFIER","Knowledge (History/Mwangi Expanse)"),skillinfo("MODIFIER","Knowledge (History)")
+Knowledge (Geography).MOD	BONUS:SKILL|Knowledge (Geography/Mwangi Expanse)|var("SKILL.Knowledge (Geography).MISC")	BONUS:SKILLRANK|Knowledge (Geography/Mwangi Expanse)|skillinfo("TOTALRANK","Knowledge (Geography)")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:skillinfo("MODIFIER","Knowledge (Geography/Mwangi Expanse)"),skillinfo("MODIFIER","Knowledge (Geography)")
 Knowledge (Local).MOD	BONUS:SKILL|Knowledge (Local/Sargava)|var("SKILL.Knowledge (Local).MISC")			BONUS:SKILLRANK|Knowledge (Local/Sargava)|skillinfo("TOTALRANK","Knowledge (Local)")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:skillinfo("MODIFIER","Knowledge (Local/Sargava)"),skillinfo("MODIFIER","Knowledge (Local)")
 Knowledge (Nature).MOD	BONUS:SKILL|Knowledge (Nature/Jungle)|var("SKILL.Knowledge (Nature).MISC")			BONUS:SKILLRANK|Knowledge (Nature/Jungle)|skillinfo("TOTALRANK","Knowledge (Nature)")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:skillinfo("MODIFIER","Knowledge (Nature/Jungle)"),skillinfo("MODIFIER","Knowledge (Nature)")
 Survival.MOD		BONUS:SKILL|Survival (Find Food)|var("SKILL.Survival.MISC")						BONUS:SKILLRANK|Survival (Find Food)|skillinfo("TOTALRANK","Survival")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:skillinfo("MODIFIER","Survival (Find food)"),skillinfo("MODIFIER","Survival")
