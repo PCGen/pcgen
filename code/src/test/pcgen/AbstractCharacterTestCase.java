@@ -120,6 +120,9 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getAbb()),
 				FormulaFactory.getFormulaFor(cha.getAbb() + "SCORE-10"));
 
+		gamemode.setBonusFeatLevels("3|3");
+		SettingsHandler.setGame("3.5");
+
 		ReferenceContext ref = Globals.getContext().ref;
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
@@ -142,12 +145,9 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(createAlignment("None", "NONE"));
 		ref.importObject(createAlignment("Deity's", "Deity"));
 
-		gamemode.setBonusFeatLevels("3|3");
-
-		SettingsHandler.setGame("3.5");
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
-		LstSystemLoader.addDefaultWieldCategories(SettingsHandler.getGame());
+		LstSystemLoader.addDefaultWieldCategories(Globals.getContext());
 		
 		ref.importObject(str);
 		ref.importObject(dex);

@@ -83,7 +83,6 @@ public final class GameMode implements Comparable<Object>
 	private Map<String, Map<String, LevelInfo>> levelInfo = new HashMap<String, Map<String, LevelInfo>>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
-	private List<WieldCategory> wieldCategoryList = new ArrayList<WieldCategory>();
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
 	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<String, ACControl>();
 	private Map<String, String> plusCalcs;
@@ -867,24 +866,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Get the wield category
-	 * @param aName
-	 * @return wield category
-	 */
-	public WieldCategory getWieldCategory(final String aName)
-	{
-		for ( WieldCategory wCat : wieldCategoryList )
-		{
-			if (wCat.getName().equals(aName))
-			{
-				return wCat;
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get the weapon reach formula
 	 * @return String the weaopn reach formula
 	 */
@@ -1058,7 +1039,7 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public void addWieldCategory(final WieldCategory wCat)
 	{
-		wieldCategoryList.add(wCat);
+		getModeContext().ref.importObject(wCat);
 	}
 
 	public int compareTo(final Object obj)
@@ -2580,11 +2561,6 @@ public final class GameMode implements Comparable<Object>
 			lInfo = levelInfo.get("LEVEL");
 		}
 		return lInfo;
-	}
-
-	public Collection<WieldCategory> getAllWieldCategories()
-	{
-		return Collections.unmodifiableList(wieldCategoryList);
 	}
 
 	public String getTabName(Tab tab)

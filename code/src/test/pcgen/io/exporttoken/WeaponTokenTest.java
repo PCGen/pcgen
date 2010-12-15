@@ -178,7 +178,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.put(IntegerKey.SLOTS, 2);
-		dblWpn.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("TwoHanded"));
+		dblWpn.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "TwoHanded"));
 		dblWpn.put(ObjectKey.SIZE, medium);
 		dblWpn.put(ObjectKey.BASESIZE, medium);
 		character.addEquipment(dblWpn);
@@ -209,7 +210,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		bastardSword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("TwoHanded"));
+		bastardSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "TwoHanded"));
 		bastardSword.put(ObjectKey.SIZE, medium);
 		bastardSword.put(ObjectKey.BASESIZE, medium);
 
@@ -228,7 +230,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		largeSword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("OneHanded"));
+		largeSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "OneHanded"));
 		largeSword.put(ObjectKey.SIZE, large);
 		largeSword.put(ObjectKey.BASESIZE, large);
 
@@ -241,7 +244,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		fineSword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("OneHanded"));
+		fineSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "OneHanded"));
 		fineSword.put(ObjectKey.SIZE, medium);
 		fineSword.put(ObjectKey.BASESIZE, medium);
 
@@ -253,7 +257,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
-		longSpear.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("TwoHanded"));
+		longSpear.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "TwoHanded"));
 		longSpear.put(ObjectKey.SIZE, medium);
 		longSpear.put(ObjectKey.BASESIZE, medium);
 		longSpear.put(IntegerKey.REACH, 10);
@@ -294,20 +299,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		bite.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("OneHanded"));
+		bite.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "OneHanded"));
 		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 
 		// Weild categories
-		WieldCategory wCat1h = new WieldCategory("OneHanded");
-		wCat1h.setHands(1);
-		wCat1h.setSizeDiff(0);
-		gm.addWieldCategory(wCat1h);
-		WieldCategory wCat2h = new WieldCategory("TwoHanded");
-		wCat2h.setHands(2);
-		wCat2h.setSizeDiff(1);
-		gm.addWieldCategory(wCat2h);
-		wCat1h.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1",
-			"TwoHanded");
+		WieldCategory twoHanded = context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "TwoHanded");
+		twoHanded.setSizeDifference(1);
 
 		// Equip mods
 		EquipmentModifier eqMod = new EquipmentModifier();

@@ -23,8 +23,6 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstSystemLoader;
@@ -33,6 +31,9 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreVariableParser;
+import plugin.pretokens.writer.PreVariableWriter;
 
 public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -44,8 +45,10 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		GameMode game = SettingsHandler.getGame();
-		LstSystemLoader.addDefaultWieldCategories(game);
+		TokenRegistration.register(new PreVariableParser());
+		TokenRegistration.register(new PreVariableWriter());
+		LstSystemLoader.addDefaultWieldCategories(primaryContext);
+		LstSystemLoader.addDefaultWieldCategories(secondaryContext);
 	}
 
 	@Override
@@ -138,7 +141,9 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		primaryProf.put(getObjectKey(), SettingsHandler.getGame().getWieldCategory("OneHanded"));
+		primaryProf.put(getObjectKey(), primaryContext.ref
+				.silentlyGetConstructedCDOMObject(WieldCategory.class,
+						"OneHanded"));
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
 				"OneHanded");
 	}

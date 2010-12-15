@@ -68,7 +68,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				if (aString.startsWith("WIELDCATEGORY=") || aString.startsWith("WIELDCATEGORY."))
 				{
 					final WieldCategory wCat = eq.getEffectiveWieldCategory(character);
-					if ((wCat != null) && wCat.getName().equalsIgnoreCase(aString.substring(14)))
+					if ((wCat != null) && wCat.getKeyName().equalsIgnoreCase(aString.substring(14)))
 					{
 						isEquipped = true;
 						break;

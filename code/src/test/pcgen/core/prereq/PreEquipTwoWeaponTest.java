@@ -26,9 +26,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
+import pcgen.core.character.WieldCategory;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PreEquipTwoWeaponTest</code> tests that the PREEQUIPTWOWEAPON tag is
@@ -127,6 +129,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 
 		character.setRace(race);
+		LoadContext context = Globals.getContext();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");
@@ -158,12 +161,14 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 		// Test 3.5 style
 		longsword.put(ObjectKey.SIZE, medium);
 		longsword.put(ObjectKey.BASESIZE, medium);
-		longsword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("TwoHanded"));
+		longsword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "TwoHanded"));
 
 		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("OneHanded"));
+		longsword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, "OneHanded"));
 
 		assertTrue("Weapon is OneHanded", PrereqHandler.passes(prereq,
 			character, null));

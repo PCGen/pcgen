@@ -41,7 +41,6 @@ public class TokenStore
 	{
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);
-		tokenTypeList.add(WieldCategoryLstToken.class);
 
 		//level.lst
 		tokenTypeList.add(LevelLstToken.class);

@@ -19,16 +19,17 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.core.SettingsHandler;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with WIELD token
  */
-public class WieldToken implements CDOMPrimaryToken<Equipment>
+public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
+		CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -36,15 +37,19 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "WIELD";
 	}
 
-	public ParseResult parseToken(LoadContext context, Equipment eq,
-		String value)
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq,
+			String value)
 	{
-		WieldCategory wc = SettingsHandler.getGame().getWieldCategory(value);
+		// TODO Need to convert this to a reference??
+		WieldCategory wc = context.ref.silentlyGetConstructedCDOMObject(
+				WieldCategory.class, value);
 		if (wc == null)
 		{
 			return new ParseResult.Fail("In " + getTokenName()
@@ -62,7 +67,7 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 		{
 			return null;
 		}
-		return new String[] { w.getName() };
+		return new String[] { w.getKeyName() };
 	}
 
 	public Class<Equipment> getTokenClass()

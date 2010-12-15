@@ -623,7 +623,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendSpacer();
 				final WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
 				b.appendI18nElement("in_igInfoLabelTextWield", //$NON-NLS-1$
-					wCat.getName());
+					wCat.getKeyName());
 			}
 
 			//

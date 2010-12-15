@@ -639,7 +639,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				WieldCategory wCat = eqI.getEffectiveWieldCategory(pc);
 				b.appendSpacer();
-				b.appendI18nElement("in_ieInfoLabelTextWield",wCat.getName()); //$NON-NLS-1$
+				b.appendI18nElement("in_ieInfoLabelTextWield",wCat.getKeyName()); //$NON-NLS-1$
 			}
 
 			//

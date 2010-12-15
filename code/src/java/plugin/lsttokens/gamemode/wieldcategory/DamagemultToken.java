@@ -1,62 +1,111 @@
+/*
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
 package plugin.lsttokens.gamemode.wieldcategory;
 
-import pcgen.core.character.WieldCategory;
-import pcgen.persistence.lst.WieldCategoryLstToken;
 import java.util.StringTokenizer;
 
-/**
- * Class deals with DAMAGEMULT Token
- */
-public class DamagemultToken implements WieldCategoryLstToken
+import pcgen.cdom.base.Constants;
+import pcgen.core.character.WieldCategory;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
+		implements CDOMPrimaryToken<WieldCategory>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DAMAGEMULT";
 	}
 
-	public boolean parse(WieldCategory cat, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			WieldCategory wc, String value)
 	{
-		// The damage multiplier based on
-		// number of hands used to wield weapon
-		// dString is of form:
-		// 1=1,2=1.5
-		StringTokenizer dTok = new StringTokenizer(value, ",");
+		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 
-		while (dTok.hasMoreTokens())
+		while (st.hasMoreTokens())
 		{
-			String cString = dTok.nextToken();
-
-			// cString is of form: 2=1.5
-			StringTokenizer cTok = new StringTokenizer(cString, "=");
-
-			if (cTok.countTokens() < 2)
+			String set = st.nextToken();
+			ParseResult pr = checkForIllegalSeparator('=', set);
+			if (!pr.passed())
 			{
-				continue;
+				return pr;
 			}
 
-			String hands = cTok.nextToken();
-			int numHands = 1;
+			int equalLoc = set.indexOf('=');
+			if (equalLoc == -1)
+			{
+				return new ParseResult.Fail("No = in part of token, found: "
+						+ set + " in " + value);
+			}
+			if (equalLoc != value.lastIndexOf('='))
+			{
+				return new ParseResult.Fail(
+						"Too many = in part of token, found: " + set + " in "
+								+ value);
+			}
+			String hands = set.substring(0, equalLoc);
+			int numHands;
 			try
 			{
 				numHands = Integer.parseInt(hands);
 			}
 			catch (NumberFormatException ex)
 			{
-				return false;
+				return new ParseResult.Fail(getTokenName()
+						+ " expected an integer before '='.  Found: " + hands
+						+ " in " + value);
 			}
-			String mult = cTok.nextToken();
-			float multiplier = 0.0f;
+			String multiplier = set.substring(equalLoc + 1);
+			float mult;
 			try
 			{
-				multiplier = Float.parseFloat(mult);
+				mult = Float.parseFloat(multiplier);
 			}
 			catch (NumberFormatException ex)
 			{
-				return false;
+				return new ParseResult.Fail(getTokenName()
+						+ " expected an float after '='.  Found: " + hands
+						+ " in " + value);
 			}
-			cat.addDamageMult(numHands, multiplier);
+			wc.addDamageMult(numHands, mult);
 		}
-		return true;
+		return ParseResult.SUCCESS;
+	}
+
+	@Override
+	protected char separator()
+	{
+		return ',';
+	}
+
+	public String[] unparse(LoadContext context, WieldCategory wc)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<WieldCategory> getTokenClass()
+	{
+		return WieldCategory.class;
 	}
 }

@@ -39,7 +39,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
@@ -136,7 +135,8 @@ public class WeaponhToken extends WeaponToken
 		eq.addType(Type.STANDARD);
 		eq.addType(Type.MONK);
 		eq.addType(Type.BLUDGEONING);
-		WieldCategory lightWC = SettingsHandler.getGame().getWieldCategory("Light");
+		WieldCategory lightWC = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(WieldCategory.class, "Light");
 		if (lightWC == null)
 		{
 			// Error?

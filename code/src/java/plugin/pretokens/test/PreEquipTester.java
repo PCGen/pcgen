@@ -80,7 +80,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements
 					final WieldCategory wCat =
 							eq.getEffectiveWieldCategory(character);
 					if ((wCat != null)
-						&& wCat.getName().equalsIgnoreCase(
+						&& wCat.getKeyName().equalsIgnoreCase(
 							targetEquip.substring(14)))
 					{
 						++runningTotal;

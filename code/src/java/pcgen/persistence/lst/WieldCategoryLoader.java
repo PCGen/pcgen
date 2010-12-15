@@ -1,13 +1,17 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.GameMode;
+import pcgen.core.QualifiedObject;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -16,14 +20,26 @@ import pcgen.util.Logging;
 public class WieldCategoryLoader
 {
 
+	private final PreParserFactory prereqParser;
+
 	/** Constructor */
 	public WieldCategoryLoader()
 	{
-		// Do Nothing
+		try
+		{
+			prereqParser = PreParserFactory.getInstance();
+		}
+		catch (PersistenceLayerException ple)
+		{
+			Logging.errorPrint("Error Initializing PreParserFactory");
+			Logging.errorPrint("  " + ple.getMessage(), ple);
+			throw new UnreachableError();
+		}
 	}
 
 	/**
 	 * Parse the WIELDCATEGORY line
+	 * 
 	 * @param gameMode
 	 * @param lstLine
 	 * @throws PersistenceLayerException
@@ -31,14 +47,14 @@ public class WieldCategoryLoader
 	public void parseLine(GameMode gameMode, String lstLine, URI source)
 		throws PersistenceLayerException
 	{
+		LoadContext context = gameMode.getModeContext();
+
 		StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		WieldCategory cat = null;
 		String preKey = null;
-		String preVal = null;
+		CDOMSingleRef<WieldCategory> preVal = null;
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(WieldCategoryLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -53,53 +69,63 @@ public class WieldCategoryLoader
 				// TODO Deal with Exception
 			}
 
-			WieldCategoryLstToken token =
-					(WieldCategoryLstToken) tokenMap.get(key);
-
 			if (key.equals("WIELDCATEGORY"))
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				cat = gameMode.getWieldCategory(value);
+				cat = context.ref.silentlyGetConstructedCDOMObject(
+						WieldCategory.class, value);
 
 				if (cat == null)
 				{
-					cat = new WieldCategory(value);
+					cat = new WieldCategory();
+					cat.setName(value);
 					gameMode.addWieldCategory(cat);
 				}
 			}
 			else if (colString.startsWith("PREVAR"))
 			{
+				//TODO ensure preKey is null
 				// a PREVARxx formula used to switch
 				// weapon categories based on size
 				preKey = colString;
 			}
 			else if (key.equals("SWITCH"))
 			{
+				//TODO ensure preVal is null
 				// If matches PRE, switch category to this
-				preVal = colString.substring(7);
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Wield Category", source, value);
-				if (!token.parse(cat, value))
-				{
-					Logging.errorPrint("Error parsing wield category:"
-						+ "miscinfo.lst from the " + gameMode.getName()
-						+ " Game Mode" + ':' + colString + "\"");
-				}
+				preVal = context.ref.getCDOMReference(WieldCategory.class,
+						colString.substring(7));
 			}
 			else
 			{
-				Logging.errorPrint("Invalid sub tag " + key
-					+ " on WIELDCATEGORY line");
-				throw new PersistenceLayerException("Invalid sub tag " + key
-					+ " on WIELDCATEGORY line");
+				final String value = colString.substring(idxColon + 1).trim();
+				if (context.processToken(cat, key, value))
+				{
+					context.commit();
+				}
+				else
+				{
+					context.rollback();
+					Logging.replayParsedMessages();
+				}
+				Logging.clearParseMessages();
 			}
 		}
+		//TODO Error checking if preVal w/o preKey, vice versa, etc.
 		if ((cat != null) && (preVal != null) && (preKey != null))
 		{
-			cat.addSwitchMap(preKey, preVal);
+			try
+			{
+				QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
+						preVal);
+				qo.addPrerequisite(prereqParser.parse(preKey));
+				cat.addCategorySwitch(qo);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint("Error parsing Prerequisite in " + source
+						+ ": " + preKey + "\n  " + ple.getMessage());
+			}
 		}
 	}
 }
