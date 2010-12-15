@@ -39,12 +39,6 @@ public class SizediffToken extends AbstractNonEmptyToken<WieldCategory>
 	{
 		try
 		{
-			int intValue = Integer.valueOf(value).intValue();
-			if (intValue < 0)
-			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= " + 0);
-			}
 			wc.setSizeDifference(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
