@@ -14,8 +14,9 @@ SKILL:Knowledge (Dungeoneering)	RANK:10
 SKILL:Knowledge (History)		RANK:10
 SKILL:Knowledge (The Planes)		RANK:10
 CLASS:Wizard	LEVEL:10	SUBCLASS:Wizard
-ABILITY:CATEGORY=Wizard Feat|Spell Focus(Enchantment)
-ABILITY:CATEGORY=Wizard Feat|Spell Focus(Illusion)
+ABILITY:CATEGORY=Wizard Feat|Empower Spell
+#ABILITY:CATEGORY=Wizard Feat|
+# Only one Feat in this entire list is a Valid Wizard Feat Selection. In this case the "default" monster is not built correctly from the publisher.
 SKILL:Concentration			RANK:7
 SKILL:Decipher Script			RANK:10
 SKILL:Knowledge (Dungeoneering)	RANK:10
@@ -30,7 +31,8 @@ FEAT:Great Fortitude
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Eschew Materials
-FEAT:Empower Spell
+FEAT:Spell Focus(Enchantment)
+FEAT:Spell Focus(Illusion)		FREE:YES
 FEAT:Spell Penetration
 SPELLS:SPELLBOOK=Prepared Spells|Daze|Detect Magic=2|Resistance|Alarm|Charm Person|Color Spray|Mage Armor|Magic Missile=2|Blur|Bull's Strength|Darkness|Fox's Cunning|See Invisibility|Dispel Magic|Displacement|Fly|Lightning Bolt|Invisibility (Greater)|Phantasmal Killer|Scrying|Stoneskin|Hold Monster|Lightning Bolt[Empower Spell]|Wall of Force
 
