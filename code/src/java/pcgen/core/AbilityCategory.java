@@ -722,27 +722,24 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		 * Pull in all the base objects... note this skips containsDirectly
 		 * because items haven't been resolved
 		 */
-		if (types != null)
+		for (final Ability ability : allObjects)
 		{
-			for (final Ability ability : allObjects)
+			boolean use = isAllAbilityTypes;
+			if (!use && (types != null))
 			{
-				boolean use = isAllAbilityTypes;
-				if (!use)
+				for (Type type : types)
 				{
-					for (Type type : types)
+					if (ability.isType(type.toString()))
 					{
-						if (ability.isType(type.toString()))
-						{
-							use = true;
-							break;
-						}
+						use = true;
+						break;
 					}
 				}
-				if (use)
-				{
-					added.add(ability);
-					rm.addObject(ability, ability.getKeyName());
-				}
+			}
+			if (use)
+			{
+				added.add(ability);
+				rm.addObject(ability, ability.getKeyName());
 			}
 		}
 		boolean returnGood = true;
