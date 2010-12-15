@@ -57,7 +57,7 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 				return new ParseResult.Fail("No = in part of token, found: "
 						+ set + " in " + value);
 			}
-			if (equalLoc != value.lastIndexOf('='))
+			if (equalLoc != set.lastIndexOf('='))
 			{
 				return new ParseResult.Fail(
 						"Too many = in part of token, found: " + set + " in "
