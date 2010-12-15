@@ -305,11 +305,11 @@ SKILL:Spot			RANK:10
 ABILITY:CATEGORY=Fighter Feat|Combat Reflexes
 FEAT:Stealthy
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Sword (Bastard))
-FEAT:Improved Critical(Sword (Bastard))
+FEAT:Improved Natural Attack(Bite)
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Improved Critical(Bite)
 FEAT:Improved Natural Armor
-ABILITY:CATEGORY=Fighter Feat|Improved Natural Attack(Bite)
+ABILITY:CATEGORY=Fighter Feat|Improved Critical(Sword (Bastard))
 FEAT:Weapon Focus(Bite)					FREE:YES
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped		EQMOD:MITHRAL_ARMR_LT.PLUS2A
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3S

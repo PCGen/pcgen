@@ -510,8 +510,6 @@ FEAT:Maximize Spell
 FEAT:Quicken Spell
 FEAT:Scribe Scroll
 FEAT:Spell Penetration
-#	FEAT:Tenacious Magic
-#COMMENT: Need a Choice made for Assigned Feats - SEE 'DATA-178'
 FEAT:Toughness
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 GEAR:Bracers of Armor +8	LOCATION:Equipped
