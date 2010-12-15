@@ -846,8 +846,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
 			{
-				Logging.errorPrint("Magical Key Change: " + second + " to "
-						+ keyName);
+				Logging.errorPrint(getReferenceDescription()
+						+ " Magical Key Change: " + second + " to " + keyName);
 				returnGood = false;
 			}
 		}

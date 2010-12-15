@@ -1,5 +1,6 @@
 /*
  * EquipSlotLoader.java
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -26,148 +27,31 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.net.URL;
-import java.util.Map;
 
-import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 /**
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
  * @version $Revision$
  **/
-public class LoadInfoLoader extends LstLineFileLoader
+public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 
 	/** Creates a new instance of LoadInfoLoader */
 	public LoadInfoLoader()
 	{
-		// Empty Constructor
+		super(LoadInfo.class);
 	}
 
 	@Override
-	public void loadLstFile(LoadContext context, URI source, String gameModeIn)
-		throws PersistenceLayerException
+	protected LoadInfo getLoadable(LoadContext context, String firstToken,
+			URI sourceURI) throws PersistenceLayerException
 	{
-		super.loadLstFile(context, source, gameModeIn);
-
-		if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplierCount() == 0)
-		{
-			Logging
-				.errorPrint("Warning: load.lst for game mode "
-					+ gameModeIn
-					+ " does not contain load category definitions. No weight categories will be available. "
-					+ "Please refer to the documentation for the Load List file.");
-		}
-		else if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
-			"LIGHT") == null
-			|| SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
-				"MEDIUM") == null
-			|| SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
-				"HEAVY") == null)
-		{
-			Logging
-				.errorPrint("Warning: load.lst for game mode "
-					+ gameModeIn
-					+ " does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. "
-					+ "Please refer to the documentation for the Load List file.");
-		}
-	}
-
-	/**
-	 * @see LstLineFileLoader#parseLine(URL, String)
-	 */
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-	{
-
-		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
-
-		final int idxColon = lstLine.indexOf(':');
-		String key = "";
-		try
-		{
-			key = lstLine.substring(0, idxColon);
-		}
-		catch (StringIndexOutOfBoundsException e)
-		{
-			// TODO Handle Exception
-		}
-		LoadInfoLstToken token = (LoadInfoLstToken) tokenMap.get(key);
-
-		if (token != null)
-		{
-			final String value = lstLine.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, loadInfo.toString(), sourceURI,
-				value);
-			if (!token.parse(loadInfo, value))
-			{
-				Logging.errorPrint("Error parsing ability " + loadInfo + ':'
-					+ "level.lst" + ':' + lstLine + "\"");
-			}
-		}
-		else
-		{
-			LstUtils
-				.deprecationWarning("Using deprecated style of load.lst.  Please consult the docs for information about the new style load.lst");
-			String[] sets = lstLine.split(",");
-			if (sets.length > 1)
-			{
-				String[] fields = sets[0].split("\\|");
-				if (fields.length == 2)
-				{
-					// size adjustments
-					for (int i = 0; i < sets.length; i++)
-					{
-						fields = sets[i].split("\\|");
-						if (fields.length != 2)
-						{
-							Logging
-								.errorPrint("LoadInfoLoader got unexpected line '"
-									+ lstLine + ". Line ignored.");
-							return;
-						}
-						String size = fields[0];
-						Float value = new Float(fields[1]);
-						loadInfo.addSizeAdjustment(size, value);
-					}
-				}
-				else
-				{
-					Logging.errorPrint("LoadInfoLoader got unexpected line '"
-						+ lstLine + ". Line ignored.");
-					return;
-				}
-			}
-			else
-			{
-				// load values
-				String[] values = lstLine.split("\t");
-				if (values.length == 2)
-				{
-					if ("x".equals(values[0]))
-					{
-						loadInfo.setLoadScoreMultiplier(new Float(values[1]));
-					}
-					else
-					{
-						loadInfo.addLoadScoreValue(Integer.parseInt(values[0]),
-							new Float(values[1]));
-					}
-
-				}
-				else
-				{
-					Logging.errorPrint("LoadInfoLoader got unexpected line '"
-						+ lstLine + ". Line ignored.");
-					return;
-				}
-			}
-		}
+		LoadInfo loadable = context.ref.constructNowIfNecessary(LoadInfo.class,
+				getGameMode());
+		processToken(context, loadable, firstToken, sourceURI);
+		return loadable;
 	}
 }

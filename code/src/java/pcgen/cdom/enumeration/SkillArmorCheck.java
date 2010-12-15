@@ -24,7 +24,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
-import pcgen.core.SystemCollections;
+import pcgen.core.SettingsHandler;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -115,19 +115,19 @@ public enum SkillArmorCheck
 			switch (load)
 			{
 			case LIGHT:
-				penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty(
-						"LIGHT");
+				penalty = SettingsHandler.getGame().getLoadInfo()
+						.getLoadCheckPenalty("LIGHT");
 				break;
 
 			case MEDIUM:
-				penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty(
-						"MEDIUM");
+				penalty = SettingsHandler.getGame().getLoadInfo()
+						.getLoadCheckPenalty("MEDIUM");
 				break;
 
 			case HEAVY:
 			case OVERLOAD:
-				penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty(
-						"HEAVY");
+				penalty = SettingsHandler.getGame().getLoadInfo()
+						.getLoadCheckPenalty("HEAVY");
 				break;
 
 			default:

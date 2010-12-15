@@ -4119,7 +4119,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private void updateTotalWeightLoadLimits()
 	{
 		List<String> tmp = new ArrayList<String>();
-		LoadInfo loadInfo = SystemCollections.getLoadInfo();
+		LoadInfo loadInfo = SettingsHandler.getGame().getLoadInfo();
 		for(Load load : Load.values()) {
 			String loadstring = load.toString();
 			if (loadInfo.getLoadMultiplier(loadstring) != null) {

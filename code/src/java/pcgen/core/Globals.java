@@ -2287,7 +2287,7 @@ public final class Globals
 		}
 		else
 		{
-			String formula = SystemCollections.getLoadInfo()
+			String formula = SettingsHandler.getGame().getLoadInfo()
 					.getLoadMoveFormula(load.toString());
 			if (formula.length() != 0)
 			{

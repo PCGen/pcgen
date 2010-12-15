@@ -1,5 +1,6 @@
 /*
  * LoadmultToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,32 +26,64 @@
  */
 package plugin.lsttokens.load;
 
+import java.math.BigDecimal;
+
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.lst.LoadInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>LoadmultToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class LoadmultToken implements LoadInfoLstToken
+public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
+		CDOMPrimaryToken<LoadInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "LOADMULT";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			LoadInfo info, String value)
 	{
 		try
 		{
-			loadInfo.setLoadScoreMultiplier(new Float(value));
+			BigDecimal mult = new BigDecimal(value);
+			if (mult.compareTo(BigDecimal.ZERO) <= 0)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " requires a positive load multiplier, found : "
+						+ value);
+			}
+			info.setLoadScoreMultiplier(mult);
+			return ParseResult.SUCCESS;
 		}
-		catch (Exception e)
+		catch (NumberFormatException nfe)
 		{
-			return false;
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 		}
-		return true;
 	}
+
+	public String[] unparse(LoadContext context, LoadInfo info)
+	{
+		BigDecimal mod = info.getLoadScoreMultiplier();
+		if ((mod == null) || mod.equals(BigDecimal.ZERO))
+		{
+			return null;
+		}
+		return new String[] { mod.toString() };
+	}
+
+	public Class<LoadInfo> getTokenClass()
+	{
+		return LoadInfo.class;
+	}
+
 }

@@ -1,5 +1,6 @@
 /*
  * ModifierToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -26,24 +27,46 @@
 package plugin.lsttokens.load;
 
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.lst.LoadInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * <code>ModifierToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class ModifierToken implements LoadInfoLstToken
+public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
+		CDOMPrimaryToken<LoadInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "MODIFIER";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			LoadInfo info, String value)
 	{
-		loadInfo.setLoadModifierFormula(value);
-		return true;
+		info.setLoadModifierFormula(value);
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, LoadInfo info)
+	{
+		String formula = info.getLoadModifierFormula();
+		if (formula == null)
+		{
+			return null;
+		}
+		return new String[] { formula };
+	}
+
+	public Class<LoadInfo> getTokenClass()
+	{
+		return LoadInfo.class;
 	}
 }

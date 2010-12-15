@@ -1,5 +1,6 @@
 /*
  * EncumbranceToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,66 +26,133 @@
  */
 package plugin.lsttokens.load;
 
-import java.util.StringTokenizer;
-
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.lst.LoadInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * <code>EncumbranceToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class EncumbranceToken implements LoadInfoLstToken
+public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
+		CDOMPrimaryToken<LoadInfo>, DeferredToken<LoadInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ENCUMBRANCE";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+			LoadInfo info, String value)
 	{
-		final StringTokenizer token = new StringTokenizer(value, "|");
-		if (token.countTokens() < 2 || token.countTokens() > 4)
+		String[] tokens = value.split("\\|");
+		int tokenCount = tokens.length;
+		if ((tokenCount != 2) && (tokenCount != 4))
 		{
+			return new ParseResult.Fail("Expected " + getTokenName()
+					+ " to have 2 or 4 arguments, found: " + value);
+		}
+
+		String multString = tokens[1];
+		int divLoc = multString.indexOf('/');
+		double mult;
+		if (divLoc == -1)
+		{
+			try
+			{
+				mult = Double.parseDouble(multString);
+			}
+			catch (NumberFormatException e)
+			{
+				return new ParseResult.Fail("Expected " + getTokenName()
+						+ " multiple to be a decimal (or a fraction), found: "
+						+ multString);
+			}
+		}
+		else
+		{
+			if (divLoc != multString.lastIndexOf('/'))
+			{
+				return new ParseResult.Fail("Expected " + getTokenName()
+						+ " multiple to be a decimal or a fraction, found: "
+						+ multString);
+			}
+			mult = Double.parseDouble(multString.substring(0, divLoc))
+					/ Double.parseDouble(multString.substring(divLoc + 1));
+		}
+
+		String moveFormula;
+		Integer checkPenalty;
+		if (tokenCount == 4)
+		{
+			moveFormula = tokens[2];
+			try
+			{
+				checkPenalty = Integer.valueOf(tokens[3]);
+			}
+			catch (NumberFormatException e)
+			{
+				return new ParseResult.Fail("Expected " + getTokenName()
+						+ " penalty to be an integer, found: " + tokens[3]);
+			}
+		}
+		else
+		{
+			moveFormula = "";
+			checkPenalty = Integer.valueOf(0);
+		}
+
+		info.addLoadMultiplier(tokens[0].toUpperCase(), new Float(mult),
+				moveFormula, checkPenalty);
+		return ParseResult.SUCCESS;
+	}
+
+	public String[] unparse(LoadContext context, LoadInfo info)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<LoadInfo> getTokenClass()
+	{
+		return LoadInfo.class;
+	}
+
+	public Class<LoadInfo> getDeferredTokenClass()
+	{
+		return LoadInfo.class;
+	}
+
+	public boolean process(LoadContext context, LoadInfo info)
+	{
+		if (info.getLoadMultiplierCount() == 0)
+		{
+			Logging
+					.errorPrint("Warning: load.lst for game mode "
+							+ info.getDisplayName()
+							+ " does not contain load category definitions. No weight categories will be available. "
+							+ "Please refer to the documentation for the Load List file. See: "
+							+ info.getSourceURI());
 			return false;
 		}
-
-		try
+		if ((info.getLoadMultiplier("LIGHT") == null)
+				|| (info.getLoadMultiplier("MEDIUM") == null)
+				|| (info.getLoadMultiplier("HEAVY") == null))
 		{
-			String moveFormula = "";
-			Integer checkPenalty = Integer.valueOf(0);
-			String type = token.nextToken();
-			String number = token.nextToken();
-
-			if (token.hasMoreTokens() && value.indexOf("||") == -1)
-			{
-				moveFormula = token.nextToken();
-			}
-
-			if (token.hasMoreTokens())
-			{
-				checkPenalty = Integer.valueOf(token.nextToken());
-			}
-
-			double mult = 0;
-			if (number.indexOf("/") == -1)
-			{
-				mult = Double.parseDouble(number);
-			}
-			else
-			{
-				final StringTokenizer numTok = new StringTokenizer(number, "/");
-				mult =
-						Double.parseDouble(numTok.nextToken())
-							/ Double.parseDouble(numTok.nextToken());
-			}
-			loadInfo.addLoadMultiplier(type.toUpperCase(), new Float(mult),
-				moveFormula, checkPenalty);
-		}
-		catch (Exception e)
-		{
+			Logging
+					.errorPrint("Warning: load.lst for game mode "
+							+ info.getDisplayName()
+							+ " does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. "
+							+ "Please refer to the documentation for the Load List file. See: "
+							+ info.getSourceURI());
 			return false;
 		}
 		return true;

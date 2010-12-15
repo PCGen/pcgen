@@ -16,13 +16,14 @@
  */
 package pcgen.cdom.facet;
 
+import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.core.SystemCollections;
 import pcgen.util.enumeration.Load;
 
 public class LoadFacet
@@ -42,22 +43,22 @@ public class LoadFacet
 		Float weight = totalWeightFacet.getTotalWeight(id);
 		double dbl = weight / getMaxLoad(id).doubleValue();
 
-		Float lightMult = SystemCollections.getLoadInfo().getLoadMultiplier(
-				"LIGHT");
+		Float lightMult = SettingsHandler.getGame().getLoadInfo()
+				.getLoadMultiplier("LIGHT");
 		if (lightMult != null && dbl <= lightMult.doubleValue())
 		{
 			return Load.LIGHT;
 		}
 
-		Float mediumMult = SystemCollections.getLoadInfo().getLoadMultiplier(
-				"MEDIUM");
+		Float mediumMult = SettingsHandler.getGame().getLoadInfo()
+				.getLoadMultiplier("MEDIUM");
 		if (mediumMult != null && dbl <= mediumMult.doubleValue())
 		{
 			return Load.MEDIUM;
 		}
 
-		Float heavyMult = SystemCollections.getLoadInfo().getLoadMultiplier(
-				"HEAVY");
+		Float heavyMult = SettingsHandler.getGame().getLoadInfo()
+				.getLoadMultiplier("HEAVY");
 		if (heavyMult != null && dbl <= heavyMult.doubleValue())
 		{
 			return Load.HEAVY;
@@ -75,11 +76,11 @@ public class LoadFacet
 	{
 		int loadScore = resolveFacet.resolve(id, LOADSCORE_FORMULA, "")
 				.intValue();
-		final Float loadValue = SystemCollections.getLoadInfo()
+		final BigDecimal loadValue = SettingsHandler.getGame().getLoadInfo()
 				.getLoadScoreValue(loadScore);
-		String formula = SystemCollections.getLoadInfo()
+		String formula = SettingsHandler.getGame().getLoadInfo()
 				.getLoadModifierFormula();
-		if (formula.length() != 0)
+		if (formula != null)
 		{
 			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"), Double
 					.toString(loadValue.doubleValue() * mult

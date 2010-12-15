@@ -17,10 +17,10 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
 
-public interface PostDeferredToken<T extends CDOMObject>
+public interface PostDeferredToken<T extends Loadable>
 {
 	public boolean process(LoadContext context, T obj);
 	

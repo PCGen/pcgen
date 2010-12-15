@@ -27,7 +27,7 @@ package pcgen.io.exporttoken;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SystemCollections;
+import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 
 /**
@@ -100,9 +100,8 @@ public class WeightToken extends Token
 	 */
 	public static double getLoadToken(String type, PlayerCharacter pc)
 	{
-		Float mult =
-				SystemCollections.getLoadInfo().getLoadMultiplier(
-					type.toUpperCase());
+		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(
+				type.toUpperCase());
 		if (mult != null)
 		{
 			return pc.getMaxLoad(mult).intValue();

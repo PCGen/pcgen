@@ -34,7 +34,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.core.character.EquipSlot;
-import pcgen.core.system.LoadInfo;
 
 /**
  * Contains lists of stuff loaded from system-wide lst files.
@@ -75,7 +74,6 @@ public class SystemCollections
 	private static final Map<String, List<String>> speechMap = new HashMap<String, List<String>>();
 	private static final Map<String, Set<String>> traitMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>();
-	private static final Map<String, LoadInfo> loadInfoMap = new HashMap<String, LoadInfo>();
 
 	/**
 	 * Make sure it doesn't get instantiated.
@@ -375,31 +373,6 @@ public class SystemCollections
 		{
 			equipSlotList.add(equipmentSlot);
 		}
-	}
-
-	/**
-	 * Get the Load (encumberance) info for the game mode
-	 * @param gameMode
-	 * @return the Load (encumberance) info for the game mode
-	 */
-	public static LoadInfo getLoadInfo(final String gameMode)
-	{
-		LoadInfo loadInfo = loadInfoMap.get(gameMode);
-		if (loadInfo == null)
-		{
-			loadInfo = new LoadInfo();
-			loadInfoMap.put(gameMode, loadInfo);
-		}
-		return loadInfo;
-	}
-
-	/**
-	 * Get the Load (encumberance) info for the game mode
-	 * @return the Load (encumberance) info for the game mode
-	 */
-	public static LoadInfo getLoadInfo()
-	{
-		return loadInfoMap.get(SettingsHandler.getGame().getName());
 	}
 
 	//GAMEMODELIST

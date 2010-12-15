@@ -97,7 +97,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 	}
 
 	protected T getLoadable(LoadContext context, String firstToken,
-			URI sourceURI)
+			URI sourceURI) throws PersistenceLayerException
 	{
 		String name = processFirstToken(firstToken);
 		if (name == null)

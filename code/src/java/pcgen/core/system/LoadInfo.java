@@ -1,5 +1,6 @@
 /*
- * LevelInfo.java
+ * LoadInfo.java
+ * Copyright (c) Thomas Parker, 2010.
  * Copyright 2002 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -25,84 +26,120 @@
  */
 package pcgen.core.system;
 
+import java.math.BigDecimal;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.SizeAdjustment;
+
 /**
- * <code>LoadInfo</code> describes the data associated with a loads and encumbrance
- *
+ * <code>LoadInfo</code> describes the data associated with a loads and
+ * encumbrance
+ * 
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
  * @version $Revision$
  */
-public class LoadInfo {
-	private SortedMap<Integer, Float> loadScoreList = new TreeMap<Integer, Float>();
-	private Float loadScoreMultiplier = new Float(0);
+public class LoadInfo implements Loadable
+{
+	private URI sourceURI;
+	private String loadInfoName;
+
+	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<CDOMSingleRef<SizeAdjustment>, BigDecimal>();
+	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<SizeAdjustment, BigDecimal>();
+
+	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<Integer, BigDecimal>();
+	private int minStrenghScoreWithLoad = 0;
+	private int maxStrengthScoreWithLoad = 0;
+
+	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
-	private Map<String, Float> sizeAdjustmentMap = new HashMap<String, Float>();
+
 	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
-	private int minScore = 0;
-	private int maxScore = 0;
-	private String modifyFormula = "";
+	private String modifyFormula;
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
 
 	/**
 	 * Set the load score multiplier
+	 * 
 	 * @param value
 	 */
-	public void setLoadScoreMultiplier(Float value)
+	public void setLoadScoreMultiplier(BigDecimal multiplier)
 	{
-		loadScoreMultiplier = value;
+		loadScoreMultiplier = multiplier;
+	}
+
+	public BigDecimal getLoadScoreMultiplier()
+	{
+		return loadScoreMultiplier;
 	}
 
 	/**
 	 * Add a load score/value pair
+	 * 
 	 * @param score
-	 * @param value
+	 * @param load
 	 */
-	public void addLoadScoreValue(int score, Float value)
+	public void addLoadScoreValue(int score, BigDecimal load)
 	{
-		loadScoreList.put(score, value);
-		if (score > maxScore)
+		strengthLoadMap.put(score, load);
+		if (score > maxStrengthScoreWithLoad)
 		{
-			maxScore = score;
+			maxStrengthScoreWithLoad = score;
 		}
-		if (score < minScore)
+		if (score < minStrenghScoreWithLoad)
 		{
-			minScore = score;
+			minStrenghScoreWithLoad = score;
 		}
 	}
 
 	/**
 	 * Get the value for a load score
+	 * 
 	 * @param score
 	 * @return the value for a load score
 	 */
-	public Float getLoadScoreValue(int score)
+	public BigDecimal getLoadScoreValue(int score)
 	{
-		if (score < minScore)
+		if (score < minStrenghScoreWithLoad)
 		{
-			return new Float(0);
+			return BigDecimal.ZERO;
 		}
-		else if (score > maxScore)
+		else if (score > maxStrengthScoreWithLoad)
 		{
 			if (getLoadMultiplierCount() == 1)
 			{
-				return getLoadScoreValue(minScore);
+				// TODO Isn't this a bug??
+				return getLoadScoreValue(minStrenghScoreWithLoad);
 			}
-			return new Float(loadScoreMultiplier.doubleValue() * getLoadScoreValue(score - loadMultStep).doubleValue());
+			return loadScoreMultiplier.multiply(getLoadScoreValue(score
+					- loadMultStep));
 		}
 		else
 		{
-			Float loadScore = loadScoreList.get(score);
+			BigDecimal loadScore = strengthLoadMap.get(score);
 			if (loadScore == null)
 			{
-				SortedMap<Integer, Float> headMap = loadScoreList.headMap(score);
+				SortedMap<Integer, BigDecimal> headMap = strengthLoadMap
+						.headMap(score);
 				/*
-				 * Assume headMap is populated, since minScore is tested, above
-				 *  - thpr Mar 14, 2007
+				 * Assume headMap is populated, since minScore is tested, above -
+				 * thpr Mar 14, 2007
 				 */
-				return loadScoreList.get(headMap.lastKey());
+				return strengthLoadMap.get(headMap.lastKey());
 			}
 			return loadScore;
 		}
@@ -110,24 +147,36 @@ public class LoadInfo {
 
 	/**
 	 * Add a size adjustment
+	 * 
 	 * @param size
-	 * @param value
+	 * @param multiplier
 	 */
-	public void addSizeAdjustment(String size, Float value)
+	public void addSizeAdjustment(CDOMSingleRef<SizeAdjustment> size,
+			BigDecimal multiplier)
 	{
-		sizeAdjustmentMap.put(size, value);
+		rawSizeMultiplierMap.put(size, multiplier);
+	}
+
+	public void resolveSizeAdjustmentMap()
+	{
+		for (Map.Entry<CDOMSingleRef<SizeAdjustment>, BigDecimal> me : rawSizeMultiplierMap
+				.entrySet())
+		{
+			sizeMultiplierMap.put(me.getKey().resolvesTo(), me.getValue());
+		}
 	}
 
 	/**
 	 * Get the size adjustment
+	 * 
 	 * @param size
 	 * @return the size adjustment
 	 */
-	public Float getSizeAdjustment(String size)
+	public BigDecimal getSizeAdjustment(SizeAdjustment size)
 	{
-		if (sizeAdjustmentMap.containsKey(size))
+		if (sizeMultiplierMap.containsKey(size))
 		{
-			return sizeAdjustmentMap.get(size);
+			return sizeMultiplierMap.get(size);
 		}
 		return null;
 	}
@@ -139,7 +188,8 @@ public class LoadInfo {
 	 * @param formula
 	 * @param checkPenalty
 	 */
-	public void addLoadMultiplier(String encumbranceType, Float value, String formula, Integer checkPenalty)
+	public void addLoadMultiplier(String encumbranceType, Float value,
+			String formula, Integer checkPenalty)
 	{
 		LoadMapEntry newEntry = new LoadMapEntry(value, formula, checkPenalty);
 		loadMultiplierMap.put(encumbranceType, newEntry);
@@ -226,9 +276,10 @@ public class LoadInfo {
 		 * @param argFormula
 		 * @param argPenalty
 		 */
-		public LoadMapEntry(Float argMultiplier, String argFormula,Integer argPenalty)
+		public LoadMapEntry(Float argMultiplier, String argFormula,
+				Integer argPenalty)
 		{
-			multiplier  = argMultiplier;
+			multiplier = argMultiplier;
 			moveFormula = argFormula;
 			checkPenalty = argPenalty;
 		}
@@ -264,6 +315,36 @@ public class LoadInfo {
 	public void setLoadMultStep(int step)
 	{
 		loadMultStep = step;
+	}
+
+	public String getDisplayName()
+	{
+		return loadInfoName;
+	}
+
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	public String getLSTformat()
+	{
+		return getDisplayName();
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
+	public void setName(String name)
+	{
+		loadInfoName = name;
 	}
 
 }

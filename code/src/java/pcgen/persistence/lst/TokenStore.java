@@ -58,9 +58,6 @@ public class TokenStore
 		//equipmentslots.lst
 		tokenTypeList.add(EquipSlotLstToken.class);
 
-		//load.lst
-		tokenTypeList.add(LoadInfoLstToken.class);
-
 		//install.lst
 		tokenTypeList.add(InstallLstToken.class);
 	}

@@ -52,6 +52,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.system.LoadInfo;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -2689,4 +2690,10 @@ public final class GameMode implements Comparable<Object>
 	/*
 	 * End SHOWTAB compatibility
 	 */
+
+	public LoadInfo getLoadInfo()
+	{
+		return getModeContext().ref.silentlyGetConstructedCDOMObject(
+				LoadInfo.class, getName());
+	}
 }

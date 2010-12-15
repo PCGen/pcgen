@@ -29,6 +29,7 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -1088,11 +1089,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			"Swim,10,Fly,30");
 		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
 		readyToRun();
-		LoadInfo li =
-				SystemCollections.getLoadInfo(SettingsHandler.getGame()
-					.getName());
-		li.addLoadScoreValue(0, new Float(100.0));
-		li.addLoadScoreValue(10, new Float(100.0));
+		GameMode game = SettingsHandler.getGame();
+		LoadInfo li = game.getModeContext().ref.constructNowIfNecessary(
+				LoadInfo.class, game.getName());
+		li.addLoadScoreValue(0, new BigDecimal(100.0));
+		li.addLoadScoreValue(10, new BigDecimal(100.0));
 		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
 
 		PlayerCharacter pc = getCharacter();

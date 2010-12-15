@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -27,6 +28,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
 
 /**
  * <code>SizeAdjustment</code>.
@@ -82,8 +84,13 @@ public final class SizeAdjustment extends PObject
 
 	public double getLoadMultiplier()
 	{
-		final Float value = SystemCollections.getLoadInfo().getSizeAdjustment(
-				getAbbreviation());
+		final BigDecimal value = SettingsHandler.getGame().getLoadInfo()
+				.getSizeAdjustment(this);
+		if ((value == null) && Logging.isDebugMode())
+		{
+			Logging.debugPrint("Unable to find Load Multiplier for Size: "
+					+ getAbbreviation());
+		}
 		return (value == null) ? 1.0 : value.doubleValue();
 	}
 }

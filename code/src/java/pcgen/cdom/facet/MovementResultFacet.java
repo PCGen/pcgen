@@ -31,7 +31,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.Race;
-import pcgen.core.SystemCollections;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
 
@@ -557,7 +557,7 @@ public class MovementResultFacet
 			}
 			else
 			{
-				String formula = SystemCollections.getLoadInfo()
+				String formula = SettingsHandler.getGame().getLoadInfo()
 						.getLoadMoveFormula(load.toString());
 				if (formula.length() != 0)
 				{

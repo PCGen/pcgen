@@ -56,7 +56,7 @@ public final class TokenLibrary
 
 	private static final List<DeferredToken<? extends Loadable>> deferredTokens = new ArrayList<DeferredToken<? extends Loadable>>();
 
-	private static final TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>> postDeferredTokens = new TreeMapToList<Integer, PostDeferredToken<? extends CDOMObject>>();
+	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> postDeferredTokens = new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
 
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
 
@@ -94,7 +94,7 @@ public final class TokenLibrary
 				deferredTokens);
 	}
 
-	public static Collection<PostDeferredToken<? extends CDOMObject>> getPostDeferredTokens()
+	public static Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
 	{
 		return postDeferredTokens.allValues();
 	}

@@ -1,5 +1,6 @@
 /*
  * SizemultToken.java
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,41 +26,106 @@
  */
 package plugin.lsttokens.load;
 
-import java.util.StringTokenizer;
+import java.math.BigDecimal;
 
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.lst.LoadInfoLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 
 /**
  * <code>SizemultToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
-public class SizemultToken implements LoadInfoLstToken
+public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
+		implements CDOMPrimaryToken<LoadInfo>, PostDeferredToken<LoadInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SIZEMULT";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value)
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+			LoadInfo info, String value)
 	{
-		final StringTokenizer token = new StringTokenizer(value, "|");
-		if (token.countTokens() != 2)
+		int pipeLoc = value.indexOf('|');
+		if (pipeLoc == -1)
 		{
-			return false;
+			return new ParseResult.Fail(getTokenName()
+					+ " requires a pipe, found : " + value);
 		}
+		if (pipeLoc != value.lastIndexOf('|'))
+		{
+			return new ParseResult.Fail(getTokenName()
+					+ " requires only one pipe, found : " + value);
+		}
+		String sizeName = value.substring(0, pipeLoc);
+		String multiplierString = value.substring(pipeLoc + 1);
+
+		CDOMSingleRef<SizeAdjustment> size = context.ref.getCDOMReference(
+				SizeAdjustment.class, sizeName);
+		/*
+		 * TODO Any way to handle the situation of the sizeName being
+		 * misspelled, etc? (old system did just first character)
+		 */
 		try
 		{
-			String size = token.nextToken().substring(0, 1);
-			Float num = new Float(token.nextToken());
-			loadInfo.addSizeAdjustment(size, num);
+			BigDecimal multiplier = new BigDecimal(multiplierString);
+			if (multiplier.compareTo(BigDecimal.ZERO) <= 0)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " requires a positive multiplier : "
+						+ multiplierString + " in value: " + value);
+			}
+			info.addSizeAdjustment(size, multiplier);
 		}
-		catch (Exception e)
+		catch (NumberFormatException nfe)
 		{
-			return false;
+			return new ParseResult.Fail(getTokenName()
+					+ " misunderstood multiplier : " + multiplierString
+					+ " in value: " + value);
 		}
+		return ParseResult.SUCCESS;
+	}
+
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	public String[] unparse(LoadContext context, LoadInfo info)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<LoadInfo> getTokenClass()
+	{
+		return LoadInfo.class;
+	}
+
+	public Class<LoadInfo> getDeferredTokenClass()
+	{
+		return LoadInfo.class;
+	}
+
+	public int getPriority()
+	{
+		return 0;
+	}
+
+	public boolean process(LoadContext context, LoadInfo info)
+	{
+		info.resolveSizeAdjustmentMap();
 		return true;
 	}
 }
