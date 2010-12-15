@@ -486,7 +486,7 @@ RACE:Colossus (Stone)	!PRERACE:1,%
 NAME:Colossus (Stone)
 STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Demilich Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demilich]
+STARTPACK:Demilich Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demilich]	BONUS:ABILITYPOOL|Tenacious Magic Choice|1
 RACE:Demilich	!PRERACE:1,%
 NAME:Demilich
 SKILL:Concentration		RANK:24
@@ -512,7 +512,6 @@ FEAT:Scribe Scroll
 FEAT:Spell Penetration
 #	FEAT:Tenacious Magic
 #COMMENT: Need a Choice made for Assigned Feats - SEE 'DATA-178'
-BONUS:ABILITYPOOL|Tenacious Magic Choice|1
 FEAT:Toughness
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 GEAR:Bracers of Armor +8	LOCATION:Equipped
