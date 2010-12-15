@@ -5901,20 +5901,6 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 		<!-- PointBuy tokens-->
-		<jar jarfile="${systemlstplugins.dir}/PointBuyLstToken-METHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/pointbuy/MethodToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/PointBuyLstToken-STAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/pointbuy/StatToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/PointBuyMethodLstToken-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5988,34 +5974,6 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 		<!-- StatsAndChecks tokens-->
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-ALIGNMENTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/AlignmentnameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-BONUSSPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/BonusspelllevelToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-CHECKNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/ChecknameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-STATNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/StatnameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<!-- StatsAndChecks: Alignment tokens-->
 		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">

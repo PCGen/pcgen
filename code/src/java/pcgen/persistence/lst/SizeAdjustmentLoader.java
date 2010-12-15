@@ -1,5 +1,6 @@
 /*
  * SizeAdjustmentLoader.java
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,97 +24,54 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.StringTokenizer;
 
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- *
- * @author  David Rice <david-pcgen@jcuz.com>
+ * 
+ * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
 public final class SizeAdjustmentLoader extends LstLineFileLoader
 {
+	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<SizeAdjustment>(
+			SizeAdjustment.class);
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM);
-
-		SizeAdjustment sa = new SizeAdjustment();
-		if (colToken.hasMoreTokens())
+		final int colonLoc = lstLine.indexOf(':');
+		if (colonLoc == -1)
 		{
-			String nameToken = colToken.nextToken();
-			final int colonLoc = nameToken.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ nameToken);
-				return;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ nameToken);
-				return;
-			}
-			String key = nameToken.substring(0, colonLoc);
-			if (!"SIZENAME".equals(key))
-			{
-				Logging
-						.errorPrint("Expected first token in SizeAdjustment to be SIZENAME");
-				return;
-			}
-			String value = (colonLoc == nameToken.length() - 1) ? null
-					: nameToken.substring(colonLoc + 1);
-			sa = context.ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, value);
-			if (sa == null)
-			{
-				sa = new SizeAdjustment();
-				sa.setName(value);
-				context.ref.importObject(sa);
-			}
+			Logging.errorPrint("Invalid Line - does not contain a colon: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
 		}
-
-		while (colToken.hasMoreTokens())
+		else if (colonLoc == 0)
 		{
-			final String token = colToken.nextToken().trim();
-			final int colonLoc = token.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
-				continue;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
-				continue;
-			}
-
-			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
-			if (context.processToken(sa, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+			Logging.errorPrint("Invalid Line - starts with a colon: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
 		}
+		else if (colonLoc == (lstLine.length() - 1))
+		{
+			Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine
+					+ "' in " + sourceURI);
+			return;
+		}
+		String key = lstLine.substring(0, colonLoc);
+		String value = lstLine.substring(colonLoc + 1);
+		if (!"SIZENAME".equals(key))
+		{
+			Logging.errorPrint("Invalid Line - "
+					+ "expected 'SIZENAME' key to start the line: '"
+					+ lstLine + "' in " + sourceURI);
+			return;
+		}
+		loader.parseLine(context, value, sourceURI);
 	}
 }

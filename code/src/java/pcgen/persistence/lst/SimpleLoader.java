@@ -46,7 +46,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		StringTokenizer colToken = new StringTokenizer(lstLine,
 				SystemLoader.TAB_DELIM);
 		String firstToken = colToken.nextToken().trim();
-		T loadable = getLoadable(context, firstToken, sourceURI);
+		Loadable loadable = getLoadable(context, firstToken, sourceURI);
 		if (loadable == null)
 		{
 			return;
@@ -59,8 +59,8 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		}
 	}
 
-	protected void processToken(LoadContext context, T loadable, String token,
-			URI sourceURI) throws PersistenceLayerException
+	protected void processToken(LoadContext context, Loadable loadable,
+			String token, URI sourceURI) throws PersistenceLayerException
 	{
 		int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -96,7 +96,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		Logging.clearParseMessages();
 	}
 
-	protected T getLoadable(LoadContext context, String firstToken,
+	protected Loadable getLoadable(LoadContext context, String firstToken,
 			URI sourceURI) throws PersistenceLayerException
 	{
 		String name = processFirstToken(firstToken);
@@ -104,7 +104,9 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		{
 			return null;
 		}
-		return context.ref.constructCDOMObject(loadClass, name);
+		T loadable = context.ref.constructCDOMObject(loadClass, name);
+		loadable.setSourceURI(sourceURI);
+		return loadable;
 	}
 
 	protected String processFirstToken(String token)

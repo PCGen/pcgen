@@ -1,6 +1,6 @@
 /*
  * StatsAndChecksLoader.java
- * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,60 +25,85 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.BonusSpellInfo;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
+import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * This class is a LstFileLoader that processes the statsandchecks.lst file,
- * handing its multiple types of content off to the appropriate loader
- * for Attributes, Bonus Spells, Checks, and Alignments.
- *
- * @author AD9C15
+ * This class is a LstFileLoader that processes the statsandchecks.lst file
  */
-public class StatsAndChecksLoader extends LstLineFileLoader
+public class StatsAndChecksLoader extends SimpleLoader<CDOMObject>
 {
-	/**
-	 * StatsAndChecksLoader Constructor.
-	 *
-	 */
+
 	public StatsAndChecksLoader()
 	{
-		super();
+		super(CDOMObject.class);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
-	 */
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+	protected Loadable getLoadable(LoadContext context, String token,
+			URI sourceURI)
 	{
-		final int idxColon = lstLine.indexOf(':');
-		if (idxColon < 0)
+		final int colonLoc = token.indexOf(':');
+		if (colonLoc == -1)
 		{
-			return;
+			Logging.errorPrint("Invalid Token - does not contain a colon: '"
+					+ token + "' in " + sourceURI);
+			return null;
 		}
-
-		final String key = lstLine.substring(0, idxColon);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(StatsAndChecksLstToken.class);
-		StatsAndChecksLstToken token =
-				(StatsAndChecksLstToken) tokenMap.get(key);
-		if (token != null)
+		else if (colonLoc == 0)
 		{
-			LstUtils
-				.deprecationCheck(token, key, sourceURI, lstLine);
-			if (!token.parse(context, lstLine, sourceURI))
-			{
-				Logging.errorPrint("Error parsing StatsAndChecks object: "
-					+ lstLine + '/' + sourceURI.toString());
-			}
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
+					+ "' in " + sourceURI);
+			return null;
+		}
+		else if (colonLoc == (token.length() - 1))
+		{
+			Logging.errorPrint("Invalid Token - "
+					+ "ends with a colon (no value): '" + token + "' in "
+					+ sourceURI);
+			return null;
+		}
+		String key = token.substring(0, colonLoc);
+		Class<? extends Loadable> loadClass;
+		if ("STATNAME".equals(key))
+		{
+			loadClass = PCStat.class;
+		}
+		else if ("CHECKNAME".equals(key))
+		{
+			loadClass = PCCheck.class;
+		}
+		else if ("BONUSSPELLLEVEL".equals(key))
+		{
+			loadClass = BonusSpellInfo.class;
+		}
+		else if ("ALIGNMENTNAME".equals(key))
+		{
+			loadClass = PCAlignment.class;
 		}
 		else
 		{
-			Logging.errorPrint("Illegal StatsAndChecks object: " + lstLine
-				+ '/' + sourceURI.toString());
+			Logging.errorPrint("Invalid Token '" + key
+					+ "' as the first key in " + sourceURI);
+			return null;
 		}
+		String name = token.substring(colonLoc + 1);
+		if ((name == null) || (name.length() == 0))
+		{
+			Logging.errorPrint("Invalid Token '" + key + "' had no value in "
+					+ sourceURI);
+			return null;
+		}
+		Loadable loadable = context.ref.constructCDOMObject(loadClass, name);
+		loadable.setSourceURI(sourceURI);
+		return loadable;
 	}
+
 }

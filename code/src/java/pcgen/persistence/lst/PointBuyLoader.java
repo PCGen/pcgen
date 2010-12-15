@@ -1,6 +1,6 @@
 /*
  * PointBuyLoader.java
- * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
+ * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,68 +25,75 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
 
-import pcgen.core.GameMode;
-import pcgen.core.SystemCollections;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
+import pcgen.core.PointBuyCost;
+import pcgen.core.PointBuyMethod;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
  * This class is a LstFileLoader used to load point-buy methods.
- *
- * <p>
- * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
- *
- * @author ad9c15
  */
-public class PointBuyLoader extends LstLineFileLoader
+public class PointBuyLoader extends SimpleLoader<CDOMObject>
 {
-	/**
-	 * Constructor for PointBuyLoader.
-	 */
+
 	public PointBuyLoader()
 	{
-		super();
+		super(CDOMObject.class);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
-	 */
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+	protected Loadable getLoadable(LoadContext context, String token,
+			URI sourceURI)
 	{
-		GameMode thisGameMode =
-				SystemCollections.getGameModeNamed(getGameMode());
-		final int idxColon = lstLine.indexOf(':');
-		if (idxColon < 0)
+		final int colonLoc = token.indexOf(':');
+		if (colonLoc == -1)
 		{
-			return;
+			Logging.errorPrint("Invalid Token - does not contain a colon: '"
+					+ token + "' in " + sourceURI);
+			return null;
 		}
-
-		final String key = lstLine.substring(0, idxColon);
-		final String value = lstLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PointBuyLstToken.class);
-		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
-		if (token != null)
+		else if (colonLoc == 0)
 		{
-			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURI,
-					value);
-			if (!token.parse(thisGameMode, value, sourceURI))
-			{
-				Logging.errorPrint("Error parsing point buy method "
-					+ thisGameMode.getName() + '/' + sourceURI.toString() + ':'
-					+ " \"" + lstLine + "\"");
-			}
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
+					+ "' in " + sourceURI);
+			return null;
+		}
+		else if (colonLoc == (token.length() - 1))
+		{
+			Logging.errorPrint("Invalid Token - "
+					+ "ends with a colon (no value): '" + token + "' in "
+					+ sourceURI);
+			return null;
+		}
+		String key = token.substring(0, colonLoc);
+		Class<? extends Loadable> loadClass;
+		if ("METHOD".equals(key))
+		{
+			loadClass = PointBuyMethod.class;
+		}
+		else if ("STAT".equals(key))
+		{
+			loadClass = PointBuyCost.class;
 		}
 		else
 		{
-			Logging.errorPrint("Illegal point buy method info "
-				+ thisGameMode.getName() + '/' + sourceURI.toString() + ':'
-				+ " \"" + lstLine + "\"");
+			Logging.errorPrint("Invalid Token '" + key
+					+ "' as the first key in " + sourceURI);
+			return null;
 		}
+		String name = token.substring(colonLoc + 1);
+		if ((name == null) || (name.length() == 0))
+		{
+			Logging.errorPrint("Invalid Token '" + key + "' had no value in "
+					+ sourceURI);
+			return null;
+		}
+		Loadable loadable = context.ref.constructCDOMObject(loadClass, name);
+		loadable.setSourceURI(sourceURI);
+		return loadable;
 	}
+
 }

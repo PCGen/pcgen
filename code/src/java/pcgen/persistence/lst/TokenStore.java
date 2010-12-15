@@ -43,12 +43,6 @@ public class TokenStore
 		tokenTypeList.add(GameModeLstToken.class);
 		tokenTypeList.add(WieldCategoryLstToken.class);
 
-		//statsandchecks.lst
-		tokenTypeList.add(StatsAndChecksLstToken.class);
-
-		//pointbuymethod.lst
-		tokenTypeList.add(PointBuyLstToken.class);
-
 		//level.lst
 		tokenTypeList.add(LevelLstToken.class);
 
