@@ -28,7 +28,7 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.character.WieldCategory;
+import pcgen.core.SettingsHandler;
 
 /**
  * <code>PreEquipSecondaryTest</code> tests that the PREEQUIPSECONDARY tag is
@@ -158,12 +158,12 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		// Test 3.5 style
 		longsword.put(ObjectKey.SIZE, medium);
 		longsword.put(ObjectKey.BASESIZE, medium);
-		longsword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
+		longsword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("OneHanded"));
 
 		assertFalse("Weapon is OneHanded", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.put(ObjectKey.WIELD, WieldCategory.findByName("Light"));
+		longsword.put(ObjectKey.WIELD, SettingsHandler.getGame().getWieldCategory("Light"));
 
 		assertTrue("Weapon is Light", PrereqHandler.passes(prereq, character,
 			null));

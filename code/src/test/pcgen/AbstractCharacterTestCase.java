@@ -147,6 +147,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		SettingsHandler.setGame("3.5");
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		LstSystemLoader.addDefaultWieldCategories(SettingsHandler.getGame());
 		
 		ref.importObject(str);
 		ref.importObject(dex);

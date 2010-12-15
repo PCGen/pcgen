@@ -2644,6 +2644,11 @@ public final class GameMode implements Comparable<Object>
 		return lInfo;
 	}
 
+	public Collection<WieldCategory> getAllWieldCategories()
+	{
+		return Collections.unmodifiableList(wieldCategoryList);
+	}
+
 	public String getTabName(Tab tab)
 	{
 		TabInfo ti = getContext().ref.silentlyGetConstructedCDOMObject(

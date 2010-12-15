@@ -17,12 +17,17 @@
  */
 package plugin.lsttokens.equipment;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
@@ -34,6 +39,14 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	static WieldToken token = new WieldToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
 			Equipment.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		GameMode game = SettingsHandler.getGame();
+		LstSystemLoader.addDefaultWieldCategories(game);
+	}
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -125,7 +138,7 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		primaryProf.put(getObjectKey(), WieldCategory.findByName("OneHanded"));
+		primaryProf.put(getObjectKey(), SettingsHandler.getGame().getWieldCategory("OneHanded"));
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
 				"OneHanded");
 	}

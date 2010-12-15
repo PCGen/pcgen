@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -43,8 +44,8 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 	public ParseResult parseToken(LoadContext context, Equipment eq,
 		String value)
 	{
-		WieldCategory wc = WieldCategory.findByName(value);
-		if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
+		WieldCategory wc = SettingsHandler.getGame().getWieldCategory(value);
+		if (wc == null)
 		{
 			return new ParseResult.Fail("In " + getTokenName()
 					+ " unable to find WieldCategory for " + value);

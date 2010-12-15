@@ -71,13 +71,6 @@ public final class WieldCategory
 	 */
 	private Map<Integer, Float> damageMultipliers = new HashMap<Integer, Float>();
 
-	private static WieldCategory DEFAULT_TOOSMALL = null;
-	private static WieldCategory DEFAULT_LIGHT = null;
-	private static WieldCategory DEFAULT_ONEHANDED = null;
-	private static WieldCategory DEFAULT_TWOHANDED = null;
-	private static WieldCategory DEFAULT_TOOLARGE = null;
-	public static WieldCategory DEFAULT_UNUSABLE = null;
-
 	/**
 	 * New constructor
 	 * @param aName The name of the category (e.g. Light)
@@ -234,7 +227,8 @@ public final class WieldCategory
 				if (PrereqHandler.passes(prereq, eq, aPC))
 				{
 					final String mappedCat = switchMap.get(aKey);
-					WieldCategory wCat = findByName(mappedCat);
+					WieldCategory wCat = SettingsHandler.getGame()
+							.getWieldCategory(mappedCat);
 					if (wCat != null)
 					{
 						pcWCat = wCat;
@@ -263,7 +257,7 @@ public final class WieldCategory
 
 		if (newWC != null)
 		{
-			return findByName(newWC);
+			return SettingsHandler.getGame().getWieldCategory(newWC);
 		}
 
 		return this;
@@ -303,131 +297,5 @@ public final class WieldCategory
 			return 0.0f;
 		}
 		return ret.floatValue();
-	}
-
-	/**
-	 * Finds a WieldCategory object by name.  If a Game mode does not define
-	 * wield categories a default set will be used.
-	 * @param aCategory The wield category name to find
-	 * @return The WieldCategory matching the name or the "Unusable" category.
-	 */
-	public static WieldCategory findByName(final String aCategory)
-	{
-		WieldCategory wCat = SettingsHandler.getGame().getWieldCategory(
-			aCategory);
-		if (wCat == null)
-		{
-			// Handle Default WieldCategories
-			if ("Light".equals(aCategory))
-			{
-				if (DEFAULT_LIGHT == null)
-				{
-					DEFAULT_LIGHT = new WieldCategory("Light");
-					DEFAULT_LIGHT.setHands(1);
-					DEFAULT_LIGHT.setFinessable(true);
-					DEFAULT_LIGHT.addDamageMult(1, 1.0f);
-					DEFAULT_LIGHT.addDamageMult(2, 1.0f);
-					DEFAULT_LIGHT.addSwitchMap(
-						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "TooSmall");
-					DEFAULT_LIGHT.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "OneHanded");
-					DEFAULT_LIGHT.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2", "TwoHanded");
-					DEFAULT_LIGHT.addSwitchMap(
-						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3", "TooLarge");
-					DEFAULT_LIGHT.setWCStep(1, "OneHanded");
-					DEFAULT_LIGHT.setWCStep(2, "TwoHanded");
-				}
-				wCat = DEFAULT_LIGHT;
-			}
-			else if ("OneHanded".equals(aCategory))
-			{
-				if (DEFAULT_ONEHANDED == null)
-				{
-					DEFAULT_ONEHANDED = new WieldCategory("OneHanded");
-					DEFAULT_ONEHANDED.setHands(1);
-					DEFAULT_ONEHANDED.setFinessable(false);
-					DEFAULT_ONEHANDED.addDamageMult(1, 1.0f);
-					DEFAULT_ONEHANDED.addDamageMult(2, 1.5f);
-					DEFAULT_ONEHANDED.addSwitchMap(
-						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "TooSmall");
-					DEFAULT_ONEHANDED.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "Light");
-					DEFAULT_ONEHANDED.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TwoHanded");
-					DEFAULT_ONEHANDED.addSwitchMap(
-						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2", "TooLarge");
-					DEFAULT_ONEHANDED.setWCStep( -1, "Light");
-					DEFAULT_ONEHANDED.setWCStep(1, "TwoHanded");
-				}
-				wCat = DEFAULT_ONEHANDED;
-			}
-			else if ("TwoHanded".equals(aCategory))
-			{
-				if (DEFAULT_TWOHANDED == null)
-				{
-					DEFAULT_TWOHANDED = new WieldCategory("TwoHanded");
-					DEFAULT_TWOHANDED.setFinessable(false);
-					DEFAULT_TWOHANDED.setHands(2);
-					DEFAULT_TWOHANDED.addDamageMult(2, 1.5f);
-					DEFAULT_TWOHANDED.addSwitchMap(
-						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3", "TooSmall");
-					DEFAULT_TWOHANDED.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "Light");
-					DEFAULT_TWOHANDED.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "OneHanded");
-					DEFAULT_TWOHANDED.addSwitchMap(
-						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TooLarge");
-					DEFAULT_TWOHANDED.setWCStep( -2, "Light");
-					DEFAULT_TWOHANDED.setWCStep( -1, "OneHanded");
-				}
-				wCat = DEFAULT_TWOHANDED;
-			}
-			else if ("TooSmall".equals(aCategory))
-			{
-				if (DEFAULT_TOOSMALL == null)
-				{
-					DEFAULT_TOOSMALL = new WieldCategory("TooSmall");
-					DEFAULT_TOOSMALL.setFinessable(false);
-					DEFAULT_TOOSMALL.setHands(2);
-					DEFAULT_TOOSMALL.addDamageMult(2, 1.5f);
-					DEFAULT_TOOSMALL.addSwitchMap(
-						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3", "TooSmall");
-					DEFAULT_TOOSMALL.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "Light");
-					DEFAULT_TOOSMALL.addSwitchMap(
-						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "OneHanded");
-					DEFAULT_TOOSMALL.addSwitchMap(
-						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TooLarge");
-					DEFAULT_TOOSMALL.setWCStep( -2, "Light");
-					DEFAULT_TOOSMALL.setWCStep( -1, "OneHanded");
-				}
-				wCat = DEFAULT_TOOSMALL;
-			}
-			else if ("TooLarge".equals(aCategory))
-			{
-				if (DEFAULT_TOOLARGE == null)
-				{
-					DEFAULT_TOOLARGE = new WieldCategory("TooLarge");
-					DEFAULT_TOOLARGE.setFinessable(false);
-					DEFAULT_TOOLARGE.setHands(999);
-					DEFAULT_TOOLARGE.setWCStep( -3, "Light");
-					DEFAULT_TOOLARGE.setWCStep( -2, "OneHanded");
-					DEFAULT_TOOLARGE.setWCStep( -1, "TwoHanded");
-					DEFAULT_TOOLARGE.setWCStep(0, "TwoHanded");
-				}
-				wCat = DEFAULT_TOOLARGE;
-			}
-			else
-			{
-				if (DEFAULT_UNUSABLE == null)
-				{
-					DEFAULT_UNUSABLE = new WieldCategory("Unusable");
-					DEFAULT_UNUSABLE.setHands(999);
-				}
-				wCat = DEFAULT_UNUSABLE;
-			}
-		}
-		return wCat;
 	}
 }

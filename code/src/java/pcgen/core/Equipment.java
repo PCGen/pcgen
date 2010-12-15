@@ -4857,8 +4857,8 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		WieldCategory wc = WieldCategory.findByName("Light");
-		return wc.equals(getEffectiveWieldCategory(pc));
+		WieldCategory wc = SettingsHandler.getGame().getWieldCategory("Light");
+		return (wc != null) && wc.equals(getEffectiveWieldCategory(pc));
 	}
 
 	/**
@@ -4960,13 +4960,13 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			if (sizeDiff > 1) {
-				wCat = WieldCategory.findByName("TooLarge");
+				wCat = SettingsHandler.getGame().getWieldCategory("TooLarge");
 			} else if (sizeDiff == 1) {
-				wCat = WieldCategory.findByName("TwoHanded");
+				wCat = SettingsHandler.getGame().getWieldCategory("TwoHanded");
 			} else if (sizeDiff == 0) {
-				wCat = WieldCategory.findByName("OneHanded");
+				wCat = SettingsHandler.getGame().getWieldCategory("OneHanded");
 			} else {
-				wCat = WieldCategory.findByName("Light");
+				wCat = SettingsHandler.getGame().getWieldCategory("Light");
 			}
 		}
 

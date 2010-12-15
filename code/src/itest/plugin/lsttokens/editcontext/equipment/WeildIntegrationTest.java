@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.editcontext.equipment;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
@@ -34,6 +39,14 @@ public class WeildIntegrationTest extends
 	static WieldToken token = new WieldToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
 			Equipment.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		GameMode game = SettingsHandler.getGame();
+		LstSystemLoader.addDefaultWieldCategories(game);
+	}
 
 	@Override
 	public Class<Equipment> getCDOMClass()

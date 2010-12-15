@@ -84,6 +84,7 @@ import pcgen.core.UnitSet;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
 import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.character.WieldCategory;
 import pcgen.gui.pcGenGUI;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
@@ -1322,18 +1323,169 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				loadGameModeLstFile(context, bioLoader, gmName, gameFile, "bio"
 						+ File.separator + "biosettings.lst");
 			}
+			addDefaultWieldCategories(gm);
 		}
 
 		SystemCollections.sortGameModeList();
 	}
 
+	public static void addDefaultWieldCategories(GameMode mode)
+	{
+		Collection<WieldCategory> categories = mode.getAllWieldCategories();
+
+		WieldCategory light = null;
+		WieldCategory twoHanded = null;
+		WieldCategory oneHanded = null;
+		WieldCategory tooLarge = null;
+		WieldCategory tooSmall = null;
+
+		for (WieldCategory wc : categories)
+		{
+			String name = wc.getName();
+			if ("Light".equalsIgnoreCase(name))
+			{
+				light = wc;
+			}
+			if ("TwoHanded".equalsIgnoreCase(name))
+			{
+				twoHanded = wc;
+			}
+			if ("OneHanded".equalsIgnoreCase(name))
+			{
+				oneHanded = wc;
+			}
+			if ("TooLarge".equalsIgnoreCase(name))
+			{
+				tooLarge = wc;
+			}
+			if ("TooSmall".equalsIgnoreCase(name))
+			{
+				tooSmall = wc;
+			}
+		}
+		boolean buildLight = false;
+		boolean buildTwoHanded = false;
+		boolean buildOneHanded = false;
+		boolean buildTooLarge = false;
+		boolean buildTooSmall = false;
+		if (light == null)
+		{
+			light = new WieldCategory("Light");
+			mode.addWieldCategory(light);
+			buildLight = true;
+		}
+		if (twoHanded == null)
+		{
+			twoHanded = new WieldCategory("TwoHanded");
+			mode.addWieldCategory(twoHanded);
+			buildTwoHanded = true;
+		}
+		if (oneHanded == null)
+		{
+			oneHanded = new WieldCategory("OneHanded");
+			mode.addWieldCategory(oneHanded);
+			buildOneHanded = true;
+		}
+		if (tooLarge == null)
+		{
+			tooLarge = new WieldCategory("TooLarge");
+			mode.addWieldCategory(tooLarge);
+			buildTooLarge = true;
+		}
+		if (tooSmall == null)
+		{
+			tooSmall = new WieldCategory("TooSmall");
+			mode.addWieldCategory(tooSmall);
+			buildTooSmall = true;
+		}
+
+		if (buildLight)
+		{
+			light.setHands(1);
+			light.setFinessable(true);
+			light.addDamageMult(1, 1.0f);
+			light.addDamageMult(2, 1.0f);
+			light.addSwitchMap("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1",
+					"TooSmall");
+			light.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1",
+					"OneHanded");
+			light.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2",
+					"TwoHanded");
+			light.addSwitchMap("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3",
+					"TooLarge");
+			light.setWCStep(1, "OneHanded");
+			light.setWCStep(2, "TwoHanded");
+		}
+		if (buildTwoHanded)
+		{
+			twoHanded.setFinessable(false);
+			twoHanded.setHands(2);
+			twoHanded.addDamageMult(2, 1.5f);
+			twoHanded.addSwitchMap("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3",
+					"TooSmall");
+			twoHanded.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2",
+					"Light");
+			twoHanded.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1",
+					"OneHanded");
+			twoHanded.addSwitchMap("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1",
+					"TooLarge");
+			twoHanded.setWCStep(-2, "Light");
+			twoHanded.setWCStep(-1, "OneHanded");
+		}
+		if (buildOneHanded)
+		{
+			oneHanded.setHands(1);
+			oneHanded.setFinessable(false);
+			oneHanded.addDamageMult(1, 1.0f);
+			oneHanded.addDamageMult(2, 1.5f);
+			oneHanded.addSwitchMap("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2",
+					"TooSmall");
+			oneHanded.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1",
+					"Light");
+			oneHanded.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1",
+					"TwoHanded");
+			oneHanded.addSwitchMap("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2",
+					"TooLarge");
+			oneHanded.setWCStep(-1, "Light");
+			oneHanded.setWCStep(1, "TwoHanded");
+		}
+		if (buildTooLarge)
+		{
+			tooLarge.setFinessable(false);
+			tooLarge.setHands(999);
+			tooLarge.setWCStep(-3, "Light");
+			tooLarge.setWCStep(-2, "OneHanded");
+			tooLarge.setWCStep(-1, "TwoHanded");
+			tooLarge.setWCStep(0, "TwoHanded");
+		}
+		if (buildTooSmall)
+		{
+			tooSmall.setFinessable(false);
+			tooSmall.setHands(2);
+			tooSmall.addDamageMult(2, 1.5f);
+			tooSmall.addSwitchMap("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3",
+					"TooSmall");
+			tooSmall.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2",
+					"Light");
+			tooSmall.addSwitchMap("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1",
+					"OneHanded");
+			tooSmall.addSwitchMap("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1",
+					"TooLarge");
+			tooSmall.setWCStep(-2, "Light");
+			tooSmall.setWCStep(-1, "OneHanded");
+		}
+
+	}
+
 	/**
-	 * Load the purchase mode/point buy definitions from either the new 
-	 * location under the custom sources folder, or in the old location
-	 * with the game mode.
-	 *   
-	 * @param gameFile The location of the game mode directory.
-	 * @param gmName The name of the game mode being loaded.
+	 * Load the purchase mode/point buy definitions from either the new location
+	 * under the custom sources folder, or in the old location with the game
+	 * mode.
+	 * 
+	 * @param gameFile
+	 *            The location of the game mode directory.
+	 * @param gmName
+	 *            The name of the game mode being loaded.
 	 */
 	private void loadPointBuyFile(LoadContext context, String gameFile, String gmName)
 	{
