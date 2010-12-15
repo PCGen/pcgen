@@ -29,10 +29,8 @@ import pcgen.cdom.base.Loadable;
  *            The Class of object this SimpleReferenceManufacturer can
  *            manufacture
  */
-public class SimpleReferenceManufacturer<T extends Loadable>
-		extends
-		AbstractReferenceManufacturer<T, CDOMSimpleSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
-		implements ReferenceManufacturer<T>
+public class SimpleReferenceManufacturer<T extends Loadable> extends
+		AbstractReferenceManufacturer<T> implements ReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
@@ -42,97 +40,8 @@ public class SimpleReferenceManufacturer<T extends Loadable>
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
 	 */
-	public SimpleReferenceManufacturer(Class<T> objClass)
+	public SimpleReferenceManufacturer(ManufacturableFactory<T> factory)
 	{
-		super(objClass);
-	}
-
-	/**
-	 * Returns a CDOMSimpleSingleRef for the given identifier as defined by the
-	 * Class provided when this SimpleReferenceManufacturer was constructed.
-	 * This is designed to be used ONLY by the AbstractReferenceManufacturer
-	 * template Class and should not be called by other objects.
-	 * 
-	 * @param key
-	 *            The identifier for which a SimpleReferenceManufacturer should
-	 *            be returned.
-	 * @return a CDOMSimpleSingleRef for the given identifier as defined by the
-	 *         Class provided when this SimpleReferenceManufacturer was
-	 *         constructed.
-	 */
-	@Override
-	protected CDOMSimpleSingleRef<T> getLocalReference(String key)
-	{
-		return new CDOMSimpleSingleRef<T>(getReferenceClass(), key);
-	}
-
-	/**
-	 * Returns a CDOMTypeRef for the given types as defined by the Class
-	 * provided when this SimpleReferenceManufacturer was constructed. This is
-	 * designed to be used ONLY by the AbstractReferenceManufacturer template
-	 * Class and should not be called by other objects.
-	 * 
-	 * @param types
-	 *            An array of the types of objects to which the returned
-	 *            CDOMReference will refer.
-	 * @return A CDOMTypeRef for the given types as defined by the Class
-	 *         provided when this SimpleReferenceManufacturer was constructed.
-	 */
-	@Override
-	protected CDOMTypeRef<T> getLocalTypeReference(String[] types)
-	{
-		return new CDOMTypeRef<T>(getReferenceClass(), types);
-	}
-
-	/**
-	 * Returns a CDOMAllRef for all objects of the Class provided when this
-	 * SimpleReferenceManufacturer was constructed. This is designed to be used
-	 * ONLY by the AbstractReferenceManufacturer template Class and should not
-	 * be called by other objects.
-	 * 
-	 * @return A CDOMAllRef for all objects of the Class provided when this
-	 *         SimpleReferenceManufacturer was constructed.
-	 */
-	@Override
-	protected CDOMAllRef<T> getLocalAllReference()
-	{
-		return new CDOMAllRef<T>(getReferenceClass());
-	}
-
-	/**
-	 * Returns a description of the type of Class this
-	 * SimpleReferenceManufacturer constructs or references. This is designed to
-	 * be used ONLY by the AbstractReferenceManufacturer template Class and
-	 * should not be called by other objects.
-	 * 
-	 * @return A String description of the Class that this
-	 *         SimpleReferenceManufacturer constructs or references.
-	 */
-	@Override
-	public String getReferenceDescription()
-	{
-		return getReferenceClass().getSimpleName();
-	}
-
-	/**
-	 * Returns true if the given String (an identifier) is permitted by the
-	 * given UnconstructedValidator. Will always return false if the
-	 * UnconstructedValidator is null.
-	 * 
-	 * @param validator
-	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (an identifier) should be permitted as an unconstructed
-	 *            reference.
-	 * @param key
-	 *            The identifier to be checked to see if the
-	 *            UnconstructedValidator will permit it as an unconstructed
-	 *            reference.
-	 * @return true if the given String (an identifier) is permitted by the
-	 *         given UnconstructedValidator; false otherwise.
-	 */
-	@Override
-	protected boolean validate(UnconstructedValidator validator, String key)
-	{
-		return validator != null && validator.allow(getReferenceClass(), key);
+		super(factory);
 	}
 }

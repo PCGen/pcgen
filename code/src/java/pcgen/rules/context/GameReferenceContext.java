@@ -27,15 +27,17 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.reference.CategorizedManufacturer;
+import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.cdom.reference.TransparentCategorizedFactory;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
-import pcgen.cdom.reference.TransparentReferenceManufacturer;
+import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, TransparentReferenceManufacturer<?>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<?>>();
+	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
 
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>>();
 
@@ -48,20 +50,19 @@ public class GameReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
-		TransparentReferenceManufacturer<T> mfg = (TransparentReferenceManufacturer<T>) map
-				.get(cl);
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
 		if (mfg == null)
 		{
-			mfg = new TransparentReferenceManufacturer<T>(cl);
+			mfg = new SimpleReferenceManufacturer<T>(new TransparentFactory<T>(cl));
 			map.put(cl, mfg);
 		}
 		return mfg;
 	}
 
 	@Override
-	public Collection<TransparentReferenceManufacturer<?>> getAllManufacturers()
+	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<TransparentReferenceManufacturer<?>> returnList = new ArrayList<TransparentReferenceManufacturer<?>>(
+		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
 				map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{
@@ -70,14 +71,14 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new TransparentCategorizedReferenceManufacturer<T>(cl, catClass, cat);
+			mfg = new TransparentCategorizedReferenceManufacturer<T>(new TransparentCategorizedFactory<T>(cl, cat), catClass, cat);
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;
@@ -91,7 +92,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return true;
 	}
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		Class<? extends Category<T>> catClass = (Class<? extends Category<T>>) cat.getClass();
@@ -122,4 +123,12 @@ public class GameReferenceContext extends AbstractReferenceContext
 	{
 		return false;
 	}
+
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+			ManufacturableFactory<T> factory)
+	{
+		throw new UnsupportedOperationException(
+				"GameReferenceContext cannot provide a factory based manufacturer");
+	}
+
 }

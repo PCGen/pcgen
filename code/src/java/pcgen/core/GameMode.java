@@ -38,6 +38,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
@@ -49,7 +50,7 @@ import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
-import pcgen.cdom.reference.TransparentReferenceManufacturer;
+import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -2420,8 +2421,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
 		ReferenceContext referenceContext = getRefContext();
-		for (TransparentReferenceManufacturer<?> rm : gameRefContext
-				.getAllManufacturers())
+		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
 		}
@@ -2442,7 +2442,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	public static <T extends Loadable> void resolveReferenceManufacturer(
-			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
+			ReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T> mfg;
@@ -2457,7 +2457,11 @@ public final class GameMode implements Comparable<Object>
 		{
 			mfg = rc.getManufacturer(c);
 		}
-		rm.resolveUsing(mfg);
+		for (CDOMReference<T> ref : rm.getAllReferences())
+		{
+			((TransparentReference<T>) ref).resolve(mfg);
+		}
+		rm.injectConstructed(mfg);
 	}
 
 	public LoadContext getContext()

@@ -22,14 +22,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.reference.CategorizedManufacturer;
-import pcgen.cdom.reference.CategorizedReferenceManufacturer;
+import pcgen.cdom.reference.CDOMFactory;
+import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
@@ -40,7 +39,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
 
-	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedManufacturer<?>>();
+	private final Map<ManufacturableFactory<?>, ReferenceManufacturer<?>> mfgmap = new HashMap<ManufacturableFactory<?>, ReferenceManufacturer<?>>();
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -55,7 +54,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 				.get(cl);
 		if (mfg == null)
 		{
-			mfg = new SimpleReferenceManufacturer<T>(cl);
+			mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
 			map.put(cl, mfg);
 		}
 		return mfg;
@@ -66,37 +65,40 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	{
 		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
 				map.values());
-		for (Class<?> cl : catmap.getKeySet())
-		{
-			returnList.addAll(catmap.values(cl));
-		}
+		returnList.addAll(mfgmap.values());
 		return returnList;
 	}
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		CategorizedManufacturer<T> mfg = (CategorizedManufacturer<T>) catmap
-				.get(cl, cat);
-		if (mfg == null)
+		if (cat == null)
 		{
-			CategorizedManufacturer<T> parentMfg = null;
-			if (cat != null)
+			ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map
+					.get(cl);
+			if (mfg == null)
 			{
-				String parent = cat.getParentCategoryName();
-				if (parent != null && !parent.equals(cat.getKeyName()))
-				{
-					Class<? extends Category<T>> catClass = (Class<? extends Category<T>>) cat.getClass();
-					parentMfg = getManufacturer(cl, catClass, parent);
-				}
+				mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
+				map.put(cl, mfg);
 			}
-			mfg = new CategorizedReferenceManufacturer<T>(cl, cat, parentMfg);
-			catmap.put(cl, cat, mfg);
+			return mfg;
 		}
-		return mfg;
+		return getManufacturer(cat);
 	}
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+			ManufacturableFactory<T> factory)
+	{
+		ReferenceManufacturer<T> rm = (ReferenceManufacturer<T>) mfgmap.get(factory);
+		if (rm == null)
+		{
+			rm = new SimpleReferenceManufacturer<T>(factory);
+			mfgmap.put(factory, rm);
+		}
+		return rm;
+	}
+
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String category)
 	{
 		Category<T> cat = silentlyGetConstructedCDOMObject(catClass, category);
@@ -106,8 +108,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 					+ " Category " + category);
 			return null;
 		}
-		CategorizedManufacturer manufacturer = getManufacturer(cl, cat);
-		return manufacturer;
+		return getManufacturer(cl, cat);
 	}
 
 	/**
@@ -153,7 +154,11 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	protected <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		return catmap.containsKey(cl, cat);
+		if (cat == null)
+		{
+			return map.containsKey(cl);
+		}
+		return mfgmap.containsKey(cat);
 	}
 
 }

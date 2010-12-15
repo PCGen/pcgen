@@ -611,8 +611,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		context.ref.buildDerivedObjects();
 		referenceAllCategories(context);
 		context.resolveDeferredTokens();
-		context.ref.validate(new LoadValidator(aSelectedCampaignsList));
-		context.resolveReferences();
+		LoadValidator validator = new LoadValidator(aSelectedCampaignsList);
+		context.ref.validate(validator);
+		context.resolveReferences(validator);
 		context.resolvePostDeferredTokens();
 		for (Equipment eq : context.ref
 				.getConstructedCDOMObjects(Equipment.class))

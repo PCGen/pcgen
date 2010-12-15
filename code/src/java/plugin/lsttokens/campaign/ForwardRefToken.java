@@ -27,7 +27,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CDOMTransparentCategorizedSingleRef;
+import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -119,10 +119,10 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			String s = StringPClassUtil.getStringFor(cl);
 			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = s;
-			if (ref instanceof CDOMTransparentCategorizedSingleRef)
+			if (ref instanceof CategorizedCDOMReference)
 			{
-				String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-						.getCDOMCategory();
+				String cat = ((CategorizedCDOMReference<?>) ref)
+						.getLSTCategory();
 				if (Constants.FEAT_CATEGORY.equals(cat))
 				{
 					key = Constants.FEAT_CATEGORY;

@@ -24,20 +24,35 @@
 package pcgen.core;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DisplayLocation;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMAllRef;
+import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CDOMTypeRef;
+import pcgen.cdom.reference.CategorizedCreator;
+import pcgen.cdom.reference.ManufacturableFactory;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
@@ -56,7 +71,8 @@ import pcgen.util.enumeration.Visibility;
  * 
  * @since 5.11.1
  */
-public class AbilityCategory implements Category<Ability>, Loadable
+public class AbilityCategory implements Category<Ability>, Loadable,
+		ManufacturableFactory<Ability>, CategorizedCreator<Ability>
 {
 	private URI sourceURI;
 
@@ -509,22 +525,6 @@ public class AbilityCategory implements Category<Ability>, Loadable
 		return parentCategory.resolvesTo();
 	}
 
-	public boolean containsDirectly(Ability ability)
-	{
-		if ( containedAbilities == null )
-		{
-			return false;
-		}
-		for (CDOMSingleRef<Ability> ref : containedAbilities)
-		{
-			if (ref.contains(ability))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	/**
 	 * Return the collection of references for abilities that will be directly
 	 * included in the category.
@@ -580,8 +580,204 @@ public class AbilityCategory implements Category<Ability>, Loadable
 		return false;
 	}
 
-	public String getParentCategoryName()
+	public CDOMGroupRef<Ability> getAllReference()
 	{
-		return parentCategory.getLSTformat(false);
+		return new CDOMAllRef<Ability>(Ability.class);
+	}
+
+	public CDOMGroupRef<Ability> getTypeReference(String... types)
+	{
+		return new CDOMTypeRef<Ability>(Ability.class, types);
+	}
+
+	public CDOMSingleRef<Ability> getReference(String ident)
+	{
+		return new CDOMCategorizedSingleRef<Ability>(Ability.class, this,
+				ident);
+	}
+
+	public Ability newInstance()
+	{
+		Ability a = new Ability();
+		a.setCDOMCategory(this);
+		return a;
+	}
+
+	public boolean isMember(Ability item)
+	{
+		if (item == null)
+		{
+			return false;
+		}
+		Category<Ability> itemCategory = item.getCDOMCategory();
+		return this.equals(itemCategory)
+				|| getParentCategory().equals(itemCategory);
+	}
+
+	public Class<Ability> getReferenceClass()
+	{
+		return Ability.class;
+	}
+
+	public String getReferenceDescription()
+	{
+		return "Ability Category " + this.getKeyName();
+	}
+
+	public boolean resolve(ReferenceManufacturer<Ability> rm, String name,
+			CDOMSingleRef<Ability> reference, UnconstructedValidator validator)
+	{
+		if ((containedAbilities != null)
+				&& (containedAbilities.contains(reference)))
+		{
+			return true;
+		}
+		return doResolve(rm, name, reference, validator);
+	}
+
+	private boolean doResolve(ReferenceManufacturer<Ability> rm, String name,
+			CDOMSingleRef<Ability> reference, UnconstructedValidator validator)
+	{
+		boolean returnGood = true;
+		Ability activeObj = rm.getObject(name);
+		if (activeObj == null)
+		{
+			List<String> choices = new ArrayList<String>();
+			String reduced = AbilityUtilities.getUndecoratedName(name, choices);
+			activeObj = rm.getObject(reduced);
+			if (activeObj == null)
+			{
+				// Really not constructed...
+				// Wasn't constructed!
+				if (name.charAt(0) != '*' && !report(validator, name))
+				{
+					Logging.errorPrint("Unconstructed Reference: "
+							+ getReferenceDescription() + " " + name);
+					rm.fireUnconstuctedEvent(reference);
+					returnGood = false;
+				}
+				activeObj = rm.buildObject(name);
+			}
+			else
+			{
+				// Successful on reduced
+				reference.addResolution(activeObj);
+				if (choices.size() == 1)
+				{
+					reference.setChoice(choices.get(0));
+				}
+				else if (choices.size() > 1)
+				{
+					Logging.errorPrint("Invalid use of multiple items "
+							+ "in parenthesis (comma prohibited) in "
+							+ activeObj + " " + choices.toString());
+					returnGood = false;
+				}
+			}
+		}
+		else
+		{
+			reference.addResolution(activeObj);
+			if (reference.requiresTarget()
+					&& activeObj.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				ChooseInformation<?> ci = activeObj.get(ObjectKey.CHOOSE_INFO);
+				// Is MULT:YES.... and not CHOOSE:NOCHOICE
+				// Null check (unfortunately) required to protect vs. bad data
+				// No error message though, that is caught by MULT token
+				if ((ci != null) && !"No Choice".equals(ci.getName()))
+				{
+					Logging.errorPrint("Invalid use of MULT:YES Ability "
+							+ activeObj
+							+ " where a target [parens] is required");
+					Logging.errorPrint("PLEASE TAKE NOTE: "
+							+ "If usage locations are reported, "
+							+ "not all usages are necessary illegal "
+							+ "(at least one is)");
+					rm.fireUnconstuctedEvent(reference);
+					returnGood = false;
+				}
+			}
+		}
+		return returnGood;
+	}
+
+	private boolean report(UnconstructedValidator validator, String key)
+	{
+		return validator != null
+				&& validator.allow(getReferenceClass(), this, key);
+	}
+
+	public boolean populate(ReferenceManufacturer<Ability> parentCrm,
+			ReferenceManufacturer<Ability> rm, UnconstructedValidator validator)
+	{
+		if (parentCrm == null)
+		{
+			return true;
+		}
+		Collection<Ability> allObjects = parentCrm.getAllObjects();
+		// Don't add things twice or we'll get dupe messages :)
+		Set<Ability> added = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		/*
+		 * Pull in all the base objects... note this skips containsDirectly
+		 * because items haven't been resolved
+		 */
+		if (types != null)
+		{
+			for (final Ability ability : allObjects)
+			{
+				boolean use = isAllAbilityTypes;
+				if (!use)
+				{
+					for (Type type : types)
+					{
+						if (ability.isType(type.toString()))
+						{
+							use = true;
+							break;
+						}
+					}
+				}
+				if (use)
+				{
+					added.add(ability);
+					rm.addObject(ability, ability.getKeyName());
+				}
+			}
+		}
+		boolean returnGood = true;
+		if (containedAbilities != null)
+		{
+			for (CDOMSingleRef<Ability> ref : containedAbilities)
+			{
+				boolean res = doResolve(parentCrm, ref.getLSTformat(false), ref,
+						validator);
+				if (res)
+				{
+					Ability ability = ref.resolvesTo();
+					if (added.add(ability))
+					{
+						rm.addObject(ability, ability.getKeyName());
+					}
+				}
+				returnGood &= res;
+			}
+		}
+		return returnGood;
+	}
+
+	public ManufacturableFactory<Ability> getParent()
+	{
+		AbilityCategory parent = parentCategory.resolvesTo();
+		if (this.equals(parent))
+		{
+			return null;
+		}
+		return parent;
+	}
+
+	public Category<Ability> getCategory()
+	{
+		return this;
 	}
 }

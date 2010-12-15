@@ -17,9 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Set;
-
-import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.ManufacturableFactory;
 
 /**
  * Category identifies an object and is used for establishing unique identity of
@@ -31,7 +29,8 @@ import pcgen.cdom.enumeration.Type;
  * @param <T>
  *            The Class of object being identified by this Category
  */
-public interface Category<T extends CategorizedCDOMObject<T>> extends Loadable
+public interface Category<T extends Loadable & CategorizedCDOMObject<T>>
+		extends Loadable, ManufacturableFactory<T>
 {
 
 	/**
@@ -58,8 +57,4 @@ public interface Category<T extends CategorizedCDOMObject<T>> extends Loadable
 	 * 
 	 */
 	String getDisplayName();
-
-	Set<Type> getTypes();
-
-	String getParentCategoryName();
 }

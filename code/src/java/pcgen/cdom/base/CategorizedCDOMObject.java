@@ -27,7 +27,7 @@ package pcgen.cdom.base;
  * @param <T>
  *            The Class of object being identified
  */
-public interface CategorizedCDOMObject<T extends CategorizedCDOMObject<T>>
+public interface CategorizedCDOMObject<T extends Loadable & CategorizedCDOMObject<T>>
 		extends PrereqObject
 {
 	/**

@@ -21,26 +21,21 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.lang.CaseInsensitiveString;
-import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
-import pcgen.core.AbilityUtilities;
-import pcgen.core.PCClass;
 import pcgen.util.Logging;
 
 /**
@@ -66,17 +61,13 @@ import pcgen.util.Logging;
  *            The Class of All Reference that this AbstractReferenceManufacturer
  *            will produce
  */
-public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
+public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		implements ReferenceManufacturer<T>
 {
 
 	private boolean isResolved = false;
 
-	/**
-	 * The class of object this AbstractReferenceManufacturer constructs or
-	 * builds references to.
-	 */
-	private final Class<T> refClass;
+	private final ManufacturableFactory<T> factory;
 
 	/**
 	 * The "ALL" reference, if it is ever referenced. This ensures that only one
@@ -84,7 +75,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * reference is requested a second time). This also stores the reference so
 	 * that it can be appropriately resolved when resolveReferences() is called.
 	 */
-	private ART allRef;
+	private CDOMGroupRef<T> allRef;
 
 	/**
 	 * Storage for "TYPE" references. This ensures that only one "TYPE"
@@ -100,7 +91,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * simplicity [and due to lack of user presentation of this value] this sort
 	 * does not correct for internationalization)
 	 */
-	private final Map<FixedStringList, WeakReference<TRT>> typeReferences = new TreeMap<FixedStringList, WeakReference<TRT>>(
+	private final Map<FixedStringList, WeakReference<CDOMGroupRef<T>>> typeReferences = new TreeMap<FixedStringList, WeakReference<CDOMGroupRef<T>>>(
 			FixedStringList.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -110,7 +101,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * also stores the reference so that it can be appropriately resolved when
 	 * resolveReferences() is called.
 	 */
-	private final Map<String, WeakReference<SRT>> referenced = new TreeMap<String, WeakReference<SRT>>(
+	private final Map<String, WeakReference<CDOMSingleRef<T>>> referenced = new TreeMap<String, WeakReference<CDOMSingleRef<T>>>(
 			String.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -156,17 +147,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	private final List<WeakReference<T>> manufactured = new ArrayList<WeakReference<T>>();
 
 	/**
-	 * Contains a list of unconstructed objects (those that are caught during
-	 * validate as not having been built. These are queued in order to avoid
-	 * building a "real" object, but instead knowing inside of "resolve
-	 * references" when it is safe to populate the reference with an otherwise
-	 * "empty" object. This insertion of a reference is done to avoid null
-	 * pointer exceptions at runtime (and to avoid constant checking of whether
-	 * a CDOMSingleRef resolves to null or a real object)
-	 */
-	private final Set<String> unconstructed = new HashSet<String>();
-
-	/**
 	 * The EventListenerList which contains the listeners to this
 	 * AbstractReferenceManufacturer.
 	 */
@@ -183,30 +163,14 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 *             public, zero argument constructor
 	 * 
 	 */
-	public AbstractReferenceManufacturer(Class<T> objClass)
+	public AbstractReferenceManufacturer(ManufacturableFactory<T> fac)
 	{
-		if (objClass == null)
+		if (fac == null)
 		{
-			throw new IllegalArgumentException("Reference Class for "
+			throw new IllegalArgumentException("Factory for "
 					+ getClass().getName() + " cannot be null");
 		}
-		try
-		{
-			objClass.newInstance();
-		}
-		catch (InstantiationException e)
-		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a zero-argument constructor", e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
-		}
-		refClass = objClass;
+		factory = fac;
 	}
 
 	/**
@@ -261,18 +225,18 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		}
 		Arrays.sort(types);
 		FixedStringList typeList = new FixedStringList(types);
-		WeakReference<TRT> ref = typeReferences.get(typeList);
+		WeakReference<CDOMGroupRef<T>> ref = typeReferences.get(typeList);
 		if (ref != null)
 		{
-			TRT trt = ref.get();
+			CDOMGroupRef<T> trt = ref.get();
 			if (trt != null)
 			{
 				return trt;
 			}
 		}
 		// Didn't find the appropriate key, create new
-		TRT cgr = getLocalTypeReference(types);
-		typeReferences.put(typeList, new WeakReference<TRT>(cgr));
+		CDOMGroupRef<T> cgr = factory.getTypeReference(types);
+		typeReferences.put(typeList, new WeakReference<CDOMGroupRef<T>>(cgr));
 		return cgr;
 	}
 
@@ -288,7 +252,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	{
 		if (allRef == null)
 		{
-			allRef = getLocalAllReference();
+			allRef = factory.getAllReference();
 		}
 		return allRef;
 	}
@@ -301,7 +265,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 */
 	public Class<T> getReferenceClass()
 	{
-		return refClass;
+		return factory.getReferenceClass();
 	}
 
 	/**
@@ -318,50 +282,50 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * references that have been resolved and those which have not been
 	 * resolved.
 	 */
-	public void resolveReferences(ReferenceResolver<T> resolver)
+	public boolean resolveReferences(UnconstructedValidator validator)
 	{
-		resolvePrimitiveReferences(resolver);
-		resolveGroupReferences();
-		for (WeakReference<TRT> ref : typeReferences.values())
+		boolean resolutionSuccessful = resolvePrimitiveReferences(validator);
+		resolutionSuccessful &= resolveGroupReferences();
+		for (WeakReference<CDOMGroupRef<T>> ref : typeReferences.values())
 		{
-			TRT trt = ref.get();
+			CDOMGroupRef<T> trt = ref.get();
 			if (trt != null && trt.getObjectCount() == 0)
 			{
-				Logging.errorPrint("Error: No " + getReferenceDescription()
-						+ " objects of " + trt.getLSTformat(false)
+				Logging.errorPrint("Error: No "
+						+ factory.getReferenceDescription() + " objects of "
+						+ trt.getLSTformat(false)
 						+ " were loaded but were referred to in the data");
 				fireUnconstuctedEvent(trt);
+				resolutionSuccessful = false;
 			}
 		}
 		isResolved = true;
+		return resolutionSuccessful;
 	}
 
-	private void resolvePrimitiveReferences(ReferenceResolver<T> resolver)
+	private boolean resolvePrimitiveReferences(UnconstructedValidator validator)
 	{
-		for (Entry<String, WeakReference<SRT>> me1 : referenced.entrySet())
+		boolean resolutionSuccessful = true;
+		for (Entry<String, WeakReference<CDOMSingleRef<T>>> me1 : referenced.entrySet())
 		{
-			SRT value = me1.getValue().get();
+			CDOMSingleRef<T> value = me1.getValue().get();
 			if (value != null)
 			{
-				resolver.resolve(this, me1.getKey(), value);
+				resolutionSuccessful &= factory.resolve(this, me1.getKey(), value, validator);
 			}
 		}
+		return resolutionSuccessful;
 	}
 
-	public boolean containsUnconstructed(String reduced)
+	private boolean resolveGroupReferences()
 	{
-		return unconstructed.contains(reduced);
-	}
-
-	private void resolveGroupReferences()
-	{
-		for (T obj : getAllResolvableObjects())
+		for (T obj : getAllObjects())
 		{
 			if (allRef != null)
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<FixedStringList, WeakReference<TRT>> me : typeReferences
+			for (Map.Entry<FixedStringList, WeakReference<CDOMGroupRef<T>>> me : typeReferences
 					.entrySet())
 			{
 				boolean typeOkay = true;
@@ -375,7 +339,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 				}
 				if (typeOkay)
 				{
-					TRT trt = me.getValue().get();
+					CDOMGroupRef<T> trt = me.getValue().get();
 					if (trt != null)
 					{
 						trt.addResolution(obj);
@@ -385,15 +349,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		}
 		if (allRef != null && allRef.getObjectCount() == 0)
 		{
-			Logging.errorPrint("Error: No " + getReferenceDescription()
+			Logging.errorPrint("Error: No " + factory.getReferenceDescription()
 					+ " objects were loaded but were referred to in the data");
 			fireUnconstuctedEvent(allRef);
+			return false;
 		}
-	}
-
-	protected Collection<T> getAllResolvableObjects()
-	{
-		return getAllObjects();
+		return true;
 	}
 
 	/**
@@ -417,10 +378,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 */
 	public void addObject(T item, String key)
 	{
-		if (!refClass.isInstance(item))
+		if (!factory.isMember(item))
 		{
 			throw new IllegalArgumentException("Attempted to register a "
-					+ item.getClass().getName() + " in " + refClass.getName()
+					+ item.getClass().getName() + " in " + factory.getReferenceDescription()
 					+ " ReferenceSupport");
 		}
 		T current = active.get(key);
@@ -480,7 +441,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 			if (duplicates.containsListFor(new CaseInsensitiveString(key)))
 			{
 				Logging.errorPrint("Reference to Constructed "
-						+ refClass.getSimpleName() + " " + key
+						+ factory.getReferenceDescription() + " " + key
 						+ " is ambiguous");
 			}
 			return po;
@@ -536,24 +497,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		{
 			throw new IllegalArgumentException("Cannot build empty name");
 		}
-		try
-		{
-			T obj = refClass.newInstance();
-			obj.setName(key);
-			return obj;
-		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError(
-					"Class was tested at AbstractReferenceManufacturer "
-							+ "construction to ensure it had a public, zero-argument constructor");
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new UnreachableError(
-					"Class was tested at AbstractReferenceManufacturer "
-							+ "construction to ensure it had a public, zero-argument constructor");
-		}
+		T obj = factory.newInstance();
+		obj.setName(key);
+		return obj;
 	}
 
 	/**
@@ -591,7 +537,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 */
 	public boolean forgetObject(T item) throws InternalError
 	{
-		if (!refClass.isInstance(item))
+		if (!factory.isMember(item))
 		{
 			throw new IllegalArgumentException(
 					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
@@ -730,34 +676,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		{
 			throw new IllegalArgumentException(val);
 		}
-		if (refClass.equals(PCClass.class))
-		{
-			if (val.startsWith("CLASS"))
-			{
-				throw new IllegalArgumentException(val);
-			}
-			else if (val.startsWith("SUB"))
-			{
-				throw new IllegalArgumentException(val);
-			}
-			else
-			{
-				try
-				{
-					Integer.parseInt(val);
-					throw new IllegalArgumentException(val);
-				}
-				catch (NumberFormatException nfe)
-				{
-					// Want this!
-				}
-			}
-		}
 
-		WeakReference<SRT> wr = referenced.get(val);
+		WeakReference<CDOMSingleRef<T>> wr = referenced.get(val);
 		if (wr != null)
 		{
-			SRT ref = wr.get();
+			CDOMSingleRef<T> ref = wr.get();
 			if (ref != null)
 			{
 				return ref;
@@ -777,50 +700,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		}
 		else
 		{
-			SRT lr = getLocalReference(val);
-			referenced.put(val, new WeakReference<SRT>(lr));
+			CDOMSingleRef<T> lr = factory.getReference(val);
+			referenced.put(val, new WeakReference<CDOMSingleRef<T>>(lr));
 			ref = lr;
 		}
 		return ref;
 	}
-
-	/**
-	 * Returns a CDOMSingleRef for the given identifier as defined by the class
-	 * that extends AbstractReferenceManufacturer. This is designed to be used
-	 * ONLY within AbstractReferenceManufacturer and should not be called by
-	 * other objects.
-	 * 
-	 * @param ident
-	 *            The identifier for which a CDOMTransparentSingleRef should be
-	 *            returned.
-	 * @return a CDOMSingleRef for the given identifier as defined by the class
-	 *         that extends AbstractReferenceManufacturer.
-	 */
-	protected abstract SRT getLocalReference(String ident);
-
-	/**
-	 * Returns a CDOMGroupRef for the given types as defined by the class that
-	 * extends AbstractReferenceManufacturer. This is designed to be used ONLY
-	 * within AbstractReferenceManufacturer and should not be called by other
-	 * objects.
-	 * 
-	 * @param types
-	 *            An array of the types of objects to which the returned
-	 *            CDOMReference will refer.
-	 * @return A CDOMGroupRef for the given types as defined by the class that
-	 *         extends AbstractReferenceManufacturer.
-	 */
-	protected abstract TRT getLocalTypeReference(String[] types);
-
-	/**
-	 * Returns a CDOMGroupRef for all objects of the class that extends
-	 * AbstractReferenceManufacturer. This is designed to be used ONLY within
-	 * AbstractReferenceManufacturer and should not be called by other objects.
-	 * 
-	 * @return A CDOMGroupRef for all objects of the class that extends
-	 *         AbstractReferenceManufacturer.
-	 */
-	protected abstract ART getLocalAllReference();
 
 	/**
 	 * Returns true if this AbstractReferenceManufacturer is "valid". A "valid"
@@ -830,9 +715,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * it's KEY (as defined by CDOMObject.getKeyName()) matches the identifier
 	 * used to store the object in the AbstractReferenceManufacturer.
 	 * 
-	 * (2) Any identifier to which a reference was made has a constructed or
-	 * imported object with that identifier present in the
-	 * AbstractReferenceManufacturer.
+	 * (2) All objects stored in the ReferenceManufacturer have valid names
+	 * (do not use illegal characters in the names)
 	 * 
 	 * (3) No two objects in the AbstractReferenceManufacturer have a matching
 	 * identifier.
@@ -854,7 +738,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		}
 		returnGood &= validateNames();
 		returnGood &= validateActive();
-		returnGood &= validateUnconstructed(validator);
 		return returnGood;
 	}
 
@@ -878,35 +761,35 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 			if (key.indexOf(',') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a comma "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf('|') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a pipe "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf('\\') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a backslash "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf(':') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a colon "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf(';') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a semicolon "
 						+ "(prohibited character in a key)");
 			}
@@ -920,70 +803,33 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 			if (key.indexOf('%') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a percent sign "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf('*') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains an asterisk "
 						+ "(prohibited character in a key)");
 			}
 			if (key.indexOf('=') != -1)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains an equals sign "
 						+ "(prohibited character in a key)");
 			}
 			if ((key.indexOf('[') != -1) || (key.indexOf(']') != -1))
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
-						+ getReferenceDescription() + " with KEY: " + key
+						+ factory.getReferenceDescription() + " with KEY: " + key
 						+ " which contains a bracket  "
 						+ "(prohibited character in a key)");
 			}
 		}
 		return true;
-	}
-
-	private boolean validateUnconstructed(UnconstructedValidator validator)
-	{
-		boolean returnGood = true;
-		List<String> throwaway = new ArrayList<String>();
-		for (Iterator<Entry<String, WeakReference<SRT>>> it = referenced
-				.entrySet().iterator(); it.hasNext();)
-		{
-			Entry<String, WeakReference<SRT>> me = it.next();
-			SRT value = me.getValue().get();
-			if (value == null)
-			{
-				it.remove();
-			}
-			else
-			{
-				String s = me.getKey();
-				if (!active.containsKey(s) && !deferred.contains(s))
-				{
-					String undec = AbilityUtilities.getUndecoratedName(s,
-							throwaway);
-					if (!active.containsKey(undec) && !deferred.contains(undec))
-					{
-						if (s.charAt(0) != '*' && !validate(validator, s))
-						{
-							Logging.errorPrint("Unconstructed Reference: "
-									+ getReferenceDescription() + " " + s);
-							fireUnconstuctedEvent(value);
-							returnGood = false;
-						}
-						unconstructed.add(s);
-					}
-				}
-			}
-		}
-		return returnGood;
 	}
 
 	private boolean validateActive()
@@ -1044,7 +890,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 			}
 			if (duplicates.containsListFor(second))
 			{
-				Logging.errorPrint("More than one " + refClass.getSimpleName()
+				Logging.errorPrint("More than one " + factory.getReferenceDescription()
 						+ " with key/name " + second + " was built");
 				List<T> dupes = duplicates.getListFor(second);
 				StringBuilder sb = new StringBuilder(1000);
@@ -1060,37 +906,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 		}
 		return returnGood;
 	}
-
-	/**
-	 * Returns true if the given String (an identifier) is permitted by the
-	 * given UnconstructedValidator. Will always return false if the
-	 * UnconstructedValidator is null.
-	 * 
-	 * @param validator
-	 *            The UnconstructedValidator to use to determine if the given
-	 *            String (an identifier) should be permitted as an unconstructed
-	 *            reference.
-	 * @param key
-	 *            The identifier to be checked to see if the
-	 *            UnconstructedValidator will permit it as an unconstructed
-	 *            reference.
-	 * @return true if the given String (an identifier) is permitted by the
-	 *         given UnconstructedValidator; false otherwise.
-	 */
-	protected abstract boolean validate(UnconstructedValidator validator,
-			String key);
-
-	/**
-	 * Returns a description of the type of Class or Class/Category that this
-	 * AbstractReferenceManufacturer constructs or references. This is designed
-	 * to be overridden by classes that extend AbstractReferenceManufacturer so
-	 * that AbstractReferenceManufacturer can output error messages that are
-	 * useful for users.
-	 * 
-	 * @return A String description of the type of Class or Class/Category that
-	 *         this AbstractReferenceManufacturer constructs or references.
-	 */
-	public abstract String getReferenceDescription();
 
 	/**
 	 * Instructs the AbstractReferenceManufacturer that the object with the
@@ -1175,18 +990,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	}
 
 	/**
-	 * Returns the "ALL" reference for this AbstractReferenceManufacturer. May
-	 * be null if the "ALL" reference was never retrieved through the
-	 * getAllReference() method.
-	 * 
-	 * @return The "ALL" reference for this AbstractReferenceManufacturer.
-	 */
-	protected ART getAllRef()
-	{
-		return allRef;
-	}
-
-	/**
 	 * Returns a Collection of the "TYPE" references for this
 	 * AbstractReferenceManufacturer.
 	 * 
@@ -1203,14 +1006,14 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * @return A Collection of the "TYPE" references for this
 	 *         AbstractReferenceManufacturer.
 	 */
-	protected Collection<TRT> getTypeReferences()
+	protected Collection<CDOMGroupRef<T>> getTypeReferences()
 	{
-		List<TRT> list = new ArrayList<TRT>(typeReferences.size());
-		for (Iterator<WeakReference<TRT>> it = typeReferences.values()
+		List<CDOMGroupRef<T>> list = new ArrayList<CDOMGroupRef<T>>(typeReferences.size());
+		for (Iterator<WeakReference<CDOMGroupRef<T>>> it = typeReferences.values()
 				.iterator(); it.hasNext();)
 		{
-			WeakReference<TRT> wr = it.next();
-			TRT trt = wr.get();
+			WeakReference<CDOMGroupRef<T>> wr = it.next();
+			CDOMGroupRef<T> trt = wr.get();
 			if (trt == null)
 			{
 				it.remove();
@@ -1240,12 +1043,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 * @return A Collection of the primitive references for this
 	 *         AbstractReferenceManufacturer.
 	 */
-	protected Collection<SRT> getReferenced()
+	public Collection<CDOMSingleRef<T>> getReferenced()
 	{
-		List<SRT> list = new ArrayList<SRT>();
-		for (WeakReference<SRT> wr : referenced.values())
+		List<CDOMSingleRef<T>> list = new ArrayList<CDOMSingleRef<T>>();
+		for (WeakReference<CDOMSingleRef<T>> wr : referenced.values())
 		{
-			SRT ref = wr.get();
+			CDOMSingleRef<T> ref = wr.get();
 			if (ref != null)
 			{
 				list.add(ref);
@@ -1268,7 +1071,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	 *            The ReferenceManufacturer from which the objects should be
 	 *            imported into this AbstractReferenceManufacturer
 	 */
-	protected void injectConstructed(ReferenceManufacturer<T> arm)
+	public void injectConstructed(ReferenceManufacturer<T> arm)
 	{
 		// Must maintain order
 		for (T value : active.insertOrderValues())
@@ -1420,5 +1223,27 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable, SRT exte
 	public T getItemInOrder(int index)
 	{
 		return active.getItemInOrder(index);
+	}
+
+	public ManufacturableFactory<T> getFactory()
+	{
+		return factory;
+	}
+
+	public String getReferenceDescription()
+	{
+		return factory.getReferenceDescription();
+	}
+
+	public Collection<CDOMReference<T>> getAllReferences()
+	{
+		List<CDOMReference<T>> list = new ArrayList<CDOMReference<T>>();
+		if (allRef != null)
+		{
+			list.add(allRef);
+		}
+		list.addAll(getTypeReferences());
+		list.addAll(getReferenced());
+		return list;
 	}
 }

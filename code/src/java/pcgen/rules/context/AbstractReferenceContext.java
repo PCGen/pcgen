@@ -41,9 +41,8 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.ReferenceResolver;
+import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.ResolverMap;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
@@ -432,19 +431,25 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		this.sourceURI = sourceURI;
 	}
 
-	public void resolveReferences()
+	public boolean resolveReferences(UnconstructedValidator validator)
 	{
+		boolean returnGood = true;
 		for (ReferenceManufacturer<?> rs : getAllManufacturers())
 		{
-			processResolution(rs);
+			returnGood &= processResolution(validator, rs);
 		}
+		return returnGood;
 	}
 
-	private <T extends Loadable> void processResolution(ReferenceManufacturer<T> rs)
+	private <T extends Loadable> boolean processResolution(
+			UnconstructedValidator validator, ReferenceManufacturer<T> rs)
 	{
-		Class<T> cl = rs.getReferenceClass();
-		ReferenceResolver<T> resolver = ResolverMap.get(cl);
-		rs.resolveReferences(resolver);
+		ManufacturableFactory<T> factory = rs.getFactory();
+		ManufacturableFactory<T> parent = factory.getParent();
+		ReferenceManufacturer<T> manufacturer = (parent == null) ? null
+				: getManufacturer(parent);
+		return factory.populate(manufacturer, rs, validator)
+				&& rs.resolveReferences(validator);
 	}
 
 	public void buildDeferredObjects()

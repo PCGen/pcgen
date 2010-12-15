@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.reference;
 
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 
 /**
@@ -36,8 +38,9 @@ import pcgen.cdom.base.Loadable;
  *            CDOMTransparentCategorizedSingleRef
  */
 // Should be T extends CategorizedCDOMObject<T>
-public class CDOMTransparentCategorizedSingleRef<T extends Loadable> extends
-		CDOMTransparentSingleRef<T> implements TransparentReference<T>
+public class CDOMTransparentCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject<T>>
+		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>,
+		CategorizedCDOMReference<T>
 {
 	/**
 	 * The Category of the object of the Class this CDOMCategorizedSingleRef
@@ -95,7 +98,7 @@ public class CDOMTransparentCategorizedSingleRef<T extends Loadable> extends
 		{
 			CDOMTransparentCategorizedSingleRef<?> ref = (CDOMTransparentCategorizedSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass())
-					&& category.equals(ref.getCDOMCategory())
+					&& category.equals(ref.getLSTCategory())
 					&& getName().equals(ref.getName());
 		}
 		return false;
@@ -108,8 +111,13 @@ public class CDOMTransparentCategorizedSingleRef<T extends Loadable> extends
 	 * @return the Category of the object this
 	 *         CDOMTransparentCategorizedSingleRef contains
 	 */
-	public String getCDOMCategory()
+	public String getLSTCategory()
 	{
 		return category;
+	}
+
+	public Category<T> getCDOMCategory()
+	{
+		throw new UnsupportedOperationException("Don't have resolved category");
 	}
 }

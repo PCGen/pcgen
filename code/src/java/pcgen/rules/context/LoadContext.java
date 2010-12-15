@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
+import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
@@ -156,9 +157,9 @@ public abstract class LoadContext
 		getObjectContext().rollback();
 	}
 
-	public void resolveReferences()
+	public void resolveReferences(UnconstructedValidator validator)
 	{
-		ref.resolveReferences();
+		ref.resolveReferences(validator);
 	}
 
 	public void resolveDeferredTokens()

@@ -21,18 +21,9 @@ import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 
-/**
- * A CategorizedManufacturer is a ReferenceManufacturer that will construct or
- * reference Categorized CDOMObjects.
- * 
- * @see pcgen.cdom.reference.ReferenceManufacturer
- * @see pcgen.cdom.base.Category
- * 
- * @param <T>
- *            The Class of object this CategorizedManufacturer can manufacture
- */
-public interface CategorizedManufacturer<T extends Loadable & CategorizedCDOMObject<T>>
-		extends ReferenceManufacturer<T>
+public interface CategorizedCreator<T extends Loadable & CategorizedCDOMObject<T>>
+		extends SelectionCreator<T>
 {
-	public Category<T> getCategory();
+
+	Category<T> getCategory();
 }

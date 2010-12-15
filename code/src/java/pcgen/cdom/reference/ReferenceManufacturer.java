@@ -204,7 +204,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * ReferenceManufacturer is not required to maintain a list of references
 	 * that have been resolved and those which have not been resolved.
 	 */
-	public void resolveReferences(ReferenceResolver<T> resolver);
+	public boolean resolveReferences(UnconstructedValidator validator);
 
 	/**
 	 * Instructs the ReferenceManufacturer that the object with the given
@@ -249,10 +249,8 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * (as defined by CDOMObject.getKeyName()) matches the identifier used to
 	 * store the object in the ReferenceManufacturer.
 	 * 
-	 * (2) Any identifier to which a reference was made has a constructed or
-	 * imported object with that identifier present in the
-	 * ReferenceManufacturer. (or the warning was suppressed by the given
-	 * UnconstructedValidator)
+	 * (2) All objects stored in the ReferenceManufacturer have valid names
+	 * (do not use illegal characters in the names)
 	 * 
 	 * (3) No two objects in the ReferenceManufacturer have a matching
 	 * identifier.
@@ -342,10 +340,15 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 
 	public String getReferenceDescription();
 
-	public boolean containsUnconstructed(String name);
-
 	public T buildObject(String name);
 
 	public void fireUnconstuctedEvent(CDOMReference<?> reference);
 
+	public Collection<CDOMSingleRef<T>> getReferenced();
+
+	public ManufacturableFactory<T> getFactory();
+
+	public Collection<CDOMReference<T>> getAllReferences();
+
+	public void injectConstructed(ReferenceManufacturer<T> rm);
 }

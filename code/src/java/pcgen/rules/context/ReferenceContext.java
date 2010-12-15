@@ -28,7 +28,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedManufacturer;
+import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 
@@ -40,8 +40,11 @@ public interface ReferenceContext
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String category);
 
-	public <T extends Loadable & CategorizedCDOMObject<T>> CategorizedManufacturer<T> getManufacturer(
+	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat);
+
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+			ManufacturableFactory<T> factory);
 
 	public Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
 
@@ -111,7 +114,7 @@ public interface ReferenceContext
 
 	public void setSourceURI(URI sourceURI);
 
-	public void resolveReferences();
+	public boolean resolveReferences(UnconstructedValidator validator);
 
 	public void buildDerivedObjects();
 

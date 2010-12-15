@@ -20,19 +20,28 @@ package pcgen.cdom.enumeration;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMAllRef;
+import pcgen.cdom.reference.CDOMCategorizedSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CDOMTypeRef;
+import pcgen.cdom.reference.ManufacturableFactory;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.SubClass;
+import pcgen.util.Logging;
 
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant.
  */
-public final class SubClassCategory implements TypeSafeConstant, Category<SubClass>
+public final class SubClassCategory implements TypeSafeConstant,
+		Category<SubClass>, ManufacturableFactory<SubClass>
 {
 
 	/**
@@ -54,7 +63,7 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	 * The ordinal of this Constant
 	 */
 	private final transient int ordinal;
-	
+
 	private boolean defined = false;
 	private URI sourceURI;
 
@@ -87,7 +96,7 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 	{
 		defined = true;
 	}
-	
+
 	public boolean isDefined()
 	{
 		return defined;
@@ -115,7 +124,7 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 			if (name.length() == 0)
 			{
 				throw new IllegalArgumentException(
-					"Type Name cannot be zero length");
+						"Type Name cannot be zero length");
 			}
 			category = new SubClassCategory(lookup);
 			typeMap.put(lookup, category);
@@ -202,11 +211,6 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		return fieldName;
 	}
 
-	public Set<Type> getTypes()
-	{
-		return Collections.emptySet();
-	}
-
 	public URI getSourceURI()
 	{
 		return sourceURI;
@@ -238,7 +242,78 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 				"Cannot set name in SubClassCategory");
 	}
 
-	public String getParentCategoryName()
+	public CDOMGroupRef<SubClass> getAllReference()
+	{
+		return new CDOMAllRef<SubClass>(SubClass.class);
+	}
+
+	public CDOMGroupRef<SubClass> getTypeReference(String... types)
+	{
+		return new CDOMTypeRef<SubClass>(SubClass.class, types);
+	}
+
+	public CDOMSingleRef<SubClass> getReference(String ident)
+	{
+		return new CDOMCategorizedSingleRef<SubClass>(SubClass.class, this,
+				ident);
+	}
+
+	public SubClass newInstance()
+	{
+		SubClass sc = new SubClass();
+		sc.setCDOMCategory(this);
+		return sc;
+	}
+
+	public boolean isMember(SubClass item)
+	{
+		return (item != null) && this.equals(item.getCDOMCategory());
+	}
+
+	public Class<SubClass> getReferenceClass()
+	{
+		return SubClass.class;
+	}
+
+	public String getReferenceDescription()
+	{
+		return "SubClass Category " + getKeyName();
+	}
+
+	public boolean resolve(ReferenceManufacturer<SubClass> rm, String name,
+			CDOMSingleRef<SubClass> value, UnconstructedValidator validator)
+	{
+		boolean returnGood = true;
+		SubClass activeObj = rm.getObject(name);
+		if (activeObj == null)
+		{
+			// Wasn't constructed!
+			if (name.charAt(0) != '*' && !report(validator, name))
+			{
+				Logging.errorPrint("Unconstructed Reference: "
+						+ getReferenceDescription() + " " + name);
+				rm.fireUnconstuctedEvent(value);
+				returnGood = false;
+			}
+			activeObj = rm.buildObject(name);
+		}
+		value.addResolution(activeObj);
+		return returnGood;
+	}
+
+	private boolean report(UnconstructedValidator validator, String key)
+	{
+		return validator != null && validator.allow(getReferenceClass(), key);
+	}
+
+	public boolean populate(ReferenceManufacturer<SubClass> parentCrm,
+			ReferenceManufacturer<SubClass> rm, UnconstructedValidator validator)
+	{
+		// Nothing to do (for now!)
+		return true;
+	}
+
+	public ManufacturableFactory<SubClass> getParent()
 	{
 		return null;
 	}

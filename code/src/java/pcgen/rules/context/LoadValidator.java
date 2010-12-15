@@ -93,7 +93,7 @@ public class LoadValidator implements UnconstructedValidator
 				{
 					CDOMSingleRef ref = q.getQualifiedReference();
 					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-							.getCDOMCategory();
+							.getLSTCategory();
 					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
 				}
 			}

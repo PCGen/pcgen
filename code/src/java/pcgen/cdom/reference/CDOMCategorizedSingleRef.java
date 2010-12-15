@@ -22,6 +22,7 @@ import java.util.Collections;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -33,7 +34,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMCategorizedSingleRef
  */
-public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
+public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject<T>>
 		extends CDOMSingleRef<T> implements CategorizedCDOMReference<T>
 {
 
@@ -287,5 +288,10 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	public String getChoice()
 	{
 		return choice;
+	}
+
+	public String getLSTCategory()
+	{
+		return category.getLSTformat();
 	}
 }

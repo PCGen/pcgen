@@ -24,7 +24,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.ReferenceResolver;
+import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.cdom.reference.UnconstructedValidator;
@@ -153,9 +153,9 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		rm.renameObject(key, o);
 	}
 
-	public void resolveReferences(ReferenceResolver<T> resolver)
+	public boolean resolveReferences(UnconstructedValidator validator)
 	{
-		rm.resolveReferences(resolver);
+		return rm.resolveReferences(validator);
 	}
 
 	public boolean validate(UnconstructedValidator validator)
@@ -183,4 +183,23 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		rm.fireUnconstuctedEvent(reference);
 	}
 
+	public Collection<CDOMSingleRef<T>> getReferenced()
+	{
+		return rm.getReferenced();
+	}
+
+	public ManufacturableFactory<T> getFactory()
+	{
+		return rm.getFactory();
+	}
+
+	public Collection<CDOMReference<T>> getAllReferences()
+	{
+		return rm.getAllReferences();
+	}
+
+	public void injectConstructed(ReferenceManufacturer<T> rm)
+	{
+		rm.injectConstructed(rm);
+	}
 }

@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A CategorizedCDOMReference is an object that contains one or more references
@@ -32,7 +33,7 @@ import pcgen.cdom.base.Category;
  * @param <T>
  *            The class of object underlying this CategorizedCDOMReference.
  */
-public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
+public interface CategorizedCDOMReference<T extends Loadable & CategorizedCDOMObject<T>>
 {
 
 	/**
@@ -77,5 +78,7 @@ public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
 	 *            this CategorizedCDOMReference refers.
 	 */
 	public void addResolution(T item);
+
+	public String getLSTCategory();
 
 }

@@ -29,7 +29,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.TransparentReferenceManufacturer;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -81,8 +81,7 @@ public class Campaign extends PObject
 	
 	public void applyTo(ReferenceContext rc)
 	{
-		for (TransparentReferenceManufacturer<?> rm : gameRefContext
-				.getAllManufacturers())
+		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
 		{
 			GameMode.resolveReferenceManufacturer(rc, rm);
 		}
