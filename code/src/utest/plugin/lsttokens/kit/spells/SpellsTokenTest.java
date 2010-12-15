@@ -19,6 +19,8 @@ package plugin.lsttokens.kit.spells;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
@@ -120,6 +122,10 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
+		Spell a = primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		Spell b = secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		runRoundRobin("TYPE.Foo=2");
 	}
 

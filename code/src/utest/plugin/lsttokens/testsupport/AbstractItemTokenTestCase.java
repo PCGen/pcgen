@@ -47,14 +47,14 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse("TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		boolean ret = parse("TestWP1,TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -82,7 +82,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		boolean ret = parse("TestWP1|TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -99,7 +99,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		boolean ret = parse("TestWP1.TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -116,7 +116,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 			boolean result = parse("ANY");
 			if (result)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -134,7 +134,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 					"TYPE=TestType").passed();
 			if (result)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -172,7 +172,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test

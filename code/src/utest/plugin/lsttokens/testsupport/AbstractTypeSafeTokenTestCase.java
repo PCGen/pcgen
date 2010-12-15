@@ -100,7 +100,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 			{
 				if (parse("Not Preconstructed"))
 				{
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 			}
 			catch (IllegalArgumentException e)

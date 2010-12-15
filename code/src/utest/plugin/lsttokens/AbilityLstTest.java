@@ -22,6 +22,8 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
@@ -279,8 +281,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -291,8 +291,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1",
 				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -303,14 +301,13 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Elf",
 				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.validate(null));
 	}
 
-	private void construct(LoadContext context, String name)
+	private Ability construct(LoadContext context, String name)
 	{
 		Ability ab = context.ref.constructCDOMObject(Ability.class, name);
 		context.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		return ab;
 	}
 
 	@Test
@@ -374,12 +371,24 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTestEquals() throws PersistenceLayerException
 	{
+		Ability a = construct(primaryContext, "TestWP1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		Ability b = construct(secondaryContext, "TestWP1");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		runRoundRobin("Feat|VIRTUAL|TYPE=TestType");
 	}
 
 	@Test
 	public void testRoundRobinTestEqualThree() throws PersistenceLayerException
 	{
+		Ability a = construct(primaryContext, "TestWP1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+		Ability b = construct(secondaryContext, "TestWP1");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		b.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+		b.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
 		runRoundRobin("Feat|VIRTUAL|TYPE=TestAltType.TestThirdType.TestType");
 	}
 
@@ -390,6 +399,14 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
+		Ability a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+		Ability b = construct(secondaryContext, "Typed1");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+		Ability c = construct(primaryContext, "Typed2");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		Ability d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		runRoundRobin("Feat|VIRTUAL|TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
 	}
 
@@ -401,7 +418,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// consume the |
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE=TestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -412,7 +429,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// consume the |
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE.TestType.OtherTestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test

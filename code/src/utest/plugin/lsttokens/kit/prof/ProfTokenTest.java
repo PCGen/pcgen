@@ -60,7 +60,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test

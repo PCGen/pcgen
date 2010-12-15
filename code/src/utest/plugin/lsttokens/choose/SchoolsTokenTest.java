@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -101,12 +102,16 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
+		construct(primaryContext, "Abjuration");
+		construct(secondaryContext, "Abjuration");
 		runRoundRobin("SCHOOLS|ALL");
 	}
 
 	@Test
 	public void testRoundRobinFeat() throws PersistenceLayerException
 	{
+		construct(primaryContext, "Abjuration");
+		construct(secondaryContext, "Abjuration");
 		Ability ss =
 				primaryContext.ref.constructCDOMObject(Ability.class,
 					"School Stuff");
@@ -129,7 +134,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTitle() throws PersistenceLayerException
+	public void testRoundRobinSpecificTitle() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abjuration");
 		construct(primaryContext, "Evocation");
@@ -158,19 +163,19 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
-	protected QualifierToken getPCQualifier()
+	protected QualifierToken<CDOMObject> getPCQualifier()
 	{
 		return null;
 	}
 
 	@Override
-	public CDOMSecondaryToken getSubToken()
+	public CDOMSecondaryToken<?> getSubToken()
 	{
 		return subtoken;
 	}
 
 	@Override
-	public Class getTargetClass()
+	public Class<SpellSchool> getTargetClass()
 	{
 		return SpellSchool.class;
 	}
@@ -201,9 +206,9 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructNowIfNecessary(SpellSchool.class, one);
+		return loadContext.ref.constructNowIfNecessary(SpellSchool.class, one);
 	}
 
 	@Override

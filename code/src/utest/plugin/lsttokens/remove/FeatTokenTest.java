@@ -125,6 +125,14 @@ public class FeatTokenTest extends
 		return obj;
 	}
 
+	@Override
+	protected Ability constructTyped(LoadContext loadContext, String one)
+	{
+		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
+		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
+	}
+
 	@Test
 	public void testRoundRobinClass() throws PersistenceLayerException
 	{
@@ -167,14 +175,14 @@ public class FeatTokenTest extends
 	public void testInvalidInputClassUnbuilt() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CLASS=Fighter"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputDoubleEquals() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CLASS==Fighter"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -191,7 +199,7 @@ public class FeatTokenTest extends
 				+ getJoinCharacter() + "TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{

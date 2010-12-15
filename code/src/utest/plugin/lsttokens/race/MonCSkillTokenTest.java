@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.race;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -25,6 +27,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -39,6 +42,16 @@ public class MonCSkillTokenTest extends
 {
 	static MoncskillToken token = new MoncskillToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		ClassSkillList a = primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		a.addType(Type.MONSTER);
+		ClassSkillList b = secondaryContext.ref.constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		b.addType(Type.MONSTER);
+	}
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -103,6 +116,8 @@ public class MonCSkillTokenTest extends
 	@Test
 	public void testRoundRobinPattern() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin("Pattern%");
 	}
 
@@ -129,6 +144,8 @@ public class MonCSkillTokenTest extends
 	@Test
 	public void testRoundRobinThreePattern() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin("TestWP%" + getJoinCharacter() + "TestWZ%");
 	}
 

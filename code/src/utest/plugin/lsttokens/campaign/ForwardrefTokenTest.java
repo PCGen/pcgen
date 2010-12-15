@@ -17,18 +17,13 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
-import pcgen.rules.context.GameReferenceContext;
-import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
@@ -41,23 +36,6 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
 	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
 			Campaign.class);
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		primaryContext = new RuntimeLoadContext(new GameReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new GameReferenceContext(), new ConsolidatedListCommitStrategy());
-		URI testURI = testCampaign.getURI();
-		primaryContext.getObjectContext().setSourceURI(testURI);
-		primaryContext.getObjectContext().setExtractURI(testURI);
-		secondaryContext.getObjectContext().setSourceURI(testURI);
-		secondaryContext.getObjectContext().setExtractURI(testURI);
-		primaryProf = getPrimary("TestObj");
-		secondaryProf = getSecondary("TestObj");
-		expectedPrimaryMessageCount = 0;
-	}
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()
@@ -180,12 +158,22 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
+		AbilityCategory newCatp = primaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats = secondaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.ref.reassociateCategory(newCatp, a);
+		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.ref.reassociateCategory(newCats, b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
 	@Test
 	public void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
 		runRoundRobin("SPELL|Fireball,Lightning Bolt");
 	}
 
@@ -193,6 +181,14 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinAbilitySpell()
 			throws PersistenceLayerException
 	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		AbilityCategory newCatp = primaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats = secondaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.ref.reassociateCategory(newCatp, a);
+		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.ref.reassociateCategory(newCats, b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");
 	}
 
@@ -200,6 +196,12 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinFeatSpell()
 			throws PersistenceLayerException
 	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "My Feat");
+		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "My Feat");
+		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, b);
 		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 

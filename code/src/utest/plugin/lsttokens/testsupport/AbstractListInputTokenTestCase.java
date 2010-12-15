@@ -21,6 +21,8 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
@@ -83,7 +85,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		if (!isMaster())
 		{
 			assertTrue(parse("String"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -93,7 +95,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		if (!isMaster())
 		{
 			assertTrue(parse("TestType"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -105,7 +107,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -119,7 +121,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			boolean parse = parse("TestWP1|TestWP2");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -136,7 +138,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -238,7 +240,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -263,7 +265,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 				boolean result = parse("ANY");
 				if (result)
 				{
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 			}
 			catch (IllegalArgumentException e)
@@ -284,7 +286,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 						"TYPE=TestType").passed();
 				if (result)
 				{
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 			}
 			catch (IllegalArgumentException e)
@@ -328,7 +330,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			// Explicitly do NOT build TestWP2
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -343,7 +345,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TYPE=TestType"
 				+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -359,43 +361,43 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			assertTrue(parse("TestWP1" + getJoinCharacter()
 				+ "TYPE.TestType.OtherTestType" + getJoinCharacter()
 				+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputTestDot() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
-			assertTrue(parse("TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			assertTrue(parse("TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"
-				+ getJoinCharacter() + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"
-				+ getJoinCharacter() + "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
-		if (isAllLegal())
-		{
-			assertTrue(parse(getAllString()));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+	}
+
+	@Test
+	public void testValidInputClear() throws PersistenceLayerException
+	{
 		if (isClearLegal())
 		{
 			assertTrue(parse(getClearString()));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
+		}
+	}
+
+	@Test
+	public void testValidInputClearJoin() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			assertTrue(parse(getClearString() + getJoinCharacter() + "TestWP1"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -449,6 +451,14 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 			runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2"
 				+ getJoinCharacter() + "TYPE=OtherTestType"
 				+ getJoinCharacter() + "TYPE=TestType");
@@ -460,6 +470,8 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isAllLegal())
 		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getAllString());
 		}
 	}
@@ -474,6 +486,10 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin("TYPE=TestType");
 		}
 	}
@@ -483,6 +499,14 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
 			runRoundRobin("TYPE=TestAltType.TestThirdType.TestType");
 		}
 	}
@@ -536,8 +560,12 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + getClearString())
-				&& primaryContext.ref.validate(null));
+			boolean result = parse("TestWP1" + getJoinCharacter()
+					+ getClearString());
+			if (result)
+			{
+				assertConstructionError();
+			}
 			assertNoSideEffects();
 		}
 	}
@@ -549,7 +577,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		{
 			// DoNotConstruct TestWP1
 			assertTrue(parse(".CLEAR.TestWP1"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 

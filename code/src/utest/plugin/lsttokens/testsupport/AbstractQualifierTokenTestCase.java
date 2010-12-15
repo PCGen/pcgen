@@ -24,8 +24,10 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.GameMode;
@@ -94,15 +96,15 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		TokenRegistration.register(qt);
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		construct(loadContext, getTargetClass(), one);
+		return construct(loadContext, getTargetClass(), one);
 	}
 
-	protected void construct(LoadContext loadContext,
+	protected CDOMObject construct(LoadContext loadContext,
 			Class<? extends CDOMObject> cl, String one)
 	{
-		loadContext.ref.constructCDOMObject(cl, one);
+		return loadContext.ref.constructCDOMObject(cl, one);
 	}
 
 	@Override
@@ -356,7 +358,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testQualifierDot() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "." + qualifier));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -368,7 +370,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 				+ "]");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -385,7 +387,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testQualifierBadPrim() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -396,7 +398,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		// Explicitly do NOT build TestWP0
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP0|TestWP1]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -407,7 +409,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		// this checks that the TYPE= doesn't consume the |
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TYPE=TestType|TestWP0]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -418,7 +420,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		// this checks that the TYPE. doesn't consume the |
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
 				+ "TYPE.TestType.OtherTestType|TestWP0]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -492,7 +494,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "PC." + qualifier));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -529,7 +531,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 				+ "]");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -563,7 +565,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -574,7 +576,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1.TestWP2]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -707,7 +709,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -754,6 +756,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testValidQualifiedInputLotsOr()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+		CDOMObject e = construct(primaryContext, "Typed3");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		CDOMObject f = construct(primaryContext, "Typed4");
+		f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+		CDOMObject g = construct(secondaryContext, "Typed3");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		CDOMObject h = construct(secondaryContext, "Typed4");
+		h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Bar|TYPE=Goo]|" + qualifier + "[TYPE=Foo|TYPE=Yea]");
 	}
@@ -762,6 +780,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testValidQualifiedInputLotsAnd()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+		CDOMObject e = construct(primaryContext, "Typed3");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		CDOMObject f = construct(primaryContext, "Typed4");
+		f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+		CDOMObject g = construct(secondaryContext, "Typed3");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+		CDOMObject h = construct(secondaryContext, "Typed4");
+		h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Bar,TYPE=Goo]," + qualifier + "[TYPE=Foo,TYPE=Yea]");
 	}
@@ -777,7 +811,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TYPE=TestType|TestWP2]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -791,7 +825,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
 				+ "TYPE.TestType.OtherTestType|TestWP2]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -828,6 +862,18 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinQualifiedThreeAnd()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+		CDOMObject e = construct(primaryContext, "Typed3");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+		CDOMObject g = construct(secondaryContext, "Typed3");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
 	}
@@ -836,6 +882,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinQualifiedFourAndOr()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+		CDOMObject e = construct(primaryContext, "Typed3");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+		CDOMObject f = construct(primaryContext, "Typed4");
+		f.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
+		CDOMObject g = construct(secondaryContext, "Typed3");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+		CDOMObject h = construct(secondaryContext, "Typed4");
+		h.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
 	}
@@ -848,6 +910,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP2");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP2");
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType]");
 	}
@@ -856,6 +926,10 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinQualifiedTestEquals()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier + "[TYPE=TestType]");
 	}
 
@@ -863,6 +937,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinQualifiedTestEqualThree()
 			throws PersistenceLayerException
 	{
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+		a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+		c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=TestAltType.TestThirdType.TestType]");
 	}
@@ -965,6 +1047,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestQualifiedAll()
 			throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		runRoundRobin(getSubTokenName() + "|" + qualifier + "[ALL]");
 	}
 
@@ -973,7 +1057,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "PC.!" + qualifier + ""));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -1017,7 +1101,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier + "[!"
 					+ qualifier + "]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1051,7 +1135,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[String]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1065,7 +1149,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, getTargetClass(), "TestWP2");
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1.TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1253,7 +1337,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1315,6 +1399,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=Bar|TYPE=Goo]|!" + qualifier
 					+ "[TYPE=Foo|TYPE=Yea]");
@@ -1327,6 +1427,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=Bar,TYPE=Goo],!" + qualifier
 					+ "[TYPE=Foo,TYPE=Yea]");
@@ -1346,7 +1462,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TYPE=TestType|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1363,7 +1479,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|" + "TYPE.TestType.OtherTestType|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1416,6 +1532,18 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject g = construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
 		}
@@ -1427,6 +1555,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject f = construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
+			CDOMObject g = construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject h = construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
 		}
@@ -1442,6 +1586,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, getTargetClass(), "TestWP2");
 			construct(secondaryContext, getTargetClass(), "TestWP1");
 			construct(secondaryContext, getTargetClass(), "TestWP2");
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType]");
 		}
@@ -1453,6 +1605,10 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=TestType]");
 		}
@@ -1464,6 +1620,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			CDOMObject c = construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 			runRoundRobin(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=TestAltType.TestThirdType.TestType]");
 		}
@@ -1592,6 +1756,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestNotQualifierAll()
 			throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsNotQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|!" + qualifier + "[ALL]");
@@ -1601,7 +1767,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			boolean parse = parse(getSubTokenName() + "|!" + qualifier + "[ALL]");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -1614,6 +1780,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestQualifierRaw()
 		throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsLoneQualifier())
 		{
 			runRoundRobin(getSubTokenName() + '|' + qualifier);
@@ -1623,7 +1791,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			boolean parse = parse(getSubTokenName() + '|' + qualifier);
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -1636,6 +1804,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestNotQualifierRaw()
 		throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsNotQualifier() && allowsLoneQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|!" + qualifier);
@@ -1645,7 +1815,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			boolean parse = parse(getSubTokenName() + "|!" + qualifier);
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -1663,7 +1833,18 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinMultTypes()
 			throws PersistenceLayerException
 	{
-		
+		CDOMObject a = construct(primaryContext, "Typed1");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Buckler"));
+		CDOMObject b = construct(primaryContext, "Typed2");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
+		CDOMObject c = construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Buckler"));
+		CDOMObject d = construct(secondaryContext, "Typed2");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
+		CDOMObject e = construct(primaryContext, "Typed3");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
+		CDOMObject g = construct(secondaryContext, "Typed3");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier + "[TYPE=Buckler|TYPE=Heavy|TYPE=Light]");
 	}
 	
@@ -1698,7 +1879,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		primaryContext.ref.buildDeferredObjects();
 		primaryContext.ref.buildDerivedObjects();
 		primaryContext.resolveDeferredTokens();
-		primaryContext.resolveReferences();
+		assertTrue(primaryContext.ref.resolveReferences(null));
 		primaryContext.resolvePostDeferredTokens();
 	}
 

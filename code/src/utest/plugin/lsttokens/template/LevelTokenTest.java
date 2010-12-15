@@ -350,7 +350,7 @@ public class LevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	public void testParseClear() throws PersistenceLayerException
 	{
 		assertTrue(parse(".CLEAR"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Override

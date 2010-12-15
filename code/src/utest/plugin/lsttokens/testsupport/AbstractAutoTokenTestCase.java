@@ -112,7 +112,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[]");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -127,7 +127,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -142,7 +142,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -158,7 +158,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 				parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -175,7 +175,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 				parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -242,6 +242,8 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal() && allowsPrerequisite())
 		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getSubTokenName() + '|' + "ALL[PRERACE:1,Dwarf]",
 				getSubTokenName() + '|' + "ALL[PRERACE:1,Human]");
 		}
@@ -275,7 +277,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{

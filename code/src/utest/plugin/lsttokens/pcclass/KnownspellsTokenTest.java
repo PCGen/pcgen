@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
@@ -196,6 +197,16 @@ public class KnownspellsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
+		Spell a = construct(primaryContext, "TestWP2");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("SpellType"));
+		Spell c = construct(secondaryContext, "TestWP2");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("SpellType"));
+		Spell b = construct(primaryContext, "TestWP3");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("ZOther"));
+		b.addToListFor(ListKey.TYPE, Type.getConstant("ZType"));
+		Spell d = construct(secondaryContext, "TestWP3");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("ZOther"));
+		d.addToListFor(ListKey.TYPE, Type.getConstant("ZType"));
 		runRoundRobin("TYPE=SpellType,LEVEL=0|TYPE=SpellType,LEVEL=1|TYPE=ZOther.ZType,LEVEL=1");
 	}
 
@@ -208,6 +219,10 @@ public class KnownspellsTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
+		Spell a = construct(primaryContext, "TestWP2");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("SpellType"));
+		Spell c = construct(secondaryContext, "TestWP2");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("SpellType"));
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TYPE=SpellType,LEVEL=1");
 	}
 
@@ -217,6 +232,14 @@ public class KnownspellsTokenTest extends
 	{
 		if (isTypeLegal())
 		{
+			Spell b = construct(primaryContext, "TestWP3");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			Spell d = construct(secondaryContext, "TestWP3");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin("LEVEL=2|TYPE=TestAltType.TestThirdType.TestType,LEVEL=3");
 		}
 	}

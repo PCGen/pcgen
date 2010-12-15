@@ -83,24 +83,32 @@ public class SpellCasterTokenTest extends
 	@Test
 	public void testRoundRobinArcane() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "Arcane");
 	}
 
 	@Test
 	public void testRoundRobinDivine() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "Divine");
 	}
 
 	@Test
 	public void testRoundRobinPsionic() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "Psionic");
 	}
 
 	@Test
 	public void testRoundRobinThreeSpellType() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "Arcane" + getJoinCharacter()
 			+ "Divine" + getJoinCharacter() + "Psionic");
 	}

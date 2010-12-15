@@ -104,7 +104,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		coll = primaryProf.getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("(first)")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	public void testBadParentheses() throws PersistenceLayerException

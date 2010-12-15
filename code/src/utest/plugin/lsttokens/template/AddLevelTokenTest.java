@@ -107,7 +107,7 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	public void testInvalidInputNotAClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("NotAClass|3"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test

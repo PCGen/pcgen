@@ -266,7 +266,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		{
 			// DoNotConstruct TestWP1
 			assertTrue(parse(".CLEAR.TestWP1"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 

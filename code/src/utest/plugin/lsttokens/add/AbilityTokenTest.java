@@ -33,6 +33,7 @@ import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -109,10 +110,11 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		return true;
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
 		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
 	}
 
 	public String getSubTokenName()
@@ -224,7 +226,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		System.err.println("!");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -234,7 +236,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -307,7 +309,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				+ "TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -350,7 +352,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -377,7 +379,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -427,7 +429,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -442,7 +444,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -458,41 +460,22 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
 					+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputTypeDot() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
-			assertTrue(parse(getSubTokenName() + '|'
-					+ "FEAT|NORMAL|TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
+			CDOMObject a = construct(primaryContext, "TestWP1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = construct(secondaryContext, "TestWP1");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate(null));
-		}
-		if (isAllLegal())
-		{
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -576,6 +559,14 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject b = construct(secondaryContext, "Typed1");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = construct(primaryContext, "Typed2");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 					+ "TYPE=OtherTestType" + getJoinCharacter()
@@ -588,6 +579,10 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject b = construct(primaryContext, "TestWP4");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = construct(secondaryContext, "TestWP4");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=TestType");
 		}
 	}
@@ -597,6 +592,14 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = construct(primaryContext, "TestWP1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			CDOMObject b = construct(secondaryContext, "TestWP1");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE=TestAltType.TestThirdType.TestType");
 		}

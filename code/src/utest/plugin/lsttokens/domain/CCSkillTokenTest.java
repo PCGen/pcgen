@@ -101,6 +101,8 @@ public class CCSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
 	@Test
 	public void testRoundRobinPattern() throws PersistenceLayerException
 	{
+		construct(primaryContext, "Foo");
+		construct(secondaryContext, "Foo");
 		runRoundRobin("Pattern%");
 	}
 

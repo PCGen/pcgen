@@ -138,6 +138,8 @@ public class DomainsTokenTest extends
 	@Override
 	public void testRoundRobinTestAll() throws PersistenceLayerException
 	{
+		construct(primaryContext, "Foo");
+		construct(secondaryContext, "Foo");
 		runRoundRobin("ANY");
 	}
 

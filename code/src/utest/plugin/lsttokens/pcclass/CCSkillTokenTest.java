@@ -94,7 +94,7 @@ public class CCSkillTokenTest extends AbstractListTokenTestCase<PCClass, Skill>
 		boolean result = parse("LIST");
 		if (result)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -105,6 +105,8 @@ public class CCSkillTokenTest extends AbstractListTokenTestCase<PCClass, Skill>
 	@Test
 	public void testRoundRobinPattern() throws PersistenceLayerException
 	{
+		construct(primaryContext, "JustASkill");
+		construct(secondaryContext, "JustASkill");
 		runRoundRobin("Pattern%");
 	}
 

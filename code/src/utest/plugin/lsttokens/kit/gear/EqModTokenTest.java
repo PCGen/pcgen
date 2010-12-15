@@ -193,14 +193,14 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse("TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -211,7 +211,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -248,7 +248,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -260,7 +260,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 			boolean result = parse("ANY");
 			if (result)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -278,7 +278,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 					"TYPE=TestType").passed();
 			if (result)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -316,7 +316,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -324,10 +324,8 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test

@@ -93,14 +93,14 @@ public class TemplateLstTest extends
 	public void testChooseInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("CHOOSE:String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testChooseInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse("CHOOSE:TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -110,7 +110,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("CHOOSE:TestWP1,TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -120,7 +120,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("CHOOSE:TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class TemplateLstTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("CHOOSE:" + "TestWP1.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -144,7 +144,7 @@ public class TemplateLstTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("ADDCHOICE:" + "TestWP1.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -173,7 +173,7 @@ public class TemplateLstTest extends
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -182,9 +182,8 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -232,7 +231,7 @@ public class TemplateLstTest extends
 			throws PersistenceLayerException
 	{
 		assertTrue(parse("ADDCHOICE:String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -240,7 +239,7 @@ public class TemplateLstTest extends
 			throws PersistenceLayerException
 	{
 		assertTrue(parse("ADDCHOICE:TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -250,7 +249,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("ADDCHOICE:TestWP1,TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -260,7 +259,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("ADDCHOICE:TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -298,7 +297,7 @@ public class TemplateLstTest extends
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("ADDCHOICE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	/*
@@ -333,7 +332,7 @@ public class TemplateLstTest extends
 	public void testRemoveInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("String.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -343,7 +342,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("TestWP1.REMOVE,TestWP2.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -353,7 +352,7 @@ public class TemplateLstTest extends
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("TestWP1.REMOVE.TestWP2.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -390,7 +389,7 @@ public class TemplateLstTest extends
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.REMOVE" + getJoinCharacter() + "TestWP2.REMOVE"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test

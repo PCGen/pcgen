@@ -23,6 +23,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
@@ -185,7 +187,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -245,7 +247,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3|PRERACE:1,Human");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -263,20 +265,20 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinJustRace() throws PersistenceLayerException
 	{
 		construct(Race.class, "Lion");
+		construct(CompanionList.class, "Familiar");
 		runRoundRobin("Familiar|Lion");
 	}
 
-	private <T extends CDOMObject> void construct(Class<T> cl, String name)
+	private <T extends Loadable> void construct(Class<T> cl, String name)
 	{
-		T po = primaryContext.ref.constructCDOMObject(cl, name);
-		primaryContext.ref.getCDOMReference(cl, name).addResolution(po);
-		T so = secondaryContext.ref.constructCDOMObject(cl, name);
-		secondaryContext.ref.getCDOMReference(cl, name).addResolution(so);
+		primaryContext.ref.constructCDOMObject(cl, name);
+		secondaryContext.ref.constructCDOMObject(cl, name);
 	}
 
 	@Test
 	public void testRoundRobinTwoRace() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,Tiger");
@@ -285,6 +287,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinAnyRace() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|ANY");
@@ -293,6 +296,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,RACETYPE=Clawed");
@@ -301,6 +305,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinFA() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-4");
 	}
@@ -308,6 +313,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinThreeFA() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Bear");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
@@ -319,6 +325,8 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTwoType() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
+		construct(CompanionList.class, "Companion");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Companion|Lion|FOLLOWERADJUSTMENT:-5",
@@ -328,6 +336,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,Tiger|FOLLOWERADJUSTMENT:-3|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
@@ -336,6 +345,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTwoPRE() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-5",
@@ -345,6 +355,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinDupePre() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRECLASS:1,Cleric=1",
@@ -354,6 +365,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinDupePreDiffFA() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-3|PRECLASS:1,Cleric=1",
@@ -363,6 +375,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinReal() throws PersistenceLayerException
 	{
+		construct(CompanionList.class, "Psicrystal");
 		construct(Race.class, "Psicrystal (Single Minded)");
 		construct(Race.class, "Psicrystal (Resolved)");
 		construct(Race.class, "Psicrystal (Bully)");

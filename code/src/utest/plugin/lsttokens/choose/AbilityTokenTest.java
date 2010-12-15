@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -111,13 +112,14 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
 		Category<Ability> cat = loadContext.ref
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
 		loadContext.ref.reassociateCategory(cat, obj);
+		return obj;
 	}
 
 	@Override

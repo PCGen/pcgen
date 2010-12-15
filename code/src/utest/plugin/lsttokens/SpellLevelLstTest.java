@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.PCTemplate;
@@ -216,6 +217,10 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinSpellCaster() throws PersistenceLayerException
 	{
+		ClassSpellList a = primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		a.addType(Type.getConstant("Arcane"));
+		ClassSpellList b = secondaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		b.addType(Type.getConstant("Arcane"));
 		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
 		runRoundRobin("CLASS|SPELLCASTER.Arcane=2|Fireball|PRECLASS:1,Fighter=2");

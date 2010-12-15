@@ -207,7 +207,7 @@ public abstract class AbstractResultActorTest<T extends CDOMObject> extends Test
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
 		context.resolveDeferredTokens();
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
 	}
 

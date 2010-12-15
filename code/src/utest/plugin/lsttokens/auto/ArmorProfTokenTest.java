@@ -22,15 +22,18 @@ import java.util.List;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Equipment;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
@@ -49,6 +52,14 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	public Class<ArmorProf> getTargetClass()
 	{
 		return ArmorProf.class;
+	}
+
+	@Override
+	protected CDOMObject constructTyped(LoadContext loadContext, String one)
+	{
+		CDOMObject cdo = loadContext.ref.constructCDOMObject(Equipment.class, one);
+		cdo.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		return cdo;
 	}
 
 	@Override

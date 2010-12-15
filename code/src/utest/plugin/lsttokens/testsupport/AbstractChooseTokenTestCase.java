@@ -24,9 +24,12 @@ import org.junit.Test;
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.choiceset.CollectionToChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -69,15 +72,15 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		construct(loadContext, getTargetClass(), one);
+		return construct(loadContext, getTargetClass(), one);
 	}
 
-	protected void construct(LoadContext loadContext,
+	protected CDOMObject construct(LoadContext loadContext,
 			Class<? extends CDOMObject> cl, String one)
 	{
-		loadContext.ref.constructCDOMObject(cl, one);
+		return loadContext.ref.constructCDOMObject(cl, one);
 	}
 
 	@Override
@@ -139,7 +142,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -154,7 +157,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -176,7 +179,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -262,7 +265,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -286,7 +289,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -308,7 +311,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		boolean ret = parse(getSubTokenName() + '|' + "TestWP1|TITLE=");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -344,7 +347,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -354,22 +357,23 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (isTypeLegal())
 		{
-			
-		}
-		/*
-		 * Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
-		 * consume the |
-		 */
-		construct(primaryContext, "TestWP1");
-		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
-				+ "TestWP1|TYPE=TestType|TestWP2"));
-		if (requiresLiteral())
-		{
-			assertNoSideEffects();
-		}
-		else
-		{
-			assertFalse(primaryContext.ref.validate(null));
+			/*
+			 * Explicitly do NOT build TestWP2 (this checks that the TYPE=
+			 * doesn't consume the |
+			 */
+			construct(primaryContext, "TestWP1");
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
+					+ "TestWP1|TYPE=TestType|TestWP2"));
+			if (requiresLiteral())
+			{
+				assertNoSideEffects();
+			}
+			else
+			{
+				assertConstructionError();
+			}
 		}
 	}
 
@@ -382,6 +386,13 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		 * consume the |
 		 */
 		construct(primaryContext, "TestWP1");
+		if (CDOMObject.class.isAssignableFrom(getTargetClass()))
+		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+		}
 		assertEquals(!requiresLiteral(), parse(getSubTokenName() + '|'
 				+ "TestWP1|" + "TYPE.TestType.OtherTestType|TestWP2"));
 		if (requiresLiteral())
@@ -390,36 +401,19 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputsTypeDot() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			assertTrue(parse(getSubTokenName() + '|' + "TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|'
-					+ "TestWP1|TestWP2|TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|'
-					+ "TestWP1|TestWP2|TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate(null));
-		}
-		if (isAllLegal())
-		{
-			assertTrue(parse(getSubTokenName() + "|ALL"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -488,6 +482,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
 		}
@@ -498,6 +500,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + "TYPE=TestType");
 		}
 	}
@@ -507,6 +513,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "TYPE=TestAltType.TestThirdType.TestType");
 		}
@@ -618,6 +632,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (isAllLegal())
 		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getSubTokenName() + "|ALL");
 		}
 	}
@@ -634,7 +650,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 		else
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -678,7 +694,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[QUALIFIED]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -711,7 +727,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[String]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -725,7 +741,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "QUALIFIED[TestWP1.TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -903,7 +919,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "QUALIFIED[TestWP1|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -965,6 +981,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName()
 					+ '|'
 					+ "QUALIFIED[TYPE=Bar|TYPE=Goo]|QUALIFIED[TYPE=Foo|TYPE=Yea]");
@@ -977,6 +1009,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName()
 					+ '|'
 					+ "QUALIFIED[TYPE=Bar,TYPE=Goo],QUALIFIED[TYPE=Foo,TYPE=Yea]");
@@ -996,7 +1044,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "QUALIFIED[TestWP1|TYPE=TestType|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1013,7 +1061,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1|"
 					+ "TYPE.TestType.OtherTestType|TestWP2]"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -1062,6 +1110,18 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "QUALIFIED[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
 		}
@@ -1073,6 +1133,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
 			runRoundRobin(getSubTokenName()
 					+ '|'
 					+ "QUALIFIED[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
@@ -1089,6 +1165,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName()
 					+ '|'
 					+ "QUALIFIED[TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType]");
@@ -1101,6 +1185,10 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + "QUALIFIED[TYPE=TestType]");
 		}
 	}
@@ -1111,6 +1199,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "QUALIFIED[TYPE=TestAltType.TestThirdType.TestType]");
 		}
@@ -1240,6 +1336,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsQualifier())
 		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getSubTokenName() + "|QUALIFIED[ALL]");
 		}
 	}
@@ -1374,6 +1472,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[TYPE=Bar|TYPE=Goo]|PC[TYPE=Foo|TYPE=Yea]");
 		}
@@ -1385,6 +1499,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Yea"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Goo"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[TYPE=Bar,TYPE=Goo],PC[TYPE=Foo,TYPE=Yea]");
 		}
@@ -1436,6 +1566,18 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[!TYPE=Type1,TYPE=Type2,TYPE=Type3]");
 		}
@@ -1447,6 +1589,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
 		}
@@ -1458,6 +1616,22 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("Type1"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("Type2"));
+			CDOMObject e = (CDOMObject) construct(primaryContext, "Typed3");
+			e.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject f = (CDOMObject) construct(primaryContext, "Typed4");
+			f.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
+			CDOMObject g = (CDOMObject) construct(secondaryContext, "Typed3");
+			g.addToListFor(ListKey.TYPE, Type.getConstant("Type3"));
+			CDOMObject h = (CDOMObject) construct(secondaryContext, "Typed4");
+			h.addToListFor(ListKey.TYPE, Type.getConstant("Type4"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "!PC[!TYPE=Type1,TYPE=Type2|!TYPE=Type3,TYPE=Type4]");
 		}
@@ -1473,6 +1647,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = (CDOMObject) construct(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = (CDOMObject) construct(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType]");
 		}
@@ -1482,6 +1664,13 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public void testRoundRobinQualifiedPCTestEquals()
 			throws PersistenceLayerException
 	{
+		if (CDOMObject.class.isAssignableFrom(getTargetClass()))
+		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+		}
 		if (allowsPCQualifier)
 		{
 			runRoundRobin(getSubTokenName() + '|' + "PC[TYPE=TestType]");
@@ -1499,6 +1688,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			CDOMObject a = (CDOMObject) construct(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 			runRoundRobin(getSubTokenName() + '|'
 					+ "PC[TYPE=TestAltType.TestThirdType.TestType]");
 		}
@@ -1510,6 +1707,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		if (allowsPCQualifier)
 		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
 			runRoundRobin(getSubTokenName() + "|PC[ALL]");
 		}
 	}

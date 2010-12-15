@@ -52,7 +52,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -90,7 +90,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
 		assertTrue(coll.contains(getConstant("Yarra Valley")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -118,7 +118,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		assertEquals(2, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -144,7 +144,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		}
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -337,7 +337,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 			assertTrue(parse(".CLEAR.TestWP1"));
 			if (requiresPreconstruction())
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 	}

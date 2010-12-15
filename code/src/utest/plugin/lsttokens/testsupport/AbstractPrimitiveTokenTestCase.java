@@ -201,7 +201,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1." + good
 				+ "]"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -272,7 +272,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 				+ primitive + "]");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{

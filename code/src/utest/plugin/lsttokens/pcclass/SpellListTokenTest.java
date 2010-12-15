@@ -120,7 +120,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputUnbuilt() throws PersistenceLayerException
 	{
 		assertTrue(parse("1|String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -128,7 +128,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 			throws PersistenceLayerException
 	{
 		assertTrue(parse("1|DOMAIN.String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -146,7 +146,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("1|TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -184,7 +184,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		if (parse("0|DOMAIN"))
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		assertNoSideEffects();
 	}
@@ -202,7 +202,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		constructDomain(primaryContext, "TestWP1");
 		if (parse("0|DOMAIN.TestWP1."))
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		assertNoSideEffects();
 	}
@@ -216,7 +216,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		// This is NOT valid!!! Must list domains separately...
 		if (parse("0|DOMAIN.TestWP1.TestWP2"))
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		assertNoSideEffects();
 	}
@@ -245,7 +245,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -281,20 +281,6 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertTrue(parse("1|TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse("2|TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
-	}
-
-	@Test
 	public void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -305,6 +291,8 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin("1|ALL");
 	}
 

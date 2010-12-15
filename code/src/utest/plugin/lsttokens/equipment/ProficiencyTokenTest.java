@@ -127,7 +127,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 	public void testInvalidInputWeaponString() throws PersistenceLayerException
 	{
 		assertTrue(parse("WEAPON|String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	// FIXME These are invalid due to RC being overly protective at the moment
@@ -147,7 +147,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("WEAPON|TestWP1,TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -167,7 +167,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("WEAPON|TestWP1|TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -187,7 +187,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("WEAPON|TestWP1.TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -261,7 +261,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 	public void testInvalidInputArmorString() throws PersistenceLayerException
 	{
 		assertTrue(parse("ARMOR|String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	// FIXME These are invalid due to RC being overly protective at the moment
@@ -281,7 +281,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("ARMOR|TestWP1,TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -301,7 +301,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("ARMOR|TestWP1|TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -321,7 +321,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("ARMOR|TestWP1.TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -395,7 +395,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 	public void testInvalidInputShieldString() throws PersistenceLayerException
 	{
 		assertTrue(parse("SHIELD|String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	// FIXME These are invalid due to RC being overly protective at the moment
@@ -415,7 +415,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("SHIELD|TestWP1,TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -435,7 +435,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("SHIELD|TestWP1|TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -455,7 +455,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		boolean ret = parse("SHIELD|TestWP1.TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{

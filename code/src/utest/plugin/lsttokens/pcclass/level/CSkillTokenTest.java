@@ -95,7 +95,7 @@ public class CSkillTokenTest extends
 		boolean result = parse("LIST");
 		if (result)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -106,6 +106,8 @@ public class CSkillTokenTest extends
 	@Test
 	public void testRoundRobinPattern() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin("Pattern%");
 	}
 

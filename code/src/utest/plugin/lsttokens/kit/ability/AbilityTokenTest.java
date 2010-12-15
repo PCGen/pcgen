@@ -19,6 +19,8 @@ package plugin.lsttokens.kit.ability;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
@@ -56,7 +58,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("CATEGORY=FEAT|Fireball"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -72,8 +74,16 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testRoundRobinTest() throws PersistenceLayerException
+	public void testRoundRobinType() throws PersistenceLayerException
 	{
+		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+				"Fireball");
+		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
+		ab = secondaryContext.ref
+				.constructCDOMObject(Ability.class, "Fireball");
+		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
 

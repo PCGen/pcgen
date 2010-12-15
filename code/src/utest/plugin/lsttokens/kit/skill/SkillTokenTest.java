@@ -19,6 +19,8 @@ package plugin.lsttokens.kit.skill;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Skill;
 import pcgen.core.kit.KitSkill;
 import pcgen.persistence.PersistenceLayerException;
@@ -55,7 +57,7 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -87,6 +89,12 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
+		Skill a = primaryContext.ref.constructCDOMObject(Skill.class,
+				"Fireball");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		Skill b = secondaryContext.ref.constructCDOMObject(Skill.class,
+				"Fireball");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		runRoundRobin("TYPE=Foo");
 	}
 }

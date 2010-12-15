@@ -29,6 +29,8 @@ import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -81,6 +83,11 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
 	}
 
+	protected CDOMObject constructTyped(LoadContext loadContext, String one)
+	{
+		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
+	}
+
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
@@ -115,14 +122,14 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "String"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestType"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	// TODO Allow this once a method checks to exist if TestWP1 is a formula vs.
@@ -151,7 +158,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		boolean parse = parse(getSubTokenName() + "|Formula|TestWP1|TestWP2");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{
@@ -165,7 +172,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -249,7 +256,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -276,7 +283,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -301,7 +308,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 				boolean result = parse("ANY");
 				if (result)
 				{
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -327,7 +334,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 						"TYPE=TestType").passed();
 				if (result)
 				{
-					assertFalse(primaryContext.ref.validate(null));
+					assertConstructionError();
 				}
 				else
 				{
@@ -353,7 +360,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 					+ "TestWP1 (Test,TestTwo)");
 			if (ret)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 			else
 			{
@@ -397,7 +404,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -412,7 +419,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 					+ getJoinCharacter() + getTypePrefix() + "TYPE=TestType"
 					+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
@@ -429,41 +436,22 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 					+ getJoinCharacter() + getTypePrefix()
 					+ "TYPE.TestType.OtherTestType" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputTestDot() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix()
-					+ "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
+			CDOMObject a = constructTyped(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = constructTyped(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix()
 					+ "TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ getTypePrefix() + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate(null));
-			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ getTypePrefix() + "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate(null));
-		}
-		if (isAllLegal())
-		{
-			assertTrue(parse(getSubTokenName() + '|' + getAllString()));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -561,6 +549,14 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
+			CDOMObject a = constructTyped(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject b = constructTyped(primaryContext, "Typed2");
+			b.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
+			CDOMObject c = constructTyped(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject d = constructTyped(secondaryContext, "Typed2");
+			d.addToListFor(ListKey.TYPE, Type.getConstant("OtherTestType"));
 			runRoundRobin(getSubTokenName() + '|' + "TestWP1"
 					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 					+ getTypePrefix() + "TYPE=OtherTestType"
@@ -573,6 +569,10 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = constructTyped(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = constructTyped(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + getTypePrefix()
 					+ "TYPE=TestType");
 		}
@@ -583,6 +583,14 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isTypeLegal())
 		{
+			CDOMObject a = constructTyped(primaryContext, "Typed1");
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
+			CDOMObject c = constructTyped(secondaryContext, "Typed1");
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
+			c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			runRoundRobin(getSubTokenName() + '|' + getTypePrefix()
 					+ "TYPE=TestAltType.TestThirdType.TestType");
 		}
@@ -704,6 +712,8 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isAllLegal())
 		{
+			construct(primaryContext, "Typed1");
+			construct(secondaryContext, "Typed1");
 			runRoundRobin(getSubTokenName() + '|' + getAllString());
 		}
 	}

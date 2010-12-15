@@ -21,7 +21,9 @@ import org.junit.Test;
 
 import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.modifier.HitDieFormula;
 import pcgen.cdom.modifier.HitDieLock;
 import pcgen.cdom.modifier.HitDieStep;
@@ -350,6 +352,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinIntegerType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("2|CLASS.TYPE=Base");
 	}
 
@@ -370,6 +376,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinAddType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%+2|CLASS.TYPE=Base");
 	}
 
@@ -390,6 +400,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinSubtractType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%-2|CLASS.TYPE=Base");
 	}
 
@@ -410,6 +424,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinMultiplyType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%*2|CLASS.TYPE=Base");
 	}
 
@@ -430,6 +448,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinDivideType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%/2|CLASS.TYPE=Base");
 	}
 
@@ -450,6 +472,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinUpType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%up2|CLASS.TYPE=Base");
 	}
 
@@ -470,6 +496,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinHupType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%Hup2|CLASS.TYPE=Base");
 	}
 
@@ -490,6 +520,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinDownType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%down2|CLASS.TYPE=Base");
 	}
 
@@ -510,6 +544,10 @@ public class HitDieTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testRoundRobinHdownType() throws PersistenceLayerException
 	{
+		PCClass a = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
+		PCClass c = secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
 		runRoundRobin("%Hdown2|CLASS.TYPE=Base");
 	}
 

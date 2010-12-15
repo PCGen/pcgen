@@ -164,9 +164,9 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test

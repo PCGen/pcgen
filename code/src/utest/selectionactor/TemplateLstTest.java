@@ -197,7 +197,7 @@ public class TemplateLstTest extends TestCase
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
 		context.resolveDeferredTokens();
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
 	}
 

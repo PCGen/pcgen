@@ -140,7 +140,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -148,7 +148,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 			throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard|Sorcerer"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
@@ -205,6 +205,9 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
+		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSkillList.class, "Wizard");
 		runRoundRobin("ALL");
 	}
 

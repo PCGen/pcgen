@@ -20,6 +20,8 @@ package plugin.lsttokens;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
@@ -129,14 +131,14 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidReversed() throws PersistenceLayerException
 	{
 		assertTrue(parse("Martial=Hammer"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidResultPrimitive() throws PersistenceLayerException
 	{
 		assertTrue(parse("Hammer=Pipe"));
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -158,6 +160,10 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	{
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
+		WeaponProf a = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf b = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		runRoundRobin("Hammer=Martial");
 	}
 
@@ -168,6 +174,10 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		WeaponProf a = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf b = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		runRoundRobin("Hammer,Pipe=Martial");
 	}
 
@@ -176,6 +186,14 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	{
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
+		WeaponProf a = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf b = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf c = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Sledgehammer");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
+		WeaponProf d = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Sledgehammer");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		runRoundRobin("Hammer,TYPE.Heavy=Martial");
 	}
 
@@ -186,6 +204,14 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		WeaponProf a = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf b = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf c = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Bolas");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
+		WeaponProf d = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Bolas");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		runRoundRobin("Hammer=Martial|Pipe=Exotic");
 	}
 
@@ -196,6 +222,28 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Nail");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Nail");
+		WeaponProf a = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf b = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Longsword");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		WeaponProf c = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Bolas");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
+		WeaponProf d = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Bolas");
+		d.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
+		WeaponProf e = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Sledgehammer");
+		e.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
+		WeaponProf f = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Sledgehammer");
+		f.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
+		WeaponProf g = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Average Weapon");
+		g.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
+		WeaponProf h = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Average Weapon");
+		h.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
+		WeaponProf k = primaryContext.ref.constructCDOMObject(WeaponProf.class, "Loaded Diaper");
+		k.addToListFor(ListKey.TYPE, Type.getConstant("Disposable"));
+		k.addToListFor(ListKey.TYPE, Type.getConstant("Crazy"));
+		WeaponProf l = secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Loaded Diaper");
+		l.addToListFor(ListKey.TYPE, Type.getConstant("Crazy"));
+		l.addToListFor(ListKey.TYPE, Type.getConstant("Disposable"));
 		runRoundRobin("Hammer,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic");
 	}
 

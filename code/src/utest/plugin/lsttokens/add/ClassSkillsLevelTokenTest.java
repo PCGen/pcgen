@@ -106,30 +106,40 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinTrained() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "TRAINED");
 	}
 
 	@Test
 	public void testRoundRobinUntrained() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "UNTRAINED");
 	}
 
 	@Test
 	public void testRoundRobinExclusive() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "EXCLUSIVE");
 	}
 
 	@Test
 	public void testRoundRobinNonExclusive() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE");
 	}
 
 	@Test
 	public void testRoundRobinAutorank() throws PersistenceLayerException
 	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
 		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3");
 	}
 

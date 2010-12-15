@@ -148,7 +148,7 @@ public class FavoredClassTokenTest extends
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertFalse(primaryContext.ref.validate(null));
+		assertConstructionError();
 	}
 
 	@Test
@@ -163,7 +163,7 @@ public class FavoredClassTokenTest extends
 		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -216,7 +216,7 @@ public class FavoredClassTokenTest extends
 					"TYPE=TestType").passed();
 			if (result)
 			{
-				assertFalse(primaryContext.ref.validate(null));
+				assertConstructionError();
 			}
 		}
 		catch (IllegalArgumentException e)

@@ -77,7 +77,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains("Rheinhessen"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -92,7 +92,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains("Niederösterreich"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -107,7 +107,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains("Finger Lakes"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -122,7 +122,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains("Languedoc-Roussillon"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -137,7 +137,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains("Yarra Valley"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -154,7 +154,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertEquals(2, coll.size());
 			assertTrue(coll.contains("Niederösterreich"));
 			assertTrue(coll.contains("Finger Lakes"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 
@@ -175,7 +175,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(coll.contains("Finger Lakes"));
 			assertTrue(coll.contains("Languedoc-Roussillon"));
 			assertTrue(coll.contains("Rheinhessen"));
-			assertTrue(primaryContext.ref.validate(null));
+			assertCleanConstruction();
 		}
 	}
 

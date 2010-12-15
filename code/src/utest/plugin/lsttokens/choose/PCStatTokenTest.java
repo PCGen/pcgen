@@ -20,6 +20,7 @@ package plugin.lsttokens.choose;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
@@ -121,11 +122,12 @@ public class PCStatTokenTest extends
 
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String one)
 	{
 		PCStat obj = loadContext.ref.constructCDOMObject(getTargetClass(),
 				one);
 		loadContext.ref.registerAbbreviation(obj, one);
+		return obj;
 	}
 
 	@Override

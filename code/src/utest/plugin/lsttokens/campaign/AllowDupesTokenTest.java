@@ -17,17 +17,10 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
-import pcgen.rules.context.GameReferenceContext;
-import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
@@ -40,25 +33,6 @@ public class AllowDupesTokenTest extends AbstractTokenTestCase<Campaign>
 	static CDOMPrimaryToken<Campaign> token = new AllowDupesToken();
 	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
 			Campaign.class);
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		primaryContext = new RuntimeLoadContext(new GameReferenceContext(),
-				new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new GameReferenceContext(),
-				new ConsolidatedListCommitStrategy());
-		URI testURI = testCampaign.getURI();
-		primaryContext.getObjectContext().setSourceURI(testURI);
-		primaryContext.getObjectContext().setExtractURI(testURI);
-		secondaryContext.getObjectContext().setSourceURI(testURI);
-		secondaryContext.getObjectContext().setExtractURI(testURI);
-		primaryProf = getPrimary("TestObj");
-		secondaryProf = getSecondary("TestObj");
-		expectedPrimaryMessageCount = 0;
-	}
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()

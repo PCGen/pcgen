@@ -121,6 +121,14 @@ public class VFeatTokenTest extends
 	}
 
 	@Override
+	protected Ability constructTyped(LoadContext loadContext, String one)
+	{
+		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
+		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
+	}
+
+	@Override
 	public boolean allowsFormula()
 	{
 		return true;
@@ -217,7 +225,7 @@ public class VFeatTokenTest extends
 				+ getJoinCharacter() + "TestWP2");
 		if (ret)
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			assertConstructionError();
 		}
 		else
 		{

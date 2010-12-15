@@ -143,8 +143,9 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 		// And that it comes back out the same again
 		validateUnparsed(secondaryContext, secondaryProf, unparsed);
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 		assertTrue(secondaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.resolveReferences(null));
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
@@ -253,4 +254,16 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
+	protected void assertConstructionError()
+	{
+		boolean validate = primaryContext.ref.validate(null);
+		boolean resolve = primaryContext.ref.resolveReferences(null);
+		assertFalse(validate && resolve);
+	}
+
+	protected void assertCleanConstruction()
+	{
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(primaryContext.ref.resolveReferences(null));
+	}
 }

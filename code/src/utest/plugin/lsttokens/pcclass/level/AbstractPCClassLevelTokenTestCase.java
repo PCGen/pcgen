@@ -148,8 +148,9 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
 		assertNull(getToken().unparse(secondaryContext, secondaryProf3));
 		validateUnparsed(secondaryContext, secondaryProf2, unparsed);
-		assertTrue(primaryContext.ref.validate(null));
+		assertCleanConstruction();
 		assertTrue(secondaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.resolveReferences(null));
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
@@ -240,5 +241,11 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
 		assertEquals("Expected item to be equal", expected, unparsed[0]);
+	}
+
+	protected void assertCleanConstruction()
+	{
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(primaryContext.ref.resolveReferences(null));
 	}
 }
