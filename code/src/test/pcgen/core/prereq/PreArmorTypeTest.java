@@ -154,7 +154,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("MEDIUM"));
 		chainmail.setName("Chainmail");
 		Globals.getContext().ref.importObject(chainmail);
-		Globals.getContext().ref.resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("armortype");
 		prereq.setKey("LIST");

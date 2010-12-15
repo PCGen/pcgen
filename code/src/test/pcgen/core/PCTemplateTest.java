@@ -139,7 +139,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
@@ -200,7 +200,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
@@ -264,7 +264,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());
@@ -348,7 +348,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());

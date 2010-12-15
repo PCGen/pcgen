@@ -101,7 +101,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -142,7 +142,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -212,7 +212,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -253,7 +253,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Armor Proficiency (Single)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Armor Proficiency (Single)", true, false);
@@ -314,7 +314,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -335,6 +335,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

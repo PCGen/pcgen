@@ -78,7 +78,7 @@ public class LoadContextTest extends TestCase
 					ref, testSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
 		context.ref.buildDerivedObjects();
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		context.commit();
 		
 		Spell newSpell = context.cloneInMasterLists(testSpell, "New Spell");

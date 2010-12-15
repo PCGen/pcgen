@@ -71,7 +71,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		Domain quux = context.ref.constructCDOMObject(Domain.class, "KEY_Quux");
 		context.unconditionallyProcess(pObj, "CHOOSE",
 				"DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
 		PlayerCharacter aPC = getCharacter();

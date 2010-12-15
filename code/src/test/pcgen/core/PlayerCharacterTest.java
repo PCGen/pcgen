@@ -246,7 +246,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		context.resolveDeferredTokens();
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 	}
 
 	@Override

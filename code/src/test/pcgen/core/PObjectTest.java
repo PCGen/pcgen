@@ -378,7 +378,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = race.getListMods(autoList);
 		assertEquals(2, listMods.size());
@@ -416,7 +416,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(2), "REMOVE",
 				"FEAT|KEY_Alertness");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(arRace);
 		assertEquals("Initial number of feats", 0.0, pc.getRemainingFeatPoolPoints(), 0.1);

@@ -206,7 +206,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(spellcaster, "CSKILL", "Concentration");
 		context.unconditionallyProcess(spellcaster, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:BASESPELLSTAT,2");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		setPCStat(character, intel, 16);
 		PCClassLoader loader = new PCClassLoader();
@@ -245,7 +245,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:MyVar,1");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -286,7 +286,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -325,7 +325,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PCClassLevel level1 = warrior.getOriginalClassLevel(1);
 		context.unconditionallyProcess(level1, "SAB",
 				"Test Works|PREVARGTEQ:CL,3");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
@@ -362,7 +362,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.ref.importObject(warrior);
 		context.unconditionallyProcess(warrior, "SAB",
 				"Test Works|PREVARGTEQ:CL,2");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();

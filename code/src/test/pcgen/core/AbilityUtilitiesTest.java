@@ -94,6 +94,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		//Throwaway is required to create it...
 		context.ref.getManufacturer(Ability.class, typeChild);
 		context.ref.validate(null);
+		context.ref.resolveReferences(null);
 
 		Collection<Ability> allAbilities = context.ref.getManufacturer(Ability.class, parent).getAllObjects();
 		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));

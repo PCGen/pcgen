@@ -357,7 +357,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pct, "AUTO",
 				"WEAPONPROF|KEY_Sword (Bastard)|KEY_LONGSWORD|SillyBite");
 		character.addTemplate(pct);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 	}
 
 	/*

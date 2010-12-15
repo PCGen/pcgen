@@ -112,7 +112,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
@@ -139,7 +139,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
@@ -194,7 +194,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());

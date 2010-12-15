@@ -71,6 +71,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -136,12 +137,13 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 		
 		context.ref.buildDerivedObjects();
-		context.resolveReferences();
+		context.ref.resolveReferences(null);
 	}
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		knowledge = null;

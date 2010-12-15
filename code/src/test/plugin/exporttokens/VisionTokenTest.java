@@ -32,15 +32,12 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
-import pcgen.core.Vision;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
@@ -73,6 +70,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -109,7 +107,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 				context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class,
 					"Astral");
 
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		
 		metricUS = new UnitSet();
 		metricUS.setName("Metric");
@@ -119,16 +117,10 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().getModeContext().ref.importObject(metricUS);
 	}
 
-	private void addVision(PObject obj, String visionString)
-	{
-		Vision vision = Vision.getVision(visionString);
-		Globals.getContext().getListContext().addToList("VISION", obj,
-			Vision.VISIONLIST, new CDOMDirectSingleRef<Vision>(vision));
-	}
-
 	/*
 	 * @see TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		Globals.getContext().ref.forget(darkvisionT);

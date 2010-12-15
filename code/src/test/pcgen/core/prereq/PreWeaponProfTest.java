@@ -83,7 +83,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -120,7 +120,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -159,7 +159,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
 		context.unconditionallyProcess(pctlb, "AUTO", "WEAPONPROF|Longbow");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -196,7 +196,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -245,7 +245,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
 				"WEAPONPROF|TYPE.Martial");
-		Globals.getContext().ref.resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Weapon Proficiency (Martial)", true, false);
@@ -278,7 +278,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pctls = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		
 		final FeatLoader featLoader = new FeatLoader();
 		
@@ -324,6 +324,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

@@ -99,7 +99,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -140,7 +140,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -168,7 +168,8 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-
+		Globals.getContext().ref.constructCDOMObject(Equipment.class,
+				"A Shield");
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -180,7 +181,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE=Medium");
-		Globals.getContext().ref.resolveReferences();
+		Globals.getContext().ref.resolveReferences(null);
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -210,7 +211,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -310,7 +311,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		Globals.getContext().resolveReferences();
+		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -331,6 +332,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

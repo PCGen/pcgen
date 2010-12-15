@@ -166,7 +166,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		context.ref.buildDerivedObjects();
-		context.resolveReferences();
+		context.ref.resolveReferences(null);
 
 		character.calcActiveBonuses();
 	}

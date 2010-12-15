@@ -150,7 +150,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, sf, false); //Because this tests LST format
 		context.ref.validate(new LoadValidator(new ArrayList<Campaign>()));
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean found = false;
 		for (CDOMSingleRef<Ability> ref : refs)

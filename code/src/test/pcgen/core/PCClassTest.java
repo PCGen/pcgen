@@ -644,11 +644,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 				AbilityCategory.class, "TestCat");
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		ab1.setCDOMCategory(cat);
 		context.ref.importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		ab2.setCDOMCategory(cat);
 		context.ref.importObject(ab2);
 
 		// Link them to a template
@@ -664,14 +664,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 		String classPCCText =
 				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
-					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
+					+ "CLASS:Cleric	STARTSKILLPTS:2\n"
 					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
 		ab1.setCDOMCategory(cat);
 		ab2.setCDOMCategory(cat);
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
-		context.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(autoList);
 		assertEquals(1, mods.size());

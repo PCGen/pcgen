@@ -17,6 +17,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -153,6 +154,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(intel);
 		ref.importObject(wis);
 		ref.importObject(cha);
+
+		ref.constructCDOMObject(Language.class, "All Language For Test");
 
 		fine = createSize("Fine");
 		diminutive = createSize("Diminutive");

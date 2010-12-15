@@ -200,7 +200,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		TestHelper.addType(armor, "armor.suit");
 
 		context.ref.buildDerivedObjects();
-		context.resolveReferences();
+		context.ref.resolveReferences(null);
 	}
 
 	/**

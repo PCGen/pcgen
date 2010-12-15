@@ -68,10 +68,10 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final PlayerCharacter character = getCharacter();
 
 		LoadContext context = Globals.getContext();
 		wiz = context.ref.constructCDOMObject(PCClass.class, "Wizard");
@@ -121,7 +121,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cure, "SUBSCHOOL", "Useful");
 
 		context.ref.buildDerivedObjects();
-		context.ref.resolveReferences();
+		assertTrue(context.ref.resolveReferences(null));
 	}
 
 	public void testSimpleSUBSCHOOL() throws Exception

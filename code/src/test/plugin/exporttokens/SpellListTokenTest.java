@@ -82,6 +82,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -131,12 +132,13 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.ref.importObject(divineClass);
 		context.resolveDeferredTokens();
 		context.ref.buildDerivedObjects();
-		context.resolveReferences();
+		context.ref.resolveReferences(null);
 	}
 
 	/*
 	 * @see TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		Globals.getContext().ref.forget(divineClass);
