@@ -5,7 +5,7 @@ AFC 2		TYPE:TestingVirtualAddition
 
 #TEST-53
 #Ability (can be feat):
-TargetedAbility ~ WeaponProf	TYPE:TEST-53	CHOOSE:WEAPONPROF|ANY	MULT:YES	VFEAT:Weapon Focus(%LIST)
+TargetedAbility ~ WeaponProf	TYPE:TEST-53	CHOOSE:WEAPONPROFICIENCY|ANY	MULT:YES	VFEAT:Weapon Focus(%LIST)
 
 
 

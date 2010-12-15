@@ -146,6 +146,16 @@ CLASS:Test51H
 CLASS:Test51I
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)
 
+# TEST 53
 CLASS:Test53
 1	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Longsword)
 2	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
+
+CLASS:Test53b
+1	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Longsword)|PRELEVEL:1,Test53b=2
+#  (you will need to update this to the correct class name)
+3	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
+
+CLASS:Text53c
+1	BONUS:ABILITYPOOL|FEAT|1
+1	BONUS:ABILITYPOOL|FEAT|1
