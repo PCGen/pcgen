@@ -1,5 +1,6 @@
 
 
+ABILITYCATEGORY:Any Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:*																																										PLURAL:Any Feat Choices		DISPLAYLOCATION:Feats
 
 
 ABILITYCATEGORY:Exotic Weapon Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT																																								POOL:1				ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices		DISPLAYLOCATION:Character Creation Pool

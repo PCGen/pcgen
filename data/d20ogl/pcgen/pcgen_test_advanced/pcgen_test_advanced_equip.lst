@@ -1,4 +1,6 @@
 #Equip
+		ABILITY:Any Feat Choice|VIRTUAL|AFC 1|AFC 2
+
 Torch		TYPE:Goods
 Lantern	TYPE:Goods.Lightsource.Latern
 
