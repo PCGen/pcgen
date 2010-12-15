@@ -27,6 +27,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -38,6 +39,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.GameMode;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
@@ -60,8 +62,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 {
 	private static String in_houseRules =
 		PropertyFactory.getString("in_Prefs_houseRules");
-	private List<RuleCheck> ruleCheckList = new ArrayList<RuleCheck>();
-
+	private final Collection<RuleCheck> ruleCheckList;
+	
 	private JCheckBox[] hrBoxes = null;
 	private ButtonGroup[] hrGroup = null;
 	private JRadioButton[] hrRadio = null;
@@ -103,7 +105,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		// build a list of checkboxes from the current gameMode Rules
 		int gridNum = 1;
 		GameMode gameMode = SettingsHandler.getGame();
-		ruleCheckList = gameMode.getRuleCheckList();
+		ruleCheckList = gameMode.getModeContext().ref
+				.getConstructedCDOMObjects(RuleCheck.class);
 
 		// initialize all the checkboxes
 		hrBoxes = new JCheckBox[ruleCheckList.size()];
@@ -114,7 +117,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		for (RuleCheck aRule : ruleCheckList)
 		{
 			aRule.getName();
-			String aKey = aRule.getKey();
+			String aKey = aRule.getKeyName();
 			String aDesc = aRule.getDesc();
 			boolean aBool = aRule.getDefault();
 
@@ -150,7 +153,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		for (RuleCheck aRule : ruleCheckList)
 		{
 			aRule.getName();
-			String aKey = aRule.getKey();
+			String aKey = aRule.getKeyName();
 			aRule.getDesc();
 			boolean aBool = aRule.getDefault();
 
@@ -203,7 +206,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 		
-		List<String> doneList = new ArrayList<String>();
+		List<RuleCheck> doneList = new ArrayList<RuleCheck>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{
@@ -213,24 +216,30 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 			}
 
 			String aKey = hrRadio[i].getText();
-			RuleCheck aRule = gameMode.getRuleByKey(aKey);
+			RuleCheck aRule = gameMode.getModeContext().ref
+					.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 
 			if (aRule == null)
 			{
 				continue;
 			}
-
-			String aDesc = aRule.getDesc();
-			String altKey = aRule.getExcludeKey();
-
-			if (doneList.contains(aKey) || doneList.contains(altKey))
+			if (doneList.contains(aRule))
 			{
 				continue;
 			}
 
+			CDOMSingleRef<RuleCheck> excludedRef = aRule.getExclude();
+			if ((excludedRef != null)
+					&& doneList.contains(excludedRef.resolvesTo()))
+			{
+				continue;
+			}
+
+			String aDesc = aRule.getDesc();
+
 			hrGroup[groupNum] = new ButtonGroup();
 			hrGroup[groupNum].add(hrRadio[i]);
-			doneList.add(aKey);
+			doneList.add(aRule);
 
 			Utility.buildConstraints(c, 0, gridNum, 3, 1, 0, 0);
 
@@ -265,12 +274,13 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 
 				String exKey = hrRadio[ii].getText();
 
-				if (exKey.equals(altKey))
+				if ((excludedRef != null)
+						&& exKey.equals(excludedRef.resolvesTo().getKeyName()))
 				{
-					aRule = gameMode.getRuleByKey(exKey);
+					aRule = excludedRef.resolvesTo();
 					aDesc = aRule.getDesc();
 					hrGroup[groupNum].add(hrRadio[ii]);
-					doneList.add(altKey);
+					doneList.add(excludedRef.resolvesTo());
 
 					JLabel descLabel = new JLabel(aDesc);
 					cc.anchor = GridBagConstraints.WEST;
@@ -315,7 +325,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 				boolean aBool = hrBoxes[i].isSelected();
 
 				// Save settings
-				if (gameMode.hasRuleCheck(aKey))
+				if (gameMode.getModeContext().ref
+						.containsConstructedCDOMObject(RuleCheck.class, aKey))
 				{
 					SettingsHandler.setRuleCheck(aKey, aBool);
 				}
@@ -330,7 +341,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 				boolean aBool = hrRadio[i].isSelected();
 
 				// Save settings
-				if (gameMode.hasRuleCheck(aKey))
+				if (gameMode.getModeContext().ref
+						.containsConstructedCDOMObject(RuleCheck.class, aKey))
 				{
 					SettingsHandler.setRuleCheck(aKey, aBool);
 				}

@@ -244,11 +244,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
-		final RuleCheck aClassPreRule = new RuleCheck();
-		aClassPreRule.setName("CLASSPRE");
-		aClassPreRule.setDefault("N");
 		final GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addRule(aClassPreRule);
+		RuleCheck aClassPreRule = gameMode.getModeContext().ref
+				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
+		if (aClassPreRule == null)
+		{
+			aClassPreRule = new RuleCheck();
+			aClassPreRule.setName("CLASSPRE");
+			gameMode.getModeContext().ref.importObject(aClassPreRule);
+		}
+		aClassPreRule.setDefault(false);
 
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
@@ -284,7 +289,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test no prereqs and bypass passes class and fails var
-		aClassPreRule.setDefault("Y");
+		aClassPreRule.setDefault(true);
 		assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
 			aPrClass.qualifies(character, aPrClass));
@@ -301,7 +306,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and no bypass passes class and var
-		aClassPreRule.setDefault("N");
+		aClassPreRule.setDefault(false);
 		assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
@@ -324,11 +329,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
-		final RuleCheck aClassPreRule = new RuleCheck();
-		aClassPreRule.setName("CLASSPRE");
-		aClassPreRule.setDefault("N");
 		final GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addRule(aClassPreRule);
+		RuleCheck aClassPreRule = gameMode.getModeContext().ref
+				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
+		if (aClassPreRule == null)
+		{
+			aClassPreRule = new RuleCheck();
+			aClassPreRule.setName("CLASSPRE");
+			gameMode.getModeContext().ref.importObject(aClassPreRule);
+		}
+		aClassPreRule.setDefault(false);
 
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
@@ -363,7 +373,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test no prereqs and bypass passes class and fails var
-		aClassPreRule.setDefault("Y");
+		aClassPreRule.setDefault(true);
 		assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
 			aPrClass.qualifies(character, aPrClass));
@@ -380,7 +390,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and no bypass passes class and var
-		aClassPreRule.setDefault("N");
+		aClassPreRule.setDefault(false);
 		assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
@@ -598,9 +608,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		RuleCheck bonusKnownRule = new RuleCheck();
 		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
-		bonusKnownRule.setDefault("Y");
+		bonusKnownRule.setDefault(true);
 		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addRule(bonusKnownRule);
+		gameMode.getModeContext().ref.importObject(bonusKnownRule);
 		BonusSpellInfo bsi = new BonusSpellInfo();
 		bsi.setName("1");
 		bsi.setStatScore(12);
@@ -886,9 +896,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prereq = parser.parse("VARGTEQ", "Foo,1", false, false);
 		classPreRule = new RuleCheck();
 		classPreRule.setName("CLASSPRE");
-		classPreRule.setDefault("N");
+		classPreRule.setDefault(false);
 		GameMode gameMode = gamemode;
-		gameMode.addRule(classPreRule);
+		gameMode.getModeContext().ref.importObject(classPreRule);
 
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");

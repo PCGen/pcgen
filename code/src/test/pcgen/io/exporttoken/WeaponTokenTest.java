@@ -261,7 +261,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
 		rc.setName("SIZECAT");
-		gm.addRule(rc);
+		gm.getModeContext().ref.importObject(rc);
 		SettingsHandler.setRuleCheck("SIZECAT", true);
 		gm.setWCStepsFormula("EQUIP.SIZE.INT-PC.SIZE.INT");
 		gm.setWeaponReachFormula("(RACEREACH+(max(0,REACH-5)))*REACHMULT");

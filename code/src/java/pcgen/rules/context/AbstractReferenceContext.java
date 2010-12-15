@@ -159,7 +159,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return manufacturer.getReference(val);
 	}
 
-	public <T extends CDOMObject> void reassociateKey(String key, T obj)
+	public <T extends Loadable> void reassociateKey(String key, T obj)
 	{
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
@@ -172,8 +172,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategorizedKey(
-			String key, CDOMObject orig, Class<T> cl)
+	private <T extends Loadable & CategorizedCDOMObject<T>> void reassociateCategorizedKey(
+			String key, Loadable orig, Class<T> cl)
 	{
 		T obj = (T) orig;
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
@@ -292,7 +292,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return set;
 	}
 
-	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
+	public <T extends Loadable> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
 		return getManufacturer(c).containsObject(s);

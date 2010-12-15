@@ -76,6 +76,7 @@ import pcgen.core.PaperInfo;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PointBuyCost;
 import pcgen.core.Race;
+import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
@@ -253,6 +254,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private SimpleLoader<PaperInfo> paperLoader = new SimplePrefixLoader<PaperInfo>(PaperInfo.class, "NAME");
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SimpleLoader<Sponsor> sponsorLoader = new SimplePrefixLoader<Sponsor>(Sponsor.class, "SPONSOR");
+	private SimpleLoader<RuleCheck> ruleCheckLoader = new SimpleLoader<RuleCheck>(RuleCheck.class);
 	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 	private final Set<String> sourcesSet = new TreeSet<String>();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
@@ -1044,8 +1046,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
-	private static void loadGameModeInfoFile(GameMode gameMode, URI uri,
-		String aType)
+	private void loadGameModeInfoFile(GameMode gameMode, URI uri, String aType)
 	{
 		String data;
 		try
@@ -1083,7 +1084,16 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			else if (aType.equals("rules"))
 			{
-				RuleCheckLoader.parseLine(gameMode, aLine, uri);
+				try
+				{
+					ruleCheckLoader.parseLine(gameMode.getModeContext(), aLine, uri);
+				}
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint(PropertyFactory.getFormattedString(
+							"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
+							uri, e.getMessage()));
+				}
 			}
 		}
 	}

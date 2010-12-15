@@ -24,111 +24,132 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
- * <code>RuleCheck</code> describes checks that can be turned on or off
- * in the GUI by the users
- *
+ * <code>RuleCheck</code> describes checks that can be turned on or off in the
+ * GUI by the users
+ * 
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  */
-public final class RuleCheck
+public final class RuleCheck implements Loadable
 {
-	private String desc = "";
-	private String excludeKey = "";
-	private String key = "";
-	private String name = "";
-	private String parm = "";
-	private String var = "";
-	private boolean status = false;
+	private String ruleName;
+	private String ruleKey;
+	private String ruleDescription = "";
+ 	private String parm = "";
+ 	private String var = "";
+	private CDOMSingleRef<RuleCheck> excludeKey;
+	private boolean isEnabledByDefault = false;
+	private URI sourceURI;
 
-	/**
-	 * Default constructor for RuleCheck
-	 **/
-	public RuleCheck()
+	public URI getSourceURI()
 	{
-	    // Empty Constructor
+		return sourceURI;
 	}
 
-	/**
-	 * @param aString Used to set on/off status
-	 **/
-	public void setDefault(final String aString)
+	public void setSourceURI(URI source)
 	{
-		status = aString.startsWith("Y") || aString.startsWith("y");
+		sourceURI = source;
+	}
+
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	public boolean isType(String type)
+	{
+		return false;
+	}
+
+	public void setDefault(Boolean set)
+	{
+		isEnabledByDefault = set;
 	}
 
 	public boolean getDefault()
 	{
-		return status;
+		return isEnabledByDefault;
 	}
 
-	/**
-	 * @param aString set desc to
-	 **/
-	public void setDesc(final String aString)
+	public void setDesc(String description)
 	{
-		desc = aString;
+		ruleDescription = description;
 	}
 
 	public String getDesc()
 	{
-		return desc;
+		return ruleDescription;
 	}
 
-	/**
-	 * @param aString set exclude to
-	 **/
-	public void setExclude(final String aString)
+	public void setExclude(CDOMSingleRef<RuleCheck> ref)
 	{
-		excludeKey = aString;
+		excludeKey = ref;
 	}
 
 	public boolean isExclude()
 	{
-		return (excludeKey.length() > 0);
+		return (excludeKey != null);
 	}
 
-	public String getExcludeKey()
+	public CDOMSingleRef<RuleCheck> getExclude()
 	{
 		return excludeKey;
 	}
 
 	/**
 	 * Returns the unique key for this Rule
+	 * 
 	 * @return key
 	 */
-	public String getKey()
+	public String getKeyName()
 	{
-		return key;
+		return ruleKey;
+	}
+
+	public String getLSTformat()
+	{
+		return getKeyName();
 	}
 
 	/**
 	 * Sets the Name (and key if not already set)
-	 * @param aName set name to
+	 * 
+	 * @param name
+	 *            set name to
 	 */
-	public void setName(final String aName)
+	public void setName(String name)
 	{
-		name = aName;
+		ruleName = name;
 
-		if (key.length() <= 0)
+		if (ruleKey == null)
 		{
-			key = aName;
+			ruleKey = name;
 		}
+	}
+
+	public String getDisplayName()
+	{
+		return ruleName;
 	}
 
 	public String getName()
 	{
-		return name;
+		return ruleName;
 	}
 
 	/**
-	 * @param aString set parm, key and var to
-	 **/
+	 * @param aString
+	 *            set parm, key and var to
+	 */
 	public void setParameter(final String aString)
 	{
 		parm = aString;
-		key = aString;
 
 		if (var.length() <= 0)
 		{
@@ -142,16 +163,21 @@ public final class RuleCheck
 	}
 
 	/**
-	 * @param aString set key and var to
-	 **/
+	 * @param aString
+	 *            set key and var to
+	 */
 	public void setVariable(final String aString)
 	{
 		var = aString;
-		key = aString;
 	}
 
 	public String getVariable()
 	{
 		return var;
+	}
+
+	public void setKeyName(String key)
+	{
+		ruleKey = key;
 	}
 }

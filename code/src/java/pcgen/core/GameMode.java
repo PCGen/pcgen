@@ -121,7 +121,6 @@ public final class GameMode implements Comparable<Object>
 	private String weaponReachFormula = "";
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
-	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
 	private boolean allowAutoResize = false;
 	private boolean bonusStatAllowsStack = false;
 	private boolean showClassDefense;
@@ -629,42 +628,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Get a rule given a key
-	 * @param aKey
-	 * @return RucleCheck
-	 */
-	public RuleCheck getRuleByKey(final String aKey)
-	{
-		return ruleCheckMap.get(aKey);
-	}
-
-	/**
-	 * Return true if a RuleCheck exists for a key
-	 * @param aKey
-	 * @return true if a RuleCheck exists for a key
-	 */
-	public boolean getRuleCheck(final String aKey)
-	{
-		if (ruleCheckMap.containsKey(aKey))
-		{
-			final RuleCheck aRule = ruleCheckMap.get(aKey);
-
-			return aRule.getDefault();
-		}
-
-		return false;
-	}
-
-	/**
-	 * Get the RuleCheck List
-	 * @return the RuleCheck List
-	 */
-	public List<RuleCheck> getRuleCheckList()
-	{
-		return new ArrayList<RuleCheck>(ruleCheckMap.values());
-	}
-
-	/**
 	 * Set the Short Range distance
 	 * @param aShortRange
 	 */
@@ -1072,16 +1035,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * RuleCheck lists.
-	 *
-	 * @param aRule the rule to check
-	 */
-	public void addRule(final RuleCheck aRule)
-	{
-		ruleCheckMap.put(aRule.getKey(), aRule);
-	}
-
-	/**
 	 * Add a Weapon Category
 	 * @param aString
 	 */
@@ -1140,21 +1093,6 @@ public final class GameMode implements Comparable<Object>
 	public void setWeaponReachFormula (String aString)
 	{
 		this.weaponReachFormula = aString;
-	}
-
-	/**
-	 * Return true if RuleCheck exists given a key
-	 * @param aKey
-	 * @return true if RuleCheck exists given a key
-	 */
-	public boolean hasRuleCheck(final String aKey)
-	{
-		if (ruleCheckMap.containsKey(aKey))
-		{
-			return true;
-		}
-
-		return false;
 	}
 
 	String getACAbbrev()

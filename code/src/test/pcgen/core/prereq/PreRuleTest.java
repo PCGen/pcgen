@@ -66,10 +66,9 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		super.setUp();
 		RuleCheck preRule = new RuleCheck();
 		preRule.setName("PRERULE");
-		preRule.setDefault("N");
+		preRule.setDefault(false);
 		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addRule(preRule);
-		
+		gameMode.getModeContext().ref.importObject(preRule);
 	}
 
 	/* (non-Javadoc)
@@ -120,11 +119,9 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 */
 	public void testRuleEnabled() throws Exception
 	{
-		RuleCheck preRule = new RuleCheck();
-		preRule.setName("PRERULE");
-		preRule.setDefault("Y");
-		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addRule(preRule);
+		RuleCheck preRule = SettingsHandler.getGame().getModeContext().ref
+				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
+		preRule.setDefault(true);
 		
 		assertTrue("Our rule should now be true", Globals
 			.checkRule("PRERULE"));

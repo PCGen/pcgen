@@ -1608,25 +1608,25 @@ public final class Globals
 	 */
 	public static boolean checkRule(final String aKey)
 	{
-		boolean aBool = false;
-		final GameMode gameMode = SettingsHandler.getGame();
-
-		if (gameMode.hasRuleCheck(aKey))
+		RuleCheck rule = SettingsHandler.getGame().getModeContext().ref
+				.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
+		if (rule == null)
 		{
-			aBool = gameMode.getRuleCheck(aKey);
-			if (SettingsHandler.hasRuleCheck(aKey))
-			{
-				aBool = SettingsHandler.getRuleCheck(aKey);
-			}
+			return false;
 		}
-
-
-		return aBool;
+		if (SettingsHandler.hasRuleCheck(aKey))
+		{
+			return SettingsHandler.getRuleCheck(aKey);
+		}
+		else
+		{
+			return rule.getDefault();
+		}
 	}
 
 	/**
-	 * This method is called by the persistence layer to
-	 * clear the global campaigns for a refresh.
+	 * This method is called by the persistence layer to clear the global
+	 * campaigns for a refresh.
 	 */
 	public static void clearCampaignsForRefresh()
 	{

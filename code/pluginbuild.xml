@@ -5958,13 +5958,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/rules/NameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-PARM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

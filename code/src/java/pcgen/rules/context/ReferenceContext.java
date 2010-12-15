@@ -50,7 +50,7 @@ public interface ReferenceContext
 
 	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val);
 
-	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
+	public <T extends Loadable> boolean containsConstructedCDOMObject(
 			Class<T> c, String s);
 
 	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl,
@@ -87,7 +87,7 @@ public interface ReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
 			Category<T> cat, T obj);
 
-	public <T extends CDOMObject> void reassociateKey(String key, T obj);
+	public <T extends Loadable> void reassociateKey(String key, T obj);
 
 	public <T extends Loadable> boolean forget(T obj);
 
