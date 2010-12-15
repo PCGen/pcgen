@@ -145,3 +145,7 @@ CLASS:Test51H
 
 CLASS:Test51I
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)
+
+CLASS:Test53
+1	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Longsword)
+2	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
