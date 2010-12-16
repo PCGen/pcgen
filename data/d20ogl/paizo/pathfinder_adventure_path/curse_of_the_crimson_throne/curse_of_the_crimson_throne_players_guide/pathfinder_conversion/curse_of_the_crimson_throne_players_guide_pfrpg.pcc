@@ -16,7 +16,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-02
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/curse_of_the_crimson_throne_players_guide.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/curse_of_the_crimson_throne_players_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -35,13 +35,13 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Gui
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_abilities.lst
-ARMORPROF:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_profs_armor.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment_armor.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment_weapons.lst|(EXCLUDE:Starknife)
-LANGUAGE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst|(EXCLUDE:Boggard)
-WEAPONPROF:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_profs_weapons.lst|(EXCLUDE:Starknife)
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_abilities.lst
+ARMORPROF:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_profs_armor.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment_armor.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_equipment_weapons.lst|(EXCLUDE:Starknife)
+LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst|(EXCLUDE:Boggard)
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/cotct_pg_profs_weapons.lst|(EXCLUDE:Starknife)
 
 # Customized Pathfinder RPG data files
 ABILITY:cotct_pg_abilities_pfrpg.lst
