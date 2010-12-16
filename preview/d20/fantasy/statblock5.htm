@@ -138,6 +138,16 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 <!-- End Aura TYPE Abilities -->
 
+<!-- Start of Temporary Bonuses Added -->
+|%COUNT[TEMPBONUSNAMES]|
+<b>Temporary Bonuses Applied</b>
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
+|TEMPBONUS.%temp|,
+|ENDFOR|
+<br>
+|%|
+<!-- End of Temporary Bonuses Added -->
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="divider"><b>DEFENSE</b></td>
@@ -175,9 +185,24 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ELSE|
 |AC.Misc.SIGN|&nbsp;misc,&nbsp;
 |ENDIF|
-|IIF(AC.Armor:0)|
+|IIF(RACETYPE:Animal.OR.RACETYPE:Companion.OR.RACETYPE:Beast.OR.RACETYPE:Construct.OR.RACETYPE:Dragon.OR.RACETYPE:Magical Beast.OR.RACETYPE:Outsider.OR.RACETYPE:Shapechanger)|
+|IIF(TEXT.LENGTH.ARMOR.EQUIPPED.BARDING.0.NAME:0)|
 |ELSE|
-|AC.Armor.SIGN|&nbsp;|EQ.IS.ARMOR.0.NAME|,&nbsp;
+|ARMOR.EQUIPPED.BARDING.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.BARDING.0.NAME.NOSTAR|,&nbsp;
+|ENDIF|
+|ELSE|
+|IIF(TEXT.LENGTH.ARMOR.EQUIPPED.SUIT.0.NAME:0)|
+|ELSE|
+|ARMOR.EQUIPPED.SUIT.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.SUIT.0.NAME.NOSTAR|,&nbsp;
+|ENDIF|
+|IIF(TEXT.LENGTH.ARMOR.EQUIPPED.SHIRT.0.NAME:0)|
+|ELSE|
+|ARMOR.EQUIPPED.SHIRT.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.SHIRT.0.NAME.NOSTAR|,&nbsp;
+|ENDIF|
+|ENDIF|
+|IIF(TEXT.LENGTH.ARMOR.EQUIPPED.ITEM.0.NAME:0)|
+|ELSE|
+|ARMOR.EQUIPPED.ITEM.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.ITEM.0.NAME.NOSTAR|,&nbsp;
 |ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
@@ -823,6 +848,16 @@ at will)
 |ENDMANUALWHITESPACE|
 <!-- End Languages Communicate TYPE Abilities -->
 
+<!-- Start of Archetypes -->
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Archetypes </b>
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|,
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- STOP Archetypes Table -->
+
 <!-- SpecialQuality TYPE Abilities -->
 |MANUALWHITESPACE|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
@@ -845,9 +880,28 @@ at will)
 |ENDMANUALWHITESPACE|
 <!-- End SpecialQuality TYPE Abilities -->
 
+<!-- Animal Tricks TYPE Abilities -->
+|MANUALWHITESPACE|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Animal&nbsp;Tricks</b>|SPACE||ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|<br>
+|ENDIF|
+|ENDMANUALWHITESPACE|
+<!-- End Animal Tricks TYPE Abilities -->
+
 |%COUNT[SA]|
 <b>Special Abilities </b> |SPECIALLIST|<br>
 |%|
+
+<!-- Afflictions Start -->
+|IIF(count("ABILITIES";"CATEGORY=Afflictions";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Afflictions </b>
+|FOR,%affliction,0,count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction|
+(|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction.DESC|),
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- Afflictions End -->
 
 <b>Possessions </b>
 |FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container.NOT.Natural]-1,1,1|
@@ -933,6 +987,8 @@ at will)
 </table>
 
 |FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:AnimalTrick)|
+|ELSE|
 <p><b>|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Extraordinary)|
  (Ex)
@@ -947,6 +1003,20 @@ at will)
  (Ps)
 |ENDIF|
 </b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
+|ENDIF|
+|ENDFOR|
+
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+|IIF(%animalTrick:0)|
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <td class="divider"><b>ANIMAL TRICKS</b></td>
+  </tr>
+  <tr>
+    <td class="divider"></td>
+  </tr>
+</table>
+|ENDIF|
+<p><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b> |ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</p>
 |ENDFOR|
 
 </body>
