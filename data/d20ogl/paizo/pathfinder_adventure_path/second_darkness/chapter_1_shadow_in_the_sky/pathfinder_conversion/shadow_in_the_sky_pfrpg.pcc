@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em
 SOURCEDATE:2008-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_1_shadow_in_the_sky/shadow_in_the_sky.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_1_shadow_in_the_sky/shadow_in_the_sky.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -37,10 +37,10 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 1: Shadow in th
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_1_shadow_in_the_sky/pf13_ability.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_1_shadow_in_the_sky/pf13_equipment.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_1_shadow_in_the_sky/pf13_race.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_1_shadow_in_the_sky/pf13_template.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_1_shadow_in_the_sky/pf13_ability.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_1_shadow_in_the_sky/pf13_equipment.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_1_shadow_in_the_sky/pf13_race.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_1_shadow_in_the_sky/pf13_template.lst
 
 # Customized Pathfinder RPG data files
 KIT:pf13_kit_monster_pfrpg.lst

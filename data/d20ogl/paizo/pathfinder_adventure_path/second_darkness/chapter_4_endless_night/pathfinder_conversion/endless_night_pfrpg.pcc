@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er
 SOURCEDATE:2008-11
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/endless_night.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/endless_night.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -40,11 +40,11 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 4: Endless Nigh
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/pf16_abilities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/pf16_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/pf16_feat.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/pf16_race.lst
-SPELL:@/d20ogl/paizo/pathfinder/second_darkness/chapter_4_endless_night/pf16_spells.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/pf16_abilities.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/pf16_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/pf16_feat.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/pf16_race.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_4_endless_night/pf16_spells.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf16_abilities_pfrpg.lst

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-07
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/a_history_of_ashes.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/a_history_of_ashes.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,15 +38,15 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 4: 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_abilities.lst
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_ability_categories.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_wondrousitems.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_mundane.lst
-EQUIPMOD:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equipmods_enhancing.lst
-FEAT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_feats.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_templates.lst
-WEAPONPROF:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_weaponprofs.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_abilities.lst
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_ability_categories.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_wondrousitems.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equip_mundane.lst
+EQUIPMOD:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_equipmods_enhancing.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_feats.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_templates.lst
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_4_a_history_of_ashes/pf10_weaponprofs.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf10_abilities_pfrpg.lst

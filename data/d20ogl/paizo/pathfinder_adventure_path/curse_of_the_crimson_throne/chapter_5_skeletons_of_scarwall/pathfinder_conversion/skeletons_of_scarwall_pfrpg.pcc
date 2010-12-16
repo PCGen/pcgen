@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/skeletons_of_scarwall.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/skeletons_of_scarwall.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -41,9 +41,9 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 5: 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_ability.lst
-CLASS:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_classes_monster.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_equipment.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_ability.lst
+CLASS:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_classes_monster.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_5_skeletons_of_scarwall/pf11_equipment.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf11_ability_pfrpg.lst

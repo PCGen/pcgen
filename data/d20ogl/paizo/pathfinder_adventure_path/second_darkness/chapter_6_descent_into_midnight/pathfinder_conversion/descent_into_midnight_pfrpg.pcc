@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1
 SOURCEDATE:2009-01
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/descent_into_midnight.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_6_descent_into_midnight/descent_into_midnight.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -42,10 +42,10 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 6: Descent into
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_abilities.lst
-DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_demon_lords.lst|(EXCLUDE:Lamashtu)
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_races.lst|(EXCLUDE:Shaitan)
-TEMPLATE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_6_descent_into_midnight/pf18_templates.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_6_descent_into_midnight/pf18_abilities.lst
+DEITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_6_descent_into_midnight/pf18_demon_lords.lst|(EXCLUDE:Lamashtu)
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_6_descent_into_midnight/pf18_races.lst|(EXCLUDE:Shaitan)
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_6_descent_into_midnight/pf18_templates.lst
 
 # Customized Pathfinder RPG data files
 EQUIPMENT:pf18_equipment_pfrpg.lst

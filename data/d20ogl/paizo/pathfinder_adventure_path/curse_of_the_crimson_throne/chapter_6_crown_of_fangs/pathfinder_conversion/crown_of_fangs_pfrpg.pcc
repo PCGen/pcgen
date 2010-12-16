@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/crown_of_fangs.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/crown_of_fangs.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,9 +39,9 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 6: 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_ability.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_equipment.lst|(EXCLUDE:Staff of the Slain)
-FEAT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_feat.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_ability.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_equipment.lst|(EXCLUDE:Staff of the Slain)
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_6_crown_of_fangs/pf12_feat.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf12_ability_pfrpg.lst

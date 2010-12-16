@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed
 SOURCEDATE:2008-10
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/children_of_the_void.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/children_of_the_void.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,13 +38,13 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 2: Children of 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_ability.lst
-CLASS:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_classes.lst
-EQUIPMOD:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_equip_modifier.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_equipment.lst
-LANGUAGE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_languages.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_races.lst
-SPELL:@/d20ogl/paizo/pathfinder/second_darkness/chapter_2_children_of_the_void/pf14_spells.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_ability.lst
+CLASS:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_classes.lst
+EQUIPMOD:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_equip_modifier.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_equipment.lst
+LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_languages.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_races.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_2_children_of_the_void/pf14_spells.lst
 
 # Customized Pathfinder RPG data files
 CLASS:pf14_classes_pfrpg.lst

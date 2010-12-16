@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/the_hook_mountain_massacre.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/the_hook_mountain_massacre.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,12 +39,12 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 3: The Ho
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_abilities_racial.lst
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_ability_categories.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_equip_wondrousitems.lst|(EXCLUDE:Belt of Giant Strength +2)
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_races.lst
-SKILL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_skills.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_templates.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_abilities_racial.lst
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_ability_categories.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_equip_wondrousitems.lst|(EXCLUDE:Belt of Giant Strength +2)
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_races.lst
+SKILL:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_skills.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_3_the_hook_mountain_massacre/pf3_templates.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf3_abilities_pfrpg.lst

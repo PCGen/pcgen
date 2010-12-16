@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-03
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/edge_of_anarchy.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/edge_of_anarchy.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,9 +38,9 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 1: 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_ability.lst
-RACE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_race.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_template.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_ability.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_race.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_1_edge_of_anarchy/pf7_template.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf7_ability_pfrpg.lst

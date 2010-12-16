@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-09
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/fortress_of_the_stone_giants.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/fortress_of_the_stone_giants.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,13 +39,13 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 4: Fortre
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_abilities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_weapons_melee.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_rodsstaveswands.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_wondrousitems.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_races.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_templates.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_abilities.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_weapons_melee.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_rodsstaveswands.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_equip_magic_wondrousitems.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_feats.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_races.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_4_fortress_of_the_stone_giants/pf4_templates.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf4_abilities_racial_pfrpg.lst

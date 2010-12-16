@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep
 SOURCEDATE:2008-10
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/the_armageddon_echo.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/the_armageddon_echo.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,13 +38,13 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 3: The Armagedd
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_abilities.lst
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_ability_categories.lst
-CLASS:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_classes.lst
-DEITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_deity_drow_demon_lords.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_feat.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_3_the_armageddon_echo/pf15_races.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_abilities.lst
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_ability_categories.lst
+CLASS:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_classes.lst
+DEITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_deity_drow_demon_lords.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_feat.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_3_the_armageddon_echo/pf15_races.lst
 
 # Customized Pathfinder RPG data files
 CLASS:pf15_classes_pfrpg.lst

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6
 SOURCEDATE:2008-12
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/a_memory_of_darkness.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_5_a_memory_of_darkness/a_memory_of_darkness.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,10 +38,10 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 5: A Memory of 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_abilities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_equipment.lst
-RACE:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_race.lst
-SPELL:@/d20ogl/paizo/pathfinder/second_darkness/chapter_5_a_memory_of_darkness/pf17_spells.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_5_a_memory_of_darkness/pf17_abilities.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_5_a_memory_of_darkness/pf17_equipment.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_5_a_memory_of_darkness/pf17_race.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/chapter_5_a_memory_of_darkness/pf17_spells.lst
 
 # Imported 35e game mode files
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Spell Stowaway)

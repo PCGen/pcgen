@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-10
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/sins_of_the_saviors.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/sins_of_the_saviors.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -41,11 +41,11 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 5: Sins o
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_abilities_monster.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_race.lst
-SPELL:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_spells.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_abilities_monster.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_feats.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_race.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_spells.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf5_abilities_pfrpg.lst

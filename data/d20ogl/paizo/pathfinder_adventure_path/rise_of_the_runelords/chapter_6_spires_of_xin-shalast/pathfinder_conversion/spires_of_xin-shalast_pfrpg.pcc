@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy
 SOURCEDATE:2007-10
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/spires_of_xin-shalast.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/spires_of_xin-shalast.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,11 +39,11 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 6: Spires
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_abilities_race.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_equipment.lst
-FEAT:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_feats.lst
-RACE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_races.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_templates.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_abilities_race.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_equipment.lst
+FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_feats.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_races.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_6_spires_of_xin-shalast/pf6_templates.lst
 
 # Imported 35e game mode files
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Devastating Critical,Epic Toughness,Epic Weapon Focus,Overwhelming Critical)

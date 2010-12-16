@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v574
 SOURCEDATE:2008-05
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/escape_from_old_korvosa.jpg
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/escape_from_old_korvosa.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -40,14 +40,14 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: 
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_abilities_class.lst
-ABILITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_abilities_racial.lst|(EXCLUDE:CATEGORY=Special Ability,Monk Qualities)
-CLASS:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_classes_prc.lst
-DEITY:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_deities.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_equip.lst
-LANGUAGE:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_languages.lst
-SPELL:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_spells.lst
-WEAPONPROF:@/d20ogl/paizo/pathfinder/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_profs_weapon.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_abilities_class.lst
+ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_abilities_racial.lst|(EXCLUDE:CATEGORY=Special Ability,Monk Qualities)
+CLASS:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_classes_prc.lst
+DEITY:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_deities.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_equip.lst
+LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_languages.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_spells.lst
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/chapter_3_escape_from_old_korvosa/pf9_profs_weapon.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:pf9_abilities_pfrpg.lst
