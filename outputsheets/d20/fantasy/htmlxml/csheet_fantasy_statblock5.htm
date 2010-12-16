@@ -987,6 +987,8 @@ at will)
 </table>
 
 |FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:AnimalTrick)|
+|ELSE|
 <p><b>|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Extraordinary)|
  (Ex)
@@ -1001,9 +1003,19 @@ at will)
  (Ps)
 |ENDIF|
 </b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
+|ENDIF|
 |ENDFOR|
 
 |FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+|IIF(%animalTrick:0)|
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <td class="divider"><b>ANIMAL TRICKS</b></td>
+  </tr>
+  <tr>
+    <td class="divider"></td>
+  </tr>
+</table>
+|ENDIF|
 <p><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</b> |ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</p>
 |ENDFOR|
 
