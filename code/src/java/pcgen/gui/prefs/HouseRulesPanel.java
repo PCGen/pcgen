@@ -206,7 +206,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 		
-		List<RuleCheck> doneList = new ArrayList<RuleCheck>();
+		List<String> doneList = new ArrayList<String>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{
@@ -223,14 +223,14 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 			{
 				continue;
 			}
-			if (doneList.contains(aRule))
+			if (doneList.contains(aKey))
 			{
 				continue;
 			}
 
 			CDOMSingleRef<RuleCheck> excludedRef = aRule.getExclude();
 			if ((excludedRef != null)
-					&& doneList.contains(excludedRef.resolvesTo()))
+					&& doneList.contains(excludedRef.getLSTformat(false)))
 			{
 				continue;
 			}
@@ -239,7 +239,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 
 			hrGroup[groupNum] = new ButtonGroup();
 			hrGroup[groupNum].add(hrRadio[i]);
-			doneList.add(aRule);
+			doneList.add(aKey);
 
 			Utility.buildConstraints(c, 0, gridNum, 3, 1, 0, 0);
 
@@ -280,7 +280,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 					aRule = excludedRef.resolvesTo();
 					aDesc = aRule.getDesc();
 					hrGroup[groupNum].add(hrRadio[ii]);
-					doneList.add(excludedRef.resolvesTo());
+					doneList.add(excludedRef.getLSTformat(false));
 
 					JLabel descLabel = new JLabel(aDesc);
 					cc.anchor = GridBagConstraints.WEST;
