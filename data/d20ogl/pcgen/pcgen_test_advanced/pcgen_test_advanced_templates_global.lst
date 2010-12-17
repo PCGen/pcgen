@@ -26,7 +26,7 @@ BOB ~ Template ~ Test 34 Favored Class Highest		FAVOREDCLASS:HIGHESTLEVELCLASS
 TEMPLATE ~ Global Test Same Spells				
 
 TEMPLATE ~ TEST~26						FEAT:Toughness|Weapon Focus(DEITYWEAPON)
-
+TEMPLATE ~ TEST~26b						FEAT:Toughness
 
 TEMPLATE ~ TEST~25 Test A	FEAT:Agile
 

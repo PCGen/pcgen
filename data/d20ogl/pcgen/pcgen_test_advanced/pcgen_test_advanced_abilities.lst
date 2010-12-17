@@ -9,12 +9,16 @@ CODE-371 Display Mult			CATEGORY:FEAT			COST:10	TYPE:General.SpecialQuality	DESC
 CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuality	DESC:Should grant 10 Feat Points	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
 
 
+#TEST-13
+
+
+
 # COMMENT: Alice, Bob and Charlie are all Test Set Only; changes made to this set MAY affect those test characters.
 
-Display Code 362 Test 1		CATEGORY:Special Ability	KEY:Test_Display_One	SORTKEY:A	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 2		CATEGORY:Special Ability	KEY:Test_Display_Two	SORTKEY:AB	TYPE:SpecialQuality.CodeThreeSixTwo
-Display Code 362 Test 3		CATEGORY:Special Ability	KEY:Test_Display_Three	SORTKEY:AC	TYPE:CodeThreeSixTwo.SpecialQuality
-Display Code 362 Test 4		CATEGORY:Special Ability	KEY:Test_Display_Four	SORTKEY:AD	TYPE:CodeThreeSixTwo.SpecialQuality
+Display Code 362 Test 1		CATEGORY:Special Ability	KEY:Test_Display_One	SORTKEY:A	TYPE:CodeThreeSixTwo.SpecialQuality.SpecialAbilitySub
+Display Code 362 Test 2		CATEGORY:Special Ability	KEY:Test_Display_Two	SORTKEY:AB	TYPE:SpecialQuality.CodeThreeSixTwo.SpecialAbilitySub
+Display Code 362 Test 3		CATEGORY:Special Ability	KEY:Test_Display_Three	SORTKEY:AC	TYPE:CodeThreeSixTwo.SpecialQuality.SpecialAbilitySub
+Display Code 362 Test 4		CATEGORY:Special Ability	KEY:Test_Display_Four	SORTKEY:AD	TYPE:CodeThreeSixTwo.SpecialQuality.SpecialAbilitySub
 Display Code 362 Test 5a		CATEGORY:Special Ability	KEY:Test_Display_Five	SORTKEY:AE	TYPE:Code_Three_Six_Two.SpecialQuality
 Display Code 362 Test 6a		CATEGORY:Special Ability	KEY:Test_Display_Six	SORTKEY:AF	TYPE:Code_Three_Six_Two.SpecialQuality
 Display Code 362 Test 7a		CATEGORY:Special Ability							TYPE:Code_Three_Six_Two.SpecialQuality
@@ -523,7 +527,7 @@ CODE-362 A					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A
 CODE-362 B					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
 CODE-362 C					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
 CODE-362 D					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
-CODE-362 E Single				CATEGORY:FEAT		TYPE:CODE-362
+CODE-362 E Single				CATEGORY:FEAT		TYPE:CODE-362A
 
 
 CODE-362 Assign One Feat				CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE-362|AUTOMATIC|CODE-362 E Single
@@ -645,4 +649,27 @@ Ability That Chooses Equip and AUTO Equip		CATEGORY:FEAT	TYPE:TEST50		CHOOSE:EQU
 
 Cosmopolitan Replace Feat	CATEGORY:FEAT	TYPE:CODE424	MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE=Intelligence|TYPE=Wisdom|TYPE=Charisma	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.87	BONUS:LANGUAGES|NUMBER|2
 
+
+#Test 57
+ADDVFEAT_ParentThingyType1			CATEGORY:FEAT		TYPE:Test57.A		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_NoChooseFeat)
+ADDVFEAT_ParentThingyType2			CATEGORY:FEAT		TYPE:Test57.A		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_NoStackNoChoiceFeat)
+ADDVFEAT_ParentThingyType3			CATEGORY:FEAT		TYPE:Test57.A		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_NoStackChoiceFeat(Ride))
+ADDVFEAT_ParentThingyType8			CATEGORY:FEAT		TYPE:Test57.A		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_Naturally Something (comment))
+
+ADDVFEAT_ParentThingyType4			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat)
+ADDVFEAT_ParentThingyType5			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Tumble))
+ADDVFEAT_ParentThingyType9			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_Naturally Something (comment)
+
+ADDVFEAT_ParentThingyType6			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat),ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat)
+ADDVFEAT_ParentThingyType7			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Tumble))
+
+ADDVFEAT_GivingThingy				CATEGORY:FEAT		TYPE:Test57				CHOOSE:FEATSELECTION|TYPE=ADDVFEAT_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
+ADDVFEAT_NoChooseFeat				CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing	
+ADDVFEAT_NoStackFeat				CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES
+ADDVFEAT_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+ADDVFEAT_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
+ADDVFEAT_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
+
+ADDVFEAT_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
+ADDVFEAT_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing	
 

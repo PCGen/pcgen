@@ -3,6 +3,9 @@
 AFC 1		TYPE:TestingVirtualAddition
 AFC 2		TYPE:TestingVirtualAddition
 
+A-Test Choose Class PC		TYPE:Test	CHOOSE:CLASS|PC			MULT:YES
+A-Test Choose Class Base	TYPE:Test	CHOOSE:CLASS|TYPE=Base		MULT:YES
+
 #TEST-53
 #Ability (can be feat):
 TargetedAbility ~ WeaponProf	TYPE:TEST-53	CHOOSE:WEAPONPROFICIENCY|ANY	MULT:YES	VFEAT:Weapon Focus(%LIST)
@@ -154,3 +157,10 @@ Spell Test ~ 30			TYPE:Test27		SPELLS:Innate|TIMES=30|CASTERLEVEL=30|Magic Missi
 
 
 Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
+
+
+Toughness		TYPE:GeneralTest
+
+Grant Auto Feat	TYPE:TestFeat	AUTO:FEAT|Toughness
+
+

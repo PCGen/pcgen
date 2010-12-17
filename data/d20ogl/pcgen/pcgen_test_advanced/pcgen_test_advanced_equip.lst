@@ -1,5 +1,5 @@
 #Equip
-Test Equipment	TYPE:CODE433		ABILITY:Any Feat Choice|VIRTUAL|AFC 1|AFC 2
+Test Equipment	TYPE:CODE433		ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
 Torch		TYPE:Goods
 Lantern	TYPE:Goods.Lightsource.Latern

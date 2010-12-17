@@ -1,5 +1,5 @@
 ###Class
-CLASS:MonKee	TYPE:PC	HD:12	BONUS:CASTERLEVEL|MonKee|CL	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|AC|TL
+CLASS:MonKee	TYPE:PC.Base	HD:12	BONUS:CASTERLEVEL|MonKee|CL	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|AC|TL
 CLASS:MonKee	BONUS:CASTERLEVEL|MonKee|CL+4	SPELLTYPE:Arcane	SPELLSTAT:CHA	BONUS:DOMAIN|NUMBER|3
 SUBCLASS:MonKee Junior	COST:0	TYPE:SubclassMonkee
 SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC|Monkee Jr Test
@@ -8,7 +8,7 @@ SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC
 
 
 
-CLASS:KeePer of Knowledge	TYPE:PC
+CLASS:KeePer of Knowledge	TYPE:PC.Base
 CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE.Craft	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
 SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker		BONUS:VAR|SubstitutionLevelTracker|CL+25
@@ -105,15 +105,85 @@ CLASS:Companion	STARTSKILLPTS:0
 1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
 1:REPEATLEVEL:1												DONOTADD:SKILLPOINTS
 
-CLASS:Test Nothing	HD:4	TYPE:PC.Base
 
 
 CLASS:Domain Test		HD:4	TYPE:PC.Base
 2	BONUS:DOMAIN|NUMBER|4
 
 
-CLASS:Bard		VISIBLE:NO
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bard		STARTSKILLPTS:6	
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
+###Block: Level progression
+1	CAST:2			KNOWN:4			
+2	CAST:3,0			KNOWN:5,2
+3	CAST:3,1			KNOWN:6,3
+4	CAST:3,2,0			KNOWN:6,3,2
+5	CAST:3,3,1			KNOWN:6,4,3
+6	CAST:3,3,2			KNOWN:6,4,3
+7	CAST:3,3,2,0		KNOWN:6,4,4,2
+8	CAST:3,3,3,1		KNOWN:6,4,4,3
+9	CAST:3,3,3,2		KNOWN:6,4,4,3
+10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
+11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
+12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
+13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
+14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
+15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
+16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
+17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
+18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
+19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
+20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
+
 CLASS:Wizard	VISIBLE:NO
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sorcerer	STARTSKILLPTS:2	
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
+###Block:Proficiencies
+###Block: Familiar
+###Block: Level progression
+1	CAST:5,3				KNOWN:4,2
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+# More Test Cases
+
+CLASS:Test Nothing	HD:4	TYPE:PC.Base
+
+CLASS:Test13	
+CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|CL	
+#	SPELLLIST:1|Druid
+1	CAST:5,3				KNOWN:4,2
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
 
 
 # TEST 46
@@ -156,6 +226,16 @@ CLASS:Test53b
 #  (you will need to update this to the correct class name)
 3	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
 
-CLASS:Text53c
+CLASS:Test53c
 1	BONUS:ABILITYPOOL|FEAT|1
 1	BONUS:ABILITYPOOL|FEAT|1
+
+
+CLASS:Test56
+1	ABILITY:FEAT|VIRTUAL|Weapon Focus (Longsword)|!PRECLASS:1,Test Nothing=1
+3	ABILITY:FEAT|VIRTUAL|Weapon Focus (Longsword)
+
+
+
+
+
