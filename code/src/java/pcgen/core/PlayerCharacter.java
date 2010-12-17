@@ -11272,19 +11272,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return Collections.unmodifiableSet(newSet);
 	}
 
-	private void processListsOnAdd(CDOMObject cdo)
-	{
-		for (CDOMReference<PCTemplate> tr : cdo
-				.getSafeListFor(ListKey.TEMPLATE))
-		{
-			addTemplatesIfMissing(tr.getContainedObjects());
-		}
-		for (CDOMReference ref : cdo.getModifiedLists())
-		{
-			processAbilityListsOnAdd(cdo, ref);
-		}
-	}
-
 	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
 			CDOMReference<? extends CDOMList<A>> ref)
 	{
@@ -12547,7 +12534,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void processAddition(CDOMObject cdo)
 	{
-		processListsOnAdd(cdo);
+		for (CDOMReference<PCTemplate> tr : cdo
+				.getSafeListFor(ListKey.TEMPLATE))
+		{
+			addTemplatesIfMissing(tr.getContainedObjects());
+		}
+		for (CDOMReference ref : cdo.getModifiedLists())
+		{
+			processAbilityListsOnAdd(cdo, ref);
+		}
 	}
 
 	public void processRemoval(CDOMObject cdo)
@@ -12555,6 +12550,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		conditionalFacet.removeAllFromSource(id, cdo);
 		directAbilityFacet.removeAllFromSource(id, cdo);
 		autoLangFacet.removeAll(id, cdo);
+		setDirty(true);
 	}
 
 	public void addWeaponBonus(CDOMObject owner, WeaponProf choice)
