@@ -861,9 +861,11 @@ public class AbilityUtilities
 
 		specifics.clear();
 		// we want what is inside the outermost parenthesis.
-		specifics.addAll(CoreUtility.split(subName, ','));
-
-		return altName;
+		if (subName != null)
+		{
+			specifics.addAll(CoreUtility.split(subName, ','));
+		}
+		return altName.trim();
 	}
 	
 
