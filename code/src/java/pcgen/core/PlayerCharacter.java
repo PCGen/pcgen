@@ -91,9 +91,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.*;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
-import pcgen.cdom.helper.ConditionalAbility;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
@@ -128,7 +127,6 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -185,9 +183,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
 	private ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
-	private DeniedAbilityFacet deniedFacet = FacetLibrary.getFacet(DeniedAbilityFacet.class);
+	private ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
+	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
@@ -1133,7 +1132,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			serial++;
 			cache = new ObjectCache();
 			getVariableProcessor().setSerial(serial);
-			resolveDeniedAbilities();
+			cabFacet.update(id);
 		}
 
 		// TODO - This is kind of strange. We probably either only want to
@@ -1242,7 +1241,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public Set<EquipSet> getEquipSet()
+	public Collection<EquipSet> getEquipSet()
 	{
 		return equipSetFacet.getSet(id);
 	}
@@ -1605,7 +1604,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return A <tt>Set</tt> of <tt>Follower</tt> objects.
 	 */
-	public Set<Follower> getFollowerList()
+	public Collection<Follower> getFollowerList()
 	{
 		return followerFacet.getSet(id);
 	}
@@ -1989,7 +1988,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<CompanionMod> newCompanionMods = new ArrayList<CompanionMod>();
 
 		// Clear the companionModList so we can add everything to it
-		Set<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
+		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
 		for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
 		{
@@ -2061,7 +2060,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// If it's a familiar, we need to change it's Skills
 		if (getUseMasterSkill())
 		{
-			final Set<Skill> mList = mPC.getSkillSet();
+			final Collection<Skill> mList = mPC.getSkillSet();
 			final List<Skill> sKeyList = new ArrayList<Skill>();
 
 			// now we have to merge the two lists together and
@@ -2568,7 +2567,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return list of skills
 	 */
-	public Set<Skill> getSkillSet()
+	public Collection<Skill> getSkillSet()
 	{
 		return skillFacet.getSet(id);
 	}
@@ -3051,7 +3050,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
-	public Set<PCTemplate> getTemplateSet()
+	public Collection<PCTemplate> getTemplateSet()
 	{
 		return templateFacet.getSet(id);
 	}
@@ -4387,7 +4386,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public Set<Kit> getKitInfo()
+	public Collection<Kit> getKitInfo()
 	{
 		return kitFacet.getSet(id);
 	}
@@ -11313,39 +11312,57 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					List<Prerequisite> prereqList = apo.getPrerequisiteList();
-					if (!PrereqHandler.passesAll(prereqList, this, cdo))
-					{
-						deniedFacet.add(id, new ConditionalAbility(ab, apo, cdo));
-						continue;
-					}
-					if (!prereqList.isEmpty())
-					{
-						conditionalFacet.add(id, new ConditionalAbility(ab, apo, cdo));
-					}
 					Nature nature = apo.getAssociation(AssociationKey.NATURE);
 					Category<Ability> cat = apo
 							.getAssociation(AssociationKey.CATEGORY);
-					grantedAbilityFacet.add(id, cat, nature, ab, cdo);
-					List<String> choices = apo
-							.getAssociation(AssociationKey.ASSOC_CHOICES);
-					if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+					if (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
-						addAssociation(ab, "");
-					}
-					if (choices != null)
-					{
-						for (final String choice : choices)
+						List<String> choices = apo
+								.getAssociation(AssociationKey.ASSOC_CHOICES);
+						if (choices == null)
 						{
-							for (String subchoice : AbilityUtilities
-									.getLegalAssociations(this, cdo, ab, choice))
+							CategorizedAbilitySelection cas = new CategorizedAbilitySelection(
+									cdo, cat, ab, nature, "");
+							cas.addAllPrerequisites(apo.getPrerequisiteList());
+							applyAbility(cas);
+						}
+						else
+						{
+							for (final String choice : choices)
 							{
-								addAssociation(ab, subchoice);
+								if (AbilityUtilities.isLegalAssociation(this,
+										cdo, ab, choice))
+								{
+									CategorizedAbilitySelection cas = new CategorizedAbilitySelection(
+											cdo, cat, ab, nature, choice);
+									cas.addAllPrerequisites(apo.getPrerequisiteList());
+									applyAbility(cas);
+								}
 							}
 						}
 					}
+					else
+					{
+						CategorizedAbilitySelection cas = new CategorizedAbilitySelection(
+								cdo, cat, ab, nature);
+						cas.addAllPrerequisites(apo.getPrerequisiteList());
+						applyAbility(cas);
+					}
 				}
 			}
+		}
+		cabFacet.update(id);
+	}
+
+	private void applyAbility(CategorizedAbilitySelection cas)
+	{
+		if (cas.hasPrerequisites())
+		{
+			conditionalFacet.add(id, cas);
+		}
+		else
+		{
+			directAbilityFacet.add(id, cas);
 		}
 	}
 
@@ -12194,7 +12211,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return templateFacet.contains(id, template);
 	}
 
-	public Set<PCStat> getStatSet()
+	public Collection<PCStat> getStatSet()
 	{
 		return statFacet.getSet(id);
 	}
@@ -12540,12 +12557,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private void processAbilityRemovalOnRemove(CDOMObject cdo)
 	{
-		deniedFacet.removeAll(id, cdo);
-		Set<ConditionalAbility> removed = conditionalFacet.removeAll(id, cdo);
-		for (ConditionalAbility ca : removed)
-		{
-			removeAssociations(cdo, ca.getAbility(), ca.getAPO());
-		}
+		conditionalFacet.removeAllFromSource(id, cdo);
 		Set<Ability> gRemoved = grantedAbilityFacet.removeAll(id, cdo);
 		for (Ability a : gRemoved)
 		{
@@ -12557,88 +12569,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		autoLangFacet.removeAll(id, cdo);
 	}
 
-	private void removeAssociations(CDOMObject parent, Ability ab,
-			AssociatedPrereqObject apo)
-	{
-		List<String> choices = apo
-				.getAssociation(AssociationKey.ASSOC_CHOICES);
-		if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			removeAssociation(ab, "");
-		}
-		if (choices != null)
-		{
-			for (final String choice : choices)
-			{
-				for (String subchoice : AbilityUtilities
-						.getLegalAssociations(this, parent, ab, choice))
-				{
-					removeAssociation(ab, subchoice);
-				}
-			}
-		}
-	}
-
-	private void resolveDeniedAbilities()
-	{
-		for (ConditionalAbility denied : new ArrayList<ConditionalAbility>(
-				deniedFacet.getSet(id)))
-		{
-			AssociatedPrereqObject apo = denied.getAPO();
-			CDOMObject cdo = denied.getParent();
-			if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
-			{
-				continue;
-			}
-			Nature nature = apo.getAssociation(AssociationKey.NATURE);
-			Category<Ability> cat = apo.getAssociation(AssociationKey.CATEGORY);
-			Ability ab = denied.getAbility();
-			deniedFacet.remove(id, denied);
-			conditionalFacet.add(id, denied);
-			List<String> choices = apo
-					.getAssociation(AssociationKey.ASSOC_CHOICES);
-			if ((choices == null) && ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				addAssociation(ab, "");
-			}
-			if (choices != null)
-			{
-				for (final String choice : choices)
-				{
-					for (String subchoice : AbilityUtilities
-							.getLegalAssociations(this, cdo, ab, choice))
-					{
-						addAssociation(ab, subchoice);
-					}
-				}
-			}
-			// Add is harmless (won't do dupes)
-			grantedAbilityFacet.add(id, cat, nature, ab, cdo);
-		}
-
-		for (ConditionalAbility denied : new ArrayList<ConditionalAbility>(
-				conditionalFacet.getSet(id)))
-		{
-			AssociatedPrereqObject apo = denied.getAPO();
-			CDOMObject cdo = denied.getParent();
-			if (PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
-			{
-				continue;
-			}
-			Nature nature = apo.getAssociation(AssociationKey.NATURE);
-			Category<Ability> cat = apo.getAssociation(AssociationKey.CATEGORY);
-			Ability ab = denied.getAbility();
-			conditionalFacet.remove(id, denied);
-			deniedFacet.add(id, denied);
-			removeAssociations(cdo, ab, apo);
-			//Only remove if no assocs left
-			if (!hasAssociations(ab))
-			{
-				grantedAbilityFacet.remove(id, cat, nature, ab, cdo);
-			}
-		}
-	}
-	
 	public void addWeaponBonus(CDOMObject owner, WeaponProf choice)
 	{
 		wpBonusFacet.add(id, choice, owner);
@@ -12787,24 +12717,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return !followerFacet.isEmpty(id);
 	}
 
-	public void addAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)
+	public void addAppliedAbility(CategorizedAbilitySelection cas)
 	{
-		Ability ab = as.getAbility();
-		grantedAbilityFacet.add(id, as.getAbilityCategory(), nat, ab, obj);
-		String selection = as.getSelection();
-		if (selection != null)
-		{
-			for (String subchoice : AbilityUtilities.getLegalAssociations(this,
-				obj, ab, selection))
-			{
-				addAssociation(ab, subchoice);
-			}
-		}
+		directAbilityFacet.add(id, cas);
 	}
 
-	public void removeAppliedAbility(CDOMObject obj, AbilitySelection as, Nature nat)
+	public void removeAppliedAbility(CategorizedAbilitySelection cas)
 	{
-		grantedAbilityFacet.remove(id, as.getAbilityCategory(), nat, as.getAbility(), obj);
+		directAbilityFacet.remove(id, cas);
 	}
 
 	public void addAutoEquipment(Equipment e, CDOMObject obj)

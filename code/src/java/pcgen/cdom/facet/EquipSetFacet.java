@@ -18,9 +18,9 @@
 package pcgen.cdom.facet;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.Equipment;
@@ -35,7 +35,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 
 	public boolean delEquipSet(CharID id, EquipSet eSet)
 	{
-		Set<EquipSet> componentSet = getCachedSet(id);
+		Collection<EquipSet> componentSet = getCachedSet(id);
 		if (componentSet == null)
 		{
 			return false;

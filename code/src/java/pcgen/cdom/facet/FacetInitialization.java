@@ -162,6 +162,10 @@ public class FacetInitialization
 				.getFacet(ObjectAdditionFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
 				.getFacet(GrantedAbilityFacet.class);
+		DirectAbilityFacet directAbilityFacet = FacetLibrary
+				.getFacet(DirectAbilityFacet.class);
+		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary
+				.getFacet(ConditionallyGrantedAbilityFacet.class);
 		HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
 				.getFacet(HasAnyFavoredClassFacet.class);
 		SpellBookFacet spellBookFacet = FacetLibrary
@@ -225,6 +229,9 @@ public class FacetInitialization
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
+
+		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
+		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 

@@ -22,8 +22,10 @@ import org.junit.Test;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetCache;
+import pcgen.cdom.helper.AbilitySelector;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -48,7 +50,8 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 	@Override
 	public ChooseResultActor getActor()
 	{
-		return cra;
+		return new AbilitySelector(cra.getTokenName(), AbilityCategory.FEAT,
+				Nature.AUTOMATIC);
 	}
 
 	@Override
@@ -88,26 +91,27 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 		String key = getPersistentFormat(t);
 		String key2 = getPersistentFormat(t2);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc2, owner, key);
+		ChooseResultActor actor = getActor();
+		actor.apply(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
+		actor.apply(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc2, owner, key);
+		actor.remove(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc1, owner, key);
+		actor.remove(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc2, owner, key);
+		actor.apply(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
+		actor.apply(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc2, owner, key);
+		actor.remove(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc1, owner, key);
+		actor.remove(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
-		getActor().apply(pc1, owner, key2);
-		getActor().remove(pc1, owner, key);
-		getActor().apply(pc2, owner, key2);
+		actor.apply(pc1, owner, key);
+		actor.apply(pc1, owner, key2);
+		actor.remove(pc1, owner, key);
+		actor.apply(pc2, owner, key2);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
@@ -129,28 +133,29 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 			PlayerCharacter pc1 = new PlayerCharacter();
 			PlayerCharacter pc2 = new PlayerCharacter();
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc2, owner, key);
+			ChooseResultActor actor = getActor();
+			actor.apply(pc2, owner, key);
 			assertTrue(pc2.hasLanguage(universal));
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
+			actor.apply(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc2, owner, key);
+			actor.remove(pc2, owner, key);
 			assertFalse(pc2.hasLanguage(universal));
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc1, owner, key);
+			actor.remove(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc2, owner, key);
+			actor.apply(pc2, owner, key);
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
+			actor.apply(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc2, owner, key);
+			actor.remove(pc2, owner, key);
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc1, owner, key);
+			actor.remove(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
-			getActor().apply(pc1, owner, key2);
-			getActor().remove(pc1, owner, key);
-			getActor().apply(pc2, owner, key2);
+			actor.apply(pc1, owner, key);
+			actor.apply(pc1, owner, key2);
+			actor.remove(pc1, owner, key);
+			actor.apply(pc2, owner, key2);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
 		}
 	}
@@ -173,26 +178,27 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 		String key = getPersistentFormat(t) + "(target)";
 		String key2 = getPersistentFormat(t2) + "(target)";
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc2, owner, key);
+		ChooseResultActor actor = getActor();
+		actor.apply(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
+		actor.apply(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc2, owner, key);
+		actor.remove(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc1, owner, key);
+		actor.remove(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc2, owner, key);
+		actor.apply(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
+		actor.apply(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc2, owner, key);
+		actor.remove(pc2, owner, key);
 		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().remove(pc1, owner, key);
+		actor.remove(pc1, owner, key);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-		getActor().apply(pc1, owner, key);
-		getActor().apply(pc1, owner, key2);
-		getActor().remove(pc1, owner, key);
-		getActor().apply(pc2, owner, key2);
+		actor.apply(pc1, owner, key);
+		actor.apply(pc1, owner, key2);
+		actor.remove(pc1, owner, key);
+		actor.apply(pc2, owner, key2);
 		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
@@ -216,28 +222,29 @@ public class FeatTokenTest extends AbstractResultActorTest<Ability>
 			PlayerCharacter pc1 = new PlayerCharacter();
 			PlayerCharacter pc2 = new PlayerCharacter();
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc2, owner, key);
+			ChooseResultActor actor = getActor();
+			actor.apply(pc2, owner, key);
 			assertTrue(pc2.hasLanguage(universal));
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
+			actor.apply(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc2, owner, key);
+			actor.remove(pc2, owner, key);
 			assertFalse(pc2.hasLanguage(universal));
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc1, owner, key);
+			actor.remove(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc2, owner, key);
+			actor.apply(pc2, owner, key);
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
+			actor.apply(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc2, owner, key);
+			actor.remove(pc2, owner, key);
 			assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().remove(pc1, owner, key);
+			actor.remove(pc1, owner, key);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
-			getActor().apply(pc1, owner, key);
-			getActor().apply(pc1, owner, key2);
-			getActor().remove(pc1, owner, key);
-			getActor().apply(pc2, owner, key2);
+			actor.apply(pc1, owner, key);
+			actor.apply(pc1, owner, key2);
+			actor.remove(pc1, owner, key);
+			actor.apply(pc2, owner, key2);
 			assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
 		}
 	}

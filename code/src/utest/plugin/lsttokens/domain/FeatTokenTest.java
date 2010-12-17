@@ -240,6 +240,14 @@ public class FeatTokenTest extends
 	}
 
 	@Test
+	public void testRoundRobinListParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (%LIST)");
+	}
+
+	@Test
 	public void testRoundRobinTwoParen() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

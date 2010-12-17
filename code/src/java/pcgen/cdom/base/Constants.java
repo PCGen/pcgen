@@ -297,7 +297,7 @@ public interface Constants
 	String DOT = ".";
 	String LST_LIST = "LIST";
 	String LST_PATTERN = "%";
-	String LST_PRECENTLIST = "%LIST";
+	String LST_PERCENTLIST = "%LIST";
 	String COLON = ":";
 	String LST_NONE = "NONE";
 	String LST_DOT_CLEARALL = ".CLEARALL";

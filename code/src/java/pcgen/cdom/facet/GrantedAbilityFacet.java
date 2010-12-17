@@ -30,7 +30,9 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
+import pcgen.core.PlayerCharacter;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -38,8 +40,12 @@ import pcgen.core.Ability;
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
  * objects that are contained in a PlayerCharacter
  */
-public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
+public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
+		DataFacetChangeListener<CategorizedAbilitySelection>
 {
+	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
+
 	/**
 	 * Add the given Ability to the list of Abilities defined by the given
 	 * Category and Nature, which is stored in this GrantedAbilityFacet for the
@@ -567,5 +573,36 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability>
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
 		return catMap == null || catMap.isEmpty();
+	}
+
+	public void dataAdded(DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+	{
+		CharID id = dfce.getCharID();
+		CategorizedAbilitySelection cas = dfce.getCDOMObject();
+		Ability ability = cas.getAbility();
+		add(id, cas.getAbilityCategory(), cas.getNature(), ability, dfce
+				.getSource());
+		PlayerCharacter pc = pcFacet.getPC(id);
+		String selection = cas.getSelection();
+		if (selection != null)
+		{
+			pc.addAssociation(ability, selection);
+		}
+	}
+
+	public void dataRemoved(
+			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+	{
+		CharID id = dfce.getCharID();
+		CategorizedAbilitySelection cas = dfce.getCDOMObject();
+		PlayerCharacter pc = pcFacet.getPC(id);
+		Ability ability = cas.getAbility();
+		String selection = cas.getSelection();
+		if (selection != null)
+		{
+			pc.removeAssociation(ability, selection);
+		}
+		remove(id, cas.getAbilityCategory(), cas.getNature(), ability, dfce
+				.getSource());
 	}
 }

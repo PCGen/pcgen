@@ -36,16 +36,15 @@ import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.AbilitySelector;
+import pcgen.cdom.helper.AbilityTargetSelector;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
@@ -57,7 +56,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -132,9 +131,11 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				context.getListContext().removeFromList(getFullName(), obj,
 						abilList, ref);
 			}
-			else if ("%LIST".equals(token))
+			else if (Constants.LST_PERCENTLIST.equals(token))
 			{
-				ConditionalChoiceActor cca = new ConditionalChoiceActor(this);
+				ConditionalChoiceActor cca = new ConditionalChoiceActor(
+						new AbilitySelector(getTokenName(),
+								AbilityCategory.FEAT, Nature.AUTOMATIC));
 				edgeList.add(cca);
 				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cca);
 			}
@@ -146,17 +147,39 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 					return ParseResult.INTERNAL_ERROR;
 				}
 				ability.setRequiresTarget(true);
-				AssociatedPrereqObject assoc = context.getListContext()
-						.addToList(getFullName(), obj, abilList, ability);
-				assoc.setAssociation(AssociationKey.NATURE, nature);
-				assoc.setAssociation(AssociationKey.CATEGORY, category);
+				boolean loadList = true;
+				List<String> choices = null;
 				if (token.indexOf('(') != -1)
 				{
-					List<String> choices = new ArrayList<String>();
+					choices = new ArrayList<String>();
 					AbilityUtilities.getUndecoratedName(token, choices);
-					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+					if (choices.size() == 1)
+					{
+						if (Constants.LST_PERCENTLIST.equals(choices.get(0))
+								&& (ability instanceof CDOMSingleRef))
+						{
+							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
+							AbilityTargetSelector ats = new AbilityTargetSelector(
+									getTokenName(), category, ref, nature);
+							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
+									ats);
+							edgeList.add(ats);
+							loadList = false;
+						}
+					}
 				}
-				edgeList.add(assoc);
+				if (loadList)
+				{
+					AssociatedPrereqObject assoc = context.getListContext()
+							.addToList(getFullName(), obj, abilList, ability);
+					assoc.setAssociation(AssociationKey.NATURE, nature);
+					assoc.setAssociation(AssociationKey.CATEGORY, category);
+					if (choices != null)
+					{
+						assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+					}
+					edgeList.add(assoc);
+				}
 			}
 			if (!tok.hasMoreTokens())
 			{
@@ -235,7 +258,16 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				if (csa.getSource().equals(getTokenName()))
 				{
-					returnList.add(Constants.LST_PRECENTLIST);
+					try
+					{
+						returnList.add(csa.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage(getTokenName()
+								+ " encountered error: " + e.getMessage());
+						return null;
+					}
 				}
 			}
 		}
@@ -272,64 +304,5 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
-	}
-
-	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
-	{
-		pc.addAppliedAbility(obj, decodeChoice(choice), Nature.AUTOMATIC);
-	}
-
-	public String getLstFormat() throws PersistenceLayerException
-	{
-		return "%LIST";
-	}
-
-	public String getSource()
-	{
-		return getTokenName();
-	}
-
-	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
-	{
-		AbilitySelection as = decodeChoice(choice);
-		pc.removeAppliedAbility(obj, as, Nature.AUTOMATIC);
-	}
-
-	public AbilitySelection decodeChoice(String s)
-	{
-		Ability ability = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, s);
-
-		if (ability == null)
-		{
-			List<String> choices = new ArrayList<String>();
-			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, baseKey);
-			if (ability == null)
-			{
-				throw new IllegalArgumentException("String in decodeChoice "
-						+ "must be a Feat Key "
-						+ "(or Feat Key with Selection if appropriate), was: "
-						+ s);
-			}
-			return new AbilitySelection(ability, Nature.NORMAL, choices.get(0));
-		}
-		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			/*
-			 * MULT:YES, CHOOSE:NOCHOICE can land here
-			 * 
-			 * TODO There needs to be better validation at some point that this
-			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
-			 */
-			return new AbilitySelection(ability, Nature.NORMAL, "");
-		}
-		else
-		{
-			return new AbilitySelection(ability, Nature.NORMAL);
-		}
 	}
 }

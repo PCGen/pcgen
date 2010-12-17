@@ -29,17 +29,24 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilityTargetSelector;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -78,7 +85,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					+ getTokenName() + ": " + value);
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
 		boolean first = true;
 		boolean foundClear = false;
 
@@ -110,17 +117,39 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					return ParseResult.INTERNAL_ERROR;
 				}
 				ability.setRequiresTarget(true);
-				AssociatedPrereqObject assoc = context.getListContext()
-						.addToList(getTokenName(), obj, list, ability);
-				assoc.setAssociation(AssociationKey.NATURE, nature);
-				assoc.setAssociation(AssociationKey.CATEGORY, category);
+				boolean loadList = true;
+				List<String> choices = null;
 				if (token.indexOf('(') != -1)
 				{
-					List<String> choices = new ArrayList<String>();
+					choices = new ArrayList<String>();
 					AbilityUtilities.getUndecoratedName(token, choices);
-					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+					if (choices.size() == 1)
+					{
+						if (Constants.LST_PERCENTLIST.equals(choices.get(0))
+								&& (ability instanceof CDOMSingleRef))
+						{
+							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
+							AbilityTargetSelector ats = new AbilityTargetSelector(
+									getTokenName(), category, ref, nature);
+							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
+									ats);
+							edgeList.add(ats);
+							loadList = false;
+						}
+					}
 				}
-				edgeList.add(assoc);
+				if (loadList)
+				{
+					AssociatedPrereqObject assoc = context.getListContext()
+							.addToList(getTokenName(), obj, list, ability);
+					assoc.setAssociation(AssociationKey.NATURE, nature);
+					assoc.setAssociation(AssociationKey.CATEGORY, category);
+					if (choices != null)
+					{
+						assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+					}
+					edgeList.add(assoc);
+				}
 			}
 
 			first = false;
@@ -151,7 +180,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				return new ParseResult.Fail("   (Did you put feats after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
-			for (AssociatedPrereqObject edge : edgeList)
+			for (PrereqObject edge : edgeList)
 			{
 				edge.addPrerequisite(prereq);
 			}
@@ -215,6 +244,28 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				returnSet.add(sb.toString());
 			}
 			returnList.addAll(returnSet);
+		}
+		Changes<ChooseResultActor> actors = context.getObjectContext()
+				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Collection<ChooseResultActor> addedActors = actors.getAdded();
+		if (addedActors != null)
+		{
+			for (ChooseResultActor cra : addedActors)
+			{
+				if (getTokenName().equals(cra.getSource()))
+				{
+					try
+					{
+						returnList.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage(getTokenName()
+								+ " encountered error: " + e.getMessage());
+						return null;
+					}
+				}
+			}
 		}
 		if (returnList.isEmpty())
 		{

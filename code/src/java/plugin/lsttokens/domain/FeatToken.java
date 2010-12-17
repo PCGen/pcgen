@@ -25,15 +25,21 @@ import java.util.StringTokenizer;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilityTargetSelector;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Domain;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -92,18 +98,41 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 					return ParseResult.INTERNAL_ERROR;
 				}
 				ability.setRequiresTarget(true);
-				AssociatedPrereqObject assoc = context.getListContext()
-						.addToList(getTokenName(), obj, Ability.FEATLIST,
-								ability);
-				assoc.setAssociation(AssociationKey.NATURE,
-						Nature.AUTOMATIC);
-				assoc.setAssociation(AssociationKey.CATEGORY,
-						AbilityCategory.FEAT);
+				boolean loadList = true;
+				List<String> choices = null;
 				if (token.indexOf('(') != -1)
 				{
-					List<String> choices = new ArrayList<String>();
+					choices = new ArrayList<String>();
 					AbilityUtilities.getUndecoratedName(token, choices);
-					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+					if (choices.size() == 1)
+					{
+						if (Constants.LST_PERCENTLIST.equals(choices.get(0))
+								&& (ability instanceof CDOMSingleRef))
+						{
+							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
+							AbilityTargetSelector ats = new AbilityTargetSelector(
+									getTokenName(), AbilityCategory.FEAT, ref,
+									Nature.AUTOMATIC);
+							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
+									ats);
+							loadList = false;
+						}
+					}
+				}
+				if (loadList)
+				{
+					AssociatedPrereqObject assoc = context.getListContext()
+							.addToList(getTokenName(), obj, Ability.FEATLIST,
+									ability);
+					assoc.setAssociation(AssociationKey.NATURE,
+							Nature.AUTOMATIC);
+					assoc.setAssociation(AssociationKey.CATEGORY,
+							AbilityCategory.FEAT);
+					if (choices != null)
+					{
+						assoc.setAssociation(AssociationKey.ASSOC_CHOICES,
+								choices);
+					}
 				}
 			}
 			first = false;
@@ -116,13 +145,8 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 		AssociatedChanges<CDOMReference<Ability>> changes = context
 				.getListContext().getChangesInList(getTokenName(), domain,
 						Ability.FEATLIST);
-		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
-		if ((mtl == null || mtl.isEmpty()) && !changes.includesGlobalClear())
-		{
-			// Zero indicates no Token
-			return null;
-		}
+		Changes<ChooseResultActor> actors = context.getObjectContext()
+				.getListChanges(domain, ListKey.CHOOSE_ACTOR);
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
 				.getAddedAssociations();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
@@ -158,6 +182,26 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 					}
 					needsPipe = true;
 					sb.append(lstFormat);
+				}
+			}
+		}
+		Collection<ChooseResultActor> addedActors = actors.getAdded();
+		if (addedActors != null)
+		{
+			for (ChooseResultActor cra : addedActors)
+			{
+				if (getTokenName().equals(cra.getSource()))
+				{
+					try
+					{
+						sb.append(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage(getTokenName()
+								+ " encountered error: " + e.getMessage());
+						return null;
+					}
 				}
 			}
 		}

@@ -28,6 +28,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilityTargetSelector;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -152,17 +154,39 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 		for (CDOMReference<Ability> ability : obj
 				.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
 		{
-			AssociatedPrereqObject assoc = context.getListContext().addToList(
-					getTokenName(), obj, Ability.FEATLIST, ability);
-			assoc.setAssociation(AssociationKey.NATURE,
-					Nature.AUTOMATIC);
-			assoc.setAssociation(AssociationKey.CATEGORY, AbilityCategory.FEAT);
 			String token = ability.getLSTformat(false);
+			boolean loadList = true;
+			List<String> choices = null;
 			if (token.indexOf('(') != -1)
 			{
-				List<String> choices = new ArrayList<String>();
+				choices = new ArrayList<String>();
 				AbilityUtilities.getUndecoratedName(token, choices);
-				assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+				if (choices.size() == 1)
+				{
+					if (Constants.LST_PERCENTLIST.equals(choices.get(0))
+							&& (ability instanceof CDOMSingleRef))
+					{
+						CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
+						AbilityTargetSelector ats = new AbilityTargetSelector(
+								getTokenName(), AbilityCategory.FEAT, ref,
+								Nature.AUTOMATIC);
+						context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, ats);
+						loadList = false;
+					}
+				}
+			}
+			if (loadList)
+			{
+				AssociatedPrereqObject assoc = context.getListContext()
+						.addToList(getTokenName(), obj, Ability.FEATLIST,
+								ability);
+				assoc.setAssociation(AssociationKey.NATURE, Nature.AUTOMATIC);
+				assoc.setAssociation(AssociationKey.CATEGORY,
+						AbilityCategory.FEAT);
+				if (choices != null)
+				{
+					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+				}
 			}
 		}
 		return true;

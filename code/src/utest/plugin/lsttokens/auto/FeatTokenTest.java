@@ -233,6 +233,14 @@ public class FeatTokenTest extends
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP1");
 	}
 
+	@Test
+	public void testRoundRobinListParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1 (%LIST)");
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

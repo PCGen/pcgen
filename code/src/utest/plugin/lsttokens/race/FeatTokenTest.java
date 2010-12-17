@@ -198,6 +198,14 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
 	}
 
+	@Test
+	public void testRoundRobinListParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (%LIST)");
+	}
+
 	@Override
 	public boolean allowDups()
 	{

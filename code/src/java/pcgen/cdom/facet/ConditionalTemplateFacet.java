@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
@@ -92,7 +92,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	public void levelChanged(LevelChangeEvent lce)
 	{
 		CharID id = lce.getCharID();
-		Set<PCTemplate> oldSet = getSet(id);
+		Collection<PCTemplate> oldSet = getSet(id);
 		int totalLevels = levelFacet.getTotalLevels(id);
 		int totalHitDice = levelFacet.getMonsterLevelCount(id);
 		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<PCTemplate, PCTemplate>();

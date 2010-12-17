@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
-import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
 
@@ -79,7 +78,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public void addAll(CharID id, Collection<T> c)
 	{
-		Set<T> set = getConstructingCachedSet(id);
+		Collection<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
 			if (obj == null)
@@ -112,7 +111,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		{
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
 			if (componentSet.remove(obj))
@@ -140,7 +139,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public void removeAll(CharID id, Collection<T> c)
 	{
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
 			for (T obj : c)
@@ -170,9 +169,9 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *         in this AbstractListFacet for the Player Character represented by
 	 *         the given CharID
 	 */
-	public Set<T> removeAll(CharID id)
+	public Collection<T> removeAll(CharID id)
 	{
-		Set<T> componentSet = (Set<T>) FacetCache.remove(id, thisClass);
+		Collection<T> componentSet = (Collection<T>) FacetCache.remove(id, thisClass);
 		if (componentSet == null)
 		{
 			return Collections.emptySet();
@@ -194,14 +193,14 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 * @return A non-null Set of objects in this AbstractListFacet for the
 	 *         Player Character represented by the given CharID
 	 */
-	public Set<T> getSet(CharID id)
+	public Collection<T> getSet(CharID id)
 	{
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableSet(componentSet);
+		return Collections.unmodifiableCollection(componentSet);
 	}
 
 	/**
@@ -216,7 +215,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public int getCount(CharID id)
 	{
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
 		{
 			return 0;
@@ -237,7 +236,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public boolean isEmpty(CharID id)
 	{
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		return componentSet == null || componentSet.isEmpty();
 	}
 
@@ -258,7 +257,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		/*
 		 * TODO null? - log an error?
 		 */
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		return componentSet != null && componentSet.contains(obj);
 	}
 
@@ -277,9 +276,9 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *         null if no information has been set in this AbstractListFacet for
 	 *         the Player Character.
 	 */
-	protected Set<T> getCachedSet(CharID id)
+	protected Collection<T> getCachedSet(CharID id)
 	{
-		return (Set<T>) FacetCache.get(id, thisClass);
+		return (Collection<T>) FacetCache.get(id, thisClass);
 	}
 
 	/**
@@ -295,14 +294,19 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID.
 	 */
-	private Set<T> getConstructingCachedSet(CharID id)
+	private Collection<T> getConstructingCachedSet(CharID id)
 	{
-		Set<T> componentSet = getCachedSet(id);
+		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
 		{
-			componentSet = new LinkedHashSet<T>();
+			componentSet = getComponentSet();
 			FacetCache.set(id, thisClass, componentSet);
 		}
 		return componentSet;
+	}
+
+	protected Collection<T> getComponentSet()
+	{
+		return new LinkedHashSet<T>();
 	}
 }

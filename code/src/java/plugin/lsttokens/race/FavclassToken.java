@@ -87,7 +87,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 				context.getObjectContext().put(race,
 						ObjectKey.ANY_FAVORED_CLASS, true);
 			}
-			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
+			else if (Constants.LST_PERCENTLIST.equalsIgnoreCase(token))
 			{
 				foundOther = true;
 				context.getObjectContext().addToList(race, ListKey.CHOOSE_ACTOR,

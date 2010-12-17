@@ -51,7 +51,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.BoxLayout;
@@ -316,7 +315,7 @@ final class KitSelector extends JFrame
 		lstSelected.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpSelected.setViewportView(lstSelected);
 
-		final Set<Kit> pcKitInfo = aPC.getKitInfo();
+		final Collection<Kit> pcKitInfo = aPC.getKitInfo();
 		addSelections(lstAvailable, Globals.getContext().ref.getConstructedCDOMObjects(Kit.class), pcKitInfo, aPC);
 		addSelections(lstSelected, pcKitInfo, null, aPC);
 

@@ -93,7 +93,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				context.getObjectContext().put(cdo,
 						ObjectKey.ANY_FAVORED_CLASS, true);
 			}
-			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
+			else if (Constants.LST_PERCENTLIST.equalsIgnoreCase(token))
 			{
 				context.getObjectContext().addToList(cdo, ListKey.CHOOSE_ACTOR,
 						this);

@@ -95,7 +95,7 @@ public class TemplateLst extends AbstractToken implements
 				removelist.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS,
 						templKey.substring(0, templKey.length() - 7)));
 			}
-			else if (specialLegal && templKey.equals(Constants.LST_PRECENTLIST))
+			else if (specialLegal && templKey.equals(Constants.LST_PERCENTLIST))
 			{
 				context.getObjectContext().addToList(cdo,
 						ListKey.NEW_CHOOSE_ACTOR, this);
@@ -160,7 +160,7 @@ public class TemplateLst extends AbstractToken implements
 			{
 				if (csa.equals(this))
 				{
-					list.add(Constants.LST_PRECENTLIST);
+					list.add(Constants.LST_PERCENTLIST);
 				}
 			}
 		}
@@ -235,7 +235,7 @@ public class TemplateLst extends AbstractToken implements
 
 	public String getLstFormat() throws PersistenceLayerException
 	{
-		return Constants.LST_PRECENTLIST;
+		return Constants.LST_PERCENTLIST;
 	}
 
 	public String getSource()

@@ -18,8 +18,8 @@
 package pcgen.cdom.testsupport;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import junit.framework.TestCase;
 
@@ -155,7 +155,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().add(id, t1);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertEquals(t1, setofone.iterator().next());
@@ -164,7 +164,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().add(id, t2);
 		assertEquals(2, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setoftwo = getFacet().getSet(id);
+		Collection<T> setoftwo = getFacet().getSet(id);
 		assertNotNull(setoftwo);
 		assertEquals(2, setoftwo.size());
 		assertTrue(setoftwo.contains(t1));
@@ -219,7 +219,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().addAll(id, pct);
 		assertEquals(2, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setoftwo = getFacet().getSet(id);
+		Collection<T> setoftwo = getFacet().getSet(id);
 		assertNotNull(setoftwo);
 		assertEquals(2, setoftwo.size());
 		assertTrue(setoftwo.contains(t1));
@@ -246,7 +246,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().addAll(id, pct);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t1));
@@ -279,7 +279,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		 */
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t1));
@@ -388,7 +388,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().remove(id, t1);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
@@ -437,7 +437,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		assertEventCount(3, 2);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
@@ -464,7 +464,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		assertEventCount(2, 1);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
@@ -494,7 +494,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		assertEventCount(2, 1);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
-		Set<T> setofone = getFacet().getSet(id);
+		Collection<T> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
@@ -510,7 +510,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().add(id, t1);
 		getFacet().add(id, t2);
 		assertEventCount(2, 0);
-		Set<T> setoftwo = getFacet().removeAll(id);
+		Collection<T> setoftwo = getFacet().removeAll(id);
 		assertEventCount(2, 2);
 		assertNotNull(setoftwo);
 		assertEquals(2, setoftwo.size());
@@ -527,7 +527,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		T t1 = getObject();
 		T t2 = getObject();
 		getFacet().add(id, t1);
-		Set<T> set = getFacet().getSet(id);
+		Collection<T> set = getFacet().getSet(id);
 		try
 		{
 			set.add(t2);

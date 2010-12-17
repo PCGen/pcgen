@@ -908,34 +908,12 @@ public class AbilityUtilities
 		return 	a.getSafe(ObjectKey.STACKS) || (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(a, newAssociation));
 	}
 
-	public static Collection<String> getLegalAssociations(PlayerCharacter pc,
-			CDOMObject parent, Ability target, final String newAssociation)
+	public static boolean isLegalAssociation(PlayerCharacter pc,
+			CDOMObject parent, Ability target, String newAssociation)
 	{
-		List<String> list = new ArrayList<String>();
-		if ("%LIST".equals(newAssociation))
-		{
-			list.addAll(pc.getAssociationList(parent));
-		}
-		else
-		{
-			list.add(newAssociation);
-		}
-		if (target.getSafe(ObjectKey.STACKS))
-		{
-			return list;
-		}
-		List<String> returnList = new ArrayList<String>();
-		if (target.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			for (String assoc : list)
-			{
-				if (!pc.containsAssociated(target, newAssociation))
-				{
-					returnList.add(assoc);
-				}
-			}
-		}
-		return returnList;
+		return target.getSafe(ObjectKey.STACKS)
+				|| (target.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
+						.containsAssociated(target, newAssociation));
 	}
 
 	public static void applyAbility(PlayerCharacter aPC,

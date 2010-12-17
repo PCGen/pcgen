@@ -17,11 +17,12 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
+import java.util.Set;
 
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
@@ -32,51 +33,40 @@ import pcgen.cdom.helper.CategorizedAbilitySelection;
  * Ability objects that are contained in a PlayerCharacter because the PC did
  * pass prerequisites
  */
-public class ConditionalAbilityFacet extends
+public class ConditionallyGrantedAbilityFacet extends
 		AbstractListFacet<CategorizedAbilitySelection>
 {
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+
+	private final ConditionalAbilityFacet cabFacet = FacetLibrary
+			.getFacet(ConditionalAbilityFacet.class);
+
+	public void update(CharID id)
+	{
+		Collection<CategorizedAbilitySelection> current = getSet(id);
+		Collection<CategorizedAbilitySelection> qualified = cabFacet
+				.getQualifiedSet(id);
+		HashSet<CategorizedAbilitySelection> toRemove = new HashSet<CategorizedAbilitySelection>(
+				current);
+		toRemove.removeAll(qualified);
+		HashSet<CategorizedAbilitySelection> toAdd = new HashSet<CategorizedAbilitySelection>(
+				qualified);
+		toAdd.removeAll(current);
+		for (CategorizedAbilitySelection cas : toRemove)
+		{
+			remove(id, cas);
+		}
+		for (CategorizedAbilitySelection cas : toAdd)
+		{
+			add(id, cas);
+		}
+	}
 
 	@Override
-	protected Collection<CategorizedAbilitySelection> getComponentSet()
+	protected Set<CategorizedAbilitySelection> getComponentSet()
 	{
-		return new ArrayList<CategorizedAbilitySelection>();
+		return new WrappedMapSet<CategorizedAbilitySelection>(
+				IdentityHashMap.class);
 	}
-
-	public Collection<CategorizedAbilitySelection> getQualifiedSet(CharID id)
-	{
-		List<CategorizedAbilitySelection> set = new ArrayList<CategorizedAbilitySelection>();
-		Collection<CategorizedAbilitySelection> cached = getCachedSet(id);
-		if (cached != null)
-		{
-			for (CategorizedAbilitySelection cas : cached)
-			{
-				if (prereqFacet.qualifies(id, cas, cas.getSource()))
-				{
-					set.add(cas);
-				}
-			}
-		}
-		return set;
-	}
-
-	public void removeAllFromSource(CharID id, Object source)
-	{
-		Collection<CategorizedAbilitySelection> cached = getCachedSet(id);
-		if (cached != null)
-		{
-			for (Iterator<CategorizedAbilitySelection> it = cached.iterator(); it
-					.hasNext();)
-			{
-				CategorizedAbilitySelection cas = it.next();
-				if (cas.getSource().equals(source))
-				{
-					it.remove();
-					fireDataFacetChangeEvent(id, cas,
-							DataFacetChangeEvent.DATA_REMOVED);
-				}
-			}
-		}
-	}
+	
+	
 }

@@ -200,7 +200,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|NORMAL|Abil1");
+		runRoundRobin("FEAT|NORMAL|Abil1");
 	}
 
 	@Test
@@ -208,7 +208,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|NORMAL|Abil1|PRELEVEL:MIN=5|PRERACE:1,Human");
+		runRoundRobin("FEAT|NORMAL|Abil1|PRELEVEL:MIN=5|PRERACE:1,Human");
 	}
 
 	@Test
@@ -218,7 +218,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		construct(primaryContext, "Abil2");
 		construct(secondaryContext, "Abil2");
-		runRoundRobin("Feat|NORMAL|Abil1|Abil2");
+		runRoundRobin("FEAT|NORMAL|Abil1|Abil2");
 	}
 
 	@Test
@@ -232,7 +232,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil3");
 		construct(primaryContext, "Abil4");
 		construct(secondaryContext, "Abil4");
-		runRoundRobin("Feat|NORMAL|Abil1|Abil2", "Feat|VIRTUAL|Abil3|Abil4");
+		runRoundRobin("FEAT|NORMAL|Abil1|Abil2", "FEAT|VIRTUAL|Abil3|Abil4");
 	}
 
 	@Test
@@ -256,7 +256,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
 				"Abil4");
 		secondaryContext.ref.reassociateCategory(sac, ab);
-		runRoundRobin("Feat|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
+		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 
 	@Test
@@ -264,7 +264,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1");
+		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil1");
 	}
 
 	@Test
@@ -272,7 +272,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|NORMAL|Abil1", "Feat|VIRTUAL|Abil1");
+		runRoundRobin("FEAT|NORMAL|Abil1", "FEAT|VIRTUAL|Abil1");
 	}
 
 	@Test
@@ -280,7 +280,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Human");
+		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil1|PRERACE:1,Human");
 	}
 
 	@Test
@@ -289,8 +289,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|VIRTUAL|Abil1",
-				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
+		runRoundRobin("FEAT|VIRTUAL|Abil1",
+				"FEAT|VIRTUAL|Abil1|PRERACE:1,Human");
 	}
 
 	@Test
@@ -299,8 +299,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
-		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Elf",
-				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
+		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil1|PRERACE:1,Elf",
+				"FEAT|VIRTUAL|Abil1|PRERACE:1,Human");
 	}
 
 	private Ability construct(LoadContext context, String name)
@@ -315,7 +315,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		runRoundRobin("Feat|VIRTUAL|TestWP1 (Paren)");
+		runRoundRobin("FEAT|VIRTUAL|TestWP1 (Paren)");
 	}
 
 	@Test
@@ -325,7 +325,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		runRoundRobin("Feat|VIRTUAL|TestWP1 (Paren)|TestWP2 (Other)");
+		runRoundRobin("FEAT|VIRTUAL|TestWP1 (Paren)|TestWP2 (Other)");
 	}
 
 	@Test
@@ -333,7 +333,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		runRoundRobin("Feat|VIRTUAL|TestWP1 (Other)|TestWP1 (That)");
+		runRoundRobin("FEAT|VIRTUAL|TestWP1 (Other)|TestWP1 (That)");
 	}
 
 	@Test
@@ -375,7 +375,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		Ability b = construct(secondaryContext, "TestWP1");
 		b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
-		runRoundRobin("Feat|VIRTUAL|TYPE=TestType");
+		runRoundRobin("FEAT|VIRTUAL|TYPE=TestType");
 	}
 
 	@Test
@@ -389,7 +389,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		b.addToListFor(ListKey.TYPE, Type.getConstant("TestAltType"));
 		b.addToListFor(ListKey.TYPE, Type.getConstant("TestThirdType"));
-		runRoundRobin("Feat|VIRTUAL|TYPE=TestAltType.TestThirdType.TestType");
+		runRoundRobin("FEAT|VIRTUAL|TYPE=TestAltType.TestThirdType.TestType");
 	}
 
 	@Test
@@ -407,7 +407,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		c.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 		Ability d = construct(secondaryContext, "Typed2");
 		d.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
-		runRoundRobin("Feat|VIRTUAL|TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
+		runRoundRobin("FEAT|VIRTUAL|TestWP1|TestWP2|TYPE=OtherTestType|TYPE=TestType");
 	}
 
 	@Test
@@ -463,16 +463,24 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testRoundRobinListParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("FEAT|VIRTUAL|TestWP1 (%LIST)");
+	}
+
 	@Override
 	protected String getLegalValue()
 	{
-		return "Feat|VIRTUAL|Abil1|PRERACE:1,Human";
+		return "FEAT|VIRTUAL|Abil1|PRERACE:1,Human";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "Feat|VIRTUAL|TYPE=TestType";
+		return "FEAT|VIRTUAL|TYPE=TestType";
 	}
 
 	@Override

@@ -69,8 +69,8 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|NORMAL|Abil1");
-		commit(modCampaign, tc, "Feat|VIRTUAL|TYPE=TestType");
+		commit(testCampaign, tc, "FEAT|NORMAL|Abil1");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|TYPE=TestType");
 		completeRoundRobin(tc);
 	}
 
@@ -88,8 +88,8 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|Abil1|Abil2");
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		completeRoundRobin(tc);
 	}
 
@@ -107,8 +107,8 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2|Abil1");
-		commit(modCampaign, tc, "Feat|AUTOMATIC|.CLEAR.Abil1|Abil2");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2|Abil1");
+		commit(modCampaign, tc, "FEAT|AUTOMATIC|.CLEAR.Abil1|Abil2");
 		completeRoundRobin(tc);
 	}
 
@@ -127,7 +127,7 @@ public class AbilityIntegrationTest extends
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Feat|VIRTUAL|Abil1|Abil2");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
 		completeRoundRobin(tc);
 	}
 
@@ -145,7 +145,7 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|Abil1|Abil2");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -161,7 +161,7 @@ public class AbilityIntegrationTest extends
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		completeRoundRobin(tc);
 	}
 
@@ -176,7 +176,7 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -190,8 +190,8 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR");
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		completeRoundRobin(tc);
 	}
 
@@ -205,8 +205,8 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR.Abil2");
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
 		completeRoundRobin(tc);
 	}
 
@@ -216,7 +216,7 @@ public class AbilityIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
 		completeRoundRobin(tc);
 	}
 
@@ -225,7 +225,7 @@ public class AbilityIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -244,9 +244,9 @@ public class AbilityIntegrationTest extends
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Feat|VIRTUAL|.CLEAR",
-				"Feat|VIRTUAL|Abil1|Abil2");
-		commit(modCampaign, tc, "Feat|VIRTUAL|.CLEAR");
+		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR",
+				"FEAT|VIRTUAL|Abil1|Abil2");
+		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
 		completeRoundRobin(tc);
 	}
 }

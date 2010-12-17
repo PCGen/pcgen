@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -60,7 +59,7 @@ public class RacialSubTypesFacet
 				racialSubTypes.add(st);
 			}
 		}
-		Set<PCTemplate> templates = templateFacet.getSet(id);
+		Collection<PCTemplate> templates = templateFacet.getSet(id);
 		if (!templates.isEmpty())
 		{
 			List<RaceSubType> added = new ArrayList<RaceSubType>();
