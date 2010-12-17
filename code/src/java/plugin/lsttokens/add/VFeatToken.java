@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
@@ -119,17 +118,17 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
+		ParsingSeparator tok = new ParsingSeparator(activeValue, ',');
 		boolean allowStack = false;
 		int dupChoices = 0;
 
 		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
-		while (tok.hasMoreTokens())
+		while (tok.hasNext())
 		{
 			CDOMReference<Ability> ab;
-			String token = tok.nextToken();
+			String token = tok.next();
 			if ("STACKS".equals(token))
 			{
 				if (allowStack)
