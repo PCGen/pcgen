@@ -42,6 +42,7 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.LastGroupSeparator;
 import pcgen.util.Logging;
 
 /**
@@ -832,11 +833,11 @@ public class AbilityUtilities
 	 *
 	 * @return the name with sub-choices stripped from it
 	 */
-	public static String removeChoicesFromName(String aName)
+	public static String removeChoicesFromName(String name)
 	{
-		final int anInt = aName.indexOf('(');
-
-		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
+		LastGroupSeparator lgs = new LastGroupSeparator(name);
+		lgs.process();
+		return lgs.getRoot();
 	}
 
 	/**
@@ -854,21 +855,13 @@ public class AbilityUtilities
 			final String name, 
 			final Collection<String> specifics)
 	{
-
-		final String altName = removeChoicesFromName(name);
+		LastGroupSeparator lgs = new LastGroupSeparator(name);
+		String subName = lgs.process();
+		String altName = lgs.getRoot();
 
 		specifics.clear();
-		final int start = name.indexOf('(') + 1;
-		final int end = name.lastIndexOf(')');
-
-		if (start >= 0 && end > start)
-		{
-
-			// we want what is inside the outermost parenthesis.
-			final String subName = name.substring(start, end);
-
-			specifics.addAll(CoreUtility.split(subName, ','));
-		}
+		// we want what is inside the outermost parenthesis.
+		specifics.addAll(CoreUtility.split(subName, ','));
 
 		return altName;
 	}
