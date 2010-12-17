@@ -837,7 +837,7 @@ public class AbilityUtilities
 	{
 		LastGroupSeparator lgs = new LastGroupSeparator(name);
 		lgs.process();
-		return lgs.getRoot();
+		return lgs.getRoot().trim();
 	}
 
 	/**

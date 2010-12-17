@@ -12552,20 +12552,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void processRemoval(CDOMObject cdo)
 	{
-		processAbilityRemovalOnRemove(cdo);
-	}
-
-	private void processAbilityRemovalOnRemove(CDOMObject cdo)
-	{
 		conditionalFacet.removeAllFromSource(id, cdo);
-		Set<Ability> gRemoved = grantedAbilityFacet.removeAll(id, cdo);
-		for (Ability a : gRemoved)
-		{
-			for (String assoc : getAssociationList(a))
-			{
-				removeAssociation(a, assoc);
-			}
-		}
+		directAbilityFacet.removeAllFromSource(id, cdo);
 		autoLangFacet.removeAll(id, cdo);
 	}
 

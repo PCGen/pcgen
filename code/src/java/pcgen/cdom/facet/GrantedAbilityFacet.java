@@ -17,16 +17,17 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
@@ -158,11 +159,11 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	public boolean remove(CharID id, Category<Ability> cat, Nature nat,
 			Ability obj, Object source)
 	{
-		Map<Ability, Set<Object>> cached = getCachedMap(id, cat, nat);
+		Map<Ability, List<Object>> cached = getCachedMap(id, cat, nat);
 		boolean removed = false;
 		if (cached != null)
 		{
-			Set<Object> sourceSet = cached.get(obj);
+			List<Object> sourceSet = cached.get(obj);
 			if (sourceSet != null && sourceSet.remove(source))
 			{
 				if (sourceSet.isEmpty())
@@ -180,13 +181,13 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 
 	private void cleanup(CharID id, Category<Ability> cat, Nature nat)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, Set<Object>>> natureMap = catMap.get(cat);
+			Map<Nature, Map<Ability, List<Object>>> natureMap = catMap.get(cat);
 			if (natureMap != null)
 			{
-				Map<Ability, Set<Object>> abilMap = natureMap.get(nat);
+				Map<Ability, List<Object>> abilMap = natureMap.get(nat);
 				if (abilMap != null && abilMap.isEmpty())
 				{
 					natureMap.remove(nat);
@@ -217,7 +218,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 */
 	public Set<Ability> get(CharID id, Category<Ability> cat, Nature nat)
 	{
-		Map<Ability, Set<Object>> set = getCachedMap(id, cat, nat);
+		Map<Ability, List<Object>> set = getCachedMap(id, cat, nat);
 		if (set == null)
 		{
 			return Collections.emptySet();
@@ -248,7 +249,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	public boolean contains(CharID id, Category<Ability> cat, Nature nat,
 			Ability a)
 	{
-		Map<Ability, Set<Object>> set = getCachedMap(id, cat, nat);
+		Map<Ability, List<Object>> set = getCachedMap(id, cat, nat);
 		if (set == null)
 		{
 			return false;
@@ -274,13 +275,13 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 			Nature nat, Ability obj)
 	{
 		boolean isNew = false;
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
-		Map<Nature, Map<Ability, Set<Object>>> natureMap = null;
-		Map<Ability, Set<Object>> abilityMap = null;
-		Set<Object> sourceSet = null;
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		Map<Nature, Map<Ability, List<Object>>> natureMap = null;
+		Map<Ability, List<Object>> abilityMap = null;
+		List<Object> sourceSet = null;
 		if (catMap == null)
 		{
-			catMap = new HashMap<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>>();
+			catMap = new HashMap<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>();
 			FacetCache.set(id, getClass(), catMap);
 		}
 		else
@@ -289,7 +290,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		}
 		if (natureMap == null)
 		{
-			natureMap = new HashMap<Nature, Map<Ability, Set<Object>>>();
+			natureMap = new HashMap<Nature, Map<Ability, List<Object>>>();
 			catMap.put(cat, natureMap);
 		}
 		else
@@ -298,7 +299,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		}
 		if (abilityMap == null)
 		{
-			abilityMap = new IdentityHashMap<Ability, Set<Object>>();
+			abilityMap = new IdentityHashMap<Ability, List<Object>>();
 			natureMap.put(nat, abilityMap);
 		}
 		else
@@ -308,7 +309,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		if (sourceSet == null)
 		{
 			isNew = true;
-			sourceSet = new WrappedMapSet<Object>(IdentityHashMap.class);
+			sourceSet = new ArrayList<Object>();
 			abilityMap.put(obj, sourceSet);
 		}
 		return isNew;
@@ -335,15 +336,15 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 *         null if no information has been set in this GrantedAbilityFacet
 	 *         for the Player Character.
 	 */
-	private Map<Ability, Set<Object>> getCachedMap(CharID id,
+	private Map<Ability, List<Object>> getCachedMap(CharID id,
 			Category<Ability> cat, Nature nat)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap == null)
 		{
 			return null;
 		}
-		Map<Nature, Map<Ability, Set<Object>>> natureMap = catMap.get(cat);
+		Map<Nature, Map<Ability, List<Object>>> natureMap = catMap.get(cat);
 		if (natureMap == null)
 		{
 			return null;
@@ -366,10 +367,10 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 *         null if no information has been set in this GrantedAbilityFacet
 	 *         for the Player Character.
 	 */
-	private Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> getCachedMap(
+	private Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>>) FacetCache
+		return (Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>) FacetCache
 				.get(id, getClass());
 	}
 
@@ -395,16 +396,16 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public Map<Ability, Set<Object>> removeAll(CharID id,
+	public Map<Ability, List<Object>> removeAll(CharID id,
 			Category<Ability> cat, Nature nature)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap.get(cat);
+			Map<Nature, Map<Ability, List<Object>>> natMap = catMap.get(cat);
 			if (natMap != null)
 			{
-				Map<Ability, Set<Object>> abilitySet = natMap.remove(nature);
+				Map<Ability, List<Object>> abilitySet = natMap.remove(nature);
 				if (abilitySet != null)
 				{
 					processRemoveAbilityMap(id, abilitySet);
@@ -417,7 +418,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	}
 
 	private void processRemoveAbilityMap(CharID id,
-			Map<Ability, Set<Object>> abilitySet)
+			Map<Ability, List<Object>> abilitySet)
 	{
 		for (Ability a : abilitySet.keySet())
 		{
@@ -438,7 +439,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 */
 	public Set<Category<Ability>> getCategories(CharID id)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> map = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> map = getCachedMap(id);
 		if (map == null)
 		{
 			return Collections.emptySet();
@@ -448,18 +449,18 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 
 	public void copyContents(CharID id, CharID id2)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catME : catMap
+			for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap
 					.entrySet())
 			{
 				Category<Ability> cat = catME.getKey();
-				for (Map.Entry<Nature, Map<Ability, Set<Object>>> natME : catME
+				for (Map.Entry<Nature, Map<Ability, List<Object>>> natME : catME
 						.getValue().entrySet())
 				{
 					Nature nature = natME.getKey();
-					for (Map.Entry<Ability, Set<Object>> aME : natME.getValue()
+					for (Map.Entry<Ability, List<Object>> aME : natME.getValue()
 							.entrySet())
 					{
 						Ability ability = aME.getKey();
@@ -477,14 +478,14 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 			Ability ability)
 	{
 		Nature n = null;
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap
+			Map<Nature, Map<Ability, List<Object>>> natMap = catMap
 					.get(category);
 			if (natMap != null)
 			{
-				for (Map.Entry<Nature, Map<Ability, Set<Object>>> me : natMap
+				for (Map.Entry<Nature, Map<Ability, List<Object>>> me : natMap
 						.entrySet())
 				{
 					if (me.getValue().containsKey(ability))
@@ -499,10 +500,10 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 
 	public Collection<Nature> getNatures(CharID id, Category<Ability> cat)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, Set<Object>>> natMap = catMap.get(cat);
+			Map<Nature, Map<Ability, List<Object>>> natMap = catMap.get(cat);
 			if (natMap != null)
 			{
 				return Collections.unmodifiableSet(natMap.keySet());
@@ -514,27 +515,27 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	public Set<Ability> removeAll(CharID id, Object source)
 	{
 		Set<Ability> removed = new HashSet<Ability>();
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		DoubleKeyMapToList<Category<Ability>, Nature, Ability> removeMap = new DoubleKeyMapToList<Category<Ability>, Nature, Ability>();
 		if (catMap == null)
 		{
 			return removed;
 		}
-		for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> me : catMap
+		for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> me : catMap
 				.entrySet())
 		{
 			Category<Ability> cat = me.getKey();
-			Map<Nature, Map<Ability, Set<Object>>> natureMap = me.getValue();
-			for (Map.Entry<Nature, Map<Ability, Set<Object>>> nME : natureMap
+			Map<Nature, Map<Ability, List<Object>>> natureMap = me.getValue();
+			for (Map.Entry<Nature, Map<Ability, List<Object>>> nME : natureMap
 					.entrySet())
 			{
 				Nature nat = nME.getKey();
-				Map<Ability, Set<Object>> abilMap = nME.getValue();
-				for (Map.Entry<Ability, Set<Object>> aEntry : abilMap
+				Map<Ability, List<Object>> abilMap = nME.getValue();
+				for (Map.Entry<Ability, List<Object>> aEntry : abilMap
 						.entrySet())
 				{
 					Ability ab = aEntry.getKey();
-					Set<Object> sourceSet = aEntry.getValue();
+					List<Object> sourceSet = aEntry.getValue();
 					if (sourceSet.contains(source))
 					{
 						removeMap.addToListFor(cat, nat, ab);
@@ -571,7 +572,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 */
 	public boolean isEmpty(CharID id)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, Set<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		return catMap == null || catMap.isEmpty();
 	}
 

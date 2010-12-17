@@ -554,19 +554,21 @@ public class GrantedAbilityFacetTest extends TestCase
 		assertEquals(1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).size());
 		assertEquals(t1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).iterator().next());
 		assertEventCount(1, 0);
-		// Add same, still only once in set (but twice on that source)
+		// Add same, now twice in list (but twice on that source)
 		facet.add(id, AbilityCategory.FEAT, Nature.VIRTUAL, t1, source1);
 		assertFalse(facet.isEmpty(id));
 		assertNotNull(facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL));
 		assertEquals(1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).size());
 		assertEquals(t1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).iterator().next());
 		assertEventCount(1, 0);
-		// Only one Remove required to clear (source Set not source List)
+		// Only one Remove does not clear
 		facet.remove(id, AbilityCategory.FEAT, Nature.VIRTUAL, t1, source1);
-		testAbilityUnsetEmpty();
-		testAbilityUnsetEmptySet();
-		assertEventCount(1, 1);
-		// Second remove useless
+		assertFalse(facet.isEmpty(id));
+		assertNotNull(facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL));
+		assertEquals(1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).size());
+		assertEquals(t1, facet.get(id, AbilityCategory.FEAT, Nature.VIRTUAL).iterator().next());
+		assertEventCount(1, 0);
+		// Second remove actually removes
 		facet.remove(id, AbilityCategory.FEAT, Nature.VIRTUAL, t1, source1);
 		testAbilityUnsetEmpty();
 		testAbilityUnsetEmptySet();
@@ -682,7 +684,7 @@ public class GrantedAbilityFacetTest extends TestCase
 		facet.add(id, AbilityCategory.FEAT, Nature.VIRTUAL, t1, source2);
 		facet.add(id, AbilityCategory.FEAT, Nature.VIRTUAL, t2, source2);
 		assertEventCount(2, 0);
-		Map<Ability, Set<Object>> map = facet.removeAll(id, AbilityCategory.FEAT, Nature.VIRTUAL);
+		Map<Ability, List<Object>> map = facet.removeAll(id, AbilityCategory.FEAT, Nature.VIRTUAL);
 		assertEventCount(2, 2);
 		assertNotNull(map);
 		assertEquals(2, map.size());

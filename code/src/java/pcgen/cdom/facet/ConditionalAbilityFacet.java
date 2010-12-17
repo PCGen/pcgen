@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
@@ -66,15 +65,12 @@ public class ConditionalAbilityFacet extends
 		Collection<CategorizedAbilitySelection> cached = getCachedSet(id);
 		if (cached != null)
 		{
-			for (Iterator<CategorizedAbilitySelection> it = cached.iterator(); it
-					.hasNext();)
+			for (CategorizedAbilitySelection cas : new ArrayList<CategorizedAbilitySelection>(
+					cached))
 			{
-				CategorizedAbilitySelection cas = it.next();
 				if (cas.getSource().equals(source))
 				{
-					it.remove();
-					fireDataFacetChangeEvent(id, cas,
-							DataFacetChangeEvent.DATA_REMOVED);
+					remove(id, cas);
 				}
 			}
 		}

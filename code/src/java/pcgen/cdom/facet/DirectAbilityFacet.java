@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
 /**
@@ -36,4 +37,19 @@ public class DirectAbilityFacet extends
 		return new ArrayList<CategorizedAbilitySelection>();
 	}
 	
+	public void removeAllFromSource(CharID id, Object source)
+	{
+		Collection<CategorizedAbilitySelection> cached = getCachedSet(id);
+		if (cached != null)
+		{
+			for (CategorizedAbilitySelection cas : new ArrayList<CategorizedAbilitySelection>(
+					cached))
+			{
+				if (cas.getSource().equals(source))
+				{
+					remove(id, cas);
+				}
+			}
+		}
+	}
 }
