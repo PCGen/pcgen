@@ -54,8 +54,6 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 	 */
 	private final Nature nature;
 
-	private CategorizedAbilitySelection appliedSelection;
-
 	/**
 	 * Creates a new AbilitySelection for the given Ability. The given Ability
 	 * must be a MULT:NO Ability or this constructor will throw an exception.
@@ -162,11 +160,8 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 
 	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		if (appliedSelection == null)
-		{
-			appliedSelection = new CategorizedAbilitySelection(obj, category,
-					ability.resolvesTo(), nature, choice);
-		}
+		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
+				obj, category, ability.resolvesTo(), nature, choice);
 		pc.addAppliedAbility(appliedSelection);
 	}
 
@@ -182,10 +177,9 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 
 	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		if (appliedSelection != null)
-		{
-			pc.removeAppliedAbility(appliedSelection);
-		}
+		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
+				obj, category, ability.resolvesTo(), nature, choice);
+		pc.removeAppliedAbility(appliedSelection);
 	}
 	
 	@Override
