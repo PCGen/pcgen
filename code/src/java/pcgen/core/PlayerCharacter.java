@@ -352,7 +352,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * This map stores any user bonuses (entered through the GUI) to the
 	 * corrisponding ability pool.
 	 */
-	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
+	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses = null;
 
 	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
 	private Integer epicBAB = null;
@@ -10524,7 +10524,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void adjustAbilities(final AbilityCategory aCategory,
+	public void adjustAbilities(final Category<Ability> aCategory,
 		final BigDecimal arg)
 	{
 		if (arg.equals(BigDecimal.ZERO))
@@ -10538,7 +10538,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		if (theUserPoolBonuses == null)
 		{
-			theUserPoolBonuses = new HashMap<AbilityCategory, BigDecimal>();
+			theUserPoolBonuses = new HashMap<Category<Ability>, BigDecimal>();
 		}
 		BigDecimal userMods = theUserPoolBonuses.get(aCategory);
 		if (userMods != null)
@@ -10568,7 +10568,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (theUserPoolBonuses == null)
 		{
-			theUserPoolBonuses = new HashMap<AbilityCategory, BigDecimal>();
+			theUserPoolBonuses = new HashMap<Category<Ability>, BigDecimal>();
 		}
 		theUserPoolBonuses.put(aCategory, anAmount);
 	}
@@ -13019,5 +13019,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void removeAbilityEffects(Ability anAbility)
+	{
+		removeTemplatesFrom(anAbility);
+		CDOMObjectUtilities.removeAdds(anAbility, this);
+		CDOMObjectUtilities.restoreRemovals(anAbility, this);
+		adjustMoveRates();
 	}
 }

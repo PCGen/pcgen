@@ -764,7 +764,7 @@ public class AbilityUtilities
 	 *
 	 * @return true if we can add the association
 	 */
-	static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
+	public static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
 	{
 		return a.getSafe(ObjectKey.STACKS)
 				|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc

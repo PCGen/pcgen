@@ -247,8 +247,8 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 
 		if (anAbility != null)
 		{
-			AbilityUtilities.finaliseAbility(anAbility, choice
-							.getSelection(), pc, false, false, AbilityCategory.FEAT);
+			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
+			pc.removeAbilityEffects(anAbility);
 		}
 	}
 
