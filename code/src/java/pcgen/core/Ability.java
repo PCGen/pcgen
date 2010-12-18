@@ -38,7 +38,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * @author   ???
  * @version  $Revision$
  */
-public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
+public final class Ability extends PObject implements CategorizedCDOMObject<Ability>
 {
 	public static final CDOMReference<AbilityList> FEATLIST;
 
