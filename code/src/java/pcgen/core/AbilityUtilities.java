@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
@@ -37,6 +36,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -538,98 +538,68 @@ public class AbilityUtilities
 	 * @param addIt
 	 * @param all
 	 */
-	static void modFeatsFromList(
-			final PlayerCharacter aPC,
-			final String          aList)
+	static void modFeatsFromList(final PlayerCharacter aPC,
+			final AbilitySelection as)
 	{
-		final StringTokenizer aTok = new StringTokenizer(aList, ",");
+		Ability anAbility = aPC.getFeatNamed(as.getAbilityKey());
 
-		while (aTok.hasMoreTokens())
+		if (anAbility != null)
 		{
-			String aString = aTok.nextToken();
-			Ability anAbility = aPC.getFeatNamed(aString);
+			return;
+		}
 
-			if (anAbility != null)
+		// Get ability from global storage by Name
+		anAbility = as.getAbility().clone();
+		aPC.addFeat(anAbility, null);
+
+		String choice = as.getSelection();
+		if (choice != null)
+		{
+			if ("DEITYWEAPON".equals(choice))
 			{
-				continue;
-			}
-
-			// Get ability from global storage by Name
-			anAbility = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, aString);
-
-			List<String> choices = null;
-			if (anAbility == null)
-			{
-				// could not find Feat, try trimming off contents of parenthesis
-				choices = new ArrayList<String>();
-				String root = AbilityUtilities.getUndecoratedName(aString, choices);
-
-				// if we still haven't found it, try a different string
-				anAbility = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, root);
-				
-				if (anAbility == null)
+				if (aPC.getDeity() != null)
 				{
-					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
-					
-					return;
-				}
-			}
-
-			anAbility = anAbility.clone();
-			aPC.addFeat(anAbility, null);
-
-			if (choices != null)
-			{
-				for (String choice : choices)
-				{
-					if ("DEITYWEAPON".equals(choice))
+					List<CDOMReference<WeaponProf>> dwp = aPC.getDeity()
+							.getSafeListFor(ListKey.DEITYWEAPON);
+					for (CDOMReference<WeaponProf> ref : dwp)
 					{
-						if (aPC.getDeity() != null)
+						for (WeaponProf wp : ref.getContainedObjects())
 						{
-							List<CDOMReference<WeaponProf>> dwp = aPC
-									.getDeity().getSafeListFor(ListKey.DEITYWEAPON);
-							for (CDOMReference<WeaponProf> ref : dwp)
-							{
-								for (WeaponProf wp : ref.getContainedObjects())
-								{
-									aPC.addAssociation(anAbility, wp.getKeyName());
-								}
-							}
+							aPC.addAssociation(anAbility, wp.getKeyName());
 						}
-					}
-					else
-					{
-						aPC.addAssociation(anAbility, choice);
 					}
 				}
 			}
 			else
 			{
-				if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-				}
-
-				modFeat(aPC, null, anAbility, null, true, false);
+				aPC.addAssociation(anAbility, choice);
 			}
+		}
+		else
+		{
+			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST)
+						.doubleValue());
+			}
+
+			modFeat(aPC, null, anAbility, null, true, false);
 		}
 	}
 
 	/**
 	 * This method attempts to get an Ability Object from the Global Store keyed
 	 * by token. If this fails, it checks if token has info in parenthesis
-	 * appended to it.  If it does, it strips this and attempts to get an
-	 * Ability Keyed by the stripped token.  If this works, it passes back this
-	 * Ability, if it does not work, it returns null.
-	 *
-	 * @param   cat    The category of Ability Object to retrieve
-	 * @param   token  The name of the Ability Object
-	 *
-	 * @return  The ability in category "cat" called "token"
+	 * appended to it. If it does, it strips this and attempts to get an Ability
+	 * Keyed by the stripped token. If this works, it passes back this Ability,
+	 * if it does not work, it returns null.
+	 * 
+	 * @param cat
+	 *            The category of Ability Object to retrieve
+	 * @param token
+	 *            The name of the Ability Object
+	 * 
+	 * @return The ability in category "cat" called "token"
 	 */
 	public static Ability retrieveAbilityKeyed(
 		final String cat,

@@ -162,8 +162,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
 				.getSelection(), true, false);
-		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice
-				.getFullAbilityKey());
+		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice);
 	}
 
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,

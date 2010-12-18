@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
@@ -2405,7 +2406,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				List<String> featList = thePC.getAssocList(lt,
+				List<AbilitySelection> featList = thePC.getAssocList(lt,
 						AssociationListKey.TEMPLATE_FEAT);
 				if (featList != null)
 				{
@@ -2415,7 +2416,7 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			List<String> featList = thePC.getAssocList(lt,
+			List<AbilitySelection> featList = thePC.getAssocList(lt,
 					AssociationListKey.TEMPLATE_FEAT);
 			if (featList != null)
 			{
@@ -2425,7 +2426,7 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			List<String> featList = thePC.getAssocList(lt,
+			List<AbilitySelection> featList = thePC.getAssocList(lt,
 					AssociationListKey.TEMPLATE_FEAT);
 			if (featList != null)
 			{
@@ -2435,9 +2436,9 @@ final class PCGVer2Creator implements IOConstants
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<String> featList)
+	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<AbilitySelection> featList)
 	{
-		for (String s : featList)
+		for (AbilitySelection s : featList)
 		{
 			if (aString.length() != 0)
 			{
@@ -2451,7 +2452,7 @@ final class PCGVer2Creator implements IOConstants
 			aString.append(TAG_MAPKEY).append(':').append(
 				EntityEncoder.encode(featKey)).append('|');
 			aString.append(TAG_MAPVALUE).append(':').append(
-				EntityEncoder.encode(s));
+				EntityEncoder.encode(s.getPersistentFormat()));
 			aString.append(']');
 		}
 	}

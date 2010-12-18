@@ -9153,7 +9153,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// Handle any feat changes as a result of level changes
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			final List<String> templateFeats =
+			final List<AbilitySelection> templateFeats =
 					feats(template, getTotalLevels(), totalHitDice(), true);
 
 			for (int j = 0, y = templateFeats.size(); j < y; ++j)
@@ -11488,16 +11488,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return TODO DOCUMENT ME!
 	 */
-	public List<String> feats(PCTemplate pct, final int level,
+	public List<AbilitySelection> feats(PCTemplate pct, final int level,
 		final int hitdice, final boolean addNew)
 	{
-		final List<String> feats = new ArrayList<String>();
+		final List<AbilitySelection> feats = new ArrayList<AbilitySelection>();
 
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				List<String> featList =
+				Collection<? extends AbilitySelection> featList =
 						getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 				if (featList == null && addNew
 					&& lt.get(IntegerKey.LEVEL) <= level)
@@ -11512,7 +11512,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			List<String> featList =
+			Collection<? extends AbilitySelection> featList =
 					getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 			if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
 			{
@@ -11526,7 +11526,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			List<String> featList =
+			Collection<? extends AbilitySelection> featList =
 					getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 			if (featList == null && addNew
 				&& lt.get(IntegerKey.HD_MAX) <= hitdice
@@ -11550,20 +11550,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @param pct
 	 *            The template to be checked for the choices to offer
 	 */
-	private List<String> getLevelFeat(PCTemplate pct)
+	private Collection<? extends AbilitySelection> getLevelFeat(PCTemplate pct)
 	{
-		List<String> list = new ArrayList<String>();
 		PersistentTransitionChoice<AbilitySelection> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
-		if (choice != null)
+		if (choice == null)
 		{
-			Collection<? extends AbilitySelection> result = choice.driveChoice(this);
-			choice.act(result, pct, this);
-			for (AbilitySelection o : result)
-			{
-				list.add(o.getFullAbilityKey());
-			}
+			return Collections.emptyList();
 		}
-		return list;
+		Collection<? extends AbilitySelection> result = choice
+				.driveChoice(this);
+		choice.act(result, pct, this);
+		return result;
 	}
 
 	void selectTemplates(CDOMObject po, boolean isImporting)

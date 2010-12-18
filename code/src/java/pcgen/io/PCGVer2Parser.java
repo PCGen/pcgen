@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.ChooseDriverFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
@@ -4456,8 +4457,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									feat);
 							if (subt != null)
 							{
+								AbilitySelection as = AbilitySelection
+										.getAbilitySelectionFromPersistentFormat(feat);
 								thePC.addAssoc(subt,
-										AssociationListKey.TEMPLATE_FEAT, feat);
+										AssociationListKey.TEMPLATE_FEAT, as);
 							}
 						}
 					}
