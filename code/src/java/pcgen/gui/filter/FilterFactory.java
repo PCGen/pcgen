@@ -1464,7 +1464,7 @@ final class AutomaticFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatAutomatic(pObject.getKeyName());
+			return aPC.hasFeatAutomatic((Ability) pObject);
 		}
 
 		return true;
@@ -1527,7 +1527,7 @@ final class VirtualFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatVirtual(pObject.getKeyName());
+			return aPC.hasFeatVirtual((Ability) pObject);
 		}
 
 		return true;

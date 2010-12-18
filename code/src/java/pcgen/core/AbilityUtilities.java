@@ -197,8 +197,8 @@ public class AbilityUtilities
 	 * @return true if the same object is represented
 	 */
 	public static boolean areSameAbility(
-			final Categorisable first,
-			final Categorisable second)
+			final Ability first,
+			final Ability second)
 	{
 		if (first == null || second == null) {
 			return false;
@@ -379,7 +379,7 @@ public class AbilityUtilities
 	 */
 	private static Ability getAbilityFromList(
 			PlayerCharacter pc,
-			final Collection<Ability>          anAbilityList, final Categorisable abilityInfo)
+			final Collection<Ability>          anAbilityList, final Ability abilityInfo)
 	{
 		return getAbilityFromList(pc, anAbilityList, abilityInfo, Nature.ANY);
 	}
@@ -400,7 +400,7 @@ public class AbilityUtilities
 	public static Ability getAbilityFromList(
 		PlayerCharacter pc,
 		final Collection<Ability> anAbilityList,
-		final Categorisable abilityInfo, final Nature           abilityType)
+		final Ability abilityInfo, final Nature           abilityType)
 	{
 		if (anAbilityList != null)
 		{
@@ -418,51 +418,15 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Find an ability in a list that matches a given AbilityInfo Object. Also
-	 * takes an integer representing a type, -1 always matches, otherwise an
-	 * ability will only be returned if its type is the same as abilityType
-	 * @param pc TODO
-	 * @param anAbilityList
-	 * @param aCat
-	 * @param aName
-	 * @param abilityType
-	 *
-	 * @return the Ability if found, otherwise null
-	 */
-	public static Ability getAbilityFromList(
-			PlayerCharacter pc,
-			final Collection<Ability>   anAbilityList,
-			final String aCat,
-			final String aName, final Nature    abilityType)
-	{
-		final AbilityInfo abInfo = new AbilityInfo(aCat, aName);
-		return getAbilityFromList(pc, anAbilityList, abInfo, abilityType);
-	}
-
-	/**
 	 * Find out if this Categorisable Object can be applied to a character
 	 * multiple times
 	 *
 	 * @param aCatObj
 	 * @return true if can be applied multiple times
 	 */
-	private static boolean getIsMultiples(
-			final Categorisable aCatObj)
+	private static boolean getIsMultiples(final Ability aCatObj)
 	{
-		if (aCatObj instanceof Ability)
-		{
-			return ((Ability) aCatObj).getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		}
-		else if (aCatObj instanceof AbilityInfo)
-		{
-			final Ability ability = ((AbilityInfo) aCatObj).getAbility();
-			if (ability == null)
-			{
-				return false;
-			}
-			return ability.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		}
-		return false;
+		return aCatObj.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
 	/**
@@ -671,7 +635,13 @@ public class AbilityUtilities
 		final String cat,
 		final String token)
 	{
-		AbilityCategory aCat = SettingsHandler.getGame().getAbilityCategory(cat);
+		return retrieveAbilityKeyed(SettingsHandler.getGame()
+				.getAbilityCategory(cat), token);
+	}
+
+	static Ability retrieveAbilityKeyed(AbilityCategory aCat,
+			final String token)
+	{
 		Ability ability = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Ability.class, aCat, token);
 

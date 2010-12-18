@@ -91,6 +91,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.*;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -4358,9 +4359,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(this,
-			AbilityUtilities
-				.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this), Constants.FEAT_CATEGORY, featName, Nature.ANY);
+		List<Ability> aggList = AbilityUtilities
+				.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this);
+		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(Constants.FEAT_CATEGORY, featName);
+		return AbilityUtilities.getAbilityFromList(this, aggList, abInfo, Nature.ANY);
 	}
 
 	/**
@@ -6930,10 +6932,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @return <code>true</code> if the character has the feat,
 	 *         <code>false</code> otherwise.
 	 */
-	public boolean hasFeatAutomatic(final String featName)
+	public boolean hasFeatAutomatic(Ability autoFeat)
 	{
-		return AbilityUtilities.getAbilityFromList(this,
-			getAutomaticAbilityList(AbilityCategory.FEAT), Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
+		Set<Ability> list = getAutomaticAbilityList(AbilityCategory.FEAT);
+		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
+				list, autoFeat, Nature.ANY);
+		return abilityFromList != null;
 	}
 
 	/**
@@ -6944,10 +6948,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @return <code>true</code> if the character has the feat,
 	 *         <code>false</code> otherwise.
 	 */
-	public boolean hasFeatVirtual(final String featName)
+	public boolean hasFeatVirtual(Ability virtFeat)
 	{
-		return AbilityUtilities.getAbilityFromList(this,
-			getVirtualFeatList(), Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
+		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
+				getVirtualFeatList(), virtFeat, Nature.ANY);
+		return abilityFromList != null;
 	}
 
 	/**
@@ -6965,7 +6970,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (aCategory == AbilityCategory.FEAT)
 		{
-			return hasFeatAutomatic(anAbility.getKeyName());
+			return hasFeatAutomatic(anAbility);
 		}
 		boolean newReturn = abFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility)
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility);
@@ -6987,7 +6992,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (aCategory == AbilityCategory.FEAT)
 		{
-			return hasFeatVirtual(anAbility.getKeyName());
+			return hasFeatVirtual(anAbility);
 		}
 		boolean newReturn = abFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility)
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility);
@@ -10491,9 +10496,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		Set<Ability> newSet = new HashSet<Ability>();
 		newSet.addAll(abFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
 		newSet.addAll(grantedAbilityFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
-		final Set<Ability> abilities = newSet;
-		return AbilityUtilities.getAbilityFromList(this, abilities, "FEAT",
-			featName, Nature.ANY) != null;
+		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(
+						AbilityCategory.FEAT, featName);
+		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
+				newSet, abInfo, Nature.ANY);
+		return abilityFromList != null;
 	}
 
 	/**
@@ -10694,7 +10701,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		final boolean canTakeMult =
 				anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		final boolean hasOrdinary = this.hasRealFeat(anAbility);
-		final boolean hasAuto = this.hasFeatAutomatic(anAbility.getKeyName());
+		final boolean hasAuto = hasFeatAutomatic(anAbility);
 
 		final boolean notAlreadyHas = !(hasOrdinary || hasAuto);
 
@@ -11407,16 +11414,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return the list of matching feats
 	 */
-	public List<Ability> getFeatNamedAnyCat(String featName)
+	public List<Ability> getFeatNamedAnyCat(Ability ab)
 	{
 		List<Ability> feats = new ArrayList<Ability>();
 		for (AbilityCategory cat : SettingsHandler.getGame()
 			.getAllAbilityCategories())
 		{
-			Ability tempFeat =
-					AbilityUtilities.getAbilityFromList(
-						this, getAggregateAbilityList(cat),
-						Constants.FEAT_CATEGORY, featName, Nature.ANY);
+			Ability tempFeat = AbilityUtilities.getAbilityFromList(this,
+					getAggregateAbilityList(cat), ab, Nature.ANY);
 			if (tempFeat != null)
 			{
 				feats.add(tempFeat);
@@ -11548,24 +11553,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private List<String> getLevelFeat(PCTemplate pct)
 	{
 		List<String> list = new ArrayList<String>();
-		PersistentTransitionChoice<?> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
+		PersistentTransitionChoice<AbilitySelection> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice != null)
 		{
-			Collection<?> result = actOn(pct, choice);
-			for (Object o : result)
+			Collection<? extends AbilitySelection> result = choice.driveChoice(this);
+			choice.act(result, pct, this);
+			for (AbilitySelection o : result)
 			{
-				list.add(o.toString());
+				list.add(o.getFullAbilityKey());
 			}
 		}
 		return list;
-	}
-
-	private <T> Collection<? extends T> actOn(PCTemplate pct,
-		PersistentTransitionChoice<T> ptc)
-	{
-		Collection<? extends T> result = ptc.driveChoice(this);
-		ptc.act(result, pct, this);
-		return result;
 	}
 
 	void selectTemplates(CDOMObject po, boolean isImporting)

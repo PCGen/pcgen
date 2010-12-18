@@ -89,7 +89,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	{
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<R>();
-		List<Ability> theFeats = pc.getFeatNamedAnyCat(a.getKeyName());
+		List<Ability> theFeats = pc.getFeatNamedAnyCat(a);
 		for (Ability ability : theFeats)
 		{
 			List<R> list = info.getChoiceActor().getCurrentlySelected(ability,
