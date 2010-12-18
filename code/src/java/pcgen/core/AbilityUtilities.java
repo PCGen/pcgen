@@ -252,7 +252,7 @@ public class AbilityUtilities
 	 * @param   category The AbilityCategory to add or remove the ability from.
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
-	public static int finaliseAbility(
+	public static void finaliseAbility(
 			final Ability         ability,
 			final String          choice,
 			final PlayerCharacter aPC,
@@ -366,8 +366,6 @@ public class AbilityUtilities
 		{
 			AddObjectActions.globalChecks(ability, aPC);
 		}
-
-		return result ? 1 : 0;
 	}
 
 
@@ -485,7 +483,7 @@ public class AbilityUtilities
 	 * @return  1 if adding the Ability or 0 if removing it.
 	 */
 
-	public static int modAbility(
+	public static void modAbility(
 		final PlayerCharacter aPC,
 		final PCLevelInfo     levelInfo,
 		final Ability         argAbility,
@@ -496,7 +494,7 @@ public class AbilityUtilities
 		if (argAbility == null)
 		{
 			Logging.errorPrint("Can't process null Ability");
-			return create ? 1 : 0;
+			return;
 		}
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
@@ -517,11 +515,11 @@ public class AbilityUtilities
 		if (pcAbility == null)
 		{
 			Logging.errorPrint("Can't process ability " + argAbility + " not present in character.");
-			return create ? 1 : 0;
+			return;
 		}
 		
 
-		return finaliseAbility(pcAbility, choice, aPC, create, true, category);
+		finaliseAbility(pcAbility, choice, aPC, create, true, category);
 	}
 
 	/**
@@ -542,7 +540,7 @@ public class AbilityUtilities
 	 * @return  1 if adding the Ability but it wasn't there or 0 if the PC does
 	 *          not currently have the Ability.
 	 */
-	public static int modFeat(
+	public static void modFeat(
 		final PlayerCharacter aPC,
 		final PCLevelInfo     LevelInfo,
 		final String          aFeatKey,
@@ -597,8 +595,7 @@ public class AbilityUtilities
 			if (anAbility == null)
 			{
 				Logging.errorPrint("Feat not found: " + aFeatKey);
-
-				return 1;
+				return;
 			}
 
 			anAbility = anAbility.clone();
@@ -613,10 +610,10 @@ public class AbilityUtilities
 		 */
 		if (anAbility == null)
 		{
-			return addIt ? 1 : 0;
+			return;
 		}
 
-		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, AbilityCategory.FEAT);
+		finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, AbilityCategory.FEAT);
 	}
 
 	/**

@@ -10863,7 +10863,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return null;
 	}
 
-	public int addAbility(final PCLevelInfo LevelInfo,
+	public void addAbility(final PCLevelInfo LevelInfo,
 		final AbilityCategory aCategory, final String aKey,
 		final boolean addIt, final boolean singleChoice)
 	{
@@ -10920,8 +10920,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (anAbility == null)
 			{
 				Logging.errorPrint("Ability not found: " + undoctoredKey);
-
-				return addIt ? 1 : 0;
+				return;
 			}
 
 			anAbility = anAbility.clone();
@@ -10938,10 +10937,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		 */
 		if (anAbility == null)
 		{
-			return addIt ? 1 : 0;
+			return;
 		}
 
-		return AbilityUtilities.finaliseAbility(anAbility, subKey, this, addIt,
+		AbilityUtilities.finaliseAbility(anAbility, subKey, this, addIt,
 			singleChoice1, aCategory);
 	}
 
