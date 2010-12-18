@@ -17,9 +17,10 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
@@ -45,10 +46,10 @@ public class ConditionallyGrantedAbilityFacet extends
 		Collection<CategorizedAbilitySelection> current = getSet(id);
 		Collection<CategorizedAbilitySelection> qualified = cabFacet
 				.getQualifiedSet(id);
-		HashSet<CategorizedAbilitySelection> toRemove = new HashSet<CategorizedAbilitySelection>(
+		List<CategorizedAbilitySelection> toRemove = new ArrayList<CategorizedAbilitySelection>(
 				current);
 		toRemove.removeAll(qualified);
-		HashSet<CategorizedAbilitySelection> toAdd = new HashSet<CategorizedAbilitySelection>(
+		List<CategorizedAbilitySelection> toAdd = new ArrayList<CategorizedAbilitySelection>(
 				qualified);
 		toAdd.removeAll(current);
 		for (CategorizedAbilitySelection cas : toRemove)

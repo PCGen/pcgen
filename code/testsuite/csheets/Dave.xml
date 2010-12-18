@@ -29,10 +29,24 @@ BIO
 				<bonuslist>KeePer of Knowledge</bonuslist>
 				<sequence>0</sequence>
 			</class>
-			<levels_total>1</levels_total>
-			<levels_ecl>1</levels_ecl>
+			<class>
+				<name>Test46a</name>
+				<abbreviation>Tes</abbreviation>
+				<level>2</level>
+				<bonuslist>Test46a</bonuslist>
+				<sequence>1</sequence>
+			</class>
+			<class>
+				<name>Test51G</name>
+				<abbreviation>Tes</abbreviation>
+				<level>1</level>
+				<bonuslist>Test51G</bonuslist>
+				<sequence>2</sequence>
+			</class>
+			<levels_total>4</levels_total>
+			<levels_ecl>4</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Kee1                   </shortform>
+			<shortform> Kee1  Tes2  Tes1               </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -52,8 +66,8 @@ BIO
 		</deity>
 		<description></description>
 		<experience>
-			<current>0</current>
-			<next_level>1000</next_level>
+			<current>6000</current>
+			<next_level>10000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
@@ -85,7 +99,7 @@ BIO
 			<feet>6</feet>
 			<inches>3</inches>
 		</height>
-		<hitdice>-1</hitdice>
+		<hitdice>-4</hitdice>
 		<interests></interests>
 		<languages>
 			<language>Common</language>
@@ -129,7 +143,7 @@ BIO
 			<weight_nounit>205</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>63</cost>
+			<cost>0</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
@@ -147,13 +161,13 @@ BIO
 				<long>Strength</long>
 				<short>STR</short>
 			</name>
-			<score>8</score>
+			<score>9</score>
 			<modifier>-1</modifier>
-			<base>8</base>
+			<base>9</base>
 			<basemod>-1</basemod>
-			<noequip>8</noequip>
+			<noequip>9</noequip>
 			<noequip_mod>-1</noequip_mod>
-			<no_temp_score>8</no_temp_score>
+			<no_temp_score>9</no_temp_score>
 			<no_temp_modifier>-1</no_temp_modifier>
 		</ability>
 		<ability>
@@ -236,7 +250,7 @@ BIO
 	<hit_points>
 		<points>0</points>
 		<alternate>8</alternate>
-		<die>-1</die>
+		<die>-4</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -244,6 +258,24 @@ BIO
 		<history>
 			<roll>
 				<level>1</level>
+				<roll>0</roll>
+				<stat>-1</stat>
+				<total>-1</total>
+			</roll>
+			<roll>
+				<level>2</level>
+				<roll>0</roll>
+				<stat>-1</stat>
+				<total>-1</total>
+			</roll>
+			<roll>
+				<level>3</level>
+				<roll>0</roll>
+				<stat>-1</stat>
+				<total>-1</total>
+			</roll>
+			<roll>
+				<level>4</level>
 				<roll>0</roll>
 				<stat>-1</stat>
 				<total>-1</total>
@@ -295,13 +327,13 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>8</total>
+			<total>14</total>
 			<used>0</used>
-			<unused>8</unused>
+			<unused>14</unused>
 		</skillpoints>
 		<list_mods>Uber Scripting from five ranks in Test Coding Script -1</list_mods>
-		<max_class_skill_level>4</max_class_skill_level>
-		<max_cross_class_skill_level>2</max_cross_class_skill_level>
+		<max_class_skill_level>7</max_class_skill_level>
+		<max_cross_class_skill_level>3.5</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -845,7 +877,7 @@ BIO
 			<weight>0 lbs.</weight>
 			<value>0 gp</value>
 			<load>Light</load>
-			<capacity>80</capacity>
+			<capacity>90</capacity>
 		</total>
 		<equipmentsets>
 
@@ -855,13 +887,13 @@ BIO
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
-		<light>26</light>
-		<medium>53</medium>
-		<heavy>80</heavy>
-		<lift_over_head>80</lift_over_head>
-		<lift_off_ground>160</lift_off_ground>
+		<light>30</light>
+		<medium>60</medium>
+		<heavy>90</heavy>
+		<lift_over_head>90</lift_over_head>
+		<lift_off_ground>180</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>400</push_drag>
+		<push_drag>450</push_drag>
 	</weight_allowance>
 	<!--
 	  ====================================
@@ -875,6 +907,14 @@ BIO
 			<class>KeePer of Knowledge</class>
 			<ability></ability>
 		</class>
+		<class>
+			<class>Test46a</class>
+			<ability></ability>
+		</class>
+		<class>
+			<class>Test51G</class>
+			<ability></ability>
+		</class>
 	</special_abilities>
 	<!--
 	  ====================================
@@ -884,6 +924,56 @@ BIO
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
+		<feat>
+			<name>AutoFeat_ParentThingyType1</name>
+			<description></description>
+			<type>TEST48.A</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_ParentThingyType2</name>
+			<description></description>
+			<type>TEST48.A</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_ParentThingyType3</name>
+			<description></description>
+			<type>TEST48.A</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_ParentThingyType8</name>
+			<description></description>
+			<type>TEST48.A</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Choose Feat Selection (ChooseSelection_NoStackNoChoiceFeat, ChooseSelection_Naturally Something (comment), ChooseSelection_NoStackChoiceFeat(Ride), ChooseSelection_NoChooseFeat)</name>
+			<description></description>
+			<type>TEST45</type>
+			<associated>ChooseSelection_NoStackNoChoiceFeat,ChooseSelection_Naturally Something (comment),ChooseSelection_NoStackChoiceFeat(Ride),ChooseSelection_NoChooseFeat</associated>
+			<count>4</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<feat>
 			<name>ParentThingyType1</name>
 			<description></description>
@@ -924,11 +1014,181 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<!-- Auto feats -->
+		<feat>
+			<name>AutoFeat_GivingThingy (AutoFeat_NoStackNoChoiceFeat, AutoFeat_NoStackChoiceFeat(Ride), AutoFeat_Naturally Something (comment), AutoFeat_NoChooseFeat)</name>
+			<description></description>
+			<type>TEST48</type>
+			<associated>AutoFeat_NoStackNoChoiceFeat,AutoFeat_NoStackChoiceFeat(Ride),AutoFeat_Naturally Something (comment),AutoFeat_NoChooseFeat</associated>
+			<count>4</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_Naturally Something (comment)</name>
+			<description></description>
+			<type>TEST48.AUTOFEAT_TESTTHING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_NoChooseFeat</name>
+			<description></description>
+			<type>TEST48.AUTOFEAT_TESTTHING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_NoStackChoiceFeat (Ride)</name>
+			<description></description>
+			<type>TEST48.AUTOFEAT_TESTTHING</type>
+			<associated>Ride</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>AutoFeat_NoStackNoChoiceFeat</name>
+			<description></description>
+			<type>TEST48.AUTOFEAT_TESTTHING</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>ChooseSelection_Naturally Something (comment)</name>
+			<description></description>
+			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>ChooseSelection_NoChooseFeat</name>
+			<description></description>
+			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>ChooseSelection_NoStackChoiceFeat (Ride)</name>
+			<description></description>
+			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
+			<associated>Ride</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>ChooseSelection_NoStackNoChoiceFeat</name>
+			<description></description>
+			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>DirectApplication_NoStackChoiceFeat (Ride)</name>
+			<description></description>
+			<type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
+			<associated>Ride</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>DirectApplication_StackChoiceFeat (Athletics)</name>
+			<description></description>
+			<type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
+			<associated>Athletics</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>DirectApplication_StackNoChoiceFeat</name>
+			<description></description>
+			<type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>GivingThingyAuto (NoChooseFeatAuto, NoStackNoChoiceFeatAuto, NoStackChoiceFeatAuto(Ride), Naturally Something Auto (comment))</name>
+			<description></description>
+			<type>TEST46</type>
+			<associated>NoChooseFeatAuto,NoStackNoChoiceFeatAuto,NoStackChoiceFeatAuto(Ride),Naturally Something Auto (comment)</associated>
+			<count>4</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<feat>
 			<name>Naturally Something (comment)</name>
 			<description></description>
 			<type>TEST47.TESTTHING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Naturally Something Auto (comment)</name>
+			<description></description>
+			<type>TEST46.TESTTHING46</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -946,9 +1206,29 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>NoChooseFeatAuto</name>
+			<description></description>
+			<type>TEST46.TESTTHING46</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>NoStackChoiceFeat (Ride)</name>
 			<description></description>
 			<type>TEST47.TESTTHING</type>
+			<associated>Ride</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>NoStackChoiceFeatAuto (Ride)</name>
+			<description></description>
+			<type>TEST46.TESTTHING46</type>
 			<associated>Ride</associated>
 			<count>1</count>
 			<auto>T</auto>
@@ -961,6 +1241,76 @@ BIO
 			<type>TEST47.TESTTHING</type>
 			<associated></associated>
 			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>NoStackNoChoiceFeatAuto</name>
+			<description></description>
+			<type>TEST46.TESTTHING46</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1042,6 +1392,8 @@ BIO
 			<level number="8" known="0" cast="0"/>
 			<level number="9" known="0" cast="0"/>
 		</class>
+
+
 
 	</known_spells>
 		<!-- ### END Known spells ### -->

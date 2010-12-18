@@ -8,13 +8,13 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIDaveTestHide extends pcGenGUITestCase
+public class pcGenGUIEveTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIDaveTestHide()
+	public pcGenGUIEveTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +24,7 @@ public class pcGenGUIDaveTestHide extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIDaveTestHide(String name)
+	public pcGenGUIEveTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +34,7 @@ public class pcGenGUIDaveTestHide extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIDaveTestHide.class);
+		return new TestSuite(pcGenGUIEveTest.class);
 	}
 
 	/**
@@ -44,6 +44,6 @@ public class pcGenGUIDaveTestHide extends pcGenGUITestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("Dave", "35e");
+		runTest("Eve", "35e");
 	}
 }
