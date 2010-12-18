@@ -147,7 +147,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
 				"ARMORPROF|ARMORTYPE.Medium");
 		AbilityUtilities.modFeat(character, null,
-			"KEY_Armor Proficiency (Medium)", true, false);
+			mediumProf, null, true, false);
 
 		final Equipment chainmail = new Equipment();
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));

@@ -104,7 +104,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Shield Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -145,7 +145,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Shield Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -184,7 +184,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Shield Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 		
 		assertTrue("Character has Medium Armor Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -215,7 +215,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Shield Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -256,7 +256,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Armor Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 
 		assertTrue("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -317,7 +317,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
 		AbilityUtilities.modFeat(
-				character, null, "KEY_Shield Proficiency (Single)", true, false);
+				character, null, martialProf, null, true, false);
 		
 		Ability foo = new Ability();
 		final String fooStr =
