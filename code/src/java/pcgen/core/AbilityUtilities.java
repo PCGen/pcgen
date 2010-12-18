@@ -626,10 +626,7 @@ public class AbilityUtilities
 	 */
 	static void modFeatsFromList(
 			final PlayerCharacter aPC,
-			final PCLevelInfo     LevelInfo,
-			final String          aList,
-			final boolean         addIt,
-			final boolean         all)
+			final String          aList)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aList, ",");
 
@@ -674,12 +671,8 @@ public class AbilityUtilities
 					bTok = null;
 				}
 				aString = bString.replace('(', ' ').replace(')', ' ').trim();
-				// if we still haven't found it, try a different string
-				if (!addIt)
-				{
-					return;
-				}
 				
+				// if we still haven't found it, try a different string
 				anAbility = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Ability.class,
 								AbilityCategory.FEAT, aString);
@@ -692,13 +685,13 @@ public class AbilityUtilities
 				}
 				
 				anAbility = anAbility.clone();
-				aPC.addFeat(anAbility, LevelInfo);
+				aPC.addFeat(anAbility, null);
 			}
 			else
 			{
 				// add the Feat found, as a CharacterFeat
 				anAbility = anAbility.clone();
-				aPC.addFeat(anAbility, LevelInfo);
+				aPC.addFeat(anAbility, null);
 			}
 
 			if ((bTok != null) && bTok.hasMoreTokens())
@@ -717,46 +710,25 @@ public class AbilityUtilities
 							{
 								for (WeaponProf wp : ref.getContainedObjects())
 								{
-									if (addIt)
-									{
-										aPC.addAssociation(anAbility, wp.getKeyName());
-									}
-									else
-									{
-										aPC.removeAssociation(anAbility, wp.getKeyName());
-									}
+									aPC.addAssociation(anAbility, wp.getKeyName());
 								}
 							}
 						}
 					}
 					else
 					{
-						if (addIt)
-						{
-							aPC.addAssociation(anAbility, aString);
-						}
-						else
-						{
-							aPC.removeAssociation(anAbility, aString);
-						}
+						aPC.addAssociation(anAbility, aString);
 					}
 				}
 			}
 			else
 			{
-				if (!all && !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
-					if (addIt)
-					{
-						aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-					}
-					else
-					{
-						aPC.adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-					}
+					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				}
 
-				modFeat(aPC, LevelInfo, aString, addIt, all);
+				modFeat(aPC, null, aString, true, false);
 			}
 		}
 	}

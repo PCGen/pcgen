@@ -9153,8 +9153,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			for (int j = 0, y = templateFeats.size(); j < y; ++j)
 			{
-				AbilityUtilities.modFeatsFromList(this, null, templateFeats
-					.get(j), true, false);
+				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
 			}
 		}
 
