@@ -634,7 +634,6 @@ public class AbilityUtilities
 		{
 			String aString = aTok.nextToken();
 			Ability anAbility = aPC.getFeatNamed(aString);
-			StringTokenizer bTok = null;
 
 			if (anAbility != null)
 			{
@@ -646,36 +645,17 @@ public class AbilityUtilities
 					.silentlyGetConstructedCDOMObject(Ability.class,
 							AbilityCategory.FEAT, aString);
 
+			List<String> choices = null;
 			if (anAbility == null)
 			{
 				// could not find Feat, try trimming off contents of parenthesis
-				bTok = new StringTokenizer(aString, "()", true);
+				choices = new ArrayList<String>();
+				String root = AbilityUtilities.getUndecoratedName(aString, choices);
 
-				final String bString = bTok.nextToken();
-				final int beginIndex = bString.length() + 1;
-				final int endIndex = aString.lastIndexOf(')');
-
-				if (beginIndex <= aString.length())
-				{
-					if (endIndex >= beginIndex)
-					{
-						bTok = new StringTokenizer(aString.substring(beginIndex, endIndex), ",");
-					}
-					else
-					{
-						bTok = new StringTokenizer(aString.substring(beginIndex), ",");
-					}
-				}
-				else
-				{
-					bTok = null;
-				}
-				aString = bString.replace('(', ' ').replace(')', ' ').trim();
-				
 				// if we still haven't found it, try a different string
 				anAbility = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, aString);
+								AbilityCategory.FEAT, root);
 				
 				if (anAbility == null)
 				{
@@ -683,24 +663,16 @@ public class AbilityUtilities
 					
 					return;
 				}
-				
-				anAbility = anAbility.clone();
-				aPC.addFeat(anAbility, null);
-			}
-			else
-			{
-				// add the Feat found, as a CharacterFeat
-				anAbility = anAbility.clone();
-				aPC.addFeat(anAbility, null);
 			}
 
-			if ((bTok != null) && bTok.hasMoreTokens())
+			anAbility = anAbility.clone();
+			aPC.addFeat(anAbility, null);
+
+			if (choices != null)
 			{
-				while (bTok.hasMoreTokens())
+				for (String choice : choices)
 				{
-					aString = bTok.nextToken();
-
-					if ("DEITYWEAPON".equals(aString))
+					if ("DEITYWEAPON".equals(choice))
 					{
 						if (aPC.getDeity() != null)
 						{
@@ -717,7 +689,7 @@ public class AbilityUtilities
 					}
 					else
 					{
-						aPC.addAssociation(anAbility, aString);
+						aPC.addAssociation(anAbility, choice);
 					}
 				}
 			}
@@ -728,7 +700,7 @@ public class AbilityUtilities
 					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				}
 
-				modFeat(aPC, null, aString, true, false);
+				modFeat(aPC, null, anAbility.getKeyName(), true, false);
 			}
 		}
 	}
