@@ -2668,10 +2668,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (nature == Nature.VIRTUAL)
 			{
-				ability =
-						AbilityUtilities.addVirtualAbility(ability,
-							new ArrayList<String>(), category, thePC,
-							null);
+				ability = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(thePC, ability, null, category);
 				if (ability == null)
 				{
 					Logging
@@ -2729,10 +2726,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			 * one and add it using non-aggregate (when using aggregate, we
 			 * get clones of the PCs actual feats, which don't get saved or
 			 * preserved) */
-			Ability anAbility = thePC.getRealFeatKeyed(abilityKey);
+			Ability anAbility = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, abilityKey);
+
+			Ability pcAbility = thePC.getMatchingAbility(AbilityCategory.FEAT,
+					anAbility, Nature.NORMAL);
+
 			boolean added = false;
 
-			if (anAbility != null)
+			if (pcAbility != null)
 			{
 				added =
 						parseFeatsHandleAppliedToAndSaveTags(it, anAbility,
@@ -2741,9 +2744,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else
 			{
 				// PC does not have the feat
-				anAbility = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, abilityKey);
 
 				if (anAbility != null)
 				{
@@ -4551,9 +4551,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				return;
 			}
-
-			anAbility = AbilityUtilities.addVirtualAbility(abilityKey,
-					AbilityCategory.FEAT, thePC, null);
+			anAbility = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(thePC, anAbility, null, AbilityCategory.FEAT);
 			thePC.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 			thePC.setDirty(true);
 		}

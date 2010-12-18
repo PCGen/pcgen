@@ -476,7 +476,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modFeat(character, null, toughness, null, true, false);
+			AbilityUtilities.modFeat(character, null, toughness, null);
 			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
@@ -893,11 +893,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		try
 		{
-			AbilityUtilities.modFeat(pc, null, toughness, null, true, false);
+			AbilityUtilities.modFeat(pc, null, toughness, null);
 			//pc.calcActiveBonuses();
 			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
-			AbilityUtilities.modFeat(pc, null, toughness, null, true, false);
+			AbilityUtilities.modFeat(pc, null, toughness, null);
 			pc.calcActiveBonuses();
 			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));

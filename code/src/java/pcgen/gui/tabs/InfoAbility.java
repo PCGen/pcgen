@@ -46,6 +46,7 @@ import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.DisplayLocation;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -679,8 +680,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), null, anAbility, null,
-					true, false);
+				AbilityUtilities.modFeat(getPc(), null, anAbility, null);
 			}
 			else
 			{
@@ -729,28 +729,19 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		try
 		{
 			getPc().setDirty(true);
-
-			if (theCategory == AbilityCategory.FEAT)
+			PlayerCharacter aPC = getPc();
+			if (!aPC.isImporting())
 			{
-				PlayerCharacter aPC = getPc();
-				if (!aPC.isImporting())
-				{
-					aPC.getSpellList();
-				}
-				
-				// See if our choice is not auto or virtual
-				Ability anAbility1 = aPC.getRealFeatKeyed(anAbility.getKeyName());
-				
-				if (anAbility1 != null)
-				{
-					AbilityUtilities.finaliseAbility(anAbility1, null, aPC,
-							false, true, AbilityCategory.FEAT);
-				}
+				aPC.getSpellList();
 			}
-			else
+
+			Ability pcAbility = aPC.getMatchingAbility(theCategory, anAbility,
+					Nature.NORMAL);
+
+			if (pcAbility != null)
 			{
-				AbilityUtilities.modAbility(getPc(), null, anAbility, null,
-					false, theCategory);
+				AbilityUtilities.finaliseAbility(pcAbility, null, aPC, false,
+						true, theCategory);
 			}
 		}
 		catch (Exception exc)

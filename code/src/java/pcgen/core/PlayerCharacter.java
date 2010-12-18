@@ -4374,7 +4374,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return null;
 	}
 
-	public Ability getMatchingAbility(AbilityCategory abilityCategory,
+	public Ability getMatchingAbility(Category<Ability> abilityCategory,
 			Ability ability, Nature nature)
 	{
 		Ability contained = abFacet.getContained(id, abilityCategory,
@@ -10343,40 +10343,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Returns the Feat definition searching by key (not name), as contained in
-	 * the <b>chosen</b> feat list.
-	 * 
-	 * @param featName
-	 *            String key of the feat to check for.
-	 * 
-	 * @return the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *         if not found.
-	 */
-	public Ability getRealFeatKeyed(final String featName)
-	{
-		return getRealAbilityKeyed(AbilityCategory.FEAT, featName);
-	}
-
-	private Ability getRealAbilityKeyed(final AbilityCategory aCategory,
-		final String aKey)
-	{
-		final Set<Ability> abilities = getRealAbilitiesList(aCategory);
-
-		if (abilities != null)
-		{
-			for (final Ability ability : abilities)
-			{
-				if (ability.getKeyName().equals(aKey))
-				{
-					return ability;
-				}
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Does the character have this ability (not virtual or auto).
 	 * 
 	 * @param aCategory
@@ -10867,75 +10833,49 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		final Collection<String> choices = new ArrayList<String>();
+		final List<String> choices = new ArrayList<String>();
 		final String undoctoredKey = aKey;
-		final String baseKey =
-				AbilityUtilities.getUndecoratedName(aKey, choices);
-		String subKey =
-				choices.size() > 0 ? choices.iterator().next()
-					: Constants.EMPTY_STRING;
-
-		// See if our choice is not auto or virtual
-		Ability anAbility = getRealAbilityKeyed(aCategory, undoctoredKey);
-
-		// if a feat keyed aFeatKey doesn't exist, and aFeatKey
-		// contains a (blah) descriptor, try removing it.
+		Ability anAbility = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class, aCategory,
+						undoctoredKey);
+		String subKey = Constants.EMPTY_STRING;
 		if (anAbility == null)
 		{
-			anAbility = getRealAbilityKeyed(aCategory, baseKey);
-
-			if (!singleChoice1 && (anAbility != null) && (subKey.length() != 0))
-			{
-				singleChoice1 = true;
-			}
-		}
-
-		// (anAbility == null) means we don't have this feat, so we need to add
-		// it
-		if ((anAbility == null) && addIt)
-		{
-			// Adding feat for first time
+			final String baseKey = AbilityUtilities.getUndecoratedName(aKey,
+					choices);
 			anAbility = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(Ability.class, aCategory,
 							baseKey);
-
-			if (anAbility == null)
-			{
-				anAbility = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								aCategory, undoctoredKey);
-
-				if (anAbility != null)
-				{
-					subKey = Constants.EMPTY_STRING;
-				}
-			}
-
 			if (anAbility == null)
 			{
 				Logging.errorPrint("Ability not found: " + undoctoredKey);
 				return;
 			}
+			subKey = choices.get(0);
+			singleChoice1 = true;
+		}
 
-			anAbility = anAbility.clone();
+		// See if our choice is not auto or virtual
+		Ability pcAbility = getMatchingAbility(aCategory, anAbility, Nature.NORMAL);
+
+		// (anAbility == null) means we don't have this feat, so we need to add
+		// it
+		if ((pcAbility == null) && addIt)
+		{
+			// Adding feat for first time
+			pcAbility = anAbility.clone();
 
 			// addFeat(anAbility, LevelInfo);
-			addAbility(aCategory, anAbility, LevelInfo);
-			selectTemplates(anAbility, isImporting());
+			addAbility(aCategory, pcAbility, LevelInfo);
+			selectTemplates(pcAbility, isImporting());
 		}
 
-		/*
-		 * Could not find the Ability: addIt true means that no global Ability
-		 * called featName exists, addIt false means that the PC does not have
-		 * this ability
-		 */
-		if (anAbility == null)
+		if (pcAbility != null)
 		{
-			return;
+			AbilityUtilities.finaliseAbility(anAbility, subKey, this, addIt,
+					singleChoice1, aCategory);
 		}
 
-		AbilityUtilities.finaliseAbility(anAbility, subKey, this, addIt,
-			singleChoice1, aCategory);
 	}
 
 	/**

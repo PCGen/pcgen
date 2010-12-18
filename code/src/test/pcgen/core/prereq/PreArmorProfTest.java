@@ -103,8 +103,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -144,8 +143,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -183,8 +181,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 		
 		assertTrue("Character has Medium Armor Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -214,8 +211,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -255,8 +251,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 
 		assertTrue("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -316,8 +311,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(
-				character, null, martialProf, null, true, false);
+		AbilityUtilities.modFeat(character, null, martialProf, null);
 		
 		Ability foo = new Ability();
 		final String fooStr =

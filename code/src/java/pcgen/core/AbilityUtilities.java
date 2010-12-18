@@ -31,7 +31,6 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -57,26 +56,6 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Add the choices in the List to the ability if it is legal to do so.
-	 * @param pc TODO
-	 * @param ability Ability to add the choices to
-	 * @param choices the iterable collection of choices to add
-	 */
-	private static void addChoicesToAbility(
-			PlayerCharacter pc,
-			final Ability ability, final Iterable<String> choices)
-	{
-		for ( final String choice : choices )
-		{
-			if (canAddAssociation(pc, ability, choice))
-			{
-				pc.addAssociation(ability, choice);
-			}
-		}
-	}
-
-
-	/**
 	 * Clone anAbility, apply choices and add it to the addList, provided the
 	 * Ability allows it (if not isMultiples check if it's already there before
 	 * adding it).
@@ -87,10 +66,10 @@ public class AbilityUtilities
 	 *
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
-	private static Ability addCloneOfAbilityToVirtualListwithChoices(
+	public static Ability addCloneOfAbilityToVirtualListwithChoices(
 		PlayerCharacter pc, 
 		final Ability anAbility,
-		final List<String>    choices, AbilityCategory cat)
+		final String    choice, AbilityCategory cat)
 	{
 		Ability newAbility = null;
 
@@ -98,11 +77,15 @@ public class AbilityUtilities
 		{
 			newAbility = anAbility.clone();
 
-			if (choices != null)
+			if (choice != null)
 			{
-				addChoicesToAbility(pc, newAbility, choices);
+				if (canAddAssociation(pc, newAbility, choice))
+				{
+					pc.addAssociation(newAbility, choice);
+				}
 			}
 			pc.addUserVirtualAbility(cat, newAbility);
+			newAbility.clearPrerequisiteList();
 		}
 		return newAbility;
 	}
@@ -126,71 +109,8 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Add a virtual feat to the character and include it in the List.
-	 *
-	 * @param   anAbility
-	 * @param   choices
-	 * @param   addList
-	 * @param pc TODO
-	 * @param   levelInfo
-	 * @return the Ability added
-	 */
-	public static Ability addVirtualAbility(
-		final Ability     anAbility,
-		final List<String>        choices,
-		final AbilityCategory cat,
-		PlayerCharacter pc, final PCLevelInfo levelInfo)
-	{
-		if (anAbility == null)
-		{
-			return null;
-		}
-
-		final Ability newAbility = addCloneOfAbilityToVirtualListwithChoices(pc, anAbility, choices, cat);
-
-		if (newAbility != null)
-		{
-			newAbility.clearPrerequisiteList();
-			if (levelInfo != null)
-			{
-				levelInfo.addObject(newAbility);
-			}
-		}
-		return newAbility;
-	}
-
-
-	/**
-	 * Add a virtual Ability to abilityList by category and name.  Any choices made
-	 * (by including in parenthesis e.g. "Weapon Focus (Longsword)", are extracted
-	 * from the name and added appropriately
-	 *
-	 * @param   category
-	 * @param   aFeatKey
-	 * @param   abilityList
-	 * @param pc TODO
-	 * @param   levelInfo
-	 * @return  the Ability added
-	 */
-	public static Ability addVirtualAbility(
-		final String          aFeatKey,
-		final AbilityCategory   cat,
-		PlayerCharacter pc, final PCLevelInfo     levelInfo)
-	{
-		final List<String> choices = new ArrayList<String>();
-		final String    abilityKey      = getUndecoratedName(aFeatKey, choices);
-		//TODO I think this is a bug, what if the ability naturally has parens??
-		final Ability anAbility = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class, cat,
-						abilityKey);
-
-		return addVirtualAbility(anAbility, choices, cat, pc, levelInfo);
-	}
-
-
-	/**
 	 * Do the Categorisable objects passed in represent the same ability?
-	 *
+	 * 
 	 * @param first
 	 * @param second
 	 * @return true if the same object is represented
@@ -440,9 +360,7 @@ public class AbilityUtilities
 		final PlayerCharacter aPC,
 		final PCLevelInfo     LevelInfo,
 		Ability ability,
-		String selection,
-		final boolean         addIt,
-		final boolean         singleChoice)
+		String selection)
 	{
 		if (!aPC.isImporting())
 		{
@@ -450,10 +368,11 @@ public class AbilityUtilities
 		}
 
 		// See if our choice is not auto or virtual
-		Ability anAbility = aPC.getRealFeatKeyed(ability.getKeyName());
+		Ability anAbility = aPC.getMatchingAbility(AbilityCategory.FEAT,
+				ability, Nature.NORMAL);
 
 		// (anAbility == null) means we don't have this feat, so we need to add it
-		if ((anAbility == null) && addIt)
+		if (anAbility == null)
 		{
 			// Adding feat for first time
 			anAbility = ability.clone();
@@ -463,7 +382,7 @@ public class AbilityUtilities
 
 		if (anAbility != null)
 		{
-			finaliseAbility(anAbility, selection, aPC, addIt, !singleChoice, AbilityCategory.FEAT);
+			finaliseAbility(anAbility, selection, aPC, true, true, AbilityCategory.FEAT);
 		}
 	}
 
@@ -520,7 +439,7 @@ public class AbilityUtilities
 						.doubleValue());
 			}
 
-			modFeat(aPC, null, anAbility, null, true, false);
+			modFeat(aPC, null, anAbility, null);
 		}
 	}
 
@@ -624,47 +543,5 @@ public class AbilityUtilities
 		return a.getSafe(ObjectKey.STACKS)
 				|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
 						.containsAssociated(a, newAssociation));
-	}
-
-	public static void applyAbility(PlayerCharacter aPC,
-			PCLevelInfo pcLevelInfo, AbilityCategory abilityCat,
-			Ability ab, String choice, boolean isVirtual)
-	{
-		if (isVirtual)
-		{
-			final List<String> choiceList = new ArrayList<String>();
-			choiceList.add(choice);
-	
-			final Ability pcAbility = addVirtualAbility(ab,
-					choiceList, abilityCat, aPC, pcLevelInfo);
-	
-			aPC.setDirty(true);
-	
-			if (pcAbility != null)
-			{
-				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					final double x = aPC.getRemainingFeatPoints(false);
-					aPC.setFeats(1); // temporarily assume 1 choice
-					ChooserUtilities.modChoices(pcAbility, new ArrayList(),
-							new ArrayList(), true, aPC, true, abilityCat);
-					aPC.setFeats(x); // reset to original count
-				}
-	
-				aPC.setAssoc(pcAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
-			}
-			else
-			{
-				Logging.errorPrint("Error:" + ab.getKeyName()
-						+ " not added, aPC.getFeatNamedInList() == NULL");
-			}
-		}
-		else
-		{
-			aPC.adjustAbilities(abilityCat, ab.getSafe(ObjectKey.SELECTION_COST));
-	
-			modAbility(aPC, pcLevelInfo, ab, choice, true,
-					abilityCat);
-		}
 	}
 }

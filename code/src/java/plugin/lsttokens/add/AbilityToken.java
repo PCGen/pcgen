@@ -43,6 +43,7 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -52,6 +53,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -59,6 +61,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -378,8 +381,38 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		String association = choice.getSelection();
 		AbilityCategory cat = (AbilityCategory) choice.getAbilityCategory();
 		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
-		AbilityUtilities
-				.applyAbility(pc, null, cat, ab, association, isVirtual);
+		if (isVirtual)
+		{
+			final Ability pcAbility = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc, ab, association, cat);
+		
+			pc.setDirty(true);
+		
+			if (pcAbility != null)
+			{
+				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				{
+					final double x = pc.getRemainingFeatPoints(false);
+					pc.setFeats(1); // temporarily assume 1 choice
+					ChooserUtilities.modChoices(pcAbility, new ArrayList(),
+							new ArrayList(), true, pc, true, cat);
+					pc.setFeats(x); // reset to original count
+				}
+		
+				pc.setAssoc(pcAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			}
+			else
+			{
+				Logging.errorPrint("Error:" + ab.getKeyName()
+						+ " not added, aPC.getFeatNamedInList() == NULL");
+			}
+		}
+		else
+		{
+			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
+		
+			AbilityUtilities.modAbility(pc, null, ab, association, true,
+					cat);
+		}
 		pc.addAssociation(ab, association);
 	}
 
@@ -449,9 +482,20 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		AbilityUtilities.modAbility(pc, null, choice.getAbility(), choice
-				.getSelection(), false, (AbilityCategory) choice
-				.getAbilityCategory());
+		if (!pc.isImporting())
+		{
+			pc.getSpellList();
+		}
+
+		Ability pcAbility = pc.getMatchingAbility(choice.getAbilityCategory(),
+				choice.getAbility(), Nature.NORMAL);
+
+		if (pcAbility != null)
+		{
+			AbilityUtilities.finaliseAbility(pcAbility, choice.getSelection(),
+					pc, false, true, (AbilityCategory) choice
+							.getAbilityCategory());
+		}
 	}
 
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,

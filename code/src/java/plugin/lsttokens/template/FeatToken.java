@@ -161,7 +161,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			pc.adjustFeats(cost);
 		}
 		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
-				.getSelection(), true, false);
+				.getSelection());
 		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice);
 	}
 
@@ -242,7 +242,8 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		
 		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getRealFeatKeyed(choice.getAbilityKey());
+		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice
+				.getAbility(), Nature.NORMAL);
 
 		if (anAbility != null)
 		{

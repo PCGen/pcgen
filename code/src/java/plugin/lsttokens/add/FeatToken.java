@@ -283,7 +283,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			pc.adjustFeats(cost);
 		}
 		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
-				.getSelection(), true, false);
+				.getSelection());
 	}
 
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
@@ -361,7 +361,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		
 		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getRealFeatKeyed(choice.getAbilityKey());
+		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice
+				.getAbility(), Nature.NORMAL);
 		
 		if (anAbility != null)
 		{
