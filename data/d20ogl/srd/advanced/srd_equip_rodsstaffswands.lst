@@ -21,7 +21,7 @@ Rod (Security)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:61
 Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:25000	WT:0																EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods.rtf													BONUS:STAT|CHA|4|TYPE=Enhancement
 Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:23000	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods.rtf																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 Rod (Viper)					OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:19000	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL						SIZE:M	SOURCEPAGE:srdmagicitemsrods.rtf																			BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:17000	WT:6		CRITMULT:x2			CRITRANGE:1									EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods.rtf																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:17000	WT:6																EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods.rtf																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:12000	WT:0																EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods.rtf
 
 ###Block:Staves
