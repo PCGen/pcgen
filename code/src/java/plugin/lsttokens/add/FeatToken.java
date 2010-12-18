@@ -355,8 +355,19 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
-				.getSelection(), false, true);
+		if (!pc.isImporting())
+		{
+			pc.getSpellList();
+		}
+		
+		// See if our choice is not auto or virtual
+		Ability anAbility = pc.getRealFeatKeyed(choice.getAbilityKey());
+		
+		if (anAbility != null)
+		{
+			AbilityUtilities.finaliseAbility(anAbility, choice.getSelection(),
+					pc, false, false, AbilityCategory.FEAT);
+		}
 	}
 
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,

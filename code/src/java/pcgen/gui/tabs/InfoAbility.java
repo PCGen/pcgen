@@ -732,8 +732,20 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), null, anAbility, null,
-					false, false);
+				PlayerCharacter aPC = getPc();
+				if (!aPC.isImporting())
+				{
+					aPC.getSpellList();
+				}
+				
+				// See if our choice is not auto or virtual
+				Ability anAbility1 = aPC.getRealFeatKeyed(anAbility.getKeyName());
+				
+				if (anAbility1 != null)
+				{
+					AbilityUtilities.finaliseAbility(anAbility1, null, aPC,
+							false, true, AbilityCategory.FEAT);
+				}
 			}
 			else
 			{

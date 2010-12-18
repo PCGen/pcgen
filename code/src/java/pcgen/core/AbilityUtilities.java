@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
@@ -512,14 +511,10 @@ public class AbilityUtilities
 			aPC.addAbility(category, pcAbility, levelInfo);
 			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
-		if (pcAbility == null)
+		if (pcAbility != null)
 		{
-			Logging.errorPrint("Can't process ability " + argAbility + " not present in character.");
-			return;
+			finaliseAbility(pcAbility, choice, aPC, create, true, category);
 		}
-		
-
-		finaliseAbility(pcAbility, choice, aPC, create, true, category);
 	}
 
 	/**
@@ -676,7 +671,7 @@ public class AbilityUtilities
 		final String cat,
 		final String token)
 	{
-		AbilityCategory aCat = AbilityUtilities.getAbilityCategory(cat);
+		AbilityCategory aCat = SettingsHandler.getGame().getAbilityCategory(cat);
 		Ability ability = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Ability.class, aCat, token);
 
@@ -695,19 +690,6 @@ public class AbilityUtilities
 		}
 
 		return null;
-	}
-
-	/**
-	 * Convenience method to retrieve an <tt>AbilityCategory</tt> by 
-	 * its key name.
-	 * 
-	 * @param aKey The key of the <tt>AbilityCategory</tt> to retrieve.
-	 * @return The requested <tt>AbilityCategory</tt> or <tt>null</tt> if the
-	 * category is not found in the current game mode.
-	 */
-	public static AbilityCategory getAbilityCategory(final String aKey)
-	{
-		return SettingsHandler.getGame().getAbilityCategory(aKey);
 	}
 
 	/**
@@ -782,17 +764,11 @@ public class AbilityUtilities
 	 *
 	 * @return true if we can add the association
 	 */
-	private static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
+	static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
 	{
-		return 	a.getSafe(ObjectKey.STACKS) || (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(a, newAssociation));
-	}
-
-	public static boolean isLegalAssociation(PlayerCharacter pc,
-			CDOMObject parent, Ability target, String newAssociation)
-	{
-		return target.getSafe(ObjectKey.STACKS)
-				|| (target.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
-						.containsAssociated(target, newAssociation));
+		return a.getSafe(ObjectKey.STACKS)
+				|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
+						.containsAssociated(a, newAssociation));
 	}
 
 	public static void applyAbility(PlayerCharacter aPC,

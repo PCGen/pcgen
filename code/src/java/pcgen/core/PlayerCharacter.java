@@ -10387,7 +10387,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return True if the character has the feat
 	 */
-	private boolean hasRealAbility(final AbilityCategory aCategory,
+	private boolean hasRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
 		boolean newReturn = abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
@@ -10509,7 +10509,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return removeRealAbility(AbilityCategory.FEAT, aFeat);
 	}
 
-	public boolean removeRealAbility(final AbilityCategory aCategory,
+	public boolean removeRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
 		return abFacet.remove(id, aCategory, Nature.NORMAL, anAbility);
@@ -10822,7 +10822,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
-	public void addAbility(final AbilityCategory aCategory,
+	public void addAbility(final Category<Ability> aCategory,
 		final Ability anAbility, final PCLevelInfo aLevelInfo)
 	{
 		if (hasRealAbility(aCategory, anAbility))
@@ -11315,8 +11315,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 						{
 							for (final String choice : choices)
 							{
-								if (AbilityUtilities.isLegalAssociation(this,
-										cdo, ab, choice))
+								if (AbilityUtilities.canAddAssociation(this, ab, choice))
 								{
 									CategorizedAbilitySelection cas = new CategorizedAbilitySelection(
 											cdo, cat, ab, nature, choice);

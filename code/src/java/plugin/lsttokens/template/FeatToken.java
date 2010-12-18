@@ -237,8 +237,19 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
-				.getSelection(), false, true);
+		if (!pc.isImporting())
+		{
+			pc.getSpellList();
+		}
+		
+		// See if our choice is not auto or virtual
+		Ability anAbility = pc.getRealFeatKeyed(choice.getAbilityKey());
+
+		if (anAbility != null)
+		{
+			AbilityUtilities.finaliseAbility(anAbility, choice
+							.getSelection(), pc, false, false, AbilityCategory.FEAT);
+		}
 	}
 
 	public boolean process(LoadContext context, PCTemplate pct)
