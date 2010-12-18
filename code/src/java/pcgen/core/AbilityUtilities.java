@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.LastGroupSeparator;
 import pcgen.util.Logging;
@@ -109,53 +108,6 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Do the Categorisable objects passed in represent the same ability?
-	 * 
-	 * @param first
-	 * @param second
-	 * @return true if the same object is represented
-	 */
-	public static boolean areSameAbility(
-			final Ability first,
-			final Ability second)
-	{
-		if (first == null || second == null) {
-			return false;
-		}
-
-		final boolean multFirst  = first.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		final boolean multSecond = second.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		boolean nameCheck  = false;
-		if (multFirst && multSecond) {
-			/*
-			 * The are both Multiply applicable, so strip the decorations (parts
-			 * in brackets) from the name, then check the undecorated names are
-			 * equal.
-			 */
-			final Collection<String> decorationsThis = new ArrayList<String>();
-			final Collection<String> decorationsThat = new ArrayList<String>();
-			final String undecoratedThis = getUndecoratedName(first.getKeyName(), decorationsThis);
-			final String undecoratedThat = getUndecoratedName(second.getKeyName(), decorationsThat);
-			nameCheck = undecoratedThis.compareToIgnoreCase(undecoratedThat) == 0;
-
-		} else if (multFirst || multSecond) {
-
-			// one is multiply applicable but the other isn't. They can't be the
-			// same Ability
-			return false;
-		} else {
-
-			/*
-			 * They're not multiply selectable, so anything in brackets isn't a
-			 * choice, it's part of the name
-			 */
-			nameCheck = first.getKeyName().compareToIgnoreCase(second.getKeyName()) == 0;
-		}
-
-		return (nameCheck && first.getCategory().compareToIgnoreCase(second.getCategory()) == 0);
-	}
-
-	/**
 	 * Finishes off the processing necessary to add or remove an Ability to/from
 	 * a PC.  modFeat or modAbility have identified the Ability (either one
 	 * already owned by the PC, or a clone of the Globals copy.  They have added
@@ -174,8 +126,6 @@ public class AbilityUtilities
 			final Ability         ability,
 			final String          choice,
 			final PlayerCharacter aPC,
-			final boolean         addIt,
-			final boolean         singleChoice,
 			final AbilityCategory category)
 	{
 		// how many sub-choices to make
@@ -184,30 +134,23 @@ public class AbilityUtilities
 		boolean adjustedAbilityPool = false;
 
 		// adjust the associated List
-		if (singleChoice && (addIt || ability.getSafe(ObjectKey.MULTIPLE_ALLOWED)))
+		if ("".equals(choice) || choice == null)
 		{
-			if ("".equals(choice) || choice == null)
+			// Get modChoices to adjust the associated list and Feat Pool
+			adjustedAbilityPool = ChooserUtilities.modChoices(
+			ability,
+			new ArrayList(),
+			new ArrayList(),
+			true,
+			aPC,
+			true,
+			category);
+		}
+		else
+		{
+			if (canAddAssociation(aPC, ability, choice))
 			{
-				// Get modChoices to adjust the associated list and Feat Pool
-				adjustedAbilityPool = ChooserUtilities.modChoices(
-				ability,
-				new ArrayList(),
-				new ArrayList(),
-				true,
-				aPC,
-				addIt,
-				category);
-			}
-			else if (addIt)
-			{
-				if (canAddAssociation(aPC, ability, choice))
-				{
-					aPC.addAssociation(ability, choice);
-				}
-			}
-			else
-			{
-				aPC.removeAssociation(ability, choice);
+				aPC.addAssociation(ability, choice);
 			}
 		}
 
@@ -221,18 +164,15 @@ public class AbilityUtilities
 			mc.act(mc.driveChoice(aPC), ability, aPC);
 		}
 
-		if (addIt)
+		for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
-			{
-				kit.act(kit.driveChoice(aPC), ability, aPC);
-			}
+			kit.act(kit.driveChoice(aPC), ability, aPC);
 		}
 
 		// if no sub choices made (i.e. all of them removed in Chooser box),
 		// then remove the Feat
 		boolean removed = false;
-		boolean result  = (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && singleChoice) ? aPC.hasAssociations(ability) : addIt ; 
+		boolean result  = ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) ? aPC.hasAssociations(ability) : true ; 
 
 		if (! result)
 		{
@@ -242,48 +182,48 @@ public class AbilityUtilities
 			CDOMObjectUtilities.restoreRemovals(ability, aPC);
 		}
 
-		if (singleChoice && !adjustedAbilityPool)
+		if (!adjustedAbilityPool && (category == AbilityCategory.FEAT))
 		{
-			if (!addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && removed)
-			{
-				// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
-				if (category == AbilityCategory.FEAT)
-				{
-					abilityCount += ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				}
-			}
-			else if (addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				abilityCount -= ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			}
-			else if (category == AbilityCategory.FEAT)
-			{
-				int listSize = aPC.getSelectCorrectedAssociationCount(ability);
-
-				for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
-				{
-					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
-					{
-						listSize = aPC.getSelectCorrectedAssociationCount(myAbility);
-					}
-				}
-
-				abilityCount -= (listSize * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-			}
-
-
-			if (category == AbilityCategory.FEAT)
-			{
-				aPC.adjustAbilities(category, BigDecimal.valueOf(abilityCount));
-			}
+			adjustPool(ability, aPC, true, abilityCount, removed);
 		}
 
 		aPC.adjustMoveRates();
 
-		if (addIt && !aPC.isImporting())
+		if (!aPC.isImporting())
 		{
 			AddObjectActions.globalChecks(ability, aPC);
 		}
+	}
+
+	public static void adjustPool(final Ability ability,
+			final PlayerCharacter aPC, final boolean addIt,
+			double abilityCount, boolean removed)
+	{
+		if (!addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && removed)
+		{
+			// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
+			abilityCount += ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+		}
+		else if (addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			abilityCount -= ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+		}
+		else
+		{
+			int listSize = aPC.getSelectCorrectedAssociationCount(ability);
+
+			for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
+			{
+				if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
+				{
+					listSize = aPC.getSelectCorrectedAssociationCount(myAbility);
+				}
+			}
+
+			abilityCount -= (listSize * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+		}
+
+		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
 	}
 
 	/**
@@ -305,10 +245,8 @@ public class AbilityUtilities
 
 	public static void modAbility(
 		final PlayerCharacter aPC,
-		final PCLevelInfo     levelInfo,
 		final Ability         argAbility,
 		final String          choice,
-		final boolean         create,
 		final AbilityCategory category)
 	{
 		if (argAbility == null)
@@ -324,17 +262,17 @@ public class AbilityUtilities
 
 		// (pcAbility == null) means we don't have this feat,
 		// so we need to add it
-		if (create && (pcAbility == null))
+		if (pcAbility == null)
 		{
 			// adding feat for first time
 			pcAbility = argAbility.clone();
 
-			aPC.addAbility(category, pcAbility, levelInfo);
+			aPC.addAbility(category, pcAbility, null);
 			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
 		if (pcAbility != null)
 		{
-			finaliseAbility(pcAbility, choice, aPC, create, true, category);
+			finaliseAbility(pcAbility, choice, aPC, category);
 		}
 	}
 
@@ -358,7 +296,6 @@ public class AbilityUtilities
 	 */
 	public static void modFeat(
 		final PlayerCharacter aPC,
-		final PCLevelInfo     LevelInfo,
 		Ability ability,
 		String selection)
 	{
@@ -376,13 +313,13 @@ public class AbilityUtilities
 		{
 			// Adding feat for first time
 			anAbility = ability.clone();
-			aPC.addFeat(anAbility, LevelInfo);
+			aPC.addFeat(anAbility, null);
 			aPC.selectTemplates(anAbility, aPC.isImporting());
 		}
 
 		if (anAbility != null)
 		{
-			finaliseAbility(anAbility, selection, aPC, true, true, AbilityCategory.FEAT);
+			finaliseAbility(anAbility, selection, aPC, AbilityCategory.FEAT);
 		}
 	}
 
@@ -439,7 +376,7 @@ public class AbilityUtilities
 						.doubleValue());
 			}
 
-			modFeat(aPC, null, anAbility, null);
+			modFeat(aPC, anAbility, null);
 		}
 	}
 

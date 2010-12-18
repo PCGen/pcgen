@@ -209,7 +209,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		character.removeRealFeat(metamagic3);
+		character.removeRealAbility(AbilityCategory.FEAT, metamagic3);
 		character.addFeat(item1, null);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
@@ -220,12 +220,12 @@ public class PreMultTest extends AbstractCharacterTestCase
 		passes = test.passes(prereq, character, null);
 		assertEquals("Six feats should pass", 1, passes);
 
-		character.removeRealFeat(metamagic3);
-		character.removeRealFeat(item3);
-		character.removeRealFeat(item2);
-		character.removeRealFeat(item1);
-		character.removeRealFeat(metamagic2);
-		character.removeRealFeat(metamagic1);
+		character.removeRealAbility(AbilityCategory.FEAT, metamagic3);
+		character.removeRealAbility(AbilityCategory.FEAT, item3);
+		character.removeRealAbility(AbilityCategory.FEAT, item2);
+		character.removeRealAbility(AbilityCategory.FEAT, item1);
+		character.removeRealAbility(AbilityCategory.FEAT, metamagic2);
+		character.removeRealAbility(AbilityCategory.FEAT, metamagic1);
 	}
 
 	/**

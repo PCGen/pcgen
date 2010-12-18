@@ -220,7 +220,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 						(Ability) ((PObjectNode) theTreeTable.getTree()
 							.getLastSelectedPathComponent()).getItem();
 
-				if (getPC().canSelectAbility(ability))
+				if (getPC().canSelectAbility(ability, false))
 				{
 					removeAll();
 					add(theAddMenu);
@@ -386,7 +386,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		super.abilitySelected(anAbility);
 		if (anAbility != null)
 		{
-			setAddEnabled(getPC().canSelectAbility(anAbility));
+			setAddEnabled(getPC().canSelectAbility(anAbility, false));
 		}
 		else
 		{

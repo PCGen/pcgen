@@ -282,7 +282,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
+		AbilityUtilities.modFeat(pc, choice.getAbility(), choice
 				.getSelection());
 	}
 

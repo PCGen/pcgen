@@ -53,7 +53,7 @@ public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
-		return new ArrayList<Ability>(pc.getVirtualFeatList());
+		return new ArrayList<Ability>(pc.getVirtualAbilityList(AbilityCategory.FEAT));
 	}
 
 	public boolean isSourceDependant()

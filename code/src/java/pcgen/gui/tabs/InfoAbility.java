@@ -44,6 +44,7 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.Nature;
@@ -55,6 +56,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -680,12 +682,11 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), null, anAbility, null);
+				AbilityUtilities.modFeat(getPc(), anAbility, null);
 			}
 			else
 			{
-				getPc().addAbility(null, theCategory, anAbility.getKeyName(),
-					true, false);
+				addPCAbility(anAbility);
 			}
 		}
 		catch (Exception exc)
@@ -721,6 +722,37 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		return true;
 	}
 
+	private void addPCAbility(final Ability anAbility)
+	{
+		PlayerCharacter pc = getPc();
+		if (!pc.isImporting())
+		{
+			pc.getSpellList();
+		}
+
+		// See if our choice is not auto or virtual
+		Ability pcAbility = pc.getMatchingAbility(theCategory, anAbility,
+				Nature.NORMAL);
+
+		// (anAbility == null) means we don't have this feat, so we need to add
+		// it
+		if (pcAbility == null)
+		{
+			// Adding feat for first time
+			pcAbility = anAbility.clone();
+
+			// addFeat(anAbility, LevelInfo);
+			pc.addAbility(theCategory, pcAbility, null);
+			pc.selectTemplates(pcAbility, pc.isImporting());
+		}
+
+		if (pcAbility != null)
+		{
+			AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
+					pc, theCategory);
+		}
+	}
+
 	/**
 	 * @see pcgen.gui.tabs.ability.IAbilitySelectionListener#removeAbility(pcgen.core.Ability)
 	 */
@@ -740,8 +772,51 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 			if (pcAbility != null)
 			{
-				AbilityUtilities.finaliseAbility(pcAbility, null, aPC, false,
-						true, theCategory);
+				// how many sub-choices to make
+				double abilityCount = (aPC.getSelectCorrectedAssociationCount(pcAbility) * pcAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+				
+				boolean adjustedAbilityPool = false;
+				
+				// adjust the associated List
+				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				{
+					if ("".equals(null) || null == null)
+					{
+						// Get modChoices to adjust the associated list and Feat Pool
+						adjustedAbilityPool = ChooserUtilities.modChoices(
+						pcAbility,
+						new ArrayList(),
+						new ArrayList(),
+						true,
+						aPC,
+						false,
+						theCategory);
+					}
+					else
+					{
+						aPC.removeAssociation(pcAbility, null);
+					}
+				}
+
+				// if no sub choices made (i.e. all of them removed in Chooser box),
+				// then remove the Feat
+				boolean removed = false;
+				boolean result  = pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) ? aPC.hasAssociations(pcAbility) : false ; 
+				
+				if (! result)
+				{
+					removed = aPC.removeRealAbility(theCategory, pcAbility);
+					aPC.removeTemplatesFrom(pcAbility);
+					CDOMObjectUtilities.removeAdds(pcAbility, aPC);
+					CDOMObjectUtilities.restoreRemovals(pcAbility, aPC);
+				}
+				
+				if (!adjustedAbilityPool && (theCategory == AbilityCategory.FEAT))
+				{
+					AbilityUtilities.adjustPool(pcAbility, aPC, false, abilityCount, removed);
+				}
+				
+				aPC.adjustMoveRates();
 			}
 		}
 		catch (Exception exc)

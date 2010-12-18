@@ -423,11 +423,11 @@ public class PObjectTest extends AbstractCharacterTestCase
 		
 		pc.incrementClassLevel(1, pcClass);
 		assertEquals("Number of feats at 1st level", 0.0, pc.getRemainingFeatPoolPoints(), 0.1);
-		assertNotNull("Has feat", pc.getFeatKeyed(alertness.getKeyName()));
+		assertNotNull("Has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
 		
 		pc.incrementClassLevel(2, pcClass);
 		assertEquals("Number of feats at 2nd level", 1.0, pc.getRemainingFeatPoolPoints(), 0.1);
-		assertNull("No longer has feat", pc.getFeatKeyed(alertness.getKeyName()));
+		assertNull("No longer has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
 	}
 	
 	/**

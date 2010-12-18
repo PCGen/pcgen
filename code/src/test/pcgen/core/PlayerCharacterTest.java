@@ -476,7 +476,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modFeat(character, null, toughness, null);
+			AbilityUtilities.modFeat(character, toughness, null);
 			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
@@ -893,17 +893,17 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		try
 		{
-			AbilityUtilities.modFeat(pc, null, toughness, null);
+			AbilityUtilities.modFeat(pc, toughness, null);
 			//pc.calcActiveBonuses();
 			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
-			AbilityUtilities.modFeat(pc, null, toughness, null);
+			AbilityUtilities.modFeat(pc, toughness, null);
 			pc.calcActiveBonuses();
 			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
 
-			AbilityUtilities.modAbility(pc, null, toughness, "Toughness", true,
-				specialFeatCat);
+			AbilityUtilities.modAbility(pc, toughness, "Toughness",
+					specialFeatCat);
 			pc.calcActiveBonuses();
 			assertEquals(
 				"Check application of third bonus in different catgeory",
@@ -968,7 +968,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
 		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
 
-		AbilityUtilities.modAbility(pc, null, strBonusAbility, "Strength power up", true, AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(pc, strBonusAbility, "Strength power up", AbilityCategory.FEAT);
 		pc.calcActiveBonuses();
 
 		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));

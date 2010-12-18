@@ -254,7 +254,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (sourceStr.startsWith(TAG_FEAT + '='))
 		{
 			sourceStr = sourceStr.substring(5);
-			oSource = thePC.getFeatKeyed(sourceStr);
+			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
 		 		for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
@@ -4705,12 +4705,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if (TAG_DOMAIN.equals(type))
 				{
-					source = thePC.getFeatKeyed(key);
+					source = thePC.getAbilityKeyed(AbilityCategory.FEAT, key);
 				}
 				// Fix for bug 1185344
 				else if (TAG_ABILITY.equals(type))
 				{
-					source = thePC.getFeatAutomaticKeyed(key);
+					source = thePC.getAutomaticAbilityKeyed(AbilityCategory.FEAT, key);
 				}
 				// End of Fix
 

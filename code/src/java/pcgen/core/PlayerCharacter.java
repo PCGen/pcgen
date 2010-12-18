@@ -4434,7 +4434,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		Nature nature = getAbilityNature(anAbility);
 		for (Ability ability : abilityList)
 		{
-			if (AbilityUtilities.areSameAbility(ability, anAbility)
+			boolean nameCheck = (ability.getKeyName().compareToIgnoreCase(
+					anAbility.getKeyName()) == 0);
+			boolean catCheck = ability.getCategory().compareToIgnoreCase(
+					anAbility.getCategory()) == 0;
+			if (nameCheck
+					&& catCheck
 					&& ((nature == Nature.ANY) || (this
 							.getAbilityNature(ability) == nature)))
 			{
@@ -10457,19 +10462,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return hasRealAbility(AbilityCategory.FEAT, ability);
 	}
 
-	/**
-	 * Remove a "real" (for example, not virtual or auto) feat from the
-	 * character.
-	 * 
-	 * @param aFeat
-	 *            the Ability (of category FEAT) to remove
-	 * @return True if successfully removed
-	 */
-	public boolean removeRealFeat(final Ability aFeat)
-	{
-		return removeRealAbility(AbilityCategory.FEAT, aFeat);
-	}
-
 	public boolean removeRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
@@ -10616,21 +10608,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			retVal += getBonusFeatPool();
 		}
 		return retVal;
-	}
-
-	/**
-	 * Query whether this PC should be able to select the ability passed in.
-	 * That is, does the PC meet the prerequisites and is the feat not one the
-	 * PC already has, or if the PC has the feat already, is it one that can be
-	 * taken multiple times.
-	 * 
-	 * @param anAbility
-	 *            the ability to test
-	 * @return true if the PC can take, false otherwise
-	 */
-	public boolean canSelectAbility(final Ability anAbility)
-	{
-		return this.canSelectAbility(anAbility, false);
 	}
 
 	/**
@@ -10805,12 +10782,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
-	public Ability getFeatAutomaticKeyed(final String aFeatKey)
-	{
-		return getAutomaticAbilityKeyed(AbilityCategory.FEAT, aFeatKey);
-	}
-
-	private Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
+	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
 		final String anAbilityKey)
 	{
 		for (final Ability ability : getAutomaticAbilityList(aCategory))
@@ -10821,75 +10793,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return null;
-	}
-
-	public void addAbility(final PCLevelInfo LevelInfo,
-		final AbilityCategory aCategory, final String aKey,
-		final boolean addIt, final boolean singleChoice)
-	{
-		boolean singleChoice1 = !singleChoice;
-		if (!isImporting())
-		{
-			getSpellList();
-		}
-
-		final List<String> choices = new ArrayList<String>();
-		final String undoctoredKey = aKey;
-		Ability anAbility = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class, aCategory,
-						undoctoredKey);
-		String subKey = Constants.EMPTY_STRING;
-		if (anAbility == null)
-		{
-			final String baseKey = AbilityUtilities.getUndecoratedName(aKey,
-					choices);
-			anAbility = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class, aCategory,
-							baseKey);
-			if (anAbility == null)
-			{
-				Logging.errorPrint("Ability not found: " + undoctoredKey);
-				return;
-			}
-			subKey = choices.get(0);
-			singleChoice1 = true;
-		}
-
-		// See if our choice is not auto or virtual
-		Ability pcAbility = getMatchingAbility(aCategory, anAbility, Nature.NORMAL);
-
-		// (anAbility == null) means we don't have this feat, so we need to add
-		// it
-		if ((pcAbility == null) && addIt)
-		{
-			// Adding feat for first time
-			pcAbility = anAbility.clone();
-
-			// addFeat(anAbility, LevelInfo);
-			addAbility(aCategory, pcAbility, LevelInfo);
-			selectTemplates(pcAbility, isImporting());
-		}
-
-		if (pcAbility != null)
-		{
-			AbilityUtilities.finaliseAbility(anAbility, subKey, this, addIt,
-					singleChoice1, aCategory);
-		}
-
-	}
-
-	/**
-	 * Returns the Feat definition searching by key (not name), as found in the
-	 * <b>aggregate</b> feat list.
-	 * 
-	 * @param featName
-	 *            String key of the feat to check for.
-	 * @return the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *         if not found.
-	 */
-	public Ability getFeatKeyed(final String featName)
-	{
-		return getAbilityKeyed(AbilityCategory.FEAT, featName);
 	}
 
 	public Ability getAbilityKeyed(final AbilityCategory aCategory,
@@ -11021,7 +10924,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		addUniqueAbilitiesToMap(aHashMap, getVirtualFeatList());
+		addUniqueAbilitiesToMap(aHashMap, getVirtualAbilityList(AbilityCategory.FEAT));
 		List<Ability> aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
 		addUniqueAbilitiesToMap(aHashMap, getAutomaticAbilityList(AbilityCategory.FEAT));
@@ -11089,11 +10992,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return ret;
-	}
-
-	public Set<Ability> getVirtualFeatList()
-	{
-		return getVirtualAbilityList(AbilityCategory.FEAT);
 	}
 
 	private Set<Ability> getAbilitySetByNature(Nature n)
@@ -11490,7 +11388,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return result;
 	}
 
-	void selectTemplates(CDOMObject po, boolean isImporting)
+	public void selectTemplates(CDOMObject po, boolean isImporting)
 	{
 		for (PCTemplate pct : addedTemplateFacet.select(id, po, isImporting))
 		{

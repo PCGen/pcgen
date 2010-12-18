@@ -212,8 +212,7 @@ public final class KitAbilities extends BaseKit
 					aPC.adjustAbilities(category, new BigDecimal(1));
 				}
 			}
-			AbilityUtilities.modAbility(aPC, null, ability, as.selection, true,
-				category);
+			AbilityUtilities.modAbility(aPC, ability, as.selection, category);
 		}
 
 		if (tooManyAbilities)
@@ -231,9 +230,7 @@ public final class KitAbilities extends BaseKit
 	{
 		for (AbilitySelection as : abilitiesToAdd)
 		{
-			Ability ability = as.ability;
-			AbilityUtilities.modAbility(aPC, null, ability, as.selection, true,
-				category);
+			AbilityUtilities.modAbility(aPC, as.ability, as.selection, category);
 			
 			if (isFree())
 			{

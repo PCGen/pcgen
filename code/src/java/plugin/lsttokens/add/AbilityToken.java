@@ -32,6 +32,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
@@ -409,9 +410,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		else
 		{
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
-		
-			AbilityUtilities.modAbility(pc, null, ab, association, true,
-					cat);
+			AbilityUtilities.modAbility(pc, ab, association, cat);
 		}
 		pc.addAssociation(ab, association);
 	}
@@ -492,9 +491,37 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		if (pcAbility != null)
 		{
-			AbilityUtilities.finaliseAbility(pcAbility, choice.getSelection(),
-					pc, false, true, (AbilityCategory) choice
-							.getAbilityCategory());
+			// how many sub-choices to make
+			double abilityCount = (pc.getSelectCorrectedAssociationCount(pcAbility) * pcAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+			
+			boolean result = false;
+			// adjust the associated List
+			if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				pc.removeAssociation(pcAbility, choice.getSelection());
+				result = pc.hasAssociations(pcAbility); 
+			}
+			
+			// if no sub choices made (i.e. all of them removed in Chooser box),
+			// then remove the Feat
+			boolean removed = false;
+			
+			if (!result)
+			{
+				removed = pc.removeRealAbility(choice.getAbilityCategory(),
+						pcAbility);
+				pc.removeTemplatesFrom(pcAbility);
+				CDOMObjectUtilities.removeAdds(pcAbility, pc);
+				CDOMObjectUtilities.restoreRemovals(pcAbility, pc);
+			}
+			
+			if (choice.getAbilityCategory() == AbilityCategory.FEAT)
+			{
+				AbilityUtilities.adjustPool(pcAbility, pc, false, abilityCount,
+						removed);
+			}
+			
+			pc.adjustMoveRates();
 		}
 	}
 
