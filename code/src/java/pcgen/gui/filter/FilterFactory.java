@@ -42,6 +42,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -1464,7 +1465,7 @@ final class AutomaticFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatAutomatic((Ability) pObject);
+			return aPC.hasAutomaticAbility(AbilityCategory.FEAT, ((Ability) pObject));
 		}
 
 		return true;
@@ -1492,7 +1493,7 @@ final class NormalFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasRealFeat((Ability)pObject);
+			return aPC.hasRealAbility(AbilityCategory.FEAT, (Ability) pObject);
 		}
 
 		return true;
@@ -1527,7 +1528,7 @@ final class VirtualFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatVirtual((Ability) pObject);
+			return aPC.hasVirtualAbility(AbilityCategory.FEAT, ((Ability) pObject));
 		}
 
 		return true;

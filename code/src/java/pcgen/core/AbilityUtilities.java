@@ -27,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
@@ -367,39 +366,6 @@ public class AbilityUtilities
 		}
 	}
 
-
-	/**
-	 * Find an ability in a list that matches a given Ability or AbilityInfo
-	 * Object. Also takes an integer representing a type, -1 always matches,
-	 * otherwise an ability will only be returned if its type is the same as
-	 * abilityType
-	 * @param pc TODO
-	 * @param anAbilityList
-	 * @param abilityInfo
-	 * @param abilityType
-	 *
-	 * @return the Ability if found, otherwise null
-	 */
-	public static Ability getAbilityFromList(
-		PlayerCharacter pc,
-		final Collection<Ability> anAbilityList,
-		final Ability abilityInfo, final Nature           abilityType)
-	{
-		if (anAbilityList != null)
-		{
-			for ( Ability ability : anAbilityList )
-			{
-				if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-						((abilityType == Nature.ANY) || (pc.getAbilityNature(ability) == abilityType)))
-				{
-					return ability;
-				}
-			}
-		}
-
-		return null;
-	}
-
 	/**
 	 * Add an Ability to a character, allowing sub-choices if necessary. Always adds
 	 * weapon proficiencies, either a single choice if addAll is false, or all
@@ -431,10 +397,10 @@ public class AbilityUtilities
 			return;
 		}
 
-		if (aPC.isNotImporting()) {aPC.getSpellList();}
+		if (!aPC.isImporting()) {aPC.getSpellList();}
 
-		final Set<Ability> realAbilities = aPC.getRealAbilitiesList(category);
-		Ability pcAbility = getAbilityFromList(aPC, realAbilities, argAbility, Nature.ANY);
+		Ability pcAbility = aPC.getMatchingAbility(category, argAbility,
+				Nature.NORMAL);
 
 		// (pcAbility == null) means we don't have this feat,
 		// so we need to add it

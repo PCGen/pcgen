@@ -4359,11 +4359,61 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		List<Ability> aggList = AbilityUtilities
-				.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this);
-		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(SettingsHandler.getGame()
-		.getAbilityCategory(Constants.FEAT_CATEGORY), featName);
-		return AbilityUtilities.getAbilityFromList(this, aggList, abInfo, Nature.ANY);
+		Ability ability = AbilityUtilities.retrieveAbilityKeyed(
+				AbilityCategory.FEAT, featName);
+		Collection<AbilityCategory> cats =
+				SettingsHandler.getGame().getAllAbilityCatsForKey(Constants.FEAT_CATEGORY);
+		for (AbilityCategory abilityCategory : cats)
+		{
+			Ability contained = getMatchingAbility(abilityCategory, ability);
+			if (contained != null)
+			{
+				return contained;
+			}
+		}
+		return null;
+	}
+
+	public Ability getMatchingAbility(AbilityCategory abilityCategory,
+			Ability ability, Nature nature)
+	{
+		Ability contained = abFacet.getContained(id, abilityCategory,
+				nature, ability);
+		if (contained != null)
+		{
+			return contained;
+		}
+		contained = grantedAbilityFacet.getContained(id, abilityCategory,
+				nature, ability);
+		if (contained != null)
+		{
+			return contained;
+		}
+		return null;
+	}
+
+	private Ability getMatchingAbility(AbilityCategory abilityCategory,
+			Ability ability)
+	{
+		Ability contained = getMatchingAbility(abilityCategory, ability,
+				Nature.NORMAL);
+		if (contained != null)
+		{
+			return contained;
+		}
+		contained = getMatchingAbility(abilityCategory, ability,
+				Nature.VIRTUAL);
+		if (contained != null)
+		{
+			return contained;
+		}
+		contained = getMatchingAbility(abilityCategory, ability,
+				Nature.AUTOMATIC);
+		if (contained != null)
+		{
+			return contained;
+		}
+		return null;
 	}
 
 	/**
@@ -4375,8 +4425,24 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
-		return AbilityUtilities.getAbilityFromList(this, new ArrayList<Ability>(
-						getFullAbilityList()), anAbility, getAbilityNature(anAbility));
+		List<Ability> abilityList = new ArrayList<Ability>();
+		for (AbilityCategory cat : SettingsHandler.getGame()
+				.getAllAbilityCategories())
+		{
+			abilityList.addAll(getAggregateAbilityListNoDuplicates(cat));
+		}
+		Nature nature = getAbilityNature(anAbility);
+		for (Ability ability : abilityList)
+		{
+			if (AbilityUtilities.areSameAbility(ability, anAbility)
+					&& ((nature == Nature.ANY) || (this
+							.getAbilityNature(ability) == nature)))
+			{
+				return ability;
+			}
+		}
+		
+		return null;
 	}
 
 	public void setHasMadeKitSelectionForAgeSet(final int index,
@@ -6926,37 +6992,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Check if the character has the feat 'automatically'
-	 * 
-	 * @param featName
-	 *            String name of the feat to check for.
-	 * @return <code>true</code> if the character has the feat,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean hasFeatAutomatic(Ability autoFeat)
-	{
-		Set<Ability> list = getAutomaticAbilityList(AbilityCategory.FEAT);
-		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
-				list, autoFeat, Nature.ANY);
-		return abilityFromList != null;
-	}
-
-	/**
-	 * Check if the character has the feat 'virtually'
-	 * 
-	 * @param featName
-	 *            String name of the feat to check for.
-	 * @return <code>true</code> if the character has the feat,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean hasFeatVirtual(Ability virtFeat)
-	{
-		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
-				getVirtualFeatList(), virtFeat, Nature.ANY);
-		return abilityFromList != null;
-	}
-
-	/**
 	 * Does the character have this ability as an auto ability.
 	 * 
 	 * @param aCategory
@@ -6966,16 +7001,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return <tt>true</tt> if the character has the ability
 	 */
-	private boolean hasAutomaticAbility(final AbilityCategory aCategory,
+	public boolean hasAutomaticAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return hasFeatAutomatic(anAbility);
-		}
-		boolean newReturn = abFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility)
+		return abFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility)
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility);
-		return newReturn;
 	}
 
 	/**
@@ -6991,13 +7021,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasVirtualAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return hasFeatVirtual(anAbility);
-		}
-		boolean newReturn = abFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility)
+		return abFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility)
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility);
-		return newReturn;
 	}
 
 	public boolean hasMadeKitSelectionForAgeSet(final int index)
@@ -7857,14 +7882,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public boolean wasEverSaved()
 	{
 		return !Constants.EMPTY_STRING.equals(getFileName());
-	}
-
-	/**
-	 * @return true if character is not currently being read from file.
-	 */
-	public boolean isNotImporting()
-	{
-		return !importing;
 	}
 
 	/**
@@ -10326,17 +10343,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get an iterator over all the feats "Real" feats For Example, not virtual
-	 * or auto
-	 * 
-	 * @return an iterator
-	 */
-	public Set<Ability> getRealFeatList()
-	{
-		return getRealAbilitiesList(AbilityCategory.FEAT);
-	}
-
-	/**
 	 * Returns the Feat definition searching by key (not name), as contained in
 	 * the <b>chosen</b> feat list.
 	 * 
@@ -10371,19 +10377,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Does the character have this feat (not virtual or auto).
-	 * 
-	 * @param aFeat
-	 *            The Ability object (of category FEAT) to check
-	 * 
-	 * @return True if the character has the feat
-	 */
-	public boolean hasRealFeat(final Ability aFeat)
-	{
-		return hasRealAbility(AbilityCategory.FEAT, aFeat);
-	}
-
-	/**
 	 * Does the character have this ability (not virtual or auto).
 	 * 
 	 * @param aCategory
@@ -10393,12 +10386,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return True if the character has the feat
 	 */
-	private boolean hasRealAbility(final Category<Ability> aCategory,
+	public boolean hasRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
-		boolean newReturn = abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
+		return abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.NORMAL, anAbility);
-		return newReturn;
 	}
 
 	/**
@@ -10494,14 +10486,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasRealFeatNamed(final String featName)
 	{
-		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
-		newSet.addAll(grantedAbilityFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL));
-		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(
-						AbilityCategory.FEAT, featName);
-		Ability abilityFromList = AbilityUtilities.getAbilityFromList(this,
-				newSet, abInfo, Nature.ANY);
-		return abilityFromList != null;
+		Ability ability = AbilityUtilities.retrieveAbilityKeyed(
+				AbilityCategory.FEAT, featName);
+		return hasRealAbility(AbilityCategory.FEAT, ability);
 	}
 
 	/**
@@ -10701,8 +10688,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		final boolean qualify = anAbility.qualifies(this, anAbility);
 		final boolean canTakeMult =
 				anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		final boolean hasOrdinary = this.hasRealFeat(anAbility);
-		final boolean hasAuto = hasFeatAutomatic(anAbility);
+		final boolean hasOrdinary = hasRealAbility(AbilityCategory.FEAT, anAbility);
+		final boolean hasAuto = hasAutomaticAbility(AbilityCategory.FEAT, anAbility);
 
 		final boolean notAlreadyHas = !(hasOrdinary || hasAuto);
 
@@ -10810,7 +10797,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void addFeat(final Ability aFeat,
 		final PCLevelInfo playerCharacterLevelInfo)
 	{
-		if (hasRealFeat(aFeat))
+		if (hasRealAbility(AbilityCategory.FEAT, aFeat))
 		{
 			Logging.errorPrint("Adding duplicate feat: "
 				+ aFeat.getDisplayName());
@@ -11421,8 +11408,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (AbilityCategory cat : SettingsHandler.getGame()
 			.getAllAbilityCategories())
 		{
-			Ability tempFeat = AbilityUtilities.getAbilityFromList(this,
-					getAggregateAbilityList(cat), ab, Nature.ANY);
+			Ability tempFeat = getMatchingAbility(cat, ab);
 			if (tempFeat != null)
 			{
 				feats.add(tempFeat);
@@ -12454,18 +12440,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{
-		Collection<Ability> list = abFacet.get(id, cat, Nature.VIRTUAL);
-		if (list != null)
-		{
-			for (Ability ability : list)
-			{
-				if (AbilityUtilities.areSameAbility(ability, abilityInfo))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		return abFacet.contains(id, cat, Nature.VIRTUAL, abilityInfo);
 	}
 
 	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)

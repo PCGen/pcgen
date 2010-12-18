@@ -12,6 +12,7 @@ import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -203,7 +204,7 @@ public class PlayerCharacterOutput
 
 		boolean firstLine = true;
 
-		for (Ability feat : pc.getRealFeatList())
+		for (Ability feat : pc.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
 			if (!firstLine)
 			{

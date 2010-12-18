@@ -281,7 +281,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			boolean allowStack)
 	{
 		// Only allow those already selected
-		for (Ability a : pc.getRealFeatList())
+		for (Ability a : pc.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
 			if (a.getKeyName().equals(choice.getAbilityKey()))
 			{

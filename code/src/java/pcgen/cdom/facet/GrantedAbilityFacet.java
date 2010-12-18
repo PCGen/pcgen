@@ -271,6 +271,51 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return false;
 	}
 
+	/**
+	 * Returns true if this GrantedAbilityFacet contains the given Ability in
+	 * the list of items for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param cat
+	 *            The Ability Category identifying the list of Abilities to be
+	 *            tested to see if it contains the given Ability
+	 * @param nat
+	 *            The Ability Nature identifying the list of Abilities to be
+	 *            tested to see if it contains the given Ability
+	 * @param a
+	 *            The Ability to test if this GrantedAbilityFacet contains that
+	 *            item for the Player Character represented by the given CharID
+	 * @return true if this GrantedAbilityFacet contains the given Ability for
+	 *         the Player Character represented by the given CharID; false
+	 *         otherwise
+	 */
+	public Ability getContained(CharID id, Category<Ability> cat, Nature nat,
+			Ability a)
+	{
+		Map<Ability, List<Object>> set = getCachedMap(id, cat, nat);
+		if (set == null)
+		{
+			return null;
+		}
+		if (set.containsKey(a))
+		{
+			return a;
+		}
+		/*
+		 * TODO Have to support slow method due to cloning issues :(
+		 */
+		for (Ability ab : set.keySet())
+		{
+			if (ab.equals(a))
+			{
+				return ab;
+			}
+		}
+		return null;
+	}
+
 	private boolean ensureCachedSet(CharID id, Category<Ability> cat,
 			Nature nat, Ability obj)
 	{
