@@ -160,9 +160,10 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		String fullKey = choice.getFullAbilityKey();
-		AbilityUtilities.modFeat(pc, null, fullKey, true, false);
-		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, fullKey);
+		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
+				.getSelection(), true, false);
+		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice
+				.getFullAbilityKey());
 	}
 
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
@@ -236,8 +237,8 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		AbilityUtilities.modFeat(pc, null, choice.getFullAbilityKey(), false,
-				true);
+		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
+				.getSelection(), false, true);
 	}
 
 	public boolean process(LoadContext context, PCTemplate pct)

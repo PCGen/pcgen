@@ -543,77 +543,32 @@ public class AbilityUtilities
 	public static void modFeat(
 		final PlayerCharacter aPC,
 		final PCLevelInfo     LevelInfo,
-		final String          aFeatKey,
+		Ability ability,
+		String selection,
 		final boolean         addIt,
 		final boolean         singleChoice)
 	{
-		boolean singleChoice1 = !singleChoice;
 		if (!aPC.isImporting())
 		{
 			aPC.getSpellList();
 		}
 
-		final Collection<String> choices = new ArrayList<String>();
-		final String             baseKey = getUndecoratedName(aFeatKey, choices);
-			  String             subKey  = choices.size() > 0 ? choices.iterator().next() : "";
-
 		// See if our choice is not auto or virtual
-		Ability anAbility = aPC.getRealFeatKeyed(aFeatKey);
-
-		// if a feat keyed aFeatKey doesn't exist, and aFeatKey
-		// contains a (blah) descriptor, try removing it.
-		if (anAbility == null)
-		{
-			anAbility = aPC.getRealFeatKeyed(baseKey);
-
-			if (!singleChoice1 && (anAbility != null) && (subKey.length() != 0))
-			{
-				singleChoice1 = true;
-			}
-		}
+		Ability anAbility = aPC.getRealFeatKeyed(ability.getKeyName());
 
 		// (anAbility == null) means we don't have this feat, so we need to add it
 		if ((anAbility == null) && addIt)
 		{
 			// Adding feat for first time
-			anAbility = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, baseKey);
-
-			if (anAbility == null)
-			{
-				anAbility = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, aFeatKey);
-
-				if (anAbility != null)
-				{
-					subKey  = "";
-				}
-			}
-
-			if (anAbility == null)
-			{
-				Logging.errorPrint("Feat not found: " + aFeatKey);
-				return;
-			}
-
-			anAbility = anAbility.clone();
-
+			anAbility = ability.clone();
 			aPC.addFeat(anAbility, LevelInfo);
 			aPC.selectTemplates(anAbility, aPC.isImporting());
 		}
 
-		/*
-		 * Could not find the Ability: addIt true means that no global Ability called
-		 * featName exists, addIt false means that the PC does not have this ability
-		 */
-		if (anAbility == null)
+		if (anAbility != null)
 		{
-			return;
+			finaliseAbility(anAbility, selection, aPC, addIt, !singleChoice, AbilityCategory.FEAT);
 		}
-
-		finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, AbilityCategory.FEAT);
 	}
 
 	/**
@@ -700,7 +655,7 @@ public class AbilityUtilities
 					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				}
 
-				modFeat(aPC, null, anAbility.getKeyName(), true, false);
+				modFeat(aPC, null, anAbility, null, true, false);
 			}
 		}
 	}

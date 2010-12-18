@@ -282,8 +282,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modFeat(pc, null, choice.getFullAbilityKey(), true,
-				false);
+		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
+				.getSelection(), true, false);
 	}
 
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
@@ -355,8 +355,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		AbilityUtilities.modFeat(pc, null, choice.getFullAbilityKey(), false,
-				true);
+		AbilityUtilities.modFeat(pc, null, choice.getAbility(), choice
+				.getSelection(), false, true);
 	}
 
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
