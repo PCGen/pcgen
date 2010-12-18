@@ -204,8 +204,8 @@ public class AbilityUtilities
 			return false;
 		}
 
-		final boolean multFirst  = getIsMultiples(first);
-		final boolean multSecond = getIsMultiples(second);
+		final boolean multFirst  = first.getSafe(ObjectKey.MULTIPLE_ALLOWED);
+		final boolean multSecond = second.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		boolean nameCheck  = false;
 		if (multFirst && multSecond) {
 			/*
@@ -370,23 +370,6 @@ public class AbilityUtilities
 
 	/**
 	 * Find an ability in a list that matches a given Ability or AbilityInfo
-	 * Object.
-	 * @param pc TODO
-	 * @param anAbilityList
-	 * @param abilityInfo
-	 *
-	 * @return the Ability if found, otherwise null
-	 */
-	private static Ability getAbilityFromList(
-			PlayerCharacter pc,
-			final Collection<Ability>          anAbilityList, final Ability abilityInfo)
-	{
-		return getAbilityFromList(pc, anAbilityList, abilityInfo, Nature.ANY);
-	}
-
-
-	/**
-	 * Find an ability in a list that matches a given Ability or AbilityInfo
 	 * Object. Also takes an integer representing a type, -1 always matches,
 	 * otherwise an ability will only be returned if its type is the same as
 	 * abilityType
@@ -415,18 +398,6 @@ public class AbilityUtilities
 		}
 
 		return null;
-	}
-
-	/**
-	 * Find out if this Categorisable Object can be applied to a character
-	 * multiple times
-	 *
-	 * @param aCatObj
-	 * @return true if can be applied multiple times
-	 */
-	private static boolean getIsMultiples(final Ability aCatObj)
-	{
-		return aCatObj.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
 	/**
@@ -463,7 +434,7 @@ public class AbilityUtilities
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
 		final Set<Ability> realAbilities = aPC.getRealAbilitiesList(category);
-		Ability pcAbility = getAbilityFromList(aPC, realAbilities, argAbility);
+		Ability pcAbility = getAbilityFromList(aPC, realAbilities, argAbility, Nature.ANY);
 
 		// (pcAbility == null) means we don't have this feat,
 		// so we need to add it
@@ -585,28 +556,6 @@ public class AbilityUtilities
 
 			modFeat(aPC, null, anAbility, null, true, false);
 		}
-	}
-
-	/**
-	 * This method attempts to get an Ability Object from the Global Store keyed
-	 * by token. If this fails, it checks if token has info in parenthesis
-	 * appended to it. If it does, it strips this and attempts to get an Ability
-	 * Keyed by the stripped token. If this works, it passes back this Ability,
-	 * if it does not work, it returns null.
-	 * 
-	 * @param cat
-	 *            The category of Ability Object to retrieve
-	 * @param token
-	 *            The name of the Ability Object
-	 * 
-	 * @return The ability in category "cat" called "token"
-	 */
-	public static Ability retrieveAbilityKeyed(
-		final String cat,
-		final String token)
-	{
-		return retrieveAbilityKeyed(SettingsHandler.getGame()
-				.getAbilityCategory(cat), token);
 	}
 
 	static Ability retrieveAbilityKeyed(AbilityCategory aCat,

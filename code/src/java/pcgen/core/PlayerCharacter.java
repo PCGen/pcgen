@@ -4361,7 +4361,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<Ability> aggList = AbilityUtilities
 				.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this);
-		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(Constants.FEAT_CATEGORY, featName);
+		Ability abInfo = AbilityUtilities.retrieveAbilityKeyed(SettingsHandler.getGame()
+		.getAbilityCategory(Constants.FEAT_CATEGORY), featName);
 		return AbilityUtilities.getAbilityFromList(this, aggList, abInfo, Nature.ANY);
 	}
 
