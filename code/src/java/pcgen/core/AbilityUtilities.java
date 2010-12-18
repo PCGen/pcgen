@@ -674,41 +674,29 @@ public class AbilityUtilities
 					bTok = null;
 				}
 				aString = bString.replace('(', ' ').replace(')', ' ').trim();
-			}
-			else
-			{
-				final Ability tempAbility = aPC.getFeatKeyed(anAbility.getKeyName());
-				if (tempAbility != null)
-				{
-					anAbility = tempAbility;
-				}
-				else
-				{
-					// add the Feat found, as a CharacterFeat
-					anAbility = anAbility.clone();
-					aPC.addFeat(anAbility, LevelInfo);
-				}
-			}
-
-			if (anAbility == null)
-			{
 				// if we still haven't found it, try a different string
 				if (!addIt)
 				{
 					return;
 				}
-
+				
 				anAbility = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Ability.class,
 								AbilityCategory.FEAT, aString);
-
+				
 				if (anAbility == null)
 				{
 					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
-
+					
 					return;
 				}
-
+				
+				anAbility = anAbility.clone();
+				aPC.addFeat(anAbility, LevelInfo);
+			}
+			else
+			{
+				// add the Feat found, as a CharacterFeat
 				anAbility = anAbility.clone();
 				aPC.addFeat(anAbility, LevelInfo);
 			}
