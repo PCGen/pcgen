@@ -120,9 +120,11 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 		assertNull(getToken().unparse(secondaryContext, secondaryProf));
 		// Ensure the graphs are the same at the start
-		assertEquals(primaryProf, secondaryProf);
+		assertEquals("The graphs are not the same at test start", primaryProf,
+			secondaryProf);
 		// Ensure the graphs are the same at the start
-		assertTrue(primaryContext.getListContext().masterListsEqual(
+		assertTrue("The graphs are not the same at test start", primaryContext
+			.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 	}
 
@@ -137,8 +139,9 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		}
 		URI uri = campaign.getURI();
 		primaryContext.setSourceURI(uri);
-		assertTrue(getLoader().parseLine(primaryContext, primaryProf,
-				unparsedBuilt.toString(), campaign.getURI()));
+		assertTrue("Parsing of " + unparsedBuilt.toString()
+			+ " failed unexpectedly", getLoader().parseLine(primaryContext,
+			primaryProf, unparsedBuilt.toString(), campaign.getURI()));
 		tc.putText(uri, str);
 		tc.putCampaign(uri, campaign);
 	}
@@ -192,10 +195,12 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		}
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf, secondaryProf);
+		assertEquals("Re parse of unparsed string gave a different value",
+			primaryProf, secondaryProf);
 
 		// Ensure the graphs are the same
-		assertTrue(primaryContext.getListContext().masterListsEqual(
+		assertTrue("Re parse of unparsed string gave a different graph",
+			primaryContext.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 
 		// And that it comes back out the same again
@@ -220,11 +225,13 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 			}
 		}
 
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.validate(null));
-		assertEquals(expectedPrimaryMessageCount, primaryContext
-				.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		assertTrue("First parse context was not valid", primaryContext.ref.validate(null));
+		assertTrue("Unprased/reparsed context was not valid", secondaryContext.ref.validate(null));
+		assertEquals(
+			"First parse and unparse/reparse had different number of messages",
+			expectedPrimaryMessageCount, primaryContext.getWriteMessageCount());
+		assertEquals("Unexpected messages in unparse/reparse", 0,
+			secondaryContext.getWriteMessageCount());
 	}
 
 }
