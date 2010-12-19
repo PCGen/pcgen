@@ -154,3 +154,13 @@ Test-43-C		HD:2:FEAT:Test Weapon Proficiency(Spear)
 
 TEST-27		SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Magic Missile,2
 
+
+Test58		TEMPLATE:Test58b
+Test58b
+
+
+Test61 Feat		FEAT:Weapon Focus(Cool Sword)
+
+Test61 Tough	FEAT:Toughness
+
+

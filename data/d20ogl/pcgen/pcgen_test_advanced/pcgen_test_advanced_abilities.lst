@@ -582,7 +582,7 @@ AutoFeat_ParentThingyType7			CATEGORY:FEAT		TYPE:Test48.C		AUTO:FEAT|AutoFeat_Gi
 AutoFeat_GivingThingy				CATEGORY:FEAT		TYPE:Test48				CHOOSE:FEATSELECTION|TYPE=AutoFeat_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
 AutoFeat_NoChooseFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
 AutoFeat_NoStackFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES
-AutoFeat_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+AutoFeat_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:NO
 AutoFeat_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 AutoFeat_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
@@ -596,7 +596,7 @@ Choose Feat Selection					CATEGORY:FEAT		TYPE:Test45				CHOOSE:FEATSELECTION|TYP
 #
 ChooseSelection_NoChooseFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing	
 ChooseSelection_NoStackFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES
-ChooseSelection_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES
+ChooseSelection_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:NO
 ChooseSelection_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 ChooseSelection_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
@@ -672,4 +672,25 @@ ADDVFEAT_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE
 
 ADDVFEAT_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
 ADDVFEAT_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing	
+
+# TEST 61
+
+Test-61 Ability		CATEGORY:FEAT	TYPE:Test61		ABILITY:FEAT|NORMAL|Weapon Focus(Short Sword)
+Test-61 Add Feat		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Weapon Focus(Rapier)
+Test-61 Add Featb		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Weapon Focus
+Test-61 Add Ability	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Weapon Focus(Longsword)
+Test-61 Add Abilityb	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Weapon Focus
+
+Test-61 Ability Tough		CATEGORY:FEAT	TYPE:Test61		ABILITY:FEAT|NORMAL|Toughness
+Test-61 Add Feat Tough		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Toughness
+Test-61 Add Ability Tough	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Toughness
+
+
+
+
+
+
+
+
+
 

@@ -110,7 +110,7 @@ ABonusFeat	TYPE:TestMonkey
 Dodge			TYPE:TestMonkey
 Not Dodge			TYPE:TestMonkey
 Test Case Extreme			TYPE:TestMonkey.Fighter
-Toughness				TYPE:TestMonkey.Fighter
+Toughness				TYPE:TestMonkey.Fighter	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3
 
 Choose No Choice		TYPE:TestMonkey.Chooser		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
 Choose String Stack Yes		TYPE:TestMonkey.Chooser		MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3	STACK:YES
@@ -156,10 +156,8 @@ Spell Test ~ 30			TYPE:Test27		SPELLS:Innate|TIMES=30|CASTERLEVEL=30|Magic Missi
 #DC, Times/Day, CasterLevel, Times
 
 
-Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
 
 
-Toughness		TYPE:GeneralTest
 
 Grant Auto Feat	TYPE:TestFeat	AUTO:FEAT|Toughness
 

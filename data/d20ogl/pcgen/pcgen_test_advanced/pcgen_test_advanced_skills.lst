@@ -2,6 +2,17 @@
 # COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
 
 
+
+
+Test59		USEUNTRAINED:NO	TYPE:Test	BONUS:SKILLRANK|Test59b|skillinfo("TOTAL","Test59")
+Test59b		USEUNTRAINED:NO	TYPE:Test
+
+
+Test59a		USEUNTRAINED:NO	TYPE:Test	BONUS:SKILLRANK|Test59c|skillinfo("TOTAL","Test59a")|PRECLASS:1,Test Nothing=4
+Test59c		USEUNTRAINED:NO	TYPE:Test
+
+
+
 Test Skill	TYPE:HiddenSkill	USEUNTRAINED:NO
 
 Climb.MOD		BONUS:SKILL|Test Skill|skillinfo("TOTAL", "Climb")|TYPE=NoStacking
