@@ -2663,7 +2663,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// lines, save the feat now.
 				if (!featsPresent || category != AbilityCategory.FEAT)
 				{
-					thePC.addAbility(category, ability, null);
+					thePC.addAbility(category, ability);
 				}
 			}
 			else if (nature == Nature.VIRTUAL)
@@ -2758,7 +2758,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					if (!added)
 					{
 						// add it to the list
-						thePC.addFeat(anAbility, null);
+						thePC.addFeat(anAbility);
 					}
 
 					featsPresent = true;

@@ -742,7 +742,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			pcAbility = anAbility.clone();
 
 			// addFeat(anAbility, LevelInfo);
-			pc.addAbility(theCategory, pcAbility, null);
+			pc.addAbility(theCategory, pcAbility);
 			pc.selectTemplates(pcAbility, pc.isImporting());
 		}
 

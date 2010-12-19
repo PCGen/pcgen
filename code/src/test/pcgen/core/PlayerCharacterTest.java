@@ -996,7 +996,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability fab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Familiar Container");
 		PlayerCharacter pc = getCharacter();
 		
-		pc.addAbility(AbilityCategory.FEAT, ab, null);
+		pc.addAbility(AbilityCategory.FEAT, ab);
 		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
 				CompanionList.class, "Mount");
 		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
@@ -1013,7 +1013,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
 		assertTrue("Initially mount list should be empty", fo.isEmpty());
 		
-		pc.addAbility(AbilityCategory.FEAT, mab, null);
+		pc.addAbility(AbilityCategory.FEAT, mab);
 		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
 		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
@@ -1021,7 +1021,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
-		pc.addAbility(AbilityCategory.FEAT, fab, null);
+		pc.addAbility(AbilityCategory.FEAT, fab);
 		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
 		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
@@ -1104,7 +1104,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(0.0, pc.movementOfType("Swim"), 0.1);
 		assertEquals(0.0, pc.movementOfType("Fly"), 0.1);
 
-		pc.addAbility(AbilityCategory.FEAT, quickFlySlowSwim, null);
+		pc.addAbility(AbilityCategory.FEAT, quickFlySlowSwim);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
 		assertEquals(10.0, pc.movementOfType("Swim"), 0.1);

@@ -267,7 +267,7 @@ public class AbilityUtilities
 			// adding feat for first time
 			pcAbility = argAbility.clone();
 
-			aPC.addAbility(category, pcAbility, null);
+			aPC.addAbility(category, pcAbility);
 			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
 		if (pcAbility != null)
@@ -313,7 +313,7 @@ public class AbilityUtilities
 		{
 			// Adding feat for first time
 			anAbility = ability.clone();
-			aPC.addFeat(anAbility, null);
+			aPC.addFeat(anAbility);
 			aPC.selectTemplates(anAbility, aPC.isImporting());
 		}
 
@@ -343,7 +343,7 @@ public class AbilityUtilities
 
 		// Get ability from global storage by Name
 		anAbility = as.getAbility().clone();
-		aPC.addFeat(anAbility, null);
+		aPC.addFeat(anAbility);
 
 		String choice = as.getSelection();
 		if (choice != null)

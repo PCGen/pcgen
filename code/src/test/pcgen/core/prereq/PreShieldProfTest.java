@@ -296,7 +296,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		character.addFeat(bar, null);
+		character.addFeat(bar);
 		
 		assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
@@ -314,7 +314,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREPROFWITHSHIELD:1,Full Plate";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		character.addFeat(foo, null);
+		character.addFeat(foo);
 		
 		assertEquals("Character has the Full Plate proficiency so the bonus should be added",
 					baseHp+50+50,

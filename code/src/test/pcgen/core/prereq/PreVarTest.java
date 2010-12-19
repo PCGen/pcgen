@@ -76,7 +76,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		Ability ab2 = TestHelper.makeAbility("Dancer", "BARDIC",
 				"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
+		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test fails with ability present.", PrereqHandler.passes(
 				prereq, character, null));

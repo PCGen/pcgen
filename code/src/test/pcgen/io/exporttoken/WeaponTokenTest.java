@@ -679,7 +679,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				Bonus
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
-		character.addFeat(wpnFinesse, null);
+		character.addFeat(wpnFinesse);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 

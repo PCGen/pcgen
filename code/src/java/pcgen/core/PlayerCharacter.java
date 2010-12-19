@@ -10737,8 +10737,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return BigDecimal.valueOf(spent);
 	}
 
-	public void addFeat(final Ability aFeat,
-		final PCLevelInfo playerCharacterLevelInfo)
+	public void addFeat(final Ability aFeat)
 	{
 		if (hasRealAbility(AbilityCategory.FEAT, aFeat))
 		{
@@ -10751,17 +10750,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			Logging
 				.errorPrint("Problem adding feat: " + aFeat.getDisplayName());
 		}
-
-		if (playerCharacterLevelInfo != null)
-		{
-			// Add this feat to the level Info
-			playerCharacterLevelInfo.addObject(aFeat);
-		}
 		calcActiveBonuses();
 	}
 
 	public void addAbility(final Category<Ability> aCategory,
-		final Ability anAbility, final PCLevelInfo aLevelInfo)
+			final Ability anAbility)
 	{
 		if (hasRealAbility(aCategory, anAbility))
 		{
@@ -10773,11 +10766,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			Logging.errorPrint("Problem adding ability: "
 				+ anAbility.getDisplayName());
-		}
-		if (aLevelInfo != null)
-		{
-			// Add this feat to the level Info
-			aLevelInfo.addObject(anAbility);
 		}
 		calcActiveBonuses();
 	}

@@ -75,7 +75,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), new Aspect("Shape", "Icosahedron"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), new Aspect("Sides", "20"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), new Aspect("Age In Years", "2000"));
-		character.addAbility(AbilityCategory.FEAT, ab1, null);
+		character.addAbility(AbilityCategory.FEAT, ab1);
 	}
 
 	/**

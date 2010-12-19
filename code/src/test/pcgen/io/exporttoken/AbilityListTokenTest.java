@@ -74,19 +74,19 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		character.addAbility(AbilityCategory.FEAT, ab1, null);
+		character.addAbility(AbilityCategory.FEAT, ab1);
 
 		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(bardCategory, ab2, null);
+		character.addAbility(bardCategory, ab2);
 
 		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT, "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(AbilityCategory.FEAT, ab3, null);
+		character.addAbility(AbilityCategory.FEAT, ab3);
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", AbilityCategory.FEAT, "General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(AbilityCategory.FEAT, ab4, null);
+		character.addAbility(AbilityCategory.FEAT, ab4);
 	}
 
 	/**
@@ -136,11 +136,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", AbilityCategory.FEAT, "General");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
-		character.addAbility(featCategory, ab5, null);
+		character.addAbility(featCategory, ab5);
 
         Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", AbilityCategory.FEAT, "Bardic");
         ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-        character.addAbility(featCategory, ab6, null);
+        character.addAbility(featCategory, ab6);
 
 
         is(character
