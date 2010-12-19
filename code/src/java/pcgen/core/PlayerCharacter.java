@@ -10262,17 +10262,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 
-	private boolean addRealAbility(final Category<Ability> aCategory,
-		final Ability anAbility)
-	{
-		if (anAbility == null)
-		{
-			return false;
-		}
-		abFacet.add(id, aCategory, Nature.NORMAL, anAbility);
-		return true;
-	}
-
 	public HashMap<Nature, Set<Ability>> getAbilitiesSet()
 	{
 		HashMap<Nature, Set<Ability>> st =
@@ -10745,12 +10734,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				+ aFeat.getDisplayName());
 		}
 
-		if (!addRealAbility(AbilityCategory.FEAT, aFeat))
+		if (aFeat == null)
 		{
-			Logging
-				.errorPrint("Problem adding feat: " + aFeat.getDisplayName());
+			Logging.errorPrint("Cannot add null feat");
 		}
-		calcActiveBonuses();
+		else
+		{
+			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, aFeat);
+			calcActiveBonuses();
+		}
 	}
 
 	public void addAbility(final Category<Ability> aCategory,
@@ -10762,12 +10754,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				+ anAbility.getDisplayName());
 		}
 
-		if (!addRealAbility(aCategory, anAbility))
+		if (anAbility == null)
 		{
-			Logging.errorPrint("Problem adding ability: "
-				+ anAbility.getDisplayName());
+			Logging.errorPrint("Cannot add null Ability");
 		}
-		calcActiveBonuses();
+		else
+		{
+			abFacet.add(id, aCategory, Nature.NORMAL, anAbility);
+			calcActiveBonuses();
+		}
 	}
 
 	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
@@ -12269,9 +12264,18 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return abFacet.contains(id, cat, Nature.VIRTUAL, abilityInfo);
 	}
 
-	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
+	public void addUserAbility(CategorizedAbilitySelection cas)
 	{
-		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
+		Ability newAbility = cas.getAbility();
+		abFacet.add(id, cas.getAbilityCategory(), cas.getNature(), newAbility);
+		String choice = cas.getSelection();
+		if (choice != null)
+		{
+			if (AbilityUtilities.canAddAssociation(this, newAbility, choice))
+			{
+				addAssociation(newAbility, choice);
+			}
+		}
 	}
 
 	public Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)

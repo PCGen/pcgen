@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
@@ -75,15 +76,9 @@ public class AbilityUtilities
 		if (needToAddVirtualAbility(pc, cat, anAbility))
 		{
 			newAbility = anAbility.clone();
-
-			if (choice != null)
-			{
-				if (canAddAssociation(pc, newAbility, choice))
-				{
-					pc.addAssociation(newAbility, choice);
-				}
-			}
-			pc.addUserVirtualAbility(cat, newAbility);
+			CategorizedAbilitySelection cas = new CategorizedAbilitySelection(
+					pc, cat, newAbility, Nature.VIRTUAL, choice);
+			pc.addUserAbility(cas);
 			newAbility.clearPrerequisiteList();
 		}
 		return newAbility;
