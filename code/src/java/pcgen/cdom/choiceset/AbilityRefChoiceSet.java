@@ -31,16 +31,20 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.WeaponProf;
 import pcgen.core.chooser.ChooserUtilities;
 
 /**
@@ -252,7 +256,34 @@ public class AbilityRefChoiceSet implements
 
 		// Remove any that don't match
 
-		if (nameRoot != null && nameRoot.length() != 0)
+		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
+		/*
+		 * TODO Need a general solution for this special assignment in parens
+		 */
+		if ("DEITYWEAPON".equals(nameRoot) && (chooseInfo != null)
+				&& chooseInfo.getChoiceClass().equals(WeaponProf.class))
+		{
+			Deity deity = aPC.getDeity();
+			if (deity == null)
+			{
+				availableList.clear();
+			}
+			else
+			{
+				List<CDOMReference<WeaponProf>> dwp = deity
+						.getSafeListFor(ListKey.DEITYWEAPON);
+				Set<String> set = new HashSet<String>();
+				for (CDOMReference<WeaponProf> ref : dwp)
+				{
+					for (WeaponProf wp : ref.getContainedObjects())
+					{
+						set.add(wp.getKeyName());
+					}
+				}
+				availableList.retainAll(set);
+			}
+		}
+		else if (nameRoot != null && nameRoot.length() != 0)
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{

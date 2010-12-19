@@ -10780,7 +10780,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		Ability pcAbility = getMatchingAbility(aCategory,
 				anAbility, Nature.NORMAL);
 		
-		// (anAbility == null) means we don't have this feat, so we need to add it
+		// (pcAbility == null) means we don't have this feat, so we need to add it
 		if (pcAbility == null)
 		{
 			// Adding feat for first time

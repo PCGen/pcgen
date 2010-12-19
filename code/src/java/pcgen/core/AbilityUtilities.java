@@ -29,7 +29,6 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -281,25 +280,7 @@ public class AbilityUtilities
 		String choice = as.getSelection();
 		if (choice != null)
 		{
-			if ("DEITYWEAPON".equals(choice))
-			{
-				if (aPC.getDeity() != null)
-				{
-					List<CDOMReference<WeaponProf>> dwp = aPC.getDeity()
-							.getSafeListFor(ListKey.DEITYWEAPON);
-					for (CDOMReference<WeaponProf> ref : dwp)
-					{
-						for (WeaponProf wp : ref.getContainedObjects())
-						{
-							aPC.addAssociation(anAbility, wp.getKeyName());
-						}
-					}
-				}
-			}
-			else
-			{
-				aPC.addAssociation(anAbility, choice);
-			}
+			aPC.addAssociation(anAbility, choice);
 		}
 		else
 		{
