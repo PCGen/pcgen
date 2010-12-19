@@ -909,11 +909,11 @@ BIO
 			<virtual>T</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Longsword)</name>
+			<name>Weapon Focus (Longsword, Short Sword)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
-			<associated>Longsword</associated>
-			<count>1</count>
+			<associated>Longsword,Short Sword</associated>
+			<count>2</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
