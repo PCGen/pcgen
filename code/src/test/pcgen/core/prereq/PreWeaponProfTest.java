@@ -298,7 +298,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		character.addFeat(bar);
+		character.addFeatNeedCheck(bar);
 		
 		assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
@@ -311,7 +311,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		character.addFeat(foo);
+		character.addFeatNeedCheck(foo);
 		
 		assertEquals("Character has the longsword proficiency so the bonus should be added",
 					baseHp+50+50,

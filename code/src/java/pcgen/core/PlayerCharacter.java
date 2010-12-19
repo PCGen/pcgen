@@ -10745,6 +10745,27 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
+	public Ability addFeatNeedCheck(final Ability aFeat)
+	{
+		// See if our choice is not auto or virtual
+		/*
+		 * TODO Should this be getFeatNamed??? That checks all subcategories too :/
+		 */
+		Ability anAbility = getMatchingAbility(AbilityCategory.FEAT,
+				aFeat, Nature.NORMAL);
+		
+		// (anAbility == null) means we don't have this feat, so we need to add it
+		if (anAbility == null)
+		{
+			// Adding feat for first time
+			anAbility = aFeat.clone();
+			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, aFeat);
+			calcActiveBonuses();
+		}
+
+		return anAbility;
+	}
+
 	public void addAbility(final Category<Ability> aCategory,
 			final Ability anAbility)
 	{

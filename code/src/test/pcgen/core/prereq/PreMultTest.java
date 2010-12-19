@@ -197,26 +197,26 @@ public class PreMultTest extends AbstractCharacterTestCase
 		int passes = test.passes(prereq, character, null);
 		assertEquals("No feats should not pass", 0, passes);
 
-		character.addFeat(metamagic1);
+		character.addFeatNeedCheck(metamagic1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("One feat should not pass", 0, passes);
 
-		character.addFeat(metamagic2);
+		character.addFeatNeedCheck(metamagic2);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Two feats should not pass", 0, passes);
 
-		character.addFeat(metamagic3);
+		character.addFeatNeedCheck(metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
 		character.removeRealAbility(AbilityCategory.FEAT, metamagic3);
-		character.addFeat(item1);
+		character.addFeatNeedCheck(item1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		character.addFeat(item2);
-		character.addFeat(item3);
-		character.addFeat(metamagic3);
+		character.addFeatNeedCheck(item2);
+		character.addFeatNeedCheck(item3);
+		character.addFeatNeedCheck(metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Six feats should pass", 1, passes);
 

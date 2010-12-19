@@ -299,23 +299,13 @@ public class AbilityUtilities
 			aPC.getSpellList();
 		}
 
-		// See if our choice is not auto or virtual
-		Ability anAbility = aPC.getMatchingAbility(AbilityCategory.FEAT,
-				ability, Nature.NORMAL);
-
-		// (anAbility == null) means we don't have this feat, so we need to add it
-		if (anAbility == null)
+		Ability pcAbility = aPC.addFeatNeedCheck(ability);
+		if (pcAbility != ability) //yes, this is != not !.equals()
 		{
-			// Adding feat for first time
-			anAbility = ability.clone();
-			aPC.addFeat(anAbility);
-			aPC.selectTemplates(anAbility, aPC.isImporting());
+			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
 
-		if (anAbility != null)
-		{
-			finaliseAbility(anAbility, selection, aPC, AbilityCategory.FEAT);
-		}
+		finaliseAbility(pcAbility, selection, aPC, AbilityCategory.FEAT);
 	}
 
 	/**

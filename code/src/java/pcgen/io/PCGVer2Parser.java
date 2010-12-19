@@ -2729,51 +2729,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			Ability anAbility = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(Ability.class,
 							AbilityCategory.FEAT, abilityKey);
-
-			Ability pcAbility = thePC.getMatchingAbility(AbilityCategory.FEAT,
-					anAbility, Nature.NORMAL);
-
-			boolean added = false;
-
-			if (pcAbility != null)
+			if (anAbility == null)
 			{
-				added =
-						parseFeatsHandleAppliedToAndSaveTags(it, anAbility,
-							line);
+				final String msg = PropertyFactory.getFormattedString(
+						"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
+						abilityKey);
+				warnings.add(msg);
+
+				return;
 			}
-			else
-			{
-				// PC does not have the feat
 
-				if (anAbility != null)
-				{
-					// Clone the new feat
-					anAbility = anAbility.clone();
-
-					// parse all the tags for this Feat
-					added =
-							parseFeatsHandleAppliedToAndSaveTags(it, anAbility,
-								line);
-
-					if (!added)
-					{
-						// add it to the list
-						thePC.addFeat(anAbility);
-					}
-
-					featsPresent = true;
-				}
-				else
-				{
-					final String msg =
-							PropertyFactory.getFormattedString(
-								"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
-								abilityKey);
-					warnings.add(msg);
-
-					return;
-				}
-			}
+			Ability pcAbility = thePC.addFeatNeedCheck(anAbility);
+			parseFeatsHandleAppliedToAndSaveTags(it, anAbility, line);
+			featsPresent = (pcAbility != anAbility);
 		}
 	}
 
@@ -2843,11 +2811,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	private boolean parseFeatsHandleAppliedToAndSaveTags(
+	private void parseFeatsHandleAppliedToAndSaveTags(
 		final Iterator<PCGElement> it, final Ability aFeat, final String line)
 	{
-		boolean added = false;
-
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -2938,8 +2904,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseAddTokenInfo(element, aFeat);
 			}
 		}
-
-		return added;
 	}
 
 	/*
