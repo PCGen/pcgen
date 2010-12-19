@@ -26,12 +26,14 @@ import pcgen.util.Logging;
 
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * <code>RollInfo</code>.
  *
  * Structure representing dice rolls
  *
- * @author ???
+ * @author binkley 
  * @version $Revision$
  */
 public final class RollInfo
@@ -75,6 +77,199 @@ public final class RollInfo
 	/** Total result never less than this. */
 	private int totalFloor = Integer.MIN_VALUE;
 
+
+	/**
+	 * Check that the rollString is valid.
+	 * @param rollString The string to be checked
+	 * @return An empty string if the string is valid, an error message if not.
+	 */
+	public static String validateRollString(String rollString)
+	{
+		return parseRollInfo(new RollInfo(), rollString);
+	}
+	
+	public static String parseRollInfo(RollInfo rollInfo, String rollString)
+	{
+		// To really do this right, we change the token string
+		// as we go along so that we maintain parser state by
+		// means of the tokens rather than something more
+		// explicit.  In truth, this is an ideal application
+		// of flex and friends for a "mini-language" whose
+		// statements evaluate to dice rolls.  Too much LISP
+		// on the brain.  --bko
+		final StringTokenizer st = new StringTokenizer(rollString, " ", true);
+
+		try
+		{
+			String tok = st.nextToken("d");
+
+			if ("d".equals(tok))
+			{
+				rollInfo.times = 1;
+			}
+			else
+			{
+				rollInfo.times = Integer.parseInt(tok);
+
+				if (st.hasMoreTokens())
+				{
+					tok = st.nextToken("d"); // discard the 'd'
+
+					if (!"d".equals(tok))
+					{
+						return "Bad roll parsing in '" + rollString
+							+ "': missing 'd'";
+					}
+				}
+				else
+				{
+					rollInfo.sides = 1;
+
+					return "";
+				}
+			}
+
+			String parseChars = "/\\|mM+-tT";
+			rollInfo.sides = Integer.parseInt(st.nextToken(parseChars));
+
+			if (rollInfo.sides < 1)
+			{
+				return "Bad roll parsing in '" + rollString + "': sides < 1: "
+					+ rollInfo.sides;
+			}
+
+			while (st.hasMoreTokens())
+			{
+				tok = st.nextToken(parseChars);
+
+				switch (tok.charAt(0))
+				{
+					case '/':
+						parseChars = "mM+-tT";
+
+						final int keepTop =
+								Integer.parseInt(st.nextToken(parseChars));
+
+						if (keepTop > rollInfo.times)
+						{
+							return "Bad keepTop in '" + rollString
+								+ "': times: " + rollInfo.times + "; keepTop: "
+								+ keepTop;
+						}
+
+						rollInfo.keepList = new boolean[rollInfo.times];
+
+						// Rely on fact boolean is false by default.  --bko
+						for (int i = rollInfo.times - keepTop; i < rollInfo.times; ++i)
+						{
+							rollInfo.keepList[i] = true;
+						}
+
+						break;
+
+					case '\\':
+						parseChars = "mM+-tT";
+
+						final int keepBottom =
+								Integer.parseInt(st.nextToken(parseChars));
+
+						if (keepBottom > rollInfo.times)
+						{
+							return "Bad keepBottom in '" + rollString
+								+ "': times: " + rollInfo.times
+								+ "; keepBottom: " + keepBottom;
+						}
+
+						rollInfo.keepList = new boolean[rollInfo.times];
+
+						// Rely on fact boolean is false by default.  --bko
+						for (int i = 0; i < keepBottom; ++i)
+						{
+							rollInfo.keepList[i] = true;
+						}
+
+						break;
+
+					case '|':
+						parseChars = "mM+-tT";
+						tok = st.nextToken(parseChars);
+						rollInfo.keepList = new boolean[rollInfo.times];
+
+						final StringTokenizer keepSt =
+								new StringTokenizer(tok, ",");
+
+						while (keepSt.hasMoreTokens())
+						{
+							rollInfo.keepList[Integer.parseInt(keepSt
+								.nextToken(",")) - 1] = true;
+						}
+
+						break;
+
+					case 'm':
+						parseChars = "M+-tT";
+						rollInfo.rerollBelow =
+								Integer.parseInt(st.nextToken(parseChars));
+
+						break;
+
+					case 'M':
+						parseChars = "m+-tT";
+						rollInfo.rerollAbove =
+								Integer.parseInt(st.nextToken(parseChars));
+
+						break;
+
+					case '+':
+						parseChars = "tT";
+						rollInfo.modifier = Integer.parseInt(st.nextToken(" "));
+
+						break;
+
+					case '-':
+						parseChars = "tT";
+						rollInfo.modifier =
+								-Integer.parseInt(st.nextToken(" "));
+
+						break;
+
+					case 't':
+						parseChars = "T";
+						rollInfo.totalFloor =
+								Integer.parseInt(st.nextToken(" "));
+
+						break;
+
+					case 'T':
+						parseChars = "t";
+						rollInfo.totalCeiling =
+								Integer.parseInt(st.nextToken(" "));
+
+						break;
+
+					default:
+						Logging.errorPrint("Bizarre dice parser error in '"
+							+ rollString + "': not a valid delimiter");
+				}
+			}
+		}
+
+		catch (NumberFormatException ex)
+		{
+			Logging.errorPrint(
+				"Bad roll string in '" + rollString + "': " + ex, ex);
+			return "Bad roll string in '" + rollString + "': " + ex;
+		}
+		return "";
+	}
+	
+	/**
+	 * Private constructor for use only when validating a roll string. 
+	 */
+	private RollInfo()
+	{
+	}
+	
 	/**
 	 * Construct a <code>RollInfo</code> from a string.  The
 	 * rules:<ol>
@@ -106,7 +301,7 @@ public final class RollInfo
 	 * <strong>case-sensitive</strong> with respect to the
 	 * alphabetic characters, e.g., only <code>d</code>
 	 * (lower-case) is now valid, not also <code>D</code>
-	 * (upper-case).  This is to accomodate the expanded ways to
+	 * (upper-case).  This is to accommodate the expanded ways to
 	 * roll.
 	 *
 	 * @param rollString String compact representation of dice rolls
@@ -114,167 +309,10 @@ public final class RollInfo
 	 */
 	public RollInfo(final String rollString)
 	{
-		// To really do this right, we change the token string
-		// as we go along so that we maintain parser state by
-		// means of the tokens rather than something more
-		// explicit.  In truth, this is an ideal application
-		// of flex and friends for a "mini-language" whose
-		// statements evaluate to dice rolls.  Too much LISP
-		// on the brain.  --bko
-		final StringTokenizer st = new StringTokenizer(rollString, " ", true);
-
-		try
+		String errMsg = RollInfo.parseRollInfo(this, rollString);
+		if (!StringUtils.isBlank(errMsg))
 		{
-			String tok = st.nextToken("d");
-
-			if ("d".equals(tok))
-			{
-				times = 1;
-			}
-			else
-			{
-				times = Integer.parseInt(tok);
-
-				if (st.hasMoreTokens())
-				{
-					tok = st.nextToken("d"); // discard the 'd'
-
-					if (!"d".equals(tok))
-					{
-						Logging.errorPrint("Bad roll parsing in '" + rollString + "': missing 'd'");
-
-						return;
-					}
-				}
-				else
-				{
-					sides = 1;
-
-					return;
-				}
-			}
-
-			String parseChars = "/\\|mM+-tT";
-			sides = Integer.parseInt(st.nextToken(parseChars));
-
-			if (sides < 1)
-			{
-				Logging.errorPrint("Bad roll parsing in '" + rollString + "': sides < 1: " + sides);
-
-				return;
-			}
-
-			while (st.hasMoreTokens())
-			{
-				tok = st.nextToken(parseChars);
-
-				switch (tok.charAt(0))
-				{
-					case '/':
-						parseChars = "mM+-tT";
-
-						final int keepTop = Integer.parseInt(st.nextToken(parseChars));
-
-						if (keepTop > times)
-						{
-							Logging.errorPrint("Bad keepTop in '" + rollString + "': times: " + times + "; keepTop: "
-							    + keepTop);
-
-							return;
-						}
-
-						keepList = new boolean[times];
-
-						// Rely on fact boolean is false by default.  --bko
-						for (int i = times - keepTop; i < times; ++i)
-						{
-							keepList[i] = true;
-						}
-
-						break;
-
-					case '\\':
-						parseChars = "mM+-tT";
-
-						final int keepBottom = Integer.parseInt(st.nextToken(parseChars));
-
-						if (keepBottom > times)
-						{
-							Logging.errorPrint("Bad keepBottom in '" + rollString + "': times: " + times
-							    + "; keepBottom: " + keepBottom);
-
-							return;
-						}
-
-						keepList = new boolean[times];
-
-						// Rely on fact boolean is false by default.  --bko
-						for (int i = 0; i < keepBottom; ++i)
-						{
-							keepList[i] = true;
-						}
-
-						break;
-
-					case '|':
-						parseChars = "mM+-tT";
-						tok = st.nextToken(parseChars);
-						keepList = new boolean[times];
-
-						final StringTokenizer keepSt = new StringTokenizer(tok, ",");
-
-						while (keepSt.hasMoreTokens())
-						{
-							keepList[Integer.parseInt(keepSt.nextToken(",")) - 1] = true;
-						}
-
-						break;
-
-					case 'm':
-						parseChars = "M+-tT";
-						rerollBelow = Integer.parseInt(st.nextToken(parseChars));
-
-						break;
-
-					case 'M':
-						parseChars = "m+-tT";
-						rerollAbove = Integer.parseInt(st.nextToken(parseChars));
-
-						break;
-
-					case '+':
-						parseChars = "tT";
-						modifier = Integer.parseInt(st.nextToken(" "));
-
-						break;
-
-					case '-':
-						parseChars = "tT";
-						modifier = -Integer.parseInt(st.nextToken(" "));
-
-						break;
-
-					case 't':
-						parseChars = "T";
-						totalFloor = Integer.parseInt(st.nextToken(" "));
-
-						break;
-
-					case 'T':
-						parseChars = "t";
-						totalCeiling = Integer.parseInt(st.nextToken(" "));
-
-						break;
-
-					default:
-						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
-				}
-			}
-		}
-
-		catch (NumberFormatException ex)
-		{
-			Logging.errorPrint("Bad roll string in '" + rollString + "': " + ex, ex);
+			Logging.errorPrint(errMsg);
 		}
 	}
 
