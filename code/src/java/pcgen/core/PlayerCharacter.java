@@ -6229,7 +6229,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			feats(inTemplate, getTotalLevels(), totalHitDice(), true);
+			List<AbilitySelection> templateFeats = feats(inTemplate,
+					getTotalLevels(), totalHitDice(), true);
+			for (int j = 0, y = templateFeats.size(); j < y; ++j)
+			{
+				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
+			}
 			AddObjectActions.globalChecks(inTemplate, this);
 		}
 
@@ -10759,7 +10764,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			// Adding feat for first time
 			anAbility = aFeat.clone();
-			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, aFeat);
+			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, anAbility);
 			calcActiveBonuses();
 		}
 
@@ -11367,6 +11372,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				feats.addAll(featList);
 			}
+		}
+
+		Collection<? extends AbilitySelection> featList = getAssocList(pct,
+				AssociationListKey.TEMPLATE_FEAT);
+		if (featList == null && addNew)
+		{
+			featList = getLevelFeat(pct);
+		}
+		if (featList != null)
+		{
+			feats.addAll(featList);
 		}
 
 		return feats;
