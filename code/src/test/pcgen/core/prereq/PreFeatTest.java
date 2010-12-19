@@ -65,11 +65,11 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability powerAttack = new Ability();
 		powerAttack.setName("Power Attack");
-		character.addFeatNeedCheck(powerAttack);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, powerAttack);
 		
 		final Ability cleave = new Ability();
 		cleave.setName("Cleave");
-		character.addFeatNeedCheck(cleave);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, cleave);
 		
 		final Prerequisite prePA = new Prerequisite();
 		prePA.setKind("FEAT");
@@ -121,7 +121,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		focusFeat.setCDOMCategory(AbilityCategory.FEAT);
 		focusFeat.put(StringKey.CHOICE_STRING, "WEAPONPROFS|LIST");
 		character.addAssociation(focusFeat, "Rapier");
-		character.addFeatNeedCheck(focusFeat);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, focusFeat);
 
 		final Prerequisite preFeat = new Prerequisite();
 		preFeat.setKind("FEAT");
@@ -161,7 +161,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
-		character.addFeatNeedCheck(armourProf);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
 
 		final Prerequisite preArmour = new Prerequisite();
 		preArmour.setKind("FEAT");
@@ -184,7 +184,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
 		character.addAssociation(spellFocus, "Conjuration");
-		character.addFeatNeedCheck(spellFocus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 
 		final Prerequisite preSpellFocus = new Prerequisite();
 		preSpellFocus.setKind("FEAT");
@@ -227,7 +227,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
-		character.addFeatNeedCheck(spellFocus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 		character.addAssociation(spellFocus, "Evocation");
 
 		final Prerequisite preSpellFocus = new Prerequisite();
@@ -271,13 +271,13 @@ public class PreFeatTest extends AbstractCharacterTestCase
 				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
-		character.addFeatNeedCheck(spellFocus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 		character.addAssociation(spellFocus, "Evocation");
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
 		armourProf.addToListFor(ListKey.TYPE, Type.getConstant("WPNPROF"));
-		character.addFeatNeedCheck(armourProf);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
 
 		PreFeatParser parser = new PreFeatParser();
 
@@ -335,7 +335,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without skill focus", passes);
 
-		character.addFeatNeedCheck(skillFocusKnow);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocusKnow);
 		character.addAssociation(skillFocusKnow, "Knowledge (Arcana)");
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with skill focus", passes);
@@ -362,7 +362,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without spell focus", passes);
 
-		character.addFeatNeedCheck(spellFocus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 		character.addAssociation(spellFocus, "Evocation");
 
 		passes = PrereqHandler.passes(prereq, character, null);

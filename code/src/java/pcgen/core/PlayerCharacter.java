@@ -10750,27 +10750,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public Ability addFeatNeedCheck(final Ability aFeat)
-	{
-		// See if our choice is not auto or virtual
-		/*
-		 * TODO Should this be getFeatNamed??? That checks all subcategories too :/
-		 */
-		Ability anAbility = getMatchingAbility(AbilityCategory.FEAT,
-				aFeat, Nature.NORMAL);
-		
-		// (anAbility == null) means we don't have this feat, so we need to add it
-		if (anAbility == null)
-		{
-			// Adding feat for first time
-			anAbility = aFeat.clone();
-			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, anAbility);
-			calcActiveBonuses();
-		}
-
-		return anAbility;
-	}
-
 	public void addAbility(final Category<Ability> aCategory,
 			final Ability anAbility)
 	{
@@ -10789,6 +10768,28 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			abFacet.add(id, aCategory, Nature.NORMAL, anAbility);
 			calcActiveBonuses();
 		}
+	}
+
+	public Ability addAbilityNeedCheck(final Category<Ability> aCategory,
+			final Ability anAbility)
+	{
+		// See if our choice is not auto or virtual
+		/*
+		 * TODO Should this check parent/peer categories??
+		 */
+		Ability pcAbility = getMatchingAbility(aCategory,
+				anAbility, Nature.NORMAL);
+		
+		// (anAbility == null) means we don't have this feat, so we need to add it
+		if (pcAbility == null)
+		{
+			// Adding feat for first time
+			pcAbility = anAbility.clone();
+			abFacet.add(id, aCategory, Nature.NORMAL, pcAbility);
+			calcActiveBonuses();
+		}
+
+		return pcAbility;
 	}
 
 	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,

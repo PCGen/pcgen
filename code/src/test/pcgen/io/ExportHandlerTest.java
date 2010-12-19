@@ -332,13 +332,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		dummyFeat7.setName("7");
 		dummyFeat7.setCDOMCategory(AbilityCategory.FEAT);	
 		
-		pc.addFeatNeedCheck(dummyFeat1);
-		pc.addFeatNeedCheck(dummyFeat2);
-		pc.addFeatNeedCheck(dummyFeat3);
-		pc.addFeatNeedCheck(dummyFeat4);
-		pc.addFeatNeedCheck(dummyFeat5);
-		pc.addFeatNeedCheck(dummyFeat6);
-		pc.addFeatNeedCheck(dummyFeat7);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat1);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat2);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat3);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat4);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat5);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat6);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat7);
 		
 		assertEquals("Test for evaluates correctly", "----------------",
 			evaluateToken(
@@ -424,10 +424,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		dummyFeat4.setName("DummyFeat4");
 		dummyFeat4.setCDOMCategory(cat2);
 		
-		pc.addFeatNeedCheck(dummyFeat);
-		pc.addFeatNeedCheck(dummyFeat2);
-		pc.addFeatNeedCheck(dummyFeat3);
-		pc.addFeatNeedCheck(dummyFeat4);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat2);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat3);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat4);
 		
 		assertEquals("Unsigned output", "7", evaluateToken(
 			"VAR.NegLevels.INTVAL", pc));

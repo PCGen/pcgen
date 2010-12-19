@@ -2739,7 +2739,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			Ability pcAbility = thePC.addFeatNeedCheck(anAbility);
+			Ability pcAbility = thePC.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
 			parseFeatsHandleAppliedToAndSaveTags(it, anAbility, line);
 			featsPresent = (pcAbility != anAbility);
 		}

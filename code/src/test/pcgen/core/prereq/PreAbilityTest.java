@@ -75,7 +75,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -110,7 +110,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -149,7 +149,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -186,7 +186,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
 			.passes(prereq, character, null));
@@ -230,7 +230,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fd));
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(strangeness));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -269,7 +269,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(pa));
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
 			.passes(prereq, character, null));
@@ -309,7 +309,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 					"General.Bardic");
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2);
+		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));

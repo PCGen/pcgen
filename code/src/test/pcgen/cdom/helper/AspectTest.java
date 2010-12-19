@@ -110,7 +110,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		aspect.addVariable("TestVar");
 		assertEquals("0", aspect.getAspectText(getCharacter(), dummy));
 
-		getCharacter().addAbility(AbilityCategory.FEAT, dummy);
+		getCharacter().addAbilityNeedCheck(AbilityCategory.FEAT, dummy);
 		assertEquals("2", aspect.getAspectText(getCharacter(), dummy));
 	}
 
@@ -122,7 +122,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		PlayerCharacter pc = getCharacter();
-		pc.addAbility(AbilityCategory.FEAT, pobj);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, pobj);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%CHOICE");
@@ -141,7 +141,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		PlayerCharacter pc = getCharacter();
-		pc.addAbility(AbilityCategory.FEAT, pobj);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, pobj);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%LIST");
@@ -197,7 +197,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		aspect.addVariable("TestVar");
 		assertEquals("0 test  ", aspect.getAspectText(pc, dummy));
 
-		pc.addAbility(AbilityCategory.FEAT, dummy);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummy);
 		assertEquals("2 test  ", aspect.getAspectText(pc, dummy));
 
 		aspect.addVariable("%CHOICE");

@@ -729,28 +729,16 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		{
 			pc.getSpellList();
 		}
+		
+		Ability pcAbility = pc.addAbilityNeedCheck(theCategory, anAbility);
 
-		// See if our choice is not auto or virtual
-		Ability pcAbility = pc.getMatchingAbility(theCategory, anAbility,
-				Nature.NORMAL);
-
-		// (anAbility == null) means we don't have this feat, so we need to add
-		// it
-		if (pcAbility == null)
+		if (pcAbility != anAbility) //yes != not !.equals
 		{
-			// Adding feat for first time
-			pcAbility = anAbility.clone();
-
-			// addFeat(anAbility, LevelInfo);
-			pc.addAbility(theCategory, pcAbility);
 			pc.selectTemplates(pcAbility, pc.isImporting());
 		}
 
-		if (pcAbility != null)
-		{
-			AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
-					pc, theCategory);
-		}
+		AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
+				pc, theCategory);
 	}
 
 	/**

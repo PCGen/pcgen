@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -152,14 +153,14 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		pc.addFeatNeedCheck(dummyFeat);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat);
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		assertEquals("Variable value", -0.0, pc.getVariableValue(
 			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add a bonus to it
-		pc.addFeatNeedCheck(dummyFeat2);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat2);
 		assertEquals("Variable value", 7.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		assertEquals("Variable value", -7.0, pc.getVariableValue(
@@ -237,7 +238,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final Ability testBonus = new Ability();
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
-		character.addFeatNeedCheck(testBonus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
@@ -260,7 +261,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
-		character.addFeatNeedCheck(testBonus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
@@ -288,7 +289,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
-		character.addFeatNeedCheck(testBonus);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());

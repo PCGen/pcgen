@@ -252,23 +252,12 @@ public class AbilityUtilities
 
 		if (!aPC.isImporting()) {aPC.getSpellList();}
 
-		Ability pcAbility = aPC.getMatchingAbility(category, argAbility,
-				Nature.NORMAL);
-
-		// (pcAbility == null) means we don't have this feat,
-		// so we need to add it
-		if (pcAbility == null)
+		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
+		if (pcAbility != argAbility) //implies new
 		{
-			// adding feat for first time
-			pcAbility = argAbility.clone();
-
-			aPC.addAbility(category, pcAbility);
 			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
-		if (pcAbility != null)
-		{
-			finaliseAbility(pcAbility, choice, aPC, category);
-		}
+		finaliseAbility(pcAbility, choice, aPC, category);
 	}
 
 	/**
@@ -294,18 +283,7 @@ public class AbilityUtilities
 		Ability ability,
 		String selection)
 	{
-		if (!aPC.isImporting())
-		{
-			aPC.getSpellList();
-		}
-
-		Ability pcAbility = aPC.addFeatNeedCheck(ability);
-		if (pcAbility != ability) //yes, this is != not !.equals()
-		{
-			aPC.selectTemplates(pcAbility, aPC.isImporting());
-		}
-
-		finaliseAbility(pcAbility, selection, aPC, AbilityCategory.FEAT);
+		modAbility(aPC, ability, selection, AbilityCategory.FEAT);
 	}
 
 	/**

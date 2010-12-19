@@ -109,17 +109,17 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		for (int i = 0;6 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbility(AbilityCategory.FEAT, anAbility);
+			character.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
         }
 
         for (int i = 6;12 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbility(bardCategory, anAbility);
+			character.addAbilityNeedCheck(bardCategory, anAbility);
         }
 
         for (int i = 12;14 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbility(clericalCategory, anAbility);
+			character.addAbilityNeedCheck(clericalCategory, anAbility);
         }
 
 
@@ -454,7 +454,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
-		character.addAbility(gCat, ab);
+		character.addAbilityNeedCheck(gCat, ab);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 

@@ -79,7 +79,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		final Ability ud = new Ability();
 		ud.setName("Uncanny Dodge");
 		ud.put(StringKey.KEY_NAME, "Uncanny Dodge");
-		pc.addFeatNeedCheck(ud);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, ud);
 		assertFalse("Feat should return false", PrereqHandler.passes(prereq,
 			pc, null));
 	}

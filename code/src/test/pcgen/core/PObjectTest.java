@@ -203,7 +203,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 
 		PlayerCharacter aPC = getCharacter();
-		aPC.addFeatNeedCheck(pObj);
+		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 
 		aPC.addAssociation(pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
@@ -255,7 +255,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "");
-		aPC.addFeatNeedCheck(pObj);
+		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
@@ -295,7 +295,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "+3 HP");
-		aPC.addFeatNeedCheck(pObj);
+		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 

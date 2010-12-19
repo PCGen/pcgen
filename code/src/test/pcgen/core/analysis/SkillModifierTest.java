@@ -135,11 +135,11 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 			bluff, pc, false));
 
 		pc.addAssociation(skillFocus, "KEY_Bluff");
-		pc.addAbility(AbilityCategory.FEAT, skillFocus);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillModifier.getModifierExplanation(bluff, pc, false));
 
-		pc.addAbility(AbilityCategory.FEAT, persuasive);
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, persuasive);
 		assertEquals("Bonus after persuasive",
 			"+2[Persuasive] +3[Skill Focus]", SkillModifier
 				.getModifierExplanation(bluff, pc, false));

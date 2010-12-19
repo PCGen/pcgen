@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
@@ -679,7 +680,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				Bonus
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
-		character.addFeatNeedCheck(wpnFinesse);
+		character.addAbilityNeedCheck(AbilityCategory.FEAT, wpnFinesse);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 
