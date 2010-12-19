@@ -40,7 +40,6 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.LastGroupSeparator;
-import pcgen.util.Logging;
 
 /**
  * General utilities related to the Ability class.
@@ -244,13 +243,10 @@ public class AbilityUtilities
 		final String          choice,
 		final AbilityCategory category)
 	{
-		if (argAbility == null)
+		if (!aPC.isImporting())
 		{
-			Logging.errorPrint("Can't process null Ability");
-			return;
+			aPC.getSpellList();
 		}
-
-		if (!aPC.isImporting()) {aPC.getSpellList();}
 
 		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
 		if (pcAbility != argAbility) //implies new
@@ -258,32 +254,6 @@ public class AbilityUtilities
 			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
 		finaliseAbility(pcAbility, choice, aPC, category);
-	}
-
-	/**
-	 * Add a Feat to a character, allowing sub-choices if necessary. Always adds
-	 * weapon proficiencies, either a single choice if singleChoice is true, or all
-	 * possible choices if singleChoice is false.
-	 *
-	 * @param   aPC          the PC to add or remove the Feat from
-	 * @param   LevelInfo
-	 * @param   aFeatKey     the name of the Feat to add.
-	 * @param   addIt        false means the character must already have the
-	 *                       feat (which only makes sense if it
-	 *                       allows multiples); true means
-	 *                       to add the feat (the only way to add
-	 *                       new feats).
-	 * @param   singleChoice false means allow sub-choices; true means no sub-choices.
-	 *
-	 * @return  1 if adding the Ability but it wasn't there or 0 if the PC does
-	 *          not currently have the Ability.
-	 */
-	public static void modFeat(
-		final PlayerCharacter aPC,
-		Ability ability,
-		String selection)
-	{
-		modAbility(aPC, ability, selection, AbilityCategory.FEAT);
 	}
 
 	/**
@@ -339,7 +309,7 @@ public class AbilityUtilities
 						.doubleValue());
 			}
 
-			modFeat(aPC, anAbility, null);
+			modAbility(aPC, anAbility, null, AbilityCategory.FEAT);
 		}
 	}
 

@@ -247,7 +247,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 				"WEAPONPROF|TYPE.Martial");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 
 		assertTrue("Character has the Longsword proficiency.", 
 					PrereqHandler.passes(prereq, character, null));

@@ -101,7 +101,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 
 		assertTrue("Character has the Heavy Wooden Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -141,7 +141,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 
 		assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -181,7 +181,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE=Medium");
 		Globals.getContext().ref.resolveReferences(null);
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 		
 		assertTrue("Character has Medium Shield Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -210,7 +210,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 
 		assertFalse("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -249,7 +249,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE.Heavy");
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 
 		assertTrue("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -308,7 +308,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modFeat(character, martialProf, null);
+		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
 		
 		Ability foo = new Ability();
 		final String fooStr =

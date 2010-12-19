@@ -682,7 +682,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), anAbility, null);
+				AbilityUtilities.modAbility(getPc(), anAbility, null, AbilityCategory.FEAT);
 			}
 			else
 			{

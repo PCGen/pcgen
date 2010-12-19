@@ -365,7 +365,7 @@ public class NPCGenerator
 				// We will leave the feat because we may qualify later.
 				continue;
 			}
-			AbilityUtilities.modFeat(aPC, ability, null);
+			AbilityUtilities.modAbility(aPC, ability, null, AbilityCategory.FEAT);
 		}
 	}
 

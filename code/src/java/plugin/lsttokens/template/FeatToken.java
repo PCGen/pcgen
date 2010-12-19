@@ -160,8 +160,8 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modFeat(pc, choice.getAbility(), choice
-				.getSelection());
+		AbilityUtilities.modAbility(pc, choice.getAbility(), choice
+		.getSelection(), AbilityCategory.FEAT);
 		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice);
 	}
 
