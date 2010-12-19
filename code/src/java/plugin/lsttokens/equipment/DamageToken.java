@@ -44,11 +44,14 @@ public class DamageToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
-		String errorMessage = RollInfo.validateRollString(value);
-		if (!StringUtils.isBlank(errorMessage))
+		if (!"-".equals(value) && !"special".equalsIgnoreCase(value))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is invalid: " + errorMessage);
+			String errorMessage = RollInfo.validateRollString(value);
+			if (!StringUtils.isBlank(errorMessage))
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " is invalid: " + errorMessage);
+			}
 		}
 		context.getObjectContext().put(eq.getEquipmentHead(1),
 				StringKey.DAMAGE, value);

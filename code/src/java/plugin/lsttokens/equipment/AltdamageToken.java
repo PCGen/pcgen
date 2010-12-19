@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
+import pcgen.core.RollInfo;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -42,6 +45,15 @@ public class AltdamageToken extends AbstractNonEmptyToken<Equipment> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		Equipment eq, String value)
 	{
+		if (!"-".equals(value) && !"special".equalsIgnoreCase(value))
+		{
+			String errorMessage = RollInfo.validateRollString(value);
+			if (!StringUtils.isBlank(errorMessage))
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " is invalid: " + errorMessage);
+			}
+		}
 		context.getObjectContext().put(eq.getEquipmentHead(2),
 				StringKey.DAMAGE, value);
 		return ParseResult.SUCCESS;
