@@ -12867,4 +12867,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		CDOMObjectUtilities.restoreRemovals(anAbility, this);
 		adjustMoveRates();
 	}
+
+	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
+	{
+		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
+	}
 }
