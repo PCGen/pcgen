@@ -54,6 +54,7 @@ Monkey Building
 Linguistics				TYPE:TestSkills			
 
 Test Skill (Class Level)	TYPE:ClassLevelTest	CHOOSE:SKILL|ALL
+Test Skill (Sub)			TYPE:Test							USEUNTRAINED:NO	KEY:Test Skill_Sub
 
 # Test Skills
 Athletics			KEYSTAT:STR	TYPE:Strength.TestSkills
