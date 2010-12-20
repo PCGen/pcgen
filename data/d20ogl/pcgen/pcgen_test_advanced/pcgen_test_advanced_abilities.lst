@@ -675,10 +675,10 @@ ADDVFEAT_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestT
 
 # TEST 61
 
-Test-61 Ability		CATEGORY:FEAT	TYPE:Test61		ABILITY:FEAT|NORMAL|Weapon Focus(Short Sword)
-Test-61 Add Feat		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Weapon Focus(Rapier)
+Test-61 Ability		CATEGORY:FEAT	TYPE:Test61		ABILITY:FEAT|NORMAL|Weapon Focus(Simple Weapon Three)
+Test-61 Add Feat		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Weapon Focus(Simple Weapon One)
 Test-61 Add Featb		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Weapon Focus
-Test-61 Add Ability	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Weapon Focus(Longsword)
+Test-61 Add Ability	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Weapon Focus(Simple Weapon Two)
 Test-61 Add Abilityb	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Weapon Focus
 
 Test-61 Ability Tough		CATEGORY:FEAT	TYPE:Test61		ABILITY:FEAT|NORMAL|Toughness
@@ -686,11 +686,11 @@ Test-61 Add Feat Tough		CATEGORY:FEAT	TYPE:Test61		ADD:FEAT|Toughness
 Test-61 Add Ability Tough	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Toughness
 
 
+# Bug COde 453
 
+Code-453 Add Skills to Master		CATEGORY:FEAT	TYPE:Code453	BONUS:SKILLRANK|TestMasterSkill|20
 
-
-
-
+Code-453 Add Skill to Athletic (Jump)	CATEGORY:FEAT	TYPE:Code453	BONUS:SKILL|Atheltics (Jump)|3
 
 
 
