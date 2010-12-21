@@ -60,15 +60,12 @@ import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.LstSystemLoader;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 
@@ -342,22 +339,11 @@ public class TestHelper
 		aRace.setName(name);
 		aRace.put(StringKey.KEY_NAME, ("KEY_" + name));
 
-		try
-		{
-			LoadContext context = Globals.getContext();
-			final BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|1");
-			final PreParserFactory factory = PreParserFactory.getInstance();
-			final Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
-			bon.addPrerequisite(prereq);
+		LoadContext context = Globals.getContext();
+		final BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|1");
+		aRace.addToListFor(ListKey.BONUS, bon);
 
-			aRace.addToListFor(ListKey.BONUS, bon);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Caught " + e);
-		}
-
-		Globals.getContext().ref.importObject(aRace);
+		context.ref.importObject(aRace);
 		return aRace;
 	}
 
