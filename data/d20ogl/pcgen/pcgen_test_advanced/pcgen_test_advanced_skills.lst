@@ -20,11 +20,12 @@ TestSubSkill	USEUNTRAINED:NO	TYPE:Test	CLASSES:ALL
 Athletics.MOD	BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	
 Athletics.MOD	BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK	
 Athletics.MOD	BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK		
-Athletics.MOD	BONUS:SKILL|Athletics (Jump)|var("SKILL.Athletics.MISC")
-Athletics.MOD	BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:var("SKILL.Athletics (Jump).TOTAL"),var("SKILL.Athletics.TOTAL")],[PREVARLT:var("SKILL.Athletics (Jump).MISC"),var("SKILL.Athletics.MISC")]	
+Athletics.MOD	BONUS:SKILL|Athletics (Jump)|skillinfo("MODIFIER","Athletics")
+Athletics.MOD	BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:skillinfo("TOTAL","Athletics (Jump)"),skillinfo("TOTAL","Athletics")],[PREVARNEQ:skillinfo("MODIFIER","Athletics (Jump)"),skillinfo("MODIFIER","Athletics")]	
 
 
-Athletics (Jump)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT
+Athletics (Jump)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	
+#VISIBLE:EXPORT
 
 
 #

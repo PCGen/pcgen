@@ -690,7 +690,7 @@ Test-61 Add Ability Tough	CATEGORY:FEAT	TYPE:Test61		ADD:ABILITY|FEAT|NORMAL|Tou
 
 Code-453 Add Skills to Master		CATEGORY:FEAT	TYPE:Code453	BONUS:SKILLRANK|TestMasterSkill|20
 
-Code-453 Add Skill to Athletic (Jump)	CATEGORY:FEAT	TYPE:Code453	BONUS:SKILL|Atheltics (Jump)|3
+Code-453 Add Skill to Athletic (Jump)	CATEGORY:FEAT	TYPE:Code453	BONUS:SKILL|Athletics (Jump)|3
 
 
 
