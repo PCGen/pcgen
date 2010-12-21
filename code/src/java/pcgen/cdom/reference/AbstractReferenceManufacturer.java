@@ -438,11 +438,21 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		T po = active.get(key);
 		if (po != null)
 		{
-			if (duplicates.containsListFor(new CaseInsensitiveString(key)))
+			List<T> list = duplicates.getListFor(new CaseInsensitiveString(key));
+			if ((list != null) && !list.isEmpty())
 			{
 				Logging.errorPrint("Reference to Constructed "
 						+ factory.getReferenceDescription() + " " + key
 						+ " is ambiguous");
+				StringBuilder sb = new StringBuilder(1000);
+				sb.append("Locations: ");
+				sb.append(po.getSourceURI());
+				for (T dupe : list)
+				{
+					sb.append(", ");
+					sb.append(dupe.getSourceURI());
+				}
+				Logging.errorPrint(sb.toString());
 			}
 			return po;
 		}
