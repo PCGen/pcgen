@@ -231,14 +231,17 @@ public class BonusTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
-		final BonusObj bonus =
+		BonusObj bonus =
 				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
-		final Ability testBonus = new Ability();
+		Ability testBonus = new Ability();
+		testBonus.setName("TB1Assoc");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
+		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
 		character.addAssociation(testBonus, "INT");
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		character.calcActiveBonuses();
+		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
@@ -253,15 +256,18 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
-		final BonusObj bonus =
+		BonusObj bonus =
 				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
+		testBonus.setName("TB2Assoc");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
-		character.addAssociation(testBonus, "INT");
-		character.addAssociation(testBonus, "STR");
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		character.addAssociation(tb, "INT");
+		character.addAssociation(tb, "STR");
+		character.calcActiveBonuses();
+		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
@@ -282,14 +288,17 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
-		final BonusObj bonus = Bonus.newBonus(context, "STAT|%LIST|%LIST+1");
+		BonusObj bonus = Bonus.newBonus(context, "STAT|%LIST|%LIST+1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
+		testBonus.setName("TB2AssocList");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
-		character.addAssociation(testBonus, "INT");
-		character.addAssociation(testBonus, "STR");
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		character.addAssociation(tb, "INT");
+		character.addAssociation(tb, "STR");
+		character.calcActiveBonuses();
+		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());

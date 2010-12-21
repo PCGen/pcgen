@@ -134,8 +134,9 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 		assertEquals("Initial state", "", SkillModifier.getModifierExplanation(
 			bluff, pc, false));
 
-		pc.addAssociation(skillFocus, "KEY_Bluff");
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
+		Ability sf = pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
+		pc.addAssociation(sf, "KEY_Bluff");
+		pc.calcActiveBonuses();
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillModifier.getModifierExplanation(bluff, pc, false));
 

@@ -991,9 +991,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetAvailableFollowers()
 	{
 		readyToRun();
-		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Empty Container");
-		Ability mab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Mount Container");
-		Ability fab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Familiar Container");
+		Ability ab = TestHelper.makeAbility("Tester1", AbilityCategory.FEAT, "Empty Container");
+		Ability mab = TestHelper.makeAbility("Tester2", AbilityCategory.FEAT, "Mount Container");
+		Ability fab = TestHelper.makeAbility("Tester3", AbilityCategory.FEAT, "Familiar Container");
 		PlayerCharacter pc = getCharacter();
 		
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, ab);
