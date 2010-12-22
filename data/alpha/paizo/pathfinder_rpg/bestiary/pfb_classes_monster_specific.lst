@@ -11,7 +11,7 @@ CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Sorcerer|Cleric
 ###Block:Proficiencies
-1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 #9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2	
 1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|8

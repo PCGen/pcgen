@@ -58,7 +58,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Handle An
 #
 1	BONUS:ABILITYPOOL|Cavalier Order|1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 ###Block: Level progression
 1								BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|Mount ~ Cavalier|Order ~ Cavalier|Tactician ~ Cavalier
@@ -297,7 +297,7 @@ CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Animal
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|CL|PRECLASS:1,Paladin=4
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
@@ -329,7 +329,7 @@ CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipal
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 

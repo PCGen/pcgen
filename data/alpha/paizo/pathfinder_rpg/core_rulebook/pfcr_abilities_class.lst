@@ -425,7 +425,8 @@ Improved Disarm		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PR
 Improved Feint		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Improved Feint	PREVARGTEQ:MonkBonusFeatLVL,6										VFEAT:Improved Feint
 Improved Trip		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Improved Trip	PREVARGTEQ:MonkBonusFeatLVL,6										VFEAT:Improved Trip
 Mobility			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Mobility		PREVARGTEQ:MonkBonusFeatLVL,6										VFEAT:Mobility
-Improved Critical		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY						PREVARGTEQ:MonkBonusFeatLVL,10	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST	VFEAT:Improved Critical		BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit
+Improved Critical		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY						PREVARGTEQ:MonkBonusFeatLVL,10	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST			BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit
+#VFEAT:Improved Critical(%LIST)
 Medusa's Wrath		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Medusa's Wrath	PREVARGTEQ:MonkBonusFeatLVL,10									VFEAT:Medusa's Wrath
 Snatch Arrows		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Snatch Arrows	PREVARGTEQ:MonkBonusFeatLVL,10									VFEAT:Snatch Arrows
 Spring Attack		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Spring Attack	PREVARGTEQ:MonkBonusFeatLVL,10									VFEAT:Spring Attack
@@ -954,3 +955,7 @@ Metamagic Mastery		KEY:Metamagic Mastery ~ Universal School		CATEGORY:Special Ab
 ###Block: Expert Abilities --------------------------------------------------------------------------------------------------------------------------------
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose			Class Skill	Source Page
 Expert Class Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST	SOURCEPAGE:p.450
+
+# Work Around to Old Problem
+
+Martial Weapon Proficiency Output			KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT	VISIBLE:EXPORT																																																		DESC:You understand how to use your martial weapons in combat.																															SOURCEPAGE:p.130	BENEFIT:You make attack rolls with all your martial weapons normally (without the non-proficient penalty).

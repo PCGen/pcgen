@@ -87,7 +87,7 @@ ABILITYCATEGORY:Aspect of the Beast Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 
 # Racial Abilities
 ABILITYCATEGORY:Gnome Racial Knowledge		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Gnome Knowledge Selection					PLURAL:Gnome Knowledge Selections		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Bonus Weapon		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency	PLURAL:Half-Elf Bonus Weapon			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Half-Elf Bonus Weapon		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency Output	PLURAL:Half-Elf Bonus Weapon			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Alignment Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Alignment Selection			PLURAL:Alignment Selections			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Saving Throw Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Bonus to Saving Throw		PLURAL:Saving Throw Selections		DISPLAYLOCATION:Class Abilities
 
@@ -134,6 +134,7 @@ ABILITYCATEGORY:Beastmaster Companion Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITP
 # Traits Sub Selections
 ABILITYCATEGORY:Campaign Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices			DISPLAYLOCATION:Racial Abilities
 
+ABILITYCATEGORY:Elemental Fist Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	ABILITYLIST:Elemental Fist		PLURAL:Elemental Fist Selections			DISPLAYLOCATION:Feats
 
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
 

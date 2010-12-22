@@ -9,7 +9,7 @@ CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim	DEFINE:BarbarianLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
@@ -28,7 +28,7 @@ CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	BONUS:CHE
 # Class Name	Restricted AL
 CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim	DEFINE:BarbarianLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
@@ -178,7 +178,7 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	BONUS:CHE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE.Profession|Ride|Survival|Swim	DEFINE:FighterLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Advanced Weapon Feat qualifications
@@ -252,7 +252,7 @@ CLASS:Paladin	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|Kno
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|CL-3|PRECLASS:1,Paladin=4	DEFINE:PaladinLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Aura strength
@@ -284,7 +284,7 @@ CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	VISIBLE:NO	BONUS:CHEC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex-Paladin	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft	DEFINE:PaladinLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 
@@ -298,7 +298,7 @@ CLASS:Ranger	STARTSKILLPTS:6	ABILITY:Internal|AUTOMATIC|Ranger Base Skills|!PREA
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|CL-3|PRECLASS:1,Ranger=4	DEFINE:RangerLvl|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	DEFINE:RangerDefaultCombatStyle|0	BONUS:VAR|RangerDefaultCombatStyle|1
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output	DEFINE:RangerDefaultCombatStyle|0	BONUS:VAR|RangerDefaultCombatStyle|1
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemies and Terrains

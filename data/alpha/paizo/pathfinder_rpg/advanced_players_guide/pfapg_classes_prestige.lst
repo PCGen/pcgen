@@ -35,7 +35,7 @@ CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,Channel Energy	PREAT
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
-1										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																										AUTO:FEAT|Shield Proficiency
 ##Block: Normal Level Progression

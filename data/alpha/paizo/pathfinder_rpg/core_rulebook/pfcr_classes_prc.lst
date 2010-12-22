@@ -10,7 +10,7 @@ CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:p.37
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point-Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -101,7 +101,7 @@ CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:p.382	BONU
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKILL:1,TYPE.Perform=2],[PRESKILL:1,Acrobatics=2]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE.Perform|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 ###Block: Normal Level Progression
 1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense|Precise Strike	BONUS:VAR|PreciseStrike|CL
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction|Parry

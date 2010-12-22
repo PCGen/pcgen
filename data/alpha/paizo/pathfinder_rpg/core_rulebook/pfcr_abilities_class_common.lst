@@ -4,7 +4,7 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.																									Ability
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output	SERVESAS:FEAT|Martial Weapon Proficiency Output
 All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
 Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|DEITYWEAPONS

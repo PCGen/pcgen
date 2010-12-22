@@ -44,7 +44,7 @@ CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:p.449	BONUS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disguise|Handle Animal|Intimidate|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Swim|Survival
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 
@@ -70,6 +70,6 @@ CLASS:Warrior	HD:10		TYPE:Base.NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|TYPE.Profession|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
