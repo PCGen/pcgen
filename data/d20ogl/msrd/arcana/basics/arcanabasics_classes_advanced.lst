@@ -33,7 +33,7 @@ CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craf
 6	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 7																				ABILITY:Special Ability|AUTOMATIC|Weapon Stun
 9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-10																				ABILITY:Special Ability|AUTOMATIC|Increased Weapon Critical
+10																														BONUS:ABILITYPOOL|Increased Weapon Critical Selection|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -187,7 +187,7 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 4	CAST:4,3,2											ABILITY:Special Ability|AUTOMATIC|Create Homunculus
 5	CAST:4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Spontaneous Casting|1
 6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Techno Mage Feat|1
-7	CAST:4,4,3,2,1																			AUTO:FEAT|Spell Focus
+7	CAST:4,4,3,2,1																			BONUS:ABILITYPOOL|Spell Focus Selection|1
 8	CAST:4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Online Casting
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Feat|1
 10	CAST:4,4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Quicken Spell
