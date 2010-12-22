@@ -12,7 +12,7 @@ CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuali
 #TEST-13
 
 # CODE-465
-CODE-465		TYPE:CODE-465	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|Companion (Dire Wolf)|FOLLOWERADJUSTMENT:-3	BONUS:VAR|SpecialMountLvl|7
+CODE-465	CATEGORY:FEAT	TYPE:CODE-465	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|Companion (Dire Wolf)|FOLLOWERADJUSTMENT:-3	BONUS:VAR|SpecialMountLvl|7
 
 CompL1	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 1
 CompL2	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 2
