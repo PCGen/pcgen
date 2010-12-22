@@ -11,6 +11,18 @@ CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuali
 
 #TEST-13
 
+# CODE-465
+CODE-465		TYPE:CODE-465	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|Companion (Dire Wolf)|FOLLOWERADJUSTMENT:-3	BONUS:VAR|SpecialMountLvl|7
+
+CompL1	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 1
+CompL2	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 2
+CompL3	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 3
+CompL4	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 4
+CompL5	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 5
+CompL6	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 6
+CompL7	CATEGORY:Special Ability	TYPE:General.SpecialQuality	DESC:Companion has Level 7
+
+
 
 
 # COMMENT: Alice, Bob and Charlie are all Test Set Only; changes made to this set MAY affect those test characters.
