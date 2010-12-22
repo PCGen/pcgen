@@ -80,6 +80,28 @@
 
 <hr>
 
+	<P class="new">*** Updated 5.17.4</a>
+	<p class="indent0"><strong><a name="ALIGNMENT">Tag Name:</a></strong> CHOOSE:ALIGNMENT|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Alignment by KEY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of &quot;Alignments&quot;. (e.g. LG, TN, CE, etc. for 3.5e gameMode)</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>ALIGNMENT</strong> selection 
+			made in the named feat, which must contain a <code>CHOOSE:ALIGNMENT</code> tag.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:ALIGNMENT|ALL</code></p>
+	<p class="indent3">This will produce a list of all alignments available.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="ARMORPROF">Tag Name:</a></strong> CHOOSE:ARMORPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Armor name)</p>
