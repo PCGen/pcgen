@@ -114,6 +114,28 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="CHECK">Tag Name:</a></strong> CHOOSE:CKECK|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check by KEY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat name.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of checks (e.g. Will, Reflex, etc).</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>CHECK</strong> selection 
+			made in the named feat, which must contain a <code>CHOOSE:CHECK</code> tag.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:CHECK|ALL</code></p>
+	<p class="indent3">This will produce a list of all checks available in the gameMode.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="CSKILLS">Tag Name:</a></strong> CHOOSE:CSKILLS</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -398,12 +420,14 @@
 
 	<P class="new">*** Updated 5.17.4</a>
 	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</a></strong> CHOOSE:SCHOOLS|x|x</p>
-	<p class="indent1"><strong>Variables Used:</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used:</strong> Text (School name)</p>
-	<p class="indent1"><strong>Variables Used:</strong> FEAT=Text (School name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (School name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (School name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of &quot;Schools&quot; of magic. (e.g. Abjuration, Evocation, etc.)</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection 
+			made in the named feat, which must contain a <code>CHOOSE:SCHOOLS</code> tag.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
