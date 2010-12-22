@@ -396,17 +396,22 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</a></strong> CHOOSE:SCHOOLS</p>
-	<p class="indent1"><strong>Variables Used:</strong> None</p>
+	<P class="new">*** Updated 5.17.4</a>
+	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</a></strong> CHOOSE:SCHOOLS|x|x</p>
+	<p class="indent1"><strong>Variables Used:</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used:</strong> Text (School name)</p>
+	<p class="indent1"><strong>Variables Used:</strong> FEAT=Text (School name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of all schools of magic from <em>schools.lst</em>.</li>
+		<li>This will produce a list of &quot;Schools&quot; of magic. (e.g. Abjuration, Evocation, etc.)</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SCHOOLS</code></p>
+	<p class="indent2"><code>CHOOSE:SCHOOLS|ALL</code></p>
 	<p class="indent3">This will produce a list of all schools of magic (abjuration, evocation, etc.).</p>
+	<p class="indent2"><code>CHOOSE:SCHOOLS|FEAT=Spell Focus</code></p>
+	<p class="indent3">This will produce a list of all schools for which the character has the &quot;Spell Focus&quot; feat.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
