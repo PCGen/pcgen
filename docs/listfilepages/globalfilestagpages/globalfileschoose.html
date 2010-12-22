@@ -92,6 +92,14 @@
 		<li>This will produce a list of &quot;Alignments&quot;. (e.g. LG, TN, CE, etc. for 3.5e gameMode)</li>
 		<li>Use of the <code>FEAT</code> subtag will provide the <strong>ALIGNMENT</strong> selection 
 			made in the named feat, which must contain a <code>CHOOSE:ALIGNMENT</code> tag.</li>
+		<li>The list of alignments is provided as a comma (,) and pipe-delimmited (|) list of alignments:</li>
+		<ul>
+			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in ALL of the items is added to the list.</li>
+			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in any of the items is added to the list</li>
+			<li>All commas are evaluated before pipes.</li>
+		</ul>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -150,6 +158,14 @@
 		<li>This will produce a list of checks (e.g. Will, Reflex, etc).</li>
 		<li>Use of the <code>FEAT</code> subtag will provide the <strong>CHECK</strong> selection 
 			made in the named feat, which must contain a <code>CHOOSE:CHECK</code> tag.</li>
+		<li>The list of checks is provided as a comma (,) and pipe-delimmited (|) list of checks:</li>
+		<ul>
+			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in ALL of the items is added to the list.</li>
+			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in any of the items is added to the list</li>
+			<li>All commas are evaluated before pipes.</li>
+		</ul>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -310,6 +326,43 @@
 	<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="LANG">Tag Name:</a></strong> CHOOSE:LANG|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited language type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> LANGBONUS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (<a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This presents a list of languages for selection.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>LANGUAGE</strong> selection 
+			made in the named feat, which must contain a <code>CHOOSE:LANG</code> tag.</li>
+		<li>Use of <code>LANBONUS</code> will provide a list of languages granted to the character by the <code>LANGBONUS</code> 
+			tag through the character's race, class or template.</li>
+		<li>The list of languages is provided as a comma (,) and pipe-delimmited (|) list of languages:</li>
+		<ul>
+			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in ALL of the items is added to the list.</li>
+			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in any of the items is added to the list</li>
+			<li>All commas are evaluated before pipes.</li>
+		</ul>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:LANG|Common|Goblin</code></p>
+	<p class="indent3">Presents the &quot;Common&quot; and &quot;Goblin&quot; languages for selection.</p>
+	<p class="indent2"><code>CHOOSE:LANG|Common,Goblin</code></p>
+	<p class="indent3">No languages are presented as no languages is both &quot;Common&quot; and &quot;Goblin&quot;.</p>
+	<p class="indent2"><code>CHOOSE:LANG|Common|TYPE=Foo,PC</code></p>
+	<p class="indent3">Presents the &quot;Common&quot; languages and any languages that have the &quot;Foo&quot; type which is 
+		already selected by the Player Character.</p>
 	<p></p>
 
 <hr>
@@ -499,6 +552,14 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of sizes (e.g. Small, Colossal, etc).</li>
+		<li>The list of templates is provided as a comma (,) and pipe-delimmited (|) list of templates:</li>
+		<ul>
+			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in ALL of the items is added to the list.</li>
+			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
+				item that appears in any of the items is added to the list</li>
+			<li>All commas are evaluated before pipes.</li>
+		</ul>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -738,14 +799,16 @@
 	<p class="new">*** New 5.17.4</p>
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> CHOOSE:TEMPLATE|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name or Key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Template Type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Template Type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (<a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This presents a list of templates for selection.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>TEMPLATE</strong> selection 
+			made in the named feat, which must contain a <code>CHOOSE:TEMPLATE</code> tag.</li>
 		<li>The list of templates is provided as a comma (,) and pipe-delimmited (|) list of templates:</li>
 		<ul>
 			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
