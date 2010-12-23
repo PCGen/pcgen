@@ -23,57 +23,52 @@
 
 <body>
 
-	<h1>The Define Tag</h1>
+	<h1>The Define Tag and Variables</h1>
 
-	<p>The DEFINE tag is used to create new variables and set their initial values.
- 		In addition to the entry for the tag itself this page will go into the details
-  		of using variables, formulas and math operators.</p>
+	<p class="indent1">This page is broken into two sections. The first section will describe the 
+		<code>DEFINE</code> tag and its uses. The second section will discuss variables and their use in PCGen.</p>
+	
+<hr>
+
+	<h2><a name="DEFINE">The Define Tag</a></h2>
+
+	<p>The DEFINE tag is used to create new user-defined variables and set their initial values.</p>
+	
 	<p class="indent0"><strong>Tag Name:</strong> DEFINE:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of variable)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Can be a formula
-		involving pre-defined variables, numbers, operators and user-defined-variables.)</p>
+		involving system or user-defined variables or numbers.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Creates a new variable with the name specified and sets its initial value to the number
-			 or formula given.</li>
-		<li>Many classes use PREVAR tags, which are pre-requisites based upon variable values.</li>
-		<li>These values are calculated by getting the value of the variable with the highest
-			DEFINE value, and then adding any BONUS: tags which apply to it.</li>
-		<li>For example, if a class had PREVARGT:Hopscotch,3 would mean that the character
-			only qualifies for the class if they have a Hopscotch value higher than 3
-			(GT = Greater Than).</li>
-		<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains
-			and equipped items for DEFINE: tags that match this variable name.</li>
+		<li>Creates a new variable with the name specified and sets its initial value to the number or formula given.</li>
+		<li>Many classes use <code>PREVAR</code> tags, which are pre-requisites based upon variable values.</li>
+		<li>These values are calculated by getting the value of the variable with the highest defined value, and then adding any bonuses which apply to it.</li>
+		<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains and equipped items for <code>DEFINE</code> tags that match this variable name.</li>
 		<li>If it finds more than one, it keeps the one with the higher value.</li>
-		<li>PCGen then scans the same list of items and looks for those with BONUS:VAR|Hopscotch
-			tags and after figuring out which ones stack, adds those to the highest define value.</li>
-		<li>The resulting value is then compared to the PREVARGT's requirement, which is 3 in
-			this case, and PCGen then indicates if the character meets this requirement or not.</li>
-		<li>BONUS:VAR tags which reference variables which have not been DEFINEd have no effect
-			and the value of that variable will effectively remain at 0.</li>
-		<li>The standard use of DEFINE in PCGen release files is to use only one DEFINE per variable
-			and to initially set the value at 0 and adjust it with BONUS:VAR tags as needed.</li>
+		<li>PCGen then scans the same list of items and looks for <code>BONUS:VAR</code> tags and after figuring out which ones stack, adds those to the highest define value.</li>
+		<li>The resulting value is then compared to the PREVARGT's requirement, which is 3 in this case, and PCGen then indicates if the character meets this requirement or not.</li>
+		<li><code>BONUS:VAR</code> tags which reference variables which have not been defined have no effect and the value of that variable will effectively remain at zero (0).</li>
+		<li>The standard use of <code>DEFINE</code> in PCGen release files is to use only one <code>DEFINE</code> per variable and to initially set the value to zero (0) and adjust it with <code>BONUS:VAR</code> tags as needed.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEFINE:MonkeyChop|2</code></p>
 	<p class="indent3">Creates a new variable named MonkeyChop and sets the initial value to 2.</p>
-	<p class="indent2"><code>DEFINE:MonkeySwing|TL/2</code></p>
-	<p class="indent3">Creates a new variable named MonkeySwing and sets the initial value to half the characters total level.</p>
+	<p class="indent2"><code>DEFINE:MonkeySwing|0 &lt;tab&gt; BONUS:VAR|MonkeySwing|TL/2</code></p>
+	<p class="indent3">Creates a new variable named <strong>MonkeySwing</strong> and sets the initial value to zero, then bonuses the variable to half the characters total level.</p>
 
+<hr>
 
 	<h2><a name="variables">Variables</a></h2>
 
-	<p>For those unfamiliar with computer programming or higher math a variable is a symbol which represents a
-		quantity that is not fixed. Most peoples first introduction to variables is in algebra where you
-		might be given a problem such as x+y=z. This is a formula, the x,y and z are variables. PCGen uses
-		variables and formulas for a wide variety of purposes through out the program, some are created in
-		LST files while others are pre-defined, that is they are hard coded and can be used in any formula
-		in any LST file in any game mode. Pre-defined variables and a subset of User-defined variables
-		(that have been created by PCGen Data Monkeys) are listed below. All variables listed below are 
-		global in nature, unless explicitly stated within the variable specific documentation, and can be 
-		used in any formula, in any file, in any gamemode.</p>
-	<p class="indent1"><strong>Variable Names:</strong></p>
-	<ul class="indent2">
+	<p class="indent0">For those unfamiliar with computer programming or higher math a variable is a symbol which represents a
+		quantity that is not fixed. Most people's first introduction to variables is in algebra where you might be given a problem 
+		such as &quot;x+y=z&quot;. In this formula, the &quot;x&quot;, &quot;y&quot; and &quot;z&quot; are variables. PCGen uses 
+		variables and formulas for a wide variety of purposes through out the program. Some variables are created in LST files, 
+		and are henceforth called user-defined variables, while others are system-defined, that is they are hard coded into PCGen. 
+		While both types of variable can be used in any formula in any LST file, only system-defined variables can be used in any gameMode.</p>
+
+	<p class="indent0">Here are a few notes on naming variables:</p>
+	<ol class="indent0">
 		<li>You can create variable names any way you like - but we recommend using no spaces and a name
 			that is both descriptive and unlikely to conflict with a variable name used in another
 			source for a different purpose. Capitalizing the first letter	of each word used in the
@@ -83,10 +78,16 @@
 			together (this happens when one class is based on a class from a different source).</li>
 		<li>Certain variables are pre-defined, be careful not to use any of those names when creating
 			your variables.</li>
-	</ul>
+	</ol>
 	<p></p>
 
-	<h2><a name="PreDefinedVariables">Pre-defined Variables</a></h2>
+<hr>
+
+	<h2><a name="PreDefinedVariables">System-Defined Variables</a></h2>
+		
+	<p class="indent0"> All variables listed below are global in nature, unless explicitly stated 
+		within the variable specific documentation, and can be used in any formula, in any file, in any gamemode.</p>
+	<p></p>
 		
 	<p class="indent2"><code><a name="ACCHECK">ACCHECK</a></code></p>
 	<p class="indent3">This is the total AC Check penalty from armor and shield.</p>
@@ -155,7 +156,7 @@
 		If used within a JEP formula you will need to enclose it in a variable function
 		 e.g. var(&quot;CLASSLEVEL=Warrior {Ruby}&quot;)</p>
 	<p></p>
-	
+
 	<p class="indent2"><code><a name="CON">CON</a></code></p>
 	<p class="indent3">This is the character's CON modifier.</p>
 	<p></p>
@@ -360,10 +361,14 @@
 	<p class="indent3">This is the character's actual Wisdom score.</p>
 	<p></p>
 
+<hr>
+
 	<h2><a name="UserDefinedVariables">User-defined Variables in PCGen datasets</a></h2>
 
 	<p><strong>Note:</strong> This is not a definitive list, but a subset showing some of
 		the common user defined variables that PCGen uses.</p>
+	<p></p>
+	
 	<p class="indent2"><code><a name="AllowExtraTurning">AllowExtraTurning</a></code></p>
 	<p class="indent3">Ability to take Extra Turning if &gt;= 1</p>
 	<p></p>
@@ -383,11 +388,6 @@
 	<p class="indent2"><code><a name="TurnUndead">TurnUndead</a></code></p>
 	<p class="indent3">Ability to Turn Undead if &gt;= 1</p>
 	<p></p>
-
-	<h2>Math Operators and Formulas</h2>
-
-	<p><strong>Note:</strong> This information has been moved to the <a href="globalfilesformulas.html">
-		Math Operators and Formulas</a> page.</p>
 
 <hr>
 
