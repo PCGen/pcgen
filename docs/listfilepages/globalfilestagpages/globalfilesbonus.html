@@ -1096,9 +1096,10 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>Adds to movement to the listed TYPE.</li>
+		<li>Adds to movement of the listed TYPE.</li>
 		<li>Done after MOVEMULT and MOVEADD calculations.</li>
 		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
+		<li><strong>Note:</strong> This tag cannot be used to decrease the listed movement types.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk|10</code></p>
