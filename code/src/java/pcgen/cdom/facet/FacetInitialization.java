@@ -172,8 +172,12 @@ public class FacetInitialization
 				.getFacet(SpellBookFacet.class);
 		AddLevelFacet addLevelFacet = FacetLibrary
 				.getFacet(AddLevelFacet.class);
-		AppliedBonusFacet appliedBonusFacet = FacetLibrary
-		.getFacet(AppliedBonusFacet.class);
+		AppliedBonusFacet appliedBonusFacet =
+				FacetLibrary.getFacet(AppliedBonusFacet.class);
+		UnencumberedArmorFacet unencumberedArmorFacet =
+			FacetLibrary.getFacet(UnencumberedArmorFacet.class);		
+		UnencumberedLoadFacet unencumberedLoadFacet =
+				FacetLibrary.getFacet(UnencumberedLoadFacet.class);		
 
 		AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 		RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
@@ -304,5 +308,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
 		cdomObjectFacet.addDataFacetChangeListener(globalSkillCostFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
+		cdomSourceFacet.addDataFacetChangeListener(unencumberedArmorFacet);
+		cdomSourceFacet.addDataFacetChangeListener(unencumberedLoadFacet);
 	}
 }
