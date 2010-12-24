@@ -617,36 +617,36 @@
 	<ul class="indent1">
 		<li>This tag is used to define natural attacks and add them to the character when the
 			the containing object is assigned to the character.</li>
-		<li>This is a comma (,) and pipe (|) delimited list of the natural attacks a
-			creature has.
-			<ul>
-				<li>Pipes are used to separate the entries if the creature has multiple attacks.</li>
-				<li>Commas are used to delimit variables within a single attack listing. All four
-					variables separated by three commas must be present or PCGen will hang when
-					attempting to load the .pcc file.</li>
-			</ul>
-			<li>Natural weapon types should be period-delimited (.). This must always
-				start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
-				by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
-				damage types are listed which can be &quot;Bludgeoning&quot;,
-				&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
+		<li>This is a comma (,) and pipe-delimited (|) list of the natural attacks a
+			creature has.</li>
+		<ul>
+			<li>Pipes (|) are used to separate the entries of individual attacks.</li>
+			<li>Commas are used to separate the parameters within a single attack listing. All four
+				parameters, separated by three commas, must be present.</li>
+		</ul>
+		<li>For multiple attacks included in the same <code>NATURALATTACKS</code> tag, the first is 
+			treated as a primary weapon and the second is treated as a secondary attack.</li>
+		<li>Natural weapon types (x) should be period-delimited (.). This must always
+			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
+			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
+			damage types are listed which can be &quot;Bludgeoning&quot;,
+			&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
 		<li>If the number of attacks (y) has an asterisk in front of the number it
-				indicates that the number of attacks is non-iterative, that is it is not
-				based on the creatures attack progression but rather how many of the
-				natural weapons it possesses.</li>
+			indicates that the number of attacks is non-iterative, that is it is not
+			based on the creatures attack progression but rather how many of the
+			natural weapons it possesses.</li>
 		<li>The damage the natural weapon does is entered in the standard dice notation
-				such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
+			such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
 		<li>If this tag is applied through a race or template object, the &quot;size&quot; of 
-				the character is determined through those objects, otherwise, the attacks will 
-				always be size &quot;Medium&quot;.
-		<li>The NATURALATTACKS tag creates a proficiency for the attacks on the fly which allows
-			the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the NATURALATTACKS
-			tag to create a Bite attack you could then use <code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code>
+			the character is determined through those objects, otherwise, the attacks will 
+			always be size &quot;Medium&quot;.
+		<li>The <code>NATURALATTACKS</code> tag creates a proficiency for the attacks on the fly which allows
+			the use of the <code>BONUS:WEAPONPROF</code> tag to effect it. For example, if you used the <code>NATURALATTACKS</code>
+			tag to create a Bite attack you could then use <code>BONUS:WEAPONPROF=Bite|DAMAGE,TOHIT|2</code>
 			to add 2 to the attack and damage rolls.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
-		1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
+	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
 	<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Ability, Feat, Race, and Template files.</p>
