@@ -525,14 +525,21 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Set<Ability>> natMap = catMap.get(category);
-			if (natMap != null)
+			for (Category<Ability> mapKeyCat : catMap.keySet())
 			{
-				for (Map.Entry<Nature, Set<Ability>> me : natMap.entrySet())
+				if (mapKeyCat == category
+					|| mapKeyCat.getParentCategory() == category)
 				{
-					if (me.getValue().contains(ability))
+					Map<Nature, Set<Ability>> natMap = catMap.get(mapKeyCat);
+					if (natMap != null)
 					{
-						n = Nature.getBestNature(me.getKey(), n);
+						for (Map.Entry<Nature, Set<Ability>> me : natMap.entrySet())
+						{
+							if (me.getValue().contains(ability))
+							{
+								n = Nature.getBestNature(me.getKey(), n);
+							}
+						}
 					}
 				}
 			}

@@ -526,16 +526,23 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, List<Object>>> natMap = catMap
-					.get(category);
-			if (natMap != null)
+			for (Category<Ability> mapKeyCat : catMap.keySet())
 			{
-				for (Map.Entry<Nature, Map<Ability, List<Object>>> me : natMap
-						.entrySet())
+				if (mapKeyCat == category
+					|| mapKeyCat.getParentCategory() == category)
 				{
-					if (me.getValue().containsKey(ability))
+					Map<Nature, Map<Ability, List<Object>>> natMap = catMap
+							.get(mapKeyCat);
+					if (natMap != null)
 					{
-						n = Nature.getBestNature(me.getKey(), n);
+						for (Map.Entry<Nature, Map<Ability, List<Object>>> me : natMap
+								.entrySet())
+						{
+							if (me.getValue().containsKey(ability))
+							{
+								n = Nature.getBestNature(me.getKey(), n);
+							}
+						}
 					}
 				}
 			}
