@@ -65,12 +65,12 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
-import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -227,7 +227,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		SettingsHandler
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
@@ -471,7 +471,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		SettingsHandler
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
