@@ -81,8 +81,8 @@ public class SkillRankControl
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && pc.hasClass())
 		{
 			/*
-			 * TODO Why does this grab class #1 - doesn't that make this an
-			 * error for multi-class characters?
+			 * Note: The class grabbed doesn't matter - it is only used for calculating cross-class skill rank cost.
+			 * All classes of a multi-class character are scanned to determine if the skill is a class skill.
 			 */
 			double maxRanks = pc.getMaxRank(sk,
 					pc.getClassList().get(0)).doubleValue();

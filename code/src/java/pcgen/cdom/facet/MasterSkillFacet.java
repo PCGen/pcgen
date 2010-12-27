@@ -25,13 +25,30 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Globals;
 import pcgen.core.Skill;
 
+/**
+ * The Class <code>MasterSkillFacet</code> caches a copy of all class skill 
+ * lists. This allows faster checking of whether skills are class skills for
+ * a character class. 
+ *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @author Tom Parker <thpr@users.sourceforge.net>
+ * @version $Revision: $
+ */
 public class MasterSkillFacet
 {
 
 	private HashMapToList<ClassSkillList, Skill> hml;
 
-	private void initialize()
+	private synchronized void initialize()
 	{
+		if (hml != null)
+		{
+			return;
+		}
+		
 		hml = new HashMapToList<ClassSkillList, Skill>();
 		MasterListInterface masterLists = Globals.getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())
@@ -54,5 +71,13 @@ public class MasterSkillFacet
 			initialize();
 		}
 		return hml.containsInList(csl, sk);
+	}
+
+	/**
+	 * Empty the stored master data. Used when reloading sources. 
+	 */
+	public void emptyLists()
+	{
+		hml = null;
 	}
 }

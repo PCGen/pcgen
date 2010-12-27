@@ -69,6 +69,8 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.CompanionMod;
@@ -1730,6 +1732,8 @@ public final class Globals
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLoadContext();
+		FacetLibrary.getFacet(MasterSkillFacet.class).emptyLists();
+
 		
 		Pantheon.clearConstants();
 		RaceType.clearConstants();
