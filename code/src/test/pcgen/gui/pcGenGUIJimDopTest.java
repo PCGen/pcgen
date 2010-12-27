@@ -39,6 +39,6 @@ public class pcGenGUIJimDopTest extends pcGenGUITestCase
 	 */
 	public void testJimDop() throws Exception
 	{
-		runTest("JimDop", "35e");
+		runTest("JimDop", "35e", true);
 	}
 }

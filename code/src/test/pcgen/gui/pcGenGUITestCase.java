@@ -15,6 +15,7 @@ import org.custommonkey.xmlunit.XMLUnit;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
+import pcgen.persistence.PersistenceManager;
 
 /**
  * A pcGenGUITestCase is an XMLTestCase.  It is an abstract 
@@ -81,6 +82,18 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 */
 	public void runTest(String character, String mode) throws Exception
 	{
+		runTest(character, mode, false);
+	}
+
+	/**
+	 * Run the test.
+	 * @param character The PC
+	 * @param mode The game mode
+	 * @param runTwice Should we rerun the test after unloading sources
+	 * @throws Exception
+	 */
+	public void runTest(String character, String mode, boolean runTwice) throws Exception
+	{
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
@@ -144,6 +157,15 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			// Fire off PCGen, which will produce an XML file 
 			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
 
+			// Optionally do a second run
+			if (runTwice)
+			{
+				new File("code/testsuite/output/" + character + ".xml").delete();
+				Globals.emptyLists();
+				PersistenceManager.getInstance().clear();
+				pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
+			}
+			
 			// Read in the actual XML produced by PCGen
 			actual =
 					readFile(new File("code/testsuite/output/" + character

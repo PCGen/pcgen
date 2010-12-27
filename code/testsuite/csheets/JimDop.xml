@@ -381,10 +381,10 @@ BIO
 	<skills>
 		<skillpoints>
 			<total>69</total>
-			<used>0</used>
-			<unused>69</unused>
+			<used>10</used>
+			<unused>59</unused>
 		</skillpoints>
-		<list_mods>Bluff +5, Disguise +5</list_mods>
+		<list_mods>Bluff +10, Diplomacy +3, Disguise +10, Disguise (Act in character) +12, Intimidate +3</list_mods>
 		<max_class_skill_level>9</max_class_skill_level>
 		<max_cross_class_skill_level>4.5</max_cross_class_skill_level>
 		<skill>
@@ -423,10 +423,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Bluff</name>
-			<ranks>0.0</ranks>
+			<ranks>5.0</ranks>
 			<mod>5<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>5</skill_mod>
+			<skill_mod>10</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>4<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -435,8 +435,8 @@ BIO
 			<synergy>Bluff</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
+			<trained_total>10</trained_total>
+			<exclusive_total>10</exclusive_total>
 		</skill>
 		<skill>
 			<name>Climb</name>
@@ -492,26 +492,26 @@ BIO
 		<skill>
 			<name>Diplomacy</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>3<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
+			<skill_mod>3</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Diplomacy</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
 		</skill>
 		<skill>
 			<name>Disguise</name>
-			<ranks>0.0</ranks>
+			<ranks>5.0</ranks>
 			<mod>5<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>5</skill_mod>
+			<skill_mod>10</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>4<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -520,8 +520,25 @@ BIO
 			<synergy>Disguise</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
+			<trained_total>10</trained_total>
+			<exclusive_total>10</exclusive_total>
+		</skill>
+		<skill>
+			<name>Disguise (Act in character)</name>
+			<ranks>5.0</ranks>
+			<mod>7<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>12</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Disguise (Act in character)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>12</trained_total>
+			<exclusive_total>12</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
@@ -611,19 +628,19 @@ BIO
 		<skill>
 			<name>Intimidate</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>3<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
+			<skill_mod>3</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Intimidate</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
 		</skill>
 		<skill>
 			<name>Jump</name>
