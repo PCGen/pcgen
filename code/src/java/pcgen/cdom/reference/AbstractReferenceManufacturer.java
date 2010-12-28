@@ -36,6 +36,7 @@ import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.RollMethod;
 import pcgen.util.Logging;
 
 /**
@@ -768,7 +769,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			 * Periods (.), Brackets ([]), Percent (%), Asterisk (*) and Equals
 			 * (=).
 			 */
-			if (key.indexOf(',') != -1)
+			if (key.indexOf(',') != -1 && factory.getReferenceClass() != RollMethod.class)
 			{
 				Logging.log(Logging.LST_WARNING, "Found "
 						+ factory.getReferenceDescription() + " with KEY: " + key
