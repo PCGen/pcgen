@@ -59,7 +59,7 @@ TEMPLATE:pcgen_test_advanced_templates_local.lst
 # Universal tags
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
-
+COMPANIONLIST:Special Mount|ANY
 #
 # DONE
 #

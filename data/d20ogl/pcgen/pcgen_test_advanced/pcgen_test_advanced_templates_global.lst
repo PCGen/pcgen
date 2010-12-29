@@ -164,3 +164,16 @@ Test61 Feat		FEAT:Weapon Focus(Simple Weapon Four)
 Test61 Tough	FEAT:Toughness
 
 
+# TEST 63
+#Two Templates added to the PC, adding a MULT:YES STACK:NO Ability with 2 different targets
+Test-63a1		FEAT:Test63a(One)
+Test-63a2		FEAT:Test63a(Two)
+
+#Test #2 Two templates added to the PC, adding a MULT:YES STACK:YES Ability with the same target twice
+Test-63b1		FEAT:Test63b(One)|Test63b(One)
+Test-63b2		FEAT:Test63b(One)|Test63b(One)
+
+#Test #3 Two templates added to the PC, adding a MULT:YES CHOOSE:NOCHOICE Ability to the PC
+Test-63c1		FEAT:Test63c
+Test-63c2		FEAT:Test63c
+
