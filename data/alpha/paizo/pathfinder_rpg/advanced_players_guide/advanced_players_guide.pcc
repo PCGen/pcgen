@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
 GAMEMODE:Pathfinder
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Roleplaying Game
-#STATUS:Alpha
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+STATUS:Alpha
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
