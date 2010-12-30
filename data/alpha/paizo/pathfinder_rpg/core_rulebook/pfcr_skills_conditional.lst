@@ -2,25 +2,38 @@
 SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-###Block: Conditional Skills for output only
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Source Page
-Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.87
-Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90
-#Linguistics (Understand exotic written messages)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.518
-Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
-Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102
-Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.106
-Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.107
+###Block: Racial conditional skills (for output only)
 
-###Block: Skill .MODs
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Source Page
+Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.87	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),SKILL.Acrobatics.MISC
+Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),SKILL.Appraise.MISC
+Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),SKILL.Perception.MISC
+Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.102	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Trapfinding).MISC"),SKILL.Perception.MISC
+Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.106	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify magic item).MISC"),SKILL.Spellcraft.MISC
+Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.107	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),SKILL.Survival.MISC
+
+# Associated skill .MODs
 # Skill Name	Bonus to skill											Bonus to skill rank
-Acrobatics.MOD	BONUS:SKILL|Acrobatics (Jump)|SKILL.Acrobatics.MISC					BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")
-Appraise.MOD	BONUS:SKILL|Appraise (Precious metals and gemstones)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Precious metals and gemstones)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")
-#Linguistics.MOD	BONUS:SKILL|Linguistics (Understand exotic written messages)|SKILL.Linguistics.MISC	BONUS:SKILLRANK|Linguistics (Understand exotic written messages)|SKILLRANK=Linguistics|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Linguistics (Understand exotic written messages).MISC"),var("SKILL.Linguistics.MISC")
-Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")
-Perception.MOD	BONUS:SKILL|Perception (Trapfinding)|SKILL.Perception.MISC				BONUS:SKILLRANK|Perception (Trapfinding)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Trapfinding).MISC"),var("SKILL.Perception.MISC")
-Spellcraft.MOD	BONUS:SKILL|Spellcraft (Identify magic item)|SKILL.Spellcraft.MISC		BONUS:SKILLRANK|Spellcraft (Identify magic item)|skillinfo("TOTALRANK", "Spellcraft")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Spellcraft (Identify magic item).MISC"),var("SKILL.Spellcraft.MISC")
-Survival.MOD	BONUS:SKILL|Survival (Follow or identify tracks)|SKILL.Survival.MISC		BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("TOTALRANK", "Survival")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),var("SKILL.Survival.MISC")
+Acrobatics.MOD	BONUS:SKILL|Acrobatics (Jump)|SKILL.Acrobatics.MISC					BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted
+Appraise.MOD	BONUS:SKILL|Appraise (Precious metals and gemstones)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Precious metals and gemstones)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted
+Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted
+Perception.MOD	BONUS:SKILL|Perception (Trapfinding)|SKILL.Perception.MISC				BONUS:SKILLRANK|Perception (Trapfinding)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted
+Spellcraft.MOD	BONUS:SKILL|Spellcraft (Identify magic item)|SKILL.Spellcraft.MISC		BONUS:SKILLRANK|Spellcraft (Identify magic item)|skillinfo("TOTALRANK", "Spellcraft")|TYPE=SkillGranted
+Survival.MOD	BONUS:SKILL|Survival (Follow or identify tracks)|SKILL.Survival.MISC		BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("TOTALRANK", "Survival")|TYPE=SkillGranted
+
+###Block: Conditional Skills from items
+#Linguistics (Understand exotic written messages)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.518
+
+# Associated skill .MODs
+#Linguistics.MOD	BONUS:SKILL|Linguistics (Understand exotic written messages)|SKILL.Linguistics.MISC	BONUS:SKILLRANK|Linguistics (Understand exotic written messages)|skillinfo("TOTALRANK", "Linguistics")|TYPE=SkillGranted
+
+# Old stuff
+#Acrobatics.MOD	BONUS:SKILL|Acrobatics (Jump)|SKILL.Acrobatics.MISC					BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")
+#Appraise.MOD	BONUS:SKILL|Appraise (Precious metals and gemstones)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Precious metals and gemstones)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")
+#Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")
+#Perception.MOD	BONUS:SKILL|Perception (Trapfinding)|SKILL.Perception.MISC				BONUS:SKILLRANK|Perception (Trapfinding)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Perception (Trapfinding).MISC"),var("SKILL.Perception.MISC")
+#Spellcraft.MOD	BONUS:SKILL|Spellcraft (Identify magic item)|SKILL.Spellcraft.MISC		BONUS:SKILLRANK|Spellcraft (Identify magic item)|skillinfo("TOTALRANK", "Spellcraft")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Spellcraft (Identify magic item).MISC"),var("SKILL.Spellcraft.MISC")
+#Survival.MOD	BONUS:SKILL|Survival (Follow or identify tracks)|SKILL.Survival.MISC		BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("TOTALRANK", "Survival")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),var("SKILL.Survival.MISC")
 
 ###Block: Workaround lack of Skill Ranks in chosen skill -- This does not work because circular references will lockup PCGen when 1 rank is assigned to the parent skill, commenting out -- Eddy
 # Skill Name	Bonus to skill																																			Bonus to skill rank
