@@ -94,7 +94,6 @@ RACE:pfb_races_stu.lst
 RACE:pfb_races_vw.lst
 RACE:pfb_races_xyz.lst
 TEMPLATE:pfb_races_templates.lst
-TEMPLATE:pfb_templates_dragons.lst
 TEMPLATE:pfb_templates.lst
 TEMPLATE:pfb_templates_simple.lst
 WEAPONPROF:pfb_prof_weapons_monsters.lst

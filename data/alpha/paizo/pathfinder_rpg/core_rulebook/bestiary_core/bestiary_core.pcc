@@ -54,6 +54,8 @@ FEAT:pfb_feats_monster.lst
 LANGUAGE:pfb_languages.lst
 SKILL:pfb_skills_conditional.lst
 SPELL:pfb_spells.lst
+TEMPLATE:pfb_templates.lst
+TEMPLATE:pfb_templates_dragons.lst
 TEMPLATE:pfb_templates_simple.lst
 TEMPLATE:pfb_templates_types.lst
 
