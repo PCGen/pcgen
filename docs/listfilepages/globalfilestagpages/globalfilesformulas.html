@@ -381,6 +381,7 @@
 
 <hr>
 
+	<p class="new">*** Updated 5.17.5 - Added STAT and MISC properties.</p>
 	<a name="SkillInfo"></a>
 	<p class="indent0"><strong>Skill Information (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>skillinfo("x","y")</code></p>
@@ -388,6 +389,8 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> RANK (Property)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TOTALRANK (Property)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> MODIFIER (Property)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> STAT (Property)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> MISC (Property)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TOTAL (Property)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Skill name)</p>
 		<p class="indent1"><strong>What it Does:</strong></p>
@@ -396,6 +399,8 @@
 				<li>RANK returns the number of ranks the PC has in the skill not including those gained from BONUS:SKILLRANK tags.</li>
 				<li>TOTALRANK returns the number of ranks the PC has in the skill including those gained from BONUS:SKILLRANK tags.</li>
 				<li>MODIFIER returns the total bonuses the PC has in the skill.</li>
+				<li>STAT returns the bonus the PC has in the skill from his abilityattribute bonus.</li>
+				<li>MISC returns the total bonuses the PC has in the skill that do not derive from his ability bonus.</li>
 				<li>TOTAL returns the grand total in the skill from all ranks and bonuses.</li>
 			</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -405,6 +410,10 @@
 		<p class="indent3">Returns the number ranks in Climb including those gained from BONUS:SKILLRANK tags.</p>
 		<p class="indent2"><code>skillinfo(&quot;MODIFIER&quot;, &quot;Bluff&quot;)</code></p>
 		<p class="indent3">Returns the total number of bonuses in Bluff.</p>
+		<p class="indent2"><code>skillinfo(&quot;STAT&quot;, &quot;Diplomacy&quot;)</code></p>
+		<p class="indent3">Returns the ability bonus for Diplomacy.</p>
+		<p class="indent2"><code>skillinfo(&quot;MISC&quot;, &quot;Use Magic Device&quot;)</code></p>
+		<p class="indent3">Returns the total  miscellaneous bonuses in Use Magic Device.</p>
 		<p class="indent2"><code>skillinfo(&quot;TOTAL&quot;, &quot;Spellcraft&quot;)</code></p>
 		<p class="indent3">Returns the grand total in Spellcraft.</p>
 	</blockquote>

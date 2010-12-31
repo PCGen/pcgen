@@ -98,6 +98,14 @@ public class SkillInfoCommand extends PCGenCommand
 				{
 					result = SkillRankControl.getTotalRank(pc, aSkill).doubleValue(); // aSkill.getTotalRank() returns Float
 				}
+				else if ("stat".equalsIgnoreCase((String) param1))
+				{
+					result = (double) SkillModifier.getStatMod(aSkill, pc);
+				}
+				else if ("misc".equalsIgnoreCase((String) param1))
+				{
+					result = (double) (SkillModifier.modifier(aSkill, pc).intValue() - SkillModifier.getStatMod(aSkill, pc));
+				}
 				else
 				{
 					Logging.log(Logging.LST_ERROR,
