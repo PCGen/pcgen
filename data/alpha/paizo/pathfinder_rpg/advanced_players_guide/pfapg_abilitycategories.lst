@@ -13,8 +13,9 @@ ABILITYCATEGORY:Cavalier Order		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Cavalier Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:CavalierFeat.Combat	PLURAL:Cavalier Feats			DISPLAYLOCATION:Feats
 
 # Inquisitor Categories
-ABILITYCATEGORY:Inquisitor Domain Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain		PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TeamWork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain		PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment		PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TeamWork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
 
 ###Block: Oracular Ability Categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location

@@ -93,7 +93,7 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1	BONUS:VAR|DomainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Domains
 ###Block: Level progression
-1																ABILITY:Special Ability|AUTOMATIC|Judgment ~ Inquisitor
+1																				BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
 1																ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
 1																ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
 2																ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor
