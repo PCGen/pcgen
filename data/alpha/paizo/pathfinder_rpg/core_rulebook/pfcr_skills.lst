@@ -3,7 +3,7 @@ SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:
 # Original Entry by: Stefan Radermacher
 
 # Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type					Visible		Source Page		Choose			Bonus to skill																																					Temporary effect description
-Acrobatics					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:p.87					BONUS:SKILL|Acrobatics|3|TYPE=ClassSkill|PRECSKILL:1,Acrobatics|PRESKILL:1,Acrobatics=1	BONUS:SKILL|Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4
+Acrobatics					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:p.87					BONUS:SKILL|Acrobatics|3|TYPE=ClassSkill|PRECSKILL:1,Acrobatics|PRESKILL:1,Acrobatics=1	BONUS:SKILL|Acrobatics (Jump)|floor((var("MOVEBASE")-30)/10)*4
 Appraise					KEYSTAT:INT								TYPE:Intelligence						SOURCEPAGE:p.90					BONUS:SKILL|Appraise|3|TYPE=ClassSkill|PRECSKILL:1,Appraise|PRESKILL:1,Appraise=1
 Bluff						KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:p.90					BONUS:SKILL|Bluff|3|TYPE=ClassSkill|PRECSKILL:1,Bluff|PRESKILL:1,Bluff=1
 Climb						KEYSTAT:STR				ACHECK:YES			TYPE:Strength						SOURCEPAGE:p.90					BONUS:SKILL|Climb|3|TYPE=ClassSkill|PRECSKILL:1,Climb|PRESKILL:1,Climb=1	BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial
