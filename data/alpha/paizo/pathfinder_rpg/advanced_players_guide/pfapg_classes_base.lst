@@ -229,8 +229,10 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5															ABILITY:Special Ability|AUTOMATIC|Twin Eidolon
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability									Define			Save checks bonus											Combat bonus
-CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	ABILITY:Special Ability|AUTOMATIC|Witch Concentration Check	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+#elro - original below. I cannot find the Witch Concentration Check in the source
+#CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	ABILITY:Special Ability|AUTOMATIC|Witch Concentration Check	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE.Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
@@ -241,7 +243,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 ###Block: Level progression
 1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|Cantrips ~ Witch
 2	CAST:4,2				BONUS:ABILITYPOOL|Witch Hex|CL/2
-3	CAST:4,2,1
+3	CAST:4,2,1																								ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells
 4	CAST:4,3,2
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2
