@@ -80,7 +80,8 @@ public class CountCommand extends PCGenCommand
 		NAM,
 		NAT,
 		TYP,
-		VIS
+		VIS,
+		KEY
 	}
 
 	public enum JepEquipmentCountEnum
@@ -176,24 +177,11 @@ public class CountCommand extends PCGenCommand
 
 							case NAME:
 							case NAM:
-								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-								abIt = cs.iterator();
+								cs = filterAbilitiesByName(keyValue);
+								break;
 
-								while (abIt.hasNext())
-								{
-									final Ability ab = (Ability) abIt.next();
-
-									final String name = (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED)) ?
-												AbilityUtilities.getUndecoratedName(
-														ab.getDisplayName(),
-														new ArrayList<String>()) :
-												ab.getDisplayName();
-									
-									if (!name.equalsIgnoreCase(keyValue[1]))
-									{
-										abIt.remove();
-									}
-								}
+							case KEY:
+								cs = filterAbilitiesByKeyName(keyValue);
 								break;
 
 							case NATURE:
@@ -250,10 +238,66 @@ public class CountCommand extends PCGenCommand
 						return cs;
 					}
 
+					/**
+					 * Filter the abilities by their display name. 
+					 * @param keyValue The count parameters. The 2nd entry is the name to be matched.
+					 * @return The set of abilities matching the name.
+					 */
+					private Set<Ability> filterAbilitiesByName(final String[] keyValue)
+					{
+						Set<Ability> cs;
+						final Iterator<? extends PObject> abIt;
+						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+						abIt = cs.iterator();
+
+						while (abIt.hasNext())
+						{
+							final Ability ab = (Ability) abIt.next();
+
+							final String name = (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED)) ?
+										AbilityUtilities.getUndecoratedName(
+												ab.getDisplayName(),
+												new ArrayList<String>()) :
+										ab.getDisplayName();
+							
+							if (!name.equalsIgnoreCase(keyValue[1]))
+							{
+								abIt.remove();
+							}
+						}
+						return cs;
+					}
+
+					/**
+					 * Filter the abilities by their key name. 
+					 * @param keyValue The count parameters. The 2nd entry is the key to be matched.
+					 * @return The set of abilities matching the key.
+					 */
+					private Set<Ability> filterAbilitiesByKeyName(final String[] keyValue)
+					{
+						Set<Ability> cs;
+						final Iterator<? extends PObject> abIt;
+						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+						abIt = cs.iterator();
+
+						while (abIt.hasNext())
+						{
+							final Ability ab = (Ability) abIt.next();
+
+							final String name = ab.getKeyName();
+							
+							if (!name.equalsIgnoreCase(keyValue[1]))
+							{
+								abIt.remove();
+							}
+						}
+						return cs;
+					}
+
 					protected Set<String> filterSetS(final String c) throws ParseException
 					{
 						throw new ParseException(
-								"PCClass is a PObject, should be calling filterSetP");
+								"Ability is a PObject, should be calling filterSetP");
 					}
 				},
 

@@ -299,7 +299,9 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	protected void assertConstructionError()
 	{
-		assertFalse(primaryContext.ref.validate(null)
+		assertFalse(
+			"Expected one of validate or resolve references to be false.",
+			primaryContext.ref.validate(null)
 				&& primaryContext.ref.resolveReferences(null));
 	}
 

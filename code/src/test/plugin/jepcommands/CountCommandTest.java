@@ -26,6 +26,7 @@ package plugin.jepcommands;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -429,7 +430,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 //        is(character.getVariableValue(s,""), eq(6.0, 0.1), s);
 //    }
 
-	public void testCountAbilities30()
+	public void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -440,8 +441,6 @@ public class CountCommandTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Eat Burger", "CLERICAL", "Clerical.General");
 
 		ab.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		
-		character.addAssociation(ab, "munch");
 		
 		// now the tests
 
@@ -454,18 +453,63 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
-		character.addAbilityNeedCheck(gCat, ab);
+		Ability clone = character.addAbilityNeedCheck(gCat, ab);
+		character.addAssociation(clone, "munch");
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		character.addAssociation(ab, "devour");
+		character.addAssociation(clone, "devour");
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
 
-		character.addAssociation(ab, "nibble");
+		character.addAssociation(clone, "nibble");
+		assertEquals(3, character.getAssocCount(clone, AssociationListKey.CHOICES));
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+	}
+
+	public void testCountAbilitiesByKey()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		AbilityCategory gCat = Globals.getContext().ref
+				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
+
+		final Ability ab =
+				TestHelper.makeAbility("Eat Burger", "CLERICAL", "Clerical.General");
+
+		ab.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		
+		// now the tests
+
+		final StringBuilder sB = new StringBuilder(100);
+
+		sB.append("count(\"ABILITIES\",");
+		sB.append("\"KEY=KEY_Eat Burger\")");
+
+		final String s = sB.toString();
+
+		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
+		
+		Ability clone = character.addAbilityNeedCheck(gCat, ab);
+		character.addAssociation(clone, "munch");
+
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
+
+		character.addAssociation(clone, "devour");
+		character.setDirty(true);
+		
+		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
+
+		character.addAssociation(clone, "nibble");
+		character.setDirty(true);
+
+		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+		
+		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
+		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");
+		
 	}
 }
