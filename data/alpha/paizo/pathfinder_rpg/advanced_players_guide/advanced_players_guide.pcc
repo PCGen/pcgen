@@ -96,6 +96,8 @@ WEAPONPROF:pfapg_profs_weapons.lst
 RACE:pfapg_races_companions.lst
 RACE:pfapg_races_traits.lst
 
+SKILL:pfapg_skills_conditional.lst
+
 SPELL:pfapg_spells.lst
 SPELL:pfapg_spells_mods.lst
 
