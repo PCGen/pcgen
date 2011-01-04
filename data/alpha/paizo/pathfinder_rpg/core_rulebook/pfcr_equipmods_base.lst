@@ -17,10 +17,11 @@ Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Wea
 Masterwork		KEY:MWORKM	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.149	PRETYPE:1,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
 Masterwork		KEY:MWORKA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Armor.Shield	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.153	PRETYPE:1,Armor,Shield	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement	BONUS:ITEMCOST|TYPE=Armor|150	BONUS:ITEMCOST|TYPE=Shield|150
 Masterwork		KEY:MWORKT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Tools		COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Tools		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Thief|20	BONUS:ITEMCOST|TYPE=Instrument|45
+Masterwork		KEY:MWORKB	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Amulet.Ring.Staff.Wand		COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Amulet,Ring,Staff,Wand		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood
 
 ###Block: Arcane Bonded Objects
 # Modifier Name	Unique Key		Naming Format	Naming Option		Type						Cost		Visible		Type granted	Source Page		Required Type										Special Property
-Bonded Object	KEY:BONDED_OBJECT	FORMATCAT:PARENS	NAMEOPT:TEXT=Bonded	TYPE:Amulet.Ring.Staff.Wand.Weapon	COST:200	VISIBLE:QUALIFY	ITYPE:Bonded	SOURCEPAGE:p.78	PREMULT:2,[PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood],[PRETYPE:1,Amulet,Ring,Staff,Wand,Weapon]	SPROP:Can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared.
+Bonded Object	KEY:BONDED_OBJECT	FORMATCAT:PARENS	NAMEOPT:TEXT=Bonded	TYPE:Amulet.Ring.Staff.Wand.Weapon	COST:50	VISIBLE:QUALIFY	ITYPE:Bonded	SOURCEPAGE:p.78	PREMULT:2,[PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood],[PRETYPE:1,Amulet,Ring,Staff,Wand,Weapon]	SPROP:Can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared.
 
 ###Block: Thrown Ammunition workaround
 # Modifier Name	Unique Key		Cost		Visible	Modify the item cost
