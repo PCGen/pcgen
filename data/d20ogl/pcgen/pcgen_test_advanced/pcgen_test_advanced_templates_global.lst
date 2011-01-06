@@ -163,6 +163,7 @@ Test61 Feat		FEAT:Weapon Focus(Simple Weapon Four)
 
 Test61 Tough	FEAT:Toughness
 
+# TEST 62 - INVALID
 
 # TEST 63
 #Two Templates added to the PC, adding a MULT:YES STACK:NO Ability with 2 different targets
