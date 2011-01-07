@@ -349,6 +349,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean processLevelAbilities = true;
 
+	// store most recent value of bonus to skill points
+	private int modSkillPointsBuffer = (int) getStatBonusTo("MODSKILLPOINTS", "NUMBER");
+
 	/**
 	 * This map stores any user bonuses (entered through the GUI) to the
 	 * corrisponding ability pool.
@@ -6480,6 +6483,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			bonusManager.checkpointBonusMap();
 			setDirty(true);
 			calcActiveBonusLoop();
+			if (Globals.checkRule(RuleConstants.RETROSKILL))
+			{
+				checkSkillModChange();
+			}
 		} while (!bonusManager.compareToCheckpoint());
 		// If the newly calculated bonus map is different to the old one
 		// loop again until they are the same.
@@ -12871,5 +12878,33 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
 	{
 		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
+	}
+	
+	public void checkSkillModChange()
+	{
+		int modSkillPointsCurrent = (int) getStatBonusTo("MODSKILLPOINTS", "NUMBER");
+		if (modSkillPointsBuffer != modSkillPointsCurrent)
+		{
+			modSkillPointsBuffer = modSkillPointsCurrent;
+
+			for (PCClass pcClass : getClassSet())
+			{
+				for (PCLevelInfo pi : getLevelInfo())
+				{
+					final int newSkillPointsGained =
+					pcClass.recalcSkillPointMod(this, pi.getClassLevel());
+					if (pi.getClassKeyName().equals(pcClass.getKeyName()))
+					{
+						final int formerGained = pi.getSkillPointsGained(this);
+						pi.setSkillPointsGained(this, newSkillPointsGained);
+						pi.setSkillPointsRemaining(pi.getSkillPointsRemaining()
+								+ newSkillPointsGained - formerGained);
+						setAssoc(pcClass, AssociationKey.SKILL_POOL,
+							pcClass.getSkillPool(this) + newSkillPointsGained - formerGained);
+						setSkillPoints(getSkillPoints() + newSkillPointsGained - formerGained);
+					}
+				}
+			}
+		}
 	}
 }

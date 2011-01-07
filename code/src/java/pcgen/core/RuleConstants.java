@@ -46,6 +46,7 @@ public interface RuleConstants
 	String FEATPRE				= "FEATPRE";						// Bypass Feat Prerequisites
 	String FREECLOTHES			= "FREECLOTHES";					// Ask For Free Clothing at First Level
 	String INTBEFORE			= "INTBEFORE";						// Increment STAT before calculating skill points when leveling
+	String RETROSKILL			= "RETROSKILL";						// Changes to bonus skill points are retroactive
 	String INTBONUSLANG			= "INTBONUSLANG";					// Allow Selection of Int bonus Languages after 1st level
 	String LEVELCAP				= "LEVELCAP";						// Ignore Level Cap
 	String PROHIBITSPELLS		= "PROHIBITSPELLS";					// Restict Cleric/Druid spells based on alignment
