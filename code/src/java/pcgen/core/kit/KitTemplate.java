@@ -43,11 +43,6 @@ public class KitTemplate extends BaseKit
 	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
 			new HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>>();
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private transient HashMapToList<PCTemplate, PCTemplate> selectedMap =
-			new HashMapToList<PCTemplate, PCTemplate>();
-
 	/**
 	 * Actually applies the templates to this PC.
 	 *
@@ -56,6 +51,9 @@ public class KitTemplate extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
+		HashMapToList<PCTemplate, PCTemplate> selectedMap =
+			buildSelectedTemplateMap(aPC);
+
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
@@ -86,11 +84,31 @@ public class KitTemplate extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
+		HashMapToList<PCTemplate, PCTemplate> selectedMap =
+				buildSelectedTemplateMap(aPC);
+
+		if (selectedMap.size() > 0)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Extract the templates to be applied and their choices
+	 * @param aPC The PC the kit is being applied to.
+	 * @return The map of templates and child templates to be added
+	 */
+	private HashMapToList<PCTemplate, PCTemplate> buildSelectedTemplateMap(
+		PlayerCharacter aPC)
+	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		final String oldChooser = ChooserFactory.getInterfaceClassname();
 		ChooserFactory.setInterfaceClassname(
 			"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
+		HashMapToList<PCTemplate, PCTemplate> selectedMap =
+			new HashMapToList<PCTemplate, PCTemplate>();
 
 		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
@@ -116,12 +134,7 @@ public class KitTemplate extends BaseKit
 
 		ChooserFactory.setInterfaceClassname(oldChooser);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-
-		if (selectedMap.size() > 0)
-		{
-			return true;
-		}
-		return false;
+		return selectedMap;
 	}
 
 	@Override
