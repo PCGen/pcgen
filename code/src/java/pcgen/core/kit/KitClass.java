@@ -67,6 +67,9 @@ public class KitClass extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
+		theLevel = -1;
+		doLevelAbilities = true;
+		
 		theClass = pcClass.resolvesTo();
 
 		theOrigSubClass = aPC.getSubClassName(theClass);

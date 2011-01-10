@@ -71,6 +71,7 @@ public class KitKit extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
+		appliedKits = new HashMap<Kit, List<BaseKit>>();
 		for (CDOMSingleRef<Kit> ref : availableKits)
 		{
 			Kit addedKit = ref.resolvesTo();

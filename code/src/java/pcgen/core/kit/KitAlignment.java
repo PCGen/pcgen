@@ -63,6 +63,7 @@ public class KitAlignment extends BaseKit
 	@Override
 	public boolean testApply(Kit k, PlayerCharacter aPC, List<String> warnings)
 	{
+		align = null;
 		if (alignments.size() == 1)
 		{
 			align = alignments.get(0);

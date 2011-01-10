@@ -86,6 +86,8 @@ public class KitLangBonus extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 			List<String> warnings)
 	{
+		theLanguages = new ArrayList<Language>();
+
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 
@@ -99,7 +101,6 @@ public class KitLangBonus extends BaseKit
 			return false;
 		}
 
-		theLanguages = new ArrayList<Language>();
 		int allowedCount = aPC
 				.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
 		int remaining = allowedCount;
