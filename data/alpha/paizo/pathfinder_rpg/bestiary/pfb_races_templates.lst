@@ -29,14 +29,14 @@ Half-Dragon Flight	VISIBLE:NO	DEFINE:Maneuverability|3	ABILITY:Special Ability|A
 
 ###Block: Half-Dragon Melee attack TEMPLATE:CHOOSE
 # Template Name	Template
-Half-Dragon.MOD	TEMPLATE:CHOOSE:Half-Dragon Bite ~ Fine|Half-Dragon Bite ~ Dimunitive|Half-Dragon Bite ~ Tiny|Half-Dragon Bite ~ Small|Half-Dragon Bite ~ Medium|Half-Dragon Bite ~ Large|Half-Dragon Bite ~ Huge|Half-Dragon Bite ~ Gargantuan|Half-Dragon Bite ~ Colossal
+Half-Dragon.MOD	TEMPLATE:CHOOSE:Half-Dragon Bite ~ Fine|Half-Dragon Bite ~ Diminutive|Half-Dragon Bite ~ Tiny|Half-Dragon Bite ~ Small|Half-Dragon Bite ~ Medium|Half-Dragon Bite ~ Large|Half-Dragon Bite ~ Huge|Half-Dragon Bite ~ Gargantuan|Half-Dragon Bite ~ Colossal
 Half-Dragon.MOD	TEMPLATE:CHOOSE:Half-Dragon Claw ~ Tiny|Half-Dragon Claw ~ Small|Half-Dragon Claw ~ Medium|Half-Dragon Claw ~ Large|Half-Dragon Claw ~ Huge|Half-Dragon Claw ~ Gargantuan|Half-Dragon Claw ~ Colossal
 #TODO: Issue - If a creature has only 1 natural attack, like Bite, they get STR*1.5 bonus damage, once the claw attack is added the Bite should drop to just STR but we have no way to adjust that
 
 ###Block: Half-Dragon Melee attacks
 # Template Name			Visible	!PREEQUIP		Required Size	Natural Attacks
 Half-Dragon Bite ~ Fine		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1
-Half-Dragon Bite ~ Dimunitive	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d2
+Half-Dragon Bite ~ Diminutive	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d2
 Half-Dragon Bite ~ Tiny		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d3
 Half-Dragon Bite ~ Small	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d4
 Half-Dragon Bite ~ Medium	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d6
