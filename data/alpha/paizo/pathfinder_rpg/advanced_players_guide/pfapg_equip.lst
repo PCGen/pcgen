@@ -93,7 +93,7 @@ Pulley												TYPE:Goods.Tools								COST:2	WT:10		SOURCEPAGE:p.182
 Saw													TYPE:Goods.Tools								COST:.04	WT:2		SOURCEPAGE:p.182
 Sextant												TYPE:Goods.Tools								COST:500	WT:2		SOURCEPAGE:p.182
 Symptom Kit												TYPE:Goods.Tools								COST:25	WT:5		SOURCEPAGE:p.182
-Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		COST:10	WT:1		SOURCEPAGE:p.182
+Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		COST:10	WT:1		SOURCEPAGE:p.182	PAGEUSAGE:max(SPELLLEVEL,1)
 
 ###Block: Clothing
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page
