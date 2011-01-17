@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Feb  5 20:14:55 2010 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
 ###Block: Animal Companion Abilities
-# Ability Name							Category of Ability		Type						Define			Description																						Bonus to Ability Pool						Source Page		Aspects						Description of the Benefits
+# Ability Name		Unique Key				Category of Ability		Type						Define			Description																						Bonus to Ability Pool						Source Page		Aspects						Description of the Benefits
 Bonus Tricks							CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:BonusTricks|0	DESC:%1|BonusTricks																				BONUS:ABILITYPOOL|Animal Trick|var("BonusTricks")	SOURCEPAGE:p.52	ASPECT:Ability Benefit|%1|BonusTricks
 Link									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:A master can handle her animal companion as a free action, or push it as a move action.																	SOURCEPAGE:p.52								BENEFIT:A master can handle her animal companion as a free action, or push it as a move action, even if she doesn't have any ranks in the Handle Animal skill. The master gains a +4 circumstance bonus on all wild empathy checks and Handle Animal checks made regarding an animal companion.
 Share Spells							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The master may cast a spell with a target of "You" on her animal companion instead of on herself.															SOURCEPAGE:p.52								BENEFIT:The master may cast a spell with a target of "You" on her animal companion (as a spell with a range of touch) instead of on herself. A master may cast spells on her animal companion even if the spells normally do not affect creatures of the companion's type (animal). Spells cast in this way must come from a class that grants an animal companion. This ability does not allow the animal to share abilities that are not spells, even if they function like spells.
@@ -24,40 +24,40 @@ Spell Resistance				KEY:Spell Resistance ~ Familiar	CATEGORY:Special Ability	TYP
 
 
 ###Block:
-# Ability Name			Category of Ability		Type				Define									Class Skill
-Companion Skills			CATEGORY:Special Ability	TYPE:Special												CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
-War Trained				CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name	Unique Key				Category of Ability		Type				Class Skill														Natural Attacks
+Companion Skills						CATEGORY:Special Ability	TYPE:Special		CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
+War Trained							CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # Unique to Companions
-Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																																									NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
 
 
 ###Block: Companion Advancement abilities
-# Ability Name						Category of Ability		Type			Visible		Required Race												Ability													Combat bonus						Adjust PC Size		Stat bonus
-+2 to Dexterity and Constitution			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY																																									BONUS:STAT|DEX,CON|2|TYPE=Racial
-Companion Advancement (Ape)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Badger (Wolverine))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Badger (Wolverine))																														BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Bear)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bear)																																BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Bird)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl))																											BONUS:STAT|STR,CON|2|TYPE=Racial
-Companion Advancement (Boar)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Boar)										ABILITY:Special Ability|AUTOMATIC|Ferocity															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Camel)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Camel)																																BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|2|TYPE=Racial
-Companion Advancement (Cat (Small (Cheetah)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Cheetah)))							ABILITY:Special Ability|AUTOMATIC|Sprint ~ Cat															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Cat (Small (Leopard)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Leopard)))							ABILITY:Special Ability|AUTOMATIC|Sprint ~ Cat															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Crocodile (Alligator))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Crocodile (Alligator))							ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Crocodile|Death Roll ~ Crocodile|Grab|Sprint ~ Crocodile					BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dog)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dog)																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
+# Ability Name						Category of Ability		Type			Visible		Required Race												Ability																	Combat bonus					Adjust PC Size		Stat bonus
++2 to Dexterity and Constitution			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY																																												BONUS:STAT|DEX,CON|2|TYPE=Racial
+Companion Advancement (Ape)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Badger (Wolverine))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Badger (Wolverine))																																	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Bear)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bear)																																			BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Bird)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl))																														BONUS:STAT|STR,CON|2|TYPE=Racial
+Companion Advancement (Boar)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Boar)										ABILITY:Special Ability|AUTOMATIC|Ferocity																		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Camel)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Camel)																																			BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|2|TYPE=Racial
+Companion Advancement (Cat (Small (Cheetah)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Cheetah)))							ABILITY:Special Ability|AUTOMATIC|Sprint ~ Cat																		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Cat (Small (Leopard)))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Small (Leopard)))							ABILITY:Special Ability|AUTOMATIC|Sprint ~ Cat																		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Crocodile (Alligator))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Crocodile (Alligator))							ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Crocodile|Death Roll ~ Crocodile|Grab|Sprint ~ Crocodile								BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dog)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dog)																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Horse)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Horse)										ABILITY:Special Ability|AUTOMATIC|War Trained
 Companion Advancement (Pony)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Pony)										ABILITY:Special Ability|AUTOMATIC|War Trained
-Companion Advancement (Shark)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Shark)										ABILITY:Special Ability|AUTOMATIC|Blindsense															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Snake (Constrictor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Constrictor))								ABILITY:Special Ability|AUTOMATIC|Constrict							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Snake (Viper))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Viper))																															BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dire Rat)			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dire Rat)									ABILITY:Special Ability|AUTOMATIC|Disease ~ Dire Rat																		BONUS:STAT|STR,CON|2|TYPE=Racial
+Companion Advancement (Shark)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Shark)										ABILITY:Special Ability|AUTOMATIC|Blindsense																		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Snake (Constrictor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Constrictor))								ABILITY:Special Ability|AUTOMATIC|Constrict											BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Snake (Viper))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Viper))																																		BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dire Rat)			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dire Rat)									ABILITY:Special Ability|AUTOMATIC|Disease ~ Dire Rat																					BONUS:STAT|STR,CON|2|TYPE=Racial
 
 # Advances at level 7
-Companion Advancement (Cat (Big (Lion)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Lion)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Cat (Big (Tiger)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Tiger)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Wolf)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Wolf)																																BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Cat (Big (Lion)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Lion)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Cat (Big (Tiger)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Tiger)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Wolf)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Wolf)																																			BONUS:SIZEMOD|NUMBER|1
 
 
 ###Block: Shadowdancer summoned Shadow abilities
@@ -67,9 +67,9 @@ Cannot be turned or commanded										KEY:Shadow Companion Resistance	CATEGORY:
 Strength Damage																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A shadow's touch deals 1d6 points of Strength damage to a living creature. This is a negative energy effect. A creature dies if this Strength damage equals or exceeds its actual Strength score.	ASPECT:Ability Benefit|(1d6/touch)
 
 ###Block: Animal Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Unique Key				Category of Ability		Type						Required Ability								Description																																			Description of the Benefits
+# Ability Name	Unique Key				Category of Ability		Type			Required Ability								Description																																			Description of the Benefits
 Attack		KEY:Animal Trick ~ Attack	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal attacks apparent enemies.	DESC:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II													BENEFIT:The animal attacks apparent enemies. You may point to a particular creature that you wish the animal to attack, and it will comply if able. Normally, an animal will attack only humanoids, monstrous humanoids, giants, or other animals. Teaching an animal to attack all creatures (including such unnatural creatures as undead and aberrations) counts as two tricks.	BENEFIT:Animal will attack all creatures|PREABILITY:1,CATEGORY=Animal Trick,Animal Trick ~ Attack II
-Attack II		KEY:Animal Trick ~ Attack II	CATEGORY:Special Ability	TYPE:AnimalTrick				PREABILITY:1,CATEGORY=Special Ability,Animal Trick ~ Attack
+Attack II		KEY:Animal Trick ~ Attack II	CATEGORY:Special Ability	TYPE:AnimalTrick	PREABILITY:1,CATEGORY=Special Ability,Animal Trick ~ Attack
 Come			KEY:Animal Trick ~ Come		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal comes to you, even if it normally would not do so.
 Defend		KEY:Animal Trick ~ Defend	CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal defends you (or is ready to defend you if no threat is present), even without any command being given. Alternatively, you can command the animal to defend another specific character.
 Down			KEY:Animal Trick ~ Down		CATEGORY:Special Ability	TYPE:AnimalTrick											DESC:The animal breaks off from combat or otherwise backs down. An animal that doesn't know this trick continues to fight until it must flee (due to injury, a fear effect, or the like) or its opponent is defeated.

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Jun  5 14:44:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith) and Maredudd (Eric C Smith)
 
@@ -71,7 +71,7 @@ Bracers of Armor +7										TYPE:Magic.Wondrous.Bracer													COST:49000	W
 Bracers of Armor +8										TYPE:Magic.Wondrous.Bracer													COST:64000	WT:1		SLOTS:2							SOURCEPAGE:p.505																									BONUS:COMBAT|AC|8|TYPE=Armor
 #Bracers of Armor: Need to make modifier for this. COST=PLUS*PLUS*1000, max PLUS w/o Epic is +8, must have +1 minimum.
 Brooch of Shielding										TYPE:Magic.Wondrous.Amulet													COST:1500	WT:.02			EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:p.505
-Broom of Flying											TYPE:Magic.Wondrous														COST:17000	WT:3										SOURCEPAGE:p.505																																																																																																																																							SPROP:9 hrs/day Overland Flight
+Broom of Flying											TYPE:Magic.Wondrous														COST:17000	WT:3										SOURCEPAGE:p.505																																																																																																																																								SPROP:9 hrs/day Overland Flight
 
 ###Block:C
 # Equipment Name					Output Name							Type						Cost		Weight	Modifier					Source Page		Innate Spells										Save checks bonus				Combat bonus						Bonus to skill					Special Property

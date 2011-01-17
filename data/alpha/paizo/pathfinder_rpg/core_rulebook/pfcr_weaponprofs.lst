@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jun  4 15:35:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # SIMPLE WEAPONS
 # -- unarmed
-# Weapon Name			Type																		Nb Hands
+# Weapon Name			Type																			Nb Hands
 Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Simple
@@ -71,8 +71,8 @@ Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePier
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
 Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Dwarven
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery											HANDS:2
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery											HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
 
 # EXOTIC
 # -- light

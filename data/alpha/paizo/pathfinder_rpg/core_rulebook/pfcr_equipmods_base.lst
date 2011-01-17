@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Dec 28 17:32:43 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
@@ -12,15 +12,15 @@ Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shie
 Wood			KEY:WOOD	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal		ASSIGNTOALL:YES
 
 ###Block: Masterwork
-# Modifier Name	Unique Key	Naming Format	Naming Option	Type						Cost		Visible		Type granted	Source Page		Required Type		Prohibited Type							Bonus Armor Modifiers				Modify the item cost								Weapon prop. bonus				Apply to both heads
-Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon		COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.149	PRETYPE:1,Weapon		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Weapon|300						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
-Masterwork		KEY:MWORKM	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.149	PRETYPE:1,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
-Masterwork		KEY:MWORKA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Armor.Shield	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.153	PRETYPE:1,Armor,Shield	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement	BONUS:ITEMCOST|TYPE=Armor|150	BONUS:ITEMCOST|TYPE=Shield|150
-Masterwork		KEY:MWORKT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Tools		COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Tools		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Thief|20	BONUS:ITEMCOST|TYPE=Instrument|45
-Masterwork		KEY:MWORKB	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Amulet.Ring.Staff.Wand		COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Amulet,Ring,Staff,Wand		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood
+# Modifier Name	Unique Key	Naming Format	Naming Option	Type								Cost		Visible		Type granted	Source Page		Required Type				Prohibited Type							Bonus Armor Modifiers				Modify the item cost								Weapon prop. bonus				Apply to both heads
+Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon				COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.149	PRETYPE:1,Weapon				!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Weapon|300						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		KEY:MWORKM	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition			COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.149	PRETYPE:1,Ammunition			!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
+Masterwork		KEY:MWORKA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Armor.Shield			COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.153	PRETYPE:1,Armor,Shield			!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement	BONUS:ITEMCOST|TYPE=Armor|150	BONUS:ITEMCOST|TYPE=Shield|150
+Masterwork		KEY:MWORKT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Tools				COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Tools				!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Thief|20	BONUS:ITEMCOST|TYPE=Instrument|45
+Masterwork		KEY:MWORKB	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Amulet.Ring.Staff.Wand	COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:p.160	PRETYPE:1,Amulet,Ring,Staff,Wand	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood
 
 ###Block: Arcane Bonded Objects
-# Modifier Name	Unique Key		Naming Format	Naming Option		Type						Cost		Visible		Type granted	Source Page		Required Type										Special Property
+# Modifier Name	Unique Key		Naming Format	Naming Option		Type						Visible		Type granted	Source Page		Multiple Requirements															Special Property
 Bonded Object	KEY:BONDED_OBJECT	FORMATCAT:PARENS	NAMEOPT:TEXT=Bonded	TYPE:Amulet.Ring.Staff.Wand.Weapon	VISIBLE:QUALIFY	ITYPE:Bonded	SOURCEPAGE:p.78	PREMULT:2,[PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood],[PRETYPE:1,Amulet,Ring,Staff,Wand,Weapon]	SPROP:Can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared.
 
 ###Block: Thrown Ammunition workaround
@@ -50,11 +50,11 @@ Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITY
 Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
 
 ###Block: Masterwork
-# Modifier Name	Unique Key	Naming Format	Naming Option	Type						Cost		Visible		Type granted	Source Page		Required Type		Combat bonus				Modify the item cost											Weapon prop. bonus					Special Property										Apply to both heads
-Broken		KEY:BROKEW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Weapon		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.565	PRETYPE:1,Weapon								BONUS:ITEMCOST|TYPE=Weapon|-BASECOST*.25								BONUS:WEAPON|TOHIT,DAMAGE|-2|TYPE=Condition	SPROP:-2 penalty on attack and damage rolls with critical of 20/x2.	ASSIGNTOALL:YES
-Broken		KEY:BROKEA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Armor		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Armor								BONUS:ITEMCOST|TYPE=Armor|-BASECOST*.25																SPROP:AC bonus is halved and AC Check is doubled.
-Broken		KEY:BROKES	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Shield		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Shield								BONUS:ITEMCOST|TYPE=Shield|-BASECOST*.25																SPROP:AC bonus is halved and AC Check is doubled.
-Broken		KEY:BROKET	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Tools		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Tools								BONUS:ITEMCOST|TYPE=Tools|-BASECOST*.25																SPROP:-2 penalty on all skill checks.
-Broken		KEY:BROKEM	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Wand.Staff	COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Wand,Staff							BONUS:ITEMCOST|TYPE=Wand|-BASECOST*.25	BONUS:ITEMCOST|TYPE=Staff|-BASECOST*.25									SPROP:Uses twice the charges as normal.
+# Modifier Name	Unique Key	Naming Format	Naming Option	Type						Cost		Visible		Type granted	Source Page		Required Type		Modify the item cost											Weapon prop. bonus					Special Property										Apply to both heads
+Broken		KEY:BROKEW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Weapon		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.565	PRETYPE:1,Weapon		BONUS:ITEMCOST|TYPE=Weapon|-BASECOST*.25								BONUS:WEAPON|TOHIT,DAMAGE|-2|TYPE=Condition	SPROP:-2 penalty on attack and damage rolls with critical of 20/x2.	ASSIGNTOALL:YES
+Broken		KEY:BROKEA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Armor		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Armor		BONUS:ITEMCOST|TYPE=Armor|-BASECOST*.25																SPROP:AC bonus is halved and AC Check is doubled.
+Broken		KEY:BROKES	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Shield		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Shield		BONUS:ITEMCOST|TYPE=Shield|-BASECOST*.25																SPROP:AC bonus is halved and AC Check is doubled.
+Broken		KEY:BROKET	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Tools		COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Tools		BONUS:ITEMCOST|TYPE=Tools|-BASECOST*.25																SPROP:-2 penalty on all skill checks.
+Broken		KEY:BROKEM	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BrokenCondition.Wand.Staff	COST:0	VISIBLE:QUALIFY	ITYPE:Broken	SOURCEPAGE:p.566	PRETYPE:1,Wand,Staff	BONUS:ITEMCOST|TYPE=Wand|-BASECOST*.25	BONUS:ITEMCOST|TYPE=Staff|-BASECOST*.25									SPROP:Uses twice the charges as normal.
 
 

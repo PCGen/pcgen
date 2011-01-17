@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 24 00:24:59 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
@@ -21,7 +21,7 @@ Rod (Security)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																	
 Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:25000	WT:5																																												SOURCEPAGE:p.488													BONUS:STAT|CHA|4|TYPE=Enhancement
 Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer							COST:33000	WT:5						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.PLUS1W			WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 Rod (Viper)					OUTPUTNAME:Rod of the Viper	PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace													COST:19000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8																		SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace													COST:25000	WT:6		BASEITEM:Rod																									WIELD:Light						SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace													COST:25000	WT:6		BASEITEM:Rod																															WIELD:Light						SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:12000	WT:5		BASEITEM:Rod																																								SOURCEPAGE:p.489
 
 ###Block:Metamagic Rods

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  9 20:13:35 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 #SOURCELONG:Pathfinder Roleplaying Game Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -15,23 +15,23 @@ ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Character Traits
-# Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display Location
-ABILITYCATEGORY:Traits			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BasicTrait.RaceTrait.ReligionTrait.RegionTrait	PLURAL:Traits			DISPLAYLOCATION:Traits
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display Location
+ABILITYCATEGORY:Traits			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BasicTrait.RaceTrait.ReligionTrait.RegionTrait	PLURAL:Traits			DISPLAYLOCATION:Traits
 ABILITYCATEGORY:Campaign Traits	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CampaignTrait						PLURAL:Campaign Traits		DISPLAYLOCATION:Traits
 
 # Archetypes
-ABILITYCATEGORY:Archetype		VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype
-ABILITYCATEGORY:Class Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:Archetype							PLURAL:Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Archetype		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype
+ABILITYCATEGORY:Class Archetype	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:Archetype							PLURAL:Archetypes			DISPLAYLOCATION:Archetype
 
 ###Block: Racial Traits Categories
-# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Dwarf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait		PLURAL:Dwarf Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait		PLURAL:Elf Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gnome Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait		PLURAL:Gnome Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half Elf Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait		PLURAL:Half Elf Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half Orc Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait		PLURAL:Half Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Halfling Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	PLURAL:Halfling Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Human Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait		PLURAL:Human Racial Traits		DISPLAYLOCATION:Racial Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Dwarf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait		PLURAL:Dwarf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait		PLURAL:Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait		PLURAL:Gnome Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half Elf Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait		PLURAL:Half Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half Orc Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait		PLURAL:Half Orc Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	PLURAL:Halfling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Human Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait		PLURAL:Human Racial Traits	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Class Bonus Feat Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list						Plural description for UI		Display Location
@@ -98,21 +98,22 @@ ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ###Block: Prestige Classes --------------------------
 
 # Loremaster
-ABILITYCATEGORY:Loremaster Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret	PLURAL:Loremaster Secrets	DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Loremaster Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret		PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Abilities
 
 
 # Master Category
-ABILITYCATEGORY:Intelligent Item											CATEGORY:Intelligent Item						VISIBLE:NO
+ABILITYCATEGORY:Intelligent Item			VISIBLE:NO													CATEGORY:Intelligent Item
 
 # Child Categories
-ABILITYCATEGORY:Intelligent Item Alignment		PLURAL:Intelligent Item Alignment		CATEGORY:Intelligent Item	TYPE:IntelligentAlignment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Languages		PLURAL:Intelligent Item Languages		CATEGORY:Intelligent Item	TYPE:IntItemLang			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Power			PLURAL:Intelligent Item Power			CATEGORY:Intelligent Item	TYPE:ItemStandardPower		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose			PLURAL:Intelligent Item Purpose		CATEGORY:Intelligent Item	TYPE:ItemPurpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose Power		PLURAL:Intelligent Item Purpose Power	CATEGORY:Intelligent Item	TYPE:ItemPurposePower		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Alignment	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntelligentAlignment	PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Languages	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntItemLang			PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemStandardPower		PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurpose			PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurposePower		PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
 
 # Master Category
-ABILITYCATEGORY:Afflictions	CATEGORY:Afflictions	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO
+ABILITYCATEGORY:Afflictions				VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions
 
 # Child Categorie
-ABILITYCATEGORY:Affliction	CATEGORY:Afflictions	TYPE:Afflictions	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	DISPLAYLOCATION:Afflictions	PLURAL:Afflictions
+ABILITYCATEGORY:Affliction							EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions		TYPE:Afflictions			PLURAL:Afflictions				DISPLAYLOCATION:Afflictions

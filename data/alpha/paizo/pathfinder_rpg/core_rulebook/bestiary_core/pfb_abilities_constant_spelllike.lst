@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb  4 17:37:34 2010 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 # Original Entry by: Eddy Anthony
 
 # Creatures with constant abilities should use BONUS:VAR|SLA_CL|x to set the caster level for these spell-like abilities
