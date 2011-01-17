@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Dec  9 10:31:06 2010 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 ###Block: Inttial Traits template
-# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Add to vision			Choose									Bonus Languages	Vision		Natural Attacks
 Standard Character Traits		VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|2
 Adventure Path Character Traits	VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|1	BONUS:ABILITYPOOL|Campaign Traits|1
 
@@ -54,20 +54,20 @@ Adventure Path Character Traits	VISIBLE:NO																														BONUS:AB
 # Oracle Templates
 # Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
 
-Aquan Bonus Language																																																																																																													LANGBONUS:Aquan
+Aquan Bonus Language																																																																				LANGBONUS:Aquan
 
-Small Claws																			PRESIZELTEQ:S																																																																																																NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
-Medium Claws															PRESIZEGTEQ:M																																																																																																			NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
+Small Claws																			PRESIZELTEQ:S																																																							NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
+Medium Claws															PRESIZEGTEQ:M																																																										NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
 
 
-Vision Normal																										!PREVISION:1,Darkvision=1 !PREVISION:1,Low-Light=ANY																																																																															VISION:Low-Light
-Vision Lowlight																					PREVISION:1,Low-Light=ANY																																							BONUS:VISION|Darkvision|30
-Vision Darkvision																					PREVISION:1,Darkvision=1																																							BONUS:VISION|Darkvision|30
+Vision Normal																										!PREVISION:1,Darkvision=1 !PREVISION:1,Low-Light=ANY																																						VISION:Low-Light
+Vision Lowlight																					PREVISION:1,Low-Light=ANY																													BONUS:VISION|Darkvision|30
+Vision Darkvision																					PREVISION:1,Darkvision=1																													BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
 
 ### Block: Hero Points
-# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
-Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																																																																						CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Add to vision			Choose									Bonus Languages	Vision		Natural Attacks
+Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																													CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
 
 Bard Spell Level 0																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|1
 Bard Spell Level 1																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1

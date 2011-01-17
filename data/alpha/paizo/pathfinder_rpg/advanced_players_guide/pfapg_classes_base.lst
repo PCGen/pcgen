@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  4 15:21:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -93,22 +93,22 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1	BONUS:VAR|DomainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Domains
 ###Block: Level progression
-1																				BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
-1																ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
-1																ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
-2																ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor
-2																ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor
-2																ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor
-3																ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor
-5																ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor
-5																ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor
-8																ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor
-11																ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor
-12																ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor
-14																ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor
-16																ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor
-17																ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor
-20																ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor
+1									BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
+1																	ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
+1																	ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
+2																	ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor
+2																	ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor
+2																	ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor
+3																	ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor
+5																	ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor
+5																	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor
+8																	ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor
+11																	ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor
+12																	ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor
+14																	ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor
+16																	ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor
+17																	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor
+20																	ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor
 #
 3									BONUS:ABILITYPOOL|Teamwork Feat|CL/3
 #Block: Casting
@@ -220,19 +220,17 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
 12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4																ABILITY:Special Ability|AUTOMATIC|Greater Shield Ally
 13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
-14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3							BONUS:VAR|EidMaxAttacks|1					ABILITY:Special Ability|AUTOMATIC|Life Bond
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3		BONUS:VAR|EidMaxAttacks|1										ABILITY:Special Ability|AUTOMATIC|Life Bond
 15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
 16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2															ABILITY:Special Ability|AUTOMATIC|Merge Forms
 17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
 18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4															ABILITY:Special Ability|AUTOMATIC|Greater Aspect
-19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4						BONUS:VAR|EidMaxAttacks|1					ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4	BONUS:VAR|EidMaxAttacks|1										ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5															ABILITY:Special Ability|AUTOMATIC|Twin Eidolon
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-#elro - original below. I cannot find the Witch Concentration Check in the source
-#CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	ABILITY:Special Ability|AUTOMATIC|Witch Concentration Check	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE.Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level

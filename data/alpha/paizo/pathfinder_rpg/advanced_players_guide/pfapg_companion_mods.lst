@@ -1,57 +1,58 @@
-# CVS $Revision$ $Author$ -- Thu Nov  4 15:21:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond & Andrew Maitland
 
-FOLLOWER:CompLevel=1	TYPE:Animal Companion			BONUS:HP|CURRENTMAX|var("AnimalCompHP")	DEFINE:AnimalCompHP|0
-FOLLOWER:CompLevel=1	TYPE:Animal Companion			BONUS:DR|Magic|var("AnimalCompDR")		DEFINE:AnimalCompDR|0
+# Class of the Master		Type				Hit Dice	Ability											Automatically Gained Feat	Define															Bonus to Ability Pool												Combat bonus					Damage reduction				Bonus to HP						Stat bonus			Modify VAR
+FOLLOWER:CompLevel=1		TYPE:Animal Companion																				DEFINE:AnimalCompHP|0																																									BONUS:HP|CURRENTMAX|var("AnimalCompHP")
+FOLLOWER:CompLevel=1		TYPE:Animal Companion																				DEFINE:AnimalCompDR|0																																			BONUS:DR|Magic|var("AnimalCompDR")
 
 
 
-# Class of the Master		Type			Hit Dice	Ability											Automatically Gained Feat	Define											Bonus to Ability Pool												Combat bonus						Stat bonus			Modify VAR
-FOLLOWER:EidolonLevel=1		TYPE:Eidolon			ABILITY:Special Ability|AUTOMATIC|Link~Eidolon|Share Spells~Eidolon						DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3	DEFINE:EidolonHP|0	BONUS:HP|CURRENTMAX|var("EidolonHP")
-FOLLOWER:EidolonLevel=2		TYPE:Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																							BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=3		TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=4		TYPE:Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=5		TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=6		TYPE:Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																						BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=7		TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=8		TYPE:Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=9		TYPE:Eidolon	HD:1														AUTO:FEAT|Multiattack														BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=10	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=11	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=12	TYPE:Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=13	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=14	TYPE:Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																					BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=15	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=16	TYPE:Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=17	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=18	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=19	TYPE:Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=20	TYPE:Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+# Class of the Master		Type				Hit Dice	Ability											Automatically Gained Feat	Define															Bonus to Ability Pool												Combat bonus					Damage reduction				Bonus to HP						Stat bonus			Modify VAR
+FOLLOWER:EidolonLevel=1		TYPE:Eidolon				ABILITY:Special Ability|AUTOMATIC|Link~Eidolon|Share Spells~Eidolon						DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	DEFINE:EidolonHP|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4																BONUS:HP|CURRENTMAX|var("EidolonHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:EidolonLevel=2		TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																											BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=3		TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=4		TYPE:Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|2																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=5		TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=6		TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																										BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=7		TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=8		TYPE:Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=9		TYPE:Eidolon		HD:1														AUTO:FEAT|Multiattack																		BONUS:ABILITYPOOL|Eidolon Evolution|2																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=10	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=11	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=12	TYPE:Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=13	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=14	TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																									BONUS:ABILITYPOOL|Eidolon Evolution|2																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=15	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=16	TYPE:Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=17	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=18	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=19	TYPE:Eidolon		HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|2																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=20	TYPE:Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 
 
 ###Block:Companion for Cavalier
-# Class of the Master		Type				Hit Dice	Ability													Automatically Gained Feat		Required Race			Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Link|Bonus Tricks|Animal Tricks and Training												DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal	BONUS:HP|CURRENTMAX|var("CavalierMountHP")	DEFINE:CavalierMountHP|0
-FOLLOWER:CavalierLevel=2	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Evasion																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=4	TYPE:Cavalier Mount	HD:1																																			BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=5	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=6	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=7	TYPE:Cavalier Mount																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=8	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=9	TYPE:Cavalier Mount	HD:1																AUTO:FEAT|Multiattack																BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=10	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=11	TYPE:Cavalier Mount																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=12	TYPE:Cavalier Mount	HD:1																																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=13	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=14	TYPE:Cavalier Mount	HD:1																																			BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=15	TYPE:Cavalier Mount																																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=16	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=17	TYPE:Cavalier Mount	HD:1																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=18	TYPE:Cavalier Mount	HD:1																																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierLevel=19	TYPE:Cavalier Mount																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierLevel=20	TYPE:Cavalier Mount	HD:1																																			BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+# Class of the Master		Type				Hit Dice	Ability													Automatically Gained Feat		Required Race			Define												Bonus to Ability Pool					Combat bonus					Bonus to HP							Stat bonus			Modify VAR							Main Race Type
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Link|Bonus Tricks|Animal Tricks and Training												DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0																BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CavalierLevel=2	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Evasion																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=4	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=5	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=6	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=7	TYPE:Cavalier Mount																																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=8	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=9	TYPE:Cavalier Mount	HD:1																AUTO:FEAT|Multiattack																					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=10	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=11	TYPE:Cavalier Mount																																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=12	TYPE:Cavalier Mount	HD:1																																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=13	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=14	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=15	TYPE:Cavalier Mount																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=16	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=17	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=18	TYPE:Cavalier Mount	HD:1																																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierLevel=19	TYPE:Cavalier Mount																																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierLevel=20	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
 #
 
 FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Camel)

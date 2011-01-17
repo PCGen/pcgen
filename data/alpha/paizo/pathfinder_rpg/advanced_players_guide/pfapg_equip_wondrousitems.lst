@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct  3 17:45:35 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -90,12 +90,12 @@ Lord's Banner (Terror)		TYPE:Magic.Wondrous	COST:56000	WT:3		SOURCEPAGE:p.307
 Lord's Banner (Victory)		TYPE:Magic.Wondrous	COST:75000	WT:3		SOURCEPAGE:p.307
 
 ###Block:M
-# Equipment Name			Type					Cost		Weight	Source Page		Vision
+# Equipment Name			Type					Cost		Weight	Source Page		Vision			Modify VAR
 Manacles of Cooperation		TYPE:Magic.Wondrous.Wrist	COST:2000	WT:2		SOURCEPAGE:p.307
 Mask of Giants (Lesser)		TYPE:Magic.Wondrous.Mask	COST:30000	WT:1		SOURCEPAGE:p.307
 Mask of Giants (Greater)	TYPE:Magic.Wondrous.Mask	COST:90000	WT:1		SOURCEPAGE:p.307
 Moon Circlet			TYPE:Magic.Wondrous.Circlet	COST:20000			SOURCEPAGE:p.308	VISION:Darkvision (60')
-Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:.25	SOURCEPAGE:p.308	BONUS:VAR|LOADSCORE|8
+Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:.25	SOURCEPAGE:p.308					BONUS:VAR|LOADSCORE|8
 
 ###Block:N
 # Equipment Name		Type					Cost		Weight	Source Page		Modify VAR
