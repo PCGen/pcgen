@@ -46,6 +46,7 @@
 		<name>|NAME|</name>
 		<followerof>|FOLLOWEROF|</followerof>
 		<playername>|PLAYERNAME|</playername>
+		<hero_points>|VAR.HEROPOINTS.INTVAL|</hero_points>
 		<age>|AGE|</age>
 		<alignment>
 			<long>|ALIGNMENT|</long>
@@ -547,6 +548,7 @@ Immune
 |ENDIF|
 			 -->
 		</unarmed>
+
 |ENDIF|
 <!-- Spirit Weapon - Melee -->
 |IIF(VAR.UseSpiritWeaponMelee:1)|
@@ -1006,6 +1008,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<class_features>
+|%VAR.BardicPerformanceLVL.GTEQ.1|
+        <bardic_music>
+			<uses_per_day>|VAR.BardicPerformanceDuration.INTVAL|</uses_per_day>
+		</bardic_music>
+|%|
 |%VAR.BardicMusicLevel.GTEQ.1|
 		<bardic_music>
 			<uses_per_day>|VAR.BardicMusicLevel.INTVAL|</uses_per_day>
