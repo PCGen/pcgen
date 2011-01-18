@@ -81,6 +81,29 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test that negative (!) alignment checks work correctly in Align tests.
+	 * @throws Exception
+	 */
+	public void testNegative() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		character.setAlignment(ng);
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("!PREALIGN:TN");
+
+		assertTrue("Not TN should match character's alignment of NG",
+			PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("!PREALIGN:NG");
+
+		assertFalse("Not TN should not match character's alignment of NG",
+			PrereqHandler.passes(prereq, character, null));
+	}
+
+	/**
 	 * Test that alignment abbreviation values work correctly in Align tests.
 	 * @throws Exception
 	 */

@@ -35,6 +35,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
@@ -51,7 +53,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		final PlayerCharacter aPC)
+		final PlayerCharacter aPC) throws PrerequisiteException
 	{
 		if (aPC == null)
 		{
@@ -61,7 +63,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
 		//
 		// If game mode doesn't support alignment, then pass the prereq
@@ -75,26 +77,61 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 		else
 		{
 			String desiredAlignment = prereq.getKey();
-			PCAlignment al = getPCAlignment(desiredAlignment);
 			final PCAlignment charAlignment = character.getPCAlignment();
 
-			if (al.equals(charAlignment))
+			if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 			{
-				runningTotal = 1;
-			}
-			else if ((desiredAlignment.equalsIgnoreCase("Deity"))
-				&& (character.getDeity() != null))
-			{
-				final PCAlignment deityAlignStr =
-						character.getDeity().get(ObjectKey.ALIGNMENT);
-				if (charAlignment.equals(deityAlignStr))
+				if (alignMatches(character, desiredAlignment, charAlignment))
 				{
-					runningTotal = 1;
+					runningTotal++;
 				}
+			}
+			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+			{
+				if (!alignMatches(character, desiredAlignment, charAlignment))
+				{
+					runningTotal++;
+				}
+			}
+			else
+			{
+				throw new PrerequisiteException(
+					PropertyFactory
+						.getFormattedString(
+							"PreAlign.error.invalidComparison", prereq.getOperator().toString(), prereq.toString())); //$NON-NLS-1$
 			}
 		}
 
 		return countedTotal(prereq, runningTotal);
+	}
+
+	/**
+     * Check if the character's alignment matches the requirement.
+     * 
+	 * @param character The character to test
+	 * @param desiredAlignment The alignment to be found
+	 * @param charAlignment The character's alignment
+	 * @return true if the alignment matches, false if not.
+	 */
+	private boolean alignMatches(final PlayerCharacter character,
+		String desiredAlignment, final PCAlignment charAlignment)
+	{
+		PCAlignment al = getPCAlignment(desiredAlignment);
+		if (al.equals(charAlignment))
+		{
+			return true;
+		}
+		else if ((desiredAlignment.equalsIgnoreCase("Deity"))
+			&& (character.getDeity() != null))
+		{
+			final PCAlignment deityAlignStr =
+					character.getDeity().get(ObjectKey.ALIGNMENT);
+			if (charAlignment.equals(deityAlignStr))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/* (non-Javadoc)
