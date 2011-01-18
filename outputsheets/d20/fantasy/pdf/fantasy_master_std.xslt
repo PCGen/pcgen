@@ -3862,7 +3862,9 @@
 			<xsl:with-param name="attribute" select="'bard'"/>
 			<xsl:with-param name="name" select="'LAY ON HANDS'"/>
 			<xsl:with-param name="uses" select="hp_per_day"/>
-			<xsl:with-param name="uses.title" select="'HP per day'"/>
+			<xsl:with-param name="uses.title" select="hp_per_day.title"/>
+			<xsl:with-param name="description.title" select="' '"/>
+			<xsl:with-param name="description" select="description"/>
 		</xsl:call-template>
 	</xsl:template>
 
