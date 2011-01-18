@@ -315,6 +315,7 @@
 										<xsl:apply-templates select="class_features/rage"/>
 										<xsl:apply-templates select="class_features/wildshape"/>
 										<xsl:apply-templates select="class_features/stunning_fist"/>
+										<xsl:apply-templates select="class_features/ki_pool"/>
 										<xsl:apply-templates select="class_features/wholeness_of_body"/>
 										<xsl:apply-templates select="class_features/layonhands"/>
 										<xsl:apply-templates select="class_features/psionics"/>
@@ -843,6 +844,7 @@
 						<xsl:when test="name($features[1]) = 'rage'">25</xsl:when>
 						<xsl:when test="name($features[1]) = 'wildshape'">25</xsl:when>
 						<xsl:when test="name($features[1]) = 'stunning_fist'">14</xsl:when>
+						<xsl:when test="name($features[1]) = 'ki_pool'">14</xsl:when>
 						<xsl:when test="name($features[1]) = 'wholeness_of_body'">14</xsl:when>
 						<xsl:when test="name($features[1]) = 'psionics'">56</xsl:when>
 						<xsl:when test="name($features[1]) = 'layonhands'">14</xsl:when>
@@ -3819,6 +3821,19 @@
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'stunningfist'"/>
 			<xsl:with-param name="name" select="'STUNNING FIST'"/>
+			<xsl:with-param name="uses" select="uses_per_day"/>
+		</xsl:call-template>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - KI Pool
+====================================
+====================================-->
+	<xsl:template match="ki_pool">
+		<xsl:call-template name="class.feature.perday">
+			<xsl:with-param name="attribute" select="'stunningfist'"/>
+			<xsl:with-param name="name" select="'ki Pool'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 		</xsl:call-template>
 	</xsl:template>

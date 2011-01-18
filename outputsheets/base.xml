@@ -1093,6 +1093,12 @@ Immune
 |ENDFOR|
 
 
+|%VAR.KiPoolLVL.GTEQ.1|
+		<ki_pool>
+			<uses_per_day>|VAR.KiPoints.INTVAL|</uses_per_day>
+		</ki_pool>
+|%|	<!-- 3.0 stunning fist -->
+
 |%VAR.StunningAttack.GTEQ.1|
 		<stunning_fist>
 			<save_dc>|VAR.StunDC.INTVAL|</save_dc>
