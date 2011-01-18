@@ -1008,11 +1008,13 @@ Immune
 	  ====================================
 	  ====================================-->
 	<class_features>
+<!-- Pathfinder -->
 |%VAR.BardicPerformanceLVL.GTEQ.1|
         <bardic_music>
 			<uses_per_day>|VAR.BardicPerformanceDuration.INTVAL|</uses_per_day>
 		</bardic_music>
 |%|
+<!-- D&D 3.0 -->
 |%VAR.BardicMusicLevel.GTEQ.1|
 		<bardic_music>
 			<uses_per_day>|VAR.BardicMusicLevel.INTVAL|</uses_per_day>
@@ -1020,6 +1022,7 @@ Immune
 			<text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire Greatness(12)</text>
 		</bardic_music>
 |%|
+<!-- D&D 3.5 -->
 |%VAR.BardicMusicTimes.GTEQ.1|
 		<bardic_music>
 			<uses_per_day>|VAR.BardicMusicTimes.INTVAL|</uses_per_day>
@@ -1058,6 +1061,14 @@ Immune
 |%|	<!-- Bard -->
 
 
+
+
+<!-- Pathfinder -->
+|%VAR.RageLVL.GTEQ.1|	<!-- If character can Rage -->
+        <rage>
+            <uses_per_day>|VAR.RageDuration.INTVAL|</uses_per_day>
+        </rage>
+|%|	<!-- Character Rage -->
 |%VAR.RageTimes.GTEQ.1|	<!-- If character can Rage -->
 	<rage>
 		<uses_per_day>|VAR.RageTimes.INTVAL|</uses_per_day>
