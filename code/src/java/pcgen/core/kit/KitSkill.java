@@ -353,11 +353,11 @@ public final class KitSkill extends BaseKit
 					Math.min(pc.getMaxRank(aSkill, pcClass)
 						.doubleValue(), curRank + ranksLeftToAdd);
 			ranksToAdd -= curRank;
-			if (CoreUtility.doublesEqual(ranksToAdd, ranksLeftToAdd))
+			if (!CoreUtility.doublesEqual(ranksToAdd, ranksLeftToAdd))
 			{
 				warnings.add("SKILL: Could not add " + (ranksLeftToAdd - ranksToAdd)
 					+ " to " + aSkill.getDisplayName()
-					+ ". Excedes MAXRANK of "
+					+ ". Exceeds MAXRANK of "
 					+ pc.getMaxRank(aSkill, pcClass) + ".");
 			}
 		}
