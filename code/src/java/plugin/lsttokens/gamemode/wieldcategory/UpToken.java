@@ -46,7 +46,7 @@ public class UpToken extends AbstractTokenWithSeparator<WieldCategory>
 			WieldCategory wc, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		int count = -1;
+		int count = 1;
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<WieldCategory> stepCat = context.ref
