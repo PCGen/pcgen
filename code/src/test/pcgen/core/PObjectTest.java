@@ -203,23 +203,23 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 
 		PlayerCharacter aPC = getCharacter();
-		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
+		Ability ability = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 
-		aPC.addAssociation(pObj, "TestPsion 1");
+		aPC.addAssociation(ability, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj);
+			aPC, ability);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		aPC.addAssociation(pObj, "TestPsion 1");
+		aPC.addAssociation(ability, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj);
+			aPC, ability);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		aPC.addAssociation(pObj, "TestPsion 1");
+		aPC.addAssociation(ability, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, pObj);
+			aPC, ability);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 9 bonus known spells", (3 * 3), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
@@ -254,8 +254,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
+		pObj = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.addAssociation(pObj, "");
-		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
@@ -294,8 +294,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
+		pObj = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.addAssociation(pObj, "+3 HP");
-		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 

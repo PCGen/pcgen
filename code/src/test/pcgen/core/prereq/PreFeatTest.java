@@ -120,8 +120,8 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		focusFeat.setName("Weapon Focus");
 		focusFeat.setCDOMCategory(AbilityCategory.FEAT);
 		focusFeat.put(StringKey.CHOICE_STRING, "WEAPONPROFS|LIST");
-		character.addAssociation(focusFeat, "Rapier");
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, focusFeat);
+		Ability pcFocusFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, focusFeat);
+		character.addAssociation(pcFocusFeat, "Rapier");
 
 		final Prerequisite preFeat = new Prerequisite();
 		preFeat.setKind("FEAT");
@@ -183,8 +183,8 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
-		character.addAssociation(spellFocus, "Conjuration");
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
+		Ability pcSpellFocus = character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
+		character.addAssociation(pcSpellFocus, "Conjuration");
 
 		final Prerequisite preSpellFocus = new Prerequisite();
 		preSpellFocus.setKind("FEAT");
@@ -335,8 +335,8 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without skill focus", passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocusKnow);
-		character.addAssociation(skillFocusKnow, "Knowledge (Arcana)");
+		Ability pcFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocusKnow);
+		character.addAssociation(pcFeat, "Knowledge (Arcana)");
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with skill focus", passes);
 
@@ -362,13 +362,13 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without spell focus", passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
-		character.addAssociation(spellFocus, "Evocation");
+		Ability pcFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
+		character.addAssociation(pcFeat, "Evocation");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass with only one spell focus", passes);
 
-		character.addAssociation(spellFocus, "Enchantment");
+		character.addAssociation(pcFeat, "Enchantment");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with spell focus", passes);
