@@ -2017,8 +2017,13 @@
                                                 <xsl:value-of select="name"/>
                                             </fo:block>
                                         </xsl:when>
+                                        <xsl:when test="string-length(name) &lt; 45">
+                                            <fo:block space-before.optimum="1pt" font-size="6pt">
+                                                <xsl:value-of select="name"/>
+                                            </fo:block>
+                                        </xsl:when>
                                         <xsl:otherwise>
-                                            <fo:block space-before.optimum="1pt" font-size="6pt" wrap-option="no-wrap">
+                                            <fo:block space-before.optimum="1pt" font-size="4pt">
                                                 <xsl:value-of select="name"/>
                                             </fo:block>
                                         </xsl:otherwise>

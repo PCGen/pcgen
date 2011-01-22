@@ -1108,9 +1108,6 @@ Immune
 |ELSE|
 		<description>You can unleash a wave of negative energy dealing |VAR.ChannelEnergyDice.INTVAL|d|VAR.ChannelEnergyDieSize.INTVAL| (DC |VAR.ChannelEnergyDC.INTVAL| for half)</description>
 |ENDIF|
-|%VAR.ChannelEnergyLVL.GTEQ.1|
-|%|
-
 	</channel_energy>
 |%|
 
