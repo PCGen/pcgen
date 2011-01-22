@@ -79,7 +79,6 @@
 			<description>|DEITY.DESCRIPTION|</description>
 			<domainlist>|DEITY.DOMAINLIST|</domainlist>
 			<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
-			<followeralignment>|DEITY.FOLLOWERALIGNMENT|</followeralignment>
 			<holyitem>|DEITY.HOLYITEM|</holyitem>
 			<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
 			<source>|DEITY.SOURCE|</source>
