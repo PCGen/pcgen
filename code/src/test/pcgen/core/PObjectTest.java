@@ -419,14 +419,15 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertTrue(context.ref.resolveReferences(null));
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(arRace);
-		assertEquals("Initial number of feats", 0.0, pc.getRemainingFeatPoolPoints(), 0.1);
+		assertEquals("Initial number of feats, including racial bonus feat",
+			1.0, pc.getRemainingFeatPoolPoints(), 0.1);
 		
 		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Number of feats at 1st level", 0.0, pc.getRemainingFeatPoolPoints(), 0.1);
+		assertEquals("Number of feats at 1st level", 1.0, pc.getRemainingFeatPoolPoints(), 0.1);
 		assertNotNull("Has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
 		
 		pc.incrementClassLevel(2, pcClass);
-		assertEquals("Number of feats at 2nd level", 1.0, pc.getRemainingFeatPoolPoints(), 0.1);
+		assertEquals("Number of feats at 2nd level", 2.0, pc.getRemainingFeatPoolPoints(), 0.1);
 		assertNull("No longer has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
 	}
 	
