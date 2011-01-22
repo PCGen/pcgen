@@ -1067,11 +1067,13 @@ Immune
 |%VAR.RageLVL.GTEQ.1|	<!-- If character can Rage -->
         <rage>
             <uses_per_day>|VAR.RageDuration.INTVAL|</uses_per_day>
+			<uses_per_day.title>Rounds/day</uses_per_day.title>
         </rage>
 |%|	<!-- Character Rage -->
 |%VAR.RageTimes.GTEQ.1|	<!-- If character can Rage -->
 	<rage>
 		<uses_per_day>|VAR.RageTimes.INTVAL|</uses_per_day>
+		<uses_per_day.title>Uses per day</uses_per_day.title>
 		<description>The Barbarian temporarily gains +|VAR.RageStrBonus.INTVAL| to Strength, +|VAR.RageConBonus.INTVAL| to Constitution, and a +|VAR.RageMorale.INTVAL| morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
@@ -1092,6 +1094,25 @@ Immune
 |ENDIF|
 |ENDFOR|
 
+<!-- Channel Energy -->
+|%VAR.ChannelEnergyLVL.GTEQ.1|
+	<channel_energy>
+		<level>|VAR.ChannelEnergyLVL.INTVAL|</level>
+		<uses_per_day>|VAR.ChannelEnergyTimes.INTVAL|</uses_per_day>
+		<uses_per_day.title>Uses per day</uses_per_day.title>
+		<DC>|VAR.ChannelEnergyDC.INTVAL|</DC>
+		<dice>|VAR.ChannelEnergyDice.INTVAL|</dice>
+		<die_size>|VAR.ChannelEnergyDieSize.INTVAL|</die_size>
+|IIF(VAR.ChannelPositiveEnergyDC:1)|
+		<description>You can unleash a wave of positive energy dealing |VAR.ChannelEnergyDice.INTVAL|d|VAR.ChannelEnergyDieSize.INTVAL| (DC |VAR.ChannelEnergyDC.INTVAL| for half)</description>
+|ELSE|
+		<description>You can unleash a wave of negative energy dealing |VAR.ChannelEnergyDice.INTVAL|d|VAR.ChannelEnergyDieSize.INTVAL| (DC |VAR.ChannelEnergyDC.INTVAL| for half)</description>
+|ENDIF|
+|%VAR.ChannelEnergyLVL.GTEQ.1|
+|%|
+
+	</channel_energy>
+|%|
 
 |%VAR.KiPoolLVL.GTEQ.1|
 		<ki_pool>

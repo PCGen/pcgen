@@ -296,6 +296,7 @@
 										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
 											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
 										</xsl:apply-templates>
+										<xsl:apply-templates select="class_features/channel_energy"/>
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row>
@@ -883,7 +884,13 @@
 				<xsl:otherwise>0</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:copy-of select="$bardic_music + $turning"/>
+		<xsl:variable name="channel_energy">
+			<xsl:choose>
+				<xsl:when test="count($features/channel_energy) &gt; 0">14</xsl:when>
+				<xsl:otherwise>0</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:copy-of select="$bardic_music + $turning + $channel_energy"/>
 	</xsl:template>
 	<!--
 ====================================
@@ -3466,7 +3473,12 @@
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
 			<fo:table-column>
+				<xsl:if test="$width != 'wide' ">
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 20" />mm</xsl:attribute>
+                </xsl:if>
+				<xsl:if test="$width != 'narrow' ">
+                    <xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 20" />mm</xsl:attribute>
+                </xsl:if>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
@@ -3535,7 +3547,9 @@
 			<xsl:with-param name="attribute" select="'rage'"/>
 			<xsl:with-param name="name" select="'BARBARIAN RAGE'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
+			<xsl:with-param name="uses.title" select="uses_per_day.title"/>
 			<xsl:with-param name="description" select="description"/>
+			<xsl:with-param name="description.title" select="' '"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!--
@@ -3811,6 +3825,24 @@
 		</fo:table-row>
 
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - CHANNEL ENERGY
+====================================
+====================================-->
+	<xsl:template match="channel_energy">
+		<xsl:call-template name="class.feature.perday">
+			<xsl:with-param name="attribute" select="'bard'"/>
+			<xsl:with-param name="name" select="'CHANNEL ENERGY'"/>
+			<xsl:with-param name="uses" select="uses_per_day"/>
+			<xsl:with-param name="uses.title" select="uses_per_day.title"/>
+			<xsl:with-param name="description.title" select="' '"/>
+			<xsl:with-param name="description" select="description"/>
+			<xsl:with-param name="width" select="narrow"/>
+		</xsl:call-template>
+	</xsl:template>
+
 	<!--
 ====================================
 ====================================
