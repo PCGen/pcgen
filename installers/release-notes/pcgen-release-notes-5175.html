@@ -30,17 +30,17 @@
 <p>PCGen v5.17.5 is an alpha release from our development branch to allow 
 experimentation and testing of our latest work.  
 Please give it a shot and let us know how it works for you.
-<!--  Some notable changes in this release are listed below.  --> 
+Some notable changes in this release are listed below. 
 </p><p>
 We are also working away on the    
 <a href="http://wiki.pcgen.org/index.php?title=Release_6.0.x">next big version</a> 
 although much of that work is currently behind the scenes. We welcome your input,
 just comment on the wiki pages or post to the <a href="http://games.groups.yahoo.com/group/pcgen/"></a>PCGen mailing list</a> 
 .</p>
-<!-- 
 <ul>
-<li></li>
+<li>Retrospective Skill Point Support</li>
 </ul>
+<!-- 
 <h3>New Sources</h3>
 
 <p>The following new sources were added in 5.17.5</p>
@@ -54,7 +54,7 @@ just comment on the wiki pages or post to the <a href="http://games.groups.yahoo
 For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
 
 </p>
-<p><i>James Dempsey</i> for the PCGEN Team -- 21 December, 2010.</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 26 January, 2011.</p>
 
 		
 		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
@@ -157,6 +157,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <ul>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-83'>CODE-83</a>] -         Class compatibility items should be prohibited on Sub*Level lines
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-186'>CODE-186</a>] -         Conditional skills lose class skill status after reload of sources
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-355'>CODE-355</a>] -         [Test-43-A] FEAT in template with assigned choice doesn't work
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-398'>CODE-398</a>] -         Domains a little TOO sticky
@@ -179,6 +181,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-435'>CODE-435</a>] -         TEST-53 -  Bug #2 - Choices remain even if granting level is removed.
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-437'>CODE-437</a>] -         Coloring not applied to Automatic and Virtual Abilities being granted by equipment
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-439'>CODE-439</a>] -         TEST-26 - FEAT fails to add in Template
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-445'>CODE-445</a>] -         TEST-54 -- Parser not grouping Aware in Ability/Feat Calls
@@ -189,6 +193,28 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-450'>CODE-450</a>] -         Multiple ability associations to same conditional ability are lost
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-463'>CODE-463</a>] -         VFEAT allows association to appear too many times
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-468'>CODE-468</a>] -         Unable to remove racial traits using &quot;left arrow button&quot; beneath rhs window
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-469'>CODE-469</a>] -         Dwarf Steady trait does not work for Medium armour or encumbrance
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-470'>CODE-470</a>] -         Gnome Racial Knowledge category shows all abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-473'>CODE-473</a>] -         Load Screen shows KEY with Comma in RollMethod is illegal.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-478'>CODE-478</a>] -         Getting an NPE when I try to customize or add a Longbow in the rsrd set
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-481'>CODE-481</a>] -         Creating 2nd new character without closing PCGen behaves incorrectly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-485'>CODE-485</a>] -         Negative PREALIGN tests do not work
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-491'>CODE-491</a>] -         CHOOSE:LANGAUTO in race causes number of languages available to be incorrect until character file closed and reopened
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-492'>CODE-492</a>] -         Erroneous warnings when applying a kit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-493'>CODE-493</a>] -         Preferences dialog is not displayed
+</li>
 </ul>
                     
 <h4>      Code New Feature
@@ -196,7 +222,20 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <ul>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-444'>CODE-444</a>] -         Flag DAMAGE:0d0 as a LST Error
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-462'>CODE-462</a>] -         Add file Location to Error report
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-480'>CODE-480</a>] -         Retrospective skill point support
+</li>
 </ul>      
+
+<h4>    New Tag - Modify Token
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-243'>NEWTAG-243</a>] -         skillinfo improvement - add 'MISC' to the valid choices
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-244'>NEWTAG-244</a>] -         add function to JEP 'COUNT' to include 'KEY=' 
+</li>
+</ul>
 
 <h4>        Data Bug
 </h4>
@@ -223,6 +262,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-177'>DATA-177</a>] -         Unit Test Case Failure: Ability (Special Ability) Leadership Score had MULT:YES but no CHOOSE
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-178'>DATA-178</a>] -         Unit Test Case Failure: Illegal References in Data
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-179'>DATA-179</a>] -         Serpent Skull Players Guide - Boarded in Cheliax trait missing Skill Bonus
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-180'>DATA-180</a>] -         Duelist Skills Pre-Reqs incorrect
@@ -230,6 +271,44 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-184'>DATA-184</a>] -         Sickened conditioned not properly applying -2 to damage
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-185'>DATA-185</a>] -         Rogue Advanced Players Guide Swashbuckler Archetype's 2nd Combat Trick
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-186'>DATA-186</a>] -         These need to be cleaned up in Pathfinder Sets
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-187'>DATA-187</a>] -         These need to be cleaned up in Modern Sets
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-189'>DATA-189</a>] -         [Pathfinder] Kingmaker Players Guide - small changes
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-190'>DATA-190</a>] -         Conditional skill bonus does not correctly inherit parent skill ranks
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-194'>DATA-194</a>] -         Valid untrained conditional skills do not appear in output
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-195'>DATA-195</a>] -         Incorrect strength for Monkey familiar
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-197'>DATA-197</a>] -         Arcane Armor Training
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-199'>DATA-199</a>] -         PFCR: Acrobatics (Jump) modifier with speed incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-200'>DATA-200</a>] -         PFAPG: Witch abilities: Concentration Check not in PFAPG, missing Deliver Touch Spells
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-201'>DATA-201</a>] -         APG Elf Trait Bonuses swapped
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-202'>DATA-202</a>] -         PFAPG Cosmopolitan feat does not provide selection of languages
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-204'>DATA-204</a>] -         .REPLACE on Natural Armor instead of .STACK
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-211'>DATA-211</a>] -         Pathfinder Rogue talents problems
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-212'>DATA-212</a>] -         Special Abilities should be limited to Racial HD - i.e. gaze attack
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-214'>DATA-214</a>] -         Calculation error with Deadly Aim feat
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-215'>DATA-215</a>] -         Pathfinder Favored Class Bonuses lack chosen favored class prerequisite
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-216'>DATA-216</a>] -         [APG] Focused Arcane Schools not replacing abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-218'>DATA-218</a>] -         Can't create custom cloaks
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-220'>DATA-220</a>] -         Yeti Gaze Attack is using CON instead of CHA
 </li>
 </ul>
                     
@@ -240,12 +319,26 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-183'>DATA-183</a>] -         Remove the Modded Feats in Core Set - Move everything to the main feat
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-191'>DATA-191</a>] -         PFCR Feats should use calculated BENEFITs where possible
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-192'>DATA-192</a>] -         PFAPG Traits BENEFITs
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-198'>DATA-198</a>] -         PFAPG: Add calculations to Inquisitor class features
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-203'>DATA-203</a>] -         PFAPG: Conditional skills for Inquisitor Monster Lore
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-219'>DATA-219</a>] -         Pathfinder APG - Missing Ranger selection for Point Blank Master
+</li>
 </ul>  
 
 <h4>     Documentation Bugs
 </h4>
 <ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-44'>DOCS-44</a>] -         BONUS:POSTMOVEADD cannot lower speed
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DOCS-48'>DOCS-48</a>] -         CONTAINS tag documentation incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-51'>DOCS-51</a>] -         NATURALATTACKS example references wrong attack
 </li>
 </ul>
                         
@@ -254,7 +347,33 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <ul>
 <li>[<a href='http://jira.pcgen.org/browse/DOCS-40'>DOCS-40</a>] -         Data Install files now use .pcz extension
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-49'>DOCS-49</a>] -         Add Global Qualifiers Subsection to Other Global Tag Page
+</li>
 </ul>
-             
+    
+<h4>   Output Sheets Bug
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-37'>OS-37</a>] -         New features for Pathfinder not reflected in PDF Output Sheets 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-53'>OS-53</a>] -         Leadership is not working properly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-57'>OS-57</a>] -         Remove DEITY.FOLLOWERALIGN
+</li>
+</ul>
+                        
+<h4>    Output Sheets New Feature
+</h4>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-45'>OS-45</a>] -         Include new Party Sheet for Pathfinder System
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-48'>OS-48</a>] -         Feature Request -- Pathfinder / Monk / Ki Points in PDF's
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-52'>OS-52</a>] -         Numerious OS Blocks are no longer printing with Pathfinder Data sets
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-56'>OS-56</a>] -         Improve Skill Display - Some lengthy names are shrinking, but still overlapping.
+</li>
+</ul>
+                     
 	</body>
 </html>
