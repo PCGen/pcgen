@@ -10964,26 +10964,26 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				aHashMap.put(vFeat.getKeyName(), vFeat);
 			}
-			else if (vFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				Ability aggregateFeatOrig = aHashMap.get(vFeat.getKeyName());
-				Ability aggregateFeat = aggregateFeatOrig.clone();
-				for (String aString : getAssociationList(aggregateFeatOrig))
-				{
-					addAssociation(aggregateFeat, aString);
-				}
-
-				for (String aString : getAssociationList(vFeat))
-				{
-					if (aggregateFeat.getSafe(ObjectKey.STACKS)
-						|| !containsAssociated(aggregateFeat, aString))
-					{
-						addAssociation(aggregateFeat, aString);
-					}
-				}
-
-				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
-			}
+//			else if (vFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+//			{
+//				Ability aggregateFeatOrig = aHashMap.get(vFeat.getKeyName());
+//				Ability aggregateFeat = aggregateFeatOrig.clone();
+//				for (String aString : getAssociationList(aggregateFeatOrig))
+//				{
+//					addAssociation(aggregateFeat, aString);
+//				}
+//
+//				for (String aString : getAssociationList(vFeat))
+//				{
+//					if (aggregateFeat.getSafe(ObjectKey.STACKS)
+//						|| !containsAssociated(aggregateFeat, aString))
+//					{
+//						addAssociation(aggregateFeat, aString);
+//					}
+//				}
+//
+//				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
+//			}
 		}
 	}
 
