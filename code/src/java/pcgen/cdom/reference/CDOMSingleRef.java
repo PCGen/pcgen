@@ -65,5 +65,7 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T>
 	 */
 	public abstract T resolvesTo();
 
+	public abstract boolean hasBeenResolved();
+	
 	public abstract void setChoice(String c);
 }

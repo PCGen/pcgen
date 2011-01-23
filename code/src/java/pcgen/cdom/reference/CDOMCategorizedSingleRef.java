@@ -147,6 +147,16 @@ public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject
 		return referencedObject;
 	}
 
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	@Override
+	public boolean hasBeenResolved()
+	{
+		return referencedObject != null;
+	}
+
 	/**
 	 * Returns true if this CDOMCategorizedSingleRef is equal to the given
 	 * Object. Equality is defined as being another CDOMCategorizedSingleRef

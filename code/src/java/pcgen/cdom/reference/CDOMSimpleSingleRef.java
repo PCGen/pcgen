@@ -109,6 +109,15 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		return referencedObject;
 	}
 
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	public boolean hasBeenResolved()
+	{
+		return referencedObject != null;
+	}
+	
 	/**
 	 * Returns a representation of this CDOMSimpleSingleRef, suitable for
 	 * storing in an LST file.

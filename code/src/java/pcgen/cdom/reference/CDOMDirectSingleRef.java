@@ -88,6 +88,16 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 		return referencedObject;
 	}
 
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	@Override
+	public boolean hasBeenResolved()
+	{
+		return referencedObject != null;
+	}
+
 	/**
 	 * Returns a representation of this CDOMDirectSingleRef, suitable for
 	 * storing in an LST file.

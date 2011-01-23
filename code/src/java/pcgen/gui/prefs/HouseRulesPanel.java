@@ -274,7 +274,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 
 				String exKey = hrRadio[ii].getText();
 
-				if ((excludedRef != null)
+				if ((excludedRef != null) && excludedRef.hasBeenResolved()
 						&& exKey.equals(excludedRef.resolvesTo().getKeyName()))
 				{
 					aRule = excludedRef.resolvesTo();

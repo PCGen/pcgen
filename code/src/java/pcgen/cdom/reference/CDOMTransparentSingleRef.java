@@ -110,6 +110,16 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 		return subReference.resolvesTo();
 	}
 
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	@Override
+	public boolean hasBeenResolved()
+	{
+		return subReference != null && subReference.hasBeenResolved();
+	}
+
 	/**
 	 * Returns a representation of this CDOMTransparentSingleRef, suitable for
 	 * storing in an LST file.
