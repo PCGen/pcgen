@@ -845,7 +845,7 @@
 						<xsl:when test="name($features[1]) = 'rage'">25</xsl:when>
 						<xsl:when test="name($features[1]) = 'wildshape'">25</xsl:when>
 						<xsl:when test="name($features[1]) = 'stunning_fist'">14</xsl:when>
-						<xsl:when test="name($features[1]) = 'ki_pool'">14</xsl:when>
+						<xsl:when test="name($features[1]) = 'ki_pool'">11</xsl:when>
 						<xsl:when test="name($features[1]) = 'wholeness_of_body'">14</xsl:when>
 						<xsl:when test="name($features[1]) = 'psionics'">56</xsl:when>
 						<xsl:when test="name($features[1]) = 'layonhands'">14</xsl:when>
@@ -3478,11 +3478,11 @@
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
 			<fo:table-column>
-				<xsl:if test="$width != 'wide' ">
+				<xsl:if test="$width = 'wide' ">
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 20" />mm</xsl:attribute>
                 </xsl:if>
-				<xsl:if test="$width != 'narrow' ">
-                    <xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 20" />mm</xsl:attribute>
+				<xsl:if test="$width = 'narrow' ">
+                    <xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 18" />mm</xsl:attribute>
                 </xsl:if>
 			</fo:table-column>
 			<fo:table-body>
@@ -3844,7 +3844,7 @@
 			<xsl:with-param name="uses.title" select="uses_per_day.title"/>
 			<xsl:with-param name="description.title" select="' '"/>
 			<xsl:with-param name="description" select="description"/>
-			<xsl:with-param name="width" select="narrow"/>
+			<xsl:with-param name="width" select="'narrow'"/>
 		</xsl:call-template>
 	</xsl:template>
 
@@ -3859,6 +3859,8 @@
 			<xsl:with-param name="attribute" select="'stunningfist'"/>
 			<xsl:with-param name="name" select="'STUNNING FIST'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
+			<xsl:with-param name="description.title" select="' '"/>
+			<xsl:with-param name="description" select="description"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!--
