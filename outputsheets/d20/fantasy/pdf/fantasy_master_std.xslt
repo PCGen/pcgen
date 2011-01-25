@@ -170,7 +170,7 @@
 					<xsl:attribute name="margin-left"><xsl:value-of select="$pageMarginLeft" />mm</xsl:attribute>
 					<xsl:attribute name="margin-right"><xsl:value-of select="$pageMarginRight" />mm</xsl:attribute>
 					<fo:region-body region-name="body" column-count="2" column-gap="2mm" margin-bottom="7mm"/>
-					<fo:region-after region-name="footer" extent="6.4mm"/>
+					<fo:region-after region-name="footer" extent="4.4mm"/>
 				</fo:simple-page-master>
 				<fo:simple-page-master master-name="Portrait">
 					<xsl:attribute name="page-height"><xsl:value-of select="$pageHeight" />mm</xsl:attribute>
@@ -180,7 +180,7 @@
 					<xsl:attribute name="margin-left"><xsl:value-of select="$pageMarginLeft" />mm</xsl:attribute>
 					<xsl:attribute name="margin-right"><xsl:value-of select="$pageMarginRight" />mm</xsl:attribute>
 					<fo:region-body region-name="body" margin-bottom="7mm"/>
-					<fo:region-after region-name="footer" extent="6.4mm"/>
+					<fo:region-after region-name="footer" extent="4.4mm"/>
 				</fo:simple-page-master>
 			</fo:layout-master-set>
 	</xsl:template>
@@ -219,11 +219,10 @@
 					<fo:table-cell text-align="start"  wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/></fo:block>
 						<fo:block font-size="5pt" font-weight="bold">Player: <xsl:value-of select="/character/basics/playername"/></fo:block>
-						<fo:block font-size="5pt" font-weight="bold">Created using PCGen <xsl:value-of select="export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill &amp; Dekker.</fo:block>
-						<fo:block text-align="center" font-size="5pt">For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</fo:block>
+						<fo:block text-align="center" font-size="5pt">Created using PCGen <xsl:value-of select="export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="end" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block font-size="7pt">Page <fo:page-number/>
@@ -907,7 +906,7 @@
 				<xsl:with-param name="features" select="/character/class_features/*"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<!-- 143 is the number of mm available to weapons and features
+		<!-- 145 is the number of mm available to weapons and features
 		 28mm is the size of a single large ranged weapon block
 		 20mm is the size of a single large weapon block
 		 24mm is the size of a single simple weapon block
@@ -939,7 +938,7 @@
 				<xsl:with-param name="features" select="/character/class_features/*"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:value-of select="floor( (198-$featureheight) div 3.6) - 2"/>
+		<xsl:value-of select="floor( (200-$featureheight) div 3.6) - 2"/>
 	</xsl:template>
 	<!--
 ====================================
