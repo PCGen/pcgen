@@ -2,7 +2,7 @@
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
 RANK:1
 GAMEMODE:35e|MSRD|3e|Modern|Pathfinder
-SHOWINMENU:YES
+SHOWINMENU:NO
 #COMMENT: Will need to break it out into each gamemode eventually
 STATUS:ALPHA
 GENRE:Any
