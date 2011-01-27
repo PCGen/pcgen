@@ -35,7 +35,10 @@ public class NumslotsToken implements EquipSlotLstToken
 			{
 				final String eqSlotType = cTok.nextToken();
 				final String aNum = cTok.nextToken();
-				Globals.setEquipSlotTypeCount(eqSlotType, aNum);
+				if (!getTokenName().equals(eqSlotType))
+				{
+					Globals.setEquipSlotTypeCount(eqSlotType, aNum);
+				}
 			}
 		}
 		return true;
