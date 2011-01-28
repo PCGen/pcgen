@@ -69,29 +69,6 @@ Vision Darkvision																					PREVISION:1,Darkvision=1																		
 # Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Add to vision			Choose									Bonus Languages	Vision		Natural Attacks
 Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																													CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
 
-Bard Spell Level 0																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|1
-Bard Spell Level 1																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1
-Bard Spell Level 2																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1
-Bard Spell Level 3																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|1
-Bard Spell Level 4																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|1
-Bard Spell Level 5																																													BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|1
-
-Inquisitor Spell Level 0																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|1
-Inquisitor Spell Level 1																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|1
-Inquisitor Spell Level 2																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|1
-Inquisitor Spell Level 3																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|1
-Inquisitor Spell Level 4																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|1
-Inquisitor Spell Level 5																																												BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|1
-
-Sorcerer Spell Level 0																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|1
-Sorcerer Spell Level 1																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1
-Sorcerer Spell Level 2																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|1
-Sorcerer Spell Level 3																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|1
-Sorcerer Spell Level 4																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|1
-Sorcerer Spell Level 5																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|1
-Sorcerer Spell Level 6																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1
-Sorcerer Spell Level 7																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1
-Sorcerer Spell Level 8																																													BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|1
 #
 # End
 #

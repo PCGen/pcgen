@@ -137,6 +137,13 @@ ABILITYCATEGORY:Campaign Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 
 ABILITYCATEGORY:Elemental Fist Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Elemental Fist								PLURAL:Elemental Fist Selections		DISPLAYLOCATION:Feats
 
+# Favored Class Stuff:
+ABILITYCATEGORY:Sorcerer Spell Level Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellSorcerer															PLURAL:Sorcerer Spell Level Selections		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Inquisitor Spell Level Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellInquisitor														PLURAL:Inquisitor Spell Level Selections		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Bard Spell Level Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellBard															PLURAL:Bard Spell Level Selections		DISPLAYLOCATION:Racial Abilities
+
+
+
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
 
 ###Block: Character Traits
