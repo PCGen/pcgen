@@ -179,6 +179,10 @@ public class AbilityToken extends Token
 		List<String> negate = new ArrayList<String>();
 		// Ability Type
 		String abilityType = null;
+		// Ability Types Filter List
+		String key = null;
+		// Ability List
+		List<Ability> aList = null;
 
 		/*
 		 * abilityIndex holds the number of the ability we want, is decremented
@@ -248,12 +252,25 @@ public class AbilityToken extends Token
 					types.add(typeStr.substring(typeInd + 5));
 				}
 			}
+			
+			int keyInd = typeStr.indexOf("KEY=");
+			// If it's KEY and it actually has a value attached then process it 
+			if (keyInd != -1 && typeStr.length() > 4)
+			{
+				key = typeStr.substring(keyInd + 4);
+			}
 		}
 
 		// Build the list of abilities that we should display
-		List<Ability> aList =
-				AbilityToken.buildAbilityList(types, negate, abilityType,
+		if (key == null)
+		{
+			aList = AbilityToken.buildAbilityList(types, negate, abilityType,
 					visibility, abilityList);
+		}
+		else
+		{
+			aList = AbilityToken.buildAbilityList(key, visibility, abilityList);
+		}
 
 		// Build the return string to give to the OutputSheet
 		String retString =
@@ -294,6 +311,39 @@ public class AbilityToken extends Token
 					abilityMatchesType(abilityType, aAbility, types, negate);
 			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
 			if (matchTypeDef && matchVisibilityDef)
+			{
+				aList.add(aAbility);
+			}
+		}
+		return aList;
+	}
+
+	/**
+	 * Build up the list of abilities of interest based on the key and visibility selection.
+	 * 
+	 * @param key
+	 *            The key of the wanted ability.
+	 * @return List of abilities based on the type and visibility selection.
+	 */
+	static List<Ability> buildAbilityList(String key, int visibility,
+		List<Ability> listOfAbilities)
+	{
+		// List to build up
+		List<Ability> aList = new ArrayList<Ability>();
+
+		// Sort the ability list passed in
+		Globals.sortPObjectListByName(listOfAbilities);
+
+		boolean matchKeyDef = false;
+		boolean matchVisibilityDef = false;
+
+		// For each ability figure out whether it should be displayed depending
+		// on its visibility filtering and its ability type filtering 
+		for (Ability aAbility : listOfAbilities)
+		{
+			matchKeyDef = aAbility.getKeyName().equalsIgnoreCase(key);
+			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
+			if (matchKeyDef && matchVisibilityDef)
 			{
 				aList.add(aAbility);
 			}
