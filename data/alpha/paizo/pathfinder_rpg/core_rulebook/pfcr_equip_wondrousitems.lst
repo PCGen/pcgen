@@ -93,7 +93,7 @@ Carpet of Flying (10 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 10 ft. by 10 ft.
 # Carpet of Flying: include +5 Fly check bonus or not?
 Chime of Interruption												TYPE:Magic.Wondrous			COST:16800	WT:1								SOURCEPAGE:p.506																																		SPROP:This instrument can be struck once every 10 minutes, and its resonant tone lasts for 3 full minutes.
 Chime of Opening													TYPE:Magic.Wondrous			COST:3000	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.506
-Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|STAT.CHA|3|TYPE=Competence
+Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|TYPE.Charisma|3|TYPE=Competence
 # Any other "Charisma based checks" besides Skills?
 Cloak of Arachnida												TYPE:Magic.Wondrous.Cloak		COST:14000	WT:1								SOURCEPAGE:p.506	SPELLS:Cloak of Archnida|TIMES=1|CASTERLEVEL=6|Web																									SPROP:Move as Spider Climb, immunity to web spells, +2 luck bonus on Fortitude saves against poison from spiders
 Cloak of the Bat													TYPE:Magic.Wondrous.Cloak		COST:26000	WT:1								SOURCEPAGE:p.506																											BONUS:SKILL|Stealth|5|TYPE=Competence	SPROP:Fly as spell in near darkness for up to 7 minutes
