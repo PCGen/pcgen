@@ -295,6 +295,7 @@
 										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
 											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
 										</xsl:apply-templates>
+										<xsl:apply-templates select="class_features/eclipse_channeling"/>
 										<xsl:apply-templates select="class_features/channel_energy"/>
 									</fo:table-cell>
 								</fo:table-row>
@@ -883,13 +884,19 @@
 				<xsl:otherwise>0</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<xsl:variable name="eclipse_channeling">
+			<xsl:choose>
+				<xsl:when test="count($features/eclipse_channeling) &gt; 0">44</xsl:when>
+				<xsl:otherwise>0</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
 		<xsl:variable name="channel_energy">
 			<xsl:choose>
 				<xsl:when test="count($features/channel_energy) &gt; 0">14</xsl:when>
 				<xsl:otherwise>0</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:copy-of select="$bardic_music + $turning + $channel_energy"/>
+		<xsl:copy-of select="$bardic_music + $turning + $eclipse_channeling + $channel_energy"/>
 	</xsl:template>
 	<!--
 ====================================
@@ -3587,6 +3594,260 @@
 		</xsl:call-template>
 	</xsl:template>
 
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Eclipse Channeling
+====================================
+====================================-->
+	<xsl:template name="eclipse_channeling.intensity">
+		<xsl:param name="die"/>
+		<xsl:param name="number"/>
+
+		<xsl:variable name="shade">
+			<xsl:choose>
+				<xsl:when test="$number mod 2 = 0">darkline</xsl:when>
+				<xsl:otherwise>lightline</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<fo:table-row>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('turning.', $shade)"/></xsl:call-template>
+			<fo:table-cell>
+				<fo:block font-size="7pt"><xsl:value-of select="$die"/></fo:block>
+			</fo:table-cell>
+			<fo:table-cell>
+				<fo:block font-size="7pt"><xsl:value-of select="$number"/></fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Eclipse Channeling Info
+====================================
+====================================-->
+	<xsl:template name="eclipse_channeling.info">
+		<xsl:param name="title"/>
+		<xsl:param name="info"/>
+
+		<fo:table-row>
+			<fo:table-cell padding-top="1pt" text-align="end">
+				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+				<fo:block font-size="8pt">
+					<xsl:value-of select="$title"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
+				<fo:block font-size="8pt">
+					<xsl:value-of select="$info"/>
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Eclipse Channeling
+====================================
+====================================-->
+	<xsl:template match="eclipse_channeling">
+		<xsl:param name="column_width" select="0.45 * $pagePrintableWidth"/>
+		<!-- BEGIN Turning Table -->
+		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.60 * $column_width" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.40 * $column_width" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
+						<fo:block font-size="10pt" font-weight="bold">
+							<xsl:value-of select="concat(@type, ' ', @kind)"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+					<fo:table-cell>
+						<fo:table table-layout="fixed">
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.30 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.30 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+										<fo:block font-size="7pt">INTENSITY CHECK</fo:block>
+										<fo:block font-size="7pt">RESULT</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+										<fo:block font-size="7pt"><xsl:value-of select="@kind"/> Intensity</fo:block>
+										<fo:block font-size="6pt">(Level)</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+					</fo:table-cell>
+					<fo:table-cell>
+						<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-body>
+								<xsl:call-template name="eclipse_channeling.info">
+									<xsl:with-param name="title" select="'Intensity Check'"/>
+									<xsl:with-param name="info" select="channeling_check" />
+								</xsl:call-template>
+							</fo:table-body>
+						</fo:table>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+						<fo:table table-layout="fixed"  border-collapse="collapse" padding="0.5pt">
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.30 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.30 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-body>
+								<fo:table-row height="1pt"/>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'Up to 0'"/>
+									<xsl:with-param name="number" select="number(level)-8" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'1 - 3'"/>
+									<xsl:with-param name="number" select="number(level)-7" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'4 - 6'"/>
+									<xsl:with-param name="number" select="number(level)-6" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'7 - 9'"/>
+									<xsl:with-param name="number" select="number(level)-5" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'10 - 12'"/>
+									<xsl:with-param name="number" select="number(level)-4" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'13 - 15'"/>
+									<xsl:with-param name="number" select="number(level)-3" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'16 - 18'"/>
+									<xsl:with-param name="number" select="number(level)-2" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'19 - 21'"/>
+									<xsl:with-param name="number" select="number(level)-1" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'22 - 25'"/>
+									<xsl:with-param name="number" select="level" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.intensity">
+									<xsl:with-param name="die" select="'26+'"/>
+									<xsl:with-param name="number" select="number(level)+1" />
+								</xsl:call-template>
+							</fo:table-body>
+						</fo:table>
+					</fo:table-cell>
+					<fo:table-cell>
+						<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $column_width" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-body>
+								<xsl:call-template name="eclipse_channeling.info">
+									<xsl:with-param name="title" select="'Channeling level'"/>
+									<xsl:with-param name="info" select="level" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.info">
+									<xsl:with-param name="title" select="'Magnitude'"/>
+									<xsl:with-param name="info" select="damage" />
+								</xsl:call-template>
+								<xsl:call-template name="eclipse_channeling.info">
+									<xsl:with-param name="title" select="'Range'"/>
+									<xsl:with-param name="info" select="range" />
+								</xsl:call-template>
+								<fo:table-row>
+									<fo:table-cell number-columns-spanned="2" padding-top="1pt" text-align="end">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
+										<fo:block font-size="8pt" padding-top="2pt">
+											<xsl:value-of select="notes"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell number-columns-spanned="2">
+						<fo:table border-collapse="collapse" padding="0.5pt" table-layout="fixed">
+							<fo:table-column column-width="22mm"/>
+							<fo:table-column>
+								<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 22" />mm</xsl:attribute>
+							</fo:table-column>
+							<fo:table-body>
+								<xsl:call-template name="eclipse_channeling.per.day">
+									<xsl:with-param name="title" select="concat(@type, '/DAY')"/>
+									<xsl:with-param name="value" select="uses_per_day"/>
+								</xsl:call-template>
+							</fo:table-body>
+						</fo:table>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+		<!-- END Eclipse Table -->
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Eclipse Channeling - Uses Per Day
+====================================
+====================================-->
+
+	<xsl:template name="eclipse_channeling.per.day">
+		<xsl:param name="title" />
+		<xsl:param name="value"/>
+		<fo:table-row>
+			<fo:table-cell  padding-top="2pt" padding-right="2pt">
+				<fo:block text-align="end" display-align="center" font-size="9pt"><xsl:value-of select="$title"/></fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
+				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
+				<fo:block text-align="start" font-size="10pt" font-family="ZapfDingbats">
+					<xsl:call-template name="for.loop">
+						<xsl:with-param name="count" select="$value"/>
+					</xsl:call-template>
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
 	<!--
 ====================================
 ====================================
