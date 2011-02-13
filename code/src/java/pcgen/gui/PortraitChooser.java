@@ -102,6 +102,7 @@ public final class PortraitChooser extends JPanel
 	private JButton dirButton;
 	private JButton refreshButton;
 	private JButton removeButton;
+	private JButton buyButton;
 	private JLabel portraitLabel;
 	private String title;
 
@@ -355,6 +356,25 @@ public final class PortraitChooser extends JPanel
 			}
 		});
 		buttonPanel.add(removeButton);
+
+		// Buy Portrait button
+		buyButton = new JButton(
+				PropertyFactory.getString("in_buyPortrait"));
+
+		if (SettingsHandler.isToolTipTextShown())
+		{
+			Utility.setDescription(buyButton,
+					PropertyFactory.getString("in_buyPortraitTipString"));
+		}
+
+		buyButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Utility.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875");
+			}
+		});
+		buttonPanel.add(buyButton);
 
 		gbc.weightx = 0;
 		gbc.weighty = 0;
