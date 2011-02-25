@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 28 22:37:39 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Feb 25 16:34:39 2011 -- reformated by prettylst.pl v1.39 (build )
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Joseph (Sensai) Caubo
 
@@ -106,21 +106,21 @@ CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	ABB:NW		MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Ability																											Req. Att.	Required Skill												Req. Spell Type
-CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalCompanion	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2
+# Class Name		Required Ability																	Req. Att.	Required Skill												Req. Spell Type		Var. Must Be Grater
+CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:CompLevel,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
-1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
-2												ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
-3												ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
-4												ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
-5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL	ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
-6												ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
-7												ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
-8												ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
-9												ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
-10												ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
+1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|CompLevel|CL	BONUS:VAR|NaturalEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
+2																ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
+3																ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
+4																ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
+5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
+6																ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
+7																ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
+8																ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
+9																ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
+10																ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
 
 ###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
 

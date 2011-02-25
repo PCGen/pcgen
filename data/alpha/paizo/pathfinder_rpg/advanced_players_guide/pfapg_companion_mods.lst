@@ -1,10 +1,13 @@
-# CVS $Revision$ $Author$ -- Thu Feb 24 12:08:22 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Feb 25 16:34:39 2011 -- reformated by prettylst.pl v1.39 (build )
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond & Andrew Maitland
 
 # Class of the Master		Type				Hit Dice	Ability											Automatically Gained Feat	Define																			Bonus to Ability Pool																				Combat bonus					Damage reduction				Bonus to HP						Stat bonus			Modify VAR
 FOLLOWER:CompLevel=1		TYPE:Animal Companion																				DEFINE:AnimalCompHP|0																																																					BONUS:HP|CURRENTMAX|var("AnimalCompHP")
 FOLLOWER:CompLevel=1		TYPE:Animal Companion																				DEFINE:AnimalCompDR|0																																															BONUS:DR|Magic|var("AnimalCompDR")
+
+FOLLOWER:CompanionBondLVL=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Empathic Link
+FOLLOWER:CompanionBondLVL=5	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion Favored Terrain
 
 
 # Class of the Master		Type				Hit Dice	Ability											Automatically Gained Feat	Define																			Bonus to Ability Pool																				Combat bonus					Damage reduction				Bonus to HP						Stat bonus			Modify VAR
