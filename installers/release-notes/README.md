@@ -10,7 +10,7 @@ Some notable changes in this release are listed below.
 
 New Sources
 
-The following new sources were added in 5.17.6</p>
+The following new sources were added in 5.17.6
 
 * DragonWing Games [BP] Arms and Armor 3e
 
