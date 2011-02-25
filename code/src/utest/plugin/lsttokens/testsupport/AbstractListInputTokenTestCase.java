@@ -575,8 +575,8 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (isClearDotLegal())
 		{
-			// DoNotConstruct TestWP1
-			assertTrue(parse(".CLEAR.TestWP1"));
+			// DoNotConstruct TestWP1NotConstructed
+			assertTrue(parse(".CLEAR.TestWP1NotConstructed"));
 			assertConstructionError();
 		}
 	}
