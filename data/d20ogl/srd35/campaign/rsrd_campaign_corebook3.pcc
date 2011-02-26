@@ -131,6 +131,7 @@ CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
 
 COMPANIONMOD:@/d20ogl/srd35/monsters/rsrd_companionmods_monsters.lst
+EQUIPMENT:@/d20ogl/srd35/monsters/rsrd_equipment_racial.lst
 
 FEAT:@/d20ogl/srd35/monsters/rsrd_feats_mods.lst
 
