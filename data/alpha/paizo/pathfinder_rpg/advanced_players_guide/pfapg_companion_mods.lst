@@ -51,7 +51,7 @@ FOLLOWER:AnimalCompSP=19	TYPE:Animal Companion																																		
 FOLLOWER:AnimalCompSP=20	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
 
 # Favored Class Bonus DR
-FOLLOWER:AnimalCompDR=1		TYPE:Animal Companion		BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=1		TYPE:Animal Companion		DR:1/Magic
 FOLLOWER:AnimalCompDR=3		TYPE:Animal Companion		BONUS:DR|Magic|1
 FOLLOWER:AnimalCompDR=5		TYPE:Animal Companion		BONUS:DR|Magic|1
 FOLLOWER:AnimalCompDR=7		TYPE:Animal Companion		BONUS:DR|Magic|1
@@ -146,6 +146,29 @@ FOLLOWER:EidolonLevel=18	TYPE:Eidolon		HD:1																																					
 FOLLOWER:EidolonLevel=19	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|2																																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:EidolonLevel=20	TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 
+# Favored Class Cavalier Mount HP Bonus
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			DEFINE:CavalierMountHP|0	BONUS:HP|CURRENTMAX|var("CavalierMountHP")
+
+FOLLOWER:CavalierMountHP=1	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=2	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=3	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=4	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=5	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=6	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=7	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=8	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=9	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=10	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=11	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=12	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=13	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=14	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=15	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=16	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=17	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=18	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=19	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=20	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
 
 ###Block:Companion for Cavalier
 # Class of the Master		Type				Hit Dice	Ability													Automatically Gained Feat		Required Race			Define												Bonus to Ability Pool					Combat bonus					Bonus to HP							Stat bonus			Modify VAR							Main Race Type
