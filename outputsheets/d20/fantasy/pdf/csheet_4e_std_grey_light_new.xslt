@@ -107,6 +107,12 @@
 		<turning.lightline><subattrib centre="" light=""/></turning.lightline>
 		<turning.darkline><subattrib centre="" medium=""/></turning.darkline>
 
+		<eclipse_channeling.title><subattrib centre="" inverse=""/></eclipse_channeling.title>
+		<eclipse_channeling.border padding="0.5pt"><subattrib border="" inverse=""/></eclipse_channeling.border>
+		<eclipse_channeling><subattrib  centre="" normal=""/></eclipse_channeling>
+		<eclipse_channeling.lightline><subattrib centre="" light=""/></eclipse_channeling.lightline>
+		<eclipse_channeling.darkline><subattrib centre="" medium=""/></eclipse_channeling.darkline>
+
 		<stunningfist.title><subattrib centre="" inverse=""/></stunningfist.title>
 		<stunningfist.border padding="0.5pt"><subattrib border="" inverse=""/></stunningfist.border>
 		<stunningfist><subattrib normal=""/></stunningfist>
@@ -174,6 +180,11 @@
 		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
 		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
 
+		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
+		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
+		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
+		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
+
 		<special_qualities.title><subattrib centre="" inverse=""/></special_qualities.title>
 		<special_qualities.border padding="0.5pt"><subattrib border="" inverse=""/></special_qualities.border>
 		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
@@ -183,12 +194,6 @@
 		<afflictions.border padding="0.5pt"><subattrib border="" inverse=""/></afflictions.border>
 		<afflictions.lightline><subattrib light=""/></afflictions.lightline>
 		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
-
-		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
-		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
-		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
-		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
-
 
 		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
 		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>

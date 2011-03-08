@@ -1407,6 +1407,80 @@ Immune
 
 <!-- Stop Turning Table -->
 
+<!-- Channeling Table -->
+<!-- Start Channeling Table -->
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ChannelingBase"),1,0|
+|IIF(ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.HASASPECT.ChannelingType:Y)|
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Channeling Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingType| |ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingKind|</b></font></td>
+     </tr>
+     <tr >
+      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">CHANNELING CHECK<br />RESULT</font></td>
+      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
+      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">CHANNELING LEVEL</font></td>
+      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel.INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">MAGNITUDE</font></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.Magnitude|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>Up to 0</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-8).INTVAL|</b></td>
+      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">CHANNELING CHECK</font></td>
+      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingCheck.INTVAL.SIGN.NOZERO|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-7).INTVAL|</b></td>
+      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">USES/DAY</font></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>4 - 6</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-6).INTVAL|</b></td>
+      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL,5,&#9744;, , ,1|</font></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-5).INTVAL|</b></td>
+      <td colspan="2" rowspan="6" class="border8" valign="top">|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingNotes|
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>10 - 12</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-4).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-3).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>16 - 18</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-2).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)-1).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>22 - 25</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)+0).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>26+</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel)+1).INTVAL|</b></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+
+|ENDIF|
+|ENDFOR|
+
+
+<!-- Stop Channeling Table -->
+
+
 <!-- Start Overflow Weapons table -->
 |FOR,%weap,3,COUNT[EQTYPE.Weapon]-1,1,1|
    <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">
