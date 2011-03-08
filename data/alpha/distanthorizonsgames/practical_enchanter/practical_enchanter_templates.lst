@@ -6,6 +6,8 @@ SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:dhg_tpe	SOURCEDATE:01-2001
 01 - The Practical Enchanter Spell Access			VISIBLE:DISPLAY
 01 - Allow Hedge Magic Spells for non-feat users	VISIBLE:DISPLAY
 01 - Allow Techno Hedge Magic Spells			VISIBLE:DISPLAY
+01 - Allow Practical Enchanter Spell Templates		VISIBLE:DISPLAY
+
 #COMMENT: The Above unlock access to the Spells in this book.
 
 ###Block: Talents
