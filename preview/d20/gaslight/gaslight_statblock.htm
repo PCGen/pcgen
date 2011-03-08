@@ -354,6 +354,15 @@ at will)
 <br>
 |ENDIF|
 
+|IIF(count("ABILITIES";"CATEGORY=Talent";"TYPE=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")>0)|
+<b>Talents</b> 
+|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","TYPE=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")-1,1,0| 
+|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent|, 
+|ENDFOR|
+<br>
+|ENDIF|
+
+
 <b>Energy Points </b> |VAR.EnergyPoints.INTVAL|<br>
 
 <b>Talents </b> |ABILITYALLLIST.Talent|<br>

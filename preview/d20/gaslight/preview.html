@@ -1057,6 +1057,44 @@
 |ENDIF|
 <!-- Stop Special Qualities Table -->
 
+<!-- Start Talents Table -->
+|IIF(count("ABILITIES";"CATEGORY=Talent";"TYPE=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+						<tr>
+							<td>
+								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
+									<tr>
+										<td class="border2 bor_col_dark color_header bold center">TALENTS</td>
+									</tr>
+|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","TYPE=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+									<tr>
+|OIF(EVEN:%talent,<td class="even bold">,<td class="odd bold">)|
+											|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+
+										</td>
+									</tr>
+									<tr>
+|OIF(EVEN:%talent,<td class="even">,<td class="odd">)|
+											|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.DESC|
+										</td>
+									</tr>
+|ENDFOR|
+								</table>
+							</td>
+						</tr>
+|ENDIF|
+<!-- Stop Talents Table -->
+
+
+
 |%COUNT[SA]|
 						<tr>
 							<td>
