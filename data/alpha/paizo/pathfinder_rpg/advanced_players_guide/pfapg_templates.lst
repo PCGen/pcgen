@@ -70,30 +70,6 @@ Vision Darkvision																					PREVISION:1,Darkvision=1																		
 Hero Points					VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3																																													CHOOSE:NUMBER|MIN=1|MAX=HeroPointsMax|TITLE=Hero Points
 
 
-Bard Spell Level 0		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|1		PRECLASS:1,Bard=1
-Bard Spell Level 1		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1		PRECLASS:1,Bard=4
-Bard Spell Level 2		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1		PRECLASS:1,Bard=7
-Bard Spell Level 3		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|1		PRECLASS:1,Bard=10
-Bard Spell Level 4		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|1		PRECLASS:1,Bard=13
-Bard Spell Level 5		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|1		PRECLASS:1,Bard=16
-
-Inquisitor Spell Level 0	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|1	PRECLASS:1,Inquisitor=1
-Inquisitor Spell Level 1	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|1	PRECLASS:1,Inquisitor=4
-Inquisitor Spell Level 2	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|1	PRECLASS:1,Inquisitor=7
-Inquisitor Spell Level 3	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|1	PRECLASS:1,Inquisitor=10
-Inquisitor Spell Level 4	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|1	PRECLASS:1,Inquisitor=13
-Inquisitor Spell Level 5	VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|1	PRECLASS:1,Inquisitor=16
-
-Sorcerer Spell Level 0		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|1		PRECLASS:1,Sorcerer=1
-Sorcerer Spell Level 1		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1		PRECLASS:1,Sorcerer=4
-Sorcerer Spell Level 2		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|1		PRECLASS:1,Sorcerer=6
-Sorcerer Spell Level 3		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|1		PRECLASS:1,Sorcerer=8
-Sorcerer Spell Level 4		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|1		PRECLASS:1,Sorcerer=10
-Sorcerer Spell Level 5		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|1		PRECLASS:1,Sorcerer=12
-Sorcerer Spell Level 6		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1		PRECLASS:1,Sorcerer=14
-Sorcerer Spell Level 7		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1		PRECLASS:1,Sorcerer=16
-Sorcerer Spell Level 8		VISIBLE:NO	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|1		PRECLASS:1,Sorcerer=18
-
 #
 # End
 #
