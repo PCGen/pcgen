@@ -850,6 +850,10 @@ Immune
 				<to_hit>|WEAPON.%weap.TOTALHIT|</to_hit>
 				<damage>|WEAPON.%weap.DAMAGE|</damage>
 				<range>|WEAPON.%weap.RANGE|</range>
+<!-- This is an Addition by Itwally for the Monk Flurry of Blows Fix per DATA-73 -->
+				<name>|WEAPON.%weap.NAME|</name>
+				<class>|FOR.0,10,1,\CLASSABB.%\\CLASS.%.LEVEL\, , ,1|</class>
+<!-- End DATA-73 Work Around-->
 			</simple>
 		</weapon>
 |ELSE|  <!-- IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee) -->
