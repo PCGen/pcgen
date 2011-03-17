@@ -3161,8 +3161,9 @@
 						<fo:block font-size="8pt">
 							<xsl:value-of select="$to_hit"/>
 						</fo:block>
-<End DATA-73 Work Around -->
 					</fo:table-cell>
+<End DATA-73 Work Around -->
+					
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
