@@ -109,7 +109,7 @@ Rage			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEF
 ###Block: Barbarian abilities
 # Ability Name		Output Name				Category of Ability		Type								Visible	Define																					Description											Add to base move																		Modify VAR																																				Damage Reduction	Source Page
 Illiteracy								CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:IlliteracyLVL|0																																																																																											SOURCEPAGE:ClassesI.rtf
-Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																			BONUS:MOVEADD|TYPE=Walk|15|PREVARLT:var("COUNT[EQTYPE.ARMOR.IS.MEDIUM]"),1|TYPE=FastMove
+Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																			BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:var("COUNT[EQTYPE.ARMOR.IS.MEDIUM]"),1|TYPE=FastMove
 #COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],1
 #|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]+COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1
 #BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																									SOURCEPAGE:ClassesI.rtf
