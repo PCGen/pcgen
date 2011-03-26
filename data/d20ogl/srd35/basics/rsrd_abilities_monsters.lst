@@ -184,7 +184,7 @@ Half-Dragon Wings			CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Haste					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Head Tentacles			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Headloss Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:deals an additional 1d6 of Fire damage whenever it hits in melee or in each round it maintains a hold when grappling.
 Heat Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
 Hide Mind				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Hive Mind				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
@@ -560,15 +560,19 @@ Speak with Master															CATEGORY:Special Ability	TYPE:SpecialQuality			V
 
 ###Block: Psionic Companion Modifier Abilities
 # Ability Name		Category of Ability		Type				Visible
-Channel Power		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
-Deliver Touch Powers	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
-Hardness 8			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Power Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Self Propulsion		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Share Powers		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Sight Link			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Telepathic Link		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Telepathic Speech		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Channel Power						CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DESC:The owner can manifest powers through the psicrystal to a distance of up to 1 mile. The psicrystal is treated as the power's originator, and all ranges are calculated from its location. When channeling a power through his psicrystal, the owner manifests the power by paying its power point cost. He is still subject to attacks of opportunity and other hazards of manifesting a power, if applicable (for instance, he becomes visible when manifesting an offensive power if invisible, as does the psicrystal).
+Deliver Touch Powers					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:The owner can have his psicrystal can deliver touch powers for him. If the owner and psicrystal are in contact at the time the owner manifests a touch power, he can designate his psicrystal as the "toucher." The psicrystal can then deliver the touch power just as the owner could. As usual, if the owner manifests another power before the touch is delivered, the touch power dissipates.
+Hardness 8							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Power Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The psicrystal gains power resistance equal to the owner's level + 5. To affect the psicrystal with a power, another manifester must get a result on a manifester level check that equals or exceeds the psicrystal's power resistance.
+Self-Propulsion		KEY:Self Propulasion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:As a standard action, its owner can will a psicrystal to form spidery, ectoplasmic legs that grant the psicrystal a land speed of 30 feet and a climb speed of 20 feet. The legs fade into nothingness after one day (or sooner, if the owner desires).
+Flight			KEY:Flight ~ Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:The owner can, as a standard action, will his psicrystal to fly at a speed of 50 feet (poor). The psicrystal drifts gently to the ground after one day (or sooner, if the owner desires).
+Share Powers						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:At the owner's option, he can have any power (but not any psi-like ability) he manifests on himself also affect his psicrystal. The psicrystal must be within 5 feet of him at the time of the manifestation to receive the benefit. If the power has a duration other than instantaneous, it stops affecting the psicrystal if it moves farther than 5 feet away, and will not affect the psicrystal again, even if it returns to its owner before the duration expires. Additionally, the owner can manifest a power with a target of "You" on his psicrystal (as a touch range power) instead of on himself. The owner and psicrystal cannot share powers if the powers normally do not affect creatures of the psicrystal's type (construct).
+Sight Link							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DESC:The character can remote view the psicrystal (as if manifesting the remote view power) once per day.
+Telepathic Link						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:The owner has a telepathic link with his psicrystal out to a distance of up to 1 mile. The owner cannot see through the psicrystal's senses, but the two of them can communicate telepathically as if the psicrystal were the target of a mindlink power manifested by the owner. For instance, a psicrystal placed in a distant room could relay the activities occurring in that room. Because of the telepathic link between a psicrystal and its owner, the owner has the same connection to an item or place that the psicrystal does. For instance, if his psicrystal has seen a room, the owner can teleport into that room as if he has seen it too.
+Telepathic Speech						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The psicrystal can communicate telepathically with any creature that has a language and is within 30 feet of the psicrystal, while the psicrystal is also within 1 mile of the owner.
+
+# Psicrystal
+Sighted							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can't discern invisible or ethereal beings. A psicrystal's sighted range is 40 feet.
 
 
 ###Block: Dragon Breath Weapons
