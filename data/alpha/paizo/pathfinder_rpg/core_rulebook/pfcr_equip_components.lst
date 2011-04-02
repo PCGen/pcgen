@@ -37,17 +37,31 @@ Small Replica of Self (5 gp)	TYPE:MaterialComponent.Consumable	COST:5	WT:0		SPRO
 # Refuge - a prepared object worth 1500 gp
 
 ###Block: Foci
-# Equipment Name				Type					Cost		Weight	Special Property
-Diamond (1000 gp)				TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Protection from Spells
-Forked Metal Rod				TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift
-Ivory Statuette of Self (1500 gp)	TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Contingency
-Ruby and Gold Lens (1500 gp)		TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Analyze Dweomer
-Marked Bones (25 gp)			TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
-Platinum Ring (50 gp)			TYPE:MaterialComponent.Focus	COST:50	WT:0		SPROP:Focus for Shield Other
-Set of 4 Pieces of Ivory (200 gp)	TYPE:MaterialComponent.Focus	COST:200	WT:0		SPROP:Focus for Legend Lore
-Set of Marked Bones (25 gp)		TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
-Silver Mirror (1000 gp)			TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Scrying
-Tiny Reliquary (500 gp)			TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Cloak of Chaos, Holy Aura, Shield of Law, or Unholy Aura
+# Equipment Name					Type					Cost		Weight	Special Property
+Diamond (1000 gp)					TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Protection from Spells
+Forked Metal Rod					TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift
+Forked Metal Rod (Material Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Material Plane
+Forked Metal Rod (Astral Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Astral Plane
+Forked Metal Rod (Ethereal Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Ethereal Plane
+Forked Metal Rod (Shadow Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Shadow Plane
+Forked Metal Rod (Plane of Air)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Air
+Forked Metal Rod (Plane of Earth)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Earth
+Forked Metal Rod (Plane of Fire)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Fire
+Forked Metal Rod (Plane of Water)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Water
+Forked Metal Rod (Positive Energy Plane)	TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Positive Energy Plane
+Forked Metal Rod (Negative Energy Plane)	TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Negative Energy Plane
+Forked Metal Rod (Heaven)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Heaven
+Forked Metal Rod (Abyss)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Abyss
+Forked Metal Rod (Hell)				TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Hell
+Forked Metal Rod (Elysium)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Elysium
+Ivory Statuette of Self (1500 gp)		TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Contingency
+Ruby and Gold Lens (1500 gp)			TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Analyze Dweomer
+Marked Bones (25 gp)				TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
+Platinum Ring (50 gp)				TYPE:MaterialComponent.Focus	COST:50	WT:0		SPROP:Focus for Shield Other
+Set of 4 Pieces of Ivory (200 gp)		TYPE:MaterialComponent.Focus	COST:200	WT:0		SPROP:Focus for Legend Lore
+Set of Marked Bones (25 gp)			TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
+Silver Mirror (1000 gp)				TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Scrying
+Tiny Reliquary (500 gp)				TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Cloak of Chaos, Holy Aura, Shield of Law, or Unholy Aura
 # To Do
 # Destuction - Holy/Unholy symbol worth 500 gp
 
@@ -87,3 +101,4 @@ Set of Minature Items (15 gp)		TYPE:MaterialComponent.Focus	COST:15	WT:0		SPROP:
 Set of Prayer Beads (500 gp)		TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Atonement
 # To Do
 # Magic Jar - a gem or crystal worth at least 100 gp
+
