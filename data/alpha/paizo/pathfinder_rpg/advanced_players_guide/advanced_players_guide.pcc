@@ -102,6 +102,12 @@ SPELL:pfapg_spells.lst
 SPELL:pfapg_spells_mods.lst
 
 TEMPLATE:pfapg_templates.lst
+
+#Hide internal feat types
+HIDETYPE:FEAT|AquaticBloodline|BorealBloodline|DeepearthBloodline|DreamspunBloodline|ProteanBloodline|SerpentineBloodline|ShadowBloodline|StarsoulBloodline|StormbornBloodline|VerdantBloodline
+HIDETYPE:FEAT|DruidShamanBear|DruidShamanEagle|DruidShamanLion|DruidShamanSerpent|DruidShamanWolf
+HIDETYPE:FEAT|MartialWeaponProficiency|MountedMastery|OracleWeaponmastery
+
 #
 # End
 #
