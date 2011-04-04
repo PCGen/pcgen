@@ -215,7 +215,7 @@ CLASS:Holy Champion (Philosophic Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSP
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Bearer of Woe)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3					TEMPLATE:BearerofWoeFavClass			STARTSKILLPTS:4											CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|TYPE=Geography|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble											SOURCEPAGE:p.73
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Bearer of Woe)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG		PREDEITY:1,Anshar		PRERACE:1,Elorii,Dwarf,Ss'ressen				
+CLASS:Holy Champion (Bearer of Woe)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG		PREDEITY:1,Anshar		!PRERACE:1,Elorii,Dwarf,Ss'ressen				
 # Class Name		Class Skill
 CLASS:Holy Champion (Bearer of Woe)	CSKILL:Examine Martial Technique	LANGAUTO:Ancient Altharin(Imperial)
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -267,7 +267,7 @@ CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:L
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Twelve Oaks)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Literacy							BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3		BONUS:HD|MIN|2	TEMPLATE:TwelveOaksFavClass			STARTSKILLPTS:2		CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival																			SOURCEPAGE:p.77
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Twelve Oaks)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda																							PRERACE:1,Elorii																
+CLASS:Holy Champion (Twelve Oaks)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda	PRERACE:1,Elorii																
 # Class Name		Class Skill
 CLASS:Holy Champion (Twelve Oaks)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -319,7 +319,7 @@ CLASS:Holy Champion (Twelve Oaks)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Hospitaler)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Ancient Altharin(Imperial)	LANGAUTO:Literacy	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3					TEMPLATE:BeltinianHospitalerFavClass	STARTSKILLPTS:2							CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive																								SOURCEPAGE:p.79
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Hospitaler)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Beltine																													!PRERACE:1,Elorii,Dwarf,Ss'ressen		
+CLASS:Holy Champion (Hospitaler)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen		
 # Class Name		Class Skill
 CLASS:Holy Champion (Hospitaler)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -372,7 +372,7 @@ CLASS:Holy Champion (Hospitaler)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Twilight Warrior)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Ancient Altharin(Imperial)				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3					TEMPLATE:TwilightWarriorFavClass		STARTSKILLPTS:6																						PRERACE:1,Elorii,Dwarf,Ss'ressen														CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE=Religion|TYPE=Local|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope	SOURCEPAGE:p.83
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Twilight Warrior)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Cadic		
+CLASS:Holy Champion (Twilight Warrior)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Cadic		!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Class Skill
 CLASS:Holy Champion (Twilight Warrior)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -426,6 +426,7 @@ CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELL
 CLASS:Holy Champion (Blazing Wyrm)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE										BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3					TEMPLATE:BlazingWyrmFavClass			STARTSKILLPTS:2																							PRERACE:1,Ss'ressen									PRETEMPLATE:1,Black Talon,Ashen Hide	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Jump|Knowledge (Geography:Ssethregore)|Knowledge (Nature:Ssethregore)|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Swim							SOURCEPAGE:p.83
 # Class Name		Required Deity	Prohibited Subclass
 CLASS:Holy Champion (Blazing Wyrm)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN	PREDEITY:1,Fire Dragon	
+# Need PRERACE
 # Class Name		Class Skill
 CLASS:Holy Champion (Blazing Wyrm)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -636,7 +637,7 @@ CLASS:Holy Champion (Fate Spinner)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Deathbringer)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE											BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3					TEMPLATE:DeathbringerFavClass			STARTSKILLPTS:2	PREALIGN:LG		PREDEITY:1,Neroth																														!PRERACE:1,Elorii,Ss'ressen									CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Religion|TYPE=Profession|Ride|Sense Motive																									SOURCEPAGE:95
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Deathbringer)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine
+CLASS:Holy Champion (Deathbringer)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	!PRERACE:1,Elorii,Ss'ressen	PREALIGN:LG
 # Class Name		Class Skill
 CLASS:Holy Champion (Deathbringer)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -689,7 +690,7 @@ CLASS:Holy Champion (Deathbringer)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Holy Judge)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Ancient Altharin(Imperial)				BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3					TEMPLATE:HolyJudgeFavClass			STARTSKILLPTS:2																								PRERACE:1,Human,Val																CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nobility|TYPE=Religion|TYPE=Local|TYPE=Profession|Ride|Sense Motive																				SOURCEPAGE:p.100
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Holy Judge)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN,LE	PREDEITY:1,Nier	
+CLASS:Holy Champion (Holy Judge)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN,LE	PREDEITY:1,Nier	!PRERACE:1,Elorii,Ss'ressen,Dwarf
 # Class Name		Class Skill
 CLASS:Holy Champion (Holy Judge)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -733,7 +734,7 @@ CLASS:Holy Champion (Holy Judge)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Verdant Champion)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE		LANGAUTO:Ancient Altharin(Imperial),Sylvan		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3					TEMPLATE:VerdantChampFavClass			STARTSKILLPTS:2																									PRERACE:1,Elorii,Dwarf,Ss'ressen														CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival																			SOURCEPAGE:p.103
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Verdant Champion)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Saluwe
+CLASS:Holy Champion (Verdant Champion)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Saluwe	!PRERACE:1,Elorii,Ss'ressen,Dwarf
 # Class Name		Class Skill
 CLASS:Holy Champion (Verdant Champion)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -833,7 +834,7 @@ CLASS:Holy Champion (Inner Demon)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Sea Lord)		NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE		LANGAUTO:Ancient Altharin(Imperial)				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3					TEMPLATE:SeaLordFavClass			STARTSKILLPTS:6																														!PRERACE:1,Elorii,Dwarf,Ss'ressen								CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Sea|Ride|Search|Spot|Survival|Swim|Use Rope															SOURCEPAGE:p.111
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Sea Lord)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Yarris	
+CLASS:Holy Champion (Sea Lord)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Yarris	!PRERACE:1,Elorii,Ss'ressen,Dwarf
 # Class Name		Class Skill
 CLASS:Holy Champion (Sea Lord)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
