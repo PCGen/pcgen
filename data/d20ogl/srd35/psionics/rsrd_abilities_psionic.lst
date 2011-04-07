@@ -17,17 +17,21 @@ Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUT
 
 ###Block: Mind Blade abilities
 # Ability Name			Output Name						Category of Ability		Type						Visible	Define																Description				Automatically Gained Weapon Prof.	Modify VAR																										Aspects
-MindBlade Wielder										CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0						AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
-MindBlade Standard		OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-MindBlade Throw			OUTPUTNAME:Throw Mind Blade			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES
-MindBlade Psychic Strike	OUTPUTNAME:Psychic Strike			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES																		DESC:+%1d8|PsychicStrike																																		ASPECT:Ability Benefit|+%1d8|PsychicStrike
-MindBlade Plus			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES																		DESC:+%1|MindBladePlus																																			ASPECT:Ability Bonus|+%1|MindBladePlus
-MindBlade Free Draw		OUTPUTNAME:Draw Mind Blade as free action	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-MindBlade Shape			OUTPUTNAME:Shape Mind Blade			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-MindBlade Enhancement		OUTPUTNAME:Mind Blade Enhancement		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																		DESC:+%1|MindBladeEnhancement																																		ASPECT:Ability Benefit|+%1|MindBladeEnhancement
-MindBlade Bladewind		OUTPUTNAME:Bladewind				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-MindBlade Multiple Throw	OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+MindBlade Wielder																	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0						AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
+Mind Blade					KEY:MindBlade Standard			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Throw Mind Blade				KEY:MindBlade Throw			OUTPUTNAME:Throw Mind Blade			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES	DESC:You can throw your mind blade as a ranged weapon with a range increment of 30 feet. Whether or not the attack hits, a thrown mind blade then dissipates. A soulknife of 3rd level or higher can make a psychic strike (see below) with a thrown mind blade and can use the blade in conjunction with other special abilities (such as Knife to the Soul; see below).
+Psychic Strike				KEY:MindBlade Psychic Strike		OUTPUTNAME:Psychic Strike			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES																		DESC:+%1d8|PsychicStrike																																		ASPECT:Ability Benefit|+%1d8|PsychicStrike
+Mind Blade					KEY:MindBlade Plus			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES																		DESC:+%1|MindBladePlus																																			ASPECT:Ability Bonus|+%1|MindBladePlus
+Draw Mind Blade as free action	KEY:MindBlade Free Draw			OUTPUTNAME:Draw Mind Blade as free action	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Shape Mind Blade				KEY:MindBlade Shape			OUTPUTNAME:Shape Mind Blade			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Mind Blade Enhancement			KEY:MindBlade Enhancement		OUTPUTNAME:Mind Blade Enhancement		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																		DESC:+%1|MindBladeEnhancement																																		ASPECT:Ability Benefit|+%1|MindBladeEnhancement
+Bladewind					KEY:MindBlade Bladewind			OUTPUTNAME:Bladewind				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Knife to the Soul				KEY:MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Multiple Throw				KEY:MindBlade Multiple Throw		OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+
+
+CATEGORY=Special Ability|MindBlade Psychic Strike.MOD	DESC:As a move action, a soulknife of 3rd level or higher can imbue his mind blade with destructive psychic energy. This effect deals an extra 1d8 points of damage to the next living, nonmindless target he successfully hits with a melee attack (or ranged attack, if he is using the throw mind blade ability). Creatures immune to mind-affecting effects are immune to psychic strike damage. (Unlike the rogue's sneak attack, the psychic strike is not precision damage and can affect creatures otherwise immune to extra damage from critical hits or more than 30 feet away, provided they are living, nonmindless creatures not immune to mind-affecting effects.) A mind blade deals this extra damage only once when this ability is called upon, but a soulknife can imbue his mind blade with psychic energy again by taking another move action. Once a soulknife has prepared his blade for a psychic strike, it holds the extra energy until it is used. Even if the soulknife drops the mind blade (or it otherwise dissipates, such as when it is thrown and misses), it is still imbued with psychic energy when the soulknife next materializes it.
+
 
 ###Block: Wilder Abilities
 # Ability Name		Category of Ability		Type					Visible	Define				Description												Aspects

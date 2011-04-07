@@ -150,13 +150,13 @@ Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMo
 ###Block: Artifacts
 #minor
 # Equipment Name				Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page				Stat bonus					Weapon prop. bonus
-Everfull Purse										TYPE:Artifact.Minor												COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
-Libram of Gainful Conjuration								TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Ineffable Damnation								TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Silver Magic									TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Puissant Skill at Arms							TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Stealthly Pilfering								TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Rogue's Dice										TYPE:Artifact.Minor												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Everfull Purse										TYPE:Magic.Artifact.Minor												COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
+Libram of Gainful Conjuration								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Ineffable Damnation								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Silver Magic									TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Puissant Skill at Arms							TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Stealthly Pilfering								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Rogue's Dice										TYPE:Magic.Artifact.Minor												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 
 #major
 Axe of the Dwarvish Lords		PROFICIENCY:WEAPON|Waraxe (Dwarven)	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.PLUS_6_WEAP.STEEL.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:1,Dwarf%	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
@@ -172,4 +172,4 @@ Ring of Nine Facets									TYPE:Artifact.Major.Ring.Magic											COST:0	WT:0
 ###Block: Specific Weapons for Epic Monsters
 
 # Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Size
-Leshay Weapon	PROFICIENCY:WEAPON|Leshay Weapon	TYPE:Weapon.Melee.Exotic.Specific.Slashing.Sword	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BRI_EN_M.KEEN.MWORKW.PLUS_10_WEAP.STEEL	WIELD:Light		SIZE:M
+Leshay Weapon	PROFICIENCY:WEAPON|Leshay Weapon	TYPE:Magic.Weapon.Melee.Exotic.Specific.Slashing.Sword	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BRI_EN_M.KEEN.MWORKW.PLUS_10_WEAP.STEEL	WIELD:Light		SIZE:M
