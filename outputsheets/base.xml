@@ -2754,6 +2754,9 @@ Immune
 	<traits>
 |FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<trait>
+|IIF(VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait)|
+			<name>|VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait| (Granted)</name>
+|ELSE|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
 			<source>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
