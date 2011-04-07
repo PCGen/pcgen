@@ -1418,7 +1418,7 @@ Immune
 		<!-- Virtual Feats -->
 |FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
 		<feat>
-			<name>|VFEAT.VISIBLE.%feat|</name>
+			<name>|VFEAT.VISIBLE.%feat| (Granted)</name>
 			<description>|VFEAT.VISIBLE.%feat.DESC|</description>
 			<type>|VFEAT.VISIBLE.%feat.TYPE|</type>
 			<associated>|VFEAT.VISIBLE.%feat.ASSOCIATED|</associated>
