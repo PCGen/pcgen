@@ -382,7 +382,7 @@ CLASS:Wizard	HD:6		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:D
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Appraise|TYPE.Craft|Fly|TYPE.Knowledge|Linguistics|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL	DEFINE:UniversalSchoolLVL|0
 #
 SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|AbjurationSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Abjuration School
