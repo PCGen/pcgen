@@ -358,6 +358,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox hpDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
 	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
+	private JCheckBox maxHpAtFirstPCClassLevelOnly = new JCheckBox();
 	private JCheckBox printSpellsWithPC = new JCheckBox();
 	private JCheckBox removeTempFiles;
 	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
@@ -606,6 +607,7 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setHPPct(hpPct.getValue());
 		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
+		SettingsHandler.setHPMaxAtFirstPCClassLevelOnly(maxHpAtFirstPCClassLevelOnly.isSelected());
 
 		// House Rules
 		houseRulesPanel.setOptionsBasedOnControls();
@@ -982,6 +984,7 @@ final class PreferencesDialog extends JDialog
 		hpPct.setValue(SettingsHandler.getHPPct());
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
 		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
+		maxHpAtFirstPCClassLevelOnly.setSelected(SettingsHandler.isHPMaxAtFirstPCClassLevelOnly());
 
 		// House Rules
 		houseRulesPanel.applyOptionValuesToControls();
@@ -1599,13 +1602,24 @@ final class PreferencesDialog extends JDialog
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
 		label =
 				new JLabel("      " 
-					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstClass") 
+					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstClassLevel") 
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
-		Utility.buildConstraints(c, 2, iRow, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
 		gridbag.setConstraints(maxHpAtFirstClassLevel, c);
 		hitPointsPanel.add(maxHpAtFirstClassLevel);
+
+		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
+		label =
+				new JLabel("      " 
+					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstPCClassLevelOnly") 
+					+ ": ");
+		gridbag.setConstraints(label, c);
+		hitPointsPanel.add(label);
+		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
+		gridbag.setConstraints(maxHpAtFirstPCClassLevelOnly, c);
+		hitPointsPanel.add(maxHpAtFirstPCClassLevelOnly);
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;

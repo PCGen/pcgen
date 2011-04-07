@@ -1728,7 +1728,9 @@ public class PCClass extends PObject
 
 			if (Globals.getGameModeHPFormula().length() == 0)
 			{
-				if ((first && (aLevel == 1)) && SettingsHandler.isHPMaxAtFirstLevel())
+				if (first && aLevel == 1 && 
+						SettingsHandler.isHPMaxAtFirstLevel() &&
+						(!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || this.isType("PC")))
 				{
 					roll = max;
 				}
