@@ -190,6 +190,12 @@
 		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
 
 
+		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
+		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>
+		<animal_tricks.lightline><subattrib light=""/></animal_tricks.lightline>
+		<animal_tricks.darkline><subattrib medium=""/></animal_tricks.darkline>
+
+
 		<intelligent_items.title><subattrib centre="" inverse=""/></intelligent_items.title>
 		<intelligent_items.border padding="0.5pt"><subattrib border="" inverse=""/></intelligent_items.border>
 		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
