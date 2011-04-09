@@ -469,6 +469,10 @@ Insanity													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	
 Death Touch													CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DEFINE:DeathTouch|0	DESC:1/day, melee touch attack, %1d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch
 Mind Will Save	OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES
 
+# ACF - Alternate Class Features
+Remove Scribe Scroll			TYPE:WizardScribeScroll.ACF		CATEGORY:Special Ability	
+Remove Summon Familiar (Wizard)	TYPE:WizardSummonFamiliar.ACF		CATEGORY:Special Ability	
+Remove Summon Familiar (Sorcerer)	TYPE:SorcererSummonFamiliar.ACF	CATEGORY:Special Ability	
 #
 #EOF
 #
