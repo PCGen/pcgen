@@ -951,6 +951,18 @@ BIO
 	  ====================================
 	  ====================================-->
 	<ability_objects>
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Sighted</name>
+			<description>Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can&#39;t discern invisible or ethereal beings. A psicrystal&#39;s sighted range is 40 feet.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
