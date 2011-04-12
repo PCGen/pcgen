@@ -23,12 +23,19 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.StatAnalysis;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
+import pcgen.util.Delta;
 
 import java.util.StringTokenizer;
 
@@ -88,16 +95,33 @@ public class SpellListClassToken extends SpellListToken
 				aClass = (PCClass) aObject;
 			}
 
-			if ((aClass != null) && tokenSource.endsWith("LEVEL"))
+			if ((aClass != null))
 			{
-				retValue
-					.append(String.valueOf(pc.getLevel(aClass)
-						+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
-							.getKeyName())));
-			}
-			else
-			{
-				retValue.append(OutputNameFormatting.getOutputName(aObject));
+				if (tokenSource.endsWith(".CASTERLEVEL"))
+				{
+					retValue.append(pc.getCasterLevelForClass(aClass));
+				}
+				else if (tokenSource.endsWith(".CONCENTRATION"))
+				{
+					if (Globals.getGameModeBaseSpellConcentration() != "")
+					{
+						Spell sp = new Spell();
+						CharacterSpell cs = new CharacterSpell(aClass, sp); 
+						int concentration = pc.getConcentration(sp, cs, aClass, 0, 0, aClass);	
+						retValue.append(Delta.toString(concentration));
+					}
+				}
+				else if (tokenSource.endsWith(".LEVEL"))
+				{
+					retValue
+						.append(String.valueOf(pc.getLevel(aClass)
+							+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
+								.getKeyName())));
+				}
+				else
+				{
+					retValue.append(OutputNameFormatting.getOutputName(aObject));
+				}
 			}
 		}
 

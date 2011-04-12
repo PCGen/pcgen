@@ -5150,6 +5150,20 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Computes the Caster Level for a Class
 	 * 
+	 * @param aClass
+	 * @return caster level for class
+	 */
+	public int getCasterLevelForClass(final PCClass aClass)
+	{
+		final Spell sp = new Spell();
+		final CharacterSpell cs = new CharacterSpell(aClass, sp); 
+		final String aSpellClass = "CLASS:" + aClass.getKeyName();
+		return getVariableValue(cs, "CASTERLEVEL", aSpellClass).intValue();
+	}
+
+	/**
+	 * Computes the Caster Level for a Class
+	 * 
 	 * @param aSpell
 	 * @param aName
 	 * @return caster level for spell
@@ -12033,6 +12047,163 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return dc;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Returns concentration bonus for a spell and SpellInfo.
+	 * @param sp the spell
+	 * @param cs TODO
+	 * @param si the spell info
+	 * @return concentration bonus for a spell and SpellInfo
+	 */
+	public int getConcentration(final Spell sp, CharacterSpell cs, final SpellInfo si)
+	{
+		PObject ow = null;
+		int spellLevel = 0;
+		int metaConcentration = 0;
+		
+		spellLevel = si.getActualLevel();
+		ow = cs.getOwner();
+
+		String fixedConcentration = si.getFixedConcentration();
+
+		if (fixedConcentration != null && "INNATE".equalsIgnoreCase(si.getBook()))
+		{
+			return getVariableValue(fixedConcentration, "").intValue();
+		}
+
+		// Check for a non class based fixed Concentration
+		if (fixedConcentration != null && ow != null && !(ow instanceof PCClass))
+		{
+			return getVariableValue(fixedConcentration, "").intValue();
+		}
+		
+		if (si.getFeatList() != null)
+		{
+			for (Ability metaFeat : si.getFeatList())
+			{
+				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+				metaConcentration += BonusCalc.bonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this,
+						this);
+			}
+		}
+		
+		return getConcentration(sp, cs, null, spellLevel, metaConcentration, ow);
+	}
+
+	public int getConcentration(final Spell sp, final CharacterSpell aSpell, PCClass aClass, 
+			int spellLevel, int metaConcentration, PObject ow)
+	{
+		String bonDomain = "";
+		if (ow instanceof Domain)
+		{
+			bonDomain = "DOMAIN." + ow.getKeyName();
+
+			ClassSource source = getDomainSource((Domain) ow);
+			if (source != null)
+			{
+				aClass = getClassKeyed(source.getPcclass().getKeyName());
+			}
+		}
+
+		boolean useStatFromSpell = false;
+		String bonClass = "";
+		String spellType = "";
+		String classKey = "";
+
+		if ((aClass != null) || (ow instanceof PCClass))
+		{
+			if ((aClass == null) || (ow instanceof PCClass))
+			{
+				aClass = (PCClass) ow;
+			}
+
+			bonClass = "CLASS." + aClass.getKeyName();
+			classKey = "CLASS:" + aClass.getKeyName();
+			spellType = aClass.getSpellType();
+			useStatFromSpell = aClass.getSafe(ObjectKey.USE_SPELL_SPELL_STAT);
+		}
+
+		if (!(ow instanceof PCClass) && !(ow instanceof Domain))
+		{
+			// get BASESPELLSTAT from spell itself
+			useStatFromSpell = true;
+		}
+
+		// set the spell Level used in aPC.getVariableValue()
+		setSpellLevelTemp(spellLevel);
+
+		// must be done after spellLevel is set above
+		int concentration =
+				getVariableValue(aSpell, Globals.getGameModeBaseSpellConcentration(), classKey)
+					.intValue()
+					+ metaConcentration;
+		concentration += (int) getTotalBonusTo("CONCENTRATION", "ALLSPELLS");
+
+		if (useStatFromSpell)
+		{
+			// get the BASESPELLSTAT from the spell itself
+			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
+			if (stat != null)
+			{
+				concentration += StatAnalysis.getStatModFor(this, stat);
+			}
+		}
+
+		if (sp.getKeyName().length() > 0)
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", "SPELL." + sp.getKeyName());
+		}
+
+		// DOMAIN.name
+		if (bonDomain.length() > 0)
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", bonDomain);
+		}
+
+		// CLASS.name
+		if (bonClass.length() > 0)
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", bonClass);
+		}
+
+		concentration += (int) getTotalBonusTo("CONCENTRATION", "TYPE." + spellType);
+
+		if (spellType.equals("ALL"))
+		{
+			for (Type aType : sp.getTrueTypeList(false))
+			{
+				concentration += (int) getTotalBonusTo("CONCENTRATION", "TYPE." + aType);
+			}
+		}
+
+		for (SpellSchool aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", "SCHOOL." + aType.toString());
+		}
+
+		for (String aType : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", "SUBSCHOOL." + aType);
+		}
+
+		for (String aType : sp.getSafeListFor(ListKey.SPELL_DESCRIPTOR))
+		{
+			concentration += (int) getTotalBonusTo("CONCENTRATION", "DESCRIPTOR." + aType);
+		}
+
+		setSpellLevelTemp(0); // reset
+
+		return concentration;
+	}
+	
 	public boolean hasSkill(Skill skill)
 	{
 		return skillFacet.contains(id, skill);

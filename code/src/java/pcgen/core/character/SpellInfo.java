@@ -57,6 +57,7 @@ public final class SpellInfo
 	private int actualSpellPointCost = 0;
 	private int numPages = 0;
 	private String fixedDC = null;
+	private String fixedConcentration = null;
 
 	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel,
 			final int times, final String book)
@@ -199,6 +200,22 @@ public final class SpellInfo
 	public void setFixedDC(final String fixedDC)
 	{
 		this.fixedDC = fixedDC;
+	}
+
+	/**
+	 * @return Returns the fixedConcentration.
+	 */
+	public String getFixedConcentration()
+	{
+		return fixedConcentration;
+	}
+
+	/**
+	 * @param fixedConcentration The fixedConcentration to set.
+	 */
+	public void setFixedConcentration(final String fixedConcentration)
+	{
+		this.fixedConcentration = fixedDC;
 	}
 
 }

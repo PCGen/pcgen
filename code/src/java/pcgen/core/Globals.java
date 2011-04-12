@@ -795,6 +795,15 @@ public final class Globals
 	}
 
 	/**
+	 * Get game mode base spell concentration bonus
+	 * @return game mode base spell concentration bonus
+	 */
+	public static String getGameModeBaseSpellConcentration()
+	{
+		return SettingsHandler.getGame().getSpellBaseConcentration();
+	}
+
+	/**
 	 * Get game mode damage resistance text
 	 * @return game mode damage resistance text
 	 */

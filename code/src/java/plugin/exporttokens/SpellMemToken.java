@@ -50,6 +50,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.Delta;
 
 /**
  * <code>SpellMemToken</code> displays information about the spells
@@ -260,6 +261,14 @@ public class SpellMemToken extends Token
 						else if ("COMPONENTS".equals(aLabel))
 						{
 							retValue.append(aSpell.getListAsString(ListKey.COMPONENTS));
+						}
+						else if ("CONCENTRATION".equals(aLabel))
+						{
+							if (Globals.getGameModeBaseSpellConcentration() != "")
+							{
+								int concentration = aPC.getConcentration(aSpell, selectedCSpell, si);
+								retValue.append(Delta.toString(concentration));
+							}
 						}
 						else if ("COST".equals(aLabel))
 						{

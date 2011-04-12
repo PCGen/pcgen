@@ -114,6 +114,7 @@ public final class GameMode implements Comparable<Object>
 	private String menuToolTip = "";
 	private String name = "";
 	private String spellBaseDC = "0";
+	private String spellBaseConcentration = "";
 	private String wcStepsFormula = "";
 	private String weaponCategories = "";
 	private String weaponTypes = "";
@@ -684,6 +685,24 @@ public final class GameMode implements Comparable<Object>
 	public String getSpellBaseDC()
 	{
 		return spellBaseDC;
+	}
+
+	/**
+	 * Set the base concentration bonus for spells
+	 * @param arg
+	 */
+	public void setSpellBaseConcentration(final String arg)
+	{
+		spellBaseConcentration = arg;
+	}
+
+	/**
+	 * Get the base concentration bonus for Spells
+	 * @return the base concentration bonus for Spells
+	 */
+	public String getSpellBaseConcentration()
+	{
+		return spellBaseConcentration;
 	}
 
 	/**

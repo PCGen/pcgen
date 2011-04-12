@@ -1008,6 +1008,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-CONCENTRATION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/Concentration.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-DC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5547,6 +5554,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/SpellbasedcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SPELLBASECONCENTRATION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SpellbaseconcentrationToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
