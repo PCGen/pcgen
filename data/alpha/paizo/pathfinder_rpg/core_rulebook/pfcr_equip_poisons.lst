@@ -5,7 +5,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 ###Block: Poisons
 # Equipment Name				Output Name		Type					Cost		Weight	Source Page		Special Property
 Poison (Arsenic)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (4); Effect 1d2 Con dmg; Cure 1 save
-Poison (Belladonna)			OUTPUTNAME:[NAME]	TYPE:Goods.Poinson.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg (plus attempt lycanthropy cure if within 1 hour); Cure 1 save
+Poison (Belladonna)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg (plus attempt lycanthropy cure if within 1 hour); Cure 1 save
 Poison (Black Adder Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 11; Freq 1 rnd (6); Effect 1d2 Con dmg; Cure 1 save
 Poison (Black Lotus Extract)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:4500	WT:0		SOURCEPAGE:p.558	SPROP:Contact; Fort DC 20; Onset 1 min; Freq 1 rnd (6); Effect 1d6 Con dmg; Cure 2 consecutive save
 Poison (Bloodroot)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 12; Onset 1 rnd; Freq 1 rnd (4); Effect 1 Con dmg and 1 Wis dmg; Cure 1 save
