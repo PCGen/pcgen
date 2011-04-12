@@ -677,6 +677,44 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.7</p>
+	<p class="indent0"><strong><a name="CONCENTRATION">Tag Name:</a></strong> BONUS:CONCENTRATION|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALLSPELLS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR.Text (Spell descriptor name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DOMAIN.Text (Domain name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RACE.Text (Race name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL.Text (School name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL.Text (Spell name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL.Text (Subschool name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to caster level)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Each spellcasting class can have a concentration check bonus associated with it, depending on the game mode. This bonus is defined with the SPELLBASECONCENTRATION game mode tag.</li>
+		<li>If the game mode does not contain a <a href="../systemfilestagpages/gamemodemiscinfolist.html#SPELLBASECONCENTRATION">SPELLBASECONCENTRATION</a> tag, the output tokens SPELLLISTCLASS.y.CONCENTRATION and SPELLMEM.v.w.x.y.CONCENTRATION will generate an empty string. Output sheets should check the value of these tokens, and if empty should not display concentration check bonuses.</li>
+		<li>This BONUS statement can be used to increase the concentration check bonus for all spells or spells selected by severeal criteria.</li>
+		<li>This BONUS statement can be used to increase the concentration check bonus of innate racial spells.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|ALLSPELLS|1</code></p>
+	<p class="indent3">Adds 1 the concentration check bonuses for all spells.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|Sorcerer|1</code></p>
+	<p class="indent3">Adds 1 to Sorcerer spell increase the concentration check bonuses.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|TYPE.Arcane|1</code></p>
+	<p class="indent3">Adds 1 to Arcane spell concentration check bonuses.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|RACE.Gelfling|2</code></p>
+	<p class="indent3">Adds 2 to Gelfling innate racial spell concentration check bonuses.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|SPELL.Levitate|2</code></p>
+	<p class="indent3">Adds 2 to concentration check bonus for the 'Levitate' spell.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|SCHOOL.Transmutation|2</code></p>
+	<p class="indent3">Adds 2 to concentration check bonuses for all spells of the 'Transmutation' school.</p>
+	<p class="indent2"><code>BONUS:CONCENTRATION|SPELL.Fireball|2</code></p>
+	<p class="indent3">Adds 2 to concentration check bonuses for the "Fireball' spell.</p>
+	<p></p>
+
+<hr>
+
 	<p class="new">*** deprecated 4.3.8 - Remove 6.0 - Use <a href="#COMBATDAMAGE">BONUS:COMBAT|DAMAGE.x|y</a></p>
 	<p class="indent0"><strong><a name="DAMAGE">Tag Name:</a></strong> BONUS:DAMAGE|x</p>
 	<p></p>

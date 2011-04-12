@@ -85,7 +85,7 @@
 
 <hr>
 
-		<p class="new">*** updated 5.7.9</p>
+		<p class="new">*** updated 5.17.7</p>
 		<p class="indent0"><strong><a name="SPELLLIST">Token Name:</a></strong> SPELLLISTx.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Spellbook Option. See below)</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Number (Class Number - 0 index array).</p>
@@ -102,8 +102,9 @@
 					<li><code>CLASS</code> - Displays the spellcaster class information.
 						<ul>
 							<li><code>CLASS.y</code> - Displays the spellcaster classname for class number y.</li>
-							<li><code>CLASS.y.LEVEL</code> - Displays the spellcasters effective casting level, including bonus levels 
-								from other classes.</li>
+							<li><code>CLASS.y.CASTERLEVEL</code> - Displays the effective casting level for spells cast by spellcaster class y, including bonus levels from other classes.</li>
+							<li><code>CLASS.y.CONCENTRATION</code> - Displays the concentration check bonus for spells cast by spellcaster class y (empty if no formula is defined in the game mode).</li>
+							<li><code>CLASS.y.LEVEL</code> - Displays the spellcaster's class level for spellcasting class y.</li>
 						</ul>
 					<li><code>DC</code> - Displays the casting DC for a z level spell for spellcaster class y.</li>
 					<li><code>DCSTAT</code> - Displays the STAT used to figure out the DC of a z level spell cast by spallcaster class y.</li>
@@ -125,6 +126,7 @@
 
 <hr>
 
+		<p class="new">*** updated 5.17.7</p>
 		<p class="indent0"><strong><a name="SPELLMEM">Token Name:</a></strong> SPELLMEM.v.w.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Number (Spell class).</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Number (Spellbook).</p>
@@ -151,6 +153,7 @@
 					<li><code>CASTERLEVEL</code> - Display the caster level (including bonuses) of the indicated spell.</li>
 					<li><code>CASTINGTIME</code> - Display the casting time of the indicated spell.</li>
 					<li><code>CLASS</code> - Indicates spellcaster classname.</li>
+					<li><code>CONCENTRATION</code> - Displays the concentration check bonus for the indicated spell (empty if no formula is defined in the game mode).</li>
 					<li><code>CT</code> - Display the Casting Threshold of the indicated spell.</li>
 					<li><code>DC</code> - Display the DC of the indicated spell.</li>
 					<li><code>DCSTAT</code> - Display the STAT used to figure out DC of spell</li>
