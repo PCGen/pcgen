@@ -3106,6 +3106,7 @@ Immune
 					<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+					<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 					<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 					<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3149,6 +3150,7 @@ Immune
 						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+						<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3185,7 +3187,7 @@ Immune
 |FOR,%spellbook,0,0,1,0|
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
-		<class number="%class" spelllistclass="|SPELLLISTCLASS.%class|" spellcasterlevel="|SPELLLISTCLASS.%class.LEVEL|" spellcastertype="|SPELLLISTTYPE.%class|" memorize="|SPELLLISTMEMORIZE.%class|">
+	<class number="%class" spelllistclass="|SPELLLISTCLASS.%class|" spellcasterlevel="|SPELLLISTCLASS.%class.CASTERLEVEL|" spellcastertype="|SPELLLISTTYPE.%class|" memorize="|SPELLLISTMEMORIZE.%class|" concentration="|SPELLLISTCLASS.%class.CONCENTRATION|">
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 			<level number="%level" known="|SPELLLISTKNOWN.%class.%level|" cast="|SPELLLISTCAST.%class.%level|">
@@ -3200,6 +3202,7 @@ Immune
 						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+						<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3258,6 +3261,7 @@ Immune
 					<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+					<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 					<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 					<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3302,6 +3306,7 @@ Immune
 						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+						<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3361,6 +3366,7 @@ Immune
 							<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 							<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 							<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+							<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 							<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 							<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 							<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
