@@ -1738,7 +1738,7 @@ public class PCClass extends PObject
 				{
 					if (!aPC.isImporting())
 					{
-						roll = Globals.rollHP(min, max, getDisplayName(), aLevel);
+						roll = Globals.rollHP(min, max, getDisplayName(), aLevel, aPC.getTotalLevels());
 					}
 				}
 			}

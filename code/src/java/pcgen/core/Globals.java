@@ -1810,7 +1810,7 @@ public final class Globals
 	 * @param level
 	 * @return HP
 	 */
-	public static int rollHP(final int min, final int max, final String name, final int level)
+	public static int rollHP(final int min, final int max, final String name, final int level, final int totalLevel)
 	{
 		int roll;
 
@@ -1828,7 +1828,7 @@ public final class Globals
 				// average roll on a die with an even # of sides will have an extra 0.5
 				roll = max - min;
 
-				if (((level & 0x01) == 0) && ((roll & 0x01) != 0))
+				if (((totalLevel & 0x01) == 0) && ((roll & 0x01) != 0))
 				{
 					++roll;
 				}
