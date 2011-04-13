@@ -140,6 +140,12 @@ Ride-By Attack.MOD			TYPE:MountedMastery
 Spirited Charge.MOD			TYPE:MountedMastery
 Trample.MOD					TYPE:MountedMastery
 Unseat.MOD					TYPE:MountedMastery
+
+
+# Trait bonuses to Turn Undead and Command Undead
+Command Undead.MOD	BONUS:VAR|CommandUndeadDC|1|PREABILITY:1,CATEGORY=Special Ability,Sacred Conduit ~ Trait
+Turn Undead.MOD		BONUS:VAR|TurnUndeadDC|1|PREABILITY:1,CATEGORY=Special Ability,Sacred Conduit ~ Trait
+
 #
 # End
 #
