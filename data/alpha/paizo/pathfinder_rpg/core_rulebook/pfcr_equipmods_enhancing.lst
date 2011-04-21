@@ -89,9 +89,9 @@ Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=
 
 #BLOCK: EquipMod for assigning Primary, Secondary and Lesser Powers to Staves
 # using 1 to 5 charges each, calculating the correct item cost in Gold
-|Spell Effect (Staff/Primary Power)						KEY:SPL_SPP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
-|Spell Effect (Staff/Secondary Power)					KEY:SPL_SSP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800/4*3*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
-|Spell Effect (Staff/Lesser Powers)						KEY:SPL_SLP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800/2*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Primary Power)						KEY:SPL_SPP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST)))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Secondary Power)					KEY:SPL_SSP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800/4*3*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST)))/%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
+|Spell Effect (Staff/Lesser Powers)						KEY:SPL_SLP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800/2*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST)))/%CHARGES		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
 
 ###Block: Scrolls
 # Modifier Name					Unique Key		Naming Option	Type					Cost													Visible		Type granted				Source Page				Required Type				Prohibited Type			Choose
