@@ -81,7 +81,8 @@ FOLLOWER:CompLevel=9			TYPE:Arcanis Animal Companion	HD:2											VFEAT:Multia
 FOLLOWER:CompLevel=12			TYPE:Arcanis Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=15			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=18			TYPE:Arcanis Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:Master of the Hounds=7	TYPE:Arcanis Animal Companion																													BONUS:CHECKS|%LIST|2															CHOOSE:STAT|INT|WIS|CHA
+FOLLOWER:Master of the Hounds=7	TYPE:Arcanis Animal Companion																												
+#Need to place in more appropriate ability > Does not belong in compmod file	BONUS:CHECKS|%LIST|2															CHOOSE:STAT|INT|WIS|CHA
 #
 ###Block:Specific Arcanis Animal Companions
 # Class of the Master	Type					Required Race					Apply Kit
