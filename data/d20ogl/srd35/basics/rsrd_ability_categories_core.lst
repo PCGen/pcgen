@@ -26,7 +26,7 @@ ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability	TYPE:FavoredEnemy		PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Turn Undead			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:TurnUndead		PLURAL:Turn Undead			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:ExpertClassSkills	PLURAL:Expert Class Skills		DISPLAYLOCATION:Class Abilities
+#ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:ExpertClassSkills	PLURAL:Expert Class Skills		DISPLAYLOCATION:Class Abilities
 
 ###Block: Alternate Class Features
 # Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location

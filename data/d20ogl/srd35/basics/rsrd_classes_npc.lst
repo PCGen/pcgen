@@ -62,7 +62,8 @@ CLASS:Expert	STARTSKILLPTS:6
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class skills
-1	BONUS:ABILITYPOOL|Expert Class Skills|10
+#1	BONUS:ABILITYPOOL|Expert Class Skills|10
+1	ADD:CLASSSKILLS|10|ALL
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Warrior	HD:8		TYPE:Base.NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
