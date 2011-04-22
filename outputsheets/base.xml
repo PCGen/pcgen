@@ -1288,6 +1288,7 @@ Immune
 			<attacks>|EQ.MERGELOC.%equip.ATTACKS|</attacks>
 			<prof>|EQ.MERGELOC.%equip.PROF|</prof>
 			<source>|EQ.MERGELOC.%equip.SOURCE|</source>
+			<quality>|EQ.MERGELOC.%equip.QUALITY|</quality>
 		</item>
 |ENDFOR|	<!-- Equipment -->
 		<total>
@@ -1342,6 +1343,7 @@ Immune
 					<attacks>|EQ.MERGELOC.%equip.ATTACKS|</attacks>
 					<prof>|EQ.MERGELOC.%equip.PROF|</prof>
 					<source>|EQ.MERGELOC.%equip.SOURCE|</source>
+					<quality>EQ.0.QUALITY</quality>
 				</item>
 |ENDFOR|	<!-- Equipment -->
 			</equipmentset>
