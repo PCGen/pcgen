@@ -6,8 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:SRD
 TYPE:SRD.Complete
-#!PRECAMPAIGN:1,BOOKTYPE=Core Rules
-#,[3.0 SRD]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.0 SRD]
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
