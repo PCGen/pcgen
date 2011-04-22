@@ -5,6 +5,12 @@
 # TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
 
 
+
+
+AFC 1		CATEGORY:FEAT
+AFC 2		CATEGORY:FEAT
+
+
 CODE-371 Display Mult			CATEGORY:FEAT			COST:10	TYPE:General.SpecialQuality	DESC:This is taken a few times	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
 CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuality	DESC:Should grant 10 Feat Points	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
 

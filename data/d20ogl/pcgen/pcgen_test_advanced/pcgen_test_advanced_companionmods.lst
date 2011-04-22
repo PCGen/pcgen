@@ -1,6 +1,7 @@
 
 
 FOLLOWER:CompanionLVL=1	TYPE:Companion Mod		SAB:This Companion Mod Works	ADD:FEAT|Add Feat CompanionMod
+FOLLOWER:CompanionLvl=2		TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|1	SAB:If this is working I should see this message.
 
 
 MASTERBONUSRACE:Companion		TYPE:Companion Mod	SR:10+TL	ADD:FEAT|Add Feat Master Bonus Race
