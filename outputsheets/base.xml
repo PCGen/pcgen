@@ -2760,6 +2760,7 @@ Immune
 			<name>|VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait| (Granted)</name>
 |ELSE|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
+|ENDIF|			
 			<description>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
 			<source>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
 		</trait>
