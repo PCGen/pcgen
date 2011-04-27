@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Tue Apr 26 19:31:13 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+#Author: Gerard van Konijnenburg
+SOURCELONG:Dwarves of Golarion	SOURCESHORT:DoG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
+
+###Block: Regional Affinities
+# Ability Name			Product Identity?	Category of Ability	Type		Visible		Template									Source Page
+Darklands				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Darklands)				SOURCEPAGE:p.17
+Five Kings Mountains		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Five Kings Mountains)		SOURCEPAGE:p.12
+Kodar Mountains			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Kodar Mountains)			SOURCEPAGE:p.18
+Mindspin Mountains		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Mindspin Mountains)			SOURCEPAGE:p.18
+Lands of the Linnorm Kings	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Lands of the Linnorm Kings)	SOURCEPAGE:p.17
+Osirion				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Osirion)				SOURCEPAGE:p.19
+Shattered Range			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Shattered Range)			SOURCEPAGE:p.18
+
+###Block: Placeholder objects for no Dwarf Regional Affinities
+# Ability Name	Product Identity?	Category of Ability	Type		Visible
+None			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
+Unknown		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
+#
+# End
+#

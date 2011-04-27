@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Sun Mar 12 2011
+CAMPAIGN:Paizo - Dwarves of Golarion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Companion
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Chronicles
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Dwarves of Golarion
+SOURCESHORT:DoG
+SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j
+SOURCEDATE:2009-12
+ISOGL:YES
+
+COVER:dwarves_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8b9j|Buy this publication from Paizo Publishing!
+DESC:Born ages ago in lightless caverns, the dwarves surged upward in pursuit of a divine prophecy, driving the feral orcs before them until they reached the surface world in the fabled Quest for Sky. Now established with their own lands and customs, the dwarves work their forges, sing songs of legendary heroes, brew signature beers, and wage war against evil humanoids and hideous monsters.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Dwarves of Golarion. Copyright 2010, Paizo Publishing, LLC; Authors: David Eitelbach, Russ Taylor, JD Wiker, Keri Wiker, and Hank Woon
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golarion" Copyright 2011, PCGen Data Team (including, but not limited to Gerard van Konijnenburg, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:dog_abilities_background.lst
+ABILITY:dog_abilities_traits.lst
+ABILITYCATEGORY:dog_abilitycategories.lst
+DEITY:dog_deities.lst
+EQUIPMENT:dog_equip.lst
+FEAT:dog_feats.lst
+SPELL:dog_spells.lst
+TEMPLATE:dog_templates_background.lst
+WEAPONPROF:dog_weaponprofs.lst
+# End
+#
