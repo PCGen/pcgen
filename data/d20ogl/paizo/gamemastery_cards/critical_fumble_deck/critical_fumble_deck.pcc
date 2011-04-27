@@ -1,0 +1,42 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Critical Fumble Deck
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.GameMastery Cards
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Critical Fumble Deck
+SOURCESHORT:CFD
+SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/gameMastery/itemPacks/v5748btpy89mn
+SOURCEDATE:2009-09
+ISOGL:YES
+
+COVER:critical_fumble_deck.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/gameMastery/itemPacks/v5748btpy89mn|Buy this product from Paizo Publishing!
+DESC:Add a little mayhem to your game. The Critical Fumble Deck allows both minor and major mishaps to occur during combat.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Critical Fumble Deck, Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:PCGen dataset conversion for "Critical Fumble Deck" Copyright 2011, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+EQUIPMOD:critical_fumble_deck_equipmods_weapons.lst
+SPELL:critical_fumble_deck_spells.lst
+
+#
+# End
+#
