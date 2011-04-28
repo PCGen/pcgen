@@ -45,6 +45,7 @@ public interface RuleConstants
 	String EQUIPATTACK			= "EQUIPATTACK";					// Treat Weapons In Hand As Equipped For Attacks
 	String FEATPRE				= "FEATPRE";						// Bypass Feat Prerequisites
 	String FREECLOTHES			= "FREECLOTHES";					// Ask For Free Clothing at First Level
+	String CLOTHINGENCUMBRANCE  = "CLOTHINGENCUMBRANCE";		   	// First set of equipped clothing counts towards encumbrance 
 	String INTBEFORE			= "INTBEFORE";						// Increment STAT before calculating skill points when leveling
 	String RETROSKILL			= "RETROSKILL";						// Changes to bonus skill points are retroactive
 	String INTBONUSLANG			= "INTBONUSLANG";					// Allow Selection of Int bonus Languages after 1st level
