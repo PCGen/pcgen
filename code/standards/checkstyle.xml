@@ -65,7 +65,9 @@
         <module name="JavadocVariable">
 		   <property name="scope" value="public"/>
 		</module>
-        <module name="JavadocStyle"/>
+        <module name="JavadocStyle">
+			<property name="severity" value="warning"/>
+        </module>
 
 
         <!-- Checks for Naming Conventions.                  -->
@@ -173,7 +175,9 @@
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="TodoComment"/>
+        <module name="TodoComment">
+			<property name="severity" value="info"/>
+        </module>
         <module name="UpperEll"/>
 
     </module>
