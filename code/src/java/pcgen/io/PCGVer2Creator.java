@@ -1851,7 +1851,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendRegionLine(StringBuffer buffer)
 	{
-		final String r = thePC.getCharacterRegion();
+		final String r = thePC.getRegionString();
 
 		if (r != null)
 		{
