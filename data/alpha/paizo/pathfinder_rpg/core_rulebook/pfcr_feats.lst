@@ -234,3 +234,14 @@ Still Spell.MOD			TYPE:ArcaneBloodline.UndeadBloodline
 Toughness.MOD			TYPE:DraconicBloodline.UndeadBloodline
 Weapon Finesse.MOD		TYPE:CelestialBloodline.ElementalBloodline
 Weapon Focus.MOD			TYPE:DestinedBloodline
+
+###Block: Improved Familiar ---------------------------------------------------------------------------------------------------------------------------------------------
+# Feat Name			Allowed Companions
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Rat/Dire)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=3
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Bat/Celestial),Familiar (Cat/Celestial),Familiar (Hawk/Celestial),Familiar (Lizard/Celestial),Familiar (Monkey/Celestial),Familiar (Owl/Celestial),Familiar (Rat/Celestial),Familiar (Raven/Celestial),Familiar (Toad/Celestial),Familiar (Viper/Celestial),Familiar (Weasel/Celestial)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=3|PREALIGN:LG,NG,CG,LN,TN,CN
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Bat/Fiendish),Familiar (Cat/Fiendish),Familiar (Hawk/Fiendish),Familiar (Lizard/Fiendish),Familiar (Monkey/Fiendish),Familiar (Owl/Fiendish),Familiar (Rat/Fiendish),Familiar (Raven/Fiendish),Familiar (Toad/Fiendish),Familiar (Viper/Fiendish),Familiar (Weasel/Fiendish)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=3|PREALIGN:LE,NE,CE,LN,TN,CN
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Air/Small)),Familiar (Elemental (Earth/Small)),Familiar (Elemental (Fire/Small)),Familiar (Elemental (Water/Small)),Familiar (Stirge)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=5
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Homunculus),Familiar (Mephit (Air)),Familiar (Mephit (Dust)),Familiar (Mephit (Earth)),Familiar (Mephit (Fire)),Familiar (Mephit (Ice)),Familiar (Mephit (Magma)),Familiar (Mephit (Ooze)),Familiar (Mephit (Salt)),Familiar (Mephit (Steam)),Familiar (Mephit (Water))|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=7
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Pseudodragon)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=7|PREALIGN:LG,NG,CG,LN,TN,CN
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Imp)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=7|PREALIGN:LE,NE,LN,TN
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Quasit)|PREFEAT:1,Improved Familiar|PRECLASS:1,SPELLCASTER.Arcane=7|PREALIGN:NE,CE,TN,CN

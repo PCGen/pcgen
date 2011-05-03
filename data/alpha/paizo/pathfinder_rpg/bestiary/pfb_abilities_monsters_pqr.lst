@@ -24,9 +24,9 @@ Special Charm Arrow		KEY:Charm ~ Pixie			CATEGORY:Special Ability	TYPE:SpecialQu
 Special Memory Loss Arrow	KEY:Memory Loss ~ Pixie		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:Memory Loss; The target must succeed on a DC %1 Will save or be affected by a modify memory spell. This effect can only eliminate the previous 5 minutes of memory - a pixie typically uses this ability to make the target forget it encountered the pixie so it won't chase the pixie when he flees.|SpecialArrowDC								SOURCEPAGE:p.228
 Special Sleep Arrow		KEY:Sleep ~ Pixie			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:Sleep; The target must succeed on a DC %1 Will save or fall asleep for 5 minutes.|SpecialArrowDC																																												SOURCEPAGE:p.228
 
-###Block: Pseudodragon abilities
+###Block: Pseudodragon abilities - in bestiary_core
 # Ability Name	Unique Key				Category of Ability		Type								Define				Description																			Modify VAR								Source Page
-Poison		KEY:Poison ~ Pseudodragon	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Sting-injury; save Fort DC %1; frequency 1/minute for 10 minutes; effect sleep for 1 minute; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.229
+#Poison		KEY:Poison ~ Pseudodragon	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Sting-injury; save Fort DC %1; frequency 1/minute for 10 minutes; effect sleep for 1 minute; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.229
 
 ###Block: Purple Worm abilities
 # Ability Name	Unique Key				Category of Ability		Type						Define				Description																						Modify VAR								Source Page		Aspects
