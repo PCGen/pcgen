@@ -167,7 +167,7 @@ These files can be renamed and used for releases.
 
 	<!-- Compile the java code -->
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
-		<javac srcdir="${src.java.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+		<javac srcdir="${src.java.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
