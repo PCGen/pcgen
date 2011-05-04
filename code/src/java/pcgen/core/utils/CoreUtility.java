@@ -51,6 +51,9 @@ import pcgen.util.Logging;
  */
 public final class CoreUtility
 {
+
+	static final private double epsilon = 0.0001d;
+
 	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
 	{
 		private int compareInts(final int obj1Index, final int obj2Index)
@@ -233,8 +236,19 @@ public final class CoreUtility
 	public static boolean doublesEqual(final double a, final double b)
 	{
 		// If the difference is less than epsilon, treat as equal.
-		return compareDouble(a, b, 0.0001);
+		return compareDouble(a, b, epsilon);
 	}
+
+	/**
+	 * protect the floor function from the vagaries of floating point precision.
+	 * @param d the double that we would like the floor value for
+	 * @return the floor after adding epsilon
+	 */
+	public static double epsilonFloor (double d)
+	{
+		return Math.floor(d + epsilon);
+	}
+
 
 	/**
 	 * Changes a path to make sure all instances of \ or / are replaced with
@@ -422,7 +436,7 @@ public final class CoreUtility
 	/**
 	 * Merge the equipment list
 	 * 
-	 * @param aList
+	 * @param equip
 	 *            the collection of Equipment
 	 * @param merge
 	 *            The type of merge to perform
@@ -469,13 +483,12 @@ public final class CoreUtility
 				if (eq1.getName().equals(eq2.getName()))
 				{
 					// merge all like equipment together
-					if (merge == Constants.MERGE_ALL ||
+					if (merge == Constants.MERGE_ALL
 
 					// merge like equipment within same container
-							(merge == Constants.MERGE_LOCATION
-									&& (eq1.getLocation() == eq2.getLocation()) && eq1
-									.getParentName()
-									.equals(eq2.getParentName())))
+						|| (merge == Constants.MERGE_LOCATION
+							&& (eq1.getLocation() == eq2.getLocation())
+							&& eq1.getParentName().equals(eq2.getParentName())))
 					{
 						workingList.remove(eq2);
 						eQty += eq2.qty();

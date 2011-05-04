@@ -164,7 +164,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
-	private ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
+	private ConditionalTemplateFacet conditionalTemplateFacet =
+            FacetLibrary.getFacet(ConditionalTemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -184,7 +185,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
 	private ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
-	private ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
+	private ConditionallyGrantedAbilityFacet cabFacet =
+            FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
@@ -257,9 +259,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
-	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary.getFacet(GlobalAddedSkillCostFacet.class);
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet =
+            FacetLibrary.getFacet(GlobalAddedSkillCostFacet.class);
 	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
-	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
+	private LocalAddedSkillCostFacet localAddedSkillCostFacet =
+            FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
 	private ListSkillCostFacet listSkillCostFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
@@ -279,16 +283,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
 
-	// This may be different from file name
-	private final ArrayList<Equipment> primaryWeapons =
-			new ArrayList<Equipment>();
-	private final ArrayList<Equipment> secondaryWeapons =
-			new ArrayList<Equipment>();
+	private final ArrayList<Equipment> primaryWeapons   = new ArrayList<Equipment>();
+	private final ArrayList<Equipment> secondaryWeapons = new ArrayList<Equipment>();
 
 	private ClassSource defaultDomainSource = null;
 
-	private Map<String, Integer> autoEquipOutputOrderCache =
-			new HashMap<String, Integer>();
+	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
 
 	// Temporary Bonuses
@@ -354,7 +354,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * This map stores any user bonuses (entered through the GUI) to the
-	 * corrisponding ability pool.
+	 * corresponding ability pool.
 	 */
 	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses = null;
 
@@ -364,8 +364,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	// /////////////////////////////////////
 	// operations
+    
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public PlayerCharacter()
 	{
@@ -411,6 +412,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
+	/**
+	 * Adds a virtual ability that grants a bonus language to the character.
+	 */
 	public void insertBonusLanguageAbility()
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
@@ -420,9 +424,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the age
+	 * Set the age.
 	 * 
-	 * @param i The PC's age
+	 * @param i The character's age
 	 */
 	public void setAge(final int i)
 	{
@@ -432,7 +436,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the age
+	 * Get the age.
 	 * 
 	 * @return age
 	 */
@@ -442,7 +446,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Alignment of this PC
+	 * Alignment of this PC.
 	 * 
 	 * @return alignment
 	 */
@@ -468,7 +472,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the armor proficiency list
+	 * Get the armor proficiency list.
 	 * 
 	 * @return armor proficiency list
 	 */
@@ -478,9 +482,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Returns the Spell Stat bonus for a class
+	 * Returns the Spell Stat bonus for a class.
 	 * 
-	 * @param aClass
+	 * @param aClass the class to calculate the bonus for
 	 * @return base spell stat bonus
 	 */
 	public int getBaseSpellStatBonus(final PCClass aClass)
@@ -514,17 +518,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set BIO
+	 * Set the character's BIO.
 	 * 
-	 * @param aString
+	 * @param bio the biography
 	 */
-	public void setBio(final String aString)
+	public void setBio(final String bio)
 	{
-		setStringFor(StringKey.BIO, aString);
+		setStringFor(StringKey.BIO, bio);
 	}
 
 	/**
-	 * Get the BIO
+	 * Get the BIO.
 	 * 
 	 * @return the BIO
 	 */
@@ -534,17 +538,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the birthday
+	 * Set the birthday.
 	 * 
-	 * @param aString
+	 * @param birthday the birthday to be set
 	 */
-	public void setBirthday(final String aString)
+	public void setBirthday(final String birthday)
 	{
-		setStringFor(StringKey.BIRTHDAY, aString);
+		setStringFor(StringKey.BIRTHDAY, birthday);
 	}
 
 	/**
-	 * Get the birthday
+	 * Get the birthday.
 	 * 
 	 * @return birthday
 	 */
@@ -554,17 +558,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the birthplace
+	 * Set the birthplace.
 	 * 
-	 * @param aString
+	 * @param birthPlace the place of birth
 	 */
-	public void setBirthplace(final String aString)
+	public void setBirthplace(final String birthPlace)
 	{
-		setStringFor(StringKey.BIRTHPLACE, aString);
+		setStringFor(StringKey.BIRTHPLACE, birthPlace);
 	}
 
 	/**
-	 * Get the birthplace
+	 * Get the birthplace.
 	 * 
 	 * @return birthplace
 	 */
@@ -574,9 +578,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the current EquipSet that is used to Bonus/Equip calculations
+	 * Set the current EquipSet that is used to Bonus/Equip calculations.
 	 * 
-	 * @param eqSetId
+	 * @param eqSetId The equipSet to be used for Bonus Calculations and output
 	 */
 	public void setCalcEquipSetId(final String eqSetId)
 	{
@@ -585,7 +589,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the id for the equipment set being used for calculation
+	 * Get the id for the equipment set being used for calculation.
 	 * 
 	 * @return id
 	 */
@@ -617,7 +621,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set's current equipmentList to selected output EquipSet then loops
 	 * through all the equipment and sets the correct status of each (equipped,
-	 * carried, etc)
+	 * carried, etc).
 	 */
 	public void setCalcEquipmentList()
 	{
@@ -627,9 +631,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set's current equipmentList to selected output EquipSet then loops
 	 * through all the equipment and sets the correct status of each (equipped,
-	 * carried, etc)
+	 * carried, etc). Boolean parameter useTempBonuses controls whether or
+	 * not the temporary bonuses associated with equipment are applied.
 	 * 
-	 * @param useTempBonuses
+	 * @param useTempBonuses whether to apply Temporary bonuses from equipment.
 	 */
 	public void setCalcEquipmentList(final boolean useTempBonuses)
 	{
@@ -718,7 +723,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				eq.setLocation(EquipmentLocation.NOT_CARRIED);
 				eq.setIsEquipped(false, this);
-				eq.setNumberCarried(Float.valueOf(0));
+				eq.setNumberCarried(0f);
 				eq.setQty(num);
 			}
 			else if (eq.isWeapon())
@@ -851,7 +856,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 							removeLocalEquipment(anEquip);
 							anEquip.setIsEquipped(false, this);
 							anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
-							anEquip.setNumberCarried(Float.valueOf(0));
+							anEquip.setNumberCarried(0f);
 						}
 
 						eq.setIsEquipped(true, this);
@@ -878,8 +883,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * 
-	 * @param aPC
+	 * Apply the bonus from a follower to the master pc.
+	 *
+	 * TODO Although it's not obvious from this code, the aPC parameter passed here IS
+	 * this pc, everywhere that this method is called. Refactor this to remove the aPC
+	 * parameter. 
+	 *
+	 * @param aPC the pc to apply the bonus to
 	 */
 	public void setCalcFollowerBonus(final PlayerCharacter aPC)
 	{
@@ -906,17 +916,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the catchphrase
+	 * Set the catchphrase.
 	 * 
-	 * @param aString
+	 * @param phrase the catchphrase
 	 */
-	public void setCatchPhrase(final String aString)
+	public void setCatchPhrase(final String phrase)
 	{
-		setStringFor(StringKey.CATCH_PHRASE, aString);
+		setStringFor(StringKey.CATCH_PHRASE, phrase);
 	}
 
 	/**
-	 * Get the catchphrase
+	 * Get the catchphrase.
 	 * 
 	 * @return catchphrase
 	 */
@@ -926,16 +936,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the class given a key
+	 * Get a class, represented by a given key, from among those possessed by this pc.
 	 * 
-	 * @param aString
+	 * @param Key the class's key
 	 * @return PCClass
 	 */
-	public PCClass getClassKeyed(final String aString)
+	public PCClass getClassKeyed(final String Key)
 	{
 		for (PCClass aClass : getClassSet())
 		{
-			if (aClass.getKeyName().equalsIgnoreCase(aString))
+			if (aClass.getKeyName().equalsIgnoreCase(Key))
 			{
 				return aClass;
 			}
@@ -945,7 +955,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the class list
+	 * Get the class list.
 	 * 
 	 * @return classList
 	 */
@@ -957,6 +967,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return new ArrayList<PCClass>(getClassSet());
 	}
 
+	/**
+	 * Gets the Set of PCClass objects for this Character.
+	 * @return a set of PCClass objects
+	 */
 	public Set<PCClass> getClassSet()
 	{
 		return classFacet.getClassSet(id);
@@ -965,7 +979,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set the cost pool, which is the number of points the character has spent. 
 	 * 
-	 * @param i
+	 * @param i the number of points spent
 	 */
 	public void setCostPool(final int i)
 	{
@@ -983,7 +997,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get a list of types that apply to this character
+	 * Get a list of types that apply to this character.
 	 * 
 	 * @return a List of Strings where each String is a type that the character
 	 *         has. The list returned will never be null
@@ -1013,6 +1027,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return list;
 	}
 
+	/**
+	 * Get a pipe separated list of creature types for this PC (defaults to humanoid).
+	 * @return the list of types
+	 */
 	@Deprecated
 	public String getCritterType()
 	{
@@ -1065,7 +1083,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the current equipment set name
+	 * Set the current equipment set name.
 	 * 
 	 * @param aName the name of the new current equipment set
 	 */
@@ -1075,7 +1093,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the current equipment set name
+	 * Get the current equipment set name.
 	 * 
 	 * @return equipment set name
 	 */
@@ -1085,7 +1103,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the deity
+	 * Get the deity.
 	 * 
 	 * @return deity
 	 */
@@ -1095,9 +1113,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the description
+	 * Set the description.
 	 * 
-	 * @param aString
+	 * @param aString the description to set
 	 */
 	public void setDescription(final String aString)
 	{
@@ -1105,7 +1123,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the description
+	 * Get the description.
 	 * 
 	 * @return description
 	 */
@@ -1127,7 +1145,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Sets the character changed since last save.
 	 * 
-	 * @param dirtyState
+	 * @param dirtyState the new "dirty" value (may be false to indicate no change)
 	 */
 	public void setDirty(final boolean dirtyState)
 	{
@@ -1231,7 +1249,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * is display update
+	 * is display update.
 	 * 
 	 * @return True if display update
 	 */
@@ -1241,7 +1259,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the list of equipment sets
+	 * Get the list of equipment sets.
 	 * 
 	 * @return List
 	 */
@@ -1251,9 +1269,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the equipment set given id
+	 * Get the equipment set indexed by path.
 	 * 
-	 * @param id
+	 * @param path the "path" of the equipSet to return
 	 * @return EquipSet
 	 */
 	public EquipSet getEquipSetByIdPath(final String path)
@@ -1262,10 +1280,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the equipment set by name
+	 * Get the equipment set by name.
 	 * 
-	 * @param aName
-	 * @return Equip set
+	 * @param aName the name of the equipSet to retrieve
+	 * @return an Equip set
 	 */
 	public EquipSet getEquipSetByName(final String aName)
 	{
@@ -1273,9 +1291,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the number of the current equipset when exporting
+	 * Set the number of the current equipSet.
 	 * 
-	 * @param anInt
+	 * @param anInt the new value for current equipSet index
 	 */
 	public void setEquipSetNumber(final int anInt)
 	{
@@ -1284,9 +1302,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the equipment set number
+	 * Get the current equipment set number.
 	 * 
-	 * @return equipset number
+	 * @return equipSet number
 	 */
 	public int getEquipSetNumber()
 	{
@@ -1294,9 +1312,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * gets the total weight in an EquipSet
+	 * gets the total weight in an EquipSet.
 	 * 
-	 * @param idPath
+	 * @param idPath The root of the equipment set (or subset)
 	 * @return equipment set weight
 	 */
 	public double getEquipSetWeightDouble(final String idPath)
@@ -1322,20 +1340,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			if (eqI != null)
 			{
-				if ((eqI.getCarried().floatValue() > 0.0f)
-					&& (eqI.getParent() == null))
+				if ((eqI.getCarried() > 0.0f) && (eqI.getParent() == null))
 				{
 					if (eqI.getChildCount() > 0)
 					{
 						totalWeight +=
-								(eqI.getWeightAsDouble(this) + eqI
-									.getContainedWeight(this).floatValue());
+							(eqI.getWeightAsDouble(this) + eqI.getContainedWeight(this));
 					}
 					else
 					{
-						totalWeight +=
-								(eqI.getWeightAsDouble(this) * eqI.getCarried()
-									.floatValue());
+						totalWeight += (eqI.getWeightAsDouble(this) * eqI.getCarried());
 					}
 				}
 			}
@@ -1347,8 +1361,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Count the total number of items of aName within EquipSet idPath
 	 * 
-	 * @param idPath
-	 * @param aName
+	 * @param idPath The root of the equipment set (or subset)
+	 * @param aName The equipment to count
 	 * @return equipment set count
 	 */
 	public Float getEquipSetCount(final String idPath, final String aName)
@@ -1366,6 +1380,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return equipmentFacet.getSet(id);
 	}
 
+	/**
+	 * Get the character's "equipped" equipment
+	 * @return a set of the "equipped" equipment
+	 */
 	public Set<Equipment> getEquippedEquipmentSet()
 	{
 		return equippedFacet.getSet(id);
@@ -1390,9 +1408,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * of equipment have the same outputIndex they will be ordered by name. Note
 	 * hidden items (outputIndex = -1) are not included in this list.
 	 * 
-	 * Deals with merge as well
+	 * Deals with merge as well.  See the Constants package for acceptable values
+	 * of merge .
 	 * 
-	 * @param merge
+	 * @param merge controls how much merging is done.
 	 * 
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
@@ -1402,7 +1421,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get equipment master list
+	 * Get equipment master list.
 	 * 
 	 * @return equipment master list
 	 */
@@ -1416,7 +1435,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get equipment master list in output order
+	 * Get equipment master list in output order.
 	 * 
 	 * @return equipment master list in output order
 	 */
@@ -1459,7 +1478,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the characters eye colour
+	 * Set the characters eye colour.
 	 * 
 	 * @param aString
 	 *            the colour of their eyes
@@ -1470,7 +1489,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the characters eye colour
+	 * Get the characters eye colour.
 	 * 
 	 * @return the colour of their eyes
 	 */
@@ -1512,12 +1531,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
-		pool +=
-				Math.floor((this.totalNonMonsterLevels() >= startLevel) ? 1.0d
-					+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
-		pool += Math.floor(mpool + 0.0001);
-		pool += Math.floor(bonus + 0.0001);
-		pool += Math.floor(classLvlBonus + 0.0001);
+		double nonMonsterAdjustment =
+			this.totalNonMonsterLevels() >= startLevel
+				? 1.0d + pcpool - startAdjust
+				: pcpool;
+
+		pool += CoreUtility.epsilonFloor(nonMonsterAdjustment);
+		pool += CoreUtility.epsilonFloor(mpool);
+		pool += CoreUtility.epsilonFloor(bonus);
+		pool += CoreUtility.epsilonFloor(classLvlBonus);
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
@@ -1543,15 +1565,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (lvlPerFeat != 0)
 			{
 				double bonus = (double) getLevel(pcClass) / lvlPerFeat;
-				Double existing =
-						featByLevelType.get(pcClass.get(StringKey.LEVEL_TYPE));
+				Double existing = featByLevelType.get(pcClass.get(StringKey.LEVEL_TYPE));
 				if (existing == null)
 				{
 					existing = 0d;
 				}
 				existing += bonus;
-				featByLevelType
-					.put(pcClass.get(StringKey.LEVEL_TYPE), existing);
+				featByLevelType.put(pcClass.get(StringKey.LEVEL_TYPE), existing);
 			}
 		}
 
@@ -1559,7 +1579,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (String lvlType : featByLevelType.keySet())
 		{
 			Double existing = featByLevelType.get(lvlType);
-			bonus += Math.floor(existing + 0.0001);
+			bonus += CoreUtility.epsilonFloor(existing);
 		}
 		return bonus;
 	}
@@ -1586,7 +1606,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Sets the filename of the character.
 	 * 
-	 * @param newFileName
+	 * @param newFileName the name of the file this character will be saved in
 	 */
 	public void setFileName(final String newFileName)
 	{
@@ -1616,7 +1636,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Returns a very descriptive name for the character.
 	 * 
-	 * <p>
 	 * The format is [name] the [level]th level [race name] [classes]
 	 * 
 	 * @return A descriptive string name for the character.
@@ -1624,14 +1643,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public String getFullDisplayName()
 	{
 		final int levels = getTotalLevels();
+		final String displayClass;
 
 		// If you aren't multi-classed, don't display redundant class level
 		// information in addition to the total PC level
-		return new StringBuffer().append(getName()).append(" the ").append(
-			levels).append(getOrdinal(levels)).append(" level ").append(
-			getDisplayRaceName()).append(' ').append(
-			(classFacet.getCount(id) < 2) ? getDisplayClassName()
-				: getFullDisplayClassName()).toString();
+		displayClass = classFacet.getCount(id) < 2 ? getDisplayClassName() : getFullDisplayClassName();
+
+		return new StringBuffer()
+			.append(getName())
+			.append(" the ")
+			.append(levels)
+			.append(getOrdinal(levels))
+			.append(" level ")
+			.append(getDisplayRaceName())
+			.append(' ')
+			.append(displayClass).toString();
 	}
 
 	/**
@@ -1863,6 +1889,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/*
 	 * TODO This is a discussion we have to have about where items are sorted
 	 */
+
+	/**
+	 * Get a sorted list of the languages that this character knows
+	 * @return a sorted list of language objects
+	 */
 	public Set<Language> getSortedLanguageSet()
 	{
 		return new TreeSet<Language>(languageFacet.getSet(id));
@@ -1895,36 +1926,32 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * <p>
 	 * <b>Note</b>: This whole structure is kind of messed up since nothing
 	 * enforces that a companion mod of a given type always looks at the same
-	 * variable (either Class or Variable).
+	 * variable (either Class or Variable).  Note it seems that this used to
+	 * be driven off types but now it's driven from a list of companion mods
+	 * but the java doc has not been updated.
 	 * 
-	 * @param compType
-	 *            A type of companion to get level for
+	 * @param compList
+	 *            A list of companionMods to get level for
 	 * @return The effective level for this companion type
 	 */
-	public int getEffectiveCompanionLevel(final CompanionList compType)
+	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
-		final Collection<CompanionMod> mods =
-				Globals.getCompanionMods(compType);
+		final Collection<CompanionMod> mods = Globals.getCompanionMods(compList);
+
 		for (CompanionMod cMod : mods)
 		{
-			Map<String, Integer> varmap =
-					cMod.getMapFor(MapKey.APPLIED_VARIABLE);
-			for (Iterator<String> iType = varmap.keySet().iterator(); iType
-				.hasNext();)
-			{
-				final String varName = iType.next();
-				final int lvl =
-						this.getVariableValue(varName, Constants.EMPTY_STRING)
-							.intValue();
-				if (lvl > 0)
-				{
+			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
+
+			for (final String varName : varmap.keySet()) {
+				final int lvl = this.getVariableValue(varName, Constants.EMPTY_STRING).intValue();
+				if (lvl > 0) {
 					return lvl;
 				}
 			}
-			Map<CDOMSingleRef<? extends PCClass>, Integer> ac =
-					cMod.getMapFor(MapKey.APPLIED_CLASS);
-			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac
-				.entrySet())
+
+			Map<CDOMSingleRef<? extends PCClass>, Integer> ac = cMod.getMapFor(MapKey.APPLIED_CLASS);
+
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
 				PCClass pcclass = me.getKey().resolvesTo();
 				String key = pcclass.getKeyName();
@@ -2127,9 +2154,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// Setup the default EquipSet if not already present
 		if (!hasEquipSet())
 		{
-			String id = getNewIdPath(null);
+			String idPath = getNewIdPath(null);
 			EquipSet eSet =
-					new EquipSet(id, PropertyFactory.getString("in_ieDefault"));
+					new EquipSet(idPath, PropertyFactory.getString("in_ieDefault"));
 			addEquipSet(eSet);
 		}
 
@@ -2172,12 +2199,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Returns the maximum number of followers of the specified type this
-	 * character can have. This method does not adjust for any followers already
-	 * selected by the character.
+	 * Returns the maximum number of followers this character can have from
+	 * the given companion list. This method does not adjust for any followers
+	 * already selected by the character.
 	 * 
-	 * @param aType
-	 *            The follower type to check e.g. Familiar
+	 * @param cList
+	 *            A list of potential follower races
 	 * @return The max number of followers -1 for any number
 	 */
 	public int getMaxFollowers(CompanionList cList)
@@ -2228,7 +2255,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aType
 	 *            Type of follower to retrieve list for e.g. Familiar
-	 * @return A List of FollowerOption objects representing the possible list
+	 * @param comp
+	 *            the comparator that will be used to order the returned map.
+     * @return A MAP of FollowerOption objects representing the possible list
 	 *         of follower choices.
 	 */
 	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
@@ -2237,7 +2266,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the Follower object that is the "master" for this object
+	 * Get the Follower object that is the "master" for this object.
 	 * 
 	 * @return follower master
 	 */
@@ -2247,7 +2276,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the PlayerCharacter that is the "master" for this object
+	 * Get the PlayerCharacter that is the "master" for this object.
 	 * 
 	 * @return master PC
 	 */
@@ -2383,11 +2412,19 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.PLAYERS_NAME);
 	}
 
-	public void setPoolAmount(final int anInt)
+    /**
+     * Set the value of the feat pool.
+     * @param pool value to set the feat pool to
+     */
+	public void setPoolAmount(final int pool)
 	{
-		poolAmount = anInt;
+		poolAmount = pool;
 	}
 
+    /**
+     * Get the value of the feat pool.
+     * @return the feat pool amount
+     */
 	public int getPoolAmount()
 	{
 		return poolAmount;
@@ -2415,7 +2452,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector
+	 * Selector gets the character's primary weapons.
 	 * 
 	 * @return primary weapons
 	 */
@@ -2425,9 +2462,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get race
+	 * Get the character's race.
 	 * 
-	 * @return race
+	 * @return the character's race
 	 */
 	public Race getRace()
 	{
@@ -2435,20 +2472,20 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set region
+	 * Set the character's region.
 	 * 
-	 * @param arg
+	 * @param region the character's region
 	 */
-	public void setRegion(final String arg)
+	public void setRegion(final String region)
 	{
-		Region r = Region.getConstant(arg);
+		Region r = Region.getConstant(region);
 		regionFacet.setRegion(id, r);
 	}
 
 	/**
-	 * Set sub region
+	 * Set the character's sub region.
 	 * 
-	 * @param aString
+	 * @param aString the character's sub region
 	 */
 	public void setSubRegion(final String aString)
 	{
@@ -2457,7 +2494,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector <p/> Build on-the-fly so removing templates won't mess up region
+	 * Selector build on-the-fly so removing templates won't mess up region.
 	 * 
 	 * @return character region
 	 */
@@ -2469,7 +2506,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Get region set by setRegion (ignores Templates)
 	 * 
-	 * @return region
+	 * @return the character's region
 	 */
 	public String getCharacterRegion()
 	{
@@ -2477,9 +2514,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set residence
+	 * Set the character's residence.
 	 * 
-	 * @param aString
+	 * @param aString the character's residence
 	 */
 	public void setResidence(final String aString)
 	{
@@ -2487,7 +2524,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get residence
+	 * Get the character's residence.
 	 * 
 	 * @return residence
 	 */
@@ -2497,7 +2534,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector
+	 * Get the character's secondary weapons.
 	 * 
 	 * @return secondary weapons
 	 */
@@ -2507,9 +2544,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get HTML sheet for selected character
+	 * Set the location of the HTML sheet for this character.
 	 * 
-	 * @param aString
+	 * @param aString the location of the HTML sheet
 	 */
 	public void setSelectedCharacterHTMLOutputSheet(final String aString)
 	{
@@ -2517,7 +2554,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Location of HTML Output Sheet
+	 * Get the Location of HTML Output Sheet to be used for this character.
 	 * 
 	 * @return HTML output sheet
 	 */
@@ -2527,9 +2564,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set selected PDF character sheet for character
+	 * Set the location of the PDF Output Sheet for this character.
 	 * 
-	 * @param aString
+	 * @param aString the location of the PDF Output Sheet
 	 */
 	public void setSelectedCharacterPDFOutputSheet(final String aString)
 	{
@@ -2537,7 +2574,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Location of PDF Output Sheet
+	 * Get the ocation of the PDF Output Sheet to be used for this character.
 	 * 
 	 * @return pdf output sheet
 	 */
