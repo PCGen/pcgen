@@ -4,9 +4,11 @@
 
 # TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
 
+#Abilities
+Test Application of Ability by Pretype		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack.Extraordinary	DESC:It works!
+Test Application of Ability by Pretype 2		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack.Extraordinary	DESC:It works!
 
-
-
+#
 AFC 1		CATEGORY:FEAT
 AFC 2		CATEGORY:FEAT
 
