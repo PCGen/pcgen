@@ -1297,9 +1297,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				if (eqI.modifiedName().endsWith("Primary"))
 				{
-					return Constants.S_NATURAL_PRIMARY;
+					return Constants.EQUIP_LOCATION_NATURAL_PRIMARY;
 				}
-				return Constants.S_NATURAL_SECONDARY;
+				return Constants.EQUIP_LOCATION_NATURAL_SECONDARY;
 			}
 		}
 
@@ -1593,17 +1593,17 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (hands > 0)
 		{
-			result.add(Constants.S_PRIMARY);
+			result.add(Constants.EQUIP_LOCATION_PRIMARY);
 
 			for (int i = 1; i < hands; ++i)
 			{
 				if (i > 1)
 				{
-					result.add(Constants.S_SECONDARY + " " + i);
+					result.add(Constants.EQUIP_LOCATION_SECONDARY + " " + i);
 				}
 				else
 				{
-					result.add(Constants.S_SECONDARY);
+					result.add(Constants.EQUIP_LOCATION_SECONDARY);
 				}
 			}
 
@@ -2215,9 +2215,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		// If Carried/Equipped/Not Carried slot
 		// allow as many as they would like
-		if (locName.startsWith(Constants.S_CARRIED)
-			|| locName.startsWith(Constants.S_EQUIPPED)
-			|| locName.startsWith(Constants.S_NOTCARRIED))
+		if (locName.startsWith(Constants.EQUIP_LOCATION_CARRIED)
+			|| locName.startsWith(Constants.EQUIP_LOCATION_EQUIPPED)
+			|| locName.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
 		{
 			return true;
 		}
@@ -2229,7 +2229,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 
 		// allow many Secondary Natural weapons
-		if (locName.equals(Constants.S_NATURAL_SECONDARY))
+		if (locName.equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
 		{
 			return true;
 		}
@@ -2298,21 +2298,21 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				// if Double Weapon or Both Hands, then no
 				// other weapon slots can be occupied
-				if ((locName.equals(Constants.S_BOTH) || locName
-					.equals(Constants.S_DOUBLE))
-					&& (es.getName().equals(Constants.S_PRIMARY)
-						|| es.getName().equals(Constants.S_SECONDARY)
-						|| es.getName().equals(Constants.S_BOTH) || es
-						.getName().equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.EQUIP_LOCATION_BOTH) || locName
+					.equals(Constants.EQUIP_LOCATION_DOUBLE))
+					&& (es.getName().equals(Constants.EQUIP_LOCATION_PRIMARY)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_SECONDARY)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_BOTH)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_DOUBLE)))
 				{
 					return false;
 				}
 
 				// inverse of above case
-				if ((locName.equals(Constants.S_PRIMARY) || locName
-					.equals(Constants.S_SECONDARY))
-					&& (es.getName().equals(Constants.S_BOTH) || es.getName()
-						.equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.EQUIP_LOCATION_PRIMARY) || locName
+					.equals(Constants.EQUIP_LOCATION_SECONDARY))
+					&& (es.getName().equals(Constants.EQUIP_LOCATION_BOTH)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_DOUBLE)))
 				{
 					return false;
 				}
@@ -3723,11 +3723,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			if (eqI.isUnarmed())
 			{
-				aList.add(Constants.S_UNARMED);
+				aList.add(Constants.EQUIP_LOCATION_UNARMED);
 			}
 			else if (eqI.isShield())
 			{
-				aList.add(Constants.S_SHIELD);
+				aList.add(Constants.EQUIP_LOCATION_SHIELD);
 			}
 			else if (eqI.isMelee() && eqI.isWeaponOutsizedForPC(pc))
 			{
@@ -3741,23 +3741,23 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				if (eqI.isWeaponOneHanded(pc))
 				{
-					aList = getWeaponLocationChoices(hands, Constants.S_BOTH);
+					aList = getWeaponLocationChoices(hands, Constants.EQUIP_LOCATION_BOTH);
 
 					if (eqI.isMelee())
 					{
 						if (eqI.isDouble())
 						{
-							aList.add(Constants.S_DOUBLE);
+							aList.add(Constants.EQUIP_LOCATION_DOUBLE);
 						}
 					}
 				}
 				else
 				{
-					aList.add(Constants.S_BOTH);
+					aList.add(Constants.EQUIP_LOCATION_BOTH);
 
 					if (eqI.isMelee() && eqI.isDouble())
 					{
-						aList.add(Constants.S_DOUBLE);
+						aList.add(Constants.EQUIP_LOCATION_DOUBLE);
 					}
 				}
 			}
@@ -3772,14 +3772,14 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				aList.add(Constants.S_EQUIPPED);
+				aList.add(Constants.EQUIP_LOCATION_EQUIPPED);
 			}
 		}
 
 		if (!eqI.isUnarmed())
 		{
-			aList.add(Constants.S_CARRIED);
-			aList.add(Constants.S_NOTCARRIED);
+			aList.add(Constants.EQUIP_LOCATION_CARRIED);
+			aList.add(Constants.EQUIP_LOCATION_NOTCARRIED);
 		}
 
 		//

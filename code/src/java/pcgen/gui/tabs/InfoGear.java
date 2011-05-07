@@ -3389,8 +3389,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						e2 = es2.getItem();
 					}
-					//Logging.log(Logging.DEBUG, "Sort: 1." + e1.getName() + "/"+ e1.isEquipped() + "/" + (es1 != null && Constants.S_CARRIED.equals(es1.getName())));
-					//Logging.log(Logging.DEBUG, "Sort: 2." + e2.getName() + "/"+ e2.isEquipped() + "/" + (es2 != null && Constants.S_CARRIED.equals(es2.getName())));
+					//Logging.log(Logging.DEBUG, "Sort: 1." + e1.getName() + "/"+ e1.isEquipped() + "/" + (es1 != null && Constants.EQUIP_LOCATION_CARRIED.equals(es1.getName())));
+					//Logging.log(Logging.DEBUG, "Sort: 2." + e2.getName() + "/"+ e2.isEquipped() + "/" + (es2 != null && Constants.EQUIP_LOCATION_CARRIED.equals(es2.getName())));
 				
 					if (e1.isEquipped() && !e2.isEquipped())
 					{
@@ -3402,8 +3402,12 @@ public final class InfoGear extends FilterAdapterPanel implements
 					}
 					if (!e1.isEquipped() && !e2.isEquipped())
 					{
-						boolean e1Carried = es1 != null && Constants.S_CARRIED.equals(es1.getName());
-						boolean e2Carried = es2 != null && Constants.S_CARRIED.equals(es2.getName());
+						boolean e1Carried = es1 != null
+							&& Constants.EQUIP_LOCATION_CARRIED.equals(es1.getName());
+
+						boolean e2Carried = es2 != null
+							&& Constants.EQUIP_LOCATION_CARRIED.equals(es2.getName());
+
 						if (e1Carried != e2Carried)
 						{
 							return e1Carried ? -1 : 1;

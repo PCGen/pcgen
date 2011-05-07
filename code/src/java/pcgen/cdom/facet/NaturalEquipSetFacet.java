@@ -40,7 +40,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 			EquipSet es = pc.addEquipToTarget(eSet, null, "", eq, null);
 			if (es == null)
 			{
-				pc.addEquipToTarget(eSet, null, Constants.S_CARRIED, eq, null);
+				pc.addEquipToTarget(eSet, null, Constants.EQUIP_LOCATION_CARRIED, eq, null);
 			}
 		}
 	}

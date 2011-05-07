@@ -715,14 +715,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				eq.setNumberCarried(num);
 				eq.setQty(num);
 			}
-			else if (aLoc.startsWith(Constants.S_CARRIED))
+			else if (aLoc.startsWith(Constants.EQUIP_LOCATION_CARRIED))
 			{
 				eq.setLocation(EquipmentLocation.CARRIED_NEITHER);
 				eq.setIsEquipped(false, this);
 				eq.setNumberCarried(num);
 				eq.setQty(num);
 			}
-			else if (aLoc.startsWith(Constants.S_NOTCARRIED))
+			else if (aLoc.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
 			{
 				eq.setLocation(EquipmentLocation.NOT_CARRIED);
 				eq.setIsEquipped(false, this);
@@ -731,8 +731,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 			else if (eq.isWeapon())
 			{
-				if (aLoc.equals(Constants.S_PRIMARY)
-					|| aLoc.equals(Constants.S_NATURAL_PRIMARY))
+				if (aLoc.equals(Constants.EQUIP_LOCATION_PRIMARY)
+					|| aLoc.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
 				{
 					eq.setQty(num);
 					eq.setNumberCarried(num);
@@ -740,8 +740,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					eq.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
 					eq.setIsEquipped(true, this);
 				}
-				else if (aLoc.startsWith(Constants.S_SECONDARY)
-					|| aLoc.equals(Constants.S_NATURAL_SECONDARY))
+				else if (aLoc.startsWith(Constants.EQUIP_LOCATION_SECONDARY)
+					|| aLoc.equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
 				{
 					eq.setQty(num);
 					eq.setNumberCarried(num);
@@ -749,7 +749,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					eq.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
 					eq.setIsEquipped(true, this);
 				}
-				else if (aLoc.equals(Constants.S_BOTH))
+				else if (aLoc.equals(Constants.EQUIP_LOCATION_BOTH))
 				{
 					eq.setQty(num);
 					eq.setNumberCarried(num);
@@ -757,7 +757,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					eq.setLocation(EquipmentLocation.EQUIPPED_BOTH);
 					eq.setIsEquipped(true, this);
 				}
-				else if (aLoc.equals(Constants.S_DOUBLE))
+				else if (aLoc.equals(Constants.EQUIP_LOCATION_DOUBLE))
 				{
 					eq.setQty(num);
 					eq.setNumberCarried(num);
@@ -765,12 +765,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
 					eq.setIsEquipped(true, this);
 				}
-				else if (aLoc.equals(Constants.S_UNARMED))
+				else if (aLoc.equals(Constants.EQUIP_LOCATION_UNARMED))
 				{
 					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
 					eq.setNumberEquipped(num.intValue());
 				}
-				else if (aLoc.equals(Constants.S_TWOWEAPONS))
+				else if (aLoc.equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
 				{
 					if (num.doubleValue() < 2.0)
 					{
@@ -784,7 +784,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
 					eq.setIsEquipped(true, this);
 				}
-				else if (aLoc.equals(Constants.S_SHIELD))
+				else if (aLoc.equals(Constants.EQUIP_LOCATION_SHIELD))
 				{
 					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
 					eq.setNumberEquipped(num.intValue());
@@ -9850,9 +9850,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				// TODO - Yuck. This should not look at the name!!
 				if (eqI.modifiedName().endsWith("Primary"))
 				{
-					return Constants.S_NATURAL_PRIMARY;
+					return Constants.EQUIP_LOCATION_NATURAL_PRIMARY;
 				}
-				return Constants.S_NATURAL_SECONDARY;
+				return Constants.EQUIP_LOCATION_NATURAL_SECONDARY;
 			}
 		}
 
@@ -9906,9 +9906,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		// If Carried/Equipped/Not Carried slot
 		// allow as many as they would like
-		if (locName.startsWith(Constants.S_CARRIED)
-			|| locName.startsWith(Constants.S_EQUIPPED)
-			|| locName.startsWith(Constants.S_NOTCARRIED))
+		if (locName.startsWith(Constants.EQUIP_LOCATION_CARRIED)
+			|| locName.startsWith(Constants.EQUIP_LOCATION_EQUIPPED)
+			|| locName.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
 		{
 			return true;
 		}
@@ -9920,7 +9920,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// allow many Secondary Natural weapons
-		if (locName.equals(Constants.S_NATURAL_SECONDARY))
+		if (locName.equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
 		{
 			return true;
 		}
@@ -9990,21 +9990,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 				// if Double Weapon or Both Hands, then no
 				// other weapon slots can be occupied
-				if ((locName.equals(Constants.S_BOTH) || locName
-					.equals(Constants.S_DOUBLE))
-					&& (es.getName().equals(Constants.S_PRIMARY)
-						|| es.getName().equals(Constants.S_SECONDARY)
-						|| es.getName().equals(Constants.S_BOTH) || es
-						.getName().equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.EQUIP_LOCATION_BOTH) || locName
+					.equals(Constants.EQUIP_LOCATION_DOUBLE))
+					&& (es.getName().equals(Constants.EQUIP_LOCATION_PRIMARY)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_SECONDARY)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_BOTH)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_DOUBLE)))
 				{
 					return false;
 				}
 
 				// inverse of above case
-				if ((locName.equals(Constants.S_PRIMARY) || locName
-					.equals(Constants.S_SECONDARY))
-					&& (es.getName().equals(Constants.S_BOTH) || es.getName()
-						.equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.EQUIP_LOCATION_PRIMARY) || locName
+					.equals(Constants.EQUIP_LOCATION_SECONDARY))
+					&& (es.getName().equals(Constants.EQUIP_LOCATION_BOTH)
+						|| es.getName().equals(Constants.EQUIP_LOCATION_DOUBLE)))
 				{
 					return false;
 				}

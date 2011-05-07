@@ -40,40 +40,40 @@ public interface Constants
 	 ********************************************************************/
 
 	/** Equipment location string - both hands. */
-	String S_BOTH = "Both Hands"; //$NON-NLS-1$
+	String EQUIP_LOCATION_BOTH = "Both Hands"; //$NON-NLS-1$
 
 	/** Equipment location string - carried. */
-	String S_CARRIED = "Carried"; //$NON-NLS-1$
+	String EQUIP_LOCATION_CARRIED = "Carried"; //$NON-NLS-1$
 
 	/** Equipment location string - double weapon. */
-	String S_DOUBLE = "Double Weapon"; //$NON-NLS-1$
+	String EQUIP_LOCATION_DOUBLE = "Double Weapon"; //$NON-NLS-1$
 
 	/** Equipment location string - equipped. */
-	String S_EQUIPPED = "Equipped"; //$NON-NLS-1$
+	String EQUIP_LOCATION_EQUIPPED = "Equipped"; //$NON-NLS-1$
 
 	/** Equipment location string - natural-primary. */
-	String S_NATURAL_PRIMARY = "Natural-Primary"; //$NON-NLS-1$
+	String EQUIP_LOCATION_NATURAL_PRIMARY = "Natural-Primary"; //$NON-NLS-1$
 
 	/** Equipment location string - natural-secondary. */
-	String S_NATURAL_SECONDARY = "Natural-Secondary"; //$NON-NLS-1$
+	String EQUIP_LOCATION_NATURAL_SECONDARY = "Natural-Secondary"; //$NON-NLS-1$
 
 	/** Equipment location string - not carried. */
-	String S_NOTCARRIED = "Not Carried"; //$NON-NLS-1$
+	String EQUIP_LOCATION_NOTCARRIED = "Not Carried"; //$NON-NLS-1$
 
 	/** Equipment location string - primary hand. */
-	String S_PRIMARY = "Primary Hand"; //$NON-NLS-1$
+	String EQUIP_LOCATION_PRIMARY = "Primary Hand"; //$NON-NLS-1$
 
 	/** Equipment location string - secondary hand. */
-	String S_SECONDARY = "Secondary Hand"; //$NON-NLS-1$
+	String EQUIP_LOCATION_SECONDARY = "Secondary Hand"; //$NON-NLS-1$
 
 	/** Equipment location string - shield. */
-	String S_SHIELD = "Shield"; //$NON-NLS-1$
+	String EQUIP_LOCATION_SHIELD = "Shield"; //$NON-NLS-1$
 
 	/** Equipment location string - two Weapons. */
-	String S_TWOWEAPONS = "Two Weapons"; //$NON-NLS-1$
+	String EQUIP_LOCATION_TWOWEAPONS = "Two Weapons"; //$NON-NLS-1$
 
 	/** Equipment location string - unarmed. */
-	String S_UNARMED = "Unarmed"; //$NON-NLS-1$
+	String EQUIP_LOCATION_UNARMED = "Unarmed"; //$NON-NLS-1$
 
 	/********************************************************************
 	 * Game mode constants
