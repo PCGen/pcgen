@@ -1496,7 +1496,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (aDeity != null)
 		{
-			if (aDeity.isType(Constants.s_CUSTOM))
+			if (aDeity.isType(Constants.TYPE_CUSTOM))
 			{
 				final int areYouSure =
 						JOptionPane.showConfirmDialog(null, PropertyFactory

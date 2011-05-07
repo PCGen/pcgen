@@ -3348,7 +3348,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void updateEquipmentQty(final Equipment eq, double oldQty,
 		double newQty)
 	{
-		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		if (eq.isType(Constants.TYPE_SPELLBOOK))
 		{
 			String baseBookname = eq.getName();
 			String bookName = eq.getName();
@@ -3488,7 +3488,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void removeEquipment(final Equipment eq)
 	{
-		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		if (eq.isType(Constants.TYPE_SPELLBOOK))
 		{
 			delSpellBook(eq.getName());
 		}

@@ -687,7 +687,7 @@ public final class LstEditorMain extends JFrame
 		if (lstItem != null)
 		{
 			lstLstFileContent.ensureIndexIsVisible(lstLstFileContent.getSelectedIndex());
-			boolean canEdit = lstItem.isType(Constants.s_CUSTOM);
+			boolean canEdit = lstItem.isType(Constants.TYPE_CUSTOM);
 			final String lstType = (String) lstLstFileTypes.getSelectedValue();
 
 			if (lstType.equalsIgnoreCase(s_EDITTYPE_SOURCE))

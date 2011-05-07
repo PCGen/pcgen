@@ -40,7 +40,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	public static final Type NATURAL = getConstant("Natural");
 
-	public static final Type CUSTOM = getConstant(Constants.s_CUSTOM);
+	public static final Type CUSTOM = getConstant(Constants.TYPE_CUSTOM);
 
 	public static final Type NONE = getConstant("None");
 

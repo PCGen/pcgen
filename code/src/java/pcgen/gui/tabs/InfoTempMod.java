@@ -2396,7 +2396,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			List<String> typeList = new ArrayList<String>();
 
 			// build the list of all equipment types
-			eqTypeList.add(Constants.s_CUSTOM);
+			eqTypeList.add(Constants.TYPE_CUSTOM);
 
 			for (Equipment bEq : pc.getEquipmentSet())
 			{

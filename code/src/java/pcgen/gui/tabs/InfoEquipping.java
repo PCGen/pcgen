@@ -5013,7 +5013,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			List<String> locList = new ArrayList<String>();
 
 			// build the list of all equipment types
-			typeList.add(Constants.s_CUSTOM);
+			typeList.add(Constants.TYPE_CUSTOM);
 
 			for (Equipment bEq : pc.getEquipmentMasterList())
 			{

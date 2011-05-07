@@ -193,21 +193,21 @@ public enum SourceFormat
 	/**
 	 * Returns a formatted string representation for this source based on the
 	 * <tt>SourceFormat</tt> passed in.
-	 * 
-	 * @param aFormat
-	 *            The format to display the source in
-	 * @param includePage
-	 *            Should the page number be included in the output
-	 * 
-	 * @return A formatted string.
-	 * 
+
 	 * @see pcgen.core.SourceEntry.SourceFormat
+	 *
+	 * @param cdo
+	 * @param format The format to display the source in
+	 * @param includePage Should the page number be included in the output
+	 * @return A formatted string.
 	 */
-	public static String getFormattedString(CDOMObject cdo,
-			SourceFormat format, boolean includePage)
+	public static String getFormattedString(
+		CDOMObject cdo,
+		SourceFormat format,
+		boolean includePage)
 	{
 		StringBuffer ret = new StringBuffer();
-		if (cdo.isType(Constants.s_CUSTOM))
+		if (cdo.isType(Constants.TYPE_CUSTOM))
 		{
 			ret.append(PropertyFactory.getString("in_custom")).append(" - ");
 		}

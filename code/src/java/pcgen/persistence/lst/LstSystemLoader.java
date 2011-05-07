@@ -1019,7 +1019,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					{
 						aEq = aEq.clone();
 						aEq.load(aLine);
-						if (!aEq.isType(Constants.s_CUSTOM))
+						if (!aEq.isType(Constants.TYPE_CUSTOM))
 						{
 							aEq.addType(Type.CUSTOM);
 						}

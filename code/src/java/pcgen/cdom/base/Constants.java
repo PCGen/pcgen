@@ -91,7 +91,7 @@ public interface Constants
 	/** What to display as the application's name. */
 	String APPLICATION_NAME = "PCGen"; //$NON-NLS-1$
 
-	/** The prefix to add to an Automatically resized piece of equipment's Key */
+	/** The prefix to add to an Automatically resized piece of equipment's Key. */
 	String AUTO_RESIZE_PREFIX = "AUTOSIZE"; //$NON-NLS-1$
 
 
@@ -99,11 +99,11 @@ public interface Constants
 	 * Output sheet related
 	 ********************************************************************/
 
-	/** What a character template file name starts with */
-	String s_CHARACTER_TEMPLATE_START = "csheet"; //$NON-NLS-1$
+	/** The prefix of a character template file name. */
+	String CHARACTER_TEMPLATE_PREFIX = "csheet"; //$NON-NLS-1$
 
-	/** CUSTOM */
-	String s_CUSTOM = "Custom"; //$NON-NLS-1$
+	/** A constant string representing the type custom. */
+	String TYPE_CUSTOM = "Custom"; //$NON-NLS-1$
 
 	/** Custom Equipment */
 	String s_CUSTOMSOURCE = "Custom Equipment"; //$NON-NLS-1$
@@ -167,8 +167,8 @@ public interface Constants
 	/** htmlxml */
 	String s_standard_outputsheet_directory = "htmlxml"; //$NON-NLS-1$
 
-	/** Type: SPELLBOOK */
-	String s_TYPE_SPELLBOOK = "SPELLBOOK"; //$NON-NLS-1$
+	/** A constant string representing the type spellbook. */
+	String TYPE_SPELLBOOK = "SPELLBOOK"; //$NON-NLS-1$
 
 	// Units of measurement
 	/** Imperial */

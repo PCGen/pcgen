@@ -4875,7 +4875,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						Equipment.class, itemKey);
 			if (aEquip != null)
 			{
-				if (aEquip.isType(Constants.s_CUSTOM))
+				if (aEquip.isType(Constants.TYPE_CUSTOM))
 				{
 					aEquip = null;
 				}
@@ -4937,7 +4937,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							if (aEquip2 != null)
 							{
 								// Make sure we are not getting a custom item
-								if (aEquip2.isType(Constants.s_CUSTOM))
+								if (aEquip2.isType(Constants.TYPE_CUSTOM))
 								{
 									aEquip2 = null;
 								}
@@ -4949,7 +4949,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									aEquip.load(customProperties,
 										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 									aEquip.remove(StringKey.OUTPUT_NAME);
-									if (!aEquip.isType(Constants.s_CUSTOM))
+									if (!aEquip.isType(Constants.TYPE_CUSTOM))
 									{
 										aEquip.addType(Type.CUSTOM);
 									}

@@ -272,7 +272,7 @@ public final class CustomData
 			
 			for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 			{
-				if (aEq.isType(Constants.s_CUSTOM) && !aEq.isType("AUTO_GEN"))
+				if (aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN"))
 				{
 					aEq.save(bw);
 				}
@@ -481,7 +481,7 @@ public final class CustomData
 
 			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
-				if (race.isType(Constants.s_CUSTOM))
+				if (race.isType(Constants.TYPE_CUSTOM))
 				{
 					String region;
 					String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
@@ -599,7 +599,7 @@ public final class CustomData
 			{
 				final PObject pobj = it.next();
 
-				if (pobj.isType(Constants.s_CUSTOM))
+				if (pobj.isType(Constants.TYPE_CUSTOM))
 				{
 					bw.write(pobj.getPCCText());
 					bw.newLine();
@@ -672,7 +672,7 @@ public final class CustomData
 					{
 						final Spell aSpell = e2.next();
 
-						if (aSpell.isType(Constants.s_CUSTOM))
+						if (aSpell.isType(Constants.TYPE_CUSTOM))
 						{
 							bw.write(aSpell.getPCCText());
 							bw.newLine();
@@ -681,7 +681,7 @@ public final class CustomData
 				}
 				else
 				{
-					if (((Spell) obj).isType(Constants.s_CUSTOM))
+					if (((Spell) obj).isType(Constants.TYPE_CUSTOM))
 					{
 						bw.write(((Spell) obj).getPCCText());
 						bw.newLine();

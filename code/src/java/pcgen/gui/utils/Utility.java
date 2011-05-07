@@ -777,7 +777,7 @@ public final class Utility
 
 		BufferedWriter bw = new BufferedWriter(w);
 
-		if (fileName.startsWith(Constants.s_CHARACTER_TEMPLATE_START)
+		if (fileName.startsWith(Constants.CHARACTER_TEMPLATE_PREFIX)
 			|| fileName.startsWith(Constants.s_EQSET_TEMPLATE_START)
 			|| fileName.endsWith(".xml"))
 		{

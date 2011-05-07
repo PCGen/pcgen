@@ -49,7 +49,7 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		Equipment eq = dfce.getCDOMObject();
-		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		if (eq.isType(Constants.TYPE_SPELLBOOK))
 		{
 			CharID id = dfce.getCharID();
 			String baseBookname = eq.getName();

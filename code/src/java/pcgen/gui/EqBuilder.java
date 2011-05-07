@@ -1150,7 +1150,7 @@ final class EqBuilder extends JPanel
 		aNewEq.put(StringKey.OUTPUT_NAME, sName);
 		aNewEq.removeType(Type.AUTO_GEN);
 		aNewEq.removeType(Type.STANDARD);
-		if (!aNewEq.isType(Constants.s_CUSTOM)) {
+		if (!aNewEq.isType(Constants.TYPE_CUSTOM)) {
 			aNewEq.addType(Type.CUSTOM);
 		}
 

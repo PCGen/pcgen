@@ -1225,7 +1225,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 						newEq.resizeItem(pc, newSize);
 						newEq.removeType(Type.AUTO_GEN);
 						newEq.removeType(Type.STANDARD);
-						if (!newEq.isType(Constants.s_CUSTOM))
+						if (!newEq.isType(Constants.TYPE_CUSTOM))
 						{
 							newEq.addType(Type.CUSTOM);
 						}
@@ -1601,7 +1601,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			Equipment aEq = (Equipment) e.getItem();
 
-			if (!aEq.isType(Constants.s_CUSTOM))
+			if (!aEq.isType(Constants.TYPE_CUSTOM))
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getString("in_igCanOnlyDeleteCustom"), Constants.APPLICATION_NAME, //$NON-NLS-1$
@@ -2104,7 +2104,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
 		boolean customExists =
-				Globals.getEquipmentTypes().contains(Constants.s_CUSTOM);
+				Globals.getEquipmentTypes().contains(Constants.TYPE_CUSTOM);
 
 		typeSubtypeRoot = new PObjectNode();
 		typeRoot = new PObjectNode();
@@ -2117,8 +2117,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		if (customExists)
 		{
-			aList.add(Constants.s_CUSTOM);
-			bList.add(Constants.s_CUSTOM);
+			aList.add(Constants.TYPE_CUSTOM);
+			bList.add(Constants.TYPE_CUSTOM);
 			sourceList.add(Constants.s_CUSTOMSOURCE);
 		}
 
@@ -4146,9 +4146,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (fireEvent)
 			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM))
+				if (eq.isType(Constants.TYPE_CUSTOM))
 				{
-					addChild(Constants.s_CUSTOM, typeSubtypeRoot, true);
+					addChild(Constants.TYPE_CUSTOM, typeSubtypeRoot, true);
 				}
 
 				//Add item's type to the root
@@ -4216,9 +4216,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (fireEvent)
 			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM))
+				if (eq.isType(Constants.TYPE_CUSTOM))
 				{
-					addChild(Constants.s_CUSTOM, typeRoot, true);
+					addChild(Constants.TYPE_CUSTOM, typeRoot, true);
 				}
 
 				//Add Type
@@ -4274,7 +4274,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (fireEvent)
 			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM))
+				if (eq.isType(Constants.TYPE_CUSTOM))
 				{
 					addChild(Constants.s_CUSTOMSOURCE, sourceRoot, true);
 				}
