@@ -4,7 +4,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 # Pathfinder RPG Entry by: Stefan Radermacher and Tir Gwaith (Andrew McDougall)
 
 # Equipment Name						Output Name									Type			Cost		Source Page		Combat bonus				Bonus to skill							Multiply spell cast/day				Special Property
-Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	SOURCEPAGE:p.478																							SPROP:As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Stealth checks. As a standard action, she can also command the ring to utilize the spell Disguise Self as often as she wants.
+Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	SOURCEPAGE:p.478		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Disguise Self																							SPROP:As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Stealth checks. As a standard action, she can also command the ring to utilize the spell Disguise Self as often as she wants.
 Ring of Climbing																TYPE:Magic.Ring	COST:2500	SOURCEPAGE:p.478							BONUS:SKILL|Climb|5|TYPE=Competence
 Ring of Climbing (Improved)				OUTPUTNAME:Ring of Climbing, Improved				TYPE:Magic.Ring	COST:10000	SOURCEPAGE:p.479							BONUS:SKILL|Climb|10|TYPE=Competence
 Ring of Counterspells															TYPE:Magic.Ring	COST:4000	SOURCEPAGE:p.479																							SPROP:Counterspells any spell stored in ring when next cast on wearer.
