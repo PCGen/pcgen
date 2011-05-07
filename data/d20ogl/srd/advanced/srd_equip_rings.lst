@@ -3,8 +3,8 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 # Equipment Name				Output Name							Type			Cost		Weight	Modifier						Source Page					Ability						Combat bonus				Bonus to skill					Multiply spell cast/day
 Ring (Air Elemental Command)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Animal Friendship)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:9500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Blinking)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:30000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Animal Friendship)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:9500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=6|Animal Friendship
+Ring (Blinking)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:30000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Blink
 Ring (Chameleon Power)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Hide|15
 Ring (Climbing)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Climb|10|TYPE=Competence
 Ring (Counterspells)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:4000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
@@ -15,12 +15,12 @@ Ring (Elemental Resistance Minor)	OUTPUTNAME:Ring of Elemental Resistance, Minor
 Ring (Evasion)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:25000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
 Ring (Feather Falling)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2200	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Fire Elemental Command)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Force Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE=ArmorShield
-Ring (Freedom of Movement)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Force Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE:ArmorShield
+Ring (Freedom of Movement)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
 Ring (Friend Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:50000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Invisibility)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:20000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Invisibility)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:20000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
 Ring (Jumping)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Jump|30
-Ring (Meld into Stone)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:27000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Meld into Stone)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:27000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=5|Meld into Stone
 Ring (Mind Shielding)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Protection +1)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|1|TYPE=Deflection
 Ring (Protection +2)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE=Deflection
@@ -31,14 +31,14 @@ Ring (Ram)					OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8600	WT:0		EQMO
 Ring (Regeneration)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Shooting Stars)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:50000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Spell Storing)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Spell Turning)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:150000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Spell Turning)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:150000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=13|Spell Turning
 Ring (Sustenance)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Swimming)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2300	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Swim|10|TYPE=Competence
-Ring (Telekinesis)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:75000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Three Wishes)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:97950	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Telekinesis)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:75000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Telekinesis
+Rng (Three Wishes)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:97950	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	EQMOD:CHARGED_ITEM_3|CHARGES[3]
 Ring (Warmth)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2100	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Water Elemental Command)	OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Water Walking)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:15000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Water Walking)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:15000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Water Walk
 Ring (Wizardry I)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:20000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf																					BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2
 Ring (Wizardry II)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf																					BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2
 Ring (Wizardry III)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:70000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf																					BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2
