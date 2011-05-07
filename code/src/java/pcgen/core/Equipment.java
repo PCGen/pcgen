@@ -5154,26 +5154,26 @@ public final class Equipment extends PObject implements Serializable,
 
 		String thisKey = getKeyName();
 
-		if (thisKey.startsWith(Constants.s_AUTO_RESIZE))
+		if (thisKey.startsWith(Constants.AUTO_RESIZE_PREFIX))
 		{
-			int index = Constants.s_AUTO_RESIZE.length();
+			int index = Constants.AUTO_RESIZE_PREFIX.length();
 			String keySize = thisKey.substring(index, index + 1).toUpperCase();
 
 			// If the key of this object already has the finalSize in the correct
 			// place then just return it, the item has already been adjusted.
-			// This should never happen because if the key has an s_AUTO_RESIZE
+			// This should never happen because if the key has an AUTO_RESIZE_PREFIX
 			// prefix and the correct size then it should already be finalSize
 			if (keySize.equals(finalSize))
 			{
 				return thisKey;
 			}
 
-			// remove the s_AUTO_RESIZE and the following size abbreviation
+			// remove the AUTO_RESIZE_PREFIX and the following size abbreviation
 			// from the key
 			thisKey = thisKey.substring(index + 1);
 		}
 
-		return Constants.s_AUTO_RESIZE + finalSize + thisKey;
+		return Constants.AUTO_RESIZE_PREFIX + finalSize + thisKey;
 	}
 
 	/**

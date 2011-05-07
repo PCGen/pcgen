@@ -92,7 +92,7 @@ public interface Constants
 	String APPLICATION_NAME = "PCGen"; //$NON-NLS-1$
 
 	/** The prefix to add to an Automatically resized piece of equipment's Key */
-	String s_AUTO_RESIZE = "AUTOSIZE"; //$NON-NLS-1$
+	String AUTO_RESIZE_PREFIX = "AUTOSIZE"; //$NON-NLS-1$
 
 
 	/********************************************************************

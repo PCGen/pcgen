@@ -167,7 +167,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = small;
 		
 		final String expectedKey =
-				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase()
+				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase()
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -181,7 +181,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = colossal;
 
 		final String expectedKey =
-				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -199,7 +199,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = fine;
 
 		String expectedKey =
-				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -207,7 +207,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		newSize = diminutive;
 
 		expectedKey =
-				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -216,7 +216,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Try nonsense abbreviation for Size */
 	public void testcreateKeyForAutoResize006()
 	{
-		String unExpectedKey = Constants.s_AUTO_RESIZE + "X" + this.OriginalKey;
+		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
 		is(this.eq.createKeyForAutoResize(null), strEq(this.OriginalKey));
@@ -252,7 +252,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -274,7 +274,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -295,7 +295,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -315,7 +315,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
