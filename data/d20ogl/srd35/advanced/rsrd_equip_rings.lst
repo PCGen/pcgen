@@ -43,6 +43,7 @@ Ring (Freedom of Movement)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COS
 Ring (Friend Shield)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:50000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Invisibility)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Jumping)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2500	WT:0		SOURCEPAGE:MagicItemsIII.rtf														BONUS:SKILL|Jump|5|TYPE=Competence
+Ring (Meld into Stone)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:27000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Mind Shielding)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Protection +1)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2000	WT:0		SOURCEPAGE:MagicItemsIII.rtf								BONUS:COMBAT|AC|1|TYPE=Deflection
 Ring (Protection +2)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:MagicItemsIII.rtf								BONUS:COMBAT|AC|2|TYPE=Deflection
