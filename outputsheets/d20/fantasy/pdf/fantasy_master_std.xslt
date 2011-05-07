@@ -6090,24 +6090,24 @@
 		<fo:table-column>
 			<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth - 153" />mm</xsl:attribute>
 		</fo:table-column>
-		<!-- name -->
-		<fo:table-column column-width="5mm"/>
-		<!-- dc -->
-		<fo:table-column column-width="18mm"/>
+		<!-- name ^ -->
+		<fo:table-column column-width="38mm"/>
+		<!-- SR, DC, Save = 18+15+9  42-->
+<!-->		<fo:table-column column-width="9mm"/>	-->
 		<!-- saving throw -->
-		<fo:table-column column-width="9mm"/>
+		<fo:table-column column-width="18mm"/>	
 		<!-- time -->
-		<fo:table-column column-width="32mm"/>
+		<fo:table-column column-width="34mm"/>
 		<!-- duration -->
-		<fo:table-column column-width="16mm"/>
-		<!-- range -->
-		<fo:table-column column-width="9mm"/>
-		<!-- comp -->
 		<fo:table-column column-width="18mm"/>
-		<!-- SR -->
-		<fo:table-column column-width="15mm"/>
+		<!-- range -->
+		<fo:table-column column-width="18mm"/>
+		<!-- comp -->
+		<fo:table-column column-width="13mm"/>
+		<!-- SR 
+		<fo:table-column column-width="15mm"/>	-->
 		<!-- school -->
-		<fo:table-column column-width="20mm"/>
+		<fo:table-column column-width="6mm"/>
 		<!-- source -->
 		<fo:table-header>
 			<fo:table-row>
@@ -6159,11 +6159,11 @@
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Name</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">DC</fo:block>
+				<fo:block text-align="start" font-size="5pt" font-weight="bold">DC, Save / Spell Resistance</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Saving Throw</fo:block>
-			</fo:table-cell>
+			</fo:table-cell> -->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Time</fo:block>
 			</fo:table-cell>
@@ -6176,12 +6176,12 @@
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Comp.</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Spell Resistance</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+			</fo:table-cell>	-->
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
-			</fo:table-cell>
+			</fo:table-cell>	<-->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Source</fo:block>
 			</fo:table-cell>
@@ -6253,15 +6253,16 @@
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
-					<xsl:value-of select="dc"/>
+				<fo:block text-align="start" font-size="5pt" font-weight="bold">
+					<fo:inline font-weight="bold">DC: </fo:inline> <xsl:value-of select="dc"/> 
+					<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
+					<fo:inline font-weight="bold">; SR: </fo:inline> <xsl:value-of select="spell_resistance"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
-					<xsl:value-of select="saveinfo"/>
 				</fo:block>
-			</fo:table-cell>
+			</fo:table-cell>	-->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="castingtime"/>
@@ -6282,16 +6283,16 @@
 					<xsl:value-of select="components"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
-					<xsl:value-of select="spell_resistance"/>
+					
 				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+			</fo:table-cell>	-->
+<!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="school/fullschool"/>
 				</fo:block>
-			</fo:table-cell>
+			</fo:table-cell>	<!-->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="source/sourceshort"/>
@@ -6302,7 +6303,7 @@
 		</fo:table-row>
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
+<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Effect: </fo:inline>
 					<fo:block text-align="justify" text-indent="5pt">
@@ -6311,7 +6312,14 @@
 						</xsl:call-template>
 					</fo:block>
 				</fo:block>
+			</fo:table-cell>	-->
+			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
+				<fo:block text-align="start" font-size="5pt">
+					<fo:inline font-style="italic">School: </fo:inline>
+					<xsl:value-of select="school/fullschool"/>
+				</fo:block>
 			</fo:table-cell>
+			
 			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Target: </fo:inline>
@@ -6324,7 +6332,24 @@
 					<xsl:value-of select="casterlevel"/>
 				</fo:block>
 			</fo:table-cell>
+			<!-- Placeholder for future concentration for spells>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<fo:inline font-style="italic">Concentration: </fo:inline>
+					<xsl:value-of select="SPELLLISTCLASS.0.CONCENTRATION"/>
+				</fo:block>
+			</fo:table-cell>	-->
 		</fo:table-row>
+		<fo:table-row>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
+				<fo:block text-align="start" font-size="5pt">
+					<fo:inline font-style="italic">Effect: </fo:inline>
+					<xsl:value-of select="effect"/>
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+
 	</xsl:template>
 	<!--
 ====================================
