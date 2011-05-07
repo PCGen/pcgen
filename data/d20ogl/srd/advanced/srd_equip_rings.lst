@@ -20,7 +20,6 @@ Ring (Freedom of Movement)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40
 Ring (Friend Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:50000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Invisibility)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:20000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
 Ring (Jumping)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Jump|30
-Ring (Meld into Stone)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:27000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=5|Meld into Stone
 Ring (Mind Shielding)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Protection +1)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|1|TYPE=Deflection
 Ring (Protection +2)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE=Deflection
