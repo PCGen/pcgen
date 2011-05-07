@@ -15,7 +15,7 @@ Ring (Elemental Resistance Minor)	OUTPUTNAME:Ring of Elemental Resistance, Minor
 Ring (Evasion)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:25000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
 Ring (Feather Falling)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2200	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Fire Elemental Command)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
-Ring (Force Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE:ArmorShield
+Ring (Force Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE=ArmorShield
 Ring (Freedom of Movement)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
 Ring (Friend Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:50000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Invisibility)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:20000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
