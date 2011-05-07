@@ -85,8 +85,8 @@ public final class SettingsHandler
 	//
 	// For EqBuilder
 	//
-	private static int maxPotionSpellLevel = 3;
-	private static int maxWandSpellLevel = 4;
+	private static int maxPotionSpellLevel = Constants.DEFAULT_MAX_POTION_SPELL_LEVEL;
+	private static int maxWandSpellLevel   = Constants.DEFAULT_MAX_WAND_SPELL_LEVEL;
 	private static boolean allowMetamagicInCustomizer = false;
 	private static boolean spellMarketPriceAdjusted = false;
 
@@ -97,7 +97,7 @@ public final class SettingsHandler
 	private static String browserPath = null; //Intentional null
 
 	/**
-	 *  See @javax.swing.SwingConstants
+	 *  See @javax.swing.SwingConstants.
 	 */
 	private static int chaTabPlacement = SwingConstants.TOP;
 	private static Dimension customizerDimension = null;
@@ -106,13 +106,13 @@ public final class SettingsHandler
 	private static int customizerSplit2 = -1;
 	private static String dmNotes = ""; //$NON-NLS-1$
 	private static boolean enforceSpendingBeforeLevelUp = false;
-	private static int featAutoColor = 0xB2B200; // dark yellow
-	private static int featVirtualColor = 0xFF00FF; // magenta
-	private static int sourceStatusReleaseColor = 0x000000; // black
-	private static int sourceStatusAlphaColor = 0xFF0000; // red
-	private static int sourceStatusBetaColor = 0x800000; // maroon
-	private static int sourceStatusTestColor = 0xFF00FF; // magenta
-	private static final Properties filterSettings = new Properties();
+	private static int featAutoColor            = Constants.DEFAULT_FEAT_AUTO_COLOUR;
+	private static int featVirtualColor         = Constants.DEFAULT_FEAT_VIRTUAL_COLOUR;
+	private static int sourceStatusReleaseColor = Constants.DEFAULT_SOURCE_STATUS_RELEASE_COLOUR;
+	private static int sourceStatusAlphaColor   = Constants.DEFAULT_SOURCE_STATUS_ALPHA_COLOUR;
+	private static int sourceStatusBetaColor    = Constants.DEFAULT_SOURCE_STATUS_BETA_COLOUR;
+	private static int sourceStatusTestColor    = Constants.DEFAULT_SOURCE_STATUS_TEST_COLOUR;
+	private static final Properties FILTERSETTINGS = new Properties();
 	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
 	private static boolean grittyACMode = false;
@@ -128,7 +128,7 @@ public final class SettingsHandler
 	private static boolean hpMaxAtFirstClassLevel = true;
 	private static boolean hpMaxAtFirstPCClassLevelOnly = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
-	private static int hpPct = 100;
+	private static int hpPct        = Constants.DEFAULT_HPPCT;
 	private static boolean ignoreMonsterHDCap = false;
 	private static boolean debugFeats = false;
 
@@ -145,8 +145,8 @@ public final class SettingsHandler
 	private static boolean gearTab_IgnoreCost = false;
 	private static boolean gearTab_AutoResize = false;
 	private static boolean gearTab_AllowDebt  = false;
-	private static int gearTab_SellRate = 50;
-	private static int gearTab_BuyRate = 100;
+	private static int gearTab_SellRate = Constants.DEFAULT_GEARTAB_SELL_RATE;
+	private static int gearTab_BuyRate  = Constants.DEFAULT_GEARTAB_BUY_RATE;
 	private static boolean isROG = false;
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
@@ -165,24 +165,42 @@ public final class SettingsHandler
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
-	private static File pcgenCustomDir = new File(Globals.getDefaultPath() + File.separator + "data" + File.separator //$NON-NLS-1$
-			+ "customsources"); //$NON-NLS-1$
-	private static File pcgenVendorDataDir = new File(Globals.getDefaultPath() + File.separator + "vendordata"); //$NON-NLS-1$
-	private static File pcgenSponsorDir = new File(Globals.getDefaultPath() + File.separator + "system" + File.separator + "sponsors"); //$NON-NLS-1$
+	private static File pcgenCustomDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "data" //$NON-NLS-1$
+			+ File.separator + "customsources"); //$NON-NLS-1$
+	private static File pcgenVendorDataDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "vendordata"); //$NON-NLS-1$
+	private static File pcgenSponsorDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "system" //$NON-NLS-1$
+			+ File.separator + "sponsors"); //$NON-NLS-1$
 	private static File pcgenDocsDir = null;
 
 	/**
 	 * Where to load the system lst files from.
 	 */
-	private static File pcgenSystemDir = new File(Globals.getDefaultPath() + File.separator + "system"); //$NON-NLS-1$
-	private static File pcgenThemePackDir = new File(Globals.getDefaultPath() + File.separator + "lib" + File.separator //$NON-NLS-1$
-			+ "lnf" + File.separator + "themes"); //$NON-NLS-1$
-	private static File pcgenOutputSheetDir = new File(Globals.getDefaultPath() + File.separator + "outputsheets"); //$NON-NLS-1$
-	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
-	private static int prereqQualifyColor = 0x000000; // 0 = black, 0xFF0000 = red, 0xFFFFFF = white
-	private static int prereqFailColor = 0xFF0000; // 0 = black, 0xFF0000 = red, 0xFFFFFF = white
+	private static File pcgenSystemDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "system"); //$NON-NLS-1$
+	private static File pcgenThemePackDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "lib" //$NON-NLS-1$
+			+ File.separator + "lnf" //$NON-NLS-1$
+			+ File.separator + "themes"); //$NON-NLS-1$
+	private static File pcgenOutputSheetDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "outputsheets"); //$NON-NLS-1$
+	private static File gmgenPluginDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "plugins"); //$NON-NLS-1$
+	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
+	private static int prereqFailColor    = Constants.DEFAULT_PREREQ_FAIL_COLOUR;
 	private static boolean previewTabShown = false;
-	private static File pcgenPreviewDir = new File(Globals.getDefaultPath() + File.separator + "preview");
+	private static File pcgenPreviewDir =
+		new File(Globals.getDefaultPath()
+			+ File.separator + "preview");//$NON-NLS-1$
 
 /////////////////////////////////////////////////
 	private static boolean ranStartingWizard = false;
@@ -240,7 +258,7 @@ public final class SettingsHandler
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
 	private static boolean hideMonsterClasses = false;
 	private static boolean guiUsesOutputNameEquipment = false;
-	private static boolean guiUsesOutputNameSpells= false;
+	private static boolean guiUsesOutputNameSpells = false;
 	private static int singleChoicePreference = Constants.CHOOSER_SINGLECHOICEMETHOD_NONE;
 	private static int lastTipShown = -1;
 	private static boolean showMemoryArea = false;
@@ -665,13 +683,9 @@ public final class SettingsHandler
 		// the first time PCGen has been run
 		final File aFile = new File(fileLocation);
 
-		if (!aFile.exists())
-		{
-			return true;
-		}
+		return !aFile.exists();
 
-		return false;
-	}
+		}
 
 	public static boolean isGMGen()
 	{
@@ -972,7 +986,7 @@ public final class SettingsHandler
 	/**
 	 * @param string The invalidDmgText to set.
 	 */
-	public static final void setInvalidDmgText(final String string)
+	public static void setInvalidDmgText(final String string)
 	{
 		SettingsHandler.invalidDmgText = string;
 	}
@@ -984,7 +998,7 @@ public final class SettingsHandler
 	/**
 	 * @param string The invalidToHitText to set.
 	 */
-	public static final void setInvalidToHitText(final String string)
+	public static void setInvalidToHitText(final String string)
 	{
 		SettingsHandler.invalidToHitText = string;
 	}
@@ -1422,7 +1436,7 @@ public final class SettingsHandler
 			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.INFORMATION);
 		}
 
-		setGame(getPCGenOption("game", Constants.e35_MODE)); //$NON-NLS-1$
+		setGame(getPCGenOption("game", Constants.GAMEMODE_EDITION_THREE_POINT_FIVE)); //$NON-NLS-1$
 		game.clearLoadContext();
 
 		Globals.createEmptyRace();
@@ -2630,7 +2644,7 @@ public final class SettingsHandler
 	/**
 	 * @return Returns the useHigherLevelSlotsDefault.
 	 */
-	public static final boolean isUseHigherLevelSlotsDefault()
+	public static boolean isUseHigherLevelSlotsDefault()
 	{
 		return useHigherLevelSlotsDefault;
 	}
@@ -2638,7 +2652,7 @@ public final class SettingsHandler
 	/**
 	 * @param useHigherLevelSlotsDefault The useHigherLevelSlotsDefault to set.
 	 */
-	public static final void setUseHigherLevelSlotsDefault(
+	public static void setUseHigherLevelSlotsDefault(
 		boolean useHigherLevelSlotsDefault)
 	{
 		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;
@@ -2950,7 +2964,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Opens (options.ini) for writing and calls {@link #setOptionsProperties}.
+	 * Opens (options.ini) for writing and calls {@link setOptionsProperties}.
 	 * @param aPC
 	 */
 	public static void writeOptionsProperties(final PlayerCharacter aPC)
@@ -3068,7 +3082,7 @@ public final class SettingsHandler
 
 	private static Properties getFilterSettings()
 	{
-		return filterSettings;
+		return FILTERSETTINGS;
 	}
 
 	private static void setGrimHPMode(final boolean argGrimHPMode)

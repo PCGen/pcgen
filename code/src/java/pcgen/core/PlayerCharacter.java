@@ -319,7 +319,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	// output sheet locations
 	private String outputSheetHTML = Constants.EMPTY_STRING;
 	private String outputSheetPDF = Constants.EMPTY_STRING;
-	private boolean[] ageSetKitSelections = new boolean[10];
+	private boolean[] ageSetKitSelections = new boolean[Constants.NUMBER_OF_AGESET_KIT_SELECTIONS];
 	private boolean dirtyFlag = false;
 	private int serial = 0;
 	private boolean displayUpdate = false;
@@ -373,6 +373,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		this(true);
 	}
 
+	/**
+	 * Constructor.
+	 *
+	 * @param load true if loading the character
+	 */
 	public PlayerCharacter(boolean load)
 	{
 		resolveFacet.associatePlayerCharacter(id, this);
@@ -384,15 +389,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		
 		variableProcessor = new VariableProcessorPC(this);
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < Constants.NUMBER_OF_AGESET_KIT_SELECTIONS; i++)
 		{
 			ageSetKitSelections[i] = false;
 		}
 
-		statFacet.addAll(id, Globals.getContext().ref
-				.getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, Globals.getContext().ref
-				.getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
 		bioSetFacet.set(id, Globals.getBioSet());
 		campaignFacet.addAll(id, PersistenceManager.getInstance().getLoadedCampaigns());
 
@@ -705,7 +708,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			// if the eSet.getIdPath() is longer than 3
 			// it's inside a container, don't try to equip
-			if (aTok.countTokens() > 3)
+			if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NONCONTAINDED)
 			{
 				eq.setLocation(EquipmentLocation.CONTAINED);
 				eq.setIsEquipped(false, this);
@@ -938,14 +941,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Get a class, represented by a given key, from among those possessed by this pc.
 	 * 
-	 * @param Key the class's key
+	 * @param key the class's key
 	 * @return PCClass
 	 */
-	public PCClass getClassKeyed(final String Key)
+	public PCClass getClassKeyed(final String key)
 	{
 		for (PCClass aClass : getClassSet())
 		{
-			if (aClass.getKeyName().equalsIgnoreCase(Key))
+			if (aClass.getKeyName().equalsIgnoreCase(key))
 			{
 				return aClass;
 			}
@@ -1133,7 +1136,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector
+	 * Selector.
 	 * 
 	 * @return description lst
 	 */
@@ -1241,11 +1244,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * set display update TODO - This probably doesn't belong here. It seems to
 	 * only be used by InfoSkills.
 	 * 
-	 * @param aDisplayUpdate
+	 * @param update Whether the display should be updated
 	 */
-	public void setDisplayUpdate(final boolean aDisplayUpdate)
+	public void setDisplayUpdate(final boolean update)
 	{
-		this.displayUpdate = aDisplayUpdate;
+		this.displayUpdate = update;
 	}
 
 	/**
@@ -1359,7 +1362,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Count the total number of items of aName within EquipSet idPath
+	 * Count the total number of items of aName within EquipSet idPath.
 	 * 
 	 * @param idPath The root of the equipment set (or subset)
 	 * @param aName The equipment to count
@@ -1371,7 +1374,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get equipment set
+	 * Get equipment set.
 	 * 
 	 * @return equipment set
 	 */
@@ -1381,7 +1384,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the character's "equipped" equipment
+	 * Get the character's "equipped" equipment.
 	 * @return a set of the "equipped" equipment
 	 */
 	public Set<Equipment> getEquippedEquipmentSet()
@@ -1595,10 +1598,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canLevelUp()
 	{
-		if (SettingsHandler.getEnforceSpendingBeforeLevelUp()
-			&& (getSkillPoints() > 0 || getRemainingFeatPoolPoints() > 0))
+		if (SettingsHandler.getEnforceSpendingBeforeLevelUp())
 		{
-			return false;
+			return (getSkillPoints() <= 0 && getRemainingFeatPoolPoints() <= 0);
 		}
 		return true;
 	}
@@ -1891,7 +1893,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 
 	/**
-	 * Get a sorted list of the languages that this character knows
+	 * Get a sorted list of the languages that this character knows.
 	 * @return a sorted list of language objects
 	 */
 	public Set<Language> getSortedLanguageSet()
@@ -1942,9 +1944,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 
-			for (final String varName : varmap.keySet()) {
+			for (final String varName : varmap.keySet())
+			{
 				final int lvl = this.getVariableValue(varName, Constants.EMPTY_STRING).intValue();
-				if (lvl > 0) {
+				if (lvl > 0)
+				{
 					return lvl;
 				}
 			}
@@ -1968,7 +1972,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set the master for this object also set the level dependent stats based
 	 * on the masters level and info contained in the companionModList Array
-	 * such as HitDie, SR, BONUS, SA, etc
+	 * such as HitDie, SR, BONUS, SA, etc.
 	 * 
 	 * @param aM
 	 *            The master to be set.
@@ -2504,7 +2508,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get region set by setRegion (ignores Templates)
+	 * Get region set by setRegion (ignores Templates).
 	 * 
 	 * @return the character's region
 	 */
@@ -2584,7 +2588,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get list of shield proficiencies
+	 * Get list of shield proficiencies.
 	 * 
 	 * @return shield prof list
 	 */
@@ -2594,7 +2598,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get size
+	 * Get size.
 	 * 
 	 * @return size
 	 */
@@ -2604,7 +2608,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get skill list
+	 * Get skill list.
 	 * 
 	 * @return list of skills
 	 */
@@ -2632,36 +2636,32 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * outputIndex they will be ordered by name. Note hidden skills (outputIndex =
 	 * -1) are not included in this list.
 	 * 
-	 * Deals with sorted list
-	 * 
-	 * @param sortedList
+	 * @param skills A list of skills which will be sorted, filtered and returned
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public List<Skill> getSkillListInOutputOrder(final List<Skill> sortedList)
+	public List<Skill> getSkillListInOutputOrder(final List<Skill> skills)
 	{
 		final PlayerCharacter pc = this;
-		Collections.sort(sortedList, new Comparator<Skill>()
+		Collections.sort(skills, new Comparator<Skill>()
 		{
 			/**
 			 * Comparator will be specific to Skill objects
 			 */
 			public int compare(final Skill skill1, final Skill skill2)
 			{
-				Integer obj1Index =
-						pc.getAssoc(skill1, AssociationKey.OUTPUT_INDEX);
-				Integer obj2Index =
-						pc.getAssoc(skill2, AssociationKey.OUTPUT_INDEX);
+				Integer obj1Index = pc.getAssoc(skill1, AssociationKey.OUTPUT_INDEX);
+				Integer obj2Index = pc.getAssoc(skill2, AssociationKey.OUTPUT_INDEX);
 
 				// Force unset items (index of 0) to appear at the end
 				if (obj1Index == null || obj1Index == 0)
 				{
-					obj1Index = 999;
+					obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
 				}
 
 				if (obj2Index == null || obj2Index == 0)
 				{
-					obj2Index = 999;
+					obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
 				}
 
 				if (obj1Index > obj2Index)
@@ -2681,7 +2681,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		});
 
 		// Remove the hidden skills from the list
-		for (Iterator<Skill> i = sortedList.iterator(); i.hasNext();)
+		for (Iterator<Skill> i = skills.iterator(); i.hasNext();)
 		{
 			final Skill bSkill = i.next();
 
@@ -2696,21 +2696,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return sortedList;
+		return skills;
 	}
 
 	/**
-	 * Set skill points
+	 * Set skill points.
 	 * 
-	 * @param anInt
+	 * @param skillPoints unused parameter
 	 */
-	public void setSkillPoints(final int anInt)
+	public void setSkillPoints(final int skillPoints)
 	{
 		setDirty(true);
 	}
 
 	/**
-	 * Get skill points
+	 * Get skill points.
 	 * 
 	 * @return skill points
 	 */
@@ -2762,17 +2762,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set skin colour
+	 * Set skin colour.
 	 * 
-	 * @param aString
+	 * @param colour the new skin colour
 	 */
-	public void setSkinColor(final String aString)
+	public void setSkinColor(final String colour)
 	{
-		setStringFor(StringKey.SKIN_COLOR, aString);
+		setStringFor(StringKey.SKIN_COLOR, colour);
 	}
 
 	/**
-	 * Get skin colour
+	 * Get skin colour.
 	 * 
 	 * @return skin colour
 	 */
@@ -2782,7 +2782,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get list of special abilities
+	 * Get list of special abilities.
 	 * 
 	 * @return List of special abilities
 	 */
@@ -2804,7 +2804,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get list of special abilities as Strings
+	 * Get list of special abilities as Strings.
 	 * 
 	 * @return List of special abilities as Strings
 	 */
@@ -2881,17 +2881,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set speech tendency
+	 * Set speech tendency.
 	 * 
-	 * @param aString
+	 * @param tendency the speech tendency
 	 */
-	public void setSpeechTendency(final String aString)
+	public void setSpeechTendency(final String tendency)
 	{
-		setStringFor(StringKey.SPEECH_TENDENCY, aString);
+		setStringFor(StringKey.SPEECH_TENDENCY, tendency);
 	}
 
 	/**
-	 * Get speech tendency
+	 * Get speech tendency.
 	 * 
 	 * @return speech tendency
 	 */
@@ -2934,7 +2934,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get spell books
+	 * Get spell books.
 	 * 
 	 * @return spellBooks
 	 */
@@ -2944,7 +2944,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get spell books
+	 * Get spell books.
 	 * 
 	 * @return spellBooks
 	 */
@@ -2954,9 +2954,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get spell class given an index
+	 * Get spell class given an index.
 	 * 
-	 * @param ix
+	 * @param ix the index
 	 * @return spell class
 	 */
 	public PObject getSpellClassAtIndex(final int ix)
@@ -2973,9 +2973,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * a temporary placeholder used for computing the DC of a spell Set from
-	 * within Spell.java before the getVariableValue() call
+	 * within Spell.java before the getVariableValue() call.
 	 * 
-	 * @param i
+	 * @param i the temporary spell level.
 	 */
 	public void setSpellLevelTemp(final int i)
 	{
@@ -2984,7 +2984,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get spell level temp
+	 * Get spell level temp.
 	 * 
 	 * @return temp spell level
 	 */
@@ -2994,7 +2994,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * @return character subrace
+	 * Accessor, Gets the sub-race of the character.
+	 * @return character subrace.
 	 */
 	public String getSubRace()
 	{
@@ -3003,7 +3004,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * Selector <p/> Build on-the-fly so removing templates won't mess up sub
-	 * region
+	 * region.
 	 * 
 	 * @return character sub region
 	 */
@@ -3013,20 +3014,20 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set the name on the tab
+	 * Set the name on the tab.
 	 * 
-	 * @param aString
+	 * @param name the new name for the tab
 	 */
-	public void setTabName(final String aString)
+	public void setTabName(final String name)
 	{
-		tabName = aString;
+		tabName = name;
 		setDirty(true);
 		setChanged();
 		notifyObservers("TabName");
 	}
 
 	/**
-	 * Get tab name
+	 * Get tab name.
 	 * 
 	 * @return name on tab
 	 */
@@ -3040,7 +3041,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 
 	/**
-	 * List if Items which have Temp Bonuses applied to them
+	 * List if Items which have Temp Bonuses applied to them.
 	 * 
 	 * @return List
 	 */
@@ -3050,7 +3051,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Temp Bonus list
+	 * Temp Bonus list.
 	 * 
 	 * @return List
 	 */
@@ -3060,7 +3061,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * get temp bonus filters
+	 * Get temp bonus filters.
 	 * 
 	 * @return temp bonus filters
 	 */
@@ -3070,9 +3071,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * set temp bonus filter
+	 * Set temp bonus filter.
 	 * 
-	 * @param aBonusStr
+	 * @param aBonusStr the temporary bonus to add.
 	 */
 	public void setTempBonusFilter(final String aBonusStr)
 	{
@@ -3081,9 +3082,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * unset temp bonus filter
+	 * Unset temp bonus filter.
 	 * 
-	 * @param aBonusStr
+	 * @param aBonusStr the temporary bonus to remove.
 	 */
 	public void unsetTempBonusFilter(final String aBonusStr)
 	{
@@ -3091,6 +3092,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
+	/**
+	 * Get a set of the templates applies to this pc.
+	 * @return the set of Templates.
+	 */
 	public Collection<PCTemplate> getTemplateSet()
 	{
 		return templateFacet.getSet(id);
@@ -3118,9 +3123,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set trait 1
+	 * Set trait 1.
 	 * 
-	 * @param aString
+	 * @param aString the trait.
 	 */
 	public void setTrait1(final String aString)
 	{
@@ -3128,7 +3133,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get trait 1
+	 * Get trait 1.
 	 * 
 	 * @return trait 1
 	 */
@@ -3138,9 +3143,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set trait 2
+	 * Set trait 2.
 	 * 
-	 * @param aString
+	 * @param aString the trait.
 	 */
 	public void setTrait2(final String aString)
 	{
@@ -3148,7 +3153,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get trait 2
+	 * Get trait 2.
 	 * 
 	 * @return trait 2
 	 */
@@ -3157,19 +3162,19 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.TRAIT2);
 	}
 
+	/* TODO This should call getPObjectList() to get a list of PObjects to test against.
+	 * I don't want to change the behaviour for now however.
+	*/
+
 	/**
-	 * Should probably be refactored to return a String instead. TODO This
-	 * should call getPObjectList() to get a list of PObjects to test against. I
-	 * don't want to change the behaviour for now however.
-	 * 
-	 * @param variableString
-	 * @param isMax
-	 * @param includeBonus
-	 *            Should bonus tokens be added to this variables value
-	 * @param matchSrc
-	 * @param matchSubSrc
-	 * @param recurse
-	 * @return Float
+	 * Evaluates the variable string passed in and returns its value.
+	 *
+	 * This should probably be refactored to return a String instead.
+	 *
+	 * @param variableString the variable to evaluate
+	 * @param isMax if multiple values are stored, whether to return the largest value
+	 * found or the first.
+	 * @return the value of the variable.
 	 */
 	public Float getVariable(final String variableString, final boolean isMax)
 	{
@@ -3181,10 +3186,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (lastVariable.equals(variableString))
 			{
 				StringBuffer sb = new StringBuffer(256);
-				sb
-					.append("This is a deliberate warning message, not an error - ");
-				sb
-					.append("Avoiding infinite loop in getVariable: repeated lookup ");
+				sb.append("This is a deliberate warning message, not an error - ");
+				sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
 				sb.append("of \"").append(lastVariable).append("\" at ")
 					.append(value);
 				Logging.debugPrint(sb.toString());
@@ -3212,8 +3215,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!found)
 		{
 			lastVariable = variableString;
-			value = getVariableValue(variableString, Constants.EMPTY_STRING)
-					.floatValue();
+			value = getVariableValue(variableString, Constants.EMPTY_STRING);
 			includeBonus = false;
 			found = true;
 			lastVariable = null;
@@ -4096,18 +4098,23 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 *            care)
 	 * @return An ArrayList of the matching equipment objects.
 	 */
-	public List<Equipment> getEquipmentOfType(final String typeName,
-		final String subtypeName, final int status)
+	public List<Equipment> getEquipmentOfType(
+		final String typeName,
+		final String subtypeName,
+		final int status)
 	{
 		final List<Equipment> aArrayList = new ArrayList<Equipment>();
 
 		for (Equipment eq : getEquipmentSet())
 		{
-			if (eq.typeStringContains(typeName)
-				&& (Constants.EMPTY_STRING.equals(subtypeName) || eq
-					.typeStringContains(subtypeName))
-				&& ((status == 3) || ((status == 2) && !eq.isEquipped()) || ((status == 1) && eq
-					.isEquipped())))
+			final boolean subTypeOk = Constants.EMPTY_STRING.equals(subtypeName)
+							|| eq.typeStringContains(subtypeName);
+
+			final boolean statusOk = status == 3
+						|| (status == 2 && !eq.isEquipped())
+						|| (status == 1 && eq.isEquipped());
+
+			if (eq.typeStringContains(typeName) && subTypeOk && statusOk)
 			{
 				aArrayList.add(eq);
 			}
@@ -10647,7 +10654,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the number of remaining feat points
+	 * Get the number of remaining feat points.
 	 * 
 	 * @param bIncludeBonus - Flag whether to include any bonus feat points
 	 * @return number of remaining feat points
@@ -10680,11 +10687,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public boolean canSelectAbility(final Ability anAbility,
 		final boolean autoQualify)
 	{
-		final boolean qualify = anAbility.qualifies(this, anAbility);
-		final boolean canTakeMult =
-				anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
+		final boolean qualify     = anAbility.qualifies(this, anAbility);
+		final boolean canTakeMult = anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		final boolean hasOrdinary = hasRealAbility(AbilityCategory.FEAT, anAbility);
-		final boolean hasAuto = hasAutomaticAbility(AbilityCategory.FEAT, anAbility);
+		final boolean hasAuto     = hasAutomaticAbility(AbilityCategory.FEAT, anAbility);
 
 		final boolean notAlreadyHas = !(hasOrdinary || hasAuto);
 
@@ -10692,7 +10698,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * get unused feat count
+	 * get unused feat count.
 	 * 
 	 * @return unused feat count
 	 */
@@ -11667,7 +11673,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		if (list == null) {
+		if (list == null)
+		{
 			list = Collections.emptyList();
 		}
 		return list;
@@ -12489,7 +12496,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * set the level to arg without impacting spells, hp, or anything else - use
-	 * this with great caution only
+	 * this with great caution only.
 	 */
 	public final void setLevelWithoutConsequence(PCClass pcc, final int level)
 	{

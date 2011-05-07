@@ -276,7 +276,7 @@ public final class GameModes extends JMenu
 				break;
 			}
 
-			SettingsHandler.setGame(Constants.e3_MODE);
+			SettingsHandler.setGame(Constants.GAMEMODE_EDITION_THREE_POINT_ZERO);
 			bFound = true;
 		}
 
@@ -295,7 +295,7 @@ public final class GameModes extends JMenu
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			final Object source = actionEvent.getSource();
-			String tempGameMode = Constants.e3_MODE;
+			String tempGameMode = Constants.GAMEMODE_EDITION_THREE_POINT_ZERO;
 			int campaignNum = -1;
 
 			if (source == null)
