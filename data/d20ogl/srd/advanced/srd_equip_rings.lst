@@ -5,7 +5,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 Ring (Air Elemental Command)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Animal Friendship)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:9500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=6|Animal Friendship
 Ring (Blinking)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:30000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Blink
-Ring (Chameleon Power)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Hide|15
+Ring (Chameleon Power)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Change Self	BONUS:SKILL|Hide|15
 Ring (Climbing)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf														BONUS:SKILL|Climb|10|TYPE=Competence
 Ring (Counterspells)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:4000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Djinni Calling)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:125000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
@@ -13,7 +13,7 @@ Ring (Earth Elemental Command)	OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST
 Ring (Elemental Resistance Major)	OUTPUTNAME:Ring of Elemental Resistance, Major	TYPE:Magic.Ring	COST:24000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Elemental Resistance Minor)	OUTPUTNAME:Ring of Elemental Resistance, Minor	TYPE:Magic.Ring	COST:16000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Evasion)				OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:25000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
-Ring (Feather Falling)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2200	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
+Ring (Feather Falling)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:2200	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=1|Feather Fall
 Ring (Fire Elemental Command)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:200000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf
 Ring (Force Shield)			OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:8500	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf								BONUS:COMBAT|AC|2|TYPE=ArmorShield
 Ring (Freedom of Movement)		OUTPUTNAME:Ring of [NAME]				TYPE:Magic.Ring	COST:40000	WT:0		EQMOD:RING						SOURCEPAGE:srdmagicitemsrings.rtf		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
