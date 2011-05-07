@@ -623,7 +623,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				casterLevel = maxClassLevel;
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getString("in_csdEr4"), Constants.s_APPNAME,
+					.getString("in_csdEr4"), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 			}
 

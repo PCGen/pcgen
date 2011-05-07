@@ -117,7 +117,7 @@ public final class FileAccess
 		catch (IOException exception)
 		{
 			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 	}
 
@@ -150,7 +150,7 @@ public final class FileAccess
 		catch (IOException exception)
 		{
 			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 	}
 }

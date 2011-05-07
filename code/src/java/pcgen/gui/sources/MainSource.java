@@ -221,7 +221,7 @@ public class MainSource extends FilterAdapterPanel
 		{
 			ShowMessageDelegate.showMessageDialog("Error in MainSource whilst initialising:\n " + e.toString() + "\n"
 			+ "PCGen may not operate correctly as a result of this error. ",
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 			Logging.errorPrint("Error initialising MainSource: " + e.toString(), e);
 		}
 
@@ -715,7 +715,10 @@ public class MainSource extends FilterAdapterPanel
 						/////////////////////////
 						if ((temp == null) || !(temp instanceof PObjectNode))
 						{
-							ShowMessageDelegate.showMessageDialog("No campaign selected. Try again.", Constants.s_APPNAME, MessageType.ERROR);
+							ShowMessageDelegate.showMessageDialog(
+								"No campaign selected. Try again.",
+								Constants.APPLICATION_NAME,
+								MessageType.ERROR);
 
 							return;
 						}
@@ -1016,7 +1019,7 @@ public class MainSource extends FilterAdapterPanel
 							+ event.getURL() + " due to ", e); //$NON-NLS-1$
 						ShowMessageDelegate.showMessageDialog(PropertyFactory
 							.getFormattedString("in_Src_browser", event //$NON-NLS-1$
-								.getURL().toString()), Constants.s_APPNAME,
+								.getURL().toString()), Constants.APPLICATION_NAME,
 							MessageType.ERROR);
 					}
 				}
@@ -1283,20 +1286,30 @@ public class MainSource extends FilterAdapterPanel
 					catch (IOException ioEx)
 					{
 						Logging.errorPrint("Could not open browser to " + theURL, ioEx);
-						ShowMessageDelegate.showMessageDialog("Could not open browser to " + theURL, Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(
+							"Could not open browser to " + theURL,
+							Constants.APPLICATION_NAME,
+							MessageType.ERROR);
 					}
 				}
 				else
 				{
 					final String type = isProductNotHelp ? "web" : "help";
-					ShowMessageDelegate.showMessageDialog("No "+type+" information found for Source: " + theCamp.getDisplayName(), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(
+						"No " + type  //$NON-NLS-2$
+							+ " information found for Source: "  //$NON-NLS-2$ 
+							+ theCamp.getDisplayName(),
+						Constants.APPLICATION_NAME,
 						MessageType.WARNING);
 				}
 			}
 		}
 		else
 		{
-			ShowMessageDelegate.showMessageDialog("Please select a source.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Please select a source.", //$NON-NLS-2$
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 		}
 	}
 
@@ -1329,7 +1342,10 @@ public class MainSource extends FilterAdapterPanel
 		}
 		catch (PersistenceLayerException e)
 		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
+			ShowMessageDelegate.showMessageDialog(
+				e.getMessage(),
+				Constants.APPLICATION_NAME,
+				MessageType.WARNING);
 			unloadAllCampaigns_actionPerformed();
 		}
 	}

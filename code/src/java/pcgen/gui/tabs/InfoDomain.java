@@ -1220,7 +1220,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			final ListSelectionModel lsm = deityTable.getSelectionModel();
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_reqMess",
-				aDeity.getDisplayName()), Constants.s_APPNAME,
+				aDeity.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 			lsm.clearSelection();
 
@@ -1250,7 +1250,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						aDeity.getDisplayName())
 						+ System.getProperty("line.separator")
 						+ PropertyFactory.getString("in_confDomLost2"),
-						Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
+						Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION);
 
 			if (areYouSure != JOptionPane.OK_OPTION)
 			{
@@ -1391,7 +1391,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (pc.getMaxCharacterDomains() <= 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_errorNotAllowedToChooseADomain"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_errorNotAllowedToChooseADomain"), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1411,7 +1411,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_qualifyMess",
-				addedDomain.getDisplayName()), Constants.s_APPNAME,
+				addedDomain.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1429,7 +1429,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (pc.getDomainCount() >= pc.getMaxCharacterDomains())
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
-						Constants.s_APPNAME, MessageType.INFORMATION);
+						Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				
 				return;
 			}
@@ -1502,7 +1502,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						JOptionPane.showConfirmDialog(null, PropertyFactory
 							.getFormattedString("in_delDeity2",
 							aDeity.getDisplayName()),
-							Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
+							Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION);
 
 				if (areYouSure != JOptionPane.OK_OPTION)
 				{
@@ -1514,7 +1514,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getString("in_domIDEr4"), Constants.s_APPNAME,
+					.getString("in_domIDEr4"), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 			}
 		}

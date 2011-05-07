@@ -289,7 +289,7 @@ public class SpellBook implements Cloneable
 		{
 			ShowMessageDelegate.showMessageDialog(
 				"Clone of SpellBook failed due to " + e.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 		return aClone;
 	}

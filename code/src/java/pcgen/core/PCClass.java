@@ -890,7 +890,7 @@ public class PCClass extends PObject
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return aClass;
@@ -1144,7 +1144,7 @@ public class PCClass extends PObject
 				{
 					ShowMessageDelegate.showMessageDialog(
 						"This character does not qualify for level " + newLevel,
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 			}
 			aPC.setLevelWithoutConsequence(this, newLevel - 1);
@@ -1165,7 +1165,8 @@ public class PCClass extends PObject
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"This class cannot be raised above level "
-						+ Integer.toString(getSafe(IntegerKey.LEVEL_LIMIT)), Constants.s_APPNAME,
+						+ Integer.toString(getSafe(IntegerKey.LEVEL_LIMIT)),
+					Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 			}
 
@@ -1358,7 +1359,7 @@ public class PCClass extends PObject
 				if (!bSilent)
 				{
 					ShowMessageDelegate.showMessageDialog(SettingsHandler
-						.getGame().getLevelUpMessage(), Constants.s_APPNAME,
+						.getGame().getLevelUpMessage(), Constants.APPLICATION_NAME,
 						MessageType.INFORMATION);
 				}
 			}

@@ -553,7 +553,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		if (aString.length() > 0)
 		{
-			ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
+			ShowMessageDelegate.showMessageDialog(aString, Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			return false;
 		}
@@ -586,7 +586,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getString("InfoSpells.only.by.class.level"), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 			return null; // need to select class/level or level/class as sorters
 		}
 

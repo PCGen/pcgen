@@ -57,7 +57,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private static final Formula CHOICE_FORMULA = FormulaFactory.getFormulaFor("%CHOICE");
 
 	/**
-	 * returns all BonusObj's that are "active", for example, ones that pass all
+	 * returns all BonusObjs that are "active", for example, ones that pass all
 	 * prerequisite tests and should be applied.
 	 *
 	 * @param   caller  The object that will be used to test prerequisites
@@ -65,13 +65,13 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @param   aPC     The PC that the prerequisites will be applied against to
 	 *                  determine if a bonus is active
 	 *
-	 * @return  returns all BonusObj's that are "active"
+	 * @return  returns all BonusObjs that are "active"
 	 */
 	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getBonusList(caller) )
+		for (BonusObj bonus : getBonusList(caller))
 		{
 			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
 					aPC))
@@ -90,6 +90,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * using the super classes getBonusList() and then examines each of them in
 	 * turn.  If it finds that one of the bonuses contains %CHOICE, it replaces
 	 * it with a one new bonus object for every entry in "associated".
+	 *
+	 * @param as a PObject that has the associated bonuses
 	 *
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.
@@ -145,7 +147,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * to? If aType begins with an &#34; (Exclamation Mark) the &#34; will
 	 * be removed before checking the type.
 	 *
-	 * @param aType
+	 * @param aType the type string to check for.
 	 * @return Whether the item is of this type
 	 */
 	public boolean isIType(final String aType)
@@ -195,21 +197,20 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Add bonus to
-	 * @param aPC
+	 * Get the bonus to
+	 * @param aPC a Player Character object
 	 * @param aType
 	 * @param aName
 	 * @param obj
 	 * @return bonus
 	 */
 	public double bonusTo(
-		final PlayerCharacter aPC,
-		final String          aType,
-		final String          aName,
-		final AssociationStore          obj)
+		final PlayerCharacter  aPC,
+		final String           aType,
+		final String           aName,
+		final AssociationStore obj)
 	{
-		double res =  BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);
-		return res;
+		return BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);
 	}
 
 	/**
@@ -224,22 +225,25 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		try
 		{
-			aObj                     = (EquipmentModifier) super.clone();
+			aObj = (EquipmentModifier) super.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(
 				exc.getMessage(),
-				Constants.s_APPNAME,
+				Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 		}
 
 		return aObj;
 	}
 
+	/* TODO: This needs to call getEquipNamePortion until after 5.10, when it can
+	 * be changed to a programmer useful string as per normal.
+	 */
+
 	/**
-	 * Return a string representation of the EquipmentModifier
-	 * TODO: This needs to call getEquipNamePortion until after 5.10, when it can be changed to a programmer useful string as per normal.
+	 * Return a string representation of the EquipmentModifier.
 	 *
 	 * @return  a String representation of the EquipmentModifier
 	 */

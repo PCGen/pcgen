@@ -1928,7 +1928,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						+ aEq.getName()
 						+ " is neither Melee nor Ranged."
 						+ Constants.s_LINE_SEP
-						+ Constants.s_APPNAME
+						+ Constants.APPLICATION_NAME
 						+ " cannot calculate \"to hit\" unless one of these is selected."
 						+ Constants.s_LINE_SEP + "Source: "
 						+ aEq.getSourceURI());

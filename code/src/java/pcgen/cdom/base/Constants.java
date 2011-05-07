@@ -85,11 +85,11 @@ public interface Constants
 	/** Gamemode identification string - edition three point five. */
 	String GAMEMODE_EDITION_THREE_POINT_FIVE = "35e"; //$NON-NLS-1$
 
-	/** <html>none selected</html> */
-	String html_NONESELECTED = "<html>none selected</html>"; //$NON-NLS-1$
+	/** None selected, wrapped in html tags. */
+	String WRAPPED_NONE_SELECTED = "<html>none selected</html>"; //$NON-NLS-1$
 
-	/** What to display as the application's name */
-	String s_APPNAME = "PCGen"; //$NON-NLS-1$
+	/** What to display as the application's name. */
+	String APPLICATION_NAME = "PCGen"; //$NON-NLS-1$
 
 	/** The prefix to add to an Automatically resized piece of equipment's Key */
 	String s_AUTO_RESIZE = "AUTOSIZE"; //$NON-NLS-1$

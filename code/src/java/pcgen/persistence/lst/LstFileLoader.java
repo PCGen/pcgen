@@ -140,7 +140,7 @@ public final class LstFileLoader
 					.showMessageDialog(
 						"Preferences are currently set to NOT allow\nloading of "
 							+ "sources from web links. \n" + url
-							+ " is a web link", Constants.s_APPNAME,
+							+ " is a web link", Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 				// aURL = null; //currently unnecessary reassignment 
 			}

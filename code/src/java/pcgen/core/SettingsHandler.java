@@ -1433,7 +1433,8 @@ public final class SettingsHandler
 		}
 		catch (PersistenceLayerException e)
 		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(
+				e.getMessage(), Constants.APPLICATION_NAME, MessageType.INFORMATION);
 		}
 
 		setGame(getPCGenOption("game", Constants.GAMEMODE_EDITION_THREE_POINT_FIVE)); //$NON-NLS-1$
@@ -2902,7 +2903,12 @@ public final class SettingsHandler
 			}
 			else if (!aFile.isDirectory())
 			{
-				ShowMessageDelegate.showMessageDialog( PropertyFactory.getFormattedString("SettingsHandler.is.not.a.directory", aLoc), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+				String notDir = PropertyFactory.getFormattedString(
+					"SettingsHandler.is.not.a.directory", aLoc); //$NON-NLS-2$
+				ShowMessageDelegate.showMessageDialog(
+					notDir,
+					Constants.APPLICATION_NAME,
+					MessageType.ERROR);
 			}
 		}
 
@@ -2921,7 +2927,12 @@ public final class SettingsHandler
 			}
 			else if (!aFile.isDirectory())
 			{
-				ShowMessageDelegate.showMessageDialog( PropertyFactory.getFormattedString("SettingsHandler.is.not.a.directory", aLoc), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+				String notDir = PropertyFactory.getFormattedString(
+					"SettingsHandler.is.not.a.directory", aLoc); //$NON-NLS-2$
+				ShowMessageDelegate.showMessageDialog(
+					notDir,
+					Constants.APPLICATION_NAME,
+					MessageType.ERROR);
 			}
 		}
 

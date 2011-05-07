@@ -376,7 +376,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 				.showConfirmDialog(
 					this,
 					"You still have choices remaining. Are you sure you want to close the dialog?",
-					Constants.s_APPNAME, JOptionPane.YES_NO_OPTION,
+					Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION,
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION)
 			{
 				return;

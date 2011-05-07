@@ -7423,7 +7423,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		catch (NumberFormatException nfe)
 		{
 			ShowMessageDelegate.showMessageDialog(nfe.getMessage(),
-				Constants.s_APPNAME, MessageType.INFORMATION);
+				Constants.APPLICATION_NAME, MessageType.INFORMATION);
 		}
 	}
 
@@ -9155,7 +9155,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 						"Cannot increase Monster Hit Dice for this character beyond "
 							+ race.maxHitDiceAdvancement()
 							+ ". This character's current number of Monster Hit Dice is "
-							+ totalHitDice(), Constants.s_APPNAME,
+							+ totalHitDice(), Constants.APPLICATION_NAME,
 						MessageType.INFORMATION);
 
 				return;

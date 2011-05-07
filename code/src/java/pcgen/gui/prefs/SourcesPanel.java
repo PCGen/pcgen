@@ -185,7 +185,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 				if (((JCheckBox) evt.getSource()).isSelected())
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_Prefs_urlBlocked"), Constants.s_APPNAME,
+						.getString("in_Prefs_urlBlocked"),
+						Constants.APPLICATION_NAME,
 						MessageType.WARNING);
 				}
 			}

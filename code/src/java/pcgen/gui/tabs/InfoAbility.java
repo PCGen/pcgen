@@ -645,19 +645,19 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		{
 			case ABILITY_NOT_QUALIFIED:
 				ShowMessageDelegate.showMessageDialog(NO_QUALIFY_MESSAGE,
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 				return false;
 
 			case ABILITY_DUPLICATE:
 				ShowMessageDelegate.showMessageDialog(DUPLICATE_MESSAGE,
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 				return false;
 
 			case ABILITY_FULL:
 				ShowMessageDelegate.showMessageDialog(POOL_FULL_MESSAGE,
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 				return false;
 
@@ -694,7 +694,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			Logging.errorPrint("Failed to add ability due to ", exc);
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_iayAddAbility", exc.getMessage()),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 
@@ -811,7 +811,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		{
 			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc);
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iayRemoveAbility") + ": "
-				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+				+ exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 			return false;
 		}
 

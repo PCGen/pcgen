@@ -1124,7 +1124,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		Object selectedValue =
 				ii.showInputDialog(null,
 					PropertyFactory.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.INFORMATION, null,
+					Constants.APPLICATION_NAME, MessageType.INFORMATION, null,
 					lastSearch);
 
 		String aString = ((String) selectedValue);

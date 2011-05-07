@@ -215,8 +215,10 @@ final class MovementPanel extends JPanel
 		    || (!rdbAdjustType[0].isSelected() && !rdbAdjustType[1].isSelected() && !rdbAdjustType[2].isSelected())
 		    || (txtMoveAmount.getText().trim().length() == 0))
 		{
-			ShowMessageDelegate.showMessageDialog("You must enter a movement type, adjustment and amount.", Constants.s_APPNAME,
-			    MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"You must enter a movement type, adjustment and amount.",
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

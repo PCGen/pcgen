@@ -558,7 +558,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -574,7 +574,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -586,7 +586,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -615,7 +615,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		Object nValue =
 				JOptionPane.showInputDialog(null, PropertyFactory
 					.getFormattedString("InfoResources.EnterName", target), //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+					Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 		if (nValue != null)
 		{
@@ -693,7 +693,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		ShowMessageDelegate.showMessageDialog(PropertyFactory
 			.getFormattedString("InfoResources.SaveAndSwitch", nName), //$NON-NLS-1$
-			Constants.s_APPNAME, MessageType.INFORMATION);
+			Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 		// save the new Follower to a file
 
@@ -705,7 +705,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("Errors.Save", newPC.getDisplayName()), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 			Logging.errorPrint(PropertyFactory.getFormattedString(
 				"Errors.Save", newPC.getDisplayName()), ex); //$NON-NLS-1$
 			return;
@@ -731,7 +731,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -742,7 +742,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -753,7 +753,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1493,7 +1493,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SelectToRemove"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.SelectToRemove"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1901,7 +1901,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SelectObjectLoad"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoResources.SelectObjectLoad"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1927,7 +1927,7 @@ public class InfoResources extends FilterAdapterPanel implements
 					ShowMessageDelegate
 						.showMessageDialog(
 							PropertyFactory.getFormattedString(
-								"InfoResources.AlreadyLoaded", aF.getName()), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+								"InfoResources.AlreadyLoaded", aF.getName()), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 
 					return;
 				}
@@ -1942,7 +1942,7 @@ public class InfoResources extends FilterAdapterPanel implements
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getFormattedString(
 						"InfoResources.MovedChanged", aF.getFileName()), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 				// not there, so see if the user can find it
 				Logging.errorPrint("b File: " + file.getAbsolutePath()); //$NON-NLS-1$
@@ -1965,7 +1965,7 @@ public class InfoResources extends FilterAdapterPanel implements
 					PropertyFactory
 						.getFormattedString(
 							"InfoResources.LoadAndSwitch", aF.getName(), aF.getFileName()), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 			// now load the Follower from
 			// the file and switch tabs
@@ -2027,7 +2027,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory.getFormattedString(
-						"InfoResources.DoneUpdating", pc.getName()), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+						"InfoResources.DoneUpdating", pc.getName()), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 		}
 
 		pc.setDirty(true);

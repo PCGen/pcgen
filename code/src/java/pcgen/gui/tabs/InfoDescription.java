@@ -1503,7 +1503,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 				String selectedValue =
 						JOptionPane.showInputDialog(null, PropertyFactory
-							.getString("in_idEnNewName"), Constants.s_APPNAME,
+							.getString("in_idEnNewName"), Constants.APPLICATION_NAME,
 							JOptionPane.QUESTION_MESSAGE);
 
 				if ((selectedValue != null)

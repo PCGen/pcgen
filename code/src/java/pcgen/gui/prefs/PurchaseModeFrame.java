@@ -156,7 +156,10 @@ public final class PurchaseModeFrame extends JDialog
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Cannot add method. Name already exists.", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Cannot add method. Name already exists.",
+					Constants.APPLICATION_NAME,
+					MessageType.ERROR);
 			}
 		}
 	}

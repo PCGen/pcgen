@@ -386,7 +386,8 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return eqSet;

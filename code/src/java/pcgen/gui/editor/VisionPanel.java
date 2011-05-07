@@ -176,8 +176,10 @@ final class VisionPanel extends JPanel
 
 		if ((visionType == null) || (visionType.length() == 0))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_demVisionInfoMissing"), Constants.s_APPNAME,
-			    MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				PropertyFactory.getString("in_demVisionInfoMissing"),
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

@@ -27,7 +27,7 @@ import javax.swing.JEditorPane;
 
 /**
  *  <code>JLabelPane</code> extends <code>JEditorPane</code> for PCGen
- *  Label panes
+ *  Label panes.
  *
  * @author <a href="mailto:jujutsunerd@users.sourceforge.net">Jonas Karlsson</a>
  * @version $Revision$
@@ -35,7 +35,7 @@ import javax.swing.JEditorPane;
 public final class JLabelPane extends JEditorPane
 {
 	/**
-	 * Create default HTML "label", an HTML <code>JEditorPane</code>
+	 * Create default HTML "label", an HTML <code>JEditorPane</code>.
 	 */
 	public JLabelPane()
 	{
@@ -45,7 +45,7 @@ public final class JLabelPane extends JEditorPane
 
 	/**
 	 * Update the text in a non-editable HTML "label" to the default
-	 * for non-selected labels
+	 * for non-selected labels.
 	 */
 	public void setText()
 	{
@@ -55,7 +55,7 @@ public final class JLabelPane extends JEditorPane
 		 *
 		 * author: Thomas Behr 13-03-03
 		 */
-		setText(Constants.html_NONESELECTED);
+		setText(Constants.WRAPPED_NONE_SELECTED);
 	}
 
 	/**
@@ -70,7 +70,7 @@ public final class JLabelPane extends JEditorPane
 
 		if ((newContents == null) || (newContents.length() == 0))
 		{
-			labelText = Constants.html_NONESELECTED;
+			labelText = Constants.WRAPPED_NONE_SELECTED;
 		}
 
 		setEditable(true);

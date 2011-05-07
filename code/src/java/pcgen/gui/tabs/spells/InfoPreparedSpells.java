@@ -952,7 +952,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.first.select.spelllist"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.first.select.spelllist"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
 		}
@@ -963,7 +963,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.can.only.add.by.class.level"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.can.only.add.by.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
 
@@ -1018,7 +1018,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 						PropertyFactory
 							.getFormattedString(
 								"InfoPreparedSpells.add.list.fail", new Object[]{currSpellBook}), //$NON-NLS-1$
-						Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 				return false;
 			}
@@ -1049,7 +1049,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.first.select.spellbook"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to selected a spellbook
 		}
 
@@ -1068,7 +1068,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoSpells.can.not.metamagic"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoSpells.can.not.metamagic"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1078,7 +1078,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoSpells.unable.to.metamagic") + spellA.getOwner().getDisplayName(), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("InfoSpells.unable.to.metamagic") + spellA.getOwner().getDisplayName(), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1088,7 +1088,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.con.only.metamagic.class.level"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.con.only.metamagic.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
 
@@ -1197,7 +1197,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		if (aString.length() > 0)
 		{
-			ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
+			ShowMessageDelegate.showMessageDialog(aString, Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			return;
 		}
@@ -1247,7 +1247,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 				else
 				{
@@ -1258,7 +1258,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 					if (aString.length() > 0)
 					{
 						ShowMessageDelegate.showMessageDialog(aString,
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 			}
@@ -1290,7 +1290,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			{
 				JOptionPane.showMessageDialog(null, PropertyFactory
 					.getString("in_spellbook_name_error"), //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+					Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 				return;
 			}
@@ -1313,7 +1313,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			JOptionPane.showMessageDialog(null, PropertyFactory
 				.getFormattedString(
 					"InfoPreparedSpells.add.list.fail", new Object[]{aString}), //$NON-NLS-1$
-				Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 			return;
 		}

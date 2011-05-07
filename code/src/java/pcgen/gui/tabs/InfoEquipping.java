@@ -858,7 +858,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (slSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -876,7 +876,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -891,7 +891,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_ieSetLocInsideContMsg"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -946,7 +946,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate.showMessageDialog(
 						PropertyFactory.getFormattedString("in_ieContainerFullMsg", 
-						eqTarget.getName() ), Constants.s_APPNAME,
+						eqTarget.getName() ), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;
@@ -963,7 +963,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			&& eSet.getIdPath().equals(eTargetSet.getIdPath()))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocInsideSelfMsg"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocInsideSelfMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -974,7 +974,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getFormattedString("in_ieCanNotEquipToSlotMsg",
-				eqI.getName() , locName) , Constants.s_APPNAME,
+				eqI.getName() , locName) , Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1062,7 +1062,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (noteSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1088,7 +1088,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1097,7 +1097,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue =
-				ii.showInputDialog(null, PropertyFactory.getString("in_ieNewNote"), Constants.s_APPNAME,
+				ii.showInputDialog(null, PropertyFactory.getString("in_ieNewNote"), Constants.APPLICATION_NAME,
 					MessageType.QUESTION, null, eSet.getNote());
 
 		if (selectedValue != null)
@@ -1130,7 +1130,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (qtySelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1158,7 +1158,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1168,7 +1168,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI.isContainer())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieNoChangeQuantityCont"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieNoChangeQuantityCont"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1178,7 +1178,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_ieNoChangeQuantityEquip"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1192,7 +1192,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, 
 						PropertyFactory.getString("in_ieNewQuantity"),
-						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -1204,7 +1204,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate.showMessageDialog(
 						PropertyFactory.getString("in_ieInvalidNumber"),
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -1241,7 +1241,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (addNum > diffItemCount(eSet, eqI).floatValue())
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
-				"in_ieEquipQuantityToBig" , newNum, eqI.getName() ), Constants.s_APPNAME, MessageType.ERROR);
+				"in_ieEquipQuantityToBig" , newNum, eqI.getName() ), Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1266,7 +1266,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				// Send error message
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
-					"in_ieContainerFull" , eqP.getName()) , Constants.s_APPNAME,
+					"in_ieContainerFull" , eqP.getName()) , Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
 				return;
@@ -1636,7 +1636,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			|| !pathExists(selectedTable.getTree(), aeSelPath))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_ieSelectSet"), Constants.s_APPNAME,
+				.getString("in_ieSelectSet"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1681,7 +1681,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_ieSelectSet"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1860,7 +1860,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getFormattedString("in_ieAlreadyEquipedAll", eqI.getName()),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return null;
 		}
@@ -1883,7 +1883,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
-					"in_ieContainerFull", eqTarget.getName()), Constants.s_APPNAME,
+					"in_ieContainerFull", eqTarget.getName()), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
 				return null;
@@ -1949,7 +1949,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 							ShowMessageDelegate.showMessageDialog(
 								PropertyFactory.getFormattedString("in_ieContainerFullMsg",
 								eqTarget.getName()),
-								Constants.s_APPNAME, MessageType.ERROR);
+								Constants.APPLICATION_NAME, MessageType.ERROR);
 
 							return null;
 						}
@@ -1968,7 +1968,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
 				"in_ieCanNotEquipToSlotMsg", eqI.getName(), locName)
-				, Constants.s_APPNAME, MessageType.ERROR);
+				, Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return null;
 		}
@@ -2031,7 +2031,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		Float newQty;
 		Object selectedValue =
 				JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieAddEquipQuantityMsg"),
-					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+					Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 		if (selectedValue != null)
 		{
@@ -2043,7 +2043,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getString("in_ieInvalidNumber"),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -2062,7 +2062,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieBuyEquipQuantityMsg"),
-						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -2074,7 +2074,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate.showMessageDialog(
 						PropertyFactory.getString("in_ieInvalidNumber"),
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -2476,7 +2476,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieCpEqSetNotSelected"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieCpEqSetNotSelected"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -2487,7 +2487,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					PropertyFactory.getString("in_ieNameNewEqSet"), Constants.s_APPNAME,
+					PropertyFactory.getString("in_ieNameNewEqSet"), Constants.APPLICATION_NAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		if ((newName == null) || (newName.length() <= 0))
@@ -2503,7 +2503,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_ieEqSetNameExists"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -2599,7 +2599,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_ieDelEqNotSelected"),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -2625,7 +2625,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				ShowMessageDelegate
 					.showMessageDialog(
 						PropertyFactory.getString("in_ieDelEqNotEqSet"),
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -2940,7 +2940,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		catch (IOException ioe)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieCldNotCreateTmpEqFileError"), Constants.s_APPNAME ,
+				PropertyFactory.getString("in_ieCldNotCreateTmpEqFileError"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			Logging
 				.errorPrintLocalised("in_ieCldNotCreateTmpEqFileError");
@@ -3825,7 +3825,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory.getString("in_ieExportEqSetNoEqSetTpl"),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
 		String ext = template.substring(template.lastIndexOf('.'));
@@ -3845,7 +3845,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (aFileName.length() < 1)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieExportEqSetNoFilename"),
-				Constants.s_APPNAME , MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -3857,7 +3857,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (outFile.isDirectory())
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_ieExportEqSetNoOverwriteDirWithFile"), Constants.s_APPNAME ,
+					PropertyFactory.getString("in_ieExportEqSetNoOverwriteDirWithFile"), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
 				return;
@@ -3915,7 +3915,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (errMessage.length() > 0)
 				{
-					ShowMessageDelegate.showMessageDialog(errMessage, Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(errMessage, Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 				}
 			}
@@ -3923,7 +3923,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		catch (IOException ex)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
-				"in_ieExportEqSetUnableToExport", pc.getDisplayName()), Constants.s_APPNAME,
+				"in_ieExportEqSetUnableToExport", pc.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			Logging.errorPrint("Could not export " + pc.getDisplayName(), ex);
 		}
@@ -3951,7 +3951,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieRenameEqSetNoEqSet"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieRenameEqSetNoEqSet"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -3962,7 +3962,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					PropertyFactory.getString("in_ieRenameEqSetNewName"), Constants.s_APPNAME,
+					PropertyFactory.getString("in_ieRenameEqSetNewName"), Constants.APPLICATION_NAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		// If they are the same, just return
@@ -3981,7 +3981,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getString("in_ieRenameEqSetNameAlreadyExists"),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -4035,7 +4035,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, 
 						PropertyFactory.getString("in_ieSellEquipGetQuantity"),
-						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -4047,7 +4047,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate.showMessageDialog(
 						PropertyFactory.getString("in_ieInvalidNumber"),
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -4216,7 +4216,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory.getString("in_ieViewEqSetNoTpl"),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
 		// Karianna - Fix for bug 966281

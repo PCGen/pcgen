@@ -262,8 +262,12 @@ public final class LstEditorMain extends JFrame
 		//
 		// Popup "Are you sure?"
 		//
-		if (JOptionPane.showConfirmDialog(null, "Are you sure?", Constants.s_APPNAME, JOptionPane.YES_NO_OPTION,
-				JOptionPane.QUESTION_MESSAGE) != JOptionPane.NO_OPTION)
+		if (JOptionPane.showConfirmDialog(
+			null,
+			"Are you sure?",  //$NON-NLS-2$ 
+			Constants.APPLICATION_NAME,
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.QUESTION_MESSAGE) != JOptionPane.NO_OPTION)
 		{
 			final PObject lstItem = (PObject) lstLstFileContent.getSelectedValue();
 
@@ -344,7 +348,9 @@ public final class LstEditorMain extends JFrame
 				//
 				if (findObject(editItem.getKeyName()) != null)
 				{
-					ShowMessageDelegate.showMessageDialog("Cannot save; already exists.", Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(
+						"Cannot save; already exists.",
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					continue;
 				}

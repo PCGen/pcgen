@@ -330,7 +330,10 @@ final class NaturalAttacksPanel extends JPanel
 
 		if (naturalAttacksString.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_demNatWeaponNoName"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				PropertyFactory.getString("in_demNatWeaponNoName"),
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -359,7 +362,10 @@ final class NaturalAttacksPanel extends JPanel
 
 		if (!boolTypeEntered)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_demNatWeaponNoType"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("" +
+				"in_demNatWeaponNoType"),
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

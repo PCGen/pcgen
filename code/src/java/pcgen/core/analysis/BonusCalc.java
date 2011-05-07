@@ -19,17 +19,25 @@ public class BonusCalc
 {
 
 	/**
-	 * gets the bonuses to a stat based on the stat Index
-	 * @param statIdx
-	 * @param aPC
-	 * @return stat mod
+	 * Gets the bonuses to a given stat.
+	 *
+	 * @param po
+	 * @param stat the Stat to get the bonus for
+	 * @param aPC the Player Character that the bonus will apply to
+	 * @return the bonus to the given stat.
 	 */
 	public static int getStatMod(PObject po, PCStat stat, final PlayerCharacter aPC)
 	{
 		return (int) BonusCalc.bonusTo(po, "STAT", stat.getAbb(), aPC, aPC);
 	}
 
-	public static final double bonusTo(PObject po, String aType, String aName, final Object obj, final Collection<BonusObj> aBonusList, final PlayerCharacter aPC)
+	public static double bonusTo(
+		PObject po,
+		String aType,
+		String aName,
+		final Object obj,
+		final Collection<BonusObj> aBonusList,
+		final PlayerCharacter aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.size() == 0))
 		{
@@ -73,7 +81,7 @@ public class BonusCalc
 			iTimes = Math.max(1, aPC.getDetailedAssociationCount(po));
 		}
 	
-		for ( BonusObj bonus : aBonusList )
+		for (BonusObj bonus : aBonusList)
 		{
 			String bString = bonus.toString().toUpperCase();
 	
@@ -95,41 +103,62 @@ public class BonusCalc
 	
 					for (String assoc : aPC.getAssociationList(po))
 					{
-						final String xString = new StringBuffer().append(firstPart).append(assoc).append(secondPart)
+						final String xString = new StringBuffer()
+							.append(firstPart)
+							.append(assoc)
+							.append(secondPart)
 							.toString().toUpperCase();
-						retVal += BonusCalc.calcBonus(po, xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+
+						retVal += BonusCalc.calcBonus(
+							po,
+							xString,
+							aType,
+							aName,
+							aTypePlusName,
+							obj,
+							iTimes,
+							bonus,
+							aPC);
 					}
 				}
 			}
 			else
 			{
-				retVal += BonusCalc.calcBonus(po, bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+				retVal += BonusCalc.calcBonus(po,
+					bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 			}
 		}
 	
 		return retVal;
 	}
 
-	/** a boolean for whether something should recurse, default is false */
+	/** a boolean for whether something should recurse, default is false. */
 	private static boolean dontRecurse = false;
 
 	/**
 	 * Apply the bonus to a PC, pass through object's default bonuslist
 	 *
+	 * @param po
 	 * @param aType
 	 * @param aName
 	 * @param obj
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public static final double bonusTo(PObject po, final String aType, final String aName, final AssociationStore obj, final PlayerCharacter aPC)
+	public static double bonusTo(
+		PObject po,
+		final String aType,
+		final String aName,
+		final AssociationStore obj,
+		final PlayerCharacter aPC)
 	{
 		return bonusTo(po, aType, aName, obj, po.getBonusList(obj), aPC);
 	}
 
 	/**
-	 * calcBonus adds together all the bonuses for aType of aName
+	 * calcBonus adds together all the bonuses for aType of aName.
 	 *
+	 * @param po
 	 * @param bString       Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST or %VAR bonus section
 	 * @param aType         Such as "COMBAT"
 	 * @param aName         Such as "AC"
@@ -138,10 +167,18 @@ public class BonusCalc
 	 * @param iTimes        multiply bonus * iTimes
 	 * @param aBonusObj
 	 * @param aPC
-	 * @return bonus
+	 * @return the value of the bonus
 	 */
-	private static double calcBonus(PObject po, final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
-							 final BonusObj aBonusObj, final PlayerCharacter aPC)
+	private static double calcBonus(
+		PObject po,
+		final String bString,
+		final String aType,
+		final String aName,
+		String aTypePlusName,
+		final Object obj,
+		final int iTimes,
+		final BonusObj aBonusObj,
+		final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|");
 	
@@ -155,21 +192,26 @@ public class BonusCalc
 		String aString = aTok.nextToken();
 	
 		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
-			|| (aString.endsWith("%LIST") && (po.numberInList(aPC, aType) == 0)) || (aName.equals("ALL")))
+			|| (aString.endsWith("%LIST") && (po.numberInList(aPC, aType) == 0))
+			|| (aName.equals("ALL")))
 		{
 			return 0;
 		}
 	
 		final String aList = aTok.nextToken();
 	
-		if (!aList.equals("LIST") && !aList.equals("ALL") && (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
+		if (!aList.equals("LIST")
+			&& !aList.equals("ALL")
+			&& (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
 		{
 			return 0;
 		}
 	
 		if (aList.equals("ALL")
-			&& ((aName.indexOf("STAT=") >= 0) || (aName.indexOf("TYPE=") >= 0) || (aName.indexOf("LIST") >= 0)
-			|| (aName.indexOf("VAR") >= 0)))
+			&& ((aName.indexOf("STAT=") >= 0)
+				|| (aName.indexOf("TYPE=") >= 0)
+				|| (aName.indexOf("LIST") >= 0)
+				|| (aName.indexOf("VAR") >= 0)))
 		{
 			return 0;
 		}
@@ -207,14 +249,14 @@ public class BonusCalc
 		// must meet criteria before adding any bonuses
 		if (obj instanceof PlayerCharacter)
 		{
-			if ( !aBonusObj.qualifies((PlayerCharacter)obj, po) )
+			if (!aBonusObj.qualifies((PlayerCharacter) obj, po))
 			{
 				return 0;
 			}
 		}
 		else
 		{
-			if ( !PrereqHandler.passesAll(aBonusObj.getPrerequisiteList(), ((Equipment)obj), aPC) )
+			if (!PrereqHandler.passesAll(aBonusObj.getPrerequisiteList(), (Equipment) obj, aPC))
 			{
 				return 0;
 			}

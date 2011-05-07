@@ -429,7 +429,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				ShowMessageDelegate.showMessageDialog(
 						"Invalid alignment. Setting to <none selected>",
-						Constants.s_APPNAME, MessageType.INFORMATION);
+						Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				align = AlignmentConverter.getNoAlignment();
 			}
 			thePC.setAlignment(align);

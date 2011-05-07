@@ -920,7 +920,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.first.select.spellbook"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
 		}
@@ -931,7 +931,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.can.only.add.by.class.level"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.can.only.add.by.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
 
@@ -995,7 +995,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 				else
 				{
@@ -1006,7 +1006,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 					if (aString.length() > 0)
 					{
 						ShowMessageDelegate.showMessageDialog(aString,
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 
 					// As we are deleting this from known spells we need to 

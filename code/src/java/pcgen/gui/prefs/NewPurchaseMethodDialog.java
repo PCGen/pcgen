@@ -223,14 +223,18 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		if (getEnteredName().length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog("Please enter a name for this method.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Please enter a name for this method.",
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
 
 		if (getEnteredPoints() <= 0)
 		{
-			ShowMessageDelegate.showMessageDialog("Invalid points value. Please try again.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Invalid points value. Please try again.",
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}

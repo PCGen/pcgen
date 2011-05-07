@@ -473,8 +473,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					else
 					{
 						InputInterface ii = InputFactory.getInputInstance();
-						Object selectedValue = ii.showInputDialog(null, "Enter the value for " + tag,
-								Constants.s_APPNAME, MessageType.INFORMATION, null, "");
+						Object selectedValue = ii.showInputDialog(
+							null, "Enter the value for " + tag,
+							Constants.APPLICATION_NAME, MessageType.INFORMATION, null, "");
 
 						if (selectedValue == null)
 						{
@@ -530,7 +531,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 						+ " needs to be hand-deleted from customClasses.lst");
 					ShowMessageDelegate.showMessageDialog("This tag " + lt.getTag() + ":" + lt.getValue()
 					+ " needs to be hand-deleted from customClasses.lst",
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}

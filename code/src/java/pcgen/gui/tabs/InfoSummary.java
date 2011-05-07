@@ -277,7 +277,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				ShowMessageDelegate
 					.showMessageDialog(
 						PropertyFactory
-							.getString("in_sumNumberOfLevelsMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+							.getString("in_sumNumberOfLevelsMustBePositive"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
 			}
@@ -288,7 +288,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
 			}
@@ -296,7 +296,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
 			}
@@ -307,7 +307,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					.showMessageDialog(
 						PropertyFactory
 							.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",pcClass.getDisplayName()), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -738,7 +738,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -785,7 +785,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					ShowMessageDelegate
 							.showMessageDialog(
 									PropertyFactory
-											.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+											.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 					return;
 				}
@@ -1155,7 +1155,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				ShowMessageDelegate
 					.showMessageDialog(
 						PropertyFactory
-							.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.s_APPNAME, //$NON-NLS-1$
+							.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 						MessageType.ERROR);
 
 				return;
@@ -1171,7 +1171,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1179,7 +1179,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+					PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 			levels = 1;
 		}
 
@@ -1198,7 +1198,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					aClass.getDisplayName()
 					+ "/" //$NON-NLS-1$
 					+ subClass.getDisplayName()
-					), Constants.s_APPNAME, MessageType.ERROR);  //$NON-NLS-1$
+					), Constants.APPLICATION_NAME, MessageType.ERROR);  //$NON-NLS-1$
 
 				return;
 			}
@@ -1214,7 +1214,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					PropertyFactory
 						.getFormattedString(
 							"in_sumMaximumLevelIs", String.valueOf(theClass.getSafe(IntegerKey.LEVEL_LIMIT))), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.INFORMATION);
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
 			return;
 		}
@@ -1457,7 +1457,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				.showConfirmDialog(
 					null,
 					PropertyFactory.getString("in_sumExClassesWarning") + Constants.s_LINE_SEP + unqualified, //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION,
+					Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				alignmentComboBox.setSelectedItem(oldAlign);
@@ -2258,7 +2258,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				if (lcf == null)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-							.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
+							.getString("in_sumClassKindErrMsg"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 							MessageType.ERROR);
 				}
 				else
@@ -2372,7 +2372,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(NONABILITY,
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else if (stat >= aStat.getSafe(IntegerKey.MAX_VALUE))
@@ -2382,7 +2382,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						ShowMessageDelegate.showMessageDialog(PropertyFactory
 							.getFormattedString("in_sumCannotRaiseStatAbove",
 							Integer.toString(aStat.getSafe(IntegerKey.MAX_VALUE))),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else if ((pcPlayerLevels < 2)
@@ -2396,7 +2396,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							SettingsHandler.getGame().getStatDisplayText(
 								SettingsHandler.getGame().getPurchaseScoreMax(
 									pc))),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else
@@ -2448,7 +2448,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						ShowMessageDelegate.showMessageDialog(PropertyFactory
 							.getFormattedString("in_sumCannotLowerStatBelow",
 							Integer.toString(aStat.getSafe(IntegerKey.MIN_VALUE))),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else if (pc.isNonAbility(aStat))
@@ -2456,7 +2456,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(NONABILITY,
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else if ((pcPlayerLevels < 2) && (stat <= minPurchaseScore)
@@ -2468,7 +2468,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							.getFormattedString("in_sumCannotLowerStatBelowPurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								minPurchaseScore)),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 				}
 				else
@@ -2517,7 +2517,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					ShowMessageDelegate
 						.showMessageDialog(
 							PropertyFactory.getFormattedString("in_sumStatPoolEmpty",Globals.getGameModePointPoolName()), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 				else
 				{
@@ -2530,7 +2530,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getString("in_sumNoAddThisLevel"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+							PropertyFactory.getString("in_sumNoAddThisLevel"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 				}
 				else
 				{
@@ -2748,7 +2748,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 								.getFormattedString("in_sumYouHaveExcededTheMaximumPointsOf",//$NON-NLS-1$
 								String.valueOf(availablePool),
 								SettingsHandler.getGame().getPurchaseModeMethodName()),
-							Constants.s_APPNAME, MessageType.INFORMATION);
+							Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				}
 			}
 		}
@@ -3281,7 +3281,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				if (pc.isNonAbility(aStat))
 				{
 					ShowMessageDelegate.showMessageDialog(NONABILITY,
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -3290,7 +3290,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getFormattedString("in_sumCannotLowerStatBelow",
 						SettingsHandler.getGame().getStatDisplayText(
-							aStat.getSafe(IntegerKey.MIN_VALUE))), Constants.s_APPNAME,
+							aStat.getSafe(IntegerKey.MIN_VALUE))), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;
@@ -3300,7 +3300,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getFormattedString("in_sumCannotRaiseStatAbove",
 						SettingsHandler.getGame().getStatDisplayText(
-							aStat.getSafe(IntegerKey.MAX_VALUE))), Constants.s_APPNAME,
+							aStat.getSafe(IntegerKey.MAX_VALUE))), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;
@@ -3317,7 +3317,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							.getFormattedString("in_sumCannotRaiseStatAbovePurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								maxPurchaseScore)),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 
 						return;
 					}
@@ -3332,7 +3332,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							.getFormattedString("in_sumCannotLowerStatBelowPurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								minPurchaseScore)),
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 
 						return;
 					}
@@ -3357,7 +3357,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 									.showMessageDialog(
 										PropertyFactory
 											.getFormattedString("in_sumStatPoolEmpty",Globals.getGameModePointPoolName()), //$NON-NLS-1$
-									Constants.s_APPNAME, MessageType.ERROR);
+									Constants.APPLICATION_NAME, MessageType.ERROR);
 								return;
 							}
 						}
@@ -3369,7 +3369,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 								ShowMessageDelegate
 									.showMessageDialog(
 										PropertyFactory
-											.getString("in_sumStatStartedHigher"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+											.getString("in_sumStatStartedHigher"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 								return;
 							}
 						}

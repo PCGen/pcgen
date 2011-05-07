@@ -798,9 +798,9 @@ final class PreferencesDialog extends JDialog
 					.getMissingResourceMessage());
 
 				//final String missingLibMsg = PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
-				//GuiFacade.showMessageDialog(null, SkinLFResourceChecker.getMissingResourceMessage() + missingLibMsg, Constants.s_APPNAME, GuiFacade.WARNING_MESSAGE);
+				//GuiFacade.showMessageDialog(null, SkinLFResourceChecker.getMissingResourceMessage() + missingLibMsg, Constants.APPLICATION_NAME, GuiFacade.WARNING_MESSAGE);
 				new LinkableHtmlMessage(this, SkinLFResourceChecker
-					.getMissingResourceMessage(), Constants.s_APPNAME)
+					.getMissingResourceMessage(), Constants.APPLICATION_NAME)
 					.setVisible(true);
 			}
 		}

@@ -263,12 +263,16 @@ public class Party
 		{
 			for ( String error : ioHandler.getErrors() )
 			{
-				ShowMessageDelegate.showMessageDialog("Error: " + error, Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Error: " + error,  //$NON-NLS-2$
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 
 			for ( String warning : ioHandler.getWarnings() )
 			{
-				ShowMessageDelegate.showMessageDialog("Warning: " + warning, Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Warning: " + warning,  //$NON-NLS-2$
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		}
 		else

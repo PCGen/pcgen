@@ -366,7 +366,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				{
 					JOptionPane.showMessageDialog(null,
 						"You cannot overwrite a directory with a character.",
-						Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 					return false;
 				}
@@ -411,7 +411,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		catch (Exception ex)
 		{
 			JOptionPane.showMessageDialog(null, "Could not save "
-				+ aPC.getDisplayName(), Constants.s_APPNAME,
+				+ aPC.getDisplayName(), Constants.APPLICATION_NAME,
 				JOptionPane.ERROR_MESSAGE);
 			Logging.errorPrint("Could not save " + aPC.getDisplayName());
 			Logging.errorPrint(ex.getMessage(), ex);

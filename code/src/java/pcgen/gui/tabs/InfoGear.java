@@ -893,7 +893,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 							.showMessageDialog(
 								PropertyFactory.getFormattedString("in_igAdjBelongStillEquiped", //$NON-NLS-1$ 
 									updatedItem.getName()),
-									Constants.s_APPNAME, MessageType.ERROR);
+									Constants.APPLICATION_NAME, MessageType.ERROR);
 						return 0.0;
 					}
 
@@ -925,7 +925,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 								updatedItem.getName() ,
 								newQty ,
 								numberOfItemInUse), 
-								Constants.s_APPNAME, MessageType.ERROR);
+								Constants.APPLICATION_NAME, MessageType.ERROR);
 						return 0.0;
 					}
 					pc.updateEquipmentQty(updatedItem, prevQty, newQty);
@@ -1094,7 +1094,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.s_APPNAME, //$NON-NLS-1$
+					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 					MessageType.ERROR);
 			}
 		}
@@ -1122,7 +1122,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					ShowMessageDelegate
 						.showMessageDialog(
 							PropertyFactory.getString("in_igBuyMustCustomizeItemFirst"), //$NON-NLS-1$
-							Constants.s_APPNAME, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -1137,7 +1137,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				Object selectedValue =
 						JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-							Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 				if (selectedValue != null)
 				{
@@ -1150,7 +1150,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					catch (Exception e)
 					{
 						ShowMessageDelegate.showMessageDialog(
-							PropertyFactory.getString("in_igInvalidNumber"), Constants.s_APPNAME, //$NON-NLS-1$
+							PropertyFactory.getString("in_igInvalidNumber"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 							MessageType.ERROR);
 
 						return;
@@ -1167,7 +1167,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getString("in_igBuyNonIntegralNumContainers"), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1250,7 +1250,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getFormattedString("in_igBuyInsufficientFunds", qtyToBuy, //$NON-NLS-1$ 
-					selectedEquipment.getName()), Constants.s_APPNAME,
+					selectedEquipment.getName()), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 			}
 		}
@@ -1258,7 +1258,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(
 				"buySpecifiedEquipment: Exception:" + exc.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 	}
 
@@ -1480,7 +1480,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 							// after customizing, so I've removed it---Byngl
 							//
 							//GuiFacade.showMessageDialog(null,
-							//	"No equipment selected! Try again.", Constants.s_APPNAME, GuiFacade.ERROR_MESSAGE);
+							//	"No equipment selected! Try again.", Constants.APPLICATION_NAME, GuiFacade.ERROR_MESSAGE);
 							return;
 						}
 
@@ -1568,7 +1568,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(
 					PropertyFactory.getString("in_igCanNotCustomizeTypes"), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1594,7 +1594,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!(e.getItem() instanceof Equipment))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igCanNotDeleteTypes"), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1604,7 +1604,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!aEq.isType(Constants.s_CUSTOM))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igCanOnlyDeleteCustom"), Constants.s_APPNAME, //$NON-NLS-1$
+					PropertyFactory.getString("in_igCanOnlyDeleteCustom"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 					MessageType.ERROR);
 
 				return;
@@ -1627,7 +1627,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				ShowMessageDelegate
 					.showMessageDialog(
 						PropertyFactory.getFormattedString("in_igCanOnlyDeleteUncarriedItems",whose), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1642,7 +1642,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				//
 				if (JOptionPane.showConfirmDialog(null, 
 					PropertyFactory.getFormattedString("in_igConfirmDelete",aEq.getName()), //$NON-NLS-1$ 
-					Constants.s_APPNAME, JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
+					Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
 				{
 					return;
 				}
@@ -1674,7 +1674,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (minCharges < 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"This item cannot hold charges.", Constants.s_APPNAME, 
+				"This item cannot hold charges.", Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1684,7 +1684,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		Object selectedValue =
 				ii.showInputDialog(null, "Enter Number of Charges ("
 					+ Integer.toString(minCharges) + "-"
-					+ Integer.toString(maxCharges) + ")", Constants.s_APPNAME,
+					+ Integer.toString(maxCharges) + ")", Constants.APPLICATION_NAME,
 					MessageType.INFORMATION, null, Integer.toString(aEq
 						.getRemainingCharges()));
 
@@ -1701,7 +1701,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if ((charges < minCharges) || (charges > maxCharges))
 			{
 				ShowMessageDelegate.showMessageDialog("Value out of range",
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
 			}
@@ -2574,7 +2574,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igRemoveEnterQuantity"), //$NON-NLS-1$
-						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -2585,7 +2585,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				catch (Exception e)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igInvalidNumber"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return 0;
 				}
@@ -2606,12 +2606,12 @@ public final class InfoGear extends FilterAdapterPanel implements
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory.getString("in_igRemoveNoIntegerMsg"), //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return 0;
 		}
 		ShowMessageDelegate.showMessageDialog(
-			PropertyFactory.getString("in_igRemoveNoRemoveFilledContainer"), Constants.s_APPNAME, //$NON-NLS-1$
+			PropertyFactory.getString("in_igRemoveNoRemoveFilledContainer"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 			MessageType.ERROR);
 		return 0;
 	}

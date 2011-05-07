@@ -497,7 +497,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		if (lastClass == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_clNoClass"), Constants.s_APPNAME,
+				.getString("in_clNoClass"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 		}
 
@@ -525,7 +525,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				&& (pc.getPCAlignment().getAbb().equals(Constants.s_NONE)))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getString("in_clSelAlign"), Constants.s_APPNAME,
+					.getString("in_clSelAlign"), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
 				return;
@@ -535,7 +535,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getString("in_Enforce_rejectLevelUp"),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 				return;
 			}
 
@@ -574,7 +574,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					+ aClass.getDisplayName()
 					+ "/" //$NON-NLS-1$
 					+ subClass.getDisplayName()
-					+ ".", Constants.s_APPNAME, MessageType.ERROR);  //$NON-NLS-1$
+					+ ".", Constants.APPLICATION_NAME, MessageType.ERROR);  //$NON-NLS-1$
 
 				return;
 			}
@@ -591,7 +591,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		else
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_clMaxLvl"), Constants.s_APPNAME,
+				.getString("in_clMaxLvl"), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1209,7 +1209,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		if (xp >= pc.minXPForNextECL())
 		{
 			ShowMessageDelegate.showMessageDialog(SettingsHandler.getGame()
-				.getLevelUpMessage(), Constants.s_APPNAME,
+				.getLevelUpMessage(), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 		}
 
@@ -2505,7 +2505,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		{
 			String selectedValue =
 					JOptionPane.showInputDialog(null, PropertyFactory
-						.getString("in_clEnterXP"), Constants.s_APPNAME,
+						.getString("in_clEnterXP"), Constants.APPLICATION_NAME,
 						JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -2524,7 +2524,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				catch (NumberFormatException e)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_clInvalidNum"), Constants.s_APPNAME,
+						.getString("in_clInvalidNum"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;
@@ -2561,7 +2561,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				{
 					lastClass = null;
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_clNoClass"), Constants.s_APPNAME,
+						.getString("in_clNoClass"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;

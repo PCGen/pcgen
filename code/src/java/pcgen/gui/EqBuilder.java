@@ -1029,7 +1029,7 @@ final class EqBuilder extends JPanel
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue = ii.showInputDialog(null,
 									"Enter Item's New Cost",
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION,
 									null,
 									aNewEq.getCost(aPC).toString());
@@ -1069,7 +1069,7 @@ final class EqBuilder extends JPanel
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue = ii.showInputDialog(null,
 									"Enter the new name",
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION,
 									null,
 									defaultName);
@@ -1195,7 +1195,7 @@ final class EqBuilder extends JPanel
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue = ii.showInputDialog(null,
 									"Enter Special Property",
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION,
 									null,
 									aNewEq.getRawSpecialProperties());
@@ -1319,7 +1319,7 @@ final class EqBuilder extends JPanel
 
 					Object selectedValue = ii.showInputDialog(null,
 											toPrint,
-											Constants.s_APPNAME,
+											Constants.APPLICATION_NAME,
 											MessageType.INFORMATION,
 											null,
 											Integer.toString(max));
@@ -1372,7 +1372,7 @@ final class EqBuilder extends JPanel
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue = ii.showInputDialog(null,
 									"Enter Item's New Weight",
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION,
 									null,
 									aNewEq.getWeight(aPC).toString());
@@ -1414,7 +1414,7 @@ final class EqBuilder extends JPanel
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue = ii.showInputDialog(null,
 									"Select the new damage for this weapon",
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION,
 									null,
 									aNewEq.getDamage(aPC));
@@ -1727,7 +1727,7 @@ final class EqBuilder extends JPanel
 					InputInterface ii = InputFactory.getInputInstance();
 					Object selectedValue = ii.showInputDialog(null,
 											"Enter the range",
-											Constants.s_APPNAME,
+											Constants.APPLICATION_NAME,
 											MessageType.INFORMATION,
 											null,
 											null);
@@ -1955,7 +1955,7 @@ final class EqBuilder extends JPanel
 
 	private void errorDialog(String toPrint)
 	{
-		ShowMessageDelegate.showMessageDialog(toPrint, Constants.s_APPNAME, MessageType.ERROR, this);
+		ShowMessageDelegate.showMessageDialog(toPrint, Constants.APPLICATION_NAME, MessageType.ERROR, this);
 	}
 
 	/**
@@ -1966,7 +1966,7 @@ final class EqBuilder extends JPanel
 
 	private void informationDialog(String toPrint)
 	{
-		ShowMessageDelegate.showMessageDialog(toPrint, Constants.s_APPNAME, MessageType.INFORMATION, this);
+		ShowMessageDelegate.showMessageDialog(toPrint, Constants.APPLICATION_NAME, MessageType.INFORMATION, this);
 	}
 
 

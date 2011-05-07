@@ -800,7 +800,7 @@ public final class PCGenMenuBar extends JMenuBar
 				ShowMessageDelegate.showMessageDialog(
 					"Could not open docs in external browser. "
 						+ "Have you set your default browser in the "
-						+ "Preference menu? Sorry...", Constants.s_APPNAME,
+						+ "Preference menu? Sorry...", Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 				Logging.errorPrint("Could not open docs in external browser",
 					ex);

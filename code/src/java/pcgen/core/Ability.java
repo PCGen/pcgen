@@ -73,7 +73,8 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		}
 		catch (CloneNotSupportedException e)
 		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(e.getMessage(),
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 			return null;
 		}
 	}

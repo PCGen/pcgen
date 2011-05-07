@@ -568,7 +568,8 @@ public final class EditorMainForm extends JDialog
 
 		if (aString.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_demMes1"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString(
+				"in_demMes1"), Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -584,7 +585,7 @@ public final class EditorMainForm extends JDialog
 		{
 			Logging.errorPrint("Failed to save custom object due to ", e);
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_demSaveFailed"), Constants.s_APPNAME,
+				.getString("in_demSaveFailed"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			return;
 		}

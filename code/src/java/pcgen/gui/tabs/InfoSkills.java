@@ -771,7 +771,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			lastSkill = null;
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_iskErr_message_02"), Constants.s_APPNAME,
+				.getString("in_iskErr_message_02"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
 			return;
@@ -813,7 +813,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			lastSkill = null;
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_iskErr_message_02"), Constants.s_APPNAME,
+				.getString("in_iskErr_message_02"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
 			return;
@@ -897,7 +897,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							ShowMessageDelegate.showMessageDialog(
 								PropertyFactory
 									.getString("in_iskErr_message_02"),
-								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}
@@ -1018,7 +1018,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate.showMessageDialog("You cannot "
 				+ (points < 0 ? "remove" : "add") + " ranks for this skill: "
-				+ theSkill.getDisplayName(), Constants.s_APPNAME,
+				+ theSkill.getDisplayName(), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			return;
 		}
@@ -1076,7 +1076,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					"Modifying this skill invalidates the prerequisites for the following skill(s):\n"
-						+ prereqSkills.toString(), Constants.s_APPNAME,
+						+ prereqSkills.toString(), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 			return;
 		}
@@ -1869,7 +1869,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						.getFormattedString("in_iskErr_message_03a",
 						pcl.getClassKeyName(),
 						String.valueOf(pcl.getClassLevel())),
-						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+						Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 					return false;
 				}
@@ -1883,7 +1883,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					pcl.getClassKeyName(),
 					String.valueOf(pcl.getClassLevel()),
 					String.valueOf(pcl.getSkillPointsGained(pc))),
-					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+					Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 				return false;
 			}
@@ -1894,7 +1894,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_iskErr_message_04a",
 				String.valueOf(skillPool)),
-				Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			return false;
 		}
@@ -1909,7 +1909,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_iskErr_message_06"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
+					PropertyFactory.getString("in_iskErr_message_06"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return false;
 		}
@@ -1982,7 +1982,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (showSkillMsg)
 			{
 				ShowMessageDelegate.showMessageDialog(aString,
-					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+					Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 			}
 
 			return false;
@@ -4094,7 +4094,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					String selectedValue =
 							JOptionPane.showInputDialog(null, PropertyFactory
 								.getString("in_iskAdd_quantity_tooltip"),
-								Constants.s_APPNAME,
+								Constants.APPLICATION_NAME,
 								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
 
 					if (selectedValue != null)
@@ -4111,7 +4111,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							ShowMessageDelegate.showMessageDialog(
 								PropertyFactory
 									.getString("in_iskInvalid_number"),
-								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}
@@ -4189,7 +4189,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("in_iskErr_message_01"),
-						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+						Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 				}
 			}
 		}
@@ -4211,7 +4211,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					String selectedValue =
 							JOptionPane.showInputDialog(null, PropertyFactory
 								.getString("in_iskRemove_quantity_tooltip"),
-								Constants.s_APPNAME,
+								Constants.APPLICATION_NAME,
 								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
 
 					if (selectedValue != null)
@@ -4228,7 +4228,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							ShowMessageDelegate.showMessageDialog(
 								PropertyFactory
 									.getString("in_iskInvalid_number"),
-								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}

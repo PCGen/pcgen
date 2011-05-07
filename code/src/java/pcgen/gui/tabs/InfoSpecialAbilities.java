@@ -607,7 +607,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			if (bonusCategory.size() == 0)
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getString("in_iaNoOptProfs"), Constants.s_APPNAME,
+					.getString("in_iaNoOptProfs"), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 
 				return;
@@ -638,7 +638,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 									+ Constants.s_LINE_SEP
 									+ PropertyFactory
 										.getString("in_iaMultiChoice2"),
-									Constants.s_APPNAME,
+									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION, bonusCategory
 										.toArray(), bonusCategory.get(selIdx));
 

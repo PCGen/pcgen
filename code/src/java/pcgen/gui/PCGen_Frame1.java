@@ -1062,7 +1062,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				{
 					ShowMessageDelegate.showMessageDialog(
 						"You cannot overwrite a directory with a character.",
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return false;
 				}
@@ -1111,7 +1111,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			Logging.errorPrint("Could not save " + aPC.getDisplayName(), ex);
 			ShowMessageDelegate.showMessageDialog("Could not save "
-				+ aPC.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
+				+ aPC.getDisplayName(), Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return false;
 		}
@@ -1440,7 +1440,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		if (!Globals.displayListsHappy())
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_newCharNoSources"), Constants.s_APPNAME,
+				.getString("in_newCharNoSources"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1889,7 +1889,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		if ((JEPResourceChecker.getMissingResourceCount() != 0))
 		{
 			new LinkableHtmlMessage(this, JEPResourceChecker
-				.getMissingResourceMessage(), Constants.s_APPNAME)
+				.getMissingResourceMessage(), Constants.APPLICATION_NAME)
 				.setVisible(true);
 		}
 	}
@@ -2012,7 +2012,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		if (!Globals.displayListsHappy())
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_newCharNoSources"), Constants.s_APPNAME,
+				.getString("in_newCharNoSources"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -2026,7 +2026,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 					+ "need to select a Purchase Mode in "
 					+ "Settings->Preferences.\nThere should be a "
 					+ "selection for user-rolled abilities as well.",
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
 
@@ -2528,7 +2528,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				{
 					ShowMessageDelegate.showMessageDialog(
 						"You cannot overwrite a directory with a party.",
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
 				}
@@ -2570,7 +2570,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		catch (IOException ex)
 		{
 			ShowMessageDelegate.showMessageDialog("Could not save "
-				+ partyFileName, Constants.s_APPNAME, MessageType.ERROR);
+				+ partyFileName, Constants.APPLICATION_NAME, MessageType.ERROR);
 			Logging.errorPrint("Could not save" + partyFileName, ex);
 
 			return;
@@ -2661,7 +2661,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	void warnAboutMissingResource()
 	{
 		new LinkableHtmlMessage(this, FOPResourceChecker
-			.getMissingResourceMessage(), Constants.s_APPNAME).setVisible(true);
+			.getMissingResourceMessage(), Constants.APPLICATION_NAME).setVisible(true);
 	}
 
 	/**

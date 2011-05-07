@@ -965,7 +965,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (bonusTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.s_APPNAME, //$NON-NLS-1$
+				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 				MessageType.ERROR); 
 
 			return;
@@ -975,7 +975,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -999,7 +999,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1015,7 +1015,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if ((anObj == null) || (fNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.s_APPNAME, //$NON-NLS-1$
+				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 				MessageType.ERROR);
 
 			return;
@@ -1040,7 +1040,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					ShowMessageDelegate.showMessageDialog(
 						PropertyFactory.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 					return;
 				}
 				// We need to remove the [] from the old name
@@ -1581,7 +1581,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (appliedTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmRemBonButSelect"), Constants.s_APPNAME,
+				PropertyFactory.getString("in_itmRemBonButSelect"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
 			return;

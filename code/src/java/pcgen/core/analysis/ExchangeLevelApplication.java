@@ -110,7 +110,7 @@ public class ExchangeLevelApplication
 			{
 				ShowMessageDelegate.showMessageDialog("levelExchange:"
 					+ Constants.s_LINE_SEP + exc.getMessage(),
-					Constants.s_APPNAME, MessageType.ERROR);
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 	}
 

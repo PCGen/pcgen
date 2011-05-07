@@ -166,13 +166,15 @@ final class MainHP extends JPanel
 			return;
 		}
 
-		iMax = ((Integer) currentHpTableModel.getValueAt(iRow, 1)).intValue(); // # of sides on die
+		iMax = (Integer) currentHpTableModel.getValueAt(iRow, 1); // # of sides on die
 		iRoll = value;
 
 		if (iRoll > iMax)
 		{
 			iRoll = iMax;
-			ShowMessageDelegate.showMessageDialog("Setting roll to maximum (" + iMax + ')', Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Setting roll to maximum (" + iMax + ')',
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		if (iRoll < 1)
@@ -183,12 +185,14 @@ final class MainHP extends JPanel
 			}
 			if (iMax > 0)
 			{
-				ShowMessageDelegate.showMessageDialog("Roll must be at least the minimum (1)", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Roll must be at least the minimum (1)",
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		}
 //		else if (iRoll > iMax)
 //		{
-//			ShowMessageDelegate.showMessageDialog("Roll cannot exceed the maximum (" + iMax + ')', Constants.s_APPNAME, MessageType.ERROR);
+//			ShowMessageDelegate.showMessageDialog("Roll cannot exceed the maximum (" + iMax + ')', Constants.APPLICATION_NAME, MessageType.ERROR);
 //		}
 //		else
 		{

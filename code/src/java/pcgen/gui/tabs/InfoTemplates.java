@@ -914,7 +914,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		if (lastTemplate == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_irNoTemplate"), Constants.s_APPNAME,
+				.getString("in_irNoTemplate"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 		}
 
@@ -1592,7 +1592,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				{
 					lastTemplate = null;
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_irNoTemplate"), Constants.s_APPNAME,
+						.getString("in_irNoTemplate"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
 					return;

@@ -117,8 +117,10 @@ final class LevelAbilitiesPanel extends JPanel
 		if ((levelType == null) || (levelType.length() == 0) || (abilityType == null) || (abilityType.length() == 0)
 		    || (txtLevel.getText().trim().length() == 0) || (txtAbility.getText().trim().length() == 0))
 		{
-			ShowMessageDelegate.showMessageDialog("You must enter a level type, level, ability type and ability details.", Constants.s_APPNAME,
-			    MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"You must enter a level type, level, ability type and ability details.",
+				Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

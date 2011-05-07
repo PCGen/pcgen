@@ -119,7 +119,7 @@ public class StatApplication
 								+ extraMsg
 								+ "\n\n"
 								+ "Current Stats:\n"
-								+ sStats + "\n", Constants.s_APPNAME,
+								+ sStats + "\n", Constants.APPLICATION_NAME,
 							MessageType.INFORMATION,
 							selectionValues,
 							selectionValues[0]);

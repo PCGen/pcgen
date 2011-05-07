@@ -2913,7 +2913,7 @@ public final class Equipment extends PObject implements Serializable,
 		catch (CloneNotSupportedException e)
 		{
 			ShowMessageDelegate.showMessageDialog(e.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
+				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return eq;

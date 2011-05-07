@@ -87,9 +87,12 @@ public final class SourceSelectionUtils
 
 		if (Logging.isDebugMode()) //don't force PC closure if we're in debug mode, per request
 		{
-			ShowMessageDelegate.showMessageDialog("PCs are not closed in debug mode.  " + "Please be aware that they may not function correctly "
-			+ "until campaign data is loaded again.",
-				Constants.s_APPNAME, MessageType.WARNING);
+			ShowMessageDelegate.showMessageDialog(
+				"PCs are not closed in debug mode.  "
+					+ "Please be aware that they may not function correctly "
+					+ "until campaign data is loaded again.",
+				Constants.APPLICATION_NAME,
+				MessageType.WARNING);
 		}
 		else
 		{
@@ -97,7 +100,9 @@ public final class SourceSelectionUtils
 
 			if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
 			{
-				ShowMessageDelegate.showMessageDialog("Can't unload campaigns until all PC's are closed.", Constants.s_APPNAME,
+				ShowMessageDelegate.showMessageDialog(
+					"Can't unload campaigns until all PC's are closed.",
+					Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 
 				return false;
@@ -128,8 +133,10 @@ public final class SourceSelectionUtils
 
 		if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_campaignChangeError"),
-				Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(
+				PropertyFactory.getString("in_campaignChangeError"),
+				Constants.APPLICATION_NAME,
+				MessageType.INFORMATION);
 
 			return false;
 		}
@@ -184,7 +191,10 @@ public final class SourceSelectionUtils
 		catch (PersistenceLayerException e)
 		{
 			Logging.errorPrint("Failed to load campaigns", e);
-			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
+			ShowMessageDelegate.showMessageDialog(
+				e.getMessage(),
+				Constants.APPLICATION_NAME,
+				MessageType.WARNING);
 		}
 		Logging.removeHandler( observer.getHandler() );
 		pManager.deleteObserver( observer );
