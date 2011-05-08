@@ -1067,26 +1067,31 @@ final class EqBuilder extends JPanel
 			defaultName = aNewEq.getItemNameFromModifiers();
 		}
 		InputInterface ii = InputFactory.getInputInstance();
-		Object selectedValue = ii.showInputDialog(null,
-									"Enter the new name",
-									Constants.APPLICATION_NAME,
-									MessageType.INFORMATION,
-									null,
-									defaultName);
+		Object selectedValue = ii.showInputDialog(
+			null,
+			"Enter the new name", //$NON-NLS-1$
+			Constants.APPLICATION_NAME,
+			MessageType.INFORMATION,
+			null,
+			defaultName);
 
 		if (selectedValue != null)
 		{
 			String aString = ((String) selectedValue).trim();
 
-			if ((aString.indexOf('|') >= 0) || (aString.indexOf(':') >= 0) || (aString.indexOf(';') >= 0))
+			if ((aString.indexOf('|') >= 0)
+				|| (aString.indexOf(':') >= 0)
+				|| (aString.indexOf(';') >= 0))
 			{
-				errorDialog("Invalid character in string! You cannot use '|', ':' or ';' in this entry");
+				errorDialog(
+					"Invalid character in string! You cannot use '|', ':' or ';' in this entry");
 			}
 			else
 			{
 				customName = aString;
 
-				StringBuffer oldName = new StringBuffer("(").append(aNewEq.getItemNameFromModifiers()).append(")");
+				StringBuffer oldName =
+					new StringBuffer("(").append(aNewEq.getItemNameFromModifiers()).append(")");
 
 				//
 				// Replace illegal characters in old name
@@ -1107,9 +1112,11 @@ final class EqBuilder extends JPanel
 					}
 				}
 
-				if (!oldName.toString().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
+				if (!oldName.toString().toUpperCase().startsWith(Constants.GENERIC_ITEM))
 				{
-					aNewEq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(oldName.toString()));
+					aNewEq.addToListFor(
+						ListKey.SPECIAL_PROPERTIES,
+						SpecialProperty.createFromLst(oldName.toString()));
 				}
 
 				aNewEq.resizeItem(aPC, getItemSize());
@@ -1133,7 +1140,7 @@ final class EqBuilder extends JPanel
 			return;
 		}
 
-		if (sName.toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
+		if (sName.toUpperCase().startsWith(Constants.GENERIC_ITEM))
 		{
 			informationDialog("You must rename this item!");
 			return;
@@ -1166,7 +1173,7 @@ final class EqBuilder extends JPanel
 		//
 		// Need to change this so that we can customize it again
 		//
-		if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
+		if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.GENERIC_ITEM))
 		{
 			aNewEq.remove(ObjectKey.BASE_ITEM);
 		}
@@ -1768,7 +1775,7 @@ final class EqBuilder extends JPanel
 			//
 			// Need to change this so that we can customize it again
 			//
-			if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
+			if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.GENERIC_ITEM))
 			{
 				aNewEq.remove(ObjectKey.BASE_ITEM);
 			}

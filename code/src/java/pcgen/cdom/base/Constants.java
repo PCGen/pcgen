@@ -108,13 +108,11 @@ public interface Constants
 	/** Custom Equipment. */
 	String SOURCE_CUSTOM = "Custom Equipment"; //$NON-NLS-1$
 
-	/** Default */
-	String s_DEFAULT = "Default"; //$NON-NLS-1$
+	/** The prefix of an equipment template file name.. */
+	String EQUIPMENT_TEMPLATE_PREFIX = "eqsheet"; //$NON-NLS-1$
 
-	/** What a character template file name starts with. */
-	String s_EQSET_TEMPLATE_START = "eqsheet"; //$NON-NLS-1$
-	/** Generic Item */
-	String s_GENERIC_ITEM = "Generic Item"; //$NON-NLS-1$
+	/** Generic Item. */
+	String GENERIC_ITEM = "GENERIC ITEM"; //$NON-NLS-1$
 
 	/** PCGENi_ARMOR */
 	String s_INTERNAL_EQMOD_ARMOR = "PCGENi_ARMOR"; //$NON-NLS-1$
