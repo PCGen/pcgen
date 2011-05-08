@@ -2148,7 +2148,7 @@ public final class ExportHandler
 		// Filter out REGION
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (aPC.getRegionString().equals(Constants.s_NONE))
+			if (aPC.getRegionString().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2304,7 +2304,7 @@ public final class ExportHandler
 		// Filter out CATCHPHRASE
 		if ("CATCHPHRASE".equals(aString.substring(1)))
 		{
-			if (aPC.getCatchPhrase().equals(Constants.s_NONE))
+			if (aPC.getCatchPhrase().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2318,7 +2318,7 @@ public final class ExportHandler
 		// Filter out LOCATION
 		if ("LOCATION".equals(aString.substring(1)))
 		{
-			if (aPC.getLocation().equals(Constants.s_NONE))
+			if (aPC.getLocation().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2332,7 +2332,7 @@ public final class ExportHandler
 		// Filter out RESIDENCE
 		if ("RESIDENCE".equals(aString.substring(1)))
 		{
-			if (aPC.getResidence().equals(Constants.s_NONE))
+			if (aPC.getResidence().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2346,7 +2346,7 @@ public final class ExportHandler
 		// Filter out PHOBIAS
 		if ("PHOBIAS".equals(aString.substring(1)))
 		{
-			if (aPC.getPhobias().equals(Constants.s_NONE))
+			if (aPC.getPhobias().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2360,7 +2360,7 @@ public final class ExportHandler
 		// Filter out INTERESTS
 		if ("INTERESTS".equals(aString.substring(1)))
 		{
-			if (aPC.getInterests().equals(Constants.s_NONE))
+			if (aPC.getInterests().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2374,7 +2374,7 @@ public final class ExportHandler
 		// Filter out SPEECHTENDENCY
 		if ("SPEECHTENDENCY".equals(aString.substring(1)))
 		{
-			if (aPC.getSpeechTendency().equals(Constants.s_NONE))
+			if (aPC.getSpeechTendency().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2388,7 +2388,7 @@ public final class ExportHandler
 		// Filter out PERSONALITY1
 		if ("PERSONALITY1".equals(aString.substring(1)))
 		{
-			if (aPC.getTrait1().equals(Constants.s_NONE))
+			if (aPC.getTrait1().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2402,7 +2402,7 @@ public final class ExportHandler
 		// Filter out PERSONALITY2
 		if ("PERSONALITY2".equals(aString.substring(1)))
 		{
-			if (aPC.getTrait2().equals(Constants.s_NONE))
+			if (aPC.getTrait2().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2416,7 +2416,7 @@ public final class ExportHandler
 		// Filter out MISC.FUNDS
 		if ("MISC.FUNDS".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(StringKey.MISC_ASSETS).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_ASSETS).equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2431,7 +2431,7 @@ public final class ExportHandler
 		if ("COMPANIONS".equals(aString.substring(1))
 			|| "MISC.COMPANIONS".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(StringKey.MISC_COMPANIONS).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_COMPANIONS).equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2445,7 +2445,7 @@ public final class ExportHandler
 		// Filter out MISC.MAGIC
 		if ("MISC.MAGIC".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(StringKey.MISC_MAGIC).equals(Constants.s_NONE))
+			if (aPC.getSafeStringFor(StringKey.MISC_MAGIC).equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2459,7 +2459,7 @@ public final class ExportHandler
 		// Filter out DESC
 		if ("DESC".equals(aString.substring(1)))
 		{
-			if (aPC.getDescription().equals(Constants.s_NONE))
+			if (aPC.getDescription().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2473,7 +2473,7 @@ public final class ExportHandler
 		// Filter out BIO
 		if ("BIO".equals(aString.substring(1)))
 		{
-			if (aPC.getBio().equals(Constants.s_NONE))
+			if (aPC.getBio().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2487,7 +2487,7 @@ public final class ExportHandler
 		// Filter out SUBREGION
 		if ("SUBREGION".equals(aString.substring(1)))
 		{
-			if (aPC.getSubRegion().equals(Constants.s_NONE))
+			if (aPC.getSubRegion().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}

@@ -488,7 +488,7 @@ public final class CustomData
 
 					if (unp == null)
 					{
-						region = Constants.s_NONE;
+						region = Constants.NONE;
 					}
 					else
 					{

@@ -102,14 +102,17 @@ public interface Constants
 	/** The prefix of a character template file name. */
 	String CHARACTER_TEMPLATE_PREFIX = "csheet"; //$NON-NLS-1$
 
+	/** The prefix of an equipment template file name.. */
+	String EQUIPMENT_TEMPLATE_PREFIX = "eqsheet"; //$NON-NLS-1$
+
+	/** The prefix of a a party template file name. */
+	String PARTY_TEMPLATE_PREFIX = "psheet"; //$NON-NLS-1$
+
 	/** A constant string representing the type custom. */
 	String TYPE_CUSTOM = "Custom"; //$NON-NLS-1$
 
 	/** Custom Equipment. */
 	String SOURCE_CUSTOM = "Custom Equipment"; //$NON-NLS-1$
-
-	/** The prefix of an equipment template file name.. */
-	String EQUIPMENT_TEMPLATE_PREFIX = "eqsheet"; //$NON-NLS-1$
 
 	/** Generic Item. */
 	String GENERIC_ITEM = "GENERIC ITEM"; //$NON-NLS-1$
@@ -123,17 +126,14 @@ public interface Constants
 	/** The name of the internal Weapon Proficiency ability. */
 	String INTERNAL_WEAPON_PROF = "PCGENi_WEAPON_PROFICIENCY"; //$NON-NLS-1$
 
-	/** Line Separator */
+	/** Line Separator. */
 	String LINE_SEPARATOR = System.getProperty("line.separator"); //$NON-NLS-1$
 
-	/** None */
-	String s_NONE = "None"; //$NON-NLS-1$
+	/** The constant string "None". */
+	String NONE = "None"; //$NON-NLS-1$
 
-	/** <none selected> */
-	String s_NONESELECTED = "<none selected>"; //$NON-NLS-1$
-
-	/** What a party template file name starts with. */
-	String s_PARTY_TEMPLATE_START = "psheet"; //$NON-NLS-1$
+	/** The constant string "<none selected>". */
+	String NONESELECTED = "<none selected>"; //$NON-NLS-1$
 
 	/** The extension for a campaign file   */
 	String s_PCGEN_CAMPAIGN_EXTENSION = ".pcc"; //$NON-NLS-1$

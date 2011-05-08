@@ -59,7 +59,7 @@ public class SubClassApplication
 		List<List> choiceList = new ArrayList<List>();
 		String subClassKey = aPC.getSubClassName(cl);
 		boolean subClassSelected = subClassKey != null
-				&& !subClassKey.equals(Constants.s_NONE)
+				&& !subClassKey.equals(Constants.NONE)
 				&& !subClassKey.equals("");
 	
 		for (SubClass sc : subClassList)

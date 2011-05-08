@@ -1375,7 +1375,7 @@ public final class EditorMainForm extends JDialog
 				{
 					final String raceName = race.getKeyName();
 
-					if (!raceName.equals(Constants.s_NONESELECTED))
+					if (!raceName.equals(Constants.NONESELECTED))
 					{
 						if (raceList.contains(raceName))
 						{
@@ -1680,7 +1680,7 @@ public final class EditorMainForm extends JDialog
 
 					if (unp == null)
 					{
-						aString = Constants.s_NONE;
+						aString = Constants.NONE;
 					}
 					else
 					{

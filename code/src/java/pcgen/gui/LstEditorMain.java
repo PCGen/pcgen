@@ -237,7 +237,7 @@ public final class LstEditorMain extends JFrame
 			String region;
 			if (unp == null)
 			{
-				region = Constants.s_NONE;
+				region = Constants.NONE;
 			}
 			else
 			{

@@ -117,8 +117,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 
 		final BioSet currBioSet = Globals.getBioSet();
 
-		currBioSet.copyRaceTags(Constants.s_NONE, BASE_RACE_NAME,
-			Constants.s_NONE, NEW_RACE_NAME);
+		currBioSet.copyRaceTags(Constants.NONE, BASE_RACE_NAME,
+			Constants.NONE, NEW_RACE_NAME);
 
 		List<String> baseRaceTag;
 		List<String> newRaceTag;
@@ -126,10 +126,10 @@ public class BioSetTest extends AbstractCharacterTestCase
 		{
 			final String testArg = TEST_TAGS[i];
 			baseRaceTag =
-					currBioSet.getTagForRace(Constants.s_NONE, BASE_RACE_NAME,
+					currBioSet.getTagForRace(Constants.NONE, BASE_RACE_NAME,
 						testArg);
 			newRaceTag =
-					currBioSet.getTagForRace(Constants.s_NONE, NEW_RACE_NAME,
+					currBioSet.getTagForRace(Constants.NONE, NEW_RACE_NAME,
 						testArg);
 			// System.out.println(
 			// "Got '"
@@ -151,7 +151,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		}
 
 		//		System.out.println(
-		//			currBioSet.getRacePCCText(Constants.s_NONE, NEW_RACE_NAME));
+		//			currBioSet.getRacePCCText(Constants.NONE, NEW_RACE_NAME));
 	}
 
 	/**

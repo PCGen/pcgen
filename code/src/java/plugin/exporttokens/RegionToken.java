@@ -58,7 +58,7 @@ public class RegionToken extends Token
 	{
 		String retString = pc.getRegionString();
 
-		if (!pc.getSubRegion().equals(Constants.s_NONE))
+		if (!pc.getSubRegion().equals(Constants.NONE))
 		{
 			retString += (" (" + pc.getSubRegion() + ")");
 		}

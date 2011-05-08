@@ -2090,14 +2090,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				String subClassKey = EntityEncoder.decode(element.getText());
 				if ((subClassKey.length() > 0)
-					&& !subClassKey.equals(Constants.s_NONE))
+					&& !subClassKey.equals(Constants.NONE))
 				{
 					SubClass sc = aPCClass.getSubClassKeyed(subClassKey);
 					if (sc == null)
 					{
 						if (subClassKey.equals(aPCClass.getKeyName()))
 						{
-							subClassKey = Constants.s_NONE;
+							subClassKey = Constants.NONE;
 						}
 						else
 						{
@@ -2150,7 +2150,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final String spellBase =
 						EntityEncoder.decode(element.getText());
-				if (!Constants.s_NONE.equals(spellBase))
+				if (!Constants.NONE.equals(spellBase))
 				{
 					Globals.getContext().unconditionallyProcess(aPCClass,
 						"SPELLSTAT", spellBase);
@@ -2241,7 +2241,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setDeity(aDeity);
 		}
-		else if (!Constants.s_NONE.equals(deityKey))
+		else if (!Constants.NONE.equals(deityKey))
 		{
 			// TODO
 			// create Deity object from information contained in pcg
@@ -2288,7 +2288,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 						Domain.class, domainKey);
 
-			if ((aDomain == null) && (!Constants.s_NONE.equals(domainKey)))
+			if ((aDomain == null) && (!Constants.NONE.equals(domainKey)))
 			{
 				// TODO
 				// create Domain object from
@@ -2301,7 +2301,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(msg);
 			}
 			else if (!thePC.hasDomain(aDomain)
-				&& (!Constants.s_NONE.equals(domainKey)))
+				&& (!Constants.NONE.equals(domainKey)))
 			{
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list

@@ -141,7 +141,7 @@ public class TemplateBasePanel extends BasePanel
 	{
 		if (aString.length() == 0)
 		{
-			cmbGenderLock.setSelectedItem(Constants.s_NONE);
+			cmbGenderLock.setSelectedItem(Constants.NONE);
 		}
 		else
 		{
@@ -248,7 +248,7 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public void setSubRace(final String aString)
 	{
-		if (Constants.s_NONE.equals(aString) || (aString == null)
+		if (Constants.NONE.equals(aString) || (aString == null)
 			|| ("".equals(aString)))
 		{
 			txtSubRace.setText("");
@@ -268,7 +268,7 @@ public class TemplateBasePanel extends BasePanel
 		if ((txtSubRace.getText() == null)
 			|| (txtSubRace.getText().trim().length() == 0))
 		{
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return txtSubRace.getText();
 	}
@@ -279,7 +279,7 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public void setSubRegion(final String aString)
 	{
-		if (Constants.s_NONE.equals(aString) || (aString == null)
+		if (Constants.NONE.equals(aString) || (aString == null)
 			|| ("".equals(aString)))
 		{
 			txtSubRegion.setText("");
@@ -299,7 +299,7 @@ public class TemplateBasePanel extends BasePanel
 		if ((txtSubRegion.getText() == null)
 			|| (txtSubRegion.getText().trim().length() == 0))
 		{
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return txtSubRegion.getText();
 	}
@@ -541,7 +541,7 @@ public class TemplateBasePanel extends BasePanel
 			{
 				return thisPCTemplate.getDisplayName();
 			}
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return sr.toString();
 	}
@@ -560,7 +560,7 @@ public class TemplateBasePanel extends BasePanel
 			{
 				return thisPCTemplate.getDisplayName();
 			}
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return sr.toString();
 	}

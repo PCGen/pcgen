@@ -55,6 +55,6 @@ public class AlignmentConverter
 	public static PCAlignment getNoAlignment()
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				ALIGNMENT_CLASS, Constants.s_NONE);
+				ALIGNMENT_CLASS, Constants.NONE);
 	}
 }

@@ -50,7 +50,7 @@ import pcgen.util.Logging;
  */
 final class BioSetLoader extends LstLineFileLoader
 {
-	private static String regionName = Constants.s_NONE;
+	private static String regionName = Constants.NONE;
 	BioSet bioSet = new BioSet();
 	/**
 	 * The age set (bracket) currently being processed. Used by the parseLine
@@ -69,7 +69,7 @@ final class BioSetLoader extends LstLineFileLoader
 	 */
 	public static void clear()
 	{
-		regionName = Constants.s_NONE;
+		regionName = Constants.NONE;
 	}
 
 	/**

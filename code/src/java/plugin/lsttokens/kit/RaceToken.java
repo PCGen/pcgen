@@ -63,7 +63,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
 	{
-		if (Constants.s_NONESELECTED.equals(value))
+		if (Constants.NONESELECTED.equals(value))
 		{
 			ComplexParseResult pr = new ComplexParseResult();
 			pr.addWarningMessage("NONESELECTED is not necessary in KIT RACE: "

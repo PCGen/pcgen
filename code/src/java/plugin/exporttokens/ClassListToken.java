@@ -79,7 +79,7 @@ public class ClassListToken extends Token
 			firstLine = false;
 
 			String subClassKey = pc.getSubClassName(pcClass);
-			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
+			if (subClassKey == null || Constants.NONE.equals(subClassKey)
 					|| "".equals(subClassKey))
 			{
 				returnString.append(OutputNameFormatting.getOutputName(pcClass));

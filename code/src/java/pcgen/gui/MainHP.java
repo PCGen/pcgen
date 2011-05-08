@@ -545,7 +545,7 @@ final class MainHP extends JPanel
 
 						if (aClass == null)
 						{
-							return (aRace == null) ? Constants.s_NONESELECTED : aRace.getKeyName();
+							return (aRace == null) ? Constants.NONESELECTED : aRace.getKeyName();
 						}
 						return aClass.getDisplayName();
 

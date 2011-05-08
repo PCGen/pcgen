@@ -64,7 +64,7 @@ public class RaceGeneratorOption extends GeneratorOption
 		{
 			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
-				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.s_NONESELECTED))
+				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.NONESELECTED))
 				{
 					theChoices.add(race, aWeight);
 				}

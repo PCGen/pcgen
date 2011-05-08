@@ -783,7 +783,7 @@ public final class Utility
 		{
 			(new ExportHandler(template)).write(aPC, bw);
 		}
-		else if (fileName.startsWith(Constants.s_PARTY_TEMPLATE_START))
+		else if (fileName.startsWith(Constants.PARTY_TEMPLATE_PREFIX))
 		{
 			(new ExportHandler(template)).write(Globals.getPCList(), bw);
 		}

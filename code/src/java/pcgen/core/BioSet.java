@@ -642,7 +642,7 @@ public final class BioSet extends PObject
 		//
 		// If still not found, try the same two searches again without a region
 		//
-		if (!argRegionName.equals(Constants.s_NONE))
+		if (!argRegionName.equals(Constants.NONE))
 		{
 			region = Region.getConstant("None");
 			r = argMap.getListFor(region, argRaceName, addKey);

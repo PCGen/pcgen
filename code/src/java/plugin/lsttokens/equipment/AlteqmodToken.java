@@ -76,7 +76,7 @@ public class AlteqmodToken extends AbstractTokenWithSeparator<Equipment>
 		{
 			String modInfo = dotTok.nextToken();
 
-			if (modInfo.equalsIgnoreCase(Constants.s_NONE))
+			if (modInfo.equalsIgnoreCase(Constants.NONE))
 			{
 				Logging.deprecationPrint("'NONE' EqMod in " + getTokenName()
 						+ " will be ignored");

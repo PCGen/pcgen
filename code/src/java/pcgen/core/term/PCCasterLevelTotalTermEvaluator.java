@@ -55,7 +55,7 @@ public class PCCasterLevelTotalTermEvaluator
 
 		for ( PCClass pcClass : pc.getClassSet() )
 		{
-			if (!pcClass.getSpellType().equals(Constants.s_NONE))
+			if (!pcClass.getSpellType().equals(Constants.NONE))
 			{
 				final String classKey = pcClass.getKeyName();
 				

@@ -48,7 +48,7 @@ import java.util.*;
 final class AgePanel extends JPanel implements PObjectUpdater
 {
 	static final long serialVersionUID = -5835737108073399178L;
-	private static String defaultRegionName = Constants.s_NONE;
+	private static String defaultRegionName = Constants.NONE;
 	private static final int COL_MINAGE = 1;
 	private AgeTableModel ageModel = null; // Model for JTable
 

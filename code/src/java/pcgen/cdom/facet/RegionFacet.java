@@ -147,7 +147,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		{
 			return rci.region.toString();
 		}
-		return Constants.s_NONE;
+		return Constants.NONE;
 	}
 
 	/**
@@ -171,13 +171,13 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 			return rci.region.toString();
 		}
 
-		String region = Constants.s_NONE;
+		String region = Constants.NONE;
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			String tempRegion = getTemplateRegion(template);
 
-			if (!tempRegion.equals(Constants.s_NONE))
+			if (!tempRegion.equals(Constants.NONE))
 			{
 				region = tempRegion;
 			}
@@ -199,7 +199,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 			{
 				return template.getDisplayName();
 			}
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return sr.toString();
 	}
@@ -228,7 +228,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		 * building of Region.NONE or we have to double test here? or two ways
 		 * of specifying NONE?
 		 */
-		return (r == null && Constants.s_NONE.equals(current))
+		return (r == null && Constants.NONE.equals(current))
 				|| (r != null && r.toString().equalsIgnoreCase(current));
 	}
 
@@ -258,7 +258,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		{
 			return rci.subregion.toString();
 		}
-		return Constants.s_NONE;
+		return Constants.NONE;
 	}
 
 	/**
@@ -282,13 +282,13 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 			return rci.subregion.toString();
 		}
 
-		String s = Constants.s_NONE;
+		String s = Constants.NONE;
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			final String tempSubRegion = getTemplateSubRegion(template);
 
-			if (!tempSubRegion.equals(Constants.s_NONE))
+			if (!tempSubRegion.equals(Constants.NONE))
 			{
 				s = tempSubRegion;
 			}
@@ -311,7 +311,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 			{
 				return template.getDisplayName();
 			}
-			return Constants.s_NONE;
+			return Constants.NONE;
 		}
 		return sr.toString();
 	}
@@ -334,7 +334,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		final StringBuffer tempRegName = new StringBuffer()
 				.append(getRegion(id));
 
-		if (!sub.equals(Constants.s_NONE))
+		if (!sub.equals(Constants.NONE))
 		{
 			tempRegName.append(" (").append(sub).append(')');
 		}

@@ -109,7 +109,7 @@ final class SkillBasePanel extends BasePanel
 	{
 		if (stat == null)
 		{
-			cmbKeyStat.setSelectedItem(Constants.s_NONE);
+			cmbKeyStat.setSelectedItem(Constants.NONE);
 		}
 		else
 		{
@@ -223,7 +223,7 @@ final class SkillBasePanel extends BasePanel
 		//
 		List<PCStat> statList = Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class);
 		List<String> availableList = new ArrayList<String>(statList.size() + 1);
-		availableList.add(Constants.s_NONE);
+		availableList.add(Constants.NONE);
 
 		for (PCStat stat : statList)
 		{

@@ -216,7 +216,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 			{
 				final String testArg = TEST_TAGS[j];
 				baseRaceTag =
-						currBioSet.getTagForRace(Constants.s_NONE, raceName,
+						currBioSet.getTagForRace(Constants.NONE, raceName,
 							testArg);
 				//				System.out.println(
 				//					"Got '"

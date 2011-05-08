@@ -1888,7 +1888,7 @@ public final class Globals
 		if (SettingsHandler.getShowHPDialogAtLevelUp())
 		{
 			final Object[] rollChoices = new Object[max - min + 2];
-			rollChoices[0] = Constants.s_NONESELECTED;
+			rollChoices[0] = Constants.NONESELECTED;
 
 			for (int i = min; i <= max; ++i)
 			{
@@ -2420,7 +2420,7 @@ public final class Globals
 		if (s_EMPTYRACE == null)
 		{
 			s_EMPTYRACE = new Race();
-			s_EMPTYRACE.setName(Constants.s_NONESELECTED);
+			s_EMPTYRACE.setName(Constants.NONESELECTED);
 			s_EMPTYRACE.addToListFor(ListKey.TYPE, Type.HUMANOID);
 		}
 

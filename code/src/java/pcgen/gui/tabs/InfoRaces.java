@@ -238,7 +238,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 	{
 		List<String> toDoList = new ArrayList<String>();
 		if (getPc().getRace() == null
-			|| Constants.s_NONESELECTED.equals(getPc().getRace().getKeyName()))
+			|| Constants.NONESELECTED.equals(getPc().getRace().getKeyName()))
 		{
 			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
 		}

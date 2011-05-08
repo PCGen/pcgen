@@ -180,7 +180,7 @@ BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 				//
 				// Matches as long as race is not <none selected>
 				//
-				if (!characterRace.equalsIgnoreCase(Constants.s_NONESELECTED))
+				if (!characterRace.equalsIgnoreCase(Constants.NONESELECTED))
 				{
 					++runningTotal;
 				}

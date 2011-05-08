@@ -1176,7 +1176,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public String getRaceType()
 	{
 		RaceType rt = raceTypeFacet.getRaceType(id);
-		return rt == null ? Constants.s_NONE : rt.toString();
+		return rt == null ? Constants.NONE : rt.toString();
 	}
 
 	/**
@@ -2609,16 +2609,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public String getRegionString()
 	{
 		return regionFacet.getRegion(id);
-	}
-
-	/**
-	 * Get region set by setRegion (ignores Templates).
-	 * 
-	 * @return the character's region
-	 */
-	public String getCharacterRegion()
-	{
-		return regionFacet.getCharacterRegion(id);
 	}
 
 	/**
@@ -5598,7 +5588,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return (tBonus);
 		}
 
-		if (!spellType.equals(Constants.s_NONE))
+		if (!spellType.equals(Constants.NONE))
 		{
 			tStr = "TYPE." + spellType;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -8252,7 +8242,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final String raceName = getRace().toString();
 
-		return (raceName.equals(Constants.s_NONESELECTED) ? "Nothing"
+		return (raceName.equals(Constants.NONESELECTED) ? "Nothing"
 			: raceName);
 	}
 

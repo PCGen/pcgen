@@ -160,7 +160,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		a = (String) spellStat.getSelectedItem();
 
-		if ((a != null) && (a.length() > 0) && !Constants.s_NONE.equals(a))
+		if ((a != null) && (a.length() > 0) && !Constants.NONE.equals(a))
 		{
 			context.unconditionallyProcess(obj, "SPELLSTAT", a);
 		}
@@ -280,9 +280,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			aList.add(pcs.getAbb());
 		}
 
-		aList.remove(Constants.s_NONE);
+		aList.remove(Constants.NONE);
 		Collections.sort(aList);
-		aList.add(0, Constants.s_NONE);
+		aList.add(0, Constants.NONE);
 		spellStat.setModel(new DefaultComboBoxModel(aList.toArray()));
 
 		//
@@ -300,9 +300,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		aList.remove(Constants.s_NONE);
+		aList.remove(Constants.NONE);
 		Collections.sort(aList);
-		aList.add(0, Constants.s_NONE);
+		aList.add(0, Constants.NONE);
 		spellType.setModel(new DefaultComboBoxModel(aList.toArray()));
 	}
 

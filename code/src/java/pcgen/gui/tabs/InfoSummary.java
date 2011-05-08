@@ -284,7 +284,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
 
-			if (pcClass.getDisplayName().equals(Constants.s_NONESELECTED))
+			if (pcClass.getDisplayName().equals(Constants.NONESELECTED))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -340,7 +340,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			final Race race = (Race) raceComboBox.getSelectedItem();
 
-			if (race.getDisplayName().equals(Constants.s_NONESELECTED))
+			if (race.getDisplayName().equals(Constants.NONESELECTED))
 			{
 				enableClassControls(false);
 			}
@@ -583,7 +583,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		}
 		if (Globals.getGameModeAlignmentText().length() != 0
 			&& (pc.getPCAlignment() == null || pc.getPCAlignment()
-				.getDisplayName().equals(Constants.s_NONE)))
+				.getDisplayName().equals(Constants.NONE)))
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
@@ -1150,7 +1150,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			if ((levels > 0)
-				&& (pc.getPCAlignment().getAbb().equals(Constants.s_NONE)))
+				&& (pc.getPCAlignment().getAbb().equals(Constants.NONE)))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1477,7 +1477,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		}
 
 		forceRefresh(false);
-		enableRaceControls(!newAlign.getKeyName().equals(Constants.s_NONE));
+		enableRaceControls(!newAlign.getKeyName().equals(Constants.NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -1572,7 +1572,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		// tests if the race selection is valid and enables the class controls
 		// TODO if (raceComboBox.getSelectedItem().equals(Race.NONE))
 		if (!(((Race) raceComboBox.getSelectedItem()).getDisplayName()
-			.equals(Constants.s_NONESELECTED)))
+			.equals(Constants.NONESELECTED)))
 		{
 			enableClassControls(true);
 		}
@@ -2295,7 +2295,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		setStatLabelText();
 
 		enableRaceControls(!alignmentComboBox.isVisible()
-			|| (align != null && !align.getKeyName().equals(Constants.s_NONE)));
+			|| (align != null && !align.getKeyName().equals(Constants.NONE)));
 		startListeners();
 	}
 
@@ -3094,7 +3094,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			// Make sure empty class is in all lists
 			PCClass aNullClass = new PCClass();
-			aNullClass.setName(Constants.s_NONESELECTED);
+			aNullClass.setName(Constants.NONESELECTED);
 			insertElementAt(aNullClass, 0);
 
 			if (pcClass != null)

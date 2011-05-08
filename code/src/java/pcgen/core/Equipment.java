@@ -2619,7 +2619,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String aEqModName = aTok.nextToken();
 
-			if (!aEqModName.equalsIgnoreCase(Constants.s_NONE))
+			if (!aEqModName.equalsIgnoreCase(Constants.NONE))
 			{
 				addEqModifier(aEqModName, bPrimary, isLoading);
 			}
@@ -3499,7 +3499,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String aEqModName = aTok.nextToken();
 
-			if (!aEqModName.equalsIgnoreCase(Constants.s_NONE))
+			if (!aEqModName.equalsIgnoreCase(Constants.NONE))
 			{
 				removeEqModifier(aEqModName, bPrimary, pc);
 			}

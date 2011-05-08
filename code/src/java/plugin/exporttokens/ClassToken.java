@@ -106,7 +106,7 @@ public class ClassToken extends Token {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			String subClassKey = pc.getSubClassName(pcClass);
-			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
+			if (subClassKey == null || Constants.NONE.equals(subClassKey)
 					|| "".equals(subClassKey)) {
 				retString = OutputNameFormatting.getOutputName(pcClass);
 			} else {

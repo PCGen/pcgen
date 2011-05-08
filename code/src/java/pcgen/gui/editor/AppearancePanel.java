@@ -45,7 +45,7 @@ import java.util.List;
  */
 final class AppearancePanel extends JPanel implements PObjectUpdater
 {
-	private static String defaultRegionName = Constants.s_NONE;
+	private static String defaultRegionName = Constants.NONE;
 	private TypePanel pnlEyeColor;
 	private TypePanel pnlHairColor;
 	private TypePanel pnlSkinTone;

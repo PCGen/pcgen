@@ -68,8 +68,8 @@ public class PCCasterLevelClassTermEvaluator
 		final PCClass spClass = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(PCClass.class, varSource);
 
-		String spellType = Constants.s_NONE;
-		if ((spClass != null) && (!spClass.getSpellType().equals(Constants.s_NONE)))
+		String spellType = Constants.NONE;
+		if ((spClass != null) && (!spClass.getSpellType().equals(Constants.NONE)))
 		{
 			spellType = spClass.getSpellType();
 		}

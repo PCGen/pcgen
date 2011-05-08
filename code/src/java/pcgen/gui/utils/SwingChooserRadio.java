@@ -107,7 +107,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	{
 		cmbCombo = new JComboBoxEx(cmbData.toArray());
 		((DefaultComboBoxModel) cmbCombo.getModel()).insertElementAt("("
-			+ Constants.s_NONE + ")", 0);
+			+ Constants.NONE + ")", 0);
 		cmbCombo.setSelectedIndex(0);
 		cmbCombo.addItemListener(new ItemListener()
 		{

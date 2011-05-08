@@ -360,7 +360,7 @@ public class PCClass extends PObject
 		{
 			String subClassKey = pc.getSubClassName(this);
 			if (subClassKey != null && (subClassKey.length() > 0)
-					&& !subClassKey.equals(Constants.s_NONE))
+					&& !subClassKey.equals(Constants.NONE))
 			{
 				SubClass sc = getSubClassKeyed(subClassKey);
 				if (sc != null)
@@ -494,7 +494,7 @@ public class PCClass extends PObject
 	public final String getSpellType()
 	{
 		String castInfo = getSafe(StringKey.SPELLTYPE);
-		return castInfo == null ? Constants.s_NONE : castInfo;
+		return castInfo == null ? Constants.NONE : castInfo;
 	}
 
 	/*
@@ -1448,7 +1448,7 @@ public class PCClass extends PObject
 
 			if (newLevel == 0)
 			{
-				SubClassApplication.setSubClassKey(aPC, this, Constants.s_NONE);
+				SubClassApplication.setSubClassKey(aPC, this, Constants.NONE);
 
 				//
 				// Remove all skills associated with this class

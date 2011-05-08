@@ -190,7 +190,7 @@ public class NPCGeneratorDlg extends JDialog
 	    for (int i = 0; i < MAX_CLASSES; i++)
 	    {
 		final Object selClass = classCombos[i].getSelectedItem();
-		if (selClass instanceof String && selClass.equals(Constants.s_NONESELECTED))
+		if (selClass instanceof String && selClass.equals(Constants.NONESELECTED))
 		{
 		    continue;
 		}
@@ -433,8 +433,8 @@ public class NPCGeneratorDlg extends JDialog
 	    }
 	    if (j > 0)
 	    {
-		classCombos[j].addItem(Constants.s_NONESELECTED);
-		classCombos[j].setSelectedItem(Constants.s_NONESELECTED);
+		classCombos[j].addItem(Constants.NONESELECTED);
+		classCombos[j].setSelectedItem(Constants.NONESELECTED);
 	    }
 	    final List<LevelGeneratorOption> customLevelOptions = npcgen.getCustomLevelOptions();
 	    for (final GeneratorOption opt : customLevelOptions)

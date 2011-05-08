@@ -1184,7 +1184,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		}
 		if (aRace != null)
 		{
-			if (aRace.getKeyName().startsWith(Constants.s_NONESELECTED))
+			if (aRace.getKeyName().startsWith(Constants.NONESELECTED))
 			{
 				return;
 			}

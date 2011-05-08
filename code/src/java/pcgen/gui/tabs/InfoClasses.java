@@ -522,7 +522,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			if ((levels > 0)
-				&& (pc.getPCAlignment().getAbb().equals(Constants.s_NONE)))
+				&& (pc.getPCAlignment().getAbb().equals(Constants.NONE)))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getString("in_clSelAlign"), Constants.APPLICATION_NAME,

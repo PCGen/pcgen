@@ -251,7 +251,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		}
 		else
 		{
-			saText.setText(Constants.s_NONE);
+			saText.setText(Constants.NONE);
 		}
 
 		if (languages.length() > 0)
@@ -260,7 +260,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		}
 		else
 		{
-			languageText.setText(Constants.s_NONE);
+			languageText.setText(Constants.NONE);
 		}
 
 		showWeaponProfList();
@@ -580,7 +580,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		}
 		else
 		{
-			weaponText.setText(Constants.s_NONE);
+			weaponText.setText(Constants.NONE);
 		}
 
 		weaponText.setCaretPosition(0);

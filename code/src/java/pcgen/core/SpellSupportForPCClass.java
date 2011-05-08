@@ -212,7 +212,7 @@ public class SpellSupportForPCClass
 				+ allSpellLevel);
 
 		PCStat aStat = source.baseSpellStat();
-		String statString = Constants.s_NONE;
+		String statString = Constants.NONE;
 
 		if (aStat != null)
 		{
@@ -536,7 +536,7 @@ public class SpellSupportForPCClass
 				+ allSpellLevel);
 
 		PCStat aStat = source.bonusSpellStat();
-		String statString = Constants.s_NONE;
+		String statString = Constants.NONE;
 
 		if (aStat != null)
 		{
@@ -635,7 +635,7 @@ public class SpellSupportForPCClass
 							String subClassKey = aPC.getSubClassName(source);
 							if (subClassKey != null
 									&& (subClassKey.length() > 0)
-									&& !subClassKey.equals(Constants.s_NONE))
+									&& !subClassKey.equals(Constants.NONE))
 							{
 								target = source.getSubClassKeyed(subClassKey);
 							}
@@ -802,7 +802,7 @@ public class SpellSupportForPCClass
 				PCClass target = source;
 				String subClassKey = aPC.getSubClassName(source);
 				if (subClassKey != null && (subClassKey.length() > 0)
-						&& !subClassKey.equals(Constants.s_NONE))
+						&& !subClassKey.equals(Constants.NONE))
 				{
 					target = source.getSubClassKeyed(subClassKey);
 				}

@@ -53,7 +53,7 @@ public class PCCasterLevelRaceTermEvaluator
 
 		final float lev =
 				pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(),
-													 Constants.s_NONE,
+													 Constants.NONE,
 													 source,
 													 0);
 		return lev > 0f ? lev : 0f;

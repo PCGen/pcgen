@@ -1138,7 +1138,7 @@ final class ChooseSpellDialog extends JDialog
 
 			for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 			{
-				if (!aClass.getSpellType().equals(Constants.s_NONE))
+				if (!aClass.getSpellType().equals(Constants.NONE))
 				{
 					// Only adds if the class can cast
 					if (pc.getSpellSupport(aClass).zeroCastSpells())
