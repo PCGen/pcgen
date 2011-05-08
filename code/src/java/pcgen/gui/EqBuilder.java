@@ -1712,7 +1712,7 @@ final class EqBuilder extends JPanel
 
 					if (!nwid.getWasCancelled())
 					{
-						StringBuffer modString = new StringBuffer(Constants.s_INTERNAL_EQMOD_WEAPON);
+						StringBuffer modString = new StringBuffer(Constants.INTERNAL_EQMOD_WEAPON);
 						modString.append("|DAMAGE=").append(nwid.getDamage());
 						modString.append("|CRITRANGE=").append(nwid.getCritRange());
 						modString.append("|CRITMULT=").append(nwid.getCritMultiplier());
@@ -1725,7 +1725,7 @@ final class EqBuilder extends JPanel
 				}
 			}
 
-			final String modString = Constants.s_INTERNAL_EQMOD_WEAPON + "|RANGE=";
+			final String modString = Constants.INTERNAL_EQMOD_WEAPON + "|RANGE=";
 
 			if (aNewEq.isWeapon() && aNewEq.isRanged())
 			{

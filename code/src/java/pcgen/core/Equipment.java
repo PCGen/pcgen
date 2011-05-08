@@ -6266,7 +6266,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		final String it = infoType + "|";
 		final EquipmentModifier eqMod =
-				getEqModifierKeyed(Constants.s_INTERNAL_EQMOD_WEAPON, bPrimary);
+				getEqModifierKeyed(Constants.INTERNAL_EQMOD_WEAPON, bPrimary);
 
 		if (eqMod != null)
 		{

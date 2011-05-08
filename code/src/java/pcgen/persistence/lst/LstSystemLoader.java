@@ -506,7 +506,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			LoadContext context) throws PersistenceLayerException
 	{
 		// The first thing we need to do is load the
-		// correct statsandchecks.lst file for this gameMode
+		// correct stats and checks lst file for this gameMode
 		GameMode gamemode = SettingsHandler.getGame();
 		if (gamemode == null)
 		{
@@ -531,7 +531,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// to load in total so that they can set up any
 		// progress meters that they want to.
 		setChanged();
-		notifyObservers(Integer.valueOf(countTotalFilesToLoad()));
+		notifyObservers(countTotalFilesToLoad());
 
 		// Load using the new LstFileLoaders
 
@@ -682,21 +682,22 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			throw new UnreachableError(e);
 		}
 		context.setSourceURI(uri);
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				uri);
-		String aLine;
-		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(), uri);
+
+		String aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\t"
+			+ "SOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
+
 		eqModLoader.parseLine(context, null, aLine, source);
 		
 		//
 		// Add internal equipment modifier for adding weapon/armor types to
 		// equipment
 		//
-		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
+		aLine = Constants.INTERNAL_EQMOD_WEAPON
 				+ "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
 		eqModLoader.parseLine(context, null, aLine, source);
 		
-		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
+		aLine = Constants.INTERNAL_EQMOD_ARMOR
 				+ "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
 		eqModLoader.parseLine(context, null, aLine, source);
 	}
@@ -768,7 +769,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	/**
 	 * Sets the options specified in the campaign aCamp.
-	 * @param aCamp
+	 * @param aCamp the campaign to get the options from.
 	 */
 	private static void setCampaignOptions(Campaign aCamp)
 	{

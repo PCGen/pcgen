@@ -92,12 +92,13 @@ public final class FeatLoader extends AbilityLoader
 
 	/**
 	 * This method loads the default feats with the first feat source.
+	 * @param context
 	 * @param firstSource CampaignSourceEntry first loaded by this loader
 	 */
 	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
 		Ability wpFeat = context.ref.silentlyGetConstructedCDOMObject(Ability.class,
-				AbilityCategory.FEAT, Constants.s_INTERNAL_WEAPON_PROF);
+				AbilityCategory.FEAT, Constants.INTERNAL_WEAPON_PROF);
 		if (wpFeat == null)
 		{
 
@@ -107,12 +108,12 @@ public final class FeatLoader extends AbilityLoader
 			 * nothing).  So monk class weapons will get dumped into this bucket.  */
 
 			String aLine =
-					Constants.s_INTERNAL_WEAPON_PROF
-						+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General"
-						+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tCHOOSE:NOCHOICE"
-						+ "\tDESC:You attack with this specific weapon normally,"
-						+ " non-proficiency incurs a -4 to hit penalty."
-						+ "\tSOURCELONG:PCGen Internal";
+					Constants.INTERNAL_WEAPON_PROF
+					+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General"
+					+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tCHOOSE:NOCHOICE"
+					+ "\tDESC:You attack with this specific weapon normally,"
+					+ " non-proficiency incurs a -4 to hit penalty."
+					+ "\tSOURCELONG:PCGen Internal";
 			try
 			{
 				parseLine(context, null, aLine, firstSource);

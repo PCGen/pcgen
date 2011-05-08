@@ -114,14 +114,14 @@ public interface Constants
 	/** Generic Item. */
 	String GENERIC_ITEM = "GENERIC ITEM"; //$NON-NLS-1$
 
-	/** PCGENi_ARMOR */
-	String s_INTERNAL_EQMOD_ARMOR = "PCGENi_ARMOR"; //$NON-NLS-1$
+	/** The name of the internal Armour EQMOD. */
+	String INTERNAL_EQMOD_ARMOR = "PCGENi_ARMOR"; //$NON-NLS-1$
 
-	/** PCGENi_WEAPON */
-	String s_INTERNAL_EQMOD_WEAPON = "PCGENi_WEAPON"; //$NON-NLS-1$
+	/** The name of the internal Weapon EQMOD. */
+	String INTERNAL_EQMOD_WEAPON = "PCGENi_WEAPON"; //$NON-NLS-1$
 
-	/** PCGENi_WEAPON_PROFICIENCY */
-	String s_INTERNAL_WEAPON_PROF = "PCGENi_WEAPON_PROFICIENCY"; //$NON-NLS-1$
+	/** The name of the internal Weapon Proficiency ability. */
+	String INTERNAL_WEAPON_PROF = "PCGENi_WEAPON_PROFICIENCY"; //$NON-NLS-1$
 
 	/** Line Seperator */
 	String s_LINE_SEP = System.getProperty("line.separator"); //$NON-NLS-1$
