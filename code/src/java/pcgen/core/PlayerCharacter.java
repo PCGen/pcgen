@@ -89,8 +89,112 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.*;
+import pcgen.cdom.facet.ActiveAbilityFacet;
+import pcgen.cdom.facet.AddLevelFacet;
+import pcgen.cdom.facet.AddedBonusFacet;
+import pcgen.cdom.facet.AddedTemplateFacet;
+import pcgen.cdom.facet.AgeFacet;
+import pcgen.cdom.facet.AgeSetFacet;
+import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.AppliedBonusFacet;
+import pcgen.cdom.facet.ArmorClassFacet;
+import pcgen.cdom.facet.ArmorProfProviderFacet;
+import pcgen.cdom.facet.AutoEquipmentFacet;
+import pcgen.cdom.facet.AutoEquipmentListFacet;
+import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.AutoListArmorProfFacet;
+import pcgen.cdom.facet.AutoListShieldProfFacet;
+import pcgen.cdom.facet.AutoListWeaponProfFacet;
+import pcgen.cdom.facet.AvailableSpellFacet;
+import pcgen.cdom.facet.BioSetFacet;
+import pcgen.cdom.facet.BonusChangeFacet;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.BonusWeaponProfFacet;
+import pcgen.cdom.facet.CampaignFacet;
+import pcgen.cdom.facet.ChallengeRatingFacet;
+import pcgen.cdom.facet.CharacterSpellResistanceFacet;
+import pcgen.cdom.facet.CheckFacet;
+import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
+import pcgen.cdom.facet.CompanionModFacet;
+import pcgen.cdom.facet.ConditionalAbilityFacet;
+import pcgen.cdom.facet.ConditionalTemplateFacet;
+import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
+import pcgen.cdom.facet.DamageReductionFacet;
+import pcgen.cdom.facet.DeityFacet;
+import pcgen.cdom.facet.DirectAbilityFacet;
+import pcgen.cdom.facet.DomainFacet;
+import pcgen.cdom.facet.EquipSetFacet;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.EquippedEquipmentFacet;
+import pcgen.cdom.facet.ExpandedCampaignFacet;
+import pcgen.cdom.facet.FaceFacet;
+import pcgen.cdom.facet.FacetInitialization;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.FactFacet;
+import pcgen.cdom.facet.FavoredClassFacet;
+import pcgen.cdom.facet.FollowerFacet;
+import pcgen.cdom.facet.FollowerLimitFacet;
+import pcgen.cdom.facet.FollowerOptionFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.GenderFacet;
+import pcgen.cdom.facet.GlobalAddedSkillCostFacet;
+import pcgen.cdom.facet.GlobalSkillCostFacet;
+import pcgen.cdom.facet.GrantedAbilityFacet;
+import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.HasAnyFavoredClassFacet;
+import pcgen.cdom.facet.HeightFacet;
+import pcgen.cdom.facet.InitiativeFacet;
+import pcgen.cdom.facet.KitFacet;
+import pcgen.cdom.facet.LanguageFacet;
+import pcgen.cdom.facet.LegalDeityFacet;
+import pcgen.cdom.facet.LegsFacet;
+import pcgen.cdom.facet.LevelFacet;
+import pcgen.cdom.facet.LevelTableFacet;
+import pcgen.cdom.facet.ListSkillCostFacet;
+import pcgen.cdom.facet.LoadFacet;
+import pcgen.cdom.facet.LocalAddedSkillCostFacet;
+import pcgen.cdom.facet.LocalSkillCostFacet;
+import pcgen.cdom.facet.MasterFacet;
+import pcgen.cdom.facet.MasterSkillFacet;
+import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.MonsterCSkillFacet;
+import pcgen.cdom.facet.MovementResultFacet;
+import pcgen.cdom.facet.MultiClassFacet;
+import pcgen.cdom.facet.NonAbilityFacet;
+import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
+import pcgen.cdom.facet.ObjectAdditionFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.cdom.facet.ProhibitedSchoolFacet;
+import pcgen.cdom.facet.QualifyFacet;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.RaceTypeFacet;
+import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.ReachFacet;
+import pcgen.cdom.facet.RegionFacet;
+import pcgen.cdom.facet.ShieldProfProviderFacet;
+import pcgen.cdom.facet.SizeFacet;
+import pcgen.cdom.facet.SkillFacet;
+import pcgen.cdom.facet.SourcedEquipmentFacet;
+import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.SpellSupportFacet;
+import pcgen.cdom.facet.StartingLanguageFacet;
+import pcgen.cdom.facet.StatFacet;
+import pcgen.cdom.facet.StatLockFacet;
+import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.SubRaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.TotalWeightFacet;
+import pcgen.cdom.facet.UnarmedDamageFacet;
+import pcgen.cdom.facet.UnencumberedLoadFacet;
+import pcgen.cdom.facet.UnlockedStatFacet;
+import pcgen.cdom.facet.UserEquipmentFacet;
+import pcgen.cdom.facet.VariableFacet;
+import pcgen.cdom.facet.VisionFacet;
+import pcgen.cdom.facet.WeaponProfFacet;
+import pcgen.cdom.facet.WeightFacet;
+import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -2578,7 +2682,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the ocation of the PDF Output Sheet to be used for this character.
+	 * Get the location of the PDF Output Sheet to be used for this character.
 	 * 
 	 * @return pdf output sheet
 	 */
@@ -2791,7 +2895,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// aList will contain a list of SpecialAbility objects
 		List<SpecialAbility> aList =
 				new ArrayList<SpecialAbility>();
-		// Try all possible POBjects
+		// Try all possible PObjects
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			SpecialAbilityResolution.addSpecialAbilitiesToList(aList, this, cdo);
@@ -3323,7 +3427,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Retrieve the cached output idex of the automatic equipment item
+	 * Retrieve the cached output index of the automatic equipment item
 	 * @param key The key of the equipment item.
 	 * @return The output index.
 	 */
@@ -3416,7 +3520,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Compute total bonus from a List of BonusObj's
+	 * Compute total bonus from a List of BonusObjs
 	 * 
 	 * @param aList
 	 * @return bonus from list
@@ -4840,7 +4944,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					//
 					// Don't add monster classes back in. This will possibly
 					// mess up feats earned by level
-					// ?Possibly convert to mclass if not null?
+					// ?Possibly convert to monster class if not null?
 					//
 					if (!pcClass.isMonster())
 					{
@@ -4854,9 +4958,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 						for (int j = 0; j < cLevels; ++j)
 						{
-							cMod +=
-									pcClass.recalcSkillPointMod(this,
-										++totalLevels);
+							cMod += pcClass.recalcSkillPointMod(this, ++totalLevels);
 						}
 
 						setAssoc(pcClass, AssociationKey.SKILL_POOL, cMod);
@@ -6840,6 +6942,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @param saveType
 	 *            "CHECK1", "CHECK2", or "CHECK3"; may not differ from
 	 *            saveIndex!
+	 * @param check
 	 * @param tokenString
 	 *            tokenString to parse
 	 * @return the calculated save bonus
@@ -8114,7 +8217,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Active BonusObj's
+	 * Active BonusObjs
 	 * 
 	 * @return List
 	 */
@@ -8907,7 +9010,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
+	 * Compute total bonus from a List of BonusObjs Use cost of bonus to adjust
 	 * total bonus up or down This method takes a list of bonus objects.
 	 * 
 	 * For each object in the list, it gets the creating object and queries it
@@ -8979,19 +9082,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			levelNum = -1;
 		}
-
-		/*
-		 * // Class 0 is special Abilities. Obvious isn't it. if ( classNum == 0 ) {
-		 * int count = 0; final Collection<SpellLikeAbility> slas =
-		 * this.getSpellLikeAbilities();
-		 * 
-		 * int categoryCount = -1; String currentCategory =
-		 * Constants.EMPTY_STRING; for ( final SpellLikeAbility sla : slas ) {
-		 * if ( !currentCategory.equals(sla.getCategory()) ) { categoryCount++;
-		 * currentCategory = sla.getCategory(); } if ( categoryCount > sbookNum ) {
-		 * break; } if ( categoryCount == sbookNum ) { // This is the
-		 * "spellbook" we are looking for count++; } } return count; }
-		 */
 
 		String bookName = Globals.getDefaultSpellBook();
 
@@ -9514,7 +9604,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
 
-		// Determine which hands weapons are currently being weilded in
+		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
 
 		// Apply penalties to attack if not proficient in worn armour
@@ -10279,7 +10369,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Returns if level increases will process ADD: level abilities.
 	 * 
-	 * @return <tt>true</tt> if ADD: level abilites will be processed.
+	 * @return <tt>true</tt> if ADD: level abilities will be processed.
 	 */
 	public boolean doLevelAbilities()
 	{
@@ -10382,7 +10472,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get a list of real abiltiies of a particular AbilityCategory
+	 * Get a list of real abilities of a particular AbilityCategory
 	 * no matter which AbilityCategory list they reside in.
 	 * 
 	 * @param aCategory The AbilityCategory of the desired abilities.
@@ -10675,7 +10765,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * PC already has, or if the PC has the feat already, is it one that can be
 	 * taken multiple times. TODO: When the PlayerCharacter Object can have
 	 * abilities of category other than "FEAT" it will likely have methods to
-	 * test "hasRealAbility" and "hasVirtualAbilty", change this (or add
+	 * test "hasRealAbility" and "hasVirtualAbility", change this (or add
 	 * another) to deal with them
 	 * 
 	 * @param anAbility
@@ -10885,7 +10975,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get an ability of any ctageory tat matches the key.
+	 * Get an ability of any category that matches the key.
 	 * @param aKey The key to search for
 	 * @return An ability with the key, or null if none.
 	 */
@@ -10923,7 +11013,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Retrieve a list of all abilities held by the character in the specified 
 	 * category. <br>
 	 * NB: Abilities are only returned in the category they are taken 
-	 * in, so if parent catgeory is supplied only those taken directly in the 
+	 * in, so if parent category is supplied only those taken directly in the
 	 * parent category will be returned. e.g. If asking for feats, Power Attack 
 	 * taken as a fighter feat will nto be returned. You would need to query 
 	 * fighter feats to get that. <br>
@@ -10955,12 +11045,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Retrieve a list of all abilities held by the character in the specified 
 	 * category. <br>
 	 * NB: Abilities are only returned in the category they are taken 
-	 * in, so if parent catgeory is supplied only those taken directly in the 
+	 * in, so if parent category is supplied only those taken directly in the
 	 * parent category will be returned. e.g. If asking for feats, Power Attack 
 	 * taken as a fighter feat will not be returned. You would need to query 
 	 * fighter feats to get that. <br>
-	 * NB: Duplicate abilities will not be retruned by this method. The order 
-	 * of priorty is normal, virtual then automatic.
+	 * NB: Duplicate abilities will not be returned by this method. The order
+	 * of priority is normal, virtual then automatic.
 	 * 
 	 * @param aCategory The ability category to be queried.  
 	 * @return The list of abilities of the category regardless of nature.
@@ -11163,7 +11253,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aCategory
 	 *            The <tt>AbilityCategory</tt> to check.
 	 * 
-	 * @return A <tt>List</tt> of <tt>Abiltity</tt> objects.
+	 * @return A <tt>List</tt> of <tt>Ability</tt> objects.
 	 * 
 	 * @author boomer70
 	 * @since 5.11.1
@@ -12573,7 +12663,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * think that generally goes along with Equipment
 	 * Location/Equipped/NumberEquipped/NumberCarried all being made consistent
 	 * (they are highly correlated, but no control is exerted over them by
-	 * Equpiment to ensure appropriate states are maintained)
+	 * Equipment to ensure appropriate states are maintained)
 	 */
 	public void doAfavorForAunitTestThatIgnoresEquippingRules()
 	{
