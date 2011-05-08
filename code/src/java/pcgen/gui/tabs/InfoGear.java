@@ -2119,7 +2119,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			aList.add(Constants.TYPE_CUSTOM);
 			bList.add(Constants.TYPE_CUSTOM);
-			sourceList.add(Constants.s_CUSTOMSOURCE);
+			sourceList.add(Constants.SOURCE_CUSTOM);
 		}
 
 		for (Equipment bEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
@@ -4276,7 +4276,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				//Add custom node if it does not exist
 				if (eq.isType(Constants.TYPE_CUSTOM))
 				{
-					addChild(Constants.s_CUSTOMSOURCE, sourceRoot, true);
+					addChild(Constants.SOURCE_CUSTOM, sourceRoot, true);
 				}
 
 				//Add Type

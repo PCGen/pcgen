@@ -105,8 +105,8 @@ public interface Constants
 	/** A constant string representing the type custom. */
 	String TYPE_CUSTOM = "Custom"; //$NON-NLS-1$
 
-	/** Custom Equipment */
-	String s_CUSTOMSOURCE = "Custom Equipment"; //$NON-NLS-1$
+	/** Custom Equipment. */
+	String SOURCE_CUSTOM = "Custom Equipment"; //$NON-NLS-1$
 
 	/** Default */
 	String s_DEFAULT = "Default"; //$NON-NLS-1$
