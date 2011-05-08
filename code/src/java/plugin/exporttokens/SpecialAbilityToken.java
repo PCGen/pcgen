@@ -104,7 +104,7 @@ public class SpecialAbilityToken extends Token
 				String search =
 						"SA" + ":"
 							+ pc.getSpecialAbilityTimesList().get(specialIndex)
-							+ Constants.s_LINE_SEP;
+							+ Constants.LINE_SEPARATOR;
 				int pos = pc.getDescriptionLst().indexOf(search);
 
 				if (pos >= 0)

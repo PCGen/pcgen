@@ -123,8 +123,8 @@ public interface Constants
 	/** The name of the internal Weapon Proficiency ability. */
 	String INTERNAL_WEAPON_PROF = "PCGENi_WEAPON_PROFICIENCY"; //$NON-NLS-1$
 
-	/** Line Seperator */
-	String s_LINE_SEP = System.getProperty("line.separator"); //$NON-NLS-1$
+	/** Line Separator */
+	String LINE_SEPARATOR = System.getProperty("line.separator"); //$NON-NLS-1$
 
 	/** None */
 	String s_NONE = "None"; //$NON-NLS-1$
@@ -171,10 +171,13 @@ public interface Constants
 	// Units of measurement
 	/** Imperial */
 	String s_STANDARD_UNITSET_NAME = "Imperial"; //$NON-NLS-1$
-	/** ftin is harcoded to translate to x'y */
+
+	/** ftin is hardcoded to translate to x'y */
 	String s_STANDARD_UNITSET_HEIGHTUNIT = "ftin"; //$NON-NLS-1$
+
 	/** 1.0 */
 	BigDecimal s_STANDARD_UNITSET_HEIGHTFACTOR = BigDecimal.ONE;
+
 	/** The height display pattern */
 	DecimalFormat s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN = new DecimalFormat("#.#"); //$NON-NLS-1$
 	/**
@@ -231,7 +234,10 @@ public interface Constants
 	/** 3 */
 	int CHARACTERSTATMETHOD_ROLLED = 3;
 
-	// Character panel tab constants
+	/********************************************************************
+	 *  Character panel tab constants
+	 ********************************************************************/
+
 	/** 0 */
 	int CHARACTER_TAB_SUMMARY = 0;
 	/** 0 - do nothing*/
@@ -244,6 +250,9 @@ public interface Constants
 	// HackMaster attributes
 	/** 6 */
 	int COMELINESS = 6;
+	/** 7 */
+	int HONOR = 7;
+
 	/** 0 */
 	int DISPLAY_STYLE_NAME = 0;
 	/** 1 */
@@ -256,22 +265,29 @@ public interface Constants
 	int DISPLAY_STYLE_NAME_RACE = 2;
 	/** 3 */
 	int DISPLAY_STYLE_NAME_RACE_CLASS = 3;
-	/** 7 */
-	int HONOR = 7;
+
+	/********************************************************************
+	 * How to roll hitpoints
+	 ********************************************************************/
+
+	/** 0 */
+	int HP_STANDARD = 0;
+
 	/** 1 */
 	int HP_AUTOMAX = 1;
+
 	/** 2 */
 	int HP_AVERAGE = 2;
+
 	/** 3 */
 	int HP_PERCENTAGE = 3;
 
-	// How to roll hitpoints
-	/** 0 */
-	int HP_STANDARD = 0;
 	/** 4 */
 	int HP_USERROLLED = 4;
+
 	/** 5 */
 	int HP_AVERAGE_ROUNDED_UP = 5;
+
 	/** 9999 */
 	int INVALID_LEVEL = 9999;
 
@@ -306,6 +322,7 @@ public interface Constants
 
 	/** For accessing <code>CategorisableStore</code>. */
 	String ALL_CATEGORIES = "ALL"; //$NON-NLS-1$
+
 	// TODO: this is broken in some sad way whereby if you change the case
 	// of FEAT to Feat, the pre-req tree fails on the Feats tab.
 	/** For accessing <code>CategorisableStore</code>. */

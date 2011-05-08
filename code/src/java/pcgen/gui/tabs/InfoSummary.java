@@ -1453,12 +1453,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		if (unqualified.length() > 0)
 		{
-			if (JOptionPane
-				.showConfirmDialog(
-					null,
-					PropertyFactory.getString("in_sumExClassesWarning") + Constants.s_LINE_SEP + unqualified, //$NON-NLS-1$
-					Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION,
-					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
+			if (JOptionPane.showConfirmDialog(
+				null,
+				PropertyFactory.getString("in_sumExClassesWarning") //$NON-NLS-1$
+					+ Constants.LINE_SEPARATOR + unqualified,
+				Constants.APPLICATION_NAME,
+				JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				alignmentComboBox.setSelectedItem(oldAlign);
 				pc.setAlignment(oldAlign);

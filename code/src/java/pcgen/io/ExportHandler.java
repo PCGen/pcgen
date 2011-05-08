@@ -221,7 +221,7 @@ public final class ExportHandler
 			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
 			final StringTokenizer tokenizer =
 					new StringTokenizer(template.toString(),
-						Constants.s_LINE_SEP, false);
+						Constants.LINE_SEPARATOR, false);
 
 			final FileAccess fileAccess = new FileAccess();
 
@@ -327,7 +327,7 @@ public final class ExportHandler
 			inputLine.append(mat.replaceAll(rep));
 			//}
 
-			inputLine.append(Constants.s_LINE_SEP);
+			inputLine.append(Constants.LINE_SEPARATOR);
 			aString = br.readLine();
 		}
 		return inputLine;
@@ -3075,12 +3075,12 @@ public final class ExportHandler
 
 		if ("CRLF".equals(cStartLineString))
 		{
-			cStartLineString = Constants.s_LINE_SEP;
+			cStartLineString = Constants.LINE_SEPARATOR;
 		}
 
 		if ("CRLF".equals(cEndLineString))
 		{
-			cEndLineString = Constants.s_LINE_SEP;
+			cEndLineString = Constants.LINE_SEPARATOR;
 		}
 
 		int iStart = cMin;

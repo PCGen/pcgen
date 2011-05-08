@@ -460,9 +460,12 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 			if (selectedModel.size() < 1)
 			{
 				// show warning
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_filterErP1") + Constants.s_LINE_SEP
-					+ PropertyFactory.getString("in_filterErP2"),
-					PropertyFactory.getString("in_filterErWarn"), MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					PropertyFactory.getString("in_filterErP1")
+						+ Constants.LINE_SEPARATOR
+						+ PropertyFactory.getString("in_filterErP2"),
+					PropertyFactory.getString("in_filterErWarn"),
+					MessageType.ERROR);
 
 				return;
 			}
@@ -1939,8 +1942,9 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 			{
 				PObjectFilter filter = (PObjectFilter) standardModel.get(indices[i]);
 				StringBuffer buf = new StringBuffer();
-				buf.append(Constants.s_LINE_SEP).append("[").append(filter.getCategory()).append(PObjectFilter.SEPARATOR);
-				buf.append(filter.getName()).append("]");
+				buf.append(Constants.LINE_SEPARATOR).append("[")
+					.append(filter.getCategory()).append(PObjectFilter.SEPARATOR)
+					.append(filter.getName()).append("]");
 				editorArea.append(buf.toString());
 			}
 		}
@@ -1952,8 +1956,10 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 			{
 				PObjectFilter filter = (PObjectFilter) customModel.get(indices[i]);
 				StringBuffer buf = new StringBuffer();
-				buf.append(Constants.s_LINE_SEP).append("[").append(filter.getCategory()).append(PObjectFilter.SEPARATOR);
-				buf.append(filter.getName()).append("]");
+				buf.append(Constants.LINE_SEPARATOR)
+					.append("[").append(filter.getCategory())
+					.append(PObjectFilter.SEPARATOR)
+					.append(filter.getName()).append("]");
 				editorArea.append(buf.toString());
 			}
 		}
@@ -2523,8 +2529,9 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 					if (index > -1)
 					{
 						PObjectFilter filter = (PObjectFilter) standardModel.get(index);
-						editorArea.append(Constants.s_LINE_SEP);
-						editorArea.append("[" + filter.getCategory() + PObjectFilter.SEPARATOR + filter.getName() + "]");
+						editorArea.append(Constants.LINE_SEPARATOR);
+						editorArea.append("[" + filter.getCategory()
+							+ PObjectFilter.SEPARATOR + filter.getName() + "]");
 					}
 				}
 				else if (src.equals(customList))
@@ -2534,8 +2541,9 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 					if (index > -1)
 					{
 						PObjectFilter filter = (PObjectFilter) customModel.get(index);
-						editorArea.append(Constants.s_LINE_SEP);
-						editorArea.append("[" + filter.getCategory() + PObjectFilter.SEPARATOR + filter.getName() + "]");
+						editorArea.append(Constants.LINE_SEPARATOR);
+						editorArea.append("[" + filter.getCategory()
+							+ PObjectFilter.SEPARATOR + filter.getName() + "]");
 					}
 				}
 			}

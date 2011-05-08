@@ -43,8 +43,8 @@ final class PCGParseException extends Exception
 	 */
 	PCGParseException(String errorMethod, String errorLine, String errorMessage)
 	{
-		super("Method: " + errorMethod + Constants.s_LINE_SEP + "Line: "
-			+ errorLine + Constants.s_LINE_SEP + "Message: " + errorMessage);
+		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: "
+			+ errorLine + Constants.LINE_SEPARATOR + "Message: " + errorMessage);
 
 		this.errorMethod = errorMethod;
 		this.errorLine = errorLine;

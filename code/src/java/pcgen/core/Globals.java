@@ -1892,7 +1892,7 @@ public final class Globals
 
 			for (int i = min; i <= max; ++i)
 			{
-				rollChoices[i - min + 1] = Integer.valueOf(i);
+				rollChoices[i - min + 1] = i;
 			}
 
 			while (min <= max)
@@ -1900,14 +1900,17 @@ public final class Globals
 				//TODO: This must be refactored away. Core shouldn't know about gui.
 				final InputInterface ii = InputFactory.getInputInstance();
 				final Object selectedValue = ii.showInputDialog(Globals.getRootFrame(),
-					"Randomly generate a number between " + min + " and " + max + "." + Constants.s_LINE_SEP
-					+ "Select it from the box below.",
-					Globals.getGameModeHitPointText() + " for " + CoreUtility.ordinal(level) + " level of " + name,
-					MessageType.INFORMATION, rollChoices, Integer.valueOf(roll));
+					"Randomly generate a number between " + min + " and " + max
+						+ "." + Constants.LINE_SEPARATOR
+						+ "Select it from the box below.",
+					Globals.getGameModeHitPointText() + " for "
+						+ CoreUtility.ordinal(level) + " level of " + name,
+					MessageType.INFORMATION,
+					rollChoices, roll);
 
 				if ((selectedValue != null) && (selectedValue instanceof Integer))
 				{
-					roll = ((Integer) selectedValue).intValue();
+					roll = (Integer) selectedValue;
 
 					break;
 				}

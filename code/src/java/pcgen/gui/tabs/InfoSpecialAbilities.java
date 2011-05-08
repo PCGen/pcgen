@@ -635,7 +635,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 						Object selectedValue =
 								ii.showInputDialog(null, PropertyFactory
 									.getString("in_iaMultiChoice1")
-									+ Constants.s_LINE_SEP
+									+ Constants.LINE_SEPARATOR
 									+ PropertyFactory
 										.getString("in_iaMultiChoice2"),
 									Constants.APPLICATION_NAME,

@@ -397,7 +397,7 @@ final class FilterParser
 	private static String normalize(String s)
 	{
 		StringBuffer buffer = new StringBuffer();
-		String tokenizeOnThis = "\t" + Constants.s_LINE_SEP + "\f";
+		String tokenizeOnThis = "\t" + Constants.LINE_SEPARATOR + "\f";
 		StringTokenizer tokens = new StringTokenizer(s, tokenizeOnThis);
 
 		while (tokens.hasMoreTokens())

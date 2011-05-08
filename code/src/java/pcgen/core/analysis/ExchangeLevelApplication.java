@@ -109,7 +109,7 @@ public class ExchangeLevelApplication
 			catch (NumberFormatException exc)
 			{
 				ShowMessageDelegate.showMessageDialog("levelExchange:"
-					+ Constants.s_LINE_SEP + exc.getMessage(),
+					+ Constants.LINE_SEPARATOR + exc.getMessage(),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 	}

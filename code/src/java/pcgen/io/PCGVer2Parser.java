@@ -3584,7 +3584,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Skill line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -3781,7 +3781,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Spell book ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -3852,7 +3852,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Spell line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -4346,7 +4346,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final String message =
 						"Illegal Template line ignored: " + line
-							+ Constants.s_LINE_SEP + "Error: "
+							+ Constants.LINE_SEPARATOR + "Error: "
 							+ pcgpex.getMessage();
 				warnings.add(message);
 
@@ -4487,7 +4487,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal VFeat line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -4591,7 +4591,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Weapon proficiencies line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -4775,7 +4775,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			final String message =
 					"No longer proficient with following weapon(s):"
-						+ Constants.s_LINE_SEP + s;
+						+ Constants.LINE_SEPARATOR + s;
 			warnings.add(message);
 		}
 	}
@@ -4802,7 +4802,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			 */
 			final String message =
 					"Illegal Calc EquipSet line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -4841,7 +4841,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Equipment line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -5033,7 +5033,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal EquipSet line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 
@@ -5193,7 +5193,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal TempBonus line ignored: " + line
-						+ Constants.s_LINE_SEP + "Error: "
+						+ Constants.LINE_SEPARATOR + "Error: "
 						+ pcgpex.getMessage();
 			warnings.add(message);
 

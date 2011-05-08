@@ -202,8 +202,8 @@ public class JTableEx extends JTable
 			{
 				Logging.errorPrint("Exception JTableEx.setOptimalColumnWidths:"
 					+ i + ":" + columns.length + ":" + columncount
-					+ Constants.s_LINE_SEP + "Exception type:"
-					+ e.getClass().getName() + Constants.s_LINE_SEP
+					+ Constants.LINE_SEPARATOR + "Exception type:"
+					+ e.getClass().getName() + Constants.LINE_SEPARATOR
 					+ "Message:" + e.getMessage());
 			}
 		}

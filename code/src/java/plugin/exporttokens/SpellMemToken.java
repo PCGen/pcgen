@@ -607,7 +607,7 @@ public class SpellMemToken extends Token
 
 			String aDescription = sAlt;
 			final String aSearch =
-					sType.toUpperCase() + ":" + sKey + Constants.s_LINE_SEP;
+					sType.toUpperCase() + ":" + sKey + Constants.LINE_SEPARATOR;
 			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
 
 			if (pos >= 0)

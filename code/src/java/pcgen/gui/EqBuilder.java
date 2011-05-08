@@ -1684,11 +1684,11 @@ final class EqBuilder extends JPanel
 		// Show base item name
 		//
 		StringBuffer aInfo = new StringBuffer(140);
-		aInfo.append("Base Item: ").append(baseEquipment.getName()).append(Constants.s_LINE_SEP);
+		aInfo.append("Base Item: ").append(baseEquipment.getName()).append(Constants.LINE_SEPARATOR);
 
 		if (customName.length() != 0)
 		{
-			aInfo.append("Name: ").append(customName).append(Constants.s_LINE_SEP);
+			aInfo.append("Name: ").append(customName).append(Constants.LINE_SEPARATOR);
 		}
 
 		String sprop = "";
@@ -1793,7 +1793,7 @@ final class EqBuilder extends JPanel
 
 				aInfo.append("New Item: ");
 				aInfo.append(aNewEq.nameItemFromModifiers(aPlayerCharacter));
-				aInfo.append(Constants.s_LINE_SEP);
+				aInfo.append(Constants.LINE_SEPARATOR);
 
 				aInfo.append("Cost: ");
 				aInfo.append(aNewEq.getCost(aPlayerCharacter).toString());
@@ -1901,7 +1901,7 @@ final class EqBuilder extends JPanel
 
 				if (sprop.length() != 0)
 				{
-					aInfo.append(Constants.s_LINE_SEP).append("SPROP: ").append(sprop);
+					aInfo.append(Constants.LINE_SEPARATOR).append("SPROP: ").append(sprop);
 				}
 			}
 
@@ -1910,7 +1910,7 @@ final class EqBuilder extends JPanel
 		catch (Exception e)
 		{
 			errorDialog("ERROR: Exception type:" + e.getClass().getName() +
-							Constants.s_LINE_SEP + "Message:" + e.getMessage());
+							Constants.LINE_SEPARATOR + "Message:" + e.getMessage());
 			Logging.errorPrint(aInfo.toString(), e);
 		}
 	}

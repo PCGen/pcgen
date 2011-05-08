@@ -113,7 +113,7 @@ public final class FOPHandler implements Runnable
 		}
 		catch (FileNotFoundException e)
 		{
-			errBuffer.append(e.getMessage()).append(Constants.s_LINE_SEP);
+			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
 	}
@@ -156,17 +156,17 @@ public final class FOPHandler implements Runnable
 		}
 		catch (FileNotFoundException e)
 		{
-			errBuffer.append(e.getMessage()).append(Constants.s_LINE_SEP);
+			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
 		catch (NullPointerException e)
 		{
-			errBuffer.append(e.getMessage()).append(Constants.s_LINE_SEP);
+			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
 		catch (FOPException e)
 		{
-			errBuffer.append(e.getMessage()).append(Constants.s_LINE_SEP);
+			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
 	}
@@ -208,7 +208,7 @@ public final class FOPHandler implements Runnable
 		if (inputHandler == null)
 		{
 			errBuffer.append("Export request failed. Please see console for details.").append(
-				Constants.s_LINE_SEP);
+				Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Error in FOPHandler:run - previous errors stopped intermediate file " +
 					"from being produced. Could not produce output.");
 			return;
@@ -244,13 +244,13 @@ public final class FOPHandler implements Runnable
 			catch (FOPException fopex)
 			{
 				errBuffer.append(fopex.getMessage()).append(
-					Constants.s_LINE_SEP);
+					Constants.LINE_SEPARATOR);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
 			}
 			catch (FileNotFoundException fnfex)
 			{
 				errBuffer.append(fnfex.getMessage()).append(
-					Constants.s_LINE_SEP);
+					Constants.LINE_SEPARATOR);
 				Logging
 					.errorPrint("Exception in FOPHandler:run, cannot find file: "
 						+ fnfex.getMessage());
@@ -266,7 +266,7 @@ public final class FOPHandler implements Runnable
 					catch (IOException ioex)
 					{
 						errBuffer.append(ioex.getMessage()).append(
-							Constants.s_LINE_SEP);
+							Constants.LINE_SEPARATOR);
 						Logging.errorPrint("Exception in FOPHandler:run", ioex);
 					}
 				}
@@ -285,7 +285,7 @@ public final class FOPHandler implements Runnable
 			catch (FOPException fopex)
 			{
 				errBuffer.append(fopex.getMessage()).append(
-					Constants.s_LINE_SEP);
+					Constants.LINE_SEPARATOR);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
 			}
 		}

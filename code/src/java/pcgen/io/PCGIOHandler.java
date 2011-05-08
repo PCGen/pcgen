@@ -256,7 +256,7 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (PCGParseException pcgex)
 			{
-				errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: "
+				errors.add(pcgex.getMessage() + Constants.LINE_SEPARATOR + "Method: "
 					+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
 			}
 
@@ -274,7 +274,7 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (NumberFormatException ex)
 			{
-				errors.add(ex.getMessage() + Constants.s_LINE_SEP
+				errors.add(ex.getMessage() + Constants.LINE_SEPARATOR
 					+ "Method: sanityChecks");
 			}
 
