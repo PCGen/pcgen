@@ -352,6 +352,7 @@
 						<xsl:apply-templates select="weight_allowance"/>
 						<xsl:call-template name="money"/>
 						<xsl:apply-templates select="misc/magics"/>
+						<xsl:apply-templates select="languages"/>
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="archetypes"/>	
 						<xsl:apply-templates select="animal_tricks"/>	
@@ -397,7 +398,6 @@
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
-						<xsl:apply-templates select="languages"/>
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
@@ -4757,6 +4757,15 @@
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
+
+
+
+
+
+
+
+
+<!-- Disable Previous Equipment Block> -->
 	<!--
 ====================================
 ====================================
@@ -5148,6 +5157,16 @@
 			</fo:table>
 		</xsl:if>
 	</xsl:template>
+
+<!-- Diable Previous Equipment Stuff -->
+
+	
+	
+	
+	
+	
+	
+	
 	<!--
 ====================================
 ====================================
@@ -5957,7 +5976,10 @@
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<fo:table-body>
 				<xsl:apply-templates select="." mode="spell.level.count"/>
-				<xsl:apply-templates select="." mode="spell.level.known"/>
+				<xsl:if test="@memorize='false'">
+					<xsl:apply-templates select="." mode="spell.level.known"/>
+				</xsl:if>
+<!-->				<xsl:apply-templates select="." mode="spell.level.known"/>-->
 				<xsl:apply-templates select="." mode="spell.level.cast"/>
 			</fo:table-body>
 		</fo:table>
@@ -5975,7 +5997,7 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
 				</xsl:call-template>
-				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt">LEVEL</fo:block>
+				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt"> LEVEL</fo:block>
 			</fo:table-cell>
 			<xsl:for-each select="level">
 				<fo:table-cell>
@@ -6003,7 +6025,7 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
 				</xsl:call-template>
-				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt">KNOWN</fo:block>
+				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt"> KNOWN</fo:block>
 			</fo:table-cell>
 			<xsl:for-each select="level">
 				<fo:table-cell>
@@ -6031,7 +6053,7 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
 				</xsl:call-template>
-				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt">PER DAY</fo:block>
+				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt">PER DAY</fo:block>
 			</fo:table-cell>
 			<xsl:for-each select="level">
 				<fo:table-cell>
@@ -6052,6 +6074,7 @@
 	TEMPLATE - KNOWN SPELL LEVEL
 ====================================
 ====================================-->
+
 	<xsl:template match="level" mode="known.spells">
 		<xsl:param name="columnOne" select="'Boxes'"/>
 		<xsl:param name="columnOneTitle" select="''"/>
@@ -6076,7 +6099,10 @@
 			<fo:table-row height="1mm"/>
 		</xsl:if>
 	</xsl:template>
-	<!--
+
+
+
+	<!-- This is the INFORMATION right above the Spells Output
 ====================================
 ====================================
 	TEMPLATE - KNOWN SPELL HEADER ROW
@@ -6091,23 +6117,23 @@
 			<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth - 153" />mm</xsl:attribute>
 		</fo:table-column>
 		<!-- name ^ -->
-		<fo:table-column column-width="38mm"/>
-		<!-- SR, DC, Save = 18+15+9  42-->
+		<fo:table-column column-width="38mm"/> <!-- Name -->
+		<!-- SR, DC, Save = 18+15+9  42--> <!-- SR/DC/Save -->
 <!-->		<fo:table-column column-width="9mm"/>	-->
 		<!-- saving throw -->
-		<fo:table-column column-width="18mm"/>	
+		<fo:table-column column-width="18mm"/>	<!-- SR/DC/Save -->
 		<!-- time -->
-		<fo:table-column column-width="34mm"/>
+		<fo:table-column column-width="34mm"/>	<!-- Time -->
 		<!-- duration -->
-		<fo:table-column column-width="18mm"/>
+		<fo:table-column column-width="18mm"/>	<!-- Duration -->
 		<!-- range -->
-		<fo:table-column column-width="18mm"/>
+		<fo:table-column column-width="18mm"/>	<!-- Range -->
 		<!-- comp -->
-		<fo:table-column column-width="13mm"/>
+		<fo:table-column column-width="13mm"/>	<!-- Comps -->
 		<!-- SR 
 		<fo:table-column column-width="15mm"/>	-->
 		<!-- school -->
-		<fo:table-column column-width="6mm"/>
+		<fo:table-column column-width="6mm"/>	<!-- Source -->
 		<!-- source -->
 		<fo:table-header>
 			<fo:table-row>
@@ -6159,7 +6185,7 @@
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Name</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">DC, Save / Spell Resistance</fo:block>
+				<fo:block text-align="start" font-size="5pt" font-weight="bold">Save Information</fo:block>
 			</fo:table-cell>
 <!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Saving Throw</fo:block>
@@ -6253,11 +6279,12 @@
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">
-					<fo:inline font-weight="bold">DC: </fo:inline> <xsl:value-of select="dc"/> 
-					<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
-					<fo:inline font-weight="bold">; SR: </fo:inline> <xsl:value-of select="spell_resistance"/>
-				</fo:block>
+					<fo:block text-align="start" font-size="5pt" font-weight="bold">
+						<xsl:if test="dc &gt; 0">
+						<fo:inline font-weight="bold">DC: </fo:inline> <xsl:value-of select="dc"/> 
+						<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
+						</xsl:if>
+					</fo:block>
 			</fo:table-cell>
 <!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
@@ -6301,6 +6328,7 @@
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
+<!-- Second Row -->
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 <!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
@@ -6313,13 +6341,18 @@
 					</fo:block>
 				</fo:block>
 			</fo:table-cell>	-->
-			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">School: </fo:inline>
 					<xsl:value-of select="school/fullschool"/>
 				</fo:block>
 			</fo:table-cell>
-			
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+				<fo:block text-align="start" font-size="5pt">
+					<fo:inline font-style="italic">SR: </fo:inline>
+					<xsl:value-of select="spell_resistance"/>
+				</fo:block>
+			</fo:table-cell>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Target: </fo:inline>
@@ -6332,14 +6365,17 @@
 					<xsl:value-of select="casterlevel"/>
 				</fo:block>
 			</fo:table-cell>
-			<!-- Placeholder for future concentration for spells>
+			<!-- Placeholder for future concentration for spells -->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Concentration: </fo:inline>
-					<xsl:value-of select="SPELLLISTCLASS.0.CONCENTRATION"/>
+					<xsl:if test="SPELLLISTCLASS.0.CONCENTRATION &gt; 0">
+						<fo:inline font-style="italic">Concentration: </fo:inline>
+						<xsl:value-of select="SPELLLISTCLASS.0.CONCENTRATION"/>
+					</xsl:if>
 				</fo:block>
 			</fo:table-cell>	-->
 		</fo:table-row>
+<!-- Third Row = For Spell Descriptions -->
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
