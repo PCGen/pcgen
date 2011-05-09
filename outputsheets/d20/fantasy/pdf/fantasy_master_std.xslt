@@ -3893,6 +3893,15 @@
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Magnitude'"/>
 									<xsl:with-param name="info" select="damage" />
+										<xsl:choose>
+											<xsl:when test="contains(type, 'MagnitudeTimes')">
+											<xsl:text>x</xsl:text>
+											</xsl:when>
+											<xsl:otherwise>
+											<xsl:text>+</xsl:text>
+											</xsl:otherwise>
+										</xsl:choose>
+									<xsl:with-param name="info" select="damage_bonus" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Range'"/>

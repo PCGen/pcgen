@@ -1160,7 +1160,8 @@ Immune
 		<level>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingLevel.INTVAL|</level>
 		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
 		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
-		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitude| + |ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeBonus|</damage>
+		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitude|</damage>
+		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
 		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
 		<range>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingRange.INTVAL|</range>
 		<notes>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingNotes|</notes>
