@@ -299,7 +299,59 @@
 			SKILLS
 	  ====================================
 	  ====================================-->
+<skillinfo>
+			<conditional_modifiers>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+
+|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus.VISIBLE]-1,1,0|
+|IIF(FEAT.%feat.VISIBLE.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|FEAT.%feat.VISIBLE.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+			</conditional_modifiers>
+</skillinfo>
 	<skills>
+			<conditional_modifiers>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+
+|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus.VISIBLE]-1,1,0|
+|IIF(FEAT.%feat.VISIBLE.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+				<skillbonus>
+					<description>|FEAT.%feat.VISIBLE.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+				</skillbonus>
+|ENDIF|
+|ENDFOR|
+			</conditional_modifiers>
 		<skillpoints>
 			<total>|SKILLPOINTS.TOTAL|</total>
 			<used>|SKILLPOINTS.USED|</used>
@@ -326,6 +378,9 @@
 			<trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
 			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
 			<type>|SKILL.%skill.TYPE|</type>
+
+
+
 		</skill>
 |ENDFOR|	
 

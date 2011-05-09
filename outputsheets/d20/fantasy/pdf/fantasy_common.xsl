@@ -755,6 +755,7 @@
 		</fo:block-->
 		<fo:block space-before.optimum="1pt" font-size="5pt">
 			<xsl:value-of select="special_properties"/>
+			<xsl:value-of select="quality"/>
 		</fo:block>
 		<fo:block space-before.optimum="1pt" font-size="5pt">
 			<xsl:value-of select="note"/>

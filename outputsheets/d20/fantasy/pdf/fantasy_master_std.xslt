@@ -283,7 +283,7 @@
 									<fo:table-cell>
 										<xsl:apply-templates select="initiative"/>
 										<xsl:apply-templates select="basics/bab" mode="bab"/>
-                                        <xsl:call-template name="encumberance"/>
+									<xsl:call-template name="encumberance"/>
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
 										<xsl:apply-templates select="skills">
@@ -291,6 +291,7 @@
 											<xsl:with-param name="last_skill" select="$first_page_skills_count"/>
 											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
 										</xsl:apply-templates>
+										<xsl:apply-templates select="skillinfo"/>
 										<xsl:apply-templates select="class_features/bardic_music"/>
 										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
 											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
@@ -1923,33 +1924,31 @@
 					<fo:table-row height="2pt"/>
 					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell />
-						<fo:table-cell number-columns-spanned="6">
-							<fo:block text-align="end" line-height="10pt" font-weight="bold" font-size="10pt">SKILLS</fo:block>
-						</fo:table-cell>
-						<fo:table-cell number-columns-spanned="8">
-							<fo:block text-align="end" space-before.optimum="4pt" line-height="4pt" font-size="4pt">
-								MAX RANKS
+						<fo:table-cell></fo:table-cell>
+						<fo:table-cell number-columns-spanned="2" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt">
+							<fo:block text-align="left" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
+								<xsl:text>TOTAL SKILLPOINTS: </xsl:text>
+								<xsl:value-of select="skillpoints/total"/>
+								<xsl:if test="skillpoints/unused &gt; 0">
+									<xsl:text> (UNUSED: </xsl:text>
+									<xsl:value-of select="skillpoints/unused"/>
+									<xsl:text>)</xsl:text>
+								</xsl:if>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell number-columns-spanned="2">
-							<fo:table table-layout="fixed" space-before.optimum="0.2mm">
-								<fo:table-column column-width="7.625mm"/>
-								<fo:table-body>
-									<fo:table-row>
-										<fo:table-cell>
-											<fo:block space-before.optimum="1pt" line-height="8pt" font-size="6pt">
-												<xsl:value-of select="max_class_skill_level"/>/<xsl:value-of select="max_cross_class_skill_level"/>
-											</fo:block>
-										</fo:table-cell>
-									</fo:table-row>
-								</fo:table-body>
-							</fo:table>
+						<fo:table-cell number-columns-spanned="4">
+							<fo:block text-align="end" line-height="10pt" font-weight="bold" font-size="10pt">SKILLS</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-columns-spanned="10">
+								<fo:block text-align="end" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
+									<xsl:text>MAX RANKS: </xsl:text>
+									<xsl:value-of select="max_class_skill_level"/>/<xsl:value-of select="max_cross_class_skill_level"/>
+								</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell />
+						<fo:table-cell></fo:table-cell>
 						<fo:table-cell number-columns-spanned="2">
 							<fo:block font-weight="bold" font-size="8pt">
 								SKILL NAME
@@ -2012,28 +2011,39 @@
 									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>
-                                    <xsl:choose>
-                                        <xsl:when test="string-length(name) &lt; 35">
-									<fo:block space-before.optimum="1pt" font-size="8pt">
-										<xsl:value-of select="name"/>
-									</fo:block>
-                                        </xsl:when>
-                                        <xsl:when test="string-length(name) &lt; 40">
-                                            <fo:block space-before.optimum="1pt" font-size="7pt">
-                                                <xsl:value-of select="name"/>
-                                            </fo:block>
-                                        </xsl:when>
-                                        <xsl:when test="string-length(name) &lt; 45">
-                                            <fo:block space-before.optimum="1pt" font-size="6pt">
-                                                <xsl:value-of select="name"/>
-                                            </fo:block>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <fo:block space-before.optimum="1pt" font-size="4pt">
-                                                <xsl:value-of select="name"/>
-                                            </fo:block>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+									<xsl:choose>
+									<!-->	<xsl:when test="string-length(name) &lt; 40">-->
+										<xsl:when test="not(contains(type, 'SkillUse')) and string-length(name) &lt; 40">
+											<fo:block space-before.optimum="1pt" font-size="7pt">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:when>
+										<xsl:when test="contains(type, 'SkillUse') and string-length(name) &lt; 40">
+											<fo:block space-before.optimum="1pt" font-size="7pt" font-style="italic">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:when>
+										<xsl:when test="not(contains(type, 'SkillUse')) and string-length(name) &lt; 45">
+											<fo:block space-before.optimum="1pt" font-size="6pt">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:when>
+										<xsl:when test="contains(type, 'SkillUse') and string-length(name) &lt; 45">
+											<fo:block space-before.optimum="1pt" font-size="6pt" font-style="italic">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:when>
+										<xsl:when test="contains(type, 'SkillUse') and string-length(name) &gt; 44">
+											<fo:block space-before.optimum="1pt" font-size="4pt" font-style="italic">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:when>
+										<xsl:otherwise>
+											<fo:block space-before.optimum="1pt" font-size="4pt">
+												<xsl:value-of select="name"/>
+											</fo:block>
+										</xsl:otherwise>
+									</xsl:choose>
 								</fo:table-cell>
 								<fo:table-cell number-columns-spanned="2"/>
 								<fo:table-cell>
@@ -2064,17 +2074,34 @@
 									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell number-columns-spanned="2">
-									<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">+</fo:block>
+									<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">
+										<xsl:if test="ranks &gt; 0">+</xsl:if>
+									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>
 									<fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">
-										<xsl:if test="ranks>0">
-											<xsl:value-of select="ranks"/>
+										<xsl:if test="ranks &gt; 0">
+											<xsl:if test="contains(type, 'SkillUse')">[</xsl:if>
+											<xsl:choose>
+												<xsl:when test="round(ranks) = ranks">
+													<xsl:value-of select="round(ranks)"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="ranks"/>
+												</xsl:otherwise>
+											</xsl:choose>
+											<xsl:if test="contains(type, 'SkillUse')">]</xsl:if>
 										</xsl:if>
+										
+<!-->										<xsl:if test="ranks>0">
+											<xsl:value-of select="ranks"/>
+											</xsl:if>-->
 									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell number-columns-spanned="2">
-									<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">+</fo:block>
+									<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">
+										<xsl:if test="misc_mod!=0">+</xsl:if>
+									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>
 									<fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">
@@ -2098,11 +2125,51 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
+<!-- This is going to be the new Skill Info Section	-->
+				<fo:table-body border-collapse="collapse" padding="0.5pt">
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
+					<fo:table-row>
+						<fo:table-cell number-columns-spanned="17" padding-top="1pt">
+							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Modifiers:</fo:block>
+								<xsl:for-each select="conditional_modifiers/skillbonus">
+									<fo:block font-size="8pt" space-before.optimum="2pt"><xsl:value-of select="description"/></fo:block>
+								</xsl:for-each>
+						</fo:table-cell>
+					</fo:table-row>
+				</fo:table-body>
+<!-- End New Skill Info Section-->
 			</fo:table>
 		</xsl:if>
+		<!-- END Skills table-->
+	</xsl:template>
+
+<!-- This is a Separate Skill Info
+====================================
+====================================
+	TEMPLATE - Skills Info TABLE
+====================================
+====================================-->
+	<xsl:template match="skillinfo">
+		<!-- BEGIN Skills table -->
+		<fo:table table-layout="fixed" space-before="2mm" padding="0.5pt">
+			<fo:table-column column-width="86mm"/>
+			<fo:table-column column-width="10mm"/>
+			<fo:table-column column-width="30mm"/>
+				<fo:table-body>
+					<fo:table-row>
+						<fo:table-cell padding-top="1pt" border-width="0.5pt" border-style="solid">
+							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Modifiers:</fo:block>
+								<xsl:for-each select="conditional_modifiers/skillbonus">
+									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
+								</xsl:for-each>
+						</fo:table-cell>
+					</fo:table-row>
+				</fo:table-body>
+		</fo:table>
 		<!-- END Skills table -->
 	</xsl:template>
-	<!--
+
+<!--
 ====================================
 ====================================
 	TEMPLATE - SAVES TABLE
@@ -4864,6 +4931,7 @@
 								</fo:block>
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
+									<xsl:value-of select="quality"/>
 								</fo:block>
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="note"/>
@@ -5981,6 +6049,9 @@
 				</xsl:if>
 <!-->				<xsl:apply-templates select="." mode="spell.level.known"/>-->
 				<xsl:apply-templates select="." mode="spell.level.cast"/>
+				<xsl:if test="@concentration='true'">
+					<xsl:apply-templates select="." mode="spell.concentration"/>
+				</xsl:if>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
@@ -5995,7 +6066,7 @@
 			<fo:table-cell/>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
-					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
+					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
 				</xsl:call-template>
 				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt"> LEVEL</fo:block>
 			</fo:table-cell>
@@ -6023,7 +6094,7 @@
 			<fo:table-cell/>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
-					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
+					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
 				</xsl:call-template>
 				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt"> KNOWN</fo:block>
 			</fo:table-cell>
@@ -6033,7 +6104,14 @@
 						<xsl:with-param name="attribute" select="'spelllist.known.known'"/>
 					</xsl:call-template>
 					<fo:block font-size="6pt" space-before="2pt" space-after="1pt">
-						<xsl:value-of select="@known"/>
+						<xsl:choose>
+							<xsl:when test="@known &gt; 0">
+								<xsl:value-of select="@known"/>
+							</xsl:when>
+							<xsl:otherwise>
+								&#x2014;
+							</xsl:otherwise>
+						</xsl:choose>
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
@@ -6051,7 +6129,7 @@
 			<fo:table-cell/>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
-					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
+					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
 				</xsl:call-template>
 				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="3pt" space-after="1pt">PER DAY</fo:block>
 			</fo:table-cell>
@@ -6061,13 +6139,55 @@
 						<xsl:with-param name="attribute" select="'spelllist.known.perday'"/>
 					</xsl:call-template>
 					<fo:block font-size="6pt" space-before="2pt" space-after="1pt">
-						<xsl:value-of select="@cast"/>
+						<xsl:choose>
+							<xsl:when test="@cast != 0">
+								<xsl:value-of select="@cast"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:choose>
+									<xsl:when test="@known != 0">
+										at will
+									</xsl:when>
+									<xsl:otherwise>
+										&#x2014;
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:otherwise>
+						</xsl:choose>
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
 			<fo:table-cell/>
 		</fo:table-row>
 	</xsl:template>
+
+	
+	<!-- New Section for Concentration
+====================================
+====================================
+	TEMPLATE - SPELL CONCENTRATION
+====================================
+====================================-->
+	<xsl:template match="class" mode="spell.concentration">
+		<fo:table-row keep-with-next.within-column="always">
+			<fo:table-cell/>
+			<fo:table-cell>	
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
+				</xsl:call-template>
+		<!-->	xsl:use-attribute-sets="spelllist.known.header">-->
+				<fo:block font-size="6pt" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt">Concentration</fo:block>
+			</fo:table-cell>
+			<fo:table-cell>
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
+				</xsl:call-template>
+		<!--	 xsl:use-attribute-sets="spelllist.known.header centre">	-->
+				<fo:block space-before="2pt" space-after="1pt" font-size="6pt"><xsl:value-of select="@concentration"/></fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+
 	<!--
 ====================================
 ====================================
