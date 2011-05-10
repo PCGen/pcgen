@@ -321,9 +321,9 @@ Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous			COST:20000	WT:0						
 Stone Horse (Courser)									TYPE:Magic.Wondrous			COST:10000	WT:6000									SOURCEPAGE:MagicItemsV.rtf
 Stone Horse (Destrier)									TYPE:Magic.Wondrous			COST:14800	WT:6000									SOURCEPAGE:MagicItemsV.rtf
 Stone Salve											TYPE:Magic.Wondrous.Vial.Consumable	COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous.Amulet		COST:9600	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Strand of Prayer Beads									TYPE:Magic.Wondrous.Amulet		COST:25800	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous.Amulet		COST:95800	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous			COST:9600	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Strand of Prayer Beads									TYPE:Magic.Wondrous			COST:25800	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous			COST:95800	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Sustaining Spoon										TYPE:Magic.Wondrous			COST:5400	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Tome of Clear Thought +1								TYPE:Magic.Wondrous.Book.Consumable	COST:27500	WT:5										SOURCEPAGE:MagicItemsV.rtf
 Tome of Clear Thought +2								TYPE:Magic.Wondrous.Book.Consumable	COST:55000	WT:5										SOURCEPAGE:MagicItemsV.rtf
