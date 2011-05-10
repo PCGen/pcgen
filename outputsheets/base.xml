@@ -52,6 +52,14 @@
 			<long>|ALIGNMENT|</long>
 			<short>|ALIGNMENT.SHORT|</short>
 		</alignment>
+		<archetypes>
+|FOR,%trait,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+			<archetype>
+				<name>|ABILITY.Archetype.VISIBLE.%trait.TYPE=Archetype|</name>
+				<type>|ABILITY.Archetype.VISIBLE.%trait.TYPE=Archetype.TYPE|</type>
+			</archetype>
+|ENDFOR|
+		</archetypes>
 		<bab>|ATTACK.MELEE.BASE|</bab>
 		<bio>|BIO|</bio>
 		<birthday>|BIRTHDAY|</birthday>

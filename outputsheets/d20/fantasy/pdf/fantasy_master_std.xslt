@@ -2126,6 +2126,7 @@
 					</fo:table-row>
 				</fo:table-body>
 <!-- This is going to be the new Skill Info Section	-->
+			<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
 				<fo:table-body border-collapse="collapse" padding="0.5pt">
 					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 					<fo:table-row>
@@ -2137,6 +2138,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
+			</xsl:if>
 <!-- End New Skill Info Section-->
 			</fo:table>
 		</xsl:if>
@@ -2151,6 +2153,8 @@
 ====================================-->
 	<xsl:template match="skillinfo">
 		<!-- BEGIN Skills table -->
+		<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
+
 		<fo:table table-layout="fixed" space-before="2mm" padding="0.5pt">
 			<fo:table-column column-width="86mm"/>
 			<fo:table-column column-width="10mm"/>
@@ -2166,6 +2170,7 @@
 					</fo:table-row>
 				</fo:table-body>
 		</fo:table>
+		</xsl:if>
 		<!-- END Skills table -->
 	</xsl:template>
 
@@ -6408,12 +6413,21 @@
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
-					<fo:block text-align="start" font-size="5pt" font-weight="bold">
-						<xsl:if test="dc &gt; 0">
-						<fo:inline font-weight="bold">DC: </fo:inline> <xsl:value-of select="dc"/> 
-						<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
-						</xsl:if>
-					</fo:block>
+				<xsl:choose>
+					<xsl:when test="dc &gt; 0">
+						<fo:block text-align="start" font-size="5pt" font-weight="bold">
+<!-->						<xsl:if test="dc &gt; 0">-->
+							<fo:inline font-weight="bold">DC: </fo:inline> <xsl:value-of select="dc"/> 
+							<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
+<!-->						</xsl:if>-->
+						</fo:block>
+					</xsl:when>
+					<xsl:otherwise>
+						<fo:block text-align="start" font-size="5pt" font-weight="bold">
+							<fo:inline font-weight="bold">DC: N/A</fo:inline>
+						</fo:block>
+					</xsl:otherwise>
+				</xsl:choose>
 			</fo:table-cell>
 <!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
