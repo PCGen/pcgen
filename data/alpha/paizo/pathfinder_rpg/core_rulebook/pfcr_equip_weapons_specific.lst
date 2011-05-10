@@ -45,7 +45,7 @@ Trident of Warning											PROFICIENCY:WEAPON|Trident			TYPE:Weapon.Melee.Rang
 
 ###Block: Ranged Weapons
 # Equipment Name	Required Weapon Proficiency	Type													Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Range		Size		Source Page		Special Property
-Oathbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Longbow	CONTAINS:UNLIM|Arrow=1	COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.MWORKW.BOWSTR|2.MAGIC_COST|25000	RANGE:110	SIZE:M	SOURCEPAGE:p.474	SPROP:+5 against a sworn enemy and deals 2d6 add damage, critical X4
+Oathbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Longbow	CONTAINS:UNLIM|Arrow=1	COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.PLUS2W.BOWSTR|2.MAGIC_COST|25000	RANGE:110	SIZE:M	SOURCEPAGE:p.474	SPROP:+5 against a sworn enemy and deals 2d6 add damage, critical X4
 
 ###Block: Ammunition
 # Equipment Name		Output Name					Type							Cost		Weight	Base Quantity	Modifier					Requires Modification?	Source Page		Weapon prop. bonus		Special Property
