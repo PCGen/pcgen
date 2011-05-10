@@ -325,8 +325,9 @@ Pearl of Power (7th Level)		TYPE:Magic.Wondrous						COST:49000	WT:.02	EQMOD:USE
 Pearl of Power (8th Level)		TYPE:Magic.Wondrous						COST:64000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
 Pearl of Power (9th Level)		TYPE:Magic.Wondrous						COST:81000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
 Pearl of Power (2 spells)		TYPE:Magic.Wondrous						COST:70000	WT:.02	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.525																	SPROP:Spells of 6th level or lower
-Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:.02							SOURCEPAGE:p.525																	SPROP:Breathe in water, swim speed is 60ft, cast spells and act underwater without hindrance.
+Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:.02							SOURCEPAGE:p.525																	SPROP:Breathe in water, swim speed is 60ft, cast spells and act underwater without hindrance.	ABILITY:Internal|AUTOMATIC|Siren Move
 # removed MOVE:Swim,60 from Pearl of the Sirines, MOVE not so global, we'll need another way to do this, perhaps SPROP? -Eddy
+# - Fixed via ABILITY outside as MOVE will work in ABILITY objects. -AM
 Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to Disease, including supernatural deseases
 Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to poison
 Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:.02							SOURCEPAGE:p.525																	SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing

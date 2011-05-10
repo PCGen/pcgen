@@ -138,6 +138,9 @@ EQMOD ~ PurposePower_CastSixAtWill																				CATEGORY:Intelligent Item	
 EQMOD ~ PurposePower_CastSevenAtWill																			CATEGORY:Intelligent Item																																																																																																																																																			BONUS:ABILITYPOOL|Intelligent Item Purpose Power|1
 
 
+# Other Objects granting abilities:
+Siren Move	CATEGORY:Internal	MOVE:Swim,60
+
 #
 # EOF
 #
