@@ -378,9 +378,9 @@ Sovereign Glue (Flask)			OUTPUTNAME:[NAME] of Sovereign Glue	TYPE:Magic.Wondrous
 Stone of Alarm										TYPE:Magic.Wondrous								COST:2700	WT:2										SOURCEPAGE:p.530
 Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous								COST:20000	WT:.02									SOURCEPAGE:p.530			BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck											SPROP:+1 Luck bonus to ability checks
 Stone Salve (Ounce)									TYPE:Magic.Wondrous.Consumable						COST:4000	WT:.02									SOURCEPAGE:p.530
-Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous								COST:9600	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead of blessing and a bead of healing
-Strand of Prayer Beads									TYPE:Magic.Wondrous.Amulet							COST:45800	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead healing, a bead of karma and a bead of smiting
-Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous.Amulet							COST:95800	WT:0.5									SOURCEPAGE:p.530																																						SPROP:Includes a bead of healing, a bead of karma, a bead of summons and a bead of wind walking
+Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous								COST:9600	WT:0.5									SOURCEPAGE:p.530	SPROP:Includes a bead of blessing and a bead of healing
+Strand of Prayer Beads									TYPE:Magic.Wondrous								COST:45800	WT:0.5									SOURCEPAGE:p.530	SPROP:Includes a bead healing, a bead of karma and a bead of smiting
+Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous								COST:95800	WT:0.5									SOURCEPAGE:p.530	SPROP:Includes a bead of healing, a bead of karma, a bead of summons and a bead of wind walking
 Sustaining Spoon										TYPE:Magic.Wondrous								COST:5400	WT:.02									SOURCEPAGE:p.531																																						SPROP:Feeds up to 4 humans / day.
 
 ###Block:T
