@@ -85,7 +85,7 @@ ABILITYCATEGORY:Druid Wolf Shaman Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 
 # General Feats Extras
 ABILITYCATEGORY:Aspect of the Beast Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aspectofthebeast														PLURAL:Aspect of the Beast Selections	DISPLAYLOCATION:Feats
-
+ABILITYCATEGORY:Expanded Arcana Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedArcana														PLURAL:Expanded Arcana Selections		DISPLAYLOCATION:Feats
 
 # Racial Abilities
 ABILITYCATEGORY:Gnome Racial Knowledge		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Gnome Knowledge Selection					PLURAL:Gnome Knowledge Selections		DISPLAYLOCATION:Racial Abilities
