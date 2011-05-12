@@ -1016,6 +1016,8 @@
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.13 * (0.29 * $pagePrintableWidth - 9)" />mm</xsl:attribute>
 			</fo:table-column>
+	<xsl:choose>
+		<xsl:when test="/character/house_var/oldstyleabilitystatblockdisplay &gt; 0">
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell>
@@ -1100,23 +1102,138 @@
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.temp.score'"/>
 							</xsl:call-template>
+							<xsl:if test="score != no_temp_score">
 							<fo:block space-before.optimum="2pt" font-size="10pt">
 								<xsl:value-of select="score"/>
 							</fo:block>
+							</xsl:if>
+						</fo:table-cell>
+						<fo:table-cell/>
+<!-- Temp Score and Mod-->
+						<fo:table-cell height="4pt">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.temp.modifier'"/>
+							</xsl:call-template>
+							<xsl:if test="score != no_temp_score">
+							<fo:block space-before.optimum="2pt" font-size="10pt">
+								<xsl:value-of select="modifier"/>
+							</fo:block>
+							</xsl:if>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row height="2pt"/>
+				</xsl:for-each>
+			
+			</fo:table-body>
+	</xsl:when>
+
+<xsl:otherwise>
+<!--><xsl:if test="/character/house_var/oldstyleabilitystatblockdisplay &lt; 1">-->
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell>
+						<fo:block text-align="center" space-before.optimum="4.5pt" font-size="4pt">ABILITY NAME</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">ABILITY SCORE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">EQUIPPED SCORE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">ABILITY MODIFIER</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">ABILTIY DAMAGE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" space-before.optimum="4.5pt" font-size="4pt">PENALTY</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:for-each select="ability">
+					<fo:table-row>
+						<fo:table-cell>
+						<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.title'"/>
+							</xsl:call-template>
+							<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">
+								<xsl:value-of select="name/short"/>
+							</fo:block>
+							<fo:block line-height="4pt" font-size="4pt">
+								<xsl:value-of select="name/long"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell/>
+						<fo:table-cell>
+						<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.base.score'"/>
+							</xsl:call-template>
+							<fo:block space-before.optimum="2pt" font-size="10pt">
+								<xsl:value-of select="base"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell/>
+						<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.base.modifier'"/>
+							</xsl:call-template>
+						<xsl:if test="no_temp_score != base">
+							<fo:table-cell>
+								<fo:block space-before.optimum="2pt" font-size="10pt">
+									<xsl:value-of select="no_temp_score"/>
+								</fo:block>
+							</fo:table-cell>
+						</xsl:if>
+						<xsl:if test="no_temp_score = base">
+							<fo:table-cell height="4pt">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.temp.modifier'"/>
+							</xsl:call-template>
+							</fo:table-cell>
+						</xsl:if>
+						<fo:table-cell/>
+						<fo:table-cell>
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.base.modifier'"/>
+							</xsl:call-template>
+							<fo:block space-before.optimum="2pt" font-size="10pt">
+								<xsl:value-of select="no_temp_modifier"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell/>
+		<!--><fo:table-cell height="4pt"/>-->
+						<fo:table-cell height="4pt">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'stat.temp.score'"/>
+							</xsl:call-template>
+							<xsl:if test="score != no_temp_score">
+								<fo:block space-before.optimum="2pt" font-size="10pt">
+									<xsl:value-of select="score"/>
+								</fo:block>
+							</xsl:if>
 						</fo:table-cell>
 						<fo:table-cell/>
 						<fo:table-cell height="4pt">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.temp.modifier'"/>
 							</xsl:call-template>
-							<fo:block space-before.optimum="2pt" font-size="10pt">
-								<xsl:value-of select="modifier"/>
-							</fo:block>
+							<xsl:if test="score != no_temp_score">
+								<fo:block space-before.optimum="2pt" font-size="10pt">
+									<xsl:value-of select="modifier"/>
+								</fo:block>
+							</xsl:if>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt"><fo:table-cell><fo:block></fo:block></fo:table-cell></fo:table-row>
 				</xsl:for-each>
 			</fo:table-body>
+	</xsl:otherwise>
+	</xsl:choose>
+<!-->		</xsl:if>-->
 		</fo:table>
 		<!-- END Ability Block -->
 	</xsl:template>
@@ -2156,8 +2273,8 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
-<!-- This is going to be the new Skill Info Section	-->
-			<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
+<!-- This is going to be the new Skill Info Section-->	
+<!-->			<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
 				<fo:table-body border-collapse="collapse" padding="0.5pt">
 					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 					<fo:table-row>
@@ -2169,7 +2286,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
-			</xsl:if>
+			</xsl:if>-->
 <!-- End New Skill Info Section-->
 			</fo:table>
 		</xsl:if>

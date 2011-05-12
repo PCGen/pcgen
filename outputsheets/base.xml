@@ -3479,5 +3479,6 @@ Immune
 <!-- ### Additional House Rules for Variables in the xsl:fo code ### -->
 	<house_var>
 		<spelldisplaydc>|VAR.SpellDisplayDC|</spelldisplaydc>
+		<OldStyleAbilityStatBlockDisplay>|VAR.OldStyleAbilityStatBlockDisplay|</OldStyleAbilityStatBlockDisplay>
 	</house_var>
 </character>
