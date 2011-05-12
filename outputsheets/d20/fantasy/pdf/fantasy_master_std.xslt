@@ -2415,7 +2415,7 @@
 				<xsl:otherwise>
 					<xsl:call-template name="attack.entry">
 						<xsl:with-param name="value" select="total"/>
-<!-- 						<xsl:with-param name="bab" select="bab"/>	-->
+<!--						<xsl:with-param name="bab" select="bab"/>	-->
 						<xsl:with-param name="separator" select="'='"/>
 					</xsl:call-template>
 				</xsl:otherwise>
@@ -3523,54 +3523,54 @@
 			<fo:table-body>
 				<xsl:for-each select="armor|shield|item">
                     <xsl:if test="(not(contains(fulltype,'BARDING')))or(contains(location,'Equipped'))">
-    					<xsl:variable name="shade">
-    						<xsl:choose>
-    							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
-    							<xsl:otherwise>lightline</xsl:otherwise>
-    						</xsl:choose>
-    					</xsl:variable>
+   					<xsl:variable name="shade">
+   						<xsl:choose>
+   							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+   							<xsl:otherwise>lightline</xsl:otherwise>
+   						</xsl:choose>
+   					</xsl:variable>
     
-    					<fo:table-row>
-    						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
-    						<fo:table-cell>
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="name"/>
-    							</fo:block>
-    						</fo:table-cell>
-    						<fo:table-cell text-align="center">
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="type"/>
-    							</fo:block>
-    						</fo:table-cell>
-    						<fo:table-cell text-align="center">
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="totalac"/>
-    							</fo:block>
-    						</fo:table-cell>
-    						<fo:table-cell text-align="center">
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="maxdex"/>
-    							</fo:block>
-    						</fo:table-cell>
-    						<fo:table-cell text-align="center">
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="accheck"/>
-    							</fo:block>
-    						</fo:table-cell>
-    						<fo:table-cell text-align="center">
-    							<fo:block font-size="8pt">
-    								<xsl:value-of select="spellfail"/>
-    							</fo:block>
-    						</fo:table-cell>
-    					</fo:table-row>
-    					<fo:table-row>
-    						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
-    						<fo:table-cell number-columns-spanned="6" text-align="center">
-    							<fo:block font-size="6pt">
-    								<xsl:value-of select="special_properties"/>
-    							</fo:block>
-    						</fo:table-cell>
-    					</fo:table-row>
+   					<fo:table-row>
+   						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+   						<fo:table-cell>
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="name"/>
+   							</fo:block>
+   						</fo:table-cell>
+   						<fo:table-cell text-align="center">
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="type"/>
+   							</fo:block>
+   						</fo:table-cell>
+   						<fo:table-cell text-align="center">
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="totalac"/>
+   							</fo:block>
+   						</fo:table-cell>
+   						<fo:table-cell text-align="center">
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="maxdex"/>
+   							</fo:block>
+   						</fo:table-cell>
+   						<fo:table-cell text-align="center">
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="accheck"/>
+   							</fo:block>
+   						</fo:table-cell>
+   						<fo:table-cell text-align="center">
+   							<fo:block font-size="8pt">
+   								<xsl:value-of select="spellfail"/>
+   							</fo:block>
+   						</fo:table-cell>
+   					</fo:table-row>
+   					<fo:table-row>
+   						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+   						<fo:table-cell number-columns-spanned="6" text-align="center">
+   							<fo:block font-size="6pt">
+   								<xsl:value-of select="special_properties"/>
+   							</fo:block>
+   						</fo:table-cell>
+   					</fo:table-row>
                     </xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
@@ -6063,7 +6063,7 @@
 				</xsl:if>
 <!-->				<xsl:apply-templates select="." mode="spell.level.known"/>-->
 				<xsl:apply-templates select="." mode="spell.level.cast"/>
-				<xsl:if test="@concentration='true'">
+				<xsl:if test="@concentration != ''">
 					<xsl:apply-templates select="." mode="spell.concentration"/>
 				</xsl:if>
 			</fo:table-body>
@@ -6194,7 +6194,7 @@
 			</fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
-					<xsl:with-param name="attribute" select="'spelllist.known.header'"/>
+					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/> 
 				</xsl:call-template>
 		<!--	 xsl:use-attribute-sets="spelllist.known.header centre">	-->
 				<fo:block space-before="2pt" space-after="1pt" font-size="6pt"><xsl:value-of select="@concentration"/></fo:block>
@@ -6422,9 +6422,13 @@
 <!-->						</xsl:if>-->
 						</fo:block>
 					</xsl:when>
-					<xsl:otherwise>
+					<xsl:when test="/character/house_var/spelldisplaydc &gt; 0">
 						<fo:block text-align="start" font-size="5pt" font-weight="bold">
 							<fo:inline font-weight="bold">DC: N/A</fo:inline>
+						</fo:block>
+					</xsl:when>
+					<xsl:otherwise>
+						<fo:block text-align="start" font-size="5pt" font-weight="bold">
 						</fo:block>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -6502,21 +6506,21 @@
 					<xsl:value-of select="target"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Caster Level: </fo:inline>
 					<xsl:value-of select="casterlevel"/>
 				</fo:block>
 			</fo:table-cell>
 			<!-- Placeholder for future concentration for spells -->
-			<fo:table-cell padding-top="1pt">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 				<fo:block text-align="start" font-size="5pt">
-					<xsl:if test="SPELLLISTCLASS.0.CONCENTRATION &gt; 0">
+					<xsl:if test="concentration != ''">
 						<fo:inline font-style="italic">Concentration: </fo:inline>
-						<xsl:value-of select="SPELLLISTCLASS.0.CONCENTRATION"/>
+						<xsl:value-of select="concentration"/>
 					</xsl:if>
 				</fo:block>
-			</fo:table-cell>	-->
+			</fo:table-cell>	
 		</fo:table-row>
 <!-- Third Row = For Spell Descriptions -->
 		<fo:table-row>
