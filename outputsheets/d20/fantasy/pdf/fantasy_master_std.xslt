@@ -519,7 +519,7 @@
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
-					<fo:table-cell padding-top="2.5pt" number-columns-spanned="3">
+					<fo:table-cell padding-top="2.5pt" number-columns-spanned="1">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
@@ -527,6 +527,16 @@
 							<xsl:value-of select="deity/name"/>
 						</fo:block>
 					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell padding-top="2.5pt" number-columns-spanned="1">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'bio'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="region"/>
+						</fo:block>
+					</fo:table-cell>
+
 					<fo:table-cell/>
 					<fo:table-cell padding-top="2.5pt">
 						<xsl:call-template name="attrib">
@@ -556,21 +566,28 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">NAME</fo:block>
+						<fo:block font-size="6pt" padding-top="1pt">CHARACTER NAME</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">PLAYERNAME</fo:block>
+						<fo:block font-size="6pt" padding-top="1pt">PLAYER NAME</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
-					<fo:table-cell number-columns-spanned="3">
+					<fo:table-cell number-columns-spanned="1">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
 						<fo:block font-size="6pt" padding-top="1pt">DEITY</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell number-columns-spanned="1">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'bio.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt" padding-top="1pt">REGION</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
@@ -582,24 +599,40 @@
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell>
+					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
-						<fo:block font-size="8pt" padding-top="3pt">
+<!-->						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="classes/shortform"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio'"/>
-						</xsl:call-template>
+						</fo:block>-->
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="experience/current"/>
+							<xsl:variable name = "classcount" ><xsl:value-of select="count(classes/class)"/></xsl:variable>
+							<xsl:for-each select = "classes/class">
+								<xsl:sort select="sequence"/>
+								<xsl:variable name="classname">
+									<xsl:value-of select="translate(name, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+								</xsl:variable>
+								<xsl:variable name="archetypecount">
+									<xsl:value-of select="count(/character/basics/archetypes/archetype[contains(type,$classname)])"/>
+								</xsl:variable>
+								<xsl:value-of select="name"/>
+									<xsl:if test="$archetypecount &gt; 0">
+										<xsl:text> (</xsl:text>
+										<xsl:for-each select="/character/basics/archetypes/archetype[contains(type,$classname)]">
+										<xsl:value-of select="name"/>
+										<xsl:if test="position() &lt; $archetypecount">, </xsl:if>
+											</xsl:for-each>
+											<xsl:text>)</xsl:text>
+									</xsl:if>
+									<xsl:text> </xsl:text>
+									<xsl:value-of select="level"/>
+									<xsl:if test="position() &lt; $classcount">, </xsl:if>
+							</xsl:for-each>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
+
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -640,24 +673,20 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="vision/all"/>
+							<xsl:if test="vision/all = ''">Normal</xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell>
+					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
 						<fo:block font-size="6pt" padding-top="1pt">CLASS</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio.title'"/>
-						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">EXPERIENCE</fo:block>
-					</fo:table-cell>
+					
+				
 					<fo:table-cell/>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -712,7 +741,7 @@
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="experience/next_level"/>
+							<xsl:value-of select="experience/current"/> / <xsl:value-of select="experience/next_level"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -722,6 +751,7 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="age"/>
+							<xsl:if test="birthday != ''"> (<xsl:value-of select="birthday"/>)</xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -748,7 +778,8 @@
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="hair/color"/>, <xsl:value-of select="hair/length"/>
+							<xsl:value-of select="hair/color"/>
+								<xsl:if test="hair/color != '' and hair/length !=''">, <xsl:value-of select="hair/length"/></xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -757,7 +788,7 @@
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="poolpoints/cost"/>
+							<xsl:if test="poolpoints/cost &gt; 0"> <xsl:value-of select="poolpoints/cost"/> </xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -779,7 +810,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">NEXT LEVEL</fo:block>
+						<fo:block font-size="6pt" padding-top="1pt">EXP  /   NEXT LEVEL</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
