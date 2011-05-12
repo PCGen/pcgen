@@ -2347,9 +2347,9 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'border'"/>
 						</xsl:call-template>
-						<fo:block font-size="4pt">conditional modifiers</fo:block>
+						<fo:block font-size="4pt">Conditional Modifiers</fo:block>
 						<fo:block font-size="4pt">
-							<xsl:value-of select="conditional_modifiers/"/>
+							<xsl:value-of select="conditional_modifiers"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
