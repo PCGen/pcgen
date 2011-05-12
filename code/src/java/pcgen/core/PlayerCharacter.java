@@ -9451,9 +9451,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			switch (method)
 			{
 				case Constants.CHARACTERSTATMETHOD_PURCHASE:
-					rolls[i] =
-							SettingsHandler.getGame()
-								.getPurchaseModeBaseStatScore(this);
+					rolls[i] = SettingsHandler.getGame().getPurchaseModeBaseStatScore(this);
 					break;
 				case Constants.CHARACTERSTATMETHOD_ALLSAME:
 					rolls[i] = SettingsHandler.getGame().getAllStatsValue();

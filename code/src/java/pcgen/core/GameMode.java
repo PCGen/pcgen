@@ -1813,8 +1813,7 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public void setRollMethodExpressionByName(final String aString)
 	{
-		activeRollMethod = getModeContext().ref
-				.silentlyGetConstructedCDOMObject(RollMethod.class, aString);
+		activeRollMethod = getModeContext().ref.silentlyGetConstructedCDOMObject(RollMethod.class, aString);
 		if (activeRollMethod == null)
 		{
 			setRollMethod(Constants.CHARACTERSTATMETHOD_USER);

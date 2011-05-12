@@ -1812,14 +1812,21 @@ public final class Globals
 	}
 
 	/**
-	 * roll HP
-	 * @param min
-	 * @param max
-	 * @param name
-	 * @param level
-	 * @return HP
+	 * Roll the hitpoints for a single level.
+	 *
+	 * @param min the minimum number on the die
+	 * @param max the maximum number on the die
+	 * @param name the PC's name (used for a message to the user)
+	 * @param level the level the hit points are being rolled for (used for a message to the user)
+	 * @param totalLevel the level the hitpoints are being rolled for (used in maths)
+	 * @return the hitpoints for the given level.
 	 */
-	public static int rollHP(final int min, final int max, final String name, final int level, final int totalLevel)
+	public static int rollHP(
+		final int min,
+		final int max,
+		final String name,
+		final int level,
+		final int totalLevel)
 	{
 		int roll;
 
@@ -1832,10 +1839,11 @@ public final class Globals
 
 			case Constants.HP_AVERAGE:
 
+				roll = max - min;
+
 				// (n+1)/2
 				// average roll on a die with an  odd # of sides works out exactly
 				// average roll on a die with an even # of sides will have an extra 0.5
-				roll = max - min;
 
 				if (((totalLevel & 0x01) == 0) && ((roll & 0x01) != 0))
 				{
@@ -1867,13 +1875,13 @@ public final class Globals
 				break;
 
 			//TODO: Can we put these back now? XXX
-//			case Constants.s_HP_LIVING_GREYHAWK:
+//			case Constants.HP_LIVING_GREYHAWK:
 //				if (totalLevels == 1)
 //					roll = max;
 //				else
 //					roll = (int)Math.floor((max + min) / 2) + 1;
 //				break;
-//			case Constants.s_HP_LIVING_CITY:
+//			case Constants.HP_LIVING_CITY:
 //				if (totalLevels == 1 || totalLevels == 2)
 //					roll = max;
 //				else

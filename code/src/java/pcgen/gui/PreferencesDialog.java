@@ -1159,24 +1159,16 @@ final class PreferencesDialog extends JDialog
 		}
 
 		// Level up
-		hpDialogShownAtLevelUp.setSelected(SettingsHandler
-			.getShowHPDialogAtLevelUp());
+		hpDialogShownAtLevelUp.setSelected(SettingsHandler.getShowHPDialogAtLevelUp());
 		//featDialogShownAtLevelUp.setSelected(SettingsHandler.getShowFeatDialogAtLevelUp());
-		statDialogShownAtLevelUp.setSelected(SettingsHandler
-			.getShowStatDialogAtLevelUp());
-		showWarningAtFirstLevelUp.setSelected(SettingsHandler
-			.isShowWarningAtFirstLevelUp());
-		enforceSpendingBeforeLevelUp.setSelected(SettingsHandler
-			.getEnforceSpendingBeforeLevelUp());
+		statDialogShownAtLevelUp.setSelected(SettingsHandler.getShowStatDialogAtLevelUp());
+		showWarningAtFirstLevelUp.setSelected(SettingsHandler.isShowWarningAtFirstLevelUp());
+		enforceSpendingBeforeLevelUp.setSelected(SettingsHandler.getEnforceSpendingBeforeLevelUp());
 
 		// Equipment
-		allowMetamagicInEqBuilder.setSelected(SettingsHandler
-			.isMetamagicAllowedInEqBuilder());
-		potionMaxLevel.setSelectedIndex(SettingsHandler
-			.getMaxPotionSpellLevel()
-			- SPELLLVLMIN);
-		wandMaxLevel.setSelectedIndex(SettingsHandler.getMaxWandSpellLevel()
-			- SPELLLVLMIN);
+		allowMetamagicInEqBuilder.setSelected(SettingsHandler.isMetamagicAllowedInEqBuilder());
+		potionMaxLevel.setSelectedIndex(SettingsHandler.getMaxPotionSpellLevel() - SPELLLVLMIN);
+		wandMaxLevel.setSelectedIndex(SettingsHandler.getMaxWandSpellLevel() - SPELLLVLMIN);
 
 		if (SettingsHandler.wantToLoadMasterworkAndMagic())
 		{
@@ -1187,36 +1179,31 @@ final class PreferencesDialog extends JDialog
 			autoEquipCreate.setSelected(true);
 		}
 
-		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn off temporarily so we get current setting
-		autoMethod1.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_RACIAL));
-		autoMethod2.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_MASTERWORK));
-		autoMethod3.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_MAGIC));
-		autoMethod4.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_EXOTICMATERIAL));
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
-			.isSelected()); // Reset its state now we are done
+		// Turn off temporarily so we get current setting
+		SettingsHandler.setWantToLoadMasterworkAndMagic(false);
+
+		autoMethod1.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_RACIAL));
+		autoMethod2.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MASTERWORK));
+		autoMethod3.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MAGIC));
+		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTICMATERIAL));
+
+		// Reset its state now we are done
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected());
 
 		// Language
 		languagePanel.applyOptionValuesToControls();
 		
 		// Locations
-		pcgenCreateBackupCharacter.setSelected(SettingsHandler
-			.getCreatePcgBackup());
+		pcgenCreateBackupCharacter.setSelected(SettingsHandler.getCreatePcgBackup());
 
 		// Input
-		printDeprecationMessages.setSelected(SettingsHandler
-				.outputDeprecationMessages());
-		printUnconstructedDetail.setSelected(SettingsHandler
-				.inputUnconstructedMessages());
+		printDeprecationMessages.setSelected(SettingsHandler.outputDeprecationMessages());
+		printUnconstructedDetail.setSelected(SettingsHandler.inputUnconstructedMessages());
 		
 		// Output
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
 		weaponProfPrintout.setSelected(SettingsHandler.getWeaponProfPrintout());
-		saveOutputSheetWithPC.setSelected(SettingsHandler
-			.getSaveOutputSheetWithPC());
+		saveOutputSheetWithPC.setSelected(SettingsHandler.getSaveOutputSheetWithPC());
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
 
 		// Sources
