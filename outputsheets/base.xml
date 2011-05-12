@@ -1162,17 +1162,17 @@ Immune
 |ENDFOR|
 
 <!-- Eclipse Channeling -->
-|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ChannelingBase"),1,0|
-|IIF(ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.HASASPECT.ChannelingType:Y)|			
-	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingType|">	
-		<level>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingLevel.INTVAL|</level>
-		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
-		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
-		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitude|</damage>
-		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
-		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
-		<range>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingRange.INTVAL|</range>
-		<notes>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingBase.ASPECT.ChannelingNotes|</notes>
+|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ChannelingOutput"),1,0|
+|IIF(ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.HASASPECT.ChannelingType:Y)|			
+	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingType|">	
+		<level>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingLevel.INTVAL|</level>
+		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
+		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
+		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude|</damage>
+		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
+		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
+		<range>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingRange.INTVAL|</range>
+		<notes>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingNotes|</notes>
 	</eclipse_channeling>
 |ENDIF|
 |ENDFOR|
