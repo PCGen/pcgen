@@ -162,7 +162,8 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 #ACTYPE:Armor		ADD:Armor		REMOVE:EQTYPE.Shield
-#ACTYPE:Shield		ADD:EQTYPE.Shield
+
+
 ACTYPE:Total				ADD:TOTAL
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|ArmorShield|ArmorShieldEnhancement|NaturalArmorEnhancement
@@ -186,8 +187,9 @@ ACTYPE:Sacred				ADD:Sacred
 ACTYPE:ClassDefense			ADD:ClassDefense
 
 #AC Types
-
-
+ACTYPE:Shield
+# Comment: PCGen throwing error about missing Shield, replaced but it won't add anything.
+#ADD:EQTYPE.Shield
 
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,2d8,4d6,4d8	DOWN:1,0
 BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,2d8,4d6,4d8,8d6	DOWN:1d2,1,0
@@ -238,7 +240,8 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 # Types which automatic resizing is activated on
 RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable
 
-DEFAULTDATASET:3.0 SRD|SRD 3.0 for Game Masters (includes Monsters)
+DEFAULTDATASET:3.0 SRD
+#|SRD 3.0 for Game Masters (includes Monsters)
 
 #
 # DONE
