@@ -130,22 +130,25 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	 * @param pc
 	 *            The PlayerCharacter from which the levels of the PCClass in
 	 *            this LevelCommandFactory will be removed.
-	 * @param lvls
+	 * @param pcClass
+	 *            Despite what the javadoc for this method claims, it actually
+	 *            ignores the PCClass stored as state and instead works on the
+	 *            class passed here.
+	 * @param levels
 	 *            The number of levels to apply to the PlayerCharacter
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	private void apply(PlayerCharacter pc, PCClass pcClass, int lvls)
+	private void apply(PlayerCharacter pc, PCClass pcClass, int levels)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler
-				.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 
-		pc.incrementClassLevel(lvls, pcClass, true, true);
+		pc.incrementClassLevel(levels, pcClass, true, true);
 
 		SettingsHandler.setSingleChoicePreference(tempChoicePref);
 		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
