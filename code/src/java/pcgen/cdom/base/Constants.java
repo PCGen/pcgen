@@ -135,247 +135,371 @@ public interface Constants
 	/** The constant string "<none selected>". */
 	String NONESELECTED = "<none selected>"; //$NON-NLS-1$
 
-	/** The extension for a campaign file   */
+	/** The extension for a campaign file. */
 	String s_PCGEN_CAMPAIGN_EXTENSION = ".pcc"; //$NON-NLS-1$
 
-	/** The extension for a character file   */
+	/** The extension for a character file. */
 	String s_PCGEN_CHARACTER_EXTENSION = ".pcg"; //$NON-NLS-1$
 
-	/** The extension for a party file   */
+	/** The extension for a party file. */
 	String s_PCGEN_PARTY_EXTENSION = ".pcp"; //$NON-NLS-1$
 
-	/** The extension for a list file */
+	/** The extension for a list file. */
 	String s_PCGEN_LIST_EXTENSION = ".lst"; //$NON-NLS-1$
 
-	/** Name of Shield Proficiency Feat */
-	String s_ShieldProficiency = "Shield Proficiency"; //$NON-NLS-1$
-
-	/** TYPE: */
-	String s_TAG_TYPE = "TYPE:"; //$NON-NLS-1$
-
-	/** currentPC */
+	/** The temporary file name of the current PC used during output. */
 	String s_TempFileName = "currentPC"; //$NON-NLS-1$
-
-	/** Tower Shield Proficiency */
-	String s_TowerShieldProficiency = "Tower Shield Proficiency"; //$NON-NLS-1$
-
-	/** pdf */
-	String s_pdf_outputsheet_directory = "pdf"; //$NON-NLS-1$
-
-	/** htmlxml */
-	String s_standard_outputsheet_directory = "htmlxml"; //$NON-NLS-1$
 
 	/** A constant string representing the type spellbook. */
 	String TYPE_SPELLBOOK = "SPELLBOOK"; //$NON-NLS-1$
 
-	// Units of measurement
-	/** Imperial */
+
+	/********************************************************************
+	 * Units of measurement
+	 ********************************************************************/
+
+	/** The name of the Standard Unit Set. */
 	String s_STANDARD_UNITSET_NAME = "Imperial"; //$NON-NLS-1$
 
-	/** ftin is hardcoded to translate to x'y */
+	/**
+	 * The unit of height in the standard Unit set.  ftin is hardcoded to translate
+	 * to feet and inches (x'y"). */
 	String s_STANDARD_UNITSET_HEIGHTUNIT = "ftin"; //$NON-NLS-1$
 
-	/** 1.0 */
+	/** The divisor used to convert the standard unit set's Height Unit to inches. */
 	BigDecimal s_STANDARD_UNITSET_HEIGHTFACTOR = BigDecimal.ONE;
 
-	/** The height display pattern */
+	/** The height display pattern. */
 	DecimalFormat s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN = new DecimalFormat("#.#"); //$NON-NLS-1$
-	/**
-	 * Use of "~" as first character means the unit
-	 * name is appended without a leading space
-	 */
+
+	/** The suffix appended to distances for the standard unit set.  The use of a tilde (~)
+	 * as the first character means the unit name is appended without a leading space. */
 	String s_STANDARD_UNITSET_DISTANCEUNIT = "~'"; //$NON-NLS-1$
-	/** 1.0 */
+
+	/**
+	 * The multiplier used to convert distance in feet into distance in the distance units
+	 * of the standard unit set.  Which is feet, giving a multiplier of 1.0 */
 	BigDecimal s_STANDARD_UNITSET_DISTANCEFACTOR = BigDecimal.ONE;
-	/** # */
+
+	/** The decimal number display pattern. */
 	DecimalFormat s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN = new DecimalFormat("#"); //$NON-NLS-1$
-	/** lbs. */
+
+	/** The unit of weight in the standard Unit set. */
 	String s_STANDARD_UNITSET_WEIGHTUNIT = "lbs."; //$NON-NLS-1$
-	/** 1.0 */
+
+	/** The multiplier used to convert weight in pounds into weight in the weight units
+	 * of the standard unit set. */
 	BigDecimal s_STANDARD_UNITSET_WEIGHTFACTOR = BigDecimal.ONE;
-	/** The unit set weight display pattern */
+
+	/** The weight display pattern. */
 	DecimalFormat s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN = new DecimalFormat("#.###"); //$NON-NLS-1$
 
-	// Systems for plug-ins
-	/** PCGen */
+
+	/********************************************************************
+	 * Systems for plug-ins
+	 ********************************************************************/
+
+	/** PCGen. */
 	String s_SYSTEM_PCGEN = "PCGen"; //$NON-NLS-1$
-	/** Tokens */
+	/** Tokens. */
 	String s_SYSTEM_TOKENS = "Tokens"; //$NON-NLS-1$
-	/** GMGen */
+	/** GMGen. */
 	String s_SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
 
-	// Attack
-	/** true */
-	boolean PRINTOUT_WEAPONPROF = true;
-	/** 0 */
-	int ATTACKSTRING_MELEE = 0;
-	/** 1 */
-	int ATTACKSTRING_RANGED = 1;
-	/** 2 */
-	int ATTACKSTRING_UNARMED = 2;
-	/** 4 */
-	int AUTOGEN_EXOTICMATERIAL = 4;
-	/** 3 */
-	int AUTOGEN_MAGIC = 3;
-	/** 2 */
-	int AUTOGEN_MASTERWORK = 2;
 
-	// What equipment to auto generate
-	/** 1 */
+	/********************************************************************
+	 * What equipment to auto generate
+	 ********************************************************************/
+
+	/** Auto-generate the racial equipment. */
 	int AUTOGEN_RACIAL = 1;
 
-	// Character stat generation methods
-	/** 0 */
+	/** Auto-generate the masterwork equipment. */
+	int AUTOGEN_MASTERWORK = 2;
+
+	/** Auto-generate the magic equipment. */
+	int AUTOGEN_MAGIC = 3;
+
+	/* Todo: add underscore */
+	/** Auto-generate equipment made from exotic materials. */
+	int AUTOGEN_EXOTICMATERIAL = 4;
+
+
+	/********************************************************************
+	 * Character stat generation methods
+	 ********************************************************************/
+
+	/** A constant used to select the method of rolling stats. */
 	int CHARACTERSTATMETHOD_USER = 0;
-	/** 1 */
+
+	/** A constant used to select the method of rolling stats. */
 	int CHARACTERSTATMETHOD_ALLSAME = 1;
-	/** 2 */
+
+	/** A constant used to select the method of rolling stats. */
 	int CHARACTERSTATMETHOD_PURCHASE = 2;
-	/** 3 */
+
+	/** A constant used to select the method of rolling stats. */
 	int CHARACTERSTATMETHOD_ROLLED = 3;
+
 
 	/********************************************************************
 	 *  Character panel tab constants
 	 ********************************************************************/
 
-	/** 0 */
-	int CHARACTER_TAB_SUMMARY = 0;
-	/** 0 - do nothing*/
+	/**
+	 * A constant defining the behaviour of a chooser when there is only one
+	 * valid choice available - do nothing. */
 	int CHOOSER_SINGLECHOICEMETHOD_NONE = 0;
-	/** 1 - add single choice to selected list*/
+
+	/**
+	 * A constant defining the behaviour of a chooser when there is only one
+	 * valid choice available  - add single choice to selected list. */
 	int CHOOSER_SINGLECHOICEMETHOD_SELECT = 1;
-	/** 2 - add single choice to selected list and then close */
+
+	/**
+	 * A constant defining the behaviour of a chooser when there is only one
+	 * valid choice available - add single choice to selected list and then
+	 * close. */
 	int CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT = 2;
 
-	// HackMaster attributes
-	/** 6 */
-	int COMELINESS = 6;
-	/** 7 */
-	int HONOR = 7;
 
-	/** 0 */
+	/********************************************************************
+	 * How to display the PC's name
+	 ********************************************************************/
+
+	/**
+	 * A constant used to define the style of name that will be used for
+	 * this PC.  This option selects the plain unadorned name. */
 	int DISPLAY_STYLE_NAME = 0;
-	/** 1 */
+
+	/**
+	 * A constant used to define the style of name that will be used for
+	 * this PC.  This option selects  */
 	int DISPLAY_STYLE_NAME_CLASS = 1;
-	/** 5 */
-	int DISPLAY_STYLE_NAME_CUSTOM = 5;
-	/** 4 */
-	int DISPLAY_STYLE_NAME_FULL = 4;
-	/** 2 */
+
+	/**
+	 * A constant used to define the style of name that will be used for
+	 * this PC.  This option appends the PC's race to its name.  */
 	int DISPLAY_STYLE_NAME_RACE = 2;
-	/** 3 */
+
+	/**
+	 * A constant used to define the style of name that will be used for
+	 * this PC.  This option appends the PC's class to its name. */
 	int DISPLAY_STYLE_NAME_RACE_CLASS = 3;
+
+	/**
+	 * A constant used to define the style of name that will be used for
+	 * this PC.  This option appends the PC's race  and class to its name. */
+	int DISPLAY_STYLE_NAME_FULL = 4;
 
 	/********************************************************************
 	 * How to roll hitpoints
 	 ********************************************************************/
 
-	/** 0 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option simply rolls the die. */
 	int HP_STANDARD = 0;
 
-	/** 1 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option simply gives the maximum available on the die. */
 	int HP_AUTOMAX = 1;
 
-	/** 2 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option simply gives the average roll the die, adjusted
+	 * so that for dice with an even number of sides, every other level gives
+	 * and extra point. The extra point is given on even numbered levels. */
 	int HP_AVERAGE = 2;
 
-	/** 3 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option gives a defined percentage of the maximum available. */
 	int HP_PERCENTAGE = 3;
 
-	/** 4 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option means that the user must enter a value for each level. */
 	int HP_USERROLLED = 4;
 
-	/** 5 */
+	/**
+	 * A constant used to define the way that hitpoints will be calculated for
+	 * this PC.  This option simply gives the average roll the die, adjusted
+	 * so that for dice with an even number of sides, every other level gives
+	 * and extra point. The extra point is given on odd numbered levels. */
 	int HP_AVERAGE_ROUNDED_UP = 5;
 
-	/** 9999 */
+
+
+
+	/**
+	 * A constant representing an arbitrary invalid level used in the spell code
+	 * to basically say "no real level".*/
 	int INVALID_LEVEL = 9999;
 
-	/** The highest possible maxDex value. */
+	/**
+	 * The highest possible maxDex value. */
 	Integer MAX_MAXDEX = Integer.valueOf(100);
-	/** 5 */
+
+	/**
+	 * A constant defining the number of recently open characters to display in
+	 * the recently opened menu item. */
 	int MAX_OPEN_RECENT_ENTRIES = 5;
-	/** The highest spell level we are catering for. */
+
+	/**
+	 * The highest spell level we are catering for. */
 	int MAX_SPELL_LEVEL = 25;
 
-	// merge of like equipment constants
-	/** 0 */
+
+
+	/********************************************************************
+	 * merge of like equipment constants
+	 ********************************************************************/
+
+	/**
+	 * A constant defining how to merge like bits of equipment.
+	 * merge all of them, regardless of location. */
 	int MERGE_ALL = 0;
-	/** 2 */
-	int MERGE_LOCATION = 2;
-	/** 1 */
+
+	/**
+	 * A constant defining how to merge like bits of equipment.
+	 * Don't merge any of them, regardless of location. */
 	int MERGE_NONE = 1;
 
-	// SOURCE Display options
-	/** 0 */
-	int SOURCELONG = 0;
-	/** 2 */
-	int SOURCEPAGE = 2;
-	/** 1 */
-	int SOURCESHORT = 1;
-	/** 3 */
-	int SOURCEWEB = 3;
-	/** 4 */
-	int SOURCEMEDIUM = 4;
-	/** 4 */
-	int SOURCEDATE = 5;
+	/**
+	 * A constant defining how to merge like bits of equipment.
+	 * Merge those items located together. */
+	int MERGE_LOCATION = 2;
 
-	/** For accessing <code>CategorisableStore</code>. */
-	String ALL_CATEGORIES = "ALL"; //$NON-NLS-1$
 
 	// TODO: this is broken in some sad way whereby if you change the case
 	// of FEAT to Feat, the pre-req tree fails on the Feats tab.
 	/** For accessing <code>CategorisableStore</code>. */
 	String FEAT_CATEGORY = "FEAT"; //$NON-NLS-1$
 
-	/** For Tokens that need to know they're dealing with a .fo file */
-	String XSL_FO_EXTENSION = "fo"; //$NON-NLS-1$
-
 	/** An empty string. */
 	String EMPTY_STRING = ""; //$NON-NLS-1$
 
-	// Various parsing token constants
-	/** Pipe '|' character as a string */
+
+	/********************************************************************
+	 * Various parsing token constants
+	 ********************************************************************/
+
+	/** Pipe '|' character as a string. */
 	String PIPE = "|"; //$NON-NLS-1$
 
-	/** Comma ',' character as a string */
+	/** Comma ',' character as a string. */
 	String COMMA = ","; //$NON-NLS-1$
-	String LST_DOT_CLEAR = ".CLEAR";
-	String LST_TYPE_OLD = "TYPE.";
-	String LST_NOT_TYPE_OLD = "!TYPE.";
-	String LST_TYPE = "TYPE=";
-	String LST_NOT_TYPE = "!TYPE=";
-	int HANDS_SIZEDEPENDENT = -1;
-	String LST_ALL = "ALL";
-	String LST_ANY = "ANY";
-	String LST_DOT_CLEAR_DOT = ".CLEAR.";
-	String ALLREF_LST = "ALL";
+
+	/** Dot '.' character as a string. */
 	String DOT = ".";
-	String LST_LIST = "LIST";
-	String LST_PATTERN = "%";
-	String LST_PERCENTLIST = "%LIST";
+
+	/** Colon ':' character as a string. */
 	String COLON = ":";
-	String LST_NONE = "NONE";
-	String LST_DOT_CLEARALL = ".CLEARALL";
+
+	/** Equals '=' character as a string. */
 	String EQUALS = "=";
-	String LST_CHOOSE = "CHOOSE:";
-	String LST_ADDCHOICE = "ADDCHOICE:";
-	char CHAR_ASTERISK = '*';
-	String LST_SHIELDTYPE = "SHIELDTYPE=";
-	String LST_SHIELDTYPE_OLD = "SHIELDTYPE.";
-	String LST_ARMORTYPE = "ARMORTYPE=";
-	String LST_ARMORTYPE_OLD = "ARMORTYPE.";
-	String LST_UNTRAINED = "UNTRAINED";
-	String LST_TRAINED = "TRAINED";
-	String LST_EXCLUSIVE = "EXCLUSIVE";
-	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
-	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
-	char PERCENT = '%';
-	String LST_CHOICE = "CHOICE";
-	String LST_PERCENT_CHOICE = "%CHOICE";
-	String HIGHESTLEVELCLASS = "HIGHESTLEVELCLASS";
+
+	/** Asterisk '*' character as a string. */
 	String TAB = "\t";
-	public static final int NO_LEVEL_LIMIT = -1;
+
+	/** Percent character as a constant. */
+	char PERCENT = '%';
+
+	/** Asterisk '*' character as a constant. */
+	char CHAR_ASTERISK = '*';
+
+	/** A snippet of List code as a constant. */
+	String LST_DOT_CLEAR = ".CLEAR";
+
+	/** A snippet of List code as a constant. */
+	String LST_DOT_CLEAR_DOT = ".CLEAR.";
+
+	/** A snippet of List code as a constant. */
+	String LST_TYPE_OLD = "TYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_NOT_TYPE_OLD = "!TYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_TYPE = "TYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_NOT_TYPE = "!TYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_ALL = "ALL";
+
+	/** A snippet of List code as a constant. */
+	String LST_ANY = "ANY";
+
+	/** A snippet of List code as a constant. */
+	String ALLREF_LST = "ALL";
+
+	/** A snippet of List code as a constant. */
+	String LST_LIST = "LIST";
+
+	/** A snippet of List code as a constant. */
+	String LST_PATTERN = "%";
+
+	/** A snippet of List code as a constant. */
+	String LST_PERCENTLIST = "%LIST";
+
+	/** A snippet of List code as a constant. */
+	String LST_NONE = "NONE";
+
+	/** A snippet of List code as a constant. */
+	String LST_DOT_CLEARALL = ".CLEARALL";
+
+	/** A snippet of List code as a constant. */
+	String LST_CHOOSE = "CHOOSE:";
+
+	/** A snippet of List code as a constant. */
+	String LST_ADDCHOICE = "ADDCHOICE:";
+
+	/** A snippet of List code as a constant. */
+	String LST_SHIELDTYPE = "SHIELDTYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_SHIELDTYPE_OLD = "SHIELDTYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_ARMORTYPE = "ARMORTYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_ARMORTYPE_OLD = "ARMORTYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_UNTRAINED = "UNTRAINED";
+
+	/** A snippet of List code as a constant. */
+	String LST_TRAINED = "TRAINED";
+
+	/** A snippet of List code as a constant. */
+	String LST_EXCLUSIVE = "EXCLUSIVE";
+
+	/** A snippet of List code as a constant. */
+	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
+
+
+	/** A snippet of List code as a constant. */
+	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
+
+	/** A snippet of List code as a constant. */
+	String LST_CHOICE = "CHOICE";
+
+	/** A snippet of List code as a constant. */
+	String LST_PERCENT_CHOICE = "%CHOICE";
+
+	/** A constant used in List parsing of Favoured Class. */
+	String HIGHESTLEVELCLASS = "HIGHESTLEVELCLASS";
+
+	/** A constant used in the wield code. */
+	int HANDS_SIZEDEPENDENT = -1;
+
+	/** A constant used in the control of whether a particular class has a level limit. */
+	int NO_LEVEL_LIMIT = -1;
 
 	/* define some constants, so we can avoid magic numbers for the default values
 	   in the settings handler */
@@ -434,13 +558,46 @@ public interface Constants
 	 */
 	int DEFAULT_SOURCE_STATUS_TEST_COLOUR = 0xFF00FF;
 
-	int DEFAULT_HPPCT = 100;
-	int DEFAULT_GEARTAB_SELL_RATE = 50;
-	int DEFAULT_GEARTAB_BUY_RATE = 100;
-	int DEFAULT_PREREQ_QUALIFY_COLOUR = 0x000000; // 0x000000 = black
-	int DEFAULT_PREREQ_FAIL_COLOUR = 0xFF0000; // 0xFF0000 = red
 
+	/** The default percentage of hit points to grant when granting a percentage of hitpoints. */
+	int DEFAULT_HPPCT = 100;
+
+	/** The default percentage of an item's worth a character receives when selling
+	 * an item in the equipment tab. */
+	int DEFAULT_GEARTAB_SELL_RATE = 50;
+
+	/** The default percentage of an item's worth a character must pay when buying
+	 * an item in the equipment tab. */
+	int DEFAULT_GEARTAB_BUY_RATE = 100;
+
+	/**
+	 * The default colour of items in the GUI which the character does not qualify
+	 * for. 0xFF0000 is red. This  is used to initialise the value in the settings
+	 * handler if the user has not overridden it. */
+	int DEFAULT_PREREQ_FAIL_COLOUR = 0xFF0000;
+
+	/**
+	 * The default colour of items in the GUI which the character does qualify
+	 * for. 0x000000 is black. This  is used to initialise the value in the settings
+	 * handler if the user has not overridden it. */
+	int DEFAULT_PREREQ_QUALIFY_COLOUR = 0x000000;
+
+
+	/** A constant used to define an array of age sets. */
 	int NUMBER_OF_AGESET_KIT_SELECTIONS = 10;
+
+	/** If an ID path is longer than this, then the item is contained in something. */
 	int ID_PATH_LENGTH_FOR_NONCONTAINDED = 3;
-	int ARBITRARY_END_SKILL_INDEX = 3;
+
+	/**
+	 * Used when sorting skills to move soe items right to the end of the
+	 * sorted list. The moved items are sorted in their new position.  */
+	int ARBITRARY_END_SKILL_INDEX = 999;
+
+
+	/* Todo: rename to DEFAULT_PRINTOUT_WEAPONPROF */
+	/**
+	 * The default for whether to print the weapon proficiencies.
+	 * */
+	boolean PRINTOUT_WEAPONPROF = true;
 }
