@@ -172,20 +172,20 @@ Figurine of Wondrous Power (Serpentine Owl)	OUTPUTNAME:Figurine of Wondrous Powe
 Figurine of Wondrous Power (Silver Raven)		OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous			COST:3800	WT:1								SOURCEPAGE:p.513	SPROP:Can be used no more than 24 hours per week but need not be continuous.
 
 ###Block:G
-# Equipment Name				Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page		Vision			Bonus to skill						Special Property
-Gauntlet of Rust				TYPE:Magic.Wondrous.Glove					COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.514													SPROP:Once per day, it can affect an object as with the rusting grasp spell.
-Gem of Brightness				TYPE:Magic.Wondrous						COST:13000	WT:.02			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.514
-Gem of Seeing				TYPE:Magic.Wondrous						COST:75000	WT:.02									SOURCEPAGE:p.514													SPROP:Up to 30 min/day
-Gloves of Arrow Snaring			TYPE:Magic.Wondrous.Glove					COST:4000	WT:.02	SLOTS:2	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.514
-Glove of Storing				TYPE:Magic.Wondrous.Container.Glove	CONTAINS:20|Any=1	COST:10000	WT:.02	SLOTS:1							SOURCEPAGE:p.515
-Gloves of Swimming and Climbing	TYPE:Magic.Wondrous.Glove					COST:6250	WT:.02	SLOTS:2							SOURCEPAGE:p.515					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
-Goggles of Minute Seeing		TYPE:Magic.Wondrous.Eyegear					COST:2500	WT:.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
-Goggles of Night				TYPE:Magic.Wondrous.Eyegear					COST:12000	WT:.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
-Golem Manual (Clay)			TYPE:Magic.Wondrous						COST:12000	WT:5										SOURCEPAGE:p.515
-Golem Manual (Flesh)			TYPE:Magic.Wondrous						COST:8000	WT:5										SOURCEPAGE:p.515
-Golem Manual (Iron)			TYPE:Magic.Wondrous						COST:35000	WT:5										SOURCEPAGE:p.515
-Golem Manual (Stone)			TYPE:Magic.Wondrous						COST:22000	WT:5										SOURCEPAGE:p.515
-Golem Manual (Stone/Greater)		TYPE:Magic.Wondrous						COST:44000	WT:5										SOURCEPAGE:p.515
+# Equipment Name				Type						Contains			Cost		Weight	Slot Needed	Modifier					Source Page		Vision			Bonus to skill						Special Property
+Gauntlet of Rust				TYPE:Magic.Wondrous.Glove						COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.514													SPROP:Once per day, it can affect an object as with the rusting grasp spell.
+Gem of Brightness				TYPE:Magic.Wondrous							COST:13000	WT:.02			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.514
+Gem of Seeing				TYPE:Magic.Wondrous							COST:75000	WT:.02									SOURCEPAGE:p.514													SPROP:Up to 30 min/day
+Gloves of Arrow Snaring			TYPE:Magic.Wondrous.Glove						COST:4000	WT:.02	SLOTS:2	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.514
+Glove of Storing				TYPE:Magic.Wondrous.Container.Glove	CONTAINS:*20|Any=1	COST:10000	WT:.02	SLOTS:1							SOURCEPAGE:p.515
+Gloves of Swimming and Climbing	TYPE:Magic.Wondrous.Glove						COST:6250	WT:.02	SLOTS:2							SOURCEPAGE:p.515					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
+Goggles of Minute Seeing		TYPE:Magic.Wondrous.Eyegear						COST:2500	WT:.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
+Goggles of Night				TYPE:Magic.Wondrous.Eyegear						COST:12000	WT:.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
+Golem Manual (Clay)			TYPE:Magic.Wondrous							COST:12000	WT:5										SOURCEPAGE:p.515
+Golem Manual (Flesh)			TYPE:Magic.Wondrous							COST:8000	WT:5										SOURCEPAGE:p.515
+Golem Manual (Iron)			TYPE:Magic.Wondrous							COST:35000	WT:5										SOURCEPAGE:p.515
+Golem Manual (Stone)			TYPE:Magic.Wondrous							COST:22000	WT:5										SOURCEPAGE:p.515
+Golem Manual (Stone/Greater)		TYPE:Magic.Wondrous							COST:44000	WT:5										SOURCEPAGE:p.515
 
 ###Block:H
 # Equipment Name						Output Name					Type							Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
