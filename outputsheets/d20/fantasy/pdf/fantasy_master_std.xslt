@@ -1148,7 +1148,7 @@
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
-						<fo:block text-align="center" font-size="4pt">ABILTIY DAMAGE</fo:block>
+						<fo:block text-align="center" font-size="4pt">ABILITY DAMAGE</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
@@ -1178,11 +1178,12 @@
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell/>
-						<xsl:call-template name="attrib">
-								<xsl:with-param name="attribute" select="'stat.base.modifier'"/>
-							</xsl:call-template>
+					
 						<xsl:if test="no_temp_score != base">
 							<fo:table-cell>
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'stat.base.score'"/>
+								</xsl:call-template>
 								<fo:block space-before.optimum="2pt" font-size="10pt">
 									<xsl:value-of select="no_temp_score"/>
 								</fo:block>
@@ -1790,11 +1791,11 @@
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
-						<fo:block text-align="center" font-size="4pt">NATURAL ARMOR</fo:block>
+						<fo:block text-align="center" font-size="3pt">NATURAL ARMOR</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
-						<fo:block text-align="center" font-size="4pt">DEFLEC- TION</fo:block>
+						<fo:block text-align="center" font-size="3pt">DEFLEC- TION</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
@@ -2348,7 +2349,7 @@
 						</xsl:call-template>
 						<fo:block font-size="4pt">conditional modifiers</fo:block>
 						<fo:block font-size="4pt">
-							<xsl:value-of select="conditional_modifiers"/>
+							<xsl:value-of select="conditional_modifiers/"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
