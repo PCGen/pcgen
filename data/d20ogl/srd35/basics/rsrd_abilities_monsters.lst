@@ -532,6 +532,9 @@ Halfling Morale				OUTPUTNAME:+2 morale bonus on saving throws against fear					
 # Half Celestial
 Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
+# Human
+Human Skill Bonus																														CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:Humans gain 1 extra skill point per level.	BONUS:SKILLPOINTS|NUMBER|1
+
 # Xeph
 Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects																CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
@@ -564,7 +567,7 @@ Channel Power						CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBL
 Deliver Touch Powers					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:The owner can have his psicrystal can deliver touch powers for him. If the owner and psicrystal are in contact at the time the owner manifests a touch power, he can designate his psicrystal as the "toucher." The psicrystal can then deliver the touch power just as the owner could. As usual, if the owner manifests another power before the touch is delivered, the touch power dissipates.
 Hardness 8							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Power Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The psicrystal gains power resistance equal to the owner's level + 5. To affect the psicrystal with a power, another manifester must get a result on a manifester level check that equals or exceeds the psicrystal's power resistance.
-Self-Propulsion		KEY:Self Propulasion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:As a standard action, its owner can will a psicrystal to form spidery, ectoplasmic legs that grant the psicrystal a land speed of 30 feet and a climb speed of 20 feet. The legs fade into nothingness after one day (or sooner, if the owner desires).
+Self-Propulsion		KEY:Self Propulsion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:As a standard action, its owner can will a psicrystal to form spidery, ectoplasmic legs that grant the psicrystal a land speed of 30 feet and a climb speed of 20 feet. The legs fade into nothingness after one day (or sooner, if the owner desires).
 Flight			KEY:Flight ~ Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:The owner can, as a standard action, will his psicrystal to fly at a speed of 50 feet (poor). The psicrystal drifts gently to the ground after one day (or sooner, if the owner desires).
 Share Powers						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:At the owner's option, he can have any power (but not any psi-like ability) he manifests on himself also affect his psicrystal. The psicrystal must be within 5 feet of him at the time of the manifestation to receive the benefit. If the power has a duration other than instantaneous, it stops affecting the psicrystal if it moves farther than 5 feet away, and will not affect the psicrystal again, even if it returns to its owner before the duration expires. Additionally, the owner can manifest a power with a target of "You" on his psicrystal (as a touch range power) instead of on himself. The owner and psicrystal cannot share powers if the powers normally do not affect creatures of the psicrystal's type (construct).
 Sight Link							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DESC:The character can remote view the psicrystal (as if manifesting the remote view power) once per day.
