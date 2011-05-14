@@ -71,7 +71,7 @@ public class StartupPanel extends ConvertSubPanel
 				SettingsHandler.getOptionsFromProperties(null);
 		        progressBar.setValue(2);
 				PluginLoader ploader = PluginLoader.inst();
-				ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+				ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		        progressBar.setValue(3);
 				loader.loadGameModes();
 		        progressBar.setValue(4);

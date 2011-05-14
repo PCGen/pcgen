@@ -135,7 +135,7 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		public void initPreferences() {
 			checkBox.setSelected(SettingsHandler.getGMGenOption(pluginName + ".Load", true));
 			String system = SettingsHandler.getGMGenOption(pluginName + ".System", defaultSystem);
-			if(system.equals(Constants.s_SYSTEM_PCGEN)) {
+			if(system.equals(Constants.SYSTEM_PCGEN)) {
 				pcgenButton.setSelected(true);
 			}
 			else {
@@ -146,10 +146,10 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		public void applyPreferences() {
 			SettingsHandler.setGMGenOption(pluginName + ".Load", checkBox.isSelected());
 			if(pcgenButton.isSelected()) {
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.s_SYSTEM_PCGEN);
+				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_PCGEN);
 			}
 			else {
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.s_SYSTEM_GMGEN);
+				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_GMGEN);
 			}
 		}
 	}

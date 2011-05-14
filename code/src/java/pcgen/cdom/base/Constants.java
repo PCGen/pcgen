@@ -159,40 +159,40 @@ public interface Constants
 	 ********************************************************************/
 
 	/** The name of the Standard Unit Set. */
-	String s_STANDARD_UNITSET_NAME = "Imperial"; //$NON-NLS-1$
+	String STANDARD_UNITSET_NAME = "Imperial"; //$NON-NLS-1$
 
 	/**
 	 * The unit of height in the standard Unit set.  ftin is hardcoded to translate
 	 * to feet and inches (x'y"). */
-	String s_STANDARD_UNITSET_HEIGHTUNIT = "ftin"; //$NON-NLS-1$
+	String STANDARD_UNITSET_HEIGHT_UNIT = "ftin"; //$NON-NLS-1$
 
-	/** The divisor used to convert the standard unit set's Height Unit to inches. */
-	BigDecimal s_STANDARD_UNITSET_HEIGHTFACTOR = BigDecimal.ONE;
+	/** The multiplier used to convert height in inches into the standard unit set's Height Unit. */
+	BigDecimal STANDARD_UNITSET_HEIGHT_FACTOR = BigDecimal.ONE;
 
 	/** The height display pattern. */
-	DecimalFormat s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN = new DecimalFormat("#.#"); //$NON-NLS-1$
+	DecimalFormat STANDARD_UNITSET_HEIGHT_DISPLAY_PATTERN = new DecimalFormat("#.#"); //$NON-NLS-1$
 
 	/** The suffix appended to distances for the standard unit set.  The use of a tilde (~)
 	 * as the first character means the unit name is appended without a leading space. */
-	String s_STANDARD_UNITSET_DISTANCEUNIT = "~'"; //$NON-NLS-1$
+	String STANDARD_UNITSET_DISTANCE_UNIT = "~'"; //$NON-NLS-1$
 
 	/**
 	 * The multiplier used to convert distance in feet into distance in the distance units
 	 * of the standard unit set.  Which is feet, giving a multiplier of 1.0 */
-	BigDecimal s_STANDARD_UNITSET_DISTANCEFACTOR = BigDecimal.ONE;
+	BigDecimal STANDARD_UNITSET_DISTANCE_FACTOR = BigDecimal.ONE;
 
 	/** The decimal number display pattern. */
-	DecimalFormat s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN = new DecimalFormat("#"); //$NON-NLS-1$
+	DecimalFormat STANDARD_UNITSET_DISTANCE_DISPLAY_PATTERN = new DecimalFormat("#"); //$NON-NLS-1$
 
 	/** The unit of weight in the standard Unit set. */
-	String s_STANDARD_UNITSET_WEIGHTUNIT = "lbs."; //$NON-NLS-1$
+	String STANDARD_UNITSET_WEIGHT_UNIT = "lbs."; //$NON-NLS-1$
 
 	/** The multiplier used to convert weight in pounds into weight in the weight units
 	 * of the standard unit set. */
-	BigDecimal s_STANDARD_UNITSET_WEIGHTFACTOR = BigDecimal.ONE;
+	BigDecimal STANDARD_UNITSET_WEIGHT_FACTOR = BigDecimal.ONE;
 
 	/** The weight display pattern. */
-	DecimalFormat s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN = new DecimalFormat("#.###"); //$NON-NLS-1$
+	DecimalFormat STANDARD_UNITSET_WEIGHT_DISPLAY_PATTERN = new DecimalFormat("#.###"); //$NON-NLS-1$
 
 
 	/********************************************************************
@@ -200,11 +200,11 @@ public interface Constants
 	 ********************************************************************/
 
 	/** PCGen. */
-	String s_SYSTEM_PCGEN = "PCGen"; //$NON-NLS-1$
+	String SYSTEM_PCGEN = "PCGen"; //$NON-NLS-1$
 	/** Tokens. */
-	String s_SYSTEM_TOKENS = "Tokens"; //$NON-NLS-1$
+	String SYSTEM_TOKENS = "Tokens"; //$NON-NLS-1$
 	/** GMGen. */
-	String s_SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
+	String SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
 
 
 	/********************************************************************

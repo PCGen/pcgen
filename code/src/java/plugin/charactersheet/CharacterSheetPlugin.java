@@ -93,7 +93,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 		model = new CharacterSheetModel();
 		GMBus.send(new PreferencesPanelAddMessage(this, name,
 			new PreferencesDisplayPanel(model)));
-		if (getPluginSystem().equals(Constants.s_SYSTEM_PCGEN))
+		if (getPluginSystem().equals(Constants.SYSTEM_PCGEN))
 		{
 			GMBus.send(new TabAddMessage(this, name, model.getInfoPanel(),
 				getPluginSystem()));
@@ -130,7 +130,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.s_SYSTEM_GMGEN);
+			Constants.SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()
@@ -155,7 +155,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 */
 	public void handleMessage(GMBMessage message)
 	{
-		if (getPluginSystem().equals(Constants.s_SYSTEM_GMGEN))
+		if (getPluginSystem().equals(Constants.SYSTEM_GMGEN))
 		{
 			if (message instanceof StateChangedMessage)
 			{

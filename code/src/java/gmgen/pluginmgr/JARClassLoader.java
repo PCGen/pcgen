@@ -457,7 +457,7 @@ public class JARClassLoader extends ClassLoader
 		Class<?> clazz = loadClass(name, true);
 		int modifiers = clazz.getModifiers();
 
-		if(system.equals(Constants.s_SYSTEM_TOKENS)) {
+		if(system.equals(Constants.SYSTEM_TOKENS)) {
 			loadOutputTokenClass(clazz, modifiers);
 			loadLstTokens(clazz, modifiers);
 			loadBonusTokens(clazz, name, modifiers);

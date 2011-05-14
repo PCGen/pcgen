@@ -59,7 +59,7 @@ public class FeatTest extends TestCase
 	public void testAlertness() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -89,7 +89,7 @@ public class FeatTest extends TestCase
 	public void testAmbidexterity() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
 		try
@@ -118,7 +118,7 @@ public class FeatTest extends TestCase
 	public void testSimpleWeapon() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
 		try

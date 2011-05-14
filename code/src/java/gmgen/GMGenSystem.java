@@ -228,7 +228,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 		theView = new GMGenSystemView();
 		GMBus.addToBus(this);
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_GMGEN);
+		ploader.startSystemPlugins(Constants.SYSTEM_GMGEN);
 		initComponents();
 		initSettings();
 		GMBus.send(new FetchOpenPCGRequestMessage(this));
@@ -371,7 +371,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 		if (message instanceof TabAddMessage)
 		{
 			TabAddMessage tmessage = (TabAddMessage) message;
-			if (tmessage.getSystem().equals(Constants.s_SYSTEM_GMGEN))
+			if (tmessage.getSystem().equals(Constants.SYSTEM_GMGEN))
 			{
 				Logging.debugPrint("Creating Tab "
 					+ GMGenSystemView.getTabPane().getTabCount());

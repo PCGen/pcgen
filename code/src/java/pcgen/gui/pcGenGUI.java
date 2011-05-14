@@ -490,7 +490,7 @@ public class pcGenGUI
 		}
 		
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 
 		SettingsHandler.initGameModes();
 

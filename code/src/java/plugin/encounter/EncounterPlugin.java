@@ -135,7 +135,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.s_SYSTEM_GMGEN);
+			Constants.SYSTEM_GMGEN);
 	}
 
 	@Override

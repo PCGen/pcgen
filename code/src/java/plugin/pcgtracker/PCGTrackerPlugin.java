@@ -84,7 +84,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.s_SYSTEM_GMGEN);
+			Constants.SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()

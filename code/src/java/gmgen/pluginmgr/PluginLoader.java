@@ -89,7 +89,7 @@ public class PluginLoader
 				jar.getClassLoader().startAllPlugins(system);
 			}
 			loadedMap.put(system, system);
-			if (system.equals(Constants.s_SYSTEM_TOKENS))
+			if (system.equals(Constants.SYSTEM_TOKENS))
 			{
 				TokenLibrary.addToTokenMap(new PreMultParser());
 			}

@@ -153,7 +153,7 @@ public class TestHelper
 	public static void loadPlugins()
 	{
 		final PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		loaded = true;
 	}
 

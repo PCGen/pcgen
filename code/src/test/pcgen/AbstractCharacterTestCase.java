@@ -146,7 +146,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(createAlignment("Deity's", "Deity"));
 
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		LstSystemLoader.addDefaultWieldCategories(Globals.getContext());
 		
 		ref.importObject(str);

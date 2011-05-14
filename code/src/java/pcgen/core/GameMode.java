@@ -97,7 +97,7 @@ public final class GameMode implements Comparable<Object>
 	private String currencyUnitAbbrev = "";
 	private String damageResistance = "";
 	private String defaultSpellBook = "Known Spells";
-	private String defaultUnitSet = Constants.s_STANDARD_UNITSET_NAME;
+	private String defaultUnitSet = Constants.STANDARD_UNITSET_NAME;
 	private UnitSet selectedUnitSet = null;
 	private String displayName = null;
 	private String displayVariable2Name = "";

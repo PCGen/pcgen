@@ -91,7 +91,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 	{
 		super.setUp();
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 	}
 
 	/* (non-Javadoc)

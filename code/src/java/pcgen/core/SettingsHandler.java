@@ -790,7 +790,7 @@ public final class SettingsHandler
 		{
 			if  (!game.selectDefaultUnitSet())
 			{
-				game.selectUnitSet(Constants.s_STANDARD_UNITSET_NAME);
+				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
 		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + key + ".rollMethodExpression", ""));

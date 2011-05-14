@@ -69,7 +69,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	public void testDefine() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
 		Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
@@ -82,7 +82,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	public void testBadDefine() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 
 		Ability feat = new Ability();
 
@@ -112,7 +112,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		context.ref.registerAbbreviation(intel, intel.getAbb());
 		
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
 		is(context.processToken(feat, "DEFINE", "UNLOCK.INT"), eq(true),
@@ -128,7 +128,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	public void testBadUnlockDefine() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
 		is(Globals.getContext().processToken(feat, "DEFINE", "UNLOCK.INT|0"), eq(false),
@@ -138,7 +138,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	public void testParsePreClear() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 
 		PObject object = new PObject();
 

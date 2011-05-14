@@ -242,7 +242,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		GMBus.addToBus(this);
 		GMBus.addToBus(PreferencesDialog.getPreferencesComponent());
 		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_PCGEN);
+		ploader.startSystemPlugins(Constants.SYSTEM_PCGEN);
 	}
 
 	/**
@@ -2324,7 +2324,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 	private void handleTabAddMessage(TabAddMessage message)
 	{
-		if (message.getSystem().equals(Constants.s_SYSTEM_PCGEN))
+		if (message.getSystem().equals(Constants.SYSTEM_PCGEN))
 		{
 			if (message.getPane() instanceof CharacterInfoTab)
 			{

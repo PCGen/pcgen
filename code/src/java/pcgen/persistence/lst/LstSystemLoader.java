@@ -1175,7 +1175,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		LoadContext context = gameMode.getModeContext();
 		UnitSet us = context.ref.silentlyGetConstructedCDOMObject(
-				UnitSet.class, Constants.s_STANDARD_UNITSET_NAME);
+				UnitSet.class, Constants.STANDARD_UNITSET_NAME);
 		if (us == null)
 		{
 			gameMode.getModeContext().ref.importObject(getDefaultUnitSet());
@@ -1188,17 +1188,17 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			// create default Unit Set in case none is specified in the game mode
 			DEFAULT_UNIT_SET = new UnitSet();
-			DEFAULT_UNIT_SET.setName(Constants.s_STANDARD_UNITSET_NAME);
+			DEFAULT_UNIT_SET.setName(Constants.STANDARD_UNITSET_NAME);
 			DEFAULT_UNIT_SET.setInternal(true);
-			DEFAULT_UNIT_SET.setHeightUnit(Constants.s_STANDARD_UNITSET_HEIGHTUNIT);
-			DEFAULT_UNIT_SET.setHeightFactor(Constants.s_STANDARD_UNITSET_HEIGHTFACTOR);
-			DEFAULT_UNIT_SET.setHeightDisplayPattern(Constants.s_STANDARD_UNITSET_HEIGHTDISPLAYPATTERN);
-			DEFAULT_UNIT_SET.setDistanceUnit(Constants.s_STANDARD_UNITSET_DISTANCEUNIT);
-			DEFAULT_UNIT_SET.setDistanceFactor(Constants.s_STANDARD_UNITSET_DISTANCEFACTOR);
-			DEFAULT_UNIT_SET.setDistanceDisplayPattern(Constants.s_STANDARD_UNITSET_DISTANCEDISPLAYPATTERN);
-			DEFAULT_UNIT_SET.setWeightUnit(Constants.s_STANDARD_UNITSET_WEIGHTUNIT);
-			DEFAULT_UNIT_SET.setWeightFactor(Constants.s_STANDARD_UNITSET_WEIGHTFACTOR);
-			DEFAULT_UNIT_SET.setWeightDisplayPattern(Constants.s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN);
+			DEFAULT_UNIT_SET.setHeightUnit(Constants.STANDARD_UNITSET_HEIGHT_UNIT);
+			DEFAULT_UNIT_SET.setHeightFactor(Constants.STANDARD_UNITSET_HEIGHT_FACTOR);
+			DEFAULT_UNIT_SET.setHeightDisplayPattern(Constants.STANDARD_UNITSET_HEIGHT_DISPLAY_PATTERN);
+			DEFAULT_UNIT_SET.setDistanceUnit(Constants.STANDARD_UNITSET_DISTANCE_UNIT);
+			DEFAULT_UNIT_SET.setDistanceFactor(Constants.STANDARD_UNITSET_DISTANCE_FACTOR);
+			DEFAULT_UNIT_SET.setDistanceDisplayPattern(Constants.STANDARD_UNITSET_DISTANCE_DISPLAY_PATTERN);
+			DEFAULT_UNIT_SET.setWeightUnit(Constants.STANDARD_UNITSET_WEIGHT_UNIT);
+			DEFAULT_UNIT_SET.setWeightFactor(Constants.STANDARD_UNITSET_WEIGHT_FACTOR);
+			DEFAULT_UNIT_SET.setWeightDisplayPattern(Constants.STANDARD_UNITSET_WEIGHT_DISPLAY_PATTERN);
 		}
 		return DEFAULT_UNIT_SET;
 	}
