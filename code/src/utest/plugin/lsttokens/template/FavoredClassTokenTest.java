@@ -19,6 +19,7 @@ package plugin.lsttokens.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
@@ -170,7 +171,7 @@ public class FavoredClassTokenTest extends
 	@Override
 	protected String getAllString()
 	{
-		return "HIGHESTLEVELCLASS";
+		return Constants.HIGHEST_LEVEL_CLASS;
 	}
 
 	@Test
@@ -214,8 +215,8 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testOverwriteHighest() throws PersistenceLayerException
 	{
-		parse("HIGHESTLEVELCLASS");
-		validateUnparsed(primaryContext, primaryProf, "HIGHESTLEVELCLASS");
+		parse(Constants.HIGHEST_LEVEL_CLASS);
+		validateUnparsed(primaryContext, primaryProf, Constants.HIGHEST_LEVEL_CLASS);
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("TestWP1"));
@@ -226,9 +227,9 @@ public class FavoredClassTokenTest extends
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
-		parse("HIGHESTLEVELCLASS");
+		parse(Constants.HIGHEST_LEVEL_CLASS);
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
-				.getAnswer("HIGHESTLEVELCLASS"));
+				.getAnswer(Constants.HIGHEST_LEVEL_CLASS));
 	}
 
 	@Test
@@ -236,7 +237,7 @@ public class FavoredClassTokenTest extends
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
-				"HIGHESTLEVELCLASS");
+				Constants.HIGHEST_LEVEL_CLASS);
 	}
 
 	@Test
@@ -327,7 +328,7 @@ public class FavoredClassTokenTest extends
 				.getRef(wp2));
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		expectSingle(unparsed, "HIGHESTLEVELCLASS" + getJoinCharacter()
+		expectSingle(unparsed, Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter()
 				+ getLegalValue() + getJoinCharacter()
 				+ getAlternateLegalValue());
 	}
@@ -395,7 +396,7 @@ public class FavoredClassTokenTest extends
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, "%LIST" + getJoinCharacter()
-				+ "HIGHESTLEVELCLASS" + getJoinCharacter() + getLegalValue()
+				+ Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + getLegalValue()
 				+ getJoinCharacter() + getAlternateLegalValue());
 	}
 

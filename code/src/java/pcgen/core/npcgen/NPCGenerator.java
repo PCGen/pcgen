@@ -319,20 +319,22 @@ public class NPCGenerator
 	{
 		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
-		aPC.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED, statOrder, aRollMethod, true);
+		aPC.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED, statOrder, aRollMethod, true);
 		for (PCStat stat : aPC.getStatSet())
 		{
-			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getAbb() + " to " + aPC.getAssoc(stat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
+			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getAbb()
+				+ " to " + aPC.getAssoc(stat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
 			aPC.setAssoc(stat, AssociationKey.STAT_SCORE, aPC.getAssoc(stat, AssociationKey.STAT_SCORE));
 		}
 	}
 
 	private WeightedCollection<Ability> getFeatWeights(final PCClass aClass)
 	{
-		WeightedCollection<Ability> WeightedCollection = theConfiguration.getAbilityWeights(aClass.getKeyName(), AbilityCategory.FEAT);
-		if (WeightedCollection == null)
+		WeightedCollection<Ability> weightedCollection =
+			theConfiguration.getAbilityWeights(aClass.getKeyName(), AbilityCategory.FEAT);
+		if (weightedCollection == null)
 		{
-			WeightedCollection = new WeightedCollection<Ability>();
+			weightedCollection = new WeightedCollection<Ability>();
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
@@ -348,10 +350,10 @@ public class NPCGenerator
 				{
 					weight = 5;
 				}
-				WeightedCollection.add(ability, weight);
+				weightedCollection.add(ability, weight);
 			}
 		}
-		return WeightedCollection;
+		return weightedCollection;
 	}
 
 	private void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
@@ -543,7 +545,7 @@ public class NPCGenerator
 
 		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
 		SettingsHandler.setSingleChoicePreference(Constants.
-			CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+			CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		try
 		{

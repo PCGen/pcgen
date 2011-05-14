@@ -116,8 +116,7 @@ public class KitClass extends BaseKit
 		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler
-			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		boolean tempDoLevelAbilities = pc.doLevelAbilities();
 		pc.setDoLevelAbilities(doLevelAbilitiesIn);

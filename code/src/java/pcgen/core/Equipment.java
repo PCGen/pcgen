@@ -5512,7 +5512,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			int iHands = wp.getSafe(IntegerKey.HANDS);
 
-			if (iHands == Constants.HANDS_SIZEDEPENDENT)
+			if (iHands == Constants.HANDS_SIZE_DEPENDENT)
 			{
 				if (aPC.sizeInt() > sizeInt())
 				{

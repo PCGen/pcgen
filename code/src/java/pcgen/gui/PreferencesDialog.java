@@ -585,7 +585,7 @@ final class PreferencesDialog extends JDialog
 		}
 		else if (hpAutomax.isSelected())
 		{
-			SettingsHandler.setHPRollMethod(Constants.HP_AUTOMAX);
+			SettingsHandler.setHPRollMethod(Constants.HP_AUTO_MAX);
 		}
 		else if (hpAverage.isSelected())
 		{
@@ -597,14 +597,14 @@ final class PreferencesDialog extends JDialog
 		}
 		else if (hpUserRolled.isSelected())
 		{
-			SettingsHandler.setHPRollMethod(Constants.HP_USERROLLED);
+			SettingsHandler.setHPRollMethod(Constants.HP_USER_ROLLED);
 		}
 		else if (hpAverageRoundedUp.isSelected())
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_AVERAGE_ROUNDED_UP);
 		}
 
-		SettingsHandler.setHPPct(hpPct.getValue());
+		SettingsHandler.setHPPercent(hpPct.getValue());
 		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 		SettingsHandler.setHPMaxAtFirstPCClassLevelOnly(maxHpAtFirstPCClassLevelOnly.isSelected());
@@ -806,46 +806,34 @@ final class PreferencesDialog extends JDialog
 		}
 
 		// Level up
-		SettingsHandler.setShowHPDialogAtLevelUp(hpDialogShownAtLevelUp
-			.isSelected());
+		SettingsHandler.setShowHPDialogAtLevelUp(hpDialogShownAtLevelUp.isSelected());
 		//SettingsHandler.setShowFeatDialogAtLevelUp(featDialogShownAtLevelUp.isSelected());
-		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp
-			.isSelected());
-		SettingsHandler.setShowWarningAtFirstLevelUp(showWarningAtFirstLevelUp
-			.isSelected());
-		SettingsHandler
-			.setEnforceSpendingBeforeLevelUp(enforceSpendingBeforeLevelUp
-				.isSelected());
+		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp.isSelected());
+		SettingsHandler.setShowWarningAtFirstLevelUp(showWarningAtFirstLevelUp.isSelected());
+		SettingsHandler.setEnforceSpendingBeforeLevelUp(enforceSpendingBeforeLevelUp.isSelected());
 
 		// Equipment
-		SettingsHandler
-			.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
-				.isSelected());
-		SettingsHandler.setMaxPotionSpellLevel(potionMaxLevel
-			.getSelectedIndex()
-			+ SPELLLVLMIN);
-		SettingsHandler.setMaxWandSpellLevel(wandMaxLevel.getSelectedIndex()
-			+ SPELLLVLMIN);
-		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
-		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1
-			.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2
-			.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3
-			.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTICMATERIAL,
-			autoMethod4.isSelected());
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
-			.isSelected()); // Now set it properly
+		SettingsHandler.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder.isSelected());
+		SettingsHandler.setMaxPotionSpellLevel(potionMaxLevel.getSelectedIndex() + SPELLLVLMIN);
+		SettingsHandler.setMaxWandSpellLevel(wandMaxLevel.getSelectedIndex() + SPELLLVLMIN);
+
+		// Turn it off temporarily so we can set the values
+		SettingsHandler.setWantToLoadMasterworkAndMagic(false);
+
+		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL,          autoMethod1.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK,      autoMethod2.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC,           autoMethod3.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL, autoMethod4.isSelected());
+
+		 // Now set it properly
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected());
 
 		// Language
 		languagePanel.setOptionsBasedOnControls();
 		
 		// Input
-		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages
-				.isSelected());
-		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail
-				.isSelected());
+		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages.isSelected());
+		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail.isSelected());
 		
 		// Location -- added 10 April 2000 by sage_sam
 		SettingsHandler.setBrowserPath(browserPath.getText());
@@ -948,7 +936,7 @@ final class PreferencesDialog extends JDialog
 		// Hit Points
 		switch (SettingsHandler.getHPRollMethod())
 		{
-			case Constants.HP_AUTOMAX:
+			case Constants.HP_AUTO_MAX:
 				hpAutomax.setSelected(true);
 
 				break;
@@ -963,7 +951,7 @@ final class PreferencesDialog extends JDialog
 
 				break;
 
-			case Constants.HP_USERROLLED:
+			case Constants.HP_USER_ROLLED:
 				hpUserRolled.setSelected(true);
 
 				break;
@@ -981,7 +969,7 @@ final class PreferencesDialog extends JDialog
 				break;
 		}
 
-		hpPct.setValue(SettingsHandler.getHPPct());
+		hpPct.setValue(SettingsHandler.getHPPercent());
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
 		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 		maxHpAtFirstPCClassLevelOnly.setSelected(SettingsHandler.isHPMaxAtFirstPCClassLevelOnly());
@@ -1185,7 +1173,7 @@ final class PreferencesDialog extends JDialog
 		autoMethod1.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_RACIAL));
 		autoMethod2.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MASTERWORK));
 		autoMethod3.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MAGIC));
-		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTICMATERIAL));
+		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL));
 
 		// Reset its state now we are done
 		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected());

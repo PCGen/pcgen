@@ -81,13 +81,13 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			if (Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
+			if (Constants.HIGHEST_LEVEL_CLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				context.getObjectContext().put(race,
 						ObjectKey.ANY_FAVORED_CLASS, true);
 			}
-			else if (Constants.LST_PERCENTLIST.equalsIgnoreCase(token))
+			else if (Constants.LST_PERCENT_LIST.equalsIgnoreCase(token))
 			{
 				foundOther = true;
 				context.getObjectContext().addToList(race, ListKey.CHOOSE_ACTOR,
@@ -124,8 +124,8 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains HIGHESTLEVELCLASS and a specific reference: "
-					+ value);
+				+ ": Contains " + Constants.HIGHEST_LEVEL_CLASS
+				+ " and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -141,7 +141,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		SortedSet<String> set = new TreeSet<String>();
 		if (anyfavored != null && anyfavored)
 		{
-			set.add("HIGHESTLEVELCLASS");
+			set.add(Constants.HIGHEST_LEVEL_CLASS);
 		}
 		if (changes != null && !changes.isEmpty() && changes.hasAddedItems())
 		{

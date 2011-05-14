@@ -508,15 +508,15 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(TAG_EXPRESSION).append(':');
 		switch (game.getRollMethod())
 		{
-			case Constants.CHARACTERSTATMETHOD_ALLSAME:
+			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
 				buffer.append(game.getAllStatsValue());
 				break;
 
-			case Constants.CHARACTERSTATMETHOD_PURCHASE:
+			case Constants.CHARACTER_STAT_METHOD_PURCHASE:
 				buffer.append(game.getPurchaseModeMethodName());
 				break;
 
-			case Constants.CHARACTERSTATMETHOD_ROLLED:
+			case Constants.CHARACTER_STAT_METHOD_ROLLED:
 				buffer.append(game.getRollMethodExpression());
 				break;
 

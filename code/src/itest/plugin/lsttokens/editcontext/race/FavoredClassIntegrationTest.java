@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
@@ -103,7 +104,7 @@ public class FavoredClassIntegrationTest extends
 	@Override
 	protected String getAllString()
 	{
-		return "HIGHESTLEVELCLASS";
+		return Constants.HIGHEST_LEVEL_CLASS;
 	}
 	
 	

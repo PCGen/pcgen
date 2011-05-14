@@ -194,7 +194,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
-		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZEDEPENDENT);
+		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZE_DEPENDENT);
 		context.ref.importObject(wp);
 
 		wp = new WeaponProf();

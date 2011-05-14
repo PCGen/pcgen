@@ -153,7 +153,7 @@ public final class GameMode implements Comparable<Object>
 	private int[] abilityScoreCost = null;
 	private String purchaseMethodName = ""; //$NON-NLS-1$
 
-	private int rollMethod = Constants.CHARACTERSTATMETHOD_USER;
+	private int rollMethod = Constants.CHARACTER_STAT_METHOD_USER;
 
 	private int allStatsValue = 10;
 
@@ -1557,7 +1557,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		if (argMethodName.length() != 0)
 		{
-			setRollMethod(Constants.CHARACTERSTATMETHOD_PURCHASE);
+			setRollMethod(Constants.CHARACTER_STAT_METHOD_PURCHASE);
 		}
 
 		purchaseMethodName = argMethodName;
@@ -1717,7 +1717,8 @@ public final class GameMode implements Comparable<Object>
 	{
 		// Can't have purchase mode if no costs specified
 		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.size() == 0)
-			|| (getRollMethod() != Constants.CHARACTERSTATMETHOD_PURCHASE) || (purchaseMethodName.length() == 0))
+			|| (getRollMethod() != Constants.CHARACTER_STAT_METHOD_PURCHASE)
+			|| (purchaseMethodName.length() == 0))
 		{
 			return false;
 		}
@@ -1732,7 +1733,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		rollMethod = argRollMethod;
 
-		if (argRollMethod != Constants.CHARACTERSTATMETHOD_PURCHASE)
+		if (argRollMethod != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
 			setPurchaseMethodName(""); //$NON-NLS-1$
 		}
@@ -1816,11 +1817,11 @@ public final class GameMode implements Comparable<Object>
 		activeRollMethod = getModeContext().ref.silentlyGetConstructedCDOMObject(RollMethod.class, aString);
 		if (activeRollMethod == null)
 		{
-			setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+			setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 		}
 		else
 		{
-			setRollMethod(Constants.CHARACTERSTATMETHOD_ROLLED);
+			setRollMethod(Constants.CHARACTER_STAT_METHOD_ROLLED);
 		}
 	}
 

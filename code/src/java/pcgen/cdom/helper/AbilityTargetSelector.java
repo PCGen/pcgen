@@ -109,7 +109,7 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 		StringBuilder sb = new StringBuilder();
 		sb.append(getAbilityKey());
 		sb.append('(');
-		sb.append(Constants.LST_PERCENTLIST);
+		sb.append(Constants.LST_PERCENT_LIST);
 		sb.append(')');
 		return sb.toString();
 	}
@@ -131,7 +131,7 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 		StringBuilder sb = new StringBuilder();
 		sb.append(ability.resolvesTo().getDisplayName());
 		sb.append('(');
-		sb.append(Constants.LST_PERCENTLIST);
+		sb.append(Constants.LST_PERCENT_LIST);
 		sb.append(')');
 		return sb.toString();
 	}

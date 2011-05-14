@@ -812,7 +812,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			// if the eSet.getIdPath() is longer than 3
 			// it's inside a container, don't try to equip
-			if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NONCONTAINDED)
+			if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 			{
 				eq.setLocation(EquipmentLocation.CONTAINED);
 				eq.setIsEquipped(false, this);
@@ -9435,7 +9435,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		int aMethod = method;
 		if (SettingsHandler.getGame().isPurchaseStatMode())
 		{
-			aMethod = Constants.CHARACTERSTATMETHOD_PURCHASE;
+			aMethod = Constants.CHARACTER_STAT_METHOD_PURCHASE;
 		}
 		rollStats(aMethod, statFacet.getSet(id), SettingsHandler.getGame()
 			.getCurrentRollingMethod(), false);
@@ -9450,14 +9450,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			switch (method)
 			{
-				case Constants.CHARACTERSTATMETHOD_PURCHASE:
+				case Constants.CHARACTER_STAT_METHOD_PURCHASE:
 					rolls[i] = SettingsHandler.getGame().getPurchaseModeBaseStatScore(this);
 					break;
-				case Constants.CHARACTERSTATMETHOD_ALLSAME:
+				case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
 					rolls[i] = SettingsHandler.getGame().getAllStatsValue();
 					break;
 
-				case Constants.CHARACTERSTATMETHOD_ROLLED:
+				case Constants.CHARACTER_STAT_METHOD_ROLLED:
 					final String diceExpression = rollMethod.getMethodRoll();
 					rolls[i] = RollingMethods.roll(diceExpression);
 					break;
@@ -9499,14 +9499,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, roll);
 		}
 
-		if (method != Constants.CHARACTERSTATMETHOD_PURCHASE)
+		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
 			this.setPoolAmount(0);
 			this.costPool = 0;
 		}
 		//TODO Why does rolling stats delete the language list?!?
 		languageFacet.removeAll(id);
-		if (method != Constants.CHARACTERSTATMETHOD_PURCHASE)
+		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
 			setPoolAmount(0);
 		}

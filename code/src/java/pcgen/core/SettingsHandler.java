@@ -128,7 +128,7 @@ public final class SettingsHandler
 	private static boolean hpMaxAtFirstClassLevel = true;
 	private static boolean hpMaxAtFirstPCClassLevelOnly = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
-	private static int hpPct        = Constants.DEFAULT_HPPCT;
+	private static int hpPercent    = Constants.DEFAULT_HP_PERCENT;
 	private static boolean ignoreMonsterHDCap = false;
 	private static boolean debugFeats = false;
 
@@ -145,8 +145,8 @@ public final class SettingsHandler
 	private static boolean gearTab_IgnoreCost = false;
 	private static boolean gearTab_AutoResize = false;
 	private static boolean gearTab_AllowDebt  = false;
-	private static int gearTab_SellRate = Constants.DEFAULT_GEARTAB_SELL_RATE;
-	private static int gearTab_BuyRate  = Constants.DEFAULT_GEARTAB_BUY_RATE;
+	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
+	private static int gearTab_BuyRate  = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
 	private static boolean isROG = false;
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
@@ -253,13 +253,13 @@ public final class SettingsHandler
 	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
-	private static boolean weaponProfPrintout = Constants.PRINTOUT_WEAPONPROF;
+	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
 	private static boolean hideMonsterClasses = false;
 	private static boolean guiUsesOutputNameEquipment = false;
 	private static boolean guiUsesOutputNameSpells = false;
-	private static int singleChoicePreference = Constants.CHOOSER_SINGLECHOICEMETHOD_NONE;
+	private static int singleChoicePreference = Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE;
 	private static int lastTipShown = -1;
 	private static boolean showMemoryArea = false;
 	private static boolean showImagePreview = true;
@@ -326,7 +326,7 @@ public final class SettingsHandler
 
 				break;
 
-			case Constants.AUTOGEN_EXOTICMATERIAL:
+			case Constants.AUTOGEN_EXOTIC_MATERIAL:
 				setAutogenExoticMaterial(bFlag);
 
 				break;
@@ -351,7 +351,7 @@ public final class SettingsHandler
 				case Constants.AUTOGEN_MAGIC:
 					return isAutogenMagic();
 
-				case Constants.AUTOGEN_EXOTICMATERIAL:
+				case Constants.AUTOGEN_EXOTIC_MATERIAL:
 					return isAutogenExoticMaterial();
 
 				default:
@@ -918,14 +918,14 @@ public final class SettingsHandler
 		return hpMaxAtFirstPCClassLevelOnly;
 	}
 
-	public static void setHPPct(final int argHPPct)
+	public static void setHPPercent(final int argHPPct)
 	{
-		hpPct = argHPPct;
+		hpPercent = argHPPct;
 	}
 
-	public static int getHPPct()
+	public static int getHPPercent()
 	{
-		return hpPct;
+		return hpPercent;
 	}
 
 	public static void setHPRollMethod(final int aBool)
@@ -1291,7 +1291,7 @@ public final class SettingsHandler
 		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
 		setHPMaxAtFirstClassLevel(getPCGenOption("hpMaxAtFirstClassLevel", false)); //$NON-NLS-1$
 		setHPMaxAtFirstPCClassLevelOnly(getPCGenOption("hpMaxAtFirstPCClassLevelOnly", false)); //$NON-NLS-1$
-		setHPPct(getPCGenOption("hpPct", 100)); //$NON-NLS-1$
+		setHPPercent(getPCGenOption("hpPercent", 100)); //$NON-NLS-1$
 		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
 		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
 		setIncludeSkills(getPCGenOption("includeSkills", 3)); //$NON-NLS-1$
@@ -1365,7 +1365,8 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSingleChoicePreference(getPCGenOption("ChooserSingleChoiceMethod", Constants.CHOOSER_SINGLECHOICEMETHOD_NONE)); //$NON-NLS-1$
+		setSingleChoicePreference(getPCGenOption("ChooserSingleChoiceMethod",
+			Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE)); //$NON-NLS-1$
 		setSkillsTab_AvailableListMode(getPCGenOption("SkillsTab.availableListMode", //$NON-NLS-1$
 				GuiConstants.INFOSKILLS_VIEW_TYPE_NAME));
 		setSkillsTab_SelectedListMode(getPCGenOption("SkillsTab.selectedListMode", GuiConstants.INFOSKILLS_VIEW_NAME)); //$NON-NLS-1$
@@ -1386,7 +1387,8 @@ public final class SettingsHandler
 		setUseAdvancedSourceSelect(getPCGenOption("useAdvancedSourceSelect", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
-		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.PRINTOUT_WEAPONPROF)); //$NON-NLS-1$
+		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout",
+			Constants.DEFAULT_PRINTOUT_WEAPONPROF)); //$NON-NLS-1$
 
 		// Load up all the RuleCheck stuff from the options.ini file
 		// It's stored as:
@@ -1719,7 +1721,7 @@ public final class SettingsHandler
 		setPCGenOption("hpMaxAtFirstLevel", isHPMaxAtFirstLevel()); //$NON-NLS-1$
 		setPCGenOption("hpMaxAtFirstClassLevel", isHPMaxAtFirstClassLevel()); //$NON-NLS-1$
 		setPCGenOption("hpMaxAtFirstPCClassLevelOnly", isHPMaxAtFirstPCClassLevelOnly()); //$NON-NLS-1$
-		setPCGenOption("hpPct", getHPPct()); //$NON-NLS-1$
+		setPCGenOption("hpPercent", getHPPercent()); //$NON-NLS-1$
 		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
 		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
 		setPCGenOption("includeSkills", getIncludeSkills()); //$NON-NLS-1$

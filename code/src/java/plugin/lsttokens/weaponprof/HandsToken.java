@@ -56,7 +56,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		int hands;
 		if ("1IFLARGERTHANWEAPON".equals(value))
 		{
-			hands = Constants.HANDS_SIZEDEPENDENT;
+			hands = Constants.HANDS_SIZE_DEPENDENT;
 			context.getObjectContext().put(prof, integerKey(),
 				Integer.valueOf(hands));
 			return ParseResult.SUCCESS;
@@ -82,7 +82,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		}
 		String hands;
 		int intValue = i.intValue();
-		if (intValue == Constants.HANDS_SIZEDEPENDENT)
+		if (intValue == Constants.HANDS_SIZE_DEPENDENT)
 		{
 			hands = "1IFLARGERTHANWEAPON";
 		}
@@ -90,7 +90,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		{
 			context.addWriteMessage(getTokenName()
 				+ " must be greater than or equal to zero or special value "
-				+ Constants.HANDS_SIZEDEPENDENT + " for 1IFLARGERTHANWEAPON");
+				+ Constants.HANDS_SIZE_DEPENDENT + " for 1IFLARGERTHANWEAPON");
 			return null;
 		}
 		else

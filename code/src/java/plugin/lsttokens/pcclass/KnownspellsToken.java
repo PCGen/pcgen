@@ -70,7 +70,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		while (pipeTok.hasMoreTokens())
 		{
 			String totalFilter = pipeTok.nextToken();
-			if (Constants.LST_DOT_CLEARALL.equals(totalFilter))
+			if (Constants.LST_DOT_CLEAR_ALL.equals(totalFilter))
 			{
 				if (!firstToken)
 				{
@@ -180,7 +180,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		List<String> list = new ArrayList<String>();
 		if (changes.includesGlobalClear())
 		{
-			list.add(Constants.LST_DOT_CLEARALL);
+			list.add(Constants.LST_DOT_CLEAR_ALL);
 		}
 		Collection<KnownSpellIdentifier> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
@@ -207,7 +207,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					StringBuilder sb = new StringBuilder();
 					boolean needComma = false;
 					String refString = ref.getLSTformat(false);
-					if (!Constants.ALLREF_LST.equals(refString))
+					if (!Constants.LST_ALL.equals(refString))
 					{
 						sb.append(refString);
 						needComma = true;

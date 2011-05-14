@@ -640,8 +640,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		if (rollStatsButton != null)
 		{
-			if ((pc.totalNonMonsterLevels() == 0)
-				&& (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
+			int rollMethod = SettingsHandler.getGame().getRollMethod();
+
+			boolean isRolled = rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED;
+			boolean noLevelsYet = pc.totalNonMonsterLevels() == 0;
+
+			if (isRolled && noLevelsYet)
 			{
 				rollStatsButton.setEnabled(true);
 			}
@@ -2761,8 +2765,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		if (rollStatsButton != null)
 		{
-			if ((pcPlayerLevels == 0)
-				&& (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
+			int rollMethod = SettingsHandler.getGame().getRollMethod();
+
+			boolean isRolled = rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED;
+			boolean noLevelsYet = pcPlayerLevels == 0;
+
+			if (isRolled && noLevelsYet)
 			{
 				rollStatsButton.setEnabled(true);
 			}
@@ -2774,17 +2782,15 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		else if (!SettingsHandler.getGame().getModeContext().ref
 				.getConstructedCDOMObjects(RollMethod.class).isEmpty())
 		{
-			rollStatsButton =
-					new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
+			rollStatsButton = new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
 			rollStatsButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					pc.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED);
+					pc.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED);
 
-					statTableModel.fireTableRowsUpdated(0,
-							Globals.getContext().ref
-									.getConstructedObjectCount(PCStat.class));
+					int count = Globals.getContext().ref.getConstructedObjectCount(PCStat.class);
+					statTableModel.fireTableRowsUpdated(0, count);
 					pc.calcActiveBonuses();
 
 					updatePool(false);

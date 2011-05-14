@@ -141,7 +141,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 							Boolean.TRUE));
 				}
 				else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
-						|| Constants.LST_CROSSCLASS.equals(tokText))
+						|| Constants.LST_CROSS_CLASS.equals(tokText))
 				{
 					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
 							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,

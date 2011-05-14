@@ -67,10 +67,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value.substring(Constants.LST_CHOOSE.length());
 			consolidate = true;
 		}
-		else if (value.startsWith(Constants.LST_ADDCHOICE))
+		else if (value.startsWith(Constants.LST_ADD_CHOICE))
 		{
 			lk = ListKey.TEMPLATE_ADDCHOICE;
-			remaining = value.substring(Constants.LST_ADDCHOICE.length());
+			remaining = value.substring(Constants.LST_ADD_CHOICE.length());
 		}
 		else
 		{
@@ -95,7 +95,7 @@ public class TemplateLst extends AbstractToken implements
 				removelist.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS,
 						templKey.substring(0, templKey.length() - 7)));
 			}
-			else if (specialLegal && templKey.equals(Constants.LST_PERCENTLIST))
+			else if (specialLegal && templKey.equals(Constants.LST_PERCENT_LIST))
 			{
 				context.getObjectContext().addToList(cdo,
 						ListKey.NEW_CHOOSE_ACTOR, this);
@@ -160,7 +160,7 @@ public class TemplateLst extends AbstractToken implements
 			{
 				if (csa.equals(this))
 				{
-					list.add(Constants.LST_PERCENTLIST);
+					list.add(Constants.LST_PERCENT_LIST);
 				}
 			}
 		}
@@ -186,7 +186,7 @@ public class TemplateLst extends AbstractToken implements
 				.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add(Constants.LST_ADDCHOICE
+			list.add(Constants.LST_ADD_CHOICE
 					+ ReferenceUtilities.joinLstFormat(addedItems,
 							Constants.PIPE));
 		}
@@ -235,7 +235,7 @@ public class TemplateLst extends AbstractToken implements
 
 	public String getLstFormat() throws PersistenceLayerException
 	{
-		return Constants.LST_PERCENTLIST;
+		return Constants.LST_PERCENT_LIST;
 	}
 
 	public String getSource()

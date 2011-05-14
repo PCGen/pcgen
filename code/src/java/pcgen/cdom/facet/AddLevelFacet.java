@@ -146,7 +146,7 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		pc.incrementClassLevel(levels, pcClass, true, true);
 

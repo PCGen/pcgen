@@ -220,9 +220,8 @@ public interface Constants
 	/** Auto-generate the magic equipment. */
 	int AUTOGEN_MAGIC = 3;
 
-	/* Todo: add underscore */
 	/** Auto-generate equipment made from exotic materials. */
-	int AUTOGEN_EXOTICMATERIAL = 4;
+	int AUTOGEN_EXOTIC_MATERIAL = 4;
 
 
 	/********************************************************************
@@ -230,16 +229,16 @@ public interface Constants
 	 ********************************************************************/
 
 	/** A constant used to select the method of rolling stats. */
-	int CHARACTERSTATMETHOD_USER = 0;
+	int CHARACTER_STAT_METHOD_USER = 0;
 
 	/** A constant used to select the method of rolling stats. */
-	int CHARACTERSTATMETHOD_ALLSAME = 1;
+	int CHARACTER_STAT_METHOD_ALL_THE_SAME = 1;
 
 	/** A constant used to select the method of rolling stats. */
-	int CHARACTERSTATMETHOD_PURCHASE = 2;
+	int CHARACTER_STAT_METHOD_PURCHASE = 2;
 
 	/** A constant used to select the method of rolling stats. */
-	int CHARACTERSTATMETHOD_ROLLED = 3;
+	int CHARACTER_STAT_METHOD_ROLLED = 3;
 
 
 	/********************************************************************
@@ -249,18 +248,18 @@ public interface Constants
 	/**
 	 * A constant defining the behaviour of a chooser when there is only one
 	 * valid choice available - do nothing. */
-	int CHOOSER_SINGLECHOICEMETHOD_NONE = 0;
+	int CHOOSER_SINGLE_CHOICE_METHOD_NONE = 0;
 
 	/**
 	 * A constant defining the behaviour of a chooser when there is only one
 	 * valid choice available  - add single choice to selected list. */
-	int CHOOSER_SINGLECHOICEMETHOD_SELECT = 1;
+	//int CHOOSER_SINGLE_CHOICE_METHOD_SELECT = 1;
 
 	/**
 	 * A constant defining the behaviour of a chooser when there is only one
 	 * valid choice available - add single choice to selected list and then
 	 * close. */
-	int CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT = 2;
+	int CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT = 2;
 
 
 	/********************************************************************
@@ -304,7 +303,7 @@ public interface Constants
 	/**
 	 * A constant used to define the way that hitpoints will be calculated for
 	 * this PC.  This option simply gives the maximum available on the die. */
-	int HP_AUTOMAX = 1;
+	int HP_AUTO_MAX = 1;
 
 	/**
 	 * A constant used to define the way that hitpoints will be calculated for
@@ -321,7 +320,7 @@ public interface Constants
 	/**
 	 * A constant used to define the way that hitpoints will be calculated for
 	 * this PC.  This option means that the user must enter a value for each level. */
-	int HP_USERROLLED = 4;
+	int HP_USER_ROLLED = 4;
 
 	/**
 	 * A constant used to define the way that hitpoints will be calculated for
@@ -435,28 +434,25 @@ public interface Constants
 	String LST_ANY = "ANY";
 
 	/** A snippet of List code as a constant. */
-	String ALLREF_LST = "ALL";
-
-	/** A snippet of List code as a constant. */
 	String LST_LIST = "LIST";
 
 	/** A snippet of List code as a constant. */
 	String LST_PATTERN = "%";
 
 	/** A snippet of List code as a constant. */
-	String LST_PERCENTLIST = "%LIST";
+	String LST_PERCENT_LIST = "%LIST";
 
 	/** A snippet of List code as a constant. */
 	String LST_NONE = "NONE";
 
 	/** A snippet of List code as a constant. */
-	String LST_DOT_CLEARALL = ".CLEARALL";
+	String LST_DOT_CLEAR_ALL = ".CLEARALL";
 
 	/** A snippet of List code as a constant. */
 	String LST_CHOOSE = "CHOOSE:";
 
 	/** A snippet of List code as a constant. */
-	String LST_ADDCHOICE = "ADDCHOICE:";
+	String LST_ADD_CHOICE = "ADDCHOICE:";
 
 	/** A snippet of List code as a constant. */
 	String LST_SHIELDTYPE = "SHIELDTYPE=";
@@ -484,7 +480,7 @@ public interface Constants
 
 
 	/** A snippet of List code as a constant. */
-	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
+	String LST_CROSS_CLASS = "CROSSCLASSSKILLS";
 
 	/** A snippet of List code as a constant. */
 	String LST_CHOICE = "CHOICE";
@@ -493,10 +489,10 @@ public interface Constants
 	String LST_PERCENT_CHOICE = "%CHOICE";
 
 	/** A constant used in List parsing of Favoured Class. */
-	String HIGHESTLEVELCLASS = "HIGHESTLEVELCLASS";
+	String HIGHEST_LEVEL_CLASS = "HIGHESTLEVELCLASS";
 
 	/** A constant used in the wield code. */
-	int HANDS_SIZEDEPENDENT = -1;
+	int HANDS_SIZE_DEPENDENT = -1;
 
 	/** A constant used in the control of whether a particular class has a level limit. */
 	int NO_LEVEL_LIMIT = -1;
@@ -560,15 +556,15 @@ public interface Constants
 
 
 	/** The default percentage of hit points to grant when granting a percentage of hitpoints. */
-	int DEFAULT_HPPCT = 100;
+	int DEFAULT_HP_PERCENT = 100;
 
 	/** The default percentage of an item's worth a character receives when selling
 	 * an item in the equipment tab. */
-	int DEFAULT_GEARTAB_SELL_RATE = 50;
+	int DEFAULT_GEAR_TAB_SELL_RATE = 50;
 
 	/** The default percentage of an item's worth a character must pay when buying
 	 * an item in the equipment tab. */
-	int DEFAULT_GEARTAB_BUY_RATE = 100;
+	int DEFAULT_GEAR_TAB_BUY_RATE = 100;
 
 	/**
 	 * The default colour of items in the GUI which the character does not qualify
@@ -587,7 +583,7 @@ public interface Constants
 	int NUMBER_OF_AGESET_KIT_SELECTIONS = 10;
 
 	/** If an ID path is longer than this, then the item is contained in something. */
-	int ID_PATH_LENGTH_FOR_NONCONTAINDED = 3;
+	int ID_PATH_LENGTH_FOR_NON_CONTAINED = 3;
 
 	/**
 	 * Used when sorting skills to move soe items right to the end of the
@@ -599,5 +595,5 @@ public interface Constants
 	/**
 	 * The default for whether to print the weapon proficiencies.
 	 * */
-	boolean PRINTOUT_WEAPONPROF = true;
+	boolean DEFAULT_PRINTOUT_WEAPONPROF = true;
 }

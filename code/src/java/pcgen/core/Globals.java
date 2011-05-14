@@ -1832,7 +1832,7 @@ public final class Globals
 
 		switch (SettingsHandler.getHPRollMethod())
 		{
-			case Constants.HP_USERROLLED:
+			case Constants.HP_USER_ROLLED:
 				roll = -1;
 
 				break;
@@ -1854,13 +1854,13 @@ public final class Globals
 
 				break;
 
-			case Constants.HP_AUTOMAX:
+			case Constants.HP_AUTO_MAX:
 				roll = max;
 
 				break;
 
 			case Constants.HP_PERCENTAGE:
-				roll = min - 1 + (int) ((SettingsHandler.getHPPct() * (max - min + 1)) / 100.0);
+				roll = min - 1 + (int) ((SettingsHandler.getHPPercent() * (max - min + 1)) / 100.0);
 
 				break;
 

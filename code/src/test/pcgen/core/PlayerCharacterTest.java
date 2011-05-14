@@ -225,8 +225,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		wpnProfTestC.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		context.ref.importObject(wpnProfTestC);
 	
-		SettingsHandler
-			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
@@ -469,8 +468,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
 
-		SettingsHandler
-			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");

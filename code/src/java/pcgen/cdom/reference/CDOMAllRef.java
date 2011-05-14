@@ -50,7 +50,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 */
 	public CDOMAllRef(Class<T> objClass)
 	{
-		super(objClass, Constants.ALLREF_LST + ": " + objClass.getSimpleName());
+		super(objClass, Constants.LST_ALL + ": " + objClass.getSimpleName());
 	}
 
 	/**
@@ -67,7 +67,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return useAny ? Constants.LST_ANY : Constants.ALLREF_LST;
+		return useAny ? Constants.LST_ANY : Constants.LST_ALL;
 	}
 
 	/**

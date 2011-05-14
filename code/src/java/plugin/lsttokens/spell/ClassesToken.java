@@ -63,7 +63,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
-		if (Constants.LST_DOT_CLEARALL.equals(value))
+		if (Constants.LST_DOT_CLEAR_ALL.equals(value))
 		{
 			context.getListContext().clearAllMasterLists(getTokenName(), spell);
 			return ParseResult.SUCCESS;
@@ -225,7 +225,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{
-			list.add(Constants.LST_DOT_CLEARALL);
+			list.add(Constants.LST_DOT_CLEAR_ALL);
 		}
 		if (masterChanges.hasRemovedItems())
 		{

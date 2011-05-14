@@ -125,7 +125,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					AbilityUtilities.getUndecoratedName(token, choices);
 					if (choices.size() == 1)
 					{
-						if (Constants.LST_PERCENTLIST.equals(choices.get(0))
+						if (Constants.LST_PERCENT_LIST.equals(choices.get(0))
 								&& (ability instanceof CDOMSingleRef))
 						{
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;

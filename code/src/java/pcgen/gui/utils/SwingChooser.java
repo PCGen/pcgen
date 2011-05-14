@@ -332,7 +332,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		{
 			final int method = SettingsHandler.getSingleChoicePreference();
 
-			if (method != Constants.CHOOSER_SINGLECHOICEMETHOD_NONE)
+			if (method != Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE)
 			{
 				mAvailableTable.changeSelection(0, 0, false, false);
 				updateButtonStates();
@@ -341,7 +341,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 				{
 					selectAvailable();
 
-					if ((method == Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT)
+					if ((method == Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT)
 						&& close())
 					{
 						return;

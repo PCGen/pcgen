@@ -265,17 +265,17 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 		switch (rollMethod)
 		{
-			case Constants.CHARACTERSTATMETHOD_USER:
+			case Constants.CHARACTER_STAT_METHOD_USER:
 				abilitiesUserRolledButton.setSelected(true);
 
 				break;
 
-			case Constants.CHARACTERSTATMETHOD_ALLSAME:
+			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
 				abilitiesAllSameButton.setSelected(true);
 
 				break;
 
-			case Constants.CHARACTERSTATMETHOD_PURCHASE:
+			case Constants.CHARACTER_STAT_METHOD_PURCHASE:
 				if (!abilitiesPurchasedButton.isVisible()
 					|| (pMode.length == 0))
 				{
@@ -288,7 +288,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 				break;
 
-			case Constants.CHARACTERSTATMETHOD_ROLLED:
+			case Constants.CHARACTER_STAT_METHOD_ROLLED:
 				if (abilitiesRolledButton == null)
 				{
 					bValid = false;
@@ -296,8 +296,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				else
 				{
 					abilitiesRolledButton.setSelected(true);
-					abilityRolledModeCombo.setSelectedItem(gameMode
-						.getRollMethodExpressionName());
+					abilityRolledModeCombo.setSelectedItem(gameMode.getRollMethodExpressionName());
 				}
 
 				break;
@@ -311,7 +310,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		if (!bValid)
 		{
 			abilitiesUserRolledButton.setSelected(true);
-			gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+			gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 		}
 
 		final int allStatsValue =
@@ -490,11 +489,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 		if (abilitiesUserRolledButton.isSelected())
 		{
-			gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+			gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 		}
 		else if (abilitiesAllSameButton.isSelected())
 		{
-			gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_ALLSAME);
+			gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME);
 		}
 		else if (abilitiesPurchasedButton.isSelected())
 		{
@@ -507,7 +506,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			}
 			else
 			{
-				gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+				gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 			}
 		}
 		else if ((abilitiesRolledButton != null)
@@ -520,7 +519,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			}
 			else
 			{
-				gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
+				gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 			}
 		}
 
