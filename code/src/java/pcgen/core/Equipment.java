@@ -6635,6 +6635,43 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Add a Weapon to an Equipment Location.
+	 * @param num how many pieces to add
+	 * @param eLoc the Location to add the weapon to
+	 * @param aPC the PC to quip the weapon on
+	 */
+	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
+	{
+		setNumberEquipped(num.intValue());
+		setLocation(eLoc);
+
+		if (eLoc != EquipmentLocation.EQUIPPED_NEITHER)
+		{
+			setQty(num);
+			setNumberCarried(num);
+			setIsEquipped(true, aPC);
+		}
+	}
+
+	/**
+	 * Add a piece of general equipment to an Equipment Location.
+	 * @param num how many pieces to add
+	 * @param eLoc the Location to add the equipment to
+	 * @param aPC the PC to quip the weapon on
+	 */
+	public void addEquipmentToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
+	{
+		setLocation(eLoc);
+		setQty(num);
+		setIsEquipped(false, aPC);
+
+		if (eLoc != EquipmentLocation.NOT_CARRIED)
+		{
+			setNumberCarried(0f);
+		}
+	}
+
+	/**
 	 * The Class <code>EquipmentHeadCostSummary</code> carries the multi 
 	 * valued response back when calculating the cost of a head.  
 	 */

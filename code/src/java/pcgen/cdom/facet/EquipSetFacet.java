@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.Equipment;
 import pcgen.core.character.EquipSet;
@@ -52,8 +53,8 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		{
 			final EquipSet es = e.next();
 			final String abParentId = es.getParentIdPath()
-					+ EquipSet.PATH_SEPARATOR;
-			final String abPid = pid + EquipSet.PATH_SEPARATOR;
+					+ Constants.EQUIP_SET_PATH_SEPARATOR;
+			final String abPid = pid + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (abParentId.startsWith(abPid))
 			{
@@ -149,8 +150,8 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		float count = 0;
 		for (EquipSet eSet : getSet(id))
 		{
-			final String esID = eSet.getIdPath() + EquipSet.PATH_SEPARATOR;
-			final String abID = idPath + EquipSet.PATH_SEPARATOR;
+			final String esID = eSet.getIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+			final String abID = idPath + Constants.EQUIP_SET_PATH_SEPARATOR;
 			if (esID.startsWith(abID))
 			{
 				if (eSet.getValue().equals(name))
@@ -168,8 +169,8 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 
 		for (EquipSet es : getSet(id))
 		{
-			String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
-			String rIdPath = rPath + EquipSet.PATH_SEPARATOR;
+			String esIdPath = es.getIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+			String rIdPath = rPath + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(rIdPath))
 			{

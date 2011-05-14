@@ -30,20 +30,51 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 
+/**
+ * Every item of equipment that is contained in an EquipSet has an ID with the following
+ * structure.  X.Y, where X is the parent ID (and may also be a period separated list)
+ * and Y is this equipment's id.  All EquipSets have 0 as their ultimate parent.
+ *
+ * This means that the ID for a "root" EquipSet looks like: 0.1
+ * 0 is the parent ID,
+ * 1 the equipset ID
+ *
+ * Each piece of equipment that is part of this EquipSet has a parent ID of 0.1
+ *
+ * The ID path for an Equipset that is the root of an Equipset tree
+ * id_path for a "root" EquipSet looks like: 0.1
+ * where
+ * 0 == my parent (none)
+ * 1 == my Id
+ *
+ * a Child id_path looks like this: 0.1.3
+ * where
+ * 0 == root
+ * 1 == my parent
+ * 3 == my Id
+ *
+ */
+
 /*
- ******    ***   ******    ******   ****   *****
- **   **  ** **  **   **   **   ** **  ** **
- ******  **   *<code>EquipSet</code>*  ** **
- **   ** ******* **   **   **   ** **  ** **  ***
- **   ** **   ** **   **   **   ** **  ** **   **
- ******  **   ** ******    ******   ****   ******
+ * the Structure of each EQUIPSET is as follows.
+ *
+ * EQUIPSET: id_path : name : value : item
+ *
+ * id_path = a . delimited string that denotes parent/child relationship
+ * name = name of EquipSet or item this represents
+ (and is used to define uniquiness for compareTo)
+ * value = Name of the Equipment stored in this item
+ * item = Equipment item stored (optional)
+ * qty = number of items this equipset contains (all same item)
  *
  */
 
@@ -54,42 +85,11 @@ import pcgen.util.Logging;
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
-	/** The ID component for the Root equip set */
-	public static final String ROOT_ID = "0"; //$NON-NLS-1$
-	
-	/** The character to use to separate path components */
-	public static final String PATH_SEPARATOR = "."; //$NON-NLS-1$
-	
+
 	private Equipment eq_item;
 	private Float qty = new Float(1);
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
 
-	/*
-	 * the Structure of each EQUIPSET is as follows:
-	 *
-	 * EQUIPSET: id_path : name : value : item
-	 *
-	 * id_path = a . delimited string that denotes parent/child relationship
-	 * name = name of EquipSet or item this represents
-			  (and is used to define uniquiness for compareTo)
-	 * value = Name of the Equipment stored in this item
-	 * item = Equipment item stored (optional)
-	 * qty = number of items this equipset contains (all same item)
-	 *
-	 */
-
-	//
-	// id_path for a "root" EquipSet looks like: 0.1
-	// where
-	// 0 == my parent (none)
-	// 1 == my Id
-	//
-	// a Child id_path looks like this: 0.1.3
-	// where
-	// 0 == root
-	// 1 == my parent
-	// 3 == my Id
-	//
 	private String id_path = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;
 	private String note = Constants.EMPTY_STRING;
@@ -133,7 +133,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		try
 		{
-			final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, false);
+			final StringTokenizer aTok = new StringTokenizer(id_path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 
 			while (aTok.hasMoreTokens())
 			{
@@ -233,7 +233,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		// get all tokens and include the delimiter
 		try
 		{
-			final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, true);
+			final StringTokenizer aTok = new StringTokenizer(id_path, Constants.EQUIP_SET_PATH_SEPARATOR, true);
 
 			// get all tokens (and delimiters) except last two
 			for (int i = aTok.countTokens() - 2; i > 0; i--)
@@ -275,7 +275,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	public String getRootIdPath()
 	{
 		final StringBuffer buf = new StringBuffer(50);
-		final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, false);
+		final StringTokenizer aTok = new StringTokenizer(id_path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 		final String result;
 
 		if (aTok.countTokens() < 2)
@@ -426,5 +426,102 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	public boolean useTempBonusList()
 	{
 		return !tempBonusBySource.isEmpty();
+	}
+
+	/**
+	 * Apply this EquipSet to a PlayerCharacter object.
+	 * @param aPC the PC to quip the item on
+	 *
+	 */
+	public void equipItem(PlayerCharacter aPC)
+	{
+		final StringTokenizer aTok = new StringTokenizer(getIdPath(), Constants.EQUIP_SET_PATH_SEPARATOR);
+
+		// if the eSet.getIdPath() is longer than 3
+		// it's inside a container, don't try to equip
+		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
+		{
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, aPC);
+		}
+		else if (getName().startsWith(Constants.EQUIP_LOCATION_CARRIED))
+		{
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, aPC);
+		}
+		else if (getName().startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
+		{
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.NOT_CARRIED, aPC);
+		}
+		else if (eq_item.isWeapon())
+		{
+			if (getName().equals(Constants.EQUIP_LOCATION_PRIMARY)
+				|| getName().equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_PRIMARY, aPC);
+			}
+			else if (getName().startsWith(Constants.EQUIP_LOCATION_SECONDARY)
+				|| getName().equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_SECONDARY, aPC);
+			}
+			else if (getName().equals(Constants.EQUIP_LOCATION_BOTH))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_BOTH, aPC);
+			}
+			else if (getName().equals(Constants.EQUIP_LOCATION_DOUBLE))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
+			}
+			else if (getName().equals(Constants.EQUIP_LOCATION_UNARMED))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
+			}
+			else if (getName().equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
+			{
+				Float foo = (qty.doubleValue() < 2.0) ? 2.0f : qty;
+
+				setQty(foo);
+				eq_item.addWeaponToLocation(foo, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
+			}
+			else if (getName().equals(Constants.EQUIP_LOCATION_SHIELD))
+			{
+				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
+			}
+		}
+		else
+		{
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
+		}
+	}
+
+	/**
+	 * If there is a note set in this Equipment set, then add it to the contained equipment.
+	 */
+	public void addNoteToItem()
+	{
+		final String aNote = getNote();
+
+		if ((aNote != null) && (aNote.length() > 0))
+		{
+			getItem().setNote(aNote);
+		}
+	}
+
+	/**
+	 * Is this EquipSet part of the Equipment set located at rootId.
+	 *
+	 * @param rootId The id to test
+	 * @return true if eqSet is a child of rootId
+	 */
+	public boolean isPartOf(String rootId)
+	{
+		// rootId = 0.1.
+		// parentIdPath = 0.10.
+		// OR
+		// rootId = 0.10.
+		// parentIdPath = 0.1.
+		final String abCalcId = rootId + Constants.EQUIP_SET_PATH_SEPARATOR;
+		final String abParentId = getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+
+		return abParentId.startsWith(abCalcId);
 	}
 }

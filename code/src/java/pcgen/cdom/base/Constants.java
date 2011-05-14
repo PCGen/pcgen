@@ -596,4 +596,10 @@ public interface Constants
 	 * The default for whether to print the weapon proficiencies.
 	 * */
 	boolean DEFAULT_PRINTOUT_WEAPONPROF = true;
+
+	/** The ID component for the Root equip set. */
+	String EQUIP_SET_ROOT_ID = "0"; //$NON-NLS-1$
+
+	/** The character to used to separate path components. */
+	String EQUIP_SET_PATH_SEPARATOR = "."; //$NON-NLS-1$
 }

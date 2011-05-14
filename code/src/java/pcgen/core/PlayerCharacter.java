@@ -713,7 +713,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			// so we need to find one they do have
 			for (EquipSet eSet : equipSetFacet.getSet(id))
 			{
-				if (eSet.getParentIdPath().equals(EquipSet.ROOT_ID))
+				if (eSet.getParentIdPath().equals(Constants.EQUIP_SET_ROOT_ID))
 				{
 					calcEquipSetId = eSet.getIdPath();
 
@@ -782,9 +782,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// then set status to equipped and add to PC's equipment list
 		for (EquipSet es : pcEquipSetList)
 		{
-			final String abCalcId = calcId + EquipSet.PATH_SEPARATOR;
+			final String abCalcId = calcId + Constants.EQUIP_SET_PATH_SEPARATOR;
 			final String abParentId =
-					es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
+					es.getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			// calcId = 0.1.
 			// parentIdPath = 0.10.
@@ -808,7 +808,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			final String aNote = es.getNote();
 			Float num = es.getQty();
 			final StringTokenizer aTok =
-					new StringTokenizer(es.getIdPath(), EquipSet.PATH_SEPARATOR);
+					new StringTokenizer(es.getIdPath(), Constants.EQUIP_SET_PATH_SEPARATOR);
 
 			// if the eSet.getIdPath() is longer than 3
 			// it's inside a container, don't try to equip
@@ -1435,8 +1435,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (EquipSet es : equipSetFacet.getSet(id))
 		{
-			final String abIdPath = idPath + EquipSet.PATH_SEPARATOR;
-			final String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
+			final String abIdPath = idPath + Constants.EQUIP_SET_PATH_SEPARATOR;
+			final String esIdPath = es.getIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(abIdPath))
 			{
@@ -3967,7 +3967,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * This method caps the base check based on the game mode setting for
 	 * {@link pcgen.core.GameMode#getChecksMaxLvl() checks max level}.
 	 * 
-	 * @param checkInd
+	 * @param check
 	 *            The index of the check to get
 	 * 
 	 * @return The base check value.
@@ -5215,8 +5215,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aSpell
 	 *            The spell being output.
-	 * @param owner
-	 *            The class providing the spell.
 	 * @param si
 	 *            The info about conditions applied to the spell
 	 * @return spell range
@@ -5301,7 +5299,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Computes the Caster Level for a Class
 	 * 
 	 * @param aSpell
-	 * @param aName
 	 * @return caster level for spell
 	 */
 	public int getCasterLevelForSpell(final CharacterSpell aSpell)
@@ -5360,15 +5357,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Get the value of the desired stat at the point just before the character
 	 * was raised to the next level.
 	 * 
-	 * @param statAbb
-	 *            The short name of the stat to calculate the value of.
+	 * @param stat
+	 *            The Stat to check.
 	 * @param level
 	 *            The level we want to see the stat at.
 	 * @param includePost
 	 *            Should stat mods that occurred after levelling be included?
 	 * @return The stat as it was at the level
 	 */
-	public int getTotalStatAtLevel(final PCStat stat, final int level,
+	public int getTotalStatAtLevel(
+		final PCStat stat,
+		final int level,
 		final boolean includePost)
 	{
 		int curStat = StatAnalysis.getTotalStatFor(this, stat);
@@ -6927,11 +6926,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * equals <tt>save.MAGIC</tt> <p/> <br>
 	 * author: Thomas Behr 09-03-02
 	 * 
-	 * @param saveIndex
-	 *            See the appropriate gamemode file
-	 * @param saveType
-	 *            "CHECK1", "CHECK2", or "CHECK3"; may not differ from
-	 *            saveIndex!
 	 * @param check
 	 * @param tokenString
 	 *            tokenString to parse
@@ -7363,7 +7357,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Lists all the tokens that match prefix with associated values
 	 * 
-	 * @param prefix
+	 * @param bonusType
+	 * @param bonusName
 	 * @return String TODO - Not sure what this is trying to do.
 	 */
 	public String listBonusesFor(String bonusType, String bonusName)
@@ -7701,7 +7696,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Calculate the MAXDEX or ACCHECK or SPELLFAILURE or AC bonus from all currently
 	 * equipped items.
 	 * 
-	 * @param The type of modification we're trying to calculate
+	 * @param typeName The type of modification we're trying to calculate
 	 * @return The calculation from the equipment or if the typeName doesn't match then 0
 	 */
 	public int modToFromEquipment(final String typeName)
@@ -7742,14 +7737,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * Takes a String and a Class name and computes spell based variable such as
-	 * Class level
+	 * Class level.
 	 * 
-	 * @param aSpell
-	 * @param aString
-	 * @param anObj
+	 * @param aSpell The spell object
+	 * @param aString the variable to evaluate
 	 * @return String
 	 */
-	public String parseSpellString(final CharacterSpell aSpell, String aString)
+	public String parseSpellString(
+		final CharacterSpell aSpell,
+		String aString)
 	{
 		String aSpellClass = aSpell.getVariableSource(this);
 
@@ -9031,7 +9027,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * standard halfling's +1 on all saves template bonuses like the Lightfoot
 	 * halfling's +1 on all saves racial base modifiers for certain monsters
 	 * 
-	 * @param saveIndex
+	 * @param check
 	 * @return int
 	 */
 	private int calculateSaveBonusRace(PCCheck check)
@@ -9518,14 +9514,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * of equipment have the same outputIndex they will be ordered by name. Note
 	 * hidden items (outputIndex = -1) are not included in list.
 	 * 
-	 * @param unsortedEquipList
+	 * @param unsortedEquip
 	 *            An ArrayList of the equipment to be sorted.
 	 * @param merge
 	 *            How to merge.
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
-	private List<Equipment> sortEquipmentList(
-		final Collection<Equipment> unsortedEquip, final int merge)
+	private List<Equipment> sortEquipmentList(final Collection<Equipment> unsortedEquip, final int merge)
 	{
 		if (unsortedEquip.isEmpty())
 		{
@@ -9700,15 +9695,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * to all included bonuses. If not excluding either, it is quicker to use
 	 * getTotalBonusTo.
 	 * 
-	 * @param statAbbr
-	 *            The short name of the stat to calculate the bonus for.
+	 * @param stat
+	 *            The stat to calculate the bonus for.
 	 * @param useTemp
 	 *            Should temp bonuses be included?
 	 * @param useEquip
 	 *            Should equipment bonuses be included?
 	 * @return The bonus to the stat.
 	 */
-	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
+	public int getPartialStatBonusFor(
+		PCStat stat,
+		boolean useTemp,
 		boolean useEquip)
 	{
 		return bonusManager.getPartialStatBonusFor(stat, useTemp, useEquip);
@@ -9720,8 +9717,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * stacking rules are applied to all included bonuses. If not excluding
 	 * either, it is quicker to use getTotalStatAtLevel.
 	 * 
-	 * @param statAbb
-	 *            The short name of the stat to calculate the value of.
+	 * @param stat
+	 *            The stat to calculate the value of.
 	 * @param level
 	 *            The level we want to see the stat at.
 	 * @param usePost
@@ -9732,8 +9729,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 *            Should equipment bonuses be included?
 	 * @return The stat as it was at the level
 	 */
-	public int getPartialStatAtLevel(PCStat stat, int level,
-		boolean usePost, boolean useTemp, boolean useEquip)
+	public int getPartialStatAtLevel(
+		PCStat stat,
+		int level,
+		boolean usePost,
+		boolean useTemp,
+		boolean useEquip)
 	{
 		int curStat =
 				StatAnalysis.getPartialStatFor(this, stat, useTemp, useEquip);
@@ -10016,8 +10017,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (EquipSet es : getEquipSet())
 		{
-			String esID = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
-			String abID = idPath + EquipSet.PATH_SEPARATOR;
+			String esID = es.getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+			String abID = idPath + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (!esID.startsWith(abID))
 			{
@@ -10048,8 +10049,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (EquipSet es : getEquipSet())
 		{
-			String esID = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
-			String abID = idPath + EquipSet.PATH_SEPARATOR;
+			String esID = es.getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+			String abID = idPath + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (!esID.startsWith(abID))
 			{
@@ -10143,8 +10144,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (EquipSet es : getEquipSet())
 		{
-			String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
-			String rIdPath = rPath + EquipSet.PATH_SEPARATOR;
+			String esIdPath = es.getIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
+			String rIdPath = rPath + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(rIdPath))
 			{
@@ -10169,7 +10170,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private String getNewIdPath(EquipSet eSet)
 	{
-		String pid = EquipSet.ROOT_ID;
+		String pid = Constants.EQUIP_SET_ROOT_ID;
 		int newID = 0;
 
 		if (eSet != null)
@@ -10187,7 +10188,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		++newID;
 
-		return pid + EquipSet.PATH_SEPARATOR + newID;
+		return pid + Constants.EQUIP_SET_PATH_SEPARATOR + newID;
 	}
 
 	public EquipSet addEquipToTarget(final EquipSet eSet,
@@ -11385,10 +11386,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets a list of feats matching the supplied name no matter what category
-	 * they were added in.
+	 * Gets a list of ability objects whose name is the same as that of the ability object
+	 * passed in, no matter what category they were added in.
 	 * 
-	 * @param featName the feat name
+	 * @param ab the ability
 	 * 
 	 * @return the list of matching feats
 	 */
@@ -11454,19 +11455,22 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * that the PC qualifies for at the supplied level and
 	 * hit dice. 
 	 * 
+	 * @param pct
+	 *
 	 * @param level
-	 *            TODO DOCUMENT ME!
+	 *
 	 * @param hitdice
-	 *            TODO DOCUMENT ME!
-	 * @param aPC
-	 *            TODO DOCUMENT ME!
+	 *
 	 * @param addNew
-	 *            TODO DOCUMENT ME!
+	 *
 	 * 
-	 * @return TODO DOCUMENT ME!
+	 * @return
 	 */
-	public List<AbilitySelection> feats(PCTemplate pct, final int level,
-		final int hitdice, final boolean addNew)
+	public List<AbilitySelection> feats(
+		PCTemplate pct,
+		final int level,
+		final int hitdice,
+		final boolean addNew)
 	{
 		final List<AbilitySelection> feats = new ArrayList<AbilitySelection>();
 
@@ -11943,17 +11947,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * This method gets the information about the levels at which classes and
 	 * domains may cast the spell.
-	 * 
-	 * Modified 8 Sept 2003 by Sage_Sam for bug #801469
-	 * 
+	 *
+	 * @param sp The spell to get the info for.
+	 *
 	 * @return Map containing the class levels and domains that may cast the
 	 *         spell
-	 * @param aPC
 	 */
 	public HashMapToList<CDOMList<Spell>, Integer> getLevelInfo(Spell sp)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				getMasterLevelInfo(sp);
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = getMasterLevelInfo(sp);
 		levelInfo.addAllLists(getPCBasedLevelInfo(sp));
 		return levelInfo;
 	}
@@ -11977,19 +11979,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get a list of CharacterSpells from the character spell list
-	 * @param fList
-	 * @param spellSource TODO
+	 * Get a list of CharacterSpells from the character spell list.
+	 * @param spellSource
 	 * @param aSpell
 	 * @param book
 	 * @param level
 	 * @return list of CharacterSpells from the character spell list
 	 */
-	public final List<CharacterSpell> getCharacterSpells(PObject spellSource,
-		final Spell aSpell, final String book, final int level)
+	public final List<CharacterSpell> getCharacterSpells(
+		PObject spellSource,
+		final Spell aSpell,
+		final String book,
+		final int level)
 	{
-		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
-				getCharacterSpells(spellSource));
+		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
+
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
 
@@ -12003,8 +12007,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if ((aSpell == null) || cs.getSpell().equals(aSpell))
 			{
-				final SpellInfo si =
-						cs.getSpellInfoFor(this, book, level, -1, null);
+				final SpellInfo si = cs.getSpellInfoFor(this, book, level, -1, null);
 
 				if (si != null)
 				{
