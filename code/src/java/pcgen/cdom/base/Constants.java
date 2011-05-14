@@ -339,7 +339,7 @@ public interface Constants
 
 	/**
 	 * The highest possible maxDex value. */
-	Integer MAX_MAXDEX = Integer.valueOf(100);
+	Integer MAX_MAXDEX = 100;
 
 	/**
 	 * A constant defining the number of recently open characters to display in
