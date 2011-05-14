@@ -630,7 +630,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		fc.setDialogTitle(PropertyFactory.getFormattedString(
 			"InfoResources.SaveCaption", target, nName)); //$NON-NLS-1$
 		fc.setSelectedFile(new File(SettingsHandler.getPcgPath(), nName
-			+ Constants.s_PCGEN_CHARACTER_EXTENSION));
+			+ Constants.EXTENSION_CHARACTER_FILE));
 		fc.setCurrentDirectory(SettingsHandler.getPcgPath());
 
 		if (fc.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
@@ -644,7 +644,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			file =
 					new File(file.getParent(), file.getName()
-						+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+						+ Constants.EXTENSION_CHARACTER_FILE);
 		}
 
 		if (file.exists())

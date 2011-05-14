@@ -325,7 +325,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 			prevFile =
 					new File(SettingsHandler.getPcgPath().toString(), aPC
 						.getDisplayName()
-						+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+						+ Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
@@ -359,7 +359,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				{
 					file =
 							new File(file.getParent(), file.getName()
-								+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+								+ Constants.EXTENSION_CHARACTER_FILE);
 				}
 
 				if (file.isDirectory())

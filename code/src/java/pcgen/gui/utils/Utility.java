@@ -178,7 +178,7 @@ public final class Utility
 		{
 			// create a temporary file to view the character output
 			tempFile =
-					File.createTempFile(Constants.s_TempFileName, extension,
+					File.createTempFile(Constants.TEMPORARY_FILE_NAME, extension,
 						SettingsHandler.getTempPath());
 		}
 		catch (IOException ioe)

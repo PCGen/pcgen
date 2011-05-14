@@ -39,6 +39,6 @@ public class PCGFileTest extends PCGenTestCase
 	{
 		assertTrue("Extension without filename", PCGFile
 			.isPCGenCharacterFile(new File(
-				Constants.s_PCGEN_CHARACTER_EXTENSION)));
+				Constants.EXTENSION_CHARACTER_FILE)));
 	}
 }

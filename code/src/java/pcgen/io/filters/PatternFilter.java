@@ -50,7 +50,7 @@ public class PatternFilter implements OutputFilter
 		filterName =
 					SettingsHandler.getPcgenSystemDir()
 					+ File.separator + "outputFilters" + File.separator + "re"
-					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
+					+ filterName + Constants.EXTENSION_LIST_FILE;
 		Logging.debugPrint("Creating filter from " + filterName);
 
 		final File filterFile = new File(filterName);

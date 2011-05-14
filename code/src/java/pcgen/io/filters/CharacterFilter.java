@@ -39,7 +39,7 @@ public class CharacterFilter implements OutputFilter
 		filterName =
 					SettingsHandler.getPcgenSystemDir()
 					+ File.separator + "outputFilters" + File.separator
-					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
+					+ filterName + Constants.EXTENSION_LIST_FILE;
 
 		final File filterFile = new File(filterName);
 

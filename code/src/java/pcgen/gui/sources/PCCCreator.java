@@ -364,7 +364,7 @@ final class PCCCreator extends JFrame
 
 		if (!PCGFile.isPCGenCampaignFile(new File(name)))
 		{
-			name += Constants.s_PCGEN_CAMPAIGN_EXTENSION;
+			name += Constants.EXTENSION_CAMPAIGN_FILE;
 		}
 
 		try

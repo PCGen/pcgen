@@ -405,8 +405,7 @@ public final class CustomData
 			aString = SettingsHandler.getPcgenCustomDir().getAbsolutePath();
 			aString += File.separator + gmName;
 		}
-		return aString + File.separator + "custom" + type
-			+ Constants.s_PCGEN_LIST_EXTENSION;
+		return aString + File.separator + "custom" + type + Constants.EXTENSION_LIST_FILE;
 	}
 
 	private static String getCustomPath(final String type, final boolean usePath)

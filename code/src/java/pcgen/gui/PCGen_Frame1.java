@@ -1021,7 +1021,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			prevFile =
 					new File(SettingsHandler.getPcgPath(), aPC.getDisplayName()
-						+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+						+ Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
@@ -1055,7 +1055,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				{
 					file =
 							new File(file.getParent(), file.getName()
-								+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+								+ Constants.EXTENSION_CHARACTER_FILE);
 				}
 
 				if (file.isDirectory())
@@ -2489,7 +2489,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			prevFile =
 					new File(SettingsHandler.getPcgPath(), "Party"
-						+ Constants.s_PCGEN_PARTY_EXTENSION);
+						+ Constants.EXTENSION_PARTY_FILE);
 			partyFileName = prevFile.getAbsolutePath();
 			newParty = true;
 		}
@@ -2519,9 +2519,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 				if (!PCGFile.isPCGenPartyFile(file))
 				{
-					file =
-							new File(file.getParent(), file.getName()
-								+ Constants.s_PCGEN_PARTY_EXTENSION);
+					file = new File(file.getParent(), file.getName()
+						+ Constants.EXTENSION_PARTY_FILE);
 				}
 
 				if (file.isDirectory())
@@ -2603,7 +2602,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 			{
 				try
 				{
-					if (aString.startsWith(Constants.s_TempFileName))
+					if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
 					{
 						if (!myCleanUp)
 						{

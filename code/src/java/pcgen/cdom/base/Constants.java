@@ -136,19 +136,19 @@ public interface Constants
 	String NONESELECTED = "<none selected>"; //$NON-NLS-1$
 
 	/** The extension for a campaign file. */
-	String s_PCGEN_CAMPAIGN_EXTENSION = ".pcc"; //$NON-NLS-1$
+	String EXTENSION_CAMPAIGN_FILE = ".pcc"; //$NON-NLS-1$
 
 	/** The extension for a character file. */
-	String s_PCGEN_CHARACTER_EXTENSION = ".pcg"; //$NON-NLS-1$
-
-	/** The extension for a party file. */
-	String s_PCGEN_PARTY_EXTENSION = ".pcp"; //$NON-NLS-1$
+	String EXTENSION_CHARACTER_FILE = ".pcg"; //$NON-NLS-1$
 
 	/** The extension for a list file. */
-	String s_PCGEN_LIST_EXTENSION = ".lst"; //$NON-NLS-1$
+	String EXTENSION_LIST_FILE = ".lst"; //$NON-NLS-1$
+
+	/** The extension for a party file. */
+	String EXTENSION_PARTY_FILE = ".pcp"; //$NON-NLS-1$
 
 	/** The temporary file name of the current PC used during output. */
-	String s_TempFileName = "currentPC"; //$NON-NLS-1$
+	String TEMPORARY_FILE_NAME = "currentPC"; //$NON-NLS-1$
 
 	/** A constant string representing the type spellbook. */
 	String TYPE_SPELLBOOK = "SPELLBOOK"; //$NON-NLS-1$

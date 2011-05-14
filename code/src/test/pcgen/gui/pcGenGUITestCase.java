@@ -148,7 +148,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 
 			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
 			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/"
-				+ character + Constants.s_PCGEN_CHARACTER_EXTENSION);
+				+ character + Constants.EXTENSION_CHARACTER_FILE);
 			System.setProperty("pcgen.outputfile", "code/testsuite/output/"
 				+ character + ".xml");
 			System.setProperty("pcgen.options", "options.ini.junit");
