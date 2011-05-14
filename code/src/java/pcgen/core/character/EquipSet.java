@@ -441,15 +441,15 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		// it's inside a container, don't try to equip
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
-			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, aPC);
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, false, aPC);
 		}
 		else if (getName().startsWith(Constants.EQUIP_LOCATION_CARRIED))
 		{
-			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, aPC);
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, false, aPC);
 		}
 		else if (getName().startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
 		{
-			eq_item.addEquipmentToLocation(qty, EquipmentLocation.NOT_CARRIED, aPC);
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.NOT_CARRIED, false, aPC);
 		}
 		else if (eq_item.isWeapon())
 		{
@@ -477,10 +477,10 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 			}
 			else if (getName().equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
 			{
-				Float foo = (qty.doubleValue() < 2.0) ? 2.0f : qty;
+				Float quantity = (qty.doubleValue() < 2.0) ? 2.0f : qty;
 
-				setQty(foo);
-				eq_item.addWeaponToLocation(foo, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
+				setQty(quantity);
+				eq_item.addWeaponToLocation(quantity, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
 			}
 			else if (getName().equals(Constants.EQUIP_LOCATION_SHIELD))
 			{
@@ -489,7 +489,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		else
 		{
-			eq_item.addEquipmentToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
+			eq_item.addEquipmentToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, true, aPC);
 		}
 	}
 

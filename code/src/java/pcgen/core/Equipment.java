@@ -6642,7 +6642,9 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
 	{
-		setNumberEquipped(num.intValue());
+		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2f : num;
+		setNumberEquipped(numEquipped.intValue());
+
 		setLocation(eLoc);
 
 		if (eLoc != EquipmentLocation.EQUIPPED_NEITHER)
