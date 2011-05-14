@@ -6657,18 +6657,22 @@ public final class Equipment extends PObject implements Serializable,
 	 * Add a piece of general equipment to an Equipment Location.
 	 * @param num how many pieces to add
 	 * @param eLoc the Location to add the equipment to
+	 * @param equip whether to equip the item
 	 * @param aPC the PC to quip the weapon on
 	 */
-	public void addEquipmentToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
+	public void addEquipmentToLocation(
+		Float num,
+		EquipmentLocation eLoc,
+		boolean equip,
+		PlayerCharacter aPC)
 	{
 		setLocation(eLoc);
 		setQty(num);
-		setIsEquipped(false, aPC);
+		setIsEquipped(equip, aPC);
 
-		if (eLoc != EquipmentLocation.NOT_CARRIED)
-		{
-			setNumberCarried(0f);
-		}
+		Float numCarried = (eLoc == EquipmentLocation.NOT_CARRIED) ? 0f : num;
+
+		setNumberCarried(numCarried);
 	}
 
 	/**
