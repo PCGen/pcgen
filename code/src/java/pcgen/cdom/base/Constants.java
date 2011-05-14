@@ -591,7 +591,6 @@ public interface Constants
 	int ARBITRARY_END_SKILL_INDEX = 999;
 
 
-	/* Todo: rename to DEFAULT_PRINTOUT_WEAPONPROF */
 	/**
 	 * The default for whether to print the weapon proficiencies.
 	 * */
