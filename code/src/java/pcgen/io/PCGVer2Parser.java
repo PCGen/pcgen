@@ -2184,9 +2184,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			for (int i = 0; i < level; ++i)
 			{
-				PCLevelInfo levelInfo =
-						thePC.saveLevelInfo(aPCClass.getKeyName());
-				aPCClass.addLevel(levelInfo, false, thePC);
+				PCLevelInfo levelInfo = thePC.saveLevelInfo(aPCClass.getKeyName());
+				aPCClass.addLevel(false, false, thePC, true);
+
 			}
 		}
 

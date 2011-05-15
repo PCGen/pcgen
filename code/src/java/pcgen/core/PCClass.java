@@ -729,29 +729,6 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Add a level of this class to the character. Note this call is assumed to
-	 * only be used when loading characters, and some behaviour is tailored for
-	 * this.
-	 *
-	 * @param pcLevelInfo
-	 *
-	 * @param levelMax
-	 *            True if the level caps, if any, for this class should be
-	 *            respected.
-	 * @param aPC
-	 *            The character having the level added.
-	 */
-	/*
-	 * DELETEMETHOD This really becomes a factory call to PCClass to get an
-	 * appropriate PCClassLevel to be added to the PlayerCharacter
-	 */
-	public void addLevel(final PCLevelInfo pcLevelInfo, final boolean levelMax,
-		final PlayerCharacter aPC)
-	{
-		addLevel(pcLevelInfo, levelMax, false, aPC, true);
-	}
-
-	/**
 	 * returns the value at which another attack is gained attackCycle of 4
 	 * means a second attack is gained at a BAB of +5/+1
 	 *
@@ -1009,13 +986,14 @@ public class PCClass extends PObject
 	/**
 	 * Get the unarmed Damage for this class at the given level.
 	 *
-	 * @param aLevel
-	 * @param aPC
-	 * @param adjustForPCSize
-	 * @param includeCrit
+	 * @param aLevel the given level.
+	 * @param aPC the PC with the level.
+	 * @param adjustForPCSize whether to adjust the result for the PC's size.
 	 * @return the unarmed damage string
 	 */
-	String getUdamForLevel(int aLevel, final PlayerCharacter aPC,
+	String getUdamForLevel(
+		int aLevel,
+		final PlayerCharacter aPC,
 		boolean adjustForPCSize)
 	{
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + getKeyName());
@@ -1025,13 +1003,15 @@ public class PCClass extends PObject
 	/**
 	 * Get the unarmed Damage for this class at the given level.
 	 *
-	 * @param aLevel
-	 * @param aPC
-	 * @param adjustForPCSize
+	 * @param aLevel the given level.
+	 * @param aPC the PC with the level.
+	 * @param adjustForPCSize whether to adjust the result for the PC's size.
 	 * @return the unarmed damage string
 	 */
-	String getUDamForEffLevel(int aLevel, final PlayerCharacter aPC,
-			boolean adjustForPCSize)
+	String getUDamForEffLevel(
+		int aLevel,
+		final PlayerCharacter aPC,
+		boolean adjustForPCSize)
 	{
 		SizeAdjustment pcSize = aPC.getSizeAdjustment();
 
@@ -1098,7 +1078,6 @@ public class PCClass extends PObject
 	 * property). Then have a joining class assigned to PlayerCharacter that
 	 * maps PCClass and number of levels in the class.
 	 *
-	 * @param pcLevelInfo
 	 *
 	 * @param argLevelMax
 	 *            True if we should only allow extra levels if there are still
@@ -1121,8 +1100,10 @@ public class PCClass extends PObject
 	 * extract some of the complicated gunk out of here that goes out and puts
 	 * information into PCLevelInfo and PlayerCharacter.
 	 */
-	boolean addLevel(final PCLevelInfo pcLevelInfo, final boolean argLevelMax,
-		final boolean bSilent, final PlayerCharacter aPC,
+	public boolean addLevel(
+		final boolean argLevelMax,
+		final boolean bSilent,
+		final PlayerCharacter aPC,
 		final boolean ignorePrereqs)
 	{
 
@@ -1193,24 +1174,26 @@ public class PCClass extends PObject
 
 		// Make sure that if this Class adds a new domain that
 		// we record where that domain came from
-		final int dnum =
-				aPC.getMaxCharacterDomains(this, aPC)
-					- aPC.getDomainCount();
+		final int dnum = aPC.getMaxCharacterDomains(this, aPC) - aPC.getDomainCount();
 
 		if (dnum > 0 && !aPC.hasDefaultDomainSource())
 		{
 			aPC.setDefaultDomainSource(new ClassSource(this, newLevel));
 		}
 
-		doPlusLevelMods(newLevel, aPC, pcLevelInfo);
+		doPlusLevelMods(newLevel, aPC);
 
 		// Don't roll the hit points if the gui is not being used.
 		// This is so GMGen can add classes to a person without pcgen flipping
 		// out
 		if (Globals.getUseGUI())
 		{
-			rollHP(aPC, aPC.getLevel(this), (SettingsHandler.isHPMaxAtFirstClassLevel()
-				? aPC.totalNonMonsterLevels() : aPC.getTotalLevels()) == 1);
+			final int levels = SettingsHandler.isHPMaxAtFirstClassLevel()
+				? aPC.totalNonMonsterLevels()
+				: aPC.getTotalLevels();
+			final boolean isFirst = levels == 1;
+
+			rollHP(aPC, aPC.getLevel(this), isFirst);
 		}
 
 		if (!aPC.isImporting())
@@ -1255,13 +1238,12 @@ public class PCClass extends PObject
 				// number and the stat point pool are
 				// already saved in the import file.
 
-				//				if (processBonusFeats) {
-				//					final double bonusFeats = aPC.getBonusFeatsForNewLevel(this);
-				//					if (bonusFeats > 0) {
-				//						// aPC.setFeats(aPC.getFeats() + bonusFeats);
-				//						aPC.adjustFeats(bonusFeats);
-				//					}
-				//				}
+				//if (processBonusFeats) {
+				//	final double bonusFeats = aPC.getBonusFeatsForNewLevel(this);
+				//	if (bonusFeats > 0) {
+				//		aPC.adjustFeats(bonusFeats);
+				//	}
+				//}
 
 				if (processBonusStats)
 				{
@@ -1270,11 +1252,10 @@ public class PCClass extends PObject
 					{
 						aPC.setPoolAmount(aPC.getPoolAmount() + bonusStats);
 
-						if (!bSilent
-							&& SettingsHandler.getShowStatDialogAtLevelUp())
+						if (!bSilent && SettingsHandler.getShowStatDialogAtLevelUp())
 						{
 							levelUpStats =
-									StatApplication.askForStatIncrease(aPC, bonusStats, true);
+							   StatApplication.askForStatIncrease(aPC, bonusStats, true);
 						}
 					}
 				}
@@ -1394,8 +1375,9 @@ public class PCClass extends PObject
 	 * PlayerCharacter needs to perform this work, not PCClass.
 	 * Then again, this could be in PCClassLevel.
 	 */
-	void doPlusLevelMods(final int newLevel, final PlayerCharacter aPC,
-		final PCLevelInfo pcLevelInfo)
+	void doPlusLevelMods(
+		final int newLevel,
+		final PlayerCharacter aPC)
 	{
 		// moved after changeSpecials and addVariablesForLevel
 		// for bug #688564 -- sage_sam, 18 March 2003

@@ -821,50 +821,49 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				// make sure that this EquipSet is the one
 				// this temporary bonus item comes from
 				// to make sure we keep them together
-				final Equipment anEquip =
-						getEquipmentNamed(eq.getName(), getEquipmentSet());
+				final Equipment anEquip = getEquipmentNamed(eq.getName(), getEquipmentSet());
 
-				if (anEquip != null)
+				if (anEquip == null)
 				{
-					eq.setQty(anEquip.getQty());
-					eq.setNumberCarried(anEquip.getCarried());
+					continue;
+				}
 
-					if (anEquip.isEquipped())
+				eq.setQty(anEquip.getQty());
+				eq.setNumberCarried(anEquip.getCarried());
+
+				if (anEquip.isEquipped())
+				{
+					if (eq.isWeapon())
 					{
-						if (eq.isWeapon())
-						{
-							eq.put(IntegerKey.SLOTS, 0);
-							eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
-							eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-							eq.setLocation(anEquip.getLocation());
-						}
-						else
-						{
-							// replace the orig item
-							// with the bonus item
-							eq.setLocation(anEquip.getLocation());
-							removeLocalEquipment(anEquip);
-							anEquip.setIsEquipped(false, this);
-							anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
-							anEquip.setNumberCarried(0f);
-						}
-
-						eq.setIsEquipped(true, this);
-						eq.setNumberEquipped(1);
+						eq.put(IntegerKey.SLOTS, 0);
+						eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+						eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+						eq.setLocation(anEquip.getLocation());
 					}
 					else
 					{
-						eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
-						eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-						eq.setLocation(EquipmentLocation.EQUIPPED_TEMPBONUS);
-						eq.setIsEquipped(false, this);
+						// replace the orig item with the bonus item
+						eq.setLocation(anEquip.getLocation());
+						removeLocalEquipment(anEquip);
+						anEquip.setIsEquipped(false, this);
+						anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
+						anEquip.setNumberCarried(0f);
 					}
 
-					// Adding this type to be
-					// correctly treated by Merge
-					eq.addType(Type.TEMPORARY);
-					addLocalEquipment(eq);
+					eq.setIsEquipped(true, this);
+					eq.setNumberEquipped(1);
 				}
+				else
+				{
+					eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+					eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+					eq.setLocation(EquipmentLocation.EQUIPPED_TEMPBONUS);
+					eq.setIsEquipped(false, this);
+				}
+
+				// Adding this type to be correctly treated by Merge
+				eq.addType(Type.TEMPORARY);
+				addLocalEquipment(eq);
 			}
 		}
 
@@ -1967,7 +1966,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setMaster(final Follower aM)
 	{
 		masterFacet.set(id, aM);
-		Follower followerMaster = aM;
 
 		final PlayerCharacter mPC = getMasterPC();
 
@@ -2067,7 +2065,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// Add additional HD if required
 		LevelCommandFactory lcf = getRace().get(ObjectKey.MONSTER_CLASS);
 
-		final int usedHD = followerMaster.getUsedHD();
+		final int usedHD = aM.getUsedHD();
 		addHD -= usedHD;
 
 		// if ((newClass != null) && (addHD != 0))
@@ -2075,7 +2073,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			// set the new HD (but only do it once!)
 			incrementClassLevel(addHD, lcf.getPCClass(), true);
-			followerMaster.setUsedHD(addHD + usedHD);
+			aM.setUsedHD(addHD + usedHD);
 			setDirty(true);
 		}
 
@@ -9178,14 +9176,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			for (int i = 0; i < numberOfLevels; ++i)
 			{
 				int currentLevel = getLevel(pcClassClone);
-				final PCLevelInfo playerCharacterLevelInfo =
-						saveLevelInfo(pcClassClone.getKeyName());
+				final PCLevelInfo playerCharacterLevelInfo = saveLevelInfo(pcClassClone.getKeyName());
+
 				// if we fail to add the level, remove and return
-				if (!pcClassClone.addLevel(playerCharacterLevelInfo, false,
-					bSilent, this, bypassPrereqs))
+				if (!pcClassClone.addLevel(false, bSilent, this, bypassPrereqs))
 				{
-					PCClassLevel failedpcl =
-							getActiveClassLevel(pcClassClone, currentLevel + 1);
+					PCClassLevel failedpcl = getActiveClassLevel(pcClassClone, currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
 					return;
 				}
@@ -9198,7 +9194,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				int currentLevel = getLevel(pcClassClone);
 				pcClassClone.subLevel(bSilent, this);
 				removeLevelInfo(pcClassClone.getKeyName());
-						getActiveClassLevel(pcClassClone, currentLevel);
+				getActiveClassLevel(pcClassClone, currentLevel);
 			}
 		}
 
@@ -9227,10 +9223,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			fromClass.doMinusLevelMods(this, fromLevel - i);
 
-			final PCLevelInfo playerCharacterLevelInfo =
-					aPC.getLevelInfoFor(toClass.getKeyName(), toLevel + i + 1);
-			toClass.doPlusLevelMods(toLevel + i + 1, aPC,
-				playerCharacterLevelInfo);
+			toClass.doPlusLevelMods(toLevel + i + 1, aPC);
 		}
 	}
 
@@ -11139,8 +11132,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return Collections.unmodifiableSet(newSet);
 	}
 
-	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
-			CDOMReference<? extends CDOMList<A>> ref)
+	private <A extends PrereqObject> void processAbilityListsOnAdd(
+		CDOMObject cdo,
+		CDOMReference<? extends CDOMList<A>> ref)
 	{
 		for (CDOMList<A> list : ref.getContainedObjects())
 		{
