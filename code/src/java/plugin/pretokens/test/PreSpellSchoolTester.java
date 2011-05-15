@@ -37,7 +37,7 @@ import pcgen.util.PropertyFactory;
 import java.util.List;
 
 /**
- * @author wardc
+ * Prerequisite tester, tests for the presence of a school of spellcasting.
  *
  */
 public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
@@ -62,8 +62,9 @@ public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

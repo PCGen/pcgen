@@ -34,11 +34,10 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
+ * Prerequisite tester, test for the presence of text.
  *
  */
-public class PreTextTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreTextTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -58,8 +57,9 @@ public class PreTextTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, 1);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

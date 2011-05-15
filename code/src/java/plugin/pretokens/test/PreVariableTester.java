@@ -40,15 +40,14 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.utils.CoreUtility;
 
 /**
- * @author wardc
- *
+ * Prerequisite test for the presence of a variable.
  */
-public class PreVariableTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreVariableTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{
@@ -68,11 +67,9 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 		}
 		final String eqVar = "EQ:" + equipment.getNonHeadedName(); //$NON-NLS-1$
 		final float aVar =
-				equipment.getVariableValue(prereq.getKey(), eqVar, aPC)
-					.floatValue(); //$NON-NLS-1$
+			equipment.getVariableValue(prereq.getKey(), eqVar, aPC); //$NON-NLS-1$
 		final float aTarget =
-				equipment.getVariableValue(prereq.getOperand(), eqVar, aPC)
-					.floatValue(); //$NON-NLS-1$
+			equipment.getVariableValue(prereq.getOperand(), eqVar, aPC); //$NON-NLS-1$
 
 		float runningTotal = prereq.getOperator().compare(aVar, aTarget);
 		if (CoreUtility.doublesEqual(runningTotal, 0.0))
@@ -109,10 +106,9 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 	{
 		String src = (source == null) ? Constants.EMPTY_STRING : source.getQualifiedKey();
 		final float aVar =
-				character.getVariableValue(prereq.getKey(), src).floatValue(); //$NON-NLS-1$
+			character.getVariableValue(prereq.getKey(), src); //$NON-NLS-1$
 		final float aTarget =
-				character.getVariableValue(prereq.getOperand(), src)
-					.floatValue(); //$NON-NLS-1$
+			character.getVariableValue(prereq.getOperand(), src); //$NON-NLS-1$
 
 		float runningTotal = prereq.getOperator().compare(aVar, aTarget);
 		if (CoreUtility.doublesEqual(runningTotal, 0.0))

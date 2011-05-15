@@ -45,8 +45,7 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreWeaponProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/**
