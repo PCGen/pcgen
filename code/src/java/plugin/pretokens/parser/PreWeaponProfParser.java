@@ -34,37 +34,47 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre weaponprof tokens.
  *
  */
-public class PreWeaponProfParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
+public class PreWeaponProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
 		return new String[]{"WEAPONPROF"};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
+	/**
+	 * This operation performs the actual parsing.
+	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite;
+	 * @param invertResult If the prerequisite should invert the result
+	 * before it is returned
+	 * @param overrideQualify
+	 *
+	 * @return a object for testing the prerequisite
+	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(
+		String kind,
+		String formula,
+		boolean invertResult,
+		boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		doTypeInvertFixup(prereq);
+		doTypeInvertFixUp(prereq);
 
 		return prereq;
 	}
 
-	private void doTypeInvertFixup(Prerequisite prereq)
+	private void doTypeInvertFixUp(Prerequisite prereq)
 	{
 		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
 		{
@@ -74,20 +84,25 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 			}
 			else if (prereq.getKey().startsWith("["))
 			{
-				prereq.setKey(prereq.getKey().substring(
-					1,
-					Math.max(prereq.getKey().length() - 1, prereq.getKey()
-						.lastIndexOf(']'))));
+				final int length   = prereq.getKey().length() - 1;
+				final int rBracket = prereq.getKey().lastIndexOf(']');
+				final int endIndex = Math.max(length, rBracket);
+
+				final String key = prereq.getKey().substring(1, endIndex);
+
+				prereq.setKey(key);
 				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
 
-		//
-		// In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)', need to check all sub-prereqs
-		//
-		for (Prerequisite subreq : prereq.getPrerequisites())
+
+		/*
+		 * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',
+		 * need to check all sub-prereqs
+		 */
+		for (Prerequisite subReq : prereq.getPrerequisites())
 		{
-			doTypeInvertFixup(subreq);
+			doTypeInvertFixUp(subReq);
 		}
 	}
 }

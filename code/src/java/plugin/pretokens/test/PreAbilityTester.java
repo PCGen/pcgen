@@ -26,11 +26,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
-import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -55,8 +52,11 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		final PlayerCharacter aPC) throws PrerequisiteException
+	public int passes(
+		final Prerequisite prereq,
+		final Equipment equipment,
+		final PlayerCharacter aPC)
+		throws PrerequisiteException
 	{
 		if (aPC == null)
 		{
@@ -66,11 +66,12 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(
+		final Prerequisite prereq,
+		final PlayerCharacter character,
+		CDOMObject source)
 		throws PrerequisiteException
 	{
-		final boolean countMults = prereq.isCountMultiples();
-
 		final int number;
 		try
 		{
@@ -82,15 +83,14 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 			   PropertyFactory.getFormattedString("PreAbility.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		GameMode gameMode = SettingsHandler.getGame();
-		String key = prereq.getKey();
-		String subKey = prereq.getSubKey();
 		String categoryName = prereq.getCategoryName();
-		AbilityCategory category = categoryName == null ? null : gameMode
-				.getAbilityCategory(categoryName);
-		int runningTotal =
-				PrerequisiteUtilities.passesAbilityTest(prereq, character,
-					countMults, number, key, subKey, categoryName, category);
+
+		int runningTotal = PrerequisiteUtilities.passesAbilityTest(
+			prereq,
+			character,
+			number,
+			categoryName);
+
 		return countedTotal(prereq, runningTotal);
 	}
 

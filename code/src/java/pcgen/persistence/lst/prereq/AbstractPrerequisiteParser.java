@@ -37,17 +37,20 @@ public abstract class AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
 	/**
-	 * Parses PreReq
+	 * Parses the PreRequisite.
 	 * 
-	 * @param kind 
-	 * @param formula 
-	 * @param invertResult 
+	 * @param kind the kind of the prerequisite (less the "PRE" prefix).
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
 	 * @param overrideQualify 
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(
+		String kind,
+		String formula,
+		boolean invertResult,
+		boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		// Check to make sure that this class can parse this token

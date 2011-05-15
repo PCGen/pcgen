@@ -47,11 +47,12 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(
+		final Prerequisite prereq,
+		final PlayerCharacter character,
+		CDOMObject source)
 		throws PrerequisiteException
 	{
-		final boolean countMults = prereq.isCountMultiples();
-
 		final int number;
 		try
 		{
@@ -63,12 +64,12 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		String key = prereq.getKey();
-		String subKey = prereq.getSubKey();
-		int runningTotal =
-				PrerequisiteUtilities.passesAbilityTest(prereq, character,
-					countMults, number, key, subKey, AbilityCategory.FEAT
-						.getKeyName(), AbilityCategory.FEAT);
+		int runningTotal = PrerequisiteUtilities.passesAbilityTest(
+			prereq,
+			character,
+			number,
+			AbilityCategory.FEAT.getKeyName());
+
 		return countedTotal(prereq, runningTotal);
 	}
 

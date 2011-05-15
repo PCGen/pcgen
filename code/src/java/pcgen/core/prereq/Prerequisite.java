@@ -60,7 +60,9 @@ public class Prerequisite implements Cloneable
 	/** Indicates that the number of qualifying objects should be tallied when checking for a value. */
 	private boolean countMultiples;
 	private boolean overrideQualify = false;
-	private String categoryName; // used for abilities only - category to restrict matches to.
+
+	/** Used for abilities only - the category to restrict matches to. */
+	private String categoryName;
 
 	/**
 	 * Instantiates a new prerequisite.
@@ -308,12 +310,13 @@ public class Prerequisite implements Cloneable
 	}
 
 	/**
-	 * @param overrideQualify
-	 *            The overrideQualify to set.
+	 * Setter for the overrideQualify field.
+	 * @param override
+	 *            Whether the override the qualifications.
 	 */
-	public void setOverrideQualify(final boolean overrideQualify)
+	public void setOverrideQualify(final boolean override)
 	{
-		this.overrideQualify = overrideQualify;
+		this.overrideQualify = override;
 	}
 
 	/*

@@ -590,6 +590,10 @@ public interface Constants
 	 * sorted list. The moved items are sorted in their new position.  */
 	int ARBITRARY_END_SKILL_INDEX = 999;
 
+	/**
+	 * The length of both the LST_TYPE and LST_TYPE_OLD constants.  */
+	int LENGTH_OF_TYPE_SUBSTRING = 5;
+
 
 	/**
 	 * The default for whether to print the weapon proficiencies.

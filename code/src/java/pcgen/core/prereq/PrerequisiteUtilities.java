@@ -24,14 +24,13 @@
  */
 package pcgen.core.prereq;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -46,9 +45,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.Logging;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -58,14 +54,27 @@ import pcgen.util.Logging;
 public final class PrerequisiteUtilities
 {
 	/**
-	 * Private Constructor
+	 * Private Constructor, prevents instantiation.
 	 */
 	private PrerequisiteUtilities()
 	{
 		// Don't allow instantiation of utility class
 	}
 
-	public static final String preReqHTMLStringsForList(final PlayerCharacter aPC, final PObject aObj, final Collection<Prerequisite> aList, final boolean includeHeader)
+	/**
+	 * Tests a list of prerequisites against a given PC and a given Source.  It then
+	 * generates an HTML representation of whether they passed.
+	 * @param aPC The PC to test the prerequisites against.
+	 * @param aObj The source of the PreRequisite.
+	 * @param aList A list of prerequisite objects.
+	 * @param includeHeader Whether to wrap the generated string in html tags.
+	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
+	 */
+	public static String preReqHTMLStringsForList(
+		final PlayerCharacter aPC,
+		final PObject aObj,
+		final Collection<Prerequisite> aList,
+		final boolean includeHeader)
 	{
 		if ((aList == null) || aList.isEmpty())
 		{
@@ -75,15 +84,19 @@ public final class PrerequisiteUtilities
 		final StringBuffer pString = new StringBuffer(aList.size() * 20);
 
 		final List<Prerequisite> newList = new ArrayList<Prerequisite>();
-		int iter = 0;
+		boolean first = true;
 
-		for ( Prerequisite prereq : aList )
+		for (Prerequisite prereq : aList)
 		{
 			newList.clear();
 
 			newList.add(prereq);
 
-			if (iter++ > 0)
+			if (first)
+			{
+				first = false;
+			}
+			else
 			{
 				pString.append(" and ");
 			}
@@ -159,115 +172,94 @@ public final class PrerequisiteUtilities
 		return pString.toString();
 	}
 
-
-	/**
-	 * Build the LST syntax to represent the list of prerequisites.
-	 * 
-	 * @param preReqs The list of prerequisites.
-	 * @param separator The character to separate each prereq from each other.
-	 */
-	public static String getPrerequisitePCCText(final List preReqs, final String separator)
-	{
-		final StringBuffer sBuff = new StringBuffer();
-		if ((preReqs != null) && (preReqs.size() > 0)) {
-			final StringWriter writer = new StringWriter();
-			final PrerequisiteWriter preReqWriter = new PrerequisiteWriter();
-			for (Iterator preReqIter = preReqs.iterator(); preReqIter.hasNext();) {
-				final Prerequisite preReq = (Prerequisite) preReqIter.next();
-				try {
-					preReqWriter.write(writer, preReq);
-				} catch (PersistenceLayerException e) {
-					Logging.errorPrint("Failed to encode prereq: ", e);
-				}
-				if (preReqIter.hasNext()) {
-					writer.write(separator);
-				}
-			}
-			sBuff.append(separator);
-			sBuff.append(writer.toString());
-		}
-		return sBuff.toString();
-	}
-	
-
 	/**
 	 * Check if the character passes the ability prerequisite. Refactored here 
 	 * for use by both PREFEAT and PREABILITY.
-	 *  
+	 *
 	 * @param prereq The prerequisite to be run.
 	 * @param character The character to be checked.
-	 * @param countMults Should multiple occurrences be counted.
 	 * @param numMatches The number of matches required.
-	 * @param key The key that needs to be matched 
-	 * @param subKey The sub key that needs to be matched.
 	 * @param categoryName The name of the required category, null if any category will be matched.
-	 * @param category The category to be matched
 	 * @return The number of matches made, 0 if not enough matches were made.
 	 */
-	public static int passesAbilityTest(final Prerequisite prereq,
-		final PlayerCharacter character, final boolean countMults,
-		final int numMatches, String key, String subKey, String categoryName,
-		AbilityCategory category)
+	public static int passesAbilityTest(
+		final Prerequisite prereq,
+		final PlayerCharacter character,
+		final int numMatches,
+		String categoryName)
 	{
-		final boolean keyIsAny =
-			key.equalsIgnoreCase("ANY"); //$NON-NLS-1$
-		final boolean keyIsType =
-				key.startsWith("TYPE=") || key.startsWith("TYPE."); //$NON-NLS-1$ //$NON-NLS-2$
-		final boolean subKeyIsType =
-				subKey != null
-					&& (subKey.startsWith("TYPE=") || subKey.startsWith("TYPE.")); //$NON-NLS-1$ //$NON-NLS-2$
-		if (keyIsType)
-		{
-			key = key.substring(5);
-		}
-		if (subKeyIsType)
-		{
-			subKey = subKey.substring(5);
-		}
+
+		final boolean countMults = prereq.isCountMultiples();
+
+		final boolean keyIsAny  = prereq.getKey().equalsIgnoreCase(Constants.LST_ANY);
+		final boolean keyIsType = isTypeTest(prereq.getKey());
+
+		final String strippedKey = keyIsType
+			? prereq.getKey().substring(Constants.LENGTH_OF_TYPE_SUBSTRING)
+			: prereq.getKey();
 
 		int runningTotal = 0;
-		final List<Ability> abilityList =
-				buildAbilityList(character, categoryName, category);
+
+		final List<Ability> abilityList = buildAbilityList(character, categoryName);
+
 		if (!abilityList.isEmpty())
 		{
 			for (Ability ability : abilityList)
 			{
 				final String abilityKey = ability.getKeyName();
-				if (keyIsAny || (!keyIsType && abilityKey.equalsIgnoreCase(key))
-					|| (keyIsType && ability.isType(key)))
+
+				if (keyIsAny
+					|| (!keyIsType && abilityKey.equalsIgnoreCase(strippedKey))
+					|| (keyIsType && ability.isType(strippedKey)))
 				{
 					// either this feat has matched on the name, or the type
 
-					if (subKey != null)
+					if (prereq.getSubKey() != null)
 					{
-						runningTotal +=
-								checkForSubKeyMatch(character, countMults, key,
-									subKey, subKeyIsType, ability);
+						runningTotal += dealWithSubKey(
+							prereq,
+							character,
+							strippedKey,
+							ability);
 					}
 					else
 					{
-						// Subkey == null
+						// subKey == null
 
 						runningTotal++;
 						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 						{
-							// SERVESAS occurrences might mean this is less than zero, in which case ignore it 
-							// This still leaves the instance where more than one of an item is desired 
-							// and one instance is a SERVESAS, but that is a high cost corner case.
-							int numOccurs = character.getSelectCorrectedAssociationCount(ability) - 1;
-							if (numOccurs > 0)
+
+							/*
+							 * SERVESAS occurrences might mean this is less than zero,
+							 * in which case ignore it. This still leaves the instance
+							 * where more than one of an item is desired, and one
+							 * instance is a SERVESAS, but that is a high cost corner case.
+							 */
+
+							final int num =
+							   character.getSelectCorrectedAssociationCount(ability) - 1;
+							if (num > 0)
 							{
-								runningTotal += numOccurs;
+								runningTotal += num;
 							}
 						}
 					}
 				}
 				else
 				{
-					if (subKey != null)
+
+					if (prereq.getSubKey() != null)
 					{
-						final String s1 = key + " (" + subKey + ")";
-						final String s2 = key + "(" + subKey + ")";
+						final int len = Constants.LENGTH_OF_TYPE_SUBSTRING;
+
+						final boolean subKeyIsType = isTypeTest(prereq.getSubKey());
+						final String subKey = subKeyIsType
+							? prereq.getSubKey().substring(len)
+							: prereq.getSubKey();
+
+						final String s1 = strippedKey + " (" + subKey + ")";
+						final String s2 = strippedKey + "(" + subKey + ")";
 						if (abilityKey.equalsIgnoreCase(s1)
 							|| ability.getKeyName().equalsIgnoreCase(s2))
 						{
@@ -286,102 +278,170 @@ public final class PrerequisiteUtilities
 		return runningTotal;
 	}
 
+
+
+
 	/**
-	 * Having matched the ability on the other criteria, check for a match 
-	 * against the sub-key.
-	 * 
-	 * @param character The character being tested.
-	 * @param countMults Should multiple occurrences be counted?
-	 * @param key The key that needs to be matched 
-	 * @param subKey The sub key that needs to be matched.
-	 * @param subKeyIsType Does the subkey refer to a type?
-	 * @param aFeat The ability being checked for a match.
-	 * @return The number of matches made
+	 * This operation deals with matching subKeys against abilities where the the main key
+	 * has already matched.
+
+	 * The subKey may be prefixed with TYPE(=|.) in which case the Choice string from the
+	 * ability will be used to check for the type of chooser.  Possibilities are SKILL,
+	 * WEAPONPROFS, DOMAIN, or SPELL.  A list of keys will be retrieved from the ability's
+	 * associated object list.  The objects matching these keys are retrieved and checked
+	 * for type against subKey.  A count is returned (respects countMults).
+	 *
+	 * If the subKey is not specifying a type, then the key of the prerequisite is checked
+	 * against the key of the ability, if they match and the ability object is associated
+	 * with the character via the subkey, then a count of the number of instances is returned.
+	 *
+	 * Finally,the subkey may specify a wildcard.  If it does, the list of associations
+	 * between the ability object and the PC are checked. A count is returned of teh number
+	 * that begin with the wildcard string.
+	 *
+	 * @param prereq The prerequisite to be checked.
+	 * @param character  The character to be checked.
+	 * @param key the Key from the prerequisite which has been stripped the prefixes TYPE= abd TYPE.
+	 * @param ability The ability being checked for a match.
+	 * @return A count which respects countMults.
 	 */
-	private static int checkForSubKeyMatch(final PlayerCharacter character, final boolean countMults, String key, String subKey, final boolean subKeyIsType, Ability aFeat)
+	private static int dealWithSubKey(
+		Prerequisite prereq,
+		PlayerCharacter character,
+		String key,
+		Ability ability)
 	{
-		final String cType = subKey;
-		final List selectedList = new ArrayList();
-		final String aChoiceString = aFeat.getSafe(StringKey.CHOICE_STRING);
+		final boolean countMults = prereq.isCountMultiples();
 		int runningTotal = 0;
 
-		selectedList.addAll(character.getAssociationList(aFeat));
+		final String  subKey = prereq.getSubKey();
+		final boolean subKeyIsType = isTypeTest(subKey);
 
-		if (subKeyIsType) // TYPE syntax
+		final int wildCardPos = subKey.indexOf('%');
+
+		if (subKeyIsType)
 		{
-			if (aChoiceString.startsWith("SKILL")) //$NON-NLS-1$
-			{
-				runningTotal =
-						subKeySkill(countMults, runningTotal,
-							cType, selectedList);
-			}
-			else if (aChoiceString.startsWith("WEAPONPROFS")) //$NON-NLS-1$
-			{
-				runningTotal =
-						subKeyWeaponProf(countMults,
-							runningTotal, cType, selectedList);
-			}
-			else if (aChoiceString.startsWith("DOMAIN")) //$NON-NLS-1$
-			{
-				runningTotal =
-						subKeyDomain(countMults, runningTotal,
-							cType, selectedList);
-			}
-			else if (aChoiceString.startsWith("SPELL")) //$NON-NLS-1$
-			{
-				runningTotal =
-						subKeySpell(countMults, runningTotal,
-							cType, selectedList);
-			}
-			// End. subKeyIsType
+			final String type = prereq.getSubKey().substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+			runningTotal = countSubKeyType(character, ability, type, countMults);
 		}
-		else
+
+		else if (ability.getKeyName().equalsIgnoreCase(key)
+			&& character.containsAssociated(ability, subKey))
 		{
-			if (aFeat.getKeyName().equalsIgnoreCase(key)
-				&& character.containsAssociated(aFeat, subKey))
+
+			if (countMults && ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				runningTotal++;
-				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
-				{
-					runningTotal +=
-						(character.getSelectCorrectedAssociationCount(aFeat) - 1);
-				}
+				runningTotal = character.getSelectCorrectedAssociationCount(ability);
 			}
 			else
 			{
-				final int wildCardPos = subKey.indexOf('%');
+				runningTotal = 1;
+			}
+		}
 
-				if (wildCardPos > -1)
+		else if (wildCardPos > -1)
+		{
+			String preWildcard = (wildCardPos == 0)
+				? Constants.EMPTY_STRING
+				: subKey.substring(0, wildCardPos).toUpperCase();
+			runningTotal = countSubKeyWildcardMatch(
+				character,
+				countMults,
+				preWildcard,
+				ability);
+		}
+
+		return runningTotal;
+	}
+
+	/**
+	 * Is this string a Type selector?
+	 * @param key the string to test
+	 * @return true if key begins with TYPE= or TYPE.
+	 */
+	private static boolean isTypeTest(String key)
+	{
+		return key.startsWith(Constants.LST_TYPE) || key.startsWith(Constants.LST_TYPE_OLD);
+	}
+
+	/**
+	 * Having matched the ability on the other criteria, check for a match 
+	 * against the subKey.
+	 *
+	 * @param character
+	 *              The character being tested.
+	 * @param countMults
+	 *              Should multiple occurrences be counted?
+	 * @param preWilcard
+	 *              The portion of the prerequisite's subkey that appears
+	 *              before the wilcard character '%'
+	 * @param ability
+	 *              The ability being checked for a match.
+	 * @return The number of matches made
+	 */
+	private static int countSubKeyWildcardMatch(
+		final PlayerCharacter character,
+		final boolean countMults,
+		String preWilcard,
+		Ability ability)
+	{
+
+		int runningTotal = 0;
+
+		for (String assoc : character.getAssociationList(ability))
+		{
+			final String fString = assoc.toUpperCase();
+
+			if (preWilcard.length() == 0 || fString.startsWith(preWilcard))
+			{
+				runningTotal++;
+				if (!countMults)
 				{
-					for (String assoc : character.getAssociationList(aFeat))
-					{
-						final String fString = assoc.toUpperCase();
-						if (wildCardPos == 0
-							|| fString.startsWith(subKey
-								.substring(0, wildCardPos - 1)
-								.toUpperCase()))
-						{
-							runningTotal++;
-							if (!countMults)
-							{
-								break;
-							}
-						}
-					}
+					break;
 				}
 			}
 		}
 		return runningTotal;
 	}
 
+	private static int countSubKeyType(
+		PlayerCharacter aPC,
+		Ability ability, String type, boolean countMults)
+	{
+		final List<String> selectedList = aPC.getAssociationList(ability);
+
+		final String aChoiceString = ability.getSafe(StringKey.CHOICE_STRING);
+
+		if (aChoiceString.startsWith("SKILL")) //$NON-NLS-1$
+		{
+			return subKeySkill(countMults, type, selectedList);
+		}
+		else if (aChoiceString.startsWith("WEAPONPROFS")) //$NON-NLS-1$
+		{
+			return subKeyWeaponProf(countMults, type, selectedList);
+		}
+		else if (aChoiceString.startsWith("DOMAIN")) //$NON-NLS-1$
+		{
+			return subKeyDomain(countMults, type, selectedList);
+		}
+		else if (aChoiceString.startsWith("SPELL")) //$NON-NLS-1$
+		{
+			return subKeySpell(countMults, type, selectedList);
+		}
+
+		return 0;
+	}
+
 	/**
 	 * Build up a list of the character's abilities which match the category requirements.
+	 *
 	 * @param character The character to be tested.
 	 * @param categoryName The name of the required category, null if any category will be matched.
-	 * @param category The category to be matched
 	 * @return A list of categories matching.
 	 */
-	private static List<Ability> buildAbilityList(final PlayerCharacter character, String categoryName, AbilityCategory category)
+	private static List<Ability> buildAbilityList(
+		final PlayerCharacter character,
+		String categoryName)
 	{
 		final List<Ability> abilityList = new ArrayList<Ability>();
 		if (character != null)
@@ -404,17 +464,19 @@ public final class PrerequisiteUtilities
 					}
 				}
 			}
-			
+
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{
 				for (Ability ability : character.getAggregateAbilityList(aCat))
 				{
-					for(CDOMReference<Ability> ref: ability.getSafeListFor(ListKey.SERVES_AS_ABILITY))
+					for(CDOMReference<Ability> ref
+						: ability.getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
 						for (Ability ab : ref.getContainedObjects())
 						{
-							if (categoryName == null || categoryName.equals(ab.getCategory()))
+							if (categoryName == null
+								|| categoryName.equals(ab.getCategory()))
 							{
 								abilityList.add(ab);
 							}
@@ -427,33 +489,32 @@ public final class PrerequisiteUtilities
 	}
 
 	/**
-	 * @param countMults
-	 * @param runningTotal
-	 * @param cType
-	 * @param selectedList
+	 * Count the number of spells associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of spells associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeySpell(final boolean countMults, int runningTotal,
-		final String cType, final List selectedList)
+	private static int subKeySpell(
+		final boolean countMults,
+		final String cType,
+		final List selectedList)
 	{
-		int returnTotal = runningTotal;
+		int returnTotal = 0;
 		for (Object aObj : selectedList)
 		{
-			final Spell sp;
-			String spellKey = null;
-			if (aObj instanceof PObject)
-			{
-				spellKey = ((PObject) aObj).getKeyName();
-			}
-			else
-			{
-				spellKey = aObj.toString();
-			}
-			sp = Globals.getSpellKeyed(spellKey);
+			String spellKey = (aObj instanceof PObject)
+				? ((PObject) aObj).getKeyName()
+				: aObj.toString();
+
+			final Spell sp = Globals.getSpellKeyed(spellKey);
+
 			if (sp == null)
 			{
 				continue;
 			}
+
 			if (sp.isType(cType))
 			{
 				returnTotal++;
@@ -467,16 +528,20 @@ public final class PrerequisiteUtilities
 	}
 
 	/**
-	 * @param countMults
-	 * @param runningTotal
-	 * @param cType
-	 * @param selectedList
+	 * Count the number of domains associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of domains associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeyDomain(final boolean countMults, int runningTotal,
-		final String cType, final List selectedList)
+	private static int subKeyDomain(
+		final boolean countMults,
+		final String cType,
+		final List selectedList)
 	{
-		int returnTotal = runningTotal;
+		int returnTotal = 0;
+
 		for (Object aObj : selectedList)
 		{
 			final Domain dom;
@@ -494,35 +559,43 @@ public final class PrerequisiteUtilities
 				}
 			}
 		}
+
 		return returnTotal;
 	}
 
 	/**
-	 * @param countMults
-	 * @param runningTotal
-	 * @param cType
-	 * @param selectedList
+	 * Count the number of weaponprofs associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of weaponprofs associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeyWeaponProf(final boolean countMults, int runningTotal,
-		final String cType, final List selectedList)
+	private static int subKeyWeaponProf(
+		final boolean countMults,
+		final String cType,
+		final List selectedList)
 	{
-		int returnTotal = runningTotal;
+		int returnTotal = 0;
+
 		for (Object aObj : selectedList)
 		{
-			final WeaponProf wp;
-			wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, aObj.toString());
+			final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				WeaponProf.class, aObj.toString());
+
 			if (wp == null)
 			{
 				continue;
 			}
-			final Equipment eq;
-			eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Equipment.class, wp.getKeyName());
+
+			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, wp.getKeyName());
+
 			if (eq == null)
 			{
 				continue;
 			}
+
 			if (eq.isType(cType))
 			{
 				returnTotal++;
@@ -532,20 +605,25 @@ public final class PrerequisiteUtilities
 				}
 			}
 		}
+
 		return returnTotal;
 	}
 
 	/**
-	 * @param countMults
-	 * @param runningTotal
-	 * @param cType
-	 * @param selectedList
+	 * Count the number of skills associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of skills associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeySkill(final boolean countMults, int runningTotal,
-		final String cType, final List selectedList)
+	private static int subKeySkill(
+		final boolean countMults,
+		final String cType,
+		final List selectedList)
 	{
-		int returnTotal = runningTotal;
+		int returnTotal = 0;
+
 		for (Object aObj : selectedList)
 		{
 			final Skill sk;
@@ -563,6 +641,7 @@ public final class PrerequisiteUtilities
 				}
 			}
 		}
+
 		return returnTotal;
 	}
 
@@ -571,9 +650,9 @@ public final class PrerequisiteUtilities
 	 * descendant of the required kind.
 	 * @param prereq Prerequisite to be checked
 	 * @param matchKind Kind to be checked for.
-	 * @return
+	 * @return true if we got as match.
 	 */
-	public static final boolean hasPreReqKindOf(final Prerequisite prereq, String matchKind)
+	public static boolean hasPreReqKindOf(final Prerequisite prereq, String matchKind)
 	{
 		if (prereq == null)
 		{
@@ -599,12 +678,18 @@ public final class PrerequisiteUtilities
 
 	/**
 	 * Identify if the prerequisite is itself of the supplied kind or has a 
-	 * descendant of the required kind.
+	 * descendant of the required kind.  Kind is either FEAT or ABILITY, the
+	 * key is the name of an ability object.
+	 *
 	 * @param prereq Prerequisite to be checked
 	 * @param matchKind Kind to be checked for.
-	 * @return
+	 * @param matchKey The name of an ability object.
+	 * @return true if we got a match
 	 */
-	public static final boolean hasPreReqMatching(final Prerequisite prereq, String matchKind, String matchKey)
+	public static boolean hasPreReqMatching(
+		final Prerequisite prereq,
+		String matchKind,
+		String matchKey)
 	{
 		if (prereq == null)
 		{

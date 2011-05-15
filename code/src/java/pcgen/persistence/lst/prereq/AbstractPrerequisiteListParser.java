@@ -34,12 +34,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 /**
- * Abstract PRE parser, provides common parsing for many PRE tokens
- * 
- * @author PCGen Development Team
+ * Abstract PRE parser, provides common parsing for many PRE tokens.
  */
-public abstract class AbstractPrerequisiteListParser extends
-		AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public abstract class AbstractPrerequisiteListParser
+	extends AbstractPrerequisiteParser
+	implements PrerequisiteParserInterface
 {
 
 	/**
@@ -80,23 +79,25 @@ public abstract class AbstractPrerequisiteListParser extends
 	}
 
 	/**
-	 * Parse the pre req list
+	 * Parse the pre req list.
 	 * 
-	 * @param kind 
-	 * @param formula 
-	 * @param invertResult 
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
 	 * @param overrideQualify 
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(
+		String kind,
+		String formula,
+		boolean invertResult,
+		boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		parsePrereqListType(prereq, kind, formula);
 
 		if (invertResult)
@@ -141,7 +142,9 @@ public abstract class AbstractPrerequisiteListParser extends
 	*   <prereq kind="stat" key="str" operator="gteq" op1="13" />
 	* </prereq>
 	*/
-	protected void parsePrereqListType(Prerequisite prereq, String kind,
+	protected void parsePrereqListType(
+		Prerequisite prereq,
+		String kind,
 		String formula) throws PersistenceLayerException
 	{
 
