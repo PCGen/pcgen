@@ -782,132 +782,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// then set status to equipped and add to PC's equipment list
 		for (EquipSet es : pcEquipSetList)
 		{
-			final String abCalcId = calcId + Constants.EQUIP_SET_PATH_SEPARATOR;
-			final String abParentId =
-					es.getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
-
-			// calcId = 0.1.
-			// parentIdPath = 0.10.
-			// OR
-			// calcId = 0.10.
-			// parentIdPath = 0.1.
-			if (!abParentId.startsWith(abCalcId))
+			if (es.getItem() == null || !es.isPartOf(calcId))
 			{
 				continue;
 			}
 
-			final Equipment eqI = es.getItem();
+			es.equipItem(this);
+			es.addNoteToItem();
 
-			if (eqI == null)
-			{
-				continue;
-			}
-
-			final Equipment eq = es.getItem();
-			final String aLoc = es.getName();
-			final String aNote = es.getNote();
-			Float num = es.getQty();
-			final StringTokenizer aTok =
-					new StringTokenizer(es.getIdPath(), Constants.EQUIP_SET_PATH_SEPARATOR);
-
-			// if the eSet.getIdPath() is longer than 3
-			// it's inside a container, don't try to equip
-			if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
-			{
-				eq.setLocation(EquipmentLocation.CONTAINED);
-				eq.setIsEquipped(false, this);
-				eq.setNumberCarried(num);
-				eq.setQty(num);
-			}
-			else if (aLoc.startsWith(Constants.EQUIP_LOCATION_CARRIED))
-			{
-				eq.setLocation(EquipmentLocation.CARRIED_NEITHER);
-				eq.setIsEquipped(false, this);
-				eq.setNumberCarried(num);
-				eq.setQty(num);
-			}
-			else if (aLoc.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
-			{
-				eq.setLocation(EquipmentLocation.NOT_CARRIED);
-				eq.setIsEquipped(false, this);
-				eq.setNumberCarried(0f);
-				eq.setQty(num);
-			}
-			else if (eq.isWeapon())
-			{
-				if (aLoc.equals(Constants.EQUIP_LOCATION_PRIMARY)
-					|| aLoc.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
-				{
-					eq.setQty(num);
-					eq.setNumberCarried(num);
-					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
-					eq.setIsEquipped(true, this);
-				}
-				else if (aLoc.startsWith(Constants.EQUIP_LOCATION_SECONDARY)
-					|| aLoc.equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
-				{
-					eq.setQty(num);
-					eq.setNumberCarried(num);
-					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
-					eq.setIsEquipped(true, this);
-				}
-				else if (aLoc.equals(Constants.EQUIP_LOCATION_BOTH))
-				{
-					eq.setQty(num);
-					eq.setNumberCarried(num);
-					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(EquipmentLocation.EQUIPPED_BOTH);
-					eq.setIsEquipped(true, this);
-				}
-				else if (aLoc.equals(Constants.EQUIP_LOCATION_DOUBLE))
-				{
-					eq.setQty(num);
-					eq.setNumberCarried(num);
-					eq.setNumberEquipped(2);
-					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
-					eq.setIsEquipped(true, this);
-				}
-				else if (aLoc.equals(Constants.EQUIP_LOCATION_UNARMED))
-				{
-					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
-					eq.setNumberEquipped(num.intValue());
-				}
-				else if (aLoc.equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
-				{
-					if (num.doubleValue() < 2.0)
-					{
-						num = new Float(2.0);
-					}
-
-					es.setQty(num);
-					eq.setQty(num);
-					eq.setNumberCarried(num);
-					eq.setNumberEquipped(2);
-					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
-					eq.setIsEquipped(true, this);
-				}
-				else if (aLoc.equals(Constants.EQUIP_LOCATION_SHIELD))
-				{
-					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
-					eq.setNumberEquipped(num.intValue());
-				}
-			}
-			else
-			{
-				eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
-				eq.setIsEquipped(true, this);
-				eq.setNumberCarried(num);
-				eq.setQty(num);
-			}
-
-			if ((aNote != null) && (aNote.length() > 0))
-			{
-				eq.setNote(aNote);
-			}
-
-			addLocalEquipment(eq);
+			addLocalEquipment(es.getItem());
 		}
 
 		// loop through all equipment and make sure that
@@ -11463,7 +11346,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 *
 	 * @param addNew
 	 *
-	 * 
 	 * @return
 	 */
 	public List<AbilitySelection> feats(

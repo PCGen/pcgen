@@ -420,7 +420,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	}
 
 	/**
-	 * true if temp bonus list is not empty
+	 * true if temp bonus list is not empty.
 	 * @return true if temp bonus list is not empty
 	 */
 	public boolean useTempBonusList()
@@ -430,8 +430,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 	/**
 	 * Apply this EquipSet to a PlayerCharacter object.
-	 * @param aPC the PC to quip the item on
-	 *
+	 * @param aPC the PC to equip the item on
 	 */
 	public void equipItem(PlayerCharacter aPC)
 	{
@@ -443,46 +442,46 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		{
 			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, false, aPC);
 		}
-		else if (getName().startsWith(Constants.EQUIP_LOCATION_CARRIED))
+		else if (name.startsWith(Constants.EQUIP_LOCATION_CARRIED))
 		{
 			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, false, aPC);
 		}
-		else if (getName().startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
+		else if (name.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
 		{
 			eq_item.addEquipmentToLocation(qty, EquipmentLocation.NOT_CARRIED, false, aPC);
 		}
 		else if (eq_item.isWeapon())
 		{
-			if (getName().equals(Constants.EQUIP_LOCATION_PRIMARY)
-				|| getName().equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
+			if (name.equals(Constants.EQUIP_LOCATION_PRIMARY)
+				|| name.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_PRIMARY, aPC);
 			}
-			else if (getName().startsWith(Constants.EQUIP_LOCATION_SECONDARY)
-				|| getName().equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
+			else if (name.startsWith(Constants.EQUIP_LOCATION_SECONDARY)
+				|| name.equals(Constants.EQUIP_LOCATION_NATURAL_SECONDARY))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_SECONDARY, aPC);
 			}
-			else if (getName().equals(Constants.EQUIP_LOCATION_BOTH))
+			else if (name.equals(Constants.EQUIP_LOCATION_BOTH))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_BOTH, aPC);
 			}
-			else if (getName().equals(Constants.EQUIP_LOCATION_DOUBLE))
+			else if (name.equals(Constants.EQUIP_LOCATION_DOUBLE))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
 			}
-			else if (getName().equals(Constants.EQUIP_LOCATION_UNARMED))
+			else if (name.equals(Constants.EQUIP_LOCATION_UNARMED))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
 			}
-			else if (getName().equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
+			else if (name.equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
 			{
 				Float quantity = (qty.doubleValue() < 2.0) ? 2.0f : qty;
 
 				setQty(quantity);
 				eq_item.addWeaponToLocation(quantity, EquipmentLocation.EQUIPPED_TWO_HANDS, aPC);
 			}
-			else if (getName().equals(Constants.EQUIP_LOCATION_SHIELD))
+			else if (name.equals(Constants.EQUIP_LOCATION_SHIELD))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, aPC);
 			}
