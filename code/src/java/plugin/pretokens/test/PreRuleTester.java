@@ -40,12 +40,12 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
  * @author wardc
  *
  */
-public class PreRuleTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

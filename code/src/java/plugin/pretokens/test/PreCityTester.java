@@ -36,8 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreCityTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreCityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -53,8 +52,9 @@ public class PreCityTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, 0);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

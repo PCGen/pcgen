@@ -38,8 +38,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSpellBookTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellBookTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -66,8 +65,9 @@ public class PreSpellBookTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

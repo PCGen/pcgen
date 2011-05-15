@@ -38,8 +38,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreEquipBothTester extends PreEquippedTester implements
-		PrerequisiteTest
+public class PreEquipBothTester extends PreEquippedTester implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -53,8 +52,9 @@ public class PreEquipBothTester extends PreEquippedTester implements
 				EquipmentLocation.EQUIPPED_BOTH);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

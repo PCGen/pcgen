@@ -42,8 +42,7 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreEquipTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/*
@@ -148,10 +147,9 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

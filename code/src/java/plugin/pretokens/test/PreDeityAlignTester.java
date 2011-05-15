@@ -23,8 +23,7 @@ import pcgen.util.PropertyFactory;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -70,8 +69,9 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

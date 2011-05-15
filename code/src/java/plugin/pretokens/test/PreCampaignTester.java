@@ -50,8 +50,7 @@ import pcgen.util.PropertyFactory;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class PreCampaignTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreCampaignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -158,8 +157,9 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 		return total;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

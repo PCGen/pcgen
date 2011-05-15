@@ -41,8 +41,7 @@ import pcgen.util.PropertyFactory;
  * @author arknight
  *
  */
-public class PreCSkillTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -161,8 +160,9 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		}		
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

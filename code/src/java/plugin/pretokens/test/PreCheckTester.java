@@ -20,8 +20,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreCheckTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreCheckTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/** Constructor */
@@ -30,8 +29,9 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

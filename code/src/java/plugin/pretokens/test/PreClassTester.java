@@ -24,8 +24,7 @@ import pcgen.util.PropertyFactory;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreClassTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreClassTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -197,8 +196,9 @@ CLASSLIST:		for(PCClass theClass: character.getClassSet())
 		return countedTotal(prereq, prereq.isCountMultiples() ? countedTotal : runningTotal);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

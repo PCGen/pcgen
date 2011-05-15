@@ -50,8 +50,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl <byngl@hotmail.com>
  *
  */
-public class PreRaceTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreRaceTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -255,8 +254,9 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		}		
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{

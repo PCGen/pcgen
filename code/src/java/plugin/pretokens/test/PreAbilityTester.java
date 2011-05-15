@@ -48,8 +48,7 @@ import pcgen.util.PropertyFactory;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 1777 $
  */
-public class PreAbilityTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -77,10 +76,10 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 		{
 			number = Integer.parseInt(prereq.getOperand());
 		}
-		catch (NumberFormatException exceptn)
+		catch (NumberFormatException exception)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
-				"PreAbility.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+			   PropertyFactory.getFormattedString("PreAbility.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		GameMode gameMode = SettingsHandler.getGame();
@@ -110,32 +109,31 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 			{
 				// {0} {1} {2}(s) of type {3}
 				return PropertyFactory.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						prereq.getCategoryName(),
-						aString.substring(5)});
+					prereq.getOperator().toDisplayString(),
+					prereq.getOperand(),
+					prereq.getCategoryName(),
+					aString.substring(5));
 			}
 			else
 			{
 				// {0} {1} ability(s) of type {2}
 				return PropertyFactory.getFormattedString("PreAbility.type.noCat.toHtml",  //$NON-NLS-1$ 
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						aString.substring(5)});
+					prereq.getOperator().toDisplayString(),
+					prereq.getOperand(),
+					aString.substring(5));
 			}
 				
 		}
 		// {2} {3} {1} {0}
 		return PropertyFactory.getFormattedString("PreAbility.toHtml",  //$NON-NLS-1$
-			new Object[]{prereq.getCategoryName(),
-				aString, prereq.getOperator().toDisplayString(),
-				prereq.getOperand()}); 
+			prereq.getCategoryName(),
+			aString, prereq.getOperator().toDisplayString(),
+			prereq.getOperand());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String kindHandled()
 	{
