@@ -44,7 +44,8 @@ import pcgen.util.PropertyFactory;
 /**
  * This class tests if the character passes the prerequisites for the caller.
  */
-public class PrereqHandler {
+public final class PrereqHandler
+{
 
 	/**
 	 * empty private constructor prevents instantiation.
@@ -105,9 +106,9 @@ public class PrereqHandler {
 	/**
 	 *
 	 * @param prereqList The list of prerequisites to be tested.
-	 * @param equip
+	 * @param equip The Equipment that is the source of the prerequisite.
 	 * @param aPC The character to be checked.
-	 * @return
+	 * @return true if all of the prerequisites pss.
 	 */
 	public static boolean passesAll(
 		final Collection<Prerequisite> prereqList,
@@ -132,7 +133,7 @@ public class PrereqHandler {
 	 * Returns true if the character passes the prereq.
 	 * @param prereq The prerequisite to test.
 	 * @param aPC The character to test against
-	 * @param caller The CDOMojbect that is calling this method
+	 * @param caller The CDOMObject that is calling this method
 	 * @return true if the character passes the prereq
 	 */
 	public static boolean passes(
@@ -180,11 +181,14 @@ public class PrereqHandler {
 		}
 		catch (Exception e)
 		{
+			final String callerString = (caller != null)
+				? " for " + String.valueOf(caller)
+				: Constants.EMPTY_STRING;
+
 			Logging.errorPrint(
 				"Problem encountered when testing PREREQ "
-					+ String.valueOf(prereq) +
-					( caller != null ? (" for "
-					+ String.valueOf(caller)) : "")
+					+ String.valueOf(prereq)
+					+ callerString
 					+ ". See following trace for details.", e);
 		}
 		return total > 0;
@@ -193,7 +197,7 @@ public class PrereqHandler {
 	/**
 	 *
 	 * @param preReq The prerequisite to test.
-	 * @param equip
+	 * @param equip The Equipment that is the source of the prerequisite.
 	 * @param aPC The character to be checked.
 	 * @return Whether the prerequisite passes.
 	 */
