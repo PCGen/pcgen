@@ -81,20 +81,22 @@ public class Prerequisite implements Cloneable
 	}
 	
 	/**
-	 * @param totalValues The totalValues to set.
+	 * Sets the totalValues attribute.
+	 * @param val The value to set TotalValues to.
 	 */
-	public final void setTotalValues(final boolean totalValues)
+	public final void setTotalValues(final boolean val)
 	{
-		this.totalValues = totalValues;
+		this.totalValues = val;
 	}
 	
 	/**
-	 * @param countMultiples
-	 *            The countMultiples to set.
+	 * Sets the countMultiples attribute.
+	 * @param val
+	 *            The value to set countMultiples to.
 	 */
-	public void setCountMultiples(final boolean countMultiples)
+	public void setCountMultiples(final boolean val)
 	{
-		this.countMultiples = countMultiples;
+		this.countMultiples = val;
 	}
 
 	/**
@@ -105,23 +107,32 @@ public class Prerequisite implements Cloneable
 		return countMultiples;
 	}
 
-	public void setKey(final String key)
+	/**
+	 * Set the key.
+	 * @param val the Key to set.
+	 */
+	public void setKey(final String val)
 	{
-		this.key = key;
+		this.key = val;
 	}
 
+	/**
+	 * Get the key.
+	 * @return the prerequisite's key.
+	 */
 	public String getKey()
 	{
 		return key;
 	}
 
 	/**
-	 * @param kind
-	 *            The kind to set.
+	 * Set the kind attribute.
+	 * @param val
+	 *            The value to set kind to.
 	 */
-	public void setKind(final String kind)
+	public void setKind(final String val)
 	{
-		this.kind = kind;
+		this.kind = val;
 	}
 
 	/**
@@ -133,12 +144,13 @@ public class Prerequisite implements Cloneable
 	}
 
 	/**
-	 * @param operand
-	 *            The operand to set.
+	 * Set the operand attribute.
+	 * @param val
+	 *            The value to set the operand to.
 	 */
-	public void setOperand(final String operand)
+	public void setOperand(final String val)
 	{
-		this.operand = operand;
+		this.operand = val;
 	}
 
 	/**
@@ -150,9 +162,10 @@ public class Prerequisite implements Cloneable
 	}
 
 	/**
+	 * Sets an operator attribute from the name of the operator.
 	 * @param operator
-	 *            The operator to set.
-	 * @throws PrerequisiteException
+	 *            The name of the operator to set in the object.
+	 * @throws PrerequisiteException throws an exception if it can't locate the operator.
 	 */
 	public void setOperator(final String operator) throws PrerequisiteException
 	{
@@ -338,15 +351,6 @@ public class Prerequisite implements Cloneable
 			}
 		}
 
-		// All of these aer either immutable, or primitive, neither of which need cloning
-		//		private String kind;
-		//		private String key=null;
-		//		private String subKey=null;
-		//		private PrerequisiteOperator operator= new PrerequisiteOperator(PrerequisiteOperator.GTEQ);
-		//		private String operand="1"; //$NON-NLS-1$
-		//		private boolean countMultiples;
-		//		private boolean overrideQualify=false;
-
 		return copy;
 	}
 
@@ -365,7 +369,8 @@ public class Prerequisite implements Cloneable
 		if (categoryName != null && !shortForm)
 		{
 			buf.append("of category ");
-			buf.append(categoryName+":");
+			buf.append(categoryName);
+			buf.append(":");
 			buf.append(' '); //$NON-NLS-1$
 
 		}
