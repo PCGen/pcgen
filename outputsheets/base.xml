@@ -73,6 +73,7 @@
 				<level>|CLASS.%class.LEVEL|</level>
 				<bonuslist>|CLASS.%class.BONUSLIST|</bonuslist>
 				<sequence>|%class|</sequence>
+				<sequence_shortform>|FOR.0,10,1,\CLASSABB.%\\CLASS.%.LEVEL\, , ,1|</sequence_shortform>
 			</class>
 |ENDFOR|	<!-- Classes -->
 			<levels_total>|TOTALLEVELS|</levels_total>
@@ -309,26 +310,18 @@
 	  ====================================-->
 <skillinfo>
 			<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
 				<skillbonus>
-					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+					<description>|ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
 				</skillbonus>
 |ENDIF|
 |ENDFOR|
 
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus]-1,1,0|
+|IIF(FEAT.%feat.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
 				<skillbonus>
-					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
-|ENDFOR|
-
-|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus.VISIBLE]-1,1,0|
-|IIF(FEAT.%feat.VISIBLE.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|FEAT.%feat.VISIBLE.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+					<description>|FEAT.%feat.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
 				</skillbonus>
 |ENDIF|
 |ENDFOR|
@@ -336,26 +329,19 @@
 </skillinfo>
 	<skills>
 			<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SkillBonus")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
 				<skillbonus>
-					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+					<description>|ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
 				</skillbonus>
 |ENDIF|
 |ENDFOR|
 
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability[or]CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=AUTOMATIC","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
-|ENDFOR|
 
-|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus.VISIBLE]-1,1,0|
-|IIF(FEAT.%feat.VISIBLE.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
+|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus]-1,1,0|
+|IIF(FEAT.%feat.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
 				<skillbonus>
-					<description>|FEAT.%feat.VISIBLE.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
+					<description>|FEAT.%feat.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
 				</skillbonus>
 |ENDIF|
 |ENDFOR|
@@ -364,6 +350,7 @@
 			<total>|SKILLPOINTS.TOTAL|</total>
 			<used>|SKILLPOINTS.USED|</used>
 			<unused>|SKILLPOINTS.UNUSED|</unused>
+			<eclipse_total>|VAR.CharacterSkillPts.INTVAL|</eclipse_total>
 		</skillpoints>
 		<list_mods>|SKILLLISTMODS|</list_mods>
 		<max_class_skill_level>|MAXSKILLLEVEL|</max_class_skill_level>
@@ -402,13 +389,24 @@
 	  ====================================-->
 	<saving_throws>
 		<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=SaveBonus")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
 			<savebonus>
-				<description>|ABILITYAUTO.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
+				<description>|ABILITYALL.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
 			</savebonus>
 |ENDIF|
 |ENDFOR|
+
+|FOR,%ability,0,count("ABILITIES","CATEGORY=FEAT","TYPE=SaveBonus")-1,1,0|
+|IIF(ABILITYALL.FEAT.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
+			<savebonus>
+				<description>|ABILITYALL.FEAT.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
+			</savebonus>
+|ENDIF|
+|ENDFOR|
+
+
+
 		</conditional_modifiers>
 		<saving_throw>
 			<name>
@@ -1274,27 +1272,27 @@ Immune
 
 	<!-- Abilites with check lists -->
 	<checklists>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC","TYPE=CheckList")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.HASASPECT.CheckCount:Y)|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=CheckList")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.HASASPECT.CheckCount:Y)|
 		<checklist>
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:Extraordinary)|
-			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Ex)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:Supernatural)|
-			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Su)</name>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Su)</name>
 |ELSE|
-|IIF(ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE:SpellLike)|
-			<name>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Sp)</name>
 |ELSE|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<header>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList|</header>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.TYPE|</type>
-			<source>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE=CheckList.SOURCE|</source>
-			<check_count>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckCount.INTVAL|</check_count>
-			<check_type>|ABILITYAUTO.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckType|</check_type>
+			<header>|ABILITYALL.Special Ability.%ability.TYPE=CheckList|</header>
+			<description>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.DESC|</description>
+			<type>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE|</type>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=CheckList.SOURCE|</source>
+			<check_count>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckCount.INTVAL|</check_count>
+			<check_type>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckType|</check_type>
 		</checklist>
 |ENDIF|
 |ENDFOR|

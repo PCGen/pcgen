@@ -321,6 +321,7 @@
 										<xsl:apply-templates select="class_features/wholeness_of_body"/>
 										<xsl:apply-templates select="class_features/layonhands"/>
 										<xsl:apply-templates select="class_features/psionics"/>
+										<xsl:apply-templates select="checklists"/>
 									</fo:table-cell>
 								</fo:table-row>
 							</fo:table-body>
@@ -2077,12 +2078,19 @@
 						<fo:table-cell number-columns-spanned="2" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt">
 							<fo:block text-align="left" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
 								<xsl:text>TOTAL SKILLPOINTS: </xsl:text>
+								<xsl:choose>
+								<xsl:when test="skillpoints/eclipse_total &gt; 0">
+									<xsl:value-of select="skillpoints/eclipse_total"/>
+								</xsl:when>
+								<xsl:otherwise>
 								<xsl:value-of select="skillpoints/total"/>
 								<xsl:if test="skillpoints/unused &gt; 0">
 									<xsl:text> (UNUSED: </xsl:text>
 									<xsl:value-of select="skillpoints/unused"/>
 									<xsl:text>)</xsl:text>
 								</xsl:if>
+								</xsl:otherwise>
+								</xsl:choose>
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell number-columns-spanned="4">
@@ -4434,6 +4442,68 @@
 			<xsl:with-param name="description.title" select="' '"/>
 			<xsl:with-param name="description" select="description"/>
 		</xsl:call-template>
+	</xsl:template>
+
+<!--
+====================================
+====================================
+	TEMPLATE - CHECKLISTS
+====================================
+====================================-->
+	<xsl:template match="checklists">
+	
+	<xsl:for-each select="checklist">
+		<!-- BEGIN Use Per Day Ability table -->
+		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+			<fo:table-column column-width="23mm"/>
+			<fo:table-column column-width="63mm"/>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+				
+					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'rage.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt" font-weight="bold" text-align="center">
+							<xsl:value-of select="header"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+								
+					<fo:table-cell padding-top="1pt" text-align="end">
+							<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'rage.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" text-align="center"><xsl:value-of select="check_type"/></fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="1pt" padding-left="9pt">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'rage.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="9pt" font-family="ZapfDingbats">
+							<xsl:call-template name="for.loop">
+								<xsl:with-param name="count" select="check_count"/>
+							</xsl:call-template>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding="3pt" number-columns-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'rage.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt" font-weight="bold">
+						<xsl:if test="name != ''"> <xsl:value-of select="name"/>:</xsl:if>
+							<fo:inline font-size="5pt" font-weight="normal"><xsl:value-of select="description"/><xsl:if test="source != ''"> [<xsl:value-of select="source"/>]</xsl:if></fo:inline>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+<!-- 		|%| -->
+		<!-- END Checklists table -->
+	</xsl:for-each>
 	</xsl:template>
 
 	<!--
