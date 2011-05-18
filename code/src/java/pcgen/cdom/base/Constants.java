@@ -586,8 +586,7 @@ public interface Constants
 	int ID_PATH_LENGTH_FOR_NON_CONTAINED = 3;
 
 	/**
-	 * Used when sorting skills to move soe items right to the end of the
-	 * sorted list. The moved items are sorted in their new position.  */
+	 * Used when initialising a string buffer for and error message.  */
 	int ARBITRARY_INITIAL_STRINGBUFFER_LENGTH = 256;
 
 	/**

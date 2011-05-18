@@ -3379,8 +3379,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * Adds a "temporary" bonus.
 	 * 
 	 * @param aBonus The bonus object to add.
-	 * @param source The source of teh temporary bonus
-	 * @param target The object getting teh bonus (typically the PC, can also be equipment).
+	 * @param source The source of the temporary bonus
+	 * @param target The object getting the bonus (typically the PC, can also be equipment).
 	 */
 	public void addTempBonus(final BonusObj aBonus, Object source, Object target)
 	{
