@@ -1410,7 +1410,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get equipment master list.
+	 * Get a list of equipment master list.
 	 * 
 	 * @return equipment master list
 	 */
@@ -1450,7 +1450,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
 	 */
-	private Equipment getEquipmentNamed(final String aString,
+	private Equipment getEquipmentNamed(
+		final String aString,
 		final Collection<Equipment> aList)
 	{
 		Equipment match = null;
@@ -1464,6 +1465,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return match;
+	}
+
+	/**
+	 * Search among the PCs equipment for a named piece of equipment
+	 * @param name The name of the piece of equipment.
+	 * @return null or the equipment named.
+	 */
+	public Equipment getEquipmentNamed(final String name)
+	{
+		return getEquipmentNamed(name, getEquipmentMasterList());
 	}
 
 	/**
@@ -2248,7 +2259,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
      * @return A MAP of FollowerOption objects representing the possible list
 	 *         of follower choices.
 	 */
-	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
+	public Map<FollowerOption, CDOMObject> getAvailableFollowers(
+		final String aType,
+		Comparator<FollowerOption> comp)
 	{
 		return foFacet.getAvailableFollowers(id, aType, comp);
 	}
@@ -3149,7 +3162,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (lastVariable.equals(variableString))
 			{
-				StringBuffer sb = new StringBuffer(256);
+				StringBuffer sb = new StringBuffer(Constants.ARBITRARY_INITIAL_STRINGBUFFER_LENGTH);
 				sb.append("This is a deliberate warning message, not an error - ");
 				sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
 				sb.append("of \"").append(lastVariable).append("\" at ")
@@ -3287,7 +3300,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Retrieve the cached output index of the automatic equipment item
+	 * Retrieve the cached output index of the automatic equipment item.
 	 * @param key The key of the equipment item.
 	 * @return The output index.
 	 */
@@ -3405,33 +3418,23 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Checks thata the parameter passed in is in the list of objects for which this PC qualifies.
-	 * @param testQualObj the object to test for qualification.
+	 * Checks that the parameter passed in is in the list of objects for which this PC qualifies.
+	 * @param obj the object to test for qualification.
 	 * @return true if the PC is qualified to have this object.
 	 */
-	public boolean checkQualifyList(CDOMObject testQualObj)
+	public boolean checkQualifyList(CDOMObject obj)
 	{
-		return qualifyFacet.grantsQualify(id, testQualObj);
+		return qualifyFacet.grantsQualify(id, obj);
 	}
 
 	/**
-	 * 
-	 * @param wp
-	 * @return
+	 * Check whether this PC has this WeaponProf.
+	 * @param wp The WeaponProf to check.
+	 * @return True if the PC has the WeaponProf
 	 */
 	public boolean hasWeaponProf(final WeaponProf wp)
 	{
 		return weaponProfFacet.containsProf(id, wp);
-	}
-
-	/**
-	 *
-	 * @param aString
-	 * @return
-	 */
-	public Equipment getEquipmentNamed(final String aString)
-	{
-		return getEquipmentNamed(aString, getEquipmentMasterList());
 	}
 
 	/**
