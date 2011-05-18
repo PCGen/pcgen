@@ -34,6 +34,12 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		DataFacetChangeListener<Equipment>
 {
 
+	/**
+	 * Remove an EqSet from the PC's Equipped Equipment.
+	 * @param id The identifier of the PC
+	 * @param eSet The EquipSet to remove.
+	 * @return true if the object was removed.
+	 */
 	public boolean delEquipSet(CharID id, EquipSet eSet)
 	{
 		Collection<EquipSet> componentSet = getCachedSet(id);
@@ -52,8 +58,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		for (Iterator<EquipSet> e = componentSet.iterator(); e.hasNext();)
 		{
 			final EquipSet es = e.next();
-			final String abParentId = es.getParentIdPath()
-					+ Constants.EQUIP_SET_PATH_SEPARATOR;
+			final String abParentId = es.getParentIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
 			final String abPid = pid + Constants.EQUIP_SET_PATH_SEPARATOR;
 
 			if (abParentId.startsWith(abPid))
@@ -65,8 +70,16 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		return found;
 	}
 
-	public void updateEquipSetItem(CharID id, Equipment oldItem,
-			Equipment newItem)
+	/**
+	 * Search all of the PC equipment sets and replace all instances of oldItem with newItem.
+	 * @param id The ID of the PC.
+	 * @param oldItem the item to search for.
+	 * @param newItem The replacement item
+	 */
+	public void updateEquipSetItem(
+		CharID id,
+		Equipment oldItem,
+		Equipment newItem)
 	{
 		if (isEmpty(id))
 		{
@@ -93,6 +106,11 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		}
 	}
 
+	/**
+	 * Search all the PCs Equipment sets for instances of eq and delete them.
+	 * @param id The ID of the PC
+	 * @param eq The equipment to delete.
+	 */
 	public void delEquipSetItem(CharID id, Equipment eq)
 	{
 		if (isEmpty(id))
@@ -119,6 +137,12 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		}
 	}
 
+	/**
+	 * Get an EqSet by its path.
+	 * @param id The ID of the PC
+	 * @param path The path of the EqSet.
+	 * @return The requested EqSet or null if not found.
+	 */
 	public EquipSet getEquipSetByIdPath(CharID id, String path)
 	{
 		for (EquipSet eSet : getSet(id))
@@ -132,6 +156,12 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		return null;
 	}
 
+	/**
+	 * Get an EqSet by its name.
+	 * @param id The ID of the PC
+	 * @param name The name of the EqSet.
+	 * @return The requested EqSet or null if not found.
+	 */
 	public EquipSet getEquipSetByName(CharID id, String name)
 	{
 		for (EquipSet eSet : getSet(id))
@@ -145,6 +175,14 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 		return null;
 	}
 
+	/**
+	 * Search the PCs equipment sets rooted on idPath and return a count of the items
+	 * named "name".
+	 * @param id The ID of the PC
+	 * @param idPath The
+	 * @param name The name of the EqSet.
+	 * @return The count fo the number of instances of the named equipSet on the given path.
+	 */
 	public Float getEquipSetCount(CharID id, String idPath, String name)
 	{
 		float count = 0;
@@ -156,13 +194,21 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 			{
 				if (eSet.getValue().equals(name))
 				{
-					count += eSet.getQty().floatValue();
+					count += eSet.getQty();
 				}
 			}
 		}
-		return Float.valueOf(count);
+		return count;
 	}
 
+	/**
+	 * Search the equipment sets rooted at <code>set</code>, and return the number
+	 * of items of <code>set</code> in the set.
+	 * @param id The ID of the PC
+	 * @param set The root of an Equipment Set
+	 * @param eq The equipment to search for.
+	 * @return The number of items equipped.
+	 */
 	public Float getEquippedQuantity(CharID id, EquipSet set, Equipment eq)
 	{
 		final String rPath = set.getIdPath();
@@ -183,14 +229,22 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 			}
 		}
 
-		return Float.valueOf(0);
+		return (float) 0;
 	}
 
+	/**
+	 * Notify the facet's listeners that data has been added
+	 * @param dfce The data facet change event.
+	 */
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		//Ignore
 	}
 
+	/**
+	 * Notify the facet's listeners that data has been removed.
+	 * @param dfce The data facet change event.
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		delEquipSetItem(dfce.getCharID(), dfce.getCDOMObject());
