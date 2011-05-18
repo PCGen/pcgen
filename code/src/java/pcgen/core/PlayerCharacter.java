@@ -1334,11 +1334,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					if (eqI.getChildCount() > 0)
 					{
 						totalWeight +=
-							(eqI.getWeightAsDouble(this) + eqI.getContainedWeight(this));
+							eqI.getWeightAsDouble(this) + eqI.getContainedWeight(this);
 					}
 					else
 					{
-						totalWeight += (eqI.getWeightAsDouble(this) * eqI.getCarried());
+						totalWeight += eqI.getWeightAsDouble(this) * eqI.getCarried();
 					}
 				}
 			}
@@ -1584,11 +1584,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canLevelUp()
 	{
-		if (SettingsHandler.getEnforceSpendingBeforeLevelUp())
-		{
-			return (getSkillPoints() <= 0 && getRemainingFeatPoolPoints() <= 0);
-		}
-		return true;
+		return !SettingsHandler.getEnforceSpendingBeforeLevelUp()
+			|| (getSkillPoints() <= 0 && getRemainingFeatPoolPoints() <= 0);
 	}
 
 	/**
@@ -1635,7 +1632,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		// If you aren't multi-classed, don't display redundant class level
 		// information in addition to the total PC level
-		displayClass = classFacet.getCount(id) < 2 ? getDisplayClassName() : getFullDisplayClassName();
+		displayClass = classFacet.getCount(id) > 1
+			? getFullDisplayClassName()
+			: getDisplayClassName();
 
 		return new StringBuffer()
 			.append(getName())
@@ -2675,16 +2674,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set skill points.
-	 * 
-	 * @param skillPoints unused parameter
-	 */
-	public void setSkillPoints(final int skillPoints)
-	{
-		setDirty(true);
-	}
-
-	/**
 	 * Get skill points.
 	 * 
 	 * @return skill points
@@ -3212,7 +3201,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
 	{
 		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(
-				weaponProfFacet.getProfs(id)));
+			weaponProfFacet.getProfs(id)));
 	}
 
 	/**
@@ -3374,9 +3363,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Adds a "temporary" bonus
+	 * Adds a "temporary" bonus.
 	 * 
-	 * @param aBonus
+	 * @param aBonus The bonus object to add.
+	 * @param source The source of teh temporary bonus
+	 * @param target The object getting teh bonus (typically the PC, can also be equipment).
 	 */
 	public void addTempBonus(final BonusObj aBonus, Object source, Object target)
 	{
@@ -3384,6 +3375,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
+	/**
+	 * Add a piece of equipment to the temporary bonus list.
+	 * @param aEq The piece of equipment to add.
+	 */
 	public void addTempBonusItemList(final Equipment aEq)
 	{
 		getTempBonusItemList().add(aEq);
@@ -3391,10 +3386,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Compute total bonus from a List of BonusObjs
+	 * Compute the total bonus from a List of BonusObjs.
 	 * 
-	 * @param aList
-	 * @return bonus from list
+	 * @param aList The list of objects
+	 * @param source The source of the bonus objects.
+	 * @return The aggregate bonus
 	 */
 	public double calcBonusFromList(final List<BonusObj> aList, CDOMObject source)
 	{
@@ -3408,21 +3404,41 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
+	/**
+	 * Checks thata the parameter passed in is in the list of objects for which this PC qualifies.
+	 * @param testQualObj the object to test for qualification.
+	 * @return true if the PC is qualified to have this object.
+	 */
 	public boolean checkQualifyList(CDOMObject testQualObj)
 	{
 		return qualifyFacet.grantsQualify(id, testQualObj);
 	}
 
+	/**
+	 * 
+	 * @param wp
+	 * @return
+	 */
 	public boolean hasWeaponProf(final WeaponProf wp)
 	{
 		return weaponProfFacet.containsProf(id, wp);
 	}
 
+	/**
+	 *
+	 * @param aString
+	 * @return
+	 */
 	public Equipment getEquipmentNamed(final String aString)
 	{
 		return getEquipmentNamed(aString, getEquipmentMasterList());
 	}
 
+	/**
+	 *
+	 * @param eSet
+	 * @return
+	 */
 	public boolean delEquipSet(final EquipSet eSet)
 	{
 		boolean found = equipSetFacet.delEquipSet(id, eSet);
@@ -3430,18 +3446,31 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return found;
 	}
 
+	/**
+	 *
+	 * @param eq
+	 */
 	public void delEquipSetItem(final Equipment eq)
 	{
 		equipSetFacet.delEquipSetItem(id, eq);
 		setDirty(true);
 	}
 
+	/**
+	 *
+	 * @param aFollower
+	 */
 	public void delFollower(final Follower aFollower)
 	{
 		followerFacet.remove(id, aFollower);
 		setDirty(true);
 	}
 
+	/**
+	 *
+	 * @param variableString
+	 * @return
+	 */
 	public boolean hasVariable(final String variableString)
 	{
 		try
@@ -3456,11 +3485,19 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int racialSizeInt()
 	{
 		return sizeFacet.racialSizeInt(id);
 	}
 
+	/**
+	 *
+	 * @param eq
+	 */
 	public void removeEquipment(final Equipment eq)
 	{
 		if (eq.isType(Constants.TYPE_SPELLBOOK))
@@ -3473,6 +3510,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
+	/**
+	 *
+	 * @param eq
+	 */
 	private void removeLocalEquipment(final Equipment eq)
 	{
 		equipmentFacet.remove(id, eq, this);
@@ -6302,8 +6343,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 							setAssoc(pcClass, AssociationKey.SKILL_POOL,
 								pcClass.getSkillPool(this)
 									+ newSkillPointsGained - formerGained);
-							setSkillPoints(getSkillPoints()
-								+ newSkillPointsGained - formerGained);
 						}
 					}
 				}
@@ -13071,9 +13110,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 						pi.setSkillPointsGained(this, newSkillPointsGained);
 						pi.setSkillPointsRemaining(pi.getSkillPointsRemaining()
 								+ newSkillPointsGained - formerGained);
-						setAssoc(pcClass, AssociationKey.SKILL_POOL,
-							pcClass.getSkillPool(this) + newSkillPointsGained - formerGained);
-						setSkillPoints(getSkillPoints() + newSkillPointsGained - formerGained);
+						setAssoc(pcClass,
+							AssociationKey.SKILL_POOL,
+							pcClass.getSkillPool(this)
+								+ newSkillPointsGained
+								- formerGained);
+						setDirty(true);
 					}
 				}
 			}

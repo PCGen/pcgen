@@ -325,7 +325,7 @@ public class Prerequisite implements Cloneable
 	/**
 	 * Setter for the overrideQualify field.
 	 * @param override
-	 *            Whether the override the qualifications.
+	 *            Whether to override the qualifications.
 	 */
 	public void setOverrideQualify(final boolean override)
 	{

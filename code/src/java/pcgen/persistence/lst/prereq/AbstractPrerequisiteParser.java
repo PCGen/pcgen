@@ -33,8 +33,7 @@ import pcgen.persistence.PersistenceLayerException;
  * @author wardc
  *
  */
-public abstract class AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Parses the PreRequisite.
@@ -42,7 +41,9 @@ public abstract class AbstractPrerequisiteParser implements
 	 * @param kind the kind of the prerequisite (less the "PRE" prefix).
 	 * @param formula The body of the prerequisite.
 	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify 
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */

@@ -362,7 +362,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			skillPoints += pcClass.getSkillPool(thePC);
 		}
 
-		thePC.setSkillPoints(skillPoints);
+		thePC.setDirty(true);
 	}
 
 	private void checkStats() throws PCGParseException

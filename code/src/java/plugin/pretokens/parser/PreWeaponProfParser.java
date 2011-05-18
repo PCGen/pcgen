@@ -55,6 +55,8 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 	 * @param invertResult If the prerequisite should invert the result
 	 * before it is returned
 	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
 	 *
 	 * @return a object for testing the prerequisite
 	 * @throws PersistenceLayerException

@@ -1144,8 +1144,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			final int i = skillPool - anInt;
 			pcl.setSkillPointsRemaining(anInt);
 			pc.setAssoc(aClass, AssociationKey.SKILL_POOL, Math.max(0, aClass.getSkillPool(pc) - i));
-			currentPC.setSkillPoints(Math
-				.max(0, currentPC.getSkillPoints() - i));
+			currentPC.setDirty(true);
 		}
 
 		currCharClassSkillPnts.setValue(pcl.getSkillPointsRemaining());
@@ -2143,7 +2142,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				return;
 			}
 
-			currentPC.setSkillPoints(anInt);
+			currentPC.setDirty(true);
 
 			final int x = currentPC.getClassCount();
 			if (x == 0)

@@ -84,7 +84,9 @@ public abstract class AbstractPrerequisiteListParser
 	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
 	 * @param formula The body of the prerequisite.
 	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify 
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */
@@ -149,7 +151,7 @@ public abstract class AbstractPrerequisiteListParser
 	{
 
 		String[] elements = formula.split(",|\\|");
-		int numRequired = 0;
+		int numRequired;
 		try
 		{
 			numRequired = Integer.parseInt(elements[0]);
@@ -302,7 +304,8 @@ public abstract class AbstractPrerequisiteListParser
 							if (numRequired != 1)
 							{
 								//
-								// If we would lose the required number of matches, then make this a PREMULT
+								// If we would lose the required number of matches,
+								// then make this a PREMULT
 								//
 								prereq.setOperator(PrerequisiteOperator.GTEQ);
 								prereq

@@ -1289,7 +1289,7 @@ public class PCClass extends PObject
 		int newSkillPool = spMod + (currentPool == null ? 0 : currentPool);
 		aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
 
-		aPC.setSkillPoints(spMod + aPC.getSkillPoints());
+		aPC.setDirty(true);
 
 		if (!aPC.isImporting())
 		{
@@ -1480,16 +1480,15 @@ public class PCClass extends PObject
 
 			if (!isMonster() && (total == 0))
 			{
-				aPC.setSkillPoints(0);
 				aPC.removeAllSkills();
 				aPC.setDirty(true);
 			}
 			else
 			{
-				aPC.setSkillPoints(aPC.getSkillPoints() - spMod);
 				Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
 				int newSkillPool = (currentPool == null ? 0 : currentPool) - spMod;
 				aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
+				aPC.setDirty(true);
 			}
 
 			if (aPC.getLevel(this) == 0)

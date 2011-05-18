@@ -245,7 +245,7 @@ public class SkillRankControl
 						- (int) (i * rankMod));
 			}
 
-			aPC.setSkillPoints(aPC.getSkillPoints() - (int) (i * rankMod));
+			aPC.setDirty(true);
 		}
 
 		return "";
