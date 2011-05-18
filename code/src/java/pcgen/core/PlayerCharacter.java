@@ -1410,7 +1410,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get a list of equipment master list.
+	 * Get the master list of equipment.
 	 * 
 	 * @return equipment master list
 	 */
