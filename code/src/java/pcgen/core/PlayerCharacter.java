@@ -1468,7 +1468,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Search among the PCs equipment for a named piece of equipment
+	 * Search among the PCs equipment for a named piece of equipment.
 	 * @param name The name of the piece of equipment.
 	 * @return null or the equipment named.
 	 */
@@ -3438,9 +3438,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 *
-	 * @param eSet
-	 * @return
+	 * Remove an EqSet from the PC's Equipped Equipment.
+	 * @param eSet - The EquipSet to remove.
+	 * @return true if the object was removed.
 	 */
 	public boolean delEquipSet(final EquipSet eSet)
 	{
@@ -3450,8 +3450,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 *
-	 * @param eq
+	 * Search all the PCs Equipment sets for instances of eq and delete them.
+	 * @param eq The Equipment to delete.
 	 */
 	public void delEquipSetItem(final Equipment eq)
 	{
@@ -3460,8 +3460,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 *
-	 * @param aFollower
+	 * Remove a Follower from this PC.
+	 * @param aFollower The follower to remove.
 	 */
 	public void delFollower(final Follower aFollower)
 	{
@@ -3470,16 +3470,15 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 *
-	 * @param variableString
-	 * @return
+	 * Check whether the PC has this variable.
+	 * @param variableString The variable to check for.
+	 * @return True if the PC has the variable.
 	 */
 	public boolean hasVariable(final String variableString)
 	{
 		try
 		{
-			return variableFacet.contains(id, VariableKey
-					.valueOf(variableString));
+			return variableFacet.contains(id, VariableKey .valueOf(variableString));
 		}
 		catch (IllegalArgumentException e)
 		{

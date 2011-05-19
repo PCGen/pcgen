@@ -590,7 +590,7 @@ public interface Constants
 	int ARBITRARY_INITIAL_STRINGBUFFER_LENGTH = 256;
 
 	/**
-	 * Used when sorting skills to move soe items right to the end of the
+	 * Used when sorting skills to move some items right to the end of the
 	 * sorted list. The moved items are sorted in their new position.  */
 	int ARBITRARY_END_SKILL_INDEX = 999;
 
