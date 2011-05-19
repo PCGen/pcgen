@@ -1298,6 +1298,19 @@ Immune
 |ENDFOR|
 	</checklists>
 
+	<!-- Proficiency lists -->
+	<proficiency_specials>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ProficiencyOutputDisplay")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay)|
+		<proficiency>
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay|</name>
+			<proficient>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay.ASPECT.Proficiency|</proficient>
+			<forte>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay.ASPECT.Forte|</forte>
+		</proficiency>
+|ENDIF|
+|ENDFOR|
+</proficiency_specials>
+
 <!--
 	  ====================================
 	  ====================================

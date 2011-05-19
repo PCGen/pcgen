@@ -298,6 +298,7 @@
 										</xsl:apply-templates>
 										<xsl:apply-templates select="class_features/eclipse_channeling"/>
 										<xsl:apply-templates select="class_features/channel_energy"/>
+										<xsl:apply-templates select="checklists"/>
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row>
@@ -321,7 +322,6 @@
 										<xsl:apply-templates select="class_features/wholeness_of_body"/>
 										<xsl:apply-templates select="class_features/layonhands"/>
 										<xsl:apply-templates select="class_features/psionics"/>
-										<xsl:apply-templates select="checklists"/>
 									</fo:table-cell>
 								</fo:table-row>
 							</fo:table-body>
@@ -400,6 +400,7 @@
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
+						<xsl:apply-templates select="proficiency_specials"/>
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
@@ -7220,4 +7221,5 @@
 		</xsl:if>
 		<!-- END CHARACTER NOTES Pages -->
 	</xsl:template>
+	<!-- End Character -->
 </xsl:stylesheet>
