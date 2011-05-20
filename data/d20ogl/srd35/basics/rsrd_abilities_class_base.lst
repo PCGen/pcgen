@@ -371,8 +371,11 @@ Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY	
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 # Ability Name		Category of Ability		Type						Define										Description												Ability																												Modify VAR								Source Page
-Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0													ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
+
+Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DESC:You retain your Dexterity bonus to AC even when flat-footed
+
 Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:Dex bonus to AC																																																SOURCEPAGE:ClassesII.rtf
 Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																														BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
 

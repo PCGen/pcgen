@@ -19,8 +19,10 @@ Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO			
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 # Ability Name		Category of Ability		Type								Visible	Define										Description																															Ability																												Modify VAR								Description of the Benefits
-Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
+Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DESC:You retain your Dexterity bonus to AC even when flat-footed
+
 Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so.																																																									BENEFIT:You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.
 Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																														BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
 
