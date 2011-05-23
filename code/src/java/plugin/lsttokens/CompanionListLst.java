@@ -38,9 +38,11 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ListMatchingReference;
 import pcgen.cdom.reference.ObjectMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.FollowerOption;
@@ -173,6 +175,19 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 						Race.class,
 						context.ref.getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
+			}
+			else if (tokString.startsWith("RACESUBTYPE="))
+			{
+				String raceSubType = tokString.substring(12);
+				if (raceSubType.length() == 0)
+				{
+					return new ParseResult.Fail(getTokenName()
+							+ " Error: RaceSubType was not specified.");
+				}
+				races.add(new ListMatchingReference<Race, RaceSubType>(tokString,
+						Race.class,
+						context.ref.getCDOMAllReference(Race.class),
+						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}
 			else
 			{
