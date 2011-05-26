@@ -240,6 +240,9 @@
 
 <hr>
 
+	<!-- 
+	<p class="new">*** Deprecated Syntax 5.17.3 - Remove 6.2</p>
+	-->
 	<p class="indent0"><strong><a name="FEAT">Tag Name:</a></strong> CHOOSE:FEAT=x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -258,6 +261,37 @@
 
 <hr>
 
+	<p class="new">*** Added 5.17.3</p>
+	<p class="indent0"><strong><a name="FEAT2">Tag Name:</a></strong> CHOOSE:FEAT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Feat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any <a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of feats matching the stipulated criteria.</li>
+		<li>Parameters can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEAT|Dodge|Toughness</code></p>
+	<p class="indent3">Will display a list of feats comprised of the &quot;Dodge&quot; and &quot;Toughness&quot; feats.</p>
+	<p class="indent2"><code>CHOOSE:FEAT|TYPE=Fighter,PC</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEAT|PC[TYPE=Fighter]</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEAT|TYPE=Fighter</code></p>
+	<p class="indent3">This will produce a list of all fighter feats.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated 5.17.3 - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
 	<p class="indent0"><strong><a name="FEATADD">Tag Name:</a></strong> CHOOSE:FEATADD|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
@@ -273,10 +307,13 @@
 	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEATADD|Dodge|Toughness</code> becomes <code>CHOOSE:FEAT|Dodge|Toughness &lt;tab&gt; ADD:FEAT|%LIST</code></p>
 	<p></p>
 
 <hr>
 
+	<p class="new">*** Deprecated 5.17.3 - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
 	<p class="indent0"><strong><a name="FEATLIST">Tag Name:</a></strong> CHOOSE:FEATLIST|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
@@ -291,10 +328,13 @@
 	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code> becomes <code>CHOOSE:FEAT|PC[TYPE=Fighter] </code></p>
 	<p></p>
 
 <hr>
 
+	<p class="new">*** Deprecated 5.17.3 - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
 	<p class="indent0"><strong><a name="FEATSELECT">Tag Name:</a></strong> CHOOSE:FEATSELECT|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
@@ -309,6 +349,8 @@
 	<p class="indent3">This will produce a list of all fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEATSELECT|TYPE=Fighter</code> becomes <code>CHOOSE:FEAT|TYPE=Fighter</code></p>
 	<p></p>
 
 <hr>

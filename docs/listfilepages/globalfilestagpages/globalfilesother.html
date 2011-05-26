@@ -1484,9 +1484,9 @@
 
 	<h2>Global Sub-Tags</h2>
 	
-	<h3>Global Qualifiers</h3>
+	<h3><a name="QUALIFIERS">Global Qualifiers</a></h3>
 	<p></p>
-	<p class="indent0"><strong><a name="QUALIFIERS">Tag Name:</a></strong> &lt;tagname&gt;:x (See specific tag documentation for specific suntax.)</p>
+	<p class="indent0"><strong>Tag Name:</strong> &lt;tagname&gt;:x (See specific tag documentation for specific syntax.)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY (Default)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PC</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFIED</p>
@@ -1494,6 +1494,8 @@
 	<ul class="indent2">
 		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects.</li>
 		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Qualifiers can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2">See individual tag documentation for examples of use.</p>
