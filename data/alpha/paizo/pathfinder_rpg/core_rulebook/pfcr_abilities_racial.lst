@@ -66,11 +66,11 @@ Skilled		KEY:Skilled ~ Human	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQ
 1. Grant Default Racial Abilities	KEY:Grant Default Racial Abilities	COST:0	CATEGORY:Special Ability	TYPE:RacialTraits.DefaultRacial	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RacialTraits]
 
 # These now Set the Default Abilities
-Dwarf Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.DwarfRacialDefault		BONUS:ABILITYPOOL|Dwarf Racial Trait|-8
-Elf Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.ElfRacialDefault		BONUS:ABILITYPOOL|Elf Racial Trait|-4
-Gnome Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.GnomeRacialDefault		BONUS:ABILITYPOOL|Gnome Racial Trait|-7
-Half Elf Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.HalfElfRacialDefault		BONUS:ABILITYPOOL|Half Elf Racial Trait|-4
-Half Orc Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.HalfOrcRacialDefault		BONUS:ABILITYPOOL|Half Orc Racial Trait|-3
-Halfling Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.HalflingRacialDefault	BONUS:ABILITYPOOL|Halfling Racial Trait|-5
-Human Racial Trait Default		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE.HumanRacialDefault		BONUS:ABILITYPOOL|Human Racial Trait|-2
+Dwarf Racial Trait Default		CATEGORY:Internal	ABILITY:Dwarf Racial Trait|AUTOMATIC|TYPE.DwarfRacialDefault		BONUS:ABILITYPOOL|Dwarf Racial Trait|-8
+Elf Racial Trait Default		CATEGORY:Internal	ABILITY:Elf Racial Trait|AUTOMATIC|TYPE.ElfRacialDefault			BONUS:ABILITYPOOL|Elf Racial Trait|-4
+Gnome Racial Trait Default		CATEGORY:Internal	ABILITY:Gnome Racial Trait|AUTOMATIC|TYPE.GnomeRacialDefault		BONUS:ABILITYPOOL|Gnome Racial Trait|-7
+Half Elf Racial Trait Default		CATEGORY:Internal	ABILITY:Half Elf Racial Trait|AUTOMATIC|TYPE.HalfElfRacialDefault		BONUS:ABILITYPOOL|Half Elf Racial Trait|-4
+Half Orc Racial Trait Default		CATEGORY:Internal	ABILITY:Half Orc Racial Trait|AUTOMATIC|TYPE.HalfOrcRacialDefault		BONUS:ABILITYPOOL|Half Orc Racial Trait|-3
+Halfling Racial Trait Default		CATEGORY:Internal	ABILITY:Halfling Racial Trait|AUTOMATIC|TYPE.HalflingRacialDefault	BONUS:ABILITYPOOL|Halfling Racial Trait|-5
+Human Racial Trait Default		CATEGORY:Internal	ABILITY:Human Racial Trait|AUTOMATIC|TYPE.HumanRacialDefault		BONUS:ABILITYPOOL|Human Racial Trait|-2
 	
