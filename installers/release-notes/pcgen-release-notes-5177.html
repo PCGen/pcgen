@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.17.7</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.17.7</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.17.7</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.17.7</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.17.7</a></h2>
+
+
+<p>PCGen v5.17.7 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work.  
+Please give it a shot and let us know how it works for you.
+Some notable changes in this release are listed below. 
+</p>
+<ul>
+<li>PDF Output Improvements</li>
+</ul>
+ 
+<h3>New Sources</h3>
+
+<p>The following new sources were added in 5.17.7</p>
+
+<ul>
+<li>[Paizo] Carrion Crown Player's Guide</li>
+<li>[Paizo] Critical Fumble Deck</li>
+<li>[Paizo] Pathfinder Player Compendium: Inner Sea Primer</li>
+<li>[Paizo] PF Companion - Dwarves of Golarion</li>
+<li>[Super Genius Games]Krazy Kragnar's Alchemical Surplus Shop</li>
+</ul>
+
+<p>
+We are also working away on the    
+<a href="http://wiki.pcgen.org/index.php?title=Release_6.0.x">next big version</a> 
+although much of that work is currently behind the scenes. We welcome your input,
+just comment on the wiki pages or post to the <a href="http://games.groups.yahoo.com/group/pcgen/"></a>PCGen mailing list</a> 
+.</p>
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 28 May, 2011.</p>
+
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.17.7 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_full.zip?download">pcgen5177_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_partial.zip?download">pcgen5177_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_win_install.exe?download">pcgen5177_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_mac_install.dmg?download">pcgen5177_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5177_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a>
+			or <a href="mailto:Content@pcgen.or">Content@pcgen.or</a>, or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.17.7</a></h2>
+
+<h3>        New Data Source Development
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-67'>NEWSOURCE-67</a>] -         [Paizo] Pathfinder Player Compendium: Inner Sea Primer
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-69'>NEWSOURCE-69</a>] -         [Super Genius Games]Krazy Kragnar's Alchemical Surplus Shop
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-73'>NEWSOURCE-73</a>] -         Paizo - Carrion Crown Player's Guide
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-74'>NEWSOURCE-74</a>] -         [PF Companion] Dwarves of Golarion
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-78'>NEWSOURCE-78</a>] -         [Paizo] Critical Fumble Deck
+</li>
+</ul>
+
+<h3>        Modify Token
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-262'>NEWTAG-262</a>] -         Add 'RACESUBTYPE=' to COMPANIONLIST
+</li>
+</ul>
+            
+<h3>        New Token
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-253'>NEWTAG-253</a>] -         ICON tag for equipment icons in the new UI
+</li>
+</ul>
+
+<h3>        OS Bug
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-67'>OS-67</a>] -         Animal Companion / Animal Tricks doesnt have background highlight
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-70'>OS-70</a>] -         Pathfinder Advanced Players Guide OOC Data Set seems to break character sheet printing
+</li>
+</ul>
+                        
+<h3>        OS New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-62'>OS-62</a>] -         Flag 'granted' traits/feats on output sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-64'>OS-64</a>] -         Known spells row not applicable, can it be disabled?
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-72'>OS-72</a>] -         Clean up Spells Display
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-73'>OS-73</a>] -         Add Skill Info Block (Conditional Modifiers for Skills)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-74'>OS-74</a>] -         Improve Look of Skills Table
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-75'>OS-75</a>] -         Show 'QUALITY' tag in equipment
+</li>
+</ul>
+
+<h3>        Data Bug
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-15'>DATA-15</a>] -         Specialist Wizard Weirdness
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-73'>DATA-73</a>] -         Monk Flurry of Blows in Pathfinder
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-160'>DATA-160</a>] -         specialist Wizards receive bonus zero level slot when they shouldn't
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-226'>DATA-226</a>] -         Draconic Bloodline missing Skill Focus (Fly) as a bonus feat
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-229'>DATA-229</a>] -         Zen Archer - Way of the Bow
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-239'>DATA-239</a>] -         SEVERE Unconstructed Reference: Race Crocodile (Giant)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-240'>DATA-240</a>] -         All Simple Templates which adjust size are incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-245'>DATA-245</a>] -         [PFCR] Missing weapon Net
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-246'>DATA-246</a>] -         PF Bard Favored Class Feature Bonus Spell Only Works Once
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-247'>DATA-247</a>] -         Grig incorrectly has 'cold' ability
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-248'>DATA-248</a>] -         Barbarian Fast Movement got changed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-253'>DATA-253</a>] -         WARNING: Duplicate object name: Bonus Domain Power Use
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-254'>DATA-254</a>] -         Arcanis Holy Champion has incorrect PRERACE entries
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-255'>DATA-255</a>] -         Searing light spell missing information
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-257'>DATA-257</a>] -         Specific Magic weapons are not flagged as 'magic' type
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-265'>DATA-265</a>] -         Oracle Weapon Mastery CATEGORY issue
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-266'>DATA-266</a>] -         Expert Class Skills are added through an ability using a chooser.This sets the class skills as universal class skills instead of class skills
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-267'>DATA-267</a>] -         [PF] Staff Creation Cost
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-269'>DATA-269</a>] -         Tangle Bolt has incorrect Cost 166.1 vs. 226 listed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-270'>DATA-270</a>] -         Glove of Storing retains weight of contained item
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-275'>DATA-275</a>] -         Expanded Arcana feat does not work
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-276'>DATA-276</a>] -         Oathbow should provide +2 bonus to attack rolls
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-277'>DATA-277</a>] -         Robe of Eyes does not change flat-footed AC
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-278'>DATA-278</a>] -         Many rings don't have spells even though they should
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-279'>DATA-279</a>] -         Ring of Meld into Stone does not exist
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-280'>DATA-280</a>] -         PF's Ring of Regeneration's description came from SRD
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-281'>DATA-281</a>] -         [PFAPG] Elemental wizard schools issues
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-286'>DATA-286</a>] -         Inquisitor does not have a TrackLVL bonus variable defined, making
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-287'>DATA-287</a>] -         Strand of Prayer Beads has wrong TYPE
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-292'>DATA-292</a>] -         Strand of Prayer Beads should have spells
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-294'>DATA-294</a>] -         [PATHFINDER] [APG] Number of Oracle spells correctly calculated, not able to assign correct number
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-296'>DATA-296</a>] -         [PATHFINDER] [APG] Oracle with Haunted curse has mage hand and ghost sound, but not in spell selection screen
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-297'>DATA-297</a>] -         APG Trait Bonuses Not Applying Correctly
+</li>
+</ul>
+                        
+<h3>        Data New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-282'>DATA-282</a>] -         [PF] Improve Familiar feat does not offer additional familiars
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-293'>DATA-293</a>] -         Sirine Pearl should grant a Swim Speed
+</li>
+</ul>
+
+
+	</body>
+</html>
