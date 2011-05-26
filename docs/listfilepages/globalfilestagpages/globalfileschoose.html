@@ -112,6 +112,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#ARMORPROFICIENCY">CHOOSE:ARMORPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="ARMORPROF">Tag Name:</a></strong> CHOOSE:ARMORPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Armor name)</p>
@@ -123,6 +124,39 @@
 	<p class="indent3">Allow the choice of up to two heavy armors.</p>
 	<p class="indent2"><code>CHOOSE:ARMORPROF|1|Scale Mail|Chainmail</code></p>
 	<p class="indent3">Allow the choice of one of Scale Mail or Chainmail.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="ARMORPROFICIENCY">Tag Name:</a></strong> CHOOSE:ARMORPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Armor proficiency)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Armor proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited armor proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key, that contains a CHOOSE:ARMORPROFICIENCY tag)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any <a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[Text] (Equipment name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[TYPE=Text] (Equipment type</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[!TYPE=Text] (Prohibited equipment type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[ALL]</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of all armors matching the criteria.</li>
+		<li>Parameters can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>When using the &quot;EQUIPMENT[x]&quot; subtag, the parameters included inside the brackets are used to identify a list of equipment 
+			from which the armor proficiencies are added to the final list of provided armor proficiencies.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|TYPE=Heavy</code></p>
+	<p class="indent3">Will display a list of proficiencies for all heavy armors.</p>
+	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|Scale Mail|Chainmail</code></p>
+	<p class="indent3">Will display a list consisting of Scale Mail and Chainmail.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -261,7 +295,7 @@
 
 <hr>
 
-	<p class="new">*** Added 5.17.3</p>
+	<p class="new">*** New 5.17.3</p>
 	<p class="indent0"><strong><a name="FEAT2">Tag Name:</a></strong> CHOOSE:FEAT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
