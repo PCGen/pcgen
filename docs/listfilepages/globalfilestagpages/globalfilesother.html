@@ -872,6 +872,25 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="SORTKEY">Tag Name:</a></strong> SORTKEY:x</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Alpha Numeric)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Sorts in the order of 0-9, A-Z. When sorting lists of objects, PCGen would use, SORTKEY, OUTPUTNAME or Name in that order to determine what to sort on and then it would order by the values, being a text field you can do whatever fancy grouping you like without pcgen having to interpret it</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Enlarge Spell&lt;tab&gt;SORTKEY:Metamagic~Enlarge Spell</code></p>
+	<p class="indent2"><code>Quicken Spell&lt;tab&gt;SORTKEY:11-MetaMagic~Quicken Spell</code></p>
+	<p class="indent2"><code>Early Feat&lt;tab&gt;SORTKEY:Z-Me last</code></p>
+	<p class="indent3">Would Display as</p>
+	<p class="indent3">Quicken Spell</p>
+	<p class="indent3">Enlarge Spell</p>
+	<p class="indent3">Early Feat</p>
+	<p class="indent1"><strong>NOTES:</strong></p>
+	<p class="indent2">Order of Operation - SORTKEY, OUTPUTNAME, NAME</p>
+	<p class="indent2">Can be 'MOD'ed</p>
+
+<hr>
+
 	<p class="new">*** Updated 5.10</p>
 	<p class="indent0"><strong><a name="SOURCELONG">Tag Name:</a></strong>SOURCELONG:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Long Source Name)</p>
