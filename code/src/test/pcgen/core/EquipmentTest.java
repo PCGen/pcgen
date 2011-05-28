@@ -597,4 +597,24 @@ assertNotNull("Eqmod should be present", eqMod);
 		name = eq.nameItemFromModifiers(getCharacter());
 		assertEquals("Dummy", name);
 	}
+	
+	/**
+	 * Verify that isPreType is working correctly for eqmods.
+	 */
+	public void testIsPreTypeEqMod()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		assertFalse("Does not have eqmod yet", aEquip.isPreType("EQMOD=PLUS1W"));
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertTrue("Should have eqmod now", aEquip.isPreType("EQMOD=PLUS1W"));
+		assertFalse("Should not have eqmod with choice", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		aEquip.addAssociation(eqMod, "ChoicE");
+		assertTrue("Should have eqmod with choice now", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
+		
+	}
 }

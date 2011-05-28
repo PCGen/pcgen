@@ -43,6 +43,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
@@ -1784,9 +1786,25 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		else if (tString.startsWith("EQMOD=") || tString.startsWith("EQMOD."))
 		{
-			tString = tString.substring(6);
+			String key = tString.substring(6);
+			String choice = "";
+			if (key.indexOf("(") > 0)
+			{
+				int i = key.indexOf("(");
+				choice = key.substring(i+1, key.lastIndexOf(")"));
+				key = key.substring(0, i);
+			}
 
-			return getEqModifierKeyed(tString, bonusPrimary) != null;
+			EquipmentModifier eqMod = getEqModifierKeyed(key, bonusPrimary);
+			if (eqMod != null)
+			{
+				if (StringUtils.isEmpty(choice))
+				{
+					return true;
+				}
+				return (hasAssociations(eqMod) && choice.equalsIgnoreCase(getFirstAssociation(eqMod)));
+			}
+			return false;
 		}
 
 		return isType(tString, bonusPrimary);
