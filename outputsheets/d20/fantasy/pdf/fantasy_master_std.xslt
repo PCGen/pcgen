@@ -307,6 +307,7 @@
 										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
+										<xsl:apply-templates select="weapons/naturalattack"/>
 										<xsl:apply-templates select="weapons/spiritweaponmelee"/>
 										<xsl:apply-templates select="weapons/spiritweaponranged"/>
 										<xsl:apply-templates select="weapons">
@@ -400,7 +401,7 @@
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
-						<xsl:apply-templates select="proficiency_specials"/>
+<!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
@@ -1507,15 +1508,15 @@
 		<fo:table table-layout="fixed" space-before="2pt">
 			<fo:table-column column-width="12mm"/>
 			<!-- TITLE -->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="1mm"/>
 			<!-- space -->
 			<fo:table-column column-width="8mm"/>
 			<!-- TOTAL AC -->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="1mm"/>
 			<!-- : -->
 			<fo:table-column column-width="8mm"/>
 			<!-- FLAT -->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="1mm"/>
 			<!-- : -->
 			<fo:table-column column-width="8mm"/>
 			<!-- TOUCH -->
@@ -1566,14 +1567,21 @@
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
+			<!-- Dodge -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>
 			<!-- misc   -->
-			<fo:table-column column-width="4mm"/>
+			<fo:table-column column-width="2mm"/>
 			<!-- space -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.11 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- miss chance -->
-			<fo:table-column column-width="3mm"/>
+			<fo:table-column column-width="2mm"/>
 			<!-- space -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
@@ -1715,6 +1723,17 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="deflection"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell display-align="center">
+						<fo:block text-align="center" font-size="6pt">+</fo:block>
+					</fo:table-cell>
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'ac'"/>
+						</xsl:call-template>
 						<fo:block text-align="center" font-size="10pt">
 							<xsl:value-of select="misc"/>
 						</fo:block>
@@ -1798,6 +1817,10 @@
 					<fo:table-cell/>
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="3pt">DEFLEC- TION</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">DODGE</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
@@ -3022,6 +3045,8 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
+		<xsl:choose>
+		<xsl:when test="(weapons/naturalattack) &lt; 1">
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -3098,7 +3123,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell>
+					<fo:table-cell >
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
@@ -3109,8 +3134,142 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</xsl:when>
+		<xsl:otherwise/>
+		</xsl:choose>
+		
 		<!-- STOP Unarmed Attack Table -->
 	</xsl:template>
+
+
+		<!--
+====================================
+====================================
+	TEMPLATE - Natural Weapon ATTACK TABLE
+====================================
+====================================-->
+	<xsl:template match="weapons/naturalattack">
+		<!-- START Natural Attack Table -->
+
+		<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">
+							<xsl:value-of select="name"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">DAMAGE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">REACH</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+<!-->	<xsl:for-each select="naturalattack">-->
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="tohit"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="damage"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="threat"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="reach"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt">
+							<xsl:value-of select="type"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			<xsl:choose>
+				<xsl:when test="string-length(notes) &gt; 1">
+				<fo:table-row>
+					<fo:table-cell number-columns-spanned="1">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" font-weight="bold">
+							<xsl:text>Special Properties:</xsl:text>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-columns-spanned="4">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" padding-right="2pt">
+							<fo:inline> </fo:inline><xsl:value-of select="notes"/>
+						</fo:block>
+					</fo:table-cell>
+
+				</fo:table-row>
+				</xsl:when>
+				<xsl:otherwise/>
+			</xsl:choose>
+			<!-->	</xsl:for-each>-->
+
+			</fo:table-body>
+		</fo:table>
+		<!-- STOP Spirit Weapon Melee Attack Table -->
+	</xsl:template>
+
 	<!--
 ====================================
 ====================================
@@ -3141,7 +3300,7 @@
 			</xsl:if>
 		</xsl:for-each>
 		<xsl:if test="position() &gt;= $first_weapon">
-			<fo:block font-size="5pt" space-before="1pt" color="black">
+			<fo:block font-size="5pt" space-before="2mm" color="black">
 				<fo:inline font-weight="bold">*</fo:inline>: weapon is equipped
 			</fo:block>
 			<fo:block font-size="5pt" space-before="1pt" color="black">
@@ -4502,7 +4661,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
-<!-- 		|%| -->
+|%|
 		<!-- END Checklists table -->
 	</xsl:for-each>
 	</xsl:template>
