@@ -85,6 +85,7 @@ $pub{'sovereignpress'} = 'Sovereign Press';
 $pub{'srd'} = 'SRD';
 $pub{'srd35'} = 'SRD35';
 $pub{'stcooleypublishing'} = 'S T Cooley Publishing';
+$pub{'supergeniusgames'} = 'Super Genius Games';
 $pub{'swordandsorcerystudios'} = 'Sword and Sorcery Studios';
 $pub{'swordsedgepublishing'} = 'Swords Edge Publishing';
 $pub{'thegamemechanics'} = 'The Game Mechanics Inc';
