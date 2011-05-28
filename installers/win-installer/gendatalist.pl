@@ -155,6 +155,10 @@ NAME:	foreach $filename (@nondots)
 			{
 				print SCRIPT " 3 5";
 			}
+			if ($filename eq 'paizo')
+			{
+				print SCRIPT " 3";
+			}
 			print SCRIPT "\n";
 		}
 		elsif ($dirname eq 'permissioned')
@@ -163,7 +167,12 @@ NAME:	foreach $filename (@nondots)
 		}
 		else
 		{
-			print SCRIPT "	SectionIn 1\n";
+			print SCRIPT "	SectionIn 1";
+			if ($filename eq 'paizo')
+			{
+				print SCRIPT " 2 3";
+			}
+			print SCRIPT "\n";
 		}
 
 		print SCRIPT "	SetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\$dirname\\" . $filename . "\"\n";
