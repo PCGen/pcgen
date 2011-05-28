@@ -76,9 +76,11 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 
 		<h3>Prerequisites</h3>
 
-		<p>Java 5. PCGEN 5.17.7 is not compatible with Java
+		<p>Java 5 or Java 6. PCGEN 5.17.7 is not compatible with Java
 			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
-			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>. 
+			Note also that PCGen does not work with Java 7 at this time, however this is being addressed as part 
+			of the work on the new user interface.</p>
 
 		<h3>Important Warning</h3>
 
@@ -173,6 +175,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>        Modify Token
 </h3>
 <ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-260'>NEWTAG-260</a>] -         Allow PRETYPE on equipment to check for EQMOD choices
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/NEWTAG-262'>NEWTAG-262</a>] -         Add 'RACESUBTYPE=' to COMPANIONLIST
 </li>
 </ul>
@@ -208,6 +212,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/OS-75'>OS-75</a>] -         Show 'QUALITY' tag in equipment
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-77'>OS-77</a>] -         Set up alt natural attack block for finer control.
+</li>
 </ul>
 
 <h3>        Data Bug
@@ -226,6 +232,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-239'>DATA-239</a>] -         SEVERE Unconstructed Reference: Race Crocodile (Giant)
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-240'>DATA-240</a>] -         All Simple Templates which adjust size are incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-242'>DATA-242</a>] -         XML error when exporting to PDF
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-245'>DATA-245</a>] -         [PFCR] Missing weapon Net
 </li>
@@ -279,6 +287,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-297'>DATA-297</a>] -         APG Trait Bonuses Not Applying Correctly
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-298'>DATA-298</a>] -         The gnome  bug when i export with pdf the system add halfling 
+</li>
 </ul>
                         
 <h3>        Data New Feature
@@ -290,6 +300,16 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 </ul>
 
+<h2>        Code Bug
+</h2>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-549'>CODE-549</a>] -         Average HP calculation off
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-558'>CODE-558</a>] -         [Pathfinder] Clothing weight should count towards encumbrance
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-562'>CODE-562</a>] -         Character Region does not persist
+</li>
+</ul>
 
 	</body>
 </html>
