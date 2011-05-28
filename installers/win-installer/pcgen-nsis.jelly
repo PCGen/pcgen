@@ -127,7 +127,7 @@
 
 ; Main Install settings
 Name "$${APPNAMEANDVERSION}"
-InstallDir "$$PROGRAMFILES\$${APPNAME}"
+InstallDir "$$LOCALAPPDATA\$${APPNAME}"
 InstallDirRegKey HKLM "Software\$${APPNAME}\$${APPDIR}" ""
 OutFile "$${OutDir}\$${OutName}.exe"
 ;This will save a little less than 1mb, it should be left enabled -Ed
