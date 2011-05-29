@@ -97,804 +97,794 @@ public class CountCommand extends PCGenCommand
 	public enum JepCountEnum
 	{
 		ABILITIES
+			{
+				// Abilities are PObjects, we can implement the filterSet directly
+				// i.e. without using PObject proxies.
+
+				public Map<Nature, Set<Ability>> abdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Abilities are PObjects, we can implement the filterSet directly
-					// i.e. without using PObject proxies.
+					abdata = pc.getAbilitiesSet();
+				}
 
-					public Map<Nature, Set<Ability>> abdata;
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
 
-					protected void getData(final PlayerCharacter pc)
+					final Object[] par = validateParams(params);
+
+					final ParameterTree pt = convertParams(par);
+
+					getData(pc);
+
+					final Set<PObject> filtered = doFilterP(pt);
+
+					return countData(filtered, pc);
+				}
+
+				protected Object countData(final Iterable<PObject> filtered,
+				                           PlayerCharacter pc)
+				{
+					double accum = 0;
+
+					for (final PObject ab : filtered)
 					{
-						abdata = pc.getAbilitiesSet();
+						final double ac = pc.getSelectCorrectedAssociationCount(ab);
+						accum += 1.01 >= ac ? 1 : ac;
+					}
+					return accum;
+				}
+
+				protected Set<? extends PObject> filterSetP(final String c)
+				{
+					final String[] keyValue = c.split("=");
+					final JepAbilityCountEnum en;
+
+					try
+					{
+						en = JepAbilityCountEnum.valueOf(keyValue[0]);
+					}
+					catch (IllegalArgumentException ex)
+					{
+						Logging.errorPrint(
+							"Bad paramter to count(\"Ability\"), " + c);
+						return new HashSet<PObject>();
 					}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
+					Set<Ability> cs = null;
+					Ability a;
+					final Iterator<? extends PObject> abIt;
+
+					switch (en)
 					{
+						case CATEGORY:
+						case CAT:
+							final String cat = keyValue[1];
+							cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 
-						final Object[] par = validateParams(params);
+							abIt = cs.iterator();
 
-						final ParameterTree pt = convertParams(par);
+							while (abIt.hasNext())
+							{
+								a = (Ability) abIt.next();
+								if (!a.getCategory().equalsIgnoreCase(cat))
+								{
+									abIt.remove();
+								}
+							}
+							break;
 
-						getData(pc);
+						case NAME:
+						case NAM:
+							cs = filterAbilitiesByName(keyValue);
+							break;
 
-						final Set<PObject> filtered = doFilterP(pt);
+						case KEY:
+							cs = filterAbilitiesByKeyName(keyValue);
+							break;
 
-						return countData(filtered, pc);
-					}
+						case NATURE:
+						case NAT:
+							Nature n;
+							try
+							{
+								n = Nature.valueOf(keyValue[1]);
+							}
+							catch (IllegalArgumentException ex)
+							{
+								Logging.errorPrint(
+									"Bad paramter to count(\"Ability\"), no such NATURE "
+										+ c);
+								n = Nature.ANY;
+							}
+							cs = new HashSet<Ability>(abdata.get(n));
+							break;
 
-					protected Object countData(final Iterable<PObject> filtered, PlayerCharacter pc)
-					{
-						double accum = 0;
+						case TYPE:
+						case TYP:
+							cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+							abIt = cs.iterator();
 
-						for (final PObject ab : filtered)
-						{
-							final double ac = pc.getSelectCorrectedAssociationCount(ab);
-							accum += 1.01 >= ac ? 1 : ac;
-						}
-						return accum;
-					}
+							filterPObjectByType(abIt, keyValue[1]);
+							break;
 
-					protected Set<? extends PObject> filterSetP(final String c)
-					{
-						final String[] keyValue = c.split("=");
-						final JepAbilityCountEnum en;
+						case VISIBILITY:
+						case VIS:
+							cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 
-						try
-						{
-							en = JepAbilityCountEnum.valueOf(keyValue[0]);
-						}
-						catch (IllegalArgumentException ex)
-						{
-							Logging.errorPrint(
-									"Bad paramter to count(\"Ability\"), " + c);
-							return new HashSet<PObject>();
-						}
-
-						Set<Ability> cs = null;
-						Ability a;
-						final Iterator<? extends PObject> abIt;
-
-						switch (en)
-						{
-							case CATEGORY:
-							case CAT:
-								final String cat = keyValue[1];
-								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-
+							try
+							{
+								final Visibility vi = Visibility.valueOf(keyValue[1]);
 								abIt = cs.iterator();
 
 								while (abIt.hasNext())
 								{
 									a = (Ability) abIt.next();
-									if (!a.getCategory().equalsIgnoreCase(cat))
+									if (!a.getSafe(ObjectKey.VISIBILITY).equals(vi))
 									{
 										abIt.remove();
 									}
 								}
-								break;
-
-							case NAME:
-							case NAM:
-								cs = filterAbilitiesByName(keyValue);
-								break;
-
-							case KEY:
-								cs = filterAbilitiesByKeyName(keyValue);
-								break;
-
-							case NATURE:
-							case NAT:
-								Nature n;
-								try
-								{
-									n = Nature.valueOf(keyValue[1]);
-								}
-								catch (IllegalArgumentException ex)
-								{
-									Logging.errorPrint(
-											"Bad paramter to count(\"Ability\"), no such NATURE "
-											+ c);
-									n = Nature.ANY;
-								}
-								cs = new HashSet<Ability>(abdata.get(n));
-								break;
-
-							case TYPE:
-							case TYP:
-								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-								abIt = cs.iterator();
-
-								filterPObjectByType(abIt, keyValue[1]);
-								break;
-
-							case VISIBILITY:
-							case VIS:
-								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-
-								try
-								{
-									final Visibility vi = Visibility.valueOf(keyValue[1]);
-									abIt = cs.iterator();
-
-									while (abIt.hasNext())
-									{
-										a = (Ability) abIt.next();
-										if (!a.getSafe(ObjectKey.VISIBILITY).equals(vi))
-										{
-											abIt.remove();
-										}
-									}
-								}
-								catch (IllegalArgumentException ex)
-								{
-									Logging.errorPrint(
-											"Bad paramter to count(\"Ability\"), no such Visibility "
-											+ keyValue[1]);
-								}
-						}
-
-						return cs;
-					}
-
-					/**
-					 * Filter the abilities by their display name. 
-					 * @param keyValue The count parameters. The 2nd entry is the name to be matched.
-					 * @return The set of abilities matching the name.
-					 */
-					private Set<Ability> filterAbilitiesByName(final String[] keyValue)
-					{
-						Set<Ability> cs;
-						final Iterator<? extends PObject> abIt;
-						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-						abIt = cs.iterator();
-
-						while (abIt.hasNext())
-						{
-							final Ability ab = (Ability) abIt.next();
-
-							final String name = (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED)) ?
-										AbilityUtilities.getUndecoratedName(
-												ab.getDisplayName(),
-												new ArrayList<String>()) :
-										ab.getDisplayName();
-							
-							if (!name.equalsIgnoreCase(keyValue[1]))
-							{
-								abIt.remove();
 							}
-						}
-						return cs;
-					}
-
-					/**
-					 * Filter the abilities by their key name. 
-					 * @param keyValue The count parameters. The 2nd entry is the key to be matched.
-					 * @return The set of abilities matching the key.
-					 */
-					private Set<Ability> filterAbilitiesByKeyName(final String[] keyValue)
-					{
-						Set<Ability> cs;
-						final Iterator<? extends PObject> abIt;
-						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
-						abIt = cs.iterator();
-
-						while (abIt.hasNext())
-						{
-							final Ability ab = (Ability) abIt.next();
-
-							final String name = ab.getKeyName();
-							
-							if (!name.equalsIgnoreCase(keyValue[1]))
+							catch (IllegalArgumentException ex)
 							{
-								abIt.remove();
+								Logging.errorPrint(
+									"Bad paramter to count(\"Ability\"), no such Visibility "
+										+ keyValue[1]);
 							}
-						}
-						return cs;
 					}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
+					return cs;
+				}
+
+				/**
+				 * Filter the abilities by their display name.
+				 * @param keyValue The count parameters. The 2nd entry is the name to be matched.
+				 * @return The set of abilities matching the name.
+				 */
+				private Set<Ability> filterAbilitiesByName(final String[] keyValue)
+				{
+					Set<Ability> cs;
+					final Iterator<? extends PObject> abIt;
+					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+					abIt = cs.iterator();
+
+					while (abIt.hasNext())
 					{
-						throw new ParseException(
-								"Ability is a PObject, should be calling filterSetP");
+						final Ability ab = (Ability) abIt.next();
+
+						final String name = (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED)) ?
+							AbilityUtilities.getUndecoratedName(
+								ab.getDisplayName(),
+								new ArrayList<String>()) :
+							ab.getDisplayName();
+
+						if (!name.equalsIgnoreCase(keyValue[1]))
+						{
+							abIt.remove();
+						}
 					}
-				},
+					return cs;
+				}
+
+				/**
+				 * Filter the abilities by their key name.
+				 * @param keyValue The count parameters. The 2nd entry is the key to be matched.
+				 * @return The set of abilities matching the key.
+				 */
+				private Set<Ability> filterAbilitiesByKeyName(final String[] keyValue)
+				{
+					Set<Ability> cs;
+					final Iterator<? extends PObject> abIt;
+					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+					abIt = cs.iterator();
+
+					while (abIt.hasNext())
+					{
+						final Ability ab = (Ability) abIt.next();
+
+						final String name = ab.getKeyName();
+
+						if (!name.equalsIgnoreCase(keyValue[1]))
+						{
+							abIt.remove();
+						}
+					}
+					return cs;
+				}
+
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"Ability is a PObject, should be calling filterSetP");
+				}
+			},
 
 		CLASSES
+			{
+				// Classes are PObjects, we can implement the filterSet directly
+				// i.e. without using PObject proxies.
+
+				public Set<PCClass> objdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Classes are PObjects, we can implement the filterSet directly
-					// i.e. without using PObject proxies.
+					objdata = new HashSet<PCClass>();
+					objdata.addAll(pc.getClassSet());
+				}
 
-					public Set<PCClass> objdata;
+				public Object count(
+					final PlayerCharacter pc, final Object[] params) throws
+					ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						objdata = new HashSet<PCClass>();
-						objdata.addAll(pc.getClassSet());
-					}
+					getData(pc);
+					final Set<PObject> filtered = doFilterP(pt);
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+					return (double) filtered.size();
+				}
 
-						getData(pc);
-						final Set<PObject> filtered = doFilterP(pt);
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"PCClass is a PObject, should be calling filterSetP");
+				}
 
-						return (double) filtered.size();
-					}
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					final String[] keyValue = c.split("=");
 
-					protected Set<String> filterSetS(final String c) throws ParseException
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"PCClass is a PObject, should be calling filterSetP");
+							"Bad parameter to count(\"CLASSES\" ... )" + c);
 					}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						final String[] keyValue = c.split("=");
+					final Set<PCClass> cs = new HashSet<PCClass>(objdata);
+					final Iterator<? extends PObject> it = cs.iterator();
 
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-						{
-							throw new ParseException(
-									"Bad parameter to count(\"CLASSES\" ... )" + c);
-						}
+					filterPObjectByType(it, keyValue[1]);
 
-						final Set<PCClass> cs = new HashSet<PCClass>(objdata);
-						final Iterator<? extends PObject> It = cs.iterator();
-
-						filterPObjectByType(It, keyValue[1]);
-
-						return cs;
-					}
-				},
+					return cs;
+				}
+			},
 
 		DOMAINS
+			{
+				// Domains are not PObjects
+
+				public PlayerCharacter pc;
+
+				protected void getData(final PlayerCharacter aPc)
 				{
-					// Domains are not PObjects
+					this.pc = aPc;
+				}
 
-					public PlayerCharacter pc;
+				public Object count(final PlayerCharacter aPc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						this.pc = pc;
-					}
+					getData(aPc);
+					final Set<String> filtered = doFilterS(pt);
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+					return (double) filtered.size();
+				}
 
-						getData(pc);
-						final Set<String> filtered = doFilterS(pt);
+				protected Set<String> filterSetS(final String kv) throws
+					ParseException
+				{
+					final String[] keyValue = kv.split("=");
 
-						return (double) filtered.size();
-					}
-
-					protected Set<String> filterSetS(final String kv) throws
-																	  ParseException
-					{
-						final String[] keyValue = kv.split("=");
-
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-						{
-							throw new ParseException(
-									"Bad parameter to count(\"" + this + "\" ... )" + kv);
-						}
-
-						final Set<String> pSet = new HashSet<String>();
-
-						// Hack (should allow various values, but PCGen can only do PCClass)
-						if (keyValue[1].equals("PCClass"))
-						{
-							// at this point we have a set of character domains
-							// which meet the
-							// selection criteria of this leaf node of the parameter tree.
-							// we now convert this to a set of Strings so that the generic doFilterS
-							// can perform set operations on them
-							for (Domain d : pc.getDomainSet())
-							{
-								ClassSource source = pc.getDomainSource(d);
-								pSet.add(source.getPcclass().getKeyName());
-							}
-						}
-
-						return pSet;
-					}
-
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"CharacterDomain is not a PObject, should be calling filterSetS");
+							"Bad parameter to count(\"" + this + "\" ... )" + kv);
 					}
-				},
+
+					final Set<String> pSet = new HashSet<String>();
+
+					// Hack (should allow various values, but PCGen can only do PCClass)
+					if (keyValue[1].equals("PCClass"))
+					{
+						// at this point we have a set of character domains
+						// which meet the
+						// selection criteria of this leaf node of the parameter tree.
+						// we now convert this to a set of Strings so that the generic doFilterS
+						// can perform set operations on them
+						for (Domain d : pc.getDomainSet())
+						{
+							ClassSource source = pc.getDomainSource(d);
+							pSet.add(source.getPcclass().getKeyName());
+						}
+					}
+
+					return pSet;
+				}
+
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException(
+						"CharacterDomain is not a PObject, should be calling filterSetS");
+				}
+			},
 
 		EQUIPMENT
+			{
+				// Equipment is/are PObjects, we can implement the filterSet directly
+
+				public Set<Equipment> objdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Equipment is/are PObjects, we can implement the filterSet directly
+					objdata = new HashSet<Equipment>();
+					objdata.addAll(pc.getEquipmentListInOutputOrder());
+				}
 
-					public Set<Equipment> objdata;
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					protected void getData(final PlayerCharacter pc)
+					getData(pc);
+					final Set<PObject> filtered = doFilterP(pt);
+
+					return (double) filtered.size();
+				}
+
+
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"Equipment is a PObject, should be calling filterSetP");
+				}
+
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					final String[] keyValue = c.split("=");
+
+					final JepEquipmentCountEnum en;
+
+					try
 					{
-						objdata = new HashSet<Equipment>();
-						objdata.addAll(pc.getEquipmentListInOutputOrder());
+						en = JepEquipmentCountEnum.valueOf(keyValue[0]);
+					}
+					catch (IllegalArgumentException ex)
+					{
+						Logging.errorPrint(
+							"Bad paramter to count(\"Equipment\"), " + c);
+						return new HashSet<PObject>();
 					}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
+					final Set<Equipment> cs = new HashSet<Equipment>(objdata);
+					final Iterator<? extends PObject> it = cs.iterator();
+
+					switch (en)
 					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+						case TYPE:
+							filterPObjectByType(it, keyValue[1]);
+							break;
 
-						getData(pc);
-						final Set<PObject> filtered = doFilterP(pt);
-
-						return (double) filtered.size();
-					}
-
-
-					protected Set<String> filterSetS(final String c) throws ParseException
-					{
-						throw new ParseException(
-								"Equipment is a PObject, should be calling filterSetP");
-					}
-
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						final String[] keyValue = c.split("=");
-
-						final JepEquipmentCountEnum en;
-
-						try
-						{
-							en = JepEquipmentCountEnum.valueOf(keyValue[0]);
-						}
-						catch (IllegalArgumentException ex)
-						{
-							Logging.errorPrint(
-									"Bad paramter to count(\"Equipment\"), " + c);
-							return new HashSet<PObject>();
-						}
-
-						final Set<Equipment> cs = new HashSet<Equipment>(objdata);
-						final Iterator<? extends PObject> It = cs.iterator();
-
-						switch (en)
-						{
-							case TYPE:
-								filterPObjectByType(It, keyValue[1]);
-								break;
-
-							case WIELDCATEGORY:
-								while (It.hasNext())
+						case WIELDCATEGORY:
+							while (it.hasNext())
+							{
+								final Equipment e = (Equipment) it.next();
+								if (!e.getWieldName().equalsIgnoreCase(keyValue[1]))
 								{
-									final Equipment e = (Equipment) It.next();
-									if (!e.getWieldName().equalsIgnoreCase(keyValue[1]))
-									{
-										It.remove();
-									}
+									it.remove();
 								}
-								break;
+							}
+							break;
 
-								// TODO have no idea how to get a suitable list of equipement
-								// and test for this.
+						// TODO have no idea how to get a suitable list of equipment
+						// and test for this.
 
-							case LOCATION:
-								if ("CARRIED".equalsIgnoreCase(keyValue[1])
-									|| "Equipped".equalsIgnoreCase(keyValue[1]))
-								{
-//						while (It.hasNext())
+						case LOCATION:
+							if ("CARRIED".equalsIgnoreCase(keyValue[1])
+								|| "Equipped".equalsIgnoreCase(keyValue[1]))
+							{
+//						while (it.hasNext())
 //						{
-//							Equipment e = (Equipment) It.next();
+//							Equipment e = (Equipment) it.next();
 //							if (! e.getParent().equalsIgnoreCase(keyValue[1]));
 //							{
-//								It.remove();
+//								it.remove();
 //							}
 //						}
-								}
-							case LOC:
-								break;
-							case TYP:
-								break;
-							case WDC:
-								break;
-						}
-
-						return cs;
+							}
+						case LOC:
+							break;
+						case TYP:
+							break;
+						case WDC:
+							break;
 					}
-				},
+
+					return cs;
+				}
+			},
 
 		FOLLOWERS
+			{
+				// Followers are not PObjects.
+
+				public Map<Follower, String> objdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Followers are not PObjects.
-
-					public Map<Follower, String> objdata;
-
-					protected void getData(final PlayerCharacter pc)
+					for (final Follower f : pc.getFollowerList())
 					{
-						for (final Follower f : pc.getFollowerList())
-						{
 
-							// map each followoer to an empty string. Each of these
-							// Strings is unique and is mapped to exactly one Follower.
+						// map each follower to an empty string. Each of these
+						// Strings is unique and is mapped to exactly one Follower.
 
-							objdata.put(f, "");
-						}
+						objdata.put(f, "");
 					}
+				}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-						getData(pc);
-						final Set<String> filtered = doFilterS(pt);
+					getData(pc);
+					final Set<String> filtered = doFilterS(pt);
 
-						return countDataS(filtered);
-					}
+					return countDataS(filtered);
+				}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						throw new ParseException(
-								"Follower is not a PObject, should be calling filterSetS");
-					}
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException(
+						"Follower is not a PObject, should be calling filterSetS");
+				}
 
-					// If we need to be able to filter out any of these followers,
-					// this is where it should be done.
-					protected Set<String> filterSetS(final String c)
-					{
-						return (Set<String>) objdata.values();
-					}
-				},
+				// If we need to be able to filter out any of these followers,
+				// this is where it should be done.
+				protected Set<String> filterSetS(final String c)
+				{
+					return (Set<String>) objdata.values();
+				}
+			},
 
 		LANGUAGES
+			{
+				// Languages are PObjects, we can implement the filterSet directly
+				// i.e. without using PObject proxies.
+
+				public Set<Language> objdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Languages are PObjects, we can implement the filterSet directly
-					// i.e. without using PObject proxies.
+					objdata = new HashSet<Language>();
+					objdata.addAll(pc.getLanguageSet());
+				}
 
-					public Set<Language> objdata;
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						objdata = new HashSet<Language>();
-						objdata.addAll(pc.getLanguageSet());
-					}
+					getData(pc);
+					final Set<PObject> filtered = doFilterP(pt);
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+					return (double) filtered.size();
+				}
 
-						getData(pc);
-						final Set<PObject> filtered = doFilterP(pt);
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					final String[] keyValue = c.split("=");
 
-						return (double) filtered.size();
-					}
-
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						final String[] keyValue = c.split("=");
-
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-						{
-							throw new ParseException(
-									MessageFormat.format(
-											"Bad parameter to count(\"CLASSES\" ... ){0}",
-											c));
-						}
-
-						final Set<Language> cs = new HashSet<Language>(objdata);
-						final Iterator<? extends PObject> It = cs.iterator();
-
-						filterPObjectByType(It, keyValue[1]);
-
-						return cs;
-					}
-
-					protected Set<String> filterSetS(final String c) throws ParseException
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"Language is a PObject, should be calling filterSetP");
+							MessageFormat.format(
+								"Bad parameter to count(\"CLASSES\" ... ){0}",
+								c));
 					}
-				},
+
+					final Set<Language> cs = new HashSet<Language>(objdata);
+					final Iterator<? extends PObject> it = cs.iterator();
+
+					filterPObjectByType(it, keyValue[1]);
+
+					return cs;
+				}
+
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"Language is a PObject, should be calling filterSetP");
+				}
+			},
 
 		RACESUBTYPES
+			{
+				// RaceSubTypes are not PObjects
+
+				public Set<RaceSubType> objdata = new HashSet<RaceSubType>();
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// RaceSubTypes are not PObjects
+					objdata.addAll(pc.getRacialSubTypes());
+				}
 
-					public Set<RaceSubType> objdata = new HashSet<RaceSubType>();
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						objdata.addAll(pc.getRacialSubTypes());
-					}
+					getData(pc);
+					final Set<String> filtered = doFilterS(pt);
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+					return (double) filtered.size();
+				}
 
-						getData(pc);
-						final Set<String> filtered = doFilterS(pt);
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException(
+						"RaceSubType is not a PObject, should be calling filterSetS");
+				}
 
-						return (double) filtered.size();
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					final String[] keyValue = c.split("=");
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"RaceSubType is not a PObject, should be calling filterSetS");
+							MessageFormat.format(
+								"Bad parameter to count(\"CLASSES\" ... ){0}",
+								c));
 					}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
+					final Set<String> rSet = new HashSet<String>();
+					for (RaceSubType rst : objdata)
 					{
-						final String[] keyValue = c.split("=");
+						rSet.add(rst.toString());
+					}
 
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
+					// If we want all then we don't need to filter.
+					if (!"ALL".equalsIgnoreCase(keyValue[1]))
+					{
+
+						final Iterator<String> pcRaceSubTypeIterator =
+							rSet.iterator();
+
+						// Make a List of all the types that each RaceSubType should match
+						final Collection<String> typeList = new ArrayList<String>();
+						Collections.addAll(typeList, keyValue[1].split("\\."));
+
+						// These nested loops remove all raceSubTypes from rSet that do not
+						// match all of the types in typeList
+						while (pcRaceSubTypeIterator.hasNext())
 						{
-							throw new ParseException(
-									MessageFormat.format(
-											"Bad parameter to count(\"CLASSES\" ... ){0}",
-											c));
-						}
+							final String pcRaceSubType = pcRaceSubTypeIterator.next();
 
-						final Set<String> rSet = new HashSet<String>();
-						for (RaceSubType rst : objdata)
-						{
-							rSet.add(rst.toString());
-						}
-
-						// If we want all then we don't need to filter.
-						if (!"ALL".equalsIgnoreCase(keyValue[1]))
-						{
-
-							final Iterator<String> pcRaceSubTypeIterator =
-									rSet.iterator();
-
-							// Make a List of all the types that each RaceSubType should match
-							final Collection<String> typeList = new ArrayList<String>();
-							Collections.addAll(typeList, keyValue[1].split("\\."));
-
-							// These nested loops remove all raceSubTypes from rSet that do not
-							// match all of the types in typeList
-							while (pcRaceSubTypeIterator.hasNext())
+							for (final String aType : typeList)
 							{
-								final String pcRaceSubType = pcRaceSubTypeIterator.next();
-
-								for (final String aType : typeList)
+								if (!pcRaceSubType.equals(aType))
 								{
-									if (!pcRaceSubType.equals(aType))
-									{
-										pcRaceSubTypeIterator.remove();
-										break;
-									}
+									pcRaceSubTypeIterator.remove();
+									break;
 								}
 							}
 						}
-
-						return rSet;
 					}
-				},
+
+					return rSet;
+				}
+			},
 
 		SKILLS
+			{
+				// Skill is a PObject
+				public Set<Skill> objdata;
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					// Skill is a PObject
-					public Set<Skill> objdata;
+					objdata = new HashSet<Skill>();
+					pc.refreshSkillList();
+					objdata.addAll(pc.getSkillSet());
+				}
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						objdata = new HashSet<Skill>();
-						pc.refreshSkillList();
-						objdata.addAll(pc.getSkillSet());
-					}
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					final Object[] par = validateParams(params);
+					final ParameterTree pt = convertParams(par);
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						final Object[] par = validateParams(params);
-						final ParameterTree pt = convertParams(par);
+					getData(pc);
+					final Set<PObject> filtered = doFilterP(pt);
 
-						getData(pc);
-						final Set<PObject> filtered = doFilterP(pt);
+					return (double) filtered.size();
+				}
 
-						return (double) filtered.size();
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"Skill is a PObject, should be calling filterSetP");
+				}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					final String[] keyValue = c.split("=");
+
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"Skill is a PObject, should be calling filterSetP");
+							"Bad parameter to count(\"CLASSES\" ... )" + c);
 					}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						final String[] keyValue = c.split("=");
+					final Set<Skill> cs = new HashSet<Skill>(objdata);
+					final Iterator<? extends PObject> it = cs.iterator();
 
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-						{
-							throw new ParseException(
-									"Bad parameter to count(\"CLASSES\" ... )" + c);
-						}
+					filterPObjectByType(it, keyValue[1]);
 
-						final Set<Skill> cs = new HashSet<Skill>(objdata);
-						final Iterator<? extends PObject> It = cs.iterator();
-
-						filterPObjectByType(It, keyValue[1]);
-
-						return cs;
-					}
-				},
+					return cs;
+				}
+			},
 
 		SPELLBOOKS
+			{
+
+				/**
+				 * Count a character's Spell Books.
+				 *
+				 * @param pc The character being counted.
+				 * @param params The parameters determining which spell books get counted.
+				 * @return A Double with the number of matching spell books.
+				 * @throws ParseException If any invalid parameters are encountered.
+				 */
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
 				{
+					return pc.getSpellBookCount();
+				}
 
-					/**
-					 * Count a character's Spell Books.
-					 *
-					 * @param pc The character being counted.
-					 * @param params The parameters determining which spell books get counted.
-					 * @return A Double with the number of matching spell books.
-					 * @throws ParseException If any invalid parameters are encountered.
-					 */
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						return (double) pc.getSpellBookCount();
-					}
+				protected void getData(final PlayerCharacter pc)
+				{
+				}
 
-					protected void getData(final PlayerCharacter pc)
-					{
-					}
-
-					protected Set<? extends PObject> filterSetP(final String c)
-					{
-						return new HashSet<PObject>();
-					}
-					protected Set<String> filterSetS(final String c)
-					{
-						return new HashSet<String>();
-					}
-				},
+				protected Set<? extends PObject> filterSetP(final String c)
+				{
+					return new HashSet<PObject>();
+				}
+				protected Set<String> filterSetS(final String c)
+				{
+					return new HashSet<String>();
+				}
+			},
 
 		SPELLS
+			{
+				protected void getData(final PlayerCharacter pc)
 				{
-					protected void getData(final PlayerCharacter pc)
-					{
-					}
+				}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						return Double.valueOf("0.0");
-					}
+				public Object count(
+					final PlayerCharacter pc, final Object[] params) throws
+					ParseException
+				{
+					return Double.valueOf("0.0");
+				}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
-				},
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
+			},
 
 		SPELLSINBOOK
+			{
+
+				protected void getData(final PlayerCharacter pc)
 				{
+				}
 
-					protected void getData(final PlayerCharacter pc)
-					{
-					}
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					return Double.valueOf("0.0");
+				}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						return Double.valueOf("0.0");
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
-
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
-				},
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
+			},
 
 		SPELLSKNOWN
+			{
+				protected void getData(final PlayerCharacter pc)
 				{
-					protected void getData(final PlayerCharacter pc)
-					{
-					}
+				}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						return Double.valueOf("0.0");
-					}
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					return Double.valueOf("0.0");
+				}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						throw new ParseException("Not implemented yet");
-					}
-				},
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					throw new ParseException("Not implemented yet");
+				}
+			},
 
 		TEMPLATES
+			{
+				public Set<PCTemplate> objdata = new HashSet<PCTemplate>();
+
+				protected void getData(final PlayerCharacter pc)
 				{
-					public Set<PCTemplate> objdata = new HashSet<PCTemplate>();
+					objdata.addAll(pc.getTemplateSet());
+				}
 
-					protected void getData(final PlayerCharacter pc)
-					{
-						objdata.addAll(pc.getTemplateSet());
-					}
+				public Object count(final PlayerCharacter pc,
+				                    final Object[] params) throws ParseException
+				{
+					return Double.valueOf("0.0");
+				}
 
-					public Object count(
-							final PlayerCharacter pc, final Object[] params) throws
-																			 ParseException
-					{
-						return Double.valueOf("0.0");
-					}
+				protected Set<String> filterSetS(final String c) throws ParseException
+				{
+					throw new ParseException(
+						"PCTemplate is a PObject, should be calling filterSetP");
+				}
 
-					protected Set<String> filterSetS(final String c) throws ParseException
+				protected Set<? extends PObject> filterSetP(final String c) throws
+					ParseException
+				{
+					final String[] keyValue = c.split("=");
+
+					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 					{
 						throw new ParseException(
-								"PCTemplate is a PObject, should be calling filterSetP");
+							"Bad parameter to count(\"CLASSES\" ... )" + c);
 					}
 
-					protected Set<? extends PObject> filterSetP(final String c) throws
-																	  ParseException
-					{
-						final String[] keyValue = c.split("=");
+					final Set<PCTemplate> cs = new HashSet<PCTemplate>(objdata);
+					final Iterator<? extends PObject> it = cs.iterator();
 
-						if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-						{
-							throw new ParseException(
-									"Bad parameter to count(\"CLASSES\" ... )" + c);
-						}
+					filterPObjectByType(it, keyValue[1]);
+					return cs;
+				}
 
-						final Set<PCTemplate> cs = new HashSet<PCTemplate>(objdata);
-						final Iterator<? extends PObject> It = cs.iterator();
-
-						filterPObjectByType(It, keyValue[1]);
-						return cs;
-					}
-
-				};
+			};
 
 		public static String CountType = "";
 
@@ -913,7 +903,7 @@ public class CountCommand extends PCGenCommand
 					else
 					{
 						final ParameterTree npt =
-								ParameterTree.makeTree(ParameterTree.andString);
+							ParameterTree.makeTree(ParameterTree.andString);
 						npt.setLeftTree(pt);
 						pt = npt;
 						final ParameterTree npt1 = ParameterTree.makeTree((String) param);
@@ -923,15 +913,14 @@ public class CountCommand extends PCGenCommand
 				catch (ParseException pe)
 				{
 					Logging.errorPrint(
-							MessageFormat.format(
-									"Malformed parameter to count {0}", param), pe);
+						MessageFormat.format(
+							"Malformed parameter to count {0}", param), pe);
 				}
 			}
 			return pt;
 		}
 
-		private static void filterPObjectByType(
-				final Iterator<? extends PObject> It, final String tString)
+		private static void filterPObjectByType(final Iterator<? extends PObject> it, final String tString)
 		{
 			// If we want all then we don't need to filter.
 			if (!"ALL".equalsIgnoreCase(tString))
@@ -943,15 +932,15 @@ public class CountCommand extends PCGenCommand
 
 				// These nested loops remove all PObjects from the collection being
 				// iterated that do not match all of the types in typeList
-				while (It.hasNext())
+				while (it.hasNext())
 				{
-					final PObject pObj = It.next();
+					final PObject pObj = it.next();
 
 					for (final String type : typeList)
 					{
 						if (!pObj.isType(type))
 						{
-							It.remove();
+							it.remove();
 							break;
 						}
 					}
@@ -978,10 +967,10 @@ public class CountCommand extends PCGenCommand
 		}
 
 		public abstract Object count(PlayerCharacter pc, Object[] params) throws
-																		  ParseException;
+			ParseException;
 
 		public Object countP(final PlayerCharacter pc, final Object[] params) throws
-																			  ParseException
+			ParseException
 		{
 			final Object[] par = validateParams(params);
 			final ParameterTree pt = convertParams(par);
@@ -1003,7 +992,7 @@ public class CountCommand extends PCGenCommand
 			final String c = pt.getContents();
 
 			if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(
-					ParameterTree.andString))
+				ParameterTree.andString))
 			{
 				final Set<PObject> a = doFilterP(pt.getLeftTree());
 				final Set<PObject> b = doFilterP(pt.getRightTree());
@@ -1022,7 +1011,7 @@ public class CountCommand extends PCGenCommand
 		}
 
 		public Object countS(final PlayerCharacter pc, final Object[] params) throws
-																			  ParseException
+			ParseException
 		{
 			final Object[] par = validateParams(params);
 			final ParameterTree pt = convertParams(par);
@@ -1044,7 +1033,7 @@ public class CountCommand extends PCGenCommand
 			final String c = pt.getContents();
 
 			if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(
-					ParameterTree.andString))
+				ParameterTree.andString))
 			{
 				final Set<String> a = doFilterS(pt.getLeftTree());
 				final Set<String> b = doFilterS(pt.getRightTree());
@@ -1071,7 +1060,7 @@ public class CountCommand extends PCGenCommand
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public CountCommand()
 	{
@@ -1079,7 +1068,8 @@ public class CountCommand extends PCGenCommand
 	}
 
 	/**
-	 * @see pcgen.util.PCGenCommand#getFunctionName()
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
 	 */
 	@Override
 	public String getFunctionName()
@@ -1095,16 +1085,15 @@ public class CountCommand extends PCGenCommand
 	private PlayerCharacter getPC()
 	{
 		PlayerCharacter pc = null;
-		//noinspection InstanceofInterfaces
 		if (parent instanceof VariableProcessor)
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else //noinspection InstanceofInterfaces
-			if (parent instanceof PlayerCharacter)
-			{
-				pc = (PlayerCharacter) parent;
-			}
+		else
+		if (parent instanceof PlayerCharacter)
+		{
+			pc = (PlayerCharacter) parent;
+		}
 		return pc;
 	}
 
@@ -1152,7 +1141,7 @@ public class CountCommand extends PCGenCommand
 		if (pc == null)
 		{
 			throw new ParseException(
-					"Invalid parent (no PC): "
+				"Invalid parent (no PC): "
 					+ parent.getClass().getName());
 		}
 
@@ -1164,7 +1153,7 @@ public class CountCommand extends PCGenCommand
 			// move all but the first parameter from the stack into and array of Objects
 			final Object[] params = paramStackToArray(inStack, curNumberOfParameters - 1);
 
-			// retrieve the first Object, this should be a String whch will map directly to
+			// retrieve the first Object, this should be a String which will map directly to
 			// a JepCountEnum, this specifies the type of count to perform
 			final Object toCount = inStack.pop();
 
