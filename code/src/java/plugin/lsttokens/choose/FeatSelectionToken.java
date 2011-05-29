@@ -44,6 +44,9 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles feat selection.
+ */
 public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<AbilitySelection>

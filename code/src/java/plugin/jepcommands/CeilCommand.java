@@ -19,6 +19,10 @@ public class CeilCommand extends PCGenCommand
 		numberOfParameters = 1;
 	}
 
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
 	public String getFunctionName()
 	{
 		return "CEIL";

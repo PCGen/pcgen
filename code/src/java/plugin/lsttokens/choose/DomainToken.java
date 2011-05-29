@@ -28,6 +28,9 @@ import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+/**
+ * New chooser plugin, handles Domain.
+ */
 public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 {
 

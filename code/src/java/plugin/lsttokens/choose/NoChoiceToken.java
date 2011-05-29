@@ -37,6 +37,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles no Choice.
+ */
 public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<String>, PersistentChoiceActor<String>
 {

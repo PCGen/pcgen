@@ -26,6 +26,9 @@ import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+/**
+ * New chooser plugin, handles spell schools.
+ */
 public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 {
 

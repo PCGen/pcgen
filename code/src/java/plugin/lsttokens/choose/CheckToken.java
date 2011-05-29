@@ -21,6 +21,9 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PCCheck;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
+/**
+ * New chooser plugin, handles checks.
+ */
 public class CheckToken extends AbstractSimpleChooseToken<PCCheck>
 {
 	private static final Class<PCCheck> PCCHECK_CLASS = PCCheck.class;

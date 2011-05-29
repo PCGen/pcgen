@@ -25,6 +25,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.AbbreviatedCreator;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
+/**
+ * New chooser plugin, handles stats.
+ */
 public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 {
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;

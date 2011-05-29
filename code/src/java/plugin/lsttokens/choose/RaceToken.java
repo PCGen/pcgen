@@ -25,6 +25,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles Race.
+ */
 public class RaceToken extends AbstractQualifiedChooseToken<Race>
 {
 

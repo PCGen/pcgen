@@ -24,6 +24,10 @@ public class GetVarCommand extends PCGenCommand
 		numberOfParameters = -1; // allow variable # of parameters
 	}
 
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
 	public String getFunctionName()
 	{
 		return "VAR";

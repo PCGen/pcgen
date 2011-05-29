@@ -21,6 +21,9 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
+/**
+ * New chooser plugin, handles size.
+ */
 public class SizeToken extends AbstractSimpleChooseToken<SizeAdjustment>
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;

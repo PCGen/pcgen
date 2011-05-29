@@ -37,6 +37,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles Strings.
+ */
 public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<String>
 {

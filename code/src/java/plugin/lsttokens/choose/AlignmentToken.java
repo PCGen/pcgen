@@ -25,6 +25,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.AbbreviatedCreator;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
+/**
+ * New chooser plugin, handles PC Alignment.
+ */
 public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 {
 	private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;

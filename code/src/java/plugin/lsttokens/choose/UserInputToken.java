@@ -29,6 +29,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+/**
+ * New chooser plugin, handles User Input.
+ */
 public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 {
 

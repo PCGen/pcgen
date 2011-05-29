@@ -26,6 +26,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles numbers.
+ */
 public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 {
 

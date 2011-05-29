@@ -25,6 +25,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * New chooser plugin, handles PC class.
+ */
 public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
 

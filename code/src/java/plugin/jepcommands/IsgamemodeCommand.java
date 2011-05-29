@@ -60,8 +60,9 @@ public class IsgamemodeCommand extends PCGenCommand
 		numberOfParameters = 1;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.util.PCGenCommand#getFunctionName()
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
 	 */
 	public String getFunctionName()
 	{

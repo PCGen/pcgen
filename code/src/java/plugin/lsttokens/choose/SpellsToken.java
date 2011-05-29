@@ -28,6 +28,9 @@ import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+/**
+ * New chooser plugin, handles Spells.
+ */
 public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
