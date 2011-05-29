@@ -5,7 +5,7 @@ import gmgen.plugin.Combatant;
 import javax.swing.DefaultListModel;
 
 /**
- * ExperienceList
+ * ExperienceList. This class holds all the characters that are to be displayed in a JList.
  */
 public class ExperienceList extends DefaultListModel
 {

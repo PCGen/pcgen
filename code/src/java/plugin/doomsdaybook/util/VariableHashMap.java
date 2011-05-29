@@ -90,15 +90,15 @@ public class VariableHashMap extends HashMap<String, String>
 	 * 
 	 * @param key The key of the variable to be retrieved. 
 	 * @return The value fo the variable.
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
-	public String getVal(String key) throws variableException
+	public String getVal(String key) throws VariableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot get value");
 		}
 
@@ -111,13 +111,13 @@ public class VariableHashMap extends HashMap<String, String>
 	 * 
 	 * @param key The key of the variable to be set.
 	 * @param value The new value for the variable
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
-	public void setVar(String key, String value) throws variableException
+	public void setVar(String key, String value) throws VariableException
 	{
 		if (get(key) == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot set value");
 		}
 
@@ -154,15 +154,15 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @param key The key of the variable to be updated.
 	 * @param add The amount to add to the variable.
 	 * @return The new value of the variable.
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
-	public String addVar(String key, int add) throws variableException
+	public String addVar(String key, int add) throws VariableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot add to value");
 		}
 
@@ -188,15 +188,15 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @param key The key of the variable to be updated.
 	 * @param divide The amount to divide the variable's value by.
 	 * @return The new value of the variable.
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
-	public String divideVar(String key, int divide) throws variableException
+	public String divideVar(String key, int divide) throws VariableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot divide by value");
 		}
 
@@ -218,9 +218,9 @@ public class VariableHashMap extends HashMap<String, String>
 	 * Perform the supplied Operations in sequence.
 	 * 
 	 * @param ops The Operations to be performed.
-	 * @throws variableException When no entry exists for an Operation's key.
+	 * @throws VariableException When no entry exists for an Operation's key.
 	 */
-	public void doOperation(List<Operation> ops) throws variableException
+	public void doOperation(List<Operation> ops) throws VariableException
 	{
 		for (Operation op : ops)
 		{
@@ -235,9 +235,9 @@ public class VariableHashMap extends HashMap<String, String>
 	 * thrown.
 	 * 
 	 * @param op The Operation to be performed.
-	 * @throws variableException When no entry exists for the Operation's key.
+	 * @throws VariableException When no entry exists for the Operation's key.
 	 */
-	public void doOperation(Operation op) throws variableException
+	public void doOperation(Operation op) throws VariableException
 	{
 		String type = op.getType();
 		String key = op.getKey();
@@ -273,9 +273,9 @@ public class VariableHashMap extends HashMap<String, String>
 	/**
 	 * Perform the initialization Operations in sequence.
 	 * 
-	 * @throws variableException When no entry exists for an Operation's key.
+	 * @throws VariableException When no entry exists for an Operation's key.
 	 */
-	public void initialize() throws variableException
+	public void initialize() throws VariableException
 	{
 		doOperation(initialize);
 	}
@@ -288,16 +288,16 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @param key The key of the variable to be updated.
 	 * @param multiply The amount to multiply the variable's value by.
 	 * @return The new value of the variable.
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
 	public String multiplyVar(String key, int multiply)
-		throws variableException
+		throws VariableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot multiply by value");
 		}
 
@@ -349,16 +349,16 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @param key The key of the variable to be updated.
 	 * @param subtract The amount to subtract from the variable.
 	 * @return The new value of the variable.
-	 * @throws variableException When no entry exists for the supplied key.
+	 * @throws VariableException When no entry exists for the supplied key.
 	 */
 	public String subtractVar(String key, int subtract)
-		throws variableException
+		throws VariableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
+			throw new VariableException("Variable " + key
 				+ " does not exist, cannot subtract from value");
 		}
 
