@@ -75,9 +75,10 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
-			.getFormattedString(
-				"PreUnarmedAttack.toHtml", prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
+		return PropertyFactory.getFormattedString(
+			"PreUnarmedAttack.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toString(),
+			prereq.getOperand());
 	}
 
 }

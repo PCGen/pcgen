@@ -26,43 +26,45 @@
 package pcgen.core.character;
 
 /**
- * @author Valued Customer
- * @param <T> 
- * @todo This doesn't belong in this package.  It should probably be an inner
+ * @param <T>
+ * Todo This doesn't belong in this package.  It should probably be an inner
  * class in VariableProcessor.
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public final class CachedVariable<T> {
+public final class CachedVariable<T>
+{
 	private int serial;
 	private T value;
 	/**
 	 * @return Returns the serial.
 	 */
-	public int getSerial() {
+	public int getSerial()
+	{
 		return serial;
 	}
 
 	/**
-	 * @param serial The serial to set.
+	 * @param i The serial to set.
 	 */
-	public void setSerial(final int serial) {
-		this.serial = serial;
+	public void setSerial(final int i)
+	{
+		serial = i;
 	}
 
 	/**
 	 * @return Returns the value.
 	 */
-	public T getValue() {
+	public T getValue()
+	{
 		return value;
 	}
 
 	/**
-	 * @param value The value to set.
+	 * @param v The value to set.
 	 */
-	public void setValue(final T value) {
-		this.value = value;
+	public void setValue(final T v)
+	{
+		value = v;
 	}
 
 }

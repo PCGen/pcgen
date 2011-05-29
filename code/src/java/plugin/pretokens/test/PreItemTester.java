@@ -27,6 +27,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -39,7 +40,7 @@ import pcgen.util.PropertyFactory;
 import java.util.List;
 
 /**
- * @author wardc
+ * Sets requirements for items a character must possess.
  *
  */
 public class PreItemTester extends AbstractPrerequisiteTest implements
@@ -72,9 +73,11 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
 			List<String> typeList = null;
-			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
+			if (aString.startsWith(Constants.LST_TYPE)
+				|| aString.startsWith(Constants.LST_TYPE_OLD))
 			{
-				typeList = CoreUtility.split(aString.substring(5), '.');
+				String stripped = aString.substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+				typeList = CoreUtility.split(stripped, '.');
 			}
 
 			for (Equipment eq : character.getEquipmentSet())

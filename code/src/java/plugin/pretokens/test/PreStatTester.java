@@ -76,9 +76,11 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
-			.getFormattedString(
-				"PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
+		return PropertyFactory.getFormattedString(
+			"PreStat.toHtml", //$NON-NLS-1$
+			prereq.getKey(),
+			prereq.getOperator().toString(),
+			prereq.getOperand());
 	}
 
 }

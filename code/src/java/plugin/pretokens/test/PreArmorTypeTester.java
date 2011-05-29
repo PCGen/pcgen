@@ -29,6 +29,7 @@ package plugin.pretokens.test;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -36,8 +37,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
- *
+ * Prerequisite test the type of a piece of armour.
  */
 public class PreArmorTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
@@ -64,12 +64,13 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 				}
 
 				// Match against a TYPE of armour
-				if (desiredType.startsWith("TYPE=")
-					|| desiredType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
+				if (desiredType.startsWith(Constants.LST_TYPE)
+					|| desiredType.startsWith(Constants.LST_TYPE_OLD))
 				{
-					StringTokenizer tok =
-							new StringTokenizer(desiredType.substring(5)
-								.toUpperCase(), ".");
+
+					String stripped = desiredType.substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+					StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), ".");
+
 					boolean match = false;
 					if (tok.hasMoreTokens())
 					{

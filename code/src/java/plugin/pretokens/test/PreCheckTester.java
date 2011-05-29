@@ -15,15 +15,12 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
- *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+ * Prerequisite test that the character has a non-zero value for a given check.
  */
 public class PreCheckTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/** Constructor */
+	/** Constructor. */
 	public PreCheckTester()
 	{
 		super();
@@ -47,17 +44,12 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 		int runningTotal = 0;
 
 		final String checkName = prereq.getKey();
-		final int operand =
-				character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		PCCheck check = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
+		final int operand = character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
+		PCCheck check = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
 		if (check != null)
 		{
-			final int characterCheckBonus =
-					character.getTotalCheck(check);
-			runningTotal =
-					prereq.getOperator().compare(characterCheckBonus, operand) > 0
-						? 1 : 0;
+			final int characterCheckBonus = character.getTotalCheck(check);
+			runningTotal = prereq.getOperator().compare(characterCheckBonus, operand) > 0 ? 1 : 0;
 		}
 		return countedTotal(prereq, runningTotal);
 	}

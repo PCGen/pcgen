@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
- * @author wardc
+ * This is used to check the characters spellcasting ability.
  *
  */
 public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
@@ -57,16 +57,15 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 		catch (NumberFormatException e)
 		{
 			requiredLevel = 1;
-			Logging
-				.errorPrintLocalised(
-					"PreSpellType.Badly_formed_spell_type", prereq.getOperand(), prereq.toString()); //$NON-NLS-1$
+			Logging.errorPrintLocalised(
+				"PreSpellType.Badly_formed_spell_type", //$NON-NLS-1$
+				prereq.getOperand(),
+				prereq.toString());
 		}
 
-		int count = character.countSpellCastTypeLevel(castingType,
-				requiredLevel);
+		int count = character.countSpellCastTypeLevel(castingType, requiredLevel);
 
-		final int runningTotal =
-			prereq.getOperator().compare(count, 1);
+		final int runningTotal = prereq.getOperator().compare(count, 1);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -86,8 +85,8 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		return PropertyFactory.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
-			new Object[]{prereq.getOperator().toDisplayString(),
-				1, prereq.getKey(), prereq.getOperand()});
+			prereq.getOperator().toDisplayString(),
+			1, prereq.getKey(), prereq.getOperand());
 	}
 
 }

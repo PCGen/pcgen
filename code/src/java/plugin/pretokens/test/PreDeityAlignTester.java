@@ -18,10 +18,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
 /**
- * @author wardc
- *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+ * Prerequisite test that the character has a deity with the correct alignment.
  */
 public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
@@ -84,9 +81,10 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements Pre
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
-			.getFormattedString(
-				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getAbb()); //$NON-NLS-1$
+		return PropertyFactory.getFormattedString(
+			"PreDeityAlign.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(),
+			getPCAlignment(prereq.getOperand()).getAbb());
 	}
 
 }
