@@ -32,12 +32,16 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author blithwyn
- * 
+ * A prerequisite parser class that handles the parsing of pre spell descriptor tokens.
+ *
  */
 public class PreSpellDescriptorParser extends AbstractPrerequisiteListParser
 		implements PrerequisiteParserInterface
 {
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
 	public String[] kindsHandled()
 	{
 		return new String[] { "SPELLDESCRIPTOR" };

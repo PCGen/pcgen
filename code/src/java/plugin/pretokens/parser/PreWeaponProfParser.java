@@ -62,12 +62,10 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(
-		String kind,
-		String formula,
-		boolean invertResult,
-		boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 

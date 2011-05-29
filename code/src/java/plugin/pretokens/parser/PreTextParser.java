@@ -34,24 +34,40 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre text tokens.
  *
  */
 public class PreTextParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
 	public String[] kindsHandled()
 	{
 		return new String[]{"TEXT"};
 	}
 
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKey(formula);
 
 		if (invertResult)

@@ -34,25 +34,40 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre reach tokens.
  *
  */
 public class PreRaceParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
 {
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
 	public String[] kindsHandled()
 	{
 		return new String[]{"RACE"};
 	}
 
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-
-		final Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		final Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		//
 		// Negate the race names wrapped in []'s. Then need to bump up the required number of matches

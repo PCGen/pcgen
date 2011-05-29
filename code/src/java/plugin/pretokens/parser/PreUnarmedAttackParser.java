@@ -32,14 +32,15 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteIntegerParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre unarmed attack tokens.
  *
  */
 public class PreUnarmedAttackParser extends AbstractPrerequisiteIntegerParser
 		implements PrerequisiteParserInterface
 {
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{

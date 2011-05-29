@@ -32,15 +32,15 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre armour tokens.
  *
  */
 public class PreArmorTypeParser extends AbstractPrerequisiteListParser
 		implements PrerequisiteParserInterface
 {
-
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{

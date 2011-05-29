@@ -37,30 +37,40 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
- * 
+ * A prerequisite parser class that handles the parsing of pre level tokens.
+ *
  */
 public class PreLevelParser extends AbstractPrerequisiteParser implements
         PrerequisiteParserInterface
 {
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]
-		{ "LEVEL" };
+		return new String[]{ "LEVEL" };
 	}
 
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-	        boolean invertResult, boolean overrideQualify)
-	        throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult,
-		        overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		StringTokenizer tok = new StringTokenizer(formula, ",");
 		Prerequisite maxPrereq = new Prerequisite();
@@ -74,8 +84,9 @@ public class PreLevelParser extends AbstractPrerequisiteParser implements
 			if (vals.length != 2)
 			{
 				throw new PersistenceLayerException(
-						"PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-								+ formula + "' is not valid. ");
+					"PRELEVEL must be either 'MIN=x', 'MAX=y' or "
+						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+						+ formula + "' is not valid. ");
 			}
 			String token = vals[0];
 			String hdVal = vals[1];
@@ -86,11 +97,12 @@ public class PreLevelParser extends AbstractPrerequisiteParser implements
 			catch (NumberFormatException nfe)
 			{
 				throw new PersistenceLayerException(
-						"PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-								+ formula
-								+ "' is not valid: "
-								+ hdVal
-								+ " is not an integer");
+					"PRELEVEL must be either 'MIN=x', 'MAX=y' or "
+						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+						+ formula
+						+ "' is not valid: "
+						+ hdVal
+						+ " is not an integer");
 			}
 			if (token.equals("MIN"))
 			{

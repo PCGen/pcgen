@@ -37,28 +37,43 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import java.util.StringTokenizer;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre damage reduction tokens.
  *
  */
 public class PreDamageReductionParser extends AbstractPrerequisiteParser
 		implements PrerequisiteParserInterface
 {
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
 	public String[] kindsHandled()
 	{
 		return new String[]{"DR"};
 	}
 
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null); // PREMULT
 
-		final StringTokenizer inputTokenizer =
-				new StringTokenizer(formula, ",");
+		final StringTokenizer inputTokenizer = new StringTokenizer(formula, ",");
 
 		// the number of DRs which must match
 		String tok = inputTokenizer.nextToken();
@@ -76,8 +91,7 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser
 		// Parse all of the tokens in the input list
 		while (inputTokenizer.hasMoreTokens())
 		{
-			final StringTokenizer inputDRTokenizer =
-					new StringTokenizer(inputTokenizer.nextToken(), "=.");
+			final StringTokenizer inputDRTokenizer = new StringTokenizer(inputTokenizer.nextToken(), "=.");
 			final String drType = inputDRTokenizer.nextToken(); // either Good.10 or Good=10
 			final int drValue;
 

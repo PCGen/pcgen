@@ -32,9 +32,8 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * PRECLASS Parser
- * 
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre class tokens.
+ *
  */
 public class PreClassParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface

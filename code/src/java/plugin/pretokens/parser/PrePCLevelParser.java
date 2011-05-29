@@ -29,8 +29,8 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author jfrazierjr
- * 
+ * A prerequisite parser class that handles the parsing of pre PC Level tokens.
+ *
  */
 public class PrePCLevelParser extends AbstractPrerequisiteParser implements
         PrerequisiteParserInterface
@@ -39,11 +39,10 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 	//TODO created tests
 	//TODO create writer
 	//TODO create prereqparser
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
@@ -51,13 +50,25 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 		{ "PCLEVEL" };
 	}
 
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-	        boolean invertResult, boolean overrideQualify)
-	        throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult,
-		        overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		if (formula.contains("MIN") || formula.contains("MAX"))
 		{
@@ -73,8 +84,9 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 				if (vals.length != 2)
 				{
 					throw new PersistenceLayerException(
-					        "PREPCLEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-					                + formula + "' is not valid. ");
+						"PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+							+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+							+ formula + "' is not valid. ");
 
 				}
 				String token = vals[0];
@@ -86,11 +98,12 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 				catch (NumberFormatException nfe)
 				{
 					throw new PersistenceLayerException(
-					        "PREPCLEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-					                + formula
-					                + "' is not valid: "
-					                + hdVal
-					                + " is not an integer");
+						"PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+							+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+							+ formula
+							+ "' is not valid: "
+							+ hdVal
+							+ " is not an integer");
 				}
 				if (token.equals("MIN"))
 				{

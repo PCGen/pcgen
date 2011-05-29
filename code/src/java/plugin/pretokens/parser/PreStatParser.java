@@ -1,5 +1,5 @@
 /*
- * PreStatLstParser.java
+ * PreStatParser.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -35,7 +35,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre stat tokens.
  *
  */
 public class PreStatParser extends AbstractPrerequisiteParser implements
@@ -49,8 +49,9 @@ public class PreStatParser extends AbstractPrerequisiteParser implements
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
@@ -59,20 +60,24 @@ public class PreStatParser extends AbstractPrerequisiteParser implements
 	}
 
 	/**
-	 * @param kind
-	 * @param formula
-	 * @param invertResult
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
 	 * @param overrideQualify
-	 * @return Prerequisite
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
 		{
 			prereq.setKind(null); // PREMULT

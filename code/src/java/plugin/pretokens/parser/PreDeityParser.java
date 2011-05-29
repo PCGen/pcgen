@@ -48,7 +48,8 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
 {
 	/**
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
@@ -56,15 +57,24 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser#parse(java.lang.String, java.lang.String, boolean, boolean)
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		// Scan for any has deity options
 		replaceHasDeityPrereqs(prereq);
@@ -84,10 +94,13 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		{
 			char firstChar = key.charAt(0);
 			if ((key.length() == 1)
-					&& (firstChar == 'y' || firstChar == 'Y'
-							|| firstChar == 'n' || firstChar == 'N')
-					|| key.equalsIgnoreCase("yes")
-					|| key.equalsIgnoreCase("no")) {
+				&& (firstChar == 'y'
+					|| firstChar == 'Y'
+					|| firstChar == 'n'
+					|| firstChar == 'N')
+				|| key.equalsIgnoreCase("yes")
+				|| key.equalsIgnoreCase("no"))
+			{
 				if (firstChar == 'y' || firstChar == 'Y')
 				{
 					prereq.setKey("Y");

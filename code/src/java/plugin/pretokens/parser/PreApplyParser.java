@@ -31,27 +31,37 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * A prerequisite parser class that handles the parsing of pre apply tokens.
  *
  */
 public class PreApplyParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
-
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
 	 */
 	public String[] kindsHandled()
 	{
 		return new String[]{"APPLY"};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String)
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any "QUALIFY" tag that may be present.
+	 * @return PreReq
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind,
+	                          String formula,
+	                          boolean invertResult,
+	                          boolean overrideQualify)
 	{
 
 		String[] andTokens = formula.split(",");
