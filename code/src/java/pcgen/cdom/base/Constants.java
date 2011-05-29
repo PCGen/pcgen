@@ -419,6 +419,12 @@ public interface Constants
 	String LST_BASE = "BASE.";
 
 	/** A snippet of List code as a constant. */
+	String LST_CAST_OLD = "CAST.";
+
+	/** A snippet of List code as a constant. */
+	String LST_CAST = "CAST=";
+
+	/** A snippet of List code as a constant. */
 	String LST_TYPE_OLD = "TYPE.";
 
 	/** A snippet of List code as a constant. */
@@ -598,12 +604,8 @@ public interface Constants
 	int ARBITRARY_END_SKILL_INDEX = 999;
 
 	/**
-	 * The length of the string "BASE.".  */
-	int LENGTH_OF_BASE_SUBSTRING = 5;
-
-	/**
 	 * The length of both the LST_TYPE and LST_TYPE_OLD constants.  */
-	int LENGTH_OF_TYPE_SUBSTRING = 5;
+	int SUBSTRING_LENGTH_FIVE = 5;
 
 
 	/**

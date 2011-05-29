@@ -76,7 +76,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 			if (aString.startsWith(Constants.LST_TYPE)
 				|| aString.startsWith(Constants.LST_TYPE_OLD))
 			{
-				String stripped = aString.substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+				String stripped = aString.substring(Constants.SUBSTRING_LENGTH_FIVE);
 				typeList = CoreUtility.split(stripped, '.');
 			}
 

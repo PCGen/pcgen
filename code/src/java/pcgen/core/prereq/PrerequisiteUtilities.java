@@ -195,7 +195,7 @@ public final class PrerequisiteUtilities
 		final boolean keyIsType = isTypeTest(prereq.getKey());
 
 		final String strippedKey = keyIsType
-			? prereq.getKey().substring(Constants.LENGTH_OF_TYPE_SUBSTRING)
+			? prereq.getKey().substring(Constants.SUBSTRING_LENGTH_FIVE)
 			: prereq.getKey();
 
 		int runningTotal = 0;
@@ -251,7 +251,7 @@ public final class PrerequisiteUtilities
 
 					if (prereq.getSubKey() != null)
 					{
-						final int len = Constants.LENGTH_OF_TYPE_SUBSTRING;
+						final int len = Constants.SUBSTRING_LENGTH_FIVE;
 
 						final boolean subKeyIsType = isTypeTest(prereq.getSubKey());
 						final String subKey = subKeyIsType
@@ -321,7 +321,7 @@ public final class PrerequisiteUtilities
 
 		if (subKeyIsType)
 		{
-			final String type = prereq.getSubKey().substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+			final String type = prereq.getSubKey().substring(Constants.SUBSTRING_LENGTH_FIVE);
 			runningTotal = countSubKeyType(character, ability, type, countMults);
 		}
 

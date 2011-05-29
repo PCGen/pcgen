@@ -68,7 +68,7 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 					|| desiredType.startsWith(Constants.LST_TYPE_OLD))
 				{
 
-					String stripped = desiredType.substring(Constants.LENGTH_OF_TYPE_SUBSTRING);
+					String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);
 					StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), ".");
 
 					boolean match = false;

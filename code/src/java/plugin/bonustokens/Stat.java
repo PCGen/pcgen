@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
@@ -32,32 +33,31 @@ import pcgen.core.bonus.util.MissingObject;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>Stat</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * This is the class that implements the Stat bonuses.
  */
 public final class Stat extends BonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
 
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		for (int i = 0; i < bonusTags.length; ++i)
+		for (int i = 0; i < BONUS_TAGS.length; ++i)
 		{
-			if (bonusTags[i].equals(token))
+			if (BONUS_TAGS[i].equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
-
+				addBonusInfo(i);
 				return true;
 			}
 		}
 
-		if (token.startsWith("CAST=") || token.startsWith("CAST."))
+		if (token.startsWith(Constants.LST_CAST)
+			|| token.startsWith(Constants.LST_CAST_OLD))
 		{
 			PCStat stat = context.ref.getAbbreviatedObject(
-					PCStat.class, token.substring(5));
+				PCStat.class,
+				token.substring(Constants.SUBSTRING_LENGTH_FIVE));
 
 			if (stat != null)
 			{
@@ -68,8 +68,7 @@ public final class Stat extends BonusObj
 		}
 		else
 		{
-			PCStat stat = context.ref.getAbbreviatedObject(
-					PCStat.class, token);
+			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class, token);
 
 			if (stat != null)
 			{
@@ -77,8 +76,8 @@ public final class Stat extends BonusObj
 			}
 			else
 			{
-				final PCClass aClass = context.ref
-						.silentlyGetConstructedCDOMObject(PCClass.class, token);
+				final PCClass aClass =
+					context.ref.silentlyGetConstructedCDOMObject(PCClass.class, token);
 
 				if (aClass != null)
 				{
@@ -101,11 +100,11 @@ public final class Stat extends BonusObj
 	{
 		if (obj instanceof Integer)
 		{
-			return bonusTags[((Integer) obj).intValue()];
+			return BONUS_TAGS[(Integer) obj];
 		}
 		else if (obj instanceof CastStat)
 		{
-			return "CAST." + ((CastStat) obj).stat.getAbb();
+			return "CAST." + ((CastStat) obj).getStat().getAbb();
 		}
 		else if (obj instanceof PCClass)
 		{
@@ -120,20 +119,27 @@ public final class Stat extends BonusObj
 	}
 
 	/**
-	 * Deals with the Stat for casting
+	 * Deals with the Stat for casting.
 	 */
 	public static class CastStat
 	{
-		/** A stat */
-		public final PCStat stat;
+		private final PCStat stat;
 
 		/**
-		 * Constuctor
-		 * @param argStat
+		 * Constructor.
+		 * @param argStat The spell casting stat.
 		 */
 		public CastStat(final PCStat argStat)
 		{
 			stat = argStat;
+		}
+
+		/** Get the spell casting stat.
+		 * @return The spell casting stat.
+		 * */
+		public PCStat getStat()
+		{
+			return stat;
 		}
 	}
 

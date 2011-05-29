@@ -47,7 +47,7 @@ public final class Checks extends BonusObj
 
 		if (argToken.startsWith(Constants.LST_BASE))
 		{
-			token = argToken.substring(Constants.LENGTH_OF_BASE_SUBSTRING);
+			token = argToken.substring(Constants.SUBSTRING_LENGTH_FIVE);
 			isBase = true;
 		}
 		else
