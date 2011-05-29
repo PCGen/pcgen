@@ -52,8 +52,8 @@ public final class Stat extends BonusObj
 			}
 		}
 
-		if (token.startsWith(Constants.LST_CAST)
-			|| token.startsWith(Constants.LST_CAST_OLD))
+		if (token.startsWith(Constants.LST_CAST_EQUAL)
+			|| token.startsWith(Constants.LST_CAST_DOT))
 		{
 			PCStat stat = context.ref.getAbbreviatedObject(
 				PCStat.class,

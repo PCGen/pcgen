@@ -28,18 +28,19 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Vision</code> deals with bonuses to a character's vision
+ * <code>Vision</code> deals with bonuses to a character's vision.
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
 public final class Vision extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE",
 				"ECHOSENSE", "X-RAY"};
 
 	/**
-	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
+	 * Return a list of the bonuses handled by this class.
+	 * @return A list of the bonuses handled by this class.
 	 */
 	@Override
 	public String getBonusHandled()
@@ -48,20 +49,25 @@ public final class Vision extends MultiTagBonusObj
 	}
 
 	/**
+	 * Get by index, an individual type of vision that may be bonused.
+	 * @param tagNumber the index of the vision type.
 	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The type of vision.
 	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
 	/**
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTagLength()
+	 * Get the number of types of vision that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of vision types.
 	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

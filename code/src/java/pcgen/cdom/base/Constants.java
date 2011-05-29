@@ -416,13 +416,19 @@ public interface Constants
 	String LST_DOT_CLEAR_DOT = ".CLEAR.";
 
 	/** A snippet of List code as a constant. */
+	String LST_SEMI_LEVEL_DOT = ";LEVEL.";
+
+	/** A snippet of List code as a constant. */
+	String LST_SEMI_LEVEL_EQUAL = ";LEVEL=";
+
+	/** A snippet of List code as a constant. */
 	String LST_BASE = "BASE.";
 
 	/** A snippet of List code as a constant. */
-	String LST_CAST_OLD = "CAST.";
+	String LST_CAST_DOT = "CAST.";
 
 	/** A snippet of List code as a constant. */
-	String LST_CAST = "CAST=";
+	String LST_CAST_EQUAL = "CAST=";
 
 	/** A snippet of List code as a constant. */
 	String LST_TYPE_OLD = "TYPE.";
@@ -604,9 +610,12 @@ public interface Constants
 	int ARBITRARY_END_SKILL_INDEX = 999;
 
 	/**
-	 * The length of both the LST_TYPE and LST_TYPE_OLD constants.  */
+	 * The length of various LST constants that need to stripped from the front of a string during parsing.  */
 	int SUBSTRING_LENGTH_FIVE = 5;
 
+	/**
+	 * The length of various LST constants that need to stripped from the front of a string during parsing.  */
+	int SUBSTRING_LENGTH_SEVEN = 7;
 
 	/**
 	 * The default for whether to print the weapon proficiencies.

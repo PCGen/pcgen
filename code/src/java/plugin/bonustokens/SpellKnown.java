@@ -25,31 +25,30 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellCastInfo;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>SpellKnown</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:SPELLKNOWN token.
  */
 public final class SpellKnown extends BonusObj
 {
 	/**
-	 * CLASS=<classname OR Any>;LEVEL=<level>
-	 * TYPE=<type>;LEVEL=<level>
-	 * @param token
-	 * @return TRUE or FALSE
+	 * Parse the bonus token.
+	 * @param token The token to parse.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
 	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		int idx = token.indexOf(";LEVEL=");
+		int idx = token.indexOf(Constants.LST_SEMI_LEVEL_EQUAL);
 
 		if (idx < 0)
 		{
-			idx = token.indexOf(";LEVEL.");
+			idx = token.indexOf(Constants.LST_SEMI_LEVEL_DOT);
 		}
 
 		if (idx < 0)
@@ -57,13 +56,19 @@ public final class SpellKnown extends BonusObj
 			return false;
 		}
 
-		final String level = token.substring(idx + 7);
+		final String level = token.substring(idx + Constants.SUBSTRING_LENGTH_SEVEN);
 
 		addBonusInfo(new SpellCastInfo(token.substring(0, idx), level));
 
 		return true;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
@@ -84,6 +89,10 @@ public final class SpellKnown extends BonusObj
 		return sb.toString();
 	}
 
+	/**
+	 * Return a list of the bonuses handled by this class.
+	 * @return A list of the bonuses handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

@@ -458,7 +458,9 @@ public final class TokenLibrary
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public static boolean addBonusClass(Class bonusClass, String bonusName) throws InstantiationException, IllegalAccessException {
+	public static boolean addBonusClass(Class bonusClass,
+	                                    String bonusName) throws InstantiationException, IllegalAccessException
+	{
 		if (BonusObj.class.isAssignableFrom(bonusClass))
 		{
 			final BonusObj bonusObj = (BonusObj) bonusClass.newInstance();

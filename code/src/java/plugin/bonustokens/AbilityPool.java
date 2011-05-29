@@ -28,17 +28,16 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * Handles <code>BONUS:ABILITYPOOL|&lt;ability category&gt;|&lt;number&gt;
- * </code> token
+ * Handles the BONUS:ABILITYPOOL token.
  *
  * @author  boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
  */
 public final class AbilityPool extends BonusObj
 {
 	/**
+	 * Parse the bonus token.
 	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
 	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
@@ -52,7 +51,10 @@ public final class AbilityPool extends BonusObj
 	}
 
 	/**
+	 * Unparse the bonus token.
 	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
 	 */
 	@Override
 	protected String unparseToken(final Object obj)
@@ -61,7 +63,8 @@ public final class AbilityPool extends BonusObj
 	}
 
 	/**
-	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
+	 * Return a list of the bonuses handled by this class.
+	 * @return A list of the bonuses handled by this class.
 	 */
 	@Override
 	public String getBonusHandled()
