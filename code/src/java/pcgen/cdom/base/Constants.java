@@ -416,6 +416,9 @@ public interface Constants
 	String LST_DOT_CLEAR_DOT = ".CLEAR.";
 
 	/** A snippet of List code as a constant. */
+	String LST_BASE = "BASE.";
+
+	/** A snippet of List code as a constant. */
 	String LST_TYPE_OLD = "TYPE.";
 
 	/** A snippet of List code as a constant. */
@@ -593,6 +596,10 @@ public interface Constants
 	 * Used when sorting skills to move some items right to the end of the
 	 * sorted list. The moved items are sorted in their new position.  */
 	int ARBITRARY_END_SKILL_INDEX = 999;
+
+	/**
+	 * The length of the string "BASE.".  */
+	int LENGTH_OF_BASE_SUBSTRING = 5;
 
 	/**
 	 * The length of both the LST_TYPE and LST_TYPE_OLD constants.  */

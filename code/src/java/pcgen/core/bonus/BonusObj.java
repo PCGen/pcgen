@@ -50,17 +50,20 @@ import pcgen.rules.context.LoadContext;
  **/
 public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
 {
-	private List<Object>    bonusInfo       = new ArrayList<Object>();
-	private Map<String, String>     dependMap  = new HashMap<String, String>();
+	private List<Object> bonusInfo = new ArrayList<Object>();
+	private Map<String, String> dependMap  = new HashMap<String, String>();
 	private Formula bonusFormula = FormulaFactory.ZERO;
+
 	/** The name of the bonus e.g. STAT or COMBAT */
-	private String  bonusName            = Constants.EMPTY_STRING;
+	private String bonusName            = Constants.EMPTY_STRING;
+
 	/** The type of the bonus e.g. Enhancement or Dodge */
-	private String  bonusType            = Constants.EMPTY_STRING;
-	private String  varPart              = Constants.EMPTY_STRING;
-	private String typeOfBonus           = Bonus.BONUS_UNDEFINED;
-	private String  stringRepresentation = null;
-	private String tokenSource = null;
+	private String bonusType            = Constants.EMPTY_STRING;
+	private String varPart              = Constants.EMPTY_STRING;
+	private String typeOfBonus          = Bonus.BONUS_UNDEFINED;
+	private String stringRepresentation = null;
+	private String tokenSource          = null;
+
 	private boolean saveToPCG = true;
 
 	/** An enum for the possible stacking modifiers a bonus can have */

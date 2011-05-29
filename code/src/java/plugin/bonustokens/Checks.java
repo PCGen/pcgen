@@ -26,13 +26,14 @@
 package plugin.bonustokens;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>Checks</code>
+ * <code>Checks</code>.
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
@@ -44,9 +45,9 @@ public final class Checks extends BonusObj
 		boolean isBase = false;
 		final String token;
 
-		if (argToken.startsWith("BASE."))
+		if (argToken.startsWith(Constants.LST_BASE))
 		{
-			token = argToken.substring(5);
+			token = argToken.substring(Constants.LENGTH_OF_BASE_SUBSTRING);
 			isBase = true;
 		}
 		else
@@ -57,7 +58,7 @@ public final class Checks extends BonusObj
 		if ("%LIST".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|%LIST|x
-			addBonusInfo(LIST_CHECK);
+			addBonusInfo(listCheck);
 		}
 		else if ("ALL".equals(token))
 		{
@@ -67,17 +68,14 @@ public final class Checks extends BonusObj
 			 * CHECKS are established need to test both CHECKS|Blah and
 			 * CHECKS|ALL
 			 */
-			for (PCCheck check : context.ref
-					.getConstructedCDOMObjects(PCCheck.class))
+			for (PCCheck check : context.ref.getConstructedCDOMObjects(PCCheck.class))
 			{
-				addBonusInfo(new CheckInfo(CDOMDirectSingleRef.getRef(check),
-						isBase));
+				addBonusInfo(new CheckInfo(CDOMDirectSingleRef.getRef(check), isBase));
 			}
 		}
 		else
 		{
-			CDOMReference<PCCheck> aCheck = context.ref
-					.getCDOMReference(PCCheck.class, token);
+			CDOMReference<PCCheck> aCheck = context.ref.getCDOMReference(PCCheck.class, token);
 			//Invalid name is caught by Unconstructed Reference system
 			addBonusInfo(new CheckInfo(aCheck, isBase));
 		}
@@ -85,46 +83,68 @@ public final class Checks extends BonusObj
 		return true;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
-		String token = "";
 
-		if (obj.equals(LIST_CHECK))
+		if (obj.equals(listCheck))
 		{
-			return token + "%LIST";
-		}
-		else if (((CheckInfo) obj).isBase)
-		{
-			token = "BASE.";
+			return Constants.LST_PERCENT_LIST;
 		}
 
-		return token + ((CheckInfo) obj).pobj.getLSTformat(false);
+		String token = ((CheckInfo) obj).isBase()
+			? Constants.LST_BASE
+			: Constants.EMPTY_STRING;
+
+		return token + ((CheckInfo) obj).getPobj().getLSTformat(false);
 	}
 
 	/**
-	 * Deals with the CheckInfo
+	 * Deals with the CheckInfo.
 	 */
 	public static class CheckInfo
 	{
-		/** The PObject */
-		public final CDOMReference<PCCheck> pobj;
-		/** whether this is a base check, True or False */
-		public final boolean isBase;
+		private final CDOMReference<PCCheck> pobj;
+
+		private final boolean isBase;
 
 		/**
-		 * Constructor
-		 * @param argPobj
-		 * @param argIsBase
+		 * Constructor.
+		 * @param argPobj The PObject.
+		 * @param argIsBase Whether this is a base check.
 		 */
 		public CheckInfo(final CDOMReference<PCCheck> argPobj, final boolean argIsBase)
 		{
 			pobj = argPobj;
 			isBase = argIsBase;
 		}
+
+		/**
+		 * The PObject.
+		 * @return the stored PObject.
+		 */
+		public CDOMReference<PCCheck> getPobj()
+		{
+			return pobj;
+		}
+
+		/**
+		 *  Whether this is a base check.
+		 *
+		 * @return True or False.
+		 */
+		public boolean isBase()
+		{
+			return isBase;
+		}
 	}
 
-	public static CheckInfo LIST_CHECK = new CheckInfo(null, false);
+	private static CheckInfo listCheck = new CheckInfo(null, false);
 
 	@Override
 	public String getBonusHandled()
