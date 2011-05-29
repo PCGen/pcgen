@@ -73,7 +73,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 *            The pattern used to identify items which this
 	 *            PatternMatchingReference will contain. Note that this pattern
 	 *            must end with the PCGen pattern characters (defined by
-	 *            Constants.LST_PATTERN)
+	 *            Constants.PERCENT)
 	 * @throws IllegalArgumentException
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
@@ -88,7 +88,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 					"Starting Group cannot be null in PatternMatchingReference");
 		}
 		all = startingGroup;
-		String lstPattern = Constants.LST_PATTERN;
+		String lstPattern = Constants.PERCENT;
 		int patternchar = patternText.length() - lstPattern.length();
 		if (patternText.indexOf(lstPattern) != patternchar)
 		{

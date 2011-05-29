@@ -64,8 +64,8 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 				}
 
 				// Match against a TYPE of armour
-				if (desiredType.startsWith(Constants.LST_TYPE)
-					|| desiredType.startsWith(Constants.LST_TYPE_OLD))
+				if (desiredType.startsWith(Constants.LST_TYPE_EQUAL)
+					|| desiredType.startsWith(Constants.LST_TYPE_DOT))
 				{
 
 					String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);

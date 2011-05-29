@@ -50,13 +50,13 @@ public final class TokenUtilities
 	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
 			ReferenceManufacturer<T> rm, String s)
 	{
-		if (s.startsWith(Constants.LST_TYPE_OLD)
-				|| s.startsWith(Constants.LST_TYPE))
+		if (s.startsWith(Constants.LST_TYPE_DOT)
+				|| s.startsWith(Constants.LST_TYPE_EQUAL))
 		{
 			return getTypeReference(rm, s.substring(5));
 		}
-		else if (s.startsWith(Constants.LST_NOT_TYPE_OLD)
-				|| s.startsWith(Constants.LST_NOT_TYPE))
+		else if (s.startsWith(Constants.LST_NOT_TYPE_DOT)
+				|| s.startsWith(Constants.LST_NOT_TYPE_EQUAL))
 		{
 			Logging.errorPrint("!TYPE not supported in token, found: " + s);
 			return null;

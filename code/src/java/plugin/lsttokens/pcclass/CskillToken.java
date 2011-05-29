@@ -149,7 +149,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	private CDOMReference<Skill> getSkillReference(LoadContext context,
 			String tokText)
 	{
-		if (tokText.endsWith(Constants.LST_PATTERN))
+		if (tokText.endsWith(Constants.PERCENT))
 		{
 			return new PatternMatchingReference<Skill>(Skill.class, context.ref
 					.getCDOMAllReference(SKILL_CLASS), tokText);

@@ -385,8 +385,8 @@ public interface Constants
 	 * Various parsing token constants
 	 ********************************************************************/
 
-	/** Pipe '|' character as a string. */
-	String PIPE = "|"; //$NON-NLS-1$
+	/** Colon ':' character as a string. */
+	String COLON = ":";
 
 	/** Comma ',' character as a string. */
 	String COMMA = ","; //$NON-NLS-1$
@@ -394,23 +394,29 @@ public interface Constants
 	/** Dot '.' character as a string. */
 	String DOT = ".";
 
-	/** Colon ':' character as a string. */
-	String COLON = ":";
-
 	/** Equals '=' character as a string. */
 	String EQUALS = "=";
 
-	/** Asterisk '*' character as a string. */
-	String TAB = "\t";
+	/** Percent '%' character as a string. */
+	String PERCENT = "%";
 
-	/** Percent character as a constant. */
-	char PERCENT = '%';
+	/** Pipe '|' character as a string. */
+	String PIPE = "|"; //$NON-NLS-1$
+
+	/** Tab '*' character as a string. */
+	String TAB = "\t";
 
 	/** Asterisk '*' character as a constant. */
 	char CHAR_ASTERISK = '*';
 
+	/** Percent character as a constant. */
+	char CHAR_PERCENT = '%';
+
 	/** A snippet of List code as a constant. */
 	String LST_DOT_CLEAR = ".CLEAR";
+
+	/** A snippet of List code as a constant. */
+	String LST_DOT_CLEAR_ALL = ".CLEARALL";
 
 	/** A snippet of List code as a constant. */
 	String LST_DOT_CLEAR_DOT = ".CLEAR.";
@@ -422,7 +428,13 @@ public interface Constants
 	String LST_SEMI_LEVEL_EQUAL = ";LEVEL=";
 
 	/** A snippet of List code as a constant. */
-	String LST_BASE = "BASE.";
+	String LST_ARMORTYPE_DOT = "ARMORTYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_ARMORTYPE_EQUAL = "ARMORTYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_BASE_DOT = "BASE.";
 
 	/** A snippet of List code as a constant. */
 	String LST_CAST_DOT = "CAST.";
@@ -431,16 +443,22 @@ public interface Constants
 	String LST_CAST_EQUAL = "CAST=";
 
 	/** A snippet of List code as a constant. */
-	String LST_TYPE_OLD = "TYPE.";
+	String LST_SHIELDTYPE_DOT = "SHIELDTYPE.";
 
 	/** A snippet of List code as a constant. */
-	String LST_NOT_TYPE_OLD = "!TYPE.";
+	String LST_SHIELDTYPE_EQUAL = "SHIELDTYPE=";
 
 	/** A snippet of List code as a constant. */
-	String LST_TYPE = "TYPE=";
+	String LST_TYPE_DOT = "TYPE.";
 
 	/** A snippet of List code as a constant. */
-	String LST_NOT_TYPE = "!TYPE=";
+	String LST_TYPE_EQUAL = "TYPE=";
+
+	/** A snippet of List code as a constant. */
+	String LST_NOT_TYPE_DOT = "!TYPE.";
+
+	/** A snippet of List code as a constant. */
+	String LST_NOT_TYPE_EQUAL = "!TYPE=";
 
 	/** A snippet of List code as a constant. */
 	String LST_ALL = "ALL";
@@ -452,7 +470,7 @@ public interface Constants
 	String LST_LIST = "LIST";
 
 	/** A snippet of List code as a constant. */
-	String LST_PATTERN = "%";
+	String LST_PERCENT_CHOICE = "%CHOICE";
 
 	/** A snippet of List code as a constant. */
 	String LST_PERCENT_LIST = "%LIST";
@@ -461,25 +479,10 @@ public interface Constants
 	String LST_NONE = "NONE";
 
 	/** A snippet of List code as a constant. */
-	String LST_DOT_CLEAR_ALL = ".CLEARALL";
-
-	/** A snippet of List code as a constant. */
 	String LST_CHOOSE = "CHOOSE:";
 
 	/** A snippet of List code as a constant. */
 	String LST_ADD_CHOICE = "ADDCHOICE:";
-
-	/** A snippet of List code as a constant. */
-	String LST_SHIELDTYPE = "SHIELDTYPE=";
-
-	/** A snippet of List code as a constant. */
-	String LST_SHIELDTYPE_OLD = "SHIELDTYPE.";
-
-	/** A snippet of List code as a constant. */
-	String LST_ARMORTYPE = "ARMORTYPE=";
-
-	/** A snippet of List code as a constant. */
-	String LST_ARMORTYPE_OLD = "ARMORTYPE.";
 
 	/** A snippet of List code as a constant. */
 	String LST_UNTRAINED = "UNTRAINED";
@@ -499,9 +502,6 @@ public interface Constants
 
 	/** A snippet of List code as a constant. */
 	String LST_CHOICE = "CHOICE";
-
-	/** A snippet of List code as a constant. */
-	String LST_PERCENT_CHOICE = "%CHOICE";
 
 	/** A constant used in List parsing of Favoured Class. */
 	String HIGHEST_LEVEL_CLASS = "HIGHESTLEVELCLASS";

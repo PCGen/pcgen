@@ -139,8 +139,8 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				armorProfs
 						.add(context.ref.getCDOMAllReference(ARMORPROF_CLASS));
 			}
-			else if (aProf.startsWith(Constants.LST_ARMORTYPE_OLD)
-					|| aProf.startsWith(Constants.LST_ARMORTYPE))
+			else if (aProf.startsWith(Constants.LST_ARMORTYPE_DOT)
+					|| aProf.startsWith(Constants.LST_ARMORTYPE_EQUAL))
 			{
 				foundOther = true;
 				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(

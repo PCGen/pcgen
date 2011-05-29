@@ -213,7 +213,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				{
 					StringBuilder spell = new StringBuilder();
 					spell.append(StringUtil.replaceAll(ksi.getLSTformat(),
-							Constants.LST_TYPE, Constants.LST_TYPE_OLD));
+							Constants.LST_TYPE_EQUAL, Constants.LST_TYPE_DOT));
 					if (abils != null && !abils.isEmpty())
 					{
 						spell.append('[');

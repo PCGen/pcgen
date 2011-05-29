@@ -346,12 +346,12 @@ public final class ChoiceSetLoadUtilities
 			return sc.getAllReference();
 		}
 		String key = pi.key;
-		if (key.startsWith(Constants.LST_TYPE_OLD))
+		if (key.startsWith(Constants.LST_TYPE_DOT))
 		{
 			return TokenUtilities.getTypeReference(sc, key
 					.substring(5));
 		}
-		if (key.startsWith(Constants.LST_NOT_TYPE_OLD))
+		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))
 		{
 			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(
 					sc, key.substring(6)));

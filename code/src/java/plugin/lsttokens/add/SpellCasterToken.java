@@ -136,8 +136,8 @@ public class SpellCasterToken extends AbstractToken implements
 				{
 					spelltypes.add(token);
 				}
-				else if (token.startsWith(Constants.LST_TYPE_OLD)
-						|| token.startsWith(Constants.LST_TYPE))
+				else if (token.startsWith(Constants.LST_TYPE_DOT)
+						|| token.startsWith(Constants.LST_TYPE_EQUAL))
 				{
 					CDOMReference<PCClass> ref = TokenUtilities
 							.getTypeReference(context, PCCLASS_CLASS, token

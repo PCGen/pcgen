@@ -146,8 +146,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				else
 				{
 					foundOther = true;
-					if (aProf.startsWith(Constants.LST_TYPE_OLD)
-							|| aProf.startsWith(Constants.LST_TYPE))
+					if (aProf.startsWith(Constants.LST_TYPE_DOT)
+							|| aProf.startsWith(Constants.LST_TYPE_EQUAL))
 					{
 						CDOMGroupRef<WeaponProf> rr = TokenUtilities
 								.getTypeReference(context, WEAPONPROF_CLASS,

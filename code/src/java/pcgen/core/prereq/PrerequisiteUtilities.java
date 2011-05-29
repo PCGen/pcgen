@@ -361,7 +361,7 @@ public final class PrerequisiteUtilities
 	 */
 	private static boolean isTypeTest(String key)
 	{
-		return key.startsWith(Constants.LST_TYPE) || key.startsWith(Constants.LST_TYPE_OLD);
+		return key.startsWith(Constants.LST_TYPE_EQUAL) || key.startsWith(Constants.LST_TYPE_DOT);
 	}
 
 	/**

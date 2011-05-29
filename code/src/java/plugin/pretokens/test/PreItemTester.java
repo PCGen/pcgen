@@ -73,8 +73,8 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
 			List<String> typeList = null;
-			if (aString.startsWith(Constants.LST_TYPE)
-				|| aString.startsWith(Constants.LST_TYPE_OLD))
+			if (aString.startsWith(Constants.LST_TYPE_EQUAL)
+				|| aString.startsWith(Constants.LST_TYPE_DOT))
 			{
 				String stripped = aString.substring(Constants.SUBSTRING_LENGTH_FIVE);
 				typeList = CoreUtility.split(stripped, '.');

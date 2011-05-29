@@ -139,8 +139,8 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				shieldProfs.add(context.ref
 						.getCDOMAllReference(SHIELDPROF_CLASS));
 			}
-			else if (aProf.startsWith(Constants.LST_SHIELDTYPE_OLD)
-					|| aProf.startsWith(Constants.LST_SHIELDTYPE))
+			else if (aProf.startsWith(Constants.LST_SHIELDTYPE_DOT)
+					|| aProf.startsWith(Constants.LST_SHIELDTYPE_EQUAL))
 			{
 				foundOther = true;
 				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(
