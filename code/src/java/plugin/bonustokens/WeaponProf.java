@@ -28,9 +28,7 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>WeaponProf</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:WEAPONPROF= token.
  */
 public final class WeaponProf extends MultiTagBonusObj
 {
@@ -40,18 +38,33 @@ public final class WeaponProf extends MultiTagBonusObj
 				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
 				"WIELDCATEGORY"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "WEAPONPROF=";
 	}
 
+	/**
+	 * Get by index, an individual weapon proficiency attribute that may be bonused.
+	 * @param tagNumber the index of the weapon proficiency attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The weapon proficiency attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
 		return bonusTags[tagNumber];
 	}
 
+	/**
+	 * Get the number of weapon proficiency attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of weapon proficiency attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{

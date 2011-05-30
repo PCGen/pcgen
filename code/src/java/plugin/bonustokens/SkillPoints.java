@@ -28,29 +28,42 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>SkillPoints</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:SKILLPOINTS token.
  */
 public final class SkillPoints extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"NUMBER"};
+	private static final String[] BONUS_TAGS = {"NUMBER"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "SKILLPOINTS";
 	}
 
+	/**
+	 * Get by index, an individual skill point attribute that may be bonused.
+	 * @param tagNumber the index of the skill point attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The skill point attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of skill point attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of skill point attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

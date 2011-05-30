@@ -28,31 +28,44 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Weapon</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:WEAPON token.
  */
 public final class Weapon extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			new String[]{"ATTACKS", "ATTACKSPROGRESS", "WEAPONBAB", "DAMAGE",
 				"DAMAGESIZE", "TOHIT", "WIELDCATEGORY"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "WEAPON";
 	}
 
+	/**
+	 * Get by index, an individual weapon attribute that may be bonused.
+	 * @param tagNumber the index of the weapon attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The weapon attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of weapon attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of weapon attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

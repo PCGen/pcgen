@@ -25,14 +25,12 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellCastInfo;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>SpellCastMult</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
  */
 public final class SpellCastMult extends BonusObj
 {
@@ -42,14 +40,20 @@ public final class SpellCastMult extends BonusObj
 	 * @param token
 	 * @return
 	 */
+
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		int idx = token.indexOf(";LEVEL=");
+		int idx = token.indexOf(Constants.LST_SEMI_LEVEL_EQUAL);
 
 		if (idx < 0)
 		{
-			idx = token.indexOf(";LEVEL.");
+			idx = token.indexOf(Constants.LST_SEMI_LEVEL_DOT);
 		}
 
 		if (idx < 0)
@@ -57,13 +61,19 @@ public final class SpellCastMult extends BonusObj
 			return false;
 		}
 
-		final String level = token.substring(idx + 7);
+		final String level = token.substring(idx + Constants.SUBSTRING_LENGTH_SEVEN);
 
 		addBonusInfo(new SpellCastInfo(token.substring(0, idx), level));
 
 		return true;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
@@ -72,18 +82,22 @@ public final class SpellCastMult extends BonusObj
 
 		if (sci.getType() != null)
 		{
-			sb.append("TYPE.").append(((SpellCastInfo) obj).getType());
+			sb.append(Constants.LST_TYPE_DOT).append(((SpellCastInfo) obj).getType());
 		}
 		else if (sci.getPcClassName() != null)
 		{
-			sb.append("CLASS.").append(((SpellCastInfo) obj).getPcClassName());
+			sb.append(Constants.LST_CLASS_DOT).append(((SpellCastInfo) obj).getPcClassName());
 		}
 
-		sb.append(";LEVEL.").append(((SpellCastInfo) obj).getLevel());
+		sb.append(Constants.LST_SEMI_LEVEL_DOT).append(((SpellCastInfo) obj).getLevel());
 
 		return sb.toString();
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

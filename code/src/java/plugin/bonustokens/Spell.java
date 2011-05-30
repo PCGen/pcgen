@@ -28,29 +28,42 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Spell</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:SPELL token.
  */
 public final class Spell extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"DC"};
+	private static final String[] BONUS_TAGS = {"DC"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "SPELL";
 	}
 
+	/**
+	 * Get by index, an individual spell attribute that may be bonused.
+	 * @param tagNumber the index of the spell attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The type of SizeMOD.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of spell attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of spell attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

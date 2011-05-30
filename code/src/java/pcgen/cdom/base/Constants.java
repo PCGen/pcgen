@@ -455,6 +455,9 @@ public interface Constants
 	String LST_SHIELDTYPE_EQUAL = "SHIELDTYPE=";
 
 	/** A snippet of List code as a constant. */
+	String LST_STAT_EQUAL = "STAT=";
+
+	/** A snippet of List code as a constant. */
 	String LST_TYPE_DOT = "TYPE.";
 
 	/** A snippet of List code as a constant. */

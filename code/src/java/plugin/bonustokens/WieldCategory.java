@@ -27,31 +27,43 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>WieldCategory</code>
- *
- * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:WIELDCATEGORY token.
  */
 public final class WieldCategory extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"LIGHT", "ONEHANDED", "TWOHANDED"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "WIELDCATEGORY";
 	}
 
+	/**
+	 * Get by index, an individual wield category that may be bonused.
+	 * @param tagNumber the index of the wield category.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The wield category.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of wield categories that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of wield categories.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }
