@@ -46,7 +46,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
-		if (!value.startsWith(Constants.LST_CHOOSE))
+		if (!value.startsWith(Constants.LST_CHOOSE_COLON))
 		{
 			// Don't consume, force the default processor to do the work...
 			return null;

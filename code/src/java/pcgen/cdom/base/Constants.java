@@ -443,6 +443,12 @@ public interface Constants
 	String LST_CAST_EQUAL = "CAST=";
 
 	/** A snippet of List code as a constant. */
+	String LST_CLASS_DOT = "CLASS.";
+
+	/** A snippet of List code as a constant. */
+	String LST_CLASS_EQUAL = "CLASS=";
+
+	/** A snippet of List code as a constant. */
 	String LST_SHIELDTYPE_DOT = "SHIELDTYPE.";
 
 	/** A snippet of List code as a constant. */
@@ -460,14 +466,6 @@ public interface Constants
 	/** A snippet of List code as a constant. */
 	String LST_NOT_TYPE_EQUAL = "!TYPE=";
 
-	/** A snippet of List code as a constant. */
-	String LST_ALL = "ALL";
-
-	/** A snippet of List code as a constant. */
-	String LST_ANY = "ANY";
-
-	/** A snippet of List code as a constant. */
-	String LST_LIST = "LIST";
 
 	/** A snippet of List code as a constant. */
 	String LST_PERCENT_CHOICE = "%CHOICE";
@@ -476,32 +474,63 @@ public interface Constants
 	String LST_PERCENT_LIST = "%LIST";
 
 	/** A snippet of List code as a constant. */
-	String LST_NONE = "NONE";
+	String LST_CHOOSE_COLON = "CHOOSE:";
 
 	/** A snippet of List code as a constant. */
-	String LST_CHOOSE = "CHOOSE:";
+	String LST_ADD_CHOICE_COLON = "ADDCHOICE:";
+
 
 	/** A snippet of List code as a constant. */
-	String LST_ADD_CHOICE = "ADDCHOICE:";
+	String LST_ALL = "ALL";
 
 	/** A snippet of List code as a constant. */
-	String LST_UNTRAINED = "UNTRAINED";
-
-	/** A snippet of List code as a constant. */
-	String LST_TRAINED = "TRAINED";
-
-	/** A snippet of List code as a constant. */
-	String LST_EXCLUSIVE = "EXCLUSIVE";
-
-	/** A snippet of List code as a constant. */
-	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
-
+	String LST_ANY = "ANY";
 
 	/** A snippet of List code as a constant. */
 	String LST_CROSS_CLASS = "CROSSCLASSSKILLS";
 
 	/** A snippet of List code as a constant. */
 	String LST_CHOICE = "CHOICE";
+
+	/** A snippet of List code as a constant. */
+	String LST_CLASS = "CLASS";
+
+	/** A snippet of List code as a constant. */
+	String LST_DESCRIPTOR = "DESCRIPTOR";
+
+	/** A snippet of List code as a constant. */
+	String LST_DOMAIN = "DOMAIN";
+
+	/** A snippet of List code as a constant. */
+	String LST_EXCLUSIVE = "EXCLUSIVE";
+
+	/** A snippet of List code as a constant. */
+	String LST_LIST = "LIST";
+
+	/** A snippet of List code as a constant. */
+	String LST_NONE = "NONE";
+
+	/** A snippet of List code as a constant. */
+	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
+
+	/** A snippet of List code as a constant. */
+	String LST_SCHOOL = "SCHOOL";
+
+	/** A snippet of List code as a constant. */
+	String LST_SUBSCHOOL = "SUBSCHOOL";
+
+	/** A snippet of List code as a constant. */
+	String LST_SPELL = "SPELL";
+
+	/** A snippet of List code as a constant. */
+	String LST_TRAINED = "TRAINED";
+
+	/** A snippet of List code as a constant. */
+	String LST_TYPE = "TYPE";
+
+	/** A snippet of List code as a constant. */
+	String LST_UNTRAINED = "UNTRAINED";
+
 
 	/** A constant used in List parsing of Favoured Class. */
 	String HIGHEST_LEVEL_CLASS = "HIGHESTLEVELCLASS";
@@ -612,6 +641,10 @@ public interface Constants
 	/**
 	 * The length of various LST constants that need to stripped from the front of a string during parsing.  */
 	int SUBSTRING_LENGTH_FIVE = 5;
+
+	/**
+	 * The length of various LST constants that need to stripped from the front of a string during parsing.  */
+	int SUBSTRING_LENGTH_SIX = 6;
 
 	/**
 	 * The length of various LST constants that need to stripped from the front of a string during parsing.  */

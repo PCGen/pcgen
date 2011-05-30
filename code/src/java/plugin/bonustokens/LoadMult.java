@@ -28,29 +28,42 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>LoadMult</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:LOADMULT token.
  */
 public final class LoadMult extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"TYPE.SIZE", "TYPE=SIZE"};
+	private static final String[] BONUS_TAGS = {"TYPE.SIZE", "TYPE=SIZE"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "LOADMULT";
 	}
 
+	/**
+	 * Get by index, an individual load mult attribute that may be bonused.
+	 * @param tagNumber the index of the load mult attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The load mult attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of load mult attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of load mult attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

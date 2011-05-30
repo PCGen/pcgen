@@ -28,30 +28,43 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Eqm</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:EQM token.
  */
 public final class Eqm extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"WEIGHTADD", "WEIGHTDIV", "WEIGHTMULT"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "EQM";
 	}
 
+	/**
+	 * Get by index, an individual equipment attribute that may be bonused.
+	 * @param tagNumber the index of the equipment attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The equipment attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of equipment attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of equipment attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

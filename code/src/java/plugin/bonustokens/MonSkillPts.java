@@ -28,29 +28,42 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>MonSkillPts</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:MONSKILLPTS token.
  */
 public final class MonSkillPts extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"NUMBER", "LOCKNUMBER"};
+	private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "MONSKILLPTS";
 	}
 
+	/**
+	 * Get by index, an individual monster skill point attribute that may be bonused.
+	 * @param tagNumber the index of the monster skill point attribute type.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The type of monster skill point attribute .
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of types of monster skill point attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of monster skill point attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

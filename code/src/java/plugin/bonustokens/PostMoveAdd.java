@@ -25,35 +25,39 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.Load;
 
 /**
- * <code>Move</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:POSTMOVEADD token.
  **/
 public final class PostMoveAdd extends BonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{Load.LIGHT.toString(), Load.MEDIUM.toString(),
 				Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		for (int i = 0; i < bonusTags.length; ++i)
+		for (int i = 0; i < BONUS_TAGS.length; ++i)
 		{
-			if (bonusTags[i].equals(token))
+			if (BONUS_TAGS[i].equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}
 		}
 
-		if (token.startsWith("TYPE="))
+		if (token.startsWith(Constants.LST_TYPE_EQUAL))
 		{
 			addBonusInfo(token.replace('=', '.'));
 		}
@@ -65,17 +69,27 @@ public final class PostMoveAdd extends BonusObj
 		return true;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
 		{
-			return bonusTags[((Integer) obj).intValue()];
+			return BONUS_TAGS[(Integer) obj];
 		}
 
 		return (String) obj;
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

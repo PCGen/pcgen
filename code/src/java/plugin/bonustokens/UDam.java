@@ -25,48 +25,67 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 
 /**
- * <code>UDam</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:UDam token.
  */
 public final class UDam extends BonusObj
 {
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		if (token.startsWith("CLASS=") || token.startsWith("CLASS."))
+		if (token.startsWith(Constants.LST_CLASS_EQUAL)
+			|| token.startsWith(Constants.LST_CLASS_DOT))
 		{
-			addBonusInfo(token.substring(6));
+			addBonusInfo(token.substring(Constants.SUBSTRING_LENGTH_SIX));
 			return true;
 		}
 
-		Logging.errorPrint("BONUS:UDAM syntax must have "
-				+ "Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
+		Logging.errorPrint(
+			"BONUS:UDAM syntax must have Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
 		return false;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof String)
 		{
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, ((String) obj));
+			String sObj = (String) obj;
+			final ReferenceContext ref = Globals.getContext().ref;
+			final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
+
 			if (aClass != null)
 			{
 				replaceBonusInfo(obj, aClass);
 			}
-			return "CLASS." + obj;
+			return Constants.LST_CLASS_DOT + obj;
 		}
-		return "CLASS." + ((PCClass) obj).getKeyName();
+		return Constants.LST_CLASS_DOT + ((PCClass) obj).getKeyName();
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

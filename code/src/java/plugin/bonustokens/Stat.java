@@ -143,6 +143,10 @@ public final class Stat extends BonusObj
 		}
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

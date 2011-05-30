@@ -39,8 +39,8 @@ public final class Vision extends MultiTagBonusObj
 				"ECHOSENSE", "X-RAY"};
 
 	/**
-	 * Return a list of the bonuses handled by this class.
-	 * @return A list of the bonuses handled by this class.
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
 	 */
 	@Override
 	public String getBonusHandled()

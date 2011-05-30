@@ -25,74 +25,85 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>DC</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:DC token.
  */
 public final class DC extends BonusObj
 {
-	private static final String[] bonusTags = {"FEATBONUS", "ALLSPELLS"};
+	private static final String[] BONUS_TAGS = {"FEATBONUS", "ALLSPELLS"};
 
 	/*
-	 * is either a bonusTag[]
+	 * When parsing the token, valid tokens are either a bonusTag[]
 	 * or:
 	 *    CLASS.<ClassName>
-	 *    DESCRIPTOR.<Descrpt>
+	 *    DESCRIPTOR.<Description>
 	 *    DOMAIN.<DomainName>
 	 *    SCHOOL.<SchoolName>
 	 *    SUBSCHOOL.<SubSchoolName>
 	 *    TYPE.<CasterType>
 	 *    SPELL.<SpellName>
 	 */
+
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		for (int i = 0; i < bonusTags.length; ++i)
+		for (int i = 0; i < BONUS_TAGS.length; ++i)
 		{
-			if (token.equals(bonusTags[i]))
+			if (token.equals(BONUS_TAGS[i]))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}
 		}
 
-		// Must remove the %LIST if present
+		boolean valid = token.startsWith(Constants.LST_CLASS);
+		valid = valid || token.startsWith(Constants.LST_DESCRIPTOR);
+		valid = valid || token.startsWith(Constants.LST_DOMAIN);
+		valid = valid || token.startsWith(Constants.LST_SCHOOL);
+		valid = valid || token.startsWith(Constants.LST_SUBSCHOOL);
+		valid = valid || token.startsWith(Constants.LST_TYPE);
+		valid = valid || token.startsWith(Constants.LST_SPELL);
 
-		/*
-		 if (token.indexOf(".%LIST") > 0)
-		 {
-		 token = token.substring(0, token.indexOf(".%LIST"));
-		 }
-		 */
-		if (token.startsWith("CLASS") || token.startsWith("DESCRIPTOR")
-			|| token.startsWith("DOMAIN") || token.startsWith("SCHOOL")
-			|| token.startsWith("SUBSCHOOL") || token.startsWith("TYPE")
-			|| token.startsWith("SPELL"))
+		if (valid)
 		{
 			addBonusInfo(token);
 
 			return true;
 		}
-
 		return false;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
 		{
-			return bonusTags[((Integer) obj).intValue()];
+			return BONUS_TAGS[(Integer) obj];
 		}
 
 		return (String) obj;
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

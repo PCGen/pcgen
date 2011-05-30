@@ -28,33 +28,46 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Combat</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:COMBAT token.
  */
 public final class Combat extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"AC", "ATTACKS", "ATTACKS-SECONDARY", "BAB", "DAMAGE",
 				"DAMAGESIZE", "DAMAGE-PRIMARY", "DAMAGE-SECONDARY",
 				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "REACH", "TOHIT",
 				"TOHIT-PRIMARY", "TOHIT-SECONDARY", "TOHIT-SHORTRANGE"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "COMBAT";
 	}
 
+	/**
+	 * Get by index, an individual combat attribute that may be bonused.
+	 * @param tagNumber the index of the combat attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The combat attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of combat attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of combat attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

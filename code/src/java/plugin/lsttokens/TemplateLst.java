@@ -61,16 +61,16 @@ public class TemplateLst extends AbstractToken implements
 		String remaining;
 		boolean consolidate = false;
 		boolean specialLegal = false;
-		if (value.startsWith(Constants.LST_CHOOSE))
+		if (value.startsWith(Constants.LST_CHOOSE_COLON))
 		{
 			lk = ListKey.TEMPLATE_CHOOSE;
-			remaining = value.substring(Constants.LST_CHOOSE.length());
+			remaining = value.substring(Constants.LST_CHOOSE_COLON.length());
 			consolidate = true;
 		}
-		else if (value.startsWith(Constants.LST_ADD_CHOICE))
+		else if (value.startsWith(Constants.LST_ADD_CHOICE_COLON))
 		{
 			lk = ListKey.TEMPLATE_ADDCHOICE;
-			remaining = value.substring(Constants.LST_ADD_CHOICE.length());
+			remaining = value.substring(Constants.LST_ADD_CHOICE_COLON.length());
 		}
 		else
 		{
@@ -110,7 +110,7 @@ public class TemplateLst extends AbstractToken implements
 		if (consolidate)
 		{
 			CDOMCompoundOrReference<PCTemplate> ref = new CDOMCompoundOrReference<PCTemplate>(
-					PCTEMPLATE_CLASS, Constants.LST_CHOOSE);
+					PCTEMPLATE_CLASS, Constants.LST_CHOOSE_COLON);
 			for (CDOMReference<PCTemplate> r : list)
 			{
 				ref.addReference(r);
@@ -174,7 +174,7 @@ public class TemplateLst extends AbstractToken implements
 		{
 			for (CDOMReference<PCTemplate> ref : chadded)
 			{
-				list.add(Constants.LST_CHOOSE
+				list.add(Constants.LST_CHOOSE_COLON
 						+ ref.getLSTformat(false).replaceAll(",", "\\|"));
 			}
 		}
@@ -186,7 +186,7 @@ public class TemplateLst extends AbstractToken implements
 				.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add(Constants.LST_ADD_CHOICE
+			list.add(Constants.LST_ADD_CHOICE_COLON
 					+ ReferenceUtilities.joinLstFormat(addedItems,
 							Constants.PIPE));
 		}

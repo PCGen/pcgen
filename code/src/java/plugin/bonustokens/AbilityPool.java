@@ -29,8 +29,6 @@ import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:ABILITYPOOL token.
- *
- * @author  boomer70 <boomer70@yahoo.com>
  */
 public final class AbilityPool extends BonusObj
 {
@@ -63,8 +61,8 @@ public final class AbilityPool extends BonusObj
 	}
 
 	/**
-	 * Return a list of the bonuses handled by this class.
-	 * @return A list of the bonuses handled by this class.
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
 	 */
 	@Override
 	public String getBonusHandled()

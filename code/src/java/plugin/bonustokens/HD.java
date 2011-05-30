@@ -34,23 +34,38 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class HD extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"MAX", "MIN"};
+	private static final String[] BONUS_TAGS = {"MAX", "MIN"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "HD";
 	}
 
+	/**
+	 * Get by index, an individual hit die attribute that may be bonused.
+	 * @param tagNumber the index of the hit die attribute .
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The hit die attribute .
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of hit die attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of hit die attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

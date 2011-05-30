@@ -27,31 +27,44 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-/**
- * <code>Misc</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+/**MISC
+ * Handles the BONUS:MISC token.
  */
 public final class Misc extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
+	private static final String[] BONUS_TAGS =
 			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
 		return "MISC";
 	}
 
+	/**
+	 * Get by index, an individual miscellaneous attribute that may be bonused.
+	 * @param tagNumber the index of the miscellaneous attribute.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The miscellaneous attribute.
+	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
+	/**
+	 * Get the number of miscellaneous attributes that may be bonused.
+	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
+	 * @return The number of miscellaneous attributes.
+	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }
