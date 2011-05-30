@@ -38,7 +38,7 @@ public final class WieldCategory extends MultiTagBonusObj
 	 * Return the bonus tag handled by this class.
 	 * @return The bonus handled by this class.
 	 */
-	@Override
+		@Override
 	public String getBonusHandled()
 	{
 		return "WIELDCATEGORY";

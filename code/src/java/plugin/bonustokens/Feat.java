@@ -29,17 +29,20 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>Feat</code>
- *
- * @author  Devon Jones <soulcatcher@eviloft.org>
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:FEAT token.
  */
 public final class Feat extends BonusObj
 {
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		if ("POOL".equals(token) || "MONSTERPOOL".equals(token)
+		if ("POOL".equals(token)
+			|| "MONSTERPOOL".equals(token)
 			|| "PCPOOL".equals(token))
 		{
 			addBonusInfo(token);
@@ -49,12 +52,22 @@ public final class Feat extends BonusObj
 		return false;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{

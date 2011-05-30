@@ -508,6 +508,9 @@ public interface Constants
 	String LST_EXCLUSIVE = "EXCLUSIVE";
 
 	/** A snippet of List code as a constant. */
+	String LST_LEVEL = "LEVEL";
+
+	/** A snippet of List code as a constant. */
 	String LST_LIST = "LIST";
 
 	/** A snippet of List code as a constant. */
@@ -515,6 +518,9 @@ public interface Constants
 
 	/** A snippet of List code as a constant. */
 	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
+
+	/** A snippet of List code as a constant. */
+	String LST_NUMBER = "NUMBER";
 
 	/** A snippet of List code as a constant. */
 	String LST_SCHOOL = "SCHOOL";

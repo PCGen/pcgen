@@ -29,12 +29,15 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>ACValue</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * Handles the BONUS:ACVALUE token.
  */
 public final class ACValue extends BonusObj
 {
+	/**
+	 * Parse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
+	 * @return True if successfully parsed.
+	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
@@ -43,12 +46,22 @@ public final class ACValue extends BonusObj
 		return true;
 	}
 
+	/**
+	 * Unparse the bonus token.
+	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
+	 * @param obj The object to unparse
+	 * @return The unparsed string.
+	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
 	@Override
 	public String getBonusHandled()
 	{
