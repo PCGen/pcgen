@@ -182,7 +182,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	public int getBuyRate(PlayerCharacter aPC)
 	{
 		QualifiedObject<Formula> buy = get(ObjectKey.EQUIP_BUY);
-		Formula f = buy.getObject(aPC, this);
+		Formula f = (buy == null ? null : buy.getObject(aPC, this));
 		int buyRate;
 		if (f == null)
 		{
