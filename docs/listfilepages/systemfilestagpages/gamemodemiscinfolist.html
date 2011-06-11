@@ -913,6 +913,12 @@
 		<p class="indent3">Simulates rolling 4 six sided dice and dropping the lowest.</p>
 		<p class="indent2"><code>ROLLMETHOD:5d6 drop 2 lowest &lt;tab&gt; METHOD:roll(5,6,[3,4,5])</code></p>
 		<p class="indent3">Simulates rolling 5 six sided dice and dropping the 2 lowest.</p>
+		<p class="indent2"><code>ROLLMETHOD:4d6 drop lowest &lt;tab&gt; METHOD:roll(4,6,top(3)) </code></p>
+		<p class="indent3">Simulates rolling 4 six sided dice and dropping the lowest.</p>
+		<p class="indent2"><code>ROLLMETHOD:4d6, reroll 1's, drop the lowest &lt;tab&gt; METHOD:roll(4,6,top(3),reroll(1))</code></p>
+		<p class="indent3">Simulates rolling 4 six sided dice, rerolling 1's and dropping the lowest.</p>
+		<p class="indent2"><code>ROLLMETHOD:5d6, reroll 1&2's, drop 2 lowest &lt;tab&gt; METHOD:roll(5,6,top(3), reroll(2))</code></p>
+		<p class="indent3">Simulates rolling 5 six sided dice, rerolling any 1's and 2's and dropping the 2 lowest.</p>
 		<p class="indent1"><strong>Where is this used:</strong></p>
 		<p class="indent2">In a <a href="#ROLLMETHOD">ROLLMETHOD</a> line.</p>
 
