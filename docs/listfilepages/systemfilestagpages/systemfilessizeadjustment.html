@@ -32,7 +32,10 @@
 			Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan and Colossal.</p>
 
 
-		<p></p><hr>
+		<p></p>
+
+<hr>
+
 		<p class="indent0"><strong><a name="ABB">Tag Name:</a></strong> ABB:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -40,12 +43,24 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ABB:F</code></p>
 		<p class="indent3">The size abbreviation is &quot;F&quot; for &quot;Fine&quot;.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">sizeAdjustment.lst file.</p>
-
-
 		<p></p>
-		<p></p><hr>
+
+<hr>
+
+		<p class="indent0"><strong><a name="ISDEFAULTSIZE">Tag Name:</a></strong> ISDEFAULTSIZE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a boolean &quot;YES/NO&quot;, or &quot;Y/N&quot;, that identifies the default size for the gamemode.</li>
+			<li>One size must be identified as the default in any gamemode and only one such default is allowed per gamemode.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SIZENAME:Medium &lt;tab&gt; ISDEFAULTSIZE:Y</code></p>
+		<p class="indent3">&quot;Medium&quot; size is the default size for this gamemode.</p>
+		<p></p>
+
+<hr>
+
 		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
 		<p class="indent0"><strong><a name="SIZENAME">Tag Name:</a></strong> SIZENAME|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Name of size</p>
@@ -62,8 +77,6 @@
 		<p class="indent2"><code>SIZENAME:Gargantuan</code></p>
 		<p class="indent2"><code>SIZENAME:Colossal</code></p>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the associated size.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 		<p class="indent3">These six categories must be included in all Game Mode: sizeAdjustment.lst.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
@@ -96,8 +109,6 @@
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
 		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 
 		<p></p>
 		<p></p><hr>
@@ -112,8 +123,6 @@
 		<p class="indent3">Reduces the carrying capacity of TYPE=Goods to .25</p>
 		<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|2</code></p>
 		<p class="indent3">Increases the carrying capacity of TYPE=Goods to double</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 
 		<p></p>
 		<p></p><hr>
@@ -131,8 +140,6 @@
 		<p class="indent3">Costs of all Scrolls, Potents are unchanged.</p>
 		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2</code></p>
 		<p class="indent3">Increases all costs of all Alchemical, Liquid, Clothing, Food by 2</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 
 		<p></p>
 		<p></p><hr>
@@ -147,8 +154,6 @@
 		<p class="indent3">Reduces the weight to .25</p>
 		<p class="indent2"><code>BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1</code></p>
 		<p class="indent3">Changes the weight by nothing</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 
 		<p></p>
 		<p></p><hr>
@@ -169,9 +174,8 @@
 		<p class="indent3">Increases the amount carried by 3 if the character had 4 or more hands</p>
 		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|2</code></p>
 		<p class="indent3">Increases the amount carried by 2</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">SizeAdjustment.lst</p>
 
+<hr>
 		
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
