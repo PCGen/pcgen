@@ -44,7 +44,7 @@
 		<li>Use <a href="globalfilesadd.html#ABILITY">ADD:ABILITY</a> or <a href="globalfilesadd.html#FEAT">ADD:FEAT</a>
 			to activate the selection window. Using ABILITY or VFEAT will bypass the CHOOSE tag.</li>
 		<li>Use it in conjunction with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a>
-  			tag for it to work properly.</li>
+  			tag for it to work properly. <em>EXCEPTION: <code>MULT:YES</code> is not to be used with <code>CHOOSE:NUMBER</code>.</em></li>
 	</ul>
 	<p></p>
 
@@ -486,6 +486,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Allows the selections of a number between the high and low values, inclusive</li>
+		<li>Unlike other <code>CHOOSE</code> tags, <code>MULT:YES</code> is not to be used with <code>CHOOSE:NUMBER</code>.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
