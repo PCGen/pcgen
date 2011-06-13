@@ -6,7 +6,7 @@ RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Chronicles
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,Pathfinder RPG for Game Masters (includes Monsters)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
