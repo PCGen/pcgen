@@ -5,11 +5,11 @@ STATUS:BETA
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
 GENRE:Fantasy
-BOOKTYPE:Core Rules
+BOOKTYPE:Complete Core
 SETTING:Pathfinder Chronicles
 TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Pathfinder RPG for Game Masters (includes Monsters)]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/

@@ -6,7 +6,7 @@ RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Core Rules
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
 SETTING:Pathfinder Chronicles
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
