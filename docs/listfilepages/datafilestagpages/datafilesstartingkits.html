@@ -695,16 +695,35 @@
 		<p class="indent0"><strong><a name="LOCATION">Tag Name:</a></strong> LOCATION:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Location to be equipped)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-		<p class="indent2">LOCATION is used in GEAR lines to specify the location the item will be equipped to.
-			If an item is of a TYPE with a specific slot then setting it to Equipped will equip it there.
-			Only weapons need more specific settings.</p>
+		<ul class="indent2">
+			<li>LOCATION is used in GEAR lines to specify the location the item will be equipped to.
+				If an item is of a TYPE with a specific slot then setting it to Equipped will equip it there.
+				Only weapons need more specific settings.</li>
+			<li>The following are valid &quot;Locations&quot;:
+				<ul>
+					<li>Both Hands</li>
+					<li>Carried</li>
+					<li>Double Weapon</li>
+					<li>Equipped</li>
+					<li>Natural-Primary</li>
+					<li>Natural-Secondary</li>
+					<li>Not Carried</li>
+					<li>Primary Hand</li>
+					<li>Secondary Hand</li>
+					<li>Shield</li>
+					<li>Two Weapons</li>
+				</ul>
+			</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>GEAR:Morningstar &lt;tab&gt; LOCATION:Primary Hand</code></p>
+		<p class="indent3">Equips the Morningstar to the Primary Hand slot.</p>
 		<p class="indent2"><code>GEAR:Leather &lt;tab&gt; LOCATION:Equipped</code></p>
+		<p class="indent3">Equips the Leather armor to the Armor slot.</p>
 		<p class="indent2"><code>GEAR:Shield (Light/Wood) &lt;tab&gt; LOCATION:Equipped</code></p>
+		<p class="indent3">Equips the Shield to the Shield slot.</p>
 		<p class="indent2"><code>GEAR:Javelin &lt;tab&gt; LOCATION:Carried</code></p>
-		<p class="indent3">Equips the Morningstar to the Primary Hand slot, the Leather armor to the Armor slot,
-			the Shield to the Shield slot and the Javelin to Carried.</p>
+		<p class="indent3">Equips the Morningstar to the Javelin to Carried.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">GEAR lines</p>
 		<p></p>
