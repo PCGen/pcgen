@@ -1513,7 +1513,17 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
 	<ul class="indent2">
-		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects.</li>
+		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects. 
+			Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
+					tag, e.g. Template, Race, Equipment, Domain, etc.</li>
+				<li><strong>PC</strong> - Will return a list of all LST objects already taken by the Player Charachter of the type 
+					requested by the <code>CHOOSE</code> tag, e.g. Template, Race, Equipment, Domain, etc.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
+					tag, e.g. Template, Race, Equipment, Domain, etc., that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
 		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
 		<li>Qualifiers can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
