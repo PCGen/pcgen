@@ -60,15 +60,35 @@
 
 <hr>
 
-	<p class="new">*** New 5.15.6</p>
-	<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> CHOOSE:ABILITY|x|y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Ability name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Ability type)</p>
+	<p class="new">*** Updated 5.17.4</p>
+	<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> CHOOSE:ABILITY|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (w):</strong> Text (Ability category)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Name of Feat which contains a <code>CHOOST:ABILITY</code> tag)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Will present a list of abilities, by name and/or type, of the specified category.</li>
-		<li>At least one ability or ability type must be designated for this tag to function properly.</li>
+		<li>Will present a list of abilities of the specified category that matches the stipulated criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of LST objects chosen by the referenced feat.</li>
+		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects. 
+			Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
+					tag, e.g. Template, Race, Equipment, Domain, etc.</li>
+				<li><strong>PC</strong> - Will return a list of all LST objects already taken by the Player Charachter of the type 
+					requested by the <code>CHOOSE</code> tag, e.g. Template, Race, Equipment, Domain, etc.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
+					tag, e.g. Template, Race, Equipment, Domain, etc., that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Criteria can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:ABILITY|FEAT|TYPE=Rogue Abilities</code></p>
@@ -298,6 +318,7 @@
 	<p class="new">*** New 5.17.3</p>
 	<p class="indent0"><strong><a name="FEAT2">Tag Name:</a></strong> CHOOSE:FEAT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Name of Feat which contains a <code>CHOOST:FEAT</code> tag)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Feat type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
@@ -307,6 +328,7 @@
 		<li>This will produce a list of feats matching the stipulated criteria.</li>
 		<li>Parameters can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of LST objects chosen by the referenced feat.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -903,6 +925,9 @@
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless,Undead</code></p>
 	<p class="indent3">No templates are presented as no template is both &quot;Mindless&quot; and &quot;Undead&quot;.</p>
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|TYPE=Foo,PC</code></p>
+	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which is 
+		already selected by the Player Character.</p>
+	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|PC[TYPE=Foo]</code></p>
 	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which is 
 		already selected by the Player Character.</p>
 	<p></p>
