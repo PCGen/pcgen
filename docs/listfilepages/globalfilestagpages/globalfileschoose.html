@@ -78,12 +78,9 @@
 		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects. 
 			Use of the qualifiers has the following effect:
 			<ul>
-				<li><strong>ANY</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
-					tag, e.g. Template, Race, Equipment, Domain, etc.</li>
-				<li><strong>PC</strong> - Will return a list of all LST objects already taken by the Player Charachter of the type 
-					requested by the <code>CHOOSE</code> tag, e.g. Template, Race, Equipment, Domain, etc.</li>
-				<li><strong>QUALIFIED</strong> - Will return a list of all LST objects of the type requested by the <code>CHOOSE</code> 
-					tag, e.g. Template, Race, Equipment, Domain, etc., that the player character is otherwise qualified for.</li>
+				<li><strong>ANY</strong> - Will return a list of all abilities of the designated ability category.</li>
+				<li><strong>PC</strong> - Will return a list of all abilities already taken by the Player Charachter.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all abilities that the player character is otherwise qualified for.</li>
 			</ul>
 		</li>
 		<li>Criteria can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
@@ -279,6 +276,44 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="EQUIPMENT">Tag Name:</a></strong> CHOOSE:EQUIPMENT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> WIELD=Text (Equipment wield type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Equipment type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Equipment type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will present a list of equipment of the specified category that matches the stipulated criteria.</li>
+		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of equipment of the referenced wield type, e.g. Light, One-Handed, Two-Handed.</li>
+		<li>Global qualifiers work for any equipment. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all equipment.</li>
+				<li><strong>PC</strong> - Will return a list of all equipment already taken by the Player Charachter.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all equipment that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Criteria can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Melee.Simple</code></p>
+	<p class="indent3">A list of all &quot;Simple&quot; and &quot;Melee&quot; type feats will be presented.</p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Simple,PC </code></p>
+	<p class="indent3">A list of all simple equipment that the PC has already selected will be presented.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
+		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#CHOOSEEQUIPMENT">CHOOSE:EQUIPMENT (Equipment Modifiers)</a></p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated 5.17.4 - Use <strong><a href="#EQUIPMENT">CHOOSE:EQUIPMENT</a></strong> (See example below) - Remove 6.2</p>
 	<p class="indent0"><strong><a name="EQUIPTYPE">Tag Name:</a></strong> CHOOSE:EQUIPTYPE|x.x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -292,6 +327,8 @@
 	<p class="indent3">Will allow selection from all simple melee weapons.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:EQUIPTYPE|Melee.Simple</code> becomes <code>CHOOSE:EQUIPMENT|TYPE=Melee.Simple</code></p>
 	<p></p>
 
 <hr>
