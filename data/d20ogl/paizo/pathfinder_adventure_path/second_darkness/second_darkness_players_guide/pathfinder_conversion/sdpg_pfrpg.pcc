@@ -36,7 +36,8 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness Player's Guide" Copyrigh
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_abilities.lst
+#ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_abilities.lst
+# Has Spot vs. Perception, moved all to the conversion ability file.
 ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_ability_categories.lst
 CLASS:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_classes.lst
 EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_equipment.lst
