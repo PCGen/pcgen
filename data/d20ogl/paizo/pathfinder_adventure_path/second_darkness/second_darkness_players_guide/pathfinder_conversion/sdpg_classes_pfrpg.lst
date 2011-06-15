@@ -1,11 +1,23 @@
 # CVS $Revision$ $Author$ -- Wed Nov 25 16:12:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
 
-# Class Name		Clear Prereq.	Required AL				Req. Att.	Required Feat						Required Skill
-CLASS:Liberator.MOD	PRE:.CLEAR		PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:5	PREFEAT:3,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3
-# Class Name		Class Skill
-CLASS:Liberator.MOD	CSKILL:Diplomacy|Disable Device|Perception|Stealth
-10	ABILITY:Special Ability|AUTOMATIC|.CLEAR	ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Liberator
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Liberator	HD:10		TYPE:PC.Prestige	ABB:Liber		MAXLEVEL:10	SOURCEPAGE:p. 22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL				Req. Att.	Required Feat						Required Skill
+CLASS:Liberator	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:5	PREFEAT:3,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Liberator	STARTSKILLPTS:2	CSKILL:Diplomacy|Disable Device|Perception|Stealth
+
+1							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|Liberator Poison Resistance|To the Rescue
+2							BONUS:VAR|LiberatorLockbreakerBonus|CL/2	ABILITY:Special Ability|AUTOMATIC|Lockbreaker
+3	BONUS:ABILITYPOOL|Liberator Feat|1								ABILITY:Special Ability|AUTOMATIC|Silent Sunder
+4
+5														ABILITY:Special Ability|AUTOMATIC|Slaver's Ruin
+6														ABILITY:Special Ability|AUTOMATIC|Greater Sunder
+7							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|Steely Resolve
+8																											TEMPLATE:Liberator Darkvision
+9														ABILITY:Special Ability|AUTOMATIC|Quick Pick
+10														ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Liberator
 
 #
 # End
