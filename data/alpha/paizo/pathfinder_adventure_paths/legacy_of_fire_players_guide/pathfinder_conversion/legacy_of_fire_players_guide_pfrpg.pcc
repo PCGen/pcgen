@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Tue Jun 14 18:40:08 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+CAMPAIGN:Paizo - Pathfinder Companion: Legacy of Fire Player's Guide
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Legacy of Fire
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Legacy of Fire Player's Guide
+SOURCESHORT:LoFPG
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb
+SOURCEWEB:http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh
+SOURCEDATE:2009-02
+ISOGL:YES
+ISLICENSED:NO
+
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/legacy_of_fire_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh|Buy this publication from Paizo Publishing!
+DESC:Do what you will, but do not interfere with trade. This is the only law of Katapesh. Under the guidance of the mysterious and alien Pactmasters, this simple rule has allowed Katapesh to become one of the wealthiest nations of the Inner Sea region, where goods, services, and creatures of all kinds are available for the right price. As the location of the Legacy of Fire Adventure Path, Katapesh is a wild land of danger and temptation, home to scheming merchants and bestial gnoll slavers--a perfect place for bold adventurers to prove themselves.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Legacy of Fire Player's Guide, Copyright 2009, Paizo Publishing, LLC; Authors: Brian Cortijo, Stephen S. Greer, James Jacobs, Jonathan H. Keith, F. Wesley Schneider, Amber E. Scott, and James L. Sutter.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Legacy of Fire Player's Guide" Copyright 2009, PCGen Data Team (including, but not limited to Eddy Anthony)
+COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2011, PCGen Data Team (including, but not limited to, Paul Shipley, Eddy Anthony).
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Imported 35e data files
+DEITY:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/lofpg_deities.lst|(INCLUDE:Besmara|Sivanah)
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/lofpg_equipment.lst
+SHIELDPROF:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/lofpg_prof_shield.lst
+WEAPONPROF:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/lofpg_prof_weapon.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/lofpg_templates.lst
+
+ABILITY:lofpg_abilities.lst
+ABILITY:lofpg_abilities_traits.lst
+COMPANIONMOD:lofpg_companionmods.lst
+FEAT:lofpg_feats.lst
+RACE:lofpg_races.lst
+
+#
+# End
+#
