@@ -141,17 +141,6 @@ Spirited Charge.MOD			TYPE:MountedMastery
 Trample.MOD					TYPE:MountedMastery
 Unseat.MOD					TYPE:MountedMastery
 
-
-# Trait bonuses to Turn Undead and Command Undead
-Command Undead.MOD	BONUS:VAR|CommandUndeadDC|1|PREABILITY:1,CATEGORY=Special Ability,Sacred Conduit ~ Trait
-Turn Undead.MOD		BONUS:VAR|TurnUndeadDC|1|PREABILITY:1,CATEGORY=Special Ability,Sacred Conduit ~ Trait
-
-# Improved Channeling adds a bonus to Life Oracle channel DC
-# Extra Channeling adds a bonus to Life Oracle daily limit
-Extra Channel.MOD	BONUS:VAR|ChannelEnergyOracleLifeTimes|2
-Improved Channel.MOD	BONUS:VAR|ChannelEnergyOracleLifeDC|2
-Turn Undead.MOD		BONUS:VAR|TurnUndeadDC|ChannelEnergyOracleLifeLVL/2
-
 #
 # End
 #
