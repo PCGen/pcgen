@@ -66,7 +66,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Ability type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited ability type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
@@ -103,7 +103,7 @@
 
 	<P class="new">*** New 5.17.4</a>
 	<p class="indent0"><strong><a name="ALIGNMENT">Tag Name:</a></strong> CHOOSE:ALIGNMENT|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Alignment by KEY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Alignment by key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Alignment type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited alignment type)</p>
@@ -255,6 +255,50 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="DEITY">Tag Name:</a></strong> CHOOSE:DEITY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALIGN=Text (Alignment abbreviation)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> PANTHEON=Text (Pantheon name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Deity type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited deity type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will present a list of deities that matches the stipulated criteria.</li>
+		<li>Using the <code>ALIGN=Text</code> sub-tag will provide a list of deities of the referenced alignment.</li>
+		<li>Using the <code>PANTEON=Text</code> sub-tag will provide a list of deities of the referenced pantheon.</li>
+		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all deities.</li>
+				<li><strong>PC</strong> - Will return the name of the deity already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all deities that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:DEITY|Set|Ra</code></p>
+	<p class="indent3">A list of the deities <strong>Set</strong> and <strong>Ra</strong> will be presented.</p>
+	<p class="indent2"><code>CHOOSE:DEITY|Set,Ra</code></p>
+	<p class="indent3">No deity list will be presented because no deity can be both <strong>Set</strong> and <strong>Ra</strong>.</p>
+	<p class="indent2"><code>CHOOSE:DEITY|PANTHEON=Olympian,ALIGN=LG</code></p>
+	<p class="indent3">A list of all <strong>Lawful Good</strong> deities of the <strong>Olympian</strong> pantheon will be presented.</p>
+	<p class="indent2"><code>CHOOSE:DEITY|TYPE=Good,PC </code></p>
+	<p class="indent3">A list of all <strong>Good</strong> type deities that the PC has already selected will be presented.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files.</p>
+	<p></p>
+
+<hr>
+
 	<p class="new">*** New 5.9.4</p>
 	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
@@ -295,8 +339,9 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Will present a list of equipment of the specified category that matches the stipulated criteria.</li>
-		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of equipment of the referenced wield type, e.g. Light, One-Handed, Two-Handed.</li>
+		<li>Will present a list of equipment that matches the stipulated criteria.</li>
+		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of equipment of the referenced wield type. The wield type must one of the 
+			following three type: Light, One-Handed, Two-Handed.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all equipment.</li>
@@ -1037,6 +1082,8 @@
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|PC[TYPE=Foo]</code></p>
 	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which is 
 		already selected by the Player Character.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files.</p>
 	<p></p>
 
 <hr>
