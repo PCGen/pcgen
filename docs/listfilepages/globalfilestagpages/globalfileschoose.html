@@ -238,6 +238,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="CSKILLS">Tag Name:</a></strong> CHOOSE:CSKILLS</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -618,6 +619,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="NONCLASSSKILLLIST">Tag Name:</a></strong> CHOOSE:NONCLASSSKILLLIST|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name) or LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -871,6 +873,59 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.3</p>
+	<p class="indent0"><strong><a name="SKILL">Tag Name:</a></strong> CHOOSE:SKILL|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %=Text (Skill, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited skill type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CLASS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> NORANK</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> RANKS=number (Skill ranks)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of skills matching the stipulated criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat  which must contain a 
+			<code>CHOOSE:FEAT</code> tag.</li>
+		<li>Using the <code>CLASS</code> sub-tag will provide a list of all class skills for the PC.</li>
+		<li>Using the <code>CROSSCLASS</code> sub-tag will provide a list of all crossclass skills for the PC.</li>
+		<li>Using the <code>EXCLUSIVE</code> sub-tag will provide a list of all exclusive skills for the PC.</li>
+		<li>Using the <code>NORANK</code> sub-tag will provide a list of all skills in which the PC has no rank.</li>
+		<li>Using the <code>RANKS=n</code> sub-tag will provide a list of all skills in which the PC has n or more ranks.</li>
+		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all skills.</li>
+				<li><strong>PC</strong> - Will return a list of all skills already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all skills that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:SKILL|Search|Spot</code></p>
+	<p class="indent3">Will display a list of skills comprised of the <strong>Search</strong> and <strong>Spot</strong> skills.</p>
+	<p class="indent2"><code>CHOOSE:SKILL|CLASS</code></p>
+	<p class="indent3">This will produce a list of all the character's class skills.</p>
+	<p class="indent2"><code>CHOOSE:SKILL|PC</code></p>
+	<p class="indent3">This will produce a list of all skills the character's has ranks in.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="SKILLS">Tag Name:</a></strong> CHOOSE:SKILLS</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -890,6 +945,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
 	<p class="new">*** Updated 5.9.5</p>
 	<p class="indent0"><strong><a name="SKILLSNAMED">Tag Name:</a></strong> CHOOSE:SKILLSNAMED|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
