@@ -64,7 +64,7 @@
 	<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> CHOOSE:ABILITY|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Ability category)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Name of Feat which contains a <code>CHOOST:ABILITY</code> tag)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Ability type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Ability type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
@@ -74,18 +74,20 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will present a list of abilities of the specified category that matches the stipulated criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of LST objects chosen by the referenced feat.</li>
-		<li>Global qualifiers work for any LST Object which can be qualified with the exception of STAT and ALIGNMENT objects. 
-			Use of the qualifiers has the following effect:
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of abilities chosen by the referenced feat which must contain a 
+			<code>CHOOSE:ABILITY</code> tag.</li>
+		<li>Global qualifiers work with abilities. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all abilities of the designated ability category.</li>
-				<li><strong>PC</strong> - Will return a list of all abilities already taken by the Player Charachter.</li>
+				<li><strong>PC</strong> - Will return a list of all abilities already taken by the Player Character.</li>
 				<li><strong>QUALIFIED</strong> - Will return a list of all abilities that the player character is otherwise qualified for.</li>
 			</ul>
 		</li>
-		<li>Criteria can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:ABILITY|FEAT|TYPE=Rogue Abilities</code></p>
@@ -99,26 +101,20 @@
 
 <hr>
 
-	<P class="new">*** Updated 5.17.4</a>
+	<P class="new">*** New 5.17.4</a>
 	<p class="indent0"><strong><a name="ALIGNMENT">Tag Name:</a></strong> CHOOSE:ALIGNMENT|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Alignment by KEY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Alignment type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited alignment type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of &quot;Alignments&quot;. (e.g. LG, TN, CE, etc. for 3.5e gameMode)</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>ALIGNMENT</strong> selection 
-			made in the named feat, which must contain a <code>CHOOSE:ALIGNMENT</code> tag.</li>
-		<li>The list of alignments is provided as a comma (,) and pipe-delimmited (|) list of alignments:</li>
-		<ul>
-			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in ALL of the items is added to the list.</li>
-			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in any of the items is added to the list</li>
-			<li>All commas are evaluated before pipes.</li>
-		</ul>
+		<li>Use of the <code>FEAT</code> subtag will provide the alignment selected by the referenced feqt which must contain a 
+			<code>CHOOSE:ALIGNMENT</code> tag.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -145,6 +141,9 @@
 	<p class="indent3">Allow the choice of one of Scale Mail or Chainmail.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:ARMORPROF|Chainmail</code> becomes <code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT[Chainmail]</code></p>
+	<p class="indent2"><code>CHOOSE:ARMORPROF|ALL</code> becomes <code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT[ALL]</code></p>
 	<p></p>
 
 <hr>
@@ -152,22 +151,31 @@
 	<p class="new">*** New 5.17.4</p>
 	<p class="indent0"><strong><a name="ARMORPROFICIENCY">Tag Name:</a></strong> CHOOSE:ARMORPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Armor proficiency)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Armor proficiency type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited armor proficiency type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key, that contains a CHOOSE:ARMORPROFICIENCY tag)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any <a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[Text] (Equipment name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[TYPE=Text] (Equipment type</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[!TYPE=Text] (Prohibited equipment type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT[ALL]</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQUIPMENT[x] (Special Qualifier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of all armors matching the criteria.</li>
-		<li>Parameters can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
-			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
-		<li>When using the &quot;EQUIPMENT[x]&quot; subtag, the parameters included inside the brackets are used to identify a list of equipment 
+		<li>This will produce a list of all armor proficiencies matching the criteria.</li>
+		<li>When using the &quot;EQUIPMENT[x]&quot; qualifier the parameters included inside the brackets are used to identify a list of equipment 
 			from which the armor proficiencies are added to the final list of provided armor proficiencies.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat which must contain a 
+			<code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
+		<li>Global qualifiers work for armor proficiencies. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all armor proficiencies.</li>
+				<li><strong>PC</strong> - Will return a list of all armor proficiencies already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all armor proficiencies that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -176,6 +184,10 @@
 	<p class="indent3">Will display a list of proficiencies for all heavy armors.</p>
 	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|Scale Mail|Chainmail</code></p>
 	<p class="indent3">Will display a list consisting of Scale Mail and Chainmail.</p>
+	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT[Chainmail]</code></p>
+	<p class="indent3">Will display a list the proficiencies for Chainmail.</p>
+	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT</code></p>
+	<p class="indent3">Will display a list the proficiencies of all equipment taken.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -202,23 +214,17 @@
 	<p class="new">*** New 5.17.4</p>
 	<p class="indent0"><strong><a name="CHECK">Tag Name:</a></strong> CHOOSE:CKECK|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check by KEY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Check type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited check type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat name.)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of checks (e.g. Will, Reflex, etc).</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>CHECK</strong> selection 
-			made in the named feat, which must contain a <code>CHOOSE:CHECK</code> tag.</li>
-		<li>The list of checks is provided as a comma (,) and pipe-delimmited (|) list of checks:</li>
-		<ul>
-			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in ALL of the items is added to the list.</li>
-			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in any of the items is added to the list</li>
-			<li>All commas are evaluated before pipes.</li>
-		</ul>
+		<li>Use of the <code>FEAT</code> subtag will provide the stat selected by the referenced feat which must contain a 
+			<code>CHOOSE:CHECK</code> tag.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -290,16 +296,18 @@
 	<ul class="indent2">
 		<li>Will present a list of equipment of the specified category that matches the stipulated criteria.</li>
 		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of equipment of the referenced wield type, e.g. Light, One-Handed, Two-Handed.</li>
-		<li>Global qualifiers work for any equipment. Use of the qualifiers has the following effect:
+		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all equipment.</li>
-				<li><strong>PC</strong> - Will return a list of all equipment already taken by the Player Charachter.</li>
+				<li><strong>PC</strong> - Will return a list of all equipment already taken by the Player Character.</li>
 				<li><strong>QUALIFIED</strong> - Will return a list of all equipment that the player character is otherwise qualified for.</li>
 			</ul>
 		</li>
-		<li>Criteria can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Melee.Simple</code></p>
@@ -357,17 +365,28 @@
 	<p class="new">*** New 5.17.3</p>
 	<p class="indent0"><strong><a name="FEAT2">Tag Name:</a></strong> CHOOSE:FEAT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Name of Feat which contains a <code>CHOOST:FEAT</code> tag)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Feat type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any <a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of feats matching the stipulated criteria.</li>
-		<li>Parameters can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat  which must contain a 
+			<code>CHOOSE:FEAT</code> tag.</li>
+		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all feats.</li>
+				<li><strong>PC</strong> - Will return a list of all feats already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all feats that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of LST objects chosen by the referenced feat.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -471,27 +490,33 @@
 	<p class="new">*** New 5.17.4</p>
 	<p class="indent0"><strong><a name="LANG">Tag Name:</a></strong> CHOOSE:LANG|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LANGBONUS</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited language type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> LANGBONUS</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (<a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This presents a list of languages for selection.</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>LANGUAGE</strong> selection 
-			made in the named feat, which must contain a <code>CHOOSE:LANG</code> tag.</li>
+		<li>Use of the <code>FEAT</code> sub-tag will provide the language selected by the referenced feat which must contain a 
+			<code>CHOOSE:LANG</code> tag.</li>
 		<li>Use of <code>LANBONUS</code> will provide a list of languages granted to the character by the <code>LANGBONUS</code> 
 			tag through the character's race, class or template.</li>
-		<li>The list of languages is provided as a comma (,) and pipe-delimmited (|) list of languages:</li>
-		<ul>
-			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in ALL of the items is added to the list.</li>
-			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in any of the items is added to the list</li>
-			<li>All commas are evaluated before pipes.</li>
-		</ul>
+		<li>Global qualifiers work for languages. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all languages.</li>
+				<li><strong>PC</strong> - Will return a list of all languages already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all languages that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:LANG|Common|Goblin</code></p>
@@ -639,14 +664,14 @@
 
 	<P class="new">*** Updated 5.17.4</a>
 	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</a></strong> CHOOSE:SCHOOLS|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (School name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (School name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of &quot;Schools&quot; of magic. (e.g. Abjuration, Evocation, etc.)</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection 
-			made in the named feat, which must contain a <code>CHOOSE:SCHOOLS</code> tag.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection made in the named feat, which must contain a 
+			<code>CHOOSE:SCHOOLS</code> tag.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -655,6 +680,8 @@
 	<p class="indent3">This will produce a list of all schools of magic (abjuration, evocation, etc.).</p>
 	<p class="indent2"><code>CHOOSE:SCHOOLS|FEAT=Spell Focus</code></p>
 	<p class="indent3">This will produce a list of all schools for which the character has the &quot;Spell Focus&quot; feat.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:SCHOOLS</code> becomes <code>CHOOSE:SCHOOLS|ALL</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -692,16 +719,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of sizes (e.g. Small, Colossal, etc).</li>
-		<li>The list of templates is provided as a comma (,) and pipe-delimmited (|) list of templates:</li>
-		<ul>
-			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in ALL of the items is added to the list.</li>
-			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in any of the items is added to the list</li>
-			<li>All commas are evaluated before pipes.</li>
-		</ul>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+		<li>The size list is a pipe (|) delimited list representing the logical <strong>OR</strong>.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SIZE|ALL</code></p>
@@ -939,24 +957,22 @@
 	<p class="new">*** New 5.17.4</p>
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> CHOOSE:TEMPLATE|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name or Key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Template Type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Template Type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (<a href="globalfilesother.html#QUALIFIERS">Global Qualifier</a>)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This presents a list of templates for selection.</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>TEMPLATE</strong> selection 
-			made in the named feat, which must contain a <code>CHOOSE:TEMPLATE</code> tag.</li>
-		<li>The list of templates is provided as a comma (,) and pipe-delimmited (|) list of templates:</li>
-		<ul>
-			<li>The comma (,) represents a logical <em>AND</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in ALL of the items is added to the list.</li>
-			<li>The pipe (|) represents a logical <em>OR</em>, meaning multiple items are evaluated independently and then any 
-				item that appears in any of the items is added to the list</li>
-			<li>All commas are evaluated before pipes.</li>
-		</ul>
+		<li>Use of the <code>FEAT</code> sub-tag will provide a list of templates selected by the referenced feat, which must contain a <code>CHOOSE:TEMPLATE</code> tag.</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|Undead</code></p>
