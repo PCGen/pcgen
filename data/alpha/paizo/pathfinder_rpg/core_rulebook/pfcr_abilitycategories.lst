@@ -15,9 +15,8 @@ ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Character Traits
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display Location
-ABILITYCATEGORY:Traits			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BasicTrait.RaceTrait.ReligionTrait.RegionTrait	PLURAL:Traits			DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Campaign Traits	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CampaignTrait						PLURAL:Campaign Traits		DISPLAYLOCATION:Traits
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Traits			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trait		PLURAL:Traits			DISPLAYLOCATION:Traits
 
 # Archetypes
 ABILITYCATEGORY:Archetype		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype
