@@ -652,12 +652,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.10</p>
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="PROFICIENCY">Tag Name:</a></strong> CHOOSE:PROFICIENCY|x|y|z|z</p>
-<!--
-	<p class="indent1"><strong>Variables Used (x):</strong> ARMOR (Choose Armor Proficiencies)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SHIELD (Choose Shield Proficiencies)</p>
--->
 	<p class="indent1"><strong>Variables Used (x):</strong> WEAPON (Choose Weapon Proficiencies)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> PC (Choose from proficiencies already possessed by PC)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (Choose from all proficiencies)</p>
@@ -677,6 +673,8 @@
 	<p class="indent3">This will produce a list of all Automatic weapon proficiencies the PC does not have and may be selected multiple times.</p>
 	<p class="indent2"><code>Exotic Firearms Proficiency &lt;tab&gt; TYPE:General.Soldier &lt;tab&gt; PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticFirearms &lt;tab&gt; AUTO:WEAPONPROF|%LIST</code></p>
 	<p class="indent3">This will produce a list of all ExoticFirearms weapon proficiencies the PC does not have, must have the two feats Personal Firearms Proficiency,Advanced Firearms Proficiency and may be selected multiple times.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]</code></p>
 	<p class="indent1"><strong>Where this is used at:</strong></p>
 	<p class="indent2">Feat and Ability Files</p>
 	<p></p>
@@ -1166,7 +1164,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.7.1</p>
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="WEAPONPROF">Tag Name:</a></strong> CHOOSE:WEAPONPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Total Selections allowed)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon name)</p>
@@ -1209,12 +1207,69 @@
 	<p class="indent3">Choice of all weapons which have a WIELD tag of either OneHanded or Light.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic</code></p>
 	<p class="indent3">Choice of all weapons which have a WIELD tag of OneHanded which are not Exotic.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|Dagger|Club</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|Dagger|Club</code></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROF|3|DEITYWEAPON </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON &lt;tab&gt; SELECT:3</code></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|WIELD.Light </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|WIELD=OneHanded|WIELD=Light </code></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|WIELD=OneHanded,!TYPE=Exotic </code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
 
 <hr>
 
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="WEAPONPROFICIENCY">Tag Name:</a></strong> CHOOSE:WEAPONPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon proficiency)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPON (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ABILITY=Text (Ability, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> WIELD=Text (Weapon wield type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Weapon proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited weapon proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER[x] (Special qualifier)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of all weapon proficiencies matching the criteria.</li>
+		<li>Using the <code>DEITYWEAPON</code> sub-tag will provide the weapon listed as the favored weapon for the player character's selected deity.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced feat which must contain a 
+			<code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
+		<li>Using the <code>ABILITY=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced ability which must contain a 
+			<code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
+		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of weapon proficiencies for weapons of the referenced wield type. The wield type must one of the 
+			following three types: Light, One-Handed, Two-Handed. <strong>WIELD</strong> type is set for each weapon in the equipment LST file.</li>
+		<li>When using the <code>SPELLCASTER</code> qualifier will provide a list of proficiencies matching the included criteria as long as the player character is a spellcaster.</li>
+		<li>Global qualifiers work for armor proficiencies. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all weapon proficiencies.</li>
+				<li><strong>PC</strong> - Will return a list of all weapon proficiencies already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all weapon proficiencies that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|Longsword|Flail </code></p>
+	<p class="indent3">Will display a list of weapon proficiencies including only <strong>Longsword</strong> and <strong>Flail</strong>.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|Longsword|TYPE=Ranged,PC </code></p>
+	<p class="indent3">Will display a list of weapon proficiencies of the <strong>Ranged</strong> type that the PC is already proficient with.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|SPELLCASTER[Ray] </code></p>
+	<p class="indent3">Will add proficiency with the <strong>Ray</strong> if the PC is a spellcaster.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="WEAPONPROFS">Tag Name:</a></strong> CHOOSE:WEAPONPROFS|x|x.y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPON</p>
@@ -1270,6 +1325,9 @@
 	<p class="indent3">Displays a list of Longsword and Longbow.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
 	<p class="indent3">Choice 3 weapons proficiencies which will be inserted in the %LIST giving you an additional +1 to-hit with them.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|PC</code></p>
+	<p class="sidebar1">NOTE: A <code>SIZE</code> qualifier has not as yet been implemented so there is currently no conversion for the functionality provided by the <code>SIZE.</code> sub-tag.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
