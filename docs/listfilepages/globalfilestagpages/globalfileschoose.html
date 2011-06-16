@@ -162,11 +162,11 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all armor proficiencies matching the criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat which must contain a 
+			<code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
 		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
 			from which the armor proficiencies are taken and added to the final list of provided proficiencies. The criteria included in the 
 			brackets ([x]) are used to summarize armor and not armor proficiencies.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat which must contain a 
-			<code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
 		<li>Global qualifiers work for armor proficiencies. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all armor proficiencies.</li>
@@ -256,9 +256,10 @@
 <hr>
 
 	<p class="new">*** New 5.17.4</p>
-	<p class="indent0"><strong><a name="DEITY">Tag Name:</a></strong> CHOOSE:DEITY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent0"><strong><a name="DEITY">Tag Name:</a></strong> CHOOSE:DEITY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALIGN=Text (Alignment abbreviation)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PANTHEON=Text (Pantheon name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Deity type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited deity type)</p>
@@ -270,6 +271,8 @@
 	<ul class="indent2">
 		<li>Will present a list of deities that matches the stipulated criteria.</li>
 		<li>Using the <code>ALIGN=Text</code> sub-tag will provide a list of deities of the referenced alignment.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of deity selected by the referenced feat which must contain a 
+			<code>CHOOSE:DEITY</code> tag.</li>
 		<li>Using the <code>PANTEON=Text</code> sub-tag will provide a list of deities of the referenced pantheon.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
@@ -299,28 +302,45 @@
 
 <hr>
 
-	<p class="new">*** New 5.9.4</p>
-	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> DIETY=Text (Deity name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> PC</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
+	<p class="new">*** Updated 5.17.4</p>
+	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DEITY=Text (Deity name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Domain type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited domain type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of Domains.</li>
-		<li><code>ANY</code> returns a list of all loaded Domains.</li>
-		<li><code>DIETY=&lt;text&gt;</code> returns a list of Domains granted by specified Deity.</li>
-		<li><code>QUALIFY</code> returns a list of loaded Domains the PC qualifies for but does not have.</li>
-		<li><code>PC</code> returns a list of all domains a character actually has.</li>
+		<li>Will present a list of domains that match the stipulated criteria.</li>
+		<li>Using the <code>DEITY=Text</code> sub-tag will provide a list of domains for the referenced deity.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of domains selected by the referenced feat which must contain a 
+			<code>CHOOSE:DOMAIN</code> tag.</li>
+		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all domains.</li>
+				<li><strong>PC</strong> - Will return the name of the domains already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all domains that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:DOMAIN|Air|Fire|Sun</code></p>
-	<p class="indent3">Will allow selection Air, Fire or Sun Domains.</p>
+	<p class="indent3">A list of domains including <strong>Air</strong>, <strong>Fire</strong> and <strong>Sun</strong> domains will be presented.</p>
 	<p class="indent2"><code>CHOOSE:DOMAIN|DIETY=Kong</code></p>
-	<p class="indent3">Will allow selection any Domain granted by the deity &quot;Kong&quot;.</p>
+	<p class="indent3">A list of domains granted by the deity <strong>Kong</strong> will be presented.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">Deprecated 5.17.4 - Remove 6.2</span></p>
+	<p class="indent2"><code>CHOOSE:DOMAIN|QUALIFY</code></p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:DOMAIN|QUALIFY</code> becomes <code>CHOOSE:DOMAIN|QUALIFIED,!PC</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
