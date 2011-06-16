@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Mon Mar 15 11:43:24 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Thu May  5 11:08:25 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
 ###Block: Conditional Skills for output only
-# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Source Page
-Appraise (Natural stones or metals)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.90	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),SKILL.Appraise.MISC
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value											Source Page
+Appraise (Natural stones or metals)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),SKILL.Appraise.MISC	SOURCEPAGE:p.90
 
 ###Block: Skill .MODs
 # Skill Name	Bonus to skill										Bonus to skill rank
-Appraise.MOD		BONUS:SKILL|Appraise (Natural stones or metals)|SKILL.Appraise.MISC		BONUS:SKILLRANK|Appraise (Natural stones or metals)|skillinfo("TOTALRANK","Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),SKILL.Bluff.MISC
+Appraise.MOD	BONUS:SKILL|Appraise (Natural stones or metals)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Natural stones or metals)|skillinfo("TOTALRANK","Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),SKILL.Appraise.MISC
 
 #
 # End
