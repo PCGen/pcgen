@@ -2,7 +2,7 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 STARTPACK:Character Traits	TYPE:Internal	VISIBLE:NO
-TEMPLATE:Standard Character Traits
+TEMPLATE:Character Traits
 ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Rich Parents	TYPE:StartingKit	VISIBLE:NO

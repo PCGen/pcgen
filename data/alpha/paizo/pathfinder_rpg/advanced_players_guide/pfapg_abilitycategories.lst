@@ -142,7 +142,7 @@ ABILITYCATEGORY:Inquisitor Favored Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 ABILITYCATEGORY:Sorcerer Favored Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer													PLURAL:Sorcerer Favored Bonus Spells	DISPLAYLOCATION:Racial Abilities
 
 # Traits Sub Selections
-ABILITYCATEGORY:Campaign Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Campaign Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices			DISPLAYLOCATION:Traits
 
 ABILITYCATEGORY:Elemental Fist Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Elemental Fist							PLURAL:Elemental Fist Selections		DISPLAYLOCATION:Feats
 

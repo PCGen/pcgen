@@ -2,7 +2,10 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher
 
-###Block: Modify player character races to be equipped with not starting traits as default
+# Modify player character races to have a traits pool, but equipped with the "No Traits" pseudo-trait as a default.
+# In this way, PCs can easily be modified, and NPCs will not be flagged as needing their traits selected.
+
+###Block: Standard races
 # Race Name		Apply Kit
 Dwarf.MOD		KIT:1|Character Traits
 Elf.MOD		KIT:1|Character Traits

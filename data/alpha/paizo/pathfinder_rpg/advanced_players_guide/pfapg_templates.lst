@@ -1,12 +1,11 @@
 # CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
-###Block: Inttial Traits template
-# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Add to vision			Choose									Bonus Languages	Vision		Natural Attacks
-Standard Character Traits		VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|2
-Adventure Path Character Traits	VISIBLE:NO																														BONUS:ABILITYPOOL|Traits|1	BONUS:ABILITYPOOL|Campaign Traits|1
+###Block: Standard character traits template for player character races
+# Template Name		Visible	Bonus to Ability Pool
+Character Traits		VISIBLE:NO	BONUS:ABILITYPOOL|Traits|2
 
-# Eidolon
+###Block: Eidolon templates
 # Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
 # Bite																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 # 2 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:2 Clawed Hands,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
