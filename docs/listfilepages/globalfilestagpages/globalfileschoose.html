@@ -485,10 +485,10 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATADD|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATADD|Dodge|Toughness</code> becomes <code>CHOOSE:FEAT|Dodge|Toughness &lt;tab&gt; ADD:FEAT|%LIST</code></p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
 
 <hr>
@@ -506,10 +506,10 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code> becomes <code>CHOOSE:FEAT|PC[TYPE=Fighter] </code></p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
 
 <hr>
@@ -684,25 +684,51 @@
 <hr>
 
 	<p class="new">*** New 5.9.5</p>
-	<p class="indent0"><strong><a name="RACE">Tag Name:</a></strong> CHOOSE:RACE|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> RACETYPE=x (Race type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> RACESUBTYPE=x (Race subtype)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=x (Race's type tag)</p>
+	<p class="indent0"><strong><a name="RACE">Tag Name:</a></strong> CHOOSE:RACE|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RACETYPE=Text (Race-type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RACESUBTYPE=Text (Race-subtype)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Race type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited race type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of all races that match the criteria specified.</li>
-		<li>To group items together so that all the items in the group must be true use 
-			&quot;[]&quot; to surround the choices.</li>
+		<li>This will produce a list of all races matching the criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of races selected by the referenced feat which must contain a 
+			<code>CHOOSE:RACE</code> tag.</li>
+		<li>Using the <code>RACETYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-type. The referenced 
+			race-type is defined in the race's <code>RACETYPE</code> tag.</li>
+		<li>Using the <code>RACESUBTYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-subtype. The referenced 
+			race-subtype is defined in the race's <code>RACESUBTYPE</code> tag.</li>
+		<li>Global qualifiers work for shield proficiencies. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all races.</li>
+				<li><strong>PC</strong> - Will return a list of all races already selected by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all races that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Dragon</code></p>
 	<p class="indent3">This will produce a list of all races that have the Dragon racial type.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:RACE|[RACETYPE=Humanoid,RACESUBTYPE=Aquatic]</code></p>
+	<p class="indent2"><code>CHOOSE:RACE|CHOOSE:RACE|Dwarf|Elf </code></p>
+	<p class="indent3">This will produce a list of races including only the <strong>Dwarf</strong> and the <strong>Elf</strong>.</p>
+	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
 	<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">Deprecated 5.17.4 - Remove 6.2</span></p>
+	<p class="indent2">The use of brackets ([ ]) to group comma-delimited (,) items to perform a logical <strong>AND</strong> function is no longer required. 
+		The brackets are now used to group items so that a &quot;qualifier&quot; can be applied.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:RACE|[RACETYPE=Humanoid,RACESUBTYPE=Aquatic]</code> becomes <code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -794,11 +820,11 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all shield proficiencies matching the criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of shield proficiencies selected by the referenced feat which must contain a 
+			<code>CHOOSE:SHIELDPROFICIENCY</code> tag.</li>
 		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
 			from which the shield proficiencies are taken and added to the final list of provided shield proficiencies. The criteria included in the 
 			brackets ([x]) are used to summarize shields and not shield proficiencies.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of shiels proficiencies selected by the referenced feat which must contain a 
-			<code>CHOOSE:SHIELDPROFICIENCY</code> tag.</li>
 		<li>Global qualifiers work for shield proficiencies. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all shield proficiencies.</li>
