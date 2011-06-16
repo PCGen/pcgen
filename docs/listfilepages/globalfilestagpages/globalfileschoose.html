@@ -162,8 +162,9 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all armor proficiencies matching the criteria.</li>
-		<li>When using the &quot;EQUIPMENT[x]&quot; qualifier the parameters included inside the brackets are used to identify a list of equipment 
-			from which the armor proficiencies are added to the final list of provided armor proficiencies.</li>
+		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
+			from which the armor proficiencies are taken and added to the final list of provided proficiencies. The criteria included in the 
+			brackets ([x]) are used to summarize armor and not armor proficiencies.</li>
 		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat which must contain a 
 			<code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
 		<li>Global qualifiers work for armor proficiencies. Use of the qualifiers has the following effect:
@@ -688,6 +689,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated Syntax 5.17.4 - Use <a href="#SHIELDPROFICIENCY">CHOOSE:SHIELDPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong><a name="SHIELDPROF">Tag Name:</a></strong> CHOOSE:SHIELDPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Shield name)</p>
@@ -704,6 +706,56 @@
 	<p class="indent2"><code>CHOOSE:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy</code></p>
 	<p class="indent3">This will produce a list of all shields of type &quot;Buckler&quot;, 
 		&quot;Light&quot; and &quot;Heavy&quot;.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROF|Buckler</code> becomes <code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[Buckler]</code></p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROF|ALLbecomes</code> becomes <code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[ALL]</code></p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.17.4</p>
+	<p class="indent0"><strong><a name="SHIELDPROFICIENCY">Tag Name:</a></strong> CHOOSE:SHIELDPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield proficiency)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Shield proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited shield proficiency type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQUIPMENT[x] (Special Qualifier)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of all shield proficiencies matching the criteria.</li>
+		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
+			from which the shield proficiencies are taken and added to the final list of provided shield proficiencies. The criteria included in the 
+			brackets ([x]) are used to summarize shields and not shield proficiencies.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of shiels proficiencies selected by the referenced feat which must contain a 
+			<code>CHOOSE:SHIELDPROFICIENCY</code> tag.</li>
+		<li>Global qualifiers work for shield proficiencies. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all shield proficiencies.</li>
+				<li><strong>PC</strong> - Will return a list of all shield proficiencies already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all shield proficiencies that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROFICIENCY|TYPE=Foo</code></p>
+	<p class="indent3">Will display a list of proficiencies for all shield proficiencies of type <strong>Foo</strong>.</p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROFICIENCY|Buckler|Tower Shield</code></p>
+	<p class="indent3">Will display no proficiencies as no shield will have both proficiencies lisyted.</p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[Buckler]</code></p>
+	<p class="indent3">Will display a list the proficiencies for the Buckler.</p>
+	<p class="indent2"><code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT</code></p>
+	<p class="indent3">Will display a list the shield proficiencies of all shields taken.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
