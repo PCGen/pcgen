@@ -35,7 +35,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Character Tr
 
 # Data Files
 ABILITY:pfctwe_abilities.lst
-ABILITYCATEGORY:pfctwe_abilitycategory.lst
 FEAT:pfctwe_feat.lst
 KIT:pfctwe_kits.lst
 RACE:pfctwe_races.lst

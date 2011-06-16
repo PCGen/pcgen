@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Aug 14 10:54:27 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+# CVS $Revision$ $Author$ -- Thu Jun 16 13:37:38 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 STARTPACK:Character Traits	TYPE:Internal	VISIBLE:NO
-TEMPLATE:Standard Character Traits
+TEMPLATE:Character Traits
 ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Rich Parents	TYPE:StartingKit	VISIBLE:NO

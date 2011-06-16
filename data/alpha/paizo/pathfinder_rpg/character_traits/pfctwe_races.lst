@@ -1,5 +1,5 @@
-# CVS $Revision: 12800 $ $Author: amaitland $ -- Sat Aug 14 18:48:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+# CVS $Revision: 12800 $ $Author: amaitland $ -- Thu Jun 16 13:37:38 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Modify player character races to be equipped with not starting traits as default
