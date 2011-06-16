@@ -261,7 +261,7 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 1				BONUS:VAR|DetectEvilLVL,SmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil	ABILITY:Special Ability|AUTOMATIC|Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
 2				BONUS:VAR|LayOnHandsLVL|CL								ABILITY:Special Ability|AUTOMATIC|Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace	ABILITY:Special Ability|AUTOMATIC|Lay on Hands|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
 3				BONUS:VAR|MercyLVL|CL									ABILITY:Special Ability|AUTOMATIC|Aura of Courage|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage	ABILITY:Special Ability|AUTOMATIC|Divine Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth	ABILITY:Special Ability|AUTOMATIC|Mercy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
-4	CAST:0,0		BONUS:VAR|ChannelEnergyLVL|CL								ABILITY:Special Ability|AUTOMATIC|Channel Positive Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelPositiveEnergy
+4	CAST:0,0		BONUS:VAR|ChannelPositiveEnergyLVL|CL						ABILITY:Special Ability|AUTOMATIC|Channel Positive Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelPositiveEnergy
 5	CAST:0,1		BONUS:VAR|DivineBondLVL|CL								ABILITY:Special Ability|AUTOMATIC|Divine Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
 6	CAST:0,1
 7	CAST:0,1,0
