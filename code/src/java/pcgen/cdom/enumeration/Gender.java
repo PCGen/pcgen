@@ -50,6 +50,14 @@ public enum Gender
 		{
 			return PropertyFactory.getString("in_genderNeuter");
 		}
+	},
+
+	Unknown {
+		@Override
+		public String toString()
+		{
+			return PropertyFactory.getString("in_genderUnknown");
+		}
 	};
 
 	public static Gender getDefaultValue()

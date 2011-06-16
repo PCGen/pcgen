@@ -63,7 +63,7 @@ import pcgen.util.enumeration.Visibility;
 public class TemplateBasePanel extends BasePanel
 {
 	private static final String[] genderLockValues =
-			new String[]{"None", "Male", "Female", "Neuter"};
+			new String[]{"None", "Male", "Female", "Neuter", "Unknown"};
 	private static final String[] visibleValues =
 			new String[]{"No", "Yes", "Export", "Display"};
 	private static final String[] sizeTitles =

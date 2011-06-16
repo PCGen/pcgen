@@ -751,7 +751,7 @@ public final class Globals
 
 	/**
 	 * Get game mode AC text
-	 * @return game mode AC tex
+	 * @return game mode AC text
 	 */
 	public static String getGameModeACText()
 	{
@@ -2456,6 +2456,7 @@ public final class Globals
 		ret.add(Gender.Male); 
 		ret.add(Gender.Female); 
 		ret.add(Gender.Neuter);
+		ret.add(Gender.Unknown);
 //		ret.add(PropertyFactory.getString("in_comboNone")); //$NON-NLS-1$
 //		ret.add(PropertyFactory.getString("in_comboOther")); //$NON-NLS-1$
 
