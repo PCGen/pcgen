@@ -876,7 +876,7 @@
 	<p class="new">*** New 5.17.3</p>
 	<p class="indent0"><strong><a name="SKILL">Tag Name:</a></strong> CHOOSE:SKILL|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %=Text (Skill, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text% (Search pattern by skill name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited skill type)</p>
@@ -892,6 +892,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of skills matching the stipulated criteria.</li>
+		<li>Using the percent sign (%) following a skill name forms a search pattern that will provide a list of skills that match the partial name provided.</li> 
 		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat  which must contain a 
 			<code>CHOOSE:FEAT</code> tag.</li>
 		<li>Using the <code>CLASS</code> sub-tag will provide a list of all class skills for the PC.</li>
@@ -919,6 +920,8 @@
 	<p class="indent3">This will produce a list of all the character's class skills.</p>
 	<p class="indent2"><code>CHOOSE:SKILL|PC</code></p>
 	<p class="indent3">This will produce a list of all skills the character's has ranks in.</p>
+	<p class="indent2"><code>CHOOSE:SKILL|Knowledge%</code></p>
+	<p class="indent3">This will produce a list of all knowledge skills.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
