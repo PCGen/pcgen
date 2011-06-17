@@ -74,8 +74,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will present a list of abilities of the specified category that matches the stipulated criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of abilities chosen by the referenced feat which must contain a 
-			<code>CHOOSE:ABILITY</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of abilities chosen by the referenced feat. 
+			The feat referenced must contain a <code>CHOOSE:ABILITY</code> tag.</li>
 		<li>Global qualifiers work with abilities. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all abilities of the designated ability category.</li>
@@ -111,8 +111,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of &quot;Alignments&quot;. (e.g. LG, TN, CE, etc. for 3.5e gameMode)</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the alignment selected by the referenced feqt which must contain a 
-			<code>CHOOSE:ALIGNMENT</code> tag.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the alignment selected by the referenced feqt. 
+			The feat referenced must contain a <code>CHOOSE:ALIGNMENT</code> tag.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
@@ -162,8 +162,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all armor proficiencies matching the criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat which must contain a 
-			<code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of armor proficiencies selected by the referenced feat. 
+			The feat referenced must contain a <code>CHOOSE:ARMORPROFICIENCY</code> tag.</li>
 		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
 			from which the armor proficiencies are taken and added to the final list of provided proficiencies. The criteria included in the 
 			brackets ([x]) are used to summarize armor and not armor proficiencies.</li>
@@ -222,8 +222,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of checks (e.g. Will, Reflex, etc).</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the stat selected by the referenced feat which must contain a 
-			<code>CHOOSE:CHECK</code> tag.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the stat selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:CHECK</code> tag.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
@@ -235,6 +235,49 @@
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
+
+<hr>
+
+	<p class="new">*** Updated 5.17.4</p>
+	<p class="indent0"><strong><a name="CLASS">Tag Name:</a></strong> CHOOSE:CLASS|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will present a list of classes that matche the stipulated criteria.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of classes chosen by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:CLASS</code> tag.</li>
+		<li>Using the <code>SPELLCASTER</code> sub-tag will provide a list of classes that can cast spells.</li>
+		<li>Global qualifiers work with abilities. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all classes.</li>
+				<li><strong>PC</strong> - Will return a list of all classes already selected by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all classes that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:CLASS|TYPE=Prestige,PC</code></p>
+	<p class="indent3">A list of all <strong>Prestige</strong> type classes that the PC has will be presented.</p>
+	<p class="indent2"><code>CHOOSE:CLASS|Wizard|Fighter</code></p>
+	<p class="indent3">A list of all classes consisting of the <strong>Wizard</strong> and <strong>Fighter</strong> classes will be presented.</p>
+	<p class="indent2"><code>CHOOSE:CLASS|Fighter|TYPE=Prestige,PC</code></p>
+	<p class="indent3">A list of all <strong>Prestige</strong> type classes that the PC has plus the <strong>Fighter</strong> class will be presented.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files.</p>
+<p></p>
 
 <hr>
 
@@ -274,8 +317,8 @@
 	<ul class="indent2">
 		<li>Will present a list of deities that matches the stipulated criteria.</li>
 		<li>Using the <code>ALIGN=Text</code> sub-tag will provide a list of deities of the referenced alignment.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of deity selected by the referenced feat which must contain a 
-			<code>CHOOSE:DEITY</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of deity selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:DEITY</code> tag.</li>
 		<li>Using the <code>PANTEON=Text</code> sub-tag will provide a list of deities of the referenced pantheon.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
@@ -320,8 +363,8 @@
 	<ul class="indent2">
 		<li>Will present a list of domains that match the stipulated criteria.</li>
 		<li>Using the <code>DEITY=Text</code> sub-tag will provide a list of domains for the referenced deity.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of domains selected by the referenced feat which must contain a 
-			<code>CHOOSE:DOMAIN</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of domains selected by the referenced feat. 
+			The feat referenced must contain a <code>CHOOSE:DOMAIN</code> tag.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all domains.</li>
@@ -444,8 +487,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of feats matching the stipulated criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat  which must contain a 
-			<code>CHOOSE:FEAT</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:FEAT</code> tag.</li>
 		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all feats.</li>
@@ -570,8 +613,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This presents a list of languages for selection.</li>
-		<li>Use of the <code>FEAT</code> sub-tag will provide the language selected by the referenced feat which must contain a 
-			<code>CHOOSE:LANG</code> tag.</li>
+		<li>Use of the <code>FEAT</code> sub-tag will provide the language selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:LANG</code> tag.</li>
 		<li>Use of <code>LANBONUS</code> will provide a list of languages granted to the character by the <code>LANGBONUS</code> 
 			tag through the character's race, class or template.</li>
 		<li>Global qualifiers work for languages. Use of the qualifiers has the following effect:
@@ -703,8 +746,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all races matching the criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of races selected by the referenced feat which must contain a 
-			<code>CHOOSE:RACE</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of races selected by the referenced feat.The feat 
+			referenced must contain a <code>CHOOSE:RACE</code> tag.</li>
 		<li>Using the <code>RACETYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-type. The referenced 
 			race-type is defined in the race's <code>RACETYPE</code> tag.</li>
 		<li>Using the <code>RACESUBTYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-subtype. The referenced 
@@ -767,8 +810,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of &quot;Schools&quot; of magic. (e.g. Abjuration, Evocation, etc.)</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection made in the named feat, which must contain a 
-			<code>CHOOSE:SCHOOLS</code> tag.</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection made in the referenced feat. 
+			The feat referenced must contain a <code>CHOOSE:SCHOOLS</code> tag.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -825,8 +868,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all shield proficiencies matching the criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of shield proficiencies selected by the referenced feat which must contain a 
-			<code>CHOOSE:SHIELDPROFICIENCY</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of shield proficiencies selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:SHIELDPROFICIENCY</code> tag.</li>
 		<li>When using the <code>EQUIPMENT</code> qualifier the parameters included inside the brackets are used to identify a list of equipment 
 			from which the shield proficiencies are taken and added to the final list of provided shield proficiencies. The criteria included in the 
 			brackets ([x]) are used to summarize shields and not shield proficiencies.</li>
@@ -898,8 +941,8 @@
 	<ul class="indent2">
 		<li>This will produce a list of skills matching the stipulated criteria.</li>
 		<li>Using the percent sign (%) following a skill name forms a search pattern that will provide a list of skills that match the partial name provided.</li> 
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat  which must contain a 
-			<code>CHOOSE:FEAT</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of feats chosen by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:FEAT</code> tag.</li>
 		<li>Using the <code>CLASS</code> sub-tag will provide a list of all class skills for the PC.</li>
 		<li>Using the <code>CROSSCLASS</code> sub-tag will provide a list of all crossclass skills for the PC.</li>
 		<li>Using the <code>EXCLUSIVE</code> sub-tag will provide a list of all exclusive skills for the PC.</li>
@@ -928,7 +971,8 @@
 	<p class="indent2"><code>CHOOSE:SKILL|Knowledge%</code></p>
 	<p class="indent3">This will produce a list of all knowledge skills.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
+		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#CHOOSESKILL">CHOOSE:ABILITY (Equipment Modifiers)</a></p>
 	<p></p>
 
 <hr>
@@ -1176,7 +1220,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This presents a list of templates for selection.</li>
-		<li>Use of the <code>FEAT</code> sub-tag will provide a list of templates selected by the referenced feat, which must contain a <code>CHOOSE:TEMPLATE</code> tag.</li>
+		<li>Use of the <code>FEAT</code> sub-tag will provide a list of templates selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:TEMPLATE</code> tag.</li>
 		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
@@ -1304,8 +1349,8 @@
 	<ul class="indent2">
 		<li>This will produce a list of all weapon proficiencies matching the criteria.</li>
 		<li>Using the <code>DEITYWEAPON</code> sub-tag will provide the weapon listed as the favored weapon for the player character's selected deity.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced feat which must contain a 
-			<code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced feat. The feat 
+			referenced must contain a <code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
 		<li>Using the <code>ABILITY=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced ability which must contain a 
 			<code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
 		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of weapon proficiencies for weapons of the referenced wield type. The wield type must one of the 
