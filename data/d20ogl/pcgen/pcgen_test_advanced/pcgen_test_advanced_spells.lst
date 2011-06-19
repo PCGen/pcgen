@@ -32,3 +32,7 @@ Charlie Spell	CLASSES:Charlie Class=1		SCHOOL:Evocation|Divination	SUBSCHOOL:Awe
 
 
 
+###ECLIPSE
+Darkness			TYPE:Arcane		DESC:Darkness falls
+Dancing Lights		TYPE:Arcane		DESC:Lights Dance
+Faerie Fire			TYPE:Arcane		DESC:Faeries play with fire.

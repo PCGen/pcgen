@@ -112,3 +112,13 @@ Test Skill Chooser_5	KEYSTAT:WIS				TYPE:ChooserTestingSkill
 
 Ride		USEUNTRAINED:NO
 Tumble	USEUNTRAINED:NO
+
+
+
+Perform (Dance)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
+Perform (Sing)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
+
+
+# Mystic Artist Sub Skills
+Perform (Dance).MOD													TYPE:AdeptChoice.NormalSkill								BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
+Perform (Sing).MOD													TYPE:AdeptChoice.NormalSkill								BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill

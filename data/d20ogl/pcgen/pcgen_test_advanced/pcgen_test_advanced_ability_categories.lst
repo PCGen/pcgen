@@ -31,7 +31,23 @@ ABILITYCATEGORY:Force Secrets			CATEGORY:Force Secrets												VISIBLE:QUALIF
 ABILITYCATEGORY:Test Choosers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Chooser		PLURAL:Choosers		DISPLAYLOCATION:Class Abilities
 
 # EClipse Stuff
-ABILITYCATEGORY:Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact												PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.Extra												PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Class Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																											PLURAL:Class Skill Choices				DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Skill Buy		VISIBLE:NO									FRACTIONALPOOL:YES	CATEGORY:Skill Buy
+#
+ABILITYCATEGORY:Character Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Skill Buy	TYPE:SkillBuy	PLURAL:Character Skills		DISPLAYLOCATION:Character Creation Pool
+
+
+###Block: Paths of Power ----------------------------------------------------------------------------------------------
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Mystic Artist Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistSkill										DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Mystic Artist Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistChoice										DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Disadvantages					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Disadvantage																																												PLURAL:Disadvantages					DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Internal			CATEGORY:Internal
+
+
 
 ABILITYCATEGORY:CODE-362				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:CODE-362A												PLURAL:CODE-362 Test			DISPLAYLOCATION:Feats
 

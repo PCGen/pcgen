@@ -96,3 +96,5 @@ Test-49-6				TYPE:Test.Exotic
 Test-49-7				TYPE:Test.Exotic
 
 
+Crossbow (Hand)			TYPE:RangedDrow
+Sword (Short)			TYPE:MeleeDrow
