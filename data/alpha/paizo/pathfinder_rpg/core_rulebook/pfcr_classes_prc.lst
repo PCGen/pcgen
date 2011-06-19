@@ -170,7 +170,7 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religi
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Pathfinder Chronicler	HD:6		TYPE:PC.Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.388	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.388	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Skill
 CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profession (Scribe)=5
 # Class Name			Skill Pts/Lvl	Class Skill
