@@ -138,7 +138,7 @@ public final class ExportHandler
 	private final Map<Object, Object> loopVariables =
 			new HashMap<Object, Object>();
 
-	/** TODO What is this used for? */
+	/** The delimiter used by embedded DFOR/FOR loops */
 	private String csheetTag2 = "\\";
 
 	/** A state variable to indicate whether we skip processing the math */

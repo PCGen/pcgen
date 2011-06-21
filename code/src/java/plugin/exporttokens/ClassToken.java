@@ -42,7 +42,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 /**
- * Deal with tokens below CLASS.x CLASS.x.LEVEL CLASS.x.SALIST
+ * Deal with tokens below CLASS.x CLASS.x.LEVEL, CLASS.x.TYPE, CLASS.x.SALIST
  */
 public class ClassToken extends Token {
 	/** Token name */
