@@ -691,11 +691,14 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to caster level)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>Each spellcasting class can have a concentration check bonus associated with it, depending on the game mode. This bonus is defined with the SPELLBASECONCENTRATION game mode tag.</li>
-		<li>If the game mode does not contain a <a href="../systemfilestagpages/gamemodemiscinfolist.html#SPELLBASECONCENTRATION">SPELLBASECONCENTRATION</a> tag, the output tokens SPELLLISTCLASS.y.CONCENTRATION and SPELLMEM.v.w.x.y.CONCENTRATION will generate an empty string. Output sheets should check the value of these tokens, and if empty should not display concentration check bonuses.</li>
-		<li>This BONUS statement can be used to increase the concentration check bonus for all spells or spells selected by severeal criteria.</li>
-		<li>This BONUS statement can be used to increase the concentration check bonus of innate racial spells.</li>
+		<li>Adds to the base concentration bonus for spells, both innate racial spells and those granted by spellcasting class, per the criteria identified.</li>
+		<li>Each spellcasting class will have a concentration check bonus associated with it.</li>
 	</ul>
+	<p class="sidebar1"><strong>NOTE: </strong>This bonus is defined with the <code>SPELLBASECONCENTRATION</code> game mode tag. If the game 
+		mode does not contain a <a href="../systemfilestagpages/gamemodemiscinfolist.html#SPELLBASECONCENTRATION">SPELLBASECONCENTRATION</a> 
+		tag the output tokens, <a href="../../outputsheetpages/tokens/outputsheettokensspell.html#SPELLLIST">SPELLLISTCLASS.y.CONCENTRATION</a> 
+		and <a href="../../outputsheetpages/tokens/outputsheettokensspell.html#SPELLMEM">SPELLMEM.v.w.x.y.CONCENTRATION</a>, will generate an 
+		empty string. Output sheets should check the value of these tokens, and if empty should not display concentration check bonuses.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|ALLSPELLS|1</code></p>
 	<p class="indent3">Adds 1 the concentration check bonuses for all spells.</p>

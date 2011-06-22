@@ -1232,8 +1232,12 @@
 		<p class="indent0"><strong><a name="SPELLBASECONCENTRATION">Tag Name:</a></strong> SPELLBASECONCENTRATION:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Formula (used to determine a spells base concentration check bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This formula is used to determine the starting BASE concentration check bonus for a spell.</p>
-		<p class="indent2">If the game mode does not contain a SPELLBASECONCENTRATION tag, the output tokens SPELLLISTCLASS.y.CONCENTRATION and SPELLMEM.v.w.x.y.CONCENTRATION will generate an empty string. Output sheets should check the value of these tokens, and if empty should not display concentration check bonuses.</p>
+		<p class="indent2">This formula is used to determine the starting <strong>BASE</strong> concentration check bonus for a spell.</p>
+		<p class="sidebar"><strong>NOTE: </strong>If the game mode does not contain a 
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#SPELLBASECONCENTRATION">SPELLBASECONCENTRATION</a> tag, the output 
+			tokens <a href="../../outputsheetpages/tokens/outputsheettokensspell.html#SPELLLIST">SPELLLISTCLASS.y.CONCENTRATION</a> and 
+			<a href="../../outputsheetpages/tokens/outputsheettokensspell.html#SPELLMEM">SPELLMEM.v.w.x.y.CONCENTRATION</a> will generate 
+			an empty string. Output sheets should check the value of these tokens, and if empty should not display concentration check bonuses.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLBASECONCENTRATION:CASTERLEVEL+BASESPELLSTAT</code></p>
 		<p class="indent3">Adds the spell's caster level and the primary stat bonus of the caster to come to the total.</p>
