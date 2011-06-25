@@ -581,6 +581,46 @@
 
 <hr>
 
+	<p class="new">*** New 5.17.3</p>
+	<p class="indent0"><strong><a name="FEATSELECTION">Tag Name:</a></strong> CHOOSE:FEATSELECTION|x|y|y[z]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Feat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of feats, resolved down to the internal feat selections, matching the stipulated criteria.</li>
+		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all feats.</li>
+				<li><strong>PC</strong> - Will return a list of all feats already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all feats that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|Dodge|Toughness</code></p>
+	<p class="indent3">Will display a list of feats comprised of the &quot;Dodge&quot; and &quot;Toughness&quot; feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|TYPE=Fighter,PC</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|PC[TYPE=Fighter]</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|TYPE=Fighter</code></p>
+	<p class="indent3">This will produce a list of all fighter feats.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
 	<p class="new">*** Deprecated - Use <strong><a href="#STRING">CHOOSE:STRING</a></strong> - Remove for 6.2</p>
 	<p class="indent0"><strong><a name="HP">Tag Name:</a></strong> CHOOSE:HP|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Display name)</p>
