@@ -20,6 +20,7 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 
 #ABILITY:my_abilities.lst
 #ABILITYCATEGORY:my_ability_categories.lst
+#ARMORPROFS:my_armorprofs.lst
 #BIOSET:my_biosettings.lst
 #CLASS:my_classes.lst
 #COMPANIONMOD:my_companionmods.lst
@@ -31,6 +32,7 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 #KIT:my_kits.lst
 #LANGUAGE:my_languages.lst
 #RACE:my_races.lst
+#SHIELDPROFS:my_shieldprofs.lst
 #SKILL:my_skills.lst
 #SPELL:my_spells.lst
 #TEMPLATE:my_templates.lst
