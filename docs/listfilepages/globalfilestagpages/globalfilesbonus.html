@@ -1483,6 +1483,22 @@
 
 <hr>
 
+	<p class="indent0"><strong><a name="SPELLCAST">Tag Name:</a></strong> BONUS:SPELLCAST|x;y|z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> LEVEL=Number (Spell level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds additional spell slots.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1</code></p>
+	<p class="indent3">You can cast 1 more 1<sup>st</sup> lvl <code>Wizard</code> spell.</p>
+	<p class="indent2"><code>BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1</code></p>
+	<p class="indent3">You can cast 1 more 1<sup>st</sup> lvl spell of Arcane type.</p>
+ 	<p></p>
+<!--
+<hr>
+
 	<p class="indent0"><strong><a name="SPELLCASTCLASSLEVEL">Tag Name:</a></strong> BONUS:SPELLCAST|CLASS=x;LEVEL=y|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
@@ -1506,7 +1522,23 @@
 	<p class="indent2"><code>BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1</code></p>
 	<p class="indent3">You can cast 1 more 1<sup>st</sup> lvl spell of Arcane type.</p>
 	<p></p>
+-->
+<hr>
 
+	<p class="indent0"><strong><a name="SPELLCASTMULT">Tag Name:</a></strong> BONUS:SPELLCASTMULT|x;y|z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> LEVEL=Number (Spell level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds additional spell slots.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2</code></p>
+	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl <code>Wizard</code> spells as normal.</p>
+	<p class="indent2"><code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code></p>
+	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl spell of Arcane type as normal.</p>
+	<p></p>
+<!--
 <hr>
 
 	<p class="indent0"><strong><a name="SPELLCASTMULTCLASSLEVEL">Tag Name:</a></strong> BONUS:SPELLCASTMULT|CLASS=x;LEVEL=y|z</p>
@@ -1532,7 +1564,23 @@
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code></p>
 	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl spell of Arcane type as normal.</p>
 	<p></p>
+-->
+<hr>
 
+	<p class="indent0"><strong><a name="SPELLKNOWN">Tag Name:</a></strong> BONUS:SPELLKNOWN</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> LEVEL=Number (Spell level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds additional known spells.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1</code></p>
+	<p class="indent3">You know 1 more 1<sup>st</sup> lvl Bard spell.</p>
+	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code></p>
+	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl Bard spells.</p>
+	<p></p>
+<!--
 <hr>
 
 	<p class="indent0"><strong><a name="SPELLKNOWNCLASSLEVEL">Tag Name:</a></strong> BONUS:SPELLKNOWN|CLASS=x;LEVEL=y|z</p>
@@ -1558,7 +1606,24 @@
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1</code></p>
 	<p class="indent3">You know 1 more 1<sup>st</sup> lvl spell of Arcane type.</p>
 	<p></p>
+-->
+<hr>
 
+	<p class="new">*** New 5.5.2</p>
+	<p class="indent0"><strong><a name="SPELLKNOWNMULT">Tag Name:</a></strong> BONUS:SPELLKNOWNMULT|x;y|z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Stat name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> LEVEL=Number (Spell level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds additional known spells.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code></p>
+	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl Bard spells.</p>
+	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2</code></p>
+	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl spells of Arcane type.</p>
+	<p></p>
+<!--
 <hr>
 
 	<p class="new">*** New 5.5.2</p>
@@ -1586,7 +1651,7 @@
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2</code></p>
 	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl spells of Arcane type.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="indent0"><strong><a name="STAT">Tag Name:</a></strong> BONUS:STAT|x,x|y</p>
