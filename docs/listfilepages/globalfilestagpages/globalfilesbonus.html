@@ -289,11 +289,15 @@
 <hr>
 
 	<p class="indent0"><strong><a name="CHECKS">Tag Name:</a></strong> BONUS:CHECKS|x,x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Any check defined in the GameMode - e.g. Fortitude,Reflex,Willpower)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> BASE.Text (Check name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>Adds to the indicated saving throw.</li>
+		<li>Adds to the indicated check.</li>
+		<li>Using the <code>BASE.x</code> syntax adds to indicated base check (normally only used in class progressions).</li>
+		<li>Valid checks, e.g. Fortitude,Reflex,Will, are defined in the GameMode.</li>
 		<li>Substitution is allowed through the use of <code>%LIST</code>.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -307,8 +311,14 @@
 		Wisdom for Willpower saves'?</p>
 	<p class="indent2"><code>BONUS:CHECKS|Fortitude|2|TYPE=Resistance</code></p>
 	<p class="indent3">Adds two to Fortitude checks due to Resistance.</p>
+	<p class="indent2"><code>BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1</code></p>
+	<p class="indent3">Adds one to the base &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
+	<p class="indent2"><code>BONUS:CHECKS|ALL|1</code></p>
+	<p class="indent3">Adds one to the all saves.</p>
+	<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
+	<p class="indent3">Adds three to all saves, due to morale, to all PC Characters.</p>
 	<p></p>
-
+<!--
 <hr>
 
 	<p class="indent0"><strong><a name="CHECKSBASE">Tag Name:</a></strong> BONUS:CHECKS|BASE.x,BASE.x|y</p>
@@ -337,7 +347,7 @@
 	<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Adds three to all saves, due to morale, to all PC Characters.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="indent0"><strong><a name="COMBAT">Tag Name:</a></strong> BONUS:COMBAT|x</p>
