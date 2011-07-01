@@ -737,7 +737,22 @@
 	<p class="new">*** deprecated 5.5.8 - Remove 6.0 - Use <a href="#COMBATDAMAGE">BONUS:COMBAT|DAMAGE.x|y</a></p>
 	<p class="indent0"><strong><a name="DAMAGETYPE">Tag Name:</a></strong> BONUS:DAMAGE|TYPE.x|y</p>
 	<p></p>
+<!--
+<hr>
 
+	<p class="new">*** Updated 5.5.5</p>
+	<p class="indent0"><strong><a name="DC">Tag Name:</a></strong> BONUS:DC|SPELL.x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds to the DC (Difficulty Class) of a specific spell.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
+	<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
+	<p class="indent2"><code>CHOOSE:SCHOOLS|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
+	<p class="indent3">Choose 1 School and add 1 to its DC.</p>
+	<p></p>
+-->
 <hr>
 
 	<p class="new">*** Updated 5.5.5</p>
@@ -1255,6 +1270,52 @@
 	<p class="new">*** Updated 5.7.14</p>
 	<p class="indent0"><strong><a name="SKILL">Tag Name:</a></strong> BONUS:SKILL|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> STAT.Text (Stat name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to
+		skill level)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds bonus to skills matchng the listed criteria.</li>
+		<li>When the <code>STAT</code> subtag is used this will add to skills based on the listed stat.</li>
+		<li>When the <code>TYPE</code> subtag is used this will add to skills of the listed type.</li>
+		<li>The <code>LIST</code> subtag is used in conjunction with a <code>CHOOSE</code> tag and will add to skills chosen.</li>
+		<li>There is no leading space between the comma groups.</li>
+	</ul>
+	<p class="sidebar1">Note: Don't forget the space in subsets (i.e. between Craft and (Metalworking),Craft (Metalworking))</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|10</code></p>
+	<p class="indent3">Adds 10 to &quot;Bluff&quot; &amp; &quot;Listen&quot;.</p>
+	<p class="indent2"><code>BONUS:SKILL|TYPE=Charisma|2</code></p>
+	<p class="indent3">Adds 2 to Charisma type skills.</p>
+	<p class="indent2"><code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code></p>
+	<p class="indent3">Adds 5 to Spot skill if you don't already have it. Otherwise adds one to get
+		you started.</p>
+	<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC
+		&lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
+	<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you
+		figure out the math.</p>
+	<p class="indent2"><code>BONUS:SKILL|Hide|1|TYPE=Talent.STACK</code></p>
+	<p class="indent3">Adds 1 to Hide skill due to Talent and does Stack with all other Talent type.</p>
+	<p class="indent2"><code>Balance.MOD &lt;tab&gt; BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK</code></p>
+	<p class="indent3">Modifies the Balance skill to include the Synergy Bonus.</p>
+	<p class="indent2"><code>BONUS:SKILL|STAT.STR|1</code></p>
+	<p class="indent3">Adds one to all &quot;Strength&quot; based skills.</p>
+	<p class="indent2"><code>BONUS:SKILL|LIST|2</code></p>
+	<p class="indent3">Adds two to selected &quot;Strength&quot; skill.</p>
+	<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt; BONUS:SKILL|LIST|6|TYPE=Legendary</code></p>
+	<p class="indent3">Adds six to the two selected Class Skills skill learned during Legendary Class.</p>
+	<p class="indent2"><code>BONUS:SKILL|ALL|1</code></p>
+	<p class="indent3">Adds one to all skills.</p>
+	<p></p>
+<!--
+<hr>
+
+	<p class="new">*** Updated 5.7.14</p>
+	<p class="indent0"><strong><a name="SKILL">Tag Name:</a></strong> BONUS:SKILL|x,x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to
 		skill level)</p>
@@ -1316,7 +1377,7 @@
 	<p class="indent2"><code>BONUS:SKILL|STAT.STR|1</code></p>
 	<p class="indent3">Adds one to all &quot;Strength&quot; based skills.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="new">*** Updated 5.7.14</p>
