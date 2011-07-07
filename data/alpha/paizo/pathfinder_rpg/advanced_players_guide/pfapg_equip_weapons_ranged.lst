@@ -1,16 +1,19 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
 ####Block: Martial Weapons
-# Equipment Name	Output Name				Required Weapon Proficiency			Type													Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page
+# Equipment Name	Output Name				Required Weapon Proficiency			Type													Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page		Special Property
 Chakram							PROFICIENCY:WEAPON|Chakram			TYPE:Weapon.Martial.Ranged.Thrown.Standard.Slashing.Chakram							COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	RANGE:30	SIZE:M	SOURCEPAGE:p.177
 Pilum								PROFICIENCY:WEAPON|Pilum			TYPE:Weapon.Martial.Ranged.Thrown.Standard.Piercing.Pilum.Javelin.Spear					COST:5	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:20	SIZE:M	SOURCEPAGE:p.177
 
 ####Block: Exotic Weapons
-# Equipment Name	Output Name				Required Weapon Proficiency			Type													Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page
+# Equipment Name	Output Name				Required Weapon Proficiency			Type													Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page		Special Property
 Boomerang							PROFICIENCY:WEAPON|Boomerang			TYPE:Weapon.Exotic.Ranged.Standard.Bludgeoning.Thrown.Consumable						COST:3	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:30	SIZE:M	SOURCEPAGE:p.177
 Crossbow (Double)	OUTPUTNAME:Crossbow, [NAME]	PROFICIENCY:WEAPON|Crossbow (Double)	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow	CONTAINS:2|Bolt=2	COST:300	WT:18		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD	RANGE:80			SOURCEPAGE:p.177
+
+####Block: Other
+Bomb								PROFICIENCY:WEAPON|Bomb				TYPE:Weapon.Exotic.Ranged.Standard.Splash														CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			RANGE:20						SPROP:%d6 bonus damage|BombDamageNumber-1|PREVARGT:BombDamageNumber,1
 
 ##
 ## End

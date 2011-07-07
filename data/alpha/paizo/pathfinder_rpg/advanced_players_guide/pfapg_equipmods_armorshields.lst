@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
 ###Block: Magic Armor
-# Modifier Name	Unique Key	Type			Cost		Visible		Source Page		Multiple Requirements							Bonus to skill				Special Property																				Ability											Innate Spells
-Champion		KEY:CHAMP	TYPE:Armor		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:+2 sacred bonus to AC against attacks from the chosen opponent.|PREABILITY:1,CATEGORY=Special Ability,Smite Evil,Challenge
-Dastard		KEY:DSTRD	TYPE:Armor		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:+2 profane bonus to AC against attacks from the chosen opponent.|PREABILITY:1,CATEGORY=Special Ability,Smite Good,Challenge
-Determination	KEY:DTRMN	TYPE:Armor		COST:30000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:Once per day, when the owner reaches 0 or fewer hit points, the item automatically provides a breath of life spell.
-Jousting		KEY:JSTNG	TYPE:Armor.Shield	COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]	BONUS:SKILL|Ride|5|TYPE=Competence	SPROP:+5 competence bonus on Ride skill checks.
-Righteous		KEY:RGHTS	TYPE:Armor		COST:27000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:On command once per day can invoke an effect as per the spell righteous might.								ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LE,NE,CE	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
-Unrighteous		KEY:UNRGHTS	TYPE:Armor		COST:27000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:On command once per day can invoke an effect as per the spell righteous might.								ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,NG,CG	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
+# Modifier Name	Unique Key	Type			Plus		Cost		Visible		Source Page		Multiple Requirements							Bonus to skill				Special Property																				Ability											Innate Spells
+Champion		KEY:CHAMP	TYPE:Armor		PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:+2 sacred bonus to AC against attacks from the chosen opponent.|PREABILITY:1,CATEGORY=Special Ability,Smite Evil,Challenge
+Dastard		KEY:DSTRD	TYPE:Armor		PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:+2 profane bonus to AC against attacks from the chosen opponent.|PREABILITY:1,CATEGORY=Special Ability,Smite Good,Challenge
+Determination	KEY:DTRMN	TYPE:Armor				COST:30000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:Once per day, when the owner reaches 0 or fewer hit points, the item automatically provides a breath of life spell.
+Jousting		KEY:JSTNG	TYPE:Armor.Shield			COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]	BONUS:SKILL|Ride|5|TYPE=Competence	SPROP:+5 competence bonus on Ride skill checks.
+Righteous		KEY:RGHTS	TYPE:Armor				COST:27000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:On command once per day can invoke an effect as per the spell righteous might.								ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LE,NE,CE	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
+Unrighteous		KEY:UNRGHTS	TYPE:Armor				COST:27000	VISIBLE:QUALIFY	SOURCEPAGE:p.283	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]							SPROP:On command once per day can invoke an effect as per the spell righteous might.								ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,NG,CG	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
 
 ##
 ## Block: Orocular Revelations

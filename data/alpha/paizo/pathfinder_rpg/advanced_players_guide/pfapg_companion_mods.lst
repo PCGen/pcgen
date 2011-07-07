@@ -1,174 +1,175 @@
-# CVS $Revision$ $Author$ -- Fri Feb 25 16:34:39 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond & Andrew Maitland
 
 # Favored Class Bonus Hit Points
-FOLLOWER:CompLevel=1		TYPE:Animal Companion		DEFINE:AnimalCompHP|0	BONUS:HP|CURRENTMAX|var("AnimalCompHP")
+# Class of the Master		Type				Hit Dice	Damage Reduction	Ability											Automatically Gained Feat	Define											Bonus to Ability Pool												Combat bonus					Damage reduction	Bonus to HP							Stat bonus			Modify VAR
+FOLLOWER:CompLevel=1		TYPE:Animal Companion																							DEFINE:AnimalCompHP|0																																		BONUS:HP|CURRENTMAX|var("AnimalCompHP")
 
-FOLLOWER:AnimalCompHP=1		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=2		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=3		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=4		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=5		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=6		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=7		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=8		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=9		TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=10	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=11	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=12	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=13	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=14	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=15	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=16	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=17	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=18	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=19	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
-FOLLOWER:AnimalCompHP=20	TYPE:Animal Companion																																																																																										BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=1		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=2		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=3		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=4		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=5		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=6		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=7		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=8		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=9		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=10	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=11	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=12	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=13	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=14	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=15	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=16	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=17	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=18	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=19	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
+FOLLOWER:AnimalCompHP=20	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompHP|1
 
 # Animal Companion Skill Bonus
-FOLLOWER:CompLevel=1		TYPE:Animal Companion			DEFINE:AnimalCompSP|0	BONUS:ABILITYPOOL|Companion Bonus Skill|var("AnimalCompSP")
+FOLLOWER:CompLevel=1		TYPE:Animal Companion																							DEFINE:AnimalCompSP|0									BONUS:ABILITYPOOL|Companion Bonus Skill|var("AnimalCompSP")
 
-FOLLOWER:AnimalCompSP=1		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=2		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=3		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=4		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=5		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=6		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=7		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=8		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=9		TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=10	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=11	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=12	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=13	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=14	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=15	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=16	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=17	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=18	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=19	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
-FOLLOWER:AnimalCompSP=20	TYPE:Animal Companion																																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=1		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=2		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=3		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=4		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=5		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=6		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=7		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=8		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=9		TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=10	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=11	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=12	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=13	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=14	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=15	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=16	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=17	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=18	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=19	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
+FOLLOWER:AnimalCompSP=20	TYPE:Animal Companion																																																																								BONUS:VAR|AnimalCompSP|1
 
 # Favored Class Bonus DR
-FOLLOWER:AnimalCompDR=1		TYPE:Animal Companion		DR:1/Magic
-FOLLOWER:AnimalCompDR=3		TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=5		TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=7		TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=9		TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=11	TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=13	TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=15	TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=17	TYPE:Animal Companion		BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=19	TYPE:Animal Companion		BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=1		TYPE:Animal Companion			DR:1/Magic
+FOLLOWER:AnimalCompDR=3		TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=5		TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=7		TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=9		TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=11	TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=13	TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=15	TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=17	TYPE:Animal Companion																																																									BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=19	TYPE:Animal Companion																																																									BONUS:DR|Magic|1
 
 
 # Nature Warden Companion abilities
-FOLLOWER:CompanionBondLVL=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Empathic Link
-FOLLOWER:CompanionBondLVL=5	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion Favored Terrain
+FOLLOWER:CompanionBondLVL=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Empathic Link
+FOLLOWER:CompanionBondLVL=5	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion Favored Terrain
 
 
 # Favored Class Eidolon HP Bonus
-FOLLOWER:EidolonLevel=1		TYPE:Eidolon			DEFINE:EidolonHP|0	BONUS:HP|CURRENTMAX|var("EidolonHP")
+FOLLOWER:EidolonLevel=1		TYPE:Eidolon																								DEFINE:EidolonHP|0																																		BONUS:HP|CURRENTMAX|var("EidolonHP")
 
-FOLLOWER:EidolonHP=1		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=2		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=3		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=4		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=5		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=6		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=7		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=8		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=9		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=10		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=11		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=12		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=13		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=14		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=15		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=16		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=17		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=18		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=19		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
-FOLLOWER:EidolonHP=20		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=1		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=2		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=3		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=4		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=5		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=6		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=7		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=8		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=9		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=10		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=11		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=12		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=13		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=14		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=15		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=16		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=17		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=18		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=19		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
+FOLLOWER:EidolonHP=20		TYPE:Eidolon																																																																									BONUS:VAR|EidolonHP|1
 
 # Favored Class Eidolon Skill Bonus
-FOLLOWER:EidolonLevel=1		TYPE:Eidolon			DEFINE:EidolonSP|0	BONUS:ABILITYPOOL|Eidolon Bonus Skill|var("EidolonSP")
+FOLLOWER:EidolonLevel=1		TYPE:Eidolon																								DEFINE:EidolonSP|0									BONUS:ABILITYPOOL|Eidolon Bonus Skill|var("EidolonSP")
 
-FOLLOWER:EidolonSP=1		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=2		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=3		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=4		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=5		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=6		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=7		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=8		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=9		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=10		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=11		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=12		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=13		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=14		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=15		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=16		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=17		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=18		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=19		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
-FOLLOWER:EidolonSP=20		TYPE:Eidolon																																																																																								BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=1		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=2		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=3		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=4		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=5		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=6		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=7		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=8		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=9		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=10		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=11		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=12		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=13		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=14		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=15		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=16		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=17		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=18		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=19		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
+FOLLOWER:EidolonSP=20		TYPE:Eidolon																																																																									BONUS:VAR|EidolonSP|1
 
 # Favored Class Eidolon Evolution Bonus
-FOLLOWER:EidolonEP=4		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonEP=8		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonEP=12		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonEP=16		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonEP=20		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:EidolonEP=4		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:EidolonEP=8		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:EidolonEP=12		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:EidolonEP=16		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:EidolonEP=20		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1
 
 
 # Base Eidolon
-FOLLOWER:EidolonLevel=1		TYPE:Eidolon				ABILITY:Special Ability|AUTOMATIC|Link~Eidolon|Share Spells~Eidolon		DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4	BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
-FOLLOWER:EidolonLevel=2		TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																															BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=3		TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=4		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|2																																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=5		TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=6		TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																														BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=7		TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=8		TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=9		TYPE:Eidolon		HD:1														AUTO:FEAT|Multiattack																						BONUS:ABILITYPOOL|Eidolon Evolution|2																																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=10	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=11	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=12	TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=13	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=14	TYPE:Eidolon		HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																													BONUS:ABILITYPOOL|Eidolon Evolution|2																																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=15	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=16	TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=17	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=18	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLevel=19	TYPE:Eidolon		HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|2																																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLevel=20	TYPE:Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK														BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=1		TYPE:Eidolon							ABILITY:Special Ability|AUTOMATIC|Link~Eidolon|Share Spells~Eidolon						DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4																									BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:EidolonLevel=2		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Evasion																							BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=3		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=4		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=5		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=6		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Devotion																						BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=7		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=8		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=9		TYPE:Eidolon		HD:1																	AUTO:FEAT|Multiattack														BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=10	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=11	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=12	TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=13	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=14	TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																					BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=15	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=16	TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=17	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=18	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1																															BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLevel=19	TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonLevel=20	TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 
 # Favored Class Cavalier Mount HP Bonus
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			DEFINE:CavalierMountHP|0	BONUS:HP|CURRENTMAX|var("CavalierMountHP")
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount																							DEFINE:CavalierMountHP|0																																	BONUS:HP|CURRENTMAX|var("CavalierMountHP")
 
-FOLLOWER:CavalierMountHP=1	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=2	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=3	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=4	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=5	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=6	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=7	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=8	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=9	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=10	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=11	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=12	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=13	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=14	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=15	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=16	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=17	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=18	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=19	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
-FOLLOWER:CavalierMountHP=20	TYPE:Cavalier Mount																																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=1	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=2	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=3	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=4	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=5	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=6	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=7	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=8	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=9	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=10	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=11	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=12	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=13	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=14	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=15	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=16	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=17	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=18	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=19	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
+FOLLOWER:CavalierMountHP=20	TYPE:Cavalier Mount																																																																								BONUS:VAR|CavalierMountHP|1
 
 ###Block:Companion for Cavalier
 # Class of the Master		Type				Hit Dice	Ability													Automatically Gained Feat		Required Race			Define												Bonus to Ability Pool					Combat bonus					Bonus to HP							Stat bonus			Modify VAR							Main Race Type
