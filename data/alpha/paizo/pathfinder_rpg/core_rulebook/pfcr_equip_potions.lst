@@ -21,7 +21,7 @@ Potion of Delay Poison					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAG
 Potion of Displacement					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Grants 50% miss chance for 3 rounds
 Potion of Eagle's Splendor				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|CHA|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Charisma for 3 minutes
 Potion of Endure Elements				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Grants protection from harm from being in a hot or cold environment for 24 hours
-Potion of Enlarge Person				TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category increases to next larger category for 1 minute
+Potion of Enlarge Person				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category increases to next larger category for 1 minute
 Potion of Fly						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Gain fly speed 60 ft. with good maneuverability and +2 bonus to Fly checks for 3 minutes
 Potion of Fox's Cunning					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|INT|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Intelligence for 3 minutes
 Potion of Gaseous Form					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Become insubstantial for 10 minutes
@@ -57,7 +57,7 @@ Potion of Protection from Evil			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOUR
 Potion of Protection from Good			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:+2 deflection bonus to AC, +2 resistance bonus to saves, gain protection from mental control and summoned creatures for 1 minute. Protects from attacks by good creatures only.
 Potion of Protection from Law				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:+2 deflection bonus to AC, +2 resistance bonus to saves, gain protection from mental control and summoned creatures for 1 minute. Protects from attacks by lawful creatures only.
 Potion of Rage						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:+2 morale bonus to Strength and Constitution, +1 morale bonus on Will saves, and -2 penalty to AC for3 rounds
-Potion of Reduce Person					TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category decreases to next smaller category for 1 minute
+Potion of Reduce Person					TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category decreases to next smaller category for 1 minute
 Potion of Remove Blindness/Deafness			TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Cures blindness or deafness
 Potion of Remove Curse					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Removes curses with a caster level check at +5
 Potion of Remove Disease				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Cures diseases with a caster level check at +5
