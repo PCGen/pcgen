@@ -144,7 +144,6 @@ ABILITYCATEGORY:Sorcerer Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		ED
 # Traits Sub Selections
 ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices						DISPLAYLOCATION:Traits
 
-ABILITYCATEGORY:Elemental Fist Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Elemental Fist							PLURAL:Elemental Fist Selections					DISPLAYLOCATION:Feats
 
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
 
