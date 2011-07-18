@@ -332,8 +332,8 @@ Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:.02							SOURC
 Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:.02							SOURCEPAGE:p.525																	SPROP:Immune to poison
 Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:.02							SOURCEPAGE:p.525																	SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing
 Phylactery of Faithfulness		TYPE:Magic.Wondrous.Headband					COST:1000	WT:.02							SOURCEPAGE:p.525																	SPROP:Wearer is aware of any action or item that could adversely afect his alignment and his standing with his deity
-Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.525	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
-Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.526	BONUS:VAR|ChannelEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
+Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.525	BONUS:VAR|ClericChannelNegativeEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Cleric
+Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.526	BONUS:VAR|ClericChannelPositiveEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Cleric		BONUS:VAR|PaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Paladin
 Pipes of Haunting				TYPE:Magic.Wondrous.Instrument				COST:6000	WT:3		EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.526
 Pipes of the Sewers			TYPE:Magic.Wondrous.Instrument				COST:1150	WT:3								SOURCEPAGE:p.526
 Pipes of Sounding				TYPE:Magic.Wondrous.Instrument				COST:1800	WT:3								SOURCEPAGE:p.526

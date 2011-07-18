@@ -143,3 +143,9 @@ Riot Pipes				TYPE:Magic.Wondrous.Instrument.Cursed	COST:0	WT:3		SOURCEPAGE:p.31
 ###Block:Special
 # Equipment Name		Type					Cost		Source Page
 Brooch (Folding Plate)	TYPE:Magic.Wondrous.Brooch	COST:12650	SOURCEPAGE:p.284
+
+
+
+
+Phylactery of Negative Channeling.MOD	BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Antipaladin
+Phylactery of Positive Channeling.MOD	BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery

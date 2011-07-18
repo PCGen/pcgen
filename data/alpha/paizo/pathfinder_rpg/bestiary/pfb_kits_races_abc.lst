@@ -10,7 +10,7 @@ DEITY:Sarenrae
 CLASS:Cleric	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Cleric
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Channel Energy|Channel Positive Energy
+ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
 DEITY:Sarenrae	DOMAIN:Good|Healing
 LANGBONUS:Draconic
 SKILL:Diplomacy			RANK:1

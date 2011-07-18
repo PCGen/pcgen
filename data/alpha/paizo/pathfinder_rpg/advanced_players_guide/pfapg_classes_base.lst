@@ -305,7 +305,7 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1				BONUS:VAR|DetectGoodLVL,SmiteGoodLVL|CL	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Smite Good
 2				BONUS:VAR|TouchOfCorruptionLVL|CL		ABILITY:Special Ability|AUTOMATIC|Touch of Corruption ~ Antipaladin|Unholy Resilience ~ Antipaladin
 3				BONUS:VAR|CrueltyLVL|CL				ABILITY:Special Ability|AUTOMATIC|Aura of Cowardice ~ Antipaladin|Cruelty ~ Antipaladin|Plague Bringer ~ Antipaladin
-4	CAST:0,0		BONUS:VAR|ChannelNegativeEnergyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Channel Negative Energy ~ Antipaladin
+4	CAST:0,0		BONUS:VAR|AntipaladinChannelLVL|CL		ABILITY:Special Ability|AUTOMATIC|Channel Negative Energy ~ Antipaladin
 5	CAST:0,1									ABILITY:Special Ability|AUTOMATIC|Fiendish Boon ~ Antipaladin
 6	CAST:0,1
 7	CAST:0,1,0
