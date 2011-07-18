@@ -103,7 +103,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
 ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
 ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
-ABILITY:CATEGORY=Necromancer Channeling|Command Undead ~ Necromancer
+ABILITY:CATEGORY=Necromancer Channeling|Power Over Undead ~ Command Undead
 ABILITY:CATEGORY=Wizard Bonus Feat|Quicken Spell
 ABILITY:CATEGORY=Wizard Bonus Feat|Scribe Scroll
 SKILL:Craft (Alchemy)		RANK:11

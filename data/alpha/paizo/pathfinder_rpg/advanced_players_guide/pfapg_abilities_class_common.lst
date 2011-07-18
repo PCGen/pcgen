@@ -16,6 +16,11 @@ Exhaustion to Fatigue				CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	
 Immunity to Exhaustion (becomes fatigued)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You can never be exhausted; anything that would cause you to be exhausted makes you fatigued instead.																																												SOURCEPAGE:p.44	ASPECT:Immunity|Exhaustion'
 
 
+##Block: Extra Channel feat support
+Oracle of Bone Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Undead Servitude ~ Bone Mystery		BONUS:VAR|UndeadServitudeTimes|2
+Oracle of Life Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery			BONUS:VAR|OracleChannelTimes|2
+
+
 ###Block: CMB Definitions
 # Ability Name			Define									Modify VAR
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0	BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD

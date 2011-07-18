@@ -141,6 +141,9 @@ Spirited Charge.MOD			TYPE:MountedMastery
 Trample.MOD					TYPE:MountedMastery
 Unseat.MOD					TYPE:MountedMastery
 
+# Channel Feats
+Improved Channel.MOD			BONUS:VAR|OracleChannelDC|2	BONUS:VAR|UndeadServitudeDC|2
+
 #
 # End
 #
