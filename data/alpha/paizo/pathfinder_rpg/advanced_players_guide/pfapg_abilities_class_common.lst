@@ -20,6 +20,7 @@ Immunity to Exhaustion (becomes fatigued)	CATEGORY:Special Ability	TYPE:SpecialQ
 Oracle of Bone Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Undead Servitude ~ Bone Mystery		BONUS:VAR|UndeadServitudeTimes|2
 Oracle of Life Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery			BONUS:VAR|OracleChannelTimes|2
 
+CATEGORY=Special Ability|Channel Energy ~ Prestige Class.MOD	BONUS:VAR|UndeadServitudeLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|OracleChannelLVL|PrestigeClassChannelEnergyLVL
 
 ###Block: CMB Definitions
 # Ability Name			Define									Modify VAR

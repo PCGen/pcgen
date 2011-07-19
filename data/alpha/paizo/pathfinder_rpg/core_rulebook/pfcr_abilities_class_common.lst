@@ -54,6 +54,10 @@ Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VIS
 Channel Positive Energy				CATEGORY:Special Ability	TYPE:Internal
 Channel Negative Energy				CATEGORY:Special Ability	TYPE:Internal
 
+# Once generic ability for prestige classes that advance any channeling ability such as the Holy Vindicator.
+Channel Energy ~ Prestige Class		CATEGORY:Special Ability	TYPE:Internal	DEFINE:PrestigeClassChannelEnergyLVL|0	BONUS:VAR|ClericChannelEnergyLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PaladinChannelLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PowerOverUndeadLVL|PrestigeClassChannelEnergyLVL
+
+
 ##Block: Extra Channel Energy support
 Cleric Extra Channel		CATEGORY:Special Ability	TYPE:ExtraChannel	PRECLASS:1,Cleric=1										BONUS:VAR|ClericChannelEnergyTimes|2
 Paladin Extra Channel		CATEGORY:Special Ability	TYPE:ExtraChannel	PRECLASS:1,Paladin=4										BONUS:VAR|LayOnHandsTimes|4
