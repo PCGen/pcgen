@@ -46,7 +46,7 @@ Cauldron of Seeing (True Seeing)		TYPE:Magic.Wondrous			COST:80000	WT:5		SOURCEP
 Cauldron of the Dead				TYPE:Magic.Wondrous			COST:30000	WT:35		SOURCEPAGE:p.303
 Clamor Box						TYPE:Magic.Wondrous			COST:2000	WT:2		SOURCEPAGE:p.303
 Construct Channel Brick				TYPE:Magic.Wondrous			COST:10000	WT:1		SOURCEPAGE:p.303
-Cowardly Crouching Cloak			TYPE:Magic.Wondrous.Cloak		COST:1800	WT:4		SOURCEPAGE:p.303
+Cowardly Crouching Cloak			TYPE:Magic.Wondrous.Cape		COST:1800	WT:4		SOURCEPAGE:p.303
 Crystal of Healing Hands			TYPE:Magic.Wondrous.Neck		COST:12000	WT:1		SOURCEPAGE:p.303
 
 ###Block:D

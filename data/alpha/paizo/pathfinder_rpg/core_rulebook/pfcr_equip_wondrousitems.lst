@@ -86,7 +86,7 @@ Candle of Invocation (Neutral-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TY
 Candle of Invocation (Chaotic-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																		SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-evil.
 # Candle of Invocation: Need on for each alignment plus cleric level bonus as it relates to spells per day.
 Candle of Truth													TYPE:Magic.Wondrous.Consumable	COST:2500	WT:.5								SOURCEPAGE:p.505
-Cape of the Mountebank												TYPE:Magic.Wondrous.Cloak		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
+Cape of the Mountebank												TYPE:Magic.Wondrous.Cape		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
 Carpet of Flying (5 ft by 5 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 5 ft.	TYPE:Magic.Wondrous			COST:20000	WT:8								SOURCEPAGE:p.505
 Carpet of Flying (5 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:35000	WT:10								SOURCEPAGE:p.505
 Carpet of Flying (10 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 10 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:60000	WT:15								SOURCEPAGE:p.505
@@ -95,19 +95,19 @@ Chime of Interruption												TYPE:Magic.Wondrous			COST:16800	WT:1								SO
 Chime of Opening													TYPE:Magic.Wondrous			COST:3000	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.506
 Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|TYPE.Charisma|3|TYPE=Competence
 # Any other "Charisma based checks" besides Skills?
-Cloak of Arachnida												TYPE:Magic.Wondrous.Cloak		COST:14000	WT:1								SOURCEPAGE:p.506	SPELLS:Cloak of Archnida|TIMES=1|CASTERLEVEL=6|Web																									SPROP:Move as Spider Climb, immunity to web spells, +2 luck bonus on Fortitude saves against poison from spiders
-Cloak of the Bat													TYPE:Magic.Wondrous.Cloak		COST:26000	WT:1								SOURCEPAGE:p.506																											BONUS:SKILL|Stealth|5|TYPE=Competence	SPROP:Fly as spell in near darkness for up to 7 minutes
-Cloak of Displacement (Major)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:Magic.Wondrous.Cloak		COST:50000	WT:1								SOURCEPAGE:p.506																																		SPROP:On command, Displacement up to 15 rounds/day
-Cloak of Displacement (Minor)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:Magic.Wondrous.Cloak		COST:24000	WT:1								SOURCEPAGE:p.507																																		SPROP:20%% miss chance on attacks against wearer
-Cloak of Elvenkind												TYPE:Magic.Wondrous.Cloak		COST:2500	WT:1								SOURCEPAGE:p.507																											BONUS:SKILL|Stealth|5|TYPE=Competence
-Cloak of Etherealness												TYPE:Magic.Wondrous.Cloak		COST:55000	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Ethereal Jaunt for up to 10 minutes per day.
-Cloak of the Manta Ray												TYPE:Magic.Wondrous.Cloak		COST:7200	WT:1								SOURCEPAGE:p.507																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PREAPPLY:PC								SPROP:Gain abilities like Manta Ray when in saltwater.
+Cloak of Arachnida												TYPE:Magic.Wondrous.Cape		COST:14000	WT:1								SOURCEPAGE:p.506	SPELLS:Cloak of Archnida|TIMES=1|CASTERLEVEL=6|Web																									SPROP:Move as Spider Climb, immunity to web spells, +2 luck bonus on Fortitude saves against poison from spiders
+Cloak of the Bat													TYPE:Magic.Wondrous.Cape		COST:26000	WT:1								SOURCEPAGE:p.506																											BONUS:SKILL|Stealth|5|TYPE=Competence	SPROP:Fly as spell in near darkness for up to 7 minutes
+Cloak of Displacement (Major)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:Magic.Wondrous.Cape		COST:50000	WT:1								SOURCEPAGE:p.506																																		SPROP:On command, Displacement up to 15 rounds/day
+Cloak of Displacement (Minor)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:Magic.Wondrous.Cape		COST:24000	WT:1								SOURCEPAGE:p.507																																		SPROP:20%% miss chance on attacks against wearer
+Cloak of Elvenkind												TYPE:Magic.Wondrous.Cape		COST:2500	WT:1								SOURCEPAGE:p.507																											BONUS:SKILL|Stealth|5|TYPE=Competence
+Cloak of Etherealness												TYPE:Magic.Wondrous.Cape		COST:55000	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Ethereal Jaunt for up to 10 minutes per day.
+Cloak of the Manta Ray												TYPE:Magic.Wondrous.Cape		COST:7200	WT:1								SOURCEPAGE:p.507																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PREAPPLY:PC								SPROP:Gain abilities like Manta Ray when in saltwater.
 #Swim speed of 60 with PREAPPLY???
-Cloak of Resistance +1												TYPE:Magic.Wondrous.Cloak		COST:1000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|1|TYPE=Resistance
-Cloak of Resistance +2												TYPE:Magic.Wondrous.Cloak		COST:4000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|2|TYPE=Resistance
-Cloak of Resistance +3												TYPE:Magic.Wondrous.Cloak		COST:9000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|3|TYPE=Resistance
-Cloak of Resistance +4												TYPE:Magic.Wondrous.Cloak		COST:16000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|4|TYPE=Resistance
-Cloak of Resistance +5												TYPE:Magic.Wondrous.Cloak		COST:25000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|5|TYPE=Resistance
+Cloak of Resistance +1												TYPE:Magic.Wondrous.Cape		COST:1000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|1|TYPE=Resistance
+Cloak of Resistance +2												TYPE:Magic.Wondrous.Cape		COST:4000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|2|TYPE=Resistance
+Cloak of Resistance +3												TYPE:Magic.Wondrous.Cape		COST:9000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|3|TYPE=Resistance
+Cloak of Resistance +4												TYPE:Magic.Wondrous.Cape		COST:16000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|4|TYPE=Resistance
+Cloak of Resistance +5												TYPE:Magic.Wondrous.Cape		COST:25000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|5|TYPE=Resistance
 Crown of Blasting (Minor)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Headgear		COST:6480	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (3d8 damage) 1/day.
 Crown of Blasting (Major)			OUTPUTNAME:Crown of Blasting, [NAME]		TYPE:Magic.Wondrous.Crown		COST:23760	WT:1								SOURCEPAGE:p.507																																		SPROP:On command, Searing Light (40 damage) 1/day.
 Crystal Ball													TYPE:Magic.Wondrous			COST:42000	WT:7								SOURCEPAGE:p.507
@@ -416,7 +416,7 @@ Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Robe	COST:375
 # Equipment Name		Type					Cost		Weight	Source Page		Bonus to skill						Special Property
 Well of Many Worlds	TYPE:Magic.Wondrous		COST:82000	WT:.02	SOURCEPAGE:p.532
 Wind Fan			TYPE:Magic.Wondrous		COST:5500	WT:.02	SOURCEPAGE:p.532									SPROP:20%% cumulative chance of desctruction after first use each day.
-Wings of Flying		TYPE:Magic.Wondrous.Cloak	COST:54000	WT:2		SOURCEPAGE:p.532	BONUS:SKILL|Fly|5|TYPE=Competance|PREAPPLY:PC	SPROP:Fly speed of 60 ft with average maneuverability.
+Wings of Flying		TYPE:Magic.Wondrous.Cape	COST:54000	WT:2		SOURCEPAGE:p.532	BONUS:SKILL|Fly|5|TYPE=Competance|PREAPPLY:PC	SPROP:Fly speed of 60 ft with average maneuverability.
 
 ###Block:X
 # Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus																			Special Property
