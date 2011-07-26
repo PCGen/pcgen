@@ -831,7 +831,7 @@ ABILITY:CATEGORY=Favored Class|Cleric
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy
+ABILITY:CATEGORY=Special Ability|Channel Negative Energy
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Sense Motive		RANK:3
 FEAT:Channel Smite
