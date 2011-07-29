@@ -16,9 +16,9 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Alchemist Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class features
-1																														AUTO:FEAT|Brew Potion
 1	BONUS:VAR|AlchemistAlchemyLVL|CL			ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Alchemy
 1	BONUS:VAR|AlchemistBombLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Bomb
+1									ABILITY:Special Ability|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrewPotion
 1	BONUS:VAR|AlchemistMutagenLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Mutagen
 1									ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.ThrowAnything
 2	BONUS:VAR|AlchemistDiscoveryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Discovery
