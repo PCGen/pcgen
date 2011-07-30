@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.17.8</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.17.8</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.17.8</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.17.8</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.17.8</a></h2>
+
+
+<p>PCGen v5.17.8 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work.  
+Please give it a shot and let us know how it works for you.
+Some notable changes in this release are listed below. 
+</p>
+<ul>
+<li>COncentration check support</li>
+</ul>
+ 
+<h3>New Sources</h3>
+
+<p>The following new sources were added in 5.17.8</p>
+
+<ul>
+<li>[NEWSOURCE-82] - [Paizo] Legacy of Fire Player's Guide (Pathfinder conversion)</li>
+</ul>
+
+<p>
+We are also working away on the    
+<a href="http://wiki.pcgen.org/index.php?title=Release_6.0.x">next big version</a> 
+although much of that work is currently behind the scenes. We welcome your input,
+just comment on the wiki pages or post to the <a href="http://games.groups.yahoo.com/group/pcgen/"></a>PCGen mailing list</a> 
+.</p>
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 31 July, 2011.</p>
+
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5 or Java 6. PCGEN 5.17.8 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>. 
+			Note also that PCGen does not work with Java 7 at this time, however this is being addressed as part 
+			of the work on the new user interface.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_full.zip?download">pcgen5178_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_partial.zip?download">pcgen5178_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_win_install.exe?download">pcgen5178_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_mac_install.dmg?download">pcgen5178_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5178_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a>
+			or <a href="mailto:Content@pcgen.or">Content@pcgen.or</a>, or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.17.8</a></h2>
+
+<h3>        New Data Source Development
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-82'>NEWSOURCE-82</a>] -    [Paizo] Legacy of Fire Player's Guide (Pathfinder conversion)
+</li>
+</ul>
+                        
+<h3>        OS New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-73'>OS-73</a>] -         Add Skill Info Block (Conditional Modifiers for Skills)
+</li>
+</ul>
+
+<h3>        Documentation Bug
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-1'>DOCS-1</a>] -         Update list of Output Sheets in Acknowledgements section of documentation
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-12'>DOCS-12</a>] -         No description of the Basic LST loading system
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-47'>DOCS-47</a>] -         CHOOSE:NUMBER should not be paired with MULT:YES
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-60'>DOCS-60</a>] -         Longsword not Sword (Long) for the AUTO:WEAPONPROF entry.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-108'>DOCS-108</a>] -         WEIGHTADD, WEIGHTDIV and WEIGHTADD are listed in the Doc Index separate from the BONUS:EQM| tag
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-110'>DOCS-110</a>] -         Need to fix the location of the My_Dataset to the Homebrew Folder
+</li>
+</ul>
+                        
+<h3>        Documentation New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-59'>DOCS-59</a>] -         New Publisher: Super Genius Games
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-67'>DOCS-67</a>] -         Document Valid Locations
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-69'>DOCS-69</a>] -         Add Subclass vs Substitution Class Info on Class LST File Pg
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-70'>DOCS-70</a>] -         Add SKILLTABLEHIDDENCOLUMNS - Pending Approval, but in prog.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-71'>DOCS-71</a>] -         ADD Misc Gamemode Tag - STARTSTATMIN
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-74'>DOCS-74</a>] -         Identify Template Token Consolidation Rules
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-89'>DOCS-89</a>] -         Update Document entry for METHOD
+</li>
+</ul>
+
+<h3>        Data Bug
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-256'>DATA-256</a>] -         Jump spell description displays incorrectly
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-288'>DATA-288</a>] -         Some PF adventure paths have wrong prerequisites
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-300'>DATA-300</a>] -         Gnome racial trait &quot;Eternal Hope&quot; should also replace &quot;Hatred&quot; and count as two traits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-301'>DATA-301</a>] -         Cannot Select Half-Elf Bonus Weapon with BAB = 0
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-302'>DATA-302</a>] -         Dual Proficiency Weapons aren't available if granted in MWP
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-424'>DATA-424</a>] -         Pathfinder Chronicler HD is incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-425'>DATA-425</a>] -         Missing Halfling Racial Weapon
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-428'>DATA-428</a>] -         Monk of the Four Winds and Elemental Fist selection issue
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-429'>DATA-429</a>] -         Oracle number of spells incorrect after choosing haunt or cure/inflict spell type
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-433'>DATA-433</a>] -         Human Favored Class Bonus to Oracle spells known is not functional
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-435'>DATA-435</a>] -         [Pathfinder] Error message from Bestiary
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-436'>DATA-436</a>] -         [Pathfinder] Error message from Kingmaker Player Guide
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-438'>DATA-438</a>] -         Halfling Weapon Familiarity incorrectly grants proficiency in Halfling Sling Staff
+</li>
+</ul>
+                        
+<h3>        Data New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-426'>DATA-426</a>] -         Add a variable to alter Rage Power prerequisites independently of number of rage powers
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-427'>DATA-427</a>] -         Add my_armorprofs.lst and my_shieldprofs.lst files to the my_dataset files
+</li>
+</ul>
+
+<h3>        Code Bug
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-573'>CODE-573</a>] -         EQUIPBUY should be optional for kits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1085'>CODE-1085</a>] -         Equipment tree has types for armor and shield in upper case
+</li>
+</ul>
+
+<h3>        Code New Feature
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-548'>CODE-548</a>] -         Create option to prevent max hit points at first level for NPC classes
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-551'>CODE-551</a>] -         Implement support for concentration check bonus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-574'>CODE-574</a>] -         Add &quot;Unknown&quot; choice for gender selection
+</li>
+</ul>
+	</body>
+</html>
