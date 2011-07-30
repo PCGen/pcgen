@@ -43,7 +43,7 @@ import pcgen.util.Logging;
 public class EquipmentToken implements QualifierToken<ArmorProf>,
 		Converter<Equipment, CDOMReference<ArmorProf>>
 {
-	private static Type ARMOR_TYPE = Type.getConstant("ARMOR");
+	private static Type ARMOR_TYPE = Type.getConstant("Armor");
 
 	private PrimitiveCollection<Equipment> pcs = null;
 
