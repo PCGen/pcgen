@@ -45,8 +45,8 @@ Scarab		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
 # Ring slot
 Ring			TYPE:Ring					COST:0	WT:0				MODS:REQUIRED
 # Shoulders slot
-Cape			TYPE:Cape					COST:0	WT:0				MODS:REQUIRED
-Cloak			TYPE:Cape					COST:0	WT:0				MODS:REQUIRED
+Cape			TYPE:Cloak					COST:0	WT:0				MODS:REQUIRED
+Cloak			TYPE:Cloak					COST:0	WT:0				MODS:REQUIRED
 # Wrist slot
 Bracelets		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
 Bracers		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
