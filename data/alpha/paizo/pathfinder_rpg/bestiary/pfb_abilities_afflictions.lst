@@ -1,4 +1,4 @@
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 #Original Entry by Chris 'Barak' Chandler
 
-Rabies	COST:0	CATEGORY:Affliction	TYPE:Disease.Affliction	SOURCEPAGE:p.87	DESC:Disease, injury; Fort DC 14; Onset 2d6 weeks; Frequency 1/day; Effect 1 Con damage plus 1d3 Wis damage (minimum reduction to 1 Wis); Cure 2 consecutive saves
+Rabies	COST:0	CATEGORY:Afflictions	TYPE:Disease.Affliction	SOURCEPAGE:p.87	DESC:Disease, injury; Fort DC 14; Onset 2d6 weeks; Frequency 1/day; Effect 1 Con damage plus 1d3 Wis damage (minimum reduction to 1 Wis); Cure 2 consecutive saves
