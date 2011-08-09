@@ -3,8 +3,7 @@
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| - |PLAYERNAME| (|POOL.COST| Points) in Statblock Format</title>
 <!--
-	This format is designed to match the official WotC Statblock style 
-	as defined in the 3.5 Edition DMG (II)
+	This format is designed to match the official Paizo Statblock style
 
 $Revision$
 $Author$
@@ -12,11 +11,11 @@ $Date$
 
 -->
 <style type="text/css">
-	body  { 
-		font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 5px; 
+	body  {
+		font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 5px;
 	}
-	.header { 
-		display:block; font-size:7pt; text-align:center; 
+	.header {
+		display:block; font-size:7pt; text-align:center;
 	}
 	.divider {
 		border-top-width: 2px;
@@ -37,17 +36,18 @@ $Date$
 	</tr>
 </table>
 
-|GENDER.LONG| |RACE| 
+|GENDER.LONG| |RACE|
 |FOR,%class,0,COUNT[CLASSES]-1,1,1|
 |IIF(%class:0)|
 |ELSE|
 /
 |ENDIF|
-|CLASS.%class| |CLASS.%class.LEVEL|
+|CLASS.%class|
+|CLASS.%class.LEVEL|
 |ENDFOR|
 <br>
 
-|ALIGNMENT.SHORT| |SIZELONG| 
+|ALIGNMENT.SHORT| |SIZELONG|
 |IIF(RACETYPE:None)|
 |TEXT.LOWER.TYPE|
 |ELSE|
@@ -68,11 +68,11 @@ $Date$
 |ENDMANUALWHITESPACE|
 <br>
 
-<b>Init</b> |INITIATIVEMOD|; <b>Senses</b> 
+<b>Init</b> |INITIATIVEMOD|; <b>Senses</b>
 |FOR,%VisionTest,STRLEN[VISION],STRLEN[VISION],1,0|
 |IIF(%VisionTest:0)|
 |ELSE|
-|VISION|, 
+|VISION|,
 |ENDIF|
 |ENDFOR|
 |IIF(GAMEMODE:Pathfinder)|
@@ -161,68 +161,52 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <b>AC</b>&nbsp;|AC.Total|,&nbsp;<b>touch</b>&nbsp;|AC.Touch|,&nbsp;<b>flat-footed</b>&nbsp;|AC.Flatfooted|
 
 &nbsp;(
-|IIF(AC.Size:0)|
-|ELSE|
-|AC.Size.SIGN|&nbsp;size,&nbsp;
-|ENDIF|
-|IIF(AC.Ability:0)|
-|ELSE|
-|AC.Ability.SIGN|&nbsp;Dex,&nbsp;
-|ENDIF|
-|IIF(AC.NaturalArmor:0)|
-|ELSE|
-|AC.NaturalArmor.SIGN|&nbsp;natural,&nbsp;
-|ENDIF|
-|IIF(AC.Dodge:0)|
-|ELSE|
-|AC.Dodge.SIGN|&nbsp;dodge,&nbsp;
-|ENDIF|
-|IIF(AC.Deflection:0)|
-|ELSE|
-|AC.Deflection.SIGN|&nbsp;deflection,&nbsp;
-|ENDIF|
-|IIF(AC.Misc:0)|
-|ELSE|
-|AC.Misc.SIGN|&nbsp;misc,&nbsp;
-|ENDIF|
 |IIF(RACETYPE:Animal.OR.RACETYPE:Companion.OR.RACETYPE:Beast.OR.RACETYPE:Construct.OR.RACETYPE:Dragon.OR.RACETYPE:Magical Beast.OR.RACETYPE:Outsider.OR.RACETYPE:Shapechanger)|
 |IIF(TEXT.LENGTH.ARMOR.EQUIPPED.BARDING.0.NAME:0)|
 |ELSE|
-|ARMOR.EQUIPPED.BARDING.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.BARDING.0.NAME.NOSTAR|,&nbsp;
+|ARMOR.EQUIPPED.BARDING.0.ACBONUS.SIGN|&nbsp;armor,&nbsp;
 |ENDIF|
 |ELSE|
 |IIF(TEXT.LENGTH.ARMOR.EQUIPPED.SUIT.0.NAME:0)|
 |ELSE|
-|ARMOR.EQUIPPED.SUIT.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.SUIT.0.NAME.NOSTAR|,&nbsp;
+|ARMOR.EQUIPPED.SUIT.0.ACBONUS.SIGN|&nbsp;armor,&nbsp;
 |ENDIF|
 |IIF(TEXT.LENGTH.ARMOR.EQUIPPED.SHIRT.0.NAME:0)|
 |ELSE|
-|ARMOR.EQUIPPED.SHIRT.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.SHIRT.0.NAME.NOSTAR|,&nbsp;
+|ARMOR.EQUIPPED.SHIRT.0.ACBONUS.SIGN|&nbsp;armor,&nbsp;
 |ENDIF|
 |ENDIF|
 |IIF(TEXT.LENGTH.ARMOR.EQUIPPED.ITEM.0.NAME:0)|
 |ELSE|
 |ARMOR.EQUIPPED.ITEM.0.ACBONUS.SIGN|&nbsp;|ARMOR.EQUIPPED.ITEM.0.NAME.NOSTAR|,&nbsp;
 |ENDIF|
+|IIF(AC.Ability:0)|
+|ELSE|
+|AC.Ability.SIGN|&nbsp;Dex,&nbsp;
+|ENDIF|
+|IIF(AC.Deflection:0)|
+|ELSE|
+|AC.Deflection.SIGN|&nbsp;deflection,&nbsp;
+|ENDIF|
+|IIF(AC.Dodge:0)|
+|ELSE|
+|AC.Dodge.SIGN|&nbsp;dodge,&nbsp;
+|ENDIF|
+|IIF(AC.NaturalArmor:0)|
+|ELSE|
+|AC.NaturalArmor.SIGN|&nbsp;natural,&nbsp;
+|ENDIF|
+|IIF(AC.Size:0)|
+|ELSE|
+|AC.Size.SIGN|&nbsp;size,&nbsp;
+|ENDIF|
+|IIF(AC.Misc:0)|
+|ELSE|
+|AC.Misc.SIGN|&nbsp;misc,&nbsp;
+|ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
-|AC.Shield.SIGN| 
-|IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
-&nbsp;Heavy&nbsp;Shield
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:LIGHT)|
-&nbsp;Light&nbsp;Shield
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:BUCKLER)|
-&nbsp;Buckler
-|ELSE|
-|ENDIF|
-|IIF(EQ.IS.SHIELD.0.TYPE:TOWER)|
-&nbsp;Tower&nbsp;Shield
-|ELSE|
-|ENDIF|
+|AC.Shield.SIGN|&nbsp;shield,&nbsp;
 |ENDIF|
 )
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
@@ -489,7 +473,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 )
 |ELSE|
 |WEAPON.%weap.BASEHIT|&nbsp;
- 
+
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
 (|WEAPON.%weap.RANGELIST.1.DAMAGE|
 |ELSE|
@@ -522,7 +506,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 |MANUALWHITESPACE|
 <br><b>Special&nbsp;Attacks</b>|SPACE|
-|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -548,7 +532,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 
 <!-- Innate Spell-Like Abilities -->
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
-<br><b>Innate Spell-Like Abilities:</b>
+<br><b>Spell-Like Abilities:</b>
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
@@ -557,12 +541,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
-DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|,
 |ENDIF|
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-at will) 
+at will)
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|)
 |ENDIF|
 |ENDFOR|
 |%|
@@ -584,12 +568,12 @@ at will)
 <i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
-DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|,
 |ENDIF|
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-at will) 
+at will)
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|)
 |ENDIF|
 |ENDFOR|
 |%|
@@ -603,7 +587,12 @@ at will)
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
-<br><b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
+<br><b>Known |SPELLLISTCLASS.%class| Spells</b>
+|IIF(SPELLLISTCLASS.%class.CONCENTRATION):|
+(CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.CASTERLEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.CASTERLEVEL||ENDMANUALWHITESPACE|):
+|ELSE|
+(CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.CASTERLEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.CASTERLEVEL||ENDMANUALWHITESPACE|, concentration |SPELLLISTCLASS.%class.CONCENTRATION|):
+|ENDIF|
 |FOR,%level,9,0,-1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -625,7 +614,7 @@ at will)
 |ELSE|
 (DC |SPELLMEM.%class.0.%level.%spell.DC|)
 |ENDIF|
-, 
+,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,0|
 |SPELLMEM.%class.0.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|</i>
@@ -652,7 +641,7 @@ at will)
 <br><b>|SPELLBOOKNAME.%spellbook| Prepared Spell List</b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:true)|
-<br>|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
+<br>|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|):
 |FOR,%level,9,0,-1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -669,7 +658,7 @@ at will)
 |ELSE|
 (DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
 |ENDIF|
-, 
+,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
@@ -694,11 +683,11 @@ at will)
 
 <!-- Domain list -->
 |%DOMAIN.1|
-<br>*: Domain spell. 
-<br><b>Deity</b> |DEITY|; 
-<b>Domains</b> 
+<br>*: Domain spell.
+<br><b>Deity</b> |DEITY|;
+<b>Domains</b>
 |FOR,%domain,1,COUNT[DOMAINS],1,0|
-|DOMAIN.%domain|, 
+|DOMAIN.%domain|,
 |ENDFOR|
 |%|
 <!-- End Domain list -->
@@ -725,16 +714,36 @@ at will)
 |IIF(VAR.UseCombatManueverBonus:1)|
 <b>CMB</b>&nbsp;|VAR.CMB.INTVAL.SIGN|
 |IIF(VAR.IF(VAR("CMB")!=VAR("CMB_BullRush");1;0):1)|
-&nbsp;(|VAR.CMB_BullRush.INTVAL.SIGN|&nbsp;bullrush)
+&nbsp;(|VAR.CMB_BullRush.INTVAL.SIGN|&nbsp;bull&nbsp;rush)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_DirtyTricks");1;0):1)|
+&nbsp;(|VAR.CMB_DirtyTricks.INTVAL.SIGN|&nbsp;dirty&nbsp;tricks)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Disarm");1;0):1)|
 &nbsp;(|VAR.CMB_Disarm.INTVAL.SIGN|&nbsp;disarm)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Drag");1;0):1)|
+&nbsp;(|VAR.CMB_Drag.INTVAL.SIGN|&nbsp;drag)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Grapple");1;0):1)|
 &nbsp;(|VAR.CMB_Grapple.INTVAL.SIGN|&nbsp;grapple)
 |ENDIF|
 |IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Overrun");1;0):1)|
 &nbsp;(|VAR.CMB_Overrun.INTVAL.SIGN|&nbsp;overrun)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Reposition");1;0):1)|
+&nbsp;(|VAR.CMB_Reposition.INTVAL.SIGN|&nbsp;reposition)
+|ENDIF|
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Steal");1;0):1)|
+&nbsp;(|VAR.CMB_Steal.INTVAL.SIGN|&nbsp;steal)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Sunder");1;0):1)|
 &nbsp;(|VAR.CMB_Sunder.INTVAL.SIGN|&nbsp;sunder)
@@ -745,30 +754,50 @@ at will)
 |IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
 <b>;&nbsp;CMD</b>&nbsp;|VAR.CMD.INTVAL|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_BullRush");1;0):1)|
-&nbsp;(|VAR.CMD_BullRush.INTVAL|&nbsp;vs&nbsp;bullrush)
+&nbsp;(|VAR.CMD_BullRush.INTVAL|&nbsp;vs.&nbsp;bull&nbsp;rush)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_DirtyTricks");1;0):1)|
+&nbsp;(|VAR.CMD_DirtyTricks.INTVAL|&nbsp;vs.&nbsp;dirty&nbsp;tricks)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Disarm");1;0):1)|
-&nbsp;(|VAR.CMD_Disarm.INTVAL|&nbsp;vs&nbsp;disarm)
+&nbsp;(|VAR.CMD_Disarm.INTVAL|&nbsp;vs.&nbsp;disarm)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Drag");1;0):1)|
+&nbsp;(|VAR.CMD_Drag.INTVAL|&nbsp;vs.&nbsp;drag)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Grapple");1;0):1)|
-&nbsp;(|VAR.CMD_Grapple.INTVAL|&nbsp;vs&nbsp;grapple)
+&nbsp;(|VAR.CMD_Grapple.INTVAL|&nbsp;vs.&nbsp;grapple)
 |ENDIF|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Overrun");1;0):1)|
-&nbsp;(|VAR.CMD_Overrun.INTVAL|&nbsp;vs&nbsp;overrun)
+&nbsp;(|VAR.CMD_Overrun.INTVAL|&nbsp;vs.&nbsp;overrun)
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Reposition");1;0):1)|
+&nbsp;(|VAR.CMD_Reposition.INTVAL|&nbsp;vs.&nbsp;reposition)
+|ENDIF|
+|ENDIF|
+|IIF(VAR.UseAPGCombatManuevers:1)|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Steal");1;0):1)|
+&nbsp;(|VAR.CMD_Steal.INTVAL|&nbsp;vs.&nbsp;steal)
+|ENDIF|
 |ENDIF|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Sunder");1;0):1)|
-&nbsp;(|VAR.CMD_Sunder.INTVAL|&nbsp;vs&nbsp;sunder)
+&nbsp;(|VAR.CMD_Sunder.INTVAL|&nbsp;vs.&nbsp;sunder)
 |ENDIF|
 |IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
 &nbsp;(can't&nbsp;be&nbsp;tripped)
 |ELSE|
 |IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Trip");1;0):1)|
-&nbsp;(|VAR.CMD_Trip.INTVAL|&nbsp;vs&nbsp;trip)
+&nbsp;(|VAR.CMD_Trip.INTVAL|&nbsp;vs.&nbsp;trip)
 |ENDIF|
 |ENDIF|
 |ENDIF|
 |ELSE|
-<b>Grp</b> 
+<b>Grp</b>
 |IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
 |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
 |ELSE|
@@ -784,7 +813,7 @@ at will)
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
-|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|, 
+|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|,
 |ENDIF|
 |ENDFOR|
 <br>
@@ -797,7 +826,7 @@ at will)
 <b>Communication</b>&nbsp;
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
-|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
@@ -807,7 +836,7 @@ at will)
 |ENDFOR|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
-|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
 |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
@@ -824,7 +853,7 @@ at will)
 |ENDIF|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
-|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
@@ -834,7 +863,7 @@ at will)
 |ENDFOR|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
-|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
 |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
@@ -861,9 +890,9 @@ at will)
 <!-- SpecialQuality TYPE Abilities -->
 |MANUALWHITESPACE|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Special&nbsp;Qualities</b>|SPACE|
+<b>SQ</b>|SPACE|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Defensive)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Defensive.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Weakness.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Communicate)|
 |ELSE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Bonus|&nbsp;
@@ -955,7 +984,7 @@ at will)
 |ELSE|
 (DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
 |ENDIF|
-, 
+,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
@@ -986,7 +1015,7 @@ at will)
   </tr>
 </table>
 
-|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:AnimalTrick)|
 |ELSE|
 <p><b>|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
