@@ -124,7 +124,7 @@ Wisdom in the Flesh (Irori) - Dexterity	KEY:Wisdom in the Flesh ~ Trait ~ Dex	CA
 
 ###Block: No Traits ability to fill the pool for NPCs and monsters
 # Ability Name	Unique Key			Category of Ability		Type																						Visible		Multiple Requirements																	Description							Cost
-No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait.CampaignTrait.RaceTrait.RegionalTrait.ReligionTrait.RegionTrait	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,No Traits ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
+No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait.CampaignTrait.RaceTrait.RegionalTrait.ReligionTrait			VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,No Traits ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
 
 #
 # End
