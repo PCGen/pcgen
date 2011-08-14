@@ -16,19 +16,19 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Alchemist Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class features
-1	BONUS:VAR|AlchemistAlchemyLVL|CL			ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Alchemy
-1	BONUS:VAR|AlchemistBombLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Bomb
-1									ABILITY:Special Ability|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrewPotion
-1	BONUS:VAR|AlchemistMutagenLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Mutagen
-1									ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.ThrowAnything
-2	BONUS:VAR|AlchemistDiscoveryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.Discovery
-2	BONUS:VAR|AlchemistPoisonResistanceLVL|CL		ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.PoisonResistance
-2									ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.PoisonUse
-3									ABILITY:Special Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwiftAlchemy
-6									ABILITY:Special Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwiftPoisoning
-14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL	ABILITY:Special Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.PersistentMutagen
-18									ABILITY:Special Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.InstantAlchemy
-20									ABILITY:Special Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.GrandDiscovery
+1	BONUS:VAR|AlchemistAlchemyLVL|CL			ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
+1	BONUS:VAR|AlchemistBombLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
+1									ABILITY:Special Ability|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
+1	BONUS:VAR|AlchemistMutagenLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
+1									ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
+2	BONUS:VAR|AlchemistDiscoveryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
+2	BONUS:VAR|AlchemistPoisonResistanceLVL|CL		ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
+2									ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
+3									ABILITY:Special Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
+6									ABILITY:Special Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
+14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL	ABILITY:Special Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
+18									ABILITY:Special Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
+20									ABILITY:Special Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
 ###Block: Spellcasting
 1	CAST:0,1
 2	CAST:0,2
