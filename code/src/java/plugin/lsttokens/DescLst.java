@@ -89,6 +89,11 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " encountered imbalanced Parenthesis: " + aDesc);
 		}
+		ParseResult pr = checkForInvalidXMLChars(ds);
+		if (!pr.passed())
+		{
+			return pr;
+		}
 		Description desc = new Description(ds);
 
 		if (tok.hasMoreTokens())

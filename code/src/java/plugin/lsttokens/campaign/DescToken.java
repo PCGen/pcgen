@@ -53,8 +53,12 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
 		String value)
 	{
-		context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
-		return ParseResult.SUCCESS;
+		ParseResult pr = checkForInvalidXMLChars(value);
+		if (pr.passed())
+		{
+			context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
+		}
+		return pr;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)

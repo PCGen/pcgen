@@ -19,6 +19,8 @@ package pcgen.rules.persistence.token;
 
 import java.util.Collection;
 
+import org.apache.xml.utils.XMLChar;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -144,6 +146,26 @@ public abstract class AbstractToken
 			pr.addMessagesToLog();
 		}
 		return !pr.passed();
+	}
+
+	/**
+	 * Checks a string to see if any characters are invalid for inclusion in 
+	 * XML strings.
+	 * @param value     The string to check.
+	 * @return  A parse result of success if the string uses only valid characters.
+	 */
+	protected ParseResult checkForInvalidXMLChars(String value)
+	{
+		for (char character : value.toCharArray())
+		{
+			if (!XMLChar.isValid(character))
+			{
+				return new ParseResult.Fail("Invalid XML character 0x"
+					+ Integer.toString(character, 16) + " in " + value);
+			}
+		}
+
+		return ParseResult.SUCCESS;
 	}
 
 	/** Return the token name */
