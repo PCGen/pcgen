@@ -1705,6 +1705,30 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		{
 			return new PCBonusLangTermEvaluator(expressionString);
 		}
+	},
+	
+	COMPLETE_PC_HANDS("HANDS", new String[] { "HANDS" }, true)
+	{
+		public TermEvaluator getTermEvaluator(
+				final String expressionString,
+				final String src, 
+				final String matchedSection) {
+
+			return new PCHandsTermEvaluator(expressionString);
+		}
+	
+	},
+	
+	COMPLETE_PC_LEGS("LEGS", new String[] { "LEGS" }, true)
+	{
+		public TermEvaluator getTermEvaluator(
+				final String expressionString,
+				final String src, 
+				final String matchedSection) {
+
+			return new PCLegsTermEvaluator(expressionString);
+		}
+	
 	};
 
 	static String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
