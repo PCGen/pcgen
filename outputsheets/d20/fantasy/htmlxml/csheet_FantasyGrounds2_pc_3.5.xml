@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version ="2.8" pcgenversion="|EXPORT.VERSION|" ccversion="2.8.1.A">
+	<character>
+		<abilities>
+			<charisma>
+				<bonus type="number">|STAT.5.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.5|</score>
+			</charisma>
+			<constitution>
+				<bonus type="number">|STAT.2.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.2|</score>
+			</constitution>
+			<dexterity>
+				<bonus type="number">|STAT.1.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.1|</score>
+			</dexterity>
+			<intelligence>
+				<bonus type="number">|STAT.3.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.3|</score>
+			</intelligence>
+			<strength>
+				<bonus type="number">|STAT.0.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.0|</score>
+			</strength>
+			<wisdom>
+				<bonus type="number">|STAT.4.MOD|</bonus>
+				<bonusmodifier type="number">0</bonusmodifier>
+				<damage type="number">0</damage>
+				<score type="number">|STAT.4|</score>
+			</wisdom>
+		</abilities>
+		<ac>
+			<sources>
+				<armor type="number">|BONUS.COMBAT.AC.Armor|</armor>
+				<deflection type="number">|BONUS.COMBAT.AC.Deflection|</deflection>
+				<misc type="number">|BONUS.COMBAT.AC.TOTAL.!Base.!Armor.!Shield.!Size.!Deflection.!NaturalArmor.!NaturalArmorEnhancement.!Ability|</misc>
+				<naturalarmor type="number">|BONUS.COMBAT.AC.NaturalArmor.NaturalArmorEnhancement|</naturalarmor>
+				<shield type="number">|BONUS.COMBAT.AC.Shield|</shield>
+				<size type="number">|BONUS.COMBAT.AC.Size|</size>
+				<temporary type="number">0</temporary>
+			</sources>
+		</ac>
+		<activeskillset type="number">1</activeskillset>
+		<age type="string">|AGE|</age>
+		<alignment type="string">|ALIGNMENT.SHORT|</alignment>
+		<attackbonus>
+			<base type="number">|ATTACK.MELEE.BASE|</base>
+			<grapple>
+				<misc type="number">|ATTACK.GRAPPLE.MISC.INTVAL|</misc>
+				<size type="number" fgapi="CC.PG.ATTACKBONUS.GRAPPLE.SIZE">|ATTACK.GRAPPLE.SIZE.INTVAL|</size>
+			</grapple>
+			<melee>
+				<misc type="number">|ATTACK.MELEE.MISC.INTVAL|</misc>
+				<size type="number">|ATTACK.MELEE.SIZE.INTVAL|</size>
+			</melee>
+			<ranged>
+				<misc type="number">|ATTACK.RANGED.MISC.INTVAL|</misc>
+				<size type="number">|ATTACK.RANGED.SIZE.INTVAL|</size>
+			</ranged>
+		</attackbonus>
+		<castingmode type="number">0</castingmode>
+		<classes>
+|FOR,%cno,0,COUNT[CLASSES]-1,1,0|
+		  <id-0000|(%cno+1).INTVAL|>
+			  <name type="string">|CLASS.%cno|</name>
+			  <level type="number">|CLASS.%cno.LEVEL|</level>
+		  </id-0000|(%cno+1).INTVAL|>
+|ENDFOR|
+		</classes>
+		<coins>
+|FOR,%coinno,0,COUNT[EQTYPE.COIN]-1,1,1|
+|IIF(EQ.IS.COIN.%coinno.NAME:Coin (Platinum Piece)|
+			<slot1>
+				<amount type="number">|EQ.IS.COIN.%coinno.QTY|</amount>
+				<name type="string">pp</name>
+			</slot1>
+|ELSE|
+|IIF(%coinno == COUNT[EQTYPE.COIN]-1)|
+			<slot1>
+				<amount type="number">0</amount>
+				<name type="string">pp</name>
+			</slot1>
+|ENDIF|
+|ENDIF|
+|IIF(EQ.IS.COIN.%coinno.NAME:Coin (Gold Piece)|
+			<slot2 fgapi="CC.PG.COINS.SLOT2">
+				<amount type="number">|EQ.IS.COIN.%coinno.QTY||GOLD|</amount>
+        <name type="string">gp</name>
+      </slot2>
+|ELSE|
+|IIF(%coinno == COUNT[EQTYPE.COIN]-1)|
+      <slot2 fgapi="CC.PG.COINS.SLOT2">
+				<amount type="number">|GOLD|</amount>
+        <name type="string">gp</name>
+      </slot2>
+|ENDIF|
+|ENDIF|
+|IIF(EQ.IS.COIN.%coinno.NAME:Coin (Silver Piece)|
+			<slot3>
+				<amount type="number">|EQ.IS.COIN.%coinno.QTY|</amount>
+				<name type="string">sp</name>
+			</slot3>
+|ELSE|
+|IIF(%coinno == COUNT[EQTYPE.COIN]-1)|
+			<slot3>
+				<amount type="number">0</amount>
+				<name type="string">sp</name>
+			</slot3>
+|ENDIF|
+|ENDIF|
+|IIF(EQ.IS.COIN.%coinno.NAME:Coin (Copper Piece)|
+			<slot4>
+				<amount type="number">|EQ.IS.COIN.%coinno.QTY|</amount>
+				<name type="string">cp</name>
+			</slot4>
+|ELSE|
+|IIF(%coinno == COUNT[EQTYPE.COIN]-1)|
+			<slot4>
+				<amount type="number">|EQ.IS.COIN.%coinno.QTY|</amount>
+				<name type="string">cp</name>
+			</slot4>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+		</coins>
+		<defenses>
+      <damagereduction type="number">|DR|</damagereduction>
+      <sr>
+        <base type="number">|SR|</base>
+        <misc type="number"/>
+        <temporary type="number"/>
+        <total type="number">|SR|</total>
+      </sr>
+    </defenses>
+    <deity type="string">|DEITY|</deity>
+		<encumbrance>
+			<armorcheckpenalty type="number">|ACCHECK|</armorcheckpenalty>
+			<armormaxstatbonus type="number">|MAXDEX.INTVAL|</armormaxstatbonus>
+			<armormaxstatbonusactive type="number">|MAXDEX.INTVAL|</armormaxstatbonusactive>
+			<heavyload type="number">|WEIGHT.HEAVY|</heavyload>
+			<liftoffground type="number">|WEIGHT.OFFGROUND|</liftoffground>
+			<liftoverhead type="number">|WEIGHT.OVERHEAD|</liftoverhead>
+			<lightload type="number">|WEIGHT.LIGHT|</lightload>
+			<load type="number">|TOTAL.WEIGHT|</load>
+			<mediumload type="number">|WEIGHT.MEDIUM|</mediumload>
+			<pushordrag type="number">|WEIGHT.PUSHDRAG|</pushordrag>
+			<spellfailure type="number">|SPELLFAILURE|</spellfailure>
+		</encumbrance>
+    <exp type="number">|EXP.CURRENT|</exp>
+    <expneeded type="number">|EXP.NEXT|</expneeded>
+    <featlist>
+|FOR.0,%featno,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
+      <id-0000|(%featno+1).INTVAL|>
+        <value type="string">|FEATALL.VISIBLE.%featno|</value>
+        <description type="string">|FEATALL.VISIBLE.%featno.DESC|</description>
+        <source type="string">|FEATALL.VISIBLE.%featno.SOURCE|</source>
+      </id-0000|(%featno+1).INTVAL|>
+|ENDFOR|
+    </featlist>
+    <gender type="string">|GENDER|</gender>
+    <height type="string">|HEIGHT|</height>
+    <hp>
+      <nonlethal type="number">0</nonlethal>
+      <surgesused type="number">0</surgesused>
+      <temporary type="number">0</temporary>
+      <total type="number">|HP|</total>
+      <wounds type="number">0</wounds>
+    </hp>
+    <initiative>
+      <misc type="number">|INITIATIVEMISC|</misc>
+      <abilitymod type="number">|INITIATIVEMOD|</abilitymod>
+      <temporary type="number">0</temporary>
+    </initiative>
+    <inventorylist>
+|FOR,%eqno,0,COUNT[EQUIPMENT]-1,1,1|
+        <id-0000|(%eqno+1).INTVAL|>
+          <carried type="number">1</carried>
+          <count type="number">|EQ.%eqno.QTY|</count>
+          <location type="string">|EQ.%eqno.LOCATION|</location>
+          <name type="string">|EQ.%eqno.OUTPUTNAME|</name>
+          <showonminisheet type="number">1</showonminisheet>
+          <weight type="number">|EQ.%eqno.WT|</weight>
+          <description type="formattedtext"/>
+        </id-0000|(%eqno+1).INTVAL|>
+|ENDFOR|
+    </inventorylist>
+
+    <languagelist>
+|FOR,%langno,0,COUNT[LANGUAGES]-1,1,1|
+      <id-0000|(%langno+1).INTVAL|>
+        <name type="string">|LANGUAGES.%langno|</name>
+      </id-0000|(%langno+1).INTVAL|>
+|ENDFOR|
+    </languagelist>
+    <level type="number">|TOTALLEVELS|</level>
+    <name type="string">|NAME|</name>
+    <notes type="string">
+|FOR,%notenum,0,COUNT[NOTES]-1,1,1|
+|NOTE.%notenum.NAME|
+|NOTE.%notenum.VALUE|
+|ENDFOR|
+    </notes>
+    <proficiencyarmor fgapi="CC.PG.PROFICIENCYARMOR(featlist=featlist)"/>
+    <proficiencyweapon fgapi="CC.PG.PROFICIENCYWEAPON(featlist=featlist)"/>
+    <race type="string">|RACE|</race>
+    <saves>
+      <fortitude>
+        <base type="number">|CHECK.FORTITUDE.BASE|</base>
+        <misc type="number">|(CHECK.FORTITUDE.MISC-CHECK.FORTITUDE.STATMOD).INTVAL|</misc>
+        <temporary type="number">0</temporary>
+        <total type="number">|CHECK.FORTITUDE.TOTAL|</total>
+      </fortitude>
+      <reflex>
+        <base type="number">|CHECK.REFLEX.BASE|</base>
+        <misc type="number">|(CHECK.REFLEX.MISC-CHECK.REFLEX.STATMOD).INTVAL|</misc>
+        <temporary type="number">0</temporary>
+        <total type="number">|CHECK.REFLEX.TOTAL|</total>
+      </reflex>
+      <will>
+        <base type="number">|CHECK.WILL.BASE|</base>
+        <misc type="number">|(CHECK.WILL.MISC-CHECK.WILL.STATMOD).INTVAL|</misc>
+        <temporary type="number">0</temporary>
+        <total type="number">|CHECK.WILL.TOTAL|</total>
+      </will>
+    </saves>
+    <senses type="string">|VISION|</senses>
+    <size type="string">|SIZELONG|</size>
+    <skilllist fgapi="CC.PG.SKILLLIST">
+|FOR,%skillno,0,COUNT[SKILLS]-1,1,0|
+      <id-0000|(%skillno+1).INTVAL|>
+|IIF(SKILL.%skillno.NAME:Swim)|
+        <armorcheckmultiplier type="number">2</armorcheckmultiplier>
+|ELSE|
+|IIF(SKILL.%skillno.NAME:Balance.OR.SKILL.%skillno.NAME:Climb.OR.SKILL.%skillno.NAME:Escape Artist.OR.SKILL.%skillno.NAME:Hide.OR.SKILL.%skillno.NAME:Jump.OR.SKILL.%skillno.NAME:Move Silently.OR.SKILL.%skillno.NAME:Sleight of Hand.OR.SKILL.%skillno.NAME:Tumble)|
+        <armorcheckmultiplier type="number">1</armorcheckmultiplier>
+|ELSE|
+        <armorcheckmultiplier type="number">0</armorcheckmultiplier>
+|ENDIF|
+|ENDIF|
+
+        <label type="string">|SKILL.%skillno|</label>
+        <halfranks type="number">0</halfranks>
+        <misc type="number">|SKILL.%skillno.MISC.INTVAL|</misc>
+        <name type="string">|SKILL.%skillno|</name>
+        <plannedhalfranks type="number">0</plannedhalfranks>
+        <plannedranks type="number">0</plannedranks>
+        <ranks type="number">|SKILL.%skillno.RANK.INTVAL|</ranks>
+|IIF(SKILL.%skillno.ABILITY:STR)|
+        <statname type="string">strength</statname>
+|ENDIF|
+|IIF(SKILL.%skillno.ABILITY:DEX)|
+        <statname type="string">dexterity</statname>
+|ENDIF|
+|IIF(SKILL.%skillno.ABILITY:CON)|
+        <statname type="string">constitution</statname>
+|ENDIF|
+|IIF(SKILL.%skillno.ABILITY:INT)|
+        <statname type="string">intelligence</statname>
+|ENDIF|
+|IIF(SKILL.%skillno.ABILITY:WIS)|
+        <statname type="string">wisdom</statname>
+|ENDIF|
+|IIF(SKILL.%skillno.ABILITY:CHA)|
+        <statname type="string">charisma</statname>
+|ENDIF|
+        <description type="string">|SKILL.%skillno.EXPLAIN_LONG|</description>
+        <total type="number">|SKILL.%skillno.TOTAL.INTVAL|</total>
+      </id-0000|(%skillno+1).INTVAL|>
+|ENDFOR|
+    </skilllist>
+    <skillpoints>
+      <unspent type="number">|SKILLPOINTS.UNUSED|</unspent>
+    </skillpoints>
+    <specialabilitylist fgapi="CC.PG.SPECIALABILITYLIST(classes=classes;name=name)">
+|FOR,%sano,0,count("ABILITIES", "CATEGORY=Special Ability", "VISIBILITY=DEFAULT")-1,1,0|
+      <id-0000|(%sano+1).INTVAL|>
+        <value type="string">|ABILITYALL.Special Ability.VISIBLE.%sano|</value>
+        <description type="string">|ABILITYALL.Special Ability.VISIBLE.%sano.DESC|</description>
+        <source type="string">|ABILITYALL.Special Ability.VISIBLE.%sano.SOURCE|</source>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Action Points)|
+        <number type="number">|VAR.ActionPointCount.INTVAL|</number>
+        <dice type="dice">
+|FOR,%sneak,1,VAR.ActionPointDiceCount,1,0|
+          d|VAR.ActionPointDiceSize.INTVAL|,
+|ENDFOR|
+        </dice>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Lay On Hands)|
+        <number type="number">|VAR.LayOnHands.INTVAL|</number>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Psychic Strike)|
+        <dice type="dice">
+|FOR,%sneak,1,VAR.PsychicStrike,1,0|
+          d8,
+|ENDFOR|
+        </dice>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Smite Evil)|
+        <number type="number">|VAR.SmiteEvilTimes.INTVAL|</number>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Sneak Attack)|
+        <dice type="dice">
+|FOR,%sneak,1,VAR.SneakAttackDice,1,0|
+          d6,
+|ENDFOR|
+        </dice>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Stunning Fist)|
+        <number type="number">|VAR.StunningFistAtk.INTVAL|</number>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Stunning Fist)|
+        <number type="number">|VAR.StunningFistAtk.INTVAL|</number>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Turn Undead)|
+        <number type="number">|VAR.TurnTimesUndead.INTVAL|</number>
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%sano:Wild Shape)|
+        <number type="number">|VAR.WildShapeTimes.INTVAL|</number>
+|ENDIF|
+      </id-0000|(%sano+1).INTVAL|>
+|ENDFOR|
+    </specialabilitylist>
+    <speed>
+      <special type="string" fgapi="CC.PG.SPEED.SPECIAL">
+|FOR,%moveno,0,COUNT[MOVE]-1,1,0|
+|IIF(%moveno > 0)|
+        :|MOVE.%moveno.NAME||MOVE.%moveno.SQUARES|:
+|ENDIF|
+|ENDFOR|
+      </special>
+      <base type="number">|MOVE.0.SQUARES|</base>
+      <total type="number">|MOVE.0.SQUARES|</total>
+    </speed>
+    <spellset fgapi="CC.PG.SPELLSET">
+|FOR,%classno,0,2,1,1|
+      <id-0000|(%classno+1).INTVAL|>
+        <dc>
+          <ability type="string">|SPELLLISTDCSTAT.%classno.0|</ability>
+          <abilitymod type="number">0</abilitymod>
+          <misc type="number">0</misc>
+          <total type="number">0</total>
+        </dc>
+|FOR,%spellclassno,0,COUNT[CLASSES]-1,1,1|
+|IIF(CLASS.%classno:Bard.AND.SPELLLISTCLASS.%spellclassno:Bard)|
+        <label type="string">Bard</label>
+        <spontaneous type="number">1</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Cleric.AND.SPELLLISTCLASS.%spellclassno:Cleric)|
+        <label type="string">Cleric</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [D]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Druid.AND.SPELLLISTCLASS.%spellclassno:Druid)|
+        <label type="string">Druid</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Paladin.AND.SPELLLISTCLASS.%spellclassno:Paladin)|
+        <label type="string">Paladin</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Ranger.AND.SPELLLISTCLASS.%spellclassno:Ranger)|
+        <label type="string">Ranger</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Sorcerer.AND.SPELLLISTCLASS.%spellclassno:Sorcerer)|
+        <label type="string">Sorcerer</label>
+        <spontaneous type="number">1</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Wizard.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <dcstat type="string">|SPELLLISTDCSTAT.%spellclassno.%spellknownlevel|</dcstat>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|</name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Abjurer.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Abjurer</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Conjurer.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Conjurer</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Diviner.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Diviner</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Enchanter.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Enchanter</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Evoker.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Evoker</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Illusionist.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Illusionist</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Necromancer.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Necromancer</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ELSE|
+|IIF(CLASS.%classno:Transmuter.AND.SPELLLISTCLASS.%spellclassno:Wizard)|
+        <label type="string">Wizard: Transmuter</label>
+        <spontaneous type="number">0</spontaneous>
+|FOR,%spellavailablelevel,0,9,1,1|
+        <availablelevel|%spellavailablelevel| type="number">|((SPELLLISTCAST.%spellclassno.%spellavailablelevel)+0).INTVAL|</availablelevel|%spellavailablelevel|>
+|ENDFOR|
+        <levels>
+|FOR,%spellknownlevel,0,9,1,1|
+          <level|%spellknownlevel|>
+            <dc type="number">|SPELLLISTDC.%spellclassno.%spellknownlevel|</dc>
+            <spells>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%spellclassno.0.%spellknownlevel]-1,1,0|
+              <id-0000|(%spell+1).INTVAL|>
+                <name type="string">
+|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.NAME|
+|IIF(SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.BONUSSPELL:*)|
+                  [S]
+|ENDIF|
+                </name>
+                <shortdescription type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTION|</shortdescription>
+                <description type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESC|</description>
+                <components type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.COMPONENTS|</components>
+                <level type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTERLEVEL|</level>
+                <castingtime type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.CASTINGTIME|</castingtime>
+                <duration type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DURATION|</duration>
+                <range type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.RANGE|</range>
+                <save type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SAVEINFO|</save>
+                <source type ="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SOURCE|</source>
+                <effect type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.EFFECT|,|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.TARGET|</effect>
+                <sr type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SR|</sr>
+                <school type="string">|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.SUBSCHOOL|:|SPELLMEM.%spellclassno.0.%spellknownlevel.%spell.DESCRIPTOR|</school>
+                <cast type="number">0</cast>
+                <parse type="number">1</parse>
+              </id-0000|(%spell+1).INTVAL|>
+|ENDFOR|
+            </spells>
+          </level|%spellknownlevel|>
+|ENDFOR|
+        </levels>
+
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+      </id-0000|(%classno+1).INTVAL|>
+|ENDFOR|
+    </spellset>
+    <weaponlist>
+|FOR,%weapno,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+      <id-0000|(%weapno+1).INTVAL|>
+        <ammo type="number">0</ammo>
+        <attack1modifier type="number">0</attack1modifier>
+        <attack2modifier type="number">0</attack2modifier>
+        <attack3modifier type="number">0</attack3modifier>
+        <attack4modifier type="number">0</attack4modifier>
+        <attacks type="number">|WEAPON.%weapno.NUMATTACKS|</attacks>
+        <critmultiplier type="string">x|WEAPON.%weapno.MULT|</critmultiplier>
+        <critrange type="string">|WEAPON.%weapno.CRIT|</critrange>
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d4)|
+        <damagedice type="dice">d4</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d6)|
+        <damagedice type="dice">d6</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d8)|
+        <damagedice type="dice">d8</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d10)|
+        <damagedice type="dice">d10</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d12)|
+        <damagedice type="dice">d12</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:1d20)|
+        <damagedice type="dice">d20</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d4)|
+        <damagedice type="dice">d4, d4</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d6)|
+        <damagedice type="dice">d6,d6</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d8)|
+        <damagedice type="dice">d8,d8</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d10)|
+        <damagedice type="dice">d10,d10</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d12)|
+        <damagedice type="dice">d12,d12</damagedice>
+|ENDIF|
+|IIF(WEAPON.%weapno.BASEDAMAGE:2d20)|
+        <damagedice type="dice">d20,d20</damagedice>
+|ENDIF|
+        <damagebonus type="number">|WEAPON.%weapno.BONUSDAMAGE|</damagebonus>
+        <maxammo type="number">0</maxammo>
+        <name type="string">|WEAPON.%weapno.NAME.NOSTAR|</name>
+|IIF(WEAPON.%weapno.CATEGORY:Ranged)|
+        <type type="number">1</type>
+        <bonus type="number">|(WEAPON.%weapno.TOTALHIT.0-ATTACK.RANGED.BASE-ATTACK.RANGED.STAT-ATTACK.RANGED.SIZE-ATTACK.RANGED.MISC).INTVAL|</bonus>
+        <rangeincrement type="number">|WEAPON.%weapno.RANGE|</rangeincrement>
+|ELSE|
+        <type type="number">0</type>
+        <bonus type="number">|(WEAPON.%weapno.TOTALHIT.0-ATTACK.MELEE.BASE-ATTACK.MELEE.STAT-ATTACK.MELEE.SIZE-ATTACK.MELEE.MISC).INTVAL|</bonus>
+        <rangeincrement type="number">0</rangeincrement>
+|ENDIF|
+      </id-0000|(%weapno+1).INTVAL|>
+|ENDFOR|
+    </weaponlist>
+    <weight type="string">|WEIGHT|</weight>
+  </character>
+</root>
