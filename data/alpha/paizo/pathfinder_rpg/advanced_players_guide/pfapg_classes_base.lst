@@ -204,30 +204,29 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Handle Animal|TYPE.Knowledg
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
 ###Block:Proficiencies
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies						AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
-#
-1									BONUS:VAR|EidolonLevel|CL										ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
-1									BONUS:VAR|SMDuration|CL	BONUS:VAR|SMLevel|min(9,(CL+1)/2)	BONUS:VAR|SMTimes|CHA+3	ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies						AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1									ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
+1									ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
 1	CAST:0,1			KNOWN:4,2
-2	CAST:0,2			KNOWN:5,3			BONUS:VAR|BondSensesRounds|CL										ABILITY:Special Ability|AUTOMATIC|Bond Senses ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
+2	CAST:0,2			KNOWN:5,3			ABILITY:Special Ability|AUTOMATIC|Bond Senses ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
 3	CAST:0,3			KNOWN:6,4
-4	CAST:0,3,1			KNOWN:6,4,2																	ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Summoner|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
+4	CAST:0,3,1			KNOWN:6,4,2			ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Summoner|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
 5	CAST:0,4,2			KNOWN:6,4,3
-6	CAST:0,4,3			KNOWN:6,4,4			BONUS:VAR|MakersCallTimes|((CL-2)/4)								ABILITY:Special Ability|AUTOMATIC|Maker's Call ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
+6	CAST:0,4,3			KNOWN:6,4,4			ABILITY:Special Ability|AUTOMATIC|Maker's Call ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
 7	CAST:0,4,3,1		KNOWN:6,5,4,2
-8	CAST:0,4,4,2		KNOWN:6,5,4,3																ABILITY:Special Ability|AUTOMATIC|Transposition ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
+8	CAST:0,4,4,2		KNOWN:6,5,4,3		ABILITY:Special Ability|AUTOMATIC|Transposition ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
 9	CAST:0,5,4,3		KNOWN:6,5,4,4
-10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		BONUS:VAR|MasterLevel|CL	BONUS:VAR|EidMaxAttacks|5					ABILITY:Special Ability|AUTOMATIC|Aspect ~ Summoner|PREVARLT:CL,18
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		ABILITY:Special Ability|AUTOMATIC|Aspect ~ Summoner|PREVARLT:CL,18
 11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
-12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4																ABILITY:Special Ability|AUTOMATIC|Greater Shield Ally ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4		ABILITY:Special Ability|AUTOMATIC|Greater Shield Ally ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
 13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
-14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3		BONUS:VAR|EidMaxAttacks|1										ABILITY:Special Ability|AUTOMATIC|Life Bond ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3		ABILITY:Special Ability|AUTOMATIC|Life Bond ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
 15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
-16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2	BONUS:VAR|MergeFormsRounds|CL										ABILITY:Special Ability|AUTOMATIC|Merge Forms ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2	ABILITY:Special Ability|AUTOMATIC|Merge Forms ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
 17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
-18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4															ABILITY:Special Ability|AUTOMATIC|Greater Aspect ~ Summoner
-19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4	BONUS:VAR|EidMaxAttacks|1										ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
-20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5	BONUS:VAR|TwinEidolonMinutes|CL									ABILITY:Special Ability|AUTOMATIC|Twin Eidolon ~ Summoner
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4	ABILITY:Special Ability|AUTOMATIC|Greater Aspect ~ Summoner
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4	ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5	ABILITY:Special Ability|AUTOMATIC|Twin Eidolon ~ Summoner
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
