@@ -339,14 +339,14 @@
       <version>0.8</version>
     </dependency>
     <!--
-        <dependency>
-            <groupId>maven-plugins</groupId>
-            <artifactId>maven-findbugs-plugin</artifactId>
-            <version>0.8.4</version>
-            <type>plugin</type>
-            <url>http://maven-plugins.sourceforge.net/findbugs/</url>
-        </dependency>
---> 
+    <dependency>
+      <groupId>maven-plugins</groupId>
+      <artifactId>maven-findbugs-plugin</artifactId>
+      <version>0.8.4</version>
+      <type>plugin</type>
+      <url>http://maven-plugins.sourceforge.net/findbugs/</url>
+    </dependency>
+    --> 
   </dependencies>
   <reports>
     <report>maven-java-plugin</report>

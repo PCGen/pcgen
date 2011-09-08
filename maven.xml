@@ -1,178 +1,188 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
     xmlns:ant="jelly:ant" xmlns:u="jelly:util" xmlns:doc="doc" xmlns:i="jelly:interaction">
 
-	<goal name="generate-jars">
-		<ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
-			<property name="build.classes.dir" value="${maven.build.dest}"/>
-		</ant:ant>
-		<ant:ant dir="${basedir}" antfile="build.xml" target="build-plugins">
-			<property name="build.classes.dir" value="${maven.build.dest}"/>
-		</ant:ant>
-		<ant:ant dir="${basedir}" antfile="build.xml" target="manifest">
-			<property name="build.classes.dir" value="${maven.build.dest}"/>
-		</ant:ant>
-		<ant:ant dir="${basedir}" antfile="build.xml" target="convert-jar">
-			<property name="build.classes.dir" value="${maven.build.dest}"/>
-		</ant:ant>
-		
-	</goal>
+    <goal name="generate-jars">
+        <ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
+            <property name="build.classes.dir" value="${maven.build.dest}"/>
+        </ant:ant>
+        <ant:ant dir="${basedir}" antfile="build.xml" target="build-plugins">
+            <property name="build.classes.dir" value="${maven.build.dest}"/>
+        </ant:ant>
+        <ant:ant dir="${basedir}" antfile="build.xml" target="manifest">
+            <property name="build.classes.dir" value="${maven.build.dest}"/>
+        </ant:ant>
+        <ant:ant dir="${basedir}" antfile="build.xml" target="convert-jar">
+            <property name="build.classes.dir" value="${maven.build.dest}"/>
+        </ant:ant>
+    </goal>
 
-	<preGoal name="java:compile">
-	</preGoal>
-	<postGoal name="java:compile">
-		<attainGoal name="generate-jars" />
-	</postGoal>
+    <preGoal name="java:compile">
+    </preGoal>
+    <postGoal name="java:compile">
+        <attainGoal name="generate-jars" />
+    </postGoal>
 
-	<preGoal name="test:test">
-		<ant:path id="testutil.src.dir" location="code/src/testcommon"/>
-		<maven:addPath id="maven.test.compile.src.set" refid="testutil.src.dir"/>
-	</preGoal>
-	
-	<preGoal name="maven-javadoc-plugin:report">
-	</preGoal>
+    <preGoal name="test:test">
+        <ant:path id="testutil.src.dir" location="code/src/testcommon"/>
+        <maven:addPath id="maven.test.compile.src.set" refid="testutil.src.dir"/>
+    </preGoal>
+    
+    <preGoal name="maven-javadoc-plugin:report">
+    </preGoal>
 
-	<preGoal name="xdoc:jelly-transform">
-		<j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent"><![CDATA[<!ENTITY version '${pom.currentVersion}'>]]></j:file>
-	</preGoal>
-	
-	<goal name="pcgen:package-clean">
-		<ant:mkdir dir="${basedir}/target/docs/download" />
-		<ant:delete>
-			<fileset dir="${basedir}/target/docs/download" includes="*.zip, *.tgz"/>
-		</ant:delete>
-	</goal>
+    <preGoal name="xdoc:jelly-transform">
+        <j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent">
+            <![CDATA[<!ENTITY version '${pom.currentVersion}'>]]>
+        </j:file>
+    </preGoal>
 
-	<goal name="pcgen:package" prereqs="pcgen:package-clean">
-		<j:new className="java.util.Date" var="timestamp" />
-		<j:new className="java.text.SimpleDateFormat" var="format">
-			<j:arg type="java.lang.String" value="yyyy-MM-dd HH:mm Z" />
-		</j:new>
-		<j:invokeStatic className="java.util.TimeZone" method="getTimeZone" var="timezone">
-			<j:arg type="java.lang.String" value="Australia/Canberra" /> <!-- Should match the locale of the build machine -->
-		</j:invokeStatic>
-		<j:invoke on="${format}" var="formattedDate" method="setTimeZone">
-			<j:arg type="java.util.TimeZone" value="${timezone}" />
-		</j:invoke>
-		<j:invoke on="${format}" var="formattedDate" method="format">
-			<j:arg type="java.util.Date" value="${timestamp}" />
-		</j:invoke>
+    <goal name="pcgen:package-clean">
+        <ant:mkdir dir="${basedir}/target/docs/download" />
+        <ant:delete>
+            <fileset dir="${basedir}/target/docs/download" includes="*.zip, *.tgz"/>
+        </ant:delete>
+    </goal>
 
-		<j:file append="false" name="${basedir}/code/bin/autobuild.timestamp"><built-at>${formattedDate}</built-at></j:file>
-		<j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent"><![CDATA[<!ENTITY version '${pom.currentVersion}'>]]></j:file>
+    <goal name="pcgen:package" prereqs="pcgen:package-clean">
+        <j:new className="java.util.Date" var="timestamp" />
+        <j:new className="java.text.SimpleDateFormat" var="format">
+            <j:arg type="java.lang.String" value="yyyy-MM-dd HH:mm Z" />
+        </j:new>
+        <j:invokeStatic className="java.util.TimeZone" method="getTimeZone" var="timezone">
+            <!-- Should match the locale of the build machine -->
+            <j:arg type="java.lang.String" value="Australia/Canberra" />
+        </j:invokeStatic>
+        <j:invoke on="${format}" var="formattedDate" method="setTimeZone">
+            <j:arg type="java.util.TimeZone" value="${timezone}" />
+        </j:invoke>
+        <j:invoke on="${format}" var="formattedDate" method="format">
+            <j:arg type="java.util.Date" value="${timestamp}" />
+        </j:invoke>
 
-	
-		<ant:mkdir dir="${basedir}/target/docs/download" />
+        <j:file append="false" name="${basedir}/code/bin/autobuild.timestamp">
+            <built-at>${formattedDate}</built-at>
+        </j:file>
+        <j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent">
+            <![CDATA[<!ENTITY version '${pom.currentVersion}'>]]>
+        </j:file>
 
-		<ant:zip destfile="target/docs/download/pcgen-program-${pom.currentVersion}-SNAPSHOT.zip">
-			<fileset dir="${basedir}/target">
-				<include name="pcgen.jar"/>
-			</fileset>
-			<fileset dir="${basedir}/code/bin">
-				<include name="batch-convert.jar"/>
-				<include name="pcgen.sh"/>
-				<include name="pcgen.exe"/>
-				<include name="pcgen_low_mem.bat"/>
-				<include name="filepaths.ini"/>
-				<include name="autobuild.timestamp"/>
-			</fileset>
-			<fileset dir="${basedir}" >
-				<include name="plugins/**"/>
-			</fileset>
-		</ant:zip> 
+        <ant:mkdir dir="${basedir}/target/docs/download" />
+        <ant:zip destfile="target/docs/download/pcgen-program-${pom.currentVersion}-SNAPSHOT.zip">
+            <fileset dir="${basedir}/target">
+                <include name="pcgen.jar"/>
+            </fileset>
+            <fileset dir="${basedir}/code/bin">
+                <include name="batch-convert.jar"/>
+                <include name="pcgen.sh"/>
+                <include name="pcgen.exe"/>
+                <include name="pcgen_low_mem.bat"/>
+                <include name="filepaths.ini"/>
+                <include name="autobuild.timestamp"/>
+            </fileset>
+            <fileset dir="${basedir}" >
+                <include name="plugins/**"/>
+            </fileset>
+        </ant:zip> 
 
-		<ant:zip destfile="target/docs/download/pcgen-data-${pom.currentVersion}-SNAPSHOT.zip">
-			<fileset dir="${basedir}" >
-				<include name="data/**"/>
-				<include name="outputsheets/**"/>
-				<include name="system/**"/>
-				<include name="preview/**"/>
-			</fileset>
-		</ant:zip> 
+        <ant:zip destfile="target/docs/download/pcgen-data-${pom.currentVersion}-SNAPSHOT.zip">
+            <fileset dir="${basedir}" >
+                <include name="data/**"/>
+                <include name="outputsheets/**"/>
+                <include name="system/**"/>
+                <include name="preview/**"/>
+            </fileset>
+        </ant:zip> 
 
-		<ant:zip destfile="target/docs/download/pcgen-docs-${pom.currentVersion}-SNAPSHOT.zip">
-			<fileset dir="${basedir}" >
-				<include name="docs/**"/>
-			</fileset>
-		</ant:zip> 
+        <ant:zip destfile="target/docs/download/pcgen-docs-${pom.currentVersion}-SNAPSHOT.zip">
+            <fileset dir="${basedir}" >
+                <include name="docs/**"/>
+            </fileset>
+        </ant:zip> 
 
-		<ant:zip basedir="${basedir}" destfile="target/docs/download/pcgen-libraries-${pom.currentVersion}-SNAPSHOT.zip" 
-			includes="lib/**" 
-			excludes="lib/emma/**, lib/test/**"/>
-	</goal>
+        <ant:zip 
+            basedir="${basedir}" 
+            destfile="target/docs/download/pcgen-libraries-${pom.currentVersion}-SNAPSHOT.zip" 
+            includes="lib/**" 
+            excludes="lib/emma/**, lib/test/**"/>
+    </goal>
 
-	<!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->	
-	<goal name="pcgen:genrelease">
-		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
-		  <arg line="release.pl ${pom.currentVersion}"/>
-		</ant:exec>	
-	</goal>
+    <!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->
+    <goal name="pcgen:genrelease">
+        <ant:exec dir="${basedir}/installers/win-installer" executable="perl">
+            <arg line="release.pl ${pom.currentVersion}"/>
+        </ant:exec>
+    </goal>
 
-	<!-- 
-	   - This goal runs the PCGen release process, including:
-	   -   * Creating the release zip files
-	   -   * Running NSIS to create the Windows installer
-	   -   * Generate checksums for all distributable files
-	   -   * Upload the distributable files to Sourceforge
-	   -
-	   -  TODO: Sign the files with PGP
-  	   -->
-	<goal name="pcgen:release">
-		<!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->	
-		<attainGoal name="pcgen:genrelease" />
+    <!-- 
+       - This goal runs the PCGen release process, including:
+       -   * Creating the release zip files
+       -   * Running NSIS to create the Windows installer
+       -   * Generate checksums for all distributable files
+       -   * Upload the distributable files to Sourceforge
+       -
+       -  TODO: Sign the files with PGP
+    -->
+    <goal name="pcgen:release">
+        <!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->
+        <attainGoal name="pcgen:genrelease" />
 
-		<!-- Run the NSIS compiler to create the windows installation .exe -->	
-		<attainGoal name="nsis:installer" />
+        <!-- Run the NSIS compiler to create the windows installation .exe -->
+        <attainGoal name="nsis:installer" />
 
-		<!-- Generate the source archive  -->	
-		<attainGoal name="source:source" />
-		
-		<!--  Run gendigest.pl to generate the SHA1 checksums for the files.		-->
-		<ant:copy todir="${maven.build.dir}">
-		    <fileset dir="${basedir}\..\release">
-		    	<include name="*.zip"/>
-		    	<include name="*.exe"/>
-		    	<include name="*.dmg"/>
-		    	<include name="*.jar"/>
-		    </fileset>
-		</ant:copy>
-		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
-		  <arg line="gendigest.pl ${maven.build.dir}"/>
-		</ant:exec>	
+        <!-- Generate the source archive -->
+        <attainGoal name="source:source" />
 
-		<i:ask question="Please sign the release files in ${maven.build.dir} now and press enter when completed."/>
-		
-		<!--  # Upload zip, signature and windows installer files to SourceForge at ftp://upload.sourceforge.net/incoming (anonymous access only) -->
-	    <attainGoal name="sourceforge:init"/>
-	    <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>
-	    <attainGoal name="sourceforge:changes"/>
-	    <attainGoal name="sourceforge:preparefiles"/>
+        <!--  Run gendigest.pl to generate the SHA1 checksums for the files. -->
+        <ant:copy todir="${maven.build.dir}">
+            <fileset dir="${basedir}\..\release">
+                <include name="*.zip"/>
+                <include name="*.exe"/>
+                <include name="*.dmg"/>
+                <include name="*.jar"/>
+            </fileset>
+        </ant:copy>
+        <ant:exec dir="${basedir}/installers/win-installer" executable="perl">
+          <arg line="gendigest.pl ${maven.build.dir}"/>
+        </ant:exec>    
 
-	</goal>
-	
-	<!-- Simple report to copy the pcgen documentation into the published site -->
-	<goal name="pcgen-docs-plugin:register">
+        <i:ask question="Please sign the release files in ${maven.build.dir} now and press enter when completed."/>
+        
+        <!--  
+              # Upload zip, signature and windows installer files to SourceForge at
+              ftp://upload.sourceforge.net/incoming (anonymous access only)
+        -->
+        <attainGoal name="sourceforge:init"/>
+        <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>
+        <attainGoal name="sourceforge:changes"/>
+        <attainGoal name="sourceforge:preparefiles"/>
+    </goal>
+    
+    <!-- Simple report to copy the pcgen documentation into the published site -->
+    <goal name="pcgen-docs-plugin:register">
       <doc:registerReport 
         name="PCGen Documentation" 
         pluginName="pcgen-docs-plugin"
         link="pcgen-docs/index"
         target="_blank"
         description="PCGen user documentation."/>
-	</goal>
-	<goal name="pcgen-docs-plugin:deregister">
-		<doc:deregisterReport name="PCGen Documentation"/>
-	</goal>
-	<goal name="pcgen-docs-plugin:report" 
-		description="Add the PCGen documentation as a report to the output.">
+    </goal>
 
-		<j:if test="${siteClean}">
-			<echo>Cleaning destination first</echo>
-			<delete dir="target/docs/pcgen-docs" />
-		</j:if>
+    <goal name="pcgen-docs-plugin:deregister">
+        <doc:deregisterReport name="PCGen Documentation"/>
+    </goal>
 
-		<mkdir dir="target/docs/pcgen-docs" />
-		<copy todir="target/docs/pcgen-docs">
-			<fileset dir="docs" />
-		</copy>
-	</goal>
+    <goal name="pcgen-docs-plugin:report" 
+        description="Add the PCGen documentation as a report to the output.">
+
+        <j:if test="${siteClean}">
+            <echo>Cleaning destination first</echo>
+            <delete dir="target/docs/pcgen-docs" />
+        </j:if>
+
+        <mkdir dir="target/docs/pcgen-docs" />
+        <copy todir="target/docs/pcgen-docs">
+            <fileset dir="docs" />
+        </copy>
+    </goal>
 
 </project>
