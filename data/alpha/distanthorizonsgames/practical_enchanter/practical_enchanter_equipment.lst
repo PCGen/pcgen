@@ -191,6 +191,20 @@ Willow Powder																			TYPE:Charm																														SOURCEPA
 Wizard's Hand																			TYPE:Charm																														SOURCEPAGE:p.200	ABILITY:Special Ability|AUTOMATIC|Charms and Talismans																																BONUS:VAR|CharmCount|1
 Wraith Gauntlets																			TYPE:Charm																														SOURCEPAGE:p.200	ABILITY:Special Ability|AUTOMATIC|Charms and Talismans																																BONUS:VAR|CharmCount|1
 
+#Mod's
+Traveler's Bedroll.MOD		SPROP:This simple bedroll is always warm, dry, insect-free, and extremely comfortable. Its virtue permits the user to manage comfortably on only six hours of sleep a night.
+Traveler's Pin.MOD		SPROP:This simple clasp grants the user a basic understanding of the language and the customs of a particular group, greatly reducing the chance of accidentally offending people.
+
+Wellstone.MOD			SPROP:Made from naturally-holed stones, these produce a steady trickle of fresh water, yielding 2d4 gallons per day.
+Astrolabe.MOD			SPROP:This large pocket watch keeps track of the minutes, hours, days, months, years, the phases of the moon, the time of sunrise and sunset, dominant constellations, eclipses, and many other astronomical events. It provides a +5 bonus on relevant checks.
+Mandarin's Pin.MOD			SPROP:This modest pin keeps the wearer and his clothing clean, neat, and well-mended.
+Captain's Torc (Charm).MOD	SPROP:This neckpiece amplifies sound and thus provides both a +4 bonus to Listen checks and great volume to the user's voice, allowing him or her to be clearly heard at considerably greater distances. They do, however, have the unfortunate side effect of a -1 on saving throws versus sonic attacks. They're fairly popular with orators, actors and, of course, military commanders.
+
+### Talisman
+Shimmer Mail.MOD	SPROP:This mail is as light as normal clothing. It has no armor check penalty, max Dex bonus, or arcane failure, but has a +4 armor bonus.
+Endless Rope.MOD	SPROP:This coil of rope never seems to run out, supplying several hundred feet per day.
+
+
 # Common Talismans
 Bardic Instrument (Talisman)				OUTPUTNAME:Bardic Instrument, [NAME]													TYPE:Talisman																													SOURCEPAGE:p.200	ABILITY:Special Ability|AUTOMATIC|Charms and Talismans																																BONUS:VAR|TalismanCount|1
 Captain's Torc (Talisman)				OUTPUTNAME:Captain's Torc, [NAME]													TYPE:Talisman																													SOURCEPAGE:p.200	ABILITY:Special Ability|AUTOMATIC|Charms and Talismans																																BONUS:VAR|TalismanCount|1
@@ -274,7 +288,7 @@ Spellcraft Talisman Shield L5 (Mithril)		COST:500		TYPE:Talisman.Spellcraft.Shie
 Spellcraft Talisman Shield L6 (Adamantium)	COST:1000		TYPE:Talisman.Spellcraft.Shield	SOURCEPAGE:p.122
 Spellcraft Talisman Shield L7 (Orichalcum)	COST:5000		TYPE:Talisman.Spellcraft.Shield	SOURCEPAGE:p.122
 
-#“Seals” are more limited devices designed to aid specific types of magic. They’re most commonly made in the form of rings, since they incorporate fairly decent gems. Unfortunately, they cannot be used to amplify spells of above L3. They are, however, much simpler to make than Talismans.
+#Seals are more limited devices designed to aid specific types of magic. Theyre most commonly made in the form of rings, since they incorporate fairly decent gems. Unfortunately, they cannot be used to amplify spells of above L3. They are, however, much simpler to make than Talismans.
 
 #Specific Seals include
 # These Boost either a School of Magic or a Descriptor. All Set Up as best I could. They increase with Level of user. Need to review formula. The Only Issue is if there are two then the Var will conflict; Perhaps a TYPE needs to be appended to avoid any conflict?

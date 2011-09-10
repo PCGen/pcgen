@@ -32,7 +32,7 @@ Buy Off ECL Penalty ~ Level 12				LEVELADJUSTMENT:-12
 
 ###Block: Permanent Starting Wealth Level
 # Template Name								Visible		Level Adjustment		Bonus to Ability Pool
-01 - Use Wealth Templates	KEY:Use Wealth Templates	VISIBLE:DISPLAY					BONUS:ABILITYPOOL|Starting Wealth Level Choice|1	BONUS:ABILITYPOOL|Current Wealth Level Choice|1
+01 - Use Wealth Templates	KEY:Use Wealth Templates	VISIBLE:DISPLAY					BONUS:ABILITYPOOL|Starting Wealth Level Choice|1	BONUS:ABILITYPOOL|Current Wealth Level Choice|1	BONUS:ABILITYPOOL|Level Advancement Wealth Template|TL+EclipseExtraLvl	DEFINE:EclipseExtraLvl|0
 #COMMENT: This allows the use of the option system "Wealth Templates"
 
 #
