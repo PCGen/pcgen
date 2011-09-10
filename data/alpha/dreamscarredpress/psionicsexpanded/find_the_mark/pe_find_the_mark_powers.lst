@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+# Original Entry: Douglas Limmer
+
+## Old Powers on Marksman power list
+
+# Spell Name				Classes of caster								School			Sub-School			Spell Descriptors			Type			Components			Casting Time				Range				Target Area or Effect												Duration										Save Info					Spell Resistance		Description														Save checks bonus						Combat bonus																									Add to magical move										Source Page		Temporary effect description
+Astral Traveler.MOD			CLASSES:Marksman=1
+Bolt.MOD					CLASSES:Marksman=1
+Burst.MOD					CLASSES:Marksman=1
+Catfall.MOD					CLASSES:Marksman=1
+Chameleon.MOD				CLASSES:Marksman=1
+Conceal Thoughts.MOD			CLASSES:Marksman=1
+Detect Psionics.MOD			CLASSES:Marksman=1
+Elfsight.MOD				CLASSES:Marksman=1
+Far Hand.MOD				CLASSES:Marksman=1
+Float.MOD					CLASSES:Marksman=1
+Metaphysical Weapon.MOD			CLASSES:Marksman=1
+My Light.MOD				CLASSES:Marksman=1
+Precognition (Defensive).MOD		CLASSES:Marksman=1
+Precognition (Offensive).MOD		CLASSES:Marksman=1
+Prescience (Offensive).MOD		CLASSES:Marksman=1
+Prevenom Weapon.MOD			CLASSES:Marksman=1
+Vigor.MOD					CLASSES:Marksman=1
+
+Body Adjustment.MOD			CLASSES:Marksman=2
+Body Equilibrium.MOD			CLASSES:Marksman=2
+Body Purification.MOD			CLASSES:Marksman=2
+Cloud Mind.MOD				CLASSES:Marksman=2
+Concealing Amorpha.MOD			CLASSES:Marksman=2
+Defy Gravity.MOD				CLASSES:Marksman=2
+Detect Hostile Intent.MOD		CLASSES:Marksman=2
+Dissolving Weapon.MOD			CLASSES:Marksman=2
+Psionic Scent.MOD				CLASSES:Marksman=2
+Share Pain.MOD				CLASSES:Marksman=2
+Sustenance.MOD				CLASSES:Marksman=2
+Wall Walker.MOD				CLASSES:Marksman=2
+
+Concealing Amorpha (Greater).MOD	CLASSES:Marksman=3
+Control Air.MOD				CLASSES:Marksman=3
+Danger Sense.MOD				CLASSES:Marksman=3
+Dimension Slide.MOD			CLASSES:Marksman=3
+Energy Adaptation (Specified).MOD	CLASSES:Marksman=3
+Escape Detection.MOD			CLASSES:Marksman=3
+Heightened Vision.MOD			CLASSES:Marksman=3
+Hustle.MOD					CLASSES:Marksman=3
+Touchsight.MOD				CLASSES:Marksman=3
+Ubiquitous Vision.MOD			CLASSES:Marksman=3
+
+Aura Sight.MOD				CLASSES:Marksman=4
+Evade Burst.MOD				CLASSES:Marksman=4
+Inertial Barrier.MOD			CLASSES:Marksman=4
+Pierce the Veils.MOD			CLASSES:Marksman=4
+Sharpened Edge.MOD			CLASSES:Marksman=4
+Slip the Bonds.MOD			CLASSES:Marksman=4
+Steadfast Perception.MOD		CLASSES:Marksman=4
+Truevenom Weapon.MOD			CLASSES:Marksman=4
+
+## New Powers
+
+Barrage					CLASSES:Marksman=4|Psychic Warrior=5				SCHOOL:Psychometabolism										TYPE:Psionic	COMPS:Vi; see text	CASTTIME:1 swift action			RANGE:Personal		TARGETAREA:You													DURATION:1 round									SAVEINFO:None				SPELLRES:No			DESC:Attack all close targets as a full action.																																																								SOURCEPAGE:p.16
+Blanketing Assault			CLASSES:Marksman=2							SCHOOL:Psychokinesis										TYPE:Psionic	COMPS:Au Me			CASTTIME:1 swift action			RANGE:Special; see text	TARGETAREA:One creature												DURATION:1 round									SAVEINFO:Reflex negates			SPELLRES:Yes		DESC:Cover fire affects all creatuers within 10 ft. of target creature.																																																				SOURCEPAGE:p.16
+Blinding Shot				CLASSES:Marksman=2							SCHOOL:Psychokinesis					DESCRIPTOR:Light			TYPE:Psionic	COMPS:Vi			CASTTIME:1 swift action			RANGE:Touch			TARGETAREA:1 piece of ammunition										DURATION:(CASTERLEVEL) rounds; see text					SAVEINFO:None; see text			SPELLRES:No; see text	DESC:Blind creature struck with ammunition.																																																								SOURCEPAGE:p.16
+Concussive Onslaught			CLASSES:Psion,Wilder=3							SCHOOL:Psychokinesis					DESCRIPTOR:Force			TYPE:Psionic	COMPS:Au Ma Vi		CASTTIME:1 standard action		RANGE:Long			TARGETAREA:30 ft. radius burst										DURATION:(CASTERLEVEL) rounds							SAVEINFO:Fortitude half			SPELLRES:Yes		DESC:Deal 3d6 force damage to all creatures in area every round.																																																					SOURCEPAGE:p.17
+Deaden Attack				CLASSES:Marksman,Psychic Warrior=1					SCHOOL:Metacreativity										TYPE:Psionic	COMPS:Ma			CASTTIME:1 swift action			RANGE:Close			TARGETAREA:1 weapon												DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates; see text	SPELLRES:Yes; see text	DESC:Target weapon deals nonlethal damage.																																																								SOURCEPAGE:p.17
+Deflect Missiles				CLASSES:Marksman=1							SCHOOL:Psychokinesis					DESCRIPTOR:Force			TYPE:Psionic	COMPS:Me Vi			CASTTIME:1 standard action		RANGE:Personal		TARGETAREA:You													DURATION:(CASTERLEVEL) rounds [D] or until discharged			SAVEINFO:None				SPELLRES:No			DESC:Gain damage reduction against ranged weapons.																																																							SOURCEPAGE:p.17
+Entangling Cover				CLASSES:Marksman=2							SCHOOL:Metacreativity										TYPE:Psionic	COMPS:Ma Ol			CASTTIME:1 swift action			RANGE:Special; see text	TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds							SAVEINFO:Reflex negates			SPELLRES:Yes		DESC:Entangle creature staggered by cover fire.																																																								SOURCEPAGE:p.17
+Ephemeral Bolt				CLASSES:Marksman,Psychic Warrior=2					SCHOOL:Metacreativity	SUBSCHOOL:Creation	DESCRIPTOR:Force			TYPE:Psionic	COMPS:Ma			CASTTIME:1 standard action		RANGE:0 ft.			TARGETAREA:1 ectoplasmic bolt, arrow, or sling bullet							DURATION:(CASTERLEVEL) minutes						SAVEINFO:None				SPELLRES:Yes; see text	DESC:Attack target with ammunition without target noticing.																																																						SOURCEPAGE:p.18
+Flexible Trajectory			CLASSES:Marksman=3|Psychic Warrior=4				SCHOOL:Psychoportation										TYPE:Psionic	COMPS:Vi			CASTTIME:1 standard action		RANGE:Personal		TARGETAREA:You													DURATION:(CASTERLEVEL) rounds							SAVEINFO:None				SPELLRES:No			DESC:Ignore cover and range increment penalties.																																																							SOURCEPAGE:p.18
+Foxhole					CLASSES:Marksman,Psion,Psychic Warrior,Wilder=1			SCHOOL:Psychokinesis										TYPE:Psionic	COMPS:Ma Ol			CASTTIME:1 standard action		RANGE:20 ft.		TARGETAREA:Four 5-ft. squares of loose earth, sand, snow, or similar unworked terrain [S]	DURATION:Instantaneous								SAVEINFO:None				SPELLRES:No			DESC:Quickly create a hole.																																																											SOURCEPAGE:p.18
+Gravitational Anchor			CLASSES:Marksman,Nomad=3						SCHOOL:Psychoportation										TYPE:Psionic	COMPS:Ma Ol			CASTTIME:1 standard action		RANGE:Medium		TARGETAREA:1 creature, object, or location; 10 ft. radius burst; see text			DURATION:(CASTERLEVEL) rounds							SAVEINFO:Reflex negates; see text	SPELLRES:Yes		DESC:Pull creatures and objects downward.																																																									SOURCEPAGE:p.19
+Gravitational Well			CLASSES:Marksman,Nomad=2						SCHOOL:Psychoportation										TYPE:Psionic	COMPS:Ma Ol			CASTTIME:1 standard action		RANGE:Medium		TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds							SAVEINFO:Reflex negates			SPELLRES:Yes		DESC:Target is easier to hit, and harder to move away from.																																																						SOURCEPAGE:p.19
+Inevitable Strike				CLASSES:Marksman,Psion,Psychic Warrior,Tactician,Wilder=1	SCHOOL:Clairsentience										TYPE:Psionic	COMPS:Vi			CASTTIME:1 swift action			RANGE:Personal		TARGETAREA:You													DURATION:See text									SAVEINFO:None				SPELLRES:No			DESC:Next attack gains +5 insight bonus, not affected by miss chance for concealment.																																																	SOURCEPAGE:p.20
+Knockdown					CLASSES:Marksman=2							SCHOOL:Psychokinesis										TYPE:Psionic	COMPS:Me Ol			CASTTIME:1 standard action		RANGE:See text		TARGETAREA:1 creature												DURATION:Instantaneous								SAVEINFO:Reflex negates; see text	SPELLRES:Yes		DESC:Knock target of ranged attack prone.																																																									SOURCEPAGE:p.20
+Localized Windstorm			CLASSES:Kineticist=3|Marksman=2					SCHOOL:Psychokinesis					DESCRIPTOR:Air			TYPE:Psionic	COMPS:Au			CASTTIME:1 standard action		RANGE:Close			TARGETAREA:Wall up to (CASTERLEVEL*10) ft. long and (5*CASTERLEVEL) ft. high [S]		DURATION:Concentration, up to (CASTERLEVEL) rounds			SAVEINFO:None; see text			SPELLRES:Yes		DESC:Create air turbulence.																																																											SOURCEPAGE:p.20
+Mirror Shot					CLASSES:Marksman=4							SCHOOL:Psychoportation										TYPE:Psionic	COMPS:Au Vi			CASTTIME:1 immediate action		RANGE:Medium		TARGETAREA:1 projectile in flight										DURATION:Instantaneous								SAVEINFO:None				SPELLRES:No			DESC:Turn single projectile into many.																																																									SOURCEPAGE:p.21
+Physical Acceleration			CLASSES:Egoist,Marksman=3|Psychic Warrior=2|Vitalist=4	SCHOOL:Psychometabolism										TYPE:Psionic	COMPS:Au			CASTTIME:1 standard action		RANGE:Personal		TARGETAREA:You													DURATION:(CASTERLEVEL) rounds							SAVEINFO:None				SPELLRES:No			DESC:You move faster, gain +1 on attacks, AC, Reflex saves.						BONUS:CHECKS|Reflex|1|TYPE=Dodge|PREAPPLY:ANYPC	BONUS:COMBAT|AC|1|TYPE=Dodge|PREAPPLY:ANYPC	BONUS:COMBAT|ATTACKS|1|TYPE=Enhancement|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|1|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:POSTMOVEADD|TYPE.ALL|min(MOVEBASE,30)|TYPE=Enhancement|PREAPPLY:ANYPC	SOURCEPAGE:p.21	TEMPDESC:Grants a +1 bonus on attack rolls and a +1 dodge bonus to AC and Reflex saves
+Psychokinetic Cannon			CLASSES:Marksman=1							SCHOOL:Psychokinesis										TYPE:Psionic	COMPS:Au Vi			CASTTIME:1 swift action; see text	RANGE:0 ft.			TARGETAREA:1 piece of ammunition or one thrown weapon							DURATION:Instantaneous								SAVEINFO:None				SPELLRES:No			DESC:Fire ammunition without launcher.																																																									SOURCEPAGE:p.22
+Sense Minds					CLASSES:Marksman=1|Telepath=2						SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting	TYPE:Psionic	COMPS:Vi			CASTTIME:1 standard action		RANGE:60 ft.		TARGETAREA:Cone-shaped emanation										DURATION:Concentration, up to (CASTERLEVEL) minutes [D]; see text	SAVEINFO:Will negates			SPELLRES:No			DESC:Locate non-mindless creatures in the area.																																																								SOURCEPAGE:p.22
+Wind Strike					CLASSES:Marksman=2							SCHOOL:Psychometabolism										TYPE:Psionic	COMPS:Me Au			CASTTIME:1 swift action			RANGE:Special; see text	TARGETAREA:One or more creatures										DURATION:1 round									SAVEINFO:None				SPELLRES:Yes		DESC:Daze targets of ranged attacks when using wind reader ability.																																																				SOURCEPAGE:p.23
+Zealous Fury				CLASSES:Marksman,Psychic Warrior=4					SCHOOL:Psychometabolism										TYPE:Psionic	COMPS:Me Au			CASTTIME:1 swift action			RANGE:Personal		TARGETAREA:You													DURATION:1 round									SAVEINFO:None				SPELLRES:No			DESC:Reduce penalty on iterative attacks.																																																									SOURCEPAGE:p.23

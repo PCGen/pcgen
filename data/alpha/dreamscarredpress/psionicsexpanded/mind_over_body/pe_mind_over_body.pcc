@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+CAMPAIGN:DSP - Psionics Expanded - Mind over Body
+GAMEMODE:Pathfinder
+TYPE:Dreamscarred Press
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:None
+PUBNAMELONG:Dreamscarred Press
+PUBNAMESHORT:DSP
+PUBNAMEWEB:http://www.dreamscarredpress.com
+SOURCELONG:Psionics Expanded - Mind over Body
+SOURCESHORT:PEMoB
+SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html
+SOURCEDATE:2011-06
+ISOGL:YES
+
+COVER:pe_mind_over_body.jpg
+LOGO:@/publisher_logos/Dreamscarred_Press.jpg
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+DESC:Add some healing to your psionics with this first release in the Psionics Expanded product line! Divine power just not your style? Not interested in the bestial nature of the druid? Do you want an effective healing class without all the praying? The Vitalist is what you're looking for. This all-new 20-level psionic base class joins his allies into a single collective and then shares healing energy across it. Whether you're a mender, focusing on healing wounds, or a guardian who stops damage before it lands, or a soulthief who takes the life force of enemies and turns it into healing power, the Vitalist is the first true psionic healer for your Pathfinder Roleplaying Game.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder RPG Bestiary. ) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced PlayerUs Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:Pathfinder RPG GameMastery Guide, ) 2010, Paizo Publishing, LLC; Author: Cam Banks, Wolfgang Buar, Jason Bulmahn, Jim Butler, Eric Cagle, Graeme Davis, Adam Daigle, Joshua J. Frost, James Jacobs, Kenneth Hite, Steven Kenson, Robin Laws, Tito Leati, Rob McCreary, Hal Maclean, Colin McComb, Jason Nelson, David Noonan, Richard Pett, Rich Redman, Sean K reynolds, F. Wesley Schneider, Amber Scorr, Doug Seacat, Mike Selinker, Lisa Stevens, James L. Sutter, Russ Taylor, Penny Williams, Skip Williams, Teeuwynn Woodruff.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Authors Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:The Iconic Bestiary: Classics of Fantasy Copyright 2005, Lions Den Press; Author Ari Marmell
+COPYRIGHT:Hyperconscious: Explorations in Psionics Copyright 2004 Bruce R Cordell. All rights reserved.
+COPYRIGHT:If Thoughts Could Kill Copyright 2001P2004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Mindscapes Copyright 2003P2004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Unearthed Arcana Copyright 2004 Wizards of the Coast.
+COPYRIGHT:Mutants & Masterminds Copyright 2002, Green Ronin Publishing.
+COPYRIGHT:Swords of Our Fathers Copyright 2003, The Game Mechanics.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker,Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker
+COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
+COPYRIGHT:Psionics Expanded. Copyright 2011, Dreamscarred Press.
+COPYRIGHT:PCGen dataset conversion for Psionics Expanded: Mind Over Body, Copyright 2011, PCgen Data team (Including but not limited to Doug Limner (distant-scholar))
+
+PRECAMPAIGN:1,DSP - Psionics Unleashed (5.16),DSP - Psionics Unleashed (5.17)
+STATUS:ALPHA
+
+FORWARDREF:CLASSSPELLLIST|Marksman,Tactician
+
+ABILITY:pe_mind_over_body_abilities.lst
+ABILITYCATEGORY:pe_mind_over_body_ability_categories.lst
+CLASS:pe_mind_over_body_classes.lst
+EQUIPMENT:pe_mind_over_body_equipment.lst
+EQUIPMOD:pe_mind_over_body_equipmods.lst
+FEAT:pe_mind_over_body_feats.lst
+SPELL:pe_mind_over_body_powers.lst
+TEMPLATE:pe_mind_over_body_templates.lst

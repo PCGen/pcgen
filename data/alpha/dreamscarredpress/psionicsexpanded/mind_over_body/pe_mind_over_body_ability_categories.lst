@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+#SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB
+# Original Entry by: Douglas Limmer
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list			Plural description for UI	Display Location
+ABILITYCATEGORY:Healing Surge Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT							ABILITYLIST:Expanded Knowledge	PLURAL:Healing Surge Feats	DISPLAYLOCATION:Feats
+###COMMENT:Powers chosen must be Healing powers
+
+
+ABILITYCATEGORY:Vitalist Method			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VitalistMethod							PLURAL:Vitalist Method		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Knack					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GeneralKnack								PLURAL:Knacks			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Guardian Knack			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuardianKnack							PLURAL:Guardian Knacks		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Mender Knack				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MenderKnack								PLURAL:Mender Knacks		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Soulthief Knack			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulthiefKnack							PLURAL:Soulthief Knacks		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Metamorph Major Metamorphosis	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MajorMetamorph							PLURAL:Major Metamorphosis	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Metamorph Level Five Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LevelFivePower							PLURAL:Level Five Power		DISPLAYLOCATION:Class Abilities

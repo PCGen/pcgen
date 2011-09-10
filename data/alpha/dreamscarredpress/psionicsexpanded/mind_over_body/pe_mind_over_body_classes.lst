@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Sat Sep 10 08:17:14 2011 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
+#Original Entry: Douglas Limmer
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Psionics)|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Spellcraft|Survival
+# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Vitalist|CL
+
+#Block: Proficiencies
+1																																																													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies		AUTO:FEAT|Simple Weapon Proficiency
+1																																																																									AUTO:FEAT|Armor Proficiency (Light)
+
+#Block: Psionic Ability
+1												BONUS:VAR|VitalistML|CL	BONUS:VAR|VitalistML|var("BL=Vitalist")	BONUS:VAR|IsPsionic|1																						DEFINE:VitalistML|0	DEFINE:IsPsionic|0						ABILITY:Special Ability|AUTOMATIC|Psionic
+1												BONUS:VAR|VitalistPL|VitalistML																															DEFINE:VitalistPL|0
+1												BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:VitalistPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:VitalistPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:VitalistPL,4
+1												BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:VitalistPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:VitalistPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:VitalistPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:VitalistPL,8
+1												BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:VitalistPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:VitalistPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:VitalistPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:VitalistPL,12
+1												BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:VitalistPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:VitalistPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:VitalistPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:VitalistPL,16
+1												BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:VitalistPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:VitalistPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:VitalistPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:VitalistPL,20
+1												BONUS:VAR|BonusPowerPoints|(WIS*VitalistPL)/2|TYPE=VitalistBonusPP
+
+#Block: Class Info
+1	KNOWN:0,2				BONUS:ABILITYPOOL|Vitalist Method|1	BONUS:VAR|MethodLVL|CL																																	DEFINE:MethodLVL|0
+1												BONUS:VAR|CollectiveLVL|CL																																DEFINE:CollectiveLVL|0										ABILITY:Special Ability|AUTOMATIC|Collective
+1						BONUS:ABILITYPOOL|Knack|2																																																			ABILITY:Special Ability|AUTOMATIC|Collective Healing|Medic Powers
+1												BONUS:VAR|TransferWoundsDice|(CL+2)/3																																											ABILITY:Special Ability|AUTOMATIC|Transfer Wounds
+2	KNOWN:0,2										BONUS:VAR|HealthSenseLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Health Sense|Spirit of Many
+3	KNOWN:0,0,3										BONUS:VAR|StealHealthLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Health|Telepathy ~ Vitalist
+4	KNOWN:0,0,3
+5	KNOWN:0,0,0,4																																																										ABILITY:Special Ability|AUTOMATIC|Request Aid
+6	KNOWN:0,0,0,4
+7	KNOWN:0,0,0,0,5
+8	KNOWN:0,0,0,0,5
+9	KNOWN:0,0,0,0,0,6																																																					ADD:FEAT|Expanded Knowledge
+10	KNOWN:0,0,0,0,0,6
+11	KNOWN:0,0,0,0,0,0,7
+12	KNOWN:0,0,0,0,0,0,7
+13	KNOWN:0,0,0,0,0,0,0,8
+14	KNOWN:0,0,0,0,0,0,0,8								BONUS:VAR|StealLifeLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Life
+15	KNOWN:0,0,0,0,0,0,0,0,9
+16	KNOWN:0,0,0,0,0,0,0,0,9
+17	KNOWN:0,0,0,0,0,0,0,0,0,10
+18	KNOWN:0,0,0,0,0,0,0,0,0,10																																																			ADD:FEAT|Expanded Knowledge
+19	KNOWN:0,0,0,0,0,0,0,0,0,11
+20	KNOWN:0,0,0,0,0,0,0,0,0,11
+
+
+# Transmogrifist
+
+# Class Name
+CLASS:Psion.MOD
+SUBCLASS:Transmogrifist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Acrobatics|Heal
+SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Transmogrifist Advanced Discipline
+
+
+# Metamorph
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus						Modify VAR
+CLASS:Metamorph	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Required Feat				Required Skill							Req. Known Spell
+CLASS:Metamorph	PREFEAT:1,Improved Metamorphosis	PRESKILL:2,Autohypnosis=5,Knowledge (Psionics)=5	PRESPELL:1,Metamorphosis
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Metamorph	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Fly|Knowledge (Nature)|Knowledge (Psionics)|Spellcraft|Swim
+#Block:  Level Progression
+1	BONUS:VAR|AlterMetamorphosisLVL|CL
+1	BONUS:VAR|MindBladeLVL|(CL*4)/5
+1	BONUS:VAR|NaturalShifter|1						ABILITY:Special Ability|AUTOMATIC|Natural Shifter|Supernatural Shift
+2	BONUS:VAR|FreeShiftTimes|(CL/2)	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Free Shift
+3							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Alter Metamorphosis
+4							ADD:SPELLCASTER|Psionic
+5							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Quick Shift
+6	BONUS:VAR|NaturalShifter|1						ABILITY:Special Ability|AUTOMATIC|Gain Major Metamorphosis
+7							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Extended Shift
+8							ADD:SPELLCASTER|Psionic
+9							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Shift Type
+10							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Permanent Shift

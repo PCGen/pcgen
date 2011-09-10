@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+#Original Entry: Douglas Limmer
+
+## Make feats Marksman Bonus Feats
+# Feat Name					Type					Required Ability							Req. Att.	Required Feat									Multiple Requirements					Required Stat	Description																										Stackable?	Multiple?	Choose		Bonus to Ability Pool			Combat bonus										% bonus to range														Bonus to skill											Source Page
+Deadly Aim.MOD				TYPE:MarksmanBonus
+Far Shot.MOD				TYPE:MarksmanBonus
+Fell Shot.MOD				TYPE:MarksmanBonus
+Greater Psionic Shot.MOD		TYPE:MarksmanBonus
+Parting Shot.MOD				TYPE:MarksmanBonus
+Precise Shot.MOD				TYPE:MarksmanBonus
+Psionic Meditation.MOD			TYPE:MarksmanBonus
+Psionic Shot.MOD				TYPE:MarksmanBonus
+Quick Draw.MOD				TYPE:MarksmanBonus
+Return Shot.MOD				TYPE:MarksmanBonus
+Returning Throw.MOD			TYPE:MarksmanBonus
+Weapon Focus.MOD				TYPE:MarksmanBonus
+Improved Critical.MOD			TYPE:MarksmanBonus
+Exotic Weapon Proficiency.MOD		TYPE:MarksmanBonus
+Rapid Reload.MOD				TYPE:MarksmanBonus
+Greater Weapon Focus.MOD		TYPE:MarksmanBonus
+Weapon Specialization.MOD		TYPE:MarksmanBonus
+Greater Weapon Specialization.MOD	TYPE:MarksmanBonus
+
+Disrupting Shot.MOD			TYPE:FinesseMarksmanBonus
+Shot on the Run.MOD			TYPE:FinesseMarksmanBonus
+Throw Anything.MOD			TYPE:FinesseMarksmanBonus
+Greater Vital Strike.MOD		TYPE:SniperMarksmanBonus
+Improved Precise Shot.MOD		TYPE:SniperMarksmanBonus
+Improved Vital Strike.MOD		TYPE:SniperMarksmanBonus
+Pinpoint Targeting.MOD			TYPE:SniperMarksmanBonus
+Vital Strike.MOD				TYPE:SniperMarksmanBonus
+Crossbow Mastery.MOD			TYPE:VolleyMarksmanBonus
+Manyshot.MOD				TYPE:VolleyMarksmanBonus
+Rapid Shot.MOD				TYPE:VolleyMarksmanBonus
+
+Crippling Assault				TYPE:Psionic														PREFEAT:3,Intimidating Shot,Point-Blank Shot,Staggering Shot	PREMULT:1,[PREATT:11],[PREVARGTEQ:PrereqBAB,11]				DESC:You can paralyze targets of your ranged attacks.																																																																									SOURCEPAGE:p.11
+#How to limit to thrown weapons only?#
+Deadly Throw				TYPE:Psionic														PREFEAT:1,Point-Blank Shot							PREMULT:1,[PREATT:3],[PREVARGTEQ:PrereqBAB,3]	PRESTAT:1,DEX=15	DESC:You can replace power with finesse for thrown weapons.																															BONUS:COMBAT|DAMAGE-SHORTRANGE|(max(DEX,STR)-STR)*PsionicFocusActive																														SOURCEPAGE:p.11
+Empowered Shot				TYPE:Psionic														PREFEAT:1,Point-Blank Shot																		DESC:You can send your ranged attacks farther.																																													BONUS:RANGEMULT|PROJECTILE|2*PsionicFocusActive	BONUS:RANGEMULT|THROWN|2*PsionicFocusActive														SOURCEPAGE:p.11
+Expanded Favored Weapon			TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Favored Weapon														PREMULT:1,[PREATT:6],[PREVARGTEQ:PrereqBAB,6]				DESC:You get an extra favored weapon group.																											BONUS:ABILITYPOOL|Favored Weapon|1																																										SOURCEPAGE:p.11
+Extra Blade Skill				TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Blade Skill																									DESC:Gan an extra blade skill.																						STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Blade Skill|1																																										SOURCEPAGE:p.12
+Greater Intuitive Shot			TYPE:Psionic														PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot		PREMULT:1,[PREATT:6],[PREVARGTEQ:PrereqBAB,6]	PRESTAT:1,WIS=13	DESC:Expend focus to gain +%1 damage per attack on full attack.|WIS																																																																						SOURCEPAGE:p.12
+Hawkeye					TYPE:Combat															PREFEAT:2,Far Shot,Point-Blank Shot																	DESC:Gain +%1 on Perception; increase precision damage range by %2 ft.|if(skillinfo("RANK","Perception")>=10,4,2)|if(skillinfo("RANK","Perception")>=10,30,15)																																										BONUS:SKILL|Perception (Vision)|if(skillinfo("RANK","Perception")>=10,4,2)	SOURCEPAGE:p.12
+Intimidating Shot				TYPE:Psionic														PREFEAT:1,Point-Blank Shot																		DESC:Gain demoralize check on standard action to attack enemy.																																																																							SOURCEPAGE:p.12
+Intuitive Shot				TYPE:Psionic														PREFEAT:2,Point-Blank Shot,Psionic Shot													PRESTAT:1,WIS=13	DESC:When focused, use a standard action to gain +%1 damage on a ranged weapon attack within 30 ft.|WIS																																																																SOURCEPAGE:p.12
+Knockdown Shot				TYPE:Psionic														PREFEAT:2,Point-Blank Shot,Psionic Shot													PRESTAT:1,DEX=15	DESC:Expend focus to damage and knock prone opponent with ranged attack.																																																																					SOURCEPAGE:p.12
+Mixed Combat				TYPE:Combat													PREATT:6	PREFEAT:1,Quick Draw																			DESC:You are trained in using ranged and melee attacks at the same time.																																																																					SOURCEPAGE:p.12
+Rebounding Throw				TYPE:Psionic														PREFEAT:1,Point-Blank Shot							PREMULT:1,[PREATT:1],[PREVARGTEQ:PrereqBAB,1]				DESC:Expend focus when thrown weapon hits to attack another enemy.																																																																						SOURCEPAGE:p.12
+Returning Throw				TYPE:Psionic														PREFEAT:1,Point-Blank Shot							PREMULT:1,[PREATT:1],[PREVARGTEQ:PrereqBAB,1]				DESC:Thrown weapons return to your hand.																																																																											SOURCEPAGE:p.12
+Ricochet					TYPE:Psionic														PREFEAT:1,Point-Blank Shot							PREMULT:1,[PREATT:6],[PREVARGTEQ:PrereqBAB,6]				DESC:Expend focus to redirect thrown attacks; %1 redirections per attack.|1+WIS																																																																				SOURCEPAGE:p.13
+Staggering Shot				TYPE:Psionic														PREFEAT:2,Intimidating Shot,Point-Blank Shot				PREMULT:1,[PREATT:6],[PREVARGTEQ:PrereqBAB,6]				DESC:Stagger hampered enemy with a ranged attack.																																																																									SOURCEPAGE:p.13
+Twin Throw					TYPE:Combat													PREATT:6	PREFEAT:2,Point-Blank Shot,Two-Weapon Fighting												PRESTAT:1,DEX=17	DESC:First attack in full-attack with thrown weapons uses two weapons.																																																																						SOURCEPAGE:p.13

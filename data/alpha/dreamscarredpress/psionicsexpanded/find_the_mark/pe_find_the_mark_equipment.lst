@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Find the Mark	SOURCESHORT:PEFtM	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=73.html	SOURCEDATE:2011-07
+#Original Entry: Douglas Limmer
+
+# Equipment Name					Output Name							Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Innate Spells											Combat bonus		Special Property
+Boots of Gravity Binding																TYPE:Psionic.Universal.Boot					COST:18000	WT:1		SLOTS:2																		SOURCEPAGE:p.26	SPELLS:Boots of Gravity Binding|TIMES=3|CASTERLEVEL=5|Gravitational Anchor
+Goggles of Far Sight																	TYPE:Psionic.Universal.Eyegear				COST:4000	WT:0																					SOURCEPAGE:p.26														BONUS:COMBAT|AC|-1	SPROP:Ignore first ranged increment penalty
+Ring of Missile Protection																TYPE:Psionic.Ring							COST:2000	WT:0																					SOURCEPAGE:p.26																		SPROP:DR 10/magic vs. ranged attacks, inert for 24 hours after 50 damage avoided
+
+Mind Bolt (Long Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Long Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PSIBLADE	RANGE:100	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Long Range Piercing)		OUTPUTNAME:Mind Bolt, Long Range Piercing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PSIBLADE	RANGE:100	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Long Range Slashing)		OUTPUTNAME:Mind Bolt, Long Range Slashing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PSIBLADE	RANGE:100	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Medium Range Bludgeoning)	OUTPUTNAME:Mind Bolt, Medium Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:1	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PSIBLADE	RANGE:60	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Medium Range Piercing)		OUTPUTNAME:Mind Bolt, Medium Range Piercing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:1	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PSIBLADE	RANGE:60	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Medium Range Slashing)		OUTPUTNAME:Mind Bolt, Medium Range Slashing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:1	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PSIBLADE	RANGE:60	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Short Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Short Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Short Range Piercing)		OUTPUTNAME:Mind Bolt, Short Range Piercing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
+Mind Bolt (Short Range Slashing)		OUTPUTNAME:Mind Bolt, Short Range Slashing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
+

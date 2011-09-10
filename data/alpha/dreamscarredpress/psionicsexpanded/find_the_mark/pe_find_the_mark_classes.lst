@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+#Original Entry: Douglas Limmer
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Stealth|Survival|Use Magic Device
+# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|CL
+
+## Proficiencies
+1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE.Light.Martial|TYPE.Ranged.Martial|TYPE.Thrown.Martial
+
+## Psionic Ability
+1											BONUS:VAR|MarksmanML|CL	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																						DEFINE:MarksmanML|0	DEFINE:IsPsionic|0		ABILITY:Special Ability|AUTOMATIC|Psionic
+1											BONUS:VAR|MarksmanPL|MarksmanML																															DEFINE:MarksmanPL|0
+1											BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:MarksmanPL,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:MarksmanPL,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,4
+1											BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,5	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,6	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,7	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,8
+1											BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,9	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,10	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,11	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,12
+1											BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,13	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,14	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,15	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,16
+1											BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,17	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,18	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,19	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,20
+1											BONUS:VAR|BonusPowerPoints|(WIS*MarksmanPL)/2|TYPE=MarksmanBonusPP
+
+## Class Info
+1				BONUS:ABILITYPOOL|Marksman Combat Style|1	BONUS:VAR|MarksmanStyleLVL|CL																																DEFINE:MarksmanStyleLVL|0
+1											BONUS:VAR|WindReaderLVL|CL																																DEFINE:WindReaderLVL|0						ABILITY:Special Ability|AUTOMATIC|Wind Reader ~ Marksman
+1																																																																			AUTO:FEAT|Point-Blank Shot
+2	KNOWN:0,1		BONUS:ABILITYPOOL|Favored Weapon|1		BONUS:VAR|EvadeArrows|(CL+2)/4	BONUS:VAR|FavoredWeaponBase|(CL+2)/4																																	ABILITY:Special Ability|AUTOMATIC|Evade Arrows ~ Marksman
+2																																															DEFINE:EvadeArrows|0	DEFINE:FavoredWeaponBase|0	ABILITY:Special Ability|AUTOMATIC|Favored Weapon ~ Marksman
+3	KNOWN:0,2									BONUS:VAR|StyleSkill|CL/3																																DEFINE:StyleSkill|0
+4	KNOWN:0,2									BONUS:VAR|CoverFireLVL|CL																																									ABILITY:Special Ability|AUTOMATIC|Cover Fire ~ Marksman
+5	KNOWN:0,2,1
+6	KNOWN:0,2,2
+7	KNOWN:0,2,3																																																						ABILITY:Special Ability|AUTOMATIC|Disengage ~ Marksman
+8	KNOWN:0,2,3
+9	KNOWN:0,2,3,1
+10	KNOWN:0,2,3,2
+11	KNOWN:0,2,3,3
+12	KNOWN:0,2,3,3
+13	KNOWN:0,2,3,3,1																																																					ABILITY:Special Ability|AUTOMATIC|Defensive Shot ~ Marksman
+14	KNOWN:0,2,3,3,1
+15	KNOWN:0,2,3,3,2
+16	KNOWN:0,2,3,3,2
+17	KNOWN:0,2,3,3,3
+18	KNOWN:0,2,3,3,3
+19	KNOWN:0,2,3,3,4																																																					ABILITY:Special Ability|AUTOMATIC|Ranged Specialist ~ Marksman
+20	KNOWN:0,2,3,3,4
+
+
+# Unseen Hand
+
+# Class Name
+CLASS:Psion.MOD
+SUBCLASS:Unseen Hand	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Acrobatics|Heal
+SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Unseen Hand Advanced Discipline
+
+
+# Mystic Archer
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Mystic Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:7	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Req. Att.	Required Feat								Required Skill		Var. Must Be Grater
+CLASS:Mystic Archer	PREATT:6	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PREVARGT:IsPsionic,0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mystic Archer	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Perception|Survival
+1	BONUS:VAR|InevitableStrikeTimes|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Inevitable Strike ~ Mystic Archer
+2	BONUS:VAR|RangedSneakAttack|1			ABILITY:Special Ability|AUTOMATIC|Blindsense ~ Mystic Archer|Ranged Sneak Attack ~ Mystic Archer
+3	BONUS:VAR|HeightenedSensesRange|5*(CL-2)	ABILITY:Special Ability|AUTOMATIC|Heightened Senses ~ Mystic Archer
+4								ABILITY:Special Ability|AUTOMATIC|Tremorsense ~ Mystic Archer
+5	BONUS:VAR|RangedSneakAttack|1
+6								ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Mystic Archer
+7								ABILITY:Special Ability|AUTOMATIC|Unhindered Vision ~ Mystic Archer

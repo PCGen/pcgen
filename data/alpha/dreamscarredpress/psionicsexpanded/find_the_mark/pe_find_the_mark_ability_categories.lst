@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+# Original Entry by: Douglas Limmer
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI	Display Location
+ABILITYCATEGORY:Finesse Marksman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.FinesseMarksmanBonus	PLURAL:Marksman Bonus Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sniper Marksman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.SniperMarksmanBonus	PLURAL:Marksman Bonus Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Volley Marksman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.VolleyMarksmanBonus	PLURAL:Marksman Bonus Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Soulbolt Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulboltFeat					PLURAL:Soulbolt Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Marksman Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MarksmanStyle				PLURAL:Marksman Combat Style	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Weapon			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredWeapon				PLURAL:Favored Weapon		DISPLAYLOCATION:Class Abilities
