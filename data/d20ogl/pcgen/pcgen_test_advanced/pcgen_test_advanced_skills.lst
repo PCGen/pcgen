@@ -122,3 +122,10 @@ Perform (Sing)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOU
 # Mystic Artist Sub Skills
 Perform (Dance).MOD													TYPE:AdeptChoice.NormalSkill								BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
 Perform (Sing).MOD													TYPE:AdeptChoice.NormalSkill								BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill
+
+
+
+Knowledge (Bards)		KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
+Knowledge (Kung-Fu)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
+Knowledge (Beards)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
+Knowledge (Monkey-Fu)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
