@@ -139,9 +139,53 @@ GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
 
 
+STARTPACK:Genie (Janni/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Janni/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.141
+RACE:Genie (Janni/Noble)	!PRERACE:1,%
+NAME:Noble Janni
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise		RANK:6
+SKILL:TYPE=Craft		RANK:6
+SKILL:Fly			RANK:6
+SKILL:Perception		RANK:6
+SKILL:Ride			RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spellcraft		RANK:6
+SKILL:Stealth		RANK:6
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Mobility
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
+GEAR:Scimitar			LOCATION:Primary Hand
+GEAR:Chainmail			LOCATION:Equipped
+
+
 STARTPACK:Genie (Marid) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid)],[!PRERACE:1,%]	SOURCEPAGE:p.142
 RACE:Genie (Marid)	!PRERACE:1,%
 NAME:Marid
+GENDER:Female
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:TYPE=Craft			RANK:12
+SKILL:Diplomacy			RANK:12
+SKILL:Knowledge (Planes)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spellcraft			RANK:12
+SKILL:Stealth			RANK:12
+SKILL:Swim				RANK:12
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Improved Natural Attack (Slam)
+FEAT:Power Attack
+GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Marid/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.142
+RACE:Genie (Marid/Noble)	!PRERACE:1,%
+NAME:Noble Marid
 GENDER:Female
 ALIGN:CN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
