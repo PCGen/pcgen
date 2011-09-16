@@ -2099,6 +2099,7 @@
 			<ability value="Manyshot" weight="4"/>
 			<ability value="Martial Weapon Proficiency" weight="4"/>
 			<ability value="Maximize Spell" weight="0"/>
+			<ability value="TYPE=Metamagic" weight="0"/>
 			<ability value="Mobility" weight="20"/>
 			<ability value="Mounted Archery" weight="8"/>
 			<ability value="Mounted Combat" weight="8"/>
