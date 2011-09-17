@@ -611,7 +611,7 @@ public class WeaponToken extends Token
 	public static int getAmmunitionCountToken(PlayerCharacter pc, Equipment eq)
 	{
 		int ammoCount = 0;
-		String containerCapacity = eq.getContainerCapacityString();
+		String containerCapacity = eq.getContainerCapacityString().toUpperCase();
 
 		for (Equipment equip : pc.getEquipmentListInOutputOrder())
 		{

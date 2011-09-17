@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -78,6 +79,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Equipment fineSword = null;
 	private Equipment longSpear = null;
 	private Equipment bite = null;
+	private Equipment longbow = null;
+	private Equipment arrow;
 
 	/**
 	 * Quick test suite creation - adds all methods beginning with "test"
@@ -304,6 +307,21 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				WieldCategory.class, "OneHanded"));
 		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 
+		longbow = new Equipment();
+		longbow.setName("Longbow");
+		TestHelper.addType(longbow, "Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow");
+		longbow.put(ObjectKey.TOTAL_CAPACITY, Capacity.ANY);
+		longbow.put(ObjectKey.CONTAINER_WEIGHT_CAPACITY, BigDecimal.ONE);
+		longbow.addToListFor(ListKey.CAPACITY,
+			new Capacity("Arrow", BigDecimal.ONE));
+		longbow.setQty(Float.valueOf(1));
+		longbow.setNumberCarried(Float.valueOf(1));
+		
+		arrow = new Equipment();
+		arrow.setName("Arrow");
+		TestHelper.addType(arrow, "Ammunition.Standard.Arrow.Individual");
+		
+		
 		// Weild categories
 		WieldCategory twoHanded = context.ref.silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded");
@@ -731,5 +749,47 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals(
 			"Reach for a reach multiple weapon on a character with normal reach",
 			"10", token.getToken("WEAPON.4.REACH", character, null));
+	}
+	
+	/**
+	 * test the AMUNITION count sub token
+	 */
+	public void testAmmunition()
+	{
+		PlayerCharacter character = getCharacter();
+		character.addEquipment(largeSword);
+		EquipSet es =
+				new EquipSet("0.1.3", "Large Sword", largeSword.getName(),
+					largeSword);
+		character.addEquipSet(es);
+		character.addEquipment(longbow);
+		es =
+			new EquipSet("0.1.4", "Longbow", longbow.getName(),
+				longbow);
+		character.addEquipSet(es);
+		character.setCalcEquipmentList();
+
+		WeaponToken token = new WeaponToken();
+		assertEquals("non-ammo weapon", largeSword.getName(),
+			token.getToken("WEAPON.4.NAME", character, null));
+		assertEquals("Ammo weapon", longbow.getName(),
+			token.getToken("WEAPON.3.NAME", character, null));
+
+		assertEquals("Ammo count for a non-ammo weapon", "0",
+			token.getToken("WEAPON.4.AMMUNITION", character, null));
+		String result = token.getToken("WEAPON.3.AMMUNITION", character, null);
+		assertEquals("Ammo count for an empty ammo weapon", "0", result);
+		
+		character.addEquipment(arrow);
+		es =
+			new EquipSet("0.1.4.1", "Arrow", arrow.getName(),
+				arrow);
+		character.addEquipSet(es);
+		character.setCalcEquipmentList();
+		result = token.getToken("WEAPON.3.AMMUNITION", character, null);
+		assertEquals(
+			"Ammo count for longbow with one arrow",
+			"1", result);
+		
 	}
 }
