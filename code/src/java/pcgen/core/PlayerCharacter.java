@@ -4801,13 +4801,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (newRace != null)
 		{
-			raceFacet.set(id, newRace);
-
-			if (!isImporting())
-			{
-				Globals.getBioSet().randomize("AGE.HT.WT", this);
-			}
-
 			// Get existing classes
 			ClassInfo ci = classFacet.removeAllClasses(id);
 
@@ -4826,6 +4819,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				{
 					removeLevelInfo(i);
 				}
+			}
+
+			raceFacet.set(id, newRace);
+
+			if (!isImporting())
+			{
+				Globals.getBioSet().randomize("AGE.HT.WT", this);
 			}
 
 			final List<PCLevelInfo> existingLevelInfo =
@@ -13105,7 +13105,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				for (PCLevelInfo pi : getLevelInfo())
 				{
 					final int newSkillPointsGained =
-					pcClass.recalcSkillPointMod(this, pi.getClassLevel());
+						pcClass.recalcSkillPointMod(this, pi.getClassLevel());
 					if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 					{
 						final int formerGained = pi.getSkillPointsGained(this);
