@@ -46,6 +46,66 @@
 			</li>
 
 			<li>
+				<p class="indent0"><span class="underline">How do I get the natural attacks block to show up on my character sheet?</span></p>
+				
+				<p class="indent0">To activate the "Natural Attack" OS block on the character sheet You will need to make an <strong>ABILITY</strong> for that attack. Your new ability will look something like the following:</p>
+
+				<blockquote>
+					<p class="indent2"><code>Bite</code></p>
+					<p class="indent2"><code>CATEGORY:Natural Attack</code></p>
+					<p class="indent2"><code>TYPE:NaturalAttack</code></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackName|Bite</code></p>
+					<p class="indent3"><i>This is the name of the Attack that will be displayed.</i></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackToHit|%1|BAB+STR</code></p>
+					<p class="indent3"><i>Formula to give the correct attack, will need a special set up or alt var if you want Weapon Focus or Greater Weapon Focus to work, there is NO proficiency associated with this "attack"</i></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize</code></p>
+					<p class="indent3"><i>Sets your damage, the nice thing is these are variable, however, these are NOT size dependent. But you can adjust the damage</i></p>
+					<p class="indent2"><code>DEFINE:BiteDamageDice|0</code></p>
+					<p class="indent2"><code>DEFINE:BiteDamageSize|0</code></p>
+					<p class="indent2"><code>BONUS:VAR|BiteDamageDice|1</code></p>
+					<p class="indent2"><code>BONUS:VAR|BiteDamageSize|6</code></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackDamageBonus|%1|STR</code></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackReach|%1|REACH.VAL</code></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackType|Bludgeoning</code></p>
+					<p class="indent2"><code>ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange</code></p>
+					<p class="indent2"><code>DEFINE:BiteThreatRange|0</code></p>
+					<p class="indent2"><code>BONUS:VAR|BiteThreatRange|20</code></p>
+				</blockquote>
+				<p class="indent0">For Special Attack Notes, you may either use <code>DESC:x</code>, or <code>ASPECT:NaturalAttackNotes|x</code>. <code>ASPECT</code> is used for 
+					just one note while <code>DESC</code> can take PRExxx tags and are ideal if your attack can be given to other creatures whose attacks vary by level based increases.</p>
+
+				<p class="indent0">What this solution will not do is handle iterative attacks unless you set up the ability with an <code>ASPECT</code> with all the iterative attacks. Unfortunately, ASPECT needs work in order to fully support any Alternative Iterative Attacks, or partial Iterative Attacks.</p>
+
+			</li>
+
+			<li>
+				<p class="indent0"><span class="underline">How do I get checkboxes to show up on my character sheet for my homebrew abilitiy?</span></p>
+				
+				<p class="indent0">To activate the "Checkboxe" block on your character sheet for your homebrew Special Ability you will need to include the following in your ability:</p>
+				<ol class="indent1">
+					<li>Include the "Checklist" type in the abilities list of types. <strong>Example: </strong><code>TYPE:SpecialAttack.Supernatural.Checklist</code></li>
+					<li>Include the following <code>ASPECT</code> tags:
+						<p class="indent2"><code>ASPECT:CheckList|Yes</code></p>
+						<p class="indent2"><code>ASPECT:CheckCount|x</code> [<i>x can be a number, variable or formula.</i>]</p>
+						<p class="indent2"><code>ASPECT:CheckType|y</code> [<i>y is simple text that is displayed next to the Check Boxes.</i>]</p>
+					</li> 
+				</ol>
+					
+			</li>
+
+			<li>
+				<p class="indent0"><span class="underline">How do I get conditional skill bonuses to show up on my character sheet?</span></p>
+				
+				<p class="indent0">To activate the "Skill Info Block" on your character sheet the character must have been granted an ability or feat with the following included in it:</p>
+				<ol class="indent1">
+					<li>The quot;SkillBonusquot; type included in the type list. <strong>Example: </strong><code>TYPE:SpecialQuality.RacialBonus.SkillBonus</code></li>
+					<li><code>ASPECT:SkillBonus|x</code> tag must be included in the granted ability or feat. The quot;xquot; is simple text as per the <code>DESC</code> tag.</li>
+				</ol>
+				<p class="inent0">This will display the included aspect text under the skills block.</p>
+					
+			</li>
+
+			<li>
 				<p class="indent0"><span class="underline">I try to preview a character or bring up the Doc, and nothing happens.</span></p>
 
 				<p>Since PCGen is cross-platform it's hard to assume what browser you're using.
