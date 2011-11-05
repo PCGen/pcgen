@@ -29,6 +29,9 @@ CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0					BONUS:VAR|C
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0			BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0			BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
 
+## Monk Weapons
+CATEGORY=Special Ability|Monk Weapon Proficiencies.MOD	AUTO:WEAPONPROF|Sword (Temple)
+
 #
 # End
 #
