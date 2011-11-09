@@ -15,7 +15,7 @@ Timeless Body ~ Venerable	VISIBLE:NO																				PREAGESET:1,Venerable
 ###Block: Workarounds
 # This is a work-around for BONUS:MISC|MAXDEX not working in ability object when using VARs.
 # Template Name			Visible	Misc bonus
-Armor Training workaround	VISIBLE:NO	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor
+#Armor Training workaround	VISIBLE:NO	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor
 
 ###Block: Augment Summoning template
 # Template Name		Visible	Stat bonus			Add 					Ability
