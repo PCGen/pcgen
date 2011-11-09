@@ -33,9 +33,9 @@ Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 ###Block: Creature Subtypes
 # Template Name	Visible	Source Page						Define							Required Race			Combat bonus											Ability																					Automatic Languages	Vision
 Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Air Traits
-Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Angel Traits|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light
+Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Angel Traits|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
 Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Aquatic Traits
-Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Archon Traits|Aura of Menace|Magic Circle against Evil|Teleport										VISION:Darkvision (60')|Low-light
+Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Archon Traits|Aura of Menace|Magic Circle against Evil|Teleport										VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
 Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Chaotic Traits
 Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire

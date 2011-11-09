@@ -13,7 +13,7 @@ Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BO
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
 # Ability Name			Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
-Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
+Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear|Spells(Ray)
 
 ###Block: Mind Blade abilities
 # Ability Name			Output Name						Category of Ability		Type						Visible	Define																Description				Automatically Gained Weapon Prof.	Modify VAR																										Aspects

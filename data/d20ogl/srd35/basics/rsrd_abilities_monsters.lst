@@ -673,6 +673,8 @@ Trained for Hunting		KEY:Animal Training ~ Hunting				CATEGORY:Special Ability	T
 Trained for Performance		KEY:Animal Training ~ Performance			CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	PRESTAT:1,INT=2	DESC:An animal trained for performance knows the tricks come, fetch, heel, perform, and stay. Training an animal for performance takes 5 weeks.	ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Fetch|Animal Trick ~ Heel|Animal Trick ~ Perform|Animal Trick ~ Stay					COST:5
 Trained for Riding		KEY:Animal Training ~ Riding				CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining				DESC:An animal trained to bear a rider knows the tricks come, heel, and stay. Training an animal for riding takes 3 weeks.				ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Heel|Animal Trick ~ Stay												COST:3
 
+# DATA-330
+Low-light Vision			KEY:Low light Vision					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision		DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange 
 #
 # End
 #
