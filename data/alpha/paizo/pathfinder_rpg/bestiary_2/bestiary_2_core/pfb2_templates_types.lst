@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: ? and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Creature Subtypes
+# Template Name		Visible	Source Page		Define																Modify VAR												Class Skill							Ability																																					Automatic Languages		Race Subtype		Vision
+Aeon				VISIBLE:NO	SOURCEPAGE:p.305																		BONUS:VAR|ElectricityResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10									ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Poison|Immunity to Critical Hits|Resistance to Electricity|Resistance to Fire|Void Form ~ Aeon|Envisaging ~ Aeon|Extension of All ~ Aeon										RACESUBTYPE:Aeon
+Agathion			VISIBLE:NO	SOURCEPAGE:p.306	DEFINE:ColdResistanceBonus|10	DEFINE:SonicResistanceBonus|10							BONUS:VAR|LayOnHandsLVL|min(20,TL)																ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Petrification|Resistance to Cold|Resistance to Sonic|Lay on Hands ~ Agathion|Poison Save Bonus ~ Agathion|Speak with Animals ~ Agathion|Truespeech ~ Agathion						RACESUBTYPE:Agathion	VISION:Low-light
+Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																											ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Resistance to Electricity|Resistance to Fire|Save vs Poison|Truespeech ~ Angel															RACESUBTYPE:Angel		VISION:Darkvision (60')|Low-light
+Daemon			VISIBLE:NO	SOURCEPAGE:p.306	DEFINE:ColdResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Death Effects|Immunity to Disease|Immunity to Poison|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Telepathy|Aligned (Evil)				LANGAUTO:Abyssal,Infernal	RACESUBTYPE:Daemon
+Dark Folk			VISIBLE:NO	SOURCEPAGE:p.307																																																																																		RACESUBTYPE:Dark Folk
+Dhampir			VISIBLE:NO	SOURCEPAGE:p.89																																																																																		RACESUBTYPE:Dhampir
+Grippli			VISIBLE:NO	SOURCEPAGE:p.149																																																																																		RACESUBTYPE:Grippli
+Inevitable			VISIBLE:NO	SOURCEPAGE:p.307																															CSKILL:Acrobatics|Diplomacy|Intimidate|Survival	ABILITY:Special Ability|AUTOMATIC|Constructed ~ Inevitable|Regeneration ~ Chaotic|Truespeech ~ Inevitable																										RACESUBTYPE:Inevitable	VISION:Low-light
+Nightshade			VISIBLE:NO	SOURCEPAGE:p.308																																							ABILITY:Special Ability|AUTOMATIC|Desecrating Aura ~ Nightshade|Channel Energy ~ Nightshade|Darksense ~ Nightshade|Light Aversion ~ Nightshade																				RACESUBTYPE:Nightshade	VISION:Low-light
+Protean			VISIBLE:NO	SOURCEPAGE:p.308	DEFINE:ElectricityResistanceBonus|10	DEFINE:SonicResistanceBonus|10																										ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Resistance to Electricity|Resistance to Sonic|Grab|Constrict|Freedom of Movement ~ Protean|Amorphous Anatomy ~ Protean|Change Shape ~ Protean|Aligned (Chaos)									RACESUBTYPE:Protean
+Protean ~ Voidworm	VISIBLE:NO	SOURCEPAGE:p.308	DEFINE:ElectricityResistanceBonus|10	DEFINE:SonicResistanceBonus|10																										ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Resistance to Electricity|Resistance to Sonic|Freedom of Movement ~ Protean|Amorphous Anatomy ~ Protean|Change Shape ~ Protean|Aligned (Chaos)											RACESUBTYPE:Protean
+Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy									LANGAUTO:Abyssal			RACESUBTYPE:Qlippoth
+Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy ~ Touch							LANGAUTO:Abyssal			RACESUBTYPE:Qlippoth
+
+###Block: Animal Companion templates
+# COMMENT: Some animal companions don't follow the standard die-increase 
+# COMMENT:   pattern for their natural weapons when they increase in power.
+# COMMENT:   These templates are intended to handle that.
+# Template Name					Size		Visible	Source Page		Combat bonus					Stat bonus								Modify VAR					Ability						Natural Attacks
+Arsinoitherium Companion Advancement	SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4							ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Gylptodon Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4														NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d10
+Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:VAR|TrampleDamageDieSize|8	ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+
+#
+# End
+#

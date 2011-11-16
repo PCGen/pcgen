@@ -1,0 +1,1232 @@
+# CVS $Revision$ $Author$ -- Mon Oct 10 20:33:34 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Daemon (Astradaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Astradaemon)]
+RACE:Daemon (Astradaemon)	!PRERACE:1,%
+NAME:Astradaemon
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:17
+SKILL:Escape Artist		RANK:17
+SKILL:Intimidate			RANK:17
+SKILL:Knowledge (Planes)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Stealth			RANK:17
+SKILL:Survival			RANK:17
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Nimble Moves
+FEAT:Power Attack
+FEAT:Spring Attack
+FEAT:Weapon Finesse
+
+STARTPACK:Daemon (Cacodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Cacodaemon)]
+RACE:Daemon (Cacodaemon)	!PRERACE:1,%
+NAME:Cacodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Daemon (Ceustodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon)]
+RACE:Daemon (Ceustodaemon)	!PRERACE:1,%
+NAME:Ceustodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:8
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+SKILL:Survival			RANK:4
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Power Attack
+FEAT:Step Up
+
+STARTPACK:Daemon (Ceustodaemon/Lesser) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Lesser)]
+RACE:Daemon (Ceustodaemon/Lesser)	!PRERACE:1,%
+NAME:Lesser Ceustodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:8
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+SKILL:Survival			RANK:4
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Power Attack
+FEAT:Step Up
+
+STARTPACK:Daemon (Ceustodaemon/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Greater)]
+RACE:Daemon (Ceustodaemon/Greater)	!PRERACE:1,%
+NAME:Greater Ceustodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:8
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+SKILL:Survival			RANK:4
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Power Attack
+FEAT:Step Up
+
+STARTPACK:Daemon (Derghodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Derghodaemon)]
+RACE:Daemon (Derghodaemon)	!PRERACE:1,%
+NAME:Derghodaemon
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Intimidate		RANK:14
+SKILL:Perception		RANK:14
+SKILL:Sense Motive	RANK:14
+SKILL:Stealth		RANK:14
+FEAT:Cleave
+FEAT:Critical Focus
+FEAT:Improved Critical (Claw)
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Summon Swarm)
+FEAT:Sickening Critical
+FEAT:Vital Strike
+
+STARTPACK:Daemon (Hydrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Hydrodaemon)]
+RACE:Daemon (Hydrodaemon)	!PRERACE:1,%
+NAME:Hydrodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:9
+SKILL:Swim				RANK:6
+FEAT:Cleave
+FEAT:Point-Blank Shot
+FEAT:Power Attack
+FEAT:Precise Shot
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Daemon (Leukodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Leukodaemon)]
+RACE:Daemon (Leukodaemon)	!PRERACE:1,%
+NAME:Leukodaemon
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Fly				RANK:10
+SKILL:Heal				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Survival			RANK:10
+SKILL:Use Magic Device		RANK:10
+FEAT:Alertness
+FEAT:Point-Blank Shot
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Longbow)
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:PLUS1W	EQMOD:BOWSTR|7
+
+STARTPACK:Daemon (Meladaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
+RACE:Daemon (Meladaemon)	!PRERACE:1,%
+NAME:Meladaemon
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Bluff				RANK:14
+SKILL:Fly				RANK:10
+SKILL:Heal				RANK:8
+SKILL:Intimidate			RANK:14
+SKILL:Knowledge (Planes)	RANK:14
+SKILL:Knowledge (Religion)	RANK:14
+SKILL:Perception			RANK:14
+SKILL:Sense Motive		RANK:14
+SKILL:Spellcraft			RANK:14
+SKILL:Stealth			RANK:14
+SKILL:Survival			RANK:14
+SKILL:Use Magic Device		RANK:10
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Great Fortitude
+FEAT:Improved Critical (Bite)
+FEAT:Iron Will
+FEAT:Quicken Spell-Like Ability ~ Spell (Magic Missile)
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Daemon (Olethrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Olethrodaemon)]
+RACE:Daemon (Olethrodaemon)	!PRERACE:1,%
+NAME:Olethrodaemon
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb				RANK:20
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Planes)	RANK:20
+SKILL:Perception			RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Survival			RANK:20
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Disintegrate)
+
+STARTPACK:Daemon (Piscodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Piscodaemon)]
+RACE:Daemon (Piscodaemon)	!PRERACE:1,%
+NAME:Piscodaemon
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist		RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Planes)	RANK:11
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Stealth			RANK:11
+SKILL:Survival			RANK:11
+SKILL:Swim				RANK:11
+FEAT:Critical Focus
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Sickening Critical
+FEAT:Vital Strike
+
+STARTPACK:Daemon (Purrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Purrodaemon)]
+RACE:Daemon (Purrodaemon)	!PRERACE:1,%
+NAME:Purrodaemon
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:19
+SKILL:Bluff				RANK:13
+SKILL:Diplomacy			RANK:12
+SKILL:Fly				RANK:5
+SKILL:Intimidate			RANK:19
+SKILL:Knowledge (Planes)	RANK:19
+SKILL:Perception			RANK:19
+SKILL:Sense Motive		RANK:19
+SKILL:Spellcraft			RANK:17
+SKILL:Stealth			RANK:19
+SKILL:Survival			RANK:10
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Greater Vital Strike
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Improved Sunder
+FEAT:Lunge
+FEAT:Power Attack
+FEAT:Quick Draw
+FEAT:Vital Strike
+GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS2W	EQMOD:WOUND
+
+STARTPACK:Daemon (Thanadaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Thanadaemon)]
+RACE:Daemon (Thanadaemon)	!PRERACE:1,%
+NAME:Thanadaemon
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:15
+SKILL:Bluff				RANK:15
+SKILL:Diplomacy			RANK:15
+SKILL:Intimidate			RANK:15
+SKILL:Knowledge (Planes)	RANK:15
+SKILL:Knowledge (Religion)	RANK:15
+SKILL:Perception			RANK:15
+SKILL:Sense Motive		RANK:15
+SKILL:Stealth			RANK:8
+SKILL:Survival			RANK:7
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lunge
+FEAT:Mobility
+FEAT:Power Attack
+GEAR:Quarterstaff	SIZE:M	LOCATION:Both Hands	EQMOD:PLUS2W
+
+STARTPACK:Dark Slayer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Slayer]
+RACE:Dark Slayer	!PRERACE:1,%
+NAME:Dark Slayer
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Spellcraft		RANK:4
+SKILL:Use Magic Device	RANK:4
+FEAT:Skill Focus (Use Magic Device)
+FEAT:Weapon Finesse
+GEAR:Kukri					SIZE:S	LOCATION:Equipped
+GEAR:Poison (Black Smear)	QTY:2			LOCATION:Carried
+
+STARTPACK:Death Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Worm]
+RACE:Death Worm	!PRERACE:1,%
+NAME:Death Worm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Perception	RANK:8
+FEAT:Cleave
+FEAT:Improved Overrun
+FEAT:Iron Will
+FEAT:Power Attack
+
+STARTPACK:Decapus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Decapus]
+RACE:Decapus	!PRERACE:1,%
+NAME:Decapus
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Climb			RANK:2
+SKILL:Escape Artist
+SKILL:Intimidate		RANK:3
+SKILL:Perception		RANK:4
+SKILL:Spellcraft		RANK:3
+SKILL:Stealth		RANK:3
+FEAT:Skill Focus (Bluff)
+FEAT:Toughness
+FEAT:Weapon Focus (Tentacles)
+
+STARTPACK:Demon (Kalavakus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Kalavakus)]
+RACE:Demon (Kalavakus)	!PRERACE:1,%
+NAME:Kalavakus
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:10
+SKILL:Climb				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Use Magic Device		RANK:10
+FEAT:Combat Expertise
+FEAT:Improved Bull Rush
+FEAT:Improved Disarm
+FEAT:Improved Trip
+FEAT:Power Attack
+
+STARTPACK:Demon (Omox) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Omox)]
+RACE:Demon (Omox)	!PRERACE:1,%
+NAME:Omox
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:13
+SKILL:Climb					RANK:13
+SKILL:Knowledge (Dungeoneering)	RANK:13
+SKILL:Knowledge (Planes)		RANK:13
+SKILL:Perception				RANK:13
+SKILL:Sense Motive			RANK:13
+SKILL:Stealth				RANK:13
+SKILL:Swim					RANK:13
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Spring Attack
+FEAT:Vital Strike
+
+STARTPACK:Demon (Shemhazian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
+RACE:Demon (Shemhazian)	!PRERACE:1,%
+NAME:Shemhazian
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Bluff				RANK:17
+SKILL:Heal				RANK:17
+SKILL:Intimidate			RANK:17
+SKILL:Knowledge (Religion)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+FEAT:Awesome Blow
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Bull Rush
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Demon (Vrolikai) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Vrolikai)]
+RACE:Demon (Vrolikai)	!PRERACE:1,%
+NAME:Vrolikai
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:19
+SKILL:Bluff				RANK:19
+SKILL:Fly				RANK:19
+SKILL:Intimidate			RANK:19
+SKILL:Knowledge (Arcana)	RANK:19
+SKILL:Knowledge (Planes)	RANK:19
+SKILL:Perception			RANK:19
+SKILL:Sense Motive		RANK:19
+SKILL:Spellcraft			RANK:19
+SKILL:Stealth			RANK:19
+SKILL:Survival			RANK:19
+SKILL:Use Magic Device		RANK:19
+FEAT:Cleave
+FEAT:Combat Expertise
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Mobility
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Enervation)
+FEAT:Vital Strike
+GEAR:Dagger	QTY:4	SIZE:L	LOCATION:Equipped	EQMOD:PLUS1W
+
+STARTPACK:Denizen of Leng Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
+RACE:Denizen of Leng	!PRERACE:1,%
+NAME:Denizen of Leng
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Bluff				RANK:10
+SKILL:Disable Device		RANK:7
+SKILL:Disguise			RANK:5
+SKILL:Intimidate			RANK:5
+SKILL:TYPE.Knowledge		RANK:10
+SKILL:Perception			RANK:10
+SKILL:Profession (Sailor)	RANK:5
+SKILL:Sense Motive		RANK:10
+SKILL:Sleight of Hand		RANK:10
+SKILL:Spellcraft			RANK:8
+SKILL:Stealth			RANK:10
+SKILL:Use Magic Device		RANK:10
+FEAT:Deceitful
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Persuasive
+FEAT:Weapon Finesse
+
+STARTPACK:Destrachan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
+RACE:Destrachan	!PRERACE:1,%
+NAME:Destrachan
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Climb			RANK:12
+SKILL:Perception		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Stealth		RANK:12
+SKILL:Survival		RANK:12
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Vital Strike
+
+STARTPACK:Devil (Accuser) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Accuser)]
+RACE:Devil (Accuser)	!PRERACE:1,%
+NAME:Accuser Devil (Zebub)
+ALIGN:LE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff				RANK:4
+SKILL:Fly				RANK:4
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Devil (Belier) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Belier)]
+RACE:Devil (Belier)	!PRERACE:1,%
+NAME:Belier Devil (Bdellavritra)
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Appraise			RANK:17
+SKILL:Bluff				RANK:17
+SKILL:Diplomacy			RANK:17
+SKILL:Fly				RANK:17
+SKILL:Intimidate			RANK:17
+SKILL:Knowledge (Arcana)	RANK:17
+SKILL:Knowledge (Local)		RANK:17
+SKILL:Knowledge (Nobility)	RANK:17
+SKILL:Knowledge (Planes)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Spellcraft			RANK:17
+SKILL:Stealth			RANK:17
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Greater Disarm
+FEAT:Greater Trip
+FEAT:Improved Critical (Tongue)
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Iron Will
+
+STARTPACK:Devil (Handmaiden) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Handmaiden)]
+RACE:Devil (Handmaiden)	!PRERACE:1,%
+NAME:Handmaiden Devil (Gylou)
+GENDER:Female
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:15
+SKILL:Bluff				RANK:15
+SKILL:Diplomacy			RANK:15
+SKILL:Disguise			RANK:15
+SKILL:Escape Artist		RANK:15
+SKILL:Knowledge (Arcana)	RANK:15
+SKILL:Knowledge (Planes)	RANK:15
+SKILL:Perception			RANK:15
+SKILL:Perform (Sing)		RANK:15
+SKILL:Sense Motive		RANK:15
+SKILL:Spellcraft			RANK:15
+SKILL:Stealth			RANK:15
+FEAT:Acrobatic Steps
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Multiattack
+FEAT:Nimble Moves
+FEAT:Strike Back
+
+STARTPACK:Devil (Immolation) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Immolation)]
+RACE:Devil (Immolation)	!PRERACE:1,%
+NAME:Immolation Devil (Puragaus)
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:18
+SKILL:Diplomacy			RANK:18
+SKILL:Disable Device		RANK:18
+SKILL:Fly				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (Nobility)	RANK:18
+SKILL:Knowledge (Engineering)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Stealth			RANK:18
+FEAT:Blind-Fight
+FEAT:Blinding Critical
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Critical Focus
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Stand Still
+
+STARTPACK:Devilfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devilfish]
+RACE:Devilfish	!PRERACE:1,%
+NAME:Devilfish
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Escape Artist	RANK:2
+SKILL:Perception		RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Swim			RANK:1
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Power Attack
+
+STARTPACK:Dhampir Fighter 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dhampir]
+RACE:Dhampir	!PRERACE:1,%
+NAME:Dhampir Fighter 1
+ALIGN:CE
+STAT:STR=13|DEX=15|CON=12|INT=10|WIS=8|CHA=14
+CLASS:Fighter	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Survival)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Finesse
+SKILL:Intimidate
+SKILL:Ride
+FEAT:Toughness
+GEAR:Chain Shirt	LOCATION:Equipped
+GEAR:Rapier		LOCATION:Equipped
+
+STARTPACK:Dinosaur (Allosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Allosaurus)]
+RACE:Dinosaur (Allosaurus)	!PRERACE:1,%
+NAME:Allosaurus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:11
+FEAT:Alertness
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Nimble Moves
+FEAT:Run
+
+STARTPACK:Dinosaur (Compsognathus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Compsognathus)]
+RACE:Dinosaur (Compsognathus)	!PRERACE:1,%
+NAME:Compsognathus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Dinosaur (Parasaurolophus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Parasaurolophus)]
+RACE:Dinosaur (Parasaurolophus)	!PRERACE:1,%
+NAME:Parasaurolophus
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:6
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Dinosaur (Tylosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tylosaurus)]
+RACE:Dinosaur (Tylosaurus)	!PRERACE:1,%
+NAME:Tylosaurus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:10
+FEAT:Dodge
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Mobility
+FEAT:Power Attack
+
+STARTPACK:Dragon Horse Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Horse]
+RACE:Dragon Horse	!PRERACE:1,%
+NAME:Dragon Horse
+ALIGN:NG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Fly				RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Survival			RANK:10
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Mobility
+
+STARTPACK:Dragonfly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly (Giant)]
+RACE:Dragonfly (Giant)	!PRERACE:1,%
+NAME:Giant Dragonfly
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Dragonfly Nymph (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly Nymph (Giant)]
+RACE:Dragonfly Nymph (Giant)	!PRERACE:1,%
+NAME:Giant Dragonfly Nymph
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Drake (Flame) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Flame)]
+RACE:Drake (Flame)	!PRERACE:1,%
+NAME:Flame Drake
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Fly		RANK:6
+SKILL:Intimidate	RANK:6
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+SKILL:Survival	RANK:6
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Drake (Forest) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Forest)]
+RACE:Drake (Forest)	!PRERACE:1,%
+NAME:Forest Drake
+ALIGN:LE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Fly		RANK:5
+SKILL:Intimidate	RANK:5
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:5
+SKILL:Swim		RANK:5
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Drake (Frost) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Frost)]
+RACE:Drake (Frost)	!PRERACE:1,%
+NAME:Frost Drake
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Climb		RANK:8
+SKILL:Fly		RANK:8
+SKILL:Intimidate	RANK:8
+SKILL:Perception	RANK:8
+SKILL:Stealth	RANK:8
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Drake (Sea) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Sea)]
+RACE:Drake (Sea)	!PRERACE:1,%
+NAME:Sea Drake
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Fly		RANK:7
+SKILL:Intimidate	RANK:7
+SKILL:Perception	RANK:7
+SKILL:Stealth	RANK:7
+SKILL:Swim		RANK:7
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Draugr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr]
+RACE:Draugr	!PRERACE:1,%
+NAME:Draugr
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Power Attack
+FEAT:Toughness
+GEAR:Leather	LOCATION:Equipped
+GEAR:Greataxe	LOCATION:Equipped
+
+STARTPACK:Draugr Captain Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr Captain]
+RACE:Draugr Captain	!PRERACE:1,%
+NAME:Draugr Captain
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Power Attack
+FEAT:Toughness
+GEAR:Leather	LOCATION:Equipped
+GEAR:Greataxe	LOCATION:Equipped
+
+STARTPACK:Dullahan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan]
+RACE:Dullahan	!PRERACE:1,%
+NAME:Dullahan
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Handle Animal	RANK:10
+SKILL:Intimidate		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Ride			RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Stealth		RANK:10
+FEAT:Iron Will
+FEAT:Mounted Combat
+FEAT:Ride-By Attack
+FEAT:Trample
+FEAT:Weapon Focus (Longsword)
+GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:KEEN
+
+STARTPACK:Coach of the Silent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Coach of the Silent]
+RACE:Coach of the Silent	!PRERACE:1,%
+NAME:Coach of the Silent
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Handle Animal	RANK:10
+SKILL:Intimidate		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Ride			RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Stealth		RANK:10
+FEAT:Iron Will
+FEAT:Mounted Combat
+FEAT:Ride-By Attack
+FEAT:Trample
+FEAT:Weapon Focus (Longsword)
+GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:KEEN
+
+STARTPACK:Dust Digger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
+RACE:Dust Digger	!PRERACE:1,%
+NAME:Dust Digger
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:3
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:D'ziriak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,D'ziriak]
+RACE:D'ziriak	!PRERACE:1,%
+NAME:D'ziriak
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Climb				RANK:4
+SKILL:Knowledge (Arcana)	RANK:4
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Survival			RANK:2
+SKILL:Use Magic Device		RANK:2
+FEAT:Combat Reflexes
+FEAT:Weapon Focus (Claw)
+
+
+STARTPACK:Elemental (Ice/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Small)]	SOURCEPAGE:p.114
+RACE:Elemental (Ice/Small)	!PRERACE:1,%
+NAME:Small Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Power Attack
+
+STARTPACK:Elemental (Ice/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Medium)]	SOURCEPAGE:p.114
+RACE:Elemental (Ice/Medium)	!PRERACE:1,%
+NAME:Medium Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Elemental (Ice/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Large)]	SOURCEPAGE:p.114
+RACE:Elemental (Ice/Large)	!PRERACE:1,%
+NAME:Large Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Stealth			RANK:8
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Elemental (Ice/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Huge)]	SOURCEPAGE:p.114
+RACE:Elemental (Ice/Huge)	!PRERACE:1,%
+NAME:Huge Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Elemental (Ice/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Greater)]	SOURCEPAGE:p.115
+RACE:Elemental (Ice/Greater)	!PRERACE:1,%
+NAME:Greater Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist		RANK:13
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (Planes)	RANK:13
+SKILL:Perception			RANK:13
+SKILL:Stealth			RANK:13
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Elemental (Ice/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Elder)]	SOURCEPAGE:p.115
+RACE:Elemental (Ice/Elder)	!PRERACE:1,%
+NAME:Elder Ice Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist		RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Stealth			RANK:16
+SKILL:Swim				RANK:16
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Critical (Slam)
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Elemental (Lightning/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Small)]	SOURCEPAGE:p.116
+RACE:Elemental (Lightning/Small)	!PRERACE:1,%
+NAME:Small Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:2
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Lightning/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Medium)]	SOURCEPAGE:p.116
+RACE:Elemental (Lightning/Medium)	!PRERACE:1,%
+NAME:Medium Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:4
+SKILL:Escape Artist		RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:4
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Lightning/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Large)]	SOURCEPAGE:p.116
+RACE:Elemental (Lightning/Large)	!PRERACE:1,%
+NAME:Large Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Mobility
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Lightning/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Huge)]	SOURCEPAGE:p.116
+RACE:Elemental (Lightning/Huge)	!PRERACE:1,%
+NAME:Huge Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:10
+SKILL:Escape Artist		RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Mobility
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Lightning/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Greater)]	SOURCEPAGE:p.117
+RACE:Elemental (Lightning/Greater)	!PRERACE:1,%
+NAME:Greater Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:13
+SKILL:Escape Artist		RANK:13
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (Planes)	RANK:13
+SKILL:Perception			RANK:13
+FEAT:Blind-Fight
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Power Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Lightning/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Elder)]	SOURCEPAGE:p.117
+RACE:Elemental (Lightning/Elder)	!PRERACE:1,%
+NAME:Elder Lightning Elemental
+ALIGN:TN
+SKILL:Acrobatics			RANK:16
+SKILL:Escape Artist		RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Stealth			RANK:16
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Power Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Elemental (Magma/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Small)]	SOURCEPAGE:p.118
+RACE:Elemental (Magma/Small)	!PRERACE:1,%
+NAME:Small Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:2
+SKILL:Perception				RANK:2
+SKILL:Stealth				RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Elemental (Magma/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Medium)]	SOURCEPAGE:p.118
+RACE:Elemental (Magma/Medium)	!PRERACE:1,%
+NAME:Medium Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:4
+SKILL:Perception				RANK:4
+SKILL:Stealth				RANK:4
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Elemental (Magma/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Large)]	SOURCEPAGE:p.118
+RACE:Elemental (Magma/Large)	!PRERACE:1,%
+NAME:Large Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb					RANK:8
+SKILL:Knowledge (Dungeoneering)	RANK:8
+SKILL:Perception				RANK:8
+SKILL:Stealth				RANK:8
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Elemental (Magma/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Huge)]	SOURCEPAGE:p.118
+RACE:Elemental (Magma/Huge)	!PRERACE:1,%
+NAME:Huge Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb					RANK:10
+SKILL:Knowledge (Dungeoneering)	RANK:10
+SKILL:Perception				RANK:10
+SKILL:Stealth				RANK:10
+FEAT:Cleave
+FEAT:Greater Bull Rush
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Elemental (Magma/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Greater)]	SOURCEPAGE:p.119
+RACE:Elemental (Magma/Greater)	!PRERACE:1,%
+NAME:Greater Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb					RANK:13
+SKILL:Intimidate				RANK:13
+SKILL:Knowledge (Dungeoneering)	RANK:13
+SKILL:Perception				RANK:13
+SKILL:Stealth				RANK:13
+FEAT:Cleave
+FEAT:Greater Bull Rush
+FEAT:Greater Overrun
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Overrun
+FEAT:Power Attack
+
+STARTPACK:Elemental (Magma/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Elder)]	SOURCEPAGE:p.119
+RACE:Elemental (Magma/Elder)	!PRERACE:1,%
+NAME:Elder Magma Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb					RANK:16
+SKILL:Intimidate				RANK:16
+SKILL:Knowledge (Dungeoneering)	RANK:16
+SKILL:Knowledge (Planes)		RANK:16
+SKILL:Perception				RANK:16
+SKILL:Stealth				RANK:16
+FEAT:Cleave
+FEAT:Greater Bull Rush
+FEAT:Greater Overrun
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Overrun
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Elemental (Mud/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Small)]	SOURCEPAGE:p.120
+RACE:Elemental (Mud/Small)	!PRERACE:1,%
+NAME:Small Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:1
+FEAT:Power Attack
+
+STARTPACK:Elemental (Mud/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Medium)]	SOURCEPAGE:p.120
+RACE:Elemental (Mud/Medium)	!PRERACE:1,%
+NAME:Medium Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:2
+SKILL:Escape Artist		RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:2
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Elemental (Mud/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Large)]	SOURCEPAGE:p.120
+RACE:Elemental (Mud/Large)	!PRERACE:1,%
+NAME:Large Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:4
+SKILL:Escape Artist		RANK:4
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:8
+SKILL:Stealth			RANK:4
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Greater Bull Rush
+FEAT:Power Attack
+
+STARTPACK:Elemental (Mud/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Huge)]	SOURCEPAGE:p.120
+RACE:Elemental (Mud/Huge)	!PRERACE:1,%
+NAME:Huge Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:7
+SKILL:Escape Artist		RANK:7
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Greater Bull Rush
+FEAT:Power Attack
+
+STARTPACK:Elemental (Mud/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Greater)]	SOURCEPAGE:p.121
+RACE:Elemental (Mud/Greater)	!PRERACE:1,%
+NAME:Greater Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:13
+SKILL:Escape Artist		RANK:13
+SKILL:Knowledge (Planes)	RANK:13
+SKILL:Perception			RANK:13
+SKILL:Stealth			RANK:13
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Greater Bull Rush
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+STARTPACK:Elemental (Mud/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Elder)]	SOURCEPAGE:p.121
+RACE:Elemental (Mud/Elder)	!PRERACE:1,%
+NAME:Elder Mud Elemental
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:16
+SKILL:Escape Artist		RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Stealth			RANK:16
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Greater Bull Rush
+FEAT:Improved Critical (Slam)
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+STARTPACK:Faceless Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faceless Stalker]
+RACE:Faceless Stalker	!PRERACE:1,%
+NAME:Faceless Stalker (Ugothol)
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff			RANK:5
+SKILL:Disguise		RANK:5
+SKILL:Escape Artist	RANK:5
+SKILL:Sleight of Hand	RANK:5
+SKILL:Stealth		RANK:5
+FEAT:Combat Reflexes
+FEAT:Deceitful
+FEAT:Improved Initiative
+GEAR:Longsword	LOCATION:Equipped	EQMOD:MWORKW
+
+STARTPACK:Fetchling Rogue 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fetchling]
+RACE:Fetchling	!PRERACE:1,%
+NAME:Fetchling Rogue 1
+ALIGN:TN
+STAT:STR=13|DEX=15|CON=14|INT=8|WIS=10|CHA=12
+CLASS:Rogue	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Knowledge (Planes))
+SKILL:Appraise
+SKILL:Bluff
+SKILL:Diplomacy
+SKILL:Knowledge (Local)
+SKILL:Perception
+SKILL:Sense Motive
+SKILL:Stealth
+FEAT:Weapon Finesse
+GEAR:Chain Shirt	LOCATION:Equipped
+GEAR:Dagger		LOCATION:Equipped
+
+STARTPACK:Fly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
+RACE:Fly (Giant)	!PRERACE:1,%
+NAME:Giant Fly
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Maggot (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Maggot (Giant)]
+RACE:Maggot (Giant)	!PRERACE:1,%
+NAME:Giant Maggot
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Forlarren Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forlarren]
+RACE:Forlarren	!PRERACE:1,%
+NAME:Forlarren
+GENDER:Female
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics	RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+ABILITY:CATEGORY=Forlarren Spell-Like Ability|Forlarren Heat Metal
+
+STARTPACK:Frost Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
+RACE:Frost Worm	!PRERACE:1,%
+NAME:Frost Worm
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:8
+SKILL:Stealth	RANK:8
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+FEAT:Stand Still
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Fungal Crawler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungal Crawler]
+RACE:Fungal Crawler	!PRERACE:1,%
+NAME:Fungal Crawler
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics	RANK:2
+SKILL:Perception	RANK:2
+FEAT:Improved Initiative
+FEAT:Step Up
+
+#
+# End
+#

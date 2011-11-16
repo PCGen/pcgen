@@ -1,0 +1,786 @@
+# CVS $Revision$ $Author$ -- Fri Aug 19 23:58:32 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/08/15
+
+STARTPACK:Sandman Default	TYPE:DefaultMonster.Sandman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandman]	SOURCEPAGE:p.236
+RACE:Sandman	!PRERACE:1,%
+NAME:Sandman
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:4
+SKILL:Climb				RANK:4
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Improved Initiative
+FEAT:Iron Will
+
+STARTPACK:Sard Default	TYPE:DefaultMonster.Sard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sard]	SOURCEPAGE:p.237
+RACE:Sard	!PRERACE:1,%
+NAME:Sard
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Perception	RANK:23
+FEAT:Awesome Blow
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Slam)
+FEAT:Improved Lightning Reflexes
+FEAT:Improved Precise Shot
+FEAT:Improved Sunder
+FEAT:Lightning Reflexes
+FEAT:Point-Blank Shot
+FEAT:Power Attack
+FEAT:Precise Shot
+FEAT:Quicken Spell-Like Ability ~ Spell (Lightning Bolt)
+FEAT:Vital Strike
+
+STARTPACK:Scarecrow Default	TYPE:DefaultMonster.Scarecrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scarecrow]	SOURCEPAGE:p.238
+RACE:Scarecrow	!PRERACE:1,%
+NAME:Scarecrow
+GENDER:Neuter
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+
+STARTPACK:Sceaduinar Default	TYPE:DefaultMonster.Sceaduinar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sceaduinar]	SOURCEPAGE:p.239
+RACE:Sceaduinar	!PRERACE:1,%
+NAME:Sceaduinar
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Escape Artist		RANK:9
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (Nature)	RANK:9
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:9
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Skill Focus (Perception)
+FEAT:Step Up
+FEAT:Weapon Finesse
+
+STARTPACK:Scorpion (Black) Default	TYPE:DefaultMonster.BlackScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Black)]	SOURCEPAGE:p.240
+RACE:Scorpion (Black)	!PRERACE:1,%
+NAME:Black Scorpion
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+
+STARTPACK:Scorpion (Cave) Default	TYPE:DefaultMonster.CaveScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Cave)]	SOURCEPAGE:p.240
+RACE:Scorpion (Cave)	!PRERACE:1,%
+NAME:Cave Scorpion
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Scylla Default	TYPE:DefaultMonster.Scylla	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scylla]	SOURCEPAGE:p.241
+RACE:Scylla	!PRERACE:1,%
+NAME:Scylla
+GENDER:Female
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:20
+SKILL:Bluff				RANK:20
+SKILL:Fly				RANK:20
+SKILL:Knowledge (Nature)	RANK:20
+SKILL:Perception			RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Swim				RANK:20
+SKILL:Use Magic Device		RANK:20
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Critical (Bite)
+FEAT:Mobility
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Vital Strike
+FEAT:Weapon Finesse
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Tentacle)
+
+STARTPACK:Serpentfolk Default	TYPE:DefaultMonster.Serpentfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Serpentfolk]	SOURCEPAGE:p.242
+RACE:Serpentfolk	!PRERACE:1,%
+NAME:Serpentfolk
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:5
+SKILL:Disguise			RANK:5
+SKILL:Escape Artist		RANK:5
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Spellcraft			RANK:5
+SKILL:Use Magic Device		RANK:5
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
+
+STARTPACK:Seugathi Default	TYPE:DefaultMonster.Seugathi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seugathi]	SOURCEPAGE:p.243
+RACE:Seugathi	!PRERACE:1,%
+NAME:Seugathi
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist		RANK:9
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:9
+SKILL:Use Magic Device		RANK:9
+FEAT:Ability Focus (Aura of Madness)
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+GEAR:Sword (Short)	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+SELECT:roll("1d20")
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[31]	OPTION:1,1
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[32]	OPTION:2,2
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[33]	OPTION:3,3
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[34]	OPTION:4,4
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[35]	OPTION:5,5
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[36]	OPTION:6,6
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[37]	OPTION:7,7
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[38]	OPTION:8,8
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[39]	OPTION:9,9
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[40]	OPTION:10,10
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[41]	OPTION:11,11
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[42]	OPTION:12,12
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[43]	OPTION:13,13
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[44]	OPTION:14,14
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[45]	OPTION:15,15
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[46]	OPTION:16,16
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[47]	OPTION:17,17
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[48]	OPTION:18,18
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[49]	OPTION:19,19
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[50]	OPTION:20,20
+
+STARTPACK:Shantak Default	TYPE:DefaultMonster.Shantak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shantak]	SOURCEPAGE:p.244
+RACE:Shantak	!PRERACE:1,%
+NAME:Shantak
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Fly	RANK:11
+FEAT:Awesome Blow
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Wingover
+
+STARTPACK:Shining Child Default	TYPE:DefaultMonster.ShiningChild	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child]	SOURCEPAGE:p.245
+RACE:Shining Child	!PRERACE:1,%
+NAME:Shining Child
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff				RANK:16
+SKILL:Diplomacy			RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Arcana)	RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Spellcraft			RANK:16
+SKILL:Use Magic Device		RANK:16
+FEAT:Ability Focus (Blinding Light)
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Skill Focus (Perception)
+FEAT:Spring Attack
+FEAT:Weapon Finesse
+
+STARTPACK:Sinspawn (Wrathspawn) Default	TYPE:DefaultMonster.Wrathspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Wrathspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Wrathspawn)	!PRERACE:1,%
+NAME:Wrathspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Pridespawn) Default	TYPE:DefaultMonster.Pridespawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Pridespawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Pridespawn)	!PRERACE:1,%
+NAME:Pridespawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Slothspawn) Default	TYPE:DefaultMonster.Slothspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Slothspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Slothspawn)	!PRERACE:1,%
+NAME:Slothspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Envyspawn) Default	TYPE:DefaultMonster.Envyspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Envyspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Envyspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Gluttonspawn) Default	TYPE:DefaultMonster.Gluttonspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Gluttonspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Gluttonspawn)	!PRERACE:1,%
+NAME:Gluttonspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Greedspawn) Default	TYPE:DefaultMonster.Greedspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Greedspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Greedspawn)	!PRERACE:1,%
+NAME:Greedspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Sinspawn (Lustspawn) Default	TYPE:DefaultMonster.Lustspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Lustspawn)]	SOURCEPAGE:p.246
+RACE:Sinspawn (Lustspawn)	!PRERACE:1,%
+NAME:Lustspawn
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Siren Default	TYPE:DefaultMonster.Siren	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Siren]	SOURCEPAGE:p.247
+RACE:Siren	!PRERACE:1,%
+NAME:Siren
+GENDER:Female
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (History)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Perform (Sing)		RANK:8
+SKILL:Stealth			RANK:8
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+
+STARTPACK:Skulk Default	TYPE:DefaultMonster.Skulk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skulk]	SOURCEPAGE:p.248
+RACE:Skulk	!PRERACE:1,%
+NAME:Skulk
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Improved Initiative
+FEAT:Skill Focus (Stealth)
+GEAR:Sword (Short)		LOCATION:Equipped
+GEAR:Dagger			QTY:2	LOCATION:Carried
+
+STARTPACK:Slime Mold Default	TYPE:DefaultMonster.SlimeMold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Mold]	SOURCEPAGE:p.249
+RACE:Slime Mold	!PRERACE:1,%
+NAME:Slime Mold
+GENDER:Neuter
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Slithering Tracker Default	TYPE:DefaultMonster.SlitheringTracker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slithering Tracker]	SOURCEPAGE:p.250
+RACE:Slithering Tracker	!PRERACE:1,%
+NAME:Slithering Tracker
+GENDER:Neuter
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Slurk Default	TYPE:DefaultMonster.Slurk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slurk]	SOURCEPAGE:p.251
+RACE:Slurk	!PRERACE:1,%
+NAME:Slurk
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:1
+SKILL:Climb		RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Snake (Emperor Cobra) Default	TYPE:DefaultMonster.EmperorCobra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Emperor Cobra)]	SOURCEPAGE:p.252
+RACE:Snake (Emperor Cobra)	!PRERACE:1,%
+NAME:Emperor Cobra
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Improved Initiative
+FEAT:Skill Focus (Stealth)
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Snake (Giant Anaconda) Default	TYPE:DefaultMonster.GiantAnaconda	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Giant Anaconda)]	SOURCEPAGE:p.252
+RACE:Snake (Giant Anaconda)	!PRERACE:1,%
+NAME:Giant Anaconda
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:12
+FEAT:Dodge
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Solifugid (Giant) Default	TYPE:DefaultMonster.GiantSolifugid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Giant)]	SOURCEPAGE:p.253
+RACE:Solifugid (Giant)	!PRERACE:1,%
+NAME:Giant Solifugid
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Solifugid (Albino Cave) Default	TYPE:DefaultMonster.AlbinoCaveSolifugid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Albino Cave)]	SOURCEPAGE:p.253
+RACE:Solifugid (Albino Cave)	!PRERACE:1,%
+NAME:Albino Cave Solifugid
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Soul Eater Default	TYPE:DefaultMonster.SoulEater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Eater]	SOURCEPAGE:p.254
+RACE:Soul Eater	!PRERACE:1,%
+NAME:Soul Eater
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:11
+SKILL:Escape Artist		RANK:11
+SKILL:Fly				RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Planes)	RANK:11
+SKILL:Perception			RANK:11
+SKILL:Stealth			RANK:11
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Soulbound Doll Default	TYPE:DefaultMonster.SoulboundDoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soulbound Doll]	SOURCEPAGE:p.255
+RACE:Soulbound Doll	!PRERACE:1,%
+NAME:Soulbound Doll
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Stealth	RANK:3
+SKILL:Perception	RANK:3
+FEAT:Improved Initiative
+FEAT:Toughness
+GEAR:Dagger	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Spider (Giant Black Widow) Default	TYPE:DefaultMonster.GiantBlackWidowSpider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Black Widow)]	SOURCEPAGE:p.256
+RACE:Spider (Giant Black Widow)	!PRERACE:1,%
+NAME:Giant Black Widow Spider
+ALIGN:TN
+GENDER:Female
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.GiantTarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.256
+RACE:Spider (Giant Tarantula)	!PRERACE:1,%
+NAME:Giant Tarantula
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+STARTPACK:Spriggan Default	TYPE:DefaultMonster.Spriggan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spriggan]	SOURCEPAGE:p.257
+RACE:Spriggan	!PRERACE:1,%
+NAME:Spriggan
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Disable Device	RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sleight of Hand	RANK:2
+SKILL:Stealth		RANK:2
+FEAT:Combat Reflexes
+FEAT:Weapon Focus (Morningstar)
+GEAR:Leather				SIZE:S	LOCATION:Equipped
+GEAR:Morningstar				SIZE:S	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:10	SIZE:S	LOCATION:Carried
+
+STARTPACK:Sylph Rogue 1	TYPE:Sylph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]	SOURCEPAGE:p.257
+RACE:Sylph	!PRERACE:1,%
+NAME:Sylph Rogue 1
+ALIGN:TN
+GENDER:Female
+STAT:STR=8|DEX=15|CON=12|INT=13|WIS=14|CHA=10
+LANGBONUS:Elven|Halfling
+CLASS:Rogue	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Acrobatics		RANK:1
+SKILL:Appraise		RANK:1
+SKILL:Bluff			RANK:1
+SKILL:Climb			RANK:1
+SKILL:Diplomacy		RANK:1
+SKILL:Knowledge (Local)	RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Use Magic Device	RANK:1
+FEAT:Dodge
+GEAR:Leather		LOCATION:Equipped
+GEAR:Dagger		QTY:2	LOCATION:Equipped
+
+STARTPACK:Tendriculos Default	TYPE:DefaultMonster.Tendriculos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]	SOURCEPAGE:p.259
+RACE:Tendriculos	!PRERACE:1,%
+NAME:Tendriculos
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:4
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Tenebrous Worm Default	TYPE:DefaultMonster.TenebrousWorm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tenebrous Worm]	SOURCEPAGE:p.260
+RACE:Tenebrous Worm	!PRERACE:1,%
+NAME:Tenebrous Worm
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:10
+SKILL:Stealth	RANK:10
+FEAT:Critical Focus
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Tentamort Default	TYPE:DefaultMonster.Tentamort	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tentamort]	SOURCEPAGE:p.261
+RACE:Tentamort	!PRERACE:1,%
+NAME:Tentamort
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:6
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus (Tentacle)
+
+STARTPACK:Thoqqua Default	TYPE:DefaultMonster.Thoqqua	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]	SOURCEPAGE:p.262
+RACE:Thoqqua	!PRERACE:1,%
+NAME:Thoqqua
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:3
+FEAT:Nimble Moves
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Thrasfyr Default	TYPE:DefaultMonster.Thrasfyr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thrasfyr]	SOURCEPAGE:p.263
+RACE:Thrasfyr	!PRERACE:1,%
+NAME:Thrasfyr
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:18
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Thunderbird Default	TYPE:DefaultMonster.Thunderbird	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird]	SOURCEPAGE:p.264
+RACE:Thunderbird	!PRERACE:1,%
+NAME:Thunderbird
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics		RANK:7
+SKILL:Perception		RANK:14
+SKILL:Sense Motive	RANK:7
+SKILL:Fly			RANK:7
+SKILL:Perform (Sing)	RANK:7
+FEAT:Critical Focus
+FEAT:Dodge
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+
+STARTPACK:Tick (Giant) Default	TYPE:DefaultMonster.GiantTick	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick (Giant)]	SOURCEPAGE:p.265
+RACE:Tick (Giant)	!PRERACE:1,%
+NAME:Giant Tick
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Tick Swarm Default	TYPE:DefaultMonster.TickSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick Swarm]	SOURCEPAGE:p.265
+RACE:Tick Swarm	!PRERACE:1,%
+NAME:Tick Swarm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Titan (Elysian) Default	TYPE:DefaultMonster.ElysianTitan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elysian)]	SOURCEPAGE:p.266
+RACE:Titan (Elysian)	!PRERACE:1,%
+NAME:Elysian Titan
+ALIGN:CG
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Bluff				RANK:21
+SKILL:TYPE.Craft			RANK:21	COUNT:1
+SKILL:Diplomacy			RANK:21
+SKILL:Intimidate			RANK:21
+SKILL:Knowledge (Engineering)	RANK:21
+SKILL:Knowledge (Planes)	RANK:21
+SKILL:Perception			RANK:21
+SKILL:TYPE.Perform		RANK:21	COUNT:1
+SKILL:Sense Motive		RANK:21
+SKILL:Spellcraft			RANK:21
+SKILL:Use Magic Device		RANK:21
+FEAT:Awesome Blow
+FEAT:Critical Focus
+FEAT:Greater Sunder
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Improved Vital Strike
+FEAT:Power Attack
+FEAT:Staggering Critical
+FEAT:Vital Strike
+GEAR:Elysian Maul of the Titans	SIZE:C	LOCATION:Equipped
+GEAR:Breastplate				SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
+
+STARTPACK:Titan (Thanatotic) Default	TYPE:DefaultMonster.ThanatoticTitan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Thanatotic)]	SOURCEPAGE:p.267
+RACE:Titan (Thanatotic)	!PRERACE:1,%
+NAME:Thanatotic Titan
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Bluff				RANK:23
+SKILL:TYPE.Craft			RANK:23	COUNT:1
+SKILL:Diplomacy			RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Arcana)	RANK:23
+SKILL:Knowledge (History)	RANK:23
+SKILL:Knowledge (Planes)	RANK:23
+SKILL:Knowledge (Religion)	RANK:23
+SKILL:Perception			RANK:23
+SKILL:Ride				RANK:23
+SKILL:Sense Motive		RANK:23
+SKILL:Spellcraft			RANK:23
+SKILL:Stealth			RANK:23
+SKILL:Use Magic Device		RANK:23
+FEAT:Awesome Blow
+FEAT:Bleeding Critical
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Battleaxe)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Vital Strike
+GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3W	EQMOD:UNHOLY
+GEAR:Full Plate	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
+GEAR:Rock (Huge)			LOCATION:Carried
+
+STARTPACK:Toad (Giant) Default	TYPE:DefaultMonster.GiantToad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Giant)]	SOURCEPAGE:p.268
+RACE:Toad (Giant)	!PRERACE:1,%
+NAME:Giant Toad
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:1
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Toad (Glacier) Default	TYPE:DefaultMonster.GlacierToad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Glacier)]	SOURCEPAGE:p.268
+RACE:Toad (Glacier)	!PRERACE:1,%
+NAME:Glacier Toad
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:2
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Totenmaske Default	TYPE:DefaultMonster.Totenmaske	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Totenmaske]	SOURCEPAGE:p.269
+RACE:Totenmaske	!PRERACE:1,%
+NAME:Totenmaske
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics		RANK:10
+SKILL:Bluff			RANK:10
+SKILL:Diplomacy		RANK:10
+SKILL:Disguise		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Stealth		RANK:10
+FEAT:Ability Focus (Charisma Drain)
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Triton Default	TYPE:DefaultMonster.Triton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]	SOURCEPAGE:p.270
+RACE:Triton	!PRERACE:1,%
+NAME:Triton
+ALIGN:NG
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:TYPE.Craft		RANK:3	COUNT:1
+SKILL:Diplomacy		RANK:3
+SKILL:Perception		RANK:3
+SKILL:Ride			RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:3
+SKILL:Survival		RANK:3
+FEAT:Mounted Combat
+FEAT:Ride-By Attack
+GEAR:Trident				LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Crossbow (Heavy)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+
+STARTPACK:Troll (Ice) Default	TYPE:DefaultMonster.IceTroll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Ice)]	SOURCEPAGE:p.271
+RACE:Troll (Ice)	!PRERACE:1,%
+NAME:Ice Troll
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Intimidate	RANK:2
+SKILL:Perception	RANK:3
+SKILL:Survival	RANK:1
+FEAT:Intimidating Prowess
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+GEAR:Battleaxe	SIZE:L	LOCATION:Equipped
+
+STARTPACK:Troll (Rock) Default	TYPE:DefaultMonster.RockTroll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Rock)]	SOURCEPAGE:p.272
+RACE:Troll (Rock)	!PRERACE:1,%
+NAME:Rock Troll
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Intimidate	RANK:2
+SKILL:Perception	RANK:4
+SKILL:Climb		RANK:1
+FEAT:Intimidating Prowess
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Turtle (Snapping) Default	TYPE:DefaultMonster.SnappingTurtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Snapping)]	SOURCEPAGE:p.273
+RACE:Turtle (Snapping)	!PRERACE:1,%
+NAME:Snapping Turtle
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Turtle (Giant Snapping) Default	TYPE:DefaultMonster.GiantSnappingTurtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Giant Snapping)]	SOURCEPAGE:p.273
+RACE:Turtle (Giant Snapping)	!PRERACE:1,%
+NAME:Giant Snapping Turtle
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:11
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lunge
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Twigjack Default	TYPE:DefaultMonster.Twigjack	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Twigjack]	SOURCEPAGE:p.274
+RACE:Twigjack	!PRERACE:1,%
+NAME:Twigjack
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:5
+SKILL:Climb				RANK:5
+SKILL:Disable Device		RANK:5
+SKILL:Knowledge (Nature)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Stealth			RANK:5
+FEAT:Agile Maneuvers
+FEAT:Skill Focus (Stealth)
+FEAT:Weapon Finesse
+GEAR:Spear	SIZE:T	LOCATION:Equipped
+
+# COMMENT: FEAT: Weapon Focus (Heavy Mace), but uses a trident??
+# COMMENT: The Bestiary has a +1 Init bonus for the Undine cleric;
+# COMMENT:   his 14 Dex should give him a +2.
+# NEEDS DATA WORK: Don't know how to add domain spells in a kit.
+STARTPACK:Undine Cleric 1	TYPE:Undine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Undine]	SOURCEPAGE:p.275
+RACE:Undine	!PRERACE:1,%
+NAME:Undine Cleric 1
+ALIGN:TN
+GENDER:Male
+STAT:STR=13|DEX=12|CON=8|INT=10|WIS=15|CHA=14
+CLASS:Cleric	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
+SKILL:Diplomacy			RANK:1
+SKILL:Knowledge (Religion)	RANK:1
+DEITY:None	DOMAIN:Charm|Water
+FEAT:Weapon Focus (Heavy Mace)
+GEAR:Scale Mail	LOCATION:Equipped
+GEAR:Trident	LOCATION:Equipped
+GEAR:Sling		LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Charm Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Guidance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+
+STARTPACK:Urdefhan Default	TYPE:DefaultMonster.Urdefhan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urdefhan]	SOURCEPAGE:p.276
+RACE:Urdefhan	!PRERACE:1,%
+NAME:Urdefhan
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Intimidate				RANK:3
+SKILL:Knowledge (Dungeoneering)	RANK:3
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Knowledge (Religion)		RANK:3
+SKILL:Perception				RANK:3
+SKILL:Ride					RANK:3
+SKILL:Sense Motive			RANK:3
+SKILL:Survival				RANK:3
+FEAT:Iron Will
+FEAT:Weapon Focus (Rhoka Sword)
+GEAR:Studded Leather				LOCATION:Equipped
+GEAR:Rhoka Sword					LOCATION:Both Hands
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+4
+GEAR:Arrow				QTY:20	LOCATION:Carried

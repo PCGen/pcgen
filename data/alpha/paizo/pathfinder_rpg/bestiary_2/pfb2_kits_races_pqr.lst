@@ -1,0 +1,489 @@
+# CVS $Revision$ $Author$ -- Thu Aug 25 12:58:52 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/08/20
+
+STARTPACK:Pech Default	TYPE:DefaultMonster.Pech	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]	SOURCEPAGE:p.206
+RACE:Pech	!PRERACE:1,%
+NAME:Pech
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb					RANK:6
+SKILL:Craft (Stonemasonry)		RANK:6
+SKILL:Knowledge (Dungeoneering)	RANK:6
+SKILL:Knowledge (Engineering)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Profession (Miner)		RANK:6
+SKILL:Stealth				RANK:6
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Power Attack
+GEAR:Pick (Heavy)	SIZE:S	LOCATION:Both Hands	EQMOD:MWORKW
+
+STARTPACK:Peryton Default	TYPE:DefaultMonster.Peryton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Peryton]	SOURCEPAGE:p.207
+RACE:Peryton	!PRERACE:1,%
+NAME:Peryton
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Fly		RANK:2
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:3
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Gore)
+
+STARTPACK:Petitioner (Human) Default	TYPE:DefaultMonster.HumanPetitioner	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Petitioner (Human)]	SOURCEPAGE:p.208
+RACE:Petitioner (Human)	!PRERACE:1,%
+NAME:Human Petitioner
+STAT:STR=11|DEX=10|CON=13|INT=10|WIS=11|CHA=10
+SKILL:TYPE.Craft			RANK:2	COUNT:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Toughness
+
+STARTPACK:Phycomid Default	TYPE:DefaultMonster.Phycomid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]	SOURCEPAGE:p.210
+RACE:Phycomid	!PRERACE:1,%
+NAME:Phycomid
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Poltergeist Default	TYPE:DefaultMonster.Poltergeist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poltergeist]	SOURCEPAGE:p.211
+RACE:Poltergeist	!PRERACE:1,%
+NAME:Poltergeist
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:3
+FEAT:Ability Focus (Frightener)
+FEAT:Alertness
+
+STARTPACK:Primate (Baboon) Default	TYPE:DefaultMonster.Baboon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Baboon)]	SOURCEPAGE:p.212
+RACE:Primate (Baboon)	!PRERACE:1,%
+NAME:Baboon
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Primate (Monkey Swarm) Default	TYPE:DefaultMonster.MonkeySwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Monkey Swarm)]	SOURCEPAGE:p.212
+RACE:Primate (Monkey Swarm)	!PRERACE:1,%
+NAME:Monkey Swarm
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:1
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+
+STARTPACK:Protean (Imentesh) Default	TYPE:DefaultMonster.Imentesh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Imentesh)]	SOURCEPAGE:p.214
+RACE:Protean (Imentesh)	!PRERACE:1,%
+NAME:Imentesh
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:13
+SKILL:Bluff				RANK:13
+SKILL:Diplomacy			RANK:13
+SKILL:Disable Device		RANK:13
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (Arcana)	RANK:13
+SKILL:Knowledge (Planes)	RANK:13
+SKILL:TYPE.Knowledge		RANK:13	COUNT:2
+SKILL:Perception			RANK:13
+SKILL:Sense Motive		RANK:13
+SKILL:Stealth			RANK:13
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Improved Feint
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Persuasive
+
+STARTPACK:Protean (Keketar) Default	TYPE:DefaultMonster.Keketar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Keketar)]	SOURCEPAGE:p.215
+RACE:Protean (Keketar)	!PRERACE:1,%
+NAME:Keketar
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:23
+SKILL:Bluff				RANK:23
+SKILL:Diplomacy			RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Arcana)	RANK:23
+SKILL:Knowledge (Planes)	RANK:23
+SKILL:TYPE.Knowledge		RANK:23	COUNT:2
+SKILL:Perception			RANK:23
+SKILL:Stealth			RANK:23
+SKILL:Swim				RANK:23
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Empower Spell-Like Ability ~ Spell (Chaos Hammer)
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Confusion)
+FEAT:Vital Strike
+
+STARTPACK:Protean (Naunet) Default	TYPE:DefaultMonster.Naunet	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Naunet)]	SOURCEPAGE:p.216
+RACE:Protean (Naunet)	!PRERACE:1,%
+NAME:Naunet
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:9
+SKILL:Intimidate	RANK:9
+SKILL:Perception	RANK:9
+SKILL:Stealth	RANK:9
+SKILL:Survival	RANK:9
+SKILL:Swim		RANK:9
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Protean (Voidworm) Default	TYPE:DefaultMonster.Voidworm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Voidworm)]	SOURCEPAGE:p.217
+RACE:Protean (Voidworm)	!PRERACE:1,%
+NAME:Voidworm
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Escape Artist		RANK:1
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:1
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+
+STARTPACK:Qlippoth (Augnagar) Default	TYPE:DefaultMonster.Augnagar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Augnagar)]	SOURCEPAGE:p.219
+RACE:Qlippoth (Augnagar)	!PRERACE:1,%
+NAME:Augnagar
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Fly		RANK:14
+SKILL:Perception	RANK:14
+SKILL:Stealth	RANK:14
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Qlippoth (Chernobue) Default	TYPE:DefaultMonster.Chernobue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Chernobue)]	SOURCEPAGE:p.220
+RACE:Qlippoth (Chernobue)	!PRERACE:1,%
+NAME:Chernobue
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:12
+SKILL:Escape Artist		RANK:12
+SKILL:Intimidate			RANK:12
+SKILL:Knowledge (Planes)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Stealth			RANK:12
+FEAT:Blind-Fight
+FEAT:Improved Critical (Slam)
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Darkness)
+FEAT:Vital Strike
+
+STARTPACK:Qlippoth (Cythnigot) Default	TYPE:DefaultMonster.Cythnigot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Cythnigot)]	SOURCEPAGE:p.221
+RACE:Qlippoth (Cythnigot)	!PRERACE:1,%
+NAME:Cythnigot
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+
+STARTPACK:Qlippoth (Iathavos) Default	TYPE:DefaultMonster.Iathavos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Iathavos)]	SOURCEPAGE:p.222
+RACE:Qlippoth (Iathavos)	!PRERACE:1,%
+NAME:Iathavos
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Bluff					RANK:24
+SKILL:Escape Artist			RANK:24
+SKILL:Fly					RANK:24
+SKILL:Intimidate				RANK:24
+SKILL:Knowledge (Arcana)		RANK:24
+SKILL:Knowledge (Dungeoneering)	RANK:24
+SKILL:Knowledge (Geography)		RANK:24
+SKILL:Knowledge (History)		RANK:24
+SKILL:Knowledge (Planes)		RANK:24
+SKILL:Knowledge (Religion)		RANK:24
+SKILL:Perception				RANK:24
+SKILL:Sense Motive			RANK:24
+SKILL:Spellcraft				RANK:24
+SKILL:Stealth				RANK:24
+SKILL:Use Magic Device			RANK:24
+FEAT:Awesome Blow
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Claw)
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Heal)
+FEAT:Spell Penetration
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Qlippoth (Nyogoth) Default	TYPE:DefaultMonster.Nyogoth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Nyogoth)]	SOURCEPAGE:p.224
+RACE:Qlippoth (Nyogoth)	!PRERACE:1,%
+NAME:Nyogoth
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Fly				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+FEAT:Combat Reflexes
+FEAT:Improved Critical (Bite)
+FEAT:Power Attack
+FEAT:Vital Strike
+FEAT:Weapon Finesse
+
+STARTPACK:Qlippoth (Shoggti) Default	TYPE:DefaultMonster.Shoggti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Shoggti)]	SOURCEPAGE:p.225
+RACE:Qlippoth (Shoggti)	!PRERACE:1,%
+NAME:Shoggti
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist		RANK:7
+SKILL:Intimidate			RANK:7
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Stealth			RANK:7
+SKILL:Use Magic Device		RANK:7
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Skill Focus (Use Magic Device)
+FEAT:Weapon Focus (Tentacle)
+
+STARTPACK:Qlippoth (Thulgant) Default	TYPE:DefaultMonster.Thulgant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Thulgant)]	SOURCEPAGE:p.226
+RACE:Qlippoth (Thulgant)	!PRERACE:1,%
+NAME:Thulgant
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:20
+SKILL:Bluff				RANK:20
+SKILL:Climb				RANK:20
+SKILL:Fly				RANK:20
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Arcana)	RANK:20
+SKILL:Knowledge (History)	RANK:20
+SKILL:Knowledge (Planes)	RANK:20
+SKILL:Perception			RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Use Magic Device		RANK:20
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Critical (Sting)
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Quicken Spell-Like Ability ~ Spell (Dimension Door)
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Quickling Default	TYPE:DefaultMonster.Quickling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickling]	SOURCEPAGE:p.227
+RACE:Quickling	!PRERACE:1,%
+NAME:Quickling
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:4
+SKILL:Bluff			RANK:4
+SKILL:TYPE.Craft		RANK:4	COUNT:1
+SKILL:Escape Artist	RANK:4
+SKILL:Perception		RANK:4
+SKILL:Spellcraft		RANK:4
+SKILL:Stealth		RANK:4
+SKILL:Survival		RANK:2
+SKILL:Use Magic Device	RANK:2
+FEAT:Dodge
+FEAT:Weapon Finesse
+GEAR:Sword (Short)			SIZE:S	LOCATION:Equipped
+GEAR:Poison (Blue Whinnis)	QTY:4			LOCATION:Carried
+
+STARTPACK:Quickwood Default	TYPE:DefaultMonster.Quickwood	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickwood]	SOURCEPAGE:p.228
+RACE:Quickwood	!PRERACE:1,%
+NAME:Quickwood
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Knowledge (Nature)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+FEAT:Improved Initiative
+FEAT:Lunge
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Rast Default	TYPE:DefaultMonster.Rast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rast]	SOURCEPAGE:p.229
+RACE:Rast	!PRERACE:1,%
+NAME:Rast
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Ravener (Red Wyrm)	TYPE:Ravener	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red/Wyrm)]	SOURCEPAGE:p.230
+RACE:Dragon (Red/Wyrm)	!PRERACE:1,%
+NAME:Red Wyrm Ravener
+ALIGN:CE
+TEMPLATE:Ravener
+LANGBONUS:Abyssal|Aklo|Common|Elven|Giant|Infernal
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Appraise			RANK:27
+SKILL:Bluff				RANK:27
+SKILL:Diplomacy			RANK:27
+SKILL:Fly				RANK:27
+SKILL:Intimidate			RANK:27
+SKILL:Knowledge (Arcana)	RANK:27
+SKILL:Knowledge (History)	RANK:27
+SKILL:Knowledge (Religion)	RANK:27
+SKILL:Perception			RANK:27
+SKILL:Sense Motive		RANK:27
+SKILL:Spellcraft			RANK:27
+SKILL:Stealth			RANK:27
+FEAT:Cleave
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Empower Spell
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Iron Will
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell
+FEAT:Stunning Critical
+FEAT:Vital Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Thoughts
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|False Life
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mirror Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|See Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Vampiric Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Confusion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Solid Fog
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dominate Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feeblemind
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chain Lightning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Seeing
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Forcecage
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spell Turning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimensional Lock
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Horrid Wilting
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Maze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Energy Drain
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Time Stop
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wish
+
+STARTPACK:Ray (Manta) Default	TYPE:DefaultMonster.MantaRay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Manta)]	SOURCEPAGE:p.232
+RACE:Ray (Manta)	!PRERACE:1,%
+NAME:Manta Ray
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+SKILL:Swim		RANK:1
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+
+STARTPACK:Ray (Stingray) Default	TYPE:DefaultMonster.Stingray	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Stingray)]	SOURCEPAGE:p.232
+RACE:Ray (Stingray)	!PRERACE:1,%
+NAME:Stingray
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Redcap Default	TYPE:DefaultMonster.Redcap	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.233
+RACE:Redcap	!PRERACE:1,%
+NAME:Redcap
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:8
+SKILL:Bluff				RANK:8
+SKILL:Climb				RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Nature)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Focus (Scythe)
+GEAR:Scythe		SIZE:M	LOCATION:Both Hands
+GEAR:Leather	SIZE:S	LOCATION:Equipped
+
+STARTPACK:Reefclaw Default	TYPE:DefaultMonster.Reefclaw	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reefclaw]	SOURCEPAGE:p.234
+RACE:Reefclaw	!PRERACE:1,%
+NAME:Reefclaw
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Revenant Default	TYPE:DefaultMonster.Revenant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Revenant]	SOURCEPAGE:p.235
+RACE:Revenant	!PRERACE:1,%
+NAME:Revenant
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Intimidate	RANK:9
+SKILL:Perception	RANK:9
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Step Up
+FEAT:Weapon Focus (Claw)

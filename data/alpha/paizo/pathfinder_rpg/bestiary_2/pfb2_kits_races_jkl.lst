@@ -1,0 +1,400 @@
+# CVS $Revision$ $Author$ -- Thu Sep  8 18:10:03 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/09/03
+
+STARTPACK:Jabberwock Default	TYPE:DefaultMonster.Jabberwock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jabberwock]	SOURCEPAGE:p.168
+RACE:Jabberwock	!PRERACE:1,%
+NAME:Jabberwock
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:26
+SKILL:Escape Artist		RANK:26
+SKILL:Fly				RANK:26
+SKILL:Intimidate			RANK:26
+SKILL:Knowledge (Nature)	RANK:26
+SKILL:Perception			RANK:26
+SKILL:Sense Motive		RANK:26
+FEAT:Awesome Blow
+FEAT:Bleeding Critical
+FEAT:Critical Focus
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Claw)
+FEAT:Improved Critical (Eye Ray)
+FEAT:Mobility
+FEAT:Power Attack
+FEAT:Spring Attack
+FEAT:Vital Strike
+
+STARTPACK:Jellyfish (Death's Head) Default	TYPE:DefaultMonster.DeathsHeadJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Death's Head)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Death's Head)	!PRERACE:1,%
+NAME:Death's Head Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish (Crimson) Default	TYPE:DefaultMonster.CrimsonJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Crimson)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Crimson)	!PRERACE:1,%
+NAME:Crimson Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish (Giant) Default	TYPE:DefaultMonster.GiantJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Giant)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Giant)	!PRERACE:1,%
+NAME:Giant Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish (Sapphire) Default	TYPE:DefaultMonster.SapphireJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Sapphire)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Sapphire)	!PRERACE:1,%
+NAME:Sapphire Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish (Vampire) Default	TYPE:DefaultMonster.VampireJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Vampire)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Vampire)	!PRERACE:1,%
+NAME:Vampire Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish (Whaler) Default	TYPE:DefaultMonster.WhalerJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Whaler)]	SOURCEPAGE:p.170
+RACE:Jellyfish (Whaler)	!PRERACE:1,%
+NAME:Whaler Jellyfish
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Jellyfish Swarm Default	TYPE:DefaultMonster.JellyfishSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish Swarm]	SOURCEPAGE:p.170
+RACE:Jellyfish Swarm	!PRERACE:1,%
+NAME:Jellyfish Swarm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Jyoti Default	TYPE:DefaultMonster.Jyoti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jyoti]	SOURCEPAGE:p.171
+RACE:Jyoti	!PRERACE:1,%
+NAME:Jyoti
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Heal				RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Planes)	RANK:11
+SKILL:Knowledge (Religion)	RANK:11
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Stealth			RANK:11
+FEAT:Combat Casting
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Wind Stance
+GEAR:Spear	LOCATION:Both Hands	EQMOD:PLUS1W
+
+STARTPACK:Kelpie Default	TYPE:DefaultMonster.Kelpie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]	SOURCEPAGE:p.172
+RACE:Kelpie	!PRERACE:1,%
+NAME:Kelpie
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Bluff			RANK:7
+SKILL:Disguise		RANK:7
+SKILL:Perception		RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Stealth		RANK:7
+FEAT:Alertness
+FEAT:Deceitful
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Korred Default	TYPE:DefaultMonster.Korred	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]	SOURCEPAGE:p.173
+RACE:Korred	!PRERACE:1,%
+NAME:Korred
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:6
+SKILL:Bluff				RANK:6
+SKILL:Craft (Rope)		RANK:6
+SKILL:Craft (Sculptures)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Perform (Dance)		RANK:6
+SKILL:Stealth			RANK:6
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Skill Focus (Perception)
+GEAR:Club			SIZE:S	LOCATION:Both Hands
+GEAR:Rock (Korred)			LOCATION:Carried
+
+STARTPACK:Krenshar Default	TYPE:DefaultMonster.Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]	SOURCEPAGE:p.174
+RACE:Krenshar	!PRERACE:1,%
+NAME:Krenshar
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Lamia Matriarch Default	TYPE:DefaultMonster.LamiaMatriarch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia Matriarch]	SOURCEPAGE:p.175
+RACE:Lamia Matriarch	!PRERACE:1,%
+NAME:Lamia Matriarch
+ALIGN:CE
+GENDER:Female
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:4
+SKILL:Bluff				RANK:9
+SKILL:Diplomacy			RANK:6
+SKILL:Disguise			RANK:6
+SKILL:Intimidate			RANK:12
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:TYPE.Knowledge		RANK:12
+SKILL:Spellcraft			RANK:9
+SKILL:Use Magic Device		RANK:9
+FEAT:Double Slice
+FEAT:Extend Spell
+FEAT:Improved Critical (Scimitar)
+FEAT:Improved Two-Weapon Fighting
+FEAT:Two-Weapon Fighting
+FEAT:Weapon Focus (Scimitar)
+GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Scimitar	LOCATION:Secondary Hand	EQMOD:PLUS1W
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Death Knell
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Favor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+
+STARTPACK:Leng Spider Default	TYPE:DefaultMonster.LengSpider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leng Spider]	SOURCEPAGE:p.176
+RACE:Leng Spider	!PRERACE:1,%
+NAME:Leng Spider
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:15
+SKILL:Climb			RANK:15
+SKILL:Craft (Traps)	RANK:15
+SKILL:TYPE.Knowledge	RANK:15
+SKILL:Perception		RANK:15
+SKILL:Spellcraft		RANK:15
+SKILL:Use Magic Device	RANK:15
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Iron Will
+FEAT:Point-Blank Shot
+FEAT:Precise Shot
+FEAT:Vital Strike
+GEAR:Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Bolas	SIZE:H	LOCATION:Carried		EQMOD:MWORKW
+
+STARTPACK:Leprechaun Default	TYPE:DefaultMonster.Leprechaun	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]	SOURCEPAGE:p.177
+RACE:Leprechaun	!PRERACE:1,%
+NAME:Leprechaun
+ALIGN:CN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:4
+SKILL:Escape Artist		RANK:4
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Perform (Comedy)		RANK:2
+SKILL:Perform (Dance)		RANK:2
+SKILL:Sense Motive		RANK:4
+SKILL:Sleight of Hand		RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+GEAR:Leprechaun Shillelagh	LOCATION:Equipped
+
+STARTPACK:Leucrotta Default	TYPE:DefaultMonster.Leucrotta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leucrotta]	SOURCEPAGE:p.178
+RACE:Leucrotta	!PRERACE:1,%
+NAME:Leucrotta
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff		RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Improved Initiative
+FEAT:Skill Focus (Bluff)
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Leucrotta (Crocotta) Default	TYPE:DefaultMonster.Crocotta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leucrotta (Crocotta)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+ALIGN:TN
+RACE:Leucrotta (Crocotta)	!PRERACE:1,%
+NAME:Crocotta
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:3
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Locathah Default	TYPE:DefaultMonster.Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]	SOURCEPAGE:p.179
+RACE:Locathah	!PRERACE:1,%
+NAME:Locathah
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:TYPE.Craft	RANK:2
+SKILL:Perception	RANK:2
+SKILL:Survival	RANK:2
+FEAT:Weapon Focus (Longspear)
+GEAR:Longspear				LOCATION:Both Hands
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+
+STARTPACK:Lurker in Light Default	TYPE:DefaultMonster.LurkerInLight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker in Light]	SOURCEPAGE:p.180
+RACE:Lurker in Light	!PRERACE:1,%
+NAME:Lurker in Light
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Fly				RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Stealth			RANK:8
+SKILL:Survival			RANK:8
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+GEAR:Dagger	SIZE:S	LOCATION:Equipped
+
+# NEEDS DATA WORK: Point-Blank Shot seems to be adding its bonus damage to
+# NEEDS DATA WORK:   all-range attacks.
+STARTPACK:Lycanthrope (Werebear/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
+ALIGN:CG
+KIT:Lycanthrope (Werebear Common)
+GEAR:Battleaxe	LOCATION:Both Hands	EQMOD:MWORKW
+
+STARTPACK:Lycanthrope (Werebear/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
+ALIGN:LG
+KIT:Lycanthrope (Werebear Common)
+GEAR:Battleaxe	LOCATION:Primary Hand	EQMOD:MWORKW
+TEMPLATE:Lycanthrope (Hybrid Form)
+
+STARTPACK:Lycanthrope (Werebear Common)	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=16|DEX=14|CON=13|INT=12|WIS=8|CHA=10
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Wisdom
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+NAME:Werebear
+CLASS:Ranger	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Ranger
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Climb				RANK:4
+SKILL:Handle Animal		RANK:4
+SKILL:Heal				RANK:4
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Survival			RANK:4
+SKILL:Swim				RANK:4
+FEAT:Power Attack
+FEAT:Run
+FEAT:Weapon Focus (Battleaxe)
+ABILITY:CATEGORY=Combat Style|Archery
+ABILITY:CATEGORY=Ranger Bonus Feat|Point-Blank Shot
+ABILITY:CATEGORY=Hunter's Bond|Hunting Companions
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Orc))
+ABILITY:CATEGORY=Favored Terrain|Favored Terrain (Forest)
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Werebear
+GEAR:Chain Shirt			LOCATION:Equipped
+GEAR:Axe (Throwing)	QTY:2	LOCATION:Carried	EQMOD:MWORKW
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Detect Poison
+
+# COMMENT:  The Bestiary seems to have made some minor errors here.
+# COMMENT:  The Bestiary has a flat-footed AC 1 point lower than PCGen;
+# COMMENT:    PCGen is taking uncanny dodge into account.
+# COMMENT:  The Bestiary gives an extra +1 bonus to the thrown dagger attack.
+# COMMENT:  The Bestiary has only a +8 Fort save instead of a +9 in beast mode.
+# COMMENT:  The Bestiary gives full STR damage on the bite in beast mode.
+# COMMENT:  The Bestiary hybrid mode seems to have used average hp on all dice,
+# COMMENT:    rather than maximum hp on the first class die.
+# NEEDS DATA WORK:  PCGen doesn't give the bite attack from the rage power 
+# NEEDS DATA WORK:    Animal Fury.
+STARTPACK:Lycanthrope (Wereboar/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:CN
+STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+NAME:Wereboar
+CLASS:Barbarian	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Barbarian
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Handle Animal		RANK:2
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Profession (Farmer)	RANK:2
+FEAT:Power Attack
+FEAT:Toughness
+ABILITY:CATEGORY=Rage Power|Animal Fury
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Wereboar
+GEAR:Studded Leather		LOCATION:Equipped
+GEAR:Dagger			QTY:2	LOCATION:Equipped
+
+STARTPACK:Lycanthrope (Wereboar/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
+KIT:Lycanthrope (Wereboar/Human Form)
+TEMPLATE:Lycanthrope (Hybrid Form)
+
+# COMMENT:  PCGen uses Uncanny Dodge for flat-footed AC; the Bestiary doesn't.
+# COMMENT:  The Bestiary forgot the +1 attack bonus from the masterwork dagger.
+# COMMENT:  The Bestiary gives the hybrid form average hit points instead of
+# COMMENT:    full hit points for the first hit die.
+STARTPACK:Lycanthrope (Weretiger/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
+KIT:Lycanthrope (Weretiger Common)
+GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:MWORKW
+
+STARTPACK:Lycanthrope (Weretiger/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
+KIT:Lycanthrope (Weretiger Common)
+GEAR:Sword (Short)	LOCATION:Carried	EQMOD:MWORKW
+TEMPLATE:Lycanthrope (Hybrid Form)
+
+STARTPACK:Lycanthrope (Weretiger Common)	VISIBLE:NO	EQUIPBUY:0
+ALIGN:NE
+STAT:STR=13|DEX=16|CON=12|INT=10|WIS=14|CHA=8
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Charisma
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+NAME:Weretiger
+CLASS:Rogue	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Acrobatics		RANK:4
+SKILL:Climb			RANK:4
+SKILL:Handle Animal	RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Perception		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Stealth		RANK:4
+SKILL:Survival		RANK:4
+SKILL:Swim			RANK:4
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=Rogue Talent|Bleeding Attack
+ABILITY:CATEGORY=Rogue Talent|Fast Stealth
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Weretiger
+GEAR:Studded Leather		LOCATION:Equipped
+GEAR:Dagger			QTY:2	LOCATION:Carried	EQMOD:MWORKW

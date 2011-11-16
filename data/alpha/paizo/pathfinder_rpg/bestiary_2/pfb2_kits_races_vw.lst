@@ -1,0 +1,324 @@
+# CVS $Revision$ $Author$ -- Mon Aug 15 01:09:39 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Vampiric Mist Default	TYPE:DefaultMonster.VampiricMist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Mist]	SOURCEPAGE:p.277
+RACE:Vampiric Mist	!PRERACE:1,%
+NAME:Vampiric Mist
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Vemerak Default	TYPE:DefaultMonster.Vemerak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vemerak]	SOURCEPAGE:p.278
+RACE:Vemerak	!PRERACE:1,%
+NAME:Vemerak
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:17
+FEAT:Awesome Blow
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Toughness
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Viper Vine Default	TYPE:DefaultMonster.ViperVine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Viper Vine]	SOURCEPAGE:p.279
+RACE:Viper Vine	!PRERACE:1,%
+NAME:Viper Vine
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:10
+SKILL:Stealth	RANK:10
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Toughness
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Tentacle)
+
+STARTPACK:Water Orm Default	TYPE:DefaultMonster.WaterOrm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Water Orm]	SOURCEPAGE:p.280
+RACE:Water Orm	!PRERACE:1,%
+NAME:Water Orm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:10
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Iron Will
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
+RACE:Wendigo	!PRERACE:1,%
+NAME:Wendigo
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics			RANK:18
+SKILL:Bluff				RANK:18
+SKILL:Fly				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (Geography)	RANK:18
+SKILL:Knowledge (Nature)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Knowledge (Religion)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Survival			RANK:18
+FEAT:Ability Focus (Howl)
+FEAT:Critical Focus
+FEAT:Flyby Attack
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Persuasive
+FEAT:Tiring Critical
+
+STARTPACK:Whale Default	TYPE:DefaultMonster.Whale	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale]	SOURCEPAGE:p.282
+RACE:Whale	!PRERACE:1,%
+NAME:Whale
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:10
+SKILL:Swim		RANK:5
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Whale (Great White) Default	TYPE:DefaultMonster.GreatWhiteWhale	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale (Great White)]	SOURCEPAGE:p.282
+RACE:Whale (Great White)	!PRERACE:1,%
+NAME:Great White Whale
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:10
+SKILL:Swim		RANK:8
+FEAT:Critical Focus
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Staggering Critical
+
+STARTPACK:Winterwight Default	TYPE:DefaultMonster.Winterwight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]	SOURCEPAGE:p.283
+RACE:Winterwight	!PRERACE:1,%
+NAME:Winterwight
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:20
+SKILL:Intimidate	RANK:20
+SKILL:Perception	RANK:20
+SKILL:Stealth	RANK:20
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Witchfire Default	TYPE:DefaultMonster.Witchfire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]	SOURCEPAGE:p.286
+RACE:Witchfire	!PRERACE:1,%
+NAME:Witchfire
+ALIGN:CE
+GENDER:Female
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff			RANK:10
+SKILL:Fly			RANK:5
+SKILL:Intimidate		RANK:10
+SKILL:TYPE=Knowledge	RANK:10	COUNT:2
+SKILL:Perception		RANK:10
+SKILL:Sense Motive	RANK:5
+SKILL:Stealth		RANK:10
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+
+# COMMENT: My version has 10 fewer hit points than the Bestiary 2 version.
+# COMMENT: My version has an Intimidate bonus that is 3 smaller;
+# COMMENT:   did the Bestiary 2 thought Intimidate was a class skill?
+# COMMENT: The Bestiary lists CMD of 24 instead of 26.  No insight bonus?
+# NEEDS CODE WORK: The SUBCLASS tag doesn't seem to work.  
+# NEEDS CODE WORK:   And, it asks for the subclass twice.
+STARTPACK:Witchwyrd Default	TYPE:DefaultMonster.Witchwyrd	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchwyrd]	SOURCEPAGE:p.285
+RACE:Witchwyrd	!PRERACE:1,%
+NAME:Witchwyrd
+ALIGN:LN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Appraise			RANK:8
+SKILL:Bluff				RANK:8
+SKILL:Diplomacy			RANK:4
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Geography)	RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Use Magic Device		RANK:4
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Persuasive
+GEAR:Ranseur	LOCATION:Equipped
+
+STARTPACK:Worm that Walks Human Conjurer 13	TYPE:DefaultMonster.WormThatWalks	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.286
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
+NAME:Worm that Walks
+STAT:STR=8|DEX=14|CON=13|INT=18|WIS=12|CHA=10
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+TEMPLATE:Worm that Walks
+LANGBONUS:Abyssal|Aklo|Infernal
+CLASS:Wizard	LEVEL:13	SUBCLASS:Conjurer
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Wizard Bonus Feat|Craft Wondrous Item
+ABILITY:CATEGORY=Wizard Bonus Feat|Craft Magic Arms and Armor
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+ABILITY:CATEGORY=Arcane Opposition School|Evocation Opposition School
+ABILITY:CATEGORY=Arcane Opposition School|Necromancy Opposition School
+SKILL:Craft (Alchemy)			RANK:13
+SKILL:Fly					RANK:13
+SKILL:Intimidate				RANK:13
+SKILL:Knowledge (Arcana)		RANK:13
+SKILL:Knowledge (Dungeoneering)	RANK:13
+SKILL:Knowledge (Planes)		RANK:13
+SKILL:Perception				RANK:13
+SKILL:Spellcraft				RANK:13
+FEAT:Arcane Armor Training
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Armor Proficiency (Light)
+FEAT:Toughness
+FEAT:Weapon Finesse
+GEAR:Leather			LOCATION:Equipped	EQMOD:PLUS4A
+GEAR:Cloak of Resistance +4	LOCATION:Equipped
+GEAR:Staff of Charming		LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Charm Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Protection from Good
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Arrow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Thoughts
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fog Cloud
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Glitterdust
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Summon Swarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fly
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Protection from Energy
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Slow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Stinking Cloud
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Summon Monster III
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Black Tentacles
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Confusion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Summon Monster IV
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Dimension Door
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Cloudkill
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Dismissal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shadow Evocation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Telekinesis
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Fog
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Disintegrate
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Summon Monster VI
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Project Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Plane Shift
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mage Hand
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Charm Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Feather Fall
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Grease
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Protection from Good
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Reduce Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Arrow
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Thoughts
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Fog Cloud
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Glitterdust
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Invisibility
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Summon Swarm
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dispel Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Fly
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Protection from Energy
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Slow
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Stinking Cloud
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Summon Monster III
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Black Tentacles
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Confusion
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Phantasmal Killer
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dimension Door
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dimension Door
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Summon Monster IV
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Cloudkill
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shadow Evocation
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Telekinesis
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Teleport
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Fog
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Disintegrate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Summon Monster VI
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Project Image
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Plane Shift
+
+#
+# End
+#

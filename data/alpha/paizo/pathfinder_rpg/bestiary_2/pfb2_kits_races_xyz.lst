@@ -1,0 +1,84 @@
+# CVS $Revision$ $Author$ -- Mon Aug 15 01:09:39 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/08/02
+
+STARTPACK:Xacarba Default	TYPE:DefaultMonster.Xacarba	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xacarba]	SOURCEPAGE:p.288
+RACE:Xacarba	!PRERACE:1,%
+NAME:Xacarba
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics			RANK:20
+SKILL:Bluff				RANK:20
+SKILL:Diplomacy			RANK:20
+SKILL:Disguise			RANK:20
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Arcana)	RANK:20
+SKILL:TYPE=Knowledge		RANK:20	COUNT:2
+SKILL:Linguistics			RANK:20
+SKILL:Perception			RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Use Magic Device		RANK:20
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Improved Iron Will
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Spring Attack
+FEAT:Vital Strike
+
+STARTPACK:Xtabay Default	TYPE:DefaultMonster.Xtabay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xtabay]	SOURCEPAGE:p.289
+RACE:Xtabay	!PRERACE:1,%
+NAME:Xtabay
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=*|WIS=10|CHA=11
+
+STARTPACK:Yrthak Default	TYPE:DefaultMonster.Yrthak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]	SOURCEPAGE:p.290
+RACE:Yrthak	!PRERACE:1,%
+NAME:Yrthak
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Fly		RANK:6
+SKILL:Perception	RANK:6
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+
+# COMMENT: PCGen has a +10 Disable Device instead of a +8, and has
+# COMMENT:   not used the favored class bonuses or chosen a feat from the 
+# COMMENT:   Combat Trick rogue talent.
+STARTPACK:Zombie (Juju) Human Rogue 2	TYPE:DefaultMonster.JujuZombie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.291
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Juju Zombie
+STAT:STR=14|DEX=15|CON=10|INT=8|WIS=13|CHA=10
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+TEMPLATE:Zombie (Juju)
+CLASS:Rogue	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Rogue
+#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Rogue Talent|Combat Trick
+SKILL:Acrobatics		RANK:1
+SKILL:Climb			RANK:1
+SKILL:Disable Device	RANK:2
+SKILL:Intimidate		RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sleight of Hand	RANK:2
+SKILL:Stealth		RANK:1
+SKILL:Survival		RANK:2
+SKILL:Swim			RANK:1
+SKILL:Use Magic Device	RANK:2
+FEAT:Dodge
+FEAT:Weapon Finesse
+GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:MWORKW

@@ -1,0 +1,644 @@
+# CVS $Revision$ $Author$ -- Wed Sep 21 17:25:55 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Gar Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar]
+RACE:Gar	!PRERACE:1,%
+NAME:Gar
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Gar (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar (Giant)]
+RACE:Gar (Giant)	!PRERACE:1,%
+NAME:Giant Gar
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:7
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+STARTPACK:Giant (Marsh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Marsh)]
+RACE:Giant (Marsh)	!PRERACE:1,%
+NAME:Marsh Giant
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Combat Reflexes
+FEAT:Improved Iron Will
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+GEAR:Gaff			SIZE:L	LOCATION:Both Hands
+GEAR:Rock (Medium)			LOCATION:Carried
+
+STARTPACK:Giant (Brineborn Marsh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Brineborn Marsh)]
+RACE:Giant (Brineborn Marsh)	!PRERACE:1,%
+NAME:Brineborn Marsh Giant
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Combat Reflexes
+FEAT:Improved Iron Will
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+GEAR:Gaff			SIZE:L	LOCATION:Both Hands
+GEAR:Rock (Medium)			LOCATION:Carried
+
+STARTPACK:Giant (Rune) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Rune)]
+RACE:Giant (Rune)	!PRERACE:1,%
+NAME:Rune Giant
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:20
+SKILL:TYPE.Craft			RANK:20
+SKILL:Knowledge (History)	RANK:10
+SKILL:Knowledge (Nobility)	RANK:10
+SKILL:Perception			RANK:20
+FEAT:Awesome Blow
+FEAT:Critical Focus
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Longsword)
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Quick Draw
+FEAT:Staggering Critical
+FEAT:Vital Strike
+GEAR:Full Plate		SIZE:G	LOCATION:Armor		EQMOD:MWORKA
+GEAR:Longsword		SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Spear		QTY:3	SIZE:G	LOCATION:Carried		EQMOD:MWORKW
+
+STARTPACK:Giant (Taiga) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]
+RACE:Giant (Taiga)	!PRERACE:1,%
+NAME:Taiga Giant
+ALIGN:CN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:5
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:Perception			RANK:5
+SKILL:Stealth			RANK:12
+SKILL:Survival			RANK:10
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Endurance
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Self-Sufficient
+FEAT:Vital Strike
+GEAR:Hide			SIZE:H	LOCATION:Armor
+GEAR:Spear			SIZE:H	LOCATION:Both Hands
+GEAR:Rock (Medium)			LOCATION:Carried
+
+STARTPACK:Giant (Wood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Wood)]
+RACE:Giant (Wood)	!PRERACE:1,%
+NAME:Wood Giant
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:3
+SKILL:Climb				RANK:6
+SKILL:Knowledge (Nature)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Profession (Farmer)	RANK:3
+SKILL:Stealth			RANK:6
+SKILL:Survival			RANK:3
+FEAT:Deadly Aim
+FEAT:Iron Will
+FEAT:Point-Blank Shot
+FEAT:Precise Shot
+FEAT:Rapid Shot
+GEAR:Leather					SIZE:L	LOCATION:Armor
+GEAR:Longsword					SIZE:L	LOCATION:Primary Hand
+GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:MWORKW	EQMOD:BOWSTR|+5
+GEAR:Arrow				QTY:20			LOCATION:Carried
+
+STARTPACK:Gloomwing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
+RACE:Gloomwing	!PRERACE:1,%
+NAME:Gloomwing
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:5
+FEAT:Ability Focus (Confusion)
+FEAT:Flyby Attack
+FEAT:Hover
+
+STARTPACK:Golem (Adamantine) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
+RACE:Golem (Adamantine)	!PRERACE:1,%
+NAME:Adamantine Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Alchemical) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Alchemical)]
+RACE:Golem (Alchemical)	!PRERACE:1,%
+NAME:Alchemical Golem
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Carrion) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Carrion)]
+RACE:Golem (Carrion)	!PRERACE:1,%
+NAME:Carrion Golem
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Clockwork) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Clockwork)]
+RACE:Golem (Clockwork)	!PRERACE:1,%
+NAME:Clockwork Golem
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Glass) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Glass)]
+RACE:Golem (Glass)	!PRERACE:1,%
+NAME:Glass Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Stained Glass) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stained Glass)]
+RACE:Golem (Stained Glass)	!PRERACE:1,%
+NAME:Stained Glass Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Golem (Mithral) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Mithral)]
+RACE:Golem (Mithral)	!PRERACE:1,%
+NAME:Mithral Golem
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Gray Render Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
+RACE:Gray Render	!PRERACE:1,%
+NAME:Gray Render
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:4
+SKILL:Survival	RANK:4
+FEAT:Awesome Blow
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Gremlin (Jinkin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Jinkin)]
+RACE:Gremlin (Jinkin)	!PRERACE:1,%
+NAME:Jinkin
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Bluff
+SKILL:Craft (Traps)
+SKILL:Disable Device
+SKILL:Escape Artist
+SKILL:Perception
+SKILL:Sleight of Hand
+SKILL:Stealth
+SKILL:Use Magic Device
+FEAT:Dodge
+GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Gremlin (Nuglub) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Nuglub)]
+RACE:Gremlin (Nuglub)	!PRERACE:1,%
+NAME:Nuglub
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Craft (Traps)	RANK:3
+SKILL:Intimidate		RANK:3
+SKILL:Perception		RANK:3
+SKILL:Stealth		RANK:3
+FEAT:Step Up
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Gremlin (Pugwampi) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Pugwampi)]
+RACE:Gremlin (Pugwampi)	!PRERACE:1,%
+NAME:Pugwampi
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Bluff
+SKILL:Craft (Traps)
+SKILL:Disable Device
+SKILL:Perception
+SKILL:Ride
+SKILL:Stealth
+FEAT:Improved Initiative
+GEAR:Dagger				SIZE:T	LOCATION:Equipped
+GEAR:Shortbow			SIZE:T	LOCATION:Carried
+GEAR:Arrow		QTY:20	SIZE:T	LOCATION:Carried
+
+STARTPACK:Gremlin (Vexgit) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Vexgit)]
+RACE:Gremlin (Vexgit)	!PRERACE:1,%
+NAME:Vexgit
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise
+SKILL:Climb
+SKILL:Craft (Traps)
+SKILL:Disable Device
+SKILL:Knowledge (Engineering)
+SKILL:Perception
+SKILL:Stealth
+FEAT:Skill Focus (Disable Device)
+GEAR:Warhammer	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Grick Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick]
+RACE:Grick	!PRERACE:1,%
+NAME:Grick
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:1
+FEAT:Combat Reflexes
+FEAT:Skill Focus (Perception)
+FEAT:Stand Still
+
+STARTPACK:Grick (Jungle) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick (Jungle)]
+RACE:Grick (Jungle)	!PRERACE:1,%
+NAME:Jungle Grick
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:1
+FEAT:Combat Reflexes
+FEAT:Skill Focus (Perception)
+FEAT:Stand Still
+
+STARTPACK:Grig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grig]
+RACE:Grig	!PRERACE:1,%
+NAME:Grig
+ALIGN:NG
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics
+SKILL:Escape Artist
+SKILL:Fly
+SKILL:Perception
+SKILL:Perform (String Instruments)
+SKILL:Stealth
+FEAT:Dodge
+GEAR:Sword (Short)			SIZE:T	LOCATION:Equipped
+GEAR:Longbow				SIZE:T	LOCATION:Carried
+GEAR:Arrow			QTY:20	SIZE:T	LOCATION:Carried
+
+STARTPACK:Grindylow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grindylow]
+RACE:Grindylow	!PRERACE:1,%
+NAME:Grindylow
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Perception
+SKILL:Stealth
+SKILL:Swim
+FEAT:Weapon Finesse
+GEAR:Spear	SIZE:S	LOCATION:Equipped
+
+# COMMENT: Grippli's favored class bonus not used
+STARTPACK:Grippli Ranger 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
+RACE:Grippli	!PRERACE:1,%
+NAME:Grippli Ranger 1
+ALIGN:TN
+STAT:STR=14|DEX=15|CON=13|INT=12|WIS=10|CHA=8
+CLASS:Ranger	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Ranger
+#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Vermin)
+SKILL:Acrobatics
+SKILL:Climb
+SKILL:Handle Animal
+SKILL:Heal
+SKILL:Perception
+SKILL:Stealth
+SKILL:Survival
+FEAT:Self-Sufficient
+GEAR:Leather			SIZE:S	LOCATION:Equipped
+GEAR:Sword (Short)		SIZE:S	LOCATION:Equipped
+GEAR:Dart			QTY:4	SIZE:S	LOCATION:Carried
+GEAR:Net				SIZE:S	LOCATION:Carried
+
+STARTPACK:Gryph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
+RACE:Gryph	!PRERACE:1,%
+NAME:Gryph
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Gug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug]
+RACE:Gug	!PRERACE:1,%
+NAME:Gug
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Escape Artist			RANK:5
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Perception				RANK:15
+SKILL:Stealth				RANK:15
+SKILL:Survival				RANK:15
+FEAT:Awesome Blow
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Greater Bull Rush
+FEAT:Improved Bull Rush
+FEAT:Lunge
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Gug Savant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug Savant]
+RACE:Gug Savant	!PRERACE:1,%
+NAME:Gug Savant
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Escape Artist			RANK:5
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Perception				RANK:15
+SKILL:Stealth				RANK:15
+SKILL:Survival				RANK:15
+FEAT:Awesome Blow
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Greater Bull Rush
+FEAT:Improved Bull Rush
+FEAT:Lunge
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Hangman Tree Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hangman Tree]
+RACE:Hangman Tree	!PRERACE:1,%
+NAME:Hangman Tree
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Hellcat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellcat]
+RACE:Hellcat	!PRERACE:1,%
+NAME:Hellcat
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:9
+SKILL:Climb		RANK:9
+SKILL:Perception	RANK:9
+SKILL:Stealth	RANK:9
+SKILL:Survival	RANK:9
+SKILL:Swim		RANK:9
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+
+STARTPACK:Herd Animal (Camel) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Camel)]
+RACE:Herd Animal (Camel)	!PRERACE:1,%
+NAME:Camel
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+STARTPACK:Herd Animal (Ram) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Ram)]
+RACE:Herd Animal (Ram)	!PRERACE:1,%
+NAME:Ram
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:1
+FEAT:Skill Focus (Acrobatics)
+
+STARTPACK:Hippocampus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus]
+RACE:Hippocampus	!PRERACE:1,%
+NAME:Hippocampus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+STARTPACK:Hippocampus (Polar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Polar)]
+RACE:Hippocampus (Polar)	!PRERACE:1,%
+NAME:Polar Hippocampus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+STARTPACK:Hippocampus (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Giant)]
+RACE:Hippocampus (Giant)	!PRERACE:1,%
+NAME:Giant Hippocampus
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+STARTPACK:Hippogriff Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
+RACE:Hippogriff	!PRERACE:1,%
+NAME:Hippogriff
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+SKILL:Fly		RANK:2
+FEAT:Dodge
+FEAT:Wingover
+
+STARTPACK:Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]
+RACE:Hippopotamus	!PRERACE:1,%
+NAME:Hippopotamus
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+SKILL:Swim		RANK:1
+FEAT:Endurance
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Hippopotamus (Behemoth) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus (Behemoth)]
+RACE:Hippopotamus (Behemoth)	!PRERACE:1,%
+NAME:Behemoth Hippopotamus
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:8
+SKILL:Swim		RANK:1
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Hound of Tindalos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]
+RACE:Hound of Tindalos	!PRERACE:1,%
+NAME:Hound of Tindalos
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Knowledge (Geography)	RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Stealth			RANK:10
+SKILL:Survival			RANK:10
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Vital Strike
+FEAT:Weapon Finesse
+
+STARTPACK:Howler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Howler]
+RACE:Howler	!PRERACE:1,%
+NAME:Howler
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:5
+SKILL:Climb		RANK:5
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:5
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Skill Focus (Perception)
+
+# COMMENT: The Bestiary's ifrit sorcerer doesn't list the 18-20 crit 
+# COMMENT:   threat range for his scimitar.
+# COMMENT: The Bestiary's ifrit sorcerer lists elemental ray only 6/day; 
+# COMMENT:   the virtual +2 Cha should raise this to 7/day, I think.
+# NEEDS DATA WORK: The Bestiary lists the spell concentration bonus as +5;
+# NEEDS DATA WORK:   PCGen gives +4. I think the elemental affinity ability 
+# NEEDS DATA WORK:   needs to be tweaked to fix this.
+# COMMENT: The Bestiary's flare DC is 15; I'm getting 14.
+STARTPACK:Ifrit Sorcerer 1	TYPE:Ifrit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ifrit]	SOURCEPAGE:p.160
+RACE:Ifrit	!PRERACE:1,%
+NAME:Ifrit Sorcerer 1
+ALIGN:TN
+GENDER:Male
+STAT:STR=10|DEX=14|CON=12|INT=13|WIS=8|CHA=15
+LANGBONUS:Gnome
+CLASS:Sorcerer	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Sorcerer
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Sorcerer Bloodline|Elemental Bloodline (Fire)
+SKILL:Bluff				RANK:1
+SKILL:Knowledge (Arcana)	RANK:1
+SKILL:Spellcraft			RANK:1
+FEAT:Martial Weapon Proficiency (Scimitar)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+GEAR:Scimitar	LOCATION:Equipped
+
+STARTPACK:Inevitable (Arbiter) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Arbiter)]
+RACE:Inevitable (Arbiter)	!PRERACE:1,%
+NAME:Arbiter
+ALIGN:LN
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:2
+SKILL:Fly				RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Flyby Attack
+GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Inevitable (Kolyarut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
+RACE:Inevitable (Kolyarut)	!PRERACE:1,%
+NAME:Kolyarut
+ALIGN:LN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:12
+SKILL:Disguise			RANK:12
+SKILL:Knowledge (Planes)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Survival			RANK:12
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Quicken Spell-Like Ability ~ Spell (Suggestion)
+GEAR:Sword (Bastard)	SIZE:M	LOCATION:Primary Hand	EQMOD:PLUS2W
+
+STARTPACK:Inevitable (Lhaksharut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Lhaksharut)]
+RACE:Inevitable (Lhaksharut)	!PRERACE:1,%
+NAME:Lhaksharut
+ALIGN:LN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Fly				RANK:22
+SKILL:Intimidate			RANK:22
+SKILL:Knowledge (Arcana)	RANK:22
+SKILL:Knowledge (Geography)	RANK:22
+SKILL:Knowledge (Planes)	RANK:22
+SKILL:Perception			RANK:22
+SKILL:Sense Motive		RANK:22
+SKILL:Spellcraft			RANK:22
+FEAT:Blind-Fight
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Greater Bull Rush
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Power Attack
+FEAT:Vital Strike
+GEAR:Spear		SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
+GEAR:Longsword	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
+GEAR:Morningstar	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
+
+STARTPACK:Inevitable (Marut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
+RACE:Inevitable (Marut)	!PRERACE:1,%
+NAME:Marut
+ALIGN:LN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Knowledge (Religion)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Sense Motive		RANK:16
+SKILL:Survival			RANK:16
+FEAT:Ability Focus (Fists of Lightning and Thunder)
+FEAT:Awesome Blow
+FEAT:Combat Casting
+FEAT:Dodge
+FEAT:Improved Bull Rush
+FEAT:Improved Vital Strike
+FEAT:Power Attack
+FEAT:Vital Strike
+
+STARTPACK:Inevitable (Zelekhut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Zelekhut)]
+RACE:Inevitable (Zelekhut)	!PRERACE:1,%
+NAME:Zelekhut
+ALIGN:LN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics		RANK:10
+SKILL:Diplomacy		RANK:10
+SKILL:Fly			RANK:10
+SKILL:Perception		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Survival		RANK:10
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Weapon Focus (Chain)
+FEAT:Vital Strike
+
+#
+# End
+#

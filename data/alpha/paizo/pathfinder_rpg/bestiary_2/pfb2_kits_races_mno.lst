@@ -1,0 +1,451 @@
+# CVS $Revision$ $Author$ -- Sat Sep  3 17:29:33 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Magma Ooze Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze]	SOURCEPAGE:p.184
+RACE:Magma Ooze	!PRERACE:1,%
+NAME:Magma Ooze
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Magma Ooze (Brimstone) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Brimstone)]	SOURCEPAGE:p.184
+RACE:Magma Ooze (Brimstone)	!PRERACE:1,%
+NAME:Brimstone Magma Ooze
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Magma Ooze (Crystalline) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Crystalline)]	SOURCEPAGE:p.184
+RACE:Magma Ooze (Crystalline)	!PRERACE:1,%
+NAME:Crystalline Magma Ooze
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Magma Ooze (Poisonous) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Poisonous)]	SOURCEPAGE:p.184
+RACE:Magma Ooze (Poisonous)	!PRERACE:1,%
+NAME:Poisonous Magma Ooze
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Mandragora Default	TYPE:DefaultMonster.Mandragora	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mandragora]	SOURCEPAGE:p.185
+RACE:Mandragora	!PRERACE:1,%
+NAME:Mandragora
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:3
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+
+STARTPACK:Megafauna (Arsinoitherium) Default	TYPE:DefaultMonster.Arsinoitherium	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Arsinoitherium)]	SOURCEPAGE:p.186
+RACE:Megafauna (Arsinoitherium)	!PRERACE:1,%
+NAME:Arsinoitherium
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:9
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Improved Overrun
+FEAT:Power Attack
+
+STARTPACK:Megafauna (Gylptodon) Default	TYPE:DefaultMonster.Gylptodon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Gylptodon)]	SOURCEPAGE:p.186
+RACE:Megafauna (Gylptodon)	!PRERACE:1,%
+NAME:Gylptodon
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:9
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Megafauna (Megaloceros) Default	TYPE:DefaultMonster.Megaloceros	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megaloceros)]	SOURCEPAGE:p.187
+RACE:Megafauna (Megaloceros)	!PRERACE:1,%
+NAME:Megaloceros
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:4
+FEAT:Endurance
+FEAT:Lightning Reflexes
+
+STARTPACK:Megafauna (Megatherium) Default	TYPE:DefaultMonster.Megatherium	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megatherium)]	SOURCEPAGE:p.187
+RACE:Megafauna (Megatherium)	!PRERACE:1,%
+NAME:Megatherium
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:7
+FEAT:Awesome Blow
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Mercane Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mercane]
+RACE:Mercane	!PRERACE:1,%
+NAME:Mercane
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise			RANK:6
+SKILL:Bluff				RANK:6
+SKILL:Diplomacy			RANK:6
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Profession (Merchant)	RANK:6
+SKILL:Sense Motive		RANK:6
+SKILL:Sleight of hand		RANK:6
+SKILL:Spellcraft			RANK:6
+FEAT:Combat Casting
+FEAT:Combat Expertise
+FEAT:Dodge
+GEAR:Falchion	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+
+STARTPACK:Merrow (Freshwater) Default	TYPE:DefaultMonster.FreshwaterMerrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Freshwater)]	SOURCEPAGE:p.189
+RACE:Merrow (Freshwater)	!PRERACE:1,%
+NAME:Freshwater Merrow
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Javelin	QTY:2	SIZE:L	LOCATION:Equipped
+
+STARTPACK:Merrow (Saltwater) Default	TYPE:DefaultMonster.SaltwaterMerrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Saltwater)]	SOURCEPAGE:p.189
+RACE:Merrow (Saltwater)	!PRERACE:1,%
+NAME:Saltwater Merrow
+ALIGN:NE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:3
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+FEAT:Weapon Focus (Claw)
+GEAR:Javelin	QTY:2	SIZE:H	LOCATION:Equipped
+
+STARTPACK:Mihstu Default	TYPE:DefaultMonster.Mihstu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mihstu]	SOURCEPAGE:p.190
+RACE:Mihstu	!PRERACE:1,%
+NAME:Mihstu
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:8
+SKILL:Bluff				RANK:8
+SKILL:Escape Artist		RANK:8
+SKILL:Fly				RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Stealth			RANK:8
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Weapon Finesse
+
+STARTPACK:Mongrelman Default	TYPE:DefaultMonster.Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongrelman]	SOURCEPAGE:p.191
+RACE:Mongrelman	!PRERACE:1,%
+NAME:Mongrelman
+ALIGN:LN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb			RANK:1
+SKILL:Perception		RANK:2
+SKILL:Sleight of Hand	RANK:2
+SKILL:Stealth		RANK:2
+SKILL:Survival		RANK:1
+FEAT:Skill Focus (Stealth)
+GEAR:Club	LOCATION:Both Hands
+
+STARTPACK:Moonflower Default	TYPE:DefaultMonster.Moonflower	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonflower]	SOURCEPAGE:p.192
+RACE:Moonflower	!PRERACE:1,%
+NAME:Moonflower
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:6
+FEAT:Blind-Fight
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Mosquito (Giant) Default	TYPE:DefaultMonster.GiantMosquito	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito (Giant)]	SOURCEPAGE:p.193
+RACE:Mosquito (Giant)	!PRERACE:1,%
+NAME:Giant Mosquito
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Mosquito Swarm Default	TYPE:DefaultMonster.MosquitoSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito Swarm]	SOURCEPAGE:p.193
+RACE:Mosquito Swarm	!PRERACE:1,%
+NAME:Mosquito Swarm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Mothman Default	TYPE:DefaultMonster.Mothman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothman]	SOURCEPAGE:p.194
+RACE:Mothman	!PRERACE:1,%
+NAME:Mothman
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Fly			RANK:9
+SKILL:TYPE.Knowledge	RANK:9	COUNT:2
+SKILL:Perception		RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spellcraft		RANK:9
+SKILL:Stealth		RANK:9
+FEAT:Agile Maneuvers
+FEAT:Blind-Fight
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Mu Spore Default	TYPE:DefaultMonster.MuSpore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]	SOURCEPAGE:p.195
+RACE:Mu Spore	!PRERACE:1,%
+NAME:Mu Spore
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Fly					RANK:31
+SKILL:Knowledge (Dungeoneering)	RANK:31
+SKILL:Knowledge (Geography)		RANK:31
+SKILL:Knowledge (Nature)		RANK:31
+SKILL:Perception				RANK:31
+SKILL:Sense Motive			RANK:31
+FEAT:Awesome Blow
+FEAT:Critical Focus
+FEAT:Greater Bull Rush
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Tentacle)
+FEAT:Improved Initiative
+FEAT:Improved Lightning Reflexes
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Staggering Critical
+FEAT:Vital Strike
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Tentacle)
+
+STARTPACK:Necrophidius Default	TYPE:DefaultMonster.Necrophidius	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Necrophidius]	SOURCEPAGE:p.196
+RACE:Necrophidius	!PRERACE:1,%
+NAME:Necrophidius
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Neh-Thalggu Default	TYPE:DefaultMonster.Neh-Thalggu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh-Thalggu]	SOURCEPAGE:p.197
+RACE:Neh-Thalggu	!PRERACE:1,%
+NAME:Neh-Thalggu
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Fly					RANK:3
+SKILL:Knowledge (Arcana)		RANK:9
+SKILL:Knowledge (Dungeoneering)	RANK:9
+SKILL:Knowledge (Planes)		RANK:9
+SKILL:Perception				RANK:10
+SKILL:Sense Motive			RANK:10
+SKILL:Spellcraft				RANK:10
+SKILL:Stealth				RANK:10
+SKILL:Use Magic Device			RANK:10
+FEAT:Arcane Strike
+FEAT:Extend Spell
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Power Attack
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unseen Servant
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+STARTPACK:Nereid Default	TYPE:DefaultMonster.Nereid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nereid]	SOURCEPAGE:p.198
+RACE:Nereid	!PRERACE:1,%
+NAME:Nereid
+GENDER:Female
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff				RANK:12
+SKILL:Escape Artist		RANK:12
+SKILL:Knowledge (Nature)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Perform (Sing)		RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Stealth			RANK:12
+SKILL:Swim				RANK:12
+FEAT:Ability Focus (Poison)
+FEAT:Agile Maneuvers
+FEAT:Defensive Combat Training
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Weapon Finesse
+
+STARTPACK:Nightshade (Nightcrawler) Default	TYPE:DefaultMonster.Nightcrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightcrawler)]	SOURCEPAGE:p.200
+RACE:Nightshade (Nightcrawler)	!PRERACE:1,%
+NAME:Nightcrawler
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate			RANK:25
+SKILL:Knowledge (Arcana)	RANK:25
+SKILL:Knowledge (Planes)	RANK:25
+SKILL:Knowledge (Religion)	RANK:25
+SKILL:Perception			RANK:25
+SKILL:Sense Motive		RANK:25
+SKILL:Spellcraft			RANK:25
+SKILL:Stealth			RANK:25
+SKILL:Swim				RANK:25
+FEAT:Combat Expertise
+FEAT:Command Undead
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Sting)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Cone of Cold)
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Nightshade (Nightwalker) Default	TYPE:DefaultMonster.Nightwalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwalker)]	SOURCEPAGE:p.201
+RACE:Nightshade (Nightwalker)	!PRERACE:1,%
+NAME:Nightwalker
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate			RANK:21
+SKILL:Knowledge (Arcana)	RANK:21
+SKILL:Knowledge (Planes)	RANK:21
+SKILL:Knowledge (Religion)	RANK:21
+SKILL:Perception			RANK:21
+SKILL:Sense Motive		RANK:21
+SKILL:Spellcraft			RANK:21
+SKILL:Stealth			RANK:21
+SKILL:Swim				RANK:21
+FEAT:Combat Expertise
+FEAT:Command Undead
+FEAT:Greater Sunder
+FEAT:Greater Vital Strike
+FEAT:Improved Critical (Claw)
+FEAT:Improved Disarm
+FEAT:Improved Sunder
+FEAT:Improved Vital Strike
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Unholy Blight)
+FEAT:Vital Strike
+
+STARTPACK:Nightshade (Nightwave) Default	TYPE:DefaultMonster.Nightwave	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwave)]	SOURCEPAGE:p.202
+RACE:Nightshade (Nightwave)	!PRERACE:1,%
+NAME:Nightwave
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Fly				RANK:29
+SKILL:Intimidate			RANK:29
+SKILL:Knowledge (Arcana)	RANK:29
+SKILL:Knowledge (Planes)	RANK:29
+SKILL:Knowledge (Religion)	RANK:29
+SKILL:Perception			RANK:29
+SKILL:Sense Motive		RANK:29
+SKILL:Spellcraft			RANK:29
+SKILL:Stealth			RANK:29
+SKILL:Swim				RANK:29
+FEAT:Combat Expertise
+FEAT:Command Undead
+FEAT:Critical Focus
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Tail Slap)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Cone of Cold)
+FEAT:Staggering Critical
+FEAT:Vital Strike
+
+STARTPACK:Nightshade (Nightwing) Default	TYPE:DefaultMonster.Nightwing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwing)]	SOURCEPAGE:p.203
+RACE:Nightshade (Nightwing)	!PRERACE:1,%
+NAME:Nightwing
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Fly				RANK:17
+SKILL:Knowledge (Arcana)	RANK:17
+SKILL:Knowledge (Religion)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Spellcraft			RANK:17
+SKILL:Stealth			RANK:17
+SKILL:Swim				RANK:17
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Command Undead
+FEAT:Great Cleave
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Power Attack
+FEAT:Snatch
+
+# COMMENT: Human ability bonus not used
+# COMMENT: The bestiary's Climb and Swim bonuses haven't added the 
+# COMMENT:   class skill bonus.
+STARTPACK:Ogrekin Human Fighter 2	TYPE:DefaultMonster.Ogrekin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.203
+ALIGN:CE
+RACE:Human	!PRERACE:1,%
+#ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Ogrekin (Half-Ogre)
+STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
+ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+TEMPLATE:Ogrekin
+CLASS:Fighter	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Ogrekin Beneficial Deformity|Oversized Maw ~ Ogrekin
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Weak Mind ~ Ogrekin
+SKILL:Climb	RANK:2
+SKILL:Swim	RANK:2
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+GEAR:Shortspear	LOCATION:Primary Hand
+
+# COMMENT: The Bestiary seems to have forgotten the Iron Will feat.
+# COMMENT: The favored class bonus seems to have not been used.
+STARTPACK:Oread Fighter 1	TYPE:Oread	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Oread]	SOURCEPAGE:p.205
+RACE:Oread	!PRERACE:1,%
+NAME:Oread Fighter 1
+ALIGN:TN
+GENDER:Female
+STAT:STR=13|DEX=15|CON=14|INT=8|WIS=12|CHA=10
+CLASS:Fighter	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Fighter
+#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longbow)
+SKILL:Intimidate	RANK:1
+FEAT:Iron Will
+GEAR:Leather					LOCATION:Equipped
+GEAR:Longsword					LOCATION:Both Hands
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+2
+GEAR:Arrow				QTY:20	LOCATION:Carried
+
+#
+# End
+#

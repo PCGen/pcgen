@@ -1,0 +1,647 @@
+# CVS $Revision$ $Author$ -- Thu Dec 30 15:56:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Dragon (Brine/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+ALIGN:LN
+RACE:Dragon (Brine/Young)	!PRERACE:1,%
+NAME:Young Brine Dragon
+SKILL:Diplomacy			RANK:8
+SKILL:Fly				RANK:8
+SKILL:Heal				RANK:8
+SKILL:Knowledge (Nature)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Survival			RANK:8
+SKILL:Swim				RANK:8
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus (Swim)
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+LANGBONUS:Aquan|Common
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of the Sea
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+
+
+STARTPACK:Dragon (Brine/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+ALIGN:LN
+RACE:Dragon (Brine/Adult)	!PRERACE:1,%
+NAME:Adult Brine Dragon
+SKILL:Bluff				RANK:14
+SKILL:Diplomacy			RANK:14
+SKILL:Fly				RANK:14
+SKILL:Heal				RANK:14
+SKILL:Knowledge (Arcana)	RANK:14
+SKILL:Knowledge (Nature)	RANK:14
+SKILL:Perception			RANK:14
+SKILL:Sense Motive		RANK:14
+SKILL:Survival			RANK:14
+SKILL:Swim				RANK:14
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Swim)
+FEAT:Vital Strike
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+LANGBONUS:Aquan|Common|Elven|Halfling
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Aqueous Orb
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleet Storm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slipstream
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of the Sea
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+
+
+STARTPACK:Dragon (Brine/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.95
+ALIGN:LN
+RACE:Dragon (Brine/Ancient)	!PRERACE:1,%
+NAME:Ancient Brine Dragon
+SKILL:Bluff				RANK:22
+SKILL:Diplomacy			RANK:22
+SKILL:Fly				RANK:22
+SKILL:Heal				RANK:22
+SKILL:Knowledge (Arcana)	RANK:22
+SKILL:Knowledge (Geography)	RANK:22
+SKILL:Knowledge (Nature)	RANK:22
+SKILL:Perception			RANK:22
+SKILL:Sense Motive		RANK:22
+SKILL:Survival			RANK:22
+SKILL:Swim				RANK:22
+SKILL:Use Magic Device		RANK:22
+FEAT:Awesome Blow
+FEAT:Greater Vital Strike
+FEAT:Hover
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Swim)
+FEAT:Vital Strike
+FEAT:Wingover
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+LANGBONUS:Aquan|Common|Dwarven|Elven|Gnome|Halfling
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Control Weather
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fly (Mass)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fluid Form
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Seeing
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Transformation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Break Enchantment
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dismissal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ball Lightning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ice Storm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Solid Fog
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Aqueous Orb
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Deep Slumber
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleet Storm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Thoughts
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Make Whole
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slipstream
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of the Sea
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+
+
+STARTPACK:Dragon (Cloud/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+ALIGN:TN
+RACE:Dragon (Cloud/Young)	!PRERACE:1,%
+NAME:Young Cloud Dragon
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Auran
+SKILL:Appraise			RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Fly				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Stealth			RANK:10
+FEAT:Dazzling Display
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Diplomacy)
+FEAT:Weapon Focus (Claw)
+
+
+STARTPACK:Dragon (Cloud/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+ALIGN:TN
+RACE:Dragon (Cloud/Adult)	!PRERACE:1,%
+NAME:Adult Cloud Dragon
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Auran|Common|Elven
+SKILL:Appraise			RANK:16
+SKILL:Diplomacy			RANK:16
+SKILL:Fly				RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Sense Motive		RANK:16
+SKILL:Stealth			RANK:16
+SKILL:Survival			RANK:16
+FEAT:Critical Focus
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Diplomacy)
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|See Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Secret Doors
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+
+STARTPACK:Dragon (Cloud/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+ALIGN:TN
+RACE:Dragon (Cloud/Ancient)	!PRERACE:1,%
+NAME:Ancient Cloud Dragon
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Auran|Common|Elven
+SKILL:Appraise			RANK:24
+SKILL:Diplomacy			RANK:24
+SKILL:Fly				RANK:24
+SKILL:Intimidate			RANK:24
+SKILL:Knowledge (Local)		RANK:24
+SKILL:Knowledge (Planes)	RANK:24
+SKILL:Perception			RANK:24
+SKILL:Sense Motive		RANK:24
+SKILL:Stealth			RANK:24
+SKILL:Survival			RANK:24
+SKILL:Swim				RANK:24
+FEAT:Critical Focus
+FEAT:Dazzling Display
+FEAT:Flyby Attack
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Diplomacy)
+FEAT:Snatch
+FEAT:Stunning Critical
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chain Lightning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dismissal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Elemental Body I
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ice Storm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Geas (Lesser)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|River of Wind
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Sight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cloak of Winds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stinking Cloud
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Suggestion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Eagle's Splendor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Glitterdust
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Gust of Wind
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Locate Object
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|See Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Winds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Secret Doors
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Erase
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+
+
+STARTPACK:Dragon (Crystal/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+ALIGN:CG
+RACE:Dragon (Crystal/Young)	!PRERACE:1,%
+NAME:Young Crystal Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Undercommon
+SKILL:Bluff					RANK:7
+SKILL:Climb					RANK:7
+SKILL:Fly					RANK:7
+SKILL:Intimidate				RANK:7
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Perception				RANK:7
+SKILL:Stealth				RANK:7
+FEAT:Deceitful
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+
+STARTPACK:Dragon (Crystal/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+ALIGN:CG
+RACE:Dragon (Crystal/Adult)	!PRERACE:1,%
+NAME:Adult Crystal Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Common|Terran|Undercommon
+SKILL:Bluff					RANK:13
+SKILL:Climb					RANK:13
+SKILL:Disguise				RANK:13
+SKILL:Fly					RANK:13
+SKILL:Intimidate				RANK:13
+SKILL:Knowledge (Dungeoneering)	RANK:13
+SKILL:Perception				RANK:13
+SKILL:Sense Motive			RANK:13
+SKILL:Stealth				RANK:13
+FEAT:Deceitful
+FEAT:Great Fortitude
+FEAT:Improved Critical (Bite)
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unseen Servant
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+
+STARTPACK:Dragon (Crystal/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+ALIGN:CG
+RACE:Dragon (Crystal/Ancient)	!PRERACE:1,%
+NAME:Ancient Crystal Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Common|Dwarven|Elven|Terran|Undercommon
+SKILL:Bluff					RANK:21
+SKILL:Climb					RANK:21
+SKILL:Disguise				RANK:21
+SKILL:Fly					RANK:21
+SKILL:Intimidate				RANK:21
+SKILL:Knowledge (Dungeoneering)	RANK:21
+SKILL:Knowledge (Geography)		RANK:21
+SKILL:Perception				RANK:21
+SKILL:Sense Motive			RANK:21
+SKILL:Stealth				RANK:21
+SKILL:Survival				RANK:21
+FEAT:Deceitful
+FEAT:Great Fortitude
+FEAT:Greater Vital Strike
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Vital Strike
+FEAT:Weapon Focus (Bite)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Major Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blindness/Deafness
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Minor Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mirror Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Aura
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silent Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unseen Servant
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+
+
+STARTPACK:Dragon (Magma/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+ALIGN:CN
+RACE:Dragon (Magma/Young)	!PRERACE:1,%
+NAME:Young Magma Dragon
+SKILL:Acrobatics		RANK:9
+SKILL:Climb			RANK:9
+SKILL:Fly			RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Perception		RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Stealth		RANK:9
+SKILL:Swim			RANK:9
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Common|Ignan
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
+
+
+STARTPACK:Dragon (Magma/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+ALIGN:CN
+RACE:Dragon (Magma/Adult)	!PRERACE:1,%
+NAME:Adult Magma Dragon
+SKILL:Acrobatics		RANK:15
+SKILL:Climb			RANK:15
+SKILL:Escape Artist	RANK:15
+SKILL:Fly			RANK:15
+SKILL:Intimidate		RANK:15
+SKILL:Perception		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Sleight of Hand	RANK:15
+SKILL:Stealth		RANK:15
+SKILL:Swim			RANK:15
+FEAT:Great Fortitude
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Common|Dwarven|Elven|Ignan
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fireball
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dust of Twilight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flaming Sphere
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Glitterdust
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+
+
+STARTPACK:Dragon (Magma/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+ALIGN:CN
+RACE:Dragon (Magma/Ancient)	!PRERACE:1,%
+NAME:Ancient Magma Dragon
+SKILL:Acrobatics			RANK:23
+SKILL:Climb				RANK:23
+SKILL:Escape Artist		RANK:23
+SKILL:Fly				RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Planes)	RANK:23
+SKILL:Perception			RANK:23
+SKILL:Sense Motive		RANK:23
+SKILL:Sleight of Hand		RANK:23
+SKILL:Stealth			RANK:23
+SKILL:Survival			RANK:23
+SKILL:Swim				RANK:23
+FEAT:Flyby Attack
+FEAT:Great Fortitude
+FEAT:Greater Vital Strike
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Vital Strike
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+LANGBONUS:Common|Dwarven|Elven|Gnome|Halfling|Ignan
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Polymorph (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prismatic Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chain Lightning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Contagious Flame
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Eyebite
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hungry Pit
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Polymorph
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Pit
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimensional Anchor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fire Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Fire
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Fireball
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wind Wall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Darkness
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dust of Twilight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flaming Sphere
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Glitterdust
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Feather Fall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+
+
+STARTPACK:Dragon (Umbral/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+ALIGN:CE
+RACE:Dragon (Umbral/Young)	!PRERACE:1,%
+NAME:Young Umbral Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Abyssal|Common|Undercommon
+SKILL:Bluff				RANK:11
+SKILL:Diplomacy			RANK:11
+SKILL:Fly				RANK:11
+SKILL:Knowledge (Arcana)	RANK:11
+SKILL:Knowledge (Local)		RANK:11
+SKILL:Knowledge (Planes)	RANK:11
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Stealth			RANK:11
+FEAT:Hover
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Vital Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+
+STARTPACK:Dragon (Umbral/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+ALIGN:CE
+RACE:Dragon (Umbral/Adult)	!PRERACE:1,%
+NAME:Adult Umbral Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Abyssal|Common|Undercommon
+SKILL:Bluff				RANK:17
+SKILL:Diplomacy			RANK:17
+SKILL:Fly				RANK:17
+SKILL:Knowledge (Arcana)	RANK:17
+SKILL:Knowledge (Local)		RANK:17
+SKILL:Knowledge (Planes)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Spellcraft			RANK:17
+SKILL:Stealth			RANK:17
+FEAT:Hover
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+FEAT:Snatch
+FEAT:Vital Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+
+STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+ALIGN:CE
+RACE:Dragon (Umbral/Ancient)	!PRERACE:1,%
+NAME:Ancient Umbral Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+LANGBONUS:Abyssal|Common|Undercommon
+SKILL:Appraise			RANK:25
+SKILL:Bluff				RANK:25
+SKILL:Diplomacy			RANK:25
+SKILL:Fly				RANK:25
+SKILL:Knowledge (Arcana)	RANK:25
+SKILL:Knowledge (Local)		RANK:25
+SKILL:Knowledge (Planes)	RANK:25
+SKILL:Knowledge (Religion)	RANK:25
+SKILL:Perception			RANK:25
+SKILL:Sense Motive		RANK:25
+SKILL:Spellcraft			RANK:25
+SKILL:Stealth			RANK:25
+SKILL:Survival			RANK:25
+FEAT:Bleeding Critical
+FEAT:Critical Focus
+FEAT:Flyby Attack
+FEAT:Greater Vital Strike
+FEAT:Hover
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Improved Vital Strike
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+FEAT:Snatch
+FEAT:Vital Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Destruction
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Limited Wish
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Harm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mislead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Veil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slay Living
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unhallow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Enervation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Critical Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unholy Blight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+
+
+#
+# End
+#
