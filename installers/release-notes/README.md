@@ -1,18 +1,25 @@
-What's new for v5.17.8
+What's new for v5.17.9
 ======================
 
-PCGen v5.17.8 is an alpha release from our development branch to allow
+PCGen v5.17.9 is an alpha release from our development branch to allow
 experimentation and testing of our latest work. Please give it a shot
 and let us know how it works for you.
 Some notable changes in this release are listed below.
 
-* Concentration check support
+* New Fantasy Grounds output sheet
+* PCGen now requires Java 1.6
+
 
 New Sources
 -----------
-The following new sources were added in 5.17.8
+The following new sources were added in 5.17.9
 
-* [Paizo] Legacy of Fire Player's Guide (Pathfinder conversion)
+* [Dreamscarred Press] Psionics Expanded - Find the Mark
+* [Dreamscarred Press] Psionics Expanded - Mind over Body
+* [Dreamscarred Press] Psionics Unleashed
+* [Paizo] Pathfinder Bestiary 2
+* [Paizo] Pathfinder Jade Regents' Players Guide
+
 
 We are also working away on the
 [next big version](http://wiki.pcgen.org/index.php?title=Release_6.0.x) although
@@ -22,6 +29,6 @@ just comment on the wiki pages or post to the
 .
 
 For full details of the new changes in this release, see the
-[Release Notes](http://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.8%20Alpha/pcgen-release-notes-5178.html/download) in the list above.
+[Release Notes](http://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.9%20Alpha/pcgen-release-notes-5179.html/download) in the list above.
 
-*James Dempsey* for the PCGEN Team -- 31 July, 2011.
+*James Dempsey* for the PCGEN Team -- 19 November, 2011.
