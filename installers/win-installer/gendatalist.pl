@@ -54,6 +54,7 @@ $pub{'creativemountaingames'} = 'Creative Mountain Games';
 $pub{'distanthorizonsgames'} = 'Distant Horizon Games';
 $pub{'doghouserules'} = 'Dog House Rules';
 $pub{'dragonwinggames'} = 'DragonWing Games';
+$pub{'dreamscarredpress'} = 'Dreamscarred Press';
 $pub{'en_publishing'} = 'EN Publishing';
 $pub{'fantasycommunitycouncil'} = 'Fantasy Community Council';
 $pub{'fantasyflightgames'} = 'Fantasy Flight Games';
