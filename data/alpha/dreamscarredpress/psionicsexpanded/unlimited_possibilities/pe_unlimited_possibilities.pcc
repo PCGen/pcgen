@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+CAMPAIGN:DSP - Psionics Expanded - Unlimited Possibilities
+GAMEMODE:Pathfinder
+TYPE:Dreamscarred Press
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:None
+PRECAMPAIGN:1,DSP - Psionics Unleashed (5.16),DSP - Psionics Unleashed (5.17)
+STATUS:ALPHA
+PUBNAMELONG:Dreamscarred Press
+PUBNAMESHORT:DSP
+PUBNAMEWEB:http://www.dreamscarredpress.com
+SOURCELONG:Psionics Expanded - Unlimited Possibilities
+SOURCESHORT:PEUP
+SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php
+SOURCEDATE:2011-09
+ISOGL:YES
+
+COVER:pe_unlimited_possibilities.jpg
+LOGO:..\Dreamscarred_Press.jpg
+URL:WEBSITE|http://dreamscarredpress.com/dragonfly/index.php|Visit Dreamscarred Press
+URL:Dreamscarred Press|http://dreamscarredpress.com/dragonfly/Store/product/pid=77.html|Buy this from Dreamscarred Press!
+URL:Paizo Publishing|http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/dreamscarredPress/v5748btpy8ogd|Buy this publication from Paizo Publishing!
+URL:RPGNow!|http://www.rpgnow.com/product_info.php?products_id=95327&it=1?affiliate_id=200170|Buy this from RPGNow!
+DESC:Discover the limitless options of psionics with the third release in the Psionics Expanded series. With new options for existing psionic classes and a new psionic classthe aegis, who summons a customizable astral suitUnlimited Possibilities offers just that for your game!
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder RPG Bestiary. ) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced Players Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:Pathfinder RPG GameMastery Guide, ) 2010, Paizo Publishing, LLC; Author: Cam Banks, Wolfgang Buar, Jason Bulmahn, Jim Butler, Eric Cagle, Graeme Davis, Adam Daigle, Joshua J. Frost, James Jacobs, Kenneth Hite, Steven Kenson, Robin Laws, Tito Leati, Rob McCreary, Hal Maclean, Colin McComb, Jason Nelson, David Noonan, Richard Pett, Rich Redman, Sean K reynolds, F. Wesley Schneider, Amber Scorr, Doug Seacat, Mike Selinker, Lisa Stevens, James L. Sutter, Russ Taylor, Penny Williams, Skip Williams, Teeuwynn Woodruff.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Authors Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:The Iconic Bestiary: Classics of Fantasy Copyright 2005, Lions Den Press; Author Ari Marmell
+COPYRIGHT:Hyperconscious: Explorations in Psionics Copyright 2004 Bruce R Cordell. All rights reserved.
+COPYRIGHT:If Thoughts Could Kill Copyright 20012004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Mindscapes Copyright 20032004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Unearthed Arcana Copyright 2004 Wizards of the Coast.
+COPYRIGHT:Mutants and Masterminds Copyright 2002, Green Ronin Publishing.
+COPYRIGHT:Swords of Our Fathers Copyright 2003, The Game Mechanics.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker,Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker
+COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
+COPYRIGHT:Psionics Expanded. Copyright 2011, Dreamscarred Press.
+COPYRIGHT:PCGen dataset conversion for "Psionics Expanded - Unlimited Possibilities", Copyright 2011, PCGen Data Team (including, but not limited to, Douglas Limmer)
+
+
+FORWARDREF:CLASSSPELLLIST|Vitalist,Marksman
+
+ABILITY:pe_unlimited_possibilities_abilities_classes.lst
+ABILITY:pe_unlimited_possibilities_abilities_monsters.lst
+ABILITY:pe_unlimited_possibilities_abilities_alternate_racial_traits.lst
+ABILITY:pe_unlimited_possibilities_abilities_favored_classes.lst
+ABILITY:pe_unlimited_possibilities_abilities_traits.lst
+ABILITYCATEGORY:pe_unlimited_possibilities_ability_categories.lst
+ARMORPROF:pe_unlimited_possibilities_armorprofs.lst
+CLASS:pe_unlimited_possibilities_classes.lst
+CLASS:pe_unlimited_possibilities_classes_aegis_mods.lst
+EQUIPMENT:pe_unlimited_possibilities_equipment.lst
+FEAT:pe_unlimited_possibilities_feats.lst
+KIT:pe_unlimited_possibilities_kits.lst
+RACE:pe_unlimited_possibilities_races_monsters.lst
+SPELL:pe_unlimited_possibilities_powers.lst
+TEMPLATE:pe_unlimited_possibilities_templates.lst
+WEAPONPROF:pe_unlimited_possibilities_weaponprofs.lst
+
+# COMMENT: Added to avoid error when .MODding the Metamorph
+CLASS:*/alpha/dreamscarredpress/psionicsexpanded/mind_over_body/pe_mind_over_body_classes.lst|(INCLUDE:Metamorph)
+ABILITY:*/alpha/dreamscarredpress/psionicsexpanded/mind_over_body/pe_mind_over_body_abilities.lst|(INCLUDE:Alter Metamorphosis|Extended Shift|Free Shift|Gain Major Metamorphosis|Natural Shifter|Permanent Shift|Quick Shift|Shift Type|Supernatural Shift|Transmogrifist Advanced Discipline|Empowered Alteration ~ Transmogrifist|Healing Surge Bond|Infused Body ~ Transmogrifist|Raging Surge Bond Trigger|Raging Surge Rage|Raging Surge Bonus Rage)
+TEMPLATE:*/alpha/dreamscarredpress/psionicsexpanded/mind_over_body/pe_mind_over_body_templates.lst|(INCLUDE:Major Metamorphosis Determination|Quick Shift Determination|Get Major Metamorphosis|Get Master of All Forms|Get Nothing|Get Swift Shapeshifter|Get Level Five Power)
+ABILITYCATEGORY:*/alpha/dreamscarredpress/psionicsexpanded/mind_over_body/pe_mind_over_body_ability_categories.lst|(INCLUDE:Metamorph Level Five Power|Metamorph Major Metamorphosis|Healing Surge Feat)

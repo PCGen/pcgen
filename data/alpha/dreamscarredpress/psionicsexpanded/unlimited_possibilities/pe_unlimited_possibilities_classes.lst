@@ -1,0 +1,149 @@
+# CVS $Revision$ $Author$ -- Fri Nov 18 18:07:01 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/10/26
+
+###Block: Aegis
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Aegis		HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE.Profession|Spellcraft|Swim|Use Magic Device
+
+#Block: Proficiencies
+1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:ARMORPROF|Astral Suit	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency
+
+#Block: Psionic Ability
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0							ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|AegisLVL|CL																								DEFINE:AegisLVL|0
+1	BONUS:VAR|AegisPL|AegisLVL	BONUS:VAR|AegisPL|var("BL=Aegis")																	DEFINE:AegisPL|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:AegisPL,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:AegisPL,3
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,4	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,5	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,6
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,7	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,8	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,9
+1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,10	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,11	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,12
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,13	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,14	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,15
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,16	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,17	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,18
+1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,19	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,20
+1	BONUS:VAR|BonusPowerPoints|(INT*AegisPL)/2|TYPE=AegisBonusPP
+
+1	BONUS:VAR|AegisCL|AegisLVL	BONUS:VAR|AegisCL|var("BL=Aegis")																	DEFINE:AegisCL|0
+1	BONUS:VAR|CustomPoints|2+AegisCL	BONUS:VAR|CustomPoints|floor((AegisCL+1)/5)
+1	BONUS:VAR|AegisDRLVL|AegisLVL																							DEFINE:AegisDRLVL|0
+
+#Block: Class Info
+1																																						ABILITY:Special Ability|AUTOMATIC|Astral Repair ~ Aegis|Form Astral Suit ~ Aegis
+2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)																		ADD:FEAT|Craftsman Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Aegis|Craftsman ~ Aegis
+3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)																														ABILITY:Special Ability|AUTOMATIC|Reconfigure ~ Aegis|Invigorating Suit ~ Aegis
+4	BONUS:VAR|AugmentSuitMax|floor(CL/4)																															ABILITY:Special Ability|AUTOMATIC|Augment Suit ~ Aegis
+5																																ADD:FEAT|Master Craftsman
+12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)																														ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis
+20																																						ABILITY:Special Ability|AUTOMATIC|Perfect Merger ~ Aegis
+
+
+
+###Block: Constructor
+
+# Class Name
+CLASS:Psion.MOD
+SUBCLASS:Constructor	COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Bluff|Disguise|Use Magic Device
+SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Constructor Advanced Discipline
+
+###Block: Erudite
+SUBCLASS:Erudite	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Erudite Advanced Discipline
+
+
+###Block: Gifted Blade
+# COMMENT: Technically, this is an archetype, but it seemed different enough
+# COMMENT:   to require its own class in PCGen.
+
+# Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR									Serves As
+CLASS:Gifted Blade	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Soulknife
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Gifted Blade	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Stealth|Swim
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Gifted Blade	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Gifted Blade|CL-2
+
+#Block:Proficiencies
+1																																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																																					AUTO:FEAT|Simple Weapon Proficiency
+1																																																																																																																																							AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																																																																																																																																							AUTO:FEAT|Shield Proficiency
+
+#Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1																				BONUS:VAR|GiftedBladeML|CL-2	BONUS:VAR|GiftedBladeML|var("BL=Gifted Blade")	BONUS:VAR|IsPsionic|1																								DEFINE:GiftedBladeML|0	DEFINE:IsPsionic|0					ABILITY:Special Ability|AUTOMATIC|Psionic
+1																				BONUS:VAR|GiftedBladePL|GiftedBladeML+2																																		DEFINE:GiftedBladePL|0
+1																				BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:GiftedBladePL,4	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:GiftedBladePL,5	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:GiftedBladePL,6
+1																				BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:GiftedBladePL,7	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:GiftedBladePL,8	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:GiftedBladePL,9	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:GiftedBladePL,10
+1																				BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:GiftedBladePL,11	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:GiftedBladePL,12	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:GiftedBladePL,13
+1																				BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:GiftedBladePL,14	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:GiftedBladePL,15	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:GiftedBladePL,16
+1																				BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:GiftedBladePL,17	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:GiftedBladePL,18	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:GiftedBladePL,19	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:GiftedBladePL,20
+1																				BONUS:VAR|BonusPowerPoints|(WIS*GiftedBladePL-2)/2|TYPE=GiftedBladeBonusPP|PREVARGTEQ:GiftedBladePL,3
+
+
+#Block: Mind Blade abilities by effective level
+# COMMENT: To add a PrC's class level to SK for mind blade powers,
+# COMMENT:   use BONUS:VAR|MndBladeLVL|x in the PrC's class level line setup
+
+1																				BONUS:VAR|MndBladeLVL|CL																																				DEFINE:MndBladeLVL|0									ABILITY:Special Ability|AUTOMATIC|Form Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeFormMindBlade	ABILITY:Special Ability|AUTOMATIC|Shape Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShapeMindBlade	ABILITY:Special Ability|AUTOMATIC|Throw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeThrowMindBlade
+1				BONUS:ABILITYPOOL|Blade Skill|CL/2																																																															ABILITY:Special Ability|AUTOMATIC|Enhanced Mind Blade|PREMULT:2,[PREVARGTEQ:MndBladeLVL,3],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeEnhancedMindBlade]
+5																																																																								ABILITY:Special Ability|AUTOMATIC|Quick Draw Mind Blade
+20																																																																								ABILITY:Special Ability|AUTOMATIC|Mind Blade Mastery
+
+#Block: Class Info
+1				BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat																																																																																																														TEMPLATE:Wild Talent Determination
+
+#Block: Manifesting Ability
+3	KNOWN:0,1																																																										DEFINE:GiftedBladePowersKnown|1	DEFINE:GiftedBladeMaxPowerLevel|1
+4	KNOWN:0,1
+5	KNOWN:0,2																		BONUS:VAR|GiftedBladePowersKnown|1
+6	KNOWN:0,2
+7	KNOWN:0,2,1																		BONUS:VAR|GiftedBladePowersKnown|1	BONUS:VAR|GiftedBladeMaxPowerLevel|1
+8	KNOWN:0,2,1
+9	KNOWN:0,2,2																		BONUS:VAR|GiftedBladePowersKnown|1
+10	KNOWN:0,2,2
+11	KNOWN:0,2,2,1																	BONUS:VAR|GiftedBladePowersKnown|1	BONUS:VAR|GiftedBladeMaxPowerLevel|1
+12	KNOWN:0,2,2,1
+13	KNOWN:0,2,2,1
+14	KNOWN:0,2,2,2																	BONUS:VAR|GiftedBladePowersKnown|1
+15	KNOWN:0,2,2,2,0																	BONUS:VAR|GiftedBladeMaxPowerLevel|1
+16	KNOWN:0,2,2,2,0
+17	KNOWN:0,2,2,2,1																	BONUS:VAR|GiftedBladePowersKnown|1
+18	KNOWN:0,2,2,2,1
+19	KNOWN:0,2,2,2,1
+20	KNOWN:0,2,2,2,1
+
+
+###Block: Metaforge
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Metaforge	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Required Ability												Required Skill
+CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Enhanced Mind Blade,Invigorating Suit ~ Aegis	PRESKILL:1,TYPE.Craft=3,TYPE.Craft=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Metaforge	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Fly|Intimidate|Knowledge (Psionics)
+1	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|CL	BONUS:VAR|MndBladeLVL|CL	DEFINE:MetaforgedLVL|CL
+1	BONUS:VAR|CrystallizedMindBlade|(CL+3)/4																ABILITY:Special Ability|AUTOMATIC|Crystallized Mind Blade ~ Metaforge
+2	BONUS:VAR|TransferEnhancement|CL/2																	ABILITY:Special Ability|AUTOMATIC|Transfer Enhancement ~ Metaforge
+3																							ABILITY:Special Ability|AUTOMATIC|Dual Summon ~ Metaforge
+10																							ABILITY:Special Ability|AUTOMATIC|Shift Form ~ Metaforge
+
+###Block: Psicrystal Imprinter
+
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Psicrystal Imprinter	HD:6		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name			Required Feat							Required Skill
+CLASS:Psicrystal Imprinter	PREFEAT:2,Craft Cognizance Crystal,Scribe Scroll	PRESKILL:2,Knowledge (Psionics)=1,Spellcraft=5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraft
+1	BONUS:VAR|MndBladeLVL|(CL-1)	BONUS:VAR|AegisCL|(CL-1)	BONUS:VAR|AegisDRLVL|(CL-1)	DEFINE:PsicrystalImprinterLVL|CL
+1																										ABILITY:Special Ability|AUTOMATIC|Psicrystal Bond ~ Psicrystal Imprinter|Psicrystal Receptacle ~ Psicrystal Imprinter
+2	BONUS:VAR|SkilledCrafter|CL/2																	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Skilled Crafter ~ Psicrystal Imprinter
+3	BONUS:VAR|PsicrystalResonanceLVL|CL																ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psicrystal Resonance ~ Psicrystal Imprinter
+4																						ADD:SPELLCASTER|Psionic																					AUTO:FEAT|Improved Psicrystal
+5																						ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Efficient Receptacle ~ Psicrystal Imprinter
+6																						ADD:SPELLCASTER|Psionic
+7																						ADD:SPELLCASTER|Psionic																					AUTO:FEAT|Improved Psicrystal
+8																						ADD:SPELLCASTER|Psionic
+9																						ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Essence Crystal ~ Psicrystal Imprinter
+10	BONUS:VAR|EfficientReceptacle|-1																				ABILITY:Special Ability|AUTOMATIC|Crystalline Infusion ~ Psicrystal Imprinter
+10																						ADD:SPELLCASTER|Psionic																					AUTO:FEAT|Improved Psicrystal

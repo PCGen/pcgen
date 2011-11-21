@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/11/04
+
+###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
+# Template Name				Visible	Template													Required Feat						Prohibited Feat				Bonus to Ability Pool				Automatically Gained Feat
+Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
+Get Advanced Constructs			VISIBLE:NO																							!PREFEAT:1,Advanced Constructs								AUTO:FEAT|Advanced Constructs
+Get Boost Construct			VISIBLE:NO																							!PREFEAT:1,Boost Construct									AUTO:FEAT|Boost Construct
+Get Bonus Psionic Feat			VISIBLE:NO															PREFEAT:2,Advanced Construct,Boost Construct							BONUS:ABILITYPOOL|Bonus Psionic Feat|1
+
+###Block: Template to activate Advanced Construct abilities
+# Template Name		Required Race
+Advanced Construct	PRERACE:1,Astral Construct%
+
+###Block: Determines Psicrystal Bond choice
+# Template Name		Visible	Template										Required Feat			Prohibited Feat				Automatically Gained Feat
+Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
+Get Psicrystal Affinity	VISIBLE:NO																	!PREFEAT:1,Psicrystal Affinity	AUTO:FEAT|Psicrystal Affinity
+Get Improved Psicrystal	VISIBLE:NO												PREFEAT:1,Psicrystal Affinity							AUTO:FEAT|Improved Psicrystal
+
+###Block: Failed Transformation templates (where needed)
+# Template Name			Size		Visible	Ability								Move			Vision
+Failed Transformation Blue	SIZE:S	VISIBLE:NO													VISION:Darkvision (60')
+Failed Transformation Duergar			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Steady ~ Duergar	MOVE:Walk,20	VISION:Darkvision (60')
+Failed Transformation Dwarf			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Steady ~ Dwarf	MOVE:Walk,20	VISION:Darkvision (60')

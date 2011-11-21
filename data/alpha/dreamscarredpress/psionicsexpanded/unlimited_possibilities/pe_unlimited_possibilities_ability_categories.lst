@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+#SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/10/26
+
+###Block: Bonus Feat ability pools
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Bonus Psionic Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic	PLURAL:Bonus Psionic Feats	DISPLAYLOCATION:Feats
+
+###Block: Astral Suit ability pools
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Astral Suit Type		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralSuitType		PLURAL:Astral Suit Type			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Astral Suit Customization	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralSuitCustomization	PLURAL:Astral Suit Customizations	DISPLAYLOCATION:Class Abilities

@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Fri Nov 11 04:05:47 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/11/04
+
+# NEEDS CODE WORK: The Swarm template didn't give the Swarm Traits and
+# NEEDS CODE WORK:   Distraction abilities
+# Race Name		Size		Move			Face/Space	Reach		Combat bonus				Stat bonus					Weapon prof. bonus				Ability																				Natural Attacks									Monster Class Name and Starting Level	Main Race Type		Template		Challenge Rating	Source Page
+Astral Swarm	SIZE:D	MOVE:Walk,30	FACE:10	REACH:0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|-9	BONUS:STAT|DEX|8	BONUS:WEAPONPROF=Swarm|DAMAGE|-1*(STR)	ABILITY:Special Ability|AUTOMATIC|Ectoplasmic Poison ~ Ectoplasmic Swarm|No Combat Maneuvers|Swarm Traits|Distraction ~ Swarm	NATURALATTACKS:Swarm,Weapon.Natural.Melee.Swarm.Poison,*1,4d6	MONSTERCLASS:Construct (Mindless):14	RACETYPE:Construct	TEMPLATE:Swarm	CR:7			SOURCEPAGE:p.10

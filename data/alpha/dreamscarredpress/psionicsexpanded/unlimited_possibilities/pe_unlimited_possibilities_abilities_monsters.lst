@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/10/26
+
+###Block: Ectoplasmic Swarm abilities
+# Ability Name		Unique Key							Category of Ability		Type						Visible	Define							Description																						Modify VAR													Source Page		Aspects
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.11	ASPECT:Ability Benefit|(swarm)
+No Combat Maneuvers									CATEGORY:Special Ability							VISIBLE:NO	DEFINE:NoCombatManeuvers|1
+
+###Block: Advanced Constructs Astral Construct abilities
+#Block: Menu A
+
+# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Automatically Gained Feat	Combat bonus					Bonus to HP			Modify VAR				Weapon prof. bonus													Natural Attacks
+Buff			KEY:Astral_Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|5
+
+Armor Spikes	KEY:Astral_Armor Spikes		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																																													NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Dodge			KEY:Astral_Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Dodge
+Might			KEY:Astral_Might			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
+Talons		KEY:Astral_Talons			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Slam attacks do either slashing or piercing damage.
+Utility		KEY:Astral_Utility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|8	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|AstralUtilityDC|2
+#Block: Menu B
+Great Cleave	KEY:Astral_Great Cleave		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Great Cleave
+Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might
+Reach			KEY:Astral_Reach			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|REACH|5
+Stunning Fist	KEY:Astral_Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:The astral construct can use Stunning Fist with its slam attacks.											AUTO:FEAT|Stunning Fist
+#Block: Menu C
+Greater Might	KEY:Astral_Greater Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|5|TYPE=Might
+Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																																	BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREFEAT:1,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
