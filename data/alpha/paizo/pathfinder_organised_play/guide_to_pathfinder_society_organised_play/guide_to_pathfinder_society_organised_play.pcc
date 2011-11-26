@@ -1,0 +1,47 @@
+CAMPAIGN:Paizo - Guide To Pathfinder Society Organised Play 4.0
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Society Organised Play
+RANK:9
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SETTING:Pathfinder Chronicles
+SOURCELONG:Guide to Pathfinder Society Organised Play
+SOURCESHORT:GTPOP
+SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4
+SOURCEDATE:2011-08
+ISOGL:Yes
+
+COVER:PFOrganized_play.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4|Download this publication from Paizo Publishing!
+DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 4.0 of the Pathfinder Society Guide to Organised Play released 1st August 2011.
+DESC:Paizo.com/pathfindersociety/resources contains a book-by-book analysis of campaign-legal feat choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Guide to Pathfinder Society Organized Play, Version 4.0 © 2011, Paizo Publishing, LLC; Authors: Erik Mona and Mark Moreland.
+COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Play" Copyright 2011, PCGen Data team (Including, but not limited to Jeff Baril, Andrew Wilson).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITYCATEGORY:gtpop_abilitycategories.lst
+ABILITY:gtpop_abilities.lst
+CLASS:gtpop_classes.lst
+FEAT:gtpop_feats.lst
+SKILL:gtpop_skills_conditional.lst
+SPELL:gtpop_spells.lst
+EQUIPMENT:gtpop_equip.lst
+
+#
+# End
+#

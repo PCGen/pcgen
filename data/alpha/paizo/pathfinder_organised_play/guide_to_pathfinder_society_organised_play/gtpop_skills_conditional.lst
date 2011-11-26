@@ -1,0 +1,18 @@
+SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# Original Entry by: Andrew Wilson
+
+###Block: Conditional skills (for output only)
+Acrobatics (Move through threatened squares)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Move through threatened squares).MISC"),SKILL.Acrobatics.MISC	SOURCEPAGE:p.102
+Diplomacy (Gather Information)			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Gather Information).MISC"),SKILL.Diplomacy.MISC				SOURCEPAGE:p.13
+Heal (Treat disease and poison)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Heal (Treat disease and poison).MISC"),SKILL.Heal.MISC	SOURCEPAGE:p.90
+
+###Block: Skill .MODs
+# MODs to existing skills - have to do it this way otherwise the BONUS to MISC never fires and the conditions above are never triggered
+Acrobatics.MOD	BONUS:SKILL|Acrobatics (Move through threatened squares)|SKILL.Acrobatics.MISC		BONUS:SKILLRANK|Acrobatics (Move through threatened squares)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Move through threatened squares).MISC"),SKILL.Acrobatics.MISC
+Diplomacy.MOD	BONUS:SKILL|Diplomacy (Gather Information)|SKILL.Diplomacy.MISC					BONUS:SKILLRANK|Diplomacy (Gather Information)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Gather Information).MISC"),SKILL.Diplomacy.MISC
+Heal.MOD		BONUS:SKILL|Heal (Treat disease and poison)|SKILL.Heal.MISC						BONUS:SKILLRANK|Heal (Treat disease and poison)|skillinfo("TOTALRANK", "Heal")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Heal (Treat disease and poison).MISC"),SKILL.Heal.MISC
+
+
+#
+# End
+#

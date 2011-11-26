@@ -1,0 +1,15 @@
+SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+Awaken.MOD				PRECLASS:1,NPC,Monster
+Permanency.MOD		PRECLASS:1,NPC,Monster
+Reincarnate.MOD		PRECLASS:1,NPC,Monster
+
+Heroic Fortune.MOD		PRECLASS:1,NPC,Monster
+Heroic Fortune (Mass).MOD		PRECLASS:1,NPC,Monster
+Malediction.MOD		PRECLASS:1,NPC,Monster
+Severed Fate.MOD		PRECLASS:1,NPC,Monster
+Unravel Destiny.MOD		PRECLASS:1,NPC,Monster
+
+

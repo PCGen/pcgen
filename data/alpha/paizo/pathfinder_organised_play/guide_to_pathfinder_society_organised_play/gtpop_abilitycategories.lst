@@ -1,0 +1,11 @@
+#SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+ABILITYCATEGORY:Spell Focus Replacement		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FocusReplacement												PLURAL:Organized Play Alternate Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+
+###Block: Background Ability Categories
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background	TYPE:Society Faction			PLURAL:Society Factions	DISPLAYLOCATION:Background

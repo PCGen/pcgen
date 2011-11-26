@@ -1,0 +1,23 @@
+SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+CLASS:Wizard.MOD	
+###Block: Level progression
+1			AUTO:FEAT|.CLEAR.Scribe Scroll		BONUS:ABILITYPOOL|Spell Focus Replacement|1
+
+
+CLASS:Alchemist.MOD
+1		AUTO:FEAT|.CLEAR.Brew Potion 													AUTO:FEAT|Extra Bomb
+
+
+
+CLASS:Cleric.MOD
+1		AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
+
+
+CLASS:Antipaladin.MOD		PRECLASS:1,NPC,Monster
+
+CLASS:Cavalier.MOD
+4												ABILITY:Special Ability|AUTOMATIC|.CLEAR.Expert Trainer ~ Cavalier			AUTO:FEAT|Skill Focus (Handle Animal)
+
