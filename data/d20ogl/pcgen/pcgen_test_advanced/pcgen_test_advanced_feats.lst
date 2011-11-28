@@ -10,6 +10,8 @@ A-Test Choose Class Base	TYPE:Test	CHOOSE:CLASS|TYPE=Base		MULT:YES
 #Ability (can be feat):
 TargetedAbility ~ WeaponProf	TYPE:TEST-53	CHOOSE:WEAPONPROFICIENCY|ANY	MULT:YES	VFEAT:Weapon Focus(%LIST)
 
+Give 5 Dodge AC		TYPE:Test	COST:0	BONUS:COMBAT|AC|5|TYPE=Dodge
+Give 5 Deflection AC			TYPE:Test	COST:0	BONUS:COMBAT|AC|5|TYPE=Deflection
 
 
 
