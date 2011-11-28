@@ -1724,7 +1724,7 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
-							<xsl:value-of select="deflection"/>
+							<xsl:value-of select="dodge"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell display-align="center">
