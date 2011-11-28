@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 ####Block: Simple Weapons
-# Equipment Name			Output Name					Required Weapon Proficiency				Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name			Output Name					Required Weapon Proficiency				Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus			Special Property
 Blowgun										PROFICIENCY:WEAPON|Blowgun				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Blowgun			CONTAINS:1|Dart=1		COST:2	WT:1				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:WOOD											RANGE:20			SOURCEPAGE:p.145
 Crossbow (Light)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Light)			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:1|Bolt=1		COST:35	WT:4				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD											RANGE:80			SOURCEPAGE:p.142
 Dart											PROFICIENCY:WEAPON|Dart					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart										COST:0.5	WT:.5				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD				WIELD:Light						RANGE:20	SIZE:M	SOURCEPAGE:p.142
@@ -19,7 +19,7 @@ Shortbow										PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Stan
 Shortbow (Composite)		OUTPUTNAME:[NAME] Shortbow STR	PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:1|Arrow=1	COST:75	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD							MODS:REQUIRED		RANGE:70			SOURCEPAGE:p.143	BONUS:WEAPON|DAMAGE|min(STR,0)
 Shortbow (Composite +0)		OUTPUTNAME:[NAME] Shortbow STR +0	PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:1|Arrow=1	COST:75	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD							MODS:NO			RANGE:70			SOURCEPAGE:p.148
 #Exotic Ranged
-# Equipment Name			Output Name					Required Weapon Proficiency				Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name			Output Name					Required Weapon Proficiency				Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus			Special Property
 Bolas											PROFICIENCY:WEAPON|Bolas				TYPE:Weapon.Exotic.Ranged.Standard.Bludgeoning.Thrown											COST:5	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER.NONLETHAL.TRIP								RANGE:10			SOURCEPAGE:p.143
 Crossbow (Hand)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Hand)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:1|Bolt=1		COST:100	WT:2				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:WOOD				WIELD:Light						RANGE:30	SIZE:M	SOURCEPAGE:p.143
 Crossbow (Repeating Heavy)	OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Repeating Heavy)	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:5|Bolt=5		COST:400	WT:12				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD											RANGE:120			SOURCEPAGE:p.143

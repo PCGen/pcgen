@@ -56,10 +56,9 @@ Forked Metal Rod (Hell)				TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus
 Forked Metal Rod (Elysium)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Elysium
 Ivory Statuette of Self (1500 gp)		TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Contingency
 Ruby and Gold Lens (1500 gp)			TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Analyze Dweomer
-Marked Bones (25 gp)				TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
 Platinum Ring (50 gp)				TYPE:MaterialComponent.Focus	COST:50	WT:0		SPROP:Focus for Shield Other
 Set of 4 Pieces of Ivory (200 gp)		TYPE:MaterialComponent.Focus	COST:200	WT:0		SPROP:Focus for Legend Lore
-Set of Marked Bones (25 gp)			TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Awaken
+Set of Marked Bones (25 gp)			TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Augury
 Silver Mirror (1000 gp)				TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Scrying
 Tiny Reliquary (500 gp)				TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Cloak of Chaos, Holy Aura, Shield of Law, or Unholy Aura
 # To Do

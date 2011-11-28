@@ -1,10 +1,14 @@
-# CVS $Revision: 11456 $ $Author: eddyanthony $ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 11456 $ $Author: eddyanthony $ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Poison
 # Equipment Name		Output Name		Type					Cost		Weight	Special Property
 Poison (Violet Venom)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:800	WT:0		SPROP:Injury; Fort DC 13; Freq. 1 minute (6); Effect 1d2 Str and 1d2 Con damage; Cure 1 save
 
+###Block: Thrown Rocks
+# Equipment Name	Output Name		Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Rock (Small)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:50		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:120	SIZE:L	SOURCEPAGE:p.303
+Rock (Medium)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:100	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:140	SIZE:H	SOURCEPAGE:p.303
 
 #
 # End

@@ -2,6 +2,7 @@
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
+# Incorporated 11/22/2011 errata (Stefan Radermacher)
 
 ###Block: Armor
 #------light---------
@@ -25,7 +26,7 @@ Full Plate		PROFICIENCY:ARMOR|Full Plate		TYPE:Armor.Heavy.Suit.Standard		COST:1
 
 ###Block: Shields
 # Equipment Name		Output Name					Required Shield Proficiency		Type							Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus																			Weapon prop. bonus																			Special Property
-Buckler									PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard			COST:15	WT:5		SLOTS:0	ACCHECK:-1												EQMOD:STEEL									SOURCEPAGE:p.150	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Buckler									PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard			COST:5	WT:5		SLOTS:0	ACCHECK:-1												EQMOD:STEEL									SOURCEPAGE:p.150	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Shield (Light/Wooden)	OUTPUTNAME:Shield, Light Wooden	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close		COST:3	WT:5				ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:WOOD	WIELD:Light					SIZE:M	SOURCEPAGE:p.152	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 Shield (Light/Steel)	OUTPUTNAME:Shield, Light Steel	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close		COST:9	WT:6				ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL	WIELD:Light					SIZE:M	SOURCEPAGE:p.152	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 Shield (Heavy/Wooden)	OUTPUTNAME:Shield, Heavy Wooden	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close		COST:7	WT:10				ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD	WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.151	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield

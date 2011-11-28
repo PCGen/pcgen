@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -10,7 +10,7 @@ Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO					
 Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|DEITYWEAPONS
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
 Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows
-Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)|TYPE.Simple
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Uncanny Dodge and Improved Uncanny Dodge --------------------------------------------------------------------------------------
@@ -18,13 +18,13 @@ Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO			
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-# Ability Name		Category of Ability		Type								Visible	Define										Description																															Ability																												Modify VAR								Description of the Benefits
-Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+# Ability Name				Category of Ability		Type								Visible	Define										Description																															Ability																																							Modify VAR								Description of the Benefits
+Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
-Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DESC:You retain your Dexterity bonus to AC even when flat-footed
+Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
 
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so.																																																									BENEFIT:You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.
-Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																														BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
+Uncanny Dodge				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so.																																																																				BENEFIT:You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.
+Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																																									BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
 
 ###Block: Evasion and Improved Evasion --------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key			Category of Ability		Type											Visible	Description									Ability																	Description of the Benefits
@@ -51,17 +51,18 @@ Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VIS
 ###Block: Channel Energies for copying to new classes.
 #Channel Positive Energy	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:ClassChannelPositiveEnergyDC|0	DEFINE:ClassChannelPositiveEnergyDice|0	DEFINE:ClassChannelPositiveEnergyDieSize|6	DEFINE:ClassChannelPositiveEnergyLVL|0	DESC:You can unleash a wave of positive energy dealing %1d%2 (DC %3 for half) %4/day.|ClassChannelPositiveEnergyDice|ClassChannelPositiveEnergyDieSize|ClassChannelPositiveEnergyDC|ClassChannelEnergyTimes								BONUS:VAR|ClassChannelPositiveEnergyDice|(ClassChannelPositiveEnergyLVL+1)/2	BONUS:VAR|ClassChannelPositiveEnergyDC|10+(ClassChannelPositiveEnergyLVL/2)+CHA	BONUS:VAR|ClassChannelPositiveEnergyLVL|ClassChannelEnergyLVL	SOURCEPAGE:p.40	ASPECT:Ability Benefit|(%1d%2, DC %3, %4/day)|ClassChannelPositiveEnergyDice|ClassChannelPositiveEnergyDieSize|ClassChannelPositiveEnergyDC|ClassChannelEnergyTimes	BENEFIT:You can unleash a wave of positive energy. You must choose to deal %1d%2 points of positive energy damage to undead creatures or to heal living creatures of %1d%2 points of damage. Creatures that take damage from channeled energy receive a DC %3 Will save to halve the damage. You can use this abilty %4 times per day.|ClassChannelPositiveEnergyDice|ClassChannelPositiveEnergyDieSize|ClassChannelPositiveEnergyDC|ClassChannelEnergyTimes
 #Channel Negative Energy	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:ClassChannelNegativeEnergyDC|0	DEFINE:ClassChannelNegativeEnergyDice|0	DEFINE:ClassChannelNegativeEnergyDieSize|6	DEFINE:ClassChannelNegativeEnergyLVL|0	DESC:You can unleash a wave of negative energy dealing %1d%2 (DC %3 for half) %4/day.|ClassChannelNegativeEnergyDice|ClassChannelNegativeEnergyDieSize|ClassChannelNegativeEnergyDC|ClassChannelEnergyTimes								BONUS:VAR|ClassChannelNegativeEnergyDice|(ClassChannelNegativeEnergyLVL+1)/2	BONUS:VAR|ClassChannelNegativeEnergyDC|10+(ClassChannelNegativeEnergyLVL/2)+CHA	BONUS:VAR|ClassChannelNegativeEnergyLVL|ClassChannelEnergyLVL	SOURCEPAGE:p.40	ASPECT:Ability Benefit|(%1d%2, DC %3, %4/day)|ClassChannelNegativeEnergyDice|ClassChannelNegativeEnergyDieSize|ClassChannelNegativeEnergyDC|ClassChannelEnergyTimes	BENEFIT:You can unleash a wave of negative energy. You must choose to deal %1d%2 points of negative energy damage to living creatures or to heal undead creatures of %1d%2 points of damage. Creatures that take damage from channeled energy receive a DC %3 Will save to halve the damage. You can use this abilty %4 times per day.|ClassChannelNegativeEnergyDice|ClassChannelNegativeEnergyDieSize|ClassChannelNegativeEnergyDC|ClassChannelEnergyTimes
-Channel Positive Energy				CATEGORY:Special Ability	TYPE:Internal
-Channel Negative Energy				CATEGORY:Special Ability	TYPE:Internal
+# Ability Name				Category of Ability		Type			Required Ability											Required Class		Define						Modify VAR
+Channel Positive Energy			CATEGORY:Special Ability	TYPE:Internal
+Channel Negative Energy			CATEGORY:Special Ability	TYPE:Internal
 
 # Once generic ability for prestige classes that advance any channeling ability such as the Holy Vindicator.
-Channel Energy ~ Prestige Class		CATEGORY:Special Ability	TYPE:Internal	DEFINE:PrestigeClassChannelEnergyLVL|0	BONUS:VAR|ClericChannelEnergyLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PaladinChannelLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PowerOverUndeadLVL|PrestigeClassChannelEnergyLVL
+Channel Energy ~ Prestige Class	CATEGORY:Special Ability	TYPE:Internal																		DEFINE:PrestigeClassChannelEnergyLVL|0	BONUS:VAR|ClericChannelEnergyLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PaladinChannelLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PowerOverUndeadLVL|PrestigeClassChannelEnergyLVL
 
 
 ##Block: Extra Channel Energy support
-Cleric Extra Channel		CATEGORY:Special Ability	TYPE:ExtraChannel	PRECLASS:1,Cleric=1										BONUS:VAR|ClericChannelEnergyTimes|2
-Paladin Extra Channel		CATEGORY:Special Ability	TYPE:ExtraChannel	PRECLASS:1,Paladin=4										BONUS:VAR|LayOnHandsTimes|4
-Necromancer Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Power Over Undead ~ Necromancy School	BONUS:VAR|PowerOverUndeadTimes|2
+Cleric Extra Channel			CATEGORY:Special Ability	TYPE:ExtraChannel														PRECLASS:1,Cleric=1								BONUS:VAR|ClericChannelEnergyTimes|2
+Paladin Extra Channel			CATEGORY:Special Ability	TYPE:ExtraChannel														PRECLASS:1,Paladin=4								BONUS:VAR|LayOnHandsTimes|4
+Necromancer Extra Channel		CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Power Over Undead ~ Necromancy School												BONUS:VAR|PowerOverUndeadTimes|2
 
 ###Block: CMB output and basic setup
 # Ability Name	Category of Ability	Type			Visible	Define
@@ -78,4 +79,4 @@ CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMD_Disarm|0										BO
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Weapon Focus(Grapple)	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Greater Weapon Focus(Grapple)
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMD_Overrun|0										BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMD_Overrun|CMD
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMD_Sunder|0										BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMD_Sunder|CMD
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Trip|0		DEFINE:CMD_Trip|0											BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(var("LEGS")-2)*2|PRELEGSGT:2
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(var("LEGS")-2)*2|PRELEGSGT:2

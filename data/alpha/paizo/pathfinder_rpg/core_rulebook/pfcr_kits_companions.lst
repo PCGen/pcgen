@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -116,21 +116,21 @@ FEAT:Weapon Finesse
 
 
 ###Block: Improved Familiars -----------------------------
-STARTPACK:Familiar ~ Dire Rat			TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Dire Rat	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Stealth				RANK:1
+SKILL:Stealth	RANK:1
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Familiar ~ Air Elemental		TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Air Elemental	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Acrobatics				RANK:1
-SKILL:Escape Artist			RANK:1
-SKILL:Fly					RANK:1
-SKILL:Knowledge (Planes)		RANK:1
-SKILL:Perception				RANK:1
-SKILL:Stealth				RANK:1
+SKILL:Acrobatics			RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
 FEAT:Flyby Attack
 
 STARTPACK:Familiar ~ Earth Elemental	TYPE:Companion	VISIBLE:NO
@@ -144,83 +144,83 @@ SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
 FEAT:Power Attack
 
-STARTPACK:Familiar ~ Fire Elemental		TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Fire Elemental	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Acrobatics				RANK:1
-SKILL:Climb					RANK:1
-SKILL:Escape Artist			RANK:1
-SKILL:Intimidate				RANK:1
-SKILL:Knowledge (Planes)		RANK:1
-SKILL:Perception				RANK:1
+SKILL:Acrobatics			RANK:1
+SKILL:Climb				RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Intimidate			RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
 FEAT:Dodge
 
 STARTPACK:Familiar ~ Water Elemental	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Acrobatics				RANK:1
-SKILL:Escape Artist			RANK:1
-SKILL:Knowledge (Planes)		RANK:1
-SKILL:Perception				RANK:1
-SKILL:Stealth				RANK:1
-SKILL:Swim					RANK:1
+SKILL:Acrobatics			RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+SKILL:Swim				RANK:1
 FEAT:Power Attack
 
-STARTPACK:Familiar ~ Stirge			TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Stirge	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Stealth				RANK:1
+SKILL:Stealth	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Homunculus		TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Homunculus	TYPE:Companion	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Perception				RANK:2
-SKILL:Stealth				RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
 FEAT:Lightning Reflexes
 
-STARTPACK:Familiar ~ Imp			TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Imp	TYPE:Companion	VISIBLE:NO
 ALIGN:LE
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Acrobatics				RANK:3
-SKILL:Bluff					RANK:3
-SKILL:Fly					RANK:3
-SKILL:Knowledge (Arcana)		RANK:3
-SKILL:Knowledge (Planes)		RANK:3
-SKILL:Perception				RANK:3
-SKILL:Spellcraft				RANK:3
+SKILL:Acrobatics			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Spellcraft			RANK:3
 FEAT:Dodge
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Mephit			TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Mephit	TYPE:Companion	VISIBLE:NO
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Bluff					RANK:3
-SKILL:Fly					RANK:3
-SKILL:Perception				RANK:3
-SKILL:Stealth				RANK:3
+SKILL:Bluff		RANK:3
+SKILL:Fly		RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Familiar ~ Pseudodragon		TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Pseudodragon	TYPE:Companion	VISIBLE:NO
 ALIGN:NG
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Diplomacy				RANK:2
-SKILL:Fly					RANK:2
-SKILL:Perception				RANK:2
-SKILL:Sense Motive			RANK:2
-SKILL:Stealth				RANK:2
-SKILL:Survival				RANK:2
+SKILL:Diplomacy		RANK:2
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Stealth		RANK:2
+SKILL:Survival		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Quasit			TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Quasit	TYPE:Companion	VISIBLE:NO
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Bluff					RANK:3
-SKILL:Fly					RANK:3
-SKILL:Intimidate				RANK:3
-SKILL:Knowledge (Planes)		RANK:3
-SKILL:Perception				RANK:3
-SKILL:Stealth				RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Intimidate			RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
