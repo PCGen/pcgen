@@ -67,7 +67,8 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Priest=4|Steamblast,Your Fire is Mine										
 SUBCLASS:Priest of Saluwe		COST:0	LANGAUTO:Ancient Altharin(Imperial)	PREDEITY:1,Saluwe
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Priest=2|Crushing Weight|Priest=3|Battle Spines																																																																							BONUS:VAR|RitualPoints|skillinfo("RANK", "Knowledge (Religion:Saluwe)")/5																																																			AUTO:WEAPONPROF|Spear
 SUBCLASSLEVEL:1																																																																																																																																																	AUTO:WEAPONPROF|Spear
-SUBCLASSLEVEL:3																																																																																		BONUS:VAR|WildEmpathy|CL	BONUS:VAR|WildEmpathyMagicalBeast						ABILITY:Special Ability|AUTOMATIC|Wild Empathy																													AUTO:FEAT|Track
+SUBCLASSLEVEL:3																																																																																		BONUS:VAR|WildEmpathy|CL	BONUS:VAR|WildEmpathyMagicalBeast|WildEmpathy-4						ABILITY:Special Ability|AUTOMATIC|Wild Empathy																													AUTO:FEAT|Track
+# COMMENT: Added VAR|WildEmpathyMagicalBeast|WildEmpathy-4
 SUBCLASSLEVEL:4																																																																																		BONUS:VAR|CompLevel|CL													ABILITY:Special Ability|NORMAL|Animal Companion|Arcanis Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 SUBCLASS:Priest of Sarish		COST:0	LANGAUTO:Ancient Altharin(Imperial)	PREDEITY:1,Sarish

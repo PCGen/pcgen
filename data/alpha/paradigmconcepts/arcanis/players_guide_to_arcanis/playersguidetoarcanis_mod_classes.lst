@@ -96,9 +96,9 @@ SUBCLASSLEVEL:1																														ABILITY:Special Ability|AUTOMATIC|A
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Glimpse of the Cauldron,Hold the Spirit|Cleric=9|Cry For Spirit's Release	BONUS:VAR|TurnLevelInCorpUndead|2	BONUS:VAR|TurnLevelCorpUndead|-2	ABILITY:Special Ability|VIRTUAL|Turn Corporeal Undead|Turn Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Corporeal Undead|Rebuke Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)
 
 ###Block: Cleric subclass
-SUBCLASS:Cadic	COST:0	PREDEITY:1,Cadic
+SUBCLASS:Cadic	COST:0	PREDEITY:1,Cadic	PROHIBITSPELL:DESCRIPTOR.Light	PROHIBITSPELL:SPELL.Searing Light,Sunbeam,Sunburst
 SUBCLASSLEVEL:1																																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																																			AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think	PROHIBITSPELL:DESCRIPTOR.Light	PROHIBITSPELL:SPELL.Searing Light,Sunbeam,Sunburst	BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE=Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think		BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE=Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
 SUBCLASSLEVEL:5																																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|Uncanny Dodge
 
 ###Block: Cleric subclass
@@ -107,9 +107,9 @@ SUBCLASSLEVEL:1																																			ABILITY:Special Ability|AUTOMA
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Skyward,Whirlwind of Blades|Cleric=3|Retribution|Cleric=4|His Blade Shall Not Harm Me,Shield Other (Improved)|Cleric=5|Retribution (Greater)|Cleric=7|Shield Other (Greater)												CSKILL:Survival	LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Longsword
 
 ###Block: Cleric subclass
-SUBCLASS:Illiir	COST:0	PREDEITY:1,Illiir
+SUBCLASS:Illiir	COST:0	PREDEITY:1,Illiir	PROHIBITSPELL:DESCRIPTOR.Darkness.Shadow
 SUBCLASSLEVEL:1																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																							AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification	PROHIBITSPELL:DESCRIPTOR.Darkness.Shadow	BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification		BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
 SUBCLASSLEVEL:5																																				ABILITY:Special Ability|NORMAL|Fearless
 
 ###Block: Cleric subclass
@@ -164,22 +164,22 @@ SUBCLASSLEVEL:3													BONUS:SKILL|Profession (Navigator),Survival,Swim|2		
 ###Block: Cleric subclass
 SUBCLASS:Beroe	COST:0	PREDEITY:1,Beroe
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Keleos	COST:0	PREDEITY:1,Keleos
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Marok	COST:0	PREDEITY:1,Marok
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Osalian	COST:0	PREDEITY:1,Osalian
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 
 
@@ -244,7 +244,7 @@ CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
 CLASS:Paladin.MOD	CSKILL:TYPE=Nobility|TYPE=Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
-SUBCLASSLEVEL:1								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
+SUBCLASSLEVEL:1								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
 SUBCLASSLEVEL:1								BONUS:VAR|WildEmpathy|CL										ABILITY:Special Ability|VIRTUAL|Wild Empathy							CSKILL:Knowledge (Nature)|Survival
 SUBCLASS:Paladin of Hurrian		COST:0	PREDEITY:1,Hurrian
@@ -273,7 +273,7 @@ SUBCLASSLEVEL:1																																				CSKILL:Survival														
 CLASS:Ranger.MOD	!PRECLASS:1,Urban Sentinel=1
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:TYPE=Dungeoneering|TYPE=Nature|TYPE=Geography|TYPE=Religion
-1											VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]|Exotic Weapon Proficiency(Flintlock (Rifle))
+1											ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency(Flintlock (Pistol))|[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]	VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))
 4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
 4	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 

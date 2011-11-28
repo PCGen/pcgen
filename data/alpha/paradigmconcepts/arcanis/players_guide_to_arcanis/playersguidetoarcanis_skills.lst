@@ -51,178 +51,178 @@ Craft (Writing)										KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft				
 Examine Martial Technique								KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom																	SOURCEPAGE: p.123
 
 # Knowledge (Arcana) Specialties				Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (Arcana:Magic)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Arcana													SOURCEPAGE:p.124
-Knowledge (Arcana:Prognostication)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Arcana													SOURCEPAGE:p.124
+Knowledge (Arcana/Magic)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Arcana													SOURCEPAGE:p.124
+Knowledge (Arcana/Prognostication)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Arcana													SOURCEPAGE:p.124
 
 # Knowledge (Architecture & Engineering) Specialties	Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (Architecture and Engineering:Architecture)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
-Knowledge (Architecture and Engineering:Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
+Knowledge (Architecture and Engineering/Architecture)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
+Knowledge (Architecture and Engineering/Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
 
 Knowledge (Art and Architecture)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge														SOURCEPAGE:p.124
-Knowledge (Dungeoneering:Speleology)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Dungeoneering												SOURCEPAGE:p.124
+Knowledge (Dungeoneering/Speleology)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Dungeoneering												SOURCEPAGE:p.124
 
 # Knowledge (Geography) Specialties				Product Identity	ey Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (Geography:Altheria)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Coryani Empire)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Dwarven Enclaves)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Elorii Nations)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Hinterlands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Milandir)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Pirate Islands)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Western Lands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
-Knowledge (Geography:Ymandragore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Altheria)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Coryani Empire)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Dwarven Enclaves)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Elorii Nations)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Hinterlands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Milandir)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Pirate Islands)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Western Lands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
+Knowledge (Geography/Ymandragore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Geography												SOURCEPAGE:p.124
 
-Knowledge (History:Ancient History)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Modern History)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Ancient History)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Modern History)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
-# Knowledge (History:Monster) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (History:Aberration)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Animal)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Construct)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elemental)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Giant)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Aquatic Humanoid)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Dark-Kin)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Goblinoid)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Gnoll)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Gnome)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Orc)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Reptilian)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Shapechanger)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Magical Beast)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Monstrous Humanoid)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Ooze)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Air)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Celestial/Good)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Chaotic)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Earth)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Fire)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Infernal/Evil)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Lawful)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Outsider(Water)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Plant)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Undead)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Vermin)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+# Knowledge (History/Monster) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
+Knowledge (History/Aberration)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Animal)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Construct)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elemental)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Giant)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Aquatic Humanoid)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Dark-Kin)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Goblinoid)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Gnoll)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Gnome)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Orc)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Reptilian)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Shapechanger)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Magical Beast)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Monstrous Humanoid)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Ooze)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Air)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Celestial/Good)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Chaotic)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Earth)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Fire)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Infernal/Evil)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Lawful)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Water)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Plant)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Undead)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Vermin)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
-# Knowledge (History:Elorii) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (History:Elorii:Marokene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elorii:Osalikene)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elorii:Kelekene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elorii:Berokene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elorii:Ardakene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+# Knowledge (History/Elorii) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
+Knowledge (History/Elorii/Marokene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elorii/Osalikene)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elorii/Kelekene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elorii/Berokene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elorii/Ardakene)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
-#Knowledge (History:<Country>) Specialties		Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (History:Altheria)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Coryani Empire)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Dwarven Enclave)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Elorii Nations)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Hinterlands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Milandir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Pirate Islands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Western Islands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Ymandragore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+#Knowledge (History/<Country>) Specialties		Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
+Knowledge (History/Altheria)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Coryani Empire)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Dwarven Enclave)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Elorii Nations)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Hinterlands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Milandir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Pirate Islands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Western Islands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Ymandragore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
-#Knowledge (History:<Race>)
-Knowledge (History:Elorii)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Human)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Dwarf)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Half Orc)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Half Hobgoblin)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+#Knowledge (History/<Race>)
+Knowledge (History/Elorii)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Human)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Dwarf)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Half Orc)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Half Hobgoblin)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
-# Knowledge (History:Val) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (History:Val)						NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Abebi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Assante)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Bausicz)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Borda)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Dellenov)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Emman)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Haupt)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Holryn)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Inares)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Ishi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Mehan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Mordane)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Ossan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Sheem)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Sosi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Sungha)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Tensen)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Trisin)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History:Val:Val'Virdan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+# Knowledge (History/Val) Specialties			Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
+Knowledge (History/Val)						NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Abebi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Assante)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Bausicz)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Borda)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Dellenov)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Emman)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Haupt)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Holryn)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Inares)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Ishi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Mehan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Mordane)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Ossan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Sheem)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Sosi)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Sungha)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Tensen)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Trisin)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Val/Val'Virdan)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 
 Knowledge (Harvesters)						NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Harvesters												SOURCEPAGE:p.124
 
 #Knowledge (Local) Specialties				Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (Local:Art)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Culture)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.125
-Knowledge (Local:Street Smarts)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:P.125
-Knowledge (Local:Altheria)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Chanci)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Coryani)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Khitani)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Milandir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Myrantia)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Western Lands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Art)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Culture)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.125
+Knowledge (Local/Street Smarts)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:P.125
+Knowledge (Local/Altheria)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Canceri)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Chanci)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Coryani)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Khitani)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Milandir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Myrantia)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Western Lands)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
 # per 2006-06-03 errata, league of princes added
-Knowledge (Local:League of Princes)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Pirate Isles)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Elorii)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Dwarves)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Gnomes)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Humans)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
-Knowledge (Local:Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/League of Princes)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Pirate Isles)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Elorii)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Dwarves)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Gnomes)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Humans)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
+Knowledge (Local/Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
 
 Knowledge (Nature:Diseases)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nature													SOURCEPAGE:p.125
 Knowledge (Nature:Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO
 
 #Knowledge (Nobility:<Country>) Specialties		Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
-Knowledge (Nobility and Royalty:Altheria)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Canceri)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Coryani Empire)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Dwarven Enclave)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Elorii Nations)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Hinterlands)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Milandir)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Pirate Islands)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Western Islands)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
-Knowledge (Nobility and Royalty:Ymandragore)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Altheria)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Canceri)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Coryani Empire)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Dwarven Enclave)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Elorii Nations)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Hinterlands)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Milandir)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Pirate Islands)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Western Islands)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
+Knowledge (Nobility and Royalty/Ymandragore)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
 
-Knowledge (The Planes:Cosmology)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Planes													SOURCEPAGE:p.125
-Knowledge (The Planes:Outsiders)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Planes													SOURCEPAGE:p.125
+Knowledge (The Planes/Cosmology)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Planes													SOURCEPAGE:p.125
+Knowledge (The Planes/Outsiders)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Planes													SOURCEPAGE:p.125
 
-Knowledge (Religion:Althares)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Anshar)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Belisarda)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Beltine)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Cadic)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Fire Drake)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Hurrian)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Illiir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Larissa)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Neroth)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Nier)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Saluwe)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Sarish)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Yarris)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Elemental Lords)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Tzizhet)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Althares)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Anshar)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Belisarda)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Beltine)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Cadic)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Fire Drake)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Hurrian)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Illiir)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Larissa)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Neroth)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Nier)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Saluwe)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Sarish)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Yarris)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Elemental Lords)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Tzizhet)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
 
 # Skill Name							Product Identity?	Key Stat	Untrained?		Type							Required Feat									Source Page
-Knowledge (Religion:Mother Church of Coryan)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Church of the Dark Triumvirate)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Belisarda & Four Elemental Lords)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Matriarchy of Fire Dragon)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Elemental Worship)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Infernal Cults)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Eloran Religion)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Thanatology)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
-Knowledge (Religion:Undead)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Mother Church of Coryan)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Church of the Dark Triumvirate)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Belisarda & Four Elemental Lords)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Matriarchy of Fire Dragon)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Elemental Worship)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Infernal Cults)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Eloran Religion)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Thanatology)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
+Knowledge (Religion/Undead)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion												SOURCEPAGE:p.125
 
 Knowledge (Science)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge														SOURCEPAGE:p.126
 Knowledge (Warfare & Tactics)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge														SOURCEPAGE:p.126

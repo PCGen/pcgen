@@ -16,7 +16,7 @@ Larissa		NAMEISPI:YES	DOMAINS:Charm,Divination,Fate,Holy,Luck,Protection,Senses|
 Neroth		NAMEISPI:YES	DOMAINS:Death,Destruction,Disease,Holy|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE				DESCISPI:YES	DESC:Lord of the Dead				SYMBOL:Ankh					DEITYWEAP:Scythe								ALIGN:TN					SOURCEPAGE:p.6
 Nier			NAMEISPI:YES	DOMAINS:Destruction,Fire,Holy,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE					DESCISPI:YES	DESC:Lord of Flaming Destruction		SYMBOL:Fire Opal				DEITYWEAP:Greatsword							ALIGN:TN					SOURCEPAGE:p.8
 Saluwe		NAMEISPI:YES	DOMAINS:Animal,Earth,Holy,Plant|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE					DESCISPI:YES	DESC:The Stern Matriarch			SYMBOL:Wreath of Mistletoe		DEITYWEAP:Shortspear							ALIGN:TN					SOURCEPAGE:p.6
-Sarish		NAMEISPI:YES	DOMAINS:Daemonology,Holy,Magic,Oath,Secrets|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE			DESCISPI:YES	DESC:The Oath Maker,Master of the Arcane	SYMBOL:Disc with Sigil of Sarish	DEITYWEAP:Dagger (Sarishan)						ALIGN:TN					SOURCEPAGE:p.9
+Sarish		NAMEISPI:YES	DOMAINS:Daemonology,Holy,Magic,Oath,Secrets|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE			DESCISPI:YES	DESC:The Oath Maker,Master of the Arcane	SYMBOL:Disc with Sigil of Sarish	DEITYWEAP:Dagger (Sarishan Steel)						ALIGN:TN					SOURCEPAGE:p.9
 Yarris		NAMEISPI:YES	DOMAINS:Holy,Protection,Sea,Water|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE					DESCISPI:YES	DESC:The Sea King					SYMBOL:Gilded Conch Shell		DEITYWEAP:Trident								ALIGN:TN					SOURCEPAGE:p.6
 
 #

@@ -84,3 +84,7 @@ Word of Law															CLASSES:Cleric=7												SCHOOL:Evocation						DESC
 Word of Purification																											SCHOOL:Evocation						DESCRIPTOR:Good|Sonic					TYPE:Divine			COMPS:V			CASTTIME:1 standard action	RANGE:80 ft.	ITEM:POTION	TARGETAREA:80-ft. radius burst centered on the caster.							DURATION:See Text								SAVEINFO:Fortitude and Reflex partial; see text			SPELLRES:Yes										DESC:See Text																											SOURCEPAGE:p.272
 Your Fire is Mine																												SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting				TYPE:Divine			COMPS:V, S, DF		CASTTIME:1 standard action	RANGE:Close		ITEM:POTION	TARGETAREA:One humanoid creature that is raging									DURATION:Instantaneous							SAVEINFO:Will negates							SPELLRES:Yes										DESC:You steal the target's rage, ending their rage immediately (and suffering fatigue, even if they normally do not).										SOURCEPAGE:p.273
 Your Time to Die																												SCHOOL:Necromancy														TYPE:Divine			COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Touch		ITEM:POTION	TARGETAREA:One dead creature												DURATION:Instantaneous							SAVEINFO:Will negates							SPELLRES:Yes										DESC:Expels the soul from a recently dead body.  if the save is made, the body may not be targeted by this spell again.										SOURCEPAGE:p.273
+
+# Missing Spells
+Speak with Animals.COPY=Speak with Animals (Baucisz)
+Summon Monster III.COPY=Summon Monster III (Baucisz)

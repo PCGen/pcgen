@@ -95,7 +95,7 @@ CLASS:Blackchanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	!PREALIGN:
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
-1			BONUS:ABILITYPOOL|Blackchanter Skill Focus
+1			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
 2																						ABILITY:Special Ability|VIRTUAL|Requiem
 3											ADD:FEAT|Skill Focus (TYPE=Nobility),Skill Focus (TYPE=Religion)
 4																						ABILITY:Special Ability|VIRTUAL|Elemental Savant (Positive Energy)
@@ -260,9 +260,9 @@ CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmith
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Hurrianic Aegis	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:HAegs		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.190	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Check Base		Required Deity		Required Domain			Required Feat							Required Skill												Req. Spell Type
-CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:1,Hurrian	PREDOMAIN:2,Refuge,Protection	PREFEAT:3,Diehard,Endurance,Domain Focus (Refuge)	PRESKILL:2,Concentration=6,Knowledge (Religion:Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
+CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:1,Hurrian	PREDOMAIN:2,Refuge,Protection	PREFEAT:3,Diehard,Endurance,Domain Focus (Refuge)	PRESKILL:2,Concentration=6,Knowledge (Religion/Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion:Hurrian)|TYPE=Nature|TYPE=Profession|Sense Motive|Spellcraft|Survival
+CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion/Hurrian)|TYPE=Nature|TYPE=Profession|Sense Motive|Spellcraft|Survival
 1:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=Deflection
 1													ABILITY:Special Ability|VIRTUAL|Hurrian's Shield					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Tower Shield Proficiency
 2:REPEATLEVEL:1							ADD:SPELLCASTER|Divine
@@ -282,7 +282,7 @@ CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus												Combat bonus
 CLASS:Larissan Dancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:LDncr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.192	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Feat										Multiple Requirements																		Required Skill
-CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Acrobatic,Agile	PREFEAT:1,Skill Focus (Perform (Dance))	PREMULT:1,[PREDEITY:1,Larissa],[PREMULT:3,[PREDEITY:1,Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion:Larissa)=1]]	PRESKILL:2,Bluff=6,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
+CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Acrobatic,Agile	PREFEAT:1,Skill Focus (Perform (Dance))	PREMULT:1,[PREDEITY:1,Larissa],[PREMULT:3,[PREDEITY:1,Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion/Larissa)=1]]	PRESKILL:2,Bluff=6,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diplomacy|Escape Artist|Gather Information|Hide|TYPE=Arcana|Knowledge (Art and Architecture)|TYPE=History|TYPE=Local|TYPE=Nobility|TYPE=Religion|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Tumble
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -743,7 +743,7 @@ SUBCLASSLEVEL:5						ABILITY:Special Ability|VIRTUAL|Flowing Sand Ability|Mighty
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus								Combat bonus
 CLASS:Blade of Hurrian	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BldHr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Class	Multiple Requirements																							Required Skill																					Required Subclass
-CLASS:Blade of Hurrian	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREMULT:1,[PREFEAT:2,Weapon Focus (Longsword),Martial Weapon Technique (Longsword)],[PREFEAT:2,Weapon Focus (Sword (Kio)),Martial Technique (Sword (Kio)]	PRESKILL:1,Balance=5	PRESKILL:1,Jump=6	PRESKILL:3,Knowledge (Religion:Hurrian)=4,Sense Motive=4,Spot=4	PRESKILL:1,TYPE.Perform=2	PRESUBCLASS:1,Order of the Blade
+CLASS:Blade of Hurrian	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREMULT:1,[PREFEAT:2,Weapon Focus (Longsword),Martial Weapon Technique (Longsword)],[PREFEAT:2,Weapon Focus (Sword (Kio)),Martial Technique (Sword (Kio)]	PRESKILL:1,Balance=5	PRESKILL:1,Jump=6	PRESKILL:3,Knowledge (Religion/Hurrian)=4,Sense Motive=4,Spot=4	PRESKILL:1,TYPE.Perform=2	PRESUBCLASS:1,Order of the Blade
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|Knowledge (Warfare & Tactics)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
@@ -767,9 +767,9 @@ CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=C
 # Class Name					Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Order of the Bronze Sepulcher Elite	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:OotBS		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name					Required AL		Req. Att.	Required Class	Required Feat					Required Skill																									Required Subclass
-CLASS:Order of the Bronze Sepulcher Elite	PREALIGN:LG,LN,LE	PREATT:7	PRECLASS:1,Monk=8	PREFEAT:3,Dodge,Mobility,Improved Grapple	PRESKILL:2,Concentration=5,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion:Neroth)=4,Knowledge (Religion:Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher
+CLASS:Order of the Bronze Sepulcher Elite	PREALIGN:LG,LN,LE	PREATT:7	PRECLASS:1,Monk=8	PREFEAT:3,Dodge,Mobility,Improved Grapple	PRESKILL:2,Concentration=5,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion/Neroth)=4,Knowledge (Religion/Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher
 # Class Name					Skill Pts/Lvl	Class Skill
-CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Heal|Hide|Jump|TYPE=Arcana|Knowledge (Religion:Neroth)|Knowledge (Religion:Tzizhet)|Listen|Move Silently|TYPE=Perform|Spot|Tumble
+CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Heal|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Neroth)|Knowledge (Religion/Tzizhet)|Listen|Move Silently|TYPE=Perform|Spot|Tumble
 ###Block: Monk stacking stuff
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|VIRTUAL|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|VIRTUAL|Monk Movement
@@ -789,9 +789,9 @@ CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|T
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus												Combat bonus
 CLASS:Elemental Path of Flame	HD:8		TYPE:PC.Prestige	ABB:EPoF		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat															Required Skill																	Required Subclass						Required Template
-CLASS:Elemental Path of Flame	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Improved Initiative,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PRESKILL:2,Balanc=5,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETEMPLATE:1,Kelekene
+CLASS:Elemental Path of Flame	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Improved Initiative,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PRESKILL:2,Balanc=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETEMPLATE:1,Kelekene
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|VIRTUAL|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|VIRTUAL|Monk Movement
@@ -807,9 +807,9 @@ CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Stone	HD:10		TYPE:PC.Prestige	ABB:EPoS		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat														Multiple Requirements						Required Skill																	Required Subclass
-CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Combat Expertise,Great Fortitude,Heightened Elorii Bloodline,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Marokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Combat Expertise,Great Fortitude,Heightened Elorii Bloodline,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Marokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|VIRTUAL|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|VIRTUAL|Monk Movement
@@ -826,9 +826,9 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Ability						Required AL		Req. Att.	Required Class	Required Feat											Multiple Requirements						Required Skill																	Required Subclass
-CLASS:Elemental Path of Water	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Dodge,Heightened Elorii Bloodline,Mobility,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Water	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Dodge,Heightened Elorii Bloodline,Mobility,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|VIRTUAL|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|VIRTUAL|Monk Movement
@@ -844,9 +844,9 @@ CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	ABB:EPWnd		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat														Multiple Requirements							Required Skill																	Required Subclass
-CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Combat Reflexes,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Osalikene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=8	PREFEAT:4,Combat Reflexes,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Osalikene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|VIRTUAL|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|VIRTUAL|Monk Movement
