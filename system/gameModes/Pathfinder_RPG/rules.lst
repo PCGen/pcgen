@@ -28,8 +28,8 @@ NAME:WeaponSizePenalty			VAR:SYS_35WP			DEFAULT:Yes					DESC:Apply 3.5 Size Cate
 NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS		DEFAULT:No					DESC:Display full text of Type Traits on output
 NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE		DEFAULT:Yes					DESC:Display conditional skill uses on output
 
-#NAME:HitPointDamage			VAR:DAMAGE_HP			DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
-#NAME:VitalityDamage			VAR:DAMAGE_VW			DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
+NAME:HitPointDamage			VAR:DAMAGE_HP			DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
+NAME:VitalityDamage			VAR:DAMAGE_VW			DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
 
 #
 # The following are all hardcoded in the java code
