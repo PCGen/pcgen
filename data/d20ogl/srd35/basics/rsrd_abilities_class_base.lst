@@ -401,8 +401,8 @@ Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AU
 Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
 Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Crossbow|TYPE=Dagger
-Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Crossbow|TYPE=Dagger
+Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
+Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
 #
 Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT	DESC:You understand how to use all types of martial weapons in combat.
 
