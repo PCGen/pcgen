@@ -178,8 +178,8 @@ Knowledge (Local/Gnomes)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Kn
 Knowledge (Local/Humans)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
 Knowledge (Local/Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
 
-Knowledge (Nature:Diseases)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nature													SOURCEPAGE:p.125
-Knowledge (Nature:Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO
+Knowledge (Nature/Diseases)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nature													SOURCEPAGE:p.125
+Knowledge (Nature/Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO
 
 #Knowledge (Nobility:<Country>) Specialties		Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
 Knowledge (Nobility and Royalty/Altheria)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125

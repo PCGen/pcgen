@@ -110,6 +110,7 @@ EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ammo_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_melee_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ranged_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_treasure_coinsgems.lst
 SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_armor_shields.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_art.lst
@@ -134,6 +135,7 @@ ABILITY:@/d20ogl/srd35/monsters/rsrd_abilities_mods.lst
 ABILITYCATEGORY:@/d20ogl/srd35/monsters/rsrd_ability_categories_monster.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
+EQUIPMENT:@/d20ogl/srd35/monsters/rsrd_equipment_racial.lst
 FEAT:@/d20ogl/srd35/monsters/rsrd_feats_mods.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__companions.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__vermin.lst
@@ -142,7 +144,7 @@ KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_extras.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_treasure.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_c_d.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_e_f.lst
-KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h.lst|(EXCLUDE:Gnome (Svirfneblin) Default)
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h_extras.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_i_j.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l.lst
@@ -176,6 +178,7 @@ RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
 RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates_monsters.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
+WEAPONPROF:@/d20ogl/srd35/monsters/rsrd_profs_racial.lst
 
 # RSRD Imports -  Psionics
 ABILITY:@/d20ogl/srd35/psionics/rsrd_abilities_psionic.lst

@@ -1,0 +1,9 @@
+Cannot fix below until SUBCLASS Allows PROHIBITSPELL.
+
+LSTERROR Data used token: DESCRIPTOR.Light which is a Class token, but it was used in a class level for a SubClass
+LSTERROR Illegal Token 'PROHIBITSPELL' 'DESCRIPTOR.Light' for pcgen.cdom.inst.PCClassLevel Priest of Cadic(1)
+LSTERROR Data used token: SPELL.Searing Light,Sunbeam,Sunburst which is a Class token, but it was used in a class level for a SubClass
+LSTERROR Illegal Token 'PROHIBITSPELL' 'SPELL.Searing Light,Sunbeam,Sunburst' for pcgen.cdom.inst.PCClassLevel Priest of Cadic(1)
+LSTERROR Data used token: DESCRIPTOR.Darkness.Shadow which is a Class token, but it was used in a class level for a SubClass
+LSTERROR Illegal Token 'PROHIBITSPELL' 'DESCRIPTOR.Darkness.Shadow' for pcgen.cdom.inst.PCClassLevel Priest of Illiir(1)
+All Done

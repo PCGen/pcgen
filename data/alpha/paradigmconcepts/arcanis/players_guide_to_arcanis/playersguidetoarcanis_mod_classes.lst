@@ -75,8 +75,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Cleric subclass
 SUBCLASS:Althares	COST:0	PREDEITY:1,Althares
 SUBCLASSLEVEL:1																											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Discern Value,Epiphany,Summon Tome																ABILITY:Racial Ability|VIRTUAL|Walk the Path of the Stars			CSKILL:.CLEAR.Survival	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))
-SUBCLASSLEVEL:5												BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge|Knowledge of the Ages
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Discern Value,Epiphany,Summon Tome																ABILITY:Special Ability|VIRTUAL|Walk the Path of the Stars			CSKILL:.CLEAR.Survival	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))
+SUBCLASSLEVEL:5												BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Knowledge of the Ages
 
 ###Block: Cleric subclass
 SUBCLASS:Anshar	COST:0	PREDEITY:1,Anshar
