@@ -273,7 +273,7 @@ SUBCLASSLEVEL:1																																				CSKILL:Survival														
 CLASS:Ranger.MOD	!PRECLASS:1,Urban Sentinel=1
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:TYPE=Dungeoneering|TYPE=Nature|TYPE=Geography|TYPE=Religion
-1											ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency(Flintlock (Pistol))|[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]	VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))
+1											ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency(Flintlock (Pistol))|PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]	VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))
 4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
 4	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 

@@ -5,6 +5,8 @@
 ABILITYCATEGORY:Special Ability			VISIBLE:NO		EDITABLE:YES									CATEGORY:Special Ability
 ABILITYCATEGORY:FEAT																			CATEGORY:FEAT
 
+ABILITYCATEGORY:Subject Specialization		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SubjectSpecialization	PLURAL:Subject Specializations	DISPLAYLOCATION:Class Abilities
+
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Dark-Kin Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Racial Ability		TYPE:DarkKinTrait			PLURAL:Dark-Kin Traits			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Val Bloodrank				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Racial Ability		TYPE:ValBloodRank			PLURAL:Val Bloodranks			DISPLAYLOCATION:Racial Abilities
