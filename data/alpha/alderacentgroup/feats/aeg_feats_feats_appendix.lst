@@ -3,7 +3,7 @@
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
 
 # Feat Name			Output Name					Type					Required Class		Required Race	Required Stat	Required Text				Description																																																	Stackable?	Multiple?	Choose		Combat bonus								Bonus to skill			Cost		Source Page
-Bonus Feat									TYPE:General																			DESC:Choose any one feat from Feats																																													STACK:NO	MULT:YES	CHOOSE:NOCHOICE																COST:0	SOURCEPAGE:pg.143
+Bonus Feat									TYPE:General																			DESC:Choose any one feat from Feats																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																COST:0	SOURCEPAGE:pg.143
 #CHOOSE:FEATADD|ALL don't know if that'd work...
 Cool										TYPE:General			PRECLASS:1,Rogue=1				PRESTAT:1,CHA=13							DESC:You are just that cool and everyone knows it																																																	BONUS:COMBAT|AC|1|TYPE=Circumstantial|PREEQUIP:1,Leather	BONUS:SKILL|TYPE.Charisma|1			SOURCEPAGE:pg.143
 Elven Blood (Keebler)	OUTPUTNAME:Elven Blood, Keebler	TYPE:Background.Bloodgift																	DESC:you gan a +4 racial bonus to all Craft (Baking) checks and Profession (Cook) checks to make sweet, delicious treats																																																						SOURCEPAGE:pg.143

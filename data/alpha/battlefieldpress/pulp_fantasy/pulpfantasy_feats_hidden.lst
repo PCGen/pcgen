@@ -186,7 +186,7 @@ Reputation (Public ID -20 / 3rd Secret ID +20)	TYPE:MoveReputationThree	VISIBLE:
 Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Diplomatic Immunity																												SOURCEPAGE:p.92
 Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Open Arms															BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2							SOURCEPAGE:p.93
 Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Information Access																												SOURCEPAGE:p.93
-Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Stipend x%|StipendCount				DEFINE:StipendCount|0	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|1		SOURCEPAGE:p.93
+Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Stipend x%|StipendCount				DEFINE:StipendCount|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|1		SOURCEPAGE:p.93
 Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Restricted Access														BONUS:SKILL|Gather Information,Research|5								SOURCEPAGE:p.93
 Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0														BONUS:VAR|SelectConsuls|Reputation	SOURCEPAGE:p.93
 
@@ -234,7 +234,7 @@ Explorer Lore	TYPE:ExplorerAbility	VISIBLE:NO				SAB:Explorer Lore														
 Resolve		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Resolve																																										SOURCEPAGE:p.106
 Skilled Searcher	TYPE:ExplorerAbility	VISIBLE:NO				SAB:Skilled Searcher (+%)|SkilledSearcherBonus															DEFINE:SkilledSearcherBonus|0								BONUS:VAR|SkilledSearcherBonus|var("CL=Explorer")/2	SOURCEPAGE:p.106
 Trap Sense		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Trap Sense (+%)|TrapSense																		DEFINE:TrapSense|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|TrapSense|1						SOURCEPAGE:p.106
-Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUNT[FEATNAME=Extra Step]"),1	SAB:Extra Step (Free)|PREVARGT:var("COUNT[FEATNAME=Extra Step]"),1								MULT:YES	CHOOSE:NOCHOICE										SOURCEPAGE:p.106
+Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUNT[FEATNAME=Extra Step]"),1	SAB:Extra Step (Free)|PREVARGT:var("COUNT[FEATNAME=Extra Step]"),1						STACK:YES	MULT:YES	CHOOSE:NOCHOICE										SOURCEPAGE:p.106
 Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities

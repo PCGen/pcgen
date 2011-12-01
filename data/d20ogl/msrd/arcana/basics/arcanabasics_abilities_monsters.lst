@@ -26,9 +26,9 @@ Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:DragonSpellL
 Telekinesis					KEY:Dragon Telekinesis				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
 
 ###Block: Vivilor swap table
-# Ability Name			Category of Ability		Type			Visible		Multiple?	Choose		Bonus to Ability Pool
-2 Vivilor Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
-1 Vivilor Type B Ability	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
+# Ability Name			Category of Ability		Type			Visible				Multiple?	Choose		Bonus to Ability Pool
+2 Vivilor Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
+1 Vivilor Type B Ability	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
 
 ###Block: Vivilor A
 # Ability Name			Unique Key						Category of Ability		Type		Visible		Restricted Ability										Special ABility					Move			Combat bonus					Add to base move			Stat bonus

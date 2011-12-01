@@ -143,6 +143,6 @@ CATEGORY=Special Ability|Improved Critical.MOD	TYPE:Special.Hunter.Operator
 Improvised Tools		CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES						SAB:Improvised Tools													SOURCEPAGE:p.116
 Uncanny Dodge III		CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES	PREFEAT:1,Uncanny Dodge II	SAB:Uncanny Dodge III													SOURCEPAGE:p.116
 Uncanny Dodge IV		CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES	PREFEAT:1,Uncanny Dodge III	SAB:Uncanny Dodge IV													SOURCEPAGE:p.116
-Relic Hunter Bonus Feat	CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES	PREFEAT:1,Uncanny Dodge IV					STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|TYPE=Relic_Hunter	SOURCEPAGE:p.116
+Relic Hunter Bonus Feat	CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES	PREFEAT:1,Uncanny Dodge IV					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|TYPE=Relic_Hunter	SOURCEPAGE:p.116
 Miraculous Escape		CATEGORY:Talent		TYPE:RelicHunterAbility	VISIBLE:YES						SAB:Miraculous Escape													SOURCEPAGE:p.116
 
