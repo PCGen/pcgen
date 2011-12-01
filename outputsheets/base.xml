@@ -641,16 +641,15 @@ Immune
 <!-- End Spirit Weapon - Ranged -->
 
 	<!-- Natural Attack -->
-|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.HASASPECT.NaturalAttackName:Y)|			
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
 	<naturalattack>	
 		<name>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackName|</name>
 		<tohit>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</tohit>
-		<damage>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage|</damage>
-		<damage_bonus>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.INTVAL.SIGN|</damage_bonus>
+		<damage>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|</damage>
 		<reach>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL|</reach>
 		<notes>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</notes>
 	</naturalattack>
-|ENDIF|
+|ENDFOR|
 
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
