@@ -13,14 +13,36 @@ Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 
 
 # COMMENT: This activates the OS and Displays on the PDF.
-Natural Attack ~ Shield Bash	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|Shield Bash		ASPECT:NaturalAttackToHit|%1|BAB+STR+ShieldBashAttackBonus			DEFINE:ShieldBashAttackBonus|0		ASPECT:NaturalAttackDamage|%1d%2|ShieldDamageDice|ShieldDamageSize		DEFINE:ShieldDamageDice|0			DEFINE:ShieldDamageSize|0			ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+Natural Attack ~ Shield Bash	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:ShieldBashingDieSizeStep|0	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|Shield Bash		ASPECT:NaturalAttackToHit|%1|BAB+STR+ShieldBashAttackBonus			DEFINE:ShieldBashAttackBonus|0		ASPECT:NaturalAttackDamage|%1d%2|ShieldDamageDice|ShieldDamageSize		DEFINE:ShieldDamageDice|0			DEFINE:ShieldDamageSize|0			ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
 
 # COMMENT: This Controls Damage of the Shield
-Shield Bash Stats	CATEGORY:Internal		BONUS:VAR|ShieldDamageDice|1|TYPE=Base
+Shield Bash Stats	CATEGORY:Internal		BONUS:VAR|ShieldDamageDice|1|TYPE=Base	BONUS:VAR|ShieldBashAttackBonus|-4|!PREFEAT:1,Shield Mastery
 
 # COMMENT: Size is Medium
-CATEGORY=Internal|Shield Bash Stats.MOD		BONUS:VAR|ShieldDamageSize|3|PREMULT:2,[PRESIZEEQ:M],[!PREEQUIP:1,TYPE=Shield.Spike]	BONUS:VAR|ShieldDamageSize|4|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Spike]
+CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|4|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Heavy]
 
-# COMMENT: Size Small Alterations
-CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldDamageSize|2|PREMULT:2,[PRESIZEEQ:S],[!PREEQUIP:1,TYPE=Shield.Spike]	BONUS:VAR|ShieldDamageSize|3|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Spike]
+# COMMENT: Size is Small 
+CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|2|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Heavy]
+
+	
+
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d1|PREVAREQ:ShieldBashingDieSizeStep,1
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d2|PREVAREQ:ShieldBashingDieSizeStep,2
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d3|PREVAREQ:ShieldBashingDieSizeStep,3
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d4|PREVAREQ:ShieldBashingDieSizeStep,4
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d6|PREVAREQ:ShieldBashingDieSizeStep,5
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d8|PREVAREQ:ShieldBashingDieSizeStep,6
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d10|PREVAREQ:ShieldBashingDieSizeStep,7
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d12|PREVAREQ:ShieldBashingDieSizeStep,8
+
+Shield Bash 1d1	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|1
+Shield Bash 1d2	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|2
+Shield Bash 1d3	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|3
+Shield Bash 1d4	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|4
+Shield Bash 1d6	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|6
+Shield Bash 1d8	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|8
+Shield Bash 1d10	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|10
+Shield Bash 1d12	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|12
+
+
 
