@@ -482,7 +482,7 @@ Grants All Hidden Abilities		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Defin
 #COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
 
 # Bardic Abilities for Non-Bard Use
-CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]		ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]	
+CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]		ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]	
 
 
 
