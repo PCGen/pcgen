@@ -14,7 +14,7 @@ Fate																																																		SOURCEPAGE:p.179						DESC
 Holy																																																		SOURCEPAGE:p.179						DESC:Cast all Holy domain spells at +1 caster level
 Honor																																																		SOURCEPAGE:p.180						DESC:Inspire allies 1/day: +2 morale bonus to saving throws vs fear, mind-affecting spells
 Music			CSKILL:Perform										SAB:Bardic Music %/day|BardicMusic			DEFINE:BardicMusic|0																			BONUS:VAR|BardicMusic|1		SOURCEPAGE:p.180						DESC:Perform is a Class Skill.  1/day use Bardic Music ability.  Cannot 'Silent' domain spells
-Oath			CSKILL:Sense Motive			FEAT:Skill Focus (Sense Motive)																																				SOURCEPAGE:p.180						DESC:Sense Motive is a Class Skill.  Free Skill Focus (Sense Motive) feat
+Oath			CSKILL:Sense Motive			AUTO:FEAT|Skill Focus (Sense Motive)																																				SOURCEPAGE:p.180						DESC:Sense Motive is a Class Skill.  Free Skill Focus (Sense Motive) feat
 Pain																																																		SOURCEPAGE:p.180						DESC:1/day Touch of Pain (Sp): Touch attack give -2 enhancement penalty to Strength, 1d6+CHA damage
 Saurian		CSKILL:Knowledge (Race-Ss'ressen)																																										SOURCEPAGE:p.180						DESC:Cast Animal Friendship 1/day (reptiles and snakes only).  Knowledge (Race-Ss'ressen) is a Class Skill
 Sea			CSKILL:Swim																																														SOURCEPAGE:p.180						DESC:Water Breathing as level+1.  Duration may be split.  Swim is a Class Skill
@@ -22,9 +22,9 @@ Secrets		CSKILL:Gather Information																																											SOU
 Senses																																																	SOURCEPAGE:p.181						DESC:1/day can heighten one sense for 1 round/2 levels
 Spirit																																																	SOURCEPAGE:p.181						DESC:Cast See Invisibility 1/day
 Storm															SAB:Electrical Resistance 5																															SOURCEPAGE:p.181						DESC:You gain Electrical Resistance 5
-Suffering								FEAT:Iron Will																																							SOURCEPAGE:p.181						DESC:Free Iron Will Feat
-Travel.MOD								FEAT:Walk the Path of the Stars																																				SOURCEPAGE:p.181			DESC:.CLEAR		DESC:Walk the Path of the Stars
-Flesh									FEAT:Toughness																																							SOURCEPAGE:Compendium p.33				DESC:Free Toughness Feat
+Suffering								AUTO:FEAT|Iron Will																																							SOURCEPAGE:p.181						DESC:Free Iron Will Feat
+Travel.MOD								AUTO:FEAT|Walk the Path of the Stars																																				SOURCEPAGE:p.181			DESC:.CLEAR		DESC:Walk the Path of the Stars
+Flesh									AUTO:FEAT|Toughness																																							SOURCEPAGE:Compendium p.33				DESC:Free Toughness Feat
 
 #
 # End

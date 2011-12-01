@@ -3,7 +3,7 @@ SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.co
 
 ###Block: arcane battle mastery
 # Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Feat
-Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	FEAT:Arcane Battle Mastery
+Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	AUTO:FEAT|Arcane Battle Mastery
 
 ###Block: ironborn
 # Template Name	Visible	Template																																																																							Special ABility					Combat bonus				Bonus to skill

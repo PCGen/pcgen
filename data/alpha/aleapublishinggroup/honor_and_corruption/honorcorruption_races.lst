@@ -4,7 +4,7 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 
 
 # Race Name	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Required AL		Automatic Languages		Bonus Languages	Stat bonus								Modify VAR			Virtual Feat						Feat			Ability							Special ABility								Damage Reduction	Main Race Type	Race Subtype	Type			Challenge Rating	Source Page
-Honorborn	FAVCLASS:Paladin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	KIT:1|LG|LN|LE	LANGAUTO:Common,Celestial	LANGBONUS:ALL	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2																FEAT:Honorable									SAB:+2 racial bonus on saving throws against fear effects.	DR:5/honorable	RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.18
+Honorborn	FAVCLASS:Paladin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	KIT:1|LG|LN|LE	LANGAUTO:Common,Celestial	LANGBONUS:ALL	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2																AUTO:FEAT|Honorable									SAB:+2 racial bonus on saving throws against fear effects.	DR:5/honorable	RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.18
 ### COMMENT: No mechanism for SUBSCLASS Favoring exists
 ### Honorbound get a 10% penalty when taking Subclass Knight, instead of 20%
 ### Proposal Tag: FAVSUBSCLASS:Knight

@@ -135,7 +135,7 @@ Pickpockets' Alliance - Rank 5							VISIBLE:YES	SOURCEPAGE:p.164														P
 # zzz possible to add bonus??
 
 Rodrik's Band - Rank 1 - Recruit							VISIBLE:YES	SOURCEPAGE:p.165																																			PRESKILL:1,Use Rope=1										!PRESKILL:1,Swim=1																																										REMOVABLE:YES
-Rodrik's Band - Rank 2 - Swab								VISIBLE:YES	SOURCEPAGE:p.165																																			PRESKILL:2,Climb=1,Use Rope=3													PRETEMPLATE:1,Rodrik's Band - Rank 1 - Recruit																ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	FEAT:Martial Weapon Proficiency	REMOVABLE:YES
+Rodrik's Band - Rank 2 - Swab								VISIBLE:YES	SOURCEPAGE:p.165																																			PRESKILL:2,Climb=1,Use Rope=3													PRETEMPLATE:1,Rodrik's Band - Rank 1 - Recruit																ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							REMOVABLE:YES
 Rodrik's Band - Rank 3 - Crewman							VISIBLE:YES	SOURCEPAGE:p.165																																			PRESKILL:2,Climb=3,Use Rope=5													PRETEMPLATE:1,Rodrik's Band - Rank 2 - Swab																																		REMOVABLE:YES
 Rodrik's Band - Rank 4 - First Mate							VISIBLE:YES	SOURCEPAGE:p.165											PRELEVEL:MIN=7																						PRESKILL:3,Climb=5,Intimidate=5,Use Rope=7										PRETEMPLATE:1,Rodrik's Band - Rank 3 - Crewman																																		REMOVABLE:YES
 Rodrik's Band - Rank 5 - Captain							VISIBLE:YES	SOURCEPAGE:p.165											PRELEVEL:MIN=7																						PRESKILL:3,Climb=5,Intimidate=5,Use Rope=7										PRETEMPLATE:1,Rodrik's Band - Rank 4 - First Mate																																	REMOVABLE:YES
