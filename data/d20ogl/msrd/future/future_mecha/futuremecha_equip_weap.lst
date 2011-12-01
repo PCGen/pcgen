@@ -62,7 +62,7 @@ RP-91 Reaper Laser Scythe - Large Mecha		PROFICIENCY:WEAPON|RP-91 Reaper Laser S
 RP-91 Reaper Laser Scythe - Huge Mecha		PROFICIENCY:WEAPON|RP-91 Reaper Laser Scythe	TYPE:Weapon.Melee.Standard.Mecha.Slashing.Fire.PL8		COST:26	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		EQMOD:MWORKW|+1	SIZE:G	SOURCEPAGE:FutureMecha.rtf	SPROP:Half of the damage is slashing damage, and the other half is fire damage
 RP-91 Reaper Laser Scythe - Gargantuan Mecha	PROFICIENCY:WEAPON|RP-91 Reaper Laser Scythe	TYPE:Weapon.Melee.Standard.Mecha.Slashing.Fire.PL8		COST:27	CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		EQMOD:MWORKW|+1	SIZE:C	SOURCEPAGE:FutureMecha.rtf	SPROP:Half of the damage is slashing damage, and the other half is fire damage
 RP-91 Reaper Laser Scythe - Colossal Mecha	PROFICIENCY:WEAPON|RP-91 Reaper Laser Scythe	TYPE:Weapon.Melee.Standard.Mecha.Slashing.Fire.PL8		COST:30	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	EQMOD:MWORKW|+1	SIZE:C	SOURCEPAGE:FutureMecha.rtf	SPROP:Half of the damage is slashing damage, and the other half is fire damage
-#using "xxx - <size> Mecha" because AUTO:EQUIP wouldn't accept parentheses
+#COMMENT: using "xxx - <size> Mecha" because AUTO:EQUIP wouldn't accept parentheses
 
 ###Block: Mecha Ammo
 # Equipment Name							Type							Cost		Weight	Source Page

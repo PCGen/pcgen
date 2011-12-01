@@ -90,7 +90,7 @@ HUD Software (Sensor Link)	KEY:HUD_SFTWR_SNSR_LNK		TYPE:Goods	COST:1	VISIBLE:QUA
 HUD Software (Targetting)	KEY:HUD_SFTWR_TRGT		TYPE:Goods	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:targeting software links directly to a ranged weapon's video scope, if one is used
 HUD Software (Vehicle Link)	KEY:HUD_SFTWR_VHCL_LNK		TYPE:Goods	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:vehicle link allows the onboard computer system of any vehicle to be displayed on the HUD
 Self-Repairing Gadget		KEY:SLF_RPRNG_GDGT_EQM		TYPE:Goods	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL6	SPROP:repairs one point of damage per minute to the equipment
-#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+#COMMENT: needed for Unisoldier Heavy Combat Armor, which incl. a HUD
 HUD Software (Sensor Link)	KEY:HUD_SFTWR_SNSR_LNK_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:sensor link allows the user to directly link any computer sensor to the HUD
 HUD Software (Targetting)	KEY:HUD_SFTWR_TRGT_AMR		TYPE:Armor	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:targeting software links directly to a ranged weapon's video scope, if one is used
 HUD Software (Vehicle Link)	KEY:HUD_SFTWR_VHCL_LNK_AMR	TYPE:Armor	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:vehicle link allows the onboard computer system of any vehicle to be displayed on the HUD
@@ -107,7 +107,7 @@ Chameleonic Surface Gadget	KEY:CHMLNC_SRFC_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIF
 # Modifier Name				Unique Key				Type		Cost		Visible		Source Page					Required Type		Special Property
 HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK		TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD		SPROP:ammunition Tracker is able to keep track of exactly how many shots have been expended from a particular weapon with an integrated computer
 Sound Suppressor Gadget			KEY:SND_SPPRSSR_GDGT_EQP	TYPE:Goods	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL7,PL8,PL9	SPROP:sound suppressor adds +10 to the DC of Listen checks made to hear the weapon firing
-#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+#COMMENT: needed for Unisoldier Heavy Combat Armor, which incl. a HUD
 HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD		SPROP:ammunition Tracker is able to keep track of exactly how many shots have been expended from a particular weapon with an integrated computer
 
 ###Block:Energy Age Weapon Gadgets
@@ -123,5 +123,5 @@ Neg-grav Boosters Gadget	KEY:NEG_GRV_BOOST_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIF
 ###Block:Energy Age Equipment Gadgets
 # Modifier Name			Unique Key				Type		Cost		Visible		Source Page					Required Type	Special Property
 HUD Software (Biosensor)	KEY:HUD_SFTWR_BIOSNSR		TYPE:Goods	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:identify exactly how many hit points a target has left
-#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+#COMMENT: needed for Unisoldier Heavy Combat Armor, which incl. a HUD
 HUD Software (Biosensor)	KEY:HUD_SFTWR_BIOSNSR_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:identify exactly how many hit points a target has left

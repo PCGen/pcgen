@@ -136,4 +136,3 @@ Detonator (Timed)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Cons
 Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Holster (Concealed carry)	OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-# Original Entry by: Phantom of Krankor

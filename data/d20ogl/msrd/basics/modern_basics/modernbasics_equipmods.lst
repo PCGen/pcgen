@@ -59,16 +59,12 @@ Double Tap fire		KEY:DBLTAP								TYPE:Semiauto														VISIBLE:QUALIFY			
 
 Upgrade			KEY:UPGRADE								TYPE:Desktop.Notebook											COST:1	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																						BONUS:ITEMCOST|TYPE.Notebook|1																SPROP:Applies EXTRA +1 Bonus beyond normal.
 Illuminator			KEY:ILLUMINATOR							TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Illuminator Purchase DC 7
-#Illuminator						KEY:ILLUMINATOR			TYPE:Firearm		COST:7		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Laser Sight			KEY:LSR_SIGHT							TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Laser Sight Purchase DC 15
-#Laser Sight						KEY:LSR_SIGHT			TYPE:Firearm		COST:15		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Scope (Standard)		KEY:SCP_STD		NAMEOPT:TEXT=Standard Scope		TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Standard Scope Purchase DC 11
-#Scope (Standard)		NAMEOPT:TEXT=[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Scope (Electro-optical)	KEY:SCP_ELE_OP	NAMEOPT:TEXT=Electro-optical Scope	TYPE:Firearm												COST:18	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|3
 Speed Loader		KEY:SPEED_LD							TYPE:Firearm												COST:3	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5
 Suppressor (Pistol)	KEY:SPPRSS_PIS	NAMEOPT:TEXT=Suppressor			TYPE:Pistol													COST:12	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|1																							SPROP:Mil(+3)
 Suppressor (Rifle)	KEY:SPPRSS_RFL	NAMEOPT:TEXT=Suppressor			TYPE:Longarm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|4																							SPROP:Suppressor Purchase DC 14,Mil(+3)
-#Suppressor (Rifle)	NAMEOPT:TEXT=Suppressor	KEY:SPPRSS_RFL			TYPE:Longarm		COST:14		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf			!PRETYPE:1,SpecialSuppressor						BONUS:EQM|WEIGHTADD|4																															SPROP:Mil(+3)
 
 ###Block: Vehicle STATS (Workaround for SPROP not taking variables in EQUIPMENT), the KEY starts with AA so it comes first in SPROP output
 # Modifier Name	Unique Key		Naming Option	Special Property
