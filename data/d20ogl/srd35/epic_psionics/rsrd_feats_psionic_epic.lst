@@ -53,9 +53,6 @@ Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	DEFINE:PsiFocusCount|1				
 Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO	DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|1	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf
 ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	DEFINE:ImpMetapsiCount|0	DEFINE:ImpMetapsiBonus|0						BONUS:VAR|ImpMetapsiCount|1	BONUS:VAR|ImpMetapsiBonus|2																SOURCEPAGE:EpicFeats.rtf
 
-###Block: Feat Descriptions
-# Feat Name					Description
-
 ###Block: Cerebremancer Epic Bonus Feat Pool MODs
 # Feat Name					Type
 Automatic Quicken Power.MOD		TYPE:EpicCerebremancer

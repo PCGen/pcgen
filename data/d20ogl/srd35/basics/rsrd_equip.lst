@@ -7,16 +7,11 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # New 5.14 'QUALITY:Bright Illumination|x ft.' and 'QUALITY:Shadowy Illumination|x ft.' and 'QUALITY:Duration|x' for light sources. -AM
 
 ###Block:Alchemical Stuff and Liquids
-#Acid					TYPE:Goods.Alchemical.Liquid	COST:9.97	WT:1.00		SOURCEPAGE:Equipment.rtf
 # Equipment Name			Type								Cost		Weight	Source Page				Quality and value
 Acid (Flask)			TYPE:Goods.Alchemical.Flask.Consumable		COST:10	WT:1.00	SOURCEPAGE:Equipment.rtf
-#Alchemist's Fire			TYPE:Goods.Alchemical.Liquid	COST:19.97	WT:1.00		SOURCEPAGE:Equipment.rtf
 Alchemist's Fire (Flask)	TYPE:Goods.Alchemical.Flask.Consumable		COST:20	WT:1.00	SOURCEPAGE:Equipment.rtf
-#Antitoxin				TYPE:Goods.Liquid.Poison	COST:48.97	WT:.0625	SOURCEPAGE:Equipment.rtf
-#Antitoxin (Flask)			TYPE:Goods.Liquid.Poison.Vial	COST:49		WT:.0625	SOURCEPAGE:Equipment.rtf
 Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable		COST:50	WT:0		SOURCEPAGE:Equipment.rtf
 Everburning Torch			TYPE:Goods.Magic.LightSource				COST:110	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
-#Holy Water				TYPE:Goods.Liquid		COST:24.97	WT:1.00		SOURCEPAGE:Equipment.rtf
 Holy Water (Flask)		TYPE:Goods.Flask.Consumable				COST:25	WT:1		SOURCEPAGE:Equipment.rtf
 Smokestick				TYPE:Goods.Alchemical.Consumable			COST:20	WT:0.5	SOURCEPAGE:Equipment.rtf
 Sunrod				TYPE:Goods.Alchemical.Consumable.LightSource	COST:2	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr.
@@ -55,7 +50,6 @@ Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable			COST:0.1			SOURCEPAGE:Equipment
 Meat (Chunk)		TYPE:Goods.Food.Consumable			COST:0.3	WT:0.5	SOURCEPAGE:Equipment.rtf
 Wine (Common/Pitcher)	TYPE:Goods.Food					COST:0.2	WT:6		SOURCEPAGE:Equipment.rtf
 Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:Equipment.rtf
-#Wine (Fine)		TYPE:Goods.Liquid.Food.Resizable	COST:8	WT:1.5	SOURCEPAGE:Equipment.rtf
 Water (Pint)		TYPE:Goods.Liquid.Food.Resizable		COST:0	WT:1.00	SOURCEPAGE:Equipment.rtf
 
 ###Block:Goods
