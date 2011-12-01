@@ -95,6 +95,15 @@ Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft																						
 # Template Name		Visible	Source Page				Add 					Ability
 Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
 
+###Block: More Temp Mods
+
+# The only problem with Bardic Abilities are they are level dependent
+Bardic Inspire Courage ~ Is the Bard	VISIBLE:NO		BONUS:CHECKS|ALL|InspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:PC
+Bardic Inspire Competence ~ Is The Bard	VISIBLE:NO		BONUS:SKILL|TYPE.Standard|InspireCompetenceBonus
+
+# This is for Non-Bards traveling with Bards - They need to select the Bard's Level.
+Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO	BONUS:VAR|EnableBardicInspireCourage|1|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC
+Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO	BONUS:VAR|EnableBardicInspireCompetence|1|PREAPPLY:ANYPC
 #
 # End
 #

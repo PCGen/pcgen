@@ -13,79 +13,79 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
 
-# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Type					Visible		Source Page						Choose			Bonus to skill																																				Modify VAR										Temporary effect description
-Appraise						KEYSTAT:INT								TYPE:Intelligence						SOURCEPAGE:SkillsI.rtf
-Balance						KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsI.rtf
-Bluff							KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
-Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial
-Concentration					KEYSTAT:CON								TYPE:Constitution						SOURCEPAGE:SkillsI.rtf
-Control Shape					KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom							SOURCEPAGE:MonstersK-L.rtf
-Craft (Alchemy)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf
-Craft (Armorsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Armorsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ArmorsmithingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Bowmaking)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Bowmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BowmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Blacksmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersS.rtf							BONUS:SKILL|Craft (Blacksmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BlacksmithingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Carpentry)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersS.rtf							BONUS:SKILL|Craft (Carpentry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CarpentryTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Leatherworking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Leatherworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LeatherworkingTools|PREAPPLY:PC																																TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Painting)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MagicItemsV.rtf							BONUS:SKILL|Craft (Painting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PaintingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Pottery)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Pottery)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PotteryTools|PREAPPLY:PC																																			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Sculpting)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Sculpting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=SculptingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Shipmaking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MagicItemsV.rtf							BONUS:SKILL|Craft (Shipmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ShipmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Stonemasonry)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:MonstersDr-Dw.rtf							BONUS:SKILL|Craft (Stonemasonry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=StonemasonryTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Trapmaking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Weaponsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools|PREAPPLY:PC																																TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Woodworking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Woodworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WoodworkingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Untrained)					KEYSTAT:INT	USEUNTRAINED:YES					TYPE:Intelligence.Craft		VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
-Decipher Script					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						SOURCEPAGE:SkillsI.rtf
-Diplomacy						KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:SkillsI.rtf
-Disable Device					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Disable Device|-2|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																																						TEMPDESC:Without tools, you must improvise, and you take a -2 circumstance penalty
-Disguise						KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:SkillsI.rtf
-Escape Artist					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsI.rtf
-Forgery						KEYSTAT:INT								TYPE:Intelligence						SOURCEPAGE:SkillsI.rtf
-Gather Information				KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:SkillsI.rtf
-Handle Animal					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
-Heal							KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:SkillsII.rtf
-Hide							KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf
-Intimidate						KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:SkillsII.rtf
+# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Type							Visible		Source Page						Choose			Bonus to skill																																				Modify VAR										Temporary effect description
+Appraise						KEYSTAT:INT								TYPE:Intelligence.Standard						SOURCEPAGE:SkillsI.rtf
+Balance						KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsI.rtf
+Bluff							KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
+Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength.Standard							SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial
+Concentration					KEYSTAT:CON								TYPE:Constitution.Standard						SOURCEPAGE:SkillsI.rtf
+Control Shape					KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Standard							SOURCEPAGE:MonstersK-L.rtf
+Craft (Alchemy)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf
+Craft (Armorsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Armorsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ArmorsmithingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Bowmaking)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Bowmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BowmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Blacksmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersS.rtf							BONUS:SKILL|Craft (Blacksmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BlacksmithingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Carpentry)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersS.rtf							BONUS:SKILL|Craft (Carpentry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CarpentryTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Leatherworking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Leatherworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LeatherworkingTools|PREAPPLY:PC																																TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Painting)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MagicItemsV.rtf							BONUS:SKILL|Craft (Painting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PaintingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Pottery)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Pottery)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PotteryTools|PREAPPLY:PC																																			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Sculpting)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersG.rtf							BONUS:SKILL|Craft (Sculpting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=SculptingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Shipmaking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MagicItemsV.rtf							BONUS:SKILL|Craft (Shipmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ShipmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Stonemasonry)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:MonstersDr-Dw.rtf							BONUS:SKILL|Craft (Stonemasonry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=StonemasonryTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Trapmaking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools|PREAPPLY:PC																																		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Weaponsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools|PREAPPLY:PC																																TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Woodworking)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Craft (Woodworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WoodworkingTools|PREAPPLY:PC																																	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Untrained)					KEYSTAT:INT	USEUNTRAINED:YES					TYPE:Intelligence.Craft.Standard		VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
+Decipher Script					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:SkillsI.rtf
+Diplomacy						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:SkillsI.rtf
+Disable Device					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Disable Device|-2|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																																						TEMPDESC:Without tools, you must improvise, and you take a -2 circumstance penalty
+Disguise						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:SkillsI.rtf
+Escape Artist					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsI.rtf
+Forgery						KEYSTAT:INT								TYPE:Intelligence.Standard						SOURCEPAGE:SkillsI.rtf
+Gather Information				KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:SkillsI.rtf
+Handle Animal					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Standard							SOURCEPAGE:SkillsI.rtf								BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
+Heal							KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf
+Hide							KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
+Intimidate						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:SkillsII.rtf
 # There is an issue with Monk movement bonus and the Jump/speed synergy
-Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
-Knowledge (Arcana)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK
-Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf
-Knowledge (Dungeoneering)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf
-Knowledge (Geography)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf
-Knowledge (History)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|BardicKnowledge|2|PRESKILL:1,Knowledge (History)=5
-Knowledge (Local)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Gather Information|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK
-Knowledge (Nature)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf
-Knowledge (Nobility and Royalty)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Knowledge (Nobility and Royalty)=5|TYPE=Synergy.STACK
-Knowledge (Religion)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
-Knowledge (The Planes)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:SkillsII.rtf
-Listen						KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:SkillsII.rtf
-Literacy								USEUNTRAINED:NO					TYPE:None.Language					SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1
-Move Silently					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf
-Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																																				TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
-Perform (Act)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Comedy)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Dance)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Keyboard Instruments)		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Oratory)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Percussion Instruments)		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (String Instruments)			KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Wind Instruments)			KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Perform (Sing)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:SkillsII.rtf
-Profession (Hunter)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession					SOURCEPAGE:MonstersS.rtf
-Profession (Miner)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession					SOURCEPAGE:MonstersK-L.rtf
-Profession (Siege Engineer)			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession					SOURCEPAGE:WildernessandEnvironment.rtf
-Ride							KEYSTAT:DEX								TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle|PREAPPLY:ANYPC																																					TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
-Search						KEYSTAT:INT								TYPE:Intelligence						SOURCEPAGE:SkillsII.rtf
-Sense Motive					KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
-Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf
-Speak Language							USEUNTRAINED:NO					TYPE:None.Language					SOURCEPAGE:SkillsII.rtf				CHOOSE:LANGUAGE|Spoken
-Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						SOURCEPAGE:SkillsII.rtf
-Spot							KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:SkillsII.rtf
-Survival						KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
-Swim							KEYSTAT:STR				ACHECK:DOUBLE		TYPE:Strength						SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
-Tumble						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Balance,Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
-Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						SOURCEPAGE:SkillsII.rtf
-Use Rope						KEYSTAT:DEX								TYPE:Dexterity						SOURCEPAGE:SkillsII.rtf
+Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
+Knowledge (Arcana)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK
+Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf
+Knowledge (Dungeoneering)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf
+Knowledge (Geography)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf
+Knowledge (History)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|BardicKnowledge|2|PRESKILL:1,Knowledge (History)=5
+Knowledge (Local)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Gather Information|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK
+Knowledge (Nature)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf
+Knowledge (Nobility and Royalty)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Knowledge (Nobility and Royalty)=5|TYPE=Synergy.STACK
+Knowledge (Religion)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
+Knowledge (The Planes)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:SkillsII.rtf
+Listen						KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf
+Literacy								USEUNTRAINED:NO					TYPE:None.Language							SOURCEPAGE:SkillsII.rtf																																														BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1
+Move Silently					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
+Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																																				TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
+Perform (Act)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Comedy)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Dance)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Keyboard Instruments)		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Oratory)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Percussion Instruments)		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (String Instruments)			KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Wind Instruments)			KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Perform (Sing)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:SkillsII.rtf
+Profession (Hunter)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession.Standard					SOURCEPAGE:MonstersS.rtf
+Profession (Miner)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession.Standard					SOURCEPAGE:MonstersK-L.rtf
+Profession (Siege Engineer)			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession.Standard					SOURCEPAGE:WildernessandEnvironment.rtf
+Ride							KEYSTAT:DEX								TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle|PREAPPLY:ANYPC																																					TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
+Search						KEYSTAT:INT								TYPE:Intelligence.Standard						SOURCEPAGE:SkillsII.rtf
+Sense Motive					KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
+Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
+Speak Language							USEUNTRAINED:NO					TYPE:None.Language							SOURCEPAGE:SkillsII.rtf				CHOOSE:LANGUAGE|Spoken
+Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:SkillsII.rtf
+Spot							KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf
+Survival						KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
+Swim							KEYSTAT:STR				ACHECK:DOUBLE		TYPE:Strength.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
+Tumble						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Balance,Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
+Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Standard							SOURCEPAGE:SkillsII.rtf
+Use Rope						KEYSTAT:DEX								TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
 
 #
 # End
