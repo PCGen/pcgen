@@ -2,7 +2,7 @@
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Template Name	Hit Dice Size	Challenge Rating	Damage Reduction	Template		Source Page		Special ABility												Define			Required AL	Combat bonus						Stat bonus					Feat
-Greater Mummy	HITDIE:12		CR:3			DR:10/+2		TEMPLATE:Undead	SOURCEPAGE:p.137	SAB:Deaspair	SAB:Resitant to Blows	SAB:Fire Vulnerability	SAB:Mummy Rot	DEFINE:LOCK.CON|10	PREALIGN:NG	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-4	FEAT:Alertness
+Greater Mummy	HITDIE:12		CR:3			DR:10/+2		TEMPLATE:Undead	SOURCEPAGE:p.137	SAB:Deaspair	SAB:Resitant to Blows	SAB:Fire Vulnerability	SAB:Mummy Rot	DEFINE:LOCK.CON|10	PREALIGN:NG	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-4	AUTO:FEAT|Alertness
 
 ###Block: Ritual Casting work around templates
 # Template Name				Visible		Prohibited Template						Class Skill			Cross-Class Skill

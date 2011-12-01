@@ -43,12 +43,12 @@ Mount Trait (Wild Streak)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.10
 Mount Trait (Skittish)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10							BONUS:COMBAT|TOHIT.Hoof,DAMAGE.Hoof|-1
 Mount Trait (Coltish)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10							BONUS:COMBAT|TOHIT.Hoof,DAMAGE.Hoof|-1						BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|4
 Mount Trait (Gelding)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10	SAB:+2 on Ride and Handle Animal	BONUS:COMBAT|INITIATIVE|-1
-Mount Trait (Workhorse)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																																FEAT:Endurance
+Mount Trait (Workhorse)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																																AUTO:FEAT|Endurance
 Mount Trait (Tough as Nails)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 1|Increase Dragon By 1|Increase Magical Beast By 1	SOURCEPAGE:p.10
 Mount Trait (Mixed Breed)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																			BONUS:MOVEADD|TYPE.Walk|10					BONUS:STAT|STR,DEX|1
 Mount Trait (Nimble)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|DEX|2
 Mount Trait (Strong)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|STR|2
-Mount Trait (Lightning Quick)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																																FEAT:Improved Initiative
+Mount Trait (Lightning Quick)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																																AUTO:FEAT|Improved Initiative
 Mount Trait (Blazing Fast)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																			BONUS:MOVEADD|TYPE.Walk|10
 Mount Trait (Pure Breed)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																			BONUS:MOVEADD|TYPE.Walk|10					BONUS:STAT|STR,DEX|2
 

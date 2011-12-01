@@ -46,7 +46,7 @@ Robot			VISIBLE:YES	SAB:Does not eat, drink, breathe, or sleep	SAB:Does not heal
 
 ###Block: Vehicle
 # Template Name	Visible	Define																						Feat			Automatically Gained Weapon Prof.
-Vehicle		VISIBLE:YES	DEFINE:LOCK.STR|10	DEFINE:LOCK.DEX|1	DEFINE:LOCK.CON|10	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|10	FEAT:Ship_Guns	AUTO:WEAPONPROF|TYPE=ShipWeapon
+Vehicle		VISIBLE:YES	DEFINE:LOCK.STR|10	DEFINE:LOCK.DEX|1	DEFINE:LOCK.CON|10	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|10	AUTO:FEAT|Ship_Guns	AUTO:WEAPONPROF|TYPE=ShipWeapon
 
 ###Block: Dragonblood feat support
 # Template Name			Visible	Favored Class

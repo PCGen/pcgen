@@ -10,7 +10,7 @@ Hollow Husk (Water Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with water	SAB
 ###Block: Wing Jockey Mount support
 
 # Template Name	Source Page		Feat
-Wing Jockey Mount	SOURCEPAGE:p.20	FEAT:Wing Jockey (Mounted Defense)|Wing Jockey (Riding Style/Mount)|Wing Jockey (Riding Style Mastery/Mount)
+Wing Jockey Mount	SOURCEPAGE:p.20	AUTO:FEAT|Wing Jockey (Mounted Defense)|Wing Jockey (Riding Style/Mount)|Wing Jockey (Riding Style Mastery/Mount)
 
 
 #

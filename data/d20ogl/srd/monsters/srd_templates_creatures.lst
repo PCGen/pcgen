@@ -63,5 +63,5 @@ Sahuagin Female	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:1,Sahuagin	FAVORE
 
 ###Block: Goblin Calvary
 # Template Name	Visible	Source Page				Required Race	Bonus to skill		Feat				Removable?		Subrace
-Goblin Cavalry	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	PRERACE:1,Goblin	BONUS:SKILL|Ride|6	FEAT:Mounted Combat	REMOVABLE:YES	SUBRACE:Calvary
+Goblin Cavalry	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	PRERACE:1,Goblin	BONUS:SKILL|Ride|6	AUTO:FEAT|Mounted Combat	REMOVABLE:YES	SUBRACE:Calvary
 Normal Goblin	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	PRERACE:1,Goblin									REMOVABLE:YES
