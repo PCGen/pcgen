@@ -49,6 +49,8 @@ Lance (Shieldsplitter)	OUTPUTNAME:Shieldsplitter Lance	PROFICIENCY:WEAPON|Lance	
 # Equipment Name		Output Name				Type								Cost		Weight	Base Quantity	Modifier				Source Page		Special Property
 Arrow (Searing)		OUTPUTNAME:Arrow, Searing	TYPE:Ammunition.Specific.Arrow.Individual		COST:.05	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD.PLUS1M.FLAME	SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 fire damage for 3 rounds.
 Arrow (Sizzling)		OUTPUTNAME:Arrow, Sizzling	TYPE:Ammunition.Specific.Arrow.Individual		COST:.05	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD.PLUS1M		SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 acid damage for 3 rounds.
+#COMMENT: Cost issupposed to be 1516
+
 Bolt (Tangle)		OUTPUTNAME:Bolt, Tangle		TYPE:Ammunition.Specific.Bolt.Individual		COST:60	WT:0.1	BASEQTY:1		EQMOD:STEEL.WOOD.PLUS1M.SEEK	SOURCEPAGE:p.291	SPROP:Target is entangled as if it had been hit by a tanglefoot bag.
 Bullet (Dustburst)	OUTPUTNAME:Bullet, Dustburst	TYPE:Ammunition.Specific.Bullet.Individual	COST:.01	WT:0.5	BASEQTY:1		EQMOD:STEEL.PLUS1M		SOURCEPAGE:p.290	SPROP:Explodes into a cloud of choking dust when it strikes its target.
 
