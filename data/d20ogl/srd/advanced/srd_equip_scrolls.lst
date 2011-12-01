@@ -233,7 +233,7 @@ Scroll (Protection from Good/Divine)		OUTPUTNAME:Scroll (Protection from Good)		
 Scroll (Protection from Law/Divine)			OUTPUTNAME:Scroll (Protection from Law)		TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Sanctuary)													TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Shillelagh)													TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-3Scroll (Summon Monster I/Divine)			OUTPUTNAME:Scroll (Summon Monster I)		TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster I/Divine)			OUTPUTNAME:Scroll (Summon Monster I)		TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Summon Nature's Ally I)											TYPE:Magic.Scroll.Divine.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Aid)														TYPE:Magic.Scroll.Divine.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Augury)														TYPE:Magic.Scroll.Divine.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf

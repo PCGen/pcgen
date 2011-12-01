@@ -8,7 +8,8 @@ Potion (Jump)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST
 Potion (Spider Climb)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
 Potion (Cure Light Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
 Potion (Love)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
-#lower case intentional so doesn't conflict with Vision spell
+#COMMENT: lower case intentional so doesn't conflict with Vision spell
+# UPDATE: How is this valid? I don't recall CASE sensitivity in the program. Flag for a coder.
 Potion (vision)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
 Potion (Swimming)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
 Potion (Hiding)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
