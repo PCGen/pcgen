@@ -5,6 +5,18 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 # Template Name	Visible	Bonus to Ability Pool
 Character Traits	VISIBLE:NO	BONUS:ABILITYPOOL|Traits|2
 
+# Oracle Tongues granting Language:
+Oracle Tongues Choice ~ Abyssal	LANGAUTO:Abyssal
+Oracle Tongues Choice ~ Aklo		LANGAUTO:Aklo
+Oracle Tongues Choice ~ Aquan		LANGAUTO:Aquan
+Oracle Tongues Choice ~ Auran		LANGAUTO:Auran
+Oracle Tongues Choice ~ Celestial	LANGAUTO:Celestial
+Oracle Tongues Choice ~ Ignan		LANGAUTO:Ignan
+Oracle Tongues Choice ~ Infernal	LANGAUTO:Infernal
+Oracle Tongues Choice ~ Terran	LANGAUTO:Terran
+
+
+
 ###Block: Eidolon templates
 # Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
 # Bite																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
