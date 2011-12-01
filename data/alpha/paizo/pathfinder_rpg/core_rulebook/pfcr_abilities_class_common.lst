@@ -4,7 +4,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Serves As						Automatically Gained Weapon Prof.																									Ability
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output		ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
 All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
 Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|DEITYWEAPONS
