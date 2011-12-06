@@ -125,7 +125,8 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Aberration</type>
 		<vision>
-			<all></all>
+			<vision>Darkvision (60 ft.)</vision>
+			<all>Darkvision (60 ft.)</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>
@@ -880,7 +881,7 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>-2</total>
+			<total>+2</total>
 			<damage>1d3+1</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
@@ -1278,6 +1279,26 @@ BIO
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
+			<name>Expanded Knowledge (Animal Affinity)</name>
+			<description>You learn another power.</description>
+			<type>PSIONIC</type>
+			<associated>Animal Affinity</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Extend Power</name>
+			<description>You can manifest powers that last longer than normal.</description>
+			<type>METAPSIONIC</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Psicrystal Affinity</name>
 			<description>You have created a psicrystal.</description>
 			<type>PSIONIC</type>
@@ -1343,6 +1364,28 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Aberration Traits</name>
+			<description></description>
+			<type>TRAITABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Aberration Traits</name>
+			<description>Aberrations eat/sleep/breathe</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Naturally Psionic</name>
 			<description>+2 BonusPP</description>
 			<type>SPECIALQUALITY</type>
@@ -1399,6 +1442,17 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Psion Weapon Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1409,6 +1463,41 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
+	<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Defines Required</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Grants All Hidden Abilities</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Master Traits</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -1417,7 +1506,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Quarterstaff, Shortspear, Spells(Ray)</weapon_proficiencies>
+	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells(Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
 
 	<templates>
