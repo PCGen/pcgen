@@ -2,6 +2,8 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Psionic|PRERACE:1,RACESUBTYPE=Psionic
+
 # Ability Name	Category of Ability		Type				Visible	Define														Description																				Modify VAR
 Psionic		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DESC:Total Power Points %1; Base Power Points %2; Bonus Power Points %3|TotalPowerPoints|BasePowerPoints|BonusPowerPoints	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
