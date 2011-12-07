@@ -1,5 +1,10 @@
 ###Templates
 
+Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
+Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+
+
 
 CODE-8a	BONUS:SKILL|Climb|5|TYPE=ClimbingBonus
 #works

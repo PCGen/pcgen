@@ -2,7 +2,55 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+#CODE-883
+
+CODE-883- Move with Armor Test		KEY:CODE-883A	SORTKEY:CODE-883A	CATEGORY:FEAT		DESC:Test Encumbrance and Armor	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
+
+CODE-883- Test Encumberance 1			KEY:CODE-883B	SORTKEY:CODE-883b	CATEGORY:FEAT	DESC:This will test the encumberance if Encumbrance LT 1 then Initiative will increase by 20.	DESC:Encumbrance = %1|ENCUMBERANCE	BONUS:COMBAT|INITIATIVE|20|TYPE=Competence|PREVARLT:ENCUMBERANCE,1
+
+CODE-883- Test Encumberance 2			KEY:CODE-883C	SORTKEY:CODE-883C	CATEGORY:FEAT	DESC:This will test the encumberance if Encumbrance EQUAL 0 then Initiative will increase by 15.	DESC:Encumbrance = %1|ENCUMBERANCE	BONUS:COMBAT|INITIATIVE|15|TYPE=Competence|PREVAREQ:ENCUMBERANCE,0
+
+	
+
 # TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
+Low-light Vision			KEY:Low light Vision					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision		DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+
+Grant Master Traits	CATEGORY:FEAT	COST:0	ABILITY:Internal|AUTOMATIC|Master Traits
+
+Master Traits			CATEGORY:Internal			TYPE:Internal		VISIBLE:NO	
+#COMMENT: Assigns the Trait based upon RACETYPE
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Elemental Traits|PRERACE:1,RACETYPE=Elemental
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Fey Traits|PRERACE:1,RACETYPE=Fey
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Giant Traits|PRERACE:1,RACETYPE=Giant
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PRERACE:1,RACETYPE=Humanoid
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Magical Beast Traits|PRERACE:1,RACETYPE=Magical Beast
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PRERACE:1,RACETYPE=Monstrous Humanoid
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PRERACE:1,RACETYPE=Ooze
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PRERACE:1,RACETYPE=Outsider
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PRERACE:1,RACETYPE=Plant
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PRERACE:1,RACETYPE=Undead
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PRERACE:1,RACETYPE=Vermin
+
+Aberration Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Construct Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf	TEMPLATE:Construct	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10
+Dragon Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Elemental Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Traits			CATEGORY:Special Ability	TYPE:TraitAbility	
+Magical Beast Traits		CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid Traits	CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Ooze Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Blind				SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																											BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	TEMPLATE:Ooze
+Outsider Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Plant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead Traits			CATEGORY:Special Ability	TYPE:TraitAbility	TEMPLATE:Undead	BONUS:SKILL|Concentration|CHA-CON
+Vermin Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+
 
 #Abilities
 Test Application of Ability by Pretype		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack.Extraordinary	DESC:It works!
