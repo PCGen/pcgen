@@ -203,7 +203,7 @@ Ink Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC
 Invisible In Light		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
 Invisibility			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC		VISIBLE:YES
 Jet					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Keen Senses				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Keen Senses				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	BONUS:VAR|LowLightRange|2|TYPE=Racial
 Kiss					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Leshay Weapons			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Leap					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
@@ -357,6 +357,7 @@ Summon Past Time Duplicate	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLik
 Summon Undead			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Summon White Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
 Sunlight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Superior Low-light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Vision													DESC:Aquatic elves can see four times as far as a human in starlight, moonlight, torchlight, and similar conditions of low illumination.	BONUS:VAR|LowLightRange|2|TYPE=Racial
 Superior Multiweapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 Superior Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																																													BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 Swallow Whole			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES								DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																								SOURCEPAGE:TypesSubtypesAbilities.rtf

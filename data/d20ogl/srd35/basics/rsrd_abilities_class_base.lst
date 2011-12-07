@@ -616,12 +616,14 @@ Grants All Hidden Abilities		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Defin
 # Bardic Abilities for Non-Bard Use
 CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]		ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]	
 CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
+CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light,Low Light
 
 
 #COMMENT: Holds Global DEFINES
 
 # All Hidden Abilities ~ Granted Abilities:
-Defines Required				CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0
+Defines Required				CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
+
 
 Bardic Inspire Courage				KEY:Bardic Inspire Courage (For Others)		CATEGORY:Internal	BONUS:CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)|PREAPPLY:ANYPC	DEFINE:OtherInspireCourageLVL|0	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0
 Bardic Inspire Competence			KEY:Bardic Inspire Competence (For Others)	CATEGORY:Internal	BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus		DEFINE:OtherInspireCompetenceBonus|0	BONUS:VAR|OtherInspireCompetenceBonus|2
