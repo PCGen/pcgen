@@ -19,6 +19,8 @@ Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6
 Cool Sword			PROFICIENCY:WEAPON|Cool Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
 Longsword			PROFICIENCY:WEAPON|Longsword				TYPE:Weapon.Melee.Sword	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	WIELD:OneHanded
 
+50lb wt	TYPE:Goods	WT:50
+
 #Gear
 Longsword.COPY=Test Gear
 Test Gear.MOD	TYPE:Gear
