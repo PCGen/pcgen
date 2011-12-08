@@ -248,7 +248,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
 			if (hasManufacturer(cl, cdo.getCDOMCategory()))
 			{
-				return getManufacturer(cl, cdo.getCDOMCategory()).forgetObject(obj);
+			    // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
+				return getManufacturer(cl, (Category<?>)cdo.getCDOMCategory()).forgetObject(obj);
 			}
 		}
 		else
