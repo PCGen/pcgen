@@ -48,7 +48,7 @@ public class PCEncumberanceTermEvaluator
 	public String evaluate (PlayerCharacter pc)
 	{
 		final Load l = pc.getLoadType();
-		return String.valueOf(l);
+		return ((Integer) l.ordinal()).toString();
 	}
 
 	@Override
