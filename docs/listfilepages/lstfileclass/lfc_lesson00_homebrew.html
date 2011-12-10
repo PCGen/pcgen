@@ -49,31 +49,38 @@
 			<li><a href="#TEMPLATE">my_templates.lst</a></li>
 			<li><a href="#WEAPONPROF">my_weaponprofs.lst</a></li>
 		</ul>
-		<p>All PCGen data sets are made up of a collection of text files called LST files.</p>
-
+		<p></p>
+		
 <hr>
 
-		<h3>The My_Dataset Files</h3>
+		<h3>Introduction to the My_Dataset Files</h3>
 	
+		<p class="indent0">All PCGen data sets are made up of a collection of text files called LST files, each of which contains a particular type of LST Object, e.g. Class, 
+			Deity, Feat, Race, etc. PCGen includes built-in LST Editors that can be used to create new LST objects but many LST monkeys find it easier to build data sets from 
+			the ground up. For the new LST monkey though, this can be confusing so the PCGen team has provided a template for a data set. This template can be found in PCGen's
+			<i>data/homebrew/my_dataset</i> folder.</p>
+
 		<p class="indent0">The <span class="lstfile">my_dataset</span> files form a framework for building a dataset for use with PCGen. It is meant to be used 
-			by beginners who want to take their first steps in entering their own custom data into PCGen and have found that the built-in <strong>List Editors</strong> 
-			are too limiting for what they intend to do.</p>
+			by beginners, or not so beginners, who want to take their first steps in entering their own custom data into PCGen and have found that the built-in 
+			List Editors are too limiting for what they intend to do. The <span class="lstfile">my_dataset</span> files consist of a collection of LST files, one 
+			each for the different LST objects possible in PCGen. Copy these files into your own folder to make your dataset, leaving the original 
+			<span class="lstfile">my_dataset</span> files as a clean template for future use. You can rename the copied files to anything you wish but it is 
+			generally a good idea to use some part of the name for the RPG source material you plan on encoding. Also it is a good idea to retain the type of 
+			LST object contained in the file as part of the file names. An example of this might be <span class="lstfile">rsrd_feat.lst</span> for the file 
+			containing the feats for WotC's Revised Standard Reference Document. For the purposes of this class though we will continue using the standard 
+			<span class="lstfile">my_dataset,lst</span> naming convention. To use this template you will find the LST file corresponding to the kind of LST 
+			object you wish to create, e.g. <span class="lstfile">my_classes.lst</span> if you want to add a new class, and enter your new data there. Each 
+			LST file includes an example to give you a feel for how an entry in that particular type of file would look like.</p>
 
-		<p class="indent0">To use this, first find the corresponding *.lst files for your kind of data (e.g. My_classes.lst if you want to add a new
-			class) and enter your new data there. Each *.lst file includes an example to give you a feel for how an entry in that
-			particaluar type of file would look like. You can simply delete the example and comments in there, if you feel you don't
-			need them anymore.</p>
+		<p class="indent0">You will find below more information about each LST file but you will also need to become familiar with PCGen's included documentation 
+			by starting PCGen and clicking on &quot;Documentation&quot; in the Help menu. That will bring up a browser window in which you should click 'List Files'. 
+			This will open a menu tree that includes the option 'LST File Class' which will guide you through your first steps.</p>
 
-		<p class="indent0">If you need information how to set up a LST file, start PCGen and click on Documentation in the Help menu. That will bring
-			up a browser window in which you should click 'List Files'. This will open a menu tree that includes the option 'LST File
-			Class' which will guide you through your first steps.</p>
+		<p class="indent0">After editing the LST file you need to edit the <span class="lstfile">my_campaign.pcc</span> file. For every one of the LST files included, 
+			you must set up a line that calls it inside of the campaign file, but is commented out by use of a '#' character. Remove the '#' from the beginning of the corresponding line. You 
+			might also want to change the game mode, as it is now set to '35e', if your custom data is meant for a different game mode.</p>
 
-		<p class="indent0">After editing the *.lst file you need to edit the MyCampaign.pcc file. For every one of the *.lst files included, I have
-			set up a line that calls it, but is commented out by use of a '#' character. Remove the '#' from the beginning of the cor-
-			responding line. You might also want to change the game mode, as it is now set to '35e', if your custom data is meant for
-			a different game mode.</p>
-
-		<p class="indent0">There is also a file called OGL.txt, which we always need to distribute with data that is coming from an Open Game Content
+		<p class="indent0">You may also note a file called <span class="lstfile"OGL.txt, which we always need to distribute with data that is coming from an Open Game Content
 			Source. It is here because the examples in the *.lst files were mostly drawn from our dataset for the 3.5 System Reference
 			Document. It is not needed for your dataset to function.</p>
 
@@ -84,23 +91,22 @@
 <hr>
 
 		<h3>Reading Conventions</h3>
-		<p class="indent0">A quick note on a few general conventions used within this
-			class before we jump into it:</p>
+		<p class="indent0">A quick note on a few general conventions used within this class before we jump into it:</p>
 
-		<p class="indent0">1) I have used the angle brackets, 'Less Than' and 'Greater
-		Than' symbols, to indicate where your text will be entered when
-		building a deity file. Unless explicitly stated in the text of my
-		explanation, you will not include the angle brackets in your tags.</p>
+		<p class="indent0">1) Throughout this lesson the angle brackets (&lt;&gt;) are used to indicate where your text will 
+			be entered when building a data file. Unless explicitly stated in the text, you will not include the angle brackets 
+			in your tags.</p>
 
-		<p class="indent0">2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code>
-		style.</p>
+		<p class="indent0">2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code> style.</p>
 
-		<p class="indent0">3) When referencing a specific PCGen object, i.e. deity, feat,
-		weapon, etc., I have included the name as <span class="lstobj">BOLD</span>
-		text, except for when the object is part of a <code>&lt;code&gt;</code>
-		example.</p>
+		<p class="indent0">3) Files referenced in this lesson are identified by <span class="lstfile">file.lst</span> style.</p>
 
-		<p class="indent0">Without further adieu, lets jump right into the lesson.</p>
+		<p class="indent0">4) When referencing a specific PCGen object, i.e. deity, feat, weapon, etc., the object name 
+			formated as <span class="lstobj">BOLD</span> text, except for when the object is part of a <code>&lt;code&gt;</code> 
+			example.</p>
+
+		<p></p>
+		<p class="indent0">Now lets jump right in!</p>
 		<p></p>
 
 <hr>
