@@ -1256,7 +1256,7 @@ Immune
 		</layonhands>
 |%|
 
-|%VAR.LayOnHandsLVL.GTEQ.1| <!-- Pathfinder -->
+|%VAR.LayOnHandsTimes.GTEQ.1| <!-- Pathfinder -->
 		<layonhands>
 			<hp_per_day>|VAR.LayOnHandsTimes.INTVAL|</hp_per_day>
 			<hp_per_day.title>Uses per day</hp_per_day.title>
@@ -3066,10 +3066,10 @@ Immune
 			<willpower>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.2.TOTAL|</willpower>
 			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
-|FOR,%trick,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.TYPE=AnimalTrick]-1,1,0|
 			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
+|FOR,%trick,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick]-1,1,0|
 |ENDFOR|
-
+|ENDFOR|
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
 				<attack>
