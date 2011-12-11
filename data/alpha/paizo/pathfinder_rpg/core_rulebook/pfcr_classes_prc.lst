@@ -83,14 +83,14 @@ CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREMULT:3,[PRESPELLCAST:MEMO
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE.Knowledge|Perception|Spellcraft
 ###Block: Progression
 1																						BONUS:VAR|DragonDiscipleArmorBonus|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Blood of Dragons ~ DD|Natural Armor Increase ~ DD
-2	BONUS:ABILITYPOOL|Draconic Bloodline Feat|(CL+1)/3										BONUS:STAT|STR|2									ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Bite ~ DD
+2	BONUS:ABILITYPOOL|Draconic Bloodline Feat|(CL+1)/3										BONUS:STAT|STR|2	BONUS:VAR|BloodlineCasterLVL|CL-1			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Bite ~ DD
 3																						BONUS:VAR|BreathWeaponTimes|1				ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Breath Weapon
 4																			BONUS:STAT|STR|2									ADD:SPELLCASTER|Arcane
-5																																		ABILITY:Special Ability|AUTOMATIC|Blindsense ~ DD
+5																						BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Blindsense ~ DD
 6																			BONUS:STAT|CON|2									ADD:SPELLCASTER|Arcane
 7																						BONUS:VAR|DragonFormTimes|(CL-4)/3			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Form ~ DD
 8																			BONUS:STAT|INT|2									ADD:SPELLCASTER|Arcane
-9										BONUS:MOVEADD|TYPE.Fly|30|PREVARGTEQ:BloodlineLVL,15																ABILITY:Special Ability|AUTOMATIC|Wings
+9										BONUS:MOVEADD|TYPE.Fly|30|PREVARGTEQ:BloodlineLVL,15				BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Wings
 10																														ADD:SPELLCASTER|Arcane
 
 

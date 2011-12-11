@@ -353,7 +353,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Bloodline
-1	BONUS:VAR|BloodlineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline
+1	BONUS:VAR|BloodlineLVL,BloodlineCasterLVL|CL	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Sorcerer	VFEAT:Eschew Materials
 2	CAST:0,4				KNOWN:5,2
