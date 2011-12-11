@@ -2,6 +2,69 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+
+#OS-139 DR Values incorrect
+#If you have a character with 2 or more types of DR that have the same value and that value is 10 or more, the output sheet and export sheets report the value as 0 instead of the actual value.
+#Steps to reproduce:
+#Open any file where DR:<value>/<text> is allowed
+OS-139 A		CATEGORY:FEAT	TYPE:OS	KEY:OS-139a		DR:0/Cold	DR:0/Acid	DR:0/Electricity	ABILITY:Special Ability|AUTOMATIC|OS 139 Display
+OS-139 B (Add)	CATEGORY:FEAT	TYPE:OS	KEY:OS-139b		BONUS:DR|Acid|10	BONUS:DR|Cold|10	BONUS:DR|Electricity|15
+#Create a character using the file you added the values to
+
+
+OS 139 Display	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Should be seeing DR Acid and Electricity 10, and DR Electricity 15
+
+#OBSERVED BEHAVIOR:
+#Preview and Export report 0/Cold and Acid; 15/Electricity
+
+#EXPECTED BEHAVIOR:
+#Preview and Export report 10/Cold and Acid; 15/Electricity
+
+
+Natural Attack ~ Test	KEY:Test Attack	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL		ASPECT:NaturalAttackName|Test Output		ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2|1|8|PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamage|%1d%2|1|6|!PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+Dont Display 1d6	CATEGORY:FEAT	SORTKEY:NEWTAG-252_2	TYPE:NEWTAG
+
+NEWTAG-252 Aspect Tag	KEY:NEWTAG-252	SORTKEY:NEWTAG-252_1	CATEGORY:FEAT	TYPE:NEWTAG	ABILITY:Natural Attack|AUTOMATIC|Test Attack
+
+
+
+# COMMENT: This activates the OS and Displays on the PDF.
+Natural Attack ~ Shield Bash	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:ShieldBashingDieSizeStep|0	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|Shield Bash		ASPECT:NaturalAttackToHit|%1|BAB+STR+ShieldBashAttackBonus			DEFINE:ShieldBashAttackBonus|0		ASPECT:NaturalAttackDamage|%1d%2|ShieldDamageDice|ShieldDamageSize		DEFINE:ShieldDamageDice|0			DEFINE:ShieldDamageSize|0			ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+
+# COMMENT: This Controls Damage of the Shield
+Shield Bash Stats	CATEGORY:Internal		BONUS:VAR|ShieldDamageDice|1|TYPE=Base	BONUS:VAR|ShieldBashAttackBonus|-4|!PREFEAT:1,Shield Mastery
+
+# COMMENT: Size is Medium
+CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|4|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:M],[PREEQUIP:1,TYPE=Shield.Heavy]
+
+# COMMENT: Size is Small 
+CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|2|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Heavy]
+
+	
+
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d1|PREVAREQ:ShieldBashingDieSizeStep,1
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d2|PREVAREQ:ShieldBashingDieSizeStep,2
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d3|PREVAREQ:ShieldBashingDieSizeStep,3
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d4|PREVAREQ:ShieldBashingDieSizeStep,4
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d6|PREVAREQ:ShieldBashingDieSizeStep,5
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d8|PREVAREQ:ShieldBashingDieSizeStep,6
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d10|PREVAREQ:ShieldBashingDieSizeStep,7
+CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d12|PREVAREQ:ShieldBashingDieSizeStep,8
+
+Shield Bash 1d1	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|1
+Shield Bash 1d2	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|2
+Shield Bash 1d3	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|3
+Shield Bash 1d4	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|4
+Shield Bash 1d6	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|6
+Shield Bash 1d8	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|8
+Shield Bash 1d10	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|10
+Shield Bash 1d12	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|12
+
+
+
+
+
+
 #CODE-883
 
 CODE-883- Move with Armor Test		KEY:CODE-883A	SORTKEY:CODE-883A	CATEGORY:FEAT		DESC:Test Encumbrance and Armor	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
