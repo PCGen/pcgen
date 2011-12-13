@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Dec 12 20:23:59 2011 -- reformated by prettylst.pl v1.39 (build )
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -22,10 +22,13 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 1	BONUS:VAR|AlchemistMutagenLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
 1									ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
 2	BONUS:VAR|AlchemistDiscoveryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
-2	BONUS:VAR|AlchemistPoisonResistanceLVL|CL		ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
+2									ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
 2									ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
 3									ABILITY:Special Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
+5									ABILITY:Special Ability|AUTOMATIC|Poison Resistance 4 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance4
 6									ABILITY:Special Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
+8									ABILITY:Special Ability|AUTOMATIC|Poison Resistance 6 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance6
+10									ABILITY:Special Ability|AUTOMATIC|Poison Immunity ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonImmunity
 14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL	ABILITY:Special Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
 18									ABILITY:Special Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
 20									ABILITY:Special Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
@@ -204,7 +207,7 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Handle Animal|TYPE.Knowledg
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
 ###Block:Proficiencies
-1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies						AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																				AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
 1									ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
 1									ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
 1	CAST:0,1			KNOWN:4,2
@@ -239,9 +242,9 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1				BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|Cantrips ~ Witch
+1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|Cantrips ~ Witch
 2	CAST:4,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
-3	CAST:4,2,1																				ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells
+3	CAST:4,2,1																																ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells
 4	CAST:4,3,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2			BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex6
