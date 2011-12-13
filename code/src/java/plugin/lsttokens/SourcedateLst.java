@@ -73,13 +73,14 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Date title = context.getObjectContext().getObject(obj,
+		Date date = context.getObjectContext().getObject(obj,
 				ObjectKey.SOURCE_DATE);
-		if (title == null)
+		if (date == null)
 		{
 			return null;
 		}
-		return new String[] { title.toString() };
+		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
+		return new String[] { df.format(date) };
 	}
 
 	public Class<CDOMObject> getTokenClass()
