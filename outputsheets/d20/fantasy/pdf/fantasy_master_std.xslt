@@ -2103,7 +2103,7 @@
 							<fo:block text-align="left" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
 								<xsl:text>TOTAL SKILLPOINTS: </xsl:text>
 								<xsl:choose>
-								<xsl:when test="skillpoints/eclipse_total &gt; 0">
+								<xsl:when test="skillpoints/eclipse_total &gt; 0">	
 									<xsl:value-of select="skillpoints/eclipse_total"/>
 								</xsl:when>
 								<xsl:otherwise>
@@ -3185,7 +3185,14 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
+				<xsl:choose>
+					<xsl:when test="critmult &gt; 0">
+						<fo:block font-size="6pt">CRIT / MULT</fo:block>
+					</xsl:when>
+					<xsl:otherwise>
 						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</xsl:otherwise>
+				</xsl:choose>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -5214,6 +5221,24 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
+			<!-->	<xsl:if test="count(companion/trick) &gt; 0">	-->
+					<fo:table-row keep-with-next.within-column="always">
+						<fo:table-cell text-align="end">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions.title'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">Tricks:</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-columns-spanned="5">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions'"/>
+							</xsl:call-template>
+							<fo:block font-size="7pt">
+								<xsl:value-of select="trick"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+		<!-->		</xsl:if> -->
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
