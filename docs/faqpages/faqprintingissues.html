@@ -57,7 +57,7 @@
 					<p class="indent2"><code>ASPECT:NaturalAttackName|Bite</code></p>
 					<p class="indent3"><i>This is the name of the Attack that will be displayed.</i></p>
 					<p class="indent2"><code>ASPECT:NaturalAttackToHit|%1|BAB+STR+BiteAdditional</code></p>
-					<p class="indent3"><i>Formula to give the correct attack, will need a special set up if you want Weapon Focus or Greater Weapon Focus to work, there is NO proficiency associated with this "attack". SUGGESTED Method would be to do</i> <code>BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon Focus(Bite)</code><i> and make sure you add <b>Bite</b> to the <u>weaponprof.lst</u> file</p>
+					<p class="indent3"><i>Formula to give the correct attack, will need a special set up if you want Weapon Focus or Greater Weapon Focus to work, there is NO proficiency associated with this "attack".</p>
 					<p class="indent2"><code>ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize</code></p>
 					<p class="indent3"><i>Sets your damage, the nice thing is these are variable, however, these are NOT size dependent. But you can adjust the damage</i></p>
 					<p class="indent2"><code>ASPECT:NaturalAttackDamageBonus|%1|STR</code></p>
@@ -89,6 +89,8 @@
 					just one note while <code>DESC</code> can take PRExxx tags and are ideal if your attack can be given to other creatures whose attacks vary by level based increases.</p>
 
 				<p class="indent0">What this solution will not do is handle iterative attacks unless you set up the ability with an <code>ASPECT</code> with all the iterative attacks. Unfortunately, ASPECT needs work in order to fully support any Alternative Iterative Attacks, or partial Iterative Attacks.</p>
+
+				<p class="indent0">Suggested Method to add Bonus to Hit by proficiency would be to do <code>BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon Focus(Bite)</code><i> and make sure you add <b>Bite</b> to the <u>weaponprof.lst</u> file and append <code>AUTO:WEAPONPROF|Bite</code> to the ability. This will allow the character to take the Proficiency in Weapon Focus. Repeat for other methods you desire.</p>
 
 			</li>
 
