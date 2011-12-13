@@ -1,0 +1,48 @@
+#Using Natural Attack OS Block:
+Name of Ability
+	CATEGORY:Natural Attack
+	TYPE:NaturalAttack
+[These are absolutely required]
+
+
+	ASPECT:NaturalAttackName|Bomb
+[Name of the Attack]
+
+	ASPECT:NaturalAttackToHit|%1|BAB+DEX+BombAttackBonus
+[Attack Bonus - this will display as -/+ <value of Base Attack Bonus plus Dex Bonus plus BombAttackBonus variable name>]
+
+	ASPECT:NaturalAttackDamage|%1d%2|BombDamageDice|BombDamageSize
+[Base Damage - format is xdx]
+
+	ASPECT:NaturalAttackDamageBonus|%1|INT
+[Bonus Damage if any  displays as '+<value>'
+
+	ASPECT:NaturalAttackReach|%1|BombRange
+[Valid tag 'REACH.VAL' will show the PC's actual reach, otherwise you may enter any value you desire]
+
+	ASPECT:NaturalAttackType|Fire
+[Damage TYPE, Bludgeoning, Slashing, Piercing, Energy or Element Types]
+
+	ASPECT:NaturalAttackThreatRange|%1|BombThreatRange
+[This will display a number, if you want 20, do 20, if you want to replicate 19-20, you need to enter it as '%1-%2']
+
+	ASPECT:NaturalAttackCritMult|x%1|BombCritMult
+[typically x<value>]
+
+	ASPECT:NaturalAttackNotes|<Not Used in Bomb>
+[Special Notes - Currently ASPECT can only have one Value, if you need more fields use DESC]
+
+	DESC:%1d6 bonus damage|AlchemistBombAdditionalDice|PREVARGT:AlchemistBombAdditionalDice,0
+[Special Notes - DESC can add more notes if needed]
+	
+	
+	DEFINE:BombDamageDice|0
+	DEFINE:BombDamageSize|0
+	DEFINE:BombThreatRange|0
+	DEFINE:BombRange|0
+	DEFINE:BombCritMult|2
+	DEFINE:BombAttackBonus|0
+	BONUS:VAR|BombDamageDice|1
+	BONUS:VAR|BombDamageSize|6
+	BONUS:VAR|BombThreatRange|20
+	BONUS:VAR|BombRange|20
