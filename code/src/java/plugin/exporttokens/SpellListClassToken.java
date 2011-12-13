@@ -23,14 +23,11 @@
  */
 package plugin.exporttokens;
 
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
