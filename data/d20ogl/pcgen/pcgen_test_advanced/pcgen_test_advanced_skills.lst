@@ -3,8 +3,15 @@
 
 
 Deception			KEYSTAT:CHA					USEUNTRAINED:NO					CLASSES:ALL				TYPE:Charisma											BONUS:SKILL|Thievery (Sleight of Hand),Persuasion|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5
-Deception (Act in character)						KEYSTAT:CHA	USEUNTRAINED:YES					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT					PRERULE:1,DISPLAYSKILLUSE					PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC					SOURCEPAGE:SkillsI.rtf
+Deception (Act in character)				KEYSTAT:CHA	USEUNTRAINED:YES					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT					PRERULE:1,DISPLAYSKILLUSE					PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC					SOURCEPAGE:SkillsI.rtf
 Deception.MOD																																																											BONUS:SKILL|Deception (Act in character)|SKILL.Deception.MISC																													BONUS:SKILLRANK|Deception (Act in character)|skillinfo("TOTALRANK","Deception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC
+
+#Persuasion			KEYSTAT:CHA					USEUNTRAINED:NO			TYPE:Charisma
+Persuasion.MOD		CLASSES:Test Nothing																																																									BONUS:SKILL|Persuasion (Diplomacy)|SKILL.Persuasion.MISC																														BONUS:SKILLRANK|Persuasion (Diplomacy)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
+Persuasion.MOD																																																											BONUS:SKILL|Persuasion (Intimidate)|SKILL.Persuasion.MISC																														BONUS:SKILLRANK|Persuasion (Intimidate)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
+Persuasion.MOD																												BONUS:SKILL|Deception (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Persuasion=5
+Persuasion (Diplomacy)							KEYSTAT:CHA	USEUNTRAINED:YES					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT					PRERULE:1,DISPLAYSKILLUSE					PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
+Persuasion (Intimidate)							KEYSTAT:CHA	USEUNTRAINED:YES					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT					PRERULE:1,DISPLAYSKILLUSE					PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
 
 
 Test59		USEUNTRAINED:NO	TYPE:Test	BONUS:SKILLRANK|Test59b|skillinfo("TOTAL","Test59")
