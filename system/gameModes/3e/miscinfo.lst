@@ -187,7 +187,7 @@ ACTYPE:Sacred				ADD:Sacred
 ACTYPE:ClassDefense			ADD:ClassDefense
 
 #AC Types
-ACTYPE:Shield
+ACTYPE:Shield				ADD:Shield				REMOVE:Shield
 # Comment: PCGen throwing error about missing Shield, replaced but it won't add anything.
 #ADD:EQTYPE.Shield
 
