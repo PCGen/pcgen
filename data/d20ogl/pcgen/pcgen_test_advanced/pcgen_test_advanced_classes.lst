@@ -274,3 +274,6 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 20	DONOTADD:SKILLPOINTS
 #
 
+###BLOCK: This is a changing class - DO NOT BASE any Test Cases off of it
+CLASS:Test Current	HD:4	TYPE:PC.Base
+1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current

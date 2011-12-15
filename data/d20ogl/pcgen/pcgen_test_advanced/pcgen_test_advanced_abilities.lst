@@ -2,6 +2,7 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+Test Current	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE=Craft	BONUS:SKILL|%LIST|10
 
 #OS-139 DR Values incorrect
 #If you have a character with 2 or more types of DR that have the same value and that value is 10 or more, the output sheet and export sheets report the value as 0 instead of the actual value.
