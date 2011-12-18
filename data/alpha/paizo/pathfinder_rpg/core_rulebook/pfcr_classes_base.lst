@@ -47,9 +47,9 @@ CLASS:Bard		STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE.Craft|Di
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																AUTO:FEAT|Armor Proficiency (Light)
-1																AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Bard Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+1																AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
+1																AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
 ###Block: Level progression
 1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	ABILITY:Special Ability|AUTOMATIC|Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	ABILITY:Special Ability|AUTOMATIC|Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
 2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Special Ability|AUTOMATIC|Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	ABILITY:Special Ability|AUTOMATIC|Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
