@@ -31,12 +31,15 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>AspectToken</code> parses a generic detail field for
@@ -119,13 +122,43 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		final StringTokenizer tok = new StringTokenizer(aspectDef,
 				Constants.PIPE);
 
-		final Aspect aspect = new Aspect(name, EntityEncoder.decode(tok
-				.nextToken()));
+		String firstToken = tok.nextToken();
+		/*if (PreParserFactory.isPreReqString(firstToken))
+		{
+			Logging.errorPrint("Invalid " + getTokenName() + ": " + name);
+			Logging.errorPrint("  PRExxx can not be only value");
+			return null;
+		}*/
+		final Aspect aspect = new Aspect(name, EntityEncoder.decode(firstToken));
 
+		boolean isPre = false;
 		while (tok.hasMoreTokens())
 		{
 			final String token = tok.nextToken();
-			aspect.addVariable(token);
+			if (PreParserFactory.isPreReqString(token))
+			{
+				Prerequisite prereq = getPrerequisite(token);
+				if (prereq == null)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " had invalid prerequisite : " + token);
+					return null;
+				}
+				aspect.addPrerequisite(prereq);
+				isPre = true;
+			}
+			else
+			{
+				if (isPre)
+				{
+					Logging.errorPrint("Invalid " + getTokenName() + ": "
+							+ name);
+					Logging
+							.errorPrint("  PRExxx must be at the END of the Token");
+					return null;
+				}
+				aspect.addVariable(token);
+			}
 		}
 
 		return aspect;

@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.core.Ability;
@@ -53,7 +54,7 @@ import pcgen.util.Logging;
  * 
  * @since 5.15.2
  */
-public class Aspect
+public class Aspect extends ConcretePrereqObject
 {
 	/**
 	 * The name of the name stored in this Aspect.
@@ -250,6 +251,10 @@ public class Aspect
 			{
 				theOwner = pcAbility;
 			}
+		}
+		if(!qualifies(aPC, theOwner))
+		{
+			return "";
 		}
 		for ( final String comp : theComponents )
 		{
