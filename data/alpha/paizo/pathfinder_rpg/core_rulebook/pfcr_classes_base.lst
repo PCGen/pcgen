@@ -80,9 +80,9 @@ CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Appraise|TYPE.Craft|Diplomacy|Heal|Knowledge
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Cleric Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Cleric Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
+1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
+1																AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
 ###Block: Aura strength
 1	BONUS:VAR|AlignmentAuraLVL|CL	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
 1						ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
