@@ -705,19 +705,23 @@ Longstrider.MOD																																																			BONUS:POSTMOVE
 Mage Armor.MOD												BONUS:COMBAT|AC|4|TYPE=Armor|PREAPPLY:ANYPC																																																																																																															TEMPDESC:Grants a +4 armor bonus to AC
 Magic Fang.MOD																																																																																																BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|PREAPPLY:Weapon,Natural																							TEMPDESC:Grants one natural weapon or unarmed strike of the subject a +1 enhancement bonus on attack and damage rolls
 Magic Fang (Greater).MOD																																																																																														BONUS:WEAPON|TOHIT,DAMAGE|min(floor(%CHOICE/4),5)|TYPE=Enhancement|PREAPPLY:Weapon,Natural								CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants one natural weapon or unarmed strike of the subject a +1 per four caster levels (maximum +5) enhancement bonus on attack and damage rolls
-Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Armor|PREAPPLY:Clothing																																																																																																CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants a suit of armor or a shield with an enhancement bonus of +1 per four caster levels (maximum +5 at 20th level)
-Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Armor|PREAPPLY:Armor|!PREEQUIP:1,TYPE=Armor.Plus1,TYPE=Armor.Plus2,TYPE=Armor.Plus3,TYPE=Armor.Plus4,TYPE=Armor.Plus5
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-1)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus1
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-2)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus2
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-3)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus3
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-4)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus4
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-5)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus5
-Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Shield|PREAPPLY:Shield|!PREEQUIP:1,TYPE=Shield.Plus1,TYPE=Shield.Plus2,TYPE=Shield.Plus3,TYPE=Shield.Plus4,TYPE=Shield.Plus5
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-1)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus1
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-2)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus2
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-3)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus3
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-4)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus4
-Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-5)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus5
+# By elro - these were incorrect: MV should provide enhancement bonuses, not armor bonuses & the stacking system will take care of itself
+Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=ArmorEnhancement|PREAPPLY:Clothing																																																																																														CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants a suit of armor with an enhancement bonus of +1 per four caster levels (maximum +5 at 20th level) [Use Magic Vestment (Shield use) to enhance a shield]
+Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=ArmorEnhancement|PREAPPLY:Armor
+Magic Vestment (Shield use)		TYPE:Divine		TARGETAREA:Shield touched	DURATION:(CASTERLEVEL) hours	DESC:You imbue a shield with an enhancement bonus of +(min(5,floor(CASTERLEVEL/4))).	SOURCEPAGE:p.310	BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=ShieldEnhancement|PREAPPLY:Shield	CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants a shield an enhancement bonus of +1 per four caster levels (maximum +5 at 20th level) [Use Magic Vestment to enhance a suit of armor or clothing]
+#Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Armor|PREAPPLY:Clothing																																																																																																CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants a suit of armor or a shield with an enhancement bonus of +1 per four caster levels (maximum +5 at 20th level)
+#Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Armor|PREAPPLY:Armor|!PREEQUIP:1,TYPE=Armor.Plus1,TYPE=Armor.Plus2,TYPE=Armor.Plus3,TYPE=Armor.Plus4,TYPE=Armor.Plus5
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-1)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus1
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-2)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus2
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-3)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus3
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-4)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus4
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-5)|TYPE=Armor|PREAPPLY:Armor|PREEQUIP:1,TYPE=Armor.Plus5
+#Magic Vestment.MOD											BONUS:COMBAT|AC|min(floor(%CHOICE/4),5)|TYPE=Shield|PREAPPLY:Shield|!PREEQUIP:1,TYPE=Shield.Plus1,TYPE=Shield.Plus2,TYPE=Shield.Plus3,TYPE=Shield.Plus4,TYPE=Shield.Plus5
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-1)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus1
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-2)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus2
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-3)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus3
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-4)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus4
+#Magic Vestment.MOD											BONUS:COMBAT|AC|max(0,min(floor(%CHOICE/4),5)-5)|TYPE=Shield|PREAPPLY:Shield|PREEQUIP:1,TYPE=Shield.Plus5
 Magic Weapon.MOD																																																																																																BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|PREAPPLY:Weapon																								TEMPDESC:Grants a weapon a +1 enhancement bonus on attack and damage rolls
 Magic Weapon (Greater).MOD																																																																																														BONUS:WEAPON|TOHIT,DAMAGE|min(floor(%CHOICE/4),5)|TYPE=Enhancement|PREAPPLY:Weapon										CHOOSE:NUMBER|MIN=5|MAX=20|TITLE=Choose spell caster level		TEMPDESC:Grants a weapon an enhancement bonus on attack and damage rolls of +1 per four caster levels (maximum +5)
 Owl's Wisdom.MOD																																																																																BONUS:STAT|WIS|4|PREAPPLY:ANYPC|TYPE=Enhancement																																										TEMPDESC:Grants +4 enhancement bonus to Wisdom
