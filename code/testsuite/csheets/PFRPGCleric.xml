@@ -1,0 +1,4605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<character>
+<!--========================================================================
+BIO
+========================================================================-->
+	<basics>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<name>PFRPG Cleric</name>
+		<followerof></followerof>
+		<playername></playername>
+		<action_points>0</action_points>
+		<age>22</age>
+		<alignment>
+			<long>Neutral Good</long>
+			<short>NG</short>
+		</alignment>
+		<bab>+2</bab>
+		<bio><para>Grew up on a farm, encouraged to the service of Sarenrae by the local priest.</para><para></para><para>Has adventured in service of the church for a year and now is looking to form an adventuring party to hunt through the Vericostial catacombs for undead that have been snatching citizens.</para></bio>
+		<birthplace>Farm</birthplace>
+		<catchphrase>Get these spiders off me!</catchphrase>
+		<classes>
+			<class>
+				<name>Cleric</name>
+				<abbreviation>Clr</abbreviation>
+				<level>3</level>
+				<bonuslist>Cleric</bonuslist>
+				<sequence>0</sequence>
+			</class>
+			<levels_total>3</levels_total>
+			<levels_ecl>3</levels_ecl>
+			<!-- shortform below should be removed - it can be derived from class info above -->
+			<shortform> Clr3                   </shortform>
+			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
+		</classes>
+		<deity>
+			<name>Sarenrae</name>
+			<alignment>NG</alignment>
+			<description>Goddess of the sun, redemption, honesty, healing</description>
+			<domainlist>Fire, Glory, Good, Healing, Sun</domainlist>
+			<favoredweapon>Scimitar</favoredweapon>
+			<followeralignment></followeralignment>
+			<holyitem></holyitem>
+			<pantheonlist>Pathfinder Chronicles</pantheonlist>
+			<source>Paizo Publishing - Core Rulebook, p.45</source>
+			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
+		</deity>
+		<description></description>
+		<experience>
+			<current>5000</current>
+			<next_level>9000</next_level>
+			<factor>100%</factor>
+			<penalty>0%</penalty>
+		</experience>
+		<eyes>
+			<color>Blue</color>
+		</eyes>
+		<hair>
+			<color>Blond</color>
+			<length>Neat</length>
+		</hair>
+		<skin>
+			<color>Pasty</color>
+		</skin>
+		<cr>2</cr>
+		<face>
+		<face>5 ft.</face>
+			<short>5 ft.</short>
+			<squares>1</squares>
+		</face>
+		<favoredlist></favoredlist>
+		<followerlist></followerlist>
+		<gender>
+			<long>Male</long>
+			<short>Male</short>
+		</gender>
+		<handed>Right</handed>
+		<height>
+			<total>5&#39; 11&quot;</total>
+			<feet>5</feet>
+			<inches>11</inches>
+		</height>
+		<hitdice>(3d8)+1</hitdice>
+		<interests>Folklore</interests>
+		<languages>
+			<language>Celestial</language>
+			<language>Common</language>
+			<all>Celestial, Common</all>
+		</languages>
+		<location></location>
+		<move>
+			<move>
+				<name>Walk</name>
+				<rate>20 ft.</rate>
+				<squares>4</squares>
+			</move>
+			<all>Walk 20 ft.</all>
+		</move>
+		<personality>
+			<trait>Depressed</trait>
+			<trait>Egoist</trait>
+		</personality>
+		<portrait></portrait>
+		<phobias>Sinning</phobias>
+		<race>Human</race>
+		<reach>
+		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
+		<region>None</region>
+		<reputation>0</reputation>
+		<residence>Vericostial</residence>
+		<size>
+			<long>Medium</long>
+			<short>M</short>
+		</size>
+		<speechtendency>High-pitched</speechtendency>
+		<type>Humanoid</type>
+		<vision>
+			<all></all>
+		</vision>
+		<wealth>0</wealth>
+		<weight>
+			<weight_unit>185 lbs.</weight_unit>
+			<weight_nounit>185</weight_nounit>
+		</weight>
+		<poolpoints>
+			<cost>25</cost>
+			<current>0</current>
+		</poolpoints>
+		<notes>
+		</notes>
+	</basics>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITIES
+	  ====================================
+	  ====================================-->
+	<abilities>
+		<ability>
+			<name>
+				<long>Strength</long>
+				<short>STR</short>
+			</name>
+			<score>10</score>
+			<modifier>+0</modifier>
+			<base>10</base>
+			<basemod>+0</basemod>
+			<noequip>10</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>10</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Dexterity</long>
+				<short>DEX</short>
+			</name>
+			<score>10</score>
+			<modifier>+0</modifier>
+			<base>10</base>
+			<basemod>+0</basemod>
+			<noequip>10</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>10</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Constitution</long>
+				<short>CON</short>
+			</name>
+			<score>11</score>
+			<modifier>+0</modifier>
+			<base>11</base>
+			<basemod>+0</basemod>
+			<noequip>11</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>11</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Intelligence</long>
+				<short>INT</short>
+			</name>
+			<score>10</score>
+			<modifier>+0</modifier>
+			<base>10</base>
+			<basemod>+0</basemod>
+			<noequip>10</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>10</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Wisdom</long>
+				<short>WIS</short>
+			</name>
+			<score>18</score>
+			<modifier>+4</modifier>
+			<base>18</base>
+			<basemod>+4</basemod>
+			<noequip>18</noequip>
+			<noequip_mod>+4</noequip_mod>
+			<no_temp_score>18</no_temp_score>
+			<no_temp_modifier>+4</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Charisma</long>
+				<short>CHA</short>
+			</name>
+			<score>17</score>
+			<modifier>+3</modifier>
+			<base>15</base>
+			<basemod>+2</basemod>
+			<noequip>17</noequip>
+			<noequip_mod>+3</noequip_mod>
+			<no_temp_score>17</no_temp_score>
+			<no_temp_modifier>+3</no_temp_modifier>
+		</ability>
+	</abilities>
+	<!--
+	  ====================================
+	  ====================================
+			HIT POINTS
+	  ====================================
+	  ====================================-->
+	<hit_points>
+		<points>25</points>
+		<alternate>11</alternate>
+		<die>(3d8)+1</die>
+		<current/>
+		<subdual/>
+		<damage_reduction></damage_reduction>
+		<damage_threshold>0</damage_threshold>
+		<history>
+			<roll>
+				<level>1</level>
+				<roll>8</roll>
+				<stat>0</stat>
+				<total>8</total>
+			</roll>
+			<roll>
+				<level>2</level>
+				<roll>8</roll>
+				<stat>0</stat>
+				<total>8</total>
+			</roll>
+			<roll>
+				<level>3</level>
+				<roll>8</roll>
+				<stat>0</stat>
+				<total>8</total>
+			</roll>
+		</history>
+	</hit_points>
+	<!--
+	  ====================================
+	  ====================================
+			ARMOR CLASS
+	  ====================================
+	  ====================================-->
+	<armor_class>
+		<total>16</total>
+		<listing>ARMOR +5, BASE +10, SHIELD +1</listing>
+		<flat>16</flat>
+		<touch>10</touch>
+		<base>10</base>
+		<armor_bonus>5</armor_bonus>
+		<shield_bonus>1</shield_bonus>
+		<stat_mod>0</stat_mod>
+		<size_mod>0</size_mod>
+		<natural>0</natural>
+		<class_bonus>0</class_bonus>
+		<dodge_bonus>0</dodge_bonus>
+		<misc>0</misc>
+		<miss_chance/>
+		<max_dex>+3</max_dex>
+		<spell_failure>30</spell_failure>
+		<check_penalty>-5</check_penalty>
+		<spell_resistance>0</spell_resistance>
+	</armor_class>
+	<!--
+	  ====================================
+	  ====================================
+			INITIATIVE
+	  ====================================
+	  ====================================-->
+	<initiative>
+		<total>+0</total>
+		<dex_mod>+0</dex_mod>
+		<misc_mod>+0</misc_mod>
+	</initiative>
+	<!--
+	  ====================================
+	  ====================================
+			SKILLS
+	  ====================================
+	  ====================================-->
+	<skills>
+		<skillpoints>
+			<total>9</total>
+			<used>8</used>
+			<unused>1</unused>
+		</skillpoints>
+		<list_mods>Diplomacy +10, Heal +10, Intimidate +5, Knowledge (Planes) +4, Knowledge (Religion) +4, Linguistics +4, Sense Motive +8, Spellcraft +4</list_mods>
+		<max_class_skill_level>3</max_class_skill_level>
+		<max_cross_class_skill_level>3</max_cross_class_skill_level>
+		<skill>
+			<name>Acrobatics</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Acrobatics</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Acrobatics (Jump)</name>
+			<ranks>0.0</ranks>
+			<mod>-9<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-9</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-9<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Acrobatics (Jump)</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-9</trained_total>
+			<exclusive_total>-9</exclusive_total>
+		</skill>
+		<skill>
+			<name>Appraise</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Appraise</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Bluff</name>
+			<ranks>0.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>3</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Bluff</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
+		</skill>
+		<skill>
+			<name>Climb</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Climb</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Craft (Untrained)</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Craft (Untrained)</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Diplomacy</name>
+			<ranks>2.0</ranks>
+			<mod>8<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>10</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Diplomacy</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>10</trained_total>
+			<exclusive_total>10</exclusive_total>
+		</skill>
+		<skill>
+			<name>Disguise</name>
+			<ranks>0.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>3</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Disguise</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
+		</skill>
+		<skill>
+			<name>Escape Artist</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Escape Artist</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Fly</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Fly</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Heal</name>
+			<ranks>3.0</ranks>
+			<mod>7<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>10</skill_mod>
+			<ability_mod>4<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Heal</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>10</trained_total>
+			<exclusive_total>10</exclusive_total>
+		</skill>
+		<skill>
+			<name>Intimidate</name>
+			<ranks>0.0</ranks>
+			<mod>5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>5</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Intimidate</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>5</trained_total>
+			<exclusive_total>5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Knowledge (Planes)</name>
+			<ranks>1.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Knowledge (Planes)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Knowledge (Religion)</name>
+			<ranks>1.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Knowledge (Religion)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Linguistics(Celestial)</name>
+			<ranks>1.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Linguistics(Celestial)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Perception</name>
+			<ranks>0.0</ranks>
+			<mod>4<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>4<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Perception</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Perform (Untrained)</name>
+			<ranks>0.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>3</skill_mod>
+			<ability_mod>3<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Perform (Untrained)</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
+		</skill>
+		<skill>
+			<name>Ride</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Ride</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Sense Motive</name>
+			<ranks>1.0</ranks>
+			<mod>7<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>8</skill_mod>
+			<ability_mod>4<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Sense Motive</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>8</trained_total>
+			<exclusive_total>8</exclusive_total>
+		</skill>
+		<skill>
+			<name>Spellcraft</name>
+			<ranks>1.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Spellcraft</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Stealth</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Stealth</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Survival</name>
+			<ranks>0.0</ranks>
+			<mod>4<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>4<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Survival</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Swim</name>
+			<ranks>0.0</ranks>
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>-5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Swim</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
+		</skill>
+	</skills>
+	<!--
+	  ====================================
+	  ====================================
+			SAVING THROWS
+	  ====================================
+	  ====================================-->
+	<saving_throws>
+		<conditional_modifiers/>
+		<saving_throw>
+			<name>
+				<long>fortitude</long>
+				<short>fort</short>
+			</name>
+			<ability>constitution</ability>
+			<total>+3</total>
+			<base>+3</base>
+			<abil_mod>+0</abil_mod>
+			<feats>+0</feats>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+0</misc_mod>
+			<race>+0</race>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</saving_throw>
+		<saving_throw>
+			<name>
+				<long>reflex</long>
+				<short>ref</short>
+			</name>
+			<ability>dexterity</ability>
+			<total>+1</total>
+			<base>+1</base>
+			<feats>+0</feats>
+			<abil_mod>+0</abil_mod>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+0</misc_mod>
+			<race>+0</race>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</saving_throw>
+		<saving_throw>
+			<name>
+				<long>will</long>
+				<short>will</short>
+			</name>
+			<ability>wisdom</ability>
+			<total>+7</total>
+			<base>+3</base>
+			<abil_mod>+4</abil_mod>
+			<feats>+0</feats>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+0</misc_mod>
+			<race>+0</race>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</saving_throw>
+	</saving_throws>
+	<!--
+	  ====================================
+	  ====================================
+			ATTACK
+	  ====================================
+	  ====================================-->
+	<attack>
+		<melee>
+			<total>+2</total>
+			<bab>+2</bab>
+			<base_attack_bonus>+2</base_attack_bonus>
+			<stat_mod>+0</stat_mod>
+			<size_mod>+0</size_mod>
+			<misc_mod>+0</misc_mod>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</melee>
+		<ranged>
+			<total>+2</total>
+			<bab>+2</bab>
+			<base_attack_bonus>+2</base_attack_bonus>
+			<stat_mod>+0</stat_mod>
+			<size_mod>+0</size_mod>
+			<misc_mod>+0</misc_mod>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</ranged>
+		<grapple>
+			<total>+2</total>
+			<bab>+2</bab>
+			<base_attack_bonus>+2</base_attack_bonus>
+			<stat_mod>+0</stat_mod>
+			<size_mod>+0</size_mod>
+			<misc_mod>+0</misc_mod>
+			<epic_mod>+0</epic_mod>
+			<temp_mod/>
+		</grapple>
+	</attack>
+	<!--
+	  ====================================
+	  ====================================
+			WEAPONS
+	  ====================================
+	  ====================================-->
+	<weapons>
+		<unarmed>
+			<total>+2</total>
+			<damage>1d3</damage>
+			<critical>20/x2</critical>
+			<!-- Should be changed to a variable due to improved crit -->
+		</unarmed>
+		
+		<weapon>
+			<common>
+				<name>
+					<short>*Masterwork Morningstar</short>
+					<long>*Masterwork Morningstar</long>
+				</name>
+				<category>Simple-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+3</hit>
+					<magic_hit>+1</magic_hit>
+					<total_hit>+3</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Primary</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>BP</type>
+				<weight>6</weight>
+				<sequence>0</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+3</to_hit>
+					<damage>1d8</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>-1</to_hit>
+					<damage>1d8</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+3</to_hit>
+					<damage>1d8</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>-3</to_hit>
+					<damage>1d8</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>-1</to_hit>
+					<damage>1d8</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>-7</to_hit>
+					<damage>1d8</damage>
+				</w2_o>
+			</melee>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>Crossbow, Light</short>
+					<long>Crossbow (Light)</long>
+				</name>
+				<category>Simple-Ranged</category>
+				<critical>
+					<range>19-20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Carried</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>P</type>
+				<weight>4</weight>
+				<sequence>1</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+2</to_hit>
+					<damage>1d8</damage>
+				</range>
+				<range>
+					<distance>80 ft.</distance>
+					<to_hit>+2</to_hit>
+					<damage>1d8</damage>
+				</range>
+				<range>
+					<distance>160 ft.</distance>
+					<to_hit>+0</to_hit>
+					<damage>1d8</damage>
+				</range>
+				<range>
+					<distance>240 ft.</distance>
+					<to_hit>-2</to_hit>
+					<damage>1d8</damage>
+				</range>
+				<range>
+					<distance>320 ft.</distance>
+					<to_hit>-4</to_hit>
+					<damage>1d8</damage>
+				</range>
+			</ranges>
+		</weapon>
+	</weapons>
+	<!--
+	  ====================================
+	  ====================================
+			ARMOR
+	  ====================================
+	  ====================================-->
+	<protection>
+		<armor>
+			<name>*Scale Mail</name>
+			<acbonus>+5</acbonus>
+			<accheck>-4</accheck>
+			<baseac>+5</baseac>
+			<edr>+0</edr>
+			<maxdex>+3</maxdex>
+			<move></move>
+			<spellfail>25</spellfail>
+			<special_properties></special_properties>
+			<totalac>+5</totalac>
+			<type>Medium</type>
+			<wt>30</wt>
+		</armor>
+		<shield>
+			<name>*Shield, Light Steel</name>
+			<acbonus>+1</acbonus>
+			<accheck>-1</accheck>
+			<baseac>+1</baseac>
+			<edr>+0</edr>
+			<maxdex></maxdex>
+			<move></move>
+			<spellfail>5</spellfail>
+			<special_properties></special_properties>
+			<totalac>+1</totalac>
+			<type>Light</type>
+			<wt>6</wt>
+		</shield>
+	</protection>
+	<!--
+	  ====================================
+	  ====================================
+			CLASS-DEPENDANT FEATURES
+	  ====================================
+	  ====================================-->
+	<class_features>
+
+	<!-- Bard -->
+
+	<!-- Barbarian of 15th Level -->
+	<!-- Character Rage -->
+	<!-- Turning ability -->
+	<!-- 3.0 stunning fist -->
+	<!-- 3.5 stunning fist -->
+	<!-- 3.0 wholeness of body -->
+	<!-- 3.5 wholeness of body -->
+	<!-- Psionics -->
+
+
+
+	</class_features>
+	<!--
+	  ====================================
+	  ====================================
+			EQUIPMENT
+	  ====================================
+	  ====================================-->
+	<equipment>
+		<item>
+			<longname>Masterwork Morningstar</longname>
+			<id></id>
+			<name>Masterwork Morningstar</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>308</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.CUSTOM.METAL.MASTERWORK</type>
+			<weight>6</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Outfit (Traveler&#39;s)</longname>
+			<id></id>
+			<name>Traveler&#39;s Outfit</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+			<weight>5</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Scale Mail</longname>
+			<id></id>
+			<name>Scale Mail</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>50</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+			<weight>30</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Amethyst</longname>
+			<id></id>
+			<name>Amethyst</name>
+			<carried>2.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>100</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>2</quantity>
+			<checkbox>2</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GEM</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Backpack</longname>
+			<id></id>
+			<name>Backpack</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+			<contents_num>9</contents_num>
+			<content_weight>9.5</content_weight>
+			<cost>2</cost>
+			<equipped>N</equipped>
+			<location>Carried</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
+			<weight>2</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Bedroll</longname>
+			<id></id>
+			<name>Bedroll</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0.1</cost>
+			<equipped>N</equipped>
+			<location>Horse (Light/Combat Trained)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.RESIZABLE</type>
+			<weight>5</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Blanket (Winter)</longname>
+			<id></id>
+			<name>Blanket (Winter)</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0.5</cost>
+			<equipped>N</equipped>
+			<location>Horse (Light/Combat Trained)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.RESIZABLE</type>
+			<weight>3</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Bolts (Crossbow/10)</longname>
+			<id></id>
+			<name>Bolts, Crossbow (10)</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>10</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Bolts (Crossbow/10)</longname>
+			<id></id>
+			<name>Bolts, Crossbow (10)</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>N</equipped>
+			<location>Horse (Light/Combat Trained)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>10</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Citrine</longname>
+			<id></id>
+			<name>Citrine</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>50</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GEM</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Coin (Gold Piece)</longname>
+			<id></id>
+			<name>Coin (Gold Piece)</name>
+			<carried>10.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>10</quantity>
+			<checkbox>10</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>COIN</type>
+			<weight>0.02</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Coin (Platinum Piece)</longname>
+			<id></id>
+			<name>Coin (Platinum Piece)</name>
+			<carried>5.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>10</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>5</quantity>
+			<checkbox>5</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>COIN</type>
+			<weight>0.02</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Coin (Silver Piece)</longname>
+			<id></id>
+			<name>Coin (Silver Piece)</name>
+			<carried>10.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0.1</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>10</quantity>
+			<checkbox>10</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>COIN</type>
+			<weight>0.02</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Crossbow (Light)</longname>
+			<id></id>
+			<name>Crossbow, Light</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>0 lbs.</contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>35</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WOODEN</type>
+			<weight>4</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Holy Symbol (Silver)</longname>
+			<id></id>
+			<name>Holy Symbol (Silver)</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>25</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.TOOLS.DIVINEFOCUS</type>
+			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Horse (Light/Combat Trained)</longname>
+			<id></id>
+			<name>Horse (Light/Combat Trained)</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
+			<contents_num>5</contents_num>
+			<content_weight>43</content_weight>
+			<cost>110</cost>
+			<equipped>N</equipped>
+			<location></location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Large</long>
+				<short>L</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.TRANSPORTATION.MOUNT.CONTAINER</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Potion of Cure Light Wounds</longname>
+			<id></id>
+			<name>Potion of Cure Light Wounds</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>50</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties>Cures 1d8+1 points of damage</special_properties>
+			<type>MAGIC.POTION.CONSUMABLE</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Rations (Trail/Per Day)</longname>
+			<id></id>
+			<name>Rations (Trail/Per Day)</name>
+			<carried>4.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0.5</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>4</quantity>
+			<checkbox>4</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
+			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Saddle (Military)</longname>
+			<id></id>
+			<name>Saddle (Military)</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>20</cost>
+			<equipped>N</equipped>
+			<location>Horse (Light/Combat Trained)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
+			<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
+			<weight>30</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Shield (Light/Steel)</longname>
+			<id></id>
+			<name>Shield, Light Steel</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>9</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>SHIELD.LIGHT.STANDARD.CLOSE.METAL</type>
+			<weight>6</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Waterskin (Filled)</longname>
+			<id></id>
+			<name>Waterskin (Filled)</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>N</equipped>
+			<location>Horse (Light/Combat Trained)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.RESIZABLE</type>
+			<weight>4</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<total>
+			<weight>59.5 lbs.</weight>
+			<value>926.6 gp</value>
+			<load>Medium</load>
+			<capacity>100</capacity>
+		</total>
+		<equipmentsets>
+
+      <equipmentset name="">
+		<item>
+					<name>Masterwork Morningstar</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>308</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.CUSTOM.METAL.MASTERWORK</type>
+					<weight>6</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Traveler&#39;s Outfit</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>1</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+					<weight>5</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Scale Mail</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>50</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+					<weight>30</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Amethyst</name>
+					<carried>2.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>100</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>2</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GEM</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Backpack</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+					<cost>2</cost>
+					<equipped>N</equipped>
+					<location>Carried</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
+					<weight>2</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Bedroll</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0.1</cost>
+					<equipped>N</equipped>
+					<location>Horse (Light/Combat Trained)</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.GENERAL.RESIZABLE</type>
+					<weight>5</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Blanket (Winter)</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0.5</cost>
+					<equipped>N</equipped>
+					<location>Horse (Light/Combat Trained)</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.GENERAL.RESIZABLE</type>
+					<weight>3</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Bolts, Crossbow (10)</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>1</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+					<weight>1</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Bolts, Crossbow (10)</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>1</cost>
+					<equipped>N</equipped>
+					<location>Horse (Light/Combat Trained)</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+					<weight>1</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Citrine</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>50</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GEM</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Coin (Gold Piece)</name>
+					<carried>10.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>1</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>10</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>COIN</type>
+					<weight>0.02</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Coin (Platinum Piece)</name>
+					<carried>5.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>10</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>5</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>COIN</type>
+					<weight>0.02</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Coin (Silver Piece)</name>
+					<carried>10.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0.1</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>10</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>COIN</type>
+					<weight>0.02</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Crossbow, Light</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents>0 lbs.</contents>
+					<cost>35</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WOODEN</type>
+					<weight>4</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Holy Symbol (Silver)</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>25</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.TOOLS.DIVINEFOCUS</type>
+					<weight>1</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Horse (Light/Combat Trained)</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
+					<cost>110</cost>
+					<equipped>N</equipped>
+					<location></location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Large</long>
+						<short>L</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.TRANSPORTATION.MOUNT.CONTAINER</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Potion of Cure Light Wounds</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>50</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties>Cures 1d8+1 points of damage</special_properties>
+					<type>MAGIC.POTION.CONSUMABLE</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Rations (Trail/Per Day)</name>
+					<carried>4.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0.5</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>4</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
+					<weight>1</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Saddle (Military)</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>20</cost>
+					<equipped>N</equipped>
+					<location>Horse (Light/Combat Trained)</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
+					<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
+					<weight>30</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Shield, Light Steel</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>9</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>SHIELD.LIGHT.STANDARD.CLOSE.METAL</type>
+					<weight>6</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Waterskin (Filled)</name>
+					<carried>0.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>1</cost>
+					<equipped>N</equipped>
+					<location>Horse (Light/Combat Trained)</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.GENERAL.RESIZABLE</type>
+					<weight>4</weight>
+					<bonuslist></bonuslist>
+				</item>
+			</equipmentset>
+
+      </equipmentsets>
+	</equipment>
+	<weight_allowance>
+		<light>33</light>
+		<medium>66</medium>
+		<heavy>100</heavy>
+		<lift_over_head>100</lift_over_head>
+		<lift_off_ground>200</lift_off_ground>
+		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+		<push_drag>500</push_drag>
+	</weight_allowance>
+	<!--
+	  ====================================
+	  ====================================
+			SPECIAL ABILITIES
+	  ====================================
+	  ====================================-->
+	<special_abilities>
+		<race></race>
+		<class>
+			<class>Cleric</class>
+			<ability></ability>
+		</class>
+	</special_abilities>
+	<!--
+	  ====================================
+	  ====================================
+			FEATS
+	  ====================================
+	  ====================================-->
+	<feats>
+		<!-- Visible standard feats (not including the auto feats) -->
+		<feat>
+			<name>Persuasive</name>
+			<description>You get a +2 bonus on Diplomacy and Intimidate skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.</description>
+			<type>GENERAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Selective Channeling</name>
+			<description>When you channel energy, you can choose 3 targets in the area. These targets are not affected by your channeled energy.</description>
+			<type>GENERAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Spell Focus (Enchantment)</name>
+			<description>Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select.</description>
+			<type>GENERAL.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<associated>Enchantment</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<!-- Auto feats -->
+		<feat>
+			<name>Armor Proficiency, Light</name>
+			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Dexterity- and Strength-based skill checks.</description>
+			<type>COMBAT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Armor Proficiency, Medium</name>
+			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Dexterity- and Strength-based skill checks.</description>
+			<type>COMBAT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Shield Proficiency</name>
+			<description>When you use a shield (except a tower shield), the shield&#39;s armor check penalty only applies to Strength- and Dexterity-based skills.</description>
+			<type>COMBAT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Simple Weapon Proficiency</name>
+			<description>You make attack rolls with simple weapons without penalty.</description>
+			<type>GENERAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<!-- Virtual Feats -->
+		<!-- End Virtual Feats -->
+		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+<!-- Hidden VFEATS -->
+<!-- END Hidden VFEATS -->
+		<feat>
+			<name>CMB Output</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+	<ability_objects>
+	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Bonus Feat</name>
+			<description>Humans select one extra feat at 1st level.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.HUMANBONUSFEAT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Channel Positive Energy</name>
+			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 14 Will save to halve the damage. You can use this abilty 6 times per day.</description>
+			<type>SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHECKLIST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Skilled</name>
+			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.HUMANSKILLED</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Orisons</name>
+			<description>You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Spontaneous Casting</name>
+			<description>You can channel stored spell energy into healing spells that you did not prepare ahead of time. You can &quot;lose&quot; any prepared spell that is not an orison or domain spell in order to cast any cure spell of the same spell level or lower (a cure spell is any spell with &quot;Cure&quot; in its name).</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Sun&#39;s Blessing</name>
+			<description>Whenever you channel positive energy to harm undead creatures, add a +3 bonus to the damage dealt. Undead do not add their channel resistance to their saves when you channel positive energy.</description>
+			<type>SPECIALATTACK.SUPERNATURAL.DOMAINPOWER</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Touch of Glory</name>
+			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
+			<type>SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.CHECKLIST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Aura of Good</name>
+			<description>You project a moderate good aura.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.AURA</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Hidden Standard "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>+2 Charisma</name>
+			<description></description>
+			<type>ABILITYBONUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bonus Hit Point</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bonus Skill Point (Knowledge (Religion), Knowledge (Planes))</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS</type>
+			<associated>Knowledge (Religion),Knowledge (Planes)</associated>
+			<count>2</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Cleric</name>
+			<description></description>
+			<type>FAVOREDCLASS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>No Traits</name>
+			<description>You do not have any character traits.</description>
+			<type>TRAIT.BASICTRAIT.COMBATTRAIT.FAITHTRAIT.MAGICTRAIT.SOCIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Channel Energy</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Cleric Weapon Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Domains</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Shield Bash 1d3</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Bash Stats</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+	</ability_objects>
+	<!--
+	  ====================================
+	  ====================================
+			MISCELLANEOUS
+	  ====================================
+	  ====================================-->
+
+	<domains>
+		<domain>
+			<name>Glory</name>
+			<power>You are infused with the glory of the divine, and are a true foe of the undead. In addition, when you channel positive energy to harm undead creatures, the save DC to halve the damage is increased by 2.</power>
+		</domain>
+		<domain>
+			<name>Sun</name>
+			<power>You see truth in the pure and burning light of the sun, and can call upon its blessing or wrath to work great deeds.</power>
+		</domain>
+	</domains>
+	<!-- Domains -->
+	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Rock, Scimitar, Shieldbash (Heavy), Shieldbash (Light), Shortspear, Sickle, Sling, Spear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
+	<languages>Celestial, Common</languages>
+
+	<templates>
+		<list></list>
+		<template>
+			<name></name>
+			<strmod></strmod>
+			<dexmod></dexmod>
+			<conmod></conmod>
+			<intmod></intmod>
+			<wismod></wismod>
+			<chamod></chamod>
+			<cr></cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr></sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name></name>
+			<strmod></strmod>
+			<dexmod></dexmod>
+			<conmod></conmod>
+			<intmod></intmod>
+			<wismod></wismod>
+			<chamod></chamod>
+			<cr></cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr></sr>
+			<bonuslist></bonuslist>
+		</template>
+	</templates>
+
+
+	<misc>
+
+
+
+	</misc>
+	<!--
+	  ====================================
+	  ====================================
+			COMPANIONS
+	  ====================================
+	  ====================================-->
+	<companions>
+
+
+
+
+	</companions>
+	<!--
+	  ====================================
+	  ====================================
+			SPELLS
+	  ====================================
+	  ====================================-->
+	<spells>
+		<!-- ### BEGIN Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
+		<!-- ### BEGIN Known spells ### -->
+		<known_spells>
+
+		<class number="0" spelllistclass="Cleric" spellcastertype="Divine">
+			<level number="0" known="0" cast="4">
+				<spell>
+						<name>Bleed</name>
+						<outputname>Bleed</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>Instantaneous</duration>
+						<effect>You cause a living creature that is below 0 hit points but stabilized to resume dying.</effect>
+						<target>One living creature</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Necromancy</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<sourcepage>p.249</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>You cause a living creature that is below 0 hit points but stabilized to resume dying.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Create Water</name>
+						<outputname>Create Water</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>This spell generates wholesome, drinkable water, just like clean rain water.</effect>
+						<target>Up to 6 gallons of water</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor>Water</descriptor>
+							<fullschool>Conjuration (Creation) [Water]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.262</source>
+							<sourcepage>p.262</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Magic</name>
+						<outputname>Detect Magic</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 3 minutes [D]</duration>
+						<effect>You detect magical auras.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<sourcepage>p.267</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You detect magical auras.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Poison</name>
+						<outputname>Detect Poison</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>You determine whether a creature, object, or area has been poisoned or is poisonous.</effect>
+						<target>Or Area one creature, one object, or a 5-ft. cube</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.268</source>
+							<sourcepage>p.268</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Guidance</name>
+						<outputname>Guidance</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>1 minute or until discharged</duration>
+						<effect>This spell imbues the subject with a touch of divine guidance.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.292</source>
+							<sourcepage>p.292</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>This spell imbues the subject with a touch of divine guidance.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Light</name>
+						<outputname>Light</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>This spell causes a touched object to glow like a torch.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.304</source>
+							<sourcepage>p.304</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell causes a touched object to glow like a torch.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Mending</name>
+						<outputname>Mending</outputname>
+						<times_memorized>1</times_memorized>
+						<range>10 ft.</range>
+						<components>V, S</components>
+						<castingtime>10 minutes</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>Instantaneous</duration>
+						<effect>This spell repairs damaged objects, restoring 1d4 hit points to the object.</effect>
+						<target>One object of up to 3 lb.</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.312</source>
+							<sourcepage>p.312</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>This spell repairs damaged objects, restoring 1d4 hit points to the object.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Purify Food and Drink</name>
+						<outputname>Purify Food and Drink</outputname>
+						<times_memorized>1</times_memorized>
+						<range>10 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>Instantaneous</duration>
+						<effect>This spell makes spoiled, rotten, diseased, poisonous, or otherwise contaminated food and water pure and suitable for eating and drinking.</effect>
+						<target>3 cu. ft. of contaminated food and water</target>
+						<saveinfo>Will negates (object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.328</source>
+							<sourcepage>p.328</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>This spell makes spoiled, rotten, diseased, poisonous, or otherwise contaminated food and water pure and suitable for eating and drinking.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Read Magic</name>
+						<outputname>Read Magic</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, F</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.330</source>
+							<sourcepage>p.330</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Resistance</name>
+						<outputname>Resistance</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>1 minute</duration>
+						<effect>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Sor0, Wiz0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<sourcepage>p.334</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Stabilize</name>
+						<outputname>Stabilize</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>Instantaneous</duration>
+						<effect>Upon casting this spell, you target a living creature that has -1 or fewer hit points.</effect>
+						<target>One living creature</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.348</source>
+							<sourcepage>p.348</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Upon casting this spell, you target a living creature that has -1 or fewer hit points.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Virtue</name>
+						<outputname>Virtue</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>1 min.</duration>
+						<effect>With a touch, you infuse a creature with a tiny surge of life, granting the subject 1 temporary hit point.</effect>
+						<target>Creature touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr0, Drd0, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.365</source>
+							<sourcepage>p.365</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>With a touch, you infuse a creature with a tiny surge of life, granting the subject 1 temporary hit point.</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</level>
+			<level number="1" known="0" cast="3+1">
+				<spell>
+						<name>Bane</name>
+						<outputname>Bane</outputname>
+						<times_memorized>1</times_memorized>
+						<range>50 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>Bane fills your enemies with fear and doubt.</effect>
+						<target>50-ft.-radius burst, centered on you</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Fear, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Fear, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.246</source>
+							<sourcepage>p.246</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Bane fills your enemies with fear and doubt.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Bless</name>
+						<outputname>Bless</outputname>
+						<times_memorized>1</times_memorized>
+						<range>50 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes</duration>
+						<effect>Bless fills your allies with courage.</effect>
+						<target>The caster and all allies within a 50-ft. burst, centered on the caster</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<sourcepage>p.249</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Bless fills your allies with courage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Bless Water</name>
+						<outputname>Bless Water</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M</components>
+						<castingtime>1 minute</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>Instantaneous</duration>
+						<effect>This transmutation imbues a flask of water with positive energy, turning it into holy water.</effect>
+						<target>Flask of water touched</target>
+						<saveinfo>Will negates (object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor>Good</descriptor>
+							<fullschool>Transmutation [Good]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<sourcepage>p.249</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>This transmutation imbues a flask of water with positive energy, turning it into holy water.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Cause Fear</name>
+						<outputname>Cause Fear</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>1d4 rounds or 1 round; see text</duration>
+						<effect>The affected creature becomes frightened.</effect>
+						<target>One living creature with 5 or fewer HD</target>
+						<saveinfo>Will partial</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor>Fear, Mind-Affecting</descriptor>
+							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.252</source>
+							<sourcepage>p.252</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>The affected creature becomes frightened.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Command</name>
+						<outputname>Command</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>1 round</duration>
+						<effect>You give the subject a single command, which it obeys to the best of its ability at its earliest opportunity.</effect>
+						<target>One living creature</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Language-Dependent, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.256</source>
+							<sourcepage>p.256</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>You give the subject a single command, which it obeys to the best of its ability at its earliest opportunity.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Comprehend Languages</name>
+						<outputname>Comprehend Languages</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>You can understand the spoken words of creatures or read otherwise incomprehensible written messages.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Knowledge1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.258</source>
+							<sourcepage>p.258</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>You can understand the spoken words of creatures or read otherwise incomprehensible written messages.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Cure Light Wounds</name>
+						<outputname>Cure Light Wounds</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>Instantaneous</duration>
+						<effect>When laying your hand upon a living creature, you channel positive energy that cures 1d8+3 points of damage.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will half (harmless); see text</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Drd1, Healing1, Pld1, Rgr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<sourcepage>p.263</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless); see text</spell_resistance>
+						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Deathwatch</name>
+						<outputname>Deathwatch</outputname>
+						<times_memorized>1</times_memorized>
+						<range>30 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>Using the powers of necromancy, you can determine the condition of creatures near death within the spell&#39;s range.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Necromancy</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Repose1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.265</source>
+							<sourcepage>p.265</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Using the powers of necromancy, you can determine the condition of creatures near death within the spell&#39;s range.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Chaos</name>
+						<outputname>Detect Chaos</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 30 minutes [D]</duration>
+						<effect>You can sense the auras of chaotic creatures.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.266</source>
+							<sourcepage>p.266</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the auras of chaotic creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Evil</name>
+						<outputname>Detect Evil</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 30 minutes [D]</duration>
+						<effect>You can sense the presence of evil.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.266</source>
+							<sourcepage>p.266</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the presence of evil.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Good</name>
+						<outputname>Detect Good</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 30 minutes [D]</duration>
+						<effect>You can sense the presence of good.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<sourcepage>p.267</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the presence of good.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Law</name>
+						<outputname>Detect Law</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 30 minutes [D]</duration>
+						<effect>You can sense the auras of lawful creatures.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<sourcepage>p.267</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the auras of lawful creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Detect Undead</name>
+						<outputname>Detect Undead</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 3 minutes [D]</duration>
+						<effect>You can detect the aura that surrounds undead creatures.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Pld1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.269</source>
+							<sourcepage>p.269</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can detect the aura that surrounds undead creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Divine Favor</name>
+						<outputname>Divine Favor</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>1 minute</duration>
+						<effect>Calling upon the strength and wisdom of a deity, you gain a +1 luck bonus on attack and weapon damage rolls.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Evocation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Nobility1, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.273</source>
+							<sourcepage>p.273</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>Calling upon the strength and wisdom of a deity, you gain a +(max(1,min(3,floor(CASTERLEVEL/3)))) luck bonus on attack and weapon damage rolls.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Doom</name>
+						<outputname>Doom</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (130 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes</duration>
+						<effect>This spell fills a single subject with a feeling of horrible dread that causes it to become shaken.</effect>
+						<target>One living creature</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor>Fear, Mind-Affecting</descriptor>
+							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.274</source>
+							<sourcepage>p.274</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>This spell fills a single subject with a feeling of horrible dread that causes it to become shaken.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Endure Elements</name>
+						<outputname>Endure Elements</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>24 hours</duration>
+						<effect>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.277</source>
+							<sourcepage>p.277</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
+						<bonusspell>**</bonusspell>
+					</spell>
+				<spell>
+						<name>Endure Elements</name>
+						<outputname>Endure Elements</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>24 hours</duration>
+						<effect>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.277</source>
+							<sourcepage>p.277</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Entropic Shield</name>
+						<outputname>Entropic Shield</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes [D]</duration>
+						<effect>A magical field appears around you, glowing with a chaotic blast of multicolored hues deflecting incoming arrows, rays, and other ranged attacks.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.278</source>
+							<sourcepage>p.278</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>A magical field appears around you, glowing with a chaotic blast of multicolored hues deflecting incoming arrows, rays, and other ranged attacks.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Hide from Undead</name>
+						<outputname>Hide from Undead</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>30 minutes [D]</duration>
+						<effect>Undead cannot see, hear, or smell creatures warded by this spell.</effect>
+						<target>3 creatures touched</target>
+						<saveinfo>Will negates (harmless); see text</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.296</source>
+							<sourcepage>p.296</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Undead cannot see, hear, or smell creatures warded by this spell.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Inflict Light Wounds</name>
+						<outputname>Inflict Light Wounds</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>Instantaneous</duration>
+						<effect>When laying your hand upon a creature, you channel negative energy that deals 1d8+3 points of damage.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will half</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Necromancy</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.300</source>
+							<sourcepage>p.300</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>When laying your hand upon a creature, you channel negative energy that deals 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Magic Stone</name>
+						<outputname>Magic Stone</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>30 minutes or until discharged</duration>
+						<effect>You transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung.</effect>
+						<target>Up to three pebbles touched</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Drd1, Earth1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.310</source>
+							<sourcepage>p.310</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>You transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Magic Weapon</name>
+						<outputname>Magic Weapon</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes</duration>
+						<effect>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</effect>
+						<target>Weapon touched</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Pld1, Sor1, War1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.310</source>
+							<sourcepage>p.310</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Obscuring Mist</name>
+						<outputname>Obscuring Mist</outputname>
+						<times_memorized>1</times_memorized>
+						<range>20 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes [D]</duration>
+						<effect>A misty, stationary vapor arises around you obscuring all sight, including darkvision, beyond 5 feet.</effect>
+						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Creation)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Air1, Clr1, Darkness1, Drd1, Sor1, Water1, Weather1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.317</source>
+							<sourcepage>p.317</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>A misty, stationary vapor arises around you obscuring all sight, including darkvision, beyond 5 feet.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Protection from Chaos</name>
+						<outputname>Protection from Chaos</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes [D]</duration>
+						<effect>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor>Lawful</descriptor>
+							<fullschool>Abjuration [Lawful]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Law1, Pld1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.327</source>
+							<sourcepage>p.327</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No; see text</spell_resistance>
+						<description>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Protection from Evil</name>
+						<outputname>Protection from Evil</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes [D]</duration>
+						<effect>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor>Good</descriptor>
+							<fullschool>Abjuration [Good]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Good1, Pld1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.327</source>
+							<sourcepage>p.327</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No; see text</spell_resistance>
+						<description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Protection from Law</name>
+						<outputname>Protection from Law</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes [D]</duration>
+						<effect>This spell wards a creature from attacks by lawful creatures, from mental control, and from summoned creatures.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor>Chaotic</descriptor>
+							<fullschool>Abjuration [Chaotic]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Chaos1, Clr1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.328</source>
+							<sourcepage>p.328</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No; see text</spell_resistance>
+						<description>This spell wards a creature from attacks by lawful creatures, from mental control, and from summoned creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Remove Fear</name>
+						<outputname>Remove Fear</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>10 minutes; see text</duration>
+						<effect>You instill courage in the subject, granting it a +4 morale bonus against fear effects for 10 minutes.</effect>
+						<target>1 creatures, no two of which can be more than 30 ft. apart</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Liberation1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.332</source>
+							<sourcepage>p.332</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>You instill courage in the subject, granting it a +4 morale bonus against fear effects for 10 minutes.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Sanctuary</name>
+						<outputname>Sanctuary</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 rounds</duration>
+						<effect>Any opponent attempting to directly attack the warded creature, even with a targeted spell, must attempt a Will save.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Protection1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.336</source>
+							<sourcepage>p.336</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Any opponent attempting to directly attack the warded creature, even with a targeted spell, must attempt a Will save.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Shield of Faith</name>
+						<outputname>Shield of Faith</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes</duration>
+						<effect>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Glory1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<sourcepage>p.342</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
+						<bonusspell>**</bonusspell>
+					</spell>
+				<spell>
+						<name>Shield of Faith</name>
+						<outputname>Shield of Faith</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>3 minutes</duration>
+						<effect>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1, Glory1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<sourcepage>p.342</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Summon Monster I</name>
+						<outputname>Summon Monster I</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, F/DF</components>
+						<castingtime>1 round</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 rounds [D]</duration>
+						<effect>This spell summons an extraplanar creature.</effect>
+						<target>One summoned creature</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Summoning</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Summoning)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Sor1, Wiz1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.350</source>
+							<sourcepage>p.350</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell summons an extraplanar creature.</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</level>
+			<level number="2" known="0" cast="2+1">
+				<spell>
+						<name>Aid</name>
+						<outputname>Aid</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes</duration>
+						<effect>Aid grants +1 morale bonus on attack rolls and saves vs fear effects, plus 1d8 + 3 temporary hit points.</effect>
+						<target>Living creature touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Luck2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.239</source>
+							<sourcepage>p.239</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Aid grants +1 morale bonus on attack rolls and saves vs fear effects, plus 1d8 + (min(CASTERLEVEL,10)) temporary hit points.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Align Weapon</name>
+						<outputname>Align Weapon</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>Align weapon makes a weapon chaotic, evil, good, or lawful, as you choose.</effect>
+						<target>Weapon touched or 50 projectiles [all of which must be together at the time of casting]</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.240</source>
+							<sourcepage>p.240</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>Align weapon makes a weapon chaotic, evil, good, or lawful, as you choose.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Augury</name>
+						<outputname>Augury</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, M, F</components>
+						<castingtime>1 minute</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>An augury can tell you whether a particular action will bring good or bad results for you in the immediate future.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.245</source>
+							<sourcepage>p.245</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>An augury can tell you whether a particular action will bring good or bad results for you in the immediate future.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Bear&#39;s Endurance</name>
+						<outputname>Bear&#39;s Endurance</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>The affected creature gains greater vitality and stamina granting the subject a +4 enhancement bonus to Constitution.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Drd2, Rgr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.246</source>
+							<sourcepage>p.246</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>The affected creature gains greater vitality and stamina granting the subject a +4 enhancement bonus to Constitution.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Bless Weapon</name>
+						<outputname>Bless Weapon</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes</duration>
+						<effect>This transmutation makes a weapon strike true against evil foes.</effect>
+						<target>Weapon touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Glory2, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.250</source>
+							<sourcepage>p.250</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This transmutation makes a weapon strike true against evil foes.</description>
+						<bonusspell>*</bonusspell>
+					</spell>
+				<spell>
+						<name>Bull&#39;s Strength</name>
+						<outputname>Bull&#39;s Strength</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>The subject becomes stronger granting a +4 enhancement bonus to Strength.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Drd2, Pld2, Sor2, Strength2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.251</source>
+							<sourcepage>p.251</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>The subject becomes stronger granting a +4 enhancement bonus to Strength.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Calm Emotions</name>
+						<outputname>Calm Emotions</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (130 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>17</dc>
+						<duration>Concentration, up to 3 rounds [D]</duration>
+						<effect>This spell calms agitated creatures.</effect>
+						<target>Creatures in a 20-ft.-radius spread</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Charm2, Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.252</source>
+							<sourcepage>p.252</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>This spell calms agitated creatures.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Consecrate</name>
+						<outputname>Consecrate</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, M, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>6 hours</duration>
+						<effect>This spell blesses an area with positive energy.</effect>
+						<target>20-ft.-radius emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Good</descriptor>
+							<fullschool>Evocation [Good]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.258</source>
+							<sourcepage>p.258</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell blesses an area with positive energy.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Cure Moderate Wounds</name>
+						<outputname>Cure Moderate Wounds</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>When laying your hand upon a living creature, you channel positive energy that cures 2d8+3 points of damage.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will half (harmless) or Will half; see text</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Drd3, Healing2, Pld3, Rgr3</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<sourcepage>p.263</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless) or yes; see text</spell_resistance>
+						<description>When laying your hand upon a living creature, you channel positive energy that cures 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Darkness</name>
+						<outputname>Darkness</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes [D]</duration>
+						<effect>This spell causes an object to radiate darkness out to a 20-foot radius.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Darkness</descriptor>
+							<fullschool>Evocation [Darkness]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<sourcepage>p.263</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell causes an object to radiate darkness out to a 20-foot radius.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Delay Poison</name>
+						<outputname>Delay Poison</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 hours</duration>
+						<effect>The subject becomes temporarily immune to poison.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Fortitude negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Drd2, Pld2, Rgr1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.265</source>
+							<sourcepage>p.265</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>The subject becomes temporarily immune to poison.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Eagle&#39;s Splendor</name>
+						<outputname>Eagle&#39;s Splendor</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>The transmuted creature becomes more poised, articulate, and personally forceful gaining a +4 enhancement bonus to Charisma.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Pld2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.275</source>
+							<sourcepage>p.275</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>The transmuted creature becomes more poised, articulate, and personally forceful gaining a +4 enhancement bonus to Charisma.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Enthrall</name>
+						<outputname>Enthrall</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (130 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 round</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>17</dc>
+						<duration>1 hour or less</duration>
+						<effect>If you have the attention of a group of creatures, you can use this spell to hold them enthralled.</effect>
+						<target>Any number of creatures</target>
+						<saveinfo>Will negates; see text</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Charm</subschool>
+							<descriptor>Language-Dependent, Mind-Affecting, Sonic</descriptor>
+							<fullschool>Enchantment (Charm) [Language-Dependent, Mind-Affecting, Sonic]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Nobility2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.278</source>
+							<sourcepage>p.278</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>If you have the attention of a group of creatures, you can use this spell to hold them enthralled.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Find Traps</name>
+						<outputname>Find Traps</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes</duration>
+						<effect>You gain intuitive insight into the workings of traps.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.281</source>
+							<sourcepage>p.281</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>You gain intuitive insight into the workings of traps.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Heat Metal</name>
+						<outputname>Heat Metal</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>7 rounds</duration>
+						<effect>Heat metal causes metal objects to become red-hot.</effect>
+						<target>Metal equipment of one creature per two levels, no two of which can be more than 30 ft. apart; or 75 lbs. of metal, all of which must be within a 30-ft. circle</target>
+						<saveinfo>Will negates (object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor>Fire</descriptor>
+							<fullschool>Transmutation [Fire]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Drd2, Sun2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.294</source>
+							<sourcepage>p.294</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>Heat metal causes metal objects to become red-hot.</description>
+						<bonusspell>*</bonusspell>
+					</spell>
+				<spell>
+						<name>Hold Person</name>
+						<outputname>Hold Person</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (130 ft.)</range>
+						<components>V, S, F/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>17</dc>
+						<duration>3 rounds [D]; see text</duration>
+						<effect>The subject becomes paralyzed and freezes in place.</effect>
+						<target>One humanoid creature</target>
+						<saveinfo>Will negates; see text</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Sor3, Wiz3</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.296</source>
+							<sourcepage>p.296</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>The subject becomes paralyzed and freezes in place.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Inflict Moderate Wounds</name>
+						<outputname>Inflict Moderate Wounds</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>When laying your hand upon a creature, you channel negative energy that deals 2d8+3 points of damage.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will half</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Necromancy</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.300</source>
+							<sourcepage>p.300</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>When laying your hand upon a creature, you channel negative energy that deals 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Make Whole</name>
+						<outputname>Make Whole</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>10 minutes</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>This spell functions as mending, except that it repairs 3d6 points of damage when cast on a construct creature.</effect>
+						<target>One object of up to 30 cu. ft. or one construct creature of any size</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.311</source>
+							<sourcepage>p.311</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>This spell functions as mending, except that it repairs (min(5,CASTERLEVEL))d6 points of damage when cast on a construct creature.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Owl&#39;s Wisdom</name>
+						<outputname>Owl&#39;s Wisdom</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>The transmuted creature becomes wiser gaining a +4 enhancement bonus to Wisdom.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Drd2, Pld2, Rgr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.318</source>
+							<sourcepage>p.318</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>The transmuted creature becomes wiser gaining a +4 enhancement bonus to Wisdom.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Remove Paralysis</name>
+						<outputname>Remove Paralysis</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>You can free one or more creatures from the effects of temporary paralysis or related magic.</effect>
+						<target>Up to four creatures, no two of which can be more than 30 ft. apart</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Liberation2, Pld2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.332</source>
+							<sourcepage>p.332</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>You can free one or more creatures from the effects of temporary paralysis or related magic.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Resist Energy</name>
+						<outputname>Resist Energy</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>30 minutes</duration>
+						<effect>This abjuration grants a creature limited protection from damage of whichever one of five energy types you select.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Fortitude negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Drd2, Pld2, Rgr1, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<sourcepage>p.334</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>This abjuration grants a creature limited protection from damage of whichever one of five energy types you select.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Restoration (Lesser)</name>
+						<outputname>Restoration (Lesser)</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>3 rounds</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Drd2, Pld1</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<sourcepage>p.334</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Shatter</name>
+						<outputname>Shatter</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>Shatter creates a loud, ringing noise that breaks brittle, nonmagical objects; sunders a single solid, nonmagical object; or damages a crystalline creature.</effect>
+						<target>Or Target 5-ft.-radius spread; or one solid object or one crystalline creature</target>
+						<saveinfo>Will negates (object); Will negates (object) or Fortitude half; see text</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Sonic</descriptor>
+							<fullschool>Evocation [Sonic]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.341</source>
+							<sourcepage>p.341</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Shatter creates a loud, ringing noise that breaks brittle, nonmagical objects; sunders a single solid, nonmagical object; or damages a crystalline creature.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Shield Other</name>
+						<outputname>Shield Other</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, F</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 hours [D]</duration>
+						<effect>This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you.</effect>
+						<target>One creature</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Community2, Pld2, Protection2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<sourcepage>p.342</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Silence</name>
+						<outputname>Silence</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Long (520 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 round</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 rounds [D]</duration>
+						<effect>Upon the casting of this spell, complete silence prevails in the affected area.</effect>
+						<target>20-ft.-radius emanation centered on a creature, object, or point in space</target>
+						<saveinfo>Will negates; see text or none (object)</saveinfo>
+						<school>
+							<school>Illusion</school>
+							<subschool>Glamer</subschool>
+							<descriptor></descriptor>
+							<fullschool>Illusion (Glamer)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.343</source>
+							<sourcepage>p.343</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes; see text or no (object)</spell_resistance>
+						<description>Upon the casting of this spell, complete silence prevails in the affected area.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Sound Burst</name>
+						<outputname>Sound Burst</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, F/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>Instantaneous</duration>
+						<effect>You blast an area with a tremendous cacophony.</effect>
+						<target>10-ft.-radius spread</target>
+						<saveinfo>Fortitude partial</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Sonic</descriptor>
+							<fullschool>Evocation [Sonic]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.346</source>
+							<sourcepage>p.346</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>You blast an area with a tremendous cacophony.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Spiritual Weapon</name>
+						<outputname>Spiritual Weapon</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (130 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 rounds [D]</duration>
+						<effect>A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8+1 force damage per hit.</effect>
+						<target>Magic weapon of force</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, War2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.348</source>
+							<sourcepage>p.348</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8+(min(5,floor(CASTERLEVEL/3))) force damage per hit.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Status</name>
+						<outputname>Status</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 hours</duration>
+						<effect>When you need to keep track of comrades who may get separated, status allows you to mentally monitor their relative positions and general condition.</effect>
+						<target>1 living creatures</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.349</source>
+							<sourcepage>p.349</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>When you need to keep track of comrades who may get separated, status allows you to mentally monitor their relative positions and general condition.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Summon Monster II</name>
+						<outputname>Summon Monster II</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, F/DF</components>
+						<castingtime>1 round</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 rounds [D]</duration>
+						<effect>This spell functions like summon monster I, except that you can summon one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list.</effect>
+						<target>One summoned creature</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Summoning</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Summoning)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.352</source>
+							<sourcepage>p.352</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>This spell functions like summon monster I, except that you can summon one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Undetectable Alignment</name>
+						<outputname>Undetectable Alignment</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>24 hours</duration>
+						<effect>An undetectable alignment spell conceals the alignment of an object or a creature from all forms of divination.</effect>
+						<target>One creature or object</target>
+						<saveinfo>Will negates (object)</saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr2, Pld2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.363</source>
+							<sourcepage>p.363</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>An undetectable alignment spell conceals the alignment of an object or a creature from all forms of divination.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Zone of Truth</name>
+						<outputname>Zone of Truth</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>17</dc>
+						<duration>3 minutes</duration>
+						<effect>Creatures within the emanation area [or those who enter it] can&#39;t speak any deliberate and intentional lies.</effect>
+						<target>20-ft.-radius emanation</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Pld2</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.371</source>
+							<sourcepage>p.371</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Creatures within the emanation area (or those who enter it) can&#39;t speak any deliberate and intentional lies.</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</level>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
+
+	</known_spells>
+		<!-- ### END Known spells ### -->
+		<!-- ### BEGIN memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
+	</spells>
+</character>

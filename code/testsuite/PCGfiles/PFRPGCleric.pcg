@@ -1,0 +1,274 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook|CAMPAIGN:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
+VERSION:5.17.9
+ROLLMETHOD:2|EXPRESSION:Epic Fantasy
+PURCHASEPOINTS:Y|TYPE:Epic Fantasy
+POOLPOINTS:25
+POOLPOINTSAVAIL:25
+GAMEMODE:Pathfinder_RPG
+TABLABEL:0
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+AUTOSORTGEAR:Y
+SKILLSOUTPUTORDER:0
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:N
+
+# Character Bio
+CHARACTERNAME:PFRPG Cleric
+TABNAME:
+PLAYERNAME:
+HEIGHT:71
+WEIGHT:185
+AGE:22
+GENDER:Male
+HANDED:Right
+SKINCOLOR:Pasty
+EYECOLOR:Blue
+HAIRCOLOR:Blond
+HAIRSTYLE:Neat
+LOCATION:
+CITY:Vericostial
+BIRTHDAY:
+BIRTHPLACE:Farm
+PERSONALITYTRAIT1:Depressed
+PERSONALITYTRAIT2:Egoist
+SPEECHPATTERN:High-pitched
+PHOBIAS:Sinning
+INTERESTS:Folklore
+CATCHPHRASE:Get these spiders off me!
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:10
+STAT:DEX|SCORE:10
+STAT:CON|SCORE:11
+STAT:INT|SCORE:10
+STAT:WIS|SCORE:18
+STAT:CHA|SCORE:15
+ALIGN:NG
+RACE:Human
+
+# Character Class(es)
+CLASS:Cleric|LEVEL:3|SKILLPOOL:0|SPELLBASE:WIS|CANCASTPERDAY:4,2,1
+CLASSABILITIESLEVEL:Cleric=1|HITPOINTS:8|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Cleric=2|HITPOINTS:8|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Cleric=3|HITPOINTS:8|SKILLSGAINED:3|SKILLSREMAINING:0
+
+# Character Experience
+EXPERIENCE:5000
+
+# Character Templates
+TEMPLATESAPPLIED:[NAME:Human]
+TEMPLATESAPPLIED:[NAME:Character Traits]
+
+# Character Region
+REGION:None
+
+# Character Skills
+SKILL:Acrobatics|OUTPUTORDER:1|
+SKILL:Appraise|OUTPUTORDER:3|
+SKILL:Bluff|OUTPUTORDER:4|
+SKILL:Climb|OUTPUTORDER:5|
+SKILL:Craft (Untrained)|OUTPUTORDER:6|
+SKILL:Diplomacy|OUTPUTORDER:7|CLASSBOUGHT:[CLASS:Cleric|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Disguise|OUTPUTORDER:8|
+SKILL:Escape Artist|OUTPUTORDER:9|
+SKILL:Fly|OUTPUTORDER:10|
+SKILL:Heal|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Cleric|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Intimidate|OUTPUTORDER:12|
+SKILL:Perception|OUTPUTORDER:16|
+SKILL:Perform (Untrained)|OUTPUTORDER:17|
+SKILL:Ride|OUTPUTORDER:18|
+SKILL:Sense Motive|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Stealth|OUTPUTORDER:21|
+SKILL:Survival|OUTPUTORDER:22|
+SKILL:Swim|OUTPUTORDER:23|
+SKILL:Spellcraft|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Religion)|OUTPUTORDER:14|
+SKILL:Acrobatics (Jump)|OUTPUTORDER:2|
+SKILL:Linguistics|OUTPUTORDER:15|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]|ASSOCIATEDDATA:Celestial
+SKILL:Knowledge (Planes)|OUTPUTORDER:13|
+
+# Character Languages
+LANGUAGE:Common|LANGUAGE:Celestial
+
+# Character Feats
+FEATPOOL:-3.0
+
+# Character Abilities
+USERPOOL:Aberrant Bloodline Feat|POOLPOINTS:0.0
+ABILITY:Ability Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:+2 Charisma|TYPE:AbilityBonus
+USERPOOL:Ability Bonus|POOLPOINTS:0.0
+USERPOOL:Abyssal Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Adaptability Bonus Feat|POOLPOINTS:0.0
+USERPOOL:Afflictions|POOLPOINTS:0.0
+USERPOOL:Animal Trick|POOLPOINTS:0.0
+USERPOOL:Arcane Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Arcane Bloodline School Power|POOLPOINTS:0.0
+USERPOOL:Arcane Bond|POOLPOINTS:0.0
+USERPOOL:Arcane Opposition School|POOLPOINTS:0.0
+USERPOOL:Archetype|POOLPOINTS:0.0
+USERPOOL:Celestial Bloodline Feat|POOLPOINTS:0.0
+ABILITY:Channel Energy|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Channel Positive Energy ~ Cleric|TYPE:Supernatural.SpecialAttack.ChannelEnergy.CheckList|DESC:You can unleash a wave of positive energy dealing %1d%2 (DC %3 for half) %4/day.&pipe;ClericChannelPositiveEnergyDice&pipe;ClericChannelPositiveEnergyDieSize&pipe;ClericChannelPositiveEnergyDC&pipe;ClericChannelEnergyTimes
+USERPOOL:Channel Energy|POOLPOINTS:0.0
+USERPOOL:Class Archetype|POOLPOINTS:0.0
+USERPOOL:Class Level +2 Ability Adjustment|POOLPOINTS:0.0
+USERPOOL:Class Level +4 Ability Adjustment|POOLPOINTS:0.0
+USERPOOL:Class Level -2 Ability Adjustment|POOLPOINTS:0.0
+USERPOOL:Combat Style|POOLPOINTS:0.0
+USERPOOL:Combat Trick Feat|POOLPOINTS:0.0
+USERPOOL:Companion Level Increase Choice|POOLPOINTS:0.0
+USERPOOL:Companion Stat Increase|POOLPOINTS:0.0
+USERPOOL:Destined Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Divine Bond|POOLPOINTS:0.0
+USERPOOL:Draconic Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Druid Domain|POOLPOINTS:0.0
+USERPOOL:Dwarf Racial Trait|POOLPOINTS:0.0
+USERPOOL:Elemental Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Elf Racial Trait|POOLPOINTS:0.0
+USERPOOL:Expert Class Skills|POOLPOINTS:0.0
+USERPOOL:Extra Channel|POOLPOINTS:0.0
+ABILITY:Favored Class|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Cleric|TYPE:FavoredClass
+USERPOOL:Favored Class|POOLPOINTS:0.0
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Hit Point|APPLIEDTO:|TYPE:FavoredClassBonus
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Skill Point|APPLIEDTO:Knowledge (Religion),Knowledge (Planes)|TYPE:FavoredClassBonus
+USERPOOL:Favored Class Bonus|POOLPOINTS:0.0
+USERPOOL:Favored Enemy|POOLPOINTS:0.0
+USERPOOL:Favored Enemy Bonus|POOLPOINTS:0.0
+USERPOOL:Favored Terrain|POOLPOINTS:0.0
+USERPOOL:Favored Terrain Bonus|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Spell Focus|APPLIEDTO:Enchantment|TYPE:General.ArcaneBloodline.UndeadBloodline|DESC:Any spells you cast of your chosen school of magic are more difficult to resist.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Selective Channeling|TYPE:General|DESC:You can choose whom to affect when you channel energy.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Persuasive|TYPE:General|DESC:You are skilled at swaying attitudes and intimidating others into your way of thinking.
+USERPOOL:FEAT|POOLPOINTS:0.0
+USERPOOL:Fey Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Fighter Bonus Feat|POOLPOINTS:0.0
+USERPOOL:Gnome Racial Trait|POOLPOINTS:0.0
+USERPOOL:Half Elf Racial Trait|POOLPOINTS:0.0
+USERPOOL:Half Orc Racial Trait|POOLPOINTS:0.0
+USERPOOL:Halfling Racial Trait|POOLPOINTS:0.0
+ABILITY:Human Racial Trait|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Skilled ~ Human|TYPE:RacialTraits.SpecialQuality.HumanRacialTrait.HumanRacialDefault.HumanSkilled|DESC:Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.
+ABILITY:Human Racial Trait|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Feat ~ Human|TYPE:RacialTraits.SpecialQuality.HumanRacialTrait.HumanRacialDefault.HumanBonusFeat|DESC:Humans select one extra feat at 1st level.
+USERPOOL:Human Racial Trait|POOLPOINTS:0.0
+USERPOOL:Hunter's Bond|POOLPOINTS:0.0
+USERPOOL:Infernal Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Intelligent Item|POOLPOINTS:0.0
+USERPOOL:Intelligent Item Alignment|POOLPOINTS:0.0
+USERPOOL:Intelligent Item Languages|POOLPOINTS:0.0
+USERPOOL:Intelligent Item Power|POOLPOINTS:0.0
+USERPOOL:Intelligent Item Purpose|POOLPOINTS:0.0
+USERPOOL:Intelligent Item Purpose Power|POOLPOINTS:0.0
+USERPOOL:Internal|POOLPOINTS:0.0
+USERPOOL:Knowledge Class Skill|POOLPOINTS:0.0
+USERPOOL:Loremaster Secret|POOLPOINTS:0.0
+USERPOOL:Mercy|POOLPOINTS:0.0
+USERPOOL:Monk Bonus Feat|POOLPOINTS:0.0
+USERPOOL:Natural Attack|POOLPOINTS:0.0
+USERPOOL:Nature Bond|POOLPOINTS:0.0
+USERPOOL:Necromancer Channeling|POOLPOINTS:0.0
+USERPOOL:Obsessive Bonus|POOLPOINTS:0.0
+USERPOOL:Rage Power|POOLPOINTS:0.0
+USERPOOL:Ranger Bonus Feat|POOLPOINTS:0.0
+USERPOOL:Rogue Talent|POOLPOINTS:0.0
+USERPOOL:Sorcerer Bloodline|POOLPOINTS:0.0
+USERPOOL:Special Ability|POOLPOINTS:0.0
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:No Traits ~ Trait|TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait|DESC:You do not have any character traits.
+USERPOOL:Traits|POOLPOINTS:0.0
+USERPOOL:Undead Bloodline Feat|POOLPOINTS:0.0
+USERPOOL:Versatile Performance|POOLPOINTS:0.0
+USERPOOL:Weapon Mastery|POOLPOINTS:0.0
+USERPOOL:Weapon Training|POOLPOINTS:0.0
+USERPOOL:Weapon Training I|POOLPOINTS:0.0
+USERPOOL:Weapon Training II|POOLPOINTS:0.0
+USERPOOL:Weapon Training III|POOLPOINTS:0.0
+USERPOOL:Weapon Training IV|POOLPOINTS:0.0
+USERPOOL:Wizard Bonus Feat|POOLPOINTS:0.0
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Blowgun|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Grapple]
+WEAPONPROF:[WEAPON:Javelin|WEAPON:Longspear|WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Morningstar|WEAPON:Quarterstaff|WEAPON:Rock|WEAPON:Scimitar|WEAPON:Shieldbash (Heavy)|WEAPON:Shieldbash (Light)]
+WEAPONPROF:[WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spells (Ray)|WEAPON:Spells (Touch)|WEAPON:Unarmed Strike]
+
+# Character Equipment
+MONEY:41.00
+EQUIPNAME:Rations (Trail/Per Day)|OUTPUTORDER:17|COST:0.5|WT:1.0|QUANTITY:4.0
+EQUIPNAME:Outfit (Traveler's)|OUTPUTORDER:2|COST:1|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Coin (Silver Piece)|OUTPUTORDER:12|COST:0.1|WT:0.02|QUANTITY:10.0
+EQUIPNAME:Shield (Light/Steel)|OUTPUTORDER:19|COST:9.0|WT:6.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Shield (Light/Steel)|DATA:EQMOD=STEEL]
+EQUIPNAME:Potion of Cure Light Wounds|OUTPUTORDER:16|COST:50|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Coin (Gold Piece)|OUTPUTORDER:10|COST:1|WT:0.02|QUANTITY:10.0
+EQUIPNAME:Waterskin (Filled)|OUTPUTORDER:20|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:Masterwork Morningstar|OUTPUTORDER:1|COST:308.0|WT:6.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Morningstar|DATA:NAME=Masterwork Morningstar$EQMOD=STEEL.MWORKW]
+EQUIPNAME:Bedroll|OUTPUTORDER:6|COST:0.1|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Blanket (Winter)|OUTPUTORDER:7|COST:0.5|WT:3.0|QUANTITY:1.0
+EQUIPNAME:Horse (Light/Combat Trained)|OUTPUTORDER:15|COST:110|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Backpack|OUTPUTORDER:5|COST:2|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Bolts (Crossbow/10)|OUTPUTORDER:8|COST:1.0|WT:1.0|QUANTITY:2.0|CUSTOMIZATION:[BASEITEM:Bolts (Crossbow/10)|DATA:EQMOD=STEEL.WOOD]
+EQUIPNAME:Coin (Platinum Piece)|OUTPUTORDER:11|COST:10|WT:0.02|QUANTITY:5.0
+EQUIPNAME:Crossbow (Light)|OUTPUTORDER:13|COST:35.0|WT:4.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Crossbow (Light)|DATA:EQMOD=WOOD]
+EQUIPNAME:Scale Mail|OUTPUTORDER:3|COST:50.0|WT:30.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Scale Mail|DATA:EQMOD=STEEL]
+EQUIPNAME:Saddle (Military)|OUTPUTORDER:18|COST:20|WT:30.0|QUANTITY:1.0
+EQUIPNAME:Holy Symbol (Silver)|OUTPUTORDER:14|COST:25|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Citrine|OUTPUTORDER:9|COST:50|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Amethyst|OUTPUTORDER:4|COST:100|WT:0.0|QUANTITY:2.0
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+EQUIPSET:Torso|ID:0.1.1|VALUE:Outfit (Traveler's)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Armor|ID:0.1.2|VALUE:Scale Mail|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Primary Hand|ID:0.1.3|VALUE:Masterwork Morningstar|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Shield|ID:0.1.4|VALUE:Shield (Light/Steel)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Not Carried|ID:0.1.5|VALUE:Horse (Light/Combat Trained)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Light/Combat Trained)|ID:0.1.5.1|VALUE:Saddle (Military)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Light/Combat Trained)|ID:0.1.5.2|VALUE:Waterskin (Filled)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Light/Combat Trained)|ID:0.1.5.3|VALUE:Bedroll|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Light/Combat Trained)|ID:0.1.5.4|VALUE:Blanket (Winter)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Light/Combat Trained)|ID:0.1.5.5|VALUE:Bolts (Crossbow/10)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.6|VALUE:Holy Symbol (Silver)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.7|VALUE:Backpack|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.1|VALUE:Amethyst|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.2|VALUE:Bolts (Crossbow/10)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.3|VALUE:Citrine|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.4|VALUE:Coin (Gold Piece)|QUANTITY:10.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.5|VALUE:Coin (Platinum Piece)|QUANTITY:5.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.6|VALUE:Coin (Silver Piece)|QUANTITY:10.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.7|VALUE:Crossbow (Light)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.8|VALUE:Potion of Cure Light Wounds|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.7.9|VALUE:Rations (Trail/Per Day)|QUANTITY:4.0|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:Sarenrae|DEITYDOMAINS:[DOMAIN:Fire|DOMAIN:Glory|DOMAIN:Good|DOMAIN:Healing|DOMAIN:Sun]|ALIGNALLOW:|DESC:Goddess of the sun, redemption, honesty, healing|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Scimitar]|DEITYALIGN:Neutral Good
+DOMAIN:Glory|DOMAINGRANTS:You are infused with the glory of the divine, and are a true foe of the undead. In addition, when you channel positive energy to harm undead creatures, the save DC to halve the damage is increased by 2.|SOURCE:[TYPE:PCClass|NAME:Cleric|LEVEL:1]
+DOMAIN:Sun|DOMAINGRANTS:You see truth in the pure and burning light of the sun, and can call upon its blessing or wrath to work great deeds.|SOURCE:[TYPE:PCClass|NAME:Cleric|LEVEL:1]
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:Grew up on a farm, encouraged to the service of Sarenrae by the local priest.&nl;&nl;Has adventured in service of the church for a year and now is looking to form an adventuring party to hunt through the Vericostial catacombs for undead that have been snatching citizens.
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+KIT:Character Traits
+
+# Character Master/Follower
+
+# Character Notes Tab
+
+# Age Set Selections
+AGESET:1:0:0:0:0:0:0:0:0:0
