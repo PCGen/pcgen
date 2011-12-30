@@ -4,5 +4,5 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 
 ####Block: Simple Weapons
 #-----unarmed------
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page
-Brass Knuckles	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		SIZE:M	SOURCEPAGE:177
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Eqmod		Wield Category	Size		Source Page
+Brass Knuckles	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:177
