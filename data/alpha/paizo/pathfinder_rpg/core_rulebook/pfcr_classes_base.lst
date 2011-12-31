@@ -136,10 +136,12 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Spellcasting abilities
-1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid
-1	ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting ~ Druid
+# COMMENT: Why are Orisons and Spontaneous Casting in here twice?  Commenting out.
+#1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid
+#1	ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting ~ Druid
+
 ###Block: Nature Bond Choice
-1														BONUS:ABILITYPOOL|Nature Bond|1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
+1														BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
 1	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air]
 1	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal]
 1	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Earth]
@@ -150,7 +152,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Wild Shape
 1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Times|Druid Wild Shape Progression|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
 ###Block: Level progression
-1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid|Spontaneous Casting ~ Druid	ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
+1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid	ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting	ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
 2	CAST:4,2									ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
 3	CAST:4,2,1									ABILITY:Special Ability|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
 4	CAST:4,3,2									ABILITY:Special Ability|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
