@@ -428,7 +428,18 @@ public class Logging
 		String name =
 				(caller == null/*just in case*/) ? "" : caller.getClassName();
 
-		Logger l = java.util.logging.Logger.getLogger(name);
+		Logger l = null;
+		final int maxRetries = 15;
+		int retries = 0;
+		while (l == null && retries < maxRetries )
+		{
+			l = java.util.logging.Logger.getLogger(name);
+			retries ++;
+		}
+		if (l == null)
+		{
+			System.err.println("Unable to get logger for " + name + " after " + retries + " atempts.");
+		}
 		return l;
 	}
 
