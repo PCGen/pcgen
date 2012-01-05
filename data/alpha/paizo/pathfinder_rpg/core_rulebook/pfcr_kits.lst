@@ -1,0 +1,154 @@
+# CVS $Revision:
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: David R. Bender
+
+###Block: Gold kits
+STARTPACK:Max Starting Gold (Monk)																APPLY:INSTANT
+FUNDS:gp	QTY:60
+
+STARTPACK:Max Starting Gold (Druid/Sorcerer/Summoner/Wizard)									APPLY:INSTANT
+FUNDS:gp	QTY:120
+
+STARTPACK:Max Starting Gold (Alchemist/Bard/Barbarian/Oracle/Witch)								APPLY:INSTANT
+FUNDS:gp	QTY:180
+
+STARTPACK:Max Starting Gold (Cleric/Inquisitor/Rogue)											APPLY:INSTANT
+FUNDS:gp	QTY:240
+
+STARTPACK:Max Starting Gold (Cavalier/Fighter/Paladin/Ranger)									APPLY:INSTANT
+FUNDS:gp	QTY:300
+
+STARTPACK:Avg Starting Gold (Monk)																APPLY:INSTANT
+FUNDS:gp	QTY:35
+
+STARTPACK:Avg Starting Gold (Druid/Sorcerer/Summoner/Wizard)									APPLY:INSTANT
+FUNDS:gp	QTY:70
+
+STARTPACK:Avg Starting Gold (Alchemist/Bard/Barbarian/Oracle/Witch)								APPLY:INSTANT
+FUNDS:gp	QTY:105
+
+STARTPACK:Avg Starting Gold (Cleric/Inquisitor/Rogue)											APPLY:INSTANT
+FUNDS:gp	QTY:140
+
+STARTPACK:Avg Starting Gold (Cavalier/Fighter/Paladin/Ranger)									APPLY:INSTANT
+FUNDS:gp	QTY:175
+
+STARTPACK:Wealth by PC Level(2)																	APPLY:INSTANT
+FUNDS:gp	QTY:1000
+
+STARTPACK:Wealth by PC Level(3)																	APPLY:INSTANT
+FUNDS:gp	QTY:3000
+
+STARTPACK:Wealth by PC Level(4)																	APPLY:INSTANT
+FUNDS:gp	QTY:6000
+
+STARTPACK:Wealth by PC Level(5)																	APPLY:INSTANT
+FUNDS:gp	QTY:10500
+
+STARTPACK:Wealth by PC Level(6)																	APPLY:INSTANT
+FUNDS:gp	QTY:16000
+
+STARTPACK:Wealth by PC Level(7)																	APPLY:INSTANT
+FUNDS:gp	QTY:23500
+
+STARTPACK:Wealth by PC Level(8)																	APPLY:INSTANT
+FUNDS:gp	QTY:33000
+
+STARTPACK:Wealth by PC Level(9)																	APPLY:INSTANT
+FUNDS:gp	QTY:46000
+
+STARTPACK:Wealth by PC Level(10)																APPLY:INSTANT
+FUNDS:gp	QTY:63000
+
+STARTPACK:Wealth by PC Level(11)																APPLY:INSTANT
+FUNDS:gp	QTY:82000
+
+STARTPACK:Wealth by PC Level(12)																APPLY:INSTANT
+FUNDS:gp	QTY:108000
+
+STARTPACK:Wealth by PC Level(13)																APPLY:INSTANT
+FUNDS:gp	QTY:150000
+
+STARTPACK:Wealth by PC Level(14)																APPLY:INSTANT
+FUNDS:gp	QTY:185000
+
+STARTPACK:Wealth by PC Level(15)																APPLY:INSTANT
+FUNDS:gp	QTY:240000
+
+STARTPACK:Wealth by PC Level(16)																APPLY:INSTANT
+FUNDS:gp	QTY:315000
+
+STARTPACK:Wealth by PC Level(17)																APPLY:INSTANT
+FUNDS:gp	QTY:410000
+
+STARTPACK:Wealth by PC Level(18)																APPLY:INSTANT
+FUNDS:gp	QTY:530000
+
+STARTPACK:Wealth by PC Level(19)																APPLY:INSTANT
+FUNDS:gp	QTY:685000
+
+STARTPACK:Wealth by PC Level(20)																APPLY:INSTANT
+FUNDS:gp	QTY:880000
+
+STARTPACK:Wealth by Basic NPC Level(1)															APPLY:INSTANT
+FUNDS:gp	QTY:260
+
+STARTPACK:Wealth by Basic NPC Level(2)/Heroic NPC Level(1)										APPLY:INSTANT
+FUNDS:gp	QTY:390
+
+STARTPACK:Wealth by Basic NPC Level(3)/Heroic NPC Level(2)										APPLY:INSTANT
+FUNDS:gp	QTY:780
+
+STARTPACK:Wealth by Basic NPC Level(4)/Heroic NPC Level(3)										APPLY:INSTANT
+FUNDS:gp	QTY:1650
+
+STARTPACK:Wealth by Basic NPC Level(5)/Heroic NPC Level(4)										APPLY:INSTANT
+FUNDS:gp	QTY:2400
+
+STARTPACK:Wealth by Basic NPC Level(6)/Heroic NPC Level(5)										APPLY:INSTANT
+FUNDS:gp	QTY:3450
+
+STARTPACK:Wealth by Basic NPC Level(7)/Heroic NPC Level(6)										APPLY:INSTANT
+FUNDS:gp	QTY:4650
+
+STARTPACK:Wealth by Basic NPC Level(8)/Heroic NPC Level(7)										APPLY:INSTANT
+FUNDS:gp	QTY:6000
+
+STARTPACK:Wealth by Basic NPC Level(9)/Heroic NPC Level(8)										APPLY:INSTANT
+FUNDS:gp	QTY:7800
+
+STARTPACK:Wealth by Basic NPC Level(10)/Heroic NPC Level(9)										APPLY:INSTANT
+FUNDS:gp	QTY:10050
+
+STARTPACK:Wealth by Basic NPC Level(11)/Heroic NPC Level(10)									APPLY:INSTANT
+FUNDS:gp	QTY:12750
+
+STARTPACK:Wealth by Basic NPC Level(12)/Heroic NPC Level(11)									APPLY:INSTANT
+FUNDS:gp	QTY:16350
+
+STARTPACK:Wealth by Basic NPC Level(13)/Heroic NPC Level(12)									APPLY:INSTANT
+FUNDS:gp	QTY:21000
+
+STARTPACK:Wealth by Basic NPC Level(14)/Heroic NPC Level(13)									APPLY:INSTANT
+FUNDS:gp	QTY:27000
+
+STARTPACK:Wealth by Basic NPC Level(15)/Heroic NPC Level(14)									APPLY:INSTANT
+FUNDS:gp	QTY:34800
+
+STARTPACK:Wealth by Basic NPC Level(16)/Heroic NPC Level(15)									APPLY:INSTANT
+FUNDS:gp	QTY:45000
+
+STARTPACK:Wealth by Basic NPC Level(17)/Heroic NPC Level(16)									APPLY:INSTANT
+FUNDS:gp	QTY:58500
+
+STARTPACK:Wealth by Basic NPC Level(18)/Heroic NPC Level(17)									APPLY:INSTANT
+FUNDS:gp	QTY:75000
+
+STARTPACK:Wealth by Basic NPC Level(19)/Heroic NPC Level(18)									APPLY:INSTANT
+FUNDS:gp	QTY:96000
+
+STARTPACK:Wealth by Basic NPC Level(20)/Heroic NPC Level(19)									APPLY:INSTANT
+FUNDS:gp	QTY:123000
+
+STARTPACK:Wealth by Heroic NPC Level(20)															APPLY:INSTANT
+FUNDS:gp	QTY:159000
