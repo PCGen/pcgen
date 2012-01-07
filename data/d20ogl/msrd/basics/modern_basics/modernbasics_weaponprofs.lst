@@ -75,17 +75,17 @@ Rapier			TYPE:Archaic
 Sword Cane			TYPE:Archaic
 Fixed Bayonet		TYPE:Archaic
 Spear				TYPE:Archaic
-Brass Knuckles		TYPE:Simple
-Knife				TYPE:Simple
+Brass Knuckles		TYPE:Simple.Finesseable.Melee
+Knife				TYPE:Simple.Finesseable.Melee
 Stun Gun			TYPE:Simple
-Cleaver			TYPE:Simple
-Pistol Whip			TYPE:Simple
-Sap				TYPE:Simple
+Cleaver			TYPE:Simple.Finesseable.Melee
+Pistol Whip			TYPE:Simple.Finesseable.Melee
+Sap				TYPE:Simple.Finesseable.Melee
 Club				TYPE:Simple
-Metal Baton			TYPE:Simple
-Tonfa				TYPE:Simple
-Rifle Butt			TYPE:Simple
-Unarmed Strike		TYPE:Simple
+Metal Baton			TYPE:Simple.Finesseable.Melee.Light
+Tonfa				TYPE:Simple.Finesseable.Melee
+Rifle Butt			TYPE:Simple.Finesseable.Melee
+Unarmed Strike		TYPE:Simple.Finesseable.Melee
 Quarterstaff		TYPE:Simple			HANDS:2
 
 ###Block: Archaic profs moved from Arcana because they are used in meneces or elsewhere
