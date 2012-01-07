@@ -103,8 +103,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 2" 
 
 # Data Files
 ABILITYCATEGORY:pfb2_abilitycategories.lst
-ABILITY:bestiary_2_core/pfb2_abilities_monsters_general.lst
-ABILITY:bestiary_2_core/pfb2_abilities_constant_spelllike.lst
 ABILITY:pfb2_abilities_monsters_abc.lst
 ABILITY:pfb2_abilities_monsters_companions.lst
 ABILITY:pfb2_abilities_monsters_def.lst
@@ -131,7 +129,6 @@ KIT:pfb2_kits_races_pqr.lst
 KIT:pfb2_kits_races_stu.lst
 KIT:pfb2_kits_races_vw.lst
 KIT:pfb2_kits_races_xyz.lst
-LANGUAGE:bestiary_2_core/pfb2_languages.lst
 RACE:pfb2_races_abc.lst
 RACE:pfb2_races_companions.lst
 RACE:pfb2_races_def.lst
@@ -149,7 +146,18 @@ TEMPLATE:pfb2_templates.lst
 WEAPONPROF:pfb2_prof_weapons_monsters.lst
 
 # Core II
-PCC:bestiary_2_core/bestiary_2_core.pcc
+#PCC:bestiary_2_core/bestiary_2_core.pcc
+ABILITY:bestiary_2_core/pfb2_abilities_monsters_general.lst
+ABILITY:bestiary_2_core/pfb2_abilities_constant_spelllike.lst
+LANGUAGE:bestiary_2_core/pfb2_languages.lst
+SKILL:bestiary_2_core/pfb2_skills_conditional.lst
+TEMPLATE:bestiary_2_core/pfb2_templates_simple.lst
+TEMPLATE:bestiary_2_core/pfb2_templates_types.lst
+
+
+
+
+
 
 #SKILL:bestiary_2_core/pfb2_skills_conditional.lst
 #TEMPLATE:bestiary_2_core/pfb2_templates_simple.lst

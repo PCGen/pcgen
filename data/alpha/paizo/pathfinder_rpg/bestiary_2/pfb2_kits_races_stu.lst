@@ -62,17 +62,21 @@ FEAT:Skill Focus (Perception)
 FEAT:Step Up
 FEAT:Weapon Finesse
 
-STARTPACK:Scorpion (Black) Default	TYPE:DefaultMonster.BlackScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Black)]	SOURCEPAGE:p.240
-RACE:Scorpion (Black)	!PRERACE:1,%
-NAME:Black Scorpion
-ALIGN:TN
-STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Scorpion (Cave) Default	TYPE:DefaultMonster.CaveScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Cave)]	SOURCEPAGE:p.240
-RACE:Scorpion (Cave)	!PRERACE:1,%
-NAME:Cave Scorpion
-ALIGN:TN
-STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+# COMMENT: Duplicate Entry from Bestiary
+#	STARTPACK:Scorpion (Black) Default	TYPE:DefaultMonster.BlackScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Black)]	SOURCEPAGE:p.240
+#	RACE:Scorpion (Black)	!PRERACE:1,%
+#	NAME:Black Scorpion
+#	ALIGN:TN
+#	STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+
+
+# COMMENT: Duplicate Entry from Bestiary
+#	STARTPACK:Scorpion (Cave) Default	TYPE:DefaultMonster.CaveScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Cave)]	SOURCEPAGE:p.240
+#	RACE:Scorpion (Cave)	!PRERACE:1,%
+#	NAME:Cave Scorpion
+#	ALIGN:TN
+#	STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 STARTPACK:Scylla Default	TYPE:DefaultMonster.Scylla	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scylla]	SOURCEPAGE:p.241
 RACE:Scylla	!PRERACE:1,%
@@ -410,11 +414,13 @@ ALIGN:TN
 GENDER:Female
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.GiantTarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.256
-RACE:Spider (Giant Tarantula)	!PRERACE:1,%
-NAME:Giant Tarantula
-ALIGN:TN
-STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+# COMMENT: Duplicate Entry from Bestiary
+#	STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.GiantTarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.256
+#	RACE:Spider (Giant Tarantula)	!PRERACE:1,%
+#	NAME:Giant Tarantula
+#	ALIGN:TN
+#	STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 STARTPACK:Spriggan Default	TYPE:DefaultMonster.Spriggan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spriggan]	SOURCEPAGE:p.257
 RACE:Spriggan	!PRERACE:1,%

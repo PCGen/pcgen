@@ -893,17 +893,21 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Centipede (Giant Whiptail) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Giant Whiptail)],[!PRERACE:1,%]	SOURCEPAGE:p.53
-ALIGN:TN
-RACE:Centipede (Giant Whiptail)	!PRERACE:1,%
-NAME:Giant Whiptail Centipede
-STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Centipede (Titan) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Titan)],[!PRERACE:1,%]	SOURCEPAGE:p.53
-ALIGN:TN
-RACE:Centipede (Titan)	!PRERACE:1,%
-NAME:Titan Centipede
-STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+# COMMENT: Duplicate Entry from Bestiary
+#	STARTPACK:Centipede (Giant Whiptail) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Giant Whiptail)],[!PRERACE:1,%]	SOURCEPAGE:p.53
+#	ALIGN:TN
+#	RACE:Centipede (Giant Whiptail)	!PRERACE:1,%
+#	NAME:Giant Whiptail Centipede
+#	STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+# COMMENT: Duplicate Entry from Bestiary
+#	STARTPACK:Centipede (Titan) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Titan)],[!PRERACE:1,%]	SOURCEPAGE:p.53
+#	ALIGN:TN
+#	RACE:Centipede (Titan)	!PRERACE:1,%
+#	NAME:Titan Centipede
+#	STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Chaos Beast Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chaos Beast],[!PRERACE:1,%]	SOURCEPAGE:p.54
 ALIGN:CN
