@@ -72,7 +72,7 @@ public class TokenSupport
 		}
 		Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
 			+ "' '" + argument + "' for " + cl.getName() + " "
-			+ derivative.getDisplayName());
+			+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
 		return false;
 	}
 
