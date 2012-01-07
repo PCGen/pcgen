@@ -4,9 +4,9 @@ SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:
 
 # Language	Type				Source Page
 Cat Folk	TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Cat Folk	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf	KEY:Cat Folk ~ Written
+Cat Folk	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
 Feline	TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Feline	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf	KEY:Feline ~ Written
+Feline	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
 Mothfolk	TYPE:Spoken.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z.rtf
-Mothfolk	TYPE:Written.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z.rtf	KEY:Mothfolk ~ Written
+Mothfolk	TYPE:Written.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z.rtf
 Weren		TYPE:Spoken.Weren		SOURCEPAGE:MenaceCreaturesJ-Z.rtf
