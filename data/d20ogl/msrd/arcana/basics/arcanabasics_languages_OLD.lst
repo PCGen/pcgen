@@ -5,33 +5,33 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 # Language			Type			Source Page
 Aquan				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Aquan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Aquan ~ Written
+Aquan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Celestial			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Celestial			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf	KEY:Celestial ~ Written
+Celestial			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
 Common			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Common			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf	KEY:Common ~ Written
-Drow Sign Language	TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf	KEY:Drow Sign Language ~ Written
+Common			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
+Drow Sign Language	TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
 Dwarven			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Dwarven			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Dwarven ~ Written
+Dwarven			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Elven				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Elven				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Elven ~ Written
+Elven				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Gnome				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Gnome				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Gnome ~ Written
+Gnome				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Halfling			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Halfling			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf	KEY:Halfling ~ Written
+Halfling			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
 Ingan				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Ingan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Ingan ~ Written
+Ingan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Infernal			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Infernal			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Infernal ~ Written
+Infernal			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Kuo toan			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Kuo toan			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf	KEY:Kuo toan ~ Written
+Kuo toan			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
 Orc				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Orc				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Orc ~ Written
+Orc				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Skunk Ape			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
 Sylvan			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Sylvan			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Sylvan ~ Written
+Sylvan			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Undertongue			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Undertongue			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Undertongue ~ Written
+Undertongue			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 
 #
 # End
