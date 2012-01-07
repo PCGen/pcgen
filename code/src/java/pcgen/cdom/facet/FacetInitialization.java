@@ -104,6 +104,8 @@ public class FacetInitialization
 				.getFacet(StatLockFacet.class);
 		FavoredClassFacet favClassFacet = FacetLibrary
 				.getFacet(FavoredClassFacet.class);
+		AddedTemplateFacet addedTemplateFacet =
+				FacetLibrary.getFacet(AddedTemplateFacet.class);
 
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 		FollowerOptionFacet foFacet = FacetLibrary
@@ -307,6 +309,7 @@ public class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
 		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
 		cdomObjectFacet.addDataFacetChangeListener(globalSkillCostFacet);
+		cdomObjectFacet.addDataFacetChangeListener(addedTemplateFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedArmorFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedLoadFacet);
