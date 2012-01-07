@@ -173,7 +173,7 @@ Melt Weapons									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		
 Mimic Shape										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Mimicry										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Mind Feed										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
-Mindless										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+#Mindless										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Moan											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Mummy Rot										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Mucus Cloud										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
@@ -496,14 +496,14 @@ Wyvern Spot					OUTPUTNAME:+3 Spot when flying durring daylight													CATE
 
 ###Block: Creature Type Traits
 # Ability Name		Category of Ability		Type				Visible	Description
-Construct Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.
-Incorporeal Traits	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic, 50%% chance to ignore any damage from a corporeal source. Can pass through solid objects at will, attacks pass through armor. Always moves silently
-Undead Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease, Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage
+#Construct Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.
+#Incorporeal Traits	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic, 50%% chance to ignore any damage from a corporeal source. Can pass through solid objects at will, attacks pass through armor. Always moves silently
+#Undead Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease, Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage
 
 ###Block: Traits - Add missing traits
 # Ability Name	Category of Ability		Type						Visible	Description																																										Vision		Source Page
-Evil Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES	DESC:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
-Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.	VISION:Low-light	SOURCEPAGE:TypesSubtypesAbilities.rtf
+#Evil Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES	DESC:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+#Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.	VISION:Low-light	SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 
 ###Block: Flight Maneuverability

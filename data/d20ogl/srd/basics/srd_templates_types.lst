@@ -16,6 +16,9 @@ Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10									
 Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning				REMOVABLE:YES
 Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning|Undead Traits						REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
 Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																									REMOVABLE:YES	TYPE:Vermin
+#
+Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10
+
 
 ###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
 # Template Name	Visible	Lock Gender Selection
