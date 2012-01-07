@@ -69,14 +69,14 @@ Perform (Stringed Instruments)	KEYSTAT:CHA								TYPE:Charisma.Perform			SOURCE
 Perform (Wind Instruments)		KEYSTAT:CHA								TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii.rtf
 Pilot						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity				SOURCEPAGE:msrdskillsii.rtf
 Profession					KEYSTAT:WIS								TYPE:Wisdom					SOURCEPAGE:msrdskillsii.rtf
-Read/Write Language					USEUNTRAINED:NO					TYPE:None.Language			SOURCEPAGE:msrdskillsii.rtf	CHOOSE:LANGUAGE|Written
+Read/Write Language					USEUNTRAINED:NO					TYPE:None.Language			SOURCEPAGE:msrdskillsii.rtf	CHOOSE:LANG|TYPE=Written
 Repair					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence				SOURCEPAGE:msrdskillsii.rtf
 Research					KEYSTAT:INT								TYPE:Intelligence				SOURCEPAGE:msrdskillsii.rtf
 Ride						KEYSTAT:DEX								TYPE:Dexterity				SOURCEPAGE:msrdskillsii.rtf
 Search					KEYSTAT:INT								TYPE:Intelligence				SOURCEPAGE:msrdskillsii.rtf
 Sense Motive				KEYSTAT:WIS								TYPE:Wisdom					SOURCEPAGE:msrdskillsii.rtf
 Sleight of Hand				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity				SOURCEPAGE:msrdskillsii.rtf
-Speak Language						USEUNTRAINED:NO					TYPE:None.Language			SOURCEPAGE:msrdskillsii.rtf	CHOOSE:LANGUAGE|Spoken
+Speak Language						USEUNTRAINED:NO					TYPE:None.Language			SOURCEPAGE:msrdskillsii.rtf	CHOOSE:LANG|TYPE=Spoken
 Spot						KEYSTAT:WIS								TYPE:Wisdom					SOURCEPAGE:msrdskillsii.rtf
 Survival					KEYSTAT:WIS								TYPE:Wisdom					SOURCEPAGE:msrdskillsii.rtf
 Swim						KEYSTAT:STR				ACHECK:YES			TYPE:Strength				SOURCEPAGE:msrdskillsii.rtf					BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
