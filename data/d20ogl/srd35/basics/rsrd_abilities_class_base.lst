@@ -574,7 +574,7 @@ Shapechanger Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
 Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility		DEFINE:CanNotGrapple|1	ABILITY:Special Ability|AUTOMATIC|Distraction
 Water Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility						
 #
-Mindless			CATEGORY:Special Ability	TYPE:RacialTrait		TEMPLATE:Mindless
+Mindless			CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.Extraordinary		TEMPLATE:Mindless
 #COMMENT: Mindless has a template that triggers DESC tags in three different TRAITS. This is to maintain consistency in application and grants the template
 
 

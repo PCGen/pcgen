@@ -223,7 +223,7 @@ Mimicry				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:
 Mimic Shape				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Mind Consuming Gaze		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Mind Feed				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Mindless				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+#Mindless				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Misty Breath			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Moan					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Mucus Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
