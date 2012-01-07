@@ -289,7 +289,6 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!result)
 			{
 				removed = pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
-				pc.removeTemplatesFrom(anAbility);
 				CDOMObjectUtilities.removeAdds(anAbility, pc);
 				CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			}
@@ -374,7 +373,6 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (anAbility != null)
 		{
 			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
-			pc.removeTemplatesFrom(anAbility);
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();

@@ -794,7 +794,6 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 				if (! result)
 				{
 					removed = aPC.removeRealAbility(theCategory, pcAbility);
-					aPC.removeTemplatesFrom(pcAbility);
 					CDOMObjectUtilities.removeAdds(pcAbility, aPC);
 					CDOMObjectUtilities.restoreRemovals(pcAbility, aPC);
 				}

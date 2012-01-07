@@ -29,16 +29,21 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
  * to a Player Character.
  */
 public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
+		implements DataFacetChangeListener<CDOMObject>
 {
 
 	private PrerequisiteFacet prereqFacet = FacetLibrary
 			.getFacet(PrerequisiteFacet.class);
+
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Collection<PCTemplate> select(CharID id, CDOMObject po,
 			boolean isImporting)
@@ -150,5 +155,42 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 			}
 		}
 		return list;
+	}
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		CDOMObject cdo = dfce.getCDOMObject();
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		Collection<PCTemplate> list = getFromSource(id, cdo);
+		if (list != null)
+		{
+			for (PCTemplate pct : list)
+			{
+				pc.removeTemplate(pct);
+			}
+		}
+
+		Collection<CDOMReference<PCTemplate>> refList =
+				cdo.getListFor(ListKey.TEMPLATE);
+		if (refList != null)
+		{
+			for (CDOMReference<PCTemplate> pctr : refList)
+			{
+				for (PCTemplate pct : pctr.getContainedObjects())
+				{
+					pc.removeTemplate(pct);
+				}
+			}
+		}
+
 	}
 }

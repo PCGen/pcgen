@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
@@ -248,7 +249,9 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		if (anAbility != null)
 		{
 			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
-			pc.removeAbilityEffects(anAbility);
+			CDOMObjectUtilities.removeAdds(anAbility, pc);
+			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
+			pc.adjustMoveRates();
 		}
 	}
 

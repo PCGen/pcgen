@@ -510,7 +510,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				removed = pc.removeRealAbility(choice.getAbilityCategory(),
 						pcAbility);
-				pc.removeTemplatesFrom(pcAbility);
 				CDOMObjectUtilities.removeAdds(pcAbility, pc);
 				CDOMObjectUtilities.restoreRemovals(pcAbility, pc);
 			}

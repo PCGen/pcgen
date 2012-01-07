@@ -4784,7 +4784,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (oldRace != null)
 		{
 			removeAllCharacterSpells(oldRace);
-			removeTemplatesFrom(oldRace);
 			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
 			{
@@ -7838,8 +7837,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return;
 		}
-
-		removeTemplatesFrom(inTmpl);
 
 		templateFacet.remove(id, inTmpl);
 
@@ -11484,32 +11481,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public void removeTemplatesFrom(CDOMObject po)
-	{
-		Collection<PCTemplate> list = getTemplatesAdded(po);
-		if (list != null)
-		{
-			for (PCTemplate pct : list)
-			{
-				removeTemplate(pct);
-			}
-		}
-
-		Collection<CDOMReference<PCTemplate>> refList =
-				po.getListFor(ListKey.TEMPLATE);
-		if (refList != null)
-		{
-			for (CDOMReference<PCTemplate> pctr : refList)
-			{
-				for (PCTemplate pct : pctr.getContainedObjects())
-				{
-					removeTemplate(pct);
-				}
-			}
-		}
-
-	}
-
 	public Collection<PCTemplate> getTemplatesAdded(CDOMObject po)
 	{
 		return addedTemplateFacet.getFromSource(id, po);
@@ -13078,14 +13049,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public void removeAbilityEffects(Ability anAbility)
-	{
-		removeTemplatesFrom(anAbility);
-		CDOMObjectUtilities.removeAdds(anAbility, this);
-		CDOMObjectUtilities.restoreRemovals(anAbility, this);
-		adjustMoveRates();
 	}
 
 	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
