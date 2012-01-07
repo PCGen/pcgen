@@ -3,19 +3,19 @@ SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEW
 
 # Language	Type			Source Page
 Abyssal	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Abyssal	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Abyssal ~ Written
+Abyssal	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Auran		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Auran		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Auran ~ Written
+Auran		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Draconic	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Draconic	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Draconic ~ Written
+Draconic	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Giant		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Giant		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Giant ~ Written
+Giant		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Gnoll		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Gnoll		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Gnoll ~ Written
+Gnoll		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Goblin	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Goblin	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Goblin ~ Written
+Goblin	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 Terran	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Terran	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Terran ~ Written
+Terran	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 
 #
 # End
