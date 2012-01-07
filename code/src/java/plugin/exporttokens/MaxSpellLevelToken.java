@@ -20,8 +20,8 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -79,7 +79,7 @@ public class MaxSpellLevelToken extends Token
 			Logging.errorPrint("Unknown class number in token: " + tokenSource);
 		}
 
-		final PObject aObject = pc.getSpellClassAtIndex(classNumber);
+		final CDOMObject aObject = pc.getSpellClassAtIndex(classNumber);
 		if (aObject != null)
 		{
 			PCClass aClass = null;

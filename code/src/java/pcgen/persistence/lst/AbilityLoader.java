@@ -29,10 +29,10 @@ package pcgen.persistence.lst;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -158,10 +158,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	@Override
-	protected Ability getMatchingObject(LoadContext context, PObject aKey)
+	protected Ability getMatchingObject(LoadContext context, CDOMObject key)
 	{
 		return context.ref.silentlyGetConstructedCDOMObject(Ability.class,
-				((Ability) aKey).getCDOMCategory(), aKey.getKeyName());
+				((Ability) key).getCDOMCategory(), key.getKeyName());
 	}
 
 	/**
@@ -169,23 +169,23 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * order to check if the parsed object is affected by an INCLUDE or
 	 * EXCLUDE request.
 	 *
-	 * @param parsedObject PObject to determine whether to include in
+	 * @param cdo PObject to determine whether to include in
 	 *         Globals etc.
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected final boolean includeObject(SourceEntry source, PObject parsedObject)
+	protected final boolean includeObject(SourceEntry source, CDOMObject cdo)
 	{
 		// Null check; never add nulls or objects without a name/key name
-		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
-			|| (parsedObject.getDisplayName().trim().length() == 0)
-			|| (parsedObject.getKeyName() == null)
-			|| (parsedObject.getKeyName().trim().length() == 0))
+		if ((cdo == null) || (cdo.getDisplayName() == null)
+			|| (cdo.getDisplayName().trim().length() == 0)
+			|| (cdo.getKeyName() == null)
+			|| (cdo.getKeyName().trim().length() == 0))
 		{
 			return false;
 		}
 
-		Ability ability = (Ability) parsedObject;
+		Ability ability = (Ability) cdo;
 		// If includes were present, check includes for given object
 		List<String> includeItems = source.getIncludeItems();
 

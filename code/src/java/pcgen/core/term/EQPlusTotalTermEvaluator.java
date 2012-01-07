@@ -51,6 +51,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.Equipment, boolean, pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -62,6 +63,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.TermEvaluator#evaluate(pcgen.core.Equipment, boolean, pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -72,6 +74,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
 	 */
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

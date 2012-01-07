@@ -25,10 +25,10 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -139,9 +139,9 @@ public final class FeatLoader extends AbilityLoader
 	}
 	
 	@Override
-	protected Ability getMatchingObject(LoadContext context, PObject aKey)
+	protected Ability getMatchingObject(LoadContext context, CDOMObject key)
 	{
-		return getObjectKeyed(context, aKey.getKeyName());
+		return getObjectKeyed(context, key.getKeyName());
 	}
 	
 }

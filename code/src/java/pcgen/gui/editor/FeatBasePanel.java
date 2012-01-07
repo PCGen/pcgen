@@ -44,7 +44,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Description;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.rules.context.LoadContext;
@@ -58,7 +57,7 @@ import pcgen.util.enumeration.Visibility;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class FeatBasePanel extends BasePanel
+public class FeatBasePanel extends BasePanel<Ability>
 {
 //	private static final String[] visibleValues = new String[]{ "No", "Yes", "Export", "Display" };
 	private DecimalNumberField txtCost;
@@ -238,15 +237,14 @@ public class FeatBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Ability thisFeat)
 	{
-		Ability thisFeat = (Ability) thisPObject;
 		LoadContext context = Globals.getContext();
 		final String desc = getDescriptionText();
 		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
 		while (tok.hasMoreTokens())
 		{
-			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
+			context.unconditionallyProcess(thisFeat, "DESC", tok.nextToken());
 		}
 
 		thisFeat.put(ObjectKey.DESC_PI, getDescIsPI());
@@ -264,12 +262,10 @@ public class FeatBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Ability thisFeat)
 	{
-		Ability thisFeat = (Ability) thisPObject;
-
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
+		for ( final Description desc : thisFeat.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{
@@ -278,7 +274,7 @@ public class FeatBasePanel extends BasePanel
 			buf.append(desc.getPCCText());
 		}
 		setDescriptionText(buf.toString()); // don't want PI here
-		setDescIsPI(thisPObject.getSafe(ObjectKey.DESC_PI));
+		setDescIsPI(thisFeat.getSafe(ObjectKey.DESC_PI));
 
 		//
 		// Populate the types

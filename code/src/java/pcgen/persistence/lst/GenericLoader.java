@@ -22,8 +22,8 @@ import java.lang.reflect.Modifier;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -34,7 +34,7 @@ import pcgen.util.Logging;
  * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision: 6504 $
  */
-public final class GenericLoader<T extends PObject> extends
+public final class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {
 	private final Class<T> baseClass;
@@ -74,7 +74,7 @@ public final class GenericLoader<T extends PObject> extends
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext,
-	 *      pcgen.core.PObject, java.lang.String,
+	 *      pcgen.cdom.core.CDOMObject, java.lang.String,
 	 *      pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override

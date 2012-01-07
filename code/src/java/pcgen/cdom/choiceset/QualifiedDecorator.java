@@ -20,9 +20,9 @@ package pcgen.cdom.choiceset;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -41,7 +41,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The Type of object returned by this QualifiedDecorator.
  */
-public class QualifiedDecorator<T extends PObject> implements
+public class QualifiedDecorator<T extends CDOMObject> implements
 		PrimitiveChoiceSet<T>
 {
 

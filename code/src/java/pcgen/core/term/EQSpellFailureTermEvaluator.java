@@ -37,6 +37,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 		this.originalText =expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -45,6 +46,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -52,6 +54,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 		return String.valueOf(eq.getSafe(IntegerKey.SPELL_FAILURE));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -43,6 +43,7 @@ public class PCRaceSizeTermEvaluator
 		return pc.getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").floatValue();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

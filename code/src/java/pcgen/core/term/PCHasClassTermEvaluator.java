@@ -46,6 +46,7 @@ public class PCHasClassTermEvaluator
 		return pc.getClassKeyed(source) != null ? 1f : 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -37,6 +37,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -45,6 +46,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -52,6 +54,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		return Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

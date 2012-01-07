@@ -78,6 +78,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -746,8 +747,8 @@ public final class EditorMainForm extends JDialog
 				
 				thisRace.removeListFor(ListKey.NATURAL_WEAPON);
 				thisRace.addAllToListFor(ListKey.NATURAL_WEAPON, pnlNaturalAttacks.getNaturalWeapons());
-				pnlAppearance.updateData(thisPObject);
-				pnlAge.updateData(thisPObject);
+				pnlAppearance.updateData(thisRace);
+				pnlAge.updateData(thisRace);
 
 				//
 				// Save granted templates
@@ -869,8 +870,8 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_SPELL:
-				((SpellBasePanel2) pnlBase2).updateData(thisPObject);
 				Spell sp = (Spell) thisPObject;
+				((SpellBasePanel2) pnlBase2).updateData(sp);
 				context.getListContext().clearAllMasterLists("CLASSES", sp);
 				context.getListContext().clearAllMasterLists("DOMAINS", sp);
 				context.commit();
@@ -1000,7 +1001,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				pnlFileTypes.updateData(thisPObject);
+				pnlFileTypes.updateData((Campaign) thisPObject);
 
 				break;
 
@@ -1182,8 +1183,8 @@ public final class EditorMainForm extends JDialog
 
 		if (editType == EditorConstants.EDIT_CLASS)
 		{
-			pnlClassAbility.updateData(thisPObject);
-			pnlClassLevel.updateData(thisPObject);
+			pnlClassAbility.updateData((PCClass) thisPObject);
+			pnlClassLevel.updateData((PCClass) thisPObject);
 		}
 
 		for (int i = 0; i < sel.length; ++i)
@@ -1754,12 +1755,12 @@ public final class EditorMainForm extends JDialog
 				pnlAppearance.setEyeColorAvailableList(eyeColorList, true);
 				pnlAppearance.setHairColorAvailableList(hairColorList, true);
 				pnlAppearance.setSkinToneAvailableList(skinToneList, true);
-				pnlAppearance.updateView(thisPObject);
+				pnlAppearance.updateView((Race) thisPObject);
 
 				//
 				// Populate the age panel
 				//
-				pnlAge.updateView(thisPObject);
+				pnlAge.updateView((Race) thisPObject);
 
 				break;
 
@@ -1809,7 +1810,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_SPELL:
-				((SpellBasePanel2) pnlBase2).updateView(thisPObject);
+				((SpellBasePanel2) pnlBase2).updateView((Spell) thisPObject);
 
 				//
 				// Initialize the contents of the available and selected domains lists
@@ -2081,7 +2082,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				pnlFileTypes.updateView(thisPObject);
+				pnlFileTypes.updateView((Campaign) thisPObject);
 
 				break;
 
@@ -2634,9 +2635,9 @@ public final class EditorMainForm extends JDialog
 				pnlSkills = new AvailableSelectedPanel(true);
 				pnlWeapons = new AvailableSelectedPanel(true);
 				pnlClassAbility = new ClassAbilityPanel();
-				pnlClassAbility.updateView(thisPObject);
+				pnlClassAbility.updateView((PCClass) thisPObject);
 				pnlClassLevel = new ClassLevelPanel();
-				pnlClassLevel.updateView(thisPObject);
+				pnlClassLevel.updateView((PCClass) thisPObject);
 
 				break;
 

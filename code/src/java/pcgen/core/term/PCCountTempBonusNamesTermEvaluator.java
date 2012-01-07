@@ -42,6 +42,7 @@ public class PCCountTempBonusNamesTermEvaluator
 		return (float) pc.getNamedTempBonusList().size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

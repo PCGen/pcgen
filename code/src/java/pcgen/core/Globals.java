@@ -197,9 +197,9 @@ public final class Globals
 	/** default location for options.ini on a Mac */
 	public static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
 
-	private static final Comparator<PObject> pObjectComp = new Comparator<PObject>()
+	private static final Comparator<CDOMObject> pObjectComp = new Comparator<CDOMObject>()
 		{
-			public int compare(final PObject o1, final PObject o2)
+			public int compare(final CDOMObject o1, final CDOMObject o2)
 			{
 				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 			}
@@ -377,7 +377,7 @@ public final class Globals
 	 * @param aType A "." separated list of TYPEs to match
 	 * @return List of PObjects matching all TYPEs
 	 */
-	public static <T extends PObject> List<T> getPObjectsOfType(final Collection<T> aPObjectList, final String aType)
+	public static <T extends CDOMObject> List<T> getPObjectsOfType(final Collection<T> aPObjectList, final String aType)
 	{
 		final ArrayList<T> ret = new ArrayList<T>(aPObjectList.size());
 
@@ -1967,11 +1967,11 @@ public final class Globals
 
 		if (availableList.size() > 0)
 		{
-			nonPObjectInList = ! (availableList.get(0) instanceof PObject);
+			nonPObjectInList = ! (availableList.get(0) instanceof CDOMObject);
 		}
 		else if (selectedList.size() > 0)
 		{
-			nonPObjectInList = ! (selectedList.get(0) instanceof PObject);
+			nonPObjectInList = ! (selectedList.get(0) instanceof CDOMObject);
 		}
 		else
 		{
@@ -1999,7 +1999,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List<? extends PObject> sortPObjectList(final List<? extends PObject> aList)
+	public static List<? extends CDOMObject> sortPObjectList(final List<? extends CDOMObject> aList)
 	{
 		Collections.sort(aList, pObjectComp);
 
@@ -2500,7 +2500,7 @@ public final class Globals
 		return hasSpellPPCost;
 	}
 	
-	public static <T extends PObject> List<T> getObjectsOfVisibility(Collection<T> c, Visibility v)
+	public static <T extends CDOMObject> List<T> getObjectsOfVisibility(Collection<T> c, Visibility v)
 	{
 		ArrayList<T> aList = new ArrayList<T>();
 		for (T po : c)

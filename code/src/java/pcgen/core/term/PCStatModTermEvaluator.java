@@ -50,6 +50,7 @@ public class PCStatModTermEvaluator
 		return (float) StatAnalysis.getStatModFor(pc, stat);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

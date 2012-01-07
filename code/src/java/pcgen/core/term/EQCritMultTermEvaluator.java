@@ -36,6 +36,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -49,6 +50,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 		return (float) eq.getAltCritMultiplier();
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -61,6 +63,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 		return eq.getAltCritMult();
 	}
 	
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

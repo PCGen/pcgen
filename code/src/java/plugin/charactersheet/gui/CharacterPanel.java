@@ -23,10 +23,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JViewport;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
@@ -263,7 +263,7 @@ public class CharacterPanel extends FlippingSplitPane
 			page2layout.add(page2);
 			mainTabs.add("Page 2", new JScrollPane(page2layout));
 		}
-		List<? extends PObject> spellClassList = pc.getSpellClassList();
+		List<? extends CDOMObject> spellClassList = pc.getSpellClassList();
 		for (int i = 0; i < spellClassList.size(); i++)
 		{
 			Object object = spellClassList.get(i);

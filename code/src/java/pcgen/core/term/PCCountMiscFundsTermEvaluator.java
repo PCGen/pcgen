@@ -48,6 +48,7 @@ public class PCCountMiscFundsTermEvaluator
 		return (float) funds.size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

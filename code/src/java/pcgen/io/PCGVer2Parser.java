@@ -315,7 +315,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (oSource != null)
 		{
-			sourceStr = ((PObject) oSource).getKeyName();
+			sourceStr = ((CDOMObject) oSource).getKeyName();
 		}
 
 		if (targetStr.equals(TAG_PC))
@@ -325,7 +325,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else
 		{
 			oTarget = thePC.getEquipmentNamed(targetStr);
-			targetStr = ((PObject) oTarget).getDisplayName();
+			targetStr = ((CDOMObject) oTarget).getDisplayName();
 		}
 
 		return thePC.getTempBonusMap(sourceStr, targetStr);
@@ -4598,7 +4598,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			return;
 		}
 
-		PObject source = null;
+		CDOMObject source = null;
 
 		for (PCGElement element : tokens.getElements())
 		{
@@ -5790,13 +5790,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	private void parseLevelAbilityInfo(final PCGElement element,
-		final PObject pObj)
+		final CDOMObject pObj)
 	{
 		parseLevelAbilityInfo(element, pObj, -9);
 	}
 
 	private void parseLevelAbilityInfo(final PCGElement element,
-		final PObject pObj, final int level)
+		final CDOMObject pObj, final int level)
 	{
 		final Iterator<PCGElement> it2 = element.getChildren().iterator();
 

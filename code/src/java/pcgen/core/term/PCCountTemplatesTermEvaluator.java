@@ -42,6 +42,7 @@ public class PCCountTemplatesTermEvaluator
 		return (float) pc.getTemplateCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

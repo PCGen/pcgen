@@ -50,6 +50,7 @@ public class PCArmourACcheckTermEvaluator
 		return (float) maxCheck;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

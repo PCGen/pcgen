@@ -54,6 +54,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "ACCHECK" , "ACHECK"},
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -68,6 +69,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "ARMORACCHECK", "ARMORACHECK"  },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -82,6 +84,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "BAB" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src, 
@@ -96,6 +99,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "BASESPELLSTAT" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -112,6 +116,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "CASTERLEVEL", "CASTERLEVEL.TOTAL" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -145,6 +150,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[ATTACKS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -159,6 +165,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[CHECKS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -173,6 +180,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[CLASSES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -187,6 +195,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[CONTAINERS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -201,6 +210,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[DOMAINS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -218,6 +228,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 					 		"COUNT[FEATSALL.VISIBLE]"},
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -246,6 +257,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 					 		"COUNT[FEATSAUTO.VISIBLE]"},
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -275,6 +287,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 					 		"COUNT[FEATS.VISIBLE]"},
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -304,6 +317,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 					 		"COUNT[VFEATS.VISIBLE]"},
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -329,6 +343,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[FOLLOWERS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -343,6 +358,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[LANGUAGES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -357,6 +373,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[MISC.COMPANIONS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -371,6 +388,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[MISC.FUNDS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -385,6 +403,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[MISC.MAGIC]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -399,6 +418,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[MOVE]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -413,6 +433,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[NOTES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -427,6 +448,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[RACESUBTYPES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -441,6 +463,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SA]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -455,6 +478,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SKILLS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -469,6 +493,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLCLASSES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -483,6 +508,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLRACE]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -497,6 +523,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[STATS]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -511,6 +538,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[TEMPBONUSNAMES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -525,6 +553,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[TEMPLATES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -539,6 +568,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[VISIBLETEMPLATES]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -553,6 +583,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[VISION]" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -567,6 +598,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "ENCUMBERANCE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -581,6 +613,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "HD" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -595,6 +628,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "HP" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -609,6 +643,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "MAXCASTABLE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -650,6 +685,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "MOVEBASE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -664,6 +700,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "PC.HEIGHT" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -678,6 +715,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "PC.WEIGHT" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -692,6 +730,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "PROFACCHECK" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -710,6 +749,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "RACESIZE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -724,6 +764,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SCORE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -749,6 +790,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SHIELDACCHECK", "SHIELDACHECK" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -763,6 +805,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SIZEMOD", "SIZE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -784,6 +827,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SPELLBASESTAT", "SPELLBASESTATSCORE" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -804,6 +848,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SPELLLEVEL" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -818,6 +863,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "TL" },
 			 true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -832,6 +878,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			new String[]{"FAVCLASSLEVEL"},
 			true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString,
 			final String src, final String matchedSection)
 		{
@@ -845,6 +892,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			new String[]{"ATWILL"}, 
 			true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString,
 			final String src, final String matchedSection)
 		{
@@ -857,6 +905,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "BL.", "BL=", "BL" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -885,6 +934,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "CL;BEFORELEVEL.", "CL;BEFORELEVEL=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -928,6 +978,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "CLASSLEVEL.", "CLASSLEVEL=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -949,6 +1000,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "CLASS.", "CLASS=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -966,6 +1018,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "CL.", "CL=", "CL" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1001,6 +1054,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[EQTYPE", "COUNT[EQTYPE." },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1053,6 +1107,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[EQUIPMENT.", "COUNT[EQUIPMENT" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1106,6 +1161,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 				"COUNT[VFEATTYPE.", "COUNT[VFEATTYPE=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1204,6 +1260,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[FOLLOWERTYPE." },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1264,6 +1321,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SKILLTYPE.", "COUNT[SKILLTYPE=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1283,6 +1341,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLBOOKS" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1301,6 +1360,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLSINBOOK" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src, 
@@ -1318,6 +1378,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLSKNOWN" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src, 
@@ -1363,6 +1424,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLSLEVELSINBOOK" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1417,6 +1479,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "COUNT[SPELLTIMES" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1469,6 +1532,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "EQTYPE" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1484,6 +1548,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "HASDEITY:" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1501,6 +1566,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "HASFEAT:" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1515,6 +1581,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, true) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString,
 			final String src, final String matchedSection)
 		{
@@ -1536,6 +1603,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "MODEQUIP" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1553,6 +1621,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "MOVE[" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1570,6 +1639,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "PC.SIZE.INT", "PC.SIZE" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1600,6 +1670,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SKILLRANK.", "SKILLRANK=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1621,6 +1692,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "SKILLTOTAL.", "SKILLTOTAL=" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1642,6 +1714,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "VARDEFINED:" },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString, 
 				final String src, 
@@ -1661,6 +1734,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			 new String[] { "WEIGHT." },
 			 false) {
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -1700,6 +1774,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	COMPLETE_PC_BONUSLANG("BONUSLANG", new String[] { "BONUSLANG" }, true)
 	{
 
+		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString,
 				final String src, final String matchedSection)
 		{
@@ -1709,6 +1784,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	
 	COMPLETE_PC_HANDS("HANDS", new String[] { "HANDS" }, true)
 	{
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src, 
@@ -1721,6 +1797,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	
 	COMPLETE_PC_LEGS("LEGS", new String[] { "LEGS" }, true)
 	{
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src, 
@@ -1750,16 +1827,19 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 
+	@Override
 	public String getTermConstructorPattern()
 	{
 		return termConstructorPattern;
 	}
 
+	@Override
 	public String[] getTermConstructorKeys()
 	{
 		return termConstructorKeys;
 	}
 
+	@Override
 	public boolean isEntireTerm()
 	{
 		return patternMatchesEntireTerm;

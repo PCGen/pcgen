@@ -23,8 +23,8 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
@@ -69,7 +69,7 @@ public class SpellListKnownToken extends SpellListToken
 				new SpellListTokenParams(tokenSource,
 					SpellListToken.SPELLTAG_KNOWN);
 
-		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
 		{
@@ -89,7 +89,7 @@ public class SpellListKnownToken extends SpellListToken
 	 * @param pc The character being queried
 	 * @return The number of spells allowed to be known.
 	 */
-	private int getKnownNum(PObject aObject, int level, PlayerCharacter pc)
+	private int getKnownNum(CDOMObject aObject, int level, PlayerCharacter pc)
 	{
 		int knownNum = 0;
 

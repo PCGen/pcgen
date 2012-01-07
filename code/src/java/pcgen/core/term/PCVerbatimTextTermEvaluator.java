@@ -53,6 +53,7 @@ public class PCVerbatimTextTermEvaluator
 		return 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

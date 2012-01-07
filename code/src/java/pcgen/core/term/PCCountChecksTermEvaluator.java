@@ -45,6 +45,7 @@ public class PCCountChecksTermEvaluator
 				.getConstructedObjectCount(PCCheck.class);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -54,6 +54,7 @@ public class PCCountAbilitiesNatureVirtualTermEvaluator
 		return new ArrayList<Ability>(pc.getVirtualAbilityList(abCat));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

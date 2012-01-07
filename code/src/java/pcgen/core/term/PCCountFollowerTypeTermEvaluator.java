@@ -57,6 +57,7 @@ public class PCCountFollowerTypeTermEvaluator
 		return countFollower;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

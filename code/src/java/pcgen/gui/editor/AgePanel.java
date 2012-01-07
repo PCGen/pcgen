@@ -22,19 +22,22 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.AgeSet;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.core.Race;
-import pcgen.util.PropertyFactory;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import java.awt.Dimension;
-import java.util.*;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.core.AgeSet;
+import pcgen.core.Globals;
+import pcgen.core.Race;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>AgePanel</code>
@@ -45,7 +48,7 @@ import java.util.*;
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-final class AgePanel extends JPanel implements PObjectUpdater
+final class AgePanel extends JPanel implements PObjectUpdater<Race>
 {
 	static final long serialVersionUID = -5835737108073399178L;
 	private static String defaultRegionName = Constants.NONE;
@@ -68,22 +71,13 @@ final class AgePanel extends JPanel implements PObjectUpdater
 	 * UpdateData takes the GUI components and updates the
 	 * PObject obj with those values
 	 *
-	 * @see pcgen.gui.editor.PObjectUpdater#updateData(PObject)
+	 * @see pcgen.gui.editor.PObjectUpdater#updateData(CDOMObject)
 	 */
 	@Override
-	public void updateData(PObject obj)
+	public void updateData(Race race)
 	{
-		Race race;
 		String region;
 		String raceName;
-
-		if (!(obj instanceof Race))
-		{
-			return;
-		}
-
-		race = (Race) obj;
-
 		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
 		if (unp == null)
@@ -104,22 +98,13 @@ final class AgePanel extends JPanel implements PObjectUpdater
 	 * UpdateView takes the values from PObject obj
 	 * and updates the GUI components
 	 *
-	 * @see pcgen.gui.editor.PObjectUpdater#updateView(PObject)
+	 * @see pcgen.gui.editor.PObjectUpdater#updateView(CDOMObject)
 	 */
 	@Override
-	public void updateView(PObject obj)
+	public void updateView(Race race)
 	{
-		Race race;
 		String region;
 		String raceKey;
-
-		if (!(obj instanceof Race))
-		{
-			return;
-		}
-
-		race = (Race) obj;
-
 		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
 		if (unp == null)

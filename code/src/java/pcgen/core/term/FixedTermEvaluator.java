@@ -44,6 +44,7 @@ public class FixedTermEvaluator
 		return new Float(value);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

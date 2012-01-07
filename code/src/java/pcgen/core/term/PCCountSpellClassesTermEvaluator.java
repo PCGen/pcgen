@@ -42,6 +42,7 @@ public class PCCountSpellClassesTermEvaluator
 		return (float) pc.getSpellClassCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

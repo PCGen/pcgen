@@ -54,6 +54,7 @@ public class PCScoreTermEvaluator
 		return (float) StatAnalysis.getTotalStatFor(pc, pcs);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

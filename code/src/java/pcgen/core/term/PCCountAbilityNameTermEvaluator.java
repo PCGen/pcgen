@@ -75,6 +75,7 @@ public class PCCountAbilityNameTermEvaluator
 		return count;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

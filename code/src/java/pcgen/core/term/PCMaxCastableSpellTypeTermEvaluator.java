@@ -73,6 +73,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 		return max;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

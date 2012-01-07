@@ -47,6 +47,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "ALTPLUSTOTAL" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -61,6 +62,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "BASECOST" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -75,6 +77,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "CRITMULT" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -89,6 +92,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "DMGDICE" }, 
 		 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -103,6 +107,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "DMGDIE" }, 
 		 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -116,6 +121,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "EQACCHECK" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -130,6 +136,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "EQHANDS" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -144,6 +151,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "EQSPELLFAIL" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -158,6 +166,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "EQUIP.SIZE.INT", "EQUIP.SIZE" },
 		 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -179,6 +188,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "HEADPLUSTOTAL" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -193,6 +203,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "PLUSTOTAL" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -207,6 +218,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "RANGE" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -221,6 +233,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "RACEREACH" ,"REACHMULT", "REACH" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -247,6 +260,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "SIZE" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -261,6 +275,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		 new String[] { "WT" },
 	 	 true ) { 
 
+		@Override
 		public TermEvaluator getTermEvaluator(
 				final String expressionString,
 				final String src,
@@ -284,16 +299,19 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 
+	@Override
 	public String getTermConstructorPattern()
 	{
 		return termConstructorPattern;
 	}
 
+	@Override
 	public String[] getTermConstructorKeys()
 	{
 		return termConstructorKeys;
 	}
 
+	@Override
 	public boolean isEntireTerm()
 	{
 		return patternMatchesEntireTerm;

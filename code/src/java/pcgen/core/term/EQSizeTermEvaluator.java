@@ -36,6 +36,7 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -44,12 +45,14 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 		return (float) eq.sizeInt();
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return String.valueOf(eq.sizeInt());		
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

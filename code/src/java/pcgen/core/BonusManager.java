@@ -855,9 +855,9 @@ public class BonusManager
 			{
 				targetName = ((PlayerCharacter) aTO).getName();
 			}
-			else if (aTO instanceof PObject)
+			else if (aTO instanceof CDOMObject)
 			{
-				targetName = ((PObject) aTO).getKeyName();
+				targetName = ((CDOMObject) aTO).getKeyName();
 			}
 
 			if (creatorName.equals(aCreator) && targetName.equals(aTarget))
@@ -1022,9 +1022,9 @@ public class BonusManager
 			{
 				targetName = ((PlayerCharacter) aTO).getName();
 			}
-			else if (aTO instanceof PObject)
+			else if (aTO instanceof CDOMObject)
 			{
-				targetName = ((PObject) aTO).getKeyName();
+				targetName = ((CDOMObject) aTO).getKeyName();
 			}
 
 			if (creatorName.equals(aCreator) && targetName.equals(aTarget))

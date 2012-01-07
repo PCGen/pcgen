@@ -58,6 +58,7 @@ public class PCMoveBaseTermEvaluator
 		return evaluate(pc);
 	}
 	
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

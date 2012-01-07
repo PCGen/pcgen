@@ -61,6 +61,7 @@ public class PCCountContainersTermEvaluator
 		return (float) aList.size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

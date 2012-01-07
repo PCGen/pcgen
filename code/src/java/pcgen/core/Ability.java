@@ -20,6 +20,7 @@
 package pcgen.core;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
@@ -195,7 +196,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 
 			// this should throw a ClassCastException for non-PObjects, like the
 			// Comparable interface calls for
-			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
+			return this.getKeyName().compareToIgnoreCase(((CDOMObject) obj).getKeyName());
 		}
 		return 1;
 	}

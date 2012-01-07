@@ -42,6 +42,7 @@ public class PCHDTermEvaluator
 		return (float) pc.totalHitDice();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

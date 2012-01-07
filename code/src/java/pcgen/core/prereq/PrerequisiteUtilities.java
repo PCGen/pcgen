@@ -29,6 +29,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -39,7 +40,6 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -72,7 +72,7 @@ public final class PrerequisiteUtilities
 	 */
 	public static String preReqHTMLStringsForList(
 		final PlayerCharacter aPC,
-		final PObject aObj,
+		final CDOMObject aObj,
 		final Collection<Prerequisite> aList,
 		final boolean includeHeader)
 	{
@@ -504,8 +504,8 @@ public final class PrerequisiteUtilities
 		int returnTotal = 0;
 		for (Object aObj : selectedList)
 		{
-			String spellKey = (aObj instanceof PObject)
-				? ((PObject) aObj).getKeyName()
+			String spellKey = (aObj instanceof CDOMObject)
+				? ((CDOMObject) aObj).getKeyName()
 				: aObj.toString();
 
 			final Spell sp = Globals.getSpellKeyed(spellKey);

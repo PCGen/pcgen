@@ -23,9 +23,9 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
@@ -69,7 +69,7 @@ public class SpellListCastToken extends SpellListToken
 				new SpellListTokenParams(tokenSource,
 					SpellListToken.SPELLTAG_CAST);
 
-		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
 		{
@@ -88,7 +88,7 @@ public class SpellListCastToken extends SpellListToken
 	 * @param pc The character being queried
 	 * @return The number of spells allowed to be cast.
 	 */
-	private String getCastNum(PObject aObject, int level, PlayerCharacter pc)
+	private String getCastNum(CDOMObject aObject, int level, PlayerCharacter pc)
 	{
 		String castNum = "--";
 

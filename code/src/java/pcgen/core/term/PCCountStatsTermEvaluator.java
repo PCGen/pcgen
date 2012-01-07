@@ -42,6 +42,7 @@ public class PCCountStatsTermEvaluator
 		return (float) pc.getStatCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

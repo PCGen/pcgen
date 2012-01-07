@@ -29,8 +29,8 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Description;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -39,7 +39,7 @@ import pcgen.rules.context.LoadContext;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class DomainBasePanel extends BasePanel
+public class DomainBasePanel extends BasePanel<Domain>
 {
 	private DescriptionPanel pnlDescription;
 
@@ -86,7 +86,7 @@ public class DomainBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Domain thisPObject)
 	{
 		LoadContext context = Globals.getContext();
 		final String desc = getDescriptionText();
@@ -99,7 +99,7 @@ public class DomainBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Domain thisPObject)
 	{
 		final StringBuffer buf = new StringBuffer();
 		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )

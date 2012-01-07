@@ -47,7 +47,6 @@ import javax.swing.event.ListSelectionListener;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.util.PropertyFactory;
@@ -58,7 +57,7 @@ import pcgen.util.PropertyFactory;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class SpellBasePanel2 extends JPanel implements PObjectUpdater
+public class SpellBasePanel2 extends JPanel implements PObjectUpdater<Spell>
 {
 	static final long serialVersionUID = -4883465552783045888L;
 	private JButton btnAddVariant;
@@ -76,10 +75,8 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Spell s)
 	{
-		final Spell s = (Spell) thisPObject;
-
 		Object[] sel = pnlType.getSelectedList();
 		s.removeListFor(ListKey.TYPE);
 		for (Object o : sel)
@@ -96,7 +93,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Spell thisPObject)
 	{
 		List<String> variants = thisPObject.getListFor(ListKey.VARIANTS);
 		if (variants != null)

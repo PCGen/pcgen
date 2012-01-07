@@ -51,6 +51,7 @@ public class PCHasDeityTermEvaluator
 		return pc.hasDeity(d) ? 1f : 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

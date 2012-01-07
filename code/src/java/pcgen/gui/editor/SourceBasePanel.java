@@ -59,7 +59,6 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JTableEx;
@@ -69,7 +68,7 @@ import pcgen.gui.utils.JTableEx;
  *
  * @author  Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  */
-class SourceBasePanel extends BasePanel
+class SourceBasePanel extends BasePanel<Campaign>
 {
 	static final long serialVersionUID = -8057486950329356072L;
 	private Campaign theCampaign = null;
@@ -104,7 +103,7 @@ class SourceBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Campaign thisPObject)
 	{
 		theCampaign.put(IntegerKey.CAMPAIGN_RANK, Integer.parseInt(rank.getValue().toString()));
 		game = "";
@@ -192,14 +191,9 @@ class SourceBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Campaign thisPObject)
 	{
-		if (!(thisPObject instanceof Campaign))
-		{
-			return;
-		}
-
-		theCampaign = (Campaign) thisPObject;
+		theCampaign = thisPObject;
 		sourceModel.setLists(buildOptionsList(theCampaign), theCampaign.getSafeListFor(ListKey.LICENSE),
 				theCampaign.getSafeListFor(ListKey.INFO_TEXT), theCampaign.getSafeListFor(ListKey.SECTION_15));
 		rank.setValue(Integer.valueOf(theCampaign.getSafe(IntegerKey.CAMPAIGN_RANK)));

@@ -39,6 +39,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 		this.source       = src;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -47,6 +48,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -54,6 +56,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return String.valueOf(pc.getVariableValue("REACH.VAL", source));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

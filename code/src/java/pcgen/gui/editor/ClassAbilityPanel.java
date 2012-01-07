@@ -51,7 +51,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PObject;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
@@ -62,7 +61,7 @@ import pcgen.rules.context.LoadContext;
  *
  * @author  Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  */
-public class ClassAbilityPanel extends JPanel implements PObjectUpdater
+public class ClassAbilityPanel extends JPanel implements PObjectUpdater<PCClass>
 {
 	private JCheckBox memorize = new JCheckBox();
 	private JCheckBox spellBook = new JCheckBox();
@@ -90,14 +89,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateData(PObject po)
+	public void updateData(PCClass obj)
 	{
-		if (!(po instanceof PCClass))
-		{
-			return;
-		}
-
-		PCClass obj = (PCClass) po;
 		String a = attackCycle.getText().trim();
 
 		LoadContext context = Globals.getContext();
@@ -191,15 +184,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateView(PObject po)
+	public void updateView(PCClass obj)
 	{
-		if (!(po instanceof PCClass))
-		{
-			return;
-		}
-
-		PCClass obj = (PCClass) po;
-		attackCycle.setText(StringUtil.join(new MapCollection(po
+		attackCycle.setText(StringUtil.join(new MapCollection(obj
 				.getMapFor(MapKey.ATTACK_CYCLE)), Constants.PIPE));
 		hitDice.setText(String.valueOf(obj.getSafe(ObjectKey.LEVEL_HITDIE).getDie()));
 		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));

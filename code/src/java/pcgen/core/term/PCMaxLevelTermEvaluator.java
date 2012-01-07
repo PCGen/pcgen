@@ -49,6 +49,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 		return Integer.valueOf(level).floatValue();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

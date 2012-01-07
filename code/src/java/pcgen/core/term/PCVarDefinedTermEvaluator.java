@@ -45,6 +45,7 @@ public class PCVarDefinedTermEvaluator
 		return pc.hasVariable(var) ? 1f : 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

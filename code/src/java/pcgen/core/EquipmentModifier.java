@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
@@ -281,7 +282,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if (o instanceof EquipmentModifier)
 		{
-			return getKeyName().compareTo(((PObject) o).getKeyName());
+			return getKeyName().compareTo(((CDOMObject) o).getKeyName());
 		}
 
 		return getKeyName().compareTo(o.toString());

@@ -68,7 +68,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
@@ -90,7 +89,7 @@ import pcgen.util.PropertyFactory;
  *
  * @author  Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  */
-public class ClassLevelPanel extends JPanel implements PObjectUpdater
+public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 {
 	static final long serialVersionUID = 1485178774957708877L;
 	private static List<LevelTag> levelTagList = new ArrayList<LevelTag>();
@@ -111,19 +110,8 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateData(PObject po)
+	public void updateData(PCClass object)
 	{
-		// Verify the object passed in was the right type (a PCClass) and not null
-		if (!(po instanceof PCClass))
-		{
-			Logging.errorPrint("Invalid PObject passed to ClassLevelPanel.updateData()!");
-
-			return;
-		}
-
-		// Cast the object for convenience
-		PCClass object = (PCClass) po;
-
 		try
 		{
 			// Get/Create the dummy campaign for custom data.
@@ -177,15 +165,10 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 	}
 
 	@Override
-	public void updateView(PObject po)
+	public void updateView(PCClass po)
 	{
-		if (!(po instanceof PCClass))
-		{
-			return;
-		}
-
 		levelTagList.clear();
-		obj = (PCClass) po;
+		obj = po;
 
 		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{

@@ -63,6 +63,7 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 		return (float) StatAnalysis.getStatModFor(pc, ss);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

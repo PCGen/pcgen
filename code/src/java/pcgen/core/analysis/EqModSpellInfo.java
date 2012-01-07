@@ -21,11 +21,11 @@ package pcgen.core.analysis;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
 import pcgen.util.Delta;
 
@@ -144,7 +144,7 @@ public class EqModSpellInfo
 	 *            how many times can it be cast
 	 */
 	public static void setSpellInfo(Equipment parent, EquipmentModifier eqMod,
-			final PObject spellCastingClass, final Spell theSpell,
+			final CDOMObject spellCastingClass, final Spell theSpell,
 			final String spellVariant, final String spellType,
 			final int spellLevel, final int spellCasterLevel,
 			final Object[] spellMetamagicFeats, final int charges)

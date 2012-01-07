@@ -55,6 +55,7 @@ public class PCSkillTotalTermEvaluator
 		return (aSkill == null) ? 0f : totalRank;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

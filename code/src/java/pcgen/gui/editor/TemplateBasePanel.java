@@ -49,7 +49,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.SizeAdjustment;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
@@ -60,7 +59,7 @@ import pcgen.util.enumeration.Visibility;
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class TemplateBasePanel extends BasePanel
+public class TemplateBasePanel extends BasePanel<PCTemplate>
 {
 	private static final String[] genderLockValues =
 			new String[]{"None", "Male", "Female", "Neuter", "Unknown"};
@@ -390,9 +389,8 @@ public class TemplateBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(PCTemplate thisPCTemplate)
 	{
-		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
 		thisPCTemplate.put(ObjectKey.REMOVABLE, getIsRemovable());
 		try
 		{
@@ -460,18 +458,16 @@ public class TemplateBasePanel extends BasePanel
 		//
 		// Save types
 		//
-		thisPObject.removeListFor(ListKey.TYPE);
+		thisPCTemplate.removeListFor(ListKey.TYPE);
 		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
+			thisPCTemplate.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(PCTemplate thisPCTemplate)
 	{
-		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
-
 		//
 		// Populate the types
 		//

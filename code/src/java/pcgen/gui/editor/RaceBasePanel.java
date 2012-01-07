@@ -47,7 +47,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.bonus.Bonus;
@@ -62,7 +61,7 @@ import pcgen.util.PropertyFactory;
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class RaceBasePanel extends BasePanel
+public class RaceBasePanel extends BasePanel<Race>
 {
 	private static final String NO_MONSTER_CLASS = "(None)";
 	private static final String[] sizeTitles =
@@ -320,10 +319,8 @@ public class RaceBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Race thisRace)
 	{
-		Race thisRace = (Race) thisPObject;
-
 		StringBuffer sb = new StringBuffer();
 		sb.append("FEAT|POOL|").append(getBonusFeats());
 		final BonusObj bon = Bonus.newBonus(Globals.getContext(), sb.toString());
@@ -366,19 +363,17 @@ public class RaceBasePanel extends BasePanel
 		//
 		thisRace.put(ObjectKey.RACETYPE, RaceType
 			.getConstant((String) cmbRaceType.getSelectedItem()));
-		thisPObject.removeListFor(ListKey.TYPE);
+		thisRace.removeListFor(ListKey.TYPE);
 
 		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
+			thisRace.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Race thisRace)
 	{
-		Race thisRace = (Race) thisPObject;
-
 		//
 		// Populate the types
 		//

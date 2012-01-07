@@ -56,6 +56,7 @@ public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 		return new ArrayList<Ability>(pc.getVirtualAbilityList(AbilityCategory.FEAT));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

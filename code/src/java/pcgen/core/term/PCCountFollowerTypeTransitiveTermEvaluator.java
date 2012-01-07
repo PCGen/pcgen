@@ -85,6 +85,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 		return 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

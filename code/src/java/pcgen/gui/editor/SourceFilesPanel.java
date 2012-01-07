@@ -22,19 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Campaign;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.gui.utils.JTableEx;
-import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,13 +34,30 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Campaign;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JTableEx;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
 /**
  * <code>SourceFilesPanel</code>
  *
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  */
-final class SourceFilesPanel extends JPanel
+final class SourceFilesPanel extends BasePanel<Campaign>
 {
 	static final long serialVersionUID = 2833296242093657468L;
 	private Campaign theCampaign = null;
@@ -69,7 +73,8 @@ final class SourceFilesPanel extends JPanel
 		intComponentContents();
 	}
 
-	public void updateData(PObject thisPObject)
+	@Override
+	public void updateData(Campaign thisPObject)
 	{
 		List<String> fList = fileModel.getFileList();
 		List<String> lList = fileModel.getLocationList();
@@ -115,14 +120,10 @@ final class SourceFilesPanel extends JPanel
 		}
 	}
 
-	public void updateView(PObject thisPObject)
+	@Override
+	public void updateView(Campaign thisPObject)
 	{
-		if (!(thisPObject instanceof Campaign))
-		{
-			return;
-		}
-
-		theCampaign = (Campaign) thisPObject;
+		theCampaign = thisPObject;
 
 		Collection<String> lines = Globals.getContext().unparse(theCampaign);
 		if (lines != null)

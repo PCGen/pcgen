@@ -23,8 +23,8 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
@@ -68,7 +68,7 @@ public class SpellListTypeToken extends SpellListToken
 				new SpellListTokenParams(tokenSource,
 					SpellListToken.SPELLTAG_TYPE);
 
-		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
 		{

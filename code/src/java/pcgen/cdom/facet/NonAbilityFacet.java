@@ -17,11 +17,11 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
-import pcgen.core.PObject;
 
 /**
  * NonAbilityFacet is a Facet that tracks the Non-Abilities (PCStat objects)
@@ -65,7 +65,7 @@ public class NonAbilityFacet
 	 * 
 	 * @return Whether this has been defined as a non-ability
 	 */
-	public static boolean isNonAbilityForObject(PCStat stat, PObject po)
+	public static boolean isNonAbilityForObject(PCStat stat, CDOMObject po)
 	{
 		// An unlock will always override a lock, so check it first
 		if (po == null || po.containsInList(ListKey.UNLOCKED_STATS, stat))

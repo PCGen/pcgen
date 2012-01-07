@@ -48,6 +48,7 @@ public class PCCountMiscMagicTermEvaluator
 		return (float) magicList.size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

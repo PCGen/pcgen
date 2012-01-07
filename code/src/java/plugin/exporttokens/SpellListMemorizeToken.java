@@ -23,9 +23,9 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
@@ -69,7 +69,7 @@ public class SpellListMemorizeToken extends SpellListToken
 				new SpellListTokenParams(tokenSource,
 					SpellListToken.SPELLTAG_MEMORIZE);
 
-		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
 		{

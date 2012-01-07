@@ -22,17 +22,17 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.core.Race;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.List;
+
+import javax.swing.JPanel;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.Globals;
+import pcgen.core.Race;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>AppearancePanel</code>
@@ -43,7 +43,7 @@ import java.util.List;
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-final class AppearancePanel extends JPanel implements PObjectUpdater
+final class AppearancePanel extends JPanel implements PObjectUpdater<Race>
 {
 	private static String defaultRegionName = Constants.NONE;
 	private TypePanel pnlEyeColor;
@@ -94,20 +94,12 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 	 * PObject obj with those values
 	 */
 	@Override
-	public void updateData(PObject obj)
+	public void updateData(Race race)
 	{
 		Object[] sel;
-		Race race;
 		String region;
 		String raceName;
 		String aString;
-
-		if (!(obj instanceof Race))
-		{
-			return;
-		}
-
-		race = (Race) obj;
 
 		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 
@@ -142,18 +134,10 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 	 * and updates the GUI components
 	 */
 	@Override
-	public void updateView(PObject obj)
+	public void updateView(Race race)
 	{
-		Race race;
 		String region;
 		String raceName;
-
-		if (!(obj instanceof Race))
-		{
-			return;
-		}
-
-		race = (Race) obj;
 
 		String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
 

@@ -40,10 +40,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PObject;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.rules.context.LoadContext;
@@ -55,7 +55,7 @@ import pcgen.util.PropertyFactory;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-final class DeityBasePanel extends BasePanel
+final class DeityBasePanel extends BasePanel<Deity>
 {
 	private AvailableSelectedPanel pnlFavoredWeapons;
 	private DescriptionPanel pnlDescription;
@@ -178,7 +178,7 @@ final class DeityBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Deity thisPObject)
 	{
 		if (getHolyItemText() == null || getHolyItemText().trim().length()>0)
 		{
@@ -223,7 +223,7 @@ final class DeityBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Deity thisPObject)
 	{
 		setHolyItemText(thisPObject.get(StringKey.HOLY_ITEM));
 		final StringBuffer buf = new StringBuffer();

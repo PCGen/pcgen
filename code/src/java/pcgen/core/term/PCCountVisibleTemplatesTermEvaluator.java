@@ -58,6 +58,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 		return count;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

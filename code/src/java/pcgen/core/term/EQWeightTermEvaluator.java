@@ -39,6 +39,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -47,6 +48,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -71,6 +73,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 		return String.valueOf(weightInPounds);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

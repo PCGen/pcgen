@@ -37,6 +37,7 @@ public class EQReachTermEvaluator extends BaseEQTermEvaluator implements TermEva
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -45,6 +46,7 @@ public class EQReachTermEvaluator extends BaseEQTermEvaluator implements TermEva
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -52,6 +54,7 @@ public class EQReachTermEvaluator extends BaseEQTermEvaluator implements TermEva
 		return String.valueOf(eq.getSafe(IntegerKey.REACH));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

@@ -42,6 +42,7 @@ public class ConstantZeroTermEvaluator
 		return 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

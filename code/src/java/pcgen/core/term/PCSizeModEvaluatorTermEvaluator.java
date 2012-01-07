@@ -42,6 +42,7 @@ public class PCSizeModEvaluatorTermEvaluator
 		return (float) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

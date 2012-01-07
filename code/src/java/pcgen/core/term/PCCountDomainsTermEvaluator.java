@@ -42,6 +42,7 @@ public class PCCountDomainsTermEvaluator
 		return (float) pc.getDomainCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

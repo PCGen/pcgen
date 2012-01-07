@@ -45,6 +45,7 @@ public class PCHasFeatTermEvaluator
 		return pc.hasRealFeatNamed(feat) ? 1f : 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

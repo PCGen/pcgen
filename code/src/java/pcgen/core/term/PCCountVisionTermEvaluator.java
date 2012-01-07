@@ -42,6 +42,7 @@ public class PCCountVisionTermEvaluator
 		return (float) pc.getVisionCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -25,7 +25,7 @@
  */
 package plugin.lsttokens.deprecated;
 
-import pcgen.core.PObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
@@ -96,7 +96,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
-	public String getMessage(PObject obj, String value)
+	public String getMessage(CDOMObject obj, String value)
 	{
 		return "The bonus will not be applied. You should use either BONUS:MOVEADD or BONUS:POSTMOVEADD instead.";
 	}

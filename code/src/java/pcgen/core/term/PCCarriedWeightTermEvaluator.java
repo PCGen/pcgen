@@ -42,6 +42,7 @@ public class PCCarriedWeightTermEvaluator
 		return pc.totalWeight();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

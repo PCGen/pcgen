@@ -3,10 +3,10 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.GameMode;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.GameModeLstToken;
@@ -84,7 +84,7 @@ public class ShowtabToken implements GameModeLstToken, DeferredToken<TabInfo>,
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value)
+	public String getMessage(CDOMObject obj, String value)
 	{
 		return "This Token is Deprecated. Please use VISIBLE: on the TAB: line";
 	}

@@ -47,7 +47,6 @@ import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.PropertyFactory;
@@ -59,7 +58,7 @@ import pcgen.util.enumeration.Visibility;
  *
  * @author  Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  */
-class ClassBasePanel extends BasePanel
+class ClassBasePanel extends BasePanel<PCClass>
 {
 	private JCheckBox chkVisible;
 	private JCheckBox modToSkills;
@@ -107,14 +106,8 @@ class ClassBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(PCClass obj)
 	{
-		if (!(thisPObject instanceof PCClass))
-		{
-			return;
-		}
-
-		PCClass obj = (PCClass) thisPObject;
 		obj.put(StringKey.OUTPUT_NAME, txtDisplayName.getText().trim());
 		LoadContext context = Globals.getContext();
 		context.ref.registerAbbreviation(obj, abbreviation.getText().trim());
@@ -140,21 +133,16 @@ class ClassBasePanel extends BasePanel
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.put(ObjectKey.VISIBILITY, chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
-		thisPObject.removeListFor(ListKey.TYPE);
+		obj.removeListFor(ListKey.TYPE);
 		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
+			obj.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(PCClass thisPObject)
 	{
-		if (!(thisPObject instanceof PCClass))
-		{
-			return;
-		}
-
 		//
 		// Populate the types
 		//

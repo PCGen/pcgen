@@ -82,6 +82,7 @@ public class PCSizeIntEQTermEvaluator
 		return (float) pc.sizeInt() + modSize;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

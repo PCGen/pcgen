@@ -78,6 +78,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 		return (float) levelNum;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

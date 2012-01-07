@@ -29,9 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -138,10 +138,10 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
 	 */
 	@Override
-	protected void finishObject(PObject target)
+	protected void finishObject(CDOMObject cdo)
 	{
 		// TODO - This code is broken now.  I think it always was though.
 		//		Object obj = Globals.getSpellMap().get(target.getKeyName());
@@ -204,15 +204,15 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(CDOMObject)
 	 */
 	@Override
-	protected void addGlobalObject(final PObject pObj)
+	protected void addGlobalObject(final CDOMObject cdo)
 	{
-		final Object obj = Globals.getSpellMap().get(pObj.getKeyName());
+		final Object obj = Globals.getSpellMap().get(cdo.getKeyName());
 		if (obj == null)
 		{
-			Globals.addToSpellMap(pObj.getKeyName(), pObj);
+			Globals.addToSpellMap(cdo.getKeyName(), cdo);
 		}
 		else
 		{
@@ -221,14 +221,14 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			{
 				spellList = new ArrayList<Spell>();
 				Globals.removeFromSpellMap(((Spell) obj).getKeyName());
-				Globals.addToSpellMap(pObj.getKeyName(), spellList);
+				Globals.addToSpellMap(cdo.getKeyName(), spellList);
 				spellList.add((Spell) obj);
 			}
 			else
 			{
 				spellList = (List<Spell>) obj;
 			}
-			spellList.add((Spell) pObj);
+			spellList.add((Spell) cdo);
 		}
 	}
 }

@@ -45,6 +45,7 @@ public class PCModEquipTermEvaluator
 		return (float) pc.modToFromEquipment(modEq);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

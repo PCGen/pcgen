@@ -43,21 +43,25 @@ public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 
+	@Override
 	public String getTermConstructorPattern()
 	{
 		return termConstructorPattern;
 	}
 
+	@Override
 	public String[] getTermConstructorKeys()
 	{
 		return termConstructorKeys;
 	}
 
+	@Override
 	public boolean isEntireTerm()
 	{
 		return patternMatchesEntireTerm;
 	}
 
+	@Override
 	public TermEvaluator getTermEvaluator(
 			String expressionString,
 			String src,

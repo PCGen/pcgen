@@ -33,8 +33,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PObject;
 import pcgen.util.Logging;
 
 /**
@@ -156,12 +156,12 @@ public final class JTreeTableSorter
 
 			Object sortKey = null;
 			
-			if (isNameCol && pi.getItem() instanceof PObject)
+			if (isNameCol && pi.getItem() instanceof CDOMObject)
 			{
-				sortKey = ((PObject)pi.getItem()).get(StringKey.SORT_KEY);
+				sortKey = ((CDOMObject)pi.getItem()).get(StringKey.SORT_KEY);
 				if (sortKey == null)
 				{
-					sortKey = ((PObject)pi.getItem()).getDisplayName();
+					sortKey = ((CDOMObject)pi.getItem()).getDisplayName();
 				}
 			}
 			else

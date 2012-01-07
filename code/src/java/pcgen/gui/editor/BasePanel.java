@@ -22,9 +22,9 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.PObject;
-
 import javax.swing.JPanel;
+
+import pcgen.cdom.base.CDOMObject;
 
 /**
  * <code>BasePanel</code>
@@ -32,19 +32,19 @@ import javax.swing.JPanel;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-abstract class BasePanel extends JPanel implements PObjectUpdater
+abstract class BasePanel<T extends CDOMObject> extends JPanel implements PObjectUpdater<T>
 {
 	/**
      * Update the data in the panel with PObject
 	 * @param thisPObject 
 	 */
     @Override
-	public abstract void updateData(PObject thisPObject);
+	public abstract void updateData(T thisPObject);
 
     /**
      * Update the data in the view with PObject
      * @param thisPObject
      */
     @Override
-	public abstract void updateView(PObject thisPObject);
+	public abstract void updateView(T thisPObject);
 }

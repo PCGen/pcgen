@@ -22,7 +22,7 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.PObject;
+import pcgen.cdom.base.CDOMObject;
 
 /**
  * ???
@@ -30,17 +30,17 @@ import pcgen.core.PObject;
  * @author  ???
  * @version $Revision$
  */
-interface PObjectUpdater
+interface PObjectUpdater<T extends CDOMObject>
 {
 	/** updateData takes the GUI components and updates the
 	 * PObject obj with those values
 	 * @param obj
 	 */
-	void updateData(PObject obj);
+	void updateData(T obj);
 
 	/** updateView takes the values from PObject obj
 	 * and updates the GUI components
 	 * @param obj
 	 */
-	void updateView(PObject obj);
+	void updateView(T obj);
 }

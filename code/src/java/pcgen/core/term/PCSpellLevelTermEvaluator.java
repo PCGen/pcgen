@@ -42,6 +42,7 @@ public class PCSpellLevelTermEvaluator
 		return (float) pc.getSpellLevelTemp();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

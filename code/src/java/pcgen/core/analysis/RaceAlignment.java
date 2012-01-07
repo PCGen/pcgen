@@ -1,13 +1,13 @@
 package pcgen.core.analysis;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCAlignment;
-import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 
 public class RaceAlignment
 {
 
-	public static boolean canBeAlignment(PObject r, PCAlignment align)
+	public static boolean canBeAlignment(CDOMObject r, PCAlignment align)
 	{
 		if (r.hasPrerequisites())
 		{
@@ -24,7 +24,7 @@ public class RaceAlignment
 		return true;
 	}
 
-	public static boolean hasAlignmentRestriction(PObject r)
+	public static boolean hasAlignmentRestriction(CDOMObject r)
 	{
 		if (r.hasPrerequisites())
 		{

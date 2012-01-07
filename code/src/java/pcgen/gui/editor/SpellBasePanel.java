@@ -57,7 +57,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
@@ -72,7 +71,7 @@ import pcgen.util.PropertyFactory;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class SpellBasePanel extends BasePanel
+public class SpellBasePanel extends BasePanel<Spell>
 {
 	private DecimalNumberField txtCost;
 	private DescriptionPanel pnlDescription;
@@ -120,17 +119,16 @@ public class SpellBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Spell s)
 	{
 		String aString;
-		final Spell s = (Spell) thisPObject;
 
 		LoadContext context = Globals.getContext();
 		final String desc = pnlDescription.getText();
 		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
 		while (tok.hasMoreTokens())
 		{
-			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
+			context.unconditionallyProcess(s, "DESC", tok.nextToken());
 		}
 		s.put(ObjectKey.DESC_PI, pnlDescription.getDescIsPI());
 
@@ -217,11 +215,10 @@ public class SpellBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Spell thisSpell)
 	{
-		Spell thisSpell = (Spell) thisPObject;
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
+		for ( final Description desc : thisSpell.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{

@@ -42,6 +42,7 @@ public class PCCountSABTermEvaluator
 		return (float) pc.getSpecialAbilityTimesList().size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

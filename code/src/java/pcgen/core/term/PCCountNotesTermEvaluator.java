@@ -42,6 +42,7 @@ public class PCCountNotesTermEvaluator
 		return (float) pc.getNotesList().size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -42,6 +42,7 @@ public class PCHeightTermEvaluator
 		return (float) pc.getHeight();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -47,6 +47,7 @@ public class PCCountSpellsInbookTermEvaluator
 			   (float) pc.countSpellsInBook(book) : 0f;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

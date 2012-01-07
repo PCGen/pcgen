@@ -37,6 +37,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -45,6 +46,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -52,6 +54,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return String.valueOf(eq.getSafe(IntegerKey.REACH_MULT));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

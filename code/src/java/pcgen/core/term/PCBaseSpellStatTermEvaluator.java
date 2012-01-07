@@ -56,6 +56,7 @@ public class PCBaseSpellStatTermEvaluator
 		return (float) pc.getBaseSpellStatBonus(pcClass);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

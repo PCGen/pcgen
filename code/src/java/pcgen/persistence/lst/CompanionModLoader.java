@@ -29,9 +29,9 @@ package pcgen.persistence.lst;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -48,12 +48,12 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 {
 
 	@Override
-	protected void addGlobalObject(PObject pObj) {
+	protected void addGlobalObject(CDOMObject cdo) {
 		//This is commented out to avoid problems - see Tracker 
 		//  - thpr 1/11/07
 //		final CompanionMod cm = Globals.getCompanionMod(pObj.getKeyName());
 //		if (cm == null) {
-			Globals.addCompanionMod((CompanionMod) pObj);
+			Globals.addCompanionMod((CompanionMod) cdo);
 //		}
 	}
 

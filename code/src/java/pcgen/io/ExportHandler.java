@@ -41,6 +41,7 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -2802,7 +2803,7 @@ public final class ExportHandler
 
 				found = true;
 
-				PObject aObject =
+				CDOMObject aObject =
 						aPC.getSpellClassAtIndex(Integer.parseInt(bString));
 				canWrite = (aObject != null);
 			}

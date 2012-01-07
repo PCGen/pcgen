@@ -57,6 +57,7 @@ public class PCCountClassesTermEvaluator
 		return s;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

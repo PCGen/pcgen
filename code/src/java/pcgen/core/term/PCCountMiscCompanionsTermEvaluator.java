@@ -48,6 +48,7 @@ public class PCCountMiscCompanionsTermEvaluator
 		return (float) companions.size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

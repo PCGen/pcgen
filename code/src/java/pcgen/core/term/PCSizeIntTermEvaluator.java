@@ -42,6 +42,7 @@ public class PCSizeIntTermEvaluator
 		return (float) pc.sizeInt();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

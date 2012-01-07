@@ -53,6 +53,7 @@ public class PCCountAbilitiesNatureNormalTermEvaluator
 		return pc.getRealAbilitiesListAnyCat(abCat);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

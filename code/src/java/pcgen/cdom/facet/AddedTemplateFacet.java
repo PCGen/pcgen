@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
@@ -135,7 +134,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return null;
 	}
 
-	public Collection<PCTemplate> getFromSource(CharID id, PObject po)
+	public Collection<PCTemplate> getFromSource(CharID id, CDOMObject cdo)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
 		Map<PCTemplate, Set<Object>> map = getCachedMap(id);
@@ -144,7 +143,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 			for (Map.Entry<PCTemplate, Set<Object>> me : map.entrySet())
 			{
 				Set<Object> sourceSet = me.getValue();
-				if (sourceSet.contains(po))
+				if (sourceSet.contains(cdo))
 				{
 					list.add(me.getKey());
 				}

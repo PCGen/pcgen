@@ -90,6 +90,7 @@ public class PCCasterLevelClassTermEvaluator
 				aSpell, aSpell.getSpell(), spellType, varSource, iClass + pcBonus);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

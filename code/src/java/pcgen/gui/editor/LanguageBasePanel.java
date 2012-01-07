@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PObject;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -39,7 +38,7 @@ import pcgen.util.PropertyFactory;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class LanguageBasePanel extends BasePanel
+public class LanguageBasePanel extends BasePanel<Language>
 {
 	//private AvailableSelectedPanel pnlLanguageType;
 	private TypePanel pnlLanguageType;
@@ -81,7 +80,7 @@ public class LanguageBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Language thisPObject)
 	{
 		for (Object o : getTypesSelectedList())
 		{
@@ -90,10 +89,8 @@ public class LanguageBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Language thisLanguage)
 	{
-		Language thisLanguage = (Language) thisPObject;
-
 		List<Type> availableList = new ArrayList<Type>();
 		List<Type> selectedList = new ArrayList<Type>();
 

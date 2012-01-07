@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -52,7 +53,7 @@ public class PCCountSpellsKnownTermEvaluator
 		{
 			if (nums[0] == -1)
 			{
-				for (PObject pcClass : pc.getClassSet())
+				for (CDOMObject pcClass : pc.getClassSet())
 				{
 					count += pc.getCharacterSpellCount(pcClass);
 				}
@@ -73,6 +74,7 @@ public class PCCountSpellsKnownTermEvaluator
 		return count;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

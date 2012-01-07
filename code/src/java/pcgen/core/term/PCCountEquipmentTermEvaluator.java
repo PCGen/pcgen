@@ -109,6 +109,7 @@ public class PCCountEquipmentTermEvaluator
 		return (float) aList.size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

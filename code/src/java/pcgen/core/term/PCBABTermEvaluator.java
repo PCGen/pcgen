@@ -43,6 +43,7 @@ public class PCBABTermEvaluator
 		return (float) pc.baseAttackBonus();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

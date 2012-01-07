@@ -7,7 +7,7 @@
 
 package pcgen.persistence.lst;
 
-import pcgen.core.PObject;
+import pcgen.cdom.base.CDOMObject;
 
 /**
  * @author djones4
@@ -25,5 +25,5 @@ public interface DeprecatedToken
 	 * @return A message to display to the user about why the token was deprecated
 	 * and how they can fix it.  This message should be i18n.
 	 */
-	public String getMessage(PObject obj, String value);
+	public String getMessage(CDOMObject obj, String value);
 }

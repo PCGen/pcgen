@@ -17,8 +17,8 @@
  */
 package plugin.lsttokens.deprecated;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -52,7 +52,7 @@ public class HassubstitutionlevelToken implements DeprecatedToken,
 		return PCClass.class;
 	}
 
-	public String getMessage(PObject obj, String value)
+	public String getMessage(CDOMObject obj, String value)
 	{
 		return getTokenName()
 				+ " is no longer required in Class LST file: Ignoring";

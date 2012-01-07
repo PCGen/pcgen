@@ -57,6 +57,7 @@ public class PCCountAbilitiesTypeNatureAllTermEvaluator
 		return AbilityUtilities.getAggregateAbilitiesListForKey(catKey, pc);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

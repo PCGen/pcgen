@@ -40,7 +40,6 @@ import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PObject;
 import pcgen.core.Skill;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
@@ -51,7 +50,7 @@ import pcgen.util.PropertyFactory;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-final class SkillBasePanel extends BasePanel
+final class SkillBasePanel extends BasePanel<Skill>
 {
 	private static final String[] acheckValues = new String[]{ "No", "Yes", "Non-proficiency", "Weight" };
 	private JCheckBox chkExclusive;
@@ -153,7 +152,7 @@ final class SkillBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateData(PObject thisPObject)
+	public void updateData(Skill thisPObject)
 	{
 		thisPObject.removeListFor(ListKey.TYPE);
 
@@ -169,10 +168,8 @@ final class SkillBasePanel extends BasePanel
 	}
 
 	@Override
-	public void updateView(PObject thisPObject)
+	public void updateView(Skill thisSkill)
 	{
-		Skill thisSkill = (Skill) thisPObject;
-
 		//
 		// Populate the types
 		//

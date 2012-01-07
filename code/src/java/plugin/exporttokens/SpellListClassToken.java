@@ -23,9 +23,11 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
@@ -33,8 +35,6 @@ import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 import pcgen.util.Delta;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>SpellListClassToken</code> outputs either the name of the
@@ -81,7 +81,7 @@ public class SpellListClassToken extends SpellListToken
 		i = Integer.parseInt(aTok.nextToken());
 
 		//
-		final PObject aObject = pc.getSpellClassAtIndex(i);
+		final CDOMObject aObject = pc.getSpellClassAtIndex(i);
 
 		if (aObject != null)
 		{

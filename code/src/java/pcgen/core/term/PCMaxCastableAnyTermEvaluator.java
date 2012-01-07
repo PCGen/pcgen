@@ -69,6 +69,7 @@ public class PCMaxCastableAnyTermEvaluator
 		return max;
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

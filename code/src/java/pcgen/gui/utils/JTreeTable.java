@@ -52,8 +52,8 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.utils.MessageType;
 import pcgen.util.InputFactory;
@@ -483,9 +483,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			{
 				final Object theObj = node.getItem();
 
-				if (theObj instanceof PObject)
+				if (theObj instanceof CDOMObject)
 				{
-					if (((PObject) theObj).getDisplayName().equals(name))
+					if (((CDOMObject) theObj).getDisplayName().equals(name))
 					{
 						//expand that node
 						List<PObjectNode> path = new ArrayList<PObjectNode>();

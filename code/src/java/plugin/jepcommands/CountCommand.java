@@ -35,6 +35,7 @@ import java.util.Stack;
 
 import org.nfunk.jep.ParseException;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -46,7 +47,6 @@ import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
@@ -103,11 +103,13 @@ public class CountCommand extends PCGenCommand
 
 				public Map<Nature, Set<Ability>> abdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					abdata = pc.getAbilitiesSet();
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -118,17 +120,17 @@ public class CountCommand extends PCGenCommand
 
 					getData(pc);
 
-					final Set<PObject> filtered = doFilterP(pt);
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
 					return countData(filtered, pc);
 				}
 
-				protected Object countData(final Iterable<PObject> filtered,
+				protected Object countData(final Iterable<? extends CDOMObject> filtered,
 				                           PlayerCharacter pc)
 				{
 					double accum = 0;
 
-					for (final PObject ab : filtered)
+					for (final CDOMObject ab : filtered)
 					{
 						final double ac = pc.getSelectCorrectedAssociationCount(ab);
 						accum += 1.01 >= ac ? 1 : ac;
@@ -136,7 +138,8 @@ public class CountCommand extends PCGenCommand
 					return accum;
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c)
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c)
 				{
 					final String[] keyValue = c.split("=");
 					final JepAbilityCountEnum en;
@@ -149,12 +152,12 @@ public class CountCommand extends PCGenCommand
 					{
 						Logging.errorPrint(
 							"Bad paramter to count(\"Ability\"), " + c);
-						return new HashSet<PObject>();
+						return new HashSet<CDOMObject>();
 					}
 
 					Set<Ability> cs = null;
 					Ability a;
-					final Iterator<? extends PObject> abIt;
+					final Iterator<? extends CDOMObject> abIt;
 
 					switch (en)
 					{
@@ -246,7 +249,7 @@ public class CountCommand extends PCGenCommand
 				private Set<Ability> filterAbilitiesByName(final String[] keyValue)
 				{
 					Set<Ability> cs;
-					final Iterator<? extends PObject> abIt;
+					final Iterator<? extends CDOMObject> abIt;
 					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 					abIt = cs.iterator();
 
@@ -276,7 +279,7 @@ public class CountCommand extends PCGenCommand
 				private Set<Ability> filterAbilitiesByKeyName(final String[] keyValue)
 				{
 					Set<Ability> cs;
-					final Iterator<? extends PObject> abIt;
+					final Iterator<? extends CDOMObject> abIt;
 					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 					abIt = cs.iterator();
 
@@ -294,6 +297,7 @@ public class CountCommand extends PCGenCommand
 					return cs;
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
@@ -308,12 +312,14 @@ public class CountCommand extends PCGenCommand
 
 				public Set<PCClass> objdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<PCClass>();
 					objdata.addAll(pc.getClassSet());
 				}
 
+				@Override
 				public Object count(
 					final PlayerCharacter pc, final Object[] params) throws
 					ParseException
@@ -322,18 +328,20 @@ public class CountCommand extends PCGenCommand
 					final ParameterTree pt = convertParams(par);
 
 					getData(pc);
-					final Set<PObject> filtered = doFilterP(pt);
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
 					return (double) filtered.size();
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
 						"PCClass is a PObject, should be calling filterSetP");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -345,7 +353,7 @@ public class CountCommand extends PCGenCommand
 					}
 
 					final Set<PCClass> cs = new HashSet<PCClass>(objdata);
-					final Iterator<? extends PObject> it = cs.iterator();
+					final Iterator<? extends CDOMObject> it = cs.iterator();
 
 					filterPObjectByType(it, keyValue[1]);
 
@@ -359,11 +367,13 @@ public class CountCommand extends PCGenCommand
 
 				public PlayerCharacter pc;
 
+				@Override
 				protected void getData(final PlayerCharacter aPc)
 				{
 					this.pc = aPc;
 				}
 
+				@Override
 				public Object count(final PlayerCharacter aPc,
 				                    final Object[] params) throws ParseException
 				{
@@ -376,6 +386,7 @@ public class CountCommand extends PCGenCommand
 					return (double) filtered.size();
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String kv) throws
 					ParseException
 				{
@@ -407,7 +418,8 @@ public class CountCommand extends PCGenCommand
 					return pSet;
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException(
@@ -421,12 +433,14 @@ public class CountCommand extends PCGenCommand
 
 				public Set<Equipment> objdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<Equipment>();
 					objdata.addAll(pc.getEquipmentListInOutputOrder());
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -434,19 +448,21 @@ public class CountCommand extends PCGenCommand
 					final ParameterTree pt = convertParams(par);
 
 					getData(pc);
-					final Set<PObject> filtered = doFilterP(pt);
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
 					return (double) filtered.size();
 				}
 
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
 						"Equipment is a PObject, should be calling filterSetP");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -461,11 +477,11 @@ public class CountCommand extends PCGenCommand
 					{
 						Logging.errorPrint(
 							"Bad paramter to count(\"Equipment\"), " + c);
-						return new HashSet<PObject>();
+						return new HashSet<CDOMObject>();
 					}
 
 					final Set<Equipment> cs = new HashSet<Equipment>(objdata);
-					final Iterator<? extends PObject> it = cs.iterator();
+					final Iterator<? extends CDOMObject> it = cs.iterator();
 
 					switch (en)
 					{
@@ -518,6 +534,7 @@ public class CountCommand extends PCGenCommand
 
 				public Map<Follower, String> objdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					for (final Follower f : pc.getFollowerList())
@@ -530,6 +547,7 @@ public class CountCommand extends PCGenCommand
 					}
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -542,7 +560,8 @@ public class CountCommand extends PCGenCommand
 					return countDataS(filtered);
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException(
@@ -551,6 +570,7 @@ public class CountCommand extends PCGenCommand
 
 				// If we need to be able to filter out any of these followers,
 				// this is where it should be done.
+				@Override
 				protected Set<String> filterSetS(final String c)
 				{
 					return (Set<String>) objdata.values();
@@ -564,12 +584,14 @@ public class CountCommand extends PCGenCommand
 
 				public Set<Language> objdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<Language>();
 					objdata.addAll(pc.getLanguageSet());
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -577,12 +599,13 @@ public class CountCommand extends PCGenCommand
 					final ParameterTree pt = convertParams(par);
 
 					getData(pc);
-					final Set<PObject> filtered = doFilterP(pt);
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
 					return (double) filtered.size();
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -596,13 +619,14 @@ public class CountCommand extends PCGenCommand
 					}
 
 					final Set<Language> cs = new HashSet<Language>(objdata);
-					final Iterator<? extends PObject> it = cs.iterator();
+					final Iterator<? extends CDOMObject> it = cs.iterator();
 
 					filterPObjectByType(it, keyValue[1]);
 
 					return cs;
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
@@ -616,11 +640,13 @@ public class CountCommand extends PCGenCommand
 
 				public Set<RaceSubType> objdata = new HashSet<RaceSubType>();
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata.addAll(pc.getRacialSubTypes());
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -633,13 +659,15 @@ public class CountCommand extends PCGenCommand
 					return (double) filtered.size();
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException(
 						"RaceSubType is not a PObject, should be calling filterSetS");
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -695,6 +723,7 @@ public class CountCommand extends PCGenCommand
 				// Skill is a PObject
 				public Set<Skill> objdata;
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<Skill>();
@@ -702,6 +731,7 @@ public class CountCommand extends PCGenCommand
 					objdata.addAll(pc.getSkillSet());
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
@@ -709,18 +739,20 @@ public class CountCommand extends PCGenCommand
 					final ParameterTree pt = convertParams(par);
 
 					getData(pc);
-					final Set<PObject> filtered = doFilterP(pt);
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
 					return (double) filtered.size();
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
 						"Skill is a PObject, should be calling filterSetP");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -732,7 +764,7 @@ public class CountCommand extends PCGenCommand
 					}
 
 					final Set<Skill> cs = new HashSet<Skill>(objdata);
-					final Iterator<? extends PObject> it = cs.iterator();
+					final Iterator<? extends CDOMObject> it = cs.iterator();
 
 					filterPObjectByType(it, keyValue[1]);
 
@@ -751,20 +783,24 @@ public class CountCommand extends PCGenCommand
 				 * @return A Double with the number of matching spell books.
 				 * @throws ParseException If any invalid parameters are encountered.
 				 */
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
 					return pc.getSpellBookCount();
 				}
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c)
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c)
 				{
-					return new HashSet<PObject>();
+					return new HashSet<CDOMObject>();
 				}
+				@Override
 				protected Set<String> filterSetS(final String c)
 				{
 					return new HashSet<String>();
@@ -773,10 +809,12 @@ public class CountCommand extends PCGenCommand
 
 		SPELLS
 			{
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 				}
 
+				@Override
 				public Object count(
 					final PlayerCharacter pc, final Object[] params) throws
 					ParseException
@@ -784,12 +822,14 @@ public class CountCommand extends PCGenCommand
 					return Double.valueOf("0.0");
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException("Not implemented yet");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException("Not implemented yet");
@@ -799,22 +839,26 @@ public class CountCommand extends PCGenCommand
 		SPELLSINBOOK
 			{
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
 					return Double.valueOf("0.0");
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException("Not implemented yet");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException("Not implemented yet");
@@ -823,22 +867,26 @@ public class CountCommand extends PCGenCommand
 
 		SPELLSKNOWN
 			{
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
 					return Double.valueOf("0.0");
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException("Not implemented yet");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					throw new ParseException("Not implemented yet");
@@ -849,24 +897,28 @@ public class CountCommand extends PCGenCommand
 			{
 				public Set<PCTemplate> objdata = new HashSet<PCTemplate>();
 
+				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata.addAll(pc.getTemplateSet());
 				}
 
+				@Override
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
 					return Double.valueOf("0.0");
 				}
 
+				@Override
 				protected Set<String> filterSetS(final String c) throws ParseException
 				{
 					throw new ParseException(
 						"PCTemplate is a PObject, should be calling filterSetP");
 				}
 
-				protected Set<? extends PObject> filterSetP(final String c) throws
+				@Override
+				protected Set<? extends CDOMObject> filterSetP(final String c) throws
 					ParseException
 				{
 					final String[] keyValue = c.split("=");
@@ -878,7 +930,7 @@ public class CountCommand extends PCGenCommand
 					}
 
 					final Set<PCTemplate> cs = new HashSet<PCTemplate>(objdata);
-					final Iterator<? extends PObject> it = cs.iterator();
+					final Iterator<? extends CDOMObject> it = cs.iterator();
 
 					filterPObjectByType(it, keyValue[1]);
 					return cs;
@@ -920,7 +972,7 @@ public class CountCommand extends PCGenCommand
 			return pt;
 		}
 
-		private static void filterPObjectByType(final Iterator<? extends PObject> it, final String tString)
+		private static void filterPObjectByType(final Iterator<? extends CDOMObject> it, final String tString)
 		{
 			// If we want all then we don't need to filter.
 			if (!"ALL".equalsIgnoreCase(tString))
@@ -934,7 +986,7 @@ public class CountCommand extends PCGenCommand
 				// iterated that do not match all of the types in typeList
 				while (it.hasNext())
 				{
-					final PObject pObj = it.next();
+					final CDOMObject pObj = it.next();
 
 					for (final String type : typeList)
 					{
@@ -976,26 +1028,21 @@ public class CountCommand extends PCGenCommand
 			final ParameterTree pt = convertParams(par);
 
 			getData(pc);
-			final Set<PObject> filtered = doFilterP(pt);
+			final Set<? extends CDOMObject> filtered = doFilterP(pt);
 
-			return countDataP(filtered);
-		}
-
-		protected Object countDataP(final Collection<PObject> filtered)
-		{
 			return (double) filtered.size();
 		}
 
 		//@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-		protected Set<PObject> doFilterP(final ParameterTree pt) throws ParseException
+		protected Set<? extends CDOMObject> doFilterP(final ParameterTree pt) throws ParseException
 		{
 			final String c = pt.getContents();
 
 			if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(
 				ParameterTree.andString))
 			{
-				final Set<PObject> a = doFilterP(pt.getLeftTree());
-				final Set<PObject> b = doFilterP(pt.getRightTree());
+				final Set<CDOMObject> a = new HashSet<CDOMObject>(doFilterP(pt.getLeftTree()));
+				final Set<? extends CDOMObject> b = doFilterP(pt.getRightTree());
 				if (c.equalsIgnoreCase(ParameterTree.orString))
 				{
 					a.addAll(b);
@@ -1007,7 +1054,7 @@ public class CountCommand extends PCGenCommand
 				return a;
 			}
 
-			return (Set<PObject>) filterSetP(c);
+			return filterSetP(c);
 		}
 
 		public Object countS(final PlayerCharacter pc, final Object[] params) throws
@@ -1054,7 +1101,7 @@ public class CountCommand extends PCGenCommand
 
 		protected abstract void getData(PlayerCharacter pc);
 
-		protected abstract Set<? extends PObject> filterSetP(String c) throws ParseException;
+		protected abstract Set<? extends CDOMObject> filterSetP(String c) throws ParseException;
 
 		protected abstract Set<String> filterSetS(String c) throws ParseException;
 	}

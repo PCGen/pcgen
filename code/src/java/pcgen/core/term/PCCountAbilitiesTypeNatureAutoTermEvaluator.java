@@ -56,6 +56,7 @@ public class PCCountAbilitiesTypeNatureAutoTermEvaluator
 		return new ArrayList<Ability>(pc.getAutomaticAbilityList(abCat));
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

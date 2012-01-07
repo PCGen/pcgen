@@ -29,6 +29,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.BasicChooseInformation;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
@@ -36,7 +37,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
@@ -58,7 +58,7 @@ public final class KitProf extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PObject thePObject = null;
+	private transient CDOMObject thePObject = null;
 	private transient List<WeaponProf> weaponProfs = null;
 
 	/**

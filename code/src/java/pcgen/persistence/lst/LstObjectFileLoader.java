@@ -32,9 +32,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -43,9 +43,9 @@ import pcgen.util.PropertyFactory;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
- * that are PObjects and have a source campaign associated with them.
+ * that are CDOMObjects and have a source campaign associated with them.
  * Objects loaded by implementations of this class inherit the core
- * MOD/COPY/FORGET funcationality needed for core PObjects used
+ * MOD/COPY/FORGET funcationality needed for core CDOMObjects used
  * to directly create characters.
  *
  * <p>
@@ -55,7 +55,7 @@ import pcgen.util.PropertyFactory;
  *
  * @author AD9C15
  */
-public abstract class LstObjectFileLoader<T extends PObject> extends Observable
+public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {
 	/** The String that separates fields in the file. */
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
@@ -131,19 +131,19 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	/**
 	 * This method parses the LST file line, applying it to the provided target
 	 * object.  If the line indicates the start of a new target object, a new
-	 * PObject of the appropriate type will be created prior to applying the
+	 * CDOMObject of the appropriate type will be created prior to applying the
 	 * line contents.  Because of this behavior, it is necessary for this
 	 * method to return the new object.  Implementations of this method also
 	 * MUST call <code>completeObject</code> with the original target prior to 
 	 * returning the new value.
 	 * @param context TODO
-	 * @param target PObject to apply the line to, barring the start of a
+	 * @param target CDOMObject to apply the line to, barring the start of a
 	 *         new object
 	 * @param lstLine String LST formatted line read from the source URL
 	 * @param source SourceEntry indicating the file that the line was
 	 *         read from as well as the Campaign object that referenced the file
 	 *
-	 * @return PObject that was either created or modified by the provided
+	 * @return CDOMObject that was either created or modified by the provided
 	 *         LST line
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
@@ -170,8 +170,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @param context TODO
 	 * @param pObj The object that has just completed loading.
 	 * 
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(PObject)
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(CDOMObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
 	 * @see pcgen.core.SettingsHandler#isAllowOverride()
 	 * 
 	 * @author boomer70 <boomer70@yahoo.com>
@@ -252,26 +252,26 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	/**
 	 * Adds an object to the global repository.
 	 * 
-	 * @param pObj The object to add.
+	 * @param cdo The object to add.
 	 * 
 	 * @author boomer70 <boomer70@yahoo.com>
 	 * 
 	 * @since 5.11
 	 */
-	protected void addGlobalObject(final PObject pObj)
+	protected void addGlobalObject(final CDOMObject cdo)
 	{
 	}
 
 	/**
-	 * This method is called when the end of data for a specific PObject
+	 * This method is called when the end of data for a specific CDOMObject
 	 * is found.
 	 * 
 	 * <p>This method will only be called for objects that are to be included.
 	 *
-	 * @param target PObject to perform final operations on
+	 * @param cdo CDOMObject to perform final operations on
 	 */
 	protected void finishObject(@SuppressWarnings("unused")
-	PObject target)
+	CDOMObject cdo)
 	{
 		// Placeholder implementation
 	}
@@ -281,18 +281,18 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * order to check if the parsed object is affected by an INCLUDE or
 	 * EXCLUDE request.
 	 *
-	 * @param parsedObject PObject to determine whether to include in
+	 * @param cdo CDOMObject to determine whether to include in
 	 *         Globals etc.
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected boolean includeObject(SourceEntry source, PObject parsedObject)
+	protected boolean includeObject(SourceEntry source, CDOMObject cdo)
 	{
 		// Null check; never add nulls or objects without a name/key name
-		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
-			|| (parsedObject.getDisplayName().trim().length() == 0)
-			|| (parsedObject.getKeyName() == null)
-			|| (parsedObject.getKeyName().trim().length() == 0))
+		if ((cdo == null) || (cdo.getDisplayName() == null)
+			|| (cdo.getDisplayName().trim().length() == 0)
+			|| (cdo.getKeyName() == null)
+			|| (cdo.getKeyName().trim().length() == 0))
 		{
 			return false;
 		}
@@ -302,41 +302,41 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 		if (!includeItems.isEmpty())
 		{
-			return includeItems.contains(parsedObject.getKeyName());
+			return includeItems.contains(cdo.getKeyName());
 		}
 		// If excludes were present, check excludes for given object
 		List<String> excludeItems = source.getExcludeItems();
 
 		if (!excludeItems.isEmpty())
 		{
-			return !excludeItems.contains(parsedObject.getKeyName());
+			return !excludeItems.contains(cdo.getKeyName());
 		}
 
 		return true;
 	}
 
 	/**
-	 * This method retrieves a PObject from globals by its key.
+	 * This method retrieves a CDOMObject from globals by its key.
 	 * This is used to avoid duplicate loads, get objects to forget or
 	 * modify, etc.
 	 * @param context TODO
-	 * @param aKey String key of PObject to retrieve
-	 * @return PObject from Globals
+	 * @param aKey String key of CDOMObject to retrieve
+	 * @return CDOMObject of the given key
 	 */
 	protected abstract T getObjectKeyed(LoadContext context, String aKey);
 
 	/**
-	 * This method retrieves a PObject from globals, attempting to match (by key
+	 * This method retrieves a CDOMObject from the global list, attempting to match (by key
 	 * and category, if necessary), the given object. This is used to avoid
 	 * duplicate loads
 	 * @param context TODO
-	 * @param aKey The PObject to retrieve
+	 * @param key The CDOMObject containing the key to retrieve (for which there may be a duplicate)
 	 * 
-	 * @return PObject from Globals
+	 * @return CDOMObject from Globals
 	 */
-	protected T getMatchingObject(LoadContext context, PObject aKey)
+	protected T getMatchingObject(LoadContext context, CDOMObject key)
 	{
-		return getObjectKeyed(context, aKey.getKeyName());
+		return getObjectKeyed(context, key.getKeyName());
 	}
 	
 	/**
@@ -581,7 +581,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * for example in MODs of CLASSES which can have multiple lines. Loaders
 	 * can [typically] use the name without checking
 	 * for (or stripping off) .MOD due to the implementation of
-	 * PObject.setName()
+	 * CDOMObject.setName()
 	 * @param entryList
 	 */
 	private void performMod(LoadContext context, List<ModEntry> entryList)

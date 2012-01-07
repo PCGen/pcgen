@@ -42,6 +42,7 @@ public class PCCountMoveTermEvaluator
 		return (float) pc.getNumberOfMovements();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

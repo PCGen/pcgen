@@ -114,6 +114,7 @@ public class PCCountSpellTimesTermEvaluator
 		return 0f;		
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

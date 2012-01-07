@@ -63,6 +63,7 @@ public class PCSPellBaseStatTermEvaluator
 		return (float) StatAnalysis.getTotalStatFor(pc, ss);
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return true;

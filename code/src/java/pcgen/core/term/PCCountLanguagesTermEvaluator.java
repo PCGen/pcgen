@@ -42,6 +42,7 @@ public class PCCountLanguagesTermEvaluator
 		return (float) pc.getLanguageCount();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

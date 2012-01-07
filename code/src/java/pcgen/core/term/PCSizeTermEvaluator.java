@@ -56,6 +56,7 @@ public class PCSizeTermEvaluator
 		return String.valueOf(pc.sizeInt());
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

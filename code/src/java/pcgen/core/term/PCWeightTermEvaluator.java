@@ -43,6 +43,7 @@ public class PCWeightTermEvaluator
 		return (float) pc.getWeight();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

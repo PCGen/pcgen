@@ -22,6 +22,7 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
@@ -31,7 +32,7 @@ import pcgen.core.SettingsHandler;
 public class OutputNameFormatting
 {
 
-	public static String parseOutputName(PObject po, PlayerCharacter aPC)
+	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)
 	{
 		return parseOutputName(getOutputName(po), aPC);
 	}
@@ -173,7 +174,7 @@ public class OutputNameFormatting
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
-	public static final String getOutputName(PObject po)
+	public static final String getOutputName(CDOMObject po)
 	{
 		String outputName = po.get(StringKey.OUTPUT_NAME);
 		String displayName = po.getDisplayName();

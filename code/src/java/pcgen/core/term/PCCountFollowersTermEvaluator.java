@@ -42,6 +42,7 @@ public class PCCountFollowersTermEvaluator
 		return (float) pc.getFollowerList().size();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

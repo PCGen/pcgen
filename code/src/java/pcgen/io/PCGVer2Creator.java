@@ -72,7 +72,6 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -1784,14 +1783,14 @@ final class PCGVer2Creator implements IOConstants
 	 * DEITY=deityname|totallevels
 	 */
 	private static void appendSourceInTaggedFormat(StringBuffer buffer,
-		PObject source)
+			CDOMObject source)
 	{
 		buffer.append(TAG_SOURCE).append(':');
 		buffer.append('[');
 		buffer.append(TAG_TYPE).append(':');
 
 		// I love reflection :-)
-		final Class<? extends PObject> srcClass = source.getClass();
+		final Class<? extends CDOMObject> srcClass = source.getClass();
 		final String pckName = srcClass.getPackage().getName();
 		final String srcName =
 				srcClass.getName().substring(pckName.length() + 1);
@@ -2339,7 +2338,7 @@ final class PCGVer2Creator implements IOConstants
 	}
 
 	private void appendWeaponProficiencyLines(StringBuffer buffer,
-		PObject source)
+			CDOMObject source)
 	{
 		if (source == null)
 		{
@@ -2513,9 +2512,9 @@ final class PCGVer2Creator implements IOConstants
 		final StringBuffer cb = new StringBuffer();
 
 		cb.append(TAG_TEMPBONUS).append(':');
-		if (creator instanceof PObject)
+		if (creator instanceof CDOMObject)
 		{
-			final PObject oCreator = (PObject) creator;
+			final CDOMObject oCreator = (CDOMObject) creator;
 
 			if (oCreator instanceof Ability)
 			{
@@ -2572,7 +2571,7 @@ final class PCGVer2Creator implements IOConstants
 	//
 	// Remember what choices were made for each of the ADD: tags
 	//
-	private void appendLevelAbilityInfo(StringBuffer buffer, PObject pObj)
+	private void appendLevelAbilityInfo(StringBuffer buffer, CDOMObject pObj)
 	{
 		appendAddTokenInfo(buffer, pObj);
 	}

@@ -42,6 +42,7 @@ public class PCCountAttacksTermEvaluator
 		return (float) pc.getNumAttacks();
 	}
 
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -2635,6 +2635,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			/**
 			 * Comparator will be specific to Skill objects
 			 */
+			@Override
 			public int compare(final Skill skill1, final Skill skill2)
 			{
 				Integer obj1Index = pc.getAssoc(skill1, AssociationKey.OUTPUT_INDEX);
@@ -4778,11 +4779,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setRace(final Race newRace)
 	{
 		final Race oldRace = getRace();
-		final boolean raceIsNull = (oldRace == null); // needed because race
-		// is set to null later
-
 		// remove current race attributes
-		if (!raceIsNull)
+
+		if (oldRace != null)
 		{
 			removeAllCharacterSpells(oldRace);
 			removeTemplatesFrom(oldRace);
@@ -7292,6 +7291,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		new File(aDirectory).list(new FilenameFilter()
 		{
+			@Override
 			public boolean accept(final File parentDir, final String fileName)
 			{
 				final File descriptionFile = new File(parentDir, fileName);
@@ -8297,7 +8297,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @return double
 	 */
 	private double getPObjectWithCostBonusTo(
-		final Collection<? extends PObject> aList, final String aType,
+		final Collection<? extends CDOMObject> aList, final String aType,
 		final String aName)
 	{
 		double iBonus = 0;
@@ -8307,7 +8307,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return iBonus;
 		}
 
-		for (PObject anObj : aList)
+		for (CDOMObject anObj : aList)
 		{
 			final List<BonusObj> tempList = BonusUtilities.getBonusFromList(
 					anObj.getBonusList(this), aType, aName);
@@ -8490,7 +8490,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	List<? extends CDOMObject> getCDOMObjectList()
 	{
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
-		for (PObject po : getPObjectList())
+		for (CDOMObject po : getPObjectList())
 		{
 			if (po != null)
 			{
@@ -11484,7 +11484,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public void removeTemplatesFrom(PObject po)
+	public void removeTemplatesFrom(CDOMObject po)
 	{
 		Collection<PCTemplate> list = getTemplatesAdded(po);
 		if (list != null)
@@ -11510,12 +11510,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	}
 
-	public Collection<PCTemplate> getTemplatesAdded(PObject po)
+	public Collection<PCTemplate> getTemplatesAdded(CDOMObject po)
 	{
 		return addedTemplateFacet.getFromSource(id, po);
 	}
 
-	public void setTemplatesAdded(PObject po, PCTemplate pct)
+	public void setTemplatesAdded(CDOMObject po, PCTemplate pct)
 	{
 		addedTemplateFacet.add(id, pct, po);
 	}
@@ -11984,7 +11984,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	public int getDC(final Spell sp, PCClass aClass, int spellLevel,
-			int metaDC, PObject ow)
+			int metaDC, CDOMObject ow)
 	{
 		String bonDomain = "";
 		if (ow instanceof Domain)
@@ -12141,7 +12141,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	public int getConcentration(final Spell sp, final CharacterSpell aSpell, PCClass aClass, 
-			int spellLevel, int metaConcentration, PObject ow)
+			int spellLevel, int metaConcentration, CDOMObject ow)
 	{
 		String bonDomain = "";
 		if (ow instanceof Domain)

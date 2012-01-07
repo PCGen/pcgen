@@ -36,6 +36,7 @@ public class EQEquipSizeTermEvaluator extends BaseEQTermEvaluator implements Ter
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -44,6 +45,7 @@ public class EQEquipSizeTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -51,6 +53,7 @@ public class EQEquipSizeTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return eq.getSize();
 	}
 	
+	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
