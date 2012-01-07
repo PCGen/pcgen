@@ -477,6 +477,7 @@ final class MovementPanel extends JPanel
 		btnAdd.setEnabled(true);
 		btnAdd.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnAddActionPerformed();
@@ -496,6 +497,7 @@ final class MovementPanel extends JPanel
 		btnRemove.setEnabled(false);
 		btnRemove.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnRemoveActionPerformed();
@@ -521,6 +523,7 @@ final class MovementPanel extends JPanel
 
 		lstSelected.addMouseListener(new MouseAdapter()
 			{
+				@Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					lstSelectedMouseClicked(evt);
@@ -528,6 +531,7 @@ final class MovementPanel extends JPanel
 			});
 		lstSelected.addListSelectionListener(new ListSelectionListener()
 			{
+				@Override
 				public void valueChanged(ListSelectionEvent evt)
 				{
 					if (lstSelected.getSelectedIndex() >= 0)

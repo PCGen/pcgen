@@ -38,11 +38,13 @@ abstract class BasePanel extends JPanel implements PObjectUpdater
      * Update the data in the panel with PObject
 	 * @param thisPObject 
 	 */
-    public abstract void updateData(PObject thisPObject);
+    @Override
+	public abstract void updateData(PObject thisPObject);
 
     /**
      * Update the data in the view with PObject
      * @param thisPObject
      */
-    public abstract void updateView(PObject thisPObject);
+    @Override
+	public abstract void updateView(PObject thisPObject);
 }

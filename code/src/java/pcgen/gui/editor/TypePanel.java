@@ -95,6 +95,7 @@ class TypePanel extends AvailableSelectedPanel
 
 		btnNewType.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnNewTypeActionPerformed();

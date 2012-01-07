@@ -89,6 +89,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		initComponentContents();
 	}
 
+	@Override
 	public void updateData(PObject po)
 	{
 		if (!(po instanceof PCClass))
@@ -189,6 +190,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 	}
 
+	@Override
 	public void updateView(PObject po)
 	{
 		if (!(po instanceof PCClass))

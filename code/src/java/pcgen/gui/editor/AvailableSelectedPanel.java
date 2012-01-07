@@ -294,6 +294,7 @@ class AvailableSelectedPanel extends JPanel
 		btnAdd.setEnabled(false);
 		btnAdd.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnAddActionPerformed(lstSelected, btnAdd);
@@ -309,6 +310,7 @@ class AvailableSelectedPanel extends JPanel
 
 		lstAvailable.addMouseListener(new MouseAdapter()
 			{
+				@Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					lstAvailableMouseClicked(evt);
@@ -316,6 +318,7 @@ class AvailableSelectedPanel extends JPanel
 			});
 		lstAvailable.addListSelectionListener(new ListSelectionListener()
 			{
+				@Override
 				public void valueChanged(ListSelectionEvent evt)
 				{
 					if (lstAvailable.getSelectedIndex() >= 0)
@@ -379,6 +382,7 @@ class AvailableSelectedPanel extends JPanel
 		btnRemove.setEnabled(false);
 		btnRemove.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnRemoveActionPerformed(lstSelected, btnRemove);
@@ -391,6 +395,7 @@ class AvailableSelectedPanel extends JPanel
 
 		lstSelected.addMouseListener(new MouseAdapter()
 			{
+				@Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					lstSelectedMouseClicked(evt);
@@ -398,6 +403,7 @@ class AvailableSelectedPanel extends JPanel
 			});
 		lstSelected.addListSelectionListener(new ListSelectionListener()
 			{
+				@Override
 				public void valueChanged(ListSelectionEvent evt)
 				{
 					if (lstSelected.getSelectedIndex() >= 0)
@@ -442,6 +448,7 @@ class AvailableSelectedPanel extends JPanel
 			btnAdd2.setEnabled(false);
 			btnAdd2.addActionListener(new ActionListener()
 				{
+					@Override
 					public void actionPerformed(ActionEvent evt)
 					{
 						btnAddActionPerformed(lstSelected2, btnAdd2);
@@ -465,6 +472,7 @@ class AvailableSelectedPanel extends JPanel
 			btnRemove2.setEnabled(false);
 			btnRemove2.addActionListener(new ActionListener()
 				{
+					@Override
 					public void actionPerformed(ActionEvent evt)
 					{
 						btnRemoveActionPerformed(lstSelected2, btnRemove2);
@@ -477,6 +485,7 @@ class AvailableSelectedPanel extends JPanel
 
 			lstSelected2.addMouseListener(new MouseAdapter()
 				{
+					@Override
 					public void mouseClicked(MouseEvent evt)
 					{
 						lstSelectedMouseClicked(evt);

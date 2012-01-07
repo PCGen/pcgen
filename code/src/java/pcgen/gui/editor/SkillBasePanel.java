@@ -152,6 +152,7 @@ final class SkillBasePanel extends BasePanel
 		return pnlSkillType.getSelectedList();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		thisPObject.removeListFor(ListKey.TYPE);
@@ -167,6 +168,7 @@ final class SkillBasePanel extends BasePanel
 		thisPObject.put(ObjectKey.ARMOR_CHECK, SkillArmorCheck.values()[getArmorCheck()]);
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		Skill thisSkill = (Skill) thisPObject;

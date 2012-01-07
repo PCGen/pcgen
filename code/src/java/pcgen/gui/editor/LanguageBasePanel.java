@@ -80,6 +80,7 @@ public class LanguageBasePanel extends BasePanel
 		return pnlLanguageType.getSelectedList();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		for (Object o : getTypesSelectedList())
@@ -88,6 +89,7 @@ public class LanguageBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		Language thisLanguage = (Language) thisPObject;

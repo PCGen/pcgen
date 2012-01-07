@@ -2663,11 +2663,13 @@ public final class EditorMainForm extends JDialog
 				pnlQSpells = new QualifiedAvailableSelectedPanel("in_demLevel", null,
 						new EditorAddFilter()
 						{
+							@Override
 							public Object encode(Object anObj)
 							{
 								return encodeSpellEntry(pnlQSpells, anObj.toString());
 							}
 
+							@Override
 							public Object decode(Object anObj)
 							{
 								return decodeSpellEntry( anObj.toString());
@@ -2716,11 +2718,13 @@ public final class EditorMainForm extends JDialog
 				pnlSynergy = new QualifiedAvailableSelectedPanel("in_demSkillRank", "in_demSynergyBonus",
 						new EditorAddFilter()
 						{
+							@Override
 							public Object encode(Object anObj)
 							{
 								return encodeSynergyEntry((String) anObj);
 							}
 
+							@Override
 							public Object decode(Object anObj)
 							{
 								return decodeSynergyEntry((String) anObj);
@@ -2734,11 +2738,13 @@ public final class EditorMainForm extends JDialog
 				pnlQClasses = new QualifiedAvailableSelectedPanel("in_demLevel", null,
 						new EditorAddFilter()
 						{
+							@Override
 							public Object encode(Object anObj)
 							{
 								return encodeDomainEntry(pnlQClasses, (String) anObj);
 							}
 
+							@Override
 							public Object decode(Object anObj)
 							{
 								return decodeDomainEntry((String) anObj);
@@ -2747,11 +2753,13 @@ public final class EditorMainForm extends JDialog
 				pnlQDomains = new QualifiedAvailableSelectedPanel("in_demLevel", null,
 						new EditorAddFilter()
 						{
+							@Override
 							public Object encode(Object anObj)
 							{
 								return encodeDomainEntry(pnlQDomains, (String) anObj);
 							}
 
+							@Override
 							public Object decode(Object anObj)
 							{
 								return decodeDomainEntry((String) anObj);
@@ -3037,6 +3045,7 @@ public final class EditorMainForm extends JDialog
 		btnCancel.setPreferredSize(new Dimension(80, 26));
 		btnCancel.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnCancelActionPerformed();
@@ -3050,6 +3059,7 @@ public final class EditorMainForm extends JDialog
 		btnSave.setPreferredSize(new Dimension(80, 26));
 		btnSave.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnSaveActionPerformed();

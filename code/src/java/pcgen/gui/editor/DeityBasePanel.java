@@ -177,6 +177,7 @@ final class DeityBasePanel extends BasePanel
 		return txtHolyItem.getText().trim();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		if (getHolyItemText() == null || getHolyItemText().trim().length()>0)
@@ -221,6 +222,7 @@ final class DeityBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		setHolyItemText(thisPObject.get(StringKey.HOLY_ITEM));

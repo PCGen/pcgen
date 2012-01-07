@@ -119,6 +119,7 @@ public class SpellBasePanel extends BasePanel
 		initComponentContents();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		String aString;
@@ -215,6 +216,7 @@ public class SpellBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		Spell thisSpell = (Spell) thisPObject;
@@ -697,6 +699,7 @@ public class SpellBasePanel extends BasePanel
 			parentComponent = parent;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent ae)
 		{
 			String currentDescriptor = txtDescriptor.getText();
@@ -728,17 +731,13 @@ public class SpellBasePanel extends BasePanel
 
 			addWindowListener(new WindowAdapter()
 			{
+				@Override
 				public void windowClosing(WindowEvent we)
 				{
 					closeDialog();
 				}
 			});
 			setLocationRelativeTo(parent);
-		}
-
-		public SelectDescriptorDialog(JComponent parent)
-		{
-			this(parent, null);
 		}
 
 		public String getDescriptor()
@@ -758,6 +757,7 @@ public class SpellBasePanel extends BasePanel
 
 			btnSave = new JButton(new AbstractAction(PropertyFactory.getString("in_save"))
 			{
+				@Override
 				public void actionPerformed(ActionEvent ae)
 				{
 					Object[] selectedList = pnlSelectDescriptor.getSelectedList();
@@ -773,6 +773,7 @@ public class SpellBasePanel extends BasePanel
 			});
 			btnCancel = new JButton(new AbstractAction(PropertyFactory.getString("in_cancel"))
 			{
+				@Override
 				public void actionPerformed(ActionEvent ae)
 				{
 					closeDialog();

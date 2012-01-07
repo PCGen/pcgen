@@ -110,6 +110,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		initComponents();
 	}
 
+	@Override
 	public void updateData(PObject po)
 	{
 		// Verify the object passed in was the right type (a PCClass) and not null
@@ -175,6 +176,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 	}
 
+	@Override
 	public void updateView(PObject po)
 	{
 		if (!(po instanceof PCClass))
@@ -417,6 +419,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		sth.add(addBtn);
 		addBtn.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					String tag = tagList.getSelectedItem().toString();
@@ -493,6 +496,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		sth.add(delBtn);
 		delBtn.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					removeLevelTag();
@@ -594,6 +598,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			getContentPane().add(btn, BorderLayout.SOUTH);
 			btn.addActionListener(new ActionListener()
 				{
+					@Override
 					public void actionPerformed(ActionEvent evt)
 					{
 						setVisible(false);
@@ -696,6 +701,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			getContentPane().add(btn, gridBagConstraints);
 			btn.addActionListener(new ActionListener()
 				{
+					@Override
 					public void actionPerformed(ActionEvent evt)
 					{
 						setVisible(false);
@@ -713,6 +719,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			getContentPane().add(btn, gridBagConstraints);
 			btn.addActionListener(new ActionListener()
 				{
+					@Override
 					public void actionPerformed(ActionEvent evt)
 					{
 						setVisible(false);
@@ -746,6 +753,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		 * @param columnIndex the index of the column to retrieve
 		 * @return the type of the specified column
 		 */
+		@Override
 		public Class getColumnClass(final int columnIndex)
 		{
 			if (columnIndex == 0)
@@ -759,6 +767,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		/**
 		 * @return the number of columns
 		 */
+		@Override
 		public int getColumnCount()
 		{
 			return colNames.length;
@@ -768,6 +777,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		 * @param columnIndex the index of the column name to retrieve
 		 * @return the name.. of the specified column
 		 */
+		@Override
 		public String getColumnName(final int columnIndex)
 		{
 			return ((columnIndex >= 0) && (columnIndex < colNames.length)) ? colNames[columnIndex] : "Out Of Bounds";
@@ -776,6 +786,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		/**
 		 * @return the number of rows in the model
 		 */
+		@Override
 		public int getRowCount()
 		{
 			return ClassLevelPanel.levelTagList.size();
@@ -786,6 +797,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		 * @param columnIndex the column of the cell to retrieve
 		 * @return the value of the cell
 		 */
+		@Override
 		public Object getValueAt(final int rowIndex, final int columnIndex)
 		{
 			if ((rowIndex >= 0) && (rowIndex < ClassLevelPanel.levelTagList.size()))
@@ -914,15 +926,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 
 			return "Unknown";
-		}
-
-		/**
-		 * Get the tag value
-		 * @return the tag value
-		 */
-		public int getTagVal()
-		{
-			return tagVal;
 		}
 
 		/**

@@ -106,6 +106,7 @@ class ClassBasePanel extends BasePanel
 		return pnlTemplateTypes.getSelectedList();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		if (!(thisPObject instanceof PCClass))
@@ -146,6 +147,7 @@ class ClassBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		if (!(thisPObject instanceof PCClass))

@@ -237,6 +237,7 @@ public class FeatBasePanel extends BasePanel
 		return Visibility.values()[cmbVisible.getSelectedIndex()];
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		Ability thisFeat = (Ability) thisPObject;
@@ -262,6 +263,7 @@ public class FeatBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		Ability thisFeat = (Ability) thisPObject;

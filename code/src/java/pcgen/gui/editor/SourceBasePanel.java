@@ -103,6 +103,7 @@ class SourceBasePanel extends BasePanel
 		intComponentContents();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		theCampaign.put(IntegerKey.CAMPAIGN_RANK, Integer.parseInt(rank.getValue().toString()));
@@ -190,6 +191,7 @@ class SourceBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		if (!(thisPObject instanceof Campaign))
@@ -366,6 +368,7 @@ class SourceBasePanel extends BasePanel
 	    JButton bButton = new JButton("Browse...");
 		bButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					String loc = destination.getText();
@@ -388,7 +391,8 @@ class SourceBasePanel extends BasePanel
 
 				    // Add listener on chooser to detect changes to current directory
 					    fc.addPropertyChangeListener(new PropertyChangeListener() {
-					    	public void propertyChange(PropertyChangeEvent event) {
+					    	@Override
+							public void propertyChange(PropertyChangeEvent event) {
 					    		if (JFileChooser.DIRECTORY_CHANGED_PROPERTY.equals(event.getPropertyName())) {
 					    			File aCurDir = fc.getCurrentDirectory();
 
@@ -551,6 +555,7 @@ class SourceBasePanel extends BasePanel
 		aButton.setToolTipText("Adds the specified tag line in .pcc file");
 		aButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					switch (legalCombo.getSelectedIndex())
@@ -576,6 +581,7 @@ class SourceBasePanel extends BasePanel
 		aButton.setToolTipText("Removes selected tag line from being inserted in .pcc file");
 		aButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					removeLine();
@@ -610,21 +616,25 @@ class SourceBasePanel extends BasePanel
 		List<String> optionList = null;
 		List<String> optionValues = null;
 
+		@Override
 		public boolean isCellEditable(int rowIndex, int colIndex)
 		{
 			return ((rowIndex < optionList.size()) || (colIndex == 1));
 		}
 
+		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 2;
 		}
 
+		@Override
 		public String getColumnName(int columnIndex)
 		{
 			switch (columnIndex)
@@ -688,6 +698,7 @@ class SourceBasePanel extends BasePanel
 			return optionValues;
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			if (SourceBasePanel.this.theCampaign == null)
@@ -749,6 +760,7 @@ class SourceBasePanel extends BasePanel
 			}
 		}
 
+		@Override
 		public String getValueAt(int rowIndex, int columnIndex)
 		{
 			if (rowIndex < optionList.size())

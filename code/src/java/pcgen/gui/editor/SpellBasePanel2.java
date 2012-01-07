@@ -75,6 +75,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		initComponents();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		final Spell s = (Spell) thisPObject;
@@ -94,6 +95,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		List<String> variants = thisPObject.getListFor(ListKey.VARIANTS);
@@ -211,6 +213,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 
 		lstVariants.addMouseListener(new MouseAdapter()
 			{
+				@Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					lstVariantsMouseClicked(evt);
@@ -218,6 +221,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 			});
 		lstVariants.addListSelectionListener(new ListSelectionListener()
 		{
+			@Override
 			public void valueChanged(ListSelectionEvent evt)
 			{
 				if (lstVariants.getSelectedIndex() >= 0)
@@ -242,6 +246,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 
 		btnAddVariant.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnAddVariantActionPerformed();
@@ -256,6 +261,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 
 		btnRemoveVariant.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnRemoveVariantActionPerformed();
@@ -270,6 +276,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 
 		txtVariant.addKeyListener(new KeyAdapter()
 			{
+				@Override
 				public void keyReleased(KeyEvent evt)
 				{
 					super.keyReleased(evt);

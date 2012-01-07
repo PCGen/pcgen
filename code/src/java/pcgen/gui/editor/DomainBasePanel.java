@@ -85,6 +85,7 @@ public class DomainBasePanel extends BasePanel
 		return pnlDescription.getText();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		LoadContext context = Globals.getContext();
@@ -97,6 +98,7 @@ public class DomainBasePanel extends BasePanel
 		thisPObject.put(ObjectKey.DESC_PI, getDescIsPI());
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		final StringBuffer buf = new StringBuffer();

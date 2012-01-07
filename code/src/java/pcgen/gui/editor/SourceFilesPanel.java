@@ -183,6 +183,7 @@ final class SourceFilesPanel extends JPanel
 		JButton aButton = new JButton("Add");
 		aButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					String loc = "";
@@ -216,7 +217,8 @@ final class SourceFilesPanel extends JPanel
 
 					    // Add listener on chooser to detect changes to current directory
 					    fc.addPropertyChangeListener(new PropertyChangeListener() {
-					        public void propertyChange(PropertyChangeEvent event) {
+					        @Override
+							public void propertyChange(PropertyChangeEvent event) {
 					            if (JFileChooser.DIRECTORY_CHANGED_PROPERTY.equals(event.getPropertyName())) {
 					                File aCurDir = fc.getCurrentDirectory();
 
@@ -257,6 +259,7 @@ final class SourceFilesPanel extends JPanel
 		aButton = new JButton("Remove");
 		aButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					int row = SourceFilesPanel.this.fileTable.getSelectedRow();
@@ -284,16 +287,19 @@ final class SourceFilesPanel extends JPanel
 		List<String> fileList = new ArrayList<String>();
 		List<String> locationList = new ArrayList<String>();
 
+		@Override
 		public boolean isCellEditable(int rowIndex, int colIndex)
 		{
 			return (colIndex == 1);
 		}
 
+		@Override
 		public Class<String> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 2;
@@ -309,11 +315,13 @@ final class SourceFilesPanel extends JPanel
 			return locationList;
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			return fileList.size();
 		}
 
+		@Override
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
 			if ((columnIndex == 1) && (rowIndex < locationList.size()))
@@ -323,6 +331,7 @@ final class SourceFilesPanel extends JPanel
 			}
 		}
 
+		@Override
 		public String getColumnName(int columnIndex)
 		{
 			switch (columnIndex)
@@ -340,6 +349,7 @@ final class SourceFilesPanel extends JPanel
 			return "Out Of Bounds";
 		}
 
+		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			String rc = null;

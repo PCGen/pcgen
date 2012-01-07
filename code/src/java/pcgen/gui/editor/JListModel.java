@@ -59,6 +59,7 @@ final class JListModel extends AbstractListModel
 		fireIntervalAdded(this, 0, listData.size());
 	}
 
+	@Override
 	public Object getElementAt(int i)
 	{
 		if ((listData != null) && (i < listData.size()))
@@ -69,6 +70,7 @@ final class JListModel extends AbstractListModel
 		return null;
 	}
 
+	@Override
 	public int getSize()
 	{
 		if (listData != null)

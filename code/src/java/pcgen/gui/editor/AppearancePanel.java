@@ -93,6 +93,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 	/* updateData takes the GUI components and updates the
 	 * PObject obj with those values
 	 */
+	@Override
 	public void updateData(PObject obj)
 	{
 		Object[] sel;
@@ -140,6 +141,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 	/* updateView takes the values from PObject obj
 	 * and updates the GUI components
 	 */
+	@Override
 	public void updateView(PObject obj)
 	{
 		Race race;
