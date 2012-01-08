@@ -296,6 +296,7 @@ SKILL:Knowledge (Religion)	RANK:6
 SKILL:Move Silently		RANK:4
 SKILL:Perform			RANK:4
 FEAT:Alertness
+ABILITY:CATEGORY=Perform Skill Choice|Perform (Dirge)
 
 ###Block: Bedwen------------------------------------
 STARTPACK:Bedwen	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bedwen],[!PRERACE:1,%]
@@ -541,3 +542,6 @@ FEAT:Power Attack			FREE:YES
 GEAR:Shield (Large/Wood)		SIZE:PC	LOCATION:Equipped
 GEAR:Shortspear				SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow (+4 Mighty/Composite)	SIZE:PC	LOCATION:Equipped
+ABILITY:CATEGORY=Perform Skill Choice|Perform (Chant)
+ABILITY:CATEGORY=Perform Skill Choice|Perform (Ballad)
+ABILITY:CATEGORY=Perform Skill Choice|Perform (Flute)

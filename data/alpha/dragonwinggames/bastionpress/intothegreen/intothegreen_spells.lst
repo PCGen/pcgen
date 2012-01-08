@@ -28,7 +28,8 @@ Storm Cellar		CLASSES:Druid,Ranger=2										SCHOOL:Transmutation								TYPE:D
 Whip of Binding		CLASSES:Sorcerer,Wizard=2									SCHOOL:Conjuration	SUBSCHOOL:Creation				TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 action		RANGE:0 ft.		TARGETAREA:One whip																DURATION:(CASTERLEVEL) rounds						SAVEINFO:Reflex negates						SPELLRES:Yes	DESC:The spell conjures a magical +1 whip that appears in your hand and also bestows proficiency with the weapon.											SOURCEPAGE:p.91
 
 # Creature references this spell, but not present in source. Need Spells and Magic to get proper spell. This is a placeholder.
-Forest Invisibility														SCHOOL:Illusion
-
+Invisibility.COPY=Forest Invisibility
+Invisibility.COPY=Invisibility (Self Only)
+Water Breathing.COPY=Water Breathing (Self Only)
 
 # EOF

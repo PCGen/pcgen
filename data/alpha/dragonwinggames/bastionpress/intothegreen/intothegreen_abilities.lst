@@ -143,6 +143,10 @@ Natural Vulnerability				KEY:Unfamiliar ~ Natural Vulnerability		CATEGORY:Specia
 Blight Wood						KEY:Uragh Dhu ~ Blight Wood				CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				SPELLS:Innate|TIMES=3|CASTERLEVEL=8|Warp Wood,13
 Spell-like abilities				KEY:Uragh Dhu ~ Spell-like abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=3|CASTERLEVEL=8|Deeper Darkness
 Triproots						KEY:Uragh Dhu ~ Triproots				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+# Incomplete entries
+Fear Aura						KEY:Uragh Dhu ~ Fear Aura				CATEGORY:Special Ability	TYPE:SpecialAttack
+Energy Drain					KEY:Uragh Dhu ~ Energy Drain				CATEGORY:Special Ability	TYPE:SpecialAttack
+
 
 # ~ Blightsower------------------------------------
 Bound to the Soil					KEY:Blightsower ~ Bound to the Soil			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -171,6 +175,7 @@ Greater Blur					KEY:Lyrmir ~ Greater Blur				CATEGORY:Special Ability	TYPE:Spec
 # Rognak Burrower ~ ------------------------------------
 Brain Lock						KEY:Rognak Burrower ~ Brain Lock			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Blindsight						KEY:Rognak Burrower ~ Blindsight			CATEGORY:Special Ability	TYPE:SpecialQuality
+
 # Vermilion Hound------------------------------------
 Flaming Blood					KEY:Vermilion Hound ~ Flaming Blood			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
@@ -185,5 +190,4 @@ Maakantu Druid Caster		CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Maak
 Elderwitch Sorcerer Caster	CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Elderwitch	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|7
 
 
-
-
+Perform (Dirge)	OUTPUTNAME:Perform Dirge		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:YES
