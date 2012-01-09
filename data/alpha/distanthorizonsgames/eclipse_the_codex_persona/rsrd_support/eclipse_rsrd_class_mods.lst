@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri May  7 14:06:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+
+
+# Class Name
+CLASS:Wizard.MOD
+1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ForbidIllusion,1
+1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ForbidEnchantment,1
+1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ForbidConjuration,1
+1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ForbidEvocation,1
+1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ForbidNecromancy,1
+1	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ForbidAbjuration,1
+1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ForbidDivination,1
+1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ForbidTransmutation,1
+

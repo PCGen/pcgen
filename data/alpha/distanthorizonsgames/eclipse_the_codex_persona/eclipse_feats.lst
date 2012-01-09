@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Wed Feb  9 16:10:56 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+# Feat Name				Type				Visible	Stackable?	Multiple?	Choose						Bonus to Ability Pool				Source Page		Description of the Benefits
+Feat Conversion to CP ~ 6	TYPE:PointBuySystem			STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Character Points|6	SOURCEPAGE:p.9	BENEFIT:Covert regular feat to six Character Points
+
+
+# Work Around till ABILITYSELECTION is actually up and running.
+Adept					TYPE:Adept			VISIBLE:NO			MULT:YES	CHOOSE:SKILLSNAMED|TYPE=NormalSkill|CLASS
+# COMMENT: This works by being a hold feat to pull Adept Skills from.
+
+
+

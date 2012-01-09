@@ -1,0 +1,81 @@
+# CVS $Revision$ $Author$ -- Fri May  7 14:09:27 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+
+# RSRD Skills - Ability conversion to make any skill that is purchased with 6 or more CP a Class Skill as per Eclipse
+
+
+# Ability Name								Category of Ability	Class Skill
+Make CSKILL ~ Appraise							CATEGORY:Internal		CSKILL:Appraise
+Make CSKILL ~ Balance							CATEGORY:Internal		CSKILL:Balance
+Make CSKILL ~ Bluff							CATEGORY:Internal		CSKILL:Bluff
+Make CSKILL ~ Climb							CATEGORY:Internal		CSKILL:Climb
+Make CSKILL ~ Control Shape						CATEGORY:Internal		CSKILL:Control Shape
+Make CSKILL ~ Concentration						CATEGORY:Internal		CSKILL:Concentration
+Make CSKILL ~ Craft (Alchemy)						CATEGORY:Internal		CSKILL:Craft (Alchemy)
+Make CSKILL ~ Craft (Armorsmithing)					CATEGORY:Internal		CSKILL:Craft (Armorsmithing)
+Make CSKILL ~ Craft (Blacksmithing)					CATEGORY:Internal		CSKILL:Craft (Blacksmithing)
+Make CSKILL ~ Craft (Bowmaking)					CATEGORY:Internal		CSKILL:Craft (Bowmaking)
+Make CSKILL ~ Craft (Carpentry)					CATEGORY:Internal		CSKILL:Craft (Carpentry)
+Make CSKILL ~ Craft (Leatherworking)				CATEGORY:Internal		CSKILL:Craft (Leatherworking)
+Make CSKILL ~ Craft (Painting)					CATEGORY:Internal		CSKILL:Craft (Painting)
+Make CSKILL ~ Craft (Pottery)						CATEGORY:Internal		CSKILL:Craft (Pottery)
+Make CSKILL ~ Craft (Sculpting)					CATEGORY:Internal		CSKILL:Craft (Sculpting)
+Make CSKILL ~ Craft (Shipmaking)					CATEGORY:Internal		CSKILL:Craft (Shipmaking)
+Make CSKILL ~ Craft (Stonemasonry)					CATEGORY:Internal		CSKILL:Craft (Stonemasonry)
+Make CSKILL ~ Craft (Trapmaking)					CATEGORY:Internal		CSKILL:Craft (Trapmaking)
+#Craft (Untrained)								CATEGORY:Internal	CSKILL:x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
+Make CSKILL ~ Craft (Weaponsmithing)				CATEGORY:Internal		CSKILL:Craft (Weaponsmithing)
+Make CSKILL ~ Craft (Woodworking)					CATEGORY:Internal		CSKILL:Craft (Woodworking)
+Make CSKILL ~ Decipher Script						CATEGORY:Internal		CSKILL:Decipher Script
+Make CSKILL ~ Diplomacy							CATEGORY:Internal		CSKILL:Diplomacy
+Make CSKILL ~ Disable Device						CATEGORY:Internal		CSKILL:Disable Device
+Make CSKILL ~ Disguise							CATEGORY:Internal		CSKILL:Disguise
+Make CSKILL ~ Escape Artist						CATEGORY:Internal		CSKILL:Escape Artist
+Make CSKILL ~ Forgery							CATEGORY:Internal		CSKILL:Forgery
+Make CSKILL ~ Gather Information					CATEGORY:Internal		CSKILL:Gather Information
+Make CSKILL ~ Handle Animal						CATEGORY:Internal		CSKILL:Handle Animal
+Make CSKILL ~ Heal							CATEGORY:Internal		CSKILL:Heal
+Make CSKILL ~ Hide							CATEGORY:Internal		CSKILL:Hide
+Make CSKILL ~ Intimidate						CATEGORY:Internal		CSKILL:Intimidate
+Make CSKILL ~ Jump							CATEGORY:Internal		CSKILL:Jump
+Make CSKILL ~ Knowledge (Arcana)					CATEGORY:Internal		CSKILL:Knowledge (Arcana)
+Make CSKILL ~ Knowledge (Architecture and Engineering)	CATEGORY:Internal		CSKILL:Knowledge (Architecture and Engineering)
+Make CSKILL ~ Knowledge (Dungeoneering)				CATEGORY:Internal		CSKILL:Knowledge (Dungeoneering)
+Make CSKILL ~ Knowledge (Geography)					CATEGORY:Internal		CSKILL:Knowledge (Geography)
+Make CSKILL ~ Knowledge (History)					CATEGORY:Internal		CSKILL:Knowledge (History)
+Make CSKILL ~ Knowledge (Local)					CATEGORY:Internal		CSKILL:Knowledge (Local)
+Make CSKILL ~ Knowledge (Nature)					CATEGORY:Internal		CSKILL:Knowledge (Nature)
+Make CSKILL ~ Knowledge (Nobility and Royalty)			CATEGORY:Internal		CSKILL:Knowledge (Nobility and Royalty)
+Make CSKILL ~ Knowledge (Religion)					CATEGORY:Internal		CSKILL:Knowledge (Religion)
+Make CSKILL ~ Knowledge (The Planes)				CATEGORY:Internal		CSKILL:Knowledge (The Planes)
+Make CSKILL ~ Listen							CATEGORY:Internal		CSKILL:Listen
+Make CSKILL ~ Move Silently						CATEGORY:Internal		CSKILL:Move Silently
+Make CSKILL ~ Open Lock							CATEGORY:Internal		CSKILL:Open Lock
+Make CSKILL ~ Perform (Act)						CATEGORY:Internal		CSKILL:Perform (Act)
+Make CSKILL ~ Perform (Comedy)					CATEGORY:Internal		CSKILL:Perform (Comedy)
+Make CSKILL ~ Perform (Dance)						CATEGORY:Internal		CSKILL:Perform (Dance)
+Make CSKILL ~ Perform (Keyboard Instruments)			CATEGORY:Internal		CSKILL:Perform (Keyboard Instruments)
+Make CSKILL ~ Perform (Oratory)					CATEGORY:Internal		CSKILL:Perform (Oratory)
+Make CSKILL ~ Perform (Percussion Instruments)			CATEGORY:Internal		CSKILL:Perform (Percussion Instruments)
+Make CSKILL ~ Perform (Sing)						CATEGORY:Internal		CSKILL:Perform (Sing)
+Make CSKILL ~ Perform (String Instruments)			CATEGORY:Internal		CSKILL:Perform (String Instruments)
+Make CSKILL ~ Perform (Wind Instruments)				CATEGORY:Internal		CSKILL:Perform (Wind Instruments)
+Make CSKILL ~ Profession (Hunter)					CATEGORY:Internal		CSKILL:Profession (Hunter)
+Make CSKILL ~ Profession (Miner)					CATEGORY:Internal		CSKILL:Profession (Miner)
+Make CSKILL ~ Profession (Siege Engineer)				CATEGORY:Internal		CSKILL:Profession (Siege Engineer)
+Make CSKILL ~ Ride							CATEGORY:Internal		CSKILL:Ride
+Make CSKILL ~ Search							CATEGORY:Internal		CSKILL:Search
+Make CSKILL ~ Sense Motive						CATEGORY:Internal		CSKILL:Sense Motive
+Make CSKILL ~ Sleight of Hand						CATEGORY:Internal		CSKILL:Sleight of Hand
+Make CSKILL ~ Speak Language						CATEGORY:Internal		CSKILL:Speak Language
+Make CSKILL ~ Spellcraft						CATEGORY:Internal		CSKILL:Spellcraft
+Make CSKILL ~ Spot							CATEGORY:Internal		CSKILL:Spot
+Make CSKILL ~ Survival							CATEGORY:Internal		CSKILL:Survival
+Make CSKILL ~ Swim							CATEGORY:Internal		CSKILL:Swim
+Make CSKILL ~ Tumble							CATEGORY:Internal		CSKILL:Tumble
+Make CSKILL ~ Use Magic Device					CATEGORY:Internal		CSKILL:Use Magic Device
+Make CSKILL ~ Use Rope							CATEGORY:Internal		CSKILL:Use Rope
+

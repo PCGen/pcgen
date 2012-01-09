@@ -1,0 +1,109 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Eclipse - The Codex Persona (Base)
+RANK:4
+#GAMEMODE:35e|Modern|3e|Pathfinder
+#COMMENT: Sub Section PCCs made for gamemode support. Only BASE Files that aren't setting specific should go here.
+PRECAMPAIGN:1,BOOKTYPE=Conversion
+GENRE:Any
+BOOKTYPE:Supplement
+SETTING:Any
+STATUS:ALPHA
+TYPE:Distant Horizons Games.Eclipse
+PUBNAMELONG:Distant Horizons Games
+PUBNAMESHORT:DHG
+PUBNAMEWEB:http://ruscumag.wordpress.com/atheria-d20/
+SOURCELONG:Eclipse - The Codex Persona
+SOURCESHORT:Eclipse
+SOURCEWEB:http://www.lulu.com/content/435647
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document, Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Character Portraits: Fantasy Heroes copyright 2003, Mongoose Publishing
+COPYRIGHT:Eclipse: The Codex Persona copyright 2005 by Paul Melroy and Patrick Bryant. Distributed by Distant Horizons Games, WWW.DistantHorizonsGames.Com
+COPYRIGHT:PCGen dataset conversion for "Eclipse: The Codex Persona" Copyright 2010, PCGen Data Team (Including, but not limited to Andrew Maitland (LegacyKing))
+
+URL:WEBSITE|http://ruscumag.wordpress.com/atheria-d20/|Visit Distant Horizon Weblog.
+URL:Lulu|http://www.lulu.com/content/435647|But a print copy from Lulu!
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=51254&filters=0_0_0&manufacturers_id=617&affiliate_id=200170|Buy this pdf from RPGNow.com!
+URL:RPG Now! Shareware|http://www.rpgnow.com/product_info.php?products_id=51255&filters=0_0_0&manufacturers_id=617&affiliate_id=200170|Download this book from RPGNow.com for free!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+COVER:51254.jpg
+#Block: Universal Functions -------------------------------------------
+BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
+
+
+#Block: Files ---------------------------------------------------------
+
+ABILITY:eclipse_abilities.lst
+ABILITY:eclipse_abilities_disadvantages.lst
+ABILITY:eclipse_abilities_martial_arts.lst
+ABILITY:eclipse_abilities_misc.lst
+ABILITY:eclipse_abilities_mods.lst
+ABILITY:eclipse_abilities_paths.lst
+ABILITY:eclipse_abilities_proficiencies.lst
+ABILITY:eclipse_abilities_racial.lst
+ABILITY:eclipse_abilities_enchantments.lst
+
+#ABILITY:eclipse_abili.lst
+
+ABILITYCATEGORY:eclipse_ability_categories.lst
+
+CLASS:eclipse_class.lst
+
+
+COMPANIONMOD:eclipse_companionmods.lst
+
+
+EQUIPMENT:eclipse_equip.lst
+
+
+FEAT:eclipse_feats.lst
+
+KIT:eclipse_kits.lst
+
+#LANGUAGE:eclipse_languages.lst
+
+RACE:eclipse_races_companions.lst
+RACE:eclipse_races_samples.lst
+
+
+ARMORPROF:eclipse_profs_armor.lst
+SHIELDPROF:eclipse_profs_shields.lst
+WEAPONPROF:eclipse_profs_weapons.lst
+
+SPELL:eclipse_spells.lst
+SKILL:eclipse_skills.lst
+
+TEMPLATE:eclipse_templates.lst
+
+#DEITY:eclipse_deities.lst
+#DOMAIN:eclipse_domains.lst
+#EQUIPMOD:eclipse_equipmods_base.lst
+
+
+
+###Block: Declutter TYPES - not needed to be seen.
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|DisadvantageCounter|Corruptable|Awareness|Base Attack Bonus|HD|SkillBuy|WayofDragonsCraft|WayofDragonsSpeech
+HIDETYPE:FEAT|WayofWingsofFire|WayofHostingtheEssence|WayofInnerFire|WayoftheArtificer
+HIDETYPE:FEAT|ArtoftheOccult|PathofDissonance|CelebratedWay|ChordsOfFate|PathOfWhispers|PathOfArtisticMastery|Synergy|Manipulation|Inspiration
+HIDETYPE:FEAT|MartialArtsSkill|OccultMartialTech|MasterMartialTech|AdvancedMartialTech|BasicTechnique
+HIDETYPE:FEAT|Channeling|PathOfInfusions|PlanarBonds|HandOfDarkness|HatredsWeal|GloriousTouch|ChannelingBasicUpgrade|ChannelingBaseUpgrade
+HIDETYPE:FEAT|Focusing|MultipleMedia
+HIDETYPE:FEAT|CharCreation|DivineWrath|Hexcrafting|PathOfThePharaoh|SpellCasterOutput|SpiritWeapon|SpiritWeaponCap|SpiritWeaponDamage|TheBoundlessRealms|TidesOfLightAndDark
+HIDETYPE:FEAT|WayOfOmnipresence|WayOfTheLands|WayOfValor|WitchcraftOutput|Special Ability|ChannelingBase|EclipseAbilityOutput
+HIDETYPE:FEAT|Extra|Template_Ancient_One|Template_Ancient_Onex
+
+# Universal tags
+#COMPANIONLIST:Mount|ANY
+#COMPANIONLIST:Follower|ANY
+
+#
+# DONE
+#
+
+

@@ -1,0 +1,92 @@
+# CVS $Revision$ $Author$ -- Fri May  7 14:06:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+#Block: RSRD SKILLS
+
+# Skill Name						Type					Ability																																					Bonus to skill
+Appraise.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Appraise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Appraise),Full Skill Buy(Appraise)
+Balance.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Balance|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Balance),Full Skill Buy(Balance)
+Bluff.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Bluff|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Bluff),Full Skill Buy(Bluff)
+Climb.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Climb|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Climb),Full Skill Buy(Climb)
+Control Shape.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Control Shape|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Control Shape),Full Skill Buy(Control Shape)
+Concentration.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Concentration|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Concentration),Full Skill Buy(Concentration)
+Craft (Alchemy).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Alchemy)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Alchemy)),Full Skill Buy(Craft (Alchemy))
+Craft (Armorsmithing).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Armorsmithing)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Armorsmithing)),Full Skill Buy(Craft (Armorsmithing))
+Craft (Blacksmithing).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Blacksmithing)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Blacksmithing)),Full Skill Buy(Craft (Blacksmithing))
+Craft (Bowmaking).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Bowmaking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Bowmaking)),Full Skill Buy(Craft (Bowmaking))
+Craft (Carpentry).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Carpentry)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Carpentry)),Full Skill Buy(Craft (Carpentry))
+Craft (Leatherworking).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Carpentry)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Leatherworking)),Full Skill Buy(Craft (Leatherworking))
+Craft (Painting).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Painting)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Painting)),Full Skill Buy(Craft (Painting))
+Craft (Pottery).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Pottery)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Pottery)),Full Skill Buy(Craft (Pottery))
+Craft (Sculpting).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Sculpting)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Sculpting)),Full Skill Buy(Craft (Sculpting))
+Craft (Shipmaking).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Shipmaking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Shipmaking)),Full Skill Buy(Craft (Shipmaking))
+Craft (Stonemasonry).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Stonemasonry)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Stonemasonry)),Full Skill Buy(Craft (Stonemasonry))
+Craft (Trapmaking).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Stonemasonry)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Trapmaking)),Full Skill Buy(Craft (Trapmaking))
+#Craft (Untrained).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
+Craft (Weaponsmithing).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Stonemasonry)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Weaponsmithing)),Full Skill Buy(Craft (Weaponsmithing))
+Craft (Woodworking).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Woodworking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Woodworking)),Full Skill Buy(Craft (Woodworking))
+Decipher Script.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Woodworking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Decipher Script),Full Skill Buy(Decipher Script)
+Diplomacy.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Diplomacy|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Diplomacy),Full Skill Buy(Diplomacy)
+Disable Device.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Disable Device|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Disable Device),Full Skill Buy(Disable Device)
+Disguise.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Disguise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Disguise),Full Skill Buy(Disguise)
+Escape Artist.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Escape Artist|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Escape Artist),Full Skill Buy(Escape Artist)
+Forgery.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Forgery|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Forgery),Full Skill Buy(Forgery)
+Gather Information.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Gather Information|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Gather Information),Full Skill Buy(Gather Information)
+Handle Animal.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Handle Animal|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Handle Animal),Full Skill Buy(Handle Animal)
+Heal.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Heal|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Heal),Full Skill Buy(Heal)
+Hide.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Hide|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Hide),Full Skill Buy(Hide)
+Intimidate.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Intimidate|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Intimidate),Full Skill Buy(Intimidate)
+Jump.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Jump|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Jump),Full Skill Buy(Jump)
+Knowledge (Arcana).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Arcana)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Arcana)),Full Skill Buy(Knowledge (Arcana))
+Knowledge (Architecture and Engineering).MOD	TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Architecture and Engineering)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Architecture and Engineering)),Full Skill Buy(Knowledge (Architecture and Engineering))
+Knowledge (Dungeoneering).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Dungeoneering)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Dungeoneering)),Full Skill Buy(Knowledge (Dungeoneering))
+Knowledge (Geography).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Geography)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Geography)),Full Skill Buy(Knowledge (Geography))
+Knowledge (History).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (History)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (History)),Full Skill Buy(Knowledge (History))
+Knowledge (Local).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Local)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Local)),Full Skill Buy(Knowledge (Local))
+Knowledge (Nature).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Nature)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Nature)),Full Skill Buy(Knowledge (Nature))
+Knowledge (Nobility and Royalty).MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Nobility and Royalty)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Nobility and Royalty)),Full Skill Buy(Knowledge (Nobility and Royalty))
+Knowledge (Religion).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Religion)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Religion)),Full Skill Buy(Knowledge (Religion))
+Knowledge (The Planes).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (The Planes)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (The Planes)),Full Skill Buy(Knowledge (The Planes))
+Listen.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Listen|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Listen),Full Skill Buy(Listen)
+Move Silently.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Move Silently|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Move Silently),Full Skill Buy(Move Silently)
+Open Lock.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Open Lock|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Open Lock),Full Skill Buy(Open Lock)
+Perform (Act).MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Act)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Act)),Full Skill Buy(Perform (Act))
+Perform (Comedy).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Comedy)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Comedy)),Full Skill Buy(Perform (Comedy))
+Perform (Dance).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Dance)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Dance)),Full Skill Buy(Perform (Dance))
+Perform (Keyboard Instruments).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Keyboard Instruments)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Keyboard Instruments)),Full Skill Buy(Perform (Keyboard Instruments))
+Perform (Oratory).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Oratory)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Oratory)),Full Skill Buy(Perform (Oratory))
+Perform (Percussion Instruments).MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Percussion Instruments)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Percussion Instruments)),Full Skill Buy(Perform (Percussion Instruments))
+Perform (Sing).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Sing)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Sing)),Full Skill Buy(Perform (Sing))
+Perform (String Instruments).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (String Instruments)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (String Instruments)),Full Skill Buy(Perform (String Instruments))
+Perform (Wind Instruments).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Wind Instruments)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Perform (Wind Instruments)),Full Skill Buy(Perform (Wind Instruments))
+Profession (Hunter).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Profession (Hunter)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Profession (Hunter)),Full Skill Buy(Profession (Hunter))
+Profession (Miner).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Profession (Miner)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Profession (Miner)),Full Skill Buy(Profession (Miner))
+Profession (Siege Engineer).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Profession (Siege Engineer)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Profession (Siege Engineer)),Full Skill Buy(Profession (Siege Engineer))
+Ride.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Ride|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Ride),Full Skill Buy(Ride)
+Search.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Search|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Search),Full Skill Buy(Search)
+Sense Motive.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Sense Motive|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Sense Motive),Full Skill Buy(Sense Motive)
+Sleight of Hand.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Sleight of Hand|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Sleight of Hand),Full Skill Buy(Sleight of Hand)
+Speak Language.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Speak Language|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Speak Language),Full Skill Buy(Speak Language)
+Spellcraft.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Spellcraft|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Spellcraft),Full Skill Buy(Spellcraft)
+Spot.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Spot|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Spot),Full Skill Buy(Spot)
+Survival.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Survival|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Survival),Full Skill Buy(Survival)
+Swim.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Swim|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Swim),Full Skill Buy(Swim)
+Tumble.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Tumble|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Tumble),Full Skill Buy(Tumble)
+Use Magic Device.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Use Magic Device|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Use Magic Device),Full Skill Buy(Use Magic Device)
+Use Rope.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Use Rope|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Use Rope),Full Skill Buy(Use Rope)
+
+#	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
+
+# Mystic Artist Sub Skills
+Perform (Act).MOD																																																	BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Act)")|TYPE=PerformSkill
+Perform (Comedy).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Comedy)")|TYPE=PerformSkill
+Perform (Dance).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
+Perform (Keyboard Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Keyboard Instruments)")|TYPE=PerformSkill
+Perform (Oratory).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Oratory)")|TYPE=PerformSkill
+Perform (Percussion Instruments).MOD																																													BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Percussion Instruments)")|TYPE=PerformSkill
+Perform (String Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (String Instruments)")|TYPE=PerformSkill
+Perform (Wind Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Wind Instruments)")|TYPE=PerformSkill
+Perform (Sing).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill
+

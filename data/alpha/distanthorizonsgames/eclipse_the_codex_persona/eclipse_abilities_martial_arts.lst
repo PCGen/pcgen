@@ -1,0 +1,220 @@
+# CVS $Revision$ $Author$ -- Wed Feb  9 16:10:56 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+# This Section is for Display Purposes to Faciliatate Tracking the Martial Arts Skills per Martial Art Grouping - These don't Affect the Character or Character Sheet.
+# It's not active or being used. This is a prototype.
+
+#Martial Arts Styles and Select Abilities for each one
+#Basic Techniques
+# Ability Name		Unique Key						Category of Ability		Type							Source Page
+Attack I			KEY:MA_OS ~ Attack I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack II			KEY:MA_OS ~ Attack II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack III			KEY:MA_OS ~ Attack III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack IV			KEY:MA_OS ~ Attack IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Defenses I			KEY:MA_OS ~ Defenses I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses II			KEY:MA_OS ~ Defenses II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses III		KEY:MA_OS ~ Defenses III			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses IV			KEY:MA_OS ~ Defenses IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Power I			KEY:MA_OS ~ Power I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power II			KEY:MA_OS ~ Power II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power III			KEY:MA_OS ~ Power III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power IV			KEY:MA_OS ~ Power IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Strike I			KEY:MA_OS ~ Strike I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike II			KEY:MA_OS ~ Strike II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike III			KEY:MA_OS ~ Strike III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike IV			KEY:MA_OS ~ Strike IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Synergy I			KEY:MA_OS ~ Synergy I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy II			KEY:MA_OS ~ Synergy II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy III			KEY:MA_OS ~ Synergy III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy IV			KEY:MA_OS ~ Synergy IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Toughness I			KEY:MA_OS ~ Toughness I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness II		KEY:MA_OS ~ Toughness II			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness III		KEY:MA_OS ~ Toughness III			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness IV		KEY:MA_OS ~ Toughness IV			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Improve Die Size I	KEY:MA_OS ~ Power ~ Improve Die Size I	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size II	KEY:MA_OS ~ Power ~ Improve Die Size II	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size III	KEY:MA_OS ~ Power ~ Improve Die Size III	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size IV	KEY:MA_OS ~ Power ~ Improve Die Size IV	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Increase Damage I		KEY:MA_OS ~ Power ~ Increase Damage I	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage II	KEY:MA_OS ~ Power ~ Increase Damage II	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage III	KEY:MA_OS ~ Power ~ Increase Damage III	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage IV	KEY:MA_OS ~ Power ~ Increase Damage IV	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+
+
+###Block: Advanced Techniques - Only 4 allowed ----------------------------------------------------------------------
+# Ability Name			Unique Key					Category of Ability		Type
+Advanced / Battlecry		KEY:MA_OS ~ Battlecry			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Blinding Strike	KEY:MA_OS ~ Blinding Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Breaking		KEY:MA_OS ~ Breaking			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Crippling		KEY:MA_OS ~ Crippling			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Instant Stand	KEY:MA_OS ~ Instant Stand		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Mighty Blow		KEY:MA_OS ~ Mighty Blow			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Mind Like Moon	KEY:MA_OS ~ Mind Like Moon		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Prone Combat		KEY:MA_OS ~ Prone Combat		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Reach			KEY:MA_OS ~ Reach				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack I	KEY:MA_OS ~ Sneak Attack I		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack II	KEY:MA_OS ~ Sneak Attack II		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack III	KEY:MA_OS ~ Sneak Attack III		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack IV	KEY:MA_OS ~ Sneak Attack IV		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Versatility		KEY:MA_OS ~ Versatility			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Weapon Kata		KEY:MA_OS ~ Weapon Kata			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+
+# Master and Occult Martial Arts Techniques
+Master / Blind-Fight		KEY:MA_OS ~ Blind-Fight			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Combat Reflexes	KEY:MA_OS ~ Combat Reflexes		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Deflect Arrows		KEY:MA_OS ~ Deflect Arrows		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Dodge			KEY:MA_OS ~ Dodge				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Expertise		KEY:MA_OS ~ Expertise			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Bull Rush	KEY:MA_OS ~ Improved Bull Rush	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Disarm	KEY:MA_OS ~ Improved Disarm		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Trip		KEY:MA_OS ~ Improved Trip		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Mobility			KEY:MA_OS ~ Mobility			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Quick Draw		KEY:MA_OS ~ Quick Draw			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Rapid Shot		KEY:MA_OS ~ Rapid Shot			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Sunder			KEY:MA_OS ~ Sunder			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Whirlwind Attack	KEY:MA_OS ~ Whirlwind Attack		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+
+# Occult Techniques draw upon the user's life energy to surpass the limits of ordinary physical skill. They're extraordinary abilities that drain Con points to use (the cost for each is listed after its name). A martial art may include up to four such abilities, starting at skill level 11.
+Occult / Focused Blow		KEY:MA_OS ~ Focused Blow		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Healing Hand		KEY:MA_OS ~ Healing Hand		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Inner Strength I	KEY:MA_OS ~ Inner Strength I		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Inner Strength II	KEY:MA_OS ~ Inner Strength II		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Iron Skin		KEY:MA_OS ~ Iron Skin			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Ki Block			KEY:MA_OS ~ Ki Block			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Ki Focus			KEY:MA_OS ~ Ki Focus			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Light Foot		KEY:MA_OS ~ Light Foot			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / One Finger		KEY:MA_OS ~ One Finger			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Overburden		KEY:MA_OS ~ Overburden			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Paralyze			KEY:MA_OS ~ Paralyze			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Resist Pain		KEY:MA_OS ~ Resist Pain			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Serpent Strike		KEY:MA_OS ~ Serpent Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Touch Strike		KEY:MA_OS ~ Touch Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Vanishing		KEY:MA_OS ~ Vanishing			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Wrath			KEY:MA_OS ~ Wrath				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+
+# End of Section -
+
+
+
+###Block: This section is to set up each Art with a MOD and add any particular Style to it. The Style will have a Chooser keyed to that TYPE, not elegant, but keeps it organized. User and GM will have to police selections.
+# Ability Name									Type
+CATEGORY=Special Ability|MA_OS ~ Attack I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Defenses I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses II.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses IV.MOD			TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Strike I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Synergy I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Toughness I.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness II.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness IV.MOD			TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size I.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size II.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size III.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size IV.MOD	TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage I.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage II.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage III.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage IV.MOD	TYPE:MABasicDisplay
+
+
+###Block: Advanced Techniques - Only 4 allowed ----------------------------------------------------------------------
+# Ability Name								Category of Ability		Type							Var. Min. Value				Description																																																																																																																					Stackable?	Multiple?	Choose								SORTKEY
+CATEGORY=Special Ability|MA_OS ~ Battlecry.MOD								TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Blinding Strike.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Breaking.MOD								TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Crippling.MOD								TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Instant Stand.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Mighty Blow.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Mind Like Moon.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Prone Combat.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Reach.MOD								TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack I.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack II.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack III.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack IV.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Versatility.MOD							TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Weapon Kata.MOD							TYPE:MAAdvancedDisplay
+
+
+# Master and Occult Martial Arts Techniques
+CATEGORY=Special Ability|MA_OS ~ Blind-Fight.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Combat Reflexes.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Deflect Arrows.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Dodge.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Expertise.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Bull Rush.MOD						TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Disarm.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Trip.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Mobility.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Quick Draw.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Rapid Shot.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Sunder.MOD								TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Whirlwind Attack.MOD							TYPE:MAAdvancedDisplay.MAMasterDisplay
+
+
+# Occult Techniques draw upon the user's life energy to surpass the limits of ordinary physical skill. They're extraordinary abilities that drain Con points to use (the cost for each is listed after its name). A martial art may include up to four such abilities, starting at skill level 11.
+CATEGORY=Special Ability|MA_OS ~ Focused Blow.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Healing Hand.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Inner Strength I.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Inner Strength II.MOD						TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Iron Skin.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Ki Block.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Ki Focus.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Light Foot.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ One Finger.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Overburden.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Paralyze.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Resist Pain.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Serpent Strike.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Touch Strike.MOD							TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Vanishing.MOD								TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Wrath.MOD								TYPE:MAOccultDisplay
+
+# End of Mod Section
+
+
+#Block: Choosers for Specific Martial Art Styles
+
+# Default for Non-Specific Abilities
+Martial Arts Basic Chooser						CATEGORY:Special Ability	TYPE:MADefaultStyle																																																																																																																																STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MABasicDisplay
+Martial Arts Advanced Chooser						CATEGORY:Special Ability	TYPE:MADefaultStyle				PREVARGTEQ:MartialArtsSkillTotal,7																																																																																																																							STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MAAdvancedDisplay
+Martial Arts Occult Chooser						CATEGORY:Special Ability	TYPE:MADefaultStyle				PREVARGTEQ:MartialArtsSkillTotal,11																																																																																																																							STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MAOccultDisplay
+
+#
+War Wizard Style Basic							CATEGORY:Special Ability	TYPE:WarWizardStyle																																																																																																																																STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MABasicDisplay
+War Wizard Style Advanced						CATEGORY:Special Ability	TYPE:WarWizardStyle																																																																																																																																STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MAAdvancedDisplay
+War Wizard Occult								CATEGORY:Special Ability	TYPE:WarWizardStyle																																																																																																																																STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=MAOccultDisplay
+
+Arnis-Barang								CATEGORY:Special Ability	TYPE:MartialArtsOutput										DESC:Arnis-Barang is a stick-fighting form related to Escrima, but its development has focused on the ability to do battle with creatures with natural weapons and an unpredictable anatomy, rather than with armed human opponents. With that distinction, it has gradually lost most of the lock / disarm techniques typical of Escrima to focus on swift blocks, long-range strikes, and versatile attacks. Requires; The ability to magically enhance a stick weapon (cane, cudgel, baton, or stave). Basic Abilities; Attack 4, Defenses 4, and Power 4. Advanced and Master Techniques; Combat Expertise, Improved Trip, Reach, and Versatility. Occult Techniques; Inner Strength, Iron Skin, Light Foot, and Paralyze.														SORTKEY:Martial_Arts_AAA
+

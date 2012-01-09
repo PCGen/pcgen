@@ -1,0 +1,73 @@
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+
+# Ability Name								Category of Ability	Class Skill
+Make CSKILL ~ Balance							CATEGORY:Internal		CSKILL:Balance
+Make CSKILL ~ Bluff							CATEGORY:Internal		CSKILL:Bluff
+Make CSKILL ~ Climb							CATEGORY:Internal		CSKILL:Climb
+Make CSKILL ~ Computer Use						CATEGORY:Internal		CSKILL:Computer Use
+Make CSKILL ~ Concentration						CATEGORY:Internal		CSKILL:Concentration
+Make CSKILL ~ Control Shape						CATEGORY:Internal		CSKILL:Control Shape
+Make CSKILL ~ Craft (Chemical)					CATEGORY:Internal		CSKILL:Craft (Chemical)
+Make CSKILL ~ Craft (Electronic)					CATEGORY:Internal		CSKILL:Craft (Electronic)
+Make CSKILL ~ Craft (Mechanical)					CATEGORY:Internal		CSKILL:Craft (Mechanical)
+Make CSKILL ~ Craft (Pharmaceutical)				CATEGORY:Internal		CSKILL:Craft (Pharmaceutical)
+Make CSKILL ~ Craft (Structural)					CATEGORY:Internal		CSKILL:Craft (Structural)
+Make CSKILL ~ Craft (Visual Art)					CATEGORY:Internal		CSKILL:Craft (Visual Art)
+Make CSKILL ~ Craft (Writing)						CATEGORY:Internal		CSKILL:Craft (Writing)
+Make CSKILL ~ Decipher Script						CATEGORY:Internal		CSKILL:Decipher Script
+Make CSKILL ~ Demolitions						CATEGORY:Internal		CSKILL:Demolitions
+Make CSKILL ~ Diplomacy							CATEGORY:Internal		CSKILL:Diplomacy
+Make CSKILL ~ Disable Device						CATEGORY:Internal		CSKILL:Disable Device
+Make CSKILL ~ Disguise							CATEGORY:Internal		CSKILL:Disguise
+Make CSKILL ~ Drive							CATEGORY:Internal		CSKILL:Drive
+Make CSKILL ~ Escape Artist						CATEGORY:Internal		CSKILL:Escape Artist
+Make CSKILL ~ Forgery							CATEGORY:Internal		CSKILL:Forgery
+Make CSKILL ~ Gamble							CATEGORY:Internal		CSKILL:Gamble
+Make CSKILL ~ Gather Information					CATEGORY:Internal		CSKILL:Gather Information
+Make CSKILL ~ Handle Animal						CATEGORY:Internal		CSKILL:Handle Animal
+Make CSKILL ~ Hide							CATEGORY:Internal		CSKILL:Hide
+Make CSKILL ~ Intimidate						CATEGORY:Internal		CSKILL:Intimidate
+Make CSKILL ~ Investigate						CATEGORY:Internal		CSKILL:Investigate
+Make CSKILL ~ Jump							CATEGORY:Internal		CSKILL:Jump
+Make CSKILL ~ Knowledge (Arcane Lore)				CATEGORY:Internal		CSKILL:Knowledge (Arcane Lore)
+Make CSKILL ~ Knowledge (Art)						CATEGORY:Internal		CSKILL:Knowledge (Art)
+Make CSKILL ~ Knowledge (Behavioral Sciences)			CATEGORY:Internal		CSKILL:Knowledge (Behavioral Sciences)
+Make CSKILL ~ Knowledge (Business)					CATEGORY:Internal		CSKILL:Knowledge (Business)
+Make CSKILL ~ Knowledge (Civics)					CATEGORY:Internal		CSKILL:Knowledge (Civics)
+Make CSKILL ~ Knowledge (Current Events)				CATEGORY:Internal		CSKILL:Knowledge (Current Events)
+Make CSKILL ~ Knowledge (Earth and Life Sciences)		CATEGORY:Internal		CSKILL:Knowledge (Earth and Life Sciences)
+Make CSKILL ~ Knowledge (History)					CATEGORY:Internal		CSKILL:Knowledge (History)
+Make CSKILL ~ Knowledge (Physical Sciences)			CATEGORY:Internal		CSKILL:Knowledge (Physical Sciences)
+Make CSKILL ~ Knowledge (Popular Culture)				CATEGORY:Internal		CSKILL:Knowledge (Popular Culture)
+Make CSKILL ~ Knowledge (Streetwise)				CATEGORY:Internal		CSKILL:Knowledge (Streetwise)
+Make CSKILL ~ Knowledge (Tactics)					CATEGORY:Internal		CSKILL:Knowledge (Tactics)
+Make CSKILL ~ Knowledge (Technology)				CATEGORY:Internal		CSKILL:Knowledge (Technology)
+Make CSKILL ~ Knowledge (Theology and Philosophy)		CATEGORY:Internal		CSKILL:Knowledge (Theology and Philosophy)
+Make CSKILL ~ Listen							CATEGORY:Internal		CSKILL:Listen
+Make CSKILL ~ Move Silently						CATEGORY:Internal		CSKILL:Move Silently
+Make CSKILL ~ Navigate							CATEGORY:Internal		CSKILL:Navigate
+Make CSKILL ~ Perform (Act)						CATEGORY:Internal		CSKILL:Perform (Act)
+Make CSKILL ~ Perform (Dance)						CATEGORY:Internal		CSKILL:Perform (Dance)
+Make CSKILL ~ Perform (Keyboards)					CATEGORY:Internal		CSKILL:Perform (Keyboards)
+Make CSKILL ~ Perform (Percussion Instruments)			CATEGORY:Internal		CSKILL:Perform (Percussion Instruments)
+Make CSKILL ~ Perform (Sing)						CATEGORY:Internal		CSKILL:Perform (Sing)
+Make CSKILL ~ Perform (Stand-Up)					CATEGORY:Internal		CSKILL:Perform (Stand-Up)
+Make CSKILL ~ Perform (Stringed Instruments)			CATEGORY:Internal		CSKILL:Perform (Stringed Instruments)
+Make CSKILL ~ Perform (Wind Instruments)				CATEGORY:Internal		CSKILL:Perform (Wind Instruments)
+Make CSKILL ~ Pilot							CATEGORY:Internal		CSKILL:Pilot
+Make CSKILL ~ Profession						CATEGORY:Internal		CSKILL:Profession
+Make CSKILL ~ Read/Write Language					CATEGORY:Internal		CSKILL:Read/Write Language
+Make CSKILL ~ Repair							CATEGORY:Internal		CSKILL:Repair
+Make CSKILL ~ Research							CATEGORY:Internal		CSKILL:Research
+Make CSKILL ~ Ride							CATEGORY:Internal		CSKILL:Ride
+Make CSKILL ~ Search							CATEGORY:Internal		CSKILL:Search
+Make CSKILL ~ Sense Motive						CATEGORY:Internal		CSKILL:Sense Motive
+Make CSKILL ~ Sleight of Hand						CATEGORY:Internal		CSKILL:Sleight of Hand
+Make CSKILL ~ Speak Language						CATEGORY:Internal		CSKILL:Speak Language
+Make CSKILL ~ Spot							CATEGORY:Internal		CSKILL:Spot
+Make CSKILL ~ Survival							CATEGORY:Internal		CSKILL:Survival
+Make CSKILL ~ Swim							CATEGORY:Internal		CSKILL:Swim
+Make CSKILL ~ Treat Injury						CATEGORY:Internal		CSKILL:Treat Injury
+Make CSKILL ~ Tumble							CATEGORY:Internal		CSKILL:Tumble

@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Wed Feb 23 18:28:35 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+#Companion (Bobcat)			STARTFEATS:1	SIZE:S	MOVE:Walk,40,Climb,20			FACE:5	REACH:5	VISION:Low-light																																																		BONUS:STAT|DEX|8	BONUS:STAT|STR|4	BONUS:STAT|WIS|2	BONUS:STAT|CON|4	BONUS:STAT|CHA|-2																																																																																																																																					ABILITY:Special Ability|AUTOMATIC|Pounce|Improved Grab|Rake|Scent																										RACETYPE:Animal																			CR:1	MONSTERCLASS:Animal:2
+
+# Replaces the Human Base Race. This Corrects the Skill Points as per Eclipse usage.
+# Race Name		Favored Class			Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages	Bonus Languages	Bonus to Ability Pool											Stat bonus					Ability															Main Race Type	Race Subtype	Type			Challenge Rating	Source Page
+Human.MOD	ABILITY:Special Ability|AUTOMATIC|Remove Human Skill Bonus
+
+
+#
+
+
