@@ -26,6 +26,18 @@
 	
 		<p>By Eric C. Smith (Maredudd)</p>
 
+<hr>
+
+		<h3>LST FIle Class Overview</h3>
+		
+		<p class="indent0">All PCGen data sets are made up of a collection of text files called LST files, each of which contains a particular type of LST Object, e.g. Class, 
+			Deity, Feat, Race, etc. PCGen includes built-in LST Editors that can be used to create new LST objects but many LST monkeys find it easier to build data sets from 
+			the ground up. For the new LST monkey though, this can be confusing so the PCGen team has provided a template for a data set. This template can be found in PCGen's
+			<i>data/homebrew/my_dataset</i> folder. In this LST Class we will provide an introduction to the <strong>my_dataset</strong> homebrew data set template.</p>
+
+		<p class="indent0">You will find below a short introduction to the data set template itself followed by a section that will cover each of the files which can be found
+			in the data set, covering each of the files listed below:</p>
+	
 		<p class="indent0"><strong>File Covered</strong>: my_dataset files</p>
 
 		<ul class="indent1">
@@ -53,13 +65,29 @@
 		
 <hr>
 
+		<h3>Reading Conventions</h3>
+		<p class="indent0">A quick note on a few general conventions used within this class before we jump into it:</p>
+
+		<p class="indent0">1) Throughout this lesson the angle brackets (&lt;&gt;) are used to indicate where your text will 
+			be entered when building a data file. Unless explicitly stated in the text, you will not include the angle brackets 
+			in your tags.</p>
+
+		<p class="indent0">2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code> style.</p>
+
+		<p class="indent0">3) Files referenced in this lesson are identified by <span class="lstfile">file.lst</span> style.</p>
+
+		<p class="indent0">4) When referencing a specific PCGen object, i.e. deity, feat, weapon, etc., the object name 
+			formated as <span class="lstobj">BOLD</span> text, except for when the object is part of a <code>&lt;code&gt;</code> 
+			example.</p>
+
+		<p></p>
+		<p class="indent0">Now lets jump right in!</p>
+		<p></p>
+
+<hr>
+
 		<h3>Introduction to the My_Dataset Files</h3>
 	
-		<p class="indent0">All PCGen data sets are made up of a collection of text files called LST files, each of which contains a particular type of LST Object, e.g. Class, 
-			Deity, Feat, Race, etc. PCGen includes built-in LST Editors that can be used to create new LST objects but many LST monkeys find it easier to build data sets from 
-			the ground up. For the new LST monkey though, this can be confusing so the PCGen team has provided a template for a data set. This template can be found in PCGen's
-			<i>data/homebrew/my_dataset</i> folder.</p>
-
 		<p class="indent0">The <span class="lstfile">my_dataset</span> files form a framework for building a dataset for use with PCGen. It is meant to be used 
 			by beginners, or not so beginners, who want to take their first steps in entering their own custom data into PCGen and have found that the built-in 
 			List Editors are too limiting for what they intend to do. The <span class="lstfile">my_dataset</span> files consist of a collection of LST files, one 
@@ -87,27 +115,6 @@
 		<p class="indent0">If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
 			different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
 			your existing installation of PCGen, your changes would get overwritten and thus be lost.</p>
-
-<hr>
-
-		<h3>Reading Conventions</h3>
-		<p class="indent0">A quick note on a few general conventions used within this class before we jump into it:</p>
-
-		<p class="indent0">1) Throughout this lesson the angle brackets (&lt;&gt;) are used to indicate where your text will 
-			be entered when building a data file. Unless explicitly stated in the text, you will not include the angle brackets 
-			in your tags.</p>
-
-		<p class="indent0">2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code> style.</p>
-
-		<p class="indent0">3) Files referenced in this lesson are identified by <span class="lstfile">file.lst</span> style.</p>
-
-		<p class="indent0">4) When referencing a specific PCGen object, i.e. deity, feat, weapon, etc., the object name 
-			formated as <span class="lstobj">BOLD</span> text, except for when the object is part of a <code>&lt;code&gt;</code> 
-			example.</p>
-
-		<p></p>
-		<p class="indent0">Now lets jump right in!</p>
-		<p></p>
 
 <hr>
 
