@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Dec 12 20:23:59 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -91,30 +91,30 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1																																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1																																																									AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
 #Block: Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
-1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1	BONUS:VAR|DomainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Domains
+1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
+1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	BONUS:VAR|DomainLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	ABILITY:Special Ability|AUTOMATIC|Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 ###Block: Level progression
-1									BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1	BONUS:VAR|TrackLVL|CL
-1																					ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
-1																					ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
-2																					ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor
-2																					ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor
-2																					ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor
-3																					ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor
-5																					ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor
-5																					ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor
-8																					ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor
-11																					ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor
-12																					ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor
-14																					ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor
-16																					ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor
-17																					ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor
-20																					ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor
+1									BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1	BONUS:VAR|TrackLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+1																					ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
+1																					ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
+2																					ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
+2																					ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
+2																					ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+3																					ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
+5																					ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
+5																					ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
+8																					ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
+11																					ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
+12																					ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
+14																					ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
+16																					ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
+17																					ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
+20																					ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
 #
-3									BONUS:ABILITYPOOL|Teamwork Feat|CL/3
+3									BONUS:ABILITYPOOL|Teamwork Feat|CL/3|!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher
 #Block: Casting
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
