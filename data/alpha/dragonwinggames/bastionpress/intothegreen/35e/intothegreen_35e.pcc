@@ -1,0 +1,59 @@
+# CVS $Revision$ $Author$ -- Mon Jul 27 18:27:23 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+# ORIGINAL ENTRY: Andrew (LegacyKing) Maitland
+# ENTRY DATE: 2012-01-08
+
+CAMPAIGN:BP - Into the Green - 3.5 Conversion
+GAMEMODE:35e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:DragonWing Games.Bastion Press.Supplement
+STATUS:ALPHA
+SHOWINMENU:NO
+BOOKTYPE:Custom
+SETTING:Fantasy
+RANK:4
+SOURCELONG:Bastion Press - Into the Green
+SOURCESHORT:ittg
+SOURCEDATE:2003-01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by Dave Arneson and E. Gary Gygax.
+COPYRIGHT:The grass cloaker is from "The Village of Briarton" Copyright 2003, Gold Rush Games; Authors Patrick Sweeney, Christina Stiles; Editing and Additional material by Spike Y. Jones
+COPYRIGHT:Into the Green Copyright 2003, Bastion Press, Inc.
+COPYRIGHT:PCGen dataset conversion for "Into the Green" Copyright 2009, PCGen Data Team (Including, but not limited to Andrew Maitland (LegacyKing))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:../OGL.txt
+
+COVER:../intothegreen.jpg
+LOGO:@/publisher_logos/Dragon_Wing_Games.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Dragonwing Games
+DESC:'Into the Green, a guide to Forests, Jungles, Woods and Plains' by Bastion Press (a.k.a. Dragonwing Productions)
+URL:WEBSITE|http://dragonwing.net/|Visit Dragon Wing Games.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=28059&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
+URL:Studio 2 Publishing|http://www.studio2publishing.com/shop/product_info.php?cPath=32_81&products_id=103|Buy this book from Studeio 2 Publishing!
+
+# 3.5 Specific Files
+ABILITY:intothegreen_35e_abilities.lst
+KIT:intothegreen_35e_kits.lst
+LANGUAGE:intothegreen_35e_languages.lst
+RACE:intothegreen_35e_races.lst
+SKILL:intothegreen_35e_skills.lst
+SPELL:intothegreen_35e_spells.lst
+
+# Core Files
+ABILITYCATEGORY:../intothegreen_abilitycategory.lst
+CLASS:../intothegreen_classes.lst
+EQUIPMENT:../intothegreen_equipment.lst
+EQUIPMOD:../intothegreen_equipmods.lst
+WEAPONPROF:../intothegreen_profs_weapons.lst
+TEMPLATE:../intothegreen_templates_diseases.lst
+
+#ABILITY:../eclipse_abilities_racial.lst
+#ABILITY:intothegreen_abilities.lst
+#EQUIPMENT:intothegreen_equipment.lst
+#WEAPONPROF:intothegreen_prof_weapons.lst
+#SPELL:intothegreen_spells.lst
+#SPELL:35e/intothegreen_35e_spells.lst
+#KIT:intothegreen_kits.lst
+#RACE:intothegreen_races.lst
+#SPELL:intothegreen_spells.lst
