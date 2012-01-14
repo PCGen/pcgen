@@ -30,7 +30,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
  * An AbilityFromClassChoiceSet is a PrimitiveChoiceSet that draws Abilities
@@ -142,18 +141,6 @@ public class AbilityFromClassChoiceSet implements
 		Set<AbilitySelection> set = new HashSet<AbilitySelection>();
 		if (aClass != null)
 		{
-			for (PCLevelInfo element : pc.getLevelInfo())
-			{
-				if (element.getClassKeyName().equalsIgnoreCase(
-						aClass.getKeyName()))
-				{
-					for (Ability aFeat : (List<Ability>) element.getObjects())
-					{
-						set.add(new AbilitySelection(aFeat, pc
-								.getAbilityNature(aFeat)));
-					}
-				}
-			}
 			List<Ability> abilityList = pc.getAssocList(aClass,
 					AssociationListKey.ADDED_FEAT);
 			if (abilityList != null)

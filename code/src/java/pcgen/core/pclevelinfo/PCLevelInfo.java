@@ -23,10 +23,8 @@
 package pcgen.core.pclevelinfo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -52,7 +50,6 @@ public final class PCLevelInfo implements Cloneable
 	private int             classLevel 			 = 0;
 	private int             skillPointsGained    = Integer.MIN_VALUE;
 	private int             skillPointsRemaining = 0;
-	private List<Ability>            objects              = new ArrayList<Ability>(1);
 
 	/**
 	 * Creates a new PCLevelInfo object.
@@ -316,34 +313,10 @@ public final class PCLevelInfo implements Cloneable
 		return returnValue;
 	}
 
-	/**
-	 * Associates an object with this character level, used to add Abilities
-	 *
-	 * @param  ability the Ability to add
-	 */
-	public void addObject(final Ability ability)
-	{
-		objects.add(ability);
-	}
-
-	/**
-	 * Get any Abilites added at this level
-	 *
-	 * @return  List
-	 */
-	public List<? extends Ability> getObjects()
-	{
-		return objects;
-	}
-
 	@Override
 	public PCLevelInfo clone()
 	{
 		PCLevelInfo clone = new PCLevelInfo(classKeyName);
-		for (Iterator<? extends Ability> i = objects.iterator(); i.hasNext(); )
-		{
-			clone.objects.add(i.next());
-		}
 		if (statsPostModified != null)
 		{
 			for ( PCLevelInfoStat stat : statsPostModified )

@@ -9272,8 +9272,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			if (li.getClassKeyName().equals(classKeyName))
 			{
-				removeObjectsForLevelInfo(li);
-
 				removeLevelInfo(idx);
 				setDirty(true);
 
@@ -9282,27 +9280,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return false;
-	}
-
-	/**
-	 * @param li
-	 */
-	private void removeObjectsForLevelInfo(final PCLevelInfo li)
-	{
-		for (Ability object : li.getObjects())
-		{
-
-			// remove this object from the feats lists
-			for (Ability feat : getRealAbilitiesList(AbilityCategory.FEAT))
-			{
-				if (object == feat)
-				{
-					removeRealAbility(AbilityCategory.FEAT, feat);
-				}
-			}
-
-			abFacet.remove(id, AbilityCategory.FEAT, Nature.VIRTUAL, object);
-		}
 	}
 
 	private void removeLevelInfo(final int idx)
