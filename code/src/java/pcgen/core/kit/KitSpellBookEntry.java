@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 
@@ -34,42 +36,35 @@ import pcgen.core.spell.Spell;
  */
 public class KitSpellBookEntry
 {
-	// TODO This variable is never used
-	private String className;
-	private String bookName;
-	private Spell spell;
-	private List<String> theModifierList = null;
-	private int theCount = 1;
+	private final String bookName;
+	private final Spell spell;
+	private final int theCount;
+	private final List<CDOMSingleRef<Ability>> theModifierList;
 
 	private PCClass theClass = null;
 
 	/**
 	 *
-	 * @param aClassName
 	 * @param aBookName
 	 * @param aName
 	 * @param modifiers
+	 * @param copies
 	 */
-	public KitSpellBookEntry(final String aClassName, final String aBookName,
-							 final Spell sp, final List<String> modifiers)
+	public KitSpellBookEntry(final String aBookName,
+							 final Spell sp, final List<CDOMSingleRef<Ability>> modifiers, int copies)
 	{
-		className = aClassName;
 		bookName = aBookName;
 		spell = sp;
 		if (modifiers != null && modifiers.size() > 0)
 		{
-			theModifierList = new ArrayList<String>();
+			theModifierList = new ArrayList<CDOMSingleRef<Ability>>();
 			theModifierList.addAll(modifiers);
 		}
-	}
-
-	/**
-	 * Get the class name
-	 * @return the spell book name
-	 */
-	public String getClassName()
-	{
-		return className;
+		else
+		{
+			theModifierList = null;
+		}
+		theCount = copies;
 	}
 
 	/**
@@ -94,12 +89,12 @@ public class KitSpellBookEntry
 	 * Get the modifiers
 	 * @return the modifiers
 	 */
-	public List<String> getModifiers()
+	public List<CDOMSingleRef<Ability>> getModifiers()
 	{
-		List<String> ret = theModifierList;
+		List<CDOMSingleRef<Ability>> ret = theModifierList;
 		if (ret == null)
 		{
-			ret = new ArrayList<String>();
+			ret = new ArrayList<CDOMSingleRef<Ability>>();
 		}
 		return Collections.unmodifiableList(ret);
 	}

@@ -154,10 +154,15 @@ public final class KitSpells extends BaseKit
 			Collection<Spell> allSpells =
 					ksi.getContainedSpells(aPC, Collections.singletonList(aClass
 						.get(ObjectKey.CLASS_SPELLLIST)));
+			Set<List<CDOMSingleRef<Ability>>> feats = spells.getSecondaryKeySet(ksi);
 			for (Spell sp : allSpells)
 			{
-				aSpellList.add(new KitSpellBookEntry(aClass.getKeyName(),
-					spellBook, sp, null));
+				for (List<CDOMSingleRef<Ability>> list : feats)
+				{
+					Integer count = spells.get(ksi, list);
+					aSpellList.add(new KitSpellBookEntry(
+							spellBook, sp, list, count));
+				}
 			}
 		}
 
@@ -314,17 +319,14 @@ public final class KitSpells extends BaseKit
 		}
 
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
-		final List<String> modifierList = aSpell.getModifiers();
+		final List<CDOMSingleRef<Ability>> modifierList = aSpell.getModifiers();
 		int adjustedLevel = spLevel;
 		List<Ability> metamagicFeatList = new ArrayList<Ability>();
-		for (String featName : modifierList)
+		for (CDOMSingleRef<Ability> feat : modifierList)
 		{
-			Ability anAbility = pc.getFeatNamed(featName);
-			if (anAbility != null)
-			{
-				adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metamagicFeatList.add(anAbility);
-			}
+			Ability anAbility = feat.resolvesTo();
+			adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+			metamagicFeatList.add(anAbility);
 		}
 		if (metamagicFeatList.size() <= 0)
 		{
