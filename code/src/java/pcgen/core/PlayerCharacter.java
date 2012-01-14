@@ -89,112 +89,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.ActiveAbilityFacet;
-import pcgen.cdom.facet.AddLevelFacet;
-import pcgen.cdom.facet.AddedBonusFacet;
-import pcgen.cdom.facet.AddedTemplateFacet;
-import pcgen.cdom.facet.AgeFacet;
-import pcgen.cdom.facet.AgeSetFacet;
-import pcgen.cdom.facet.AlignmentFacet;
-import pcgen.cdom.facet.AppliedBonusFacet;
-import pcgen.cdom.facet.ArmorClassFacet;
-import pcgen.cdom.facet.ArmorProfProviderFacet;
-import pcgen.cdom.facet.AutoEquipmentFacet;
-import pcgen.cdom.facet.AutoEquipmentListFacet;
-import pcgen.cdom.facet.AutoLanguageFacet;
-import pcgen.cdom.facet.AutoListArmorProfFacet;
-import pcgen.cdom.facet.AutoListShieldProfFacet;
-import pcgen.cdom.facet.AutoListWeaponProfFacet;
-import pcgen.cdom.facet.AvailableSpellFacet;
-import pcgen.cdom.facet.BioSetFacet;
-import pcgen.cdom.facet.BonusChangeFacet;
-import pcgen.cdom.facet.BonusCheckingFacet;
-import pcgen.cdom.facet.BonusWeaponProfFacet;
-import pcgen.cdom.facet.CampaignFacet;
-import pcgen.cdom.facet.ChallengeRatingFacet;
-import pcgen.cdom.facet.CharacterSpellResistanceFacet;
-import pcgen.cdom.facet.CheckFacet;
-import pcgen.cdom.facet.ClassFacet;
+import pcgen.cdom.facet.*;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
-import pcgen.cdom.facet.CompanionModFacet;
-import pcgen.cdom.facet.ConditionalAbilityFacet;
-import pcgen.cdom.facet.ConditionalTemplateFacet;
-import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
-import pcgen.cdom.facet.DamageReductionFacet;
-import pcgen.cdom.facet.DeityFacet;
-import pcgen.cdom.facet.DirectAbilityFacet;
-import pcgen.cdom.facet.DomainFacet;
-import pcgen.cdom.facet.EquipSetFacet;
-import pcgen.cdom.facet.EquipmentFacet;
-import pcgen.cdom.facet.EquippedEquipmentFacet;
-import pcgen.cdom.facet.ExpandedCampaignFacet;
-import pcgen.cdom.facet.FaceFacet;
-import pcgen.cdom.facet.FacetInitialization;
-import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.FactFacet;
-import pcgen.cdom.facet.FavoredClassFacet;
-import pcgen.cdom.facet.FollowerFacet;
-import pcgen.cdom.facet.FollowerLimitFacet;
-import pcgen.cdom.facet.FollowerOptionFacet;
-import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.GenderFacet;
-import pcgen.cdom.facet.GlobalAddedSkillCostFacet;
-import pcgen.cdom.facet.GlobalSkillCostFacet;
-import pcgen.cdom.facet.GrantedAbilityFacet;
-import pcgen.cdom.facet.HandsFacet;
-import pcgen.cdom.facet.HasAnyFavoredClassFacet;
-import pcgen.cdom.facet.HeightFacet;
-import pcgen.cdom.facet.InitiativeFacet;
-import pcgen.cdom.facet.KitFacet;
-import pcgen.cdom.facet.LanguageFacet;
-import pcgen.cdom.facet.LegalDeityFacet;
-import pcgen.cdom.facet.LegsFacet;
-import pcgen.cdom.facet.LevelFacet;
-import pcgen.cdom.facet.LevelTableFacet;
-import pcgen.cdom.facet.ListSkillCostFacet;
-import pcgen.cdom.facet.LoadFacet;
-import pcgen.cdom.facet.LocalAddedSkillCostFacet;
-import pcgen.cdom.facet.LocalSkillCostFacet;
-import pcgen.cdom.facet.MasterFacet;
-import pcgen.cdom.facet.MasterSkillFacet;
-import pcgen.cdom.facet.MoneyFacet;
-import pcgen.cdom.facet.MonsterCSkillFacet;
-import pcgen.cdom.facet.MovementResultFacet;
-import pcgen.cdom.facet.MultiClassFacet;
-import pcgen.cdom.facet.NonAbilityFacet;
-import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
-import pcgen.cdom.facet.ObjectAdditionFacet;
-import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
-import pcgen.cdom.facet.PrerequisiteFacet;
-import pcgen.cdom.facet.ProhibitedSchoolFacet;
-import pcgen.cdom.facet.QualifyFacet;
-import pcgen.cdom.facet.RaceFacet;
-import pcgen.cdom.facet.RaceTypeFacet;
-import pcgen.cdom.facet.RacialSubTypesFacet;
-import pcgen.cdom.facet.ReachFacet;
-import pcgen.cdom.facet.RegionFacet;
-import pcgen.cdom.facet.ShieldProfProviderFacet;
-import pcgen.cdom.facet.SizeFacet;
-import pcgen.cdom.facet.SkillFacet;
-import pcgen.cdom.facet.SourcedEquipmentFacet;
-import pcgen.cdom.facet.SpellBookFacet;
-import pcgen.cdom.facet.SpellSupportFacet;
-import pcgen.cdom.facet.StartingLanguageFacet;
-import pcgen.cdom.facet.StatFacet;
-import pcgen.cdom.facet.StatLockFacet;
-import pcgen.cdom.facet.SubClassFacet;
-import pcgen.cdom.facet.SubRaceFacet;
-import pcgen.cdom.facet.TemplateFacet;
-import pcgen.cdom.facet.TotalWeightFacet;
-import pcgen.cdom.facet.UnarmedDamageFacet;
-import pcgen.cdom.facet.UnencumberedLoadFacet;
-import pcgen.cdom.facet.UnlockedStatFacet;
-import pcgen.cdom.facet.UserEquipmentFacet;
-import pcgen.cdom.facet.VariableFacet;
-import pcgen.cdom.facet.VisionFacet;
-import pcgen.cdom.facet.WeaponProfFacet;
-import pcgen.cdom.facet.WeightFacet;
-import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -383,6 +279,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
@@ -393,7 +290,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ClassSource defaultDomainSource = null;
 
 	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
-	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
 
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
@@ -4536,16 +4432,26 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return levelFacet.getLevelAdjustment(id);
 	}
 
-	public List<PCLevelInfo> getLevelInfo()
+	public Collection<PCLevelInfo> getLevelInfo()
 	{
-		return pcLevelInfo;
+		return levelInfoFacet.getSet(id);
+	}
+
+	public Collection<PCLevelInfo> clearLevelInfo()
+	{
+		return levelInfoFacet.removeAll(id);
+	}
+
+	public PCLevelInfo getLevelInfo(int index)
+	{
+		return levelInfoFacet.get(id, index);
 	}
 
 	public String getLevelInfoClassKeyName(final int idx)
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return pcLevelInfo.get(idx).getClassKeyName();
+			return levelInfoFacet.get(id, idx).getClassKeyName();
 		}
 
 		return Constants.EMPTY_STRING;
@@ -4555,7 +4461,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return pcLevelInfo.get(idx).getClassLevel();
+			return levelInfoFacet.get(id, idx).getClassLevel();
 		}
 
 		return 0;
@@ -4563,7 +4469,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public PCLevelInfo getLevelInfoFor(final String classKey, int level)
 	{
-		for (PCLevelInfo pcl : pcLevelInfo)
+		for (PCLevelInfo pcl : getLevelInfo())
 		{
 			if (pcl.getClassKeyName().equals(classKey))
 			{
@@ -4581,7 +4487,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getLevelInfoSize()
 	{
-		return pcLevelInfo.size();
+		return levelInfoFacet.getCount(id);
 	}
 
 	/**
@@ -4807,15 +4713,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			//
 			for (int i = getLevelInfoSize() - 1; i >= 0; --i)
 			{
-				final String classKeyName = getLevelInfoClassKeyName(i);
+				PCLevelInfo pli = getLevelInfo(i);
+				final String classKeyName = pli.getClassKeyName();
 				final PCClass aClass =
 						Globals.getContext().ref
 							.silentlyGetConstructedCDOMObject(PCClass.class,
 								classKeyName);
 
-				if ((aClass == null) || aClass.isMonster())
+				if (aClass.isMonster())
 				{
-					removeLevelInfo(i);
+					levelInfoFacet.remove(id, pli);
 				}
 			}
 
@@ -4827,8 +4734,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			final List<PCLevelInfo> existingLevelInfo =
-					new ArrayList<PCLevelInfo>(pcLevelInfo);
-			pcLevelInfo.clear();
+					new ArrayList<PCLevelInfo>(getLevelInfo());
+			levelInfoFacet.removeAll(id);
 			// Make sure monster classes are added first
 			if (!isImporting())
 			{
@@ -4841,7 +4748,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			pcLevelInfo.addAll(existingLevelInfo);
+			levelInfoFacet.addAll(id, existingLevelInfo);
 
 			//
 			// If user has chosen a class before choosing a race,
@@ -5294,7 +5201,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
-					pcLevelInfo.get(idx).getTotalStatMod(stat, true);
+					levelInfoFacet.get(id, idx).getTotalStatMod(stat, true);
 			curStat -= statLvlAdjust;
 		}
 		// If the user doesn't want POST changes, we remove any made in the
@@ -5302,9 +5209,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!includePost && level > 0)
 		{
 			int statLvlAdjust =
-					pcLevelInfo.get(level - 1).getTotalStatMod(stat, true);
+					levelInfoFacet.get(id, level - 1).getTotalStatMod(stat, true);
 			statLvlAdjust -=
-					pcLevelInfo.get(level - 1).getTotalStatMod(stat, false);
+					levelInfoFacet.get(id, level - 1).getTotalStatMod(stat, false);
 			curStat -= statLvlAdjust;
 
 		}
@@ -7386,9 +7293,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			//
 			// change all the levelling info to the ex-class as well
 			//
-			for (int idx = pcLevelInfo.size() - 1; idx >= 0; --idx)
+			for (int idx = getLevelInfoSize() - 1; idx >= 0; --idx)
 			{
-				final PCLevelInfo li = pcLevelInfo.get(idx);
+				final PCLevelInfo li = levelInfoFacet.get(id, idx);
 
 				if (li.getClassKeyName().equals(aClass.getKeyName()))
 				{
@@ -7848,12 +7755,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return aString;
 	}
 
-	public PCLevelInfo saveLevelInfo(final String classKeyName)
+	public PCLevelInfo addLevelInfo(final String classKeyName)
 	{
 		final PCLevelInfo li = new PCLevelInfo(classKeyName);
-		pcLevelInfo.add(li);
-
+		addLevelInfo(li);
 		return li;
+	}
+
+	public void addLevelInfo(final PCLevelInfo pli)
+	{
+		levelInfoFacet.add(id, pli);
 	}
 
 	public void saveStatIncrease(final PCStat stat, final int mod,
@@ -7863,7 +7774,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (idx >= 0)
 		{
-			pcLevelInfo.get(idx).addModifiedStat(stat, mod, isPreMod);
+			levelInfoFacet.get(id, idx).addModifiedStat(stat, mod, isPreMod);
 		}
 
 		setDirty(true);
@@ -7875,7 +7786,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (idx >= 0)
 		{
-			return pcLevelInfo.get(idx).getTotalStatMod(stat, includePost);
+			return levelInfoFacet.get(id, idx).getTotalStatMod(stat, includePost);
 		}
 		return 0;
 	}
@@ -7998,7 +7909,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		fromClass.setLevel(iFromLevel, this);
 
 		// first, change the toClass current PCLevelInfo level
-		for (PCLevelInfo pcl : pcLevelInfo)
+		for (PCLevelInfo pcl : getLevelInfo())
 		{
 			if (pcl.getClassKeyName().equals(toClass.getKeyName()))
 			{
@@ -8009,7 +7920,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// change old class PCLevelInfo to the new class
-		for (PCLevelInfo pcl : pcLevelInfo)
+		for (PCLevelInfo pcl : getLevelInfo())
 		{
 			if (pcl.getClassKeyName().equals(fromClass.getKeyName())
 				&& (pcl.getClassLevel() > iFromLevel))
@@ -9194,7 +9105,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			for (int i = 0; i < numberOfLevels; ++i)
 			{
 				int currentLevel = getLevel(pcClassClone);
-				final PCLevelInfo playerCharacterLevelInfo = saveLevelInfo(pcClassClone.getKeyName());
+				final PCLevelInfo playerCharacterLevelInfo = addLevelInfo(pcClassClone.getKeyName());
 
 				// if we fail to add the level, remove and return
 				if (!pcClassClone.addLevel(false, bSilent, this, bypassPrereqs))
@@ -9266,13 +9177,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean removeLevelInfo(final String classKeyName)
 	{
-		for (int idx = pcLevelInfo.size() - 1; idx >= 0; --idx)
+		for (int idx = getLevelInfoSize() - 1; idx >= 0; --idx)
 		{
-			final PCLevelInfo li = pcLevelInfo.get(idx);
+			final PCLevelInfo li = levelInfoFacet.get(id, idx);
 
 			if (li.getClassKeyName().equals(classKeyName))
 			{
-				removeLevelInfo(idx);
+				levelInfoFacet.remove(id, li);
 				setDirty(true);
 
 				return true;
@@ -9280,12 +9191,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return false;
-	}
-
-	private void removeLevelInfo(final int idx)
-	{
-		pcLevelInfo.remove(idx);
-		setDirty(true);
 	}
 
 	/**
@@ -9533,7 +9438,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public int getCharacterLevel(final PCLevelInfo info)
 	{
 		int i = 1;
-		for (PCLevelInfo element : pcLevelInfo)
+		for (PCLevelInfo element : getLevelInfo())
 		{
 			if (info == element)
 			{
@@ -9612,7 +9517,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
-					pcLevelInfo.get(idx).getTotalStatMod(stat, usePost);
+					levelInfoFacet.get(id, idx).getTotalStatMod(stat, usePost);
 			curStat -= statLvlAdjust;
 		}
 
@@ -9686,9 +9591,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.addEquipSet((EquipSet) eqSet.clone());
 		}
-		for (PCLevelInfo info : pcLevelInfo)
+		for (PCLevelInfo info : getLevelInfo())
 		{
-			aClone.pcLevelInfo.add(info.clone());
+			aClone.levelInfoFacet.add(aClone.id, info.clone());
 		}
 		for (String book : spellBookFacet.getBookNames(id))
 		{

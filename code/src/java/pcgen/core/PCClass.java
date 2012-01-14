@@ -1273,7 +1273,7 @@ public class PCClass extends PObject
 
 		if (aPC.getLevelInfoSize() > 0)
 		{
-			pcl = aPC.getLevelInfo().get(aPC.getLevelInfoSize() - 1);
+			pcl = aPC.getLevelInfo(aPC.getLevelInfoSize() - 1);
 
 			if (pcl != null)
 			{

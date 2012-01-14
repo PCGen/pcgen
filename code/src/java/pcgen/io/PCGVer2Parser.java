@@ -887,7 +887,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				new ArrayList<PCLevelInfo>(thePC.getLevelInfo());
 		if (cache.containsKey(TAG_CLASSABILITIESLEVEL))
 		{
-			thePC.getLevelInfo().clear();
+			thePC.clearLevelInfo();
 			for (String line : cache.get(TAG_CLASSABILITIESLEVEL))
 			{
 				parseClassAbilitiesLevelLine(line, pcLevelInfoList);
@@ -1717,12 +1717,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			if (pcl == null)
 			{
-				pcl = thePC.saveLevelInfo(classKeyName);
+				pcl = thePC.addLevelInfo(classKeyName);
 				pcl.setClassLevel(level);
 			}
 			else
 			{
-				thePC.getLevelInfo().add(pcl);
+				thePC.addLevelInfo(pcl);
 			}
 			pcl.setSkillPointsRemaining(0);
 		}
@@ -2184,7 +2184,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			for (int i = 0; i < level; ++i)
 			{
-				PCLevelInfo levelInfo = thePC.saveLevelInfo(aPCClass.getKeyName());
+				PCLevelInfo levelInfo = thePC.addLevelInfo(aPCClass.getKeyName());
 				aPCClass.addLevel(false, false, thePC, true);
 
 			}

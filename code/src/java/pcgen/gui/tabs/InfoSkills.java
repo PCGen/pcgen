@@ -440,7 +440,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//
 		// No class levels, so can be no information
 		//
-		if (aPC.getLevelInfo() == null)
+		if (aPC.getLevelInfoSize() == 0)
 		{
 			return null;
 		}
@@ -464,17 +464,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 				++i;
 			}
-			if (i == aPC.getLevelInfo().size())
+			if (i == aPC.getLevelInfoSize())
 			{
 				--i;
 			}
 		}
 
-		if ((i < 0) || (i >= aPC.getLevelInfo().size()))
+		if ((i < 0) || (i >= aPC.getLevelInfoSize()))
 		{
 			return null;
 		}
-		return aPC.getLevelInfo().get(i);
+		return aPC.getLevelInfo(i);
 	}
 
 	/**
@@ -519,7 +519,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		for (; idx < (pc.getLevelInfoSize() - 1); ++idx)
 		{
-			PCLevelInfo pcl = pc.getLevelInfo().get(idx);
+			PCLevelInfo pcl = pc.getLevelInfo(idx);
 
 			if (pcl.getSkillPointsRemaining() > 0)
 			{
@@ -4342,9 +4342,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		else
 		{
 			points = -points;
-			for (int i = pc.getLevelInfo().size() - 1; i >= 0; --i)
+			for (int i = pc.getLevelInfoSize() - 1; i >= 0; --i)
 			{
-				pcl = pc.getLevelInfo().get(i);
+				pcl = pc.getLevelInfo(i);
 				final int ptsGained = pcl.getSkillPointsGained(pc);
 				int ptsUsed = ptsGained - pcl.getSkillPointsRemaining();
 				if (ptsUsed >= points)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2010-2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,86 +17,38 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
-public class LevelInfoFacet
+public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
 {
 
-	public void add(CharID id, PCLevelInfo pcl)
+	protected Collection<PCLevelInfo> getComponentSet()
 	{
-		if (pcl == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		Map<Integer, PCLevelInfo> sbMap = getConstructingCachedMap(id);
-		int level = pcl.getClassLevel();
-		sbMap.put(level, pcl);
-	}
-
-	public void removeAll(CharID id)
-	{
-		FacetCache.remove(id, getClass());
+		return new ArrayList<PCLevelInfo>();
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
-	 * 
-	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * Returns the objects in this LevelInfoFacet for the Player Character
+	 * represented by the given CharID and the given location in the list of
+	 * items (list index starts at zero)
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
-	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *            The CharID representing the Player Character for which the
+	 *            specified item in this LevelInfoFacet should be returned.
+	 * @param location
+	 *            The location of the item in this LevelInfoFacet to be returned
+	 * @return The object in this LevelInfoFacet for the Player Character
+	 *         represented by the given CharID and location.
 	 */
-	private Map<Integer, PCLevelInfo> getCachedMap(CharID id)
+	public PCLevelInfo get(CharID id, int location)
 	{
-		return (Map<Integer, PCLevelInfo>) FacetCache.get(id, getClass());
+		List<PCLevelInfo> componentSet = (List<PCLevelInfo>) getCachedSet(id);
+		return componentSet.get(location);
 	}
 
-	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
-	 * 
-	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
-	 * 
-	 * @param id
-	 *            The CharID for which the Map should be returned
-	 * @return The Map for the Player Character represented by the given CharID.
-	 */
-	private Map<Integer, PCLevelInfo> getConstructingCachedMap(CharID id)
-	{
-		Map<Integer, PCLevelInfo> componentMap = getCachedMap(id);
-		if (componentMap == null)
-		{
-			componentMap = new HashMap<Integer, PCLevelInfo>();
-			FacetCache.set(id, getClass(), componentMap);
-		}
-		return componentMap;
-	}
-
-	public PCLevelInfo getLevel(CharID id, int idx)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int getCount(CharID id)
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

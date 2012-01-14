@@ -362,16 +362,15 @@ public final class KitSkill extends BaseKit
 			}
 		}
 		int ptsToSpend = 0;
-		List<PCLevelInfo> pcLvlInfo = pc.getLevelInfo();
-		int[] points = new int[pcLvlInfo.size()];
+		int[] points = new int[pc.getLevelInfoSize()];
 		if (!isFree)
 		{
 			double ranksAdded = 0.0;
 			int skillCost = pc.getSkillCostForClass(aSkill, pcClass).getCost();
 			ptsToSpend = (int) (ranksToAdd * skillCost);
-			for (int i = 0; i < pcLvlInfo.size(); i++)
+			for (int i = 0; i < pc.getLevelInfoSize(); i++)
 			{
-				PCLevelInfo info = pcLvlInfo.get(i);
+				PCLevelInfo info = pc.getLevelInfo(i);
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
 					// We are spending this class' points.
@@ -423,9 +422,9 @@ public final class KitSkill extends BaseKit
 		}
 		if (!isFree)
 		{
-			for (int i = 0; i < pcLvlInfo.size(); i++)
+			for (int i = 0; i < pc.getLevelInfoSize(); i++)
 			{
-				PCLevelInfo info = pcLvlInfo.get(i);
+				PCLevelInfo info = pc.getLevelInfo(i);
 				if (points[i] >= 0)
 				{
 					info.setSkillPointsRemaining(points[i]);

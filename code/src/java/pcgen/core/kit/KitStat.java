@@ -106,26 +106,20 @@ public class KitStat extends BaseKit
 			{
 				aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
 				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the skills.
-				if (aPC.getLevelInfoSize() > 0)
+				for (int j = 0; j < aPC.getLevelInfoSize(); j++)
 				{
-					final List<PCLevelInfo> pclList = aPC.getLevelInfo();
-					for (int j = 0; j < pclList.size(); j++)
+					final PCLevelInfo pcl = aPC.getLevelInfo(j);
+					if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 					{
-						final PCLevelInfo pcl = pclList.get(j);
-						if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
-						{
-							final int spMod =
-									pcClass.recalcSkillPointMod(aPC, j + 1);
-
-							pcl.setSkillPointsGained(aPC, spMod);
-							pcl.setSkillPointsRemaining(pcl
+						final int spMod = pcClass.recalcSkillPointMod(aPC,
+								j + 1);
+						pcl.setSkillPointsGained(aPC, spMod);
+						pcl.setSkillPointsRemaining(pcl
 								.getSkillPointsGained(aPC));
-							Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
-							int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
-							aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);
-
+						Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
+						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
+						aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);
 							aPC.setDirty(true);
-						}
 					}
 				}
 			}

@@ -179,17 +179,17 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Test skills granted for each level
 		bugbear.incrementClassLevel(1, humanoidClass);
-		PCLevelInfo levelInfo = bugbear.getLevelInfo().get(0);
+		PCLevelInfo levelInfo = bugbear.getLevelInfo(0);
 		assertEquals("First level of bugbear", 7, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
-		levelInfo = bugbear.getLevelInfo().get(1);
+		levelInfo = bugbear.getLevelInfo(1);
 		assertEquals("2nd level of bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
-		levelInfo = bugbear.getLevelInfo().get(2);
+		levelInfo = bugbear.getLevelInfo(2);
 		assertEquals("3rd level of bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
@@ -200,17 +200,17 @@ public class PCClassTest extends AbstractCharacterTestCase
 		setPCStat(bugbear, intel, 10);
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
-		levelInfo = bugbear.getLevelInfo().get(0);
+		levelInfo = bugbear.getLevelInfo(0);
 		assertEquals("First level of big bugbear", 6, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
-		levelInfo = bugbear.getLevelInfo().get(1);
+		levelInfo = bugbear.getLevelInfo(1);
 		assertEquals("2nd level of big bugbear", 0, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
-		levelInfo = bugbear.getLevelInfo().get(2);
+		levelInfo = bugbear.getLevelInfo(2);
 		assertEquals("3rd level of big bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
@@ -221,12 +221,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		setPCStat(nymph, intel, 10);
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level
-		levelInfo = nymph.getLevelInfo().get(0);
+		levelInfo = nymph.getLevelInfo(0);
 		assertEquals("First level of nymph", 24, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		nymph.incrementClassLevel(1, nymphClass);
-		levelInfo = nymph.getLevelInfo().get(1);
+		levelInfo = nymph.getLevelInfo(1);
 		assertEquals("2nd level of nymph", 6, levelInfo.getSkillPointsGained(bugbear));
 
 	}

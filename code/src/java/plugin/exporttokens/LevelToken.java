@@ -25,7 +25,6 @@
  */
 package plugin.exporttokens;
 
-import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.AssociationKey;
@@ -74,13 +73,12 @@ public class LevelToken extends Token
 			level = Integer.parseInt(aTok.nextToken());
 		}
 
-		List<PCLevelInfo> li = pc.getLevelInfo();
-		if (level < 1 || level > li.size())
+		if (level < 1 || level >  pc.getLevelInfoSize())
 		{
 			//TODO Error?
 			return "";
 		}
-		PCLevelInfo pcl = li.get(level - 1);
+		PCLevelInfo pcl = pc.getLevelInfo(level - 1);
 
 		if (aTok.hasMoreTokens())
 		{
