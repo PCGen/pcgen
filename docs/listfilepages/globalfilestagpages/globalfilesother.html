@@ -167,15 +167,14 @@
 				<li>Used in conjunction with the <code>CHOOSE</code> tag, <code>%LIST</code> 
 					can be used with this tag to provide the required choice.</li>
 			</ul>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
+			<li>Only one PRExxx tag is allowed with this tag at a time unless you use a PREMULT statement.</li>
 			<li>.CLEAR may be used with this tag as part of a .MOD operation and may not be used during class progression. (i.e. There is no cross-level interaction.)</li>
 		</ul>
 		<p class="indent1"><strong>Note:</strong> This tag <strong class="new">WILL NOT</strong> activate a
 			CHOOSER inside of a feat. You must use <a href="globalfilesadd.html#FEAT|">ADD:FEAT</a>
 			to activate a chooser inside of a feat being granted.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>AUTO:FEAT|Dodge[PRESTAT:1,DEX=13]</code></p>
+		<p class="indent2"><code>AUTO:FEAT|Dodge|PRESTAT:1,DEX=13</code></p>
 		<p class="indent3">The feat &quot;Dodge&quot; is granted as an automatic feat if the character's dexterity is 13 or higher.</p>
 		<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|LIST &lt;tab&gt; AUTO:FEAT|Weapon Focus (%LIST)</code></p>
 		<p class="indent3">The feat &quot;Weapon Focus&quot; is granted as an automatic feat with the weapon chosen with the <code>CHOOSE</code> tag.</p>
