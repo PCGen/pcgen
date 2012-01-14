@@ -45,6 +45,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -384,28 +385,11 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
 		if (isVirtual)
 		{
-			final Ability pcAbility = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc, ab, association, cat);
-		
-			pc.setDirty(true);
-		
-			if (pcAbility != null)
-			{
-				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					final double x = pc.getRemainingFeatPoints(false);
-					pc.setFeats(1); // temporarily assume 1 choice
-					ChooserUtilities.modChoices(pcAbility, new ArrayList(),
-							new ArrayList(), true, pc, true, cat);
-					pc.setFeats(x); // reset to original count
-				}
-		
-				pc.setAssoc(pcAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
-			}
-			else
-			{
-				Logging.errorPrint("Error:" + ab.getKeyName()
-						+ " not added, aPC.getFeatNamedInList() == NULL");
-			}
+			Ability a = AbilityUtilities
+					.addCloneOfAbilityToVirtualListwithChoices(pc,
+							choice.getAbility(), choice.getSelection(), cat);
+			pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, a);
+			pc.setAssoc(a, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 		}
 		else
 		{
