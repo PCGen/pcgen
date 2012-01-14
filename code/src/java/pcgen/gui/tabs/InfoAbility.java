@@ -731,12 +731,6 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 		
 		Ability pcAbility = pc.addAbilityNeedCheck(theCategory, anAbility);
-
-		if (pcAbility != anAbility) //yes != not !.equals
-		{
-			pc.selectTemplates(pcAbility, pc.isImporting());
-		}
-
 		AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
 				pc, theCategory);
 	}

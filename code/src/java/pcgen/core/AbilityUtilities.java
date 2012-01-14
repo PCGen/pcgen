@@ -251,10 +251,6 @@ public class AbilityUtilities
 		}
 
 		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
-		if (pcAbility != argAbility) //implies new
-		{
-			aPC.selectTemplates(pcAbility, aPC.isImporting());
-		}
 		finaliseAbility(pcAbility, choice, aPC, category);
 	}
 

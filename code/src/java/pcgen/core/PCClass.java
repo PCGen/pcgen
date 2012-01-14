@@ -1168,9 +1168,7 @@ public class PCClass extends PObject
 		// the level has now been added to the character,
 		// so now assign the attributes of this class level to the
 		// character...
-		aPC.selectTemplates(this, aPC.isImporting());
 		PCClassLevel classLevel = aPC.getActiveClassLevel(this, newLevel);
-		aPC.selectTemplates(classLevel, aPC.isImporting());
 
 		// Make sure that if this Class adds a new domain that
 		// we record where that domain came from

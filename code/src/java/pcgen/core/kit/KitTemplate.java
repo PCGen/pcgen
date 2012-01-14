@@ -67,7 +67,7 @@ public class KitTemplate extends BaseKit
 					aPC.setTemplatesAdded(template, subtemplate);
 				}
 			}
-			aPC.addTemplate(template, added == null || added.size() == 0);
+			aPC.addTemplate(template);
 		}
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
@@ -126,8 +126,7 @@ public class KitTemplate extends BaseKit
 				}
 			}
 
-			Collection<PCTemplate> added = aPC.getTemplatesAdded(templateToAdd);
-			aPC.addTemplate(templateToAdd, added == null || added.size() == 0);
+			aPC.addTemplate(templateToAdd);
 			selectedMap.initializeListFor(templateToAdd);
 			selectedMap.addAllToListFor(templateToAdd, subAdded);
 		}

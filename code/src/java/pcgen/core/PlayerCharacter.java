@@ -4877,8 +4877,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					}
 				}
 			}
-
-			selectTemplates(newRace, isImporting()); // gets and adds templates
 		}
 
 		if (!isImporting())
@@ -6252,11 +6250,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addTemplate(final PCTemplate inTemplate)
 	{
-		addTemplate(inTemplate, true);
-	}
-
-	public void addTemplate(final PCTemplate inTemplate, boolean doChoose)
-	{
 		if (inTemplate == null)
 		{
 			return;
@@ -6286,19 +6279,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		this.setDirty(true);
 
 		calcActiveBonuses();
-
-		if (doChoose)
-		{
-			selectTemplates(inTemplate, isImporting());
-		}
-		else
-		{
-			Collection<PCTemplate> list = getTemplatesAdded(inTemplate);
-			for (PCTemplate pct : list)
-			{
-				addTemplate(pct);
-			}
-		}
 
 		if (!isImporting())
 		{
@@ -11467,18 +11447,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				.driveChoice(this);
 		choice.act(result, pct, this);
 		return result;
-	}
-
-	public void selectTemplates(CDOMObject po, boolean isImporting)
-	{
-		for (PCTemplate pct : addedTemplateFacet.select(id, po, isImporting))
-		{
-			addTemplate(pct);
-		}
-		for (PCTemplate pct : addedTemplateFacet.remove(id, po, isImporting))
-		{
-			removeTemplate(pct);
-		}
 	}
 
 	public Collection<PCTemplate> getTemplatesAdded(CDOMObject po)

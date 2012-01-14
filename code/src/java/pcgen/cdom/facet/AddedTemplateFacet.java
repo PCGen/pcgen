@@ -45,14 +45,14 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
-	public Collection<PCTemplate> select(CharID id, CDOMObject po,
-			boolean isImporting)
+	public Collection<PCTemplate> select(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
 		// older version of this cleared the
 		// templateAdded list, so this may have to do that as well?
 		FacetCache.remove(id, getClass());
-		if (!isImporting)
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (!pc.isImporting())
 		{
 			for (CDOMReference<PCTemplate> ref : po
 					.getSafeListFor(ListKey.TEMPLATE))
@@ -85,11 +85,11 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return list;
 	}
 
-	public Collection<PCTemplate> remove(CharID id, CDOMObject po,
-			boolean isImporting)
+	public Collection<PCTemplate> remove(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		if (!isImporting)
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (!pc.isImporting())
 		{
 			for (CDOMReference<PCTemplate> ref : po
 					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
@@ -160,8 +160,32 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		// TODO Auto-generated method stub
-
+		CharID id = dfce.getCharID();
+		CDOMObject cdo = dfce.getCDOMObject();
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		Collection<PCTemplate> list = getFromSource(id, cdo);
+		/*
+		 * If someone pre-set the list, then we use the preset list. If not, we
+		 * need to do selections
+		 */
+		if (list.isEmpty())
+		{
+			for (PCTemplate pct : select(id, cdo))
+			{
+				pc.addTemplate(pct);
+			}
+			for (PCTemplate pct : remove(id, cdo))
+			{
+				pc.removeTemplate(pct);
+			}
+		}
+		else
+		{
+			for (PCTemplate pct : list)
+			{
+				pc.addTemplate(pct);
+			}
+		}
 	}
 
 	@Override
