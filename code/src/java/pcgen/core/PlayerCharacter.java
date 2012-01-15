@@ -12853,4 +12853,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 	}
+
+	public BioSet getBioSet()
+	{
+		return bioSetFacet.get(id);
+	}
 }

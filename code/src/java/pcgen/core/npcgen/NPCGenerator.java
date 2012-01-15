@@ -723,7 +723,7 @@ public class NPCGenerator
 			}
 			
 			final String randBioString = "EYES.HAIR.SKIN.HT.WT.AGE."; //$NON-NLS-1$
-			Globals.getBioSet().randomize(randBioString, aPC);
+			aPC.getBioSet().randomize(randBioString, aPC);
 			
 			final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
 			aPC.setHairStyle(globalHairStyleList.get(Globals.getRandomInt(globalHairStyleList.size())));

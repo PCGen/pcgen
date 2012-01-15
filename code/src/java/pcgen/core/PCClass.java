@@ -972,7 +972,7 @@ public class PCClass extends PObject
 			if (aPC.getAge() <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
-				Globals.getBioSet().randomize("AGE", aPC);
+				aPC.getBioSet().randomize("AGE", aPC);
 			}
 		}
 		else

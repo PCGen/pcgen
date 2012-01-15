@@ -57,7 +57,7 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (NumberFormatException exc)
 		{
-			anInt = Globals.getBioSet().getAgeSetNamed(prereq.getKey());
+			anInt = character.getBioSet().getAgeSetNamed(prereq.getKey());
 		}
 		catch (Exception e)
 		{

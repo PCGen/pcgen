@@ -399,13 +399,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			if (ageCategory != null)
 			{
-				final int idx = Globals.getBioSet().getAgeSetNamed(ageCategory);
+				final int idx = pc.getBioSet().getAgeSetNamed(ageCategory);
 
 				if (idx >= 0)
 				{
 					if (!bEditingAge)
 					{
-						Globals.getBioSet().randomize(
+						pc.getBioSet().randomize(
 							"AGECAT" + Integer.toString(idx), pc);
 						ageText.setText(Integer.toString(pc.getAge()));
 						pc.setDirty(true);
@@ -677,7 +677,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		List<String> cats = new ArrayList<String>();
 
-		for (String aString : Globals.getBioSet().getAgeCategories())
+		for (String aString : pc.getBioSet().getAgeCategories())
 		{
 			if (!cats.contains(aString))
 			{
@@ -1726,7 +1726,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			if (ageCategory != null)
 			{
-				final int idx = Globals.getBioSet().getAgeSetNamed(ageCategory);
+				final int idx = pc.getBioSet().getAgeSetNamed(ageCategory);
 
 				if (idx >= 0)
 				{
@@ -1773,7 +1773,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		if (randomString.length() > 0)
 		{
-			Globals.getBioSet().randomize(randomString.toString(), pc);
+			pc.getBioSet().randomize(randomString.toString(), pc);
 			refreshDisplay();
 		}
 	}
