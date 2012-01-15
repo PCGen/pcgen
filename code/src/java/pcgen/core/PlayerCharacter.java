@@ -219,6 +219,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
+	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
+
 	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
@@ -12775,17 +12777,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void setHP(PCClassLevel pcl, Integer hp)
 	{
-		setAssoc(pcl, AssociationKey.HIT_POINTS, hp);
+		hitPointFacet.set(id, pcl, hp);
 	}
 
 	public Integer getHP(PCClassLevel pcl)
 	{
-		return getAssoc(pcl, AssociationKey.HIT_POINTS);
+		return hitPointFacet.get(id, pcl);
 	}
 
 	public void removeHP(PCClassLevel pcl)
 	{
-		removeAssoc(pcl, AssociationKey.HIT_POINTS);
+		hitPointFacet.remove(id, pcl);
 	}
 
 }
