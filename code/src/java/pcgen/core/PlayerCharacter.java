@@ -271,6 +271,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
+	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -4889,64 +4890,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		removeAllCharacterSpells(race);
-		addSpells(race);
-
-		Deity deity = deityFacet.get(id);
-		if (deity != null)
-		{
-			addSpells(deity);
-		}
-
-		for (Domain d : domainFacet.getSet(id))
-		{
-			addSpells(d);
-		}
-
-		for (PCClass pcClass : getClassSet())
-		{
-			addSpells(pcClass);
-			int lvl = getLevel(pcClass);
-			for (int i = 0; i <= lvl; i++)
-			{
-				PCClassLevel pcl = getActiveClassLevel(pcClass, i);
-				if (pcl != null)
-				{
-					addSpells(pcl);
-				}
-			}
-		}
-
-		for (Ability ability : getFullAbilitySet())
-		{
-			addSpells(ability);
-		}
-
-		for (Skill skill : getSkillSet())
-		{
-			addSpells(skill);
-		}
-
-		// Domains are skipped - it's assumed that their spells are added to the
-		// first divine spellcasting
-		for (Equipment eq : getEquippedEquipmentSet())
-		{
-			addSpells(eq);
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-			{
-				addSpells(eqMod);
-			}
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-			{
-				addSpells(eqMod);
-			}
-		}
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			addSpells(template);
-		}
+		spellsFacet.process(id);
+		setDirty(true);
 	}
 
 	/**
@@ -8192,7 +8137,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-		setDirty(true);
 	}
 
 	/**
@@ -9274,6 +9218,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
+		sortAssocList(getRace(), AssociationListKey.CHARACTER_SPELLS);
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();

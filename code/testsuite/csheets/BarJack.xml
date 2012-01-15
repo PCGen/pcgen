@@ -1417,35 +1417,6 @@ BIO
 
 		<racial_innate>
 			<spell>
-					<name>Speak with Animals</name>
-					<outputname>Speak with Animals</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Personal</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minutes</duration>
-					<effect>The caster can communicate with natural animals.</effect>
-					<target>The character</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-						<sourcepage>srdspellss.rtf</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>The caster can communicate with natural animals.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
 					<name>Dancing Lights</name>
 					<outputname>Dancing Lights</outputname>
 					<times_memorized>1</times_memorized>
@@ -1530,6 +1501,35 @@ BIO
 					</source>
 					<spell_resistance>No</spell_resistance>
 					<description>Performs minor tricks.</description>
+					<bonusspell></bonusspell>
+				</spell>
+			<spell>
+					<name>Speak with Animals</name>
+					<outputname>Speak with Animals</outputname>
+					<times_memorized>1</times_memorized>
+					<range>Personal</range>
+					<components>V, S</components>
+					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
+					<dc></dc>
+					<duration>1 minutes</duration>
+					<effect>The caster can communicate with natural animals.</effect>
+					<target>The character</target>
+					<saveinfo>None</saveinfo>
+					<school>
+						<school>Divination</school>
+						<subschool></subschool>
+						<descriptor></descriptor>
+						<fullschool>Divination</fullschool>
+					</school>
+					<source>
+						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
+						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+						<sourcepage>srdspellss.rtf</sourcepage>
+						<sourceshort>SRD</sourceshort>
+					</source>
+					<spell_resistance>No</spell_resistance>
+					<description>The caster can communicate with natural animals.</description>
 					<bonusspell></bonusspell>
 				</spell>
 		</racial_innate>
@@ -1550,35 +1550,6 @@ BIO
 
 		<racial_innate_memorized>
 			<spell>
-					<name>Speak with Animals</name>
-					<outputname>Speak with Animals</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Personal</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minutes</duration>
-					<effect>The caster can communicate with natural animals.</effect>
-					<target>The character</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-						<sourcepage>srdspellss.rtf</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>The caster can communicate with natural animals.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
 					<name>Dancing Lights</name>
 					<outputname>Dancing Lights</outputname>
 					<times_memorized>1</times_memorized>
@@ -1663,6 +1634,35 @@ BIO
 					</source>
 					<spell_resistance>No</spell_resistance>
 					<description>Performs minor tricks.</description>
+					<bonusspell></bonusspell>
+				</spell>
+			<spell>
+					<name>Speak with Animals</name>
+					<outputname>Speak with Animals</outputname>
+					<times_memorized>1</times_memorized>
+					<range>Personal</range>
+					<components>V, S</components>
+					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
+					<dc></dc>
+					<duration>1 minutes</duration>
+					<effect>The caster can communicate with natural animals.</effect>
+					<target>The character</target>
+					<saveinfo>None</saveinfo>
+					<school>
+						<school>Divination</school>
+						<subschool></subschool>
+						<descriptor></descriptor>
+						<fullschool>Divination</fullschool>
+					</school>
+					<source>
+						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
+						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+						<sourcepage>srdspellss.rtf</sourcepage>
+						<sourceshort>SRD</sourceshort>
+					</source>
+					<spell_resistance>No</spell_resistance>
+					<description>The caster can communicate with natural animals.</description>
 					<bonusspell></bonusspell>
 				</spell>
 		</racial_innate_memorized>
