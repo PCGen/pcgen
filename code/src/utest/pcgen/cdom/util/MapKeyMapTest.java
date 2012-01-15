@@ -22,6 +22,8 @@
  */
 package pcgen.cdom.util;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -72,12 +74,18 @@ public class MapKeyMapTest extends TestCase
 		nameKey = AspectName.getConstant("Name");
 		breedKey = AspectName.getConstant("breed");
 		
+		List<Aspect> ageList = new ArrayList<Aspect>();
 		ageAspect = new Aspect("age", AGE);
-		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageAspect);
+		ageList.add(ageAspect);
+		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
+		List<Aspect> nameList = new ArrayList<Aspect>();
 		nameAspect = new Aspect("name", NAME);
-		mapKeyMap.addToMapFor(MapKey.ASPECT, nameKey, nameAspect);
+		nameList.add(nameAspect);
+		mapKeyMap.addToMapFor(MapKey.ASPECT, nameKey, nameList);
+		List<Aspect> breedList = new ArrayList<Aspect>();
 		breedAspect = new Aspect("breed", BREED);
-		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedAspect);
+		breedList.add(breedAspect);
+		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedList);
 		
 		super.setUp();
 	}
@@ -89,11 +97,11 @@ public class MapKeyMapTest extends TestCase
 	public void testGet()
 	{
 		assertEquals("Retrieve 3rd item by both keys", breedAspect, mapKeyMap
-			.get(MapKey.ASPECT, breedKey));
+			.get(MapKey.ASPECT, breedKey).get(0));
 		assertEquals("Retrieve 2nd item by both keys", nameAspect, mapKeyMap
-			.get(MapKey.ASPECT, nameKey));
+			.get(MapKey.ASPECT, nameKey).get(0));
 		assertEquals("Retrieve 1st item by both keys", ageAspect, mapKeyMap
-			.get(MapKey.ASPECT, ageKey));
+			.get(MapKey.ASPECT, ageKey).get(0));
 	}
 
 	/**
@@ -109,9 +117,9 @@ public class MapKeyMapTest extends TestCase
 		
 		newMap.putAll(mapKeyMap);
 		assertEquals("Retrieve 3rd item by both keys", breedAspect, newMap
-			.get(MapKey.ASPECT, breedKey));
+			.get(MapKey.ASPECT, breedKey).get(0));
 		assertEquals("Retrieve 1st item by both keys", ageAspect, newMap
-			.get(MapKey.ASPECT, ageKey));
+			.get(MapKey.ASPECT, ageKey).get(0));
 	}
 
 	/**
@@ -121,11 +129,13 @@ public class MapKeyMapTest extends TestCase
 	public void testAddToMapFor()
 	{
 		assertEquals("Validate initial value of age", ageAspect, mapKeyMap
-			.get(MapKey.ASPECT, ageKey));
+			.get(MapKey.ASPECT, ageKey).get(0));
 		Aspect newage = new Aspect("age", "2");
-		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, newage);
-		assertEquals("Validate initial value of age", newage, mapKeyMap
-			.get(MapKey.ASPECT, ageKey));
+		List<Aspect> ageList = new ArrayList<Aspect>();
+		ageList.add(newage);
+		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
+		assertEquals("Validate new value of age", newage, mapKeyMap
+				.get(MapKey.ASPECT, ageKey).get(0));
 	}
 
 	/**
@@ -135,7 +145,7 @@ public class MapKeyMapTest extends TestCase
 	public void testRemoveFromListFor()
 	{
 		assertEquals("Validate initial value of breed", breedAspect, mapKeyMap
-			.get(MapKey.ASPECT, breedKey));
+			.get(MapKey.ASPECT, breedKey).get(0));
 		assertTrue("Should be true as item is present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
 		assertEquals("Validate breed is no longer present", null, mapKeyMap
@@ -204,16 +214,16 @@ public class MapKeyMapTest extends TestCase
 		assertTrue("Should have ASPECT", mapKeyMap
 			.containsMapFor(MapKey.ASPECT));
 
-		Map<AspectName, Aspect> removed = mapKeyMap.removeMapFor(MapKey.ASPECT);
+		Map<AspectName, List<Aspect>> removed = mapKeyMap.removeMapFor(MapKey.ASPECT);
 		assertFalse("Should not have ASPECT", mapKeyMap
 			.containsMapFor(MapKey.ASPECT));
 		assertEquals("Removed map should have all expected elements", 3,
 			removed.size());
 		assertEquals("Retrieve 3rd item", breedAspect, removed
-			.get(breedKey));
+			.get(breedKey).get(0));
 		assertEquals("Retrieve 2nd item", nameAspect, removed
-			.get(nameKey));
+			.get(nameKey).get(0));
 		assertEquals("Retrieve 1st item", ageAspect, removed
-			.get(ageKey));
+			.get(ageKey).get(0));
 	}
 }

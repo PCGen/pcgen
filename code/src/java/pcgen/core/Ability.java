@@ -19,14 +19,19 @@
  */
 package pcgen.core;
 
+import java.util.List;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.utils.MessageType;
@@ -39,6 +44,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * @author   ???
  * @version  $Revision$
  */
+@SuppressWarnings("serial")
 public final class Ability extends PObject implements CategorizedCDOMObject<Ability>
 {
 	public static final CDOMReference<AbilityList> FEATLIST;
@@ -240,5 +246,27 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 			return ListKey.BENEFIT;
 		}
 		return ListKey.DESCRIPTION;
+	}
+
+	public String printAspect(PlayerCharacter pc, AspectName key) {
+		StringBuffer buff = new StringBuffer();
+		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
+		Aspect aspect = lastPassingAspect(aspects, pc);
+		buff.append(aspect.getName()).append(": ");
+		buff.append(aspect.getAspectText(pc, this));
+		return buff.toString();
+	}
+	
+	public Aspect lastPassingAspect(List<Aspect> aspects, PlayerCharacter pc) {
+		Aspect retAspect = null;
+		if(aspects != null) {
+			for(int i = 0; i < aspects.size(); i++) {
+				Aspect testAspect = aspects.get(i);
+				if(testAspect.qualifies(pc, this)) {
+					retAspect = testAspect;
+				}
+			}
+		}
+		return retAspect;
 	}
 }

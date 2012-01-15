@@ -22,6 +22,9 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -32,6 +35,9 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.AlignmentConverter;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
@@ -70,11 +76,28 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Colour"), new Aspect("Colour", "Green"));
-		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Size"), new Aspect("Size", "L"));
-		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), new Aspect("Shape", "Icosahedron"));
-		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), new Aspect("Sides", "20"));
-		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), new Aspect("Age In Years", "2000"));
+		List<Aspect> colourList = new ArrayList<Aspect>();
+		colourList.add(new Aspect("Colour", "Green"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Colour"), colourList);
+		List<Aspect> sizeList = new ArrayList<Aspect>();
+		sizeList.add(new Aspect("Size", "L"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Size"), sizeList);
+		List<Aspect> shapeList = new ArrayList<Aspect>();
+		Aspect cube = new Aspect("Shape", "Cube");
+		Prerequisite prereq = new Prerequisite();
+		prereq.setKind("ALIGN");
+		prereq.setKey(AlignmentConverter.getPCAlignment("LG").getAbb());
+		prereq.setOperator(PrerequisiteOperator.EQ);
+		cube.addPrerequisite(prereq);
+		shapeList.add(cube);
+		shapeList.add(new Aspect("Shape", "Icosahedron"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), shapeList);
+		List<Aspect> sidesList = new ArrayList<Aspect>();
+		sidesList.add(new Aspect("Sides", "20"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), sidesList);
+		List<Aspect> ageList = new ArrayList<Aspect>();
+		ageList.add(new Aspect("Age In Years", "2000"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
 	}
 

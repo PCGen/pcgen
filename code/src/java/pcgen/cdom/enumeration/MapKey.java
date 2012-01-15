@@ -22,6 +22,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.List;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.helper.Aspect;
@@ -53,7 +55,7 @@ public final class MapKey<K, V>
 {
 
 	/** ASPECT - a map key. */
-	public static final MapKey<AspectName, Aspect> ASPECT = new MapKey<AspectName, Aspect>();
+	public static final MapKey<AspectName, List<Aspect>> ASPECT = new MapKey<AspectName, List<Aspect>>();
 	public static final MapKey<String, String> PROPERTY = new MapKey<String, String>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_MASTER_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();

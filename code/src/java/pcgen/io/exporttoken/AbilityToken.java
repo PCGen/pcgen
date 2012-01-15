@@ -34,6 +34,7 @@ import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -559,13 +560,11 @@ public class AbilityToken extends Token
 		StringBuilder buff = new StringBuilder();
 		for (AspectName key : sortedKeys)
 		{
-			Aspect aspect = ability.get(MapKey.ASPECT, key);
 			if (buff.length() > 0)
 			{
 				buff.append(", ");
 			}
-			buff.append(aspect.getName()).append(": ");
-			buff.append(aspect.getAspectText(pc, ability));
+			buff.append(ability.printAspect(pc, key));
 		}
 		return buff.toString();
 	}
@@ -599,7 +598,7 @@ public class AbilityToken extends Token
 		{
 			// Ignore exception - expect this as we can get a String at this point
 		}
-		Aspect target = null;
+		List<Aspect> aspects = null;
 		if (index > -1)
 		{
 			if (index < ability.getSafeSizeOfMapFor(MapKey.ASPECT))
@@ -608,22 +607,26 @@ public class AbilityToken extends Token
 				List<AspectName> sortedKeys =
 						new ArrayList<AspectName>(aspectKeys);
 				Collections.sort(sortedKeys);
-				target = ability.get(MapKey.ASPECT, sortedKeys.get(index));
+				aspects = ability.get(MapKey.ASPECT, sortedKeys.get(index));
 			}
 		}
 		else
 		{
-			target = getAspectByName(ability, key);
+			aspects = getAspectsByName(ability, key);
 		}
 
 		StringBuilder buff = new StringBuilder();
-		if (target != null)
+		if (aspects != null)
 		{
-			if (index > -1)
+			for (int i = 0; i < aspects.size(); i++)
 			{
-				buff.append(target.getName()).append(": ");
+				Aspect aspect = aspects.get(i);
+				if (index > -1 & i == 0)
+				{
+					buff.append(aspect.getName()).append(": ");
+				}
+				buff.append(aspect.getAspectText(pc, ability));
 			}
-			buff.append(target.getAspectText(pc, ability));
 		}
 		return buff.toString();
 	}
@@ -640,7 +643,7 @@ public class AbilityToken extends Token
 	 */
 	private String getHasAspectString(Ability ability, String key)
 	{
-		Aspect target = getAspectByName(ability, key);
+		List<Aspect> target = getAspectsByName(ability, key);
 		if (target == null)
 		{
 			return "N";
@@ -657,7 +660,7 @@ public class AbilityToken extends Token
 	 *            The name of the aspect
 	 * @return The aspect, or null if not present.
 	 */
-	private Aspect getAspectByName(Ability ability, String key)
+	private List<Aspect> getAspectsByName(Ability ability, String key)
 	{
 		if (key == null)
 		{

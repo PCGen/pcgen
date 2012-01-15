@@ -22,6 +22,9 @@
  */
 package plugin.lsttokens.ability;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -105,8 +108,15 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ value);
 		}
 		Aspect a = parseAspect(key, val);
-		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), a);
-
+		List<Aspect> aspects = null;
+		MapChanges<AspectName, List<Aspect>> mc = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
+		aspects = fullMap.get(a.getKey());
+		if (aspects == null) {
+			aspects = new ArrayList<Aspect>();
+		}
+		aspects.add(a);
+		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), aspects);
 		return ParseResult.SUCCESS;
 	}
 
@@ -172,8 +182,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 */
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		MapChanges<AspectName, Aspect> changes = context.getObjectContext()
-				.getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> changes = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -182,9 +191,11 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		Set<AspectName> keys = changes.getAdded().keySet();
 		for (AspectName an : keys)
 		{
-			Aspect q = changes.getAdded().get(an);
-			set.add(new StringBuilder().append(q.getName()).append(
-					Constants.PIPE).append(q.getPCCText()).toString());
+			List<Aspect> aspects = changes.getAdded().get(an);
+			if(aspects.size() > 0) {
+				Aspect q = aspects.get(0);
+				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE).append(q.getPCCText()).toString());
+			}
 		}
 		return set.toArray(new String[set.size()]);
 	}

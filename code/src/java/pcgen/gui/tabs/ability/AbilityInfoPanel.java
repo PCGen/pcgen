@@ -46,7 +46,6 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
@@ -64,6 +63,7 @@ import pcgen.util.PropertyFactory;
  * 
  * @since 5.11.1
  */
+@SuppressWarnings("serial")
 public class AbilityInfoPanel extends JPanel
 {
 	private PlayerCharacter thePC;
@@ -191,13 +191,11 @@ public class AbilityInfoPanel extends JPanel
 			StringBuffer buff = new StringBuffer();
 			for (AspectName key : aspectKeys)
 			{
-				Aspect aspect = theAbility.get(MapKey.ASPECT, key);
 				if (buff.length() > 0)
 				{
 					buff.append(", ");
 				}
-				buff.append(aspect.getName()).append(": ");
-				buff.append(aspect.getAspectText(thePC, theAbility));
+				buff.append(theAbility.printAspect(thePC, key));
 			}
 			sb.append(BR);
 			sb.append(PropertyFactory.getFormattedString(
