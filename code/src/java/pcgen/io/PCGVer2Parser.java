@@ -1122,8 +1122,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				parseSpellLine(line);
 			}
-
-			sortCharacterSpells();
 		}
 
 		/*
@@ -5391,15 +5389,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			aEq.setAppliedName(cKey);
 			thePC.addTempBonusItemList(aEq);
-		}
-	}
-
-	private void sortCharacterSpells()
-	{
-		// now sort each classes spell list
-		for (PCClass pcClass : thePC.getClassSet())
-		{
-			thePC.sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
 	}
 

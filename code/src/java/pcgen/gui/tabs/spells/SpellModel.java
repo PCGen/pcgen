@@ -1137,7 +1137,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				 */
 				else
 				{
-					Collection<CharacterSpell> cSpells = pc.getCharacterSpells(aClass);
+					Collection<? extends CharacterSpell> sp = pc.getCharacterSpells(aClass);
+					List<CharacterSpell> cSpells = new ArrayList<CharacterSpell>(sp);
 					// Add in the spells granted by objects
 					SpellLevel.addBonusKnowSpellsToList(pc, aClass, cSpells);
 					

@@ -218,7 +218,6 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		{
 			return false;
 		}
-
 		for (SpellInfo s : infoList)
 		{
 			if (s.getActualLevel() == level)
@@ -294,7 +293,59 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 */
 	public int compareTo(final CharacterSpell obj)
 	{
-		return spell.compareTo(obj.spell);
+		int compare = spell.compareTo(obj.spell);
+		if (compare == 0)
+		{
+			if (fixedCasterLevel == null)
+			{
+				if (obj.fixedCasterLevel != null)
+				{
+					compare = -1;
+				}
+			}
+			else if (obj.fixedCasterLevel == null)
+			{
+				compare = 1;
+			}
+			else
+			{
+				compare = fixedCasterLevel.compareTo(obj.fixedCasterLevel);
+			}
+		}
+		if (compare == 0)
+		{
+			compare = owner.getClass().toString().compareTo(obj.owner.getClass().toString());
+		}
+		if (compare == 0)
+		{
+			compare = owner.compareTo(obj.owner);
+		}
+		if (compare == 0)
+		{
+			int thisILsize = infoList.size();
+			int otherILsize = obj.infoList.size();
+			if (thisILsize < otherILsize)
+			{
+				compare = -1;
+			}
+			else if (thisILsize > otherILsize)
+			{
+				compare = 1;
+			}
+			else
+			{
+				//compare contents...
+				for (int i = 0; i < thisILsize; i++)
+				{
+					compare = infoList.get(i).compareTo(obj.infoList.get(i));
+					if (compare != 0)
+					{
+						break;
+					}
+				}
+			}
+		}
+		return compare;
 	}
 
 	/**

@@ -24,10 +24,11 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -502,6 +503,37 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 					return true;
 				}
 			}
+		}
+		return false;
+	}
+
+	public int getCountFrom(CharID id, CDOMObject owner)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		int count = 0;
+		if (componentMap != null)
+		{
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
+			{
+				Entry<T, Set<Object>> me = it.next();
+				Set<Object> set = me.getValue();
+				if (set.contains(owner))
+				{
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public boolean containsFrom(CharID id, T obj, CDOMObject owner)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			Set<Object> sources = componentMap.get(obj);
+			return sources != null && sources.contains(owner);
 		}
 		return false;
 	}

@@ -227,7 +227,7 @@ public class SpellLevel
 	 *            The list to be populated with the spells
 	 */
 	public static void addBonusKnowSpellsToList(PlayerCharacter pc, PObject aClass,
-		Collection<CharacterSpell> cSpells)
+		List<CharacterSpell> cSpells)
 	{
 		if (!(aClass instanceof PCClass))
 		{

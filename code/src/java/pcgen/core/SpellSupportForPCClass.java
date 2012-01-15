@@ -862,7 +862,7 @@ public class SpellSupportForPCClass
 
 		List<? extends CDOMList<Spell>> lists = source.getSpellLists(aPC);
 
-		for (Iterator<CharacterSpell> iter = aPC.getCharacterSpells(source).iterator(); iter.hasNext();)
+		for (Iterator<? extends CharacterSpell> iter = aPC.getCharacterSpells(source).iterator(); iter.hasNext();)
 		{
 			final CharacterSpell charSpell = iter.next();
 

@@ -396,7 +396,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 	{
 		if (serial < pc.getSerial())
 		{
-			Collection<CharacterSpell> spellList;
+			Collection<? extends CharacterSpell> spellList;
 			String spellBook;
 			if (!racial)
 			{

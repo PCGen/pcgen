@@ -41,7 +41,7 @@ import pcgen.core.Ability;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SpellInfo
+public final class SpellInfo implements Comparable<SpellInfo>
 {
 	/** The special value for number of times per unit for 'At Will' spells. */
 	public static final int TIMES_AT_WILL = -1;
@@ -216,6 +216,173 @@ public final class SpellInfo
 	public void setFixedConcentration(final String fixedConcentration)
 	{
 		this.fixedConcentration = fixedDC;
+	}
+
+	@Override
+	public int compareTo(SpellInfo other)
+	{
+		//We can't compare based on owner since that would be infinite loop
+		int compare = book.compareTo(other.book);
+		if (compare == 0)
+		{
+			if (origLevel < other.origLevel)
+			{
+				compare = -1;
+			}
+			else if (origLevel > other.origLevel)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (actualLevel < other.actualLevel)
+			{
+				compare = -1;
+			}
+			else if (actualLevel > other.actualLevel)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (times < other.times)
+			{
+				compare = -1;
+			}
+			else if (times > other.times)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (timeUnit == null)
+			{
+				if (other.timeUnit != null)
+				{
+					compare = -1;
+				}
+			}
+			else if (other.timeUnit == null)
+			{
+				compare = 1;
+			}
+			else
+			{
+				compare = timeUnit.compareTo(other.timeUnit);
+			}
+		}
+		if (compare == 0)
+		{
+			if (actualPPCost < other.actualPPCost)
+			{
+				compare = -1;
+			}
+			else if (actualPPCost > other.actualPPCost)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (actualSpellPointCost < other.actualSpellPointCost)
+			{
+				compare = -1;
+			}
+			else if (actualSpellPointCost > other.actualSpellPointCost)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (numPages < other.numPages)
+			{
+				compare = -1;
+			}
+			else if (numPages > other.numPages)
+			{
+				compare = 1;
+			}
+		}
+		if (compare == 0)
+		{
+			if (fixedDC == null)
+			{
+				if (other.fixedDC != null)
+				{
+					compare = -1;
+				}
+			}
+			else if (other.fixedDC == null)
+			{
+				compare = 1;
+			}
+			else
+			{
+				compare = fixedDC.compareTo(other.fixedDC);
+			}
+		}
+		if (compare == 0)
+		{
+			if (fixedConcentration == null)
+			{
+				if (other.fixedConcentration != null)
+				{
+					compare = -1;
+				}
+			}
+			else if (other.fixedConcentration == null)
+			{
+				compare = 1;
+			}
+			else
+			{
+				compare = fixedConcentration.compareTo(other.fixedConcentration);
+			}
+		}
+		if (compare == 0)
+		{
+			if (featList == null)
+			{
+				if (other.featList != null)
+				{
+					compare = -1;
+				}
+			}
+			else if (other.featList == null)
+			{
+				compare = 1;
+			}
+			else
+			{
+				int thisILsize = featList.size();
+				int otherILsize = other.featList.size();
+				if (thisILsize < otherILsize)
+				{
+					compare = -1;
+				}
+				else if (thisILsize > otherILsize)
+				{
+					compare = 1;
+				}
+				else
+				{
+					//compare contents...
+					for (int i = 0; i < thisILsize; i++)
+					{
+						compare = featList.get(i).compareTo(other.featList.get(i));
+						if (compare != 0)
+						{
+							break;
+						}
+					}
+				}
+			}
+		}
+		return compare;
 	}
 
 }

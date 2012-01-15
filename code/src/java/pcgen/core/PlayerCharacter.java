@@ -272,6 +272,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
+	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -8074,71 +8075,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return lvlMap;
 	}
 
-	private void addSpells(final CDOMObject obj)
-	{
-		Race race = getRace();
-		if (race == null || obj == null)
-		{
-			return;
-		}
-		Collection<CDOMReference<Spell>> mods = obj.getListMods(Spell.SPELLS);
-		if (mods == null)
-		{
-			return;
-		}
-		for (CDOMReference<Spell> ref : mods)
-		{
-			Collection<AssociatedPrereqObject> assocs =
-					obj.getListAssociations(Spell.SPELLS, ref);
-			Collection<Spell> spells = ref.getContainedObjects();
-			for (AssociatedPrereqObject apo : assocs)
-			{
-				if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this,
-					null))
-				{
-					continue;
-				}
-				for (Spell sp : spells)
-				{
-					Formula times =
-							apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
-					int resolvedTimes =
-							times.resolve(this, obj.getQualifiedKey())
-								.intValue();
-					String timeunit =
-							apo.getAssociation(AssociationKey.TIME_UNIT);
-					// The timeunit needs to default to day as per the docs
-					if (timeunit == null) 
-					{
-						timeunit = "Day";
-					}
-					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
-
-					final Spell newSpell = sp;
-					final List<CharacterSpell> sList =
-							getCharacterSpells(race, newSpell, book, -1);
-
-					if (!sList.isEmpty())
-					{
-						continue;
-					}
-
-					final CharacterSpell cs = new CharacterSpell(race, sp);
-					cs.setFixedCasterLevel(apo
-						.getAssociation(AssociationKey.CASTER_LEVEL));
-					SpellInfo si = cs.addInfo(0, resolvedTimes, book);
-					si.setTimeUnit(timeunit);
-					si.setFixedDC(apo
-						.getAssociation(AssociationKey.DC_FORMULA));
-
-					addSpellBook(new SpellBook(book,
-						SpellBook.TYPE_INNATE_SPELLS));
-					addCharacterSpell(race, cs);
-				}
-			}
-		}
-	}
-
 	/**
 	 * Get the class level as a String
 	 * 
@@ -9212,13 +9148,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		populateSkills(includeSkills);
-
-		// Sort the characters spell lists
-		for (PObject pcClass : getClassSet())
-		{
-			sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
-		}
-		sortAssocList(getRace(), AssociationListKey.CHARACTER_SPELLS);
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
@@ -11386,11 +11315,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		assocSupt.addAssoc(obj, ak, o);
 	}
 
-	public <T> boolean containsAssoc(Object obj, AssociationListKey<T> ak, T o)
-	{
-		return assocSupt.containsAssoc(obj, ak, o);
-	}
-
 	public int getAssocCount(Object obj, AssociationListKey<?> ak)
 	{
 		return assocSupt.getAssocCount(obj, ak);
@@ -11416,11 +11340,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return new ArrayList<T>();
 		}
 		return list;
-	}
-
-	public boolean hasAssocs(Object obj, AssociationListKey<?> ak)
-	{
-		return assocSupt.hasAssocs(obj, ak);
 	}
 
 	public <T> List<T> removeAllAssocs(Object obj, AssociationListKey<T> ak)
@@ -11488,11 +11407,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return sb.toString();
-	}
-
-	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
-	{
-		return assocSupt.containsAssocList(o, alk);
 	}
 
 	public HashMapToList<CDOMList<Spell>, Integer> getMasterLevelInfo(Spell sp)
@@ -12492,12 +12406,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasCharacterSpells(CDOMObject cdo)
 	{
-		return hasAssocs(cdo, AssociationListKey.CHARACTER_SPELLS);
+		return activeSpellsFacet.containsFrom(id, cdo);
 	}
 
-	public Collection<CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
 	{
-		return getSafeAssocList(cdo, AssociationListKey.CHARACTER_SPELLS);
+		return activeSpellsFacet.getSet(id, cdo);
 	}
 
 	public Collection<CharacterSpell> getCharacterSpells(PObject spellSource,
@@ -12542,27 +12456,27 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getCharacterSpellCount(CDOMObject cdo)
 	{
-		return getAssocCount(cdo, AssociationListKey.CHARACTER_SPELLS);
+		return activeSpellsFacet.getCountFrom(id, cdo);
 	}
 
 	public void addCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
-		addAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+		activeSpellsFacet.add(id, cs, cdo);
 	}
 
 	public void removeCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
-		removeAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+		activeSpellsFacet.remove(id, cs, cdo);
 	}
 
 	public boolean containsCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
-		return containsAssoc(cdo, AssociationListKey.CHARACTER_SPELLS, cs);
+		return activeSpellsFacet.containsFrom(id, cs, cdo);
 	}
 
 	private void removeAllCharacterSpells(CDOMObject cdo)
 	{
-		removeAllAssocs(cdo, AssociationListKey.CHARACTER_SPELLS);
+		activeSpellsFacet.removeAll(id, cdo);
 	}
 
 	public void addBonus(BonusObj bonus, CDOMObject source)

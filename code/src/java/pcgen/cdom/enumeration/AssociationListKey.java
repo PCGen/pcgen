@@ -91,8 +91,6 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<CDOMList<Spell>> SPELL_LIST_CACHE = new AssociationListKey<CDOMList<Spell>>();
 
-	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS = new AssociationListKey<CharacterSpell>();
-
 	public static final AssociationListKey<AbilitySelection> TEMPLATE_FEAT = new AssociationListKey<AbilitySelection>();
 
 	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
