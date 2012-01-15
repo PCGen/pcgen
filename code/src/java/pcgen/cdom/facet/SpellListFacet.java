@@ -17,9 +17,29 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.core.spell.Spell;
 
-public class SpellListFacet extends AbstractSourcedListFacet<CDOMList<Spell>>
+public class SpellListFacet extends
+		AbstractSourcedListFacet<CDOMListObject<Spell>>
 {
+
+	@Override
+	public void add(CharID id, CDOMListObject<Spell> obj, Object source)
+	{
+		if (obj == null)
+		{
+			/*
+			 * TODO This null check is here primarily to protect the test cases
+			 * in the "test" directory that create a class, but do not give that
+			 * class the default spell list associated with that class. Note if
+			 * the TO-DO mentioned in AbstractReferenceContext about limiting
+			 * spell list creation to only spell casting classes, then this null
+			 * check becomes more important :) - thpr
+			 */
+			return;
+		}
+		super.add(id, obj, source);
+	}
 }

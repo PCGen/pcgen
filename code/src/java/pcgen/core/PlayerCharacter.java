@@ -12755,19 +12755,28 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		hitPointFacet.remove(id, pcl);
 	}
 
-	public void clearSpellCache(PCClass cl)
+	public void addClassSpellList(CDOMListObject<Spell> list, PCClass pcClass)
 	{
-		spellListFacet.removeAll(id, cl);
+		spellListFacet.add(id, list, pcClass);
 	}
 
-	public void addToSpellCache(PCClass cl, CDOMListObject<Spell> list)
+	public void chooseClassSpellList(PCClass cl)
 	{
-		spellListFacet.add(id, list, cl);
+		TransitionChoice<CDOMListObject<Spell>> csc = cl.get(ObjectKey.SPELLLIST_CHOICE);
+		// if no entry or no choices, just return
+		if (csc == null || (getLevel(cl) < 1))
+		{
+			return;
+		}
+	
+		for (CDOMListObject<Spell> st : csc.driveChoice(this))
+		{
+			addClassSpellList(st, cl);
+		}
 	}
 
-	public List<? extends CDOMList<Spell>> getSpellCache(PCClass cl)
+	public List<? extends CDOMListObject<Spell>> getClassSpellList(PCClass pcClass)
 	{
-		return spellListFacet.getSet(id, cl);
+		return spellListFacet.getSet(id, pcClass);
 	}
-
 }

@@ -2078,13 +2078,13 @@ final class PCGVer2Creator implements IOConstants
 	{
 		for (PCClass pcClass : thePC.getClassSet())
 		{
-			if ((thePC.getAssocList(pcClass, AssociationListKey.CLASSSPELLLIST) != null)
-				&& (thePC.getAssocList(pcClass, AssociationListKey.CLASSSPELLLIST).size() > 0))
+			List<? extends CDOMListObject<Spell>> assocList = thePC.getClassSpellList(pcClass);
+			if ((assocList != null) && (assocList.size() > 0))
 			{
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
-				for (CDOMListObject<Spell> spell : thePC.getAssocList(pcClass, AssociationListKey.CLASSSPELLLIST))
+				for (CDOMListObject<Spell> spell : assocList)
 				{
 					buffer.append('|');
 					if (ClassSpellList.class.equals(spell.getClass()))

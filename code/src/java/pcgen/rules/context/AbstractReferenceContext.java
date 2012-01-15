@@ -319,7 +319,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 				skl.addType(Type.MONSTER);
 			}
 			pcc.put(ObjectKey.CLASS_SKILLLIST, skl);
-			// TODO Need to limit which are built to only spellcasters...
+			/*
+			 * TODO Need to limit which are built to only spellcasters... If you
+			 * do that, please see TO-DO in SpellListFacet
+			 */
 			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
 			String spelltype = pcc.get(StringKey.SPELLTYPE);
 			if (spelltype != null)

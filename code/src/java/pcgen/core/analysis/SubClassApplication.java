@@ -270,7 +270,6 @@ public class SubClassApplication
 			}
 		}
 	
-		pc.clearSpellCache(cl);
 		cl.getSpellLists(pc);
 	}
 

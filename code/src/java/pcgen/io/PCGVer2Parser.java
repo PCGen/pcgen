@@ -4218,14 +4218,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				ClassSpellList csl =
 						refContext.silentlyGetConstructedCDOMObject(
 							ClassSpellList.class, tok.substring(6));
-				aClass.addClassSpellList(csl, thePC);
+				thePC.addClassSpellList(csl, aClass);
 			}
 			else if (tok.startsWith("DOMAIN."))
 			{
 				DomainSpellList dsl =
 						refContext.silentlyGetConstructedCDOMObject(
 							DomainSpellList.class, tok.substring(7));
-				aClass.addClassSpellList(dsl, thePC);
+				thePC.addClassSpellList(dsl, aClass);
 			}
 			else
 			{
@@ -4242,12 +4242,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								DomainSpellList.class, tok);
 					if (dsl != null)
 					{
-						aClass.addClassSpellList(dsl, thePC);
+						thePC.addClassSpellList(dsl, aClass);
 					}
 				}
 				else
 				{
-					aClass.addClassSpellList(csl, thePC);
+					thePC.addClassSpellList(csl, aClass);
 				}
 			}
 		}

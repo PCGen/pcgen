@@ -31,7 +31,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
-import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.identifier.SpellSchool;
@@ -82,8 +81,6 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<NamedValue> SKILL_RANK = new AssociationListKey<NamedValue>();
 
 	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
-
-	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
 
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 

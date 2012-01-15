@@ -64,7 +64,6 @@ import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.ClassSkillApplication;
-import pcgen.core.analysis.ClassSpellApplication;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.ExchangeLevelApplication;
 import pcgen.core.analysis.SizeUtilities;
@@ -643,16 +642,6 @@ public class PCClass extends PObject
 		}
 
 		return pccTxt.toString();
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public void addClassSpellList(CDOMListObject<Spell> list, PlayerCharacter pc)
-	{
-		pc.addAssoc(this, AssociationListKey.CLASSSPELLLIST, list);
-		pc.clearSpellCache(this);
 	}
 
 	/*
@@ -1744,32 +1733,19 @@ public class PCClass extends PObject
 	@Override
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{
-		List<? extends CDOMList<Spell>> stableSpellList = pc.getSpellCache(this);
-		if (stableSpellList != null)
+		List<? extends CDOMListObject<Spell>> 
+		classSpellList = pc.getClassSpellList(this);
+		if (classSpellList.isEmpty())
 		{
-			return stableSpellList;
-		}
+			pc.chooseClassSpellList(this);
+			classSpellList = pc.getClassSpellList(this);
 
-		List<CDOMListObject<Spell>> classSpellList = pc.getAssocList(this,
-				AssociationListKey.CLASSSPELLLIST);
-		if (classSpellList == null)
-		{
-			ClassSpellApplication.chooseClassSpellList(pc, this);
-
-			classSpellList = pc.getAssocList(this,
-					AssociationListKey.CLASSSPELLLIST);
-
-			if (classSpellList == null)
+			if (classSpellList.isEmpty())
 			{
 				ClassSpellList defaultList = get(ObjectKey.CLASS_SPELLLIST);
-				pc.addToSpellCache(this, defaultList);
+				pc.addClassSpellList(defaultList, this);
 				return Collections.singletonList(defaultList);
 			}
-		}
-
-		for (CDOMListObject<Spell> list : classSpellList)
-		{
-			pc.addToSpellCache(this, list);
 		}
 		return classSpellList;
 	}
