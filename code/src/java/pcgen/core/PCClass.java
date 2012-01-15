@@ -652,7 +652,7 @@ public class PCClass extends PObject
 	public void addClassSpellList(CDOMListObject<Spell> list, PlayerCharacter pc)
 	{
 		pc.addAssoc(this, AssociationListKey.CLASSSPELLLIST, list);
-		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
+		pc.clearSpellCache(this);
 	}
 
 	/*
@@ -1744,8 +1744,7 @@ public class PCClass extends PObject
 	@Override
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{
-		List<CDOMList<Spell>> stableSpellList = pc.getAssocList(this,
-				AssociationListKey.SPELL_LIST_CACHE);
+		List<CDOMList<Spell>> stableSpellList = pc.getSpellCache(this);
 		if (stableSpellList != null)
 		{
 			return stableSpellList;
@@ -1763,14 +1762,14 @@ public class PCClass extends PObject
 			if (classSpellList == null)
 			{
 				ClassSpellList defaultList = get(ObjectKey.CLASS_SPELLLIST);
-				pc.addAssoc(this, AssociationListKey.SPELL_LIST_CACHE, defaultList);
+				pc.addToSpellCache(this, defaultList);
 				return Collections.singletonList(defaultList);
 			}
 		}
 
-		for (CDOMListObject<Spell> keyStr : classSpellList)
+		for (CDOMListObject<Spell> list : classSpellList)
 		{
-			pc.addAssoc(this, AssociationListKey.SPELL_LIST_CACHE, keyStr);
+			pc.addToSpellCache(this, list);
 		}
 		return classSpellList;
 	}

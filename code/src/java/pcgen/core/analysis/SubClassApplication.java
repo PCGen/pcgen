@@ -27,7 +27,6 @@ import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -271,7 +270,7 @@ public class SubClassApplication
 			}
 		}
 	
-		pc.removeAllAssocs(cl, AssociationListKey.SPELL_LIST_CACHE);
+		pc.clearSpellCache(cl);
 		cl.getSpellLists(pc);
 	}
 

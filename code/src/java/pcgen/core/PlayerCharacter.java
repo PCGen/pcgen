@@ -56,6 +56,7 @@ import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
@@ -12751,6 +12752,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void removeHP(PCClassLevel pcl)
 	{
 		hitPointFacet.remove(id, pcl);
+	}
+
+	public void clearSpellCache(PCClass cl)
+	{
+		removeAllAssocs(cl, AssociationListKey.SPELL_LIST_CACHE);
+	}
+
+	public void addToSpellCache(PCClass cl, CDOMListObject<Spell> list)
+	{
+		addAssoc(cl, AssociationListKey.SPELL_LIST_CACHE, list);
+	}
+
+	public List<CDOMList<Spell>> getSpellCache(PCClass cl)
+	{
+		return getAssocList(cl, AssociationListKey.SPELL_LIST_CACHE);
 	}
 
 }
