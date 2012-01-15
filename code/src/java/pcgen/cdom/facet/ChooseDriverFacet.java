@@ -50,13 +50,15 @@ public class ChooseDriverFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		CDOMObject cdo = dfce.getCDOMObject();
 		if (pc.isImporting())
 		{
-			String fullassoc = getSource(pc.getCharID(), cdo);
+			String fullassoc = getSource(id, cdo);
 			if (fullassoc != null)
 			{
 				processAssociations(pc, cdo, fullassoc);
@@ -126,6 +128,7 @@ public class ChooseDriverFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 	}
