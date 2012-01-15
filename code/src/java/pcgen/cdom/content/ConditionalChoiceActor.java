@@ -73,6 +73,7 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param choice
 	 *            The choice being applied to the given PlayerCharacter
 	 */
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject cdo, String choice)
 	{
 		if (qualifies(pc, cdo))
@@ -97,6 +98,7 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param choice
 	 *            The choice being removed from the given PlayerCharacter
 	 */
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject cdo, String choice)
 	{
 		actor.remove(pc, cdo, choice);
@@ -137,6 +139,7 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * 
 	 * @return The source of this ConditionalChoiceActor
 	 */
+	@Override
 	public String getSource()
 	{
 		return actor.getSource();
@@ -149,6 +152,7 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * 
 	 * @return The LST format of this ConditionalChoiceActor
 	 */
+	@Override
 	public String getLstFormat() throws PersistenceLayerException
 	{
 		StringBuilder sb = new StringBuilder();

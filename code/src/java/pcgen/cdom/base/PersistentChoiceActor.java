@@ -38,7 +38,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * format which restricts certain characters (such as URLs), it simply
 	 * encodes into an identifying String. There is no guarantee that this
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that the decodeChoice method of the PersistentChoiceActor
+	 * identifying such that the decodeChoice method of the PersistentChoiceActor
 	 * is capable of decoding the String into the choice object.
 	 * 
 	 * @param item
@@ -54,7 +54,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * format to be passed into this method is defined solely by the return
 	 * result of the encodeChoice method. There is no guarantee that the
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that this method is capable of decoding the String into
+	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
 	 * @param persistentFormat

@@ -37,16 +37,19 @@ public abstract class CDOMListObject<T extends PrereqObject> extends
 	private String keyName = null;
 	private URI sourceURI = null;
 
+	@Override
 	public String getKeyName()
 	{
 		return (keyName == null) ? name : keyName;
 	}
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -57,21 +60,25 @@ public abstract class CDOMListObject<T extends PrereqObject> extends
 		keyName = key;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return name;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getKeyName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public void setName(String n)
 	{
 		name = n;

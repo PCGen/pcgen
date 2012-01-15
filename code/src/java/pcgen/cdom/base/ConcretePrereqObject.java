@@ -58,8 +58,9 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * returned List will not modify this ConcretePrereqObject and modification
 	 * of this ConcretePrereqObject will not modify the returned List.
 	 * 
-	 * @return A List of Prerequesite objects contained in the PrereqObject.
+	 * @return A List of Prerequisite objects contained in the PrereqObject.
 	 */
+	@Override
 	public List<Prerequisite> getPrerequisiteList()
 	{
 		if (thePrereqs == null)
@@ -137,6 +138,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 *            A Collection of Prerequisite objects to added to the
 	 *            ConcretePrereqObject.
 	 */
+	@Override
 	public void addAllPrerequisites(final Collection<Prerequisite> prereqs)
 	{
 		if (prereqs == null || prereqs.isEmpty())
@@ -162,6 +164,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * @param preReq
 	 *            The Prerequisite to add to the ConcretePrereqObject.
 	 */
+	@Override
 	public void addPrerequisite(Prerequisite preReq)
 	{
 		if (preReq == null)
@@ -178,6 +181,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	/**
 	 * Remove All Prerequisites contained in the ConcretePrereqObject.
 	 */
+	@Override
 	public void clearPrerequisiteList()
 	{
 		thePrereqs = null;
@@ -190,6 +194,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * @return the number of Prerequisites contained in the
 	 *         ConcretePrereqObject.
 	 */
+	@Override
 	public int getPrerequisiteCount()
 	{
 		if (thePrereqs == null)
@@ -206,6 +211,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * @return true if this ConcretePrereqObject contains any Prerequisites;
 	 *         false otherwise.
 	 */
+	@Override
 	public boolean hasPrerequisites()
 	{
 		return thePrereqs != null;

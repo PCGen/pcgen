@@ -41,6 +41,7 @@ public class ClassSkillList extends CDOMListObject<Skill>
 	 * 
 	 * @return the Skill Class object (Skill.class)
 	 */
+	@Override
 	public Class<Skill> getListClass()
 	{
 		return Skill.class;
@@ -49,6 +50,7 @@ public class ClassSkillList extends CDOMListObject<Skill>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		if ((type.length() == 0) || (types == null))

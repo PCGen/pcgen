@@ -107,6 +107,7 @@ public class FixedSizeFormula implements Formula
 	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
 	 *         represents.
 	 */
+	@Override
 	public Integer resolve(PlayerCharacter pc, String source)
 	{
 		return SizeUtilities.sizeInt(size.getAbbreviation());
@@ -134,6 +135,7 @@ public class FixedSizeFormula implements Formula
 	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
 	 *         represents.
 	 */
+	@Override
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String source)
 	{
@@ -148,11 +150,13 @@ public class FixedSizeFormula implements Formula
 	 * 
 	 * @return true
 	 */
+	@Override
 	public boolean isStatic()
 	{
 		return true;
 	}
 
+	@Override
 	public boolean isValid()
 	{
 		return true;

@@ -127,14 +127,14 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	}
 
 	/**
-	 * Returns the "full" Key requried to fully resolve both the Ability and the
+	 * Returns the "full" Key required to fully resolve both the Ability and the
 	 * selection for this AbilitySelection. The choice is encoded in parenthesis
 	 * after the ability key.
 	 * 
 	 * Note: This is primarily used for compatibility with "old" (5.x) style
 	 * core objects and generally use of this method is discouraged.
 	 * 
-	 * @return The "full" Key requried to fully resolve both the Ability and the
+	 * @return The "full" Key required to fully resolve both the Ability and the
 	 *         selection for this AbilitySelection.
 	 */
 	public String getFullAbilityKey()
@@ -209,7 +209,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * stored into a file or format which restricts certain characters (such as
 	 * URLs), it simply encodes into an identifying String. There is no
 	 * guarantee that this encoding is human readable, simply that the encoding
-	 * is uniquely identifing such that the
+	 * is uniquely identifying such that the
 	 * getAbilitySelectionFromPersistentFormat method of AbilitySelection is
 	 * capable of decoding the String into an AbilitySelection.
 	 * 
@@ -237,7 +237,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * Decodes the given String into an AbilitySelection. The String format to
 	 * be passed into this method is defined solely by the return result of the
 	 * getPersistentFormat method. There is no guarantee that the encoding is
-	 * human readable, simply that the encoding is uniquely identifing such that
+	 * human readable, simply that the encoding is uniquely identifying such that
 	 * this method is capable of decoding the String into an AbilitySelection.
 	 * 
 	 * @param persistentFormat
@@ -292,7 +292,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 		{
 			/*
 			 * No need to check for MULT:YES/NO here, as that is checked
-			 * implicity in the construction of AbilitySelection below
+			 * implicitly in the construction of AbilitySelection below
 			 */
 			sel = st.nextToken();
 		}
@@ -329,6 +329,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 		return ability;
 	}
 
+	@Override
 	public int compareTo(AbilitySelection other)
 	{
 		int base = ability.compareTo(other.ability);

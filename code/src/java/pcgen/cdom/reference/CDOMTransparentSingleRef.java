@@ -208,6 +208,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * @throws NullPointerException
 	 *             if the given ReferenceManufacturer is null
 	 */
+	@Override
 	public void resolve(ReferenceManufacturer<T> rm)
 	{
 		if (rm.getReferenceClass().equals(getReferenceClass()))
@@ -252,6 +253,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * 
 	 * @return The GroupingState for this CDOMTransparentSingleRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;

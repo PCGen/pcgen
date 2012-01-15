@@ -43,6 +43,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Deity> dfce)
 	{
 		Deity deity = dfce.getCDOMObject();
@@ -78,6 +79,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Deity> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());

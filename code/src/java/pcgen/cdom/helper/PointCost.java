@@ -32,7 +32,7 @@ public class PointCost
 	private final String type;
 
 	/**
-	 * The point cost of the characterisic
+	 * The point cost of the characteristic
 	 */
 	private final int cost;
 
@@ -42,7 +42,7 @@ public class PointCost
 	 * @param key
 	 *            The characteristic for which this PointCost defines a cost
 	 * @param pointcost
-	 *            The point cost of the characterisic
+	 *            The point cost of the characteristic
 	 * @throws IllegalArgumentException
 	 *             if the given characteristic is null
 	 */
@@ -68,9 +68,9 @@ public class PointCost
 	}
 
 	/**
-	 * Returns the point cost of the characterisic
+	 * Returns the point cost of the characteristic
 	 * 
-	 * @return The point cost of the characterisic
+	 * @return The point cost of the characteristic
 	 */
 	public int getCost()
 	{

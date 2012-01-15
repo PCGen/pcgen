@@ -219,21 +219,25 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		}
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	@Override
 	public void levelChanged(LevelChangeEvent lce)
 	{
 		update(lce.getCharID());
 	}
 
+	@Override
 	public void bonusChange(BonusChangeEvent bce)
 	{
 		update(bce.getCharID());

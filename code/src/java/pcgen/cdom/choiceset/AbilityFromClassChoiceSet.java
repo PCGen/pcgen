@@ -73,6 +73,7 @@ public class AbilityFromClassChoiceSet implements
 	 * @return A representation of this AbilityFromClassChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return "CLASS." + classRef.getLSTformat(useAny);
@@ -114,6 +115,7 @@ public class AbilityFromClassChoiceSet implements
 	 * 
 	 * @return the Class contained within this AbilityFromClassChoiceSet
 	 */
+	@Override
 	public Class<? super AbilitySelection> getChoiceClass()
 	{
 		return AbilitySelection.class;
@@ -135,6 +137,7 @@ public class AbilityFromClassChoiceSet implements
 	 * @return A Set containing the Objects which this AbilityFromClassChoiceSet
 	 *         contains.
 	 */
+	@Override
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		PCClass aClass = pc.getClassKeyed(classRef.resolvesTo().getKeyName());
@@ -176,6 +179,7 @@ public class AbilityFromClassChoiceSet implements
 	 * 
 	 * @return The GroupingState for this AbilityFromClassChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

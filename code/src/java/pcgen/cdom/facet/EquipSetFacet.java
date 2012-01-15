@@ -236,6 +236,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 	 * Notify the facet's listeners that data has been added
 	 * @param dfce The data facet change event.
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		//Ignore
@@ -245,6 +246,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 	 * Notify the facet's listeners that data has been removed.
 	 * @param dfce The data facet change event.
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		delEquipSetItem(dfce.getCharID(), dfce.getCDOMObject());

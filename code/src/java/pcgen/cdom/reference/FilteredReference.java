@@ -91,6 +91,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

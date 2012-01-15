@@ -38,6 +38,7 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		Equipment eq = dfce.getCDOMObject();
@@ -58,6 +59,7 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		/*

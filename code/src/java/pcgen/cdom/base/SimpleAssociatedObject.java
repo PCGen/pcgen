@@ -48,6 +48,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 *            returned
 	 * @return The value associated with the given AssociationKey.
 	 */
+	@Override
 	public <T> T getAssociation(AssociationKey<T> name)
 	{
 		return assoc.getAssociation(name);
@@ -71,6 +72,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @return a Collection of the AssociationKeys that are in this
 	 *         SimpleAssociatedObject.
 	 */
+	@Override
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
 		return assoc.getAssociationKeys();
@@ -86,6 +88,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @return true if this SimpleAssociatedObject has any associations; false
 	 *         otherwise.
 	 */
+	@Override
 	public boolean hasAssociations()
 	{
 		return assoc.hasAssociations();
@@ -104,6 +107,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @param value
 	 *            The value to be associated with the given AssociationKey
 	 */
+	@Override
 	public <T> void setAssociation(AssociationKey<T> name, T value)
 	{
 		assoc.setAssociation(name, value);

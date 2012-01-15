@@ -38,7 +38,7 @@ import pcgen.cdom.base.QualifyingObject;
 /**
  * Encapsulates a single DamageReduction entity. This class encapsulates a
  * DamageReduction entity and provides utility methods to manipulate and combine
- * multiple DamageReductions together. The consensus seems to be that brievity
+ * multiple DamageReductions together. The consensus seems to be that brevity
  * over clarity is preferred in the output so that is what the methods attempt
  * to provide.
  * 
@@ -107,7 +107,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	}
 
 	/**
-	 * Gets a list of Damage Types that bypass this DR. This ls just a raw list
+	 * Gets a list of Damage Types that bypass this DR. This is just a raw list
 	 * of types.
 	 * 
 	 * @return Collection of unique types converted to lower case

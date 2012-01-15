@@ -76,7 +76,7 @@ public final class SubClassCategory implements TypeSafeConstant,
 	/**
 	 * Converts this Constant to a String (returns the name of this Constant)
 	 * 
-	 * @return The string representatin (name) of this Constant
+	 * @return The string representation (name) of this Constant
 	 */
 	@Override
 	public String toString()
@@ -87,6 +87,7 @@ public final class SubClassCategory implements TypeSafeConstant,
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;
@@ -196,68 +197,81 @@ public final class SubClassCategory implements TypeSafeConstant,
 		}
 	}
 
+	@Override
 	public Category<SubClass> getParentCategory()
 	{
 		return null;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return fieldName;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return fieldName;
 	}
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return fieldName;
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		throw new UnsupportedOperationException(
 				"Cannot set name in SubClassCategory");
 	}
 
+	@Override
 	public CDOMGroupRef<SubClass> getAllReference()
 	{
 		return new CDOMAllRef<SubClass>(SubClass.class);
 	}
 
+	@Override
 	public CDOMGroupRef<SubClass> getTypeReference(String... types)
 	{
 		return new CDOMTypeRef<SubClass>(SubClass.class, types);
 	}
 
+	@Override
 	public CDOMSingleRef<SubClass> getReference(String ident)
 	{
 		return new CDOMCategorizedSingleRef<SubClass>(SubClass.class, this,
 				ident);
 	}
 
+	@Override
 	public SubClass newInstance()
 	{
 		SubClass sc = new SubClass();
@@ -265,21 +279,25 @@ public final class SubClassCategory implements TypeSafeConstant,
 		return sc;
 	}
 
+	@Override
 	public boolean isMember(SubClass item)
 	{
 		return (item != null) && this.equals(item.getCDOMCategory());
 	}
 
+	@Override
 	public Class<SubClass> getReferenceClass()
 	{
 		return SubClass.class;
 	}
 
+	@Override
 	public String getReferenceDescription()
 	{
 		return "SubClass Category " + getKeyName();
 	}
 
+	@Override
 	public boolean resolve(ReferenceManufacturer<SubClass> rm, String name,
 			CDOMSingleRef<SubClass> value, UnconstructedValidator validator)
 	{
@@ -306,6 +324,7 @@ public final class SubClassCategory implements TypeSafeConstant,
 		return validator != null && validator.allow(getReferenceClass(), key);
 	}
 
+	@Override
 	public boolean populate(ReferenceManufacturer<SubClass> parentCrm,
 			ReferenceManufacturer<SubClass> rm, UnconstructedValidator validator)
 	{
@@ -313,6 +332,7 @@ public final class SubClassCategory implements TypeSafeConstant,
 		return true;
 	}
 
+	@Override
 	public ManufacturableFactory<SubClass> getParent()
 	{
 		return null;

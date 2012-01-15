@@ -201,6 +201,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return The GroupingState for this CDOMAllRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_NONE;

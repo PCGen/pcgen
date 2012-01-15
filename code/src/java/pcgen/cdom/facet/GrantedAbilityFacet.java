@@ -628,6 +628,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return catMap == null || catMap.isEmpty();
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -643,6 +644,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		}
 	}
 
+	@Override
 	public void dataRemoved(
 			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
 	{

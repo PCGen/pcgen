@@ -189,6 +189,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *             if any of the given Strings is null, empty (length is zero),
 	 *             or contains a period (.), equals (=), comma (,) or pipe (|)
 	 */
+	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		for (String type : types)
@@ -249,6 +250,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         the Class or Class/Context this AbstractReferenceManufacturer
 	 *         represents.
 	 */
+	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
 		if (allRef == null)
@@ -264,6 +266,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return The class of object this AbstractReferenceManufacturer
 	 *         represents.
 	 */
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return factory.getReferenceClass();
@@ -283,6 +286,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * references that have been resolved and those which have not been
 	 * resolved.
 	 */
+	@Override
 	public boolean resolveReferences(UnconstructedValidator validator)
 	{
 		boolean resolutionSuccessful = resolvePrimitiveReferences(validator);
@@ -377,6 +381,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *             if the given object is not of the Class that this
 	 *             AbstractReferenceManufacturer constructs and references
 	 */
+	@Override
 	public void addObject(T item, String key)
 	{
 		if (!factory.isMember(item))
@@ -413,6 +418,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         given identifier, or null if this AbstractReferenceManufacturer
 	 *         does not contain an object with the given identifier.
 	 */
+	@Override
 	public T getActiveObject(String key)
 	{
 		return active.get(key);
@@ -434,6 +440,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         given identifier, or null if this AbstractReferenceManufacturer
 	 *         does not contain an object with the given identifier.
 	 */
+	@Override
 	public T getObject(String key)
 	{
 		T po = active.get(key);
@@ -479,6 +486,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
+	@Override
 	public T constructObject(String key)
 	{
 		T obj = buildObject(key);
@@ -502,6 +510,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
+	@Override
 	public T buildObject(String key)
 	{
 		if (key == null || key.equals(""))
@@ -523,6 +532,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            The object for which the identifier in this
 	 *            AbstractReferenceManufacturer should be changed
 	 */
+	@Override
 	public void renameObject(String key, T item)
 	{
 		String oldKey = item.getKeyName();
@@ -546,6 +556,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return true if the object was removed from this
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
+	@Override
 	public boolean forgetObject(T item) throws InternalError
 	{
 		if (!factory.isMember(item))
@@ -600,6 +611,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         the Class or Class/Category represented by this
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
+	@Override
 	public boolean containsObject(String key)
 	{
 		return active.containsKey(key);
@@ -618,6 +630,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @throws IllegalArgumentException
 	 *             if the given key is null or empty
 	 */
+	@Override
 	public CDOMSingleRef<T> getReference(String val)
 	{
 		/*
@@ -626,7 +639,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		 * Mainly this throws around IllegalArgumentException in order to catch
 		 * bad parsing issues (design flaws in the code). Not sure if we want to
 		 * continue that long term? Once tokens are truly tested this may not be
-		 * necessary or desireable.
+		 * necessary or desirable.
 		 */
 		if (val == null)
 		{
@@ -739,6 +752,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return true if the AbstractReferenceManufacturer is "valid"; false
 	 *         otherwise.
 	 */
+	@Override
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
@@ -935,6 +949,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            AbstractReferenceManufacturer) when buildDeferredObjects() is
 	 *            called.
 	 */
+	@Override
 	public void constructIfNecessary(String key)
 	{
 		/*
@@ -953,6 +968,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return A sorted Collection of all of the objects contained in this
 	 *         AbstractReferenceManufacturer
 	 */
+	@Override
 	public Collection<T> getAllObjects()
 	{
 		return active.keySortedValues();
@@ -968,6 +984,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return A List of all of the objects contained in this
 	 *         AbstractReferenceManufacturer
 	 */
+	@Override
 	public List<T> getOrderSortedObjects()
 	{
 		return active.insertOrderValues();
@@ -989,6 +1006,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * responsible for deleting automatically built objects under those
 	 * conditions.
 	 */
+	@Override
 	public void buildDeferredObjects()
 	{
 		for (String cis : deferred)
@@ -1054,6 +1072,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return A Collection of the primitive references for this
 	 *         AbstractReferenceManufacturer.
 	 */
+	@Override
 	public Collection<CDOMSingleRef<T>> getReferenced()
 	{
 		List<CDOMSingleRef<T>> list = new ArrayList<CDOMSingleRef<T>>();
@@ -1082,6 +1101,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            The ReferenceManufacturer from which the objects should be
 	 *            imported into this AbstractReferenceManufacturer
 	 */
+	@Override
 	public void injectConstructed(ReferenceManufacturer<T> arm)
 	{
 		// Must maintain order
@@ -1111,7 +1131,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * Note that use of this method is inherently risky when taken in context to
 	 * .MOD and .COPY. Changes to keys may change the object to which an
 	 * identifier refers. Therefore, any resolution that should take place at
-	 * runtime should use getReference and resovle the reference.
+	 * runtime should use getReference and resolve the reference.
 	 * 
 	 * The object will be constructed only if no object with the matching
 	 * identifier has been constructed or imported into this
@@ -1131,6 +1151,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return The previously existing or new CDOMObject with the given
 	 *         identifier.
 	 */
+	@Override
 	public T constructNowIfNecessary(String key)
 	{
 		T obj = active.get(key);
@@ -1153,6 +1174,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            The UnconstructedListener to be registered with this
 	 *            AbstractReferenceManufacturer
 	 */
+	@Override
 	public void addUnconstructedListener(UnconstructedListener listener)
 	{
 		listenerList.add(UnconstructedListener.class, listener);
@@ -1165,6 +1187,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return An array of UnconstructedListeners that are registered with this
 	 *         AbstractReferenceManufacturer.
 	 */
+	@Override
 	public synchronized UnconstructedListener[] getUnconstructedListeners()
 	{
 		return listenerList.getListeners(UnconstructedListener.class);
@@ -1179,6 +1202,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            The UnconstructedListener to be removed from registration with
 	 *            this AbstractReferenceManufacturer
 	 */
+	@Override
 	public void removeUnconstructedListener(UnconstructedListener listener)
 	{
 		listenerList.remove(UnconstructedListener.class, listener);
@@ -1193,6 +1217,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *            The CDOMReference to which the UnconstructedEvent should
 	 *            refer.
 	 */
+	@Override
 	public void fireUnconstuctedEvent(CDOMReference<?> ref)
 	{
 		Object[] listeners = listenerList.getListenerList();
@@ -1226,26 +1251,31 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * @return The number of objects that are constructed in this
 	 *         AbstractReferenceManufacturer
 	 */
+	@Override
 	public int getConstructedObjectCount()
 	{
 		return active.size();
 	}
 
+	@Override
 	public T getItemInOrder(int index)
 	{
 		return active.getItemInOrder(index);
 	}
 
+	@Override
 	public ManufacturableFactory<T> getFactory()
 	{
 		return factory;
 	}
 
+	@Override
 	public String getReferenceDescription()
 	{
 		return factory.getReferenceDescription();
 	}
 
+	@Override
 	public Collection<CDOMReference<T>> getAllReferences()
 	{
 		List<CDOMReference<T>> list = new ArrayList<CDOMReference<T>>();

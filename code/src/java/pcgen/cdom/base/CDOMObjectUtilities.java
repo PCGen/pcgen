@@ -37,7 +37,7 @@ public final class CDOMObjectUtilities
 	 */
 	public static final Comparator<Loadable> CDOM_SORTER = new Comparator<Loadable>()
 	{
-
+		@Override
 		public int compare(Loadable cdo1, Loadable cdo2)
 		{
 			return compareKeys(cdo1, cdo2);

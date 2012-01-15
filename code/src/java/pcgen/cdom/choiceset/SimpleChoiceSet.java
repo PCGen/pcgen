@@ -187,6 +187,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A representation of this SimpleChoiceSet, suitable for storing in
 	 *         an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		Set<T> sortingSet;
@@ -207,6 +208,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The class of object this SimpleChoiceSet contains.
 	 */
+	@Override
 	public Class<T> getChoiceClass()
 	{
 		return (Class<T>) (set == null ? null : set.iterator().next()
@@ -231,6 +233,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 *            SimpleChoiceSet should be returned.
 	 * @return A Set containing the Objects which this SimpleChoiceSet contains.
 	 */
+	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		return new HashSet<T>(set);
@@ -276,6 +279,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The GroupingState for this SimpleChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

@@ -40,17 +40,20 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 	private static final PrimitiveFilter PREVENT = new PrimitiveFilter()
 	{
+		@Override
 		public boolean allow(PlayerCharacter pc, Object obj)
 		{
 			return false;
 		}
 	};
 
+	@Override
 	public Collection<R> convert(CDOMReference<B> orig)
 	{
 		return converter.convert(orig, PREVENT);
 	}
 
+	@Override
 	public Collection<R> convert(CDOMReference<B> orig, PrimitiveFilter<B> lim)
 	{
 		return converter.convert(orig, new InvertingFilter<B>(lim));
@@ -71,6 +74,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 			filter = fil;
 		}
 
+		@Override
 		public boolean allow(PlayerCharacter pc, T obj)
 		{
 			return !filter.allow(pc, obj);

@@ -32,6 +32,7 @@ public class DomainList extends CDOMListObject<Domain>
 	 * 
 	 * @return the Domain Class object (Domain.class)
 	 */
+	@Override
 	public Class<Domain> getListClass()
 	{
 		return Domain.class;
@@ -40,6 +41,7 @@ public class DomainList extends CDOMListObject<Domain>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

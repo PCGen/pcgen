@@ -97,6 +97,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 		return false;
 	}
 
+	@Override
 	public int compareTo(SpellLevel other)
 	{
 		int compareResult = pcclass.compareTo(other.pcclass);

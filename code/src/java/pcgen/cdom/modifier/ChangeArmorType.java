@@ -101,6 +101,7 @@ public class ChangeArmorType implements Modifier<String>
 	 *         source type of the ChangeArmorType object; otherwise the source
 	 *         armor type
 	 */
+	@Override
 	public String applyModifier(String sourceType, Object context)
 	{
 		return source.equalsIgnoreCase(sourceType) ? result : sourceType;
@@ -111,6 +112,7 @@ public class ChangeArmorType implements Modifier<String>
 	 * 
 	 * @return The class of object this Modifier acts upon (String.class)
 	 */
+	@Override
 	public Class<String> getModifiedClass()
 	{
 		return String.class;
@@ -205,6 +207,7 @@ public class ChangeArmorType implements Modifier<String>
 	 * @return A representation of this ChangeArmorType, suitable for storing in
 	 *         an LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		return source + (result == null ? "" : "|" + result);

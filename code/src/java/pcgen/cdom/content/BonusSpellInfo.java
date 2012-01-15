@@ -29,16 +29,19 @@ public class BonusSpellInfo implements Loadable
 	private int spellLevel;
 	private int statScore;
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		try
@@ -58,26 +61,31 @@ public class BonusSpellInfo implements Loadable
 		}
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return String.valueOf(spellLevel);
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getKeyName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

@@ -40,7 +40,7 @@ public interface CDOMList<T extends PrereqObject> extends PrereqObject
 	public Class<T> getListClass();
 
 	/**
-	 * Returns the key name for this CDOMList. This is the unique identifer of
+	 * Returns the key name for this CDOMList. This is the unique identifier of
 	 * the CDOMList. Theoretically, this is unique relative to the ListClass
 	 * (from getListClass()), not globally unique. However, this "uniqueness" is
 	 * not enforced (since this is merely an interface).

@@ -80,7 +80,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * strong reference to the key object given as an argument to this method.
 	 * 
 	 * Overuse of this method is discouraged, as it is *not required* to
-	 * initilize a List (the AbstractMapToList will automatically initialize a
+	 * initialize a List (the AbstractMapToList will automatically initialize a
 	 * List if an object is added to the list for a given key).
 	 * 
 	 * @param key
@@ -116,6 +116,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param valueElement
 	 *            The value to be added to the List for the given key.
 	 */
+	@Override
 	public void addToListFor(K key, V valueElement)
 	{
 		/*
@@ -147,6 +148,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            A Collection containing the items to be added to the List for
 	 *            the given key.
 	 */
+	@Override
 	public void addAllToListFor(K key, Collection<? extends V> values)
 	{
 		if (values == null || values.isEmpty())
@@ -177,6 +179,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
 	 */
+	@Override
 	public void addAllLists(MapToList<K, V> mtl)
 	{
 		for (K key : mtl.getKeySet())
@@ -203,6 +206,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @return true if this MapToList contains a List for the given key; false
 	 *         otherwise.
 	 */
+	@Override
 	public boolean containsListFor(K key)
 	{
 		return mapToList.containsKey(key);
@@ -223,6 +227,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @return true if this MapToList contains a List for the given key AND that
 	 *         list contains the given value; false otherwise.
 	 */
+	@Override
 	public boolean containsInList(K key, V valueElement)
 	{
 		return containsListFor(key)
@@ -273,6 +278,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
+	@Override
 	public int sizeOfListFor(K key)
 	{
 		/*
@@ -319,6 +325,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @return a copy of the List contained in this MapToList for the given key;
 	 *         null if the given key is not a key in this MapToList.
 	 */
+	@Override
 	public List<V> getListFor(K key)
 	{
 		List<V> list = mapToList.get(key);
@@ -339,6 +346,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
+	@Override
 	public boolean removeFromListFor(K key, V valueElement)
 	{
 		List<V> list = mapToList.get(key);
@@ -370,6 +378,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            removed from
 	 * @return The List which this MapToList previous mapped the given key
 	 */
+	@Override
 	public List<V> removeListFor(K key)
 	{
 		return mapToList.remove(key);
@@ -386,6 +395,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * @return true if this MapToList contains no Lists; false otherwise
 	 */
+	@Override
 	public boolean isEmpty()
 	{
 		return mapToList.isEmpty();
@@ -402,6 +412,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * @return The number of lists contained by this MapToList.
 	 */
+	@Override
 	public int size()
 	{
 		return mapToList.size();
@@ -427,6 +438,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *             (index is less than zero OR greater than or equal to the size
 	 *             of the list)
 	 */
+	@Override
 	public V getElementInList(K key, int index)
 	{
 		List<V> subList = mapToList.get(key);
@@ -439,8 +451,9 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
-	 * Clears this AbstractMapToList (removes all keys/list combiantions)
+	 * Clears this AbstractMapToList (removes all keys/list combinations)
 	 */
+	@Override
 	public void clear()
 	{
 		mapToList.clear();
@@ -470,6 +483,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * @return a Set containing the keys in this MapToList
 	 */
+	@Override
 	public Set<K> getKeySet()
 	{
 		// Need to 'clone' the Set, since Map returns a set that is still
@@ -482,7 +496,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	/**
 	 * Returns an empty Set to be used as a value in the underlying Map. This
 	 * method must be overridden by classes that extend AbstractMapToList in
-	 * order to return a set of teh appropariate type.
+	 * order to return a set of the appropriate type.
 	 * 
 	 * Each call to this method should produce a NEW Set, which is independent
 	 * of each Set returned by previous calls to this method.

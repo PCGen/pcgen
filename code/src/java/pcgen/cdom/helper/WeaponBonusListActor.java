@@ -29,41 +29,48 @@ public class WeaponBonusListActor implements
 		PersistentChoiceActor<WeaponProf>
 {
 
+	@Override
 	public boolean allow(WeaponProf choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, WeaponProf choice,
 			PlayerCharacter pc)
 	{
 		pc.addWeaponBonus(owner, choice);
 	}
 
+	@Override
 	public List<WeaponProf> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return pc.getBonusWeaponProfs(owner);
 	}
 
+	@Override
 	public WeaponProf decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				WeaponProf.class, s);
 	}
 
+	@Override
 	public String encodeChoice(WeaponProf choice)
 	{
 		return choice.getKeyName();
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			WeaponProf choice)
 	{
 		pc.removeWeaponBonus(owner, choice);
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			WeaponProf choice)
 	{

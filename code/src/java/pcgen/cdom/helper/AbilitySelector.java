@@ -93,16 +93,19 @@ public class AbilitySelector extends ConcretePrereqObject implements
 		return nature;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
 		pc.addAppliedAbility(decodeChoice(obj, choice));
 	}
 
+	@Override
 	public String getLstFormat() throws PersistenceLayerException
 	{
 		return "%LIST";
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
 		pc.removeAppliedAbility(decodeChoice(obj, choice));
@@ -149,6 +152,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return source;

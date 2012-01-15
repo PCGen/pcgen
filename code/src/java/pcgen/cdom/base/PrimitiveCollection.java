@@ -28,21 +28,25 @@ public interface PrimitiveCollection<T>
 	PrimitiveCollection INVALID = new PrimitiveCollection()
 	{
 
+		@Override
 		public GroupingState getGroupingState()
 		{
 			return GroupingState.INVALID;
 		}
 
+		@Override
 		public String getLSTformat(boolean useAny)
 		{
 			return "ERROR";
 		}
 
+		@Override
 		public Class getReferenceClass()
 		{
 			return Object.class;
 		}
 
+		@Override
 		public Collection getCollection(PlayerCharacter pc, Converter c)
 		{
 			return Collections.emptyList();

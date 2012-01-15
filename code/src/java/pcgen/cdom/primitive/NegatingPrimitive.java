@@ -40,11 +40,13 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 		primitive = prim;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		return primitive.getCollection(pc, new NegateFilterConverter<T, R>(c));
 	}
 
+	@Override
 	public Class<? super T> getReferenceClass()
 	{
 		return primitive.getReferenceClass();
@@ -57,6 +59,7 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	 * 
 	 * @return The GroupingState for this CompoundAndChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return primitive.getGroupingState().negate();
@@ -69,6 +72,7 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	 * @return A representation of this CompoundAndChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return "!" + primitive.getLSTformat(useAny);

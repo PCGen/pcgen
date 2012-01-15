@@ -113,6 +113,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * 
 	 * @return The SelectableSet for this TransitionChoice.
 	 */
+	@Override
 	public SelectableSet<? extends T> getChoices()
 	{
 		return choices;
@@ -124,6 +125,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * 
 	 * @return The Formula indicating the number of selections available
 	 */
+	@Override
 	public Formula getCount()
 	{
 		return choiceCount;
@@ -173,6 +175,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @return A Collection of objects of the type that this TransitionChoice
 	 *         selects.
 	 */
+	@Override
 	public Collection<? extends T> driveChoice(PlayerCharacter pc)
 	{
 		ChooserInterface chooser = ChooserFactory.getChooserInstance();
@@ -240,6 +243,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *            true if a selection from this TransitionChoice should be
 	 *            required.
 	 */
+	@Override
 	public void setRequired(boolean isRequired)
 	{
 		required = isRequired;
@@ -254,6 +258,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @param actor
 	 *            The ChoiceActor for this TransitionChoice.
 	 */
+	@Override
 	public void setChoiceActor(ChoiceActor<T> actor)
 	{
 		choiceActor = actor;
@@ -269,6 +274,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @param apc
 	 *            The PlayerCharacter to which the choices should be applied.
 	 */
+	@Override
 	public void act(Collection<? extends T> choicesMade, CDOMObject owner,
 			PlayerCharacter apc)
 	{
@@ -304,6 +310,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *            true if this TransitionChoice should allow stacking; false
 	 *            otherwise.
 	 */
+	@Override
 	public void allowStack(boolean allow)
 	{
 		allowStack = allow;
@@ -318,6 +325,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *            The limit (number of times a stackable item may be selected in
 	 *            this TransitionChoice)
 	 */
+	@Override
 	public void setStackLimit(int limit)
 	{
 		stackLimit = limit;
@@ -329,6 +337,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @return true if this TransitionChoice should allow stacking; false
 	 *         otherwise.
 	 */
+	@Override
 	public boolean allowsStacking()
 	{
 		return allowStack;
@@ -342,6 +351,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @return The limit (number of times a stackable item may be selected in
 	 *         this TransitionChoice)
 	 */
+	@Override
 	public int getStackLimit()
 	{
 		return stackLimit == null ? 0 : stackLimit;
@@ -355,6 +365,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * 
 	 * @return The ChoiceActor for this TransitionChoice.
 	 */
+	@Override
 	public ChoiceActor<T> getChoiceActor()
 	{
 		return choiceActor;

@@ -416,6 +416,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return mapChar.getKeySet();
 	}
 	
+	@Override
 	public String getKeyName()
 	{
 		// FIXME TODO Patched for now to avoid NPEs, but this is wrong
@@ -439,6 +440,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return mapChar.containsMapFor(mapKey) ? mapChar.getKeysFor(mapKey).size() : 0;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		displayName = name;
@@ -572,6 +574,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return cdomListMods.getKeySet();
 	}
 
+	@Override
 	public final String getLSTformat()
 	{
 		String abb = get(StringKey.ABB);
@@ -618,6 +621,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		cdomListMods.removeListsFor(listRef);
 	}
 
+	@Override
 	public abstract boolean isType(String type);
 
 	public <T extends CDOMObject> boolean hasObjectOnList(
@@ -701,6 +705,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @param pc A PlayerCharacter object.
 	 * @return active bonuses
 	 */
+	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
@@ -732,6 +737,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Set the source file for this object
 	 * @param sourceFile
 	 */
+	@Override
 	public final void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -741,6 +747,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Get the source file for this object
 	 * @return the source file for this object
 	 */
+	@Override
 	public final URI getSourceURI()
 	{
 		return sourceURI;
@@ -750,6 +757,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Get name
 	 * @return name
 	 */
+	@Override
 	public final String getDisplayName()
 	{
 		return displayName;
@@ -759,11 +767,13 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Sets all the BonusObj's to "active"
 	 * @param pc
 	 */
+	@Override
 	public void activateBonuses(final PlayerCharacter pc)
 	{
 		BonusActivation.activateBonuses(this, pc);
 	}
 	
+	@Override
 	public boolean isInternal()
 	{
 		return getSafe(ObjectKey.INTERNAL);

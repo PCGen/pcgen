@@ -51,6 +51,7 @@ public class SimpleShieldProfProvider extends
 	 * @return true if this SimpleShieldProfProvider provides proficiency for
 	 *         the given Equipment; false otherwise.
 	 */
+	@Override
 	public boolean providesProficiencyFor(Equipment equipment)
 	{
 		return providesProficiency(equipment.getShieldProf());

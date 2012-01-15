@@ -52,21 +52,25 @@ public class CollectionToAbilitySelection implements
 		collection = coll;
 	}
 
+	@Override
 	public Class<? super AbilitySelection> getChoiceClass()
 	{
 		return AbilitySelection.class;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return collection.getGroupingState();
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return collection.getLSTformat(useAny);
 	}
 
+	@Override
 	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		return collection.getCollection(pc, new ExpandingConverter(pc));
@@ -110,6 +114,7 @@ public class CollectionToAbilitySelection implements
 			character = pc;
 		}
 
+		@Override
 		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref)
 		{
 			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
@@ -134,6 +139,7 @@ public class CollectionToAbilitySelection implements
 			}
 		}
 
+		@Override
 		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref,
 				PrimitiveFilter<Ability> lim)
 		{

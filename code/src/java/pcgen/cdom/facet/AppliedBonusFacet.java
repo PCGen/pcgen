@@ -32,6 +32,7 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 	private PrerequisiteFacet prereqFacet = FacetLibrary
 			.getFacet(PrerequisiteFacet.class);
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -57,6 +58,7 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 		}
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();

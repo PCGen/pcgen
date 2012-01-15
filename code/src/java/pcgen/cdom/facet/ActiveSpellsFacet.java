@@ -28,6 +28,7 @@ import pcgen.core.character.CharacterSpell;
  */
 public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 {
+	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
 	{
 		return new TreeMap<CharacterSpell, Set<Object>>();

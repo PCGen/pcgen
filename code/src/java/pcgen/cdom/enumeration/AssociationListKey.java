@@ -144,7 +144,7 @@ public final class AssociationListKey<T>
 
 	private AssociationListKey()
 	{
-		// Only allow instantation here
+		// Only allow instantiation here
 	}
 
 	public T cast(Object obj)

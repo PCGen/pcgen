@@ -31,6 +31,7 @@ package pcgen.cdom.base;
 public interface PersistentChoice<T> extends BasicChoice<T>
 {
 
+	@Override
 	public PersistentChoiceActor<T> getChoiceActor();
 
 	public T decodeChoice(String persistentFormat);

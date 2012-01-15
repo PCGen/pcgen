@@ -32,6 +32,7 @@ public class LanguageList extends CDOMListObject<Language>
 	 * 
 	 * @return the Language Class object (Language.class)
 	 */
+	@Override
 	public Class<Language> getListClass()
 	{
 		return Language.class;
@@ -40,6 +41,7 @@ public class LanguageList extends CDOMListObject<Language>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

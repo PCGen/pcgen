@@ -97,6 +97,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 * @throws NullPointerException
 	 *             if the given HitDie is null
 	 */
+	@Override
 	public HitDie applyModifier(HitDie origHD, Object context)
 	{
 		int steps = numSteps;
@@ -144,6 +145,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 * @return A representation of this HitDieStep, suitable for storing in an
 	 *         LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -169,6 +171,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 * 
 	 * @return The class of object this Modifier acts upon (HitDie.class)
 	 */
+	@Override
 	public Class<HitDie> getModifiedClass()
 	{
 		return HitDie.class;

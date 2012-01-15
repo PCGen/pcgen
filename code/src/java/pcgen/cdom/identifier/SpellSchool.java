@@ -27,31 +27,37 @@ public class SpellSchool implements Loadable, Comparable<SpellSchool>
 	private URI sourceURI;
 	private String name;
 
+	@Override
 	public String getDisplayName()
 	{
 		return name;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return name;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return name;
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
+	@Override
 	public void setName(String newName)
 	{
 		name = newName;
@@ -76,16 +82,19 @@ public class SpellSchool implements Loadable, Comparable<SpellSchool>
 		return name.hashCode();
 	}
 
+	@Override
 	public int compareTo(SpellSchool other)
 	{
 		return name.compareTo(other.name);
 	}
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;

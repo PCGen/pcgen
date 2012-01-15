@@ -66,7 +66,7 @@ public enum GroupingState
 	},
 
 	/**
-	 * ALLOWS_NONE indicates that the underyling Set cannot be logically
+	 * ALLOWS_NONE indicates that the underlying Set cannot be logically
 	 * combined with any other set. This is often the case for the ANY/ALL set
 	 * (as any logical combination is useless)
 	 */

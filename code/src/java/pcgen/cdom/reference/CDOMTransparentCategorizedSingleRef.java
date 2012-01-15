@@ -111,11 +111,13 @@ public class CDOMTransparentCategorizedSingleRef<T extends Loadable & Categorize
 	 * @return the Category of the object this
 	 *         CDOMTransparentCategorizedSingleRef contains
 	 */
+	@Override
 	public String getLSTCategory()
 	{
 		return category;
 	}
 
+	@Override
 	public Category<T> getCDOMCategory()
 	{
 		throw new UnsupportedOperationException("Don't have resolved category");

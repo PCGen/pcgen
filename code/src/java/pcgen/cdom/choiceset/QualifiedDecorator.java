@@ -71,6 +71,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	 * @return The class of object this QualifiedDecorator and the underlying
 	 *         PrimitiveChoiceSet contains.
 	 */
+	@Override
 	public Class<? super T> getChoiceClass()
 	{
 		return underlyingPCS.getChoiceClass();
@@ -86,6 +87,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	 * @return A representation of this QualifiedDecorator, suitable for storing
 	 *         in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return underlyingPCS.getLSTformat(useAny);
@@ -110,6 +112,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	 * @return A Set containing the Objects which this QualifiedDecorator
 	 *         contains.
 	 */
+	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
@@ -154,6 +157,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	 * 
 	 * @return The GroupingState for this QualifiedDecorator.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return underlyingPCS.getGroupingState().reduce();

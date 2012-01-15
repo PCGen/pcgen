@@ -586,6 +586,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		private int currentReturned = 0;
 
+		@Override
 		public boolean hasNext()
 		{
 			if (currentEntry == null)
@@ -604,6 +605,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			return iter.hasNext();
 		}
 
+		@Override
 		public E next()
 		{
 			if (currentEntry == null
@@ -616,6 +618,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			return currentEntry.theElement;
 		}
 
+		@Override
 		public void remove()
 		{
 			iter.remove();
@@ -636,6 +639,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @see java.util.Iterator#hasNext()
 		 */
+		@Override
 		public boolean hasNext()
 		{
 			return realIterator.hasNext();
@@ -648,6 +652,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @see java.util.Iterator#next()
 		 */
+		@Override
 		public E next()
 		{
 			return realIterator.next().getElement();
@@ -659,6 +664,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @see java.util.Iterator#remove()
 		 */
+		@Override
 		public void remove()
 		{
 			realIterator.remove();
@@ -702,6 +708,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
+		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)
 		{
 			return delegate.compare(item1.getElement(), item2.getElement());

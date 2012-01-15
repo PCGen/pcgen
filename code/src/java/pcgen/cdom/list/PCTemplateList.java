@@ -32,6 +32,7 @@ public class PCTemplateList extends CDOMListObject<PCTemplate>
 	 * 
 	 * @return the PCTemplate Class object (PCTemplate.class)
 	 */
+	@Override
 	public Class<PCTemplate> getListClass()
 	{
 		return PCTemplate.class;
@@ -40,6 +41,7 @@ public class PCTemplateList extends CDOMListObject<PCTemplate>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

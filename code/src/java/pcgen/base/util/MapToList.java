@@ -195,7 +195,7 @@ public interface MapToList<K, V>
 	public V getElementInList(K key, int index);
 
 	/**
-	 * Clears this MapToList (removes all keys/list combiantions).
+	 * Clears this MapToList (removes all keys/list combinations).
 	 */
 	public void clear();
 

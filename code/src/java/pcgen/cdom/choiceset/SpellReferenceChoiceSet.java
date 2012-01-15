@@ -114,6 +114,7 @@ public class SpellReferenceChoiceSet implements
 	 * @return A representation of this SpellReferenceChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
@@ -156,6 +157,7 @@ public class SpellReferenceChoiceSet implements
 	 * 
 	 * @return The class of object this SpellReferenceChoiceSet contains.
 	 */
+	@Override
 	public Class<CDOMListObject> getChoiceClass()
 	{
 		return CDOMListObject.class;
@@ -183,6 +185,7 @@ public class SpellReferenceChoiceSet implements
 	 * @return A Set containing the CDOMListObjects which this
 	 *         SpellReferenceChoiceSet contains.
 	 */
+	@Override
 	public Set<CDOMListObject<Spell>> getSet(PlayerCharacter pc)
 	{
 		Set<CDOMListObject<Spell>> returnSet = new HashSet<CDOMListObject<Spell>>();
@@ -234,6 +237,7 @@ public class SpellReferenceChoiceSet implements
 	 * 
 	 * @return The GroupingState for this SpellReferenceChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

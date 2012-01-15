@@ -33,41 +33,49 @@ public class EqSizePenalty implements Loadable
 	private String penaltyName;
 	private List<BonusObj> bonusList;
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		penaltyName = name;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return penaltyName;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getKeyName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

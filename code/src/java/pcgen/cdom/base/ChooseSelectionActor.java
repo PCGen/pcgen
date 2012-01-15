@@ -75,9 +75,9 @@ public interface ChooseSelectionActor<T>
 	String getLstFormat() throws PersistenceLayerException;
 
 	/**
-	 * Returns the class that theis ChooseSelectionActor can act upon
+	 * Returns the class that this ChooseSelectionActor can act upon
 	 * 
-	 * @return The class that theis ChooseSelectionActor can act upon
+	 * @return The class that this ChooseSelectionActor can act upon
 	 */
 	Class<T> getChoiceClass();
 

@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * A CDOMDirectSingleRef is a CDOMReference to an object known at construction
  * of the CDOMDirectSingleRef. This is primarily used in special cases or where
  * construction is taking place after reference resolution has taken place.
- * (This can be used in an editor system to directy refer to a known,
+ * (This can be used in an editor system to directly refer to a known,
  * constructed object)
  * 
  * @param <T>
@@ -202,6 +202,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 * 
 	 * @return The GroupingState for this CDOMDirectSingleRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;

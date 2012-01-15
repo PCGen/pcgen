@@ -208,7 +208,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 
 	/**
 	 * Instructs the ReferenceManufacturer that the object with the given
-	 * identifer should be constructed automatically if it is necessary when
+	 * identifier should be constructed automatically if it is necessary when
 	 * buildDeferredObjects() is called. The object will be constructed only if
 	 * no object with the matching identifier has been constructed or imported
 	 * into this ReferenceManufacturer.
@@ -272,7 +272,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * Note that use of this method is inherently risky when taken in context to
 	 * .MOD and .COPY. Changes to keys may change the object to which an
 	 * identifier refers. Therefore, any resolution that should take place at
-	 * runtime should use getReference and resovle the reference.
+	 * runtime should use getReference and resolve the reference.
 	 * 
 	 * The object will be constructed only if no object with the matching
 	 * identifier has been constructed or imported into this

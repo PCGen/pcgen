@@ -25,7 +25,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
 /**
- * An ObjectCache is a CDOMObject designed to serve as a cahce of information
+ * An ObjectCache is a CDOMObject designed to serve as a cache of information
  * for a PlayerCharacter. It is therefore somewhat simple (non-typed) and
  * contains some specialized caching functions.
  */

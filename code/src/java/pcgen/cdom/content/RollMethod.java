@@ -28,41 +28,49 @@ public class RollMethod implements Loadable
 	private String methodName;
 	private String rollMethod;
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		methodName = name;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return methodName;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

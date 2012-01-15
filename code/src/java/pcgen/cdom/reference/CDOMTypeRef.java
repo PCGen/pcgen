@@ -223,6 +223,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return The GroupingState for this CDOMTypeRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

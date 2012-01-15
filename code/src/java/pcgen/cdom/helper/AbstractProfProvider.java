@@ -91,6 +91,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 * @return true if this AbstractProfProvider provides proficiency for the
 	 *         given Equipment; false otherwise.
 	 */
+	@Override
 	public abstract boolean providesProficiencyFor(Equipment equipment);
 
 	/**
@@ -104,6 +105,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 * @return true if this AbstractProfProvider provides the given proficiency;
 	 *         false otherwise.
 	 */
+	@Override
 	public boolean providesProficiency(T proficiency)
 	{
 		for (CDOMReference<T> ref : direct)
@@ -128,6 +130,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 * @return true if this AbstractProfProvider provides proficiency with the
 	 *         given Equipment TYPE.
 	 */
+	@Override
 	public boolean providesEquipmentType(String typeString)
 	{
 		if (typeString == null || typeString.length() == 0)
@@ -171,6 +174,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 * 
 	 * @return The LST format of this AbstractProfProvider
 	 */
+	@Override
 	public String getLstFormat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -232,7 +236,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	{
 		if (obj instanceof AbstractProfProvider)
 		{
-			AbstractProfProvider<T> other = (AbstractProfProvider<T>) obj;
+			AbstractProfProvider<?> other = (AbstractProfProvider<?>) obj;
 			if (!other.getSubType().equals(getSubType()))
 			{
 				return false;

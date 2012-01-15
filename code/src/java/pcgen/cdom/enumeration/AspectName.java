@@ -88,6 +88,7 @@ public final class AspectName implements TypeSafeConstant,
 	 * 
 	 * @return the ordinal
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;
@@ -192,6 +193,7 @@ public final class AspectName implements TypeSafeConstant,
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+	@Override
 	public int compareTo(AspectName aspectName)
 	{
 		return fieldName.compareTo(aspectName.fieldName);

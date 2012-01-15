@@ -39,11 +39,13 @@ public class TabInfo implements Loadable
 	private Set<Integer> hiddenColumns;
 	private String helpContext;
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -54,6 +56,7 @@ public class TabInfo implements Loadable
 		tabID = tab;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		if (!Tab.exists(name))
@@ -64,11 +67,13 @@ public class TabInfo implements Loadable
 		tabID = Tab.getTab(name);
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return tabID.toString();
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
@@ -96,16 +101,19 @@ public class TabInfo implements Loadable
 		return temp;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getKeyName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

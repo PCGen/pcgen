@@ -36,6 +36,7 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 		FacetCache.set(id, thisClass, pc);
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
@@ -44,6 +45,7 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 		pc.processAddition(cdo);
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();

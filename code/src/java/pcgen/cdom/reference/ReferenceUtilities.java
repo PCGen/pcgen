@@ -46,7 +46,7 @@ public final class ReferenceUtilities
 	 */
 	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
 	{
-
+		@Override
 		public int compare(CDOMReference<?> arg0, CDOMReference<?> arg1)
 		{
 			return compareRefs(arg0, arg1);
@@ -129,7 +129,7 @@ public final class ReferenceUtilities
 
 	/**
 	 * Compares two CDOMReference objects to establish order. The primary
-	 * purpose of this is to establish a consistent order across differnet
+	 * purpose of this is to establish a consistent order across different
 	 * hashing/ordering algorithms of various lists/sets that may contain
 	 * CDOMReference objects.
 	 * 

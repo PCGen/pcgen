@@ -39,21 +39,25 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 		primitive = prim;
 	}
 
+	@Override
 	public Class<? super T> getChoiceClass()
 	{
 		return primitive.getReferenceClass();
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return primitive.getGroupingState();
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return primitive.getLSTformat(useAny);
 	}
 
+	@Override
 	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		return primitive.getCollection(pc, new DereferencingConverter<T>(pc));

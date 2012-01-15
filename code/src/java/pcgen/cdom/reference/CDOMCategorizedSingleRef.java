@@ -196,6 +196,7 @@ public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject
 	 * 
 	 * @return the Category of the object this CDOMCategorizedSingleRef contains
 	 */
+	@Override
 	public Category<T> getCDOMCategory()
 	{
 		return category;
@@ -283,6 +284,7 @@ public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject
 	 * 
 	 * @return The GroupingState for this CDOMCategorizedSingleRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;
@@ -300,6 +302,7 @@ public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject
 		return choice;
 	}
 
+	@Override
 	public String getLSTCategory()
 	{
 		return category.getLSTformat();

@@ -60,29 +60,30 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 		}
 		for (PrimitiveCollection<T> pcf : primCollection)
 		{
-			Class<? super T> refClass = pcf.getReferenceClass();
+			Class<? super T> thisPCFClass = pcf.getReferenceClass();
 			if (pcfClass == null)
 			{
-				pcfClass = refClass;
+				pcfClass = thisPCFClass;
 			}
-			else if (!pcfClass.isAssignableFrom(refClass))
+			else if (!pcfClass.isAssignableFrom(thisPCFClass))
 			{
-				if (refClass.isAssignableFrom(pcfClass))
+				if (thisPCFClass.isAssignableFrom(pcfClass))
 				{
-					pcfClass = refClass;
+					pcfClass = thisPCFClass;
 				}
 				else
 				{
 					throw new IllegalArgumentException(
 							"List contains incompatible types: "
 									+ pcfClass.getSimpleName() + " and "
-									+ refClass.getSimpleName());
+									+ thisPCFClass.getSimpleName());
 				}
 			}
 		}
 		refClass = pcfClass;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Set<R> returnSet = new HashSet<R>();
@@ -93,6 +94,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 		return returnSet;
 	}
 
+	@Override
 	public Class<? super T> getReferenceClass()
 	{
 		return refClass;
@@ -105,6 +107,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	 * 
 	 * @return The GroupingState for this CompoundOrPrimitive.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;
@@ -122,6 +125,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	 * @return A representation of this CompoundOrPrimitive, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return PrimitiveUtilities.joinLstFormat(primCollection, Constants.PIPE,

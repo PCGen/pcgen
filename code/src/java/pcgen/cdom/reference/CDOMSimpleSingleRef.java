@@ -113,6 +113,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
 	 * @return true if the reference has been resolved, false if not.
 	 */
+	@Override
 	public boolean hasBeenResolved()
 	{
 		return referencedObject != null;
@@ -236,6 +237,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * 
 	 * @return The GroupingState for this CDOMSimpleSingleRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_UNION;

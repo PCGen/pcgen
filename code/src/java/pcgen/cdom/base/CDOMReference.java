@@ -97,6 +97,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 * 
 	 * @return The class of object this CDOMReference refers to.
 	 */
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return clazz;
@@ -136,12 +137,13 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 * Returns a representation of this CDOMReference, suitable for storing in
 	 * an LST file.
 	 * 
-	 * Note that this will ALWAYS return a comma-delimted list of objects if
+	 * Note that this will ALWAYS return a comma-delimited list of objects if
 	 * more than one object is present in the CDOMReference.
 	 * 
 	 * @return A representation of this CDOMReference, suitable for storing in
 	 *         an LST file.
 	 */
+	@Override
 	public abstract String getLSTformat(boolean useAny);
 
 	/**
@@ -206,6 +208,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 		return contains(item);
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		return c.convert(this);

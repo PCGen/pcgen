@@ -103,6 +103,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this CompoundAndChoiceSet
 	 *         contains.
 	 */
+	@Override
 	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		Collection<T> returnSet = null;
@@ -130,6 +131,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A representation of this CompoundAndChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return ChoiceSetUtilities
@@ -141,6 +143,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The class of object this CompoundAndChoiceSet contains.
 	 */
+	@Override
 	public Class<? super T> getChoiceClass()
 	{
 		return pcsSet == null ? null : pcsSet.iterator().next()
@@ -179,6 +182,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The GroupingState for this CompoundAndChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

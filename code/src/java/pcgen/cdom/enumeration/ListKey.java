@@ -270,7 +270,7 @@ public final class ListKey<T> {
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {
-		//Only allow instantation here
+		//Only allow instantiation here
 	}
 
 	public T cast(Object obj)

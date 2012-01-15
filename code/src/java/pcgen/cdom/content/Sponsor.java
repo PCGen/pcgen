@@ -33,21 +33,25 @@ public class Sponsor implements Loadable
 	private String sponsorKey;
 	private String sponsorText;
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		sponsorKey = name;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return sponsorKey;
@@ -63,21 +67,25 @@ public class Sponsor implements Loadable
 		return sponsorName;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return sponsorKey;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getKeyName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

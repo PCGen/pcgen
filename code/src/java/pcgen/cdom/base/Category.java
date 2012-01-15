@@ -48,6 +48,7 @@ public interface Category<T extends Loadable & CategorizedCDOMObject<T>>
 	 * @return The key name of the Category.
 	 * 
 	 */
+	@Override
 	String getKeyName();
 
 	/**
@@ -56,5 +57,6 @@ public interface Category<T extends Loadable & CategorizedCDOMObject<T>>
 	 * @return The display name of the Category.
 	 * 
 	 */
+	@Override
 	String getDisplayName();
 }

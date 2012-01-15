@@ -129,6 +129,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;
@@ -222,6 +223,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+	@Override
 	public int compareTo(Type type)
 	{
 		/*

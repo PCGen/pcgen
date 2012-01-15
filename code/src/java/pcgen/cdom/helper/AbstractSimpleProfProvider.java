@@ -65,6 +65,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * @return true if this AbstractSimpleProfProvider provides the given
 	 *         proficiency; false otherwise.
 	 */
+	@Override
 	public boolean providesProficiency(T proficiency)
 	{
 		return prof.equals(proficiency);
@@ -78,6 +79,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 *            The <tt>PlayerCharacter</tt> to test (ignored)
 	 * @return true, as AbstractSimpleProfProvider is not a conditional object
 	 */
+	@Override
 	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner)
 	{
 		return true;
@@ -96,6 +98,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * @return false, as AbstractSimpleProfProvider never grants proficiency
 	 *         based on Equipment TYPE
 	 */
+	@Override
 	public boolean providesEquipmentType(String type)
 	{
 		return false;
@@ -108,6 +111,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * 
 	 * @return The LST format of this AbstractSimpleProfProvider
 	 */
+	@Override
 	public String getLstFormat()
 	{
 		return prof.getKeyName();

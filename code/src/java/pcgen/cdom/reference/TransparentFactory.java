@@ -52,21 +52,25 @@ public class TransparentFactory<T extends Loadable> implements
 		refClass = objClass;
 	}
 
+	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
 		return new CDOMTransparentAllRef<T>(refClass);
 	}
 
-	public CDOMGroupRef<T> getTypeReference(String[] types)
+	@Override
+	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		return new CDOMTransparentTypeRef<T>(refClass, types);
 	}
 
+	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
 		return new CDOMTransparentSingleRef<T>(refClass, key);
 	}
 
+	@Override
 	public T newInstance()
 	{
 		try
@@ -87,21 +91,25 @@ public class TransparentFactory<T extends Loadable> implements
 		}
 	}
 
+	@Override
 	public boolean isMember(T item)
 	{
 		return refClass.equals(item.getClass());
 	}
 
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return refClass;
 	}
 
+	@Override
 	public String getReferenceDescription()
 	{
 		return refClass.getSimpleName();
 	}
 
+	@Override
 	public boolean resolve(ReferenceManufacturer<T> rm, String name,
 			CDOMSingleRef<T> value, UnconstructedValidator validator)
 	{
@@ -109,6 +117,7 @@ public class TransparentFactory<T extends Loadable> implements
 				"Resolution should not occur on Transparent object");
 	}
 
+	@Override
 	public boolean populate(ReferenceManufacturer<T> parentCrm,
 			ReferenceManufacturer<T> rm, UnconstructedValidator validator)
 	{
@@ -116,6 +125,7 @@ public class TransparentFactory<T extends Loadable> implements
 		return true;
 	}
 
+	@Override
 	public ManufacturableFactory<T> getParent()
 	{
 		throw new UnsupportedOperationException(

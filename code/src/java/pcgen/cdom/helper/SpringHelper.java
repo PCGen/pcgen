@@ -28,7 +28,7 @@ import org.springframework.core.io.ClassPathResource;
 
 /**
  * The Class <code>SpringHelper</code> is a simple helper for 
- * integrating the Spring frameowrk into PCGen.
+ * integrating the Spring framework into PCGen.
  *
  * <br/>
  * Last Editor: $Author$

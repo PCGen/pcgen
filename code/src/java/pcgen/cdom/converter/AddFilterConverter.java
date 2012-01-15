@@ -44,11 +44,13 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		filter = fil;
 	}
 
+	@Override
 	public Collection<R> convert(CDOMReference<B> orig)
 	{
 		return converter.convert(orig, filter);
 	}
 
+	@Override
 	public Collection<R> convert(CDOMReference<B> orig, PrimitiveFilter<B> lim)
 	{
 		return converter.convert(orig, new CompoundFilter<B>(filter, lim));
@@ -66,6 +68,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 			filter2 = fil2;
 		}
 
+		@Override
 		public boolean allow(PlayerCharacter pc, T obj)
 		{
 			return filter1.allow(pc, obj) && filter2.allow(pc, obj);

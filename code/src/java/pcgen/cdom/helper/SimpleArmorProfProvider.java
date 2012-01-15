@@ -50,6 +50,7 @@ public class SimpleArmorProfProvider extends
 	 * @return true if this SimpleArmorProfProvider provides proficiency for the
 	 *         given Equipment; false otherwise.
 	 */
+	@Override
 	public boolean providesProficiencyFor(Equipment equipment)
 	{
 		return providesProficiency(equipment.getArmorProf());

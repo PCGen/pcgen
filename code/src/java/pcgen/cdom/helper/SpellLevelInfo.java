@@ -73,6 +73,7 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 		return list;
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, PCClass cl)
 	{
 		return pc.getClassKeyed(cl.getKeyName()) != null;

@@ -39,21 +39,25 @@ public interface PrimitiveChoiceSet<T>
 {
 	PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet(){
 
+		@Override
 		public Class getChoiceClass()
 		{
 			return Object.class;
 		}
 
+		@Override
 		public GroupingState getGroupingState()
 		{
 			return GroupingState.INVALID;
 		}
 
+		@Override
 		public String getLSTformat(boolean useAny)
 		{
 			return "ERROR";
 		}
 
+		@Override
 		public Collection getSet(PlayerCharacter pc)
 		{
 			return Collections.emptyList();

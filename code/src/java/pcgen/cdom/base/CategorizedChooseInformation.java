@@ -50,7 +50,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	private final Category<Ability> category;
 
 	/**
-	 * The name of Abilitythis ChoiceSet
+	 * The name of this ChoiceSet
 	 */
 	private final String setName;
 
@@ -112,6 +112,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
+	@Override
 	public void setChoiceActor(ChoiceActor<T> actor)
 	{
 		choiceActor = (PersistentChoiceActor<T>) actor;
@@ -123,7 +124,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * format which restricts certain characters (such as URLs), it simply
 	 * encodes into an identifying String. There is no guarantee that this
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that the decodeChoice method of the
+	 * identifying such that the decodeChoice method of the
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
@@ -133,6 +134,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
+	@Override
 	public String encodeChoice(T item)
 	{
 		return choiceActor.encodeChoice(item);
@@ -143,7 +145,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * format to be passed into this method is defined solely by the return
 	 * result of the encodeChoice method. There is no guarantee that the
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that this method is capable of decoding the String into
+	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
 	 * @param persistentFormat
@@ -153,11 +155,13 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
+	@Override
 	public T decodeChoice(String persistentFormat)
 	{
 		return choiceActor.decodeChoice(persistentFormat);
 	}
 
+	@Override
 	public PersistentChoiceActor<T> getChoiceActor()
 	{
 		return choiceActor;
@@ -174,7 +178,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	{
 		if (obj instanceof CategorizedChooseInformation)
 		{
-			CategorizedChooseInformation other = (CategorizedChooseInformation) obj;
+			CategorizedChooseInformation<?> other = (CategorizedChooseInformation<?>) obj;
 			if (title == null)
 			{
 				if (other.title != null)
@@ -207,6 +211,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * Returns a representation of this ChoiceSet, suitable for storing in an
 	 * LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		return pcs.getLSTformat(false);
@@ -217,6 +222,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * 
 	 * @return the Class contained within this ChoiceSet
 	 */
+	@Override
 	public Class<T> getChoiceClass()
 	{
 		return underlyingClass;
@@ -232,6 +238,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
+	@Override
 	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		return Collections.unmodifiableCollection(pcs.getSet(pc));
@@ -245,6 +252,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * 
 	 * @return The name of this ChoiceSet
 	 */
+	@Override
 	public String getName()
 	{
 		return setName;
@@ -273,11 +281,13 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * 
 	 * @return The title of this ChoiceSet
 	 */
+	@Override
 	public String getTitle()
 	{
 		return title;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return pcs.getGroupingState();
@@ -288,16 +298,19 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 		return category;
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
 	{
 		choiceActor.restoreChoice(pc, owner, item);
 	}
 
+	@Override
 	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
 	{
 		return new CDOMChoiceManager<T>(owner, this, null, cost);
 	}
 
+	@Override
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),

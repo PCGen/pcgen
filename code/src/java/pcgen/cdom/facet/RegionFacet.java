@@ -389,6 +389,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		}
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		updateRegion(dfce.getCharID());
@@ -412,6 +413,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		}
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		updateRegion(dfce.getCharID());

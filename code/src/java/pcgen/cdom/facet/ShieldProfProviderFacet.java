@@ -42,6 +42,7 @@ public class ShieldProfProviderFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
@@ -58,6 +59,7 @@ public class ShieldProfProviderFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());

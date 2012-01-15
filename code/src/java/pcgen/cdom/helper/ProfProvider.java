@@ -70,6 +70,7 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 *            PRExxx resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
+	@Override
 	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner);
 
 	/**

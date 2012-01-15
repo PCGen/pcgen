@@ -112,6 +112,7 @@ public class LevelFacet implements ClassLevelChangeListener
 		public int nonMonsterLevels;
 	}
 
+	@Override
 	public void levelChanged(ClassLevelChangeEvent lce)
 	{
 		CharID id = lce.getCharID();
@@ -131,6 +132,7 @@ public class LevelFacet implements ClassLevelChangeListener
 		}
 	}
 
+	@Override
 	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
 	{
 		//ignore

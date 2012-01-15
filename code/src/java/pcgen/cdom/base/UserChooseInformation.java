@@ -40,47 +40,56 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	 */
 	private String title = null;
 
+	@Override
 	public Class<String> getChoiceClass()
 	{
 		return String.class;
 	}
 
-	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
+	@Override
+	public ChoiceManagerList<String> getChoiceManager(CDOMObject owner, int cost)
 	{
 		return new UserInputManager(owner, this, cost);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_NONE;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return "*USERINPUT";
 	}
 
+	@Override
 	public String getName()
 	{
 		return UCI_NAME;
 	}
 
+	@Override
 	public Collection<String> getSet(PlayerCharacter pc)
 	{
 		return Collections.singletonList("USERINPUT");
 	}
 
+	@Override
 	public String getTitle()
 	{
 		return title == null ? "Provide User Input" : title;
 	}
 
+	@Override
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
 			", ");
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
@@ -88,12 +97,14 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		pc.addAssociation(owner, choice);
 	}
 
+	@Override
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
@@ -114,6 +125,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		csa.applyChoice(owner, choice, pc);
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, choice);
@@ -129,26 +141,31 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
+	@Override
 	public PersistentChoiceActor<String> getChoiceActor()
 	{
 		return this;
 	}
 
+	@Override
 	public void setChoiceActor(ChoiceActor<String> actor)
 	{
 		// ignore
 	}
 
+	@Override
 	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public String decodeChoice(String choice)
 	{
 		return choice;
 	}
 
+	@Override
 	public String encodeChoice(String choice)
 	{
 		return choice;

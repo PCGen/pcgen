@@ -30,46 +30,54 @@ public class BaseDice implements Loadable
 
 	private URI sourceURI;
 	private String dieName;
-	private RollInfo diceInfo;
+	//private RollInfo diceInfo;
 	private List<RollInfo> downList = new ArrayList<RollInfo>();
 	private List<RollInfo> upList = new ArrayList<RollInfo>();
 
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		dieName = name;
-		diceInfo = new RollInfo(name);
+		//diceInfo = new RollInfo(name);
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return dieName;
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

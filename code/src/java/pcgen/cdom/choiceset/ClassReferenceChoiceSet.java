@@ -104,6 +104,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * @return A representation of this ClassReferenceChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
@@ -122,6 +123,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * 
 	 * @return The class of object this ClassReferenceChoiceSet contains.
 	 */
+	@Override
 	public Class<PCClass> getChoiceClass()
 	{
 		return PCClass.class;
@@ -151,6 +153,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * @return A Set containing the Objects which this ClassReferenceChoiceSet
 	 *         contains.
 	 */
+	@Override
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		Set<PCClass> returnSet = new HashSet<PCClass>();
@@ -202,6 +205,7 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * 
 	 * @return The GroupingState for this ClassReferenceChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

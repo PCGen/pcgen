@@ -85,6 +85,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 *            The PlayerCharacter to which the changes driven by this
 	 *            ClassSkillChoiceActor should be applied.
 	 */
+	@Override
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
 		pc.addSkill(choice);
@@ -114,6 +115,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * 
 	 * @return true if the given Skill should be allowed as a selection.
 	 */
+	@Override
 	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return !pc.isClassSkill(choice);
@@ -123,7 +125,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * Decodes the given String into a Skill. The String format to be passed
 	 * into this method is defined solely by the return result of the
 	 * encodeChoice method. There is no guarantee that the encoding is human
-	 * readable, simply that the encoding is uniquely identifing such that this
+	 * readable, simply that the encoding is uniquely identifying such that this
 	 * method is capable of decoding the String into the Skill.
 	 * 
 	 * @param persistentFormat
@@ -131,6 +133,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * 
 	 * @return A Skill that was encoded in the given String.
 	 */
+	@Override
 	public Skill decodeChoice(String persistentFormat)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
@@ -152,6 +155,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * 
 	 * @return A String sufficient to uniquely identify the Skill.
 	 */
+	@Override
 	public String encodeChoice(Skill choice)
 	{
 		return choice.getKeyName();
@@ -170,6 +174,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * @param choice
 	 *            The Skill being restored to the given PlayerCharacter.
 	 */
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
 		pc.addSkill(choice);
@@ -200,6 +205,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * @param choice
 	 *            The Skill being removed from the given PlayerCharacter.
 	 */
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
 		pc.addSkill(choice);
@@ -226,6 +232,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 *            The PlayerCharacter for which the currently selected items are
 	 *            being returned.
 	 */
+	@Override
 	public List<Skill> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
 	{
 		return Collections.emptyList();

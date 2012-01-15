@@ -171,6 +171,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * @throws NullPointerException
 	 *             if the given ReferenceManufacturer is null
 	 */
+	@Override
 	public void resolve(ReferenceManufacturer<T> rm)
 	{
 		if (rm.getReferenceClass().equals(getReferenceClass()))
@@ -231,6 +232,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * 
 	 * @return The GroupingState for this CDOMTransparentAllRef.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_NONE;

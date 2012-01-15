@@ -27,11 +27,13 @@ import pcgen.core.Equipment;
 public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());

@@ -32,6 +32,7 @@ public class WeaponProfList extends CDOMListObject<WeaponProf>
 	 * 
 	 * @return the WeaponProf Class object (WeaponProf.class)
 	 */
+	@Override
 	public Class<WeaponProf> getListClass()
 	{
 		return WeaponProf.class;
@@ -40,6 +41,7 @@ public class WeaponProfList extends CDOMListObject<WeaponProf>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

@@ -249,6 +249,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 * 
 	 * @return The GroupingState for this PatternMatchingReference.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

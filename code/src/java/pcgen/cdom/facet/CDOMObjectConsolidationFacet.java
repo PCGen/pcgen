@@ -50,12 +50,14 @@ public class CDOMObjectConsolidationFacet implements
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		add(dfce.getCharID(), cdo, dfce.getSource());
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();

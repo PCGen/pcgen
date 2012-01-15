@@ -36,11 +36,13 @@ public class DereferencingConverter<T> implements Converter<T, T>
 		character = pc;
 	}
 
+	@Override
 	public Collection<T> convert(CDOMReference<T> orig)
 	{
 		return orig.getContainedObjects();
 	}
 
+	@Override
 	public Collection<T> convert(CDOMReference<T> orig, PrimitiveFilter<T> lim)
 	{
 		Set<T> returnSet = new HashSet<T>();

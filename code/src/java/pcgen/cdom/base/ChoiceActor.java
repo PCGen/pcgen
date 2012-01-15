@@ -58,7 +58,7 @@ public interface ChoiceActor<T>
 	 *            choice is allowed.
 	 * @param allowStack
 	 *            True if the given choice should be allowed to stack (meaning
-	 *            the PC can have more than one isntance of the choice); false
+	 *            the PC can have more than one instance of the choice); false
 	 *            otherwise
 	 * @return true if the given choice should be allowed for the
 	 *         PlayerCharacter under the provided stacking conditions.

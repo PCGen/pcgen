@@ -69,7 +69,7 @@ public interface PrereqObject
 	 * If the PrereqObject contains no Prerequisites, the return value may be
 	 * null or an empty list, it is implementation-specific.
 	 * 
-	 * @return A List of Prerequesite objects contained in the PrereqObject.
+	 * @return A List of Prerequisite objects contained in the PrereqObject.
 	 */
 	public List<Prerequisite> getPrerequisiteList();
 

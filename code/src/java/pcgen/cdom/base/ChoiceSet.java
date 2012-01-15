@@ -124,6 +124,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * Returns a representation of this ChoiceSet, suitable for storing in an
 	 * LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		return pcs.getLSTformat(useAny);
@@ -134,6 +135,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * 
 	 * @return the Class contained within this ChoiceSet
 	 */
+	@Override
 	public Class<? super T> getChoiceClass()
 	{
 		return pcs.getChoiceClass();
@@ -149,6 +151,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
+	@Override
 	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		return pcs.getSet(pc);
@@ -162,6 +165,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * 
 	 * @return The name of this ChoiceSet
 	 */
+	@Override
 	public String getName()
 	{
 		return setName;
@@ -176,6 +180,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * 
 	 * @return The title of this ChoiceSet
 	 */
+	@Override
 	public void setTitle(String choiceTitle)
 	{
 		title = choiceTitle;
@@ -190,11 +195,13 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * 
 	 * @return The title of this ChoiceSet
 	 */
+	@Override
 	public String getTitle()
 	{
 		return title;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return pcs.getGroupingState();

@@ -53,21 +53,25 @@ public class CDOMFactory<T extends Loadable> implements
 		refClass = objClass;
 	}
 
+	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
 		return new CDOMAllRef<T>(refClass);
 	}
 
+	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		return new CDOMTypeRef<T>(refClass, types);
 	}
 
+	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
 		return new CDOMSimpleSingleRef<T>(refClass, key);
 	}
 
+	@Override
 	public T newInstance()
 	{
 		try
@@ -88,21 +92,25 @@ public class CDOMFactory<T extends Loadable> implements
 		}
 	}
 
+	@Override
 	public boolean isMember(T item)
 	{
 		return refClass.equals(item.getClass());
 	}
 
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return refClass;
 	}
 
+	@Override
 	public String getReferenceDescription()
 	{
 		return refClass.getSimpleName();
 	}
 
+	@Override
 	public boolean resolve(ReferenceManufacturer<T> rm, String name,
 			CDOMSingleRef<T> value, UnconstructedValidator validator)
 	{
@@ -129,6 +137,7 @@ public class CDOMFactory<T extends Loadable> implements
 		return validator != null && validator.allow(getReferenceClass(), key);
 	}
 
+	@Override
 	public boolean populate(ReferenceManufacturer<T> parentCrm,
 			ReferenceManufacturer<T> rm, UnconstructedValidator validator)
 	{
@@ -136,6 +145,7 @@ public class CDOMFactory<T extends Loadable> implements
 		return true;
 	}
 
+	@Override
 	public ManufacturableFactory<T> getParent()
 	{
 		return null;

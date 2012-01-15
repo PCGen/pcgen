@@ -61,6 +61,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * 
 	 * @return The class of object this ModifyChoiceDecorator contains.
 	 */
+	@Override
 	public Class<? super Ability> getChoiceClass()
 	{
 		return pcs.getChoiceClass();
@@ -76,6 +77,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * @return A representation of this ModifyChoiceDecorator, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return pcs.getLSTformat(useAny);
@@ -98,6 +100,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * @return A Set containing the Objects which this ModifyChoiceDecorator
 	 *         contains and which are also possessed by the PlayerCharacter.
 	 */
+	@Override
 	public Set<Ability> getSet(PlayerCharacter pc)
 	{
 		Collection<Ability> collection = pcs.getSet(pc);
@@ -146,6 +149,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * 
 	 * @return The GroupingState for this ModifyChoiceDecorator.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return pcs.getGroupingState();

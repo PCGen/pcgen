@@ -41,6 +41,7 @@ public class ActiveEqModFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		/*
@@ -72,6 +73,7 @@ public class ActiveEqModFacet extends
 	 * 
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		CharID id = dfce.getCharID();

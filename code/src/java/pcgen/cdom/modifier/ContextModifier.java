@@ -96,6 +96,7 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 *            Modifier should act upon the input object
 	 * @return The modified object, of the same class as the input object.
 	 */
+	@Override
 	public T applyModifier(T obj, Object context)
 	{
 		return (context instanceof PrereqObject && contextItems
@@ -110,6 +111,7 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 * @return A representation of this ContextModifier, suitable for storing in
 	 *         an LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		String contextString = contextItems.getLSTformat(false);
@@ -128,6 +130,7 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 * 
 	 * @return The class of object this ContextModifier acts upon
 	 */
+	@Override
 	public Class<T> getModifiedClass()
 	{
 		return modifier.getModifiedClass();

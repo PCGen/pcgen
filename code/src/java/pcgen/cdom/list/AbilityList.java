@@ -50,6 +50,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 * 
 	 * @return the Ability Class object (Ability.class)
 	 */
+	@Override
 	public Class<Ability> getListClass()
 	{
 		return Ability.class;
@@ -58,6 +59,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

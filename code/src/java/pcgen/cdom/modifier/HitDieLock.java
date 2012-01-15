@@ -66,6 +66,7 @@ public class HitDieLock implements Modifier<HitDie>
 	 *            The context of this Modifier, ignored by HitDieLock.
 	 * @return The modified object, of the same class as the input object.
 	 */
+	@Override
 	public HitDie applyModifier(HitDie origHD, Object context)
 	{
 		return hitDie;
@@ -78,6 +79,7 @@ public class HitDieLock implements Modifier<HitDie>
 	 * @return A representation of this HitDieLock, suitable for storing in an
 	 *         LST file.
 	 */
+	@Override
 	public String getLSTformat()
 	{
 		return Integer.toString(hitDie.getDie());
@@ -88,6 +90,7 @@ public class HitDieLock implements Modifier<HitDie>
 	 * 
 	 * @return The class of object this Modifier acts upon (HitDie.class)
 	 */
+	@Override
 	public Class<HitDie> getModifiedClass()
 	{
 		return HitDie.class;

@@ -67,7 +67,7 @@ public final class RaceType implements TypeSafeConstant
 	/**
 	 * Converts this Constant to a String (returns the name of this Constant)
 	 * 
-	 * @return The string representatin (name) of this Constant
+	 * @return The string representation (name) of this Constant
 	 */
 	@Override
 	public String toString()
@@ -78,6 +78,7 @@ public final class RaceType implements TypeSafeConstant
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;

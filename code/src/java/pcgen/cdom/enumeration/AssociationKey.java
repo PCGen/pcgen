@@ -102,7 +102,7 @@ public final class AssociationKey<T>
 
 	private AssociationKey()
 	{
-		// Only allow instantation here
+		// Only allow instantiation here
 	}
 
 	public T cast(Object obj)

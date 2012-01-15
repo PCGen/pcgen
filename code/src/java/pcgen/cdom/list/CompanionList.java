@@ -32,6 +32,7 @@ public class CompanionList extends CDOMListObject<Race>
 	 * 
 	 * @return the Race Class object (Race.class)
 	 */
+	@Override
 	public Class<Race> getListClass()
 	{
 		return Race.class;
@@ -40,6 +41,7 @@ public class CompanionList extends CDOMListObject<Race>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

@@ -178,6 +178,7 @@ public final class FormulaFactory
 		 * 
 		 * @return the Integer in this IntegerFormula.
 		 */
+		@Override
 		public Integer resolve(PlayerCharacter pc, String source)
 		{
 			return integer;
@@ -189,6 +190,7 @@ public final class FormulaFactory
 		 * 
 		 * @return the Integer in this IntegerFormula.
 		 */
+		@Override
 		public Integer resolve(Equipment equipment, boolean primary,
 				PlayerCharacter pc, String source)
 		{
@@ -233,6 +235,7 @@ public final class FormulaFactory
 		 * Returns true as an IntegerFormula has an underlying integer (static)
 		 * value
 		 */
+		@Override
 		public boolean isStatic()
 		{
 			return true;
@@ -241,6 +244,7 @@ public final class FormulaFactory
 		/**
 		 * Returns true as an IntegerFormula is a valid Formula.
 		 */
+		@Override
 		public boolean isValid()
 		{
 			return true;
@@ -282,6 +286,7 @@ public final class FormulaFactory
 		 * 
 		 * @return the Double in this DoubleFormula.
 		 */
+		@Override
 		public Double resolve(PlayerCharacter pc, String source)
 		{
 			return dbl;
@@ -293,6 +298,7 @@ public final class FormulaFactory
 		 * 
 		 * @return the Double in this DoubleFormula.
 		 */
+		@Override
 		public Double resolve(Equipment equipment, boolean primary,
 				PlayerCharacter pc, String string)
 		{
@@ -337,6 +343,7 @@ public final class FormulaFactory
 		 * Returns true as an DoubleFormula has an underlying double (static)
 		 * value
 		 */
+		@Override
 		public boolean isStatic()
 		{
 			return true;
@@ -345,6 +352,7 @@ public final class FormulaFactory
 		/**
 		 * Returns true as an DoubleFormula is a valid Formula.
 		 */
+		@Override
 		public boolean isValid()
 		{
 			return true;

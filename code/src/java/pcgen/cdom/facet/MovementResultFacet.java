@@ -145,7 +145,7 @@ public class MovementResultFacet
 		/**
 		 * recalculate all the move rates and modifiers
 		 */
-		public void adjustMoveRates(CharID id)
+		public void adjustMoveRates()
 		{
 			movements = null;
 			movementTypes = null;
@@ -415,7 +415,7 @@ public class MovementResultFacet
 					.calcEncumberedMove(armorLoad, moveInFeet);
 
 			Load pcLoad = loadFacet.getLoadType(id);
-			double loadMove = calcEncumberedMove(pcLoad, moveInFeet, id);
+			double loadMove = calcEncumberedMove(pcLoad, moveInFeet);
 
 			// It is possible to have a PC that is not encumbered by Armor
 			// But is encumbered by Weight carried (and visa-versa)
@@ -536,12 +536,9 @@ public class MovementResultFacet
 		 * @param load
 		 * @param unencumberedMove
 		 *            the unencumbered move value
-		 * @param checkLoad
-		 * @param aPC
 		 * @return encumbered move as an integer
 		 */
-		public double calcEncumberedMove(Load load,
-				double unencumberedMove, CharID id)
+		public double calcEncumberedMove(Load load, double unencumberedMove)
 		{
 			double encumberedMove;
 
@@ -611,7 +608,7 @@ public class MovementResultFacet
 
 	public void reset(CharID id)
 	{
-		getConstructingInfo(id).adjustMoveRates(id);
+		getConstructingInfo(id).adjustMoveRates();
 	}
 
 	public List<NamedValue> getMovementValues(CharID id)

@@ -299,16 +299,19 @@ public class MapCollection extends AbstractCollection<Object>
 			hashIterator = map.entrySet().iterator();
 		}
 
+		@Override
 		public boolean hasNext()
 		{
 			return returnedKey || hashIterator.hasNext();
 		}
 
+		@Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException();
 		}
 
+		@Override
 		public Object next()
 		{
 			if (returnedKey)

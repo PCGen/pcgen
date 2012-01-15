@@ -43,6 +43,7 @@ public final class ChoiceSetUtilities
 	public static final Comparator<PrimitiveChoiceSet<?>> WRITEABLE_SORTER = new Comparator<PrimitiveChoiceSet<?>>()
 	{
 
+		@Override
 		public int compare(PrimitiveChoiceSet<?> arg0,
 				PrimitiveChoiceSet<?> arg1)
 		{

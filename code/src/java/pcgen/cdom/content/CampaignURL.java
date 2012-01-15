@@ -114,6 +114,7 @@ public class CampaignURL implements Comparable<CampaignURL>
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+	@Override
 	public int compareTo(final CampaignURL that)
 	{
 		if (this == that)

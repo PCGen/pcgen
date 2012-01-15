@@ -92,6 +92,7 @@ public class JEPFormula implements Formula
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
+	@Override
 	public Float resolve(PlayerCharacter character, String source)
 	{
 		return character.getVariableValue(formula, source);
@@ -104,6 +105,7 @@ public class JEPFormula implements Formula
 	 * 
 	 * @return false
 	 */
+	@Override
 	public boolean isStatic()
 	{
 		return false;
@@ -129,12 +131,14 @@ public class JEPFormula implements Formula
 	 * @return The value of this JEPFormula in the context of the given
 	 *         Equipment, PlayerCharacter, and Source identifier.
 	 */
+	@Override
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter pc, String source)
 	{
 		return equipment.getVariableValue(formula, source, primary, pc);
 	}
 
+	@Override
 	public boolean isValid()
 	{
 		return true;

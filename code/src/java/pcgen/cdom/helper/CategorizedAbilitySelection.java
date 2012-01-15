@@ -134,14 +134,14 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 	}
 
 	/**
-	 * Returns the "full" Key requried to fully resolve both the Ability and the
+	 * Returns the "full" Key required to fully resolve both the Ability and the
 	 * selection for this AbilitySelection. The choice is encoded in parenthesis
 	 * after the ability key.
 	 * 
 	 * Note: This is primarily used for compatibility with "old" (5.x) style
 	 * core objects and generally use of this method is discouraged.
 	 * 
-	 * @return The "full" Key requried to fully resolve both the Ability and the
+	 * @return The "full" Key required to fully resolve both the Ability and the
 	 *         selection for this AbilitySelection.
 	 */
 	public String getFullAbilityKey()

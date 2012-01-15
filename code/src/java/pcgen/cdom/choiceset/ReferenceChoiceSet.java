@@ -99,6 +99,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A representation of this ReferenceChoiceSet, suitable for storing
 	 *         in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
@@ -117,6 +118,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The class of object this ReferenceChoiceSet contains.
 	 */
+	@Override
 	public Class<T> getChoiceClass()
 	{
 		return refCollection == null ? null : refCollection.iterator().next()
@@ -146,6 +148,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this ReferenceChoiceSet
 	 *         contains.
 	 */
+	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
@@ -196,6 +199,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * 
 	 * @return The GroupingState for this ReferenceChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

@@ -38,6 +38,7 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	private final BioSetFacet bioSetFacet = FacetLibrary
 			.getFacet(BioSetFacet.class);
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Object> dfce)
 	{
 		update(dfce.getCharID());
@@ -49,6 +50,7 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 		set(id, bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id)));
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Object> dfce)
 	{
 		update(dfce.getCharID());

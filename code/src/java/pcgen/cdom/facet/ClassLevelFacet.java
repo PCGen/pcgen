@@ -78,12 +78,14 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 	 * 
 	 * @see pcgen.cdom.facet.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.LevelFacet.LevelChangeEvent)
 	 */
+	@Override
 	public void levelChanged(ClassLevelChangeEvent lce)
 	{
 		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(), lce
 				.getNewLevel());
 	}
 
+	@Override
 	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
 	{
 		PCClassLevel old = lce.getOldLevel();

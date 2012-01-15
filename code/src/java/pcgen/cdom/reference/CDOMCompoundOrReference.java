@@ -135,7 +135,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * this method is partially governed by the response of the individual
 	 * CDOMReference objects contained by this CDOMCompoundOrReference.
 	 * 
-	 * Note that this will ALWAYS return a comma-delimted list of objects if
+	 * Note that this will ALWAYS return a comma-delimited list of objects if
 	 * more than one reference is present in the CDOMCompoundOrReference.
 	 * 
 	 * @return A representation of this CDOMCompoundOrReference, suitable for
@@ -224,6 +224,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * 
 	 * @return The GroupingState for this CDOMCompoundOrReference.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

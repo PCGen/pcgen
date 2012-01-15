@@ -27,6 +27,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
 {
 
+	@Override
 	protected Collection<PCLevelInfo> getComponentSet()
 	{
 		return new ArrayList<PCLevelInfo>();

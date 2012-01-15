@@ -64,6 +64,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 *             if the Number provided is null
 	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
+	@Override
 	public Integer resolve(Number... numbers)
 	{
 		if (numbers == null || numbers.length != 1)

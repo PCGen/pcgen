@@ -41,6 +41,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 	 * 
 	 * @return the Spell Class object (Spell.class)
 	 */
+	@Override
 	public Class<Spell> getListClass()
 	{
 		return Spell.class;
@@ -49,6 +50,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 	/**
 	 * Lists never have a Type, so this returns false
 	 */
+	@Override
 	public boolean isType(String type)
 	{
 		if ((type.length() == 0) || (types == null))

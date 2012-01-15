@@ -66,7 +66,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	/**
 	 * Converts this Constant to a String (returns the name of this Constant)
 	 * 
-	 * @return The string representatin (name) of this Constant
+	 * @return The string representation (name) of this Constant
 	 */
 	@Override
 	public String toString()
@@ -77,6 +77,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;
@@ -173,6 +174,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 		}
 	}
 
+	@Override
 	public int compareTo(Region region)
 	{
 		/*

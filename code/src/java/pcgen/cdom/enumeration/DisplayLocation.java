@@ -77,6 +77,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;
@@ -170,6 +171,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+	@Override
 	public int compareTo(DisplayLocation type)
 	{
 		/*

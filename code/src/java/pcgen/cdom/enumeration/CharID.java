@@ -46,6 +46,7 @@ public final class CharID implements TypeSafeConstant
 	/**
 	 * Gets the ordinal of this Constant
 	 */
+	@Override
 	public int getOrdinal()
 	{
 		return ordinal;

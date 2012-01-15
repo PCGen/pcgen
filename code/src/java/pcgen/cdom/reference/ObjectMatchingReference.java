@@ -272,6 +272,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * 
 	 * @return The GroupingState for this ObjectMatchingReference.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

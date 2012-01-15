@@ -136,6 +136,7 @@ public class AbilityRefChoiceSet implements
 	 * @return A representation of this AbilityRefChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
@@ -157,6 +158,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The class of object this AbilityRefChoiceSet contains.
 	 */
+	@Override
 	public Class<AbilitySelection> getChoiceClass()
 	{
 		return AbilitySelection.class;
@@ -182,6 +184,7 @@ public class AbilityRefChoiceSet implements
 	 * @return A Set containing the Objects which this AbilityRefChoiceSet
 	 *         contains.
 	 */
+	@Override
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
@@ -377,6 +380,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The GroupingState for this AbilityRefChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;

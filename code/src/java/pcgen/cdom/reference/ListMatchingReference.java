@@ -294,6 +294,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	 * 
 	 * @return The GroupingState for this ListMatchingReference.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

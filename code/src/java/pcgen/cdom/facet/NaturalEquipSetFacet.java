@@ -30,6 +30,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	private PlayerCharacterTrackingFacet trackingFacet =
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
@@ -45,6 +46,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 		}
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		// Ignore for now

@@ -86,6 +86,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * @throws ClassCastException
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
+	@Override
 	public void setChoiceActor(ChoiceActor<T> actor)
 	{
 		choiceActor = (PersistentChoiceActor<T>) actor;
@@ -97,7 +98,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * format which restricts certain characters (such as URLs), it simply
 	 * encodes into an identifying String. There is no guarantee that this
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that the decodeChoice method of the
+	 * identifying such that the decodeChoice method of the
 	 * PersistentTransitionChoice is capable of decoding the String into the
 	 * choice object.
 	 * 
@@ -107,6 +108,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
+	@Override
 	public String encodeChoice(T item)
 	{
 		return choiceActor.encodeChoice(item);
@@ -117,7 +119,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * format to be passed into this method is defined solely by the return
 	 * result of the encodeChoice method. There is no guarantee that the
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that this method is capable of decoding the String into
+	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
 	 * @param persistentFormat
@@ -127,11 +129,13 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
+	@Override
 	public T decodeChoice(String persistentFormat)
 	{
 		return choiceActor.decodeChoice(persistentFormat);
 	}
 
+	@Override
 	public PersistentChoiceActor<T> getChoiceActor()
 	{
 		return choiceActor;

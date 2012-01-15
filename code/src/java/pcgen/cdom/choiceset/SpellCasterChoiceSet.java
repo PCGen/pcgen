@@ -60,21 +60,25 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	private static final PrimitiveChoiceSet<PCClass> EMPTY_CHOICE_SET = new PrimitiveChoiceSet<PCClass>()
 	{
 
+		@Override
 		public Class<PCClass> getChoiceClass()
 		{
 			return PCClass.class;
 		}
 
+		@Override
 		public String getLSTformat(boolean useAny)
 		{
 			return Constants.EMPTY_STRING;
 		}
 
+		@Override
 		public Set<PCClass> getSet(PlayerCharacter pc)
 		{
 			return Collections.emptySet();
 		}
 
+		@Override
 		public GroupingState getGroupingState()
 		{
 			// CONSIDER throwing something here, never should be called?
@@ -176,6 +180,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * @return A representation of this SpellCasterChoiceSet, suitable for
 	 *         storing in an LST file.
 	 */
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		List<String> list = new ArrayList<String>();

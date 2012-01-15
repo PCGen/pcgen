@@ -51,6 +51,7 @@ public class AssociationSupport implements AssociatedObject
 	 * @param value
 	 *            The value to be associated with the given AssociationKey
 	 */
+	@Override
 	public <T> void setAssociation(AssociationKey<T> key, T value)
 	{
 		if (associationMap == null)
@@ -73,6 +74,7 @@ public class AssociationSupport implements AssociatedObject
 	 *            returned
 	 * @return The value associated with the given AssociationKey.
 	 */
+	@Override
 	public <T> T getAssociation(AssociationKey<T> key)
 	{
 		return (T) (associationMap == null ? null : associationMap.get(key));
@@ -96,6 +98,7 @@ public class AssociationSupport implements AssociatedObject
 	 * @return a Collection of the AssociationKeys that are in this
 	 *         AssociatedObject.
 	 */
+	@Override
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
 		return new HashSet<AssociationKey<?>>(associationMap.keySet());
@@ -111,6 +114,7 @@ public class AssociationSupport implements AssociatedObject
 	 * @return true if this AssociatedObject has any associations; false
 	 *         otherwise.
 	 */
+	@Override
 	public boolean hasAssociations()
 	{
 		return associationMap != null && !associationMap.isEmpty();
