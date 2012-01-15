@@ -4700,7 +4700,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			if (!isImporting())
 			{
-				Globals.getBioSet().randomize("AGE.HT.WT", this);
+				getBioSet().randomize("AGE.HT.WT", this);
 			}
 		}
 
