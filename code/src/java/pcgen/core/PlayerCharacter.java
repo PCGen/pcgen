@@ -12734,45 +12734,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void rollHP(PCClass pcClass, int aLevel, boolean first)
 	{
-		int roll = 0;
-	
-		HitDie lvlDie = getLevelHitDie(pcClass, aLevel);
-		if ((lvlDie == null) || (lvlDie.getDie() == 0))
-		{
-			roll = 0;
-		}
-		else
-		{
-			final int min =
-					1 + (int) getTotalBonusTo("HD", "MIN")
-						+ (int) getTotalBonusTo("HD", "MIN;CLASS." + pcClass.getKeyName());
-			final int max =
-					getLevelHitDie(pcClass, aLevel).getDie()
-						+ (int) getTotalBonusTo("HD", "MAX")
-						+ (int) getTotalBonusTo("HD", "MAX;CLASS." + pcClass.getKeyName());
-	
-			if (Globals.getGameModeHPFormula().length() == 0)
-			{
-				if (first && aLevel == 1 && 
-						SettingsHandler.isHPMaxAtFirstLevel() &&
-						(!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcClass.isType("PC")))
-				{
-					roll = max;
-				}
-				else
-				{
-					if (!isImporting())
-					{
-						roll = Globals.rollHP(min, max, pcClass.getDisplayName(), aLevel, getTotalLevels());
-					}
-				}
-			}
-	
-			roll += ((int) getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
-		}
-		PCClassLevel classLevel = getActiveClassLevel(pcClass, aLevel - 1);
-		setHP(classLevel, Integer.valueOf(roll));
-		setCurrentHP(hitPoints());
+		hitPointFacet.rollHP(id, pcClass, aLevel, first);
+		setDirty(true);
 	}
 
 	public void setHP(PCClassLevel pcl, Integer hp)

@@ -17,10 +17,78 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 
 public class HitPointFacet extends
 		AbstractAssociationFacet<PCClassLevel, Integer>
 {
+
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+
+	private HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
+
+	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+
+	private BonusCheckingFacet bonusFacet = FacetLibrary
+		.getFacet(BonusCheckingFacet.class);
+
+	public void rollHP(CharID id, PCClass pcc, int level, boolean first)
+	{
+		int roll = 0;
+
+		HitDie lvlDie = hitDieFacet.getLevelHitDie(id, pcc, level);
+		if ((lvlDie == null) || (lvlDie.getDie() == 0))
+		{
+			roll = 0;
+		}
+		else
+		{
+			final int min =
+					1
+						+ (int) bonusFacet.getBonus(id, "HD", "MIN")
+						+ (int) bonusFacet.getBonus(id, "HD", "MIN;CLASS."
+							+ pcc.getKeyName());
+			final int max =
+					hitDieFacet.getLevelHitDie(id, pcc, level).getDie()
+						+ (int) bonusFacet.getBonus(id, "HD", "MAX")
+						+ (int) bonusFacet.getBonus(id, "HD", "MAX;CLASS."
+							+ pcc.getKeyName());
+
+			if (Globals.getGameModeHPFormula().length() == 0)
+			{
+				if (first
+					&& level == 1
+					&& SettingsHandler.isHPMaxAtFirstLevel()
+					&& (!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc
+						.isType("PC")))
+				{
+					roll = max;
+				}
+				else
+				{
+					PlayerCharacter pc = trackingFacet.getPC(id);
+					if (!pc.isImporting())
+					{
+						roll =
+								Globals.rollHP(min, max, pcc.getDisplayName(),
+									level, levelFacet.getTotalLevels(id));
+					}
+				}
+			}
+
+			roll += ((int) bonusFacet.getBonus(id, "HP", "CURRENTMAXPERLEVEL"));
+		}
+		PCClassLevel classLevel =  classFacet.getClassLevel(id, pcc, level - 1);
+		set(id, classLevel, Integer.valueOf(roll));
+	}
 
 }
