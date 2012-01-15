@@ -1744,7 +1744,7 @@ public class PCClass extends PObject
 	@Override
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{
-		List<CDOMList<Spell>> stableSpellList = pc.getSpellCache(this);
+		List<? extends CDOMList<Spell>> stableSpellList = pc.getSpellCache(this);
 		if (stableSpellList != null)
 		{
 			return stableSpellList;

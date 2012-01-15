@@ -275,6 +275,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
+	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -12756,17 +12757,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void clearSpellCache(PCClass cl)
 	{
-		removeAllAssocs(cl, AssociationListKey.SPELL_LIST_CACHE);
+		spellListFacet.removeAll(id, cl);
 	}
 
 	public void addToSpellCache(PCClass cl, CDOMListObject<Spell> list)
 	{
-		addAssoc(cl, AssociationListKey.SPELL_LIST_CACHE, list);
+		spellListFacet.add(id, list, cl);
 	}
 
-	public List<CDOMList<Spell>> getSpellCache(PCClass cl)
+	public List<? extends CDOMList<Spell>> getSpellCache(PCClass cl)
 	{
-		return getAssocList(cl, AssociationListKey.SPELL_LIST_CACHE);
+		return spellListFacet.getSet(id, cl);
 	}
 
 }
