@@ -29,7 +29,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AspectName;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
