@@ -90,7 +90,6 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.*;
-import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -4690,14 +4689,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (oldRace != null)
 		{
 			removeAllCharacterSpells(oldRace);
-			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
-			if (lcf != null)
-			{
-				final PCClass mclass = lcf.getPCClass();
-				incrementClassLevel(lcf.getLevelCount().resolve(this, "")
-					.intValue()
-					* -1, mclass, true);
-			}
 		}
 
 		// add new race attributes
@@ -4705,84 +4696,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (newRace != null)
 		{
-			// Get existing classes
-			ClassInfo ci = classFacet.removeAllClasses(id);
-
-			//
-			// Remove all saved monster level information
-			//
-			for (int i = getLevelInfoSize() - 1; i >= 0; --i)
-			{
-				PCLevelInfo pli = getLevelInfo(i);
-				final String classKeyName = pli.getClassKeyName();
-				final PCClass aClass =
-						Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(PCClass.class,
-								classKeyName);
-
-				if (aClass.isMonster())
-				{
-					levelInfoFacet.remove(id, pli);
-				}
-			}
-
 			raceFacet.set(id, newRace);
 
 			if (!isImporting())
 			{
 				Globals.getBioSet().randomize("AGE.HT.WT", this);
-			}
-
-			final List<PCLevelInfo> existingLevelInfo =
-					new ArrayList<PCLevelInfo>(getLevelInfo());
-			levelInfoFacet.removeAll(id);
-			// Make sure monster classes are added first
-			if (!isImporting())
-			{
-				LevelCommandFactory lcf = newRace.get(ObjectKey.MONSTER_CLASS);
-				if (lcf != null)
-				{
-					PCClass mclass = lcf.getPCClass();
-					incrementClassLevel(lcf.getLevelCount().resolve(this, "")
-						.intValue(), mclass, true);
-				}
-			}
-
-			levelInfoFacet.addAll(id, existingLevelInfo);
-
-			//
-			// If user has chosen a class before choosing a race,
-			// we need to tweak the number of skill points and feats
-			//
-			if (!isImporting() && ci != null && !ci.isEmpty())
-			{
-				int totalLevels = this.getTotalLevels();
-
-				for (PCClass pcClass : ci.getClassSet())
-				{
-					//
-					// Don't add monster classes back in. This will possibly
-					// mess up feats earned by level
-					// ?Possibly convert to monster class if not null?
-					//
-					if (!pcClass.isMonster())
-					{
-						classFacet.addClass(id, pcClass);
-						final int cLevels = ci.getLevel(pcClass);
-						classFacet.setLevel(id, pcClass, cLevels);
-
-						setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
-
-						int cMod = 0;
-
-						for (int j = 0; j < cLevels; ++j)
-						{
-							cMod += pcClass.recalcSkillPointMod(this, ++totalLevels);
-						}
-
-						setAssoc(pcClass, AssociationKey.SKILL_POOL, cMod);
-					}
-				}
 			}
 		}
 
@@ -6168,7 +6086,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		// Add a clone of the template passed in
 		int lockMonsterSkillPoints = 0; // this is what this value was before
 		// adding this template
 		for (PCClass pcClass : getClassSet())

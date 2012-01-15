@@ -29,6 +29,7 @@ import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 
 public class LevelFacet implements ClassLevelChangeListener
 {
@@ -52,8 +53,14 @@ public class LevelFacet implements ClassLevelChangeListener
 
 	public int getLevelAdjustment(CharID id)
 	{
-		Formula raceLA = raceFacet.get(id).getSafe(FormulaKey.LEVEL_ADJUSTMENT);
-		int levelAdj = resolveFacet.resolve(id, raceLA, "").intValue();
+		Race race = raceFacet.get(id);
+		int levelAdj = 0;
+
+		if (race != null)
+		{
+			Formula raceLA = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
+			levelAdj += resolveFacet.resolve(id, raceLA, "").intValue();
+		}
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{

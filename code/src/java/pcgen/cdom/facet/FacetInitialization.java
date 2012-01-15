@@ -106,6 +106,8 @@ public class FacetInitialization
 				.getFacet(FavoredClassFacet.class);
 		AddedTemplateFacet addedTemplateFacet =
 				FacetLibrary.getFacet(AddedTemplateFacet.class);
+		MonsterClassFacet monsterClassFacet = FacetLibrary
+				.getFacet(MonsterClassFacet.class);
 
 		VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 		FollowerOptionFacet foFacet = FacetLibrary
@@ -240,6 +242,7 @@ public class FacetInitialization
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
+		raceFacet.addDataFacetChangeListener(monsterClassFacet);
 
 		raceFacet.addDataFacetChangeListener(startingLangFacet);
 		templateFacet.addDataFacetChangeListener(startingLangFacet);
