@@ -42,7 +42,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Equipment;
@@ -1333,8 +1332,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 								+ pcClass.getKeyName());
 				int size = aPC.getLevelHitDie(pcClass, j + 1).getDie();
 				PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, j);
-				aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer
-						.valueOf(new Dice(1, size, bonus).roll()));
+				aPC.setHP(classLevel,
+					Integer.valueOf(new Dice(1, size, bonus).roll()));
 			}
 		}
 

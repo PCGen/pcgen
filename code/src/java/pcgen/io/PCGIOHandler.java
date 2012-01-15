@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
@@ -393,7 +392,7 @@ public final class PCGIOHandler extends IOHandler
 				{
 					int baseSides = currentPC.getLevelHitDie(pcClass, i + 1).getDie();
 					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i);
-					Integer hp = currentPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
+					Integer hp = currentPC.getHP(pcl);
 					iRoll = hp == null ? 0 : hp;
 					iSides =
 							baseSides
@@ -403,8 +402,7 @@ public final class PCGIOHandler extends IOHandler
 					if (iRoll > iSides)
 					{
 						PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, i);
-						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
-								Integer.valueOf(iSides));
+						aPC.setHP(classLevel, Integer.valueOf(iSides));
 						bFixMade = true;
 					}
 				}

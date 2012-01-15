@@ -837,7 +837,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
 				PCClassLevel classLevel = thePC.getActiveClassLevel(pcClass, lvl);
-				Integer hp = thePC.getAssoc(classLevel, AssociationKey.HIT_POINTS);
+				Integer hp = thePC.getHP(classLevel);
 				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
 					+ TAG_SAVE + lvl), TAG_SAVES, TAG_SAVE, lvl);

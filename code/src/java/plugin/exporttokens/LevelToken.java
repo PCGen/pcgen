@@ -27,7 +27,6 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -162,7 +161,7 @@ public class LevelToken extends Token
 		if (aClass != null)
 		{
 			PCClassLevel classLevel = pc.getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
-			Integer hp = pc.getAssoc(classLevel, AssociationKey.HIT_POINTS);
+			Integer hp = pc.getHP(classLevel);
 			return hp == null ? "0" : hp.toString();
 		}
 		return "";

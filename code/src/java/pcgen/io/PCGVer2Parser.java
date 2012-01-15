@@ -1762,8 +1762,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				try
 				{
 					PCClassLevel classLevel = thePC.getActiveClassLevel(aPCClass, level - 1);
-					thePC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
-							Integer.valueOf(element.getText()));
+					thePC.setHP(classLevel, Integer.valueOf(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{

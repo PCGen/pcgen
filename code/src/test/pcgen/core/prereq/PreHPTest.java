@@ -26,7 +26,6 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
@@ -77,7 +76,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, myClass, true);
 		myClass = character.getClassList().get(0);
 		PCClassLevel pcl = character.getActiveClassLevel(myClass, 1);
-		character.setAssoc(pcl, AssociationKey.HIT_POINTS, 4);
+		character.setHP(pcl, 4);
 
 		character.calcActiveBonuses();
 

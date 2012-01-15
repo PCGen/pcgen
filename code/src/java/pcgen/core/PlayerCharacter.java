@@ -6944,7 +6944,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (int i = 0; i <= getLevel(pcClass); ++i)
 		{
 			PCClassLevel pcl = getActiveClassLevel(pcClass, i);
-			Integer hp = getAssoc(pcl, AssociationKey.HIT_POINTS);
+			Integer hp = getHP(pcl);
 			if (hp != null && hp > 0)
 			{
 				int iHp = hp + iConMod;
@@ -7122,9 +7122,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				for (int i = 0; i < getLevel(aClass); ++i)
 				{
 					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
-					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+					Integer hp = getHP(frompcl);
 					PCClassLevel topcl = getActiveClassLevel(bClass, i + 1);
-					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
+					setHP(topcl, hp);
 				}
 
 				classFacet.replaceClass(id, aClass, bClass);
@@ -7138,10 +7138,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				for (int i = 0; i < getLevel(aClass); ++i)
 				{
 					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
-					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+					Integer hp = getHP(frompcl);
 					PCClassLevel topcl =
 							getActiveClassLevel(bClass, getLevel(bClass) + i + 1);
-					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
+					setHP(topcl, hp);
 				}
 
 				classFacet.removeClass(id, aClass);
@@ -7755,10 +7755,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (int i = 0; i < iCount; ++i)
 		{
 			PCClassLevel frompcl = getActiveClassLevel(fromClass, iFromLevel + i);
-			Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+			Integer hp = getHP(frompcl);
 			PCClassLevel topcl = getActiveClassLevel(toClass, iToLevel + i);
-			setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
-			setAssoc(frompcl, AssociationKey.HIT_POINTS, Integer.valueOf(0));
+			setHP(topcl, hp);
+			setHP(frompcl, Integer.valueOf(0));
 		}
 
 		rebuildLists(toClass, fromClass, iCount, this);
@@ -12769,7 +12769,23 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			roll += ((int) getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
 		}
 		PCClassLevel classLevel = getActiveClassLevel(pcClass, aLevel - 1);
-		setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
+		setHP(classLevel, Integer.valueOf(roll));
 		setCurrentHP(hitPoints());
 	}
+
+	public void setHP(PCClassLevel pcl, Integer hp)
+	{
+		setAssoc(pcl, AssociationKey.HIT_POINTS, hp);
+	}
+
+	public Integer getHP(PCClassLevel pcl)
+	{
+		return getAssoc(pcl, AssociationKey.HIT_POINTS);
+	}
+
+	public void removeHP(PCClassLevel pcl)
+	{
+		removeAssoc(pcl, AssociationKey.HIT_POINTS);
+	}
+
 }

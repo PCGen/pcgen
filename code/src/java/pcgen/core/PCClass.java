@@ -1364,7 +1364,7 @@ public class PCClass extends PObject
 
 			if (oldLevel > 0)
 			{
-				aPC.removeAssoc(classLevel, AssociationKey.HIT_POINTS);
+				aPC.removeHP(classLevel);
 			}
 
 			//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));

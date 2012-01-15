@@ -50,7 +50,6 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -208,8 +207,7 @@ final class MainHP extends JPanel
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(iRow) - 1;
 						PCClassLevel classLevel = aPC.getActiveClassLevel(aClass, lvl);
-						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
-								Integer.valueOf(iRoll));
+						aPC.setHP(classLevel, Integer.valueOf(iRoll));
 					}
 				}
 
@@ -461,7 +459,7 @@ final class MainHP extends JPanel
 						final int lvl = aPC.getLevelInfoClassLevel(rowIndex);
 						final int baseSides = aPC.getLevelHitDie(aClass, lvl).getDie();
 						PCClassLevel pcl = aPC.getActiveClassLevel(aClass, lvl - 1);
-						Integer hp = aPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
+						Integer hp = aPC.getHP(pcl);
 						iHp = hp == null ? 0 : hp;
 						iSides = baseSides + (int) aClass.getBonusTo("HD", "MAX", lvl, aPC);
 
@@ -472,8 +470,7 @@ final class MainHP extends JPanel
 						{
 							PCClassLevel classLevel = aPC
 									.getActiveClassLevel(aClass, lvl - 1);
-							aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
-									Integer.valueOf(iSides));
+							aPC.setHP(classLevel, Integer.valueOf(iSides));
 							iHp = iSides;
 						}
 					}
