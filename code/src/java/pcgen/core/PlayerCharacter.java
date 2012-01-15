@@ -49,7 +49,6 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
@@ -126,7 +125,6 @@ import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.pclevelinfo.PCLevelInfo;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
