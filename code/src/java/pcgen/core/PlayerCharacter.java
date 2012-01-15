@@ -4697,11 +4697,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (newRace != null)
 		{
 			raceFacet.set(id, newRace);
-
-			if (!isImporting())
-			{
-				getBioSet().randomize("AGE.HT.WT", this);
-			}
 		}
 
 		if (!isImporting())

@@ -242,6 +242,7 @@ public class FacetInitialization
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
+		raceFacet.addDataFacetChangeListener(bioSetFacet);
 		raceFacet.addDataFacetChangeListener(monsterClassFacet);
 
 		raceFacet.addDataFacetChangeListener(startingLangFacet);

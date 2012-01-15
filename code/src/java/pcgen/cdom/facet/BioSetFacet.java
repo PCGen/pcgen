@@ -17,13 +17,38 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.core.BioSet;
+import pcgen.core.PlayerCharacter;
 
 /**
  * BioSetFacet is a Facet that tracks the BioSet active in a Game Mode and thus
  * active for a Player Character.
  */
-public class BioSetFacet extends AbstractItemFacet<BioSet>
+public class BioSetFacet extends AbstractItemFacet<BioSet> implements
+		DataFacetChangeListener<CDOMObject>
 {
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = trackingFacet.getPC(id);
+
+		if (!pc.isImporting())
+		{
+			get(id).randomize("AGE.HT.WT", pc);
+		}
+
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		//Nothing to do
+	}
 
 }
