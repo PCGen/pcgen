@@ -391,7 +391,7 @@ public final class PCGIOHandler extends IOHandler
 
 				for (int i = 0; i <= aPC.getLevel(pcClass); i++)
 				{
-					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1).getDie();
+					int baseSides = currentPC.getLevelHitDie(pcClass, i + 1).getDie();
 					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i);
 					Integer hp = currentPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
 					iRoll = hp == null ? 0 : hp;

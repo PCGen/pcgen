@@ -271,6 +271,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
+	private HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -6101,10 +6102,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 					for (int level = 1; level <= getLevel(pcClass); level++)
 					{
 						HitDie baseHD = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);
-						if (!baseHD.equals(pcClass.getLevelHitDie(this, level)))
+						if (!baseHD.equals(getLevelHitDie(pcClass, level)))
 						{
 							// If the HD has changed from base reroll
-							pcClass.rollHP(this, level, first);
+							rollHP(pcClass, level, first);
 						}
 					}
 				}
@@ -12709,5 +12710,66 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public BioSet getBioSet()
 	{
 		return bioSetFacet.get(id);
+	}
+
+	public HitDie getLevelHitDie(PCClass pcClass, final int classLevel)
+	{
+		return hitDieFacet.getLevelHitDie(id, pcClass, classLevel);
+	}
+
+	/**
+	 * Rolls hp for the current level according to the rules set in options.
+	 *
+	 * @param pcClass TODO
+	 * @param aLevel
+	 * @param first
+	 */
+	/*
+	 * REFACTOR This really needs to be part of the PCClassLevel importing into
+	 * a PlayerCharacter? Some thought needs to be put into where this stuff is
+	 * stored - should PCLevelInfo be adapted to store all of the non-static
+	 * information about a PCClassLevel?
+	 */
+	public void rollHP(PCClass pcClass, int aLevel, boolean first)
+	{
+		int roll = 0;
+	
+		HitDie lvlDie = getLevelHitDie(pcClass, aLevel);
+		if ((lvlDie == null) || (lvlDie.getDie() == 0))
+		{
+			roll = 0;
+		}
+		else
+		{
+			final int min =
+					1 + (int) getTotalBonusTo("HD", "MIN")
+						+ (int) getTotalBonusTo("HD", "MIN;CLASS." + pcClass.getKeyName());
+			final int max =
+					getLevelHitDie(pcClass, aLevel).getDie()
+						+ (int) getTotalBonusTo("HD", "MAX")
+						+ (int) getTotalBonusTo("HD", "MAX;CLASS." + pcClass.getKeyName());
+	
+			if (Globals.getGameModeHPFormula().length() == 0)
+			{
+				if (first && aLevel == 1 && 
+						SettingsHandler.isHPMaxAtFirstLevel() &&
+						(!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcClass.isType("PC")))
+				{
+					roll = max;
+				}
+				else
+				{
+					if (!isImporting())
+					{
+						roll = Globals.rollHP(min, max, pcClass.getDisplayName(), aLevel, getTotalLevels());
+					}
+				}
+			}
+	
+			roll += ((int) getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
+		}
+		PCClassLevel classLevel = getActiveClassLevel(pcClass, aLevel - 1);
+		setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
+		setCurrentHP(hitPoints());
 	}
 }

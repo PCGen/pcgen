@@ -459,7 +459,7 @@ final class MainHP extends JPanel
 					if (aClass != null)
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(rowIndex);
-						final int baseSides = aClass.getLevelHitDie(aPC, lvl).getDie();
+						final int baseSides = aPC.getLevelHitDie(aClass, lvl).getDie();
 						PCClassLevel pcl = aPC.getActiveClassLevel(aClass, lvl - 1);
 						Integer hp = aPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
 						iHp = hp == null ? 0 : hp;

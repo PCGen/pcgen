@@ -40,10 +40,8 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -413,55 +411,6 @@ public class PCClass extends PObject
 		buf.append(getDisplayClassName(pc));
 
 		return buf.append(" ").append(pc.getLevel(this)).toString();
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is an active level calculation, and is therefore
-	 * only appropriate in the PCClassLevel that has the particular Hit Die for
-	 * which the calculation is required.
-	 */
-	public HitDie getLevelHitDie(final PlayerCharacter aPC, final int classLevel)
-	{
-		// Class Base Hit Die
-		HitDie currDie = getSafe(ObjectKey.LEVEL_HITDIE);
-		Modifier<HitDie> dieLock = aPC.getRace().get(ObjectKey.HITDIE);
-		if (dieLock != null)
-		{
-			currDie = dieLock.applyModifier(currDie, this);
-		}
-
-		// Templates
-		for (PCTemplate template : aPC.getTemplateSet())
-		{
-			if (template != null)
-			{
-				Modifier<HitDie> lock = template.get(ObjectKey.HITDIE);
-				if (lock != null)
-				{
-					currDie = lock.applyModifier(currDie, this);
-				}
-			}
-		}
-
-		// Levels
-		PCClassLevel cl = aPC.getActiveClassLevel(this, classLevel);
-		if (cl != null)
-		{
-			if (cl.get(ObjectKey.DONTADD_HITDIE) != null)
-			{
-				currDie = HitDie.ZERO;	//null;
-			}
-			else
-			{
-				Modifier<HitDie> lock = cl.get(ObjectKey.HITDIE);
-				if (lock != null)
-				{
-					currDie = lock.applyModifier(currDie, this);
-				}
-			}
-		}
-
-		return currDie;
 	}
 
 	/*
@@ -1191,7 +1140,7 @@ public class PCClass extends PObject
 				: aPC.getTotalLevels();
 			final boolean isFirst = levels == 1;
 
-			rollHP(aPC, aPC.getLevel(this), isFirst);
+			aPC.rollHP(this, aPC.getLevel(this), isFirst);
 		}
 
 		if (!aPC.isImporting())
@@ -1672,62 +1621,6 @@ public class PCClass extends PObject
 				.getListFor(ListKey.NATURAL_WEAPON));
 
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
-	}
-
-	/**
-	 * Rolls hp for the current level according to the rules set in options.
-	 *
-	 * @param aLevel
-	 * @param aPC
-	 * @param first
-	 */
-	/*
-	 * REFACTOR This really needs to be part of the PCClassLevel importing into
-	 * a PlayerCharacter. Some thought needs to be put into where this stuff is
-	 * stored - should PCLevelInfo be adapted to store all of the non-static
-	 * information about a PCClassLevel?
-	 */
-	public void rollHP(final PlayerCharacter aPC, int aLevel, boolean first)
-	{
-		int roll = 0;
-
-		HitDie lvlDie = getLevelHitDie(aPC, aLevel);
-		if ((lvlDie == null) || (lvlDie.getDie() == 0))
-		{
-			roll = 0;
-		}
-		else
-		{
-			final int min =
-					1 + (int) aPC.getTotalBonusTo("HD", "MIN")
-						+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + getKeyName());
-			final int max =
-					getLevelHitDie(aPC, aLevel).getDie()
-						+ (int) aPC.getTotalBonusTo("HD", "MAX")
-						+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + getKeyName());
-
-			if (Globals.getGameModeHPFormula().length() == 0)
-			{
-				if (first && aLevel == 1 && 
-						SettingsHandler.isHPMaxAtFirstLevel() &&
-						(!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || this.isType("PC")))
-				{
-					roll = max;
-				}
-				else
-				{
-					if (!aPC.isImporting())
-					{
-						roll = Globals.rollHP(min, max, getDisplayName(), aLevel, aPC.getTotalLevels());
-					}
-				}
-			}
-
-			roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
-		}
-		PCClassLevel classLevel = aPC.getActiveClassLevel(this, aLevel - 1);
-		aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
-		aPC.setCurrentHP(aPC.hitPoints());
 	}
 
 	/*
