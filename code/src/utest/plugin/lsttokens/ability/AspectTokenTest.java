@@ -157,6 +157,6 @@ public class AspectTokenTest extends AbstractTokenTestCase<Ability>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return ConsolidationRule.OVERWRITE;
+		return ConsolidationRule.SEPARATE;
 	}
 }
