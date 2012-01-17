@@ -108,11 +108,10 @@ public class TemplateModifier
 			mods.append("AC BONUS:").append(nat);
 		}
 
-		if (pct.getCR(totalLevels, totalHitDice) != 0)
+		float cr = pct.getCR(totalLevels, totalHitDice);
+		if (cr != 0)
 		{
-			mods.append("CR:").append(
-					pct.getCR(totalLevels, totalHitDice))
-					.append(' ');
+			mods.append("CR:").append(cr).append(' ');
 		}
 
 		if (TemplateSR
