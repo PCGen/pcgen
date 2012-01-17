@@ -35,8 +35,7 @@ import pcgen.cdom.enumeration.VariableKey;
  */
 public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 {
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which VariableFacet listens fires a
@@ -189,7 +188,7 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 			Set<CDOMObject> sources = me.getValue();
 			for (CDOMObject source : sources)
 			{
-				double newVal = resolveFacet.resolve(id, f,
+				double newVal = formulaResolvingFacet.resolve(id, f,
 						source.getQualifiedKey()).doubleValue();
 				if (returnValue == null)
 				{
@@ -208,5 +207,10 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		return (vkMap != null) && vkMap.containsKey(vk);
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
 	}
 }

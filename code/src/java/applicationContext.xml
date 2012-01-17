@@ -106,11 +106,18 @@
 	<!-- T -->
 	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
 	<!-- U -->
+	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.UnarmedDamageFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet"/>
 	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.UnencumberedLoadFacet"/>
 	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet"/>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<!-- V -->
+	<bean id="variableFacet" class="pcgen.cdom.facet.VariableFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+	</bean>
 	<bean id="visionFacet" class="pcgen.cdom.facet.VisionFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>

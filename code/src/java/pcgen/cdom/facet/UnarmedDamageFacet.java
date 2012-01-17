@@ -40,10 +40,9 @@ import pcgen.core.analysis.SizeUtilities;
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		implements DataFacetChangeListener<CDOMObject>
 {
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private RaceFacet raceFacet;
 
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which UnarmedDamageFacet listens
@@ -91,7 +90,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	public String getUDamForRace(CharID id)
 	{
 		Race race = raceFacet.get(id);
-		int iSize = resolveFacet.resolve(id, race.getSafe(FormulaKey.SIZE),
+		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE),
 				race.getQualifiedKey()).intValue();
 		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
 		SizeAdjustment sizAdj = Globals.getContext().ref.getItemInOrder(
@@ -107,5 +106,15 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	protected Map<List<String>, Set<Object>> getComponentMap()
 	{
 		return new HashMap<List<String>, Set<Object>>();
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
 	}
 }
