@@ -35,12 +35,9 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		implements DataFacetChangeListener<WeaponProf>
 {
 
-	private final AutoWeaponProfFacet awpFacet = FacetLibrary
-			.getFacet(AutoWeaponProfFacet.class);
-	private final HasDeityWeaponProfFacet hdwpFacet = FacetLibrary
-			.getFacet(HasDeityWeaponProfFacet.class);
-	private final DeityWeaponProfFacet deityWeaponProfFacet = FacetLibrary
-			.getFacet(DeityWeaponProfFacet.class);
+	private AutoWeaponProfFacet autoWeaponProfFacet;
+	private HasDeityWeaponProfFacet hasDeityWeaponProfFacet;
+	private DeityWeaponProfFacet deityWeaponProfFacet;
 
 	/**
 	 * Triggered when one of the Facets to which WeaponProfFacet listens fires a
@@ -80,8 +77,8 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	{
 		final Set<WeaponProf> ret = new WrappedMapSet<WeaponProf>(IdentityHashMap.class);
 		ret.addAll(getSet(id));
-		ret.addAll(awpFacet.getWeaponProfs(id));
-		if (hdwpFacet.hasDeityWeaponProf(id))
+		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
+		if (hasDeityWeaponProfFacet.hasDeityWeaponProf(id))
 		{
 			ret.addAll(deityWeaponProfFacet.getSet(id));
 		}
@@ -90,9 +87,10 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 
 	public boolean containsProf(CharID id, WeaponProf wp)
 	{
-		return contains(id, wp) || awpFacet.getWeaponProfs(id).contains(wp)
-				|| hdwpFacet.hasDeityWeaponProf(id)
-				&& deityWeaponProfFacet.getSet(id).contains(wp);
+		return contains(id, wp)
+			|| autoWeaponProfFacet.getWeaponProfs(id).contains(wp)
+			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id)
+			&& deityWeaponProfFacet.getSet(id).contains(wp);
 	}
 
 	public boolean isProficientWithWeapon(CharID id, Equipment eq)
@@ -111,4 +109,20 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		return containsProf(id, ref.resolvesTo());
 	}
 
+	public void setAutoWeaponProfFacet(AutoWeaponProfFacet autoWeaponProfFacet)
+	{
+		this.autoWeaponProfFacet = autoWeaponProfFacet;
+	}
+
+	public void setHasDeityWeaponProfFacet(
+		HasDeityWeaponProfFacet hasDeityWeaponProfFacet)
+	{
+		this.hasDeityWeaponProfFacet = hasDeityWeaponProfFacet;
+	}
+
+	public void setDeityWeaponProfFacet(
+		DeityWeaponProfFacet deityWeaponProfFacet)
+	{
+		this.deityWeaponProfFacet = deityWeaponProfFacet;
+	}
 }

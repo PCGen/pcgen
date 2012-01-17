@@ -45,14 +45,11 @@ public class VisionFacet extends
 		DataFacetChangeListener<CDOMObject>
 {
 
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet;
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
 
 	/**
 	 * Triggered when one of the Facets to which VisionFacet listens fires a
@@ -121,14 +118,14 @@ public class VisionFacet extends
 			QualifiedObject<Vision> qo = me.getKey();
 			for (Object source : me.getValue())
 			{
-				if (prereqFacet.qualifies(id, qo, source))
+				if (prerequisiteFacet.qualifies(id, qo, source))
 				{
 					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 							.getQualifiedKey()
 							: "";
 					Vision v = qo.getRawObject();
 					Formula distance = v.getDistance();
-					int a = resolveFacet.resolve(id, distance, sourceString)
+					int a = formulaResolvingFacet.resolve(id, distance, sourceString)
 							.intValue();
 					VisionType visType = v.getType();
 					Integer current = map.get(visType);
@@ -147,7 +144,7 @@ public class VisionFacet extends
 		 */
 		for (VisionType vType : VisionType.getAllVisionTypes())
 		{
-			int aVal = (int) bonusFacet
+			int aVal = (int) bonusCheckingFacet
 					.getBonus(id, "VISION", vType.toString());
 
 			if (aVal > 0)
@@ -183,13 +180,13 @@ public class VisionFacet extends
 			{
 				for (Object source : me.getValue())
 				{
-					if (prereqFacet.qualifies(id, qo, source))
+					if (prerequisiteFacet.qualifies(id, qo, source))
 					{
 						String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 								.getQualifiedKey()
 								: "";
 						Formula distance = v.getDistance();
-						int a = resolveFacet
+						int a = formulaResolvingFacet
 								.resolve(id, distance, sourceString).intValue();
 						if (i == null || i < a)
 						{
@@ -205,7 +202,7 @@ public class VisionFacet extends
 		 * any BONUS:VISION tags which will create a new visionMap entry, and
 		 * add any BONUS to existing entries in the map
 		 */
-		int a = (int) bonusFacet.getBonus(id, "VISION", type.toString());
+		int a = (int) bonusCheckingFacet.getBonus(id, "VISION", type.toString());
 
 		if (a > 0)
 		{
@@ -231,6 +228,22 @@ public class VisionFacet extends
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
 	{
 		return new HashMap<QualifiedObject<Vision>, Set<Object>>();
+	}
+
+	public void setFormulaResolvingFacet(
+		FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
 }

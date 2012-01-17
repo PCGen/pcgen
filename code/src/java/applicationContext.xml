@@ -111,7 +111,17 @@
 	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet"/>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<!-- V -->
+	<bean id="visionFacet" class="pcgen.cdom.facet.VisionFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
 	<!-- W -->
+	<bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet">
+		<property name="autoWeaponProfFacet" ref="autoWeaponProfFacet"/>
+		<property name="hasDeityWeaponProfFacet" ref="hasDeityWeaponProfFacet"/>
+		<property name="deityWeaponProfFacet" ref="deityWeaponProfFacet"/>
+	</bean>
 	<bean id="weightFacet" class="pcgen.cdom.facet.WeightFacet"/>
 	<!-- X -->
 	<bean id="xpFacet" class="pcgen.cdom.facet.XPFacet">
