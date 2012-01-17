@@ -61,4 +61,14 @@ public interface CDOMList<T extends PrereqObject> extends PrereqObject
 	 * @return true if this CDOMList has the given type; false otherwise.
 	 */
 	public boolean isType(String type);
+
+	/**
+	 * Returns a representation of this CDOMList, suitable for storing in
+	 * an LST file.
+	 * 
+	 * @return A representation of this CDOMList, suitable for storing in
+	 *         an LST file.
+	 */
+	public String getLSTformat();
+
 }

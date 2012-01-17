@@ -46,6 +46,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -58,6 +59,7 @@ import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -78,7 +80,6 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
-import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.BonusObj;
@@ -1996,7 +1997,7 @@ final class PCGVer2Creator implements IOConstants
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
 					List<? extends CDOMList<Spell>> lists =
-							cSpell.getOwner().getSpellLists(thePC);
+							thePC.getSpellLists(cSpell.getOwner());
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
@@ -2078,13 +2079,16 @@ final class PCGVer2Creator implements IOConstants
 	{
 		for (PCClass pcClass : thePC.getClassSet())
 		{
-			List<? extends CDOMListObject<Spell>> assocList = thePC.getClassSpellList(pcClass);
-			if ((assocList != null) && (assocList.size() > 0))
+			TransitionChoice<CDOMListObject<Spell>> csc =
+					pcClass.get(ObjectKey.SPELLLIST_CHOICE);
+			if (csc != null)
 			{
+				List<? extends CDOMList<Spell>> assocList =
+						thePC.getSpellLists(pcClass);
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
-				for (CDOMListObject<Spell> spell : assocList)
+				for (CDOMList<Spell> spell : assocList)
 				{
 					buffer.append('|');
 					if (ClassSpellList.class.equals(spell.getClass()))

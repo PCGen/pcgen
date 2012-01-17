@@ -31,14 +31,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.spell.Spell;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
@@ -247,11 +245,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
-	}
-
-	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
-	{
-		return null;
 	}
 
 	public String getVariableSource()

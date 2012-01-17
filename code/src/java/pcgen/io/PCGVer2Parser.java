@@ -1116,6 +1116,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		//For those that weren't explicitly specified, insert them
+		insertDefaultClassSpellLists();
+		
 		if (cache.containsKey(TAG_SPELLNAME))
 		{
 			for (final String line : cache.get(TAG_SPELLNAME))
@@ -4005,7 +4008,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									ClassSpellList.class, objectKey);
 					if (((aPCClass != null) && objectKey.equals(aPCClass
 						.getKeyName()))
-						|| (aPCClass != null && aPCClass.getSpellLists(thePC).contains(csl)))
+						|| (aPCClass != null && thePC.getSpellLists(aPCClass).contains(csl)))
 					{
 						source = aPCClass;
 					}
@@ -4057,8 +4060,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (SpellLevel.getFirstLevelForKey(spell, source
-						.getSpellLists(thePC), thePC) >= 0))
+					&& (SpellLevel.getFirstLevelForKey(spell, thePC
+						.getSpellLists(source), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -4084,7 +4087,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
 		final Integer[] spellLevels =
-				SpellLevel.levelForKey(aSpell, source.getSpellLists(thePC),
+				SpellLevel.levelForKey(aSpell, thePC.getSpellLists(source),
 					thePC);
 		boolean found = false;
 
@@ -5927,6 +5930,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			cs = new ClassSource(cl);
 		}
 		return cs;
+	}
+
+	private void insertDefaultClassSpellLists()
+	{
+		for (PCClass pcc : thePC.getClassList())
+		{
+			thePC.addDefaultSpellList(pcc);
+		}
 	}
 
 }

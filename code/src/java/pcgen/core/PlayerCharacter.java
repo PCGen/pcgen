@@ -276,6 +276,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
+	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
@@ -11684,15 +11685,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return dc;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * Returns concentration bonus for a spell and SpellInfo.
 	 * @param sp the spell
@@ -12760,23 +12752,23 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		spellListFacet.add(id, list, pcClass);
 	}
 
-	public void chooseClassSpellList(PCClass cl)
+	public List<? extends CDOMList<Spell>> getSpellLists(CDOMObject cdo)
 	{
-		TransitionChoice<CDOMListObject<Spell>> csc = cl.get(ObjectKey.SPELLLIST_CHOICE);
-		// if no entry or no choices, just return
-		if (csc == null || (getLevel(cl) < 1))
-		{
-			return;
-		}
-	
-		for (CDOMListObject<Spell> st : csc.driveChoice(this))
-		{
-			addClassSpellList(st, cl);
-		}
+		return spellListFacet.getSet(id, cdo);
 	}
 
-	public List<? extends CDOMListObject<Spell>> getClassSpellList(PCClass pcClass)
+	public boolean hasSpellList(CDOMObject cdo, CDOMList<Spell> list)
 	{
-		return spellListFacet.getSet(id, pcClass);
+		return spellListFacet.containsFrom(id, list, cdo);
+	}
+
+	public void setSpellLists(PCClass pcClass)
+	{
+		classSpellListFacet.process(id, pcClass);
+	}
+
+	public void addDefaultSpellList(PCClass pcc)
+	{
+		classSpellListFacet.addDefaultSpellList(id, pcc);
 	}
 }

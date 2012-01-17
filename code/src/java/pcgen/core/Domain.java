@@ -25,12 +25,6 @@
  */
 package pcgen.core;
 
-import java.util.Collections;
-import java.util.List;
-
-import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.spell.Spell;
 
 /**
  * <code>Domain</code>.
@@ -40,12 +34,6 @@ import pcgen.core.spell.Spell;
  */
 public final class Domain extends PObject
 {
-	@Override
-	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
-	{
-		return Collections.singletonList(get(ObjectKey.DOMAIN_SPELLLIST));
-	}
-
 	@Override
 	public String getVariableSource()
 	{

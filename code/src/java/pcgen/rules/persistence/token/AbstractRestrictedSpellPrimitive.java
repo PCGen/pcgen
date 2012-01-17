@@ -193,7 +193,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 						 * SPELLLIST tag in data to share lists between classes,
 						 * this is probably the closest we can get
 						 */
-						if (!cl.hasSpellList(pc, optionalList))
+						if (!pc.hasSpellList(cl, optionalList))
 						{
 							continue;
 						}

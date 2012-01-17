@@ -293,7 +293,7 @@ public final class KitSpells extends BaseKit
 			for (Domain domain : pc.getDomainSet())
 			{
 				List<? extends CDOMList<Spell>> lists =
-						domain.getSpellLists(pc);
+						pc.getSpellLists(domain);
 				int newLevel = SpellLevel.getFirstLevelForKey(spell, lists, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
@@ -305,8 +305,8 @@ public final class KitSpells extends BaseKit
 
 		if (spLevel == 99)
 		{
-			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass
-					.getSpellLists(pc), pc);
+			spLevel = SpellLevel.getFirstLevelForKey(spell, pc
+					.getSpellLists(pcClass), pc);
 			owner = pcClass;
 		}
 

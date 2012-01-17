@@ -269,8 +269,6 @@ public class SubClassApplication
 				pc.reInheritClassLevels(cl);
 			}
 		}
-	
-		cl.getSpellLists(pc);
 	}
 
 	private static String getSupplementalDisplayInfo(SubClass sc) {

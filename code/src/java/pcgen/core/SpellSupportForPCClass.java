@@ -695,8 +695,8 @@ public class SpellSupportForPCClass
 				&& aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
-			final List<Spell> cspelllist = Globals.getSpellsIn(-1, source
-					.getSpellLists(aPC), aPC);
+			final List<Spell> cspelllist = Globals.getSpellsIn(-1, aPC
+					.getSpellLists(source), aPC);
 			if (cspelllist.isEmpty())
 			{
 				return;
@@ -710,7 +710,7 @@ public class SpellSupportForPCClass
 			final int _maxLevel = getMaxCastLevel();
 
 			// Get the key for this class (i.e. "CLASS|Cleric")
-			List<? extends CDOMList<Spell>> lists = source.getSpellLists(aPC);
+			List<? extends CDOMList<Spell>> lists = aPC.getSpellLists(source);
 
 			// For every spell that this class can ever cast.
 			for (Spell spell : cspelllist)
@@ -860,7 +860,7 @@ public class SpellSupportForPCClass
 			return;
 		}
 
-		List<? extends CDOMList<Spell>> lists = source.getSpellLists(aPC);
+		List<? extends CDOMList<Spell>> lists = aPC.getSpellLists(source);
 
 		for (Iterator<? extends CharacterSpell> iter = aPC.getCharacterSpells(source).iterator(); iter.hasNext();)
 		{

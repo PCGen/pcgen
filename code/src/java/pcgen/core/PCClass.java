@@ -33,7 +33,6 @@ import java.util.TreeMap;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -59,7 +58,6 @@ import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.analysis.AddObjectActions;
@@ -522,7 +520,7 @@ public class PCClass extends PObject
 		if ((newLevel == 1) && !aPC.isImporting() && (curLevel == 0))
 		{
 			SubClassApplication.checkForSubClass(aPC, this);
-			getSpellLists(aPC);
+			aPC.setSpellLists(this);
 		}
 
 		if (!aPC.isImporting() && (curLevel < newLevel))
@@ -1731,33 +1729,8 @@ public class PCClass extends PObject
 	}
 
 	@Override
-	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
-	{
-		List<? extends CDOMListObject<Spell>> 
-		classSpellList = pc.getClassSpellList(this);
-		if (classSpellList.isEmpty())
-		{
-			pc.chooseClassSpellList(this);
-			classSpellList = pc.getClassSpellList(this);
-
-			if (classSpellList.isEmpty())
-			{
-				ClassSpellList defaultList = get(ObjectKey.CLASS_SPELLLIST);
-				pc.addClassSpellList(defaultList, this);
-				return Collections.singletonList(defaultList);
-			}
-		}
-		return classSpellList;
-	}
-
-	@Override
 	public String getVariableSource()
 	{
 		return "CLASS|" + this.getKeyName();
-	}
-
-	public boolean hasSpellList(PlayerCharacter pc, CDOMList<Spell> list)
-	{
-		return getSpellLists(pc).contains(list);
 	}
 }

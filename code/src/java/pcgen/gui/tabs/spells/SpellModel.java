@@ -607,7 +607,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				Spell aSpell = (Spell) o;
 
-				if (!SpellLevel.levelForKeyContains(aSpell, obj.getSpellLists(pc), iLev, pc))
+				if (!SpellLevel.levelForKeyContains(aSpell, pc.getSpellLists(obj), iLev, pc))
 				{
 					continue;
 				}
@@ -777,8 +777,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 						case GuiConstants.INFOSPELLS_VIEW_CLASS: // By Class
 							aClass = classList.get(pindex);
 							primaryMatch =
-									SpellLevel.levelForKeyContains(spell, aClass
-									.getSpellLists(pc), iLev, pc);
+									SpellLevel.levelForKeyContains(spell, pc
+									.getSpellLists(aClass), iLev, pc);
 							if (cs != null)
 							{
 								if (aClass instanceof Race)
@@ -878,7 +878,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								aClass = classList.get(sindex);
 								spellMatch =
 										primaryMatch
-											&& (SpellLevel.getFirstLevelForKey(spell, aClass.getSpellLists(pc), pc) >= 0);
+											&& (SpellLevel.getFirstLevelForKey(spell, pc.getSpellLists(aClass), pc) >= 0);
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL: // By Level
 								iLev = sindex;
@@ -898,7 +898,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 										if (aClass != null)
 										{
 											spellMatch =
-													SpellLevel.levelForKeyContains(spell, aClass.getSpellLists(pc), iLev, pc);
+													SpellLevel.levelForKeyContains(spell, pc.getSpellLists(aClass), iLev, pc);
 										}
 										else
 										{
@@ -990,8 +990,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							if (cs != null)
 								theObject = cs.getOwner();
 							spellMatch =
-									SpellLevel.levelForKeyContains(spell, theObject
-									.getSpellLists(pc), theLevel, pc);
+									SpellLevel.levelForKeyContains(spell, 
+									pc.getSpellLists(theObject), theLevel, pc);
 						}
 						if (spellMatch && si == null && !knownSpellsOnly)
 						{
@@ -1120,7 +1120,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
 					for (Spell s : Globals.getSpellsIn(-1,
-						aClass.getSpellLists(pc), pc)) //$NON-NLS-1$
+						pc.getSpellLists(aClass), pc)) //$NON-NLS-1$
 					{
 						if (!spellList.contains(s)
 							&& spellTab.shouldDisplayThis(s))

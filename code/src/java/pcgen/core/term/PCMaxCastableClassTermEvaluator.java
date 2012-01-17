@@ -56,7 +56,7 @@ public class PCMaxCastableClassTermEvaluator
 		Float max = -1f;
 		for (PCClass spClass : pc.getClassSet())
 		{
-			List<? extends CDOMList<Spell>> lists = spClass.getSpellLists(pc);
+			List<? extends CDOMList<Spell>> lists = pc.getSpellLists(spClass);
 			if (spellList != null && lists.contains(spellList))
 			{
 				int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();

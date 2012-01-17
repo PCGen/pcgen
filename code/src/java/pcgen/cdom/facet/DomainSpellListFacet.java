@@ -18,27 +18,32 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.Domain;
 import pcgen.core.spell.Spell;
 
-public class SpellListFacet extends AbstractSourcedListFacet<CDOMList<Spell>>
+public class DomainSpellListFacet extends
+		AbstractSourcedListFacet<CDOMList<Spell>> implements
+		DataFacetChangeListener<Domain>
 {
 
+	private final SpellListFacet spellListFacet = FacetLibrary
+		.getFacet(SpellListFacet.class);
+
 	@Override
-	public void add(CharID id, CDOMList<Spell> obj, Object source)
+	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
 	{
-		if (obj == null)
-		{
-			/*
-			 * TODO This null check is here primarily to protect the test cases
-			 * in the "test" directory that create a class, but do not give that
-			 * class the default spell list associated with that class. Note if
-			 * the TO-DO mentioned in AbstractReferenceContext about limiting
-			 * spell list creation to only spell casting classes, then this null
-			 * check becomes more important :) - thpr
-			 */
-			return;
-		}
-		super.add(id, obj, source);
+		DomainSpellList list =
+				dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
+		//list should never be null??
+		spellListFacet.add(dfce.getCharID(), list, dfce.getSource());
 	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
+	{
+		spellListFacet.removeAll(dfce.getCharID(), dfce.getSource());
+	}
+
 }
