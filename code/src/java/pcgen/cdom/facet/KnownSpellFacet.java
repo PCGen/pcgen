@@ -34,7 +34,11 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
 /**
@@ -47,7 +51,7 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 
 	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+		.getFacet(PrerequisiteFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which KnownSpellFacet listens fires a
@@ -64,8 +68,8 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs = cdo
-				.getModifiedLists();
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs =
+				cdo.getModifiedLists();
 		CharID id = dfce.getCharID();
 		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : listrefs)
 		{
@@ -74,10 +78,10 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	private void processListRef(CharID id, CDOMObject cdo,
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> listref)
+		CDOMReference<? extends CDOMList<? extends PrereqObject>> listref)
 	{
 		for (CDOMList<? extends PrereqObject> list : listref
-				.getContainedObjects())
+			.getContainedObjects())
 		{
 			if (!list.getListClass().equals(SPELL_CLASS))
 			{
@@ -85,10 +89,10 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 			}
 			CDOMList<Spell> spelllist = (CDOMList<Spell>) list;
 			for (CDOMReference<Spell> objref : cdo
-					.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
+				.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
 			{
 				for (AssociatedPrereqObject apo : cdo.getListAssociations(
-						listref, objref))
+					listref, objref))
 				{
 					Boolean known = apo.getAssociation(AssociationKey.KNOWN);
 					if (known != null && known)
@@ -119,24 +123,27 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	private void addAll(CharID id, CDOMList<Spell> list,
-			Collection<Spell> spells, AssociatedPrereqObject apo, CDOMObject cdo)
+		Collection<Spell> spells, AssociatedPrereqObject apo, CDOMObject cdo)
 	{
-		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> map = getConstructingCachedMap(id);
-		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> subMap = map
-				.get(list);
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> map =
+				getConstructingCachedMap(id);
+		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> subMap =
+				map.get(list);
 		boolean fireNew = (subMap == null);
 		if (fireNew)
 		{
-			subMap = new HashMap<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>();
+			subMap =
+					new HashMap<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>();
 			map.put(list, subMap);
 		}
 		for (Spell spell : spells)
 		{
-			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap = subMap
-					.get(spell);
+			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap =
+					subMap.get(spell);
 			if (assocMap == null)
 			{
-				assocMap = new HashMap<AssociatedPrereqObject, Set<CDOMObject>>();
+				assocMap =
+						new HashMap<AssociatedPrereqObject, Set<CDOMObject>>();
 				subMap.put(spell, assocMap);
 			}
 			Set<CDOMObject> sources = assocMap.get(apo);
@@ -166,10 +173,10 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	 *         AbstractSourcedListFacet for the Player Character.
 	 */
 	private Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> getCachedMap(
-			CharID id)
+		CharID id)
 	{
 		return (Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>) FacetCache
-				.get(id, getClass());
+			.get(id, getClass());
 	}
 
 	/**
@@ -186,12 +193,14 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	 * @return The Map for the Player Character represented by the given CharID.
 	 */
 	private Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> getConstructingCachedMap(
-			CharID id)
+		CharID id)
 	{
-		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> componentMap = getCachedMap(id);
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> componentMap =
+				getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new HashMap<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>();
+			componentMap =
+					new HashMap<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>();
 			FacetCache.set(id, getClass(), componentMap);
 		}
 		return componentMap;
@@ -199,21 +208,22 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 
 	public void removeAll(CharID id, Object source)
 	{
-		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap = getCachedMap(id);
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap =
+				getCachedMap(id);
 		if (listMap != null)
 		{
-			for (Iterator<Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> mit = listMap
-					.values().iterator(); mit.hasNext();)
+			for (Iterator<Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> mit =
+					listMap.values().iterator(); mit.hasNext();)
 			{
-				Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> objMap = mit
-						.next();
-				for (Iterator<Map<AssociatedPrereqObject, Set<CDOMObject>>> ait = objMap
-						.values().iterator(); ait.hasNext();)
+				Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> objMap =
+						mit.next();
+				for (Iterator<Map<AssociatedPrereqObject, Set<CDOMObject>>> ait =
+						objMap.values().iterator(); ait.hasNext();)
 				{
-					Map<AssociatedPrereqObject, Set<CDOMObject>> apoMap = ait
-							.next();
-					for (Iterator<Set<CDOMObject>> sit = apoMap.values()
-							.iterator(); sit.hasNext();)
+					Map<AssociatedPrereqObject, Set<CDOMObject>> apoMap =
+							ait.next();
+					for (Iterator<Set<CDOMObject>> sit =
+							apoMap.values().iterator(); sit.hasNext();)
 					{
 						Set<CDOMObject> set = sit.next();
 						if (set.remove(source) && set.isEmpty())
@@ -235,29 +245,31 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	public Map<Integer, List<Spell>> getKnownSpells(CharID id,
-			ClassSpellList csl)
+		ClassSpellList csl)
 	{
-		HashMap<Integer, List<Spell>> levelInfo = new HashMap<Integer, List<Spell>>();
-		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap = getCachedMap(id);
+		HashMap<Integer, List<Spell>> levelInfo =
+				new HashMap<Integer, List<Spell>>();
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap =
+				getCachedMap(id);
 		if (listMap == null)
 		{
 			return levelInfo;
 		}
-		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap = listMap
-				.get(csl);
+		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap =
+				listMap.get(csl);
 		if (spellMap == null)
 		{
 			return levelInfo;
 		}
 		for (Map.Entry<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> me : spellMap
-				.entrySet())
+			.entrySet())
 		{
 			Spell spell = me.getKey();
-			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap = me
-					.getValue();
+			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap =
+					me.getValue();
 
 			for (Map.Entry<AssociatedPrereqObject, Set<CDOMObject>> ame : assocMap
-					.entrySet())
+				.entrySet())
 			{
 				AssociatedPrereqObject apo = ame.getKey();
 				Set<CDOMObject> sources = ame.getValue();
@@ -272,8 +284,8 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 				}
 				if (passes)
 				{
-					Integer lvl = apo
-							.getAssociation(AssociationKey.SPELL_LEVEL);
+					Integer lvl =
+							apo.getAssociation(AssociationKey.SPELL_LEVEL);
 					List<Spell> spellList = levelInfo.get(lvl);
 					if (spellList == null)
 					{
@@ -288,25 +300,26 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	public List<Spell> getKnownSpellsForLevel(CharID id, ClassSpellList csl,
-			int spellLevel)
+		int spellLevel)
 	{
 		List<Spell> spellList = new ArrayList<Spell>();
-		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap = getCachedMap(id);
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap =
+				getCachedMap(id);
 		if (listMap == null)
 		{
 			return spellList;
 		}
-		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap = listMap
-				.get(csl);
+		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap =
+				listMap.get(csl);
 		for (Map.Entry<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> me : spellMap
-				.entrySet())
+			.entrySet())
 		{
 			Spell spell = me.getKey();
-			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap = me
-					.getValue();
+			Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap =
+					me.getValue();
 
 			for (Map.Entry<AssociatedPrereqObject, Set<CDOMObject>> ame : assocMap
-					.entrySet())
+				.entrySet())
 			{
 				AssociatedPrereqObject apo = ame.getKey();
 				Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -331,5 +344,40 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 			}
 		}
 		return spellList;
+	}
+
+	/**
+	 * Add to the supplied list the additional known spells for the class that
+	 * are specified by SPELLKNOWN tags associated with the character. Any
+	 * existing contents of the list are preserved.
+	 * 
+	 * @param pc
+	 *            The character being tested
+	 * @param aClass
+	 *            The PC class being checked
+	 * @param cSpells
+	 *            The list to be populated with the spells
+	 */
+	public void addBonusKnownSpellsToList(CharID id, CDOMObject aClass,
+		List<CharacterSpell> cSpells)
+	{
+		if (!(aClass instanceof PCClass))
+		{
+			return;
+		}
+		ClassSpellList classSpellList =
+				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
+		Map<Integer, List<Spell>> spellsMap =
+				getKnownSpells(id, classSpellList);
+		for (Integer spellLevel : spellsMap.keySet())
+		{
+			List<Spell> spells = spellsMap.get(spellLevel);
+			for (Spell spell : spells)
+			{
+				CharacterSpell acs = new CharacterSpell(aClass, spell);
+				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
+				cSpells.add(acs);
+			}
+		}
 	}
 }

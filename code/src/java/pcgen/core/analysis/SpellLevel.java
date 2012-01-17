@@ -3,35 +3,27 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
 public class SpellLevel
 {
-
-	private static KnownSpellFacet knownSpellFacet = FacetLibrary
-			.getFacet(KnownSpellFacet.class);
 
 	public static boolean levelForKeyContains(Spell sp,
 			List<? extends CDOMList<Spell>> lists, int levelMatch,
@@ -212,41 +204,5 @@ public class SpellLevel
 			}
 		}
 		return levelInfo;
-	}
-
-	/**
-	 * Add to the supplied list the additional known spells for the class that
-	 * are specified by SPELLKNOWN tags associated with the character. Any
-	 * existing contents of the list are preserved.
-	 * 
-	 * @param pc
-	 *            The character being tested
-	 * @param aClass
-	 *            The PC class being checked
-	 * @param cSpells
-	 *            The list to be populated with the spells
-	 */
-	public static void addBonusKnowSpellsToList(PlayerCharacter pc, CDOMObject aClass,
-		List<CharacterSpell> cSpells)
-	{
-		if (!(aClass instanceof PCClass))
-		{
-			return;
-		}
-		ClassSpellList classSpellList = ((PCClass) aClass)
-				.get(ObjectKey.CLASS_SPELLLIST);
-		Map<Integer, List<Spell>> spellsMap = knownSpellFacet
-				.getKnownSpells(pc.getCharID(), classSpellList);
-		for (Integer spellLevel : spellsMap.keySet())
-		{
-			List<Spell> spells = spellsMap.get(spellLevel);
-			for (Spell spell : spells)
-			{
-				CharacterSpell acs =
-						new CharacterSpell(aClass, spell);
-				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
-				cSpells.add(acs);
-			}
-		}
 	}
 }

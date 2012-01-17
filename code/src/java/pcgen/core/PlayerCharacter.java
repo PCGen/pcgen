@@ -221,6 +221,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
+	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 
 	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
@@ -11439,7 +11440,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<CharacterSpell> cspells = new ArrayList<CharacterSpell>(
 				getCharacterSpells(po));
 		// Add in the spells granted by objects
-		SpellLevel.addBonusKnowSpellsToList(this, po, cspells);
+		addBonusKnownSpellsToList(po, cspells);
 
 		for (CharacterSpell cs : cspells)
 		{
@@ -11469,7 +11470,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
 
 		// Add in the spells granted by objects
-		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+		addBonusKnownSpellsToList(spellSource, csList);
 
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList.size() == 0)
@@ -12376,7 +12377,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
 				getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
-		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+		addBonusKnownSpellsToList(spellSource, csList);
 
 		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		for (CharacterSpell cs : csList)
@@ -12396,7 +12397,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(
 				getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
-		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+		addBonusKnownSpellsToList(spellSource, csList);
 
 		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		for (CharacterSpell cs : csList)
@@ -12753,5 +12754,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 	
 		return defaultValue;
+	}
+
+	public void addBonusKnownSpellsToList(CDOMObject obj, List<CharacterSpell> list)
+	{
+		knownSpellFacet.addBonusKnownSpellsToList(id, obj, list);
 	}
 }
