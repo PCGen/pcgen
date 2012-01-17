@@ -3578,7 +3578,7 @@ public final class Equipment extends PObject implements Serializable,
 				if (newSize != null)
 				{
 					mult =
-							newSize.getBonusTo(pc, "ITEMCAPACITY", eq
+							pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq
 								.typeList(), 1.0);
 				}
 
@@ -4010,9 +4010,9 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		final double saDbl =
-				saSize.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0);
+				aPC.getSizeBonusTo(saSize, "ITEMCOST", typeList(), 1.0);
 		final double saBaseDbl =
-				saBase.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0);
+				aPC.getSizeBonusTo(saBase, "ITEMCOST", typeList(), 1.0);
 		final double mult = saDbl / saBaseDbl;
 		c = c.multiply(new BigDecimal(mult));
 
@@ -4357,8 +4357,8 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		final double mult =
-				newSA.getBonusTo(aPC, "ITEMWEIGHT", typeList(), 1.0)
-					/ currSA.getBonusTo(aPC, "ITEMWEIGHT", typeList(), 1.0);
+				aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
+					/ aPC.getSizeBonusTo(currSA, "ITEMWEIGHT", typeList(), 1.0);
 
 		return getBaseWeight().multiply(new BigDecimal(mult));
 	}
@@ -4391,9 +4391,9 @@ public final class Equipment extends PObject implements Serializable,
 			if ((newSA != null) && (currSA != null))
 			{
 				mult =
-						newSA
-							.getBonusTo(aPC, "ACVALUE", baseEq.typeList(), 1.0)
-							/ currSA.getBonusTo(aPC, "ACVALUE", baseEq
+						aPC
+							.getSizeBonusTo(newSA, "ACVALUE", baseEq.typeList(), 1.0)
+							/ aPC.getSizeBonusTo(currSA, "ACVALUE", baseEq
 								.typeList(), 1.0);
 			}
 

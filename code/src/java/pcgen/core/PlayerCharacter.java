@@ -12737,4 +12737,26 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		classSpellListFacet.addDefaultSpellList(id, pcc);
 	}
+
+	double getSizeBonusTo(SizeAdjustment sizeAdjustment, final String bonusType, final List<String> typeList, double defaultValue)
+	{
+		for ( String type : typeList )
+		{
+			/*
+			 * TODO:  The standard for these bonuses should probably be TYPE=, but
+			 * the bonus objects only correctly match TYPE.  The bonus objects
+			 * probably need to be reevaluated to standardize this usage
+			 */
+			final double a = BonusCalc.bonusTo(sizeAdjustment, bonusType, "TYPE." + type, this, this);
+	
+			if (!CoreUtility.doublesEqual(a, 0.0))
+			{
+				defaultValue = a;
+	
+				break;
+			}
+		}
+	
+		return defaultValue;
+	}
 }

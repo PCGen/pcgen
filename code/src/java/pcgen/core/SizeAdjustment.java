@@ -25,9 +25,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusActivation;
-import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
 /**
@@ -58,28 +56,6 @@ public final class SizeAdjustment extends PObject
 		BonusActivation.activateBonuses(this, aPC);
 
 		return super.getActiveBonuses(aPC);
-	}
-
-	double getBonusTo(final PlayerCharacter aPC, final String bonusType, final List<String> typeList, double defaultValue)
-	{
-		for ( String type : typeList )
-		{
-			/*
-			 * TODO:  The standard for these bonuses should probably be TYPE=, but
-			 * the bonus objects only correctly match TYPE.  The bonus objects
-			 * probably need to be reevaluated to standardize this usage
-			 */
-			final double a = BonusCalc.bonusTo(this, bonusType, "TYPE." + type, aPC, aPC);
-
-			if (!CoreUtility.doublesEqual(a, 0.0))
-			{
-				defaultValue = a;
-
-				break;
-			}
-		}
-
-		return defaultValue;
 	}
 
 	public double getLoadMultiplier()
