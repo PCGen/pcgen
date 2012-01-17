@@ -65,6 +65,7 @@ public class StatIntegrationTest extends TestCase
 		stat2.setName("Stat2");
 		unlockedFacet = new UnlockedStatFacet();
 		lockFacet = new StatLockFacet();
+		lockFacet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		nonAbilityFacet = new NonAbilityFacet();
 		rfacet = new RaceFacet();
 		tfacet = new TemplateFacet();
