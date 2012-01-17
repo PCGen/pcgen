@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -21,7 +22,6 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
@@ -226,7 +226,7 @@ public class SpellLevel
 	 * @param cSpells
 	 *            The list to be populated with the spells
 	 */
-	public static void addBonusKnowSpellsToList(PlayerCharacter pc, PObject aClass,
+	public static void addBonusKnowSpellsToList(PlayerCharacter pc, CDOMObject aClass,
 		List<CharacterSpell> cSpells)
 	{
 		if (!(aClass instanceof PCClass))

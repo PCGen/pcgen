@@ -8173,13 +8173,83 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	List<? extends CDOMObject> getCDOMObjectList()
 	{
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
-		for (CDOMObject po : getPObjectList())
+
+		// Loaded campaigns
+		list.addAll(expandedCampaignFacet.getSet(id));
+		
+		// Alignment
+		PCAlignment align = alignmentFacet.get(id);
+		if (align != null)
 		{
-			if (po != null)
+			list.add(align);
+		}
+		
+		// armorProfList is still just a list of Strings
+		// results.addAll(getArmorProfList());
+		// BioSet
+		list.add(bioSetFacet.get(id));
+		
+		list.addAll(checkFacet.getSet(id));
+		
+		// Class
+		list.addAll(classFacet.getClassSet(id));
+		
+		// CompanionMod
+		list.addAll(companionModFacet.getSet(id));
+		
+		// Deity
+		Deity deity = deityFacet.get(id);
+		if (deity != null)
+		{
+			list.add(deity);
+		}
+		
+		// Domain
+		list.addAll(domainFacet.getSet(id));
+		
+		// Equipment
+		for (Equipment eq : activeEquipmentFacet.getSet(id))
+		{
+			list.add(eq);
+		
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 			{
-				list.add(po);
+				list.add(eqMod);
+			}
+		
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				list.add(eqMod);
 			}
 		}
+		
+		// Feats and abilities (virtual feats, auto feats)
+		List<Ability> abilities = getFullAbilityList();
+		list.addAll(abilities);
+		
+		// Race
+		Race race = raceFacet.get(id);
+		if (race != null)
+		{
+			list.add(race);
+		}
+		
+		// SizeAdjustment
+		SizeAdjustment sa = sizeFacet.getSizeAdjustment(id);
+		if (sa != null)
+		{
+			list.add(sa);
+		}
+		
+		// Skill
+		list.addAll(skillFacet.getSet(id));
+		
+		// Stat (PCStat)
+		list.addAll(statFacet.getSet(id));
+		
+		// Template (PCTemplate)
+		list.addAll(templateFacet.getSet(id));
+
 		for (PCClass cl : getClassSet())
 		{
 			for (int i = 1; i <= getLevel(cl); i++)
@@ -8195,109 +8265,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private Collection<PCTemplate> getConditionalTemplateObjects()
 	{
 		return conditionalTemplateFacet.getSet(id);
-	}
-
-	private List<? extends PObject> getPObjectList()
-	{
-		// Possible object types include:
-		// Campaigns
-		// Alignment (PCAlignment)
-		// BioSet (ageSet)
-		// Check (PObject)
-		// Class (PCClass)
-		// CompanionMod
-		// Deity
-		// Domain (CharacterDomain)
-		// Equipment (includes EqMods)
-		// Feat (virtual feats, auto feats)
-		// Race
-		// SizeAdjustment
-		// Skill
-		// Stat (PCStat)
-		// Template (PCTemplate)
-		//
-
-		final ArrayList<PObject> results = new ArrayList<PObject>();
-
-		// Loaded campaigns
-		results.addAll(expandedCampaignFacet.getSet(id));
-
-		// Alignment
-		PCAlignment align = alignmentFacet.get(id);
-		if (align != null)
-		{
-			results.add(align);
-		}
-
-		// armorProfList is still just a list of Strings
-		// results.addAll(getArmorProfList());
-		// BioSet
-		results.add(bioSetFacet.get(id));
-
-		results.addAll(checkFacet.getSet(id));
-
-		// Class
-		results.addAll(classFacet.getClassSet(id));
-
-		// CompanionMod
-		results.addAll(companionModFacet.getSet(id));
-
-		// Deity
-		Deity deity = deityFacet.get(id);
-		if (deity != null)
-		{
-			results.add(deity);
-		}
-
-		// Domain
-		results.addAll(domainFacet.getSet(id));
-
-		// Equipment
-		for (Equipment eq : activeEquipmentFacet.getSet(id))
-		{
-			results.add(eq);
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-			{
-				results.add(eqMod);
-			}
-
-			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-			{
-				results.add(eqMod);
-			}
-		}
-
-		// Feats and abilities (virtual feats, auto feats)
-		List<Ability> abilities = getFullAbilityList();
-		results.addAll(abilities);
-
-		// Race
-		Race race = raceFacet.get(id);
-		if (race != null)
-		{
-			results.add(race);
-		}
-
-		// SizeAdjustment
-		SizeAdjustment sa = sizeFacet.getSizeAdjustment(id);
-		if (sa != null)
-		{
-			results.add(sa);
-		}
-
-		// Skill
-		results.addAll(skillFacet.getSet(id));
-
-		// Stat (PCStat)
-		results.addAll(statFacet.getSet(id));
-
-		// Template (PCTemplate)
-		results.addAll(templateFacet.getSet(id));
-
-		// weaponProfList is still just a list of Strings
-		// results.addAll(getWeaponProfList());
-		return results;
 	}
 
 	/**
@@ -10977,7 +10944,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasSpellInSpellbook(Spell spell, String spellbookname)
 	{
-		for (PObject po : getPObjectList())
+		for (CDOMObject po : getCDOMObjectList())
 		{
 			List<CharacterSpell> csl =
 					getCharacterSpells(po, spell, spellbookname, -1);
@@ -11499,7 +11466,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @return list of CharacterSpells from the character spell list
 	 */
 	public final List<CharacterSpell> getCharacterSpells(
-		PObject spellSource,
+		CDOMObject spellSource,
 		final Spell aSpell,
 		final String book,
 		final int level)
