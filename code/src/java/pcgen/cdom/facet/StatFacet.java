@@ -35,10 +35,8 @@ import pcgen.core.bonus.BonusUtilities;
  */
 public class StatFacet extends AbstractListFacet<PCStat>
 {
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet;
+	private PrerequisiteFacet prerequisiteFacet;
 
 	public Map<BonusObj, PCStat> getBonusListOfType(CharID id,
 			final String aType, final String aName)
@@ -67,12 +65,22 @@ public class StatFacet extends AbstractListFacet<PCStat>
 		{
 			Entry<BonusObj, PCStat> me = it.next();
 			BonusObj bo = me.getKey();
-			if (!prereqFacet.qualifies(id, bo, me.getValue()))
+			if (!prerequisiteFacet.qualifies(id, bo, me.getValue()))
 			{
 				it.remove();
 			}
 		}
-		return bonusFacet.calcBonus(id, map);
+		return bonusCheckingFacet.calcBonus(id, map);
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
 }

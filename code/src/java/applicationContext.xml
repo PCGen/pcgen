@@ -95,6 +95,9 @@
 	<!-- R -->
 	<bean id="raceFacet" class="pcgen.cdom.facet.RaceFacet" />
 	<!-- S -->
+	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
+		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
+	</bean>
 	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.ShieldProfProviderFacet"/>
 	<bean id="skillFacet" class="pcgen.cdom.facet.SkillFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
@@ -102,7 +105,17 @@
 	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
 	<bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
 	<bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet"/>
+	<bean id="statFacet" class="pcgen.cdom.facet.StatFacet">
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
+	<bean id="statLockFacet" class="pcgen.cdom.facet.StatLockFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+	</bean>
 	<bean id="subClassFacet" class="pcgen.cdom.facet.SubClassFacet"/>
+	<bean id="subRaceFacet" class="pcgen.cdom.facet.SubRaceFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<!-- T -->
 	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
 	<!-- U -->

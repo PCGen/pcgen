@@ -30,8 +30,7 @@ import pcgen.cdom.helper.ShieldProfProvider;
 public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 {
 
-	ShieldProfProviderFacet appFacet = FacetLibrary
-			.getFacet(ShieldProfProviderFacet.class);
+	private ShieldProfProviderFacet shieldProfProviderFacet;
 
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
@@ -52,7 +51,7 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 				.getListFor(ListKey.AUTO_SHIELDPROF);
 		if (ShieldProfs != null)
 		{
-			appFacet.addAll(dfce.getCharID(), ShieldProfs, cdo);
+			shieldProfProviderFacet.addAll(dfce.getCharID(), ShieldProfs, cdo);
 		}
 	}
 
@@ -70,6 +69,13 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		appFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		shieldProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
+
+	public void setShieldProfProviderFacet(
+		ShieldProfProviderFacet shieldProfProviderFacet)
+	{
+		this.shieldProfProviderFacet = shieldProfProviderFacet;
+	}
+
 }

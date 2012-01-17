@@ -36,8 +36,7 @@ import pcgen.core.PCStat;
 public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which StatLockFacet listens fires a
@@ -99,7 +98,7 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 						String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 								.getQualifiedKey()
 								: "";
-						Number val = resolveFacet.resolve(id, lock
+						Number val = formulaResolvingFacet.resolve(id, lock
 								.getLockValue(), sourceString);
 						if (val.doubleValue() > max.doubleValue())
 						{
@@ -112,4 +111,10 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		}
 		return hit ? max : null;
 	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
 }

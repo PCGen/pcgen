@@ -28,7 +28,7 @@ import pcgen.core.PCTemplate;
  */
 public class SubRaceFacet
 {
-	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private TemplateFacet templateFacet;
 
 	/**
 	 * Returns the SubRace of the Player Character represented by the given
@@ -74,5 +74,8 @@ public class SubRaceFacet
 		return sr.toString();
 	}
 
-
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
 }
