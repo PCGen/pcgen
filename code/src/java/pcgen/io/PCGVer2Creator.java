@@ -74,6 +74,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -92,6 +93,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
+import pcgen.util.StringPClassUtil;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -1996,8 +1998,9 @@ final class PCGVer2Creator implements IOConstants
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
+					PObject owner = cSpell.getOwner();
 					List<? extends CDOMList<Spell>> lists =
-							thePC.getSpellLists(cSpell.getOwner());
+							thePC.getSpellLists(owner);
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
@@ -2058,8 +2061,9 @@ final class PCGVer2Creator implements IOConstants
 					}
 
 					buffer.append('|');
-					appendSourceInTaggedFormat(buffer, cSpell.getOwner()
-						.getVariableSource());
+					appendSourceInTaggedFormat(buffer,
+						StringPClassUtil.getStringFor(owner.getClass()) + "|"
+							+ owner.getKeyName());
 					buffer.append(LINE_SEP);
 				}
 			}

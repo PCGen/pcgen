@@ -1727,10 +1727,4 @@ public class PCClass extends PObject
 			pcl.ownBonuses(owner);
 		}
 	}
-
-	@Override
-	public String getVariableSource()
-	{
-		return "CLASS|" + this.getKeyName();
-	}
 }

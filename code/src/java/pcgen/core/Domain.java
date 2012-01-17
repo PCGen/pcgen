@@ -34,9 +34,4 @@ package pcgen.core;
  */
 public final class Domain extends PObject
 {
-	@Override
-	public String getVariableSource()
-	{
-		return "DOMAIN|" + this.getKeyName();
-	}
 }

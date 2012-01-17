@@ -246,9 +246,4 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return 0;
 	}
-
-	public String getVariableSource()
-	{
-		return "POBJECT|" + this.getKeyName();
-	}
 }
