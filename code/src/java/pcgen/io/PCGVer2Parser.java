@@ -4157,8 +4157,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				|| !spellBook.equals(Globals.getDefaultSpellBook()))
 			{
 				aSpellInfo =
-						aCharacterSpell.getSpellInfoFor(thePC, spellBook, spellLevel,
-							-1);
+						aCharacterSpell.getSpellInfoFor(thePC, spellBook, spellLevel);
 
 				// This doesn't make sense. What does the
 				// metaFeats list have to do with this?

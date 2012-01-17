@@ -752,15 +752,16 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		CharacterSpell addedSpell = aList.get(0);
 		response =
 				character.delSpell(addedSpell.getSpellInfoFor(character, spellBookName, 1,
-					-1, none), pcClass, spellBookName);
+					none), pcClass, spellBookName);
 		assertEquals("Delete spell should not be rejected.", "", response);
 
 		aList =
 				character.getCharacterSpells(giantClass, null, spellBookName, 1);
 		addedSpell = aList.get(0);
 		response =
-				character.delSpell(addedSpell.getSpellInfoFor(character, spellBookName, 1,
-					-1), giantClass, spellBookName);
+				character.delSpell(
+					addedSpell.getSpellInfoFor(character, spellBookName, 1),
+					giantClass, spellBookName);
 		assertEquals("Delete spell should not be rejected.", "", response);
 	}
 

@@ -743,7 +743,7 @@ public class SpellSupportForPCClass
 							else
 							{
 								if (cs.getSpellInfoFor(aPC, Globals
-										.getDefaultSpellBook(), spellLevel, -1) == null)
+										.getDefaultSpellBook(), spellLevel) == null)
 								{
 									cs.addInfo(spellLevel, 1, Globals
 											.getDefaultSpellBook());

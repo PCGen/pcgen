@@ -209,7 +209,7 @@ public class SpellMemToken extends Token
 				// Get the SpellInfo for the selected spell
 				final SpellInfo si =
 						selectedCSpell
-							.getSpellInfoFor(aPC, bookName, spellLevel, -1);
+							.getSpellInfoFor(aPC, bookName, spellLevel);
 
 				if (found && (aSpell != null) && (si != null))
 				{

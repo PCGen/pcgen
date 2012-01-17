@@ -168,9 +168,9 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param specialty
 	 * @return SpellInfo
 	 */
-	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)
+	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level)
 	{
-		return getSpellInfoFor(pc, bookName, level, specialty, null);
+		return getSpellInfoFor(pc, bookName, level, null);
 	}
 
 	/**
@@ -181,24 +181,17 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param featList
 	 * @return Spell Info
 	 */
-	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final int specialty, final List<Ability> featList)
+	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final List<Ability> featList)
 	{
 		if (infoList.isEmpty())
 		{
 			return null;
 		}
 
-		boolean sp = specialty == 1;
-
-		if (sp)
-		{
-			sp = isSpecialtySpell(pc);
-		}
-
 		for (SpellInfo s : infoList)
 		{
 			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp)
+				&& (level == -1 || s.getActualLevel() == level)
 				&& (featList == null
 				|| featList.isEmpty() && (s.getFeatList() == null || s
 					.getFeatList().isEmpty())
