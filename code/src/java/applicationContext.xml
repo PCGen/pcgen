@@ -4,6 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!--  Facet Definitions -->
+	<!-- A -->
+	<!-- B -->
+	<!-- C -->
 	<bean id="bridgeFacet" class="pcgen.cdom.facet.CDOMObjectBridge"/>
 	<bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
@@ -11,10 +14,16 @@
 	<bean id="sourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
-	<bean id="xpFacet" class="pcgen.cdom.facet.XPFacet">
-		<property name="levelFacet" ref="levelFacet"/>
-		<property name="levelTableFacet" ref="levelTableFacet"/>
-	</bean>
+	<!-- D -->
+	<!-- E -->
+	<!-- F -->
+	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
+	<!-- G -->
+	<!-- H -->
+	<!-- I -->
+	<!-- J -->
+	<!-- K -->
+	<!-- L -->
 	<bean id="levelFacet" class="pcgen.cdom.facet.LevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
@@ -23,8 +32,25 @@
 	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
 	</bean>
-	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
+	<!-- M -->
+	<!-- N -->
+	<!-- O -->
+	<!-- P -->
+	<!-- Q -->
+	<!-- R -->
 	<bean id="raceFacet" class="pcgen.cdom.facet.RaceFacet" />
-	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
+	<!-- S -->
+	<!-- T -->
+	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
+	<!-- U -->
+	<!-- V -->
+	<!-- W -->
+	<!-- X -->
+	<bean id="xpFacet" class="pcgen.cdom.facet.XPFacet">
+		<property name="levelFacet" ref="levelFacet"/>
+		<property name="levelTableFacet" ref="levelTableFacet"/>
+	</bean>
+	<!-- Y -->
+	<!-- Z -->
 
 </beans>
