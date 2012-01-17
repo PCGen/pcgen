@@ -35,9 +35,8 @@ import pcgen.core.PCTemplate;
 public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		implements DataFacetChangeListener<PCTemplate>, LevelChangeListener
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private TemplateFacet templateFacet;
+	private LevelFacet levelFacet;
 
 	/**
 	 * Triggered when one of the Facets to which ConditionalTemplateFacet
@@ -127,4 +126,15 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 			}
 		}
 	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+		this.levelFacet = levelFacet;
+	}
+
 }

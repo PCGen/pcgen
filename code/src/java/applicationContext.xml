@@ -37,6 +37,10 @@
 	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
 	<bean id="classFacet" class="pcgen.cdom.facet.ClassFacet" />
 	<bean id="companionModFacet" class="pcgen.cdom.facet.CompanionModFacet" />
+	<bean id="conditionalTemplateFacet" class="pcgen.cdom.facet.ConditionalTemplateFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="levelFacet" ref="levelFacet"/>
+	</bean>
 	<!-- D -->
 	<bean id="deityFacet" class="pcgen.cdom.facet.DeityFacet" />
 	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet" />
@@ -68,7 +72,7 @@
 	<bean id="levelFacet" class="pcgen.cdom.facet.LevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="resolveFacet" ref="formulaResolvingFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 	</bean>
 	<bean id="levelInfoFacet" class="pcgen.cdom.facet.LevelInfoFacet"/>
 	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
@@ -99,6 +103,13 @@
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
 	</bean>
 	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.ShieldProfProviderFacet"/>
+	<bean id="sizeFacet" class="pcgen.cdom.facet.SizeFacet">
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="levelFacet" ref="levelFacet"/>
+	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.SkillFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
 	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet"/>

@@ -41,14 +41,11 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
 	private final Class<?> thisClass = getClass();
 
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
+	private LevelFacet levelFacet;
 
 	public int racialSizeInt(CharID id)
 	{
@@ -66,7 +63,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		if (race != null)
 		{
 			// get the base size for the race
-			iSize = resolveFacet.resolve(id, race.getSafe(FormulaKey.SIZE), "")
+			iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE), "")
 					.intValue();
 
 			// now check and see if a template has set the
@@ -77,7 +74,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 				Formula sizeFormula = template.get(FormulaKey.SIZE);
 				if (sizeFormula != null)
 				{
-					iSize = resolveFacet.resolve(id, sizeFormula,
+					iSize = formulaResolvingFacet.resolve(id, sizeFormula,
 							template.getKeyName()).intValue();
 				}
 			}
@@ -103,7 +100,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 			// Now check and see if a class has modified
 			// the size of the character with something like:
 			// BONUS:SIZEMOD|NUMBER|+1
-			iSize += (int) bonusFacet.getBonus(id, "SIZEMOD", "NUMBER");
+			iSize += (int) bonusCheckingFacet.getBonus(id, "SIZEMOD", "NUMBER");
 
 			// Now see if there is a HD advancement in size
 			// (Such as for Dragons)
@@ -241,5 +238,30 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	public void bonusChange(BonusChangeEvent bce)
 	{
 		update(bce.getCharID());
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+		this.levelFacet = levelFacet;
 	}
 }

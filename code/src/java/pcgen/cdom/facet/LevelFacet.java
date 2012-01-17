@@ -35,7 +35,7 @@ public class LevelFacet implements ClassLevelChangeListener
 {
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
-	private FormulaResolvingFacet resolveFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
 	private final Class<?> thisClass = getClass();
 	private final LevelChangeSupport support = new LevelChangeSupport();
 
@@ -59,13 +59,13 @@ public class LevelFacet implements ClassLevelChangeListener
 		if (race != null)
 		{
 			Formula raceLA = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
-			levelAdj += resolveFacet.resolve(id, raceLA, "").intValue();
+			levelAdj += formulaResolvingFacet.resolve(id, raceLA, "").intValue();
 		}
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			Formula templateLA = template.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
-			levelAdj += resolveFacet.resolve(id, templateLA, "").intValue();
+			levelAdj += formulaResolvingFacet.resolve(id, templateLA, "").intValue();
 		}
 
 		return levelAdj;
@@ -288,8 +288,8 @@ public class LevelFacet implements ClassLevelChangeListener
 	/**
 	 * @param resolveFacet the resolveFacet to set
 	 */
-	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
+	public void setFormulaResolvingFacet(FormulaResolvingFacet resolveFacet)
 	{
-		this.resolveFacet = resolveFacet;
+		this.formulaResolvingFacet = resolveFacet;
 	}
 }
