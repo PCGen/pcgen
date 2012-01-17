@@ -75,9 +75,8 @@ public class DeityToken implements PrimitiveToken<Domain>
 						.getListAssociations(list, ref);
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					// TODO Null is a bug here!
 					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), pc,
-							null))
+							deity))
 					{
 						return true;
 					}
