@@ -95,7 +95,9 @@ public class LoadFacet
 	public double getLoadMultForSize(CharID id)
 	{
 		SizeAdjustment sadj = sizeFacet.getSizeAdjustment(id);
-		double mult = sadj.getLoadMultiplier();
+		double mult =
+				SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj)
+					.doubleValue();
 		mult += bonusFacet.getBonus(id, "LOADMULT", "TYPE=SIZE");
 		return mult;
 	}

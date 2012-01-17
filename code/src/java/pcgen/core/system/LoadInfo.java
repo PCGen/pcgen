@@ -36,6 +36,7 @@ import java.util.TreeMap;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.SizeAdjustment;
+import pcgen.util.Logging;
 
 /**
  * <code>LoadInfo</code> describes the data associated with a loads and
@@ -178,7 +179,12 @@ public class LoadInfo implements Loadable
 		{
 			return sizeMultiplierMap.get(size);
 		}
-		return null;
+		if (Logging.isDebugMode())
+		{
+			Logging.debugPrint("Unable to find Load Multiplier for Size: "
+				+ size.getAbbreviation());
+		}
+		return BigDecimal.ONE;
 	}
 
 	/**
