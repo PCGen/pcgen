@@ -518,7 +518,7 @@ public class TemplateBasePanel extends BasePanel<PCTemplate>
 		setSubRace(getTemplateSubRace(thisPCTemplate));
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
 		setNonProficiencyPenalty(thisPCTemplate.getSafe(IntegerKey.NONPP));
-		setCR(thisPCTemplate.getCR(-1, -1));
+		setCR(thisPCTemplate.getSafe(ObjectKey.CR_MODIFIER).floatValue());
 		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
 		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));
 	}
