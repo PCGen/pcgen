@@ -503,7 +503,7 @@ public class TemplateBasePanel extends BasePanel<PCTemplate>
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
 
-		setIsRemovable(thisPCTemplate.isRemovable());
+		setIsRemovable(thisPCTemplate.getSafe(ObjectKey.REMOVABLE));
 		Gender genderLock = thisPCTemplate.get(ObjectKey.GENDER_LOCK);
 		if (genderLock == null)
 		{
