@@ -49,6 +49,9 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	private FormulaResolvingFacet resolveFacet = FacetLibrary
 		.getFacet(FormulaResolvingFacet.class);
 
+	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary
+		.getFacet(ActiveSpellsFacet.class);
+
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -119,7 +122,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 			si.setFixedDC(sla.getDC());
 
 			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
-			pc.addCharacterSpell(race, cs);
+			activeSpellsFacet.add(id, cs, race);
 		}
 	}
 
