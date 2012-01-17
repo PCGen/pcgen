@@ -30,6 +30,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -986,7 +987,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							int theLevel = iLev;
 							if (si != null)
 								theLevel = -1;
-							PObject theObject = aClass;
+							CDOMObject theObject = aClass;
 							if (cs != null)
 								theObject = cs.getOwner();
 							spellMatch =

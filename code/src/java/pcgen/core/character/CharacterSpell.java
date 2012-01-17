@@ -27,12 +27,12 @@ package pcgen.core.character;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.analysis.SpellCountCalc;
@@ -47,7 +47,7 @@ import pcgen.core.spell.Spell;
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {
 	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
-	private final PObject owner; // PCClass/Race/etc. in whose list this object resides
+	private final CDOMObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
 	private String fixedCasterLevel = null;
 
@@ -56,7 +56,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param o
 	 * @param aSpell
 	 */
-	public CharacterSpell(final PObject o, final Spell aSpell)
+	public CharacterSpell(final CDOMObject o, final Spell aSpell)
 	{
 		owner = o;
 		spell = aSpell;
@@ -118,7 +118,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * Get Owner
 	 * @return owner
 	 */
-	public PObject getOwner()
+	public CDOMObject getOwner()
 	{
 		return owner;
 	}
@@ -318,7 +318,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		}
 		if (compare == 0)
 		{
-			compare = owner.compareTo(obj.owner);
+			compare = owner.getKeyName().compareTo(obj.owner.getKeyName());
 		}
 		if (compare == 0)
 		{

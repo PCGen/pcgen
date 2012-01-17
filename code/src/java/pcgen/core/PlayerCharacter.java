@@ -11540,7 +11540,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getDC(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		PObject ow = null;
+		CDOMObject ow = null;
 		int spellLevel = 0;
 		int metaDC = 0;
 		
@@ -11693,7 +11693,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getConcentration(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		PObject ow = null;
+		CDOMObject ow = null;
 		int spellLevel = 0;
 		int metaConcentration = 0;
 		

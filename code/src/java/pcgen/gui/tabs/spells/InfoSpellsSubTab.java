@@ -52,6 +52,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
@@ -66,7 +67,6 @@ import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -579,7 +579,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		}
 
 		CharacterSpell cs = null;
-		PObject theOwner = spellA.getOwner();
+		CDOMObject theOwner = spellA.getOwner();
 		PCClass aClass;
 		String classKey; //$NON-NLS-1$
 		if (theOwner == null) // should only be true for multi-spellcasting-classed characters not sorted by class/level

@@ -74,7 +74,6 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -1998,7 +1997,7 @@ final class PCGVer2Creator implements IOConstants
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
-					PObject owner = cSpell.getOwner();
+					CDOMObject owner = cSpell.getOwner();
 					List<? extends CDOMList<Spell>> lists =
 							thePC.getSpellLists(owner);
 
