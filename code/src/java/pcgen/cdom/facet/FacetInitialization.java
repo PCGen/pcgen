@@ -186,7 +186,7 @@ public class FacetInitialization
 		UnencumberedLoadFacet unencumberedLoadFacet =
 				FacetLibrary.getFacet(UnencumberedLoadFacet.class);		
 
-		HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
+		HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 
 		AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 		RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
@@ -248,8 +248,8 @@ public class FacetInitialization
 
 		domainFacet.addDataFacetChangeListener(domainSpellListFacet);
 
-		templateFacet.addDataFacetChangeListener(hitDieFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(hitDieFacet);
+		templateFacet.addDataFacetChangeListener(hitPointFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(hitPointFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 		raceFacet.addDataFacetChangeListener(bioSetFacet);

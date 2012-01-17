@@ -274,7 +274,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
-	private HitDieFacet hitDieFacet = FacetLibrary.getFacet(HitDieFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 
@@ -12710,7 +12709,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public HitDie getLevelHitDie(PCClass pcClass, final int classLevel)
 	{
-		return hitDieFacet.getLevelHitDie(id, pcClass, classLevel);
+		return hitPointFacet.getLevelHitDie(id, pcClass, classLevel);
 	}
 
 	/**
