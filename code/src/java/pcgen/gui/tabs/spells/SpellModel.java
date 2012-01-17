@@ -594,7 +594,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			if (o instanceof CharacterSpell)
 			{
 				final CharacterSpell cs = (CharacterSpell) o;
-				final SpellInfo si = cs.getSpellInfoFor(pc, book, iLev);
+				final SpellInfo si = cs.getSpellInfoFor(book, iLev);
 
 				if (si == null)
 				{
@@ -807,7 +807,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							si = null;
 							if (primaryMatch && cs != null)
 							{
-								si = cs.getSpellInfoFor(pc, bookName, iLev);
+								si = cs.getSpellInfoFor(bookName, iLev);
 							}
 							if (si == null)
 							{
@@ -889,9 +889,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								{
 									if (cs != null)
 									{
-										si =
-												cs.getSpellInfoFor(pc, bookName,
-													iLev);
+										si = cs.getSpellInfoFor(bookName, iLev);
 										spellMatch = si != null;
 									}
 									if (si == null)

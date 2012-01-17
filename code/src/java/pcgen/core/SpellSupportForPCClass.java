@@ -742,7 +742,7 @@ public class SpellSupportForPCClass
 							}
 							else
 							{
-								if (cs.getSpellInfoFor(aPC, Globals
+								if (cs.getSpellInfoFor(Globals
 										.getDefaultSpellBook(), spellLevel) == null)
 								{
 									cs.addInfo(spellLevel, 1, Globals

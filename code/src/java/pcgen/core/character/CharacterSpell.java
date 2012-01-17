@@ -165,23 +165,21 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * Get the spell info
 	 * @param bookName
 	 * @param level
-	 * @param specialty
 	 * @return SpellInfo
 	 */
-	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level)
+	public SpellInfo getSpellInfoFor(final String bookName, final int level)
 	{
-		return getSpellInfoFor(pc, bookName, level, null);
+		return getSpellInfoFor(bookName, level, null);
 	}
 
 	/**
 	 * Get the Spell info
 	 * @param bookName
 	 * @param level
-	 * @param specialty
 	 * @param featList
 	 * @return Spell Info
 	 */
-	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final List<Ability> featList)
+	public SpellInfo getSpellInfoFor(final String bookName, final int level, final List<Ability> featList)
 	{
 		if (infoList.isEmpty())
 		{

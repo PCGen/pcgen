@@ -5914,15 +5914,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (acsList.size() == 1)
 			{
 				final CharacterSpell tcs = acsList.get(0);
-				si =
-						tcs.getSpellInfoFor(this, bookName, adjSpellLevel,
-							aFeatList);
+				si = tcs.getSpellInfoFor(bookName, adjSpellLevel, aFeatList);
 			}
 			else
 			{
-				si =
-						acs.getSpellInfoFor(this, bookName, adjSpellLevel,
-							aFeatList);
+				si = acs.getSpellInfoFor(bookName, adjSpellLevel, aFeatList);
 			}
 		}
 
@@ -6708,7 +6704,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (CharacterSpell cs : getCharacterSpells(pcClass, aName))
 			{
-				cs.removeSpellInfo(cs.getSpellInfoFor(this, aName, -1));
+				cs.removeSpellInfo(cs.getSpellInfoFor(aName, -1));
 			}
 		}
 	}
@@ -11485,7 +11481,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if ((aSpell == null) || cs.getSpell().equals(aSpell))
 			{
-				final SpellInfo si = cs.getSpellInfoFor(this, book, level, null);
+				final SpellInfo si = cs.getSpellInfoFor(book, level, null);
 
 				if (si != null)
 				{

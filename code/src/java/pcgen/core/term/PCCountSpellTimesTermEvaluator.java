@@ -101,7 +101,7 @@ public class PCCountSpellTimesTermEvaluator
 			if (spellNumber < csList.size())
 			{
 				final CharacterSpell cs = csList.get(spellNumber);
-				si = cs.getSpellInfoFor(pc, bookName, spellLevel);
+				si = cs.getSpellInfoFor(bookName, spellLevel);
 				found = true;
 			}
 

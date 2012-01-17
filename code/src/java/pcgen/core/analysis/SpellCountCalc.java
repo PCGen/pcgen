@@ -50,7 +50,7 @@ public class SpellCountCalc
 	
 		for (CharacterSpell cs : aList)
 		{
-			m += cs.getSpellInfoFor(pc, bookName, aLevel).getTimes();
+			m += cs.getSpellInfoFor(bookName, aLevel).getTimes();
 		}
 	
 		return m;
@@ -72,7 +72,7 @@ public class SpellCountCalc
 		{
 			if (cs.isSpecialtySpell(pc))
 			{
-				m += cs.getSpellInfoFor(pc, bookName, aLevel).getTimes();
+				m += cs.getSpellInfoFor(bookName, aLevel).getTimes();
 			}
 		}
 	

@@ -460,7 +460,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		int gridY, List<Component> colorList)
 	{
 		Spell spell = cs.getSpell();
-		SpellInfo si = cs.getSpellInfoFor(pc, spellBook, level);
+		SpellInfo si = cs.getSpellInfoFor(spellBook, level);
 
 		javax.swing.JPanel cbPanel = new javax.swing.JPanel();
 		cbPanel.setBackground(color);
