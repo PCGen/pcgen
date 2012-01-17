@@ -32,14 +32,16 @@ public class StatLockFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, StatLock>
 {
 
-	private StatLockFacet facet = new StatLockFacet();
+	private StatLockFacet facet;
 	private StatLock[] target;
 	private CDOMObject[] source;
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new StatLockFacet();
 		super.setUp();
+		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		CDOMObject cdo1 = new PCTemplate();
 		cdo1.setName("Templ");
 		CDOMObject cdo2 = new Race();

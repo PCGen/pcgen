@@ -62,6 +62,9 @@ public class SizeFacetTest extends TestCase
 		id = new CharID();
 		altid = new CharID();
 		facet = getMockFacet();
+		facet.setRaceFacet(rfacet);
+		facet.setTemplateFacet(tfacet);
+		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<CharID, Double>();
 		staticSetUp();
 	}
@@ -532,7 +535,7 @@ public class SizeFacetTest extends TestCase
 			IllegalAccessException
 	{
 		SizeFacet f = new SizeFacet();
-		Field field = SizeFacet.class.getDeclaredField("bonusFacet");
+		Field field = SizeFacet.class.getDeclaredField("bonusCheckingFacet");
 		field.setAccessible(true);
 		BonusCheckingFacet fakeFacet = new BonusCheckingFacet()
 		{
