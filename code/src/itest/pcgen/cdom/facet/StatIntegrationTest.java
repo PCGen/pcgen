@@ -67,6 +67,8 @@ public class StatIntegrationTest extends TestCase
 		lockFacet = new StatLockFacet();
 		lockFacet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		nonAbilityFacet = new NonAbilityFacet();
+		nonAbilityFacet.setStatLockFacet(lockFacet);
+		nonAbilityFacet.setUnlockedStatFacet(unlockedFacet);
 		rfacet = new RaceFacet();
 		tfacet = new TemplateFacet();
 		cdomFacet = new CDOMObjectConsolidationFacet();

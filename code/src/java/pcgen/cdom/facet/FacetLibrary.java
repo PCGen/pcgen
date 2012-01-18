@@ -43,7 +43,7 @@ public class FacetLibrary
 			if (facet == null)
 			{
 				// Fall back to the old hardcoded system
-				System.err.println("Using Legacy Load for Facet: " + cl.getName());
+				//System.err.println("Using Legacy Load for Facet: " + cl.getName());
 				try
 				{
 					facet = cl.newInstance();

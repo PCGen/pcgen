@@ -26,11 +26,9 @@ import pcgen.core.bonus.BonusObj;
 public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private AddedBonusFacet addedBonusFacet = FacetLibrary
-			.getFacet(AddedBonusFacet.class);
+	private AddedBonusFacet addedBonusFacet;
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
@@ -46,7 +44,7 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 	{
 		for (BonusObj bonus : bonusList)
 		{
-			if (prereqFacet.qualifies(id, bonus, cdo))
+			if (prerequisiteFacet.qualifies(id, bonus, cdo))
 			{
 				add(id, bonus);
 			}
@@ -74,6 +72,16 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 		{
 			remove(id, bonus);
 		}
+	}
+
+	public void setAddedBonusFacet(AddedBonusFacet addedBonusFacet)
+	{
+		this.addedBonusFacet = addedBonusFacet;
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
 }

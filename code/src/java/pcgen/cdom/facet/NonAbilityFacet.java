@@ -29,14 +29,12 @@ import pcgen.core.PCStat;
  */
 public class NonAbilityFacet
 {
-	private UnlockedStatFacet unlockedFacet = FacetLibrary
-			.getFacet(UnlockedStatFacet.class);
-	private StatLockFacet statLockFacet = FacetLibrary
-			.getFacet(StatLockFacet.class);
+	private UnlockedStatFacet unlockedStatFacet;
+	private StatLockFacet statLockFacet;
 
 	public boolean isNonAbility(CharID id, PCStat stat)
 	{
-		if (unlockedFacet.contains(id, stat))
+		if (unlockedStatFacet.contains(id, stat))
 		{
 			return false;
 		}
@@ -86,4 +84,15 @@ public class NonAbilityFacet
 
 		return false;
 	}
+
+	public void setUnlockedStatFacet(UnlockedStatFacet unlockedStatFacet)
+	{
+		this.unlockedStatFacet = unlockedStatFacet;
+	}
+
+	public void setStatLockFacet(StatLockFacet statLockFacet)
+	{
+		this.statLockFacet = statLockFacet;
+	}
+
 }

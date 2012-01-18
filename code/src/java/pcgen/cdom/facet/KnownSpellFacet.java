@@ -50,8 +50,7 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-		.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
 
 	/**
 	 * Triggered when one of the Facets to which KnownSpellFacet listens fires a
@@ -276,7 +275,7 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 				boolean passes = false;
 				for (CDOMObject source : sources)
 				{
-					if (prereqFacet.qualifies(id, apo, source))
+					if (prerequisiteFacet.qualifies(id, apo, source))
 					{
 						passes = true;
 						break;
@@ -331,7 +330,7 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 				boolean passes = false;
 				for (CDOMObject source : sources)
 				{
-					if (prereqFacet.qualifies(id, apo, source))
+					if (prerequisiteFacet.qualifies(id, apo, source))
 					{
 						passes = true;
 						break;
@@ -380,4 +379,10 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 			}
 		}
 	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
+	}
+
 }

@@ -34,8 +34,7 @@ public class CharacterSpellResistanceFacet extends
 		AbstractSourcedListFacet<Formula> implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
@@ -91,11 +90,17 @@ public class CharacterSpellResistanceFacet extends
 					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 							.getQualifiedKey()
 							: "";
-					sr = Math.max(sr, resolveFacet.resolve(id, f, sourceString)
+					sr = Math.max(sr, formulaResolvingFacet.resolve(id, f, sourceString)
 							.intValue());
 				}
 			}
 		}
 		return sr;
 	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
 }

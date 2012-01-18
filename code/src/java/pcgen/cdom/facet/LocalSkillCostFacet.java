@@ -41,8 +41,7 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
-	private final DomainFacet domainFacet = FacetLibrary
-			.getFacet(DomainFacet.class);
+	private DomainFacet domainFacet;
 
 	/**
 	 * Triggered when one of the Facets to which LocalSkillCostFacet listens fires a
@@ -292,4 +291,10 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		CacheInfo ci = getInfo(id);
 		return ci != null && ci.contains(cl, sc, sk);
 	}
+
+	public void setDomainFacet(DomainFacet domainFacet)
+	{
+		this.domainFacet = domainFacet;
+	}
+
 }

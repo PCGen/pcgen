@@ -43,13 +43,15 @@ public class RegionFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private RegionFacet facet = new RegionFacet();
+	private RegionFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new RegionFacet();
 		super.setUp();
+		facet.setTemplateFacet(tfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

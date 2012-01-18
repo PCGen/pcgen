@@ -38,13 +38,12 @@ public class ConditionallyGrantedAbilityFacet extends
 		AbstractListFacet<CategorizedAbilitySelection>
 {
 
-	private final ConditionalAbilityFacet cabFacet = FacetLibrary
-			.getFacet(ConditionalAbilityFacet.class);
+	private ConditionalAbilityFacet conditionalAbilityFacet;
 
 	public void update(CharID id)
 	{
 		Collection<CategorizedAbilitySelection> current = getSet(id);
-		Collection<CategorizedAbilitySelection> qualified = cabFacet
+		Collection<CategorizedAbilitySelection> qualified = conditionalAbilityFacet
 				.getQualifiedSet(id);
 		List<CategorizedAbilitySelection> toRemove = new ArrayList<CategorizedAbilitySelection>(
 				current);
@@ -68,6 +67,10 @@ public class ConditionallyGrantedAbilityFacet extends
 		return new WrappedMapSet<CategorizedAbilitySelection>(
 				IdentityHashMap.class);
 	}
-	
-	
+
+	public void setConditionalAbilityFacet(
+		ConditionalAbilityFacet conditionalAbilityFacet)
+	{
+		this.conditionalAbilityFacet = conditionalAbilityFacet;
+	}
 }

@@ -37,10 +37,8 @@ import pcgen.cdom.list.CompanionList;
  */
 public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 {
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
@@ -207,17 +205,27 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 			Set<CDOMObject> set = me.getValue();
 			for (CDOMObject source : set)
 			{
-				int val = resolveFacet.resolve(id, fl.getValue(),
+				int val = formulaResolvingFacet.resolve(id, fl.getValue(),
 						source.getQualifiedKey()).intValue();
 				ret = Math.max(ret, val);
 			}
 		}
 		if (ret != -1)
 		{
-			ret += bonusFacet.getBonus(id, "FOLLOWERS", cl.getKeyName()
+			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName()
 					.toUpperCase());
 		}
 		return ret;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

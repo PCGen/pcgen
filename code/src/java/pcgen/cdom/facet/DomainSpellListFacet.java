@@ -28,8 +28,7 @@ public class DomainSpellListFacet extends
 		DataFacetChangeListener<Domain>
 {
 
-	private final SpellListFacet spellListFacet = FacetLibrary
-		.getFacet(SpellListFacet.class);
+	private SpellListFacet spellListFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
@@ -44,6 +43,11 @@ public class DomainSpellListFacet extends
 	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
 	{
 		spellListFacet.removeAll(dfce.getCharID(), dfce.getSource());
+	}
+
+	public void setSpellListFacet(SpellListFacet spellListFacet)
+	{
+		this.spellListFacet = spellListFacet;
 	}
 
 }

@@ -34,8 +34,7 @@ import pcgen.cdom.helper.CategorizedAbilitySelection;
 public class ConditionalAbilityFacet extends
 		AbstractListFacet<CategorizedAbilitySelection>
 {
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
 
 	@Override
 	protected Collection<CategorizedAbilitySelection> getComponentSet()
@@ -51,7 +50,7 @@ public class ConditionalAbilityFacet extends
 		{
 			for (CategorizedAbilitySelection cas : cached)
 			{
-				if (prereqFacet.qualifies(id, cas, cas.getSource()))
+				if (prerequisiteFacet.qualifies(id, cas, cas.getSource()))
 				{
 					set.add(cas);
 				}
@@ -75,4 +74,10 @@ public class ConditionalAbilityFacet extends
 			}
 		}
 	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
+	}
+
 }

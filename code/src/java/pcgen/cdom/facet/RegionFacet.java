@@ -37,8 +37,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 * TODO A LOT of this should be type-safe to Region and SubRegion objects,
 	 * but that is currently gated by how Template returns objects.
 	 */
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
+	private TemplateFacet templateFacet;
 
 	private final Class<?> thisClass = getClass();
 
@@ -417,6 +416,11 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		updateRegion(dfce.getCharID());
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
 	}
 
 }
