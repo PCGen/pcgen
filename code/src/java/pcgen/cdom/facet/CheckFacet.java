@@ -32,8 +32,7 @@ import pcgen.core.bonus.BonusUtilities;
 public class CheckFacet extends AbstractListFacet<PCCheck>
 {
 
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
@@ -47,12 +46,17 @@ public class CheckFacet extends AbstractListFacet<PCCheck>
 					.getListFor(ListKey.BONUS), type, name);
 			if (!tempList.isEmpty())
 			{
-				bonus += bonusFacet.getAllBonusValues(id, tempList, check
+				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check
 						.getQualifiedKey());
 			}
 		}
 
 		return bonus;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

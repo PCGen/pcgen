@@ -43,12 +43,9 @@ public class DamageReductionFacet extends
 	private static final Pattern OR_PATTERN = Pattern.compile(" [oO][rR] ");
 	private static final Pattern AND_PATTERN = Pattern.compile(" [aA][nN][dD] ");
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
 	 * Triggered when one of the Facets to which DamageReductionFacet listens
@@ -104,12 +101,12 @@ public class DamageReductionFacet extends
 			DamageReduction dr = me.getKey();
 			for (Object source : me.getValue())
 			{
-				if (prereqFacet.qualifies(id, dr, source))
+				if (prerequisiteFacet.qualifies(id, dr, source))
 				{
 					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
 							.getQualifiedKey()
 							: "";
-					int rawDrValue = resolveFacet.resolve(id,
+					int rawDrValue = formulaResolvingFacet.resolve(id,
 							dr.getReduction(), sourceString).intValue();
 					String bypass = dr.getBypass();
 					if (OR_PATTERN.matcher(bypass).find())
@@ -208,7 +205,7 @@ public class DamageReductionFacet extends
 			int value = me.getValue();
 			if (id != null)
 			{
-				value += (int) bonusFacet.getBonus(id, "DR", key);
+				value += (int) bonusCheckingFacet.getBonus(id, "DR", key);
 			}
 			hml.addToListFor(value, key);
 		}
@@ -251,7 +248,7 @@ public class DamageReductionFacet extends
 	public Integer getDR(CharID id, String key)
 	{
 		return getNonBonusDR(id, key)
-				+ (int) bonusFacet.getBonus(id, "DR", key);
+				+ (int) bonusCheckingFacet.getBonus(id, "DR", key);
 	}
 
 	private int getNonBonusDR(CharID id, String key)
@@ -259,4 +256,21 @@ public class DamageReductionFacet extends
 		Integer drValue = getDRMap(id, getCachedMap(id)).get(key);
 		return (drValue == null)? 0 : drValue;
 	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+	
+	
 }

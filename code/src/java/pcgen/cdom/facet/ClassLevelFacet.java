@@ -32,7 +32,7 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 		implements ClassLevelChangeListener
 {
 
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private ClassFacet classFacet;
 
 	/**
 	 * Performs the processing to identify the newly activated class levels
@@ -105,6 +105,11 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 				add(id, lce.getNewLevel(), pcc);
 			}
 		}
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
 	}
 
 }

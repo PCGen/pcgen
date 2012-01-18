@@ -31,8 +31,7 @@ import pcgen.core.Equipment;
  */
 public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 {
-	private EquipmentFacet equipmentFacet = FacetLibrary
-			.getFacet(EquipmentFacet.class);
+	private EquipmentFacet equipmentFacet;
 
 	private final Class<?> thisClass = getClass();
 
@@ -106,6 +105,11 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 			return Collections.emptySet();
 		}
 		return set;
+	}
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+		this.equipmentFacet = equipmentFacet;
 	}
 
 }

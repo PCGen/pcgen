@@ -30,8 +30,7 @@ public class BonusChangeFacet
 
 	private final BonusChangeSupport support = new BonusChangeSupport();
 
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	public void reset(CharID id)
 	{
@@ -40,7 +39,7 @@ public class BonusChangeFacet
 		{
 			for (String name : support.getBonusNames(type))
 			{
-				Double newValue = bonusFacet.getBonus(id, type, name);
+				Double newValue = bonusCheckingFacet.getBonus(id, type, name);
 				Double oldValue = map.get(type, name);
 				if (!newValue.equals(oldValue))
 				{
@@ -189,4 +188,11 @@ public class BonusChangeFacet
 	{
 		support.removeBonusChangeListener(listener, type, name);
 	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+	
+	
 }

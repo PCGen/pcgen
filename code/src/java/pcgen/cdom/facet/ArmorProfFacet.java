@@ -30,8 +30,7 @@ import pcgen.cdom.helper.ArmorProfProvider;
 public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 {
 
-	ArmorProfProviderFacet appFacet = FacetLibrary
-			.getFacet(ArmorProfProviderFacet.class);
+	private ArmorProfProviderFacet armorProfProviderFacet;
 
 	/**
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
@@ -52,7 +51,7 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 				.getListFor(ListKey.AUTO_ARMORPROF);
 		if (armorProfs != null)
 		{
-			appFacet.addAll(dfce.getCharID(), armorProfs, cdo);
+			armorProfProviderFacet.addAll(dfce.getCharID(), armorProfs, cdo);
 		}
 	}
 
@@ -70,6 +69,12 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		appFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		armorProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public void setArmorProfProviderFacet(
+		ArmorProfProviderFacet armorProfProviderFacet)
+	{
+		this.armorProfProviderFacet = armorProfProviderFacet;
 	}
 }

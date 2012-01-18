@@ -34,9 +34,8 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
-	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
-			.getFacet(HasAnyFavoredClassFacet.class);
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
+	private ClassFacet classFacet;
 
 	/**
 	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
@@ -87,7 +86,7 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		int level = 0;
 		int max = 0;
 
-		boolean isAny = hasAnyFavoredFacet.contains(id, Boolean.TRUE);
+		boolean isAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);
 		for (PCClass cl : aList)
 		{
 			for (PCClass pcClass : classFacet.getClassSet(id))
@@ -105,4 +104,16 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		}
 		return Math.max(level, max);
 	}
+
+	public void setHasAnyFavoredClassFacet(HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
+	{
+		this.hasAnyFavoredClassFacet = hasAnyFavoredClassFacet;
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+	
+	
 }
